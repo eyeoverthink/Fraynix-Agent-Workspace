@@ -1,3 +1,7 @@
+## Edition125 active — 2026-11-12
+
+Continue S:/Codex-Work/fraynix-workspace-edition125, branch edition125, parent63db5798. CI checked first:124/123 pending, no hosted success claimed. Read docs/EDITION_125_CONTRACT.md and docs/INTEGRATED_AGENT_ROADMAP.md. User authorized full phased implementation, tests, screenshots/docs/notes and actual main pushes. First complete125 decision review and measured costs, then prioritize real-model whole-app integration126 rather than an indefinite controller-only sequence. Preserve private projects/frozen001–124, original native/choice verifiers and failures. No delegation or overlapping heavy tests. Shared node_modules junction is read-only for dependency maintenance. No125 publication yet.
+
 ## Edition124 — published and fetched back
 
 2026-11-12 America/Los_Angeles. Isolated S:/Codex-Work/fraynix-workspace-edition124; parent1d328f37. Source 1d36ccc2404041a23111b1ed4f7b04cf7e31d236. CI checked first:123 main43231743693/release43231218250 and122 still running; no hosted success claimed. Release b7b82fdd45ba40b6d1fabdd59aff2ab5d0bafb89; annotated readme-124. Main, edition124 and tag pushed atomically and fetched. Verified 1515 canonical sources, 44758 frozen hashes across124 editions and 1552 original evidence entries. See docs/PUBLICATION_124.json.

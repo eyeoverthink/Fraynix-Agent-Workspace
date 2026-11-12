@@ -1,0 +1,20 @@
+# One continuing creative agent — direction review, 2026-11-12
+
+The user's destination remains one local-first application with Java owning durable identity, clocks, goals, tools, evidence, memory and recovery. Browser, creation canvas, game/physics views and qualified camera observations are connected working surfaces. Existing source, authored worlds, private observations and published evidence stay preserved.
+
+This roadmap follows the review after edition124. It changes development priority toward integration; older numbered proposals remain dated history. A planned phase is not an installed capability.
+
+| Phase | Concrete delivery | Required proof |
+| --- | --- | --- |
+|125 · decision review|Compare retained optional-action predictions with independent outcomes and complete measured costs, including recovery uncertainty.|New explicit comparisons, held-out scenes, honest missed opportunities, real UI and verified original evidence.|
+|126 · real-model whole-app selection|Evaluate an installed local model across supported world, browser and creation procedures, with current capability/source context and visible recovery.|Independent requests, direct-routing baseline, wrong-tool/refusal cases, retained failed drafts and total cost.|
+|127 · procedure lifecycle|Inspect, retire and deliberately reactivate compatible versioned procedures without losing source/descendant evidence or increasing the active limit.|Full-bank operation, restart at write boundaries, altered ancestry refusal and genuinely distinct task coverage.|
+|128 · observation to working artifact|One mission binds a calibrated recorded sequence to a persistent object, predicts bounded motion, creates an interactive verified explanation and saves a reusable procedure.|Fresh observations, declared units/uncertainty, independent numeric and rendered checks, restart and changed-input reuse.|
+|129 · evaluated adaptation|Propose a bounded procedure/controller change from real failures; evaluate against the incumbent and simpler control before retaining it.|Unseen cases, useful outcomes, total work, recoverable promotion and rollback. Neural-weight training is a separate claim.|
+|130 · coherent daily use|Make the active mission, observations, uncertainty, resource allowance, results and reusable skills understandable in the existing workspace.|Complete user tasks at supported window widths, clean installation/startup, interruption recovery and accessible explanations.|
+
+Every phase must implement a complete useful function, retain original source/outcome checks, test the actual application, document screenshots/results/limits, update continuity notes and verify the actual GitHub push. No placeholder tools or decorative success indicators. Broader contacts, recognition and geometry should be added when these missions reveal a measured need, rather than becoming an indefinite controller-only sequence.
+
+Progress through124: integrated browser/canvas/Game Lab; Java task ownership and continuing runtime; persistent physics worlds and bounded prediction; source-qualified visual/camera paths; working data/content workflows; verified procedure memory and searchable history; optional-action choice from explicit time allowance and empirical uncertainty. These layers have different evidence scopes. Recent deterministic game success is not fresh LLM reasoning or general model learning.
+
+The reusable loop is request → bound observations → plan → actual action → independent outcome check → retained experience → evaluated reuse. Shared entity identities connect domains while preserving their units, coordinate frames and meaning. A web element, a document and a physical body need different tools and verifiers even when they belong to one mission.
