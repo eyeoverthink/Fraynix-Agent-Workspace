@@ -3,7 +3,7 @@ import org.json.*;import java.util.*;
 /** Checks bounded waiting/return receipts in addition to every existing trial check. */
 final class GameEvidence120 {
  static void verify(JSONObject c,int tick){
-  if(!c.getString("policy").equals("opportunity120"))return;GameEvidence119.verify(c,tick);var o=c.getJSONObject("opportunity120");
+  if(!Set.of("opportunity120","revisit121","observe121").contains(c.getString("policy")))return;GameEvidence119.verify(c,tick);var o=c.getJSONObject("opportunity120");
   int waits=o.getInt("waitStarts"),held=o.getInt("waitTicks"),clears=o.getInt("waitClears"),aborts=o.getInt("waitAborts"),returns=o.getInt("revisitStarts"),returnTicks=o.getInt("revisitTicks");
   if(waits<0||waits>3||held<0||held>360||held>tick||clears<0||aborts<0||clears+aborts>waits||returns<0||returns>3||returnTicks<0||returnTicks>720||returnTicks>tick||c.getLong("opportunityChecks")<0||c.getLong("opportunityChecks")>tick||c.getLong("opportunityNanos")<0)throw new IllegalStateException("Invalid opportunity budgets");
   if(!Set.of("TRAVEL","WAIT","REVISIT").contains(o.getString("phase")))throw new IllegalStateException("Unknown opportunity phase");

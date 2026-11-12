@@ -14,8 +14,8 @@ public final class GameInput {
     private static UUID episode, actor;
     private static boolean automatic;
     private static boolean landingGuard = true;
-    private static String policyName="opportunity120";
-    private static boolean safeCollection, riskAware, contactAware, opportunityAware;
+    private static String policyName="revisit121";
+    private static boolean safeCollection, riskAware, contactAware, opportunityAware, observedOpportunity;
     private static PickupOpportunity120 opportunity=new PickupOpportunity120();
     private static long opportunityChecks,opportunityNanos;
     private static ContactRecovery119 contactRecovery=new ContactRecovery119();
@@ -70,13 +70,13 @@ public final class GameInput {
     public static void neuralJump(boolean value) { neuralJump=value; }
     public static float[] sensory() { return lastSensory.clone(); }
     public static void requestJump() { if (automatic) { jumpUntil=tick+27; lastJump=tick; } }
-    public static void start(Scene scene, float targetX) { start(scene,targetX,"opportunity120"); }
+    public static void start(Scene scene, float targetX) { start(scene,targetX,"revisit121"); }
     public static void start(Scene scene, float targetX, boolean guarded) {
         start(scene,targetX,guarded?"landing116":"legacy115");
     }
     public static void start(Scene scene, float targetX, String policy) {
-        if(!java.util.Set.of("legacy115","landing116","safe117","risk118","recover119","opportunity120").contains(policy))throw new IllegalArgumentException("Unknown game policy");
-        policyName=policy;opportunityAware=policy.equals("opportunity120");opportunity=new PickupOpportunity120();opportunityChecks=opportunityNanos=0;contactAware=policy.equals("recover119")||opportunityAware;contactRecovery=new ContactRecovery119();contactChecks=contactNanos=contactOverrides=0;pickupDeferrals=0;riskAware=policy.equals("risk118")||contactAware;safeCollection=policy.equals("safe117")||riskAware;pickupRiskChecks=pickupRiskNanos=0;pickupSkips=0;pickupDecisions.clear();fallingWaitTicks=0;pursuit=null;
+        if(!java.util.Set.of("legacy115","landing116","safe117","risk118","recover119","opportunity120","revisit121","observe121").contains(policy))throw new IllegalArgumentException("Unknown game policy");
+        policyName=policy;observedOpportunity=policy.equals("revisit121")||policy.equals("observe121");opportunityAware=java.util.Set.of("opportunity120","revisit121","observe121").contains(policy);opportunity=new PickupOpportunity120(!policy.equals("opportunity120"),!policy.equals("observe121"));opportunityChecks=opportunityNanos=0;contactAware=policy.equals("recover119")||opportunityAware;contactRecovery=new ContactRecovery119();contactChecks=contactNanos=contactOverrides=0;pickupDeferrals=0;riskAware=policy.equals("risk118")||contactAware;safeCollection=policy.equals("safe117")||riskAware;pickupRiskChecks=pickupRiskNanos=0;pickupSkips=0;pickupDecisions.clear();fallingWaitTicks=0;pursuit=null;
         boolean guarded=!policy.equals("legacy115");
         landingGuard=guarded;landingChecks=landingOverrides=landingNanos=0;landingDecision=null;edgeUntil=edgeCrossings=0;edgeLeftGround=false;
         GameObject player=scene.getGameObjectWith(PlayerController.class);
@@ -154,14 +154,14 @@ public final class GameInput {
             float closing=(player.getComponent(physics2d.components.Rigidbody2D.class).getVelocity().x-enemy.getComponent(physics2d.components.Rigidbody2D.class).getVelocity().x)*direction;
             hazard=EnemyApproach118.jumpNow(Math.abs(enemy.transform.position.x-x),closing);
         }
-        boolean obstacle=wall.hit && Math.abs(wall.normal.x)>.5f;
+        boolean obstacle=wall.hit && Math.abs(wall.normal.x)>.5f && !(observedOpportunity&&wall.hitObject!=null&&(wall.hitObject.getComponent(MushroomAI.class)!=null||wall.hitObject.getComponent(Flower.class)!=null));
         var body=player.getComponent(physics2d.components.Rigidbody2D.class);
         lastSensory=new float[]{Math.max(-1,Math.min(1,(goalX-x)/5)),body.getVelocity().x/3,body.getVelocity().y/3,
             controller.onGround?1:-1,floor.hit?1:-1,obstacle?1:-1,hazard?1:-1};
         nervous.BrainRuntime.observe(lastSensory);
         boolean ceiling=head.hit && (!landingGuard || head.hitObject==null || (head.hitObject.getComponent(MushroomAI.class)==null && head.hitObject.getComponent(Flower.class)==null));
         boolean wedged=stalledTicks>45 && Math.abs(body.getVelocity().y)<.05f;
-        if(opportunityAware&&opportunity.holding())recovery=new MotorRecovery();
+        if(opportunityAware&&(opportunity.holding()||opportunity.returning()&&body.getVelocity().x*direction<-.05f))recovery=new MotorRecovery();
         var decision=recovery.step(tick-startedTick,Math.abs(localTarget-x),direction,controller.onGround,obstacle,!floor.hit,hazard,ceiling,behind.hit,wedged);
         status="AI "+decision.phase()+" | "+goal.reason()+" | "+strategy+" | recovery "+decision.attempts()+"/3";
         ContactRecovery119.Decision contactDecision=null;

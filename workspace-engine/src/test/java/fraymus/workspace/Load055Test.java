@@ -10,7 +10,12 @@ public class Load055Test {
         var root=Files.createTempDirectory("load055-recovery-");var worlds=new WorldLedger(root);var input=Construction054Test.input(worlds,"wide");
         var source=worlds.source(worlds.observe(input.getString("worldId")));var run=Construction054Test.nativeRun(root.resolve("native-source"),source,worlds.preview(input));
         var folder=root.resolve("loads");var file=folder.resolve(run.getString("id")+".json");var worker=Executors.newSingleThreadExecutor();
-        try {var future=worker.submit(()->Load055.evaluate(folder,run));long deadline=System.currentTimeMillis()+10000;while(!Files.exists(file)&&System.currentTimeMillis()<deadline)Thread.sleep(2);assertTrue(Files.exists(file));Thread.sleep(30);assertTrue("Stop must reach a live experiment",future.cancel(true));}
+        var checkpoint=new CountDownLatch(1);var release=new CountDownLatch(1);
+        try {var future=worker.submit(()->Load055.evaluate(folder,run,()->{checkpoint.countDown();release.await();return null;}));
+            assertTrue("Native partial checkpoint must be reached",checkpoint.await(60,TimeUnit.SECONDS));
+            var partial=AgentFiles042.loadChecked(file).getJSONArray("attempts").getJSONObject(0);
+            assertEquals("running",partial.getString("status"));assertTrue(partial.getJSONArray("rows").length()>0);
+            assertTrue("Stop must reach the checkpointed live experiment",future.cancel(true));}
         finally {worker.shutdownNow();assertTrue(worker.awaitTermination(20,TimeUnit.SECONDS));}
         var stopped=AgentFiles042.loadChecked(file);Files.writeString(root.resolve("original-stopped.json"),stopped.toString());assertTrue(stopped.getJSONArray("attempts").toList().stream().anyMatch(v->new JSONObject((java.util.Map<?,?>)v).getString("status").equals("interrupted")));
         var results=Load055.evaluate(folder,run);assertTrue(results.getBoolean("complete"));assertTrue(results.getInt("attempts")>3);var original=AgentFiles042.loadChecked(file);Files.writeString(root.resolve("original-resumed.json"),original.toString());

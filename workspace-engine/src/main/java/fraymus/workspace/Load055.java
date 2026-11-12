@@ -17,7 +17,9 @@ final class Load055 {
     static JSONObject protocol(){return Construction055.protocol().getJSONObject("loads");}
     static String code(){try(var in=Load055.class.getResourceAsStream("Load055.class")){return WorldFrames.hash(new JSONObject().put("class",MapDefinition.sha(in.readAllBytes())).put("native",WorldNativeCheckpoint.identity()).put("protocol",protocol()));}catch(Exception e){throw new IllegalStateException(e);}}
     private static Path file(Path root,JSONObject run){UUID.fromString(run.getString("id"));return root.resolve(run.getString("id")+".json");}
-    static JSONObject evaluate(Path root,JSONObject run)throws Exception {
+    static JSONObject evaluate(Path root,JSONObject run)throws Exception {return evaluate(root,run,()->null);}
+    /** Checkpoint observer runs after durable native evidence, useful for coordinated interruption. */
+    static JSONObject evaluate(Path root,JSONObject run,java.util.concurrent.Callable<Void> afterCheckpoint)throws Exception {
         if(!WorldVerify.verify(run).getBoolean("passed")||!Construction051.verifyStructure(run).getBoolean("passed"))throw new IllegalStateException("Load evaluation requires verified released assembly");
         Path file=file(root,run);var data=Files.exists(file)?load(file):new JSONObject().put("version",VERSION).put("codeSha256",code()).put("sourceRunSha256",WorldFrames.hash(run)).put("attempts",new JSONArray());
         binding(data,run);
@@ -30,7 +32,7 @@ final class Load055 {
             var a=new JSONObject().put("id",UUID.randomUUID().toString()).put("caseId",c.getString("id")).put("startedAt",Instant.now()).put("status","running").put("initial",WorldFrames.copy(run.getJSONObject("final"))).put("rows",new JSONArray()).put("samples",new JSONArray());
             data.getJSONArray("attempts").put(a);save(file,data);long start=System.nanoTime();
             // Verify the exact JSON numeric representation that will be retained and reloaded.
-            try {simulate(root.resolve("native"),run,c,a,()->{save(file,data);return null;});a.put("status","completed");a.put("metrics",verifyAttempt(new JSONObject(a.toString()),run,c));}
+            try {simulate(root.resolve("native"),run,c,a,()->{save(file,data);afterCheckpoint.call();return null;});a.put("status","completed");a.put("metrics",verifyAttempt(new JSONObject(a.toString()),run,c));}
             catch(InterruptedException e){a.put("status","interrupted").put("reason",e.getMessage());a.put("wallMillis",(System.nanoTime()-start)/1_000_000.0);save(file,data);throw e;}
             catch(Exception e){boolean interrupted=Thread.interrupted();a.put("status",interrupted?"interrupted":"failed").put("reason",e.toString());save(file,data);if(interrupted)throw new InterruptedException("Load recording interrupted; original partial attempt retained");throw e;}
             a.put("wallMillis",(System.nanoTime()-start)/1_000_000.0);save(file,data);
@@ -122,5 +124,5 @@ final class Load055 {
     }
     static double distance(JSONArray a,JSONArray b){return ObserverGeometry.norm(ObserverGeometry.sub(SpatialScene.vector(a,10000),SpatialScene.vector(b,10000)));}
     static double[] point(JSONObject body,JSONArray local){var q=body.getJSONArray("rotation");double x=q.getDouble(0),y=q.getDouble(1),z=q.getDouble(2),w=q.getDouble(3),a=local.getDouble(0),b=local.getDouble(1),c=local.getDouble(2);var p=body.getJSONArray("position");return new double[]{p.getDouble(0)+(1-2*y*y-2*z*z)*a+2*(x*y-z*w)*b+2*(x*z+y*w)*c,p.getDouble(1)+2*(x*y+z*w)*a+(1-2*x*x-2*z*z)*b+2*(y*z-x*w)*c,p.getDouble(2)+2*(x*z-y*w)*a+2*(y*z+x*w)*b+(1-2*x*x-2*y*y)*c};}
-    static String label(JSONObject result) {var m=result.getJSONObject("metrics");return String.format(Locale.ROOT,"%s · %s · displacement %.4f m · tilt %.3f deg · supported %d/%d samples",result.getString("caseId"),m.getBoolean("stable")?"stable":"unstable",m.getDouble("maxBeamDisplacementM"),m.getDouble("maxBeamTiltDeg"),m.getInt("supportedSamples"),m.getInt("settledSamples"));}
+    static String label(JSONObject result) {var m=result.getJSONObject("metrics");return String.format(Locale.ROOT,"%s Â· %s Â· displacement %.4f m Â· tilt %.3f deg Â· supported %d/%d samples",result.getString("caseId"),m.getBoolean("stable")?"stable":"unstable",m.getDouble("maxBeamDisplacementM"),m.getDouble("maxBeamTiltDeg"),m.getInt("supportedSamples"),m.getInt("settledSamples"));}
 }
