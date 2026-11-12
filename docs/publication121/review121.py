@@ -14,6 +14,7 @@ run('desktop121-extra',['node','--test','test/inputs100.test.cjs','test/data-cre
 env['FRAYNIX_WORKSPACE_PROJECT']=str(r/'build/launcher121-isolated-project')
 run('launcher121',['powershell.exe','-NoProfile','-ExecutionPolicy','Bypass','-File','scripts/Start-Agent-Workspace.ps1','-PrepareOnly','-Offline'])
 env.pop('FRAYNIX_WORKSPACE_PROJECT',None)
+run('launcher121-owner',['python','docs/publication121/launcher121.py'])
 run('package121',['cmd','/c','gradlew.bat','prepareGameRuntime115',':workspace-engine:installDist','--console=plain','--max-workers=2'])
 run('stamp121',['node','scripts/Study-Build095.cjs','--stamp'])
 shutil.copy2(r/'build/study095-build.json',r/'build/study095-build-before-ui121.json')

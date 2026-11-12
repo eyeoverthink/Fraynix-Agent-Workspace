@@ -28,6 +28,8 @@ for folder in sorted((r/'build/validation121').iterdir()):
    if c.find('skipped') is None:checks.add(c.get('classname')+'.'+c.get('name'));total+=1
  suites.append({'name':folder.name,'executions':total})
 assert len(checks)>=174
+assert read('build/launcher121-check/result.json')['passed']
+assert 'BUILD SUCCESSFUL' in (r/'build/launcher121.log').read_text(encoding='utf-8')
 for n,count in [('desktop121-final.log',158),('desktop121-extra.log',10)]:
  s=(r/'build'/n).read_text(encoding='utf8');assert f'tests {count}' in s and 'fail 0' in s
 metrics=[]
@@ -52,7 +54,7 @@ def preserve(p,logical):
  b=p.read_bytes();raw=sha(b);dest=out/'originals'/(raw+'.gz');packed=gzip.compress(b,mtime=0);dest.parent.mkdir(exist_ok=True)
  if not dest.exists():dest.write_bytes(packed)
  originals.append({'logicalPath':logical,'path':dest.relative_to(r).as_posix(),'bytes':len(packed),'sha256':sha(packed),'rawBytes':len(b),'rawSha256':raw})
-folders=[r/'build/validation121',r/'build/diagnostics121']+list((r/'workspace-engine/build').glob('controller121*'))+[r/'workspace-engine/build'/n for n in ['reference121-final','reference121-mesa','reference115','game115-repair','game115-restart','challenge118-task','challenge118-failed','challenge118-image','recovery119-task','opportunity120-task','opportunity121-task']]
+folders=[r/'build/validation121',r/'build/diagnostics121',r/'build/launcher121-check']+list((r/'workspace-engine/build').glob('controller121*'))+[r/'workspace-engine/build'/n for n in ['reference121-final','reference121-mesa','reference115','game115-repair','game115-restart','challenge118-task','challenge118-failed','challenge118-image','recovery119-task','opportunity120-task','opportunity121-task']]
 projects={}
 for folder in folders:
  for p in sorted(folder.rglob('*')):

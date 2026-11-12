@@ -22,6 +22,14 @@ try {
     if($taskOwnerLive042 -and $PrepareOnly){throw 'Java is still running. Use Stop Java & close app before preparing an updated build; no build attempted.'}
     if($taskOwnerLive042){Write-Host 'Reconnecting to the continuing Java agent. Its running installation will not be rebuilt.'}
     else {
+    # Another project can still own these same installed JARs.
+    $taskInstallRoots121=@((Join-Path $repo 'build/install/Fraynix-Studio'),(Join-Path $repo 'workspace-engine/build/install/workspace-engine')) | ForEach-Object { [IO.Path]::GetFullPath($_).Replace('/','\') }
+    $taskOtherOwners121=@(Get-CimInstance Win32_Process -Filter "Name='java.exe' OR Name='javaw.exe'" | Where-Object {
+        $taskCommand121=[string]$_.CommandLine
+        $taskCommand121=$taskCommand121.Replace('/','\')
+        @($taskInstallRoots121 | Where-Object { $taskCommand121.IndexOf($_,[StringComparison]::OrdinalIgnoreCase) -ge 0 }).Count -gt 0
+    })
+    if($taskOtherOwners121.Count -gt 0){throw 'A Java process still uses this checkout installation. Stop its app before preparing an update; no build attempted.'}
     # Incremental build refreshes an existing installation after Git updates.
     $taskBuildArgs=@('prepareGameRuntime115',':workspace-engine:installDist'); if ($Offline) { $taskBuildArgs+='--offline' }
     & (Join-Path $repo 'gradlew.bat') @taskBuildArgs

@@ -83,6 +83,8 @@ Eight development courses were declared before tuning. Six finish under121, with
 
 {{RESERVED_RESULT}}
 
+The reserved turtle-reversal course collects its optional item but then stalls for25 seconds under120,121 and the return-disabled comparison. Its item is included in the pickup total, but the course is not a successful finish and is not certified as a completed task. This is a separate remaining gap from the two development deaths.
+
 The reserved return comparison below lists courses where both policies finish safely and enabling returns earns an extra item. The controller was fixed before these scenes ran.
 
 | Reserved course | With returns | Returns disabled | Extra total simulation ticks |
@@ -162,7 +164,7 @@ No new external framework or model is introduced. The original native physics/re
 
 ## Next phases
 
-**122: late-enemy survival.** Use the retained deaths to study airborne landing/contact timing and when a pickup should remain abandoned. Declare new reserved courses first. Preserve the successful return and older-course gates; compare simple control again.
+**122: late-enemy survival and reversal-course stalls.** Use the retained deaths and turtle-course stall to study airborne landing/contact timing and when a pickup should remain abandoned. Declare new reserved courses first. Preserve the successful return and older-course gates; compare simple control again.
 
 **123: value-aware optional goals.** Measure repeat runs and complete return cost, then let explicit task preference distinguish finishing quickly from collecting a useful power-up. Keep a return-disabled comparison and count cases where extra observation or return hurts.
 
