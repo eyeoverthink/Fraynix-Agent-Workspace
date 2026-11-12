@@ -6,7 +6,7 @@ def read(p):return json.loads((r/p).read_text(encoding='utf8'))
 def write(p,v):p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes((json.dumps(v,indent=2,ensure_ascii=False)+'\n').encode())
 def text(p,s):p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(s.encode())
 def sha(b):return hashlib.sha256(b).hexdigest()
-uiroot=r/'build/game121-ui-reviewed';ui=read(uiroot/'result.json');assert ui['passed'] and all(ui[k] for k in ['returnFrame','collectionFrame','riskFrame'])
+uiroot=r/'build/game121-ui-final';ui=read(uiroot/'result.json');assert ui['passed'] and all(ui[k] for k in ['returnFrame','collectionFrame','riskFrame'])
 paths={'development':'controller121-development-final','reserved':'controller121-reserved','software-reserved':'controller121-mesa-reserved'}
 for part in ['old119-development','old119-reserved','old118-development','old118-reserved','new','early-probes']:paths['regression-'+part]='controller121-old-'+part
 paths['regression-old120-reserved']='controller121-old120-reserved'

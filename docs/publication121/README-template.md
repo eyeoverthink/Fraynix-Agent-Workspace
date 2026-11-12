@@ -1,10 +1,10 @@
-# Fraynix Agent Workspace Â· Edition 121
+# Fraynix Agent Workspace · Edition 121
 
 **Observed enemy reversals, bounded returns, and an actual pickup benefit.**
 
-2026-11-11 Â· Java owns execution and evidence; the integrated desktop shows the world, chat and task history.
+2026-11-11 · Java owns execution and evidence; the integrated desktop shows the world, chat and task history.
 
-[Previous edition120](README-120.md) Â· [All editions](docs/readmes/INDEX.md) Â· [Interactive offline guide](docs/readmes/121/index.html) Â· [Development contract](docs/EDITION_121_CONTRACT.md) Â· [Phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md)
+[Previous edition120](README-120.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/121/index.html) · [Development contract](docs/EDITION_121_CONTRACT.md) · [Phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md)
 
 ![Actual completed return task](docs/readmes/121/return-completed.png)
 
@@ -59,7 +59,7 @@ Returning earns an item at extra time cost. It is useful for an objective that v
 
 ![Measured native motion and costs](docs/readmes/121/controller-motion.png)
 
-[All measurements](docs/readmes/121/measurements.json) Â· [Exact original evidence index](docs/readmes/121/original-evidence.json)
+[All measurements](docs/readmes/121/measurements.json) · [Exact original evidence index](docs/readmes/121/original-evidence.json)
 
 ## What the failures taught us
 
@@ -112,11 +112,13 @@ Five actual visible requests cover old terrain repair, return with abrupt proces
 | --- | ---: | --- | ---: |
 {{CHAT_ROWS}}
 
-![Saved return and motion evidence](docs/readmes/121/verified-return.png)
+![Saved reversal-course evidence](docs/readmes/121/verified-return.png)
 
 ## CI was checked first
 
 The edition119 main run43104121657 failed an older load interruption test. The test slept30 milliseconds and assumed cancellation would occur inside an active simulation attempt. That assumption depends on scheduling. Edition121 coordinates cancellation after a real durable native checkpoint, confirms retained partial rows, then checks interrupted status, restart, fresh completed evaluation and the existing force/gap/initial-state forgery refusals.
+
+Final publication review also restored the original UTF-8 punctuation in the older load-result label. The focused load check and complete visible review were repeated after this presentation correction; the controller and reserved outcomes were unchanged.
 
 The production entry point retains its existing behavior. A package-local checkpoint observer enables deterministic coordination at the actual checkpoint boundary. No simulation, verification or attempt budget is relaxed. The original CI log and failed test report are archived. A prior120 continuity note mistyped the119 run ID as43104121687; this edition records the correct43104121657 without rewriting frozen history.
 
@@ -132,7 +134,7 @@ At implementation start,120 hosted jobs were still running. Local pass counts an
 - Real integrated game captures, narrow desktop review, and offline guide interaction at1440 and390 pixels.
 - Complete source inventory, original compressed evidence, immutable numbered editions, documentation validation and fetched Git byte audits.
 
-[Machine-readable scope](docs/readmes/121/verification.json) Â· [Actual UI record](docs/readmes/121/actual-ui.json) Â· [Hardware references](docs/readmes/121/reference-hardware.json) Â· [Software references](docs/readmes/121/reference-software.json)
+[Machine-readable scope](docs/readmes/121/verification.json) · [Actual UI record](docs/readmes/121/actual-ui.json) · [Hardware references](docs/readmes/121/reference-hardware.json) · [Software references](docs/readmes/121/reference-software.json)
 
 ## Architecture and project direction
 
