@@ -12,7 +12,7 @@
 
 The destination remains one continuing local workspace. Java owns identity, clocks, task state, typed actions, persistent worlds, evidence, memory and recovery. The desktop presents the browser, canvas and game/physics views. A local language model interprets supported requests and chooses permitted actions; actual controls and physics execute them; independent checks determine which result can be retained as verified.
 
-Edition125 measured whether optional game actions justified their complete cost. Edition126 tests the broader application with an installed model. It also closes a concrete browser gap: an unconstrained model finish message previously produced a **completed-unverified** result. The new opt-in browser contract freezes the expected page and visible text before planning. A finish request now causes the trusted host to read the actual DOM; Java compares those values with the original contract. A summary or supplied `passed` flag cannot substitute for that observation.
+Edition125 measured whether optional game actions justified their complete cost. Edition126 tests the broader application with an installed model. It also closes a concrete browser gap: an unconstrained model finish message previously produced a **completed-unverified** result. The new opt-in browser contract freezes the expected page and visible text before planning. After each browser mutation, and on an explicit finish request, the trusted host reads the actual DOM; Java compares those values with the original contract. Java stops at the first passing result, before another model action can repeat a completed submission. A summary or supplied `passed` flag cannot substitute for that observation.
 
 The app's existing Java route selector still chooses supported task families. Within a stage, the local model selects from the permitted tools. Creation uses the existing Java-owned contract/code generation worker. These measurements do not demonstrate an unrestricted planner selecting arbitrary new tools, physical recognition, neural-weight training or general cross-domain transfer.
 
@@ -21,7 +21,7 @@ The app's existing Java route selector still chooses supported task families. Wi
 | Layer | Implemented behavior | Evidence boundary |
 | --- | --- | --- |
 | Browser request | User supplies exact result page, result element and expected visible text in existing chat settings | Explicit opt-in criteria; not inferred success from a model answer |
-| Java browser gate | Original criteria enter the immutable objective; `finish` requests a separate host observation | Actual URL, exactly one visible matching element, and exact text must agree |
+| Java browser gate | Original criteria enter the immutable objective; Mutations and `finish` request a separate host observation | Actual URL, exactly one visible matching element, and exact text must agree |
 | Host observation | One bounded isolated DOM snapshot reads every required result | No click, script supplied by the model, network operation or rewritten test is part of verification |
 | Continuing runtime | Checked browser outcomes enter the existing task journal and a verified browser episode | Public learning endpoints cannot manufacture the internal browser completion receipt |
 | Recovery/history | An interrupted claim loses authority; explicit Resume takes fresh observations; historical checks retain original evidence | A saved result is dated evidence, never a claim about a page that has since changed |
@@ -41,20 +41,22 @@ These are individual actual runs, not confidence intervals or a claim of consist
 
 ## Browser: actions followed by an independent check
 
-The labelled local pages exercise named inputs, a real button and a visible result. The app's existing reference leases require current observations for click/type actions. A stale reference is refused. The model selects actual controls; Java preserves allowed tools, proposals, admission, effects and outcomes. The separate driver also reads the result and verifies that the form was submitted exactly once.
+The labelled local pages exercise named inputs, a real button and a visible result. The app's existing reference leases require current observations for click/type actions. The final planner receives the current page references separately from brief action/error summaries; older observations remain stored but do not supply actionable references in that prompt. Repeated unchanged reads retain the existing bound. A stale reference is refused. The model selects actual controls; Java preserves allowed tools, proposals, admission, effects and outcomes. The separate driver also reads the result and verifies that the form was submitted exactly once.
 
-The frozen contract can contain1–8 distinct selectors and bounded expected text. The ordinary interface exposes one result check. It requires an exact HTTP(S) URL without embedded credentials. The host reads all checks in one isolated snapshot and rejects navigation during that observation. Java checks task, attempt, effect, contract hash, actual values and the associated captured page before recording success. Changed criteria, missing checks, a wrong URL, hidden/duplicate elements, stale action authority and fabricated success fields cannot satisfy the gate.
+The frozen contract can contain1–8 distinct selectors and bounded expected text. The ordinary interface exposes one result check. It requires an exact HTTP(S) URL without embedded credentials. The host reads all checks in one isolated snapshot and rejects navigation during that observation. Java checks task, attempt, effect, contract hash, actual values and the associated captured page before recording success. An intermediate post-action mismatch continues planning without consuming a repair attempt; an incorrect explicit finish remains a failed check. Changed criteria, missing checks, a wrong URL, hidden/duplicate elements, stale action authority and fabricated success fields cannot satisfy the gate.
 
 This verifies declared DOM results at a particular time, using bounded element geometry and style checks. It does not establish pixel-level visibility through every overlay or ancestor transparency. A website can display text without an external service processing a transaction. The contract does not prove that a payment, message or remote database update occurred. Such tasks require a separate service-side verifier; this release does not introduce one.
 
 ![Actual second browser task](docs/readmes/126/browser-B-model.png)
-![Actual browser task after recovery](docs/readmes/126/browser-B-recovery.png)
+![Reopened verified browser history after recovery](docs/readmes/126/browser-recovery-history.png)
+
+The recovery view is a checked historical screenshot report. It is not a claim that a freshly opened page still has the same state. The original live capture and all failed attempts remain in the evidence index.
 
 ## Persistent world: the model requests, physics decides
 
 Two labelled synthetic arrangements use the existing native procedure path. The harness imports the scene and confirms targets and force/torque limits. The local model then chooses allowed tools to inspect and arrange that selected world. The actual native procedure performs motion and checks its recorded execution before a new world revision is committed.
 
-Independent checks compare each resulting body's position, orientation and terminal speed with the confirmed target, then compare the committed revision/hash with the procedure's original proof. Each successful task must commit exactly one revision. A cold restart must preserve the resulting frames. These are supported existing scenes, not a claim that the model learned arbitrary manipulation or succeeded on unseen physical environments.
+Independent checks compare each resulting body's position, orientation and terminal speed with the confirmed target, then compare the committed revision/hash with the procedure's original proof. Each successful task must commit exactly one revision. A separate recomputation normalizes the recorded floating-point quaternions before comparing angles; tiny or zero numerical residuals in these synthetic scenes are not physical measurement precision. A cold restart must preserve the resulting frames. These are supported existing scenes, not a claim that the model learned arbitrary manipulation or succeeded on unseen physical environments.
 
 ![Actual world request and verified outcome](docs/readmes/126/world-1.png)
 
@@ -69,7 +71,7 @@ After restart the saved procedure remains identifiable. Explicitly replaying the
 
 ## Recovery and honest failures
 
-The browser test deliberately interrupts the owned Java process while a surface action is claimed. The old claim is rejected after restart. The same original task and criteria remain; Resume starts from a fresh page observation. Completed historical checks can subsequently be reopened without treating their stored screenshots as new observations.
+The browser test deliberately interrupts the owned Java process while a surface action is claimed. The old claim is rejected after restart. The same original task and criteria remain; Resume starts from a fresh page observation. Completed historical checks can subsequently be reopened without treating their stored screenshots as new observations. If a crash interrupts a witness-log replacement, startup can recover exactly one complete, verified append extending the unchanged committed bytes. Both byte sequences remain as evidence. A partial, conflicting or invalid record still requires attention; recovery does not execute a browser or world action.
 
 Development failures are retained beside the final results:
 

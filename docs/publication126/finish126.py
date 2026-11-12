@@ -6,7 +6,7 @@ audit=json.loads((r/'build/publication-audit126.json').read_text(encoding='utf8'
 release=git('rev-parse','readme-126^{commit}');assert release==audit['commit']==git('rev-parse','HEAD')
 v=json.loads((r/'docs/readmes/126/verification.json').read_text(encoding='utf8'))
 receipt={'edition':126,'releaseCommit':release,'annotatedTag':'readme-126','tagObject':git('rev-parse','readme-126'),'audit':audit,'validation':v,'ci':{'scope':'CI checked before implementation. Hosted success is separate from local verification and fetched publication.'}}
-for key,p in [('beforeImplementation','build/ci126-start.json'),('afterRelease','build/release126-ci.json')]:
+for key,p in [('beforeImplementation','build/ci126-start.json'),('beforePublication','build/ci126-before-publication.json'),('afterRelease','build/release126-ci.json')]:
  if (r/p).exists():receipt['ci'][key]=json.loads((r/p).read_text(encoding='utf8'))
 (r/'docs/PUBLICATION_126.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf8')
 s=status('published and fetched back',f"Release {release}; annotated readme-126. Main, edition126 and tag pushed atomically and fetched. Verified {audit['canonicalSourceFiles']} canonical sources, {audit['frozenHashes']} frozen hashes across126 editions and {audit['original126EvidenceFiles']} original evidence entries. See docs/PUBLICATION_126.json.")

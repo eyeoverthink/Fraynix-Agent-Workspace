@@ -18,3 +18,9 @@ The contract is opt-in, bounded, read-only at verification, and available in the
 ## Release gates
 
 Meaningful unit/boundary tests, relevant Java/desktop regressions, actual visible app runs and interruption/recovery. Review screenshots at normal and narrow widths. New README126, offline guide, source/original-evidence inventory, Obsidian map, memory and logs. Check all frozen documentation, push main/edition126/readme-126, fetch and audit actual published content. Report CI separately. No general intelligence, automatic model training, cross-domain transfer or unrestricted browser competence claim.
+
+## Findings during actual validation
+
+Real recovery attempts exposed three additional boundaries: the new browser branch bypassed the existing unchanged-read limit; a forced crash could leave a complete atomic witness append pending; and a model could submit again after the requested result was already present. The final implementation restores the read bound, supplies only current actionable references, recovers only one complete exact-prefix/owner-verified witness append with both original byte sequences retained, and independently checks the frozen result after each mutation so Java can stop before another model action. Partial, conflicting and invalid evidence still refuses startup. A failed intermediate progress check is expected work, not a repair failure; an incorrect explicit finish remains a failed check.
+
+Earlier A/B successes retain their original source and clocks and are historically reverified; failed recovery attempts remain failures. Final recovery is a separately measured new attempt on the final code. The actual scripted browser baseline checks the same visible result independently but omits durable chat admission and the Java task gate, so its duration is not a matched full-pipeline overhead estimate. The guide and README must make these source and measurement scopes explicit.

@@ -9,7 +9,8 @@ def run(name,args,cwd=r):
  if p.returncode:raise SystemExit(p.returncode)
 group=sys.argv[1]
 if group=='java':
- tests=['BrowserOutcome126Test','Agency043Test','Agent042Test','ChatChain052Test','ChatArchive112Test','LearningStoreTest','Domain044Test','Chat099Test','KnowledgeStoreTest','LocalModelAdmissionTest','CreationPlanner044Test','CreationTest','CreationRetry102Test','GoalRunnerTest','GoalArchive111Test']
+ run('kernel126-final',['cmd','/c','gradlew.bat',':factory-kernel:verifyIntegration','--console=plain','--max-workers=2'])
+ tests=['WitnessRecovery126Test','BrowserOutcome126Test','Agency043Test','Agent042Test','ChatChain052Test','ChatArchive112Test','LearningStoreTest','Domain044Test','Chat099Test','KnowledgeStoreTest','LocalModelAdmissionTest','CreationPlanner044Test','CreationTest','CreationRetry102Test','GoalRunnerTest','GoalArchive111Test']
  args=['cmd','/c','gradlew.bat',':workspace-engine:test']
  for t in tests:args+=['--tests','fraymus.workspace.'+t]
  run('java126-final',args+['--console=plain','--max-workers=2'])
@@ -22,5 +23,6 @@ elif group=='package':
  run('launcher126',['powershell.exe','-NoProfile','-ExecutionPolicy','Bypass','-File','scripts/Start-Agent-Workspace.ps1','-PrepareOnly','-Offline'])
  env.pop('FRAYNIX_WORKSPACE_PROJECT',None)
  run('package126',['cmd','/c','gradlew.bat','prepareGameRuntime115',':workspace-engine:installDist','--console=plain','--max-workers=2'])
+ run('stamp126',['node','scripts/Study-Build095.cjs','--stamp'])
  run('receipt126',['node','scripts/Study-Build095.cjs'])
 else:raise ValueError('Unknown validation group')
