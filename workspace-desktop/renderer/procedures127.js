@@ -12,7 +12,7 @@ export class Procedures127 {
     button.onclick=()=>{this.dialog.showModal();updateLayout();this.safe(()=>this.refresh());};this.q('procedures127-close').onclick=()=>this.dialog.close();
     this.q('procedure127-refresh').onclick=()=>this.safe(()=>this.refresh());this.q('procedure127-filter').onchange=()=>this.safe(()=>this.refresh());this.q('procedure127-select').onchange=()=>this.safe(()=>this.inspect());
     for(const action of ['retire','reactivate'])this.q('procedure127-'+action).onclick=()=>this.safe(()=>this.change(action));
-    this.q('procedure127-report').onclick=()=>this.safe(async()=>{await request('tool',{tool:'canvas.open',args:{id:this.detail.procedure.report.id}});document.querySelector('#preview-tab').click();this.dialog.close();});
+    this.q('procedure127-report').onclick=()=>this.safe(async()=>{this.detail=await this.call('read',{id:this.detail.procedure.id});this.render();if(!this.detail.evidence.passed)throw Error('Original report is no longer verified: '+this.detail.evidence.reason);await request('tool',{tool:'canvas.open',args:{id:this.detail.procedure.report.id}});document.querySelector('#preview-tab').click();this.dialog.close();});
   }
   async safe(work){this.q('procedure127-message').textContent='Checking saved evidence…';try{await work();}catch(error){this.q('procedure127-message').textContent=error.message;}}
   call(command,args={}){return this.request('procedureLifecycle127',{command,args});}
