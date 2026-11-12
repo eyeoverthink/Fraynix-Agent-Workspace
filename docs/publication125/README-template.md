@@ -12,6 +12,19 @@
 
 Fraynix remains one local agent workspace. Java owns continuing identity, tasks, world state, typed actions, memory and verification. Browser, creation canvas, qualified camera observations and game/physics views are working surfaces of that system. The immediate Game Lab work provides actual decisions and consequences to study. Next priority returns to whole-app model selection, reusable skills and observation-to-artifact missions. This release does not introduce a separate application or replace the original game engine.
 
+## Where the complete app stands
+
+| Existing layer | Useful capability | Evidence and boundary |
+| --- | --- | --- |
+| Continuing Java agent | Durable task scheduling, typed actions, recovery, retained episodes and visual observations | [Java visual agency](README-043.md); screenshots are observations, not proof of understanding |
+| Browser and creation canvas | Actual embedded browsing, interactive artifact creation and rendered behavior checks | [Integrated layout and local-model workflows](README-099.md); a tool registration does not prove a completed action |
+| Physics and world state | Persistent worlds, bounded motion predictions, manipulation and verified procedures | [World goals and reusable skills](README-019.md); supported task families have explicit limits |
+| Qualified observations | Recorded motion, persistent estimates and measured mat-to-world alignment | [Observed worlds](README-036.md), [measured alignment](README-041.md); camera estimates retain source, units and uncertainty |
+| Long-lived task history | Archive completed goals and chat tasks while retaining verifiable evidence | [Goal history](README-111.md), [chat history](README-112.md); active limits remain bounded |
+| Game Lab decision review | Construct and test supported levels, compare optional actions, inspect their complete costs | This edition; exact-condition evidence does not establish universal game competence |
+
+These are established layers with their own dated evidence. Edition 125 reruns the declared relevant checks below; it does not claim to revalidate every earlier domain or to train model weights. The next integration phase tests the local model's use of these connected capabilities.
+
 ## What works in this edition
 
 A retained budget request now has a cost record and an independent outcome review. Open its task history to see time to the first verified outcome, recorded operation time, later verification work and uncertain interrupted intervals. **Compare with later trials** checks the original task and seeks subsequent explicit direct/full runs under the same conditions. It requires three per approach. The six examples used to calibrate the original decision cannot count as later evaluation. **Open saved review** rechecks the stored review and its original sources; later trials do not rewrite that old result.
