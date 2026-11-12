@@ -15,7 +15,7 @@ for name in ['AGENTS.md','README-CONTRIBUTORS.md','docs/PROJECT_MEMORY.md','docs
 p=r/'README.md';first,rest=p.read_text(encoding='utf8').split('\n',1);link='[Published and fetched verification receipt](docs/PUBLICATION_122.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-122)';p.write_bytes((first+'\n\n'+link+'\n'+rest).encode())
 for name in ['push122.log','publication-audit122.json']:shutil.copy2(r/'build'/name,r/'docs/publication122'/name)
 files=['AGENTS.md','README-CONTRIBUTORS.md','README.md','docs/PROJECT_MEMORY.md','docs/DEVELOPMENT_LOG.md','docs/ARCHITECTURE.md','docs/PUBLICATION_122.json','docs/publication122']
-run('git','add',*files);run('git','add','-f','docs/publication122/push122.log');run('git','diff','--cached','--check','--','.',':!docs/publication122/*.log');run('git','-c','gc.auto=0','commit','-m','Record fetched edition 122 sources, verified return value and original evidence')
+run('git','add',*files);run('git','add','-f','docs/publication122/push122.log');run('git','diff','--cached','--check','--','.',':!docs/publication122/*.log');run('git','-c','gc.auto=0','commit','-m','Record fetched edition 122 sources, verified contact recovery and original evidence')
 assert not git('status','--porcelain');head=git('rev-parse','HEAD');changed=git('diff','--name-only',release,head).splitlines();assert all(n in files or n.startswith('docs/publication122/') for n in changed)
 run('git','-c','pack.threads=4','push','--atomic','origin','HEAD:refs/heads/main','HEAD:refs/heads/edition122')
 run('git','-c','gc.auto=0','fetch','origin','refs/heads/main:refs/verify/edition122-final-main','refs/heads/edition122:refs/verify/edition122-final-branch','refs/tags/readme-122:refs/verify/edition122-final-tag')

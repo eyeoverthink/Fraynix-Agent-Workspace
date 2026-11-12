@@ -1,6 +1,6 @@
-## Edition122 - investigation
+## Edition122 - current validation checkpoint
 
-2026-11-12. Isolated S:/Codex-Work/fraynix-workspace-edition122 from cdc5bdcb. CI121 main/release SUCCESS. Read docs/EDITION_122_CONTRACT.md. Fix recorded side-contact deaths and stationary supported edge stall using ordinary controls. Keep previous return benefits and all checks. No delegation/heavy overlap; private worlds and frozen001-121 preserved. Not published yet.
+2026-11-12. Isolated S:/Codex-Work/fraynix-workspace-edition122, parent cdc5bdcb, controller 859a370b, promoted/default source54d308ee. CI121 main/release SUCCESS checked first. Fixed retained109/113 deaths and157 edge stall. Final development8/8 and all85 regression executions finish0damage; original24 pickups and three121 returns remain. Fresh reserved8/8,7pickups,0damage/0deaths versus1217/8. Two fixture admission corrections preserved, no reserved controller tuning. Full hardware validation currently running; then software122, review122, plot/document/notes, actual screenshot inspection, freeze and publication. Not pushed yet. Read contract122 and publication helpers; do not skip gates or claim unsampled outcomes. Preserve private worlds/frozen001-121; no delegation/heavy overlap.
 
 ## Edition121 — published and fetched back
 

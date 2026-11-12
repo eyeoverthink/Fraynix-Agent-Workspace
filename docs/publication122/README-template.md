@@ -140,6 +140,8 @@ workspace-desktop/renderer/brain-game.js      integrated controls and presets
 workspace-desktop/test/game122-integration.cjs actual visible review
 ```
 
+A separate recorded-evidence pass rechecks every applicable controller receipt across the baseline, development, reserved, software and 85 regression executions. It checks native tick/session continuity as well as the existing controller bounds; it does not manufacture another live trial.
+
 No new external framework is added. Existing native rendering and physics dependencies remain. This edition is a measured controller improvement, not general visual recognition, general intelligence or neural training.
 
 ## Next phases
