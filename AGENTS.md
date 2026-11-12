@@ -1,3 +1,7 @@
+## Edition127 active — 2026-11-12
+
+Isolated S:/Codex-Work/fraynix-workspace-edition127, branch edition127, parent7369b946. CI checked first;126/125 pending. Implement saved Java procedure inspection/retirement/reactivation with original evidence preserved; read docs/EDITION_127_CONTRACT.md and integrated roadmap. Keep32 active/8 versions, no deletion, bounded retired history. Historical lookup remains available; only new selection/execution filters retired entries. Test full bank, source/ancestry refusals, atomic failure/restart and actual UI; document/screenshots/notes and actual main push/fetched audit. No127 push yet. No delegation or heavy/inference overlap. Preserve private owners/frozen001–126; node_modules junction read-only.
+
 ## Edition126 — published and fetched back
 
 2026-11-12. Isolated S:/Codex-Work/fraynix-workspace-edition126; parent246c70d2; final productiona381d5a6 (two Java17-compatible kernel indexing calls); actual model sourceab01c83d; A/B results on46e21739; browser context correction14ef2cb0. Release 7983b99508599d3a43dea5b32ca7a576b4c1de54; annotated readme-126. Main, edition126 and tag pushed atomically and fetched. Verified 1537 canonical sources, 46133 frozen hashes across126 editions and 662 original evidence entries. See docs/PUBLICATION_126.json.
