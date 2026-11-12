@@ -81,7 +81,7 @@ write(out/'original-evidence.json',{'files':originals,'scope':'Exact CI failure,
 sourcePaths={x['path'] for x in read('docs/readmes/120/file-inventory.json')}
 for n in subprocess.check_output(['git','diff','--name-only','6999d1a3','HEAD'],text=True).splitlines():
  if n.startswith(('workspace-engine/','workspace-desktop/','src/','assets/','.github/')) or n=='build.gradle':sourcePaths.add(n)
-sourcePaths.update(['docs/EDITION_121_CONTRACT.md','docs/PLAYABLE_LEVEL_CREATION_PLAN.md']);inventory=[]
+sourcePaths.update(['docs/EDITION_121_CONTRACT.md','docs/PLAYABLE_LEVEL_CREATION_PLAN.md','scripts/Start-Agent-Workspace.ps1']);inventory=[]
 for n in sorted(sourcePaths):
  b=(r/n).read_bytes()
  try:b=b.decode('utf-8-sig').replace('\r\n','\n').encode();kind='utf8-lf'

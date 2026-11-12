@@ -21,3 +21,7 @@ The first expanded return stalled because reversal braking was counted as no pro
 ## Validation harness correction before reserved AI trials
 
 The first reserved attempt stopped on its first simple-control frame: the harness mistakenly invoked the AI receipt verifier on manual input after the configured default name changed. AI receipt verification now runs only for actual AI trials; simple action/session/tick checks are unchanged. Original failure/XML retained. No reserved AI outcome was observed, and neither controller nor reserved scene was changed. Repeat development with the final default and then the same reserved set.
+
+## Normal update path
+
+Source review found the stopped-owner launcher refreshed workspace JARs but skipped existing native game installations. Prepare both game runtime and workspace together when no Java owner is active. Preserve live-owner protections and verify PrepareOnly on an isolated project with cached dependencies. This does not change the fixed controller or physics.

@@ -1,10 +1,10 @@
-# Fraynix Agent Workspace Ã‚Â· Edition 121
+# Fraynix Agent Workspace Â· Edition 121
 
 **Observed enemy reversals, bounded returns, and an actual pickup benefit.**
 
-2026-11-11 Ã‚Â· Java owns execution and evidence; the integrated desktop shows the world, chat and task history.
+2026-11-11 Â· Java owns execution and evidence; the integrated desktop shows the world, chat and task history.
 
-[Previous edition120](README-120.md) Ã‚Â· [All editions](docs/readmes/INDEX.md) Ã‚Â· [Interactive offline guide](docs/readmes/121/index.html) Ã‚Â· [Development contract](docs/EDITION_121_CONTRACT.md) Ã‚Â· [Phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md)
+[Previous edition120](README-120.md) Â· [All editions](docs/readmes/INDEX.md) Â· [Interactive offline guide](docs/readmes/121/index.html) Â· [Development contract](docs/EDITION_121_CONTRACT.md) Â· [Phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md)
 
 ![Actual completed return task](docs/readmes/121/return-completed.png)
 
@@ -59,7 +59,7 @@ Returning earns an item at extra time cost. It is useful for an objective that v
 
 ![Measured native motion and costs](docs/readmes/121/controller-motion.png)
 
-[All measurements](docs/readmes/121/measurements.json) Ã‚Â· [Exact original evidence index](docs/readmes/121/original-evidence.json)
+[All measurements](docs/readmes/121/measurements.json) Â· [Exact original evidence index](docs/readmes/121/original-evidence.json)
 
 ## What the failures taught us
 
@@ -120,7 +120,7 @@ At implementation start,120 hosted jobs were still running. Local pass counts an
 - Real integrated game captures, narrow desktop review, and offline guide interaction at1440 and390 pixels.
 - Complete source inventory, original compressed evidence, immutable numbered editions, documentation validation and fetched Git byte audits.
 
-[Machine-readable scope](docs/readmes/121/verification.json) Ã‚Â· [Actual UI record](docs/readmes/121/actual-ui.json) Ã‚Â· [Hardware references](docs/readmes/121/reference-hardware.json) Ã‚Â· [Software references](docs/readmes/121/reference-software.json)
+[Machine-readable scope](docs/readmes/121/verification.json) Â· [Actual UI record](docs/readmes/121/actual-ui.json) Â· [Hardware references](docs/readmes/121/reference-hardware.json) Â· [Software references](docs/readmes/121/reference-software.json)
 
 ## Architecture and project direction
 
