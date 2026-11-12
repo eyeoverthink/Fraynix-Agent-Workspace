@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace · Edition 126
 
+[Published and fetched verification receipt](docs/PUBLICATION_126.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-126)
+
 **One local model working through the actual browser, persistent world and creation canvas.**
 
 2026-11-12 · Java owns task state and completion · Actual local inference · Original outcomes retained
