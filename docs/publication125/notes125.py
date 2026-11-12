@@ -4,7 +4,7 @@ r=Path.cwd()
 
 def status(title,publication='Publication preparation; do not claim pushed until fetched audits pass.'):
  v=json.loads((r/'docs/readmes/125/verification.json').read_text(encoding='utf8'));assert v['passed']
- outcomes=' '.join(f"{x['partition']}/{x['case']}: {x['metrics']['missedOpportunity']}." for x in v['measurements']['rows'])
+ outcomes=' '.join(f"{x['partition']}/{x['case']}: {x['metrics']['missedOpportunity']}."+((' '+x['metrics']['reason']+'.') if not x['metrics']['established'] else '') for x in v['measurements']['rows'])
  return f'''## Edition 125 — {title}
 
 2026-11-12 America/Los_Angeles. Isolated S:/Codex-Work/fraynix-workspace-edition125; parent 63db5798. Packaged source {v['sourceCommit']}. CI checked first: edition 124 main/release and edition 123 main/release were pending; hosted success is separate from local verification. {publication}

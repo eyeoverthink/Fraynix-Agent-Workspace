@@ -66,6 +66,14 @@ These are empirical comparisons, not confidence intervals or a guarantee. The ex
 
 {{VALIDATION}}
 
+Passing the validation checks means the app correctly preserved and assessed each result. It does not mean every course succeeded:
+
+| Partition / case | Actual workflows | Certified completions | Uncertified outcomes | Player deaths |
+| --- | --- | --- | --- | --- |
+{{OUTCOME_ROWS}}
+
+Uncertified outcomes cannot justify a favorable optional-action review. They remain in the [outcome counts](docs/readmes/125/outcomes.json) and original traces; the held-out controller is not tuned to turn them into successes in this edition.
+
 The final declared dataset contains 53 workflows: 26 development, 14 reserved and 13 software-rendering repeats. A separate 13-workflow preflight is retained and excluded from final calibration/evaluation totals. Development uses six explicit calibration runs, one budget decision and six later explicit evaluation runs per case. Reserved cases start with an uncalibrated budget request and six later comparisons. Software rendering repeats a known course in a separate context; it is not additional unseen evidence. Failed cases are retained and never counted as certified completion.
 
 {{ENVIRONMENT}}
