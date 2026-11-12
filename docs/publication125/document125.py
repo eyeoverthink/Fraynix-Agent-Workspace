@@ -26,7 +26,7 @@ for folder in sorted((r/'build/validation125').iterdir()):
   for case in e.findall('testcase'):
    if case.find('skipped') is None:checks.add(case.get('classname')+'.'+case.get('name'));count+=1
  suites.append({'name':folder.name,'executions':count})
-for name,count in [('desktop125-final.log',158),('desktop125-extra.log',10)]:
+for name,count in [('desktop125-final.log',158),('desktop125-extra.log',10),('desktop125-refresh.log',158),('desktop125-refresh-extra.log',10)]:
  s=(r/'build'/name).read_text(encoding='utf8');assert f'tests {count}' in s and 'fail 0' in s
 assert 'BUILD SUCCESSFUL' in (r/'build/launcher125.log').read_text(encoding='utf8')
 regressions={p.parent.name:read(p) for p in (r/'workspace-engine/build').glob('controller125-regression-*/result.json')}
@@ -42,6 +42,9 @@ measurements={'rows':rows,'workflows':53,'development':26,'reserved':14,'softwar
 write(out/'measurements.json',measurements)
 v={'passed':True,'javaChecks':sorted(checks),'javaSuites':suites,'desktopChecks':168,'actualChatRequests':15,'actualAbruptRecovery':True,'actualAiFailureRefused':True,'regressionExecutions':18,'studyRows':53,'measurements':measurements,'referenceControllerResults':{'hardware':{'cases':len(refs['cases']),'refusals':len(refs['refusals'])}},'launcher':{'passed':True,'scope':'Isolated PrepareOnly Offline and final package receipt verified.'},'sourceCommit':ui.get('continuation',{}).get('source',ui['source']),'modelCalls':sum(x['task']['timing052']['modelCalls'] for x in ui['requests']),'scope':'Java measured decision review. Original GameChoices124/GameTask115/native contact122 unchanged; no new policy promotion, general transfer or model training.'}
 assert len(checks)>=200 and v['modelCalls']==0;write(out/'verification.json',v)
+diagnostic=read('build/game125-ui-diagnostic-after.json');assert diagnostic['passed'];write(out/'refresh-regression.json',diagnostic)
+v['refreshRegressionPassed']=True
+v['sourceScopes']={'nativeJava':'7de593a6','initialChat':ui['source'],'continuedChat':ui.get('continuation',{}).get('source',ui['source']),'scope':'Native/Java sources unchanged through all studies. Desktop-only stale refresh fix and driver correction validated by repeated 168 desktop checks, actual reproduced interaction and continuation in the same saved project.'}
 originals=[];seen=set();projects=set()
 def preserve(p,logical):
  if not p.is_file() or logical in seen:return

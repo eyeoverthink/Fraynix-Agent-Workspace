@@ -17,6 +17,8 @@ Final dataset: 53 actual workflows (26 development, 14 reserved, 13 software), s
 
 The destination remains one local Java agent with connected browser, creation, physics and observation surfaces. Next 126: real local-model selection across supported world/browser/creation tasks, wrong-tool/refusal cases, direct baseline and complete costs. Then 127 procedure lifecycle; 128 observation-to-artifact mission; 129 evaluated candidate adaptation; 130 coherent daily use. These are planned, not shipped. The integrated roadmap supersedes older contact-only next-phase proposals. No general cross-scene transfer, automatic policy promotion, neural training or new skill admission is claimed by 125. Read README-125.md, docs/EDITION_125_CONTRACT.md and docs/INTEGRATED_AGENT_ROADMAP.md. Preserve negative outcomes.
 
+Visible validation retained an initial driver property-access error and a subsequent real stale-refresh race. Seven original completed requests and their clocks were reverified and reused in the same project. Late task-list replies now respect the current view generation. Before/after real UI diagnostics and repeated 168 desktop checks cover that presentation-only fix. Native/Java studies remain on unchanged 7de593a6; see verification sourceScopes and original failed attempts. Never erase those failures or imply the initial driver passed.
+
 '''
 
 if __name__=='__main__':
