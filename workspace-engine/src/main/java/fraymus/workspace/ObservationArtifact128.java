@@ -2,12 +2,14 @@ package fraymus.workspace;
 
 import org.json.*;
 import java.util.*;
+import java.nio.file.*;
 
 /** Bounded planar forecasts from earlier measurements; never writes simulated body poses. */
 final class ObservationArtifact128 {
     static final String KIND="observation-artifact-128-v1";
+    private final Path imageRoot;
     final WorldObservationStore observations; final MetricObservationStore metrics; final WorldLedger worlds;
-    ObservationArtifact128(WorldObservationStore o,MetricObservationStore m,WorldLedger w){observations=o;metrics=m;worlds=w;}
+    ObservationArtifact128(Path project,WorldObservationStore o,MetricObservationStore m,WorldLedger w){imageRoot=project.toAbsolutePath().normalize().resolve("world-observations/datasets");observations=o;metrics=m;worlds=w;}
     static boolean own(JSONObject w){return KIND.equals(w.optString("profile128"));}
     static boolean requested(String text){return ChatPolicy044.has(text,"observation[- ]to[- ]artifact|(?:observed motion|calibrated (?:observation|footage)).*(?:explorer|artifact|interactive)");}
     static String code(){var s=new StringBuilder(KIND);for(Class<?> c:List.of(ObservationArtifact128.class,ObservationArtifactReport128.class))try(var in=c.getResourceAsStream(c.getSimpleName()+".class")){s.append(PerceptionStore.hash(in.readAllBytes()));}catch(Exception e){throw new IllegalStateException(e);}return MeasurementStore.hash(s.toString());}
@@ -35,7 +37,9 @@ final class ObservationArtifact128 {
         boolean bound=false;for(Object raw:run.getJSONArray("bindings"))if(((JSONObject)raw).getString("bodyId").equals(body))bound=true;if(!bound)throw new IllegalArgumentException("Body is not bound to this observation");
         var binding=run.getJSONObject("nativeBinding");if(current){var now=worlds.observe(binding.getString("worldId"));if(now.has("pending")||!now.getString("expectedHash").equals(binding.getString("expectedHash"))||now.getInt("expectedRevision")!=binding.getInt("expectedRevision"))throw new IllegalStateException("World changed; record and select a fresh observation binding");}
         // Read each original image, which verifies its stored hash; a trace alone is insufficient evidence.
-        for(int i=0;i<frames.length();i++)observations.image(dataset.getString("id"),i);
+        String datasetId=UUID.fromString(dataset.getString("id")).toString();Path folder=imageRoot.resolve(datasetId);if(Files.isSymbolicLink(imageRoot)||Files.isSymbolicLink(folder))throw new IllegalStateException("Original image location changed");long bytes=0;
+        for(int i=0;i<frames.length();i++){Path file=folder.resolve(i+".image");if(!Files.isRegularFile(file,LinkOption.NOFOLLOW_LINKS))throw new IllegalStateException("Original image missing or redirected");bytes=Math.addExact(bytes,Files.size(file));if(bytes>32_000_000)throw new IllegalStateException("Original image budget changed");if(!PerceptionStore.hash(Files.readAllBytes(file)).equals(frames.getJSONObject(i).getString("imageSha256")))throw new IllegalStateException("Original observation image integrity changed");}
+        if(!dataset.similar(observations.dataset(datasetId))||!run.similar(observations.read(run.getString("id"))))throw new IllegalStateException("Original source changed while checking pixels");
         var req=new JSONObject().put("runId",run.getString("id")).put("geometryId",d.getString("geometryId"));if(d.has("profileId"))req.put("profileId",d.getString("profileId"));
         var view=metrics.view(req);view.remove("nativeStale");
         var rows=new JSONArray();for(Object raw:view.getJSONArray("rows")){var row=(JSONObject)raw;if(row.getString("bodyId").equals(body))rows.put(WorldFrames.copy(row));}
