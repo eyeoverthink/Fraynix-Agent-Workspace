@@ -11,7 +11,7 @@ datasets={k:read(f'workspace-engine/build/cost125-{k}/result.json') for k in ['d
 assert [len(datasets[k]['rows']) for k in datasets]==[26,14,13]
 assert all(d['passed'] for d in datasets.values())
 assert read('build/pipeline125.json')['passed']
-uiroot=r/'build/game125-ui-complete';ui=read(uiroot/'result.json');assert ui['passed'] and len(ui['requests'])==15
+uiroot=r/'build/game125-ui-verified';ui=read(uiroot/'result.json');assert ui['passed'] and len(ui['requests'])==15
 shots=['decision-review.png','insufficient-comparisons.png','recovered-cost.png','saved-review-reopened.png','failed-cost-review.png','review-1100.png','collected-after-return.png']
 for name in shots:shutil.copy2(uiroot/name,out/name)
 shutil.copy2(r/'build/cost-review125.png',out/'cost-review.png')
@@ -40,7 +40,7 @@ for partition,data in datasets.items():
   report=entry['report'];rows.append({'partition':partition,'case':entry['case'],'decision':report['decision'],'metrics':report['metrics'],'reviewSeconds':report['reviewSeconds'],'report':report})
 measurements={'rows':rows,'workflows':53,'development':26,'reserved':14,'software':13,'scope':'Original decisions compared against later explicit trials. Three per strategy. Non-randomized complete first-outcome ranges; recovered clocks and later checks stay distinct.'}
 write(out/'measurements.json',measurements)
-v={'passed':True,'javaChecks':sorted(checks),'javaSuites':suites,'desktopChecks':168,'actualChatRequests':15,'actualAbruptRecovery':True,'actualAiFailureRefused':True,'regressionExecutions':18,'studyRows':53,'measurements':measurements,'referenceControllerResults':{'hardware':{'cases':len(refs['cases']),'refusals':len(refs['refusals'])}},'launcher':{'passed':True,'scope':'Isolated PrepareOnly Offline and final package receipt verified.'},'sourceCommit':ui['source'],'modelCalls':sum(x['task']['timing052']['modelCalls'] for x in ui['requests']),'scope':'Java measured decision review. Original GameChoices124/GameTask115/native contact122 unchanged; no new policy promotion, general transfer or model training.'}
+v={'passed':True,'javaChecks':sorted(checks),'javaSuites':suites,'desktopChecks':168,'actualChatRequests':15,'actualAbruptRecovery':True,'actualAiFailureRefused':True,'regressionExecutions':18,'studyRows':53,'measurements':measurements,'referenceControllerResults':{'hardware':{'cases':len(refs['cases']),'refusals':len(refs['refusals'])}},'launcher':{'passed':True,'scope':'Isolated PrepareOnly Offline and final package receipt verified.'},'sourceCommit':ui.get('continuation',{}).get('source',ui['source']),'modelCalls':sum(x['task']['timing052']['modelCalls'] for x in ui['requests']),'scope':'Java measured decision review. Original GameChoices124/GameTask115/native contact122 unchanged; no new policy promotion, general transfer or model training.'}
 assert len(checks)>=200 and v['modelCalls']==0;write(out/'verification.json',v)
 originals=[];seen=set();projects=set()
 def preserve(p,logical):
@@ -72,7 +72,7 @@ for folder in sorted((r/'build').glob('game125-ui*')):
  for sub in ['game-tasks115','game-choices124','game-costs125','game-reviews125','game-levels114','game-references115','agency-043','embedded-game']:
   for p in sorted((folder/'project'/sub).rglob('*')):
    if p.is_file() and p.suffix in ['.json','.jsonl','.png','.log']:preserve(p,p.relative_to(r).as_posix())
-for pattern in ['*125*.log','game125-driver-first.cjs','ci125*.json','pipeline125*.json','final-recheck125.json','validation-source125.json','study095-build*.json']:
+for pattern in ['*125*.log','game125-driver-first.cjs','game125-ui-diagnostic*.json','game125-ui-diagnostic*.png','ci125*.json','pipeline125*.json','final-recheck125.json','validation-source125.json','study095-build*.json']:
  for p in sorted((r/'build').glob(pattern)):preserve(p,p.relative_to(r).as_posix())
 write(out/'original-evidence.json',{'files':originals,'scope':'Exact initial development pilot, final repeated workflows, regressions, failed-task refusal, restart and actual chat originals. Private worlds excluded.'})
 sourcePaths={x['path'] for x in read('docs/readmes/124/file-inventory.json')}
