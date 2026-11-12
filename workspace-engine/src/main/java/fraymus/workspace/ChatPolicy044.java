@@ -11,6 +11,7 @@ final class ChatPolicy044 {
  static boolean design053(String s){return !webCreation(s)&&has(s,"\\b(compare|design|evaluate)\\b")&&has(s,"\\b(assembly|bridge|construction)\\b");}
  static boolean designReview053(String s){return has(s,"\\b(review|inspect) before\\b|\\b(do not|don['’]t|never)\\s+(move|execute|actuate|run|build|assemble)\\b")||!has(s,"\\b(execute|executing|run|reuse|move|actuate|build|assemble)\\b");}
  static String route(String s,JSONObject b,boolean measured){
+  if(ObservationArtifact128.requested(s))return "workflow";
   if(GameTask115.requested(s))return "gamelevel";
   if(Qualification105.requested(s)||DataCreation101.requested(s)||DataSummary102.requested(s))return "workflow";
   if(!webCreation(s)&&has(s,"(?i)rehearse (?:a |the |verified )?experiment"))return "rehearsal";
