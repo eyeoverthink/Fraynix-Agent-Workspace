@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/135-procedure-lifecycle.md]] | [[README-127.md]]
+
 Current: [[docs/obsidian/134-real-model-workspace.md]] · [[README-126.md]]
 
 Current: [[docs/obsidian/133-measured-decision-review.md]] · [[README-125.md]]

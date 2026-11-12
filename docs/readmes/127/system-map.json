@@ -1,0 +1,179 @@
+{
+  "modules": [
+    {
+      "id": "lifecycle",
+      "name": "Lifecycle owner",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ProcedureLifecycle127.java",
+      "note": "docs/obsidian/135-procedure-lifecycle.md"
+    },
+    {
+      "id": "goal",
+      "name": "Original goal contracts",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "note": "docs/obsidian/135-procedure-lifecycle.md"
+    },
+    {
+      "id": "workflow",
+      "name": "Verified workflow ancestry",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "note": "docs/obsidian/135-procedure-lifecycle.md"
+    },
+    {
+      "id": "ui",
+      "name": "Integrated inspector",
+      "source": "workspace-desktop/renderer/procedures127.js",
+      "note": "docs/obsidian/135-procedure-lifecycle.md"
+    },
+    {
+      "id": "study",
+      "name": "Actual app study",
+      "source": "workspace-desktop/test/lifecycle127-integration.cjs",
+      "note": "docs/obsidian/135-procedure-lifecycle.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/127/review-workflow.png",
+      "title": "review workflow"
+    },
+    {
+      "path": "docs/readmes/127/review-report.png",
+      "title": "review report"
+    },
+    {
+      "path": "docs/readmes/127/review-retired.png",
+      "title": "review retired"
+    },
+    {
+      "path": "docs/readmes/127/review-refused.png",
+      "title": "review refused"
+    },
+    {
+      "path": "docs/readmes/127/review-1100.png",
+      "title": "review 1100"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/127/verification.json"
+    },
+    {
+      "path": "docs/readmes/127/lifecycle-study.json"
+    },
+    {
+      "path": "docs/readmes/127/final-ui-review.json"
+    },
+    {
+      "path": "docs/readmes/127/measurements.json"
+    },
+    {
+      "path": "docs/readmes/127/original-evidence.json"
+    }
+  ],
+  "measurements": {
+    "rows": [
+      {
+        "name": "complete original data goal",
+        "ms": 1465.5054
+      },
+      {
+        "name": "inspect motion-report127",
+        "ms": 7.986300000000483
+      },
+      {
+        "name": "inspect motion-report127",
+        "ms": 11.036999999999352
+      },
+      {
+        "name": "inspect motion-report127",
+        "ms": 11.658800000000156
+      },
+      {
+        "name": "inspect motion-report127",
+        "ms": 14.953199999999924
+      },
+      {
+        "name": "inspect motion-report127",
+        "ms": 15.156000000000859
+      },
+      {
+        "name": "retire motion-report127",
+        "ms": 33.26649999999972
+      },
+      {
+        "name": "inspect motion-report127",
+        "ms": 16.96479999999974
+      },
+      {
+        "name": "inspect motion-report127",
+        "ms": 17.991899999999077
+      },
+      {
+        "name": "reactivate motion-report127",
+        "ms": 30.961600000000544
+      },
+      {
+        "name": "inspect branching4d127",
+        "ms": 42.719099999998434
+      },
+      {
+        "name": "retire branching4d127",
+        "ms": 92.03620000000228
+      },
+      {
+        "name": "reactivate branching4d127",
+        "ms": 93.13669999999911
+      },
+      {
+        "name": "inspect qualified-summary127",
+        "ms": 459.19489999999496
+      },
+      {
+        "name": "retire qualified-summary127",
+        "ms": 910.112000000001
+      },
+      {
+        "name": "reactivate qualified-summary127",
+        "ms": 898.2407999999996
+      },
+      {
+        "name": "catalog at32",
+        "ms": 18.76339999999618
+      },
+      {
+        "name": "retire motion-report127",
+        "ms": 97.6727000000028
+      },
+      {
+        "name": "reactivate motion-report127",
+        "ms": 53.38060000000405
+      },
+      {
+        "name": "retire replacement127",
+        "ms": 98.58320000000094
+      },
+      {
+        "name": "inspect motion-report127",
+        "ms": 31.118399999999383
+      },
+      {
+        "name": "reactivate replacement127",
+        "ms": 49.75129999999626
+      },
+      {
+        "name": "retire branching4d127",
+        "ms": 147.94719999999506
+      },
+      {
+        "name": "retire motion-report127",
+        "ms": 101.28119999999763
+      },
+      {
+        "name": "reactivate motion-report127",
+        "ms": 47.60829999999987
+      }
+    ],
+    "scope": "Individual explicit lifecycle caller spans, including deliberately refused reactivation attempts; no repeated statistical or universal latency claim."
+  },
+  "validation": "Local validation passed: 147 distinct Java test methods, 161 desktop checks, the executable factory-kernel harnesses, the actual agency regression and isolated offline preparation/package checks. The actual lifecycle study includes real rendered reports, an abrupt owned Java-process interruption, a cold restart and checks with a full collection of 32 active procedures. Hosted CI was checked before implementation and remains a separately reported publication result."
+}

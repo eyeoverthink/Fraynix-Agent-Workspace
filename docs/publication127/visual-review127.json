@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "reviewedAtUtc": "2026-11-12T21:49:54.148080+00:00",
+  "method": "Manual visual review of actual app and offline-guide screenshots plus automated width/control checks. No generated mockups.",
+  "images": [
+    "build/lifecycle127-first/review-workflow.png",
+    "build/lifecycle127-first/review-retired.png",
+    "build/lifecycle127-first/review-refused.png",
+    "build/lifecycle127-first/review-report.png",
+    "build/lifecycle127-first/review-1100.png",
+    "build/guide127-1440-viewport.png",
+    "build/guide127-390-viewport.png",
+    "build/guide127-390.png"
+  ],
+  "findings": [
+    "Legible active and retired states; original-evidence refusal visible and buttons disabled.",
+    "Correct UTF-8 punctuation in final app; contract/history scroll within the dialog.",
+    "Actual input-summary report contains three rendered source rows.",
+    "Guide controls, filtered timings, screenshots and source links fit desktop and phone widths. First mobile source-link overflow retained and corrected."
+  ]
+}

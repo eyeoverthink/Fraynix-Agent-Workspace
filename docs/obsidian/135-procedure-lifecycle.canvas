@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "lifecycle",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ProcedureLifecycle127.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "goal",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "workflow",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "ui",
+      "type": "file",
+      "file": "workspace-desktop/renderer/procedures127.js",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "study",
+      "type": "file",
+      "file": "workspace-desktop/test/lifecycle127-integration.cjs",
+      "x": 430,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "lifecycle",
+      "toNode": "goal"
+    },
+    {
+      "id": "1",
+      "fromNode": "goal",
+      "toNode": "workflow"
+    },
+    {
+      "id": "2",
+      "fromNode": "workflow",
+      "toNode": "ui"
+    },
+    {
+      "id": "3",
+      "fromNode": "ui",
+      "toNode": "study"
+    }
+  ]
+}

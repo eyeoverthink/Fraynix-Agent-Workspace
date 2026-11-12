@@ -1,168 +1,129 @@
-# Fraynix Agent Workspace · Edition 126
+# Fraynix Agent Workspace - Edition 127
 
-[Published and fetched verification receipt](docs/PUBLICATION_126.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-126)
+**Keep useful procedures available. Retire old versions without erasing how they were verified.**
 
-**One local model working through the actual browser, persistent world and creation canvas.**
+2026-11-12 | Java-owned lifecycle | One integrated application | Original evidence preserved
 
-2026-11-12 · Java owns task state and completion · Actual local inference · Original outcomes retained
+[Previous edition](README-126.md) | [All editions](docs/readmes/INDEX.md) | [Interactive offline guide](docs/readmes/127/index.html) | [Acceptance contract](docs/EDITION_127_CONTRACT.md) | [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md)
 
-[Previous edition](README-125.md) · [Edition history](docs/readmes/INDEX.md) · [Offline interactive guide](docs/readmes/126/index.html) · [Acceptance contract](docs/EDITION_126_CONTRACT.md) · [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md)
+![Actual saved-procedure inspection](docs/readmes/127/review-workflow.png)
 
-![Actual model-driven browser task](docs/readmes/126/browser-A-model.png)
+## The application and its direction
 
-## Returning to the whole agent
+Fraynix is a continuing local agent workspace. Java owns durable tasks, typed actions, procedure memory, world state, verification and recovery. The desktop connects chat, a real browser, a working creation canvas, the integrated Game Lab, native physics and qualified observation tools. A local language model can choose admitted actions and explain results; Java and the independent host checks decide what actually succeeded.
 
-The destination remains one continuing local workspace. Java owns identity, clocks, task state, typed actions, persistent worlds, evidence, memory and recovery. The desktop presents the browser, canvas and game/physics views. A local language model interprets supported requests and chooses permitted actions; actual controls and physics execute them; independent checks determine which result can be retained as verified.
+The destination is one coherent loop: **request, observe, choose, act, check, remember, evaluate reuse**. The game and physics runtime supply controlled experiments and observable outcomes. Browser elements, files, bodies and observations retain their own tools, units and verifiers even when they belong to one mission.
 
-Edition125 measured whether optional game actions justified their complete cost. Edition126 tests the broader application with an installed model. It also closes a concrete browser gap: an unconstrained model finish message previously produced a **completed-unverified** result. The new opt-in browser contract freezes the expected page and visible text before planning. After each browser mutation, and on an explicit finish request, the trusted host reads the actual DOM; Java compares those values with the original contract. Java stops at the first passing result, before another model action can repeat a completed submission. A summary or supplied `passed` flag cannot substitute for that observation.
+Edition 126 demonstrated six real local-model requests across browser, world and creation work. Those dated results remain in [README-126](README-126.md). Edition 127 addresses a practical memory problem: a useful collection also needs to explain its methods and take old versions out of service without destroying evidence. This release does not claim new model training, consciousness, unrestricted browsing or automatic procedure adaptation.
 
-The app's existing Java route selector still chooses supported task families. Within a stage, the local model selects from the permitted tools. Creation uses the existing Java-owned contract/code generation worker. These measurements do not demonstrate an unrestricted planner selecting arbitrary new tools, physical recognition, neural-weight training or general cross-domain transfer.
+## What is implemented
 
-## What changed
-
-| Layer | Implemented behavior | Evidence boundary |
+| Control | Actual behavior | Evidence preserved |
 | --- | --- | --- |
-| Browser request | User supplies exact result page, result element and expected visible text in existing chat settings | Explicit opt-in criteria; not inferred success from a model answer |
-| Java browser gate | Original criteria enter the immutable objective; Mutations and `finish` request a separate host observation | Actual URL, exactly one visible matching element, and exact text must agree |
-| Host observation | One bounded isolated DOM snapshot reads every required result | No click, script supplied by the model, network operation or rewritten test is part of verification |
-| Continuing runtime | Checked browser outcomes enter the existing task journal and a verified browser episode | Public learning endpoints cannot manufacture the internal browser completion receipt |
-| Recovery/history | An interrupted claim loses authority; explicit Resume takes fresh observations; historical checks retain original evidence | A saved result is dated evidence, never a claim about a page that has since changed |
-| Existing world/creation | Real local-model trials use original tools and verifiers | No replacement physics, relaxed native checks or scripted answers attributed to a model |
+| Inspect | Shows exact name/version, kind, prerequisites, actions, recovery, source references, current compatibility, descendants and lifecycle history | Read-only inspection does not execute the procedure or change its original payload |
+| Retire | Removes the exact version from new model/UI task choices and rejects direct execution | Original procedure, source goal/workflow, report and descendant references remain stored |
+| Reactivate | Reconstructs the saved contract through the original Java verifiers, checks original evidence and compatibility, and requires a free active slot | A dated inspection and chained lifecycle event record what was checked |
+| Open source report | Opens the original checked report in the existing canvas when its evidence remains valid | The report is historical evidence, not a new execution |
+| Recovery | Lifecycle changes use the existing atomic goals checkpoint; interrupted work must settle before management | A failed write rolls back availability; committed retirement survives process loss |
 
-No external library or provider was introduced. The existing application still uses its established Java runtime, native physics, Electron/Chromium surfaces and JSON support. “Owned logic” does not mean these dependencies disappeared.
+The collection still allows **32 active procedures and eight versions per name**. Retirement frees an active slot; it does not reset version numbering. Storage is bounded to 512 retired entries and 32 lifecycle changes per managed procedure, with an 8-million-byte lifecycle record ceiling. At a limit, operations refuse and retain originals. This release does not add deletion or unbounded history.
 
-## Actual local-model results
+The new lifecycle record is understood by edition127 and later compatible builds. Keep a separate project backup for downgrade; an older reader must not bypass or strip the new record to force a load.
 
-Six actual chat requests completed with independently checked results: three browser requests (one interrupted and resumed), two persistent-world arrangements and one generated calculator. After restart, all browser proofs were reverified, both committed world frames were compared and the saved calculator procedure was retained and replayed. The two world baselines and the generated implementation replay also passed their stated independent checks.
+Legacy artifact recipes are a separate existing collection. These controls manage the shared Java procedure registry, including data analysis, procedural geometry, creation, qualified workflows and typed graphs. Management is an explicit user action, outside the model's tool authority.
 
-The installed model was **gpt-oss:20b**, digest `f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe`. Java-owned planning used CPU-only inference with four threads; the local-model service's residency was checked. Tests ran serially on this installation, not on the user's newer RTX 5070 computer. Model loading, prompt evaluation, generation and complete caller time remain distinct measurements.
+## Try it in the app
 
-| Actual request | Full seconds | Real model calls | Outcome |
-| --- | ---: | ---: | --- |
-| Browser Atlas | 294.06 | 4 | verified |
-| Browser Beryl | 555.92 | 7 | verified |
-| Browser Cedar | 299.35 | 4 | verified after recovery |
-| world-0 | 97.87 | 1 | verified |
-| world-1 | 128.83 | 1 | verified |
-| creation | 204.49 | 2 | verified |
-
-| Explicit baseline | Seconds | Scope |
-| --- | ---: | --- |
-| Direct browser A | 0.45 | Scripted explicit browser actions plus independent result/submission observation; no model planning or durable chat admission. |
-| Direct browser B | 0.60 | Scripted explicit browser actions plus independent result/submission observation; no model planning or durable chat admission. |
-| direct-world-0 | 9.82 | Direct equivalent world task; same native verifier; independent recheck excluded. |
-| direct-world-1 | 41.37 | Direct equivalent world task; same native verifier; independent recheck excluded. |
-| Replay generated implementation | 1.17 | Explicit replay of unchanged generated files into a new artifact, with changed-input checks; not fresh generation. |
-
-The final recovery span includes its actual restart. A separate earlier attempt required an engineering repair to the witness journal and is retained as an unsuccessful attempt; its investigation time is not relabelled as the final task duration.
-
-These are individual actual runs, not confidence intervals or a claim of consistent production latency. The scripted browser baseline excludes durable chat admission and model planning. World baselines use the same native verifier, with separately created equivalent labelled scenes. Direct artifact replay starts with an already generated implementation, so it is not an alternative measurement of creating that implementation from nothing. Setup imports, selected targets, fixture pages and independent test expectations were supplied by the harness and are never attributed to model reasoning.
-
-## Browser: actions followed by an independent check
-
-The labelled local pages exercise named inputs, a real button and a visible result. The app's existing reference leases require current observations for click/type actions. The final planner receives the current page references separately from brief action/error summaries; older observations remain stored but do not supply actionable references in that prompt. Repeated unchanged reads retain the existing bound. A stale reference is refused. The model selects actual controls; Java preserves allowed tools, proposals, admission, effects and outcomes. The separate driver also reads the result and verifies that the form was submitted exactly once.
-
-The frozen contract can contain 1–8 distinct selectors and bounded expected text. The ordinary interface exposes one result check. It requires an exact HTTP(S) URL without embedded credentials. The host reads all checks in one isolated snapshot and rejects navigation during that observation. Java checks task, attempt, effect, contract hash, actual values and the associated captured page before recording success. An intermediate post-action mismatch continues planning without consuming a repair attempt; an incorrect explicit finish remains a failed check. Changed criteria, missing checks, a wrong URL, hidden/duplicate elements, stale action authority and fabricated success fields cannot satisfy the gate.
-
-This verifies declared DOM results at a particular time, using bounded element geometry and style checks. It does not establish pixel-level visibility through every overlay or ancestor transparency. A website can display text without an external service processing a transaction. The contract does not prove that a payment, message or remote database update occurred. Such tasks require a separate service-side verifier; this release does not introduce one.
-
-![Actual second browser task](docs/readmes/126/browser-B-model.png)
-![Reopened verified browser history after recovery](docs/readmes/126/browser-recovery-history.png)
-
-The recovery view is a checked historical screenshot report. It is not a claim that a freshly opened page still has the same state. The original live capture and all failed attempts remain in the evidence index.
-
-## Persistent world: the model requests, physics decides
-
-Two labelled synthetic arrangements use the existing native procedure path. The harness imports the scene and confirms targets and force/torque limits. The local model then chooses allowed tools to inspect and arrange that selected world. The actual native procedure performs motion and checks its recorded execution before a new world revision is committed.
-
-Independent checks compare each resulting body's position, orientation and terminal speed with the confirmed target, then compare the committed revision/hash with the procedure's original proof. Each successful task must commit exactly one revision. A separate recomputation normalizes the recorded floating-point quaternions before comparing angles; tiny or zero numerical residuals in these synthetic scenes are not physical measurement precision. A cold restart must preserve the resulting frames. These are supported existing scenes, not a claim that the model learned arbitrary manipulation or succeeded on unseen physical environments.
-
-![Actual world request and verified outcome](docs/readmes/126/world-1.png)
-
-## Creation: working code and changed-input tests
-
-The actual model generates a local packing calculator through the existing Java creation worker. The request names the controls and required behavior. Java first freezes observable checks, retains each draft and error, and waits for actual rendered results. The independent driver exercises integer and decimal inputs, recalculation and reset; it does not accept a title, screenshot or model-written success sentence as proof.
-
-After restart the saved procedure remains identifiable. Explicitly replaying the generated implementation into a new artifact must pass the independent changed-input checks again. This demonstrates a working retained implementation and repeatable behavior within the declared scope. It does not establish automatic adaptation to arbitrary new requests.
-
-![Actual generated calculator](docs/readmes/126/creation.png)
-![Same saved replay reopened and calculating seven times three](docs/readmes/126/calculator-replay-1600.png)
-
-## Recovery and honest failures
-
-The browser test deliberately interrupts the owned Java process while a surface action is claimed. The old claim is rejected after restart. The same original task and criteria remain; Resume starts from a fresh page observation. Completed historical checks can subsequently be reopened without treating their stored screenshots as new observations. If a crash interrupts a witness-log replacement, startup can recover exactly one complete, verified append extending the unchanged committed bytes. Both byte sequences remain as evidence. A partial, conflicting or invalid record still requires attention; recovery does not execute a browser or world action.
-
-Development failures are retained beside the final results:
-
-- The first unit pass exposed an objective-binding test mistake and the missing strict browser-episode completion path; both were corrected and covered by later checks.
-- The first browser driver had invalid fixture JavaScript and stopped before inference. The second exposed a browser admission mismatch with the existing creation/workflow route.
-- The third model attempt performed the correct submission in four real calls, but journal event naming rejected completion; it remains an interrupted result. A real continuing-runtime regression now covers that path.
-- The fourth attempt completed and verified the first request, then its driver tried to click a control inside collapsed settings. The continuation reverified that saved request in the same project and continued; its original clock and failure remain intact.
-- The first recovery attempt was cancelled after611.23 seconds: one stale-reference proposal was refused, then unchanged observations repeated. The new browser branch had bypassed the existing repeated-read restriction. The correction restores it and exposes only the current actionable page references, leaving all older evidence in the journal. The next recovery attempt used14ef2cb0 and exposed the pending append described below; original A/B results remain explicitly scoped to46e21739. Final successful recovery usedab01c83d.
-- The next forced crash landed during an atomic witness append. Startup correctly refused the pending file. A new recovery path verifies one complete append against the exact committed prefix and owner evidence, preserves both byte sequences and atomically completes it. Partial, ambiguous, changed-prefix and invalid-owner candidates still refuse. The SAME original browser task then resumed, but the model submitted the form three times and was cancelled. That failed attempt retains its wall span and separate resume segment. The final change checks the original outcome after every mutation and ends the task at the first passing check, preventing a later redundant model action. It does not substitute scripted actions for model choices. A test-source punctuation compile error was also retained and corrected before passing checks.
-- The initial independent calculator driver did not await completion of its Open request; its first integer assertion failed, consistent with a navigation race. The same generated files were byte-compared after restart and rechecked after awaiting the actual Open request. All11 independent steps then passed, including decimal/reset, and the unchanged implementation passed again on a new artifact. No generated code was edited or model request replayed to replace the failure.
-- The broad kernel command originally selected a deliberately skipped task; its subsequent missing-report copy failed. The executable kernel verification harness was then run successfully. The older desktop regression driver also needed to expand the current settings panel before its legacy controls; all10 original behavioral checks then passed. Original logs and drivers are retained.
-
-Passing validation means the tested contract and stated behavior hold for those cases. It does not erase earlier failures, imply every request will succeed, or make a pending hosted CI run successful.
-
-## Try the integrated workflow
-
-Prepare with JDK 21 and Node.js, then choose a separate project for review:
+Prepare with JDK 21 and Node.js, and select a separate review project:
 
 ```powershell
-$env:FRAYNIX_WORKSPACE_PROJECT = Join-Path $env:USERPROFILE '.fraynix-agent-workspace/projects/edition126-review'
+$env:FRAYNIX_WORKSPACE_PROJECT = Join-Path $env:USERPROFILE '.fraynix-agent-workspace/projects/edition127-review'
 .\scripts\Start-Agent-Workspace.ps1
 ```
 
-A prepared checkout can use `-Offline`; first dependency preparation may need network access. No Docker or WSL is required for this workflow. Keep private project data and existing live Java owners separate when upgrading.
+A prepared checkout can use `-Offline`; first dependency preparation may require a network connection. This workflow does not require Docker or WSL. Preserve private projects and existing live Java owners when upgrading. Installed local models are needed for model-driven chat/generation; deterministic Java procedure management does not require a model call.
 
-1. Select an installed local model. For model-driven world procedures, enable **Model planning for world procedures** in **Skills, memory & settings**.
-2. For a browser task, open the page, expand **Check a browser task**, choose the exact result page and expected visible element/text, and enable those checks for the request. Then state the actual actions in chat.
-3. Read **Outcome details** and **Evidence & recovery**. An unsupported or failed outcome remains unverified or interrupted. A verified browser result includes the observation time and page.
-4. For world tasks, select a world and confirm supported target poses and limits first. For creation, describe the working controls and required behavior. Each domain retains its own source and outcome rules.
-5. If interrupted, inspect the retained state before Resume. Browser contracts remain unchanged; a new objective requires a new request. Disable browser checks when moving to a world or creation request.
+1. Finish or cancel any running or interrupted task. Open **Skills, memory & settings**, then **Manage saved procedures**.
+2. Select the exact procedure and version. Review its actions, source references and current evidence result. Expand the original contract or lifecycle history for detail.
+3. Enter a reason and choose **Retire procedure**. It disappears from new task choices, while remaining visible under the retired filter.
+4. To restore it, inspect it again and choose **Reactivate after checks**. A full active collection, changed source, incompatible implementation or unavailable dependency prevents reactivation and shows the reason.
+5. Run a reactivated procedure on explicitly selected fresh inputs. Its ordinary source and outcome checks still run; reactivation is not proof that the next task will succeed.
 
-## The application around these tests
+![Retired procedure remains inspectable](docs/readmes/127/review-retired.png)
+![Real checked report opened from inspection](docs/readmes/127/review-report.png)
 
-The existing workspace connects a real browser and local files, a creation canvas, data-analysis tasks, persistent physical worlds, the integrated Game Lab, observation/tracking work, the Java brain and retained history. Source selection and task inputs remain explicit. Scene reconstruction, camera calibration and saved procedures keep the limits recorded in their original editions; this edition does not recertify all earlier physical results.
+## Preserving evidence and dependencies
 
-Java continues to own durable task and world state, typed commands, checks, clocks and recovery. The browser and canvas remain hosted presentation/execution surfaces. A working brain is demonstrated by recorded decisions and outcomes, not by calling activity consciousness or describing persistent logs as model-weight training.
+The lifecycle is a separate entity in the same checked checkpoint as the original procedures. It never rewrites a procedure to mark it retired. Events bind the original procedure hash, prior event, reason, inspection evidence and time. Historical lookup continues to return original records so completed workflows and descendants can still explain their lineage.
 
-```text
-workspace-engine/src/main/java/fraymus/workspace/  Java task, world and evidence owners
-workspace-desktop/                               Browser, canvas, chat and surface adapters
-workspace-desktop/test/                          Actual app/model studies and boundary checks
-src/main/java/runtime/                           Integrated original game runtime
-scripts/                                         Preparation, packaging and documentation checks
-docs/readmes/126/                                Results, screenshots, originals and offline guide
-docs/obsidian/                                   Connected engineering notes and maps
-```
+A retired parent does not automatically invalidate a descendant's past evidence. New typed-graph execution, however, requires its executable dependency nodes to be active. Inspection explains that distinction, and a graph cannot reactivate into an executable state with a retired required node. The native graph test verifies this boundary against actual physics execution with explicitly labelled unit-host observations.
 
-## Architecture and evidence
+For a goal-backed procedure, Java reuses the original source-checking contract builder in a read-only projection, then compares the saved contract. For a workflow-backed procedure it checks the original stages, implementation/qualification evidence and independent audit, then compares the original publication contract. Only generated ID, version and verification timestamp are excluded from the contract comparison; identity and lifecycle hashes are checked separately. Checksums detect changes; they are not administrator-proof attestations.
+
+Imported dataset versions are immutable. Adding version 2 does not invalidate a procedure correctly bound to an intact version 1. Changing the original bound content or report is different and must refuse reactivation. A historical result never becomes a fresh observation just because it is inspected.
+
+![Changed original evidence is refused](docs/readmes/127/review-refused.png)
+
+## Actual validation and measured behavior
+
+Local validation passed: 147 distinct Java test methods, 161 desktop checks, the executable factory-kernel harnesses, the actual agency regression and isolated offline preparation/package checks. The actual lifecycle study includes real rendered reports, an abrupt owned Java-process interruption, a cold restart and checks with a full collection of 32 active procedures. Hosted CI was checked before implementation and remains a separately reported publication result.
+
+- Visible retirement preserves the original procedure and immutable source; new choices and direct execution refuse it. Empty reasons are rejected.
+- Actual owned Java process termination after commit and a cold app restart retain retirement; visible reactivation records independently reconstructed evidence and preserves the same ID/version.
+- A fresh input produces a separately verified v2 descendant. Retiring v1 preserves that descendant and its next execution.
+- Real rendered four-dimensional geometry and a qualified Java-authored input-summary workflow retain their own distinct evidence and survive retirement/reactivation. No model output is fabricated.
+- Full32 active bank refuses another save. Retirement frees exactly one slot; reactivation is disabled/refused while full, then succeeds only after a different entry retires.
+- Stale bank snapshots and altered original reports refuse changes/reactivation. The visible reason remains inspectable, with no horizontal dialog overflow at1100px.
+
+The full-capacity control saves aliases of one completed data procedure to fill the collection. That tests capacity accounting, not 32 distinct learned skills. Distinct task coverage comes from separately executed data tasks, four-dimensional procedural geometry, a qualified input-driven creation workflow and the native graph regression. Unit-host fixtures are explicitly labelled; the actual Electron study obtains real DOM observations and rendered reports without supplying success flags.
+
+| Observed operation | Milliseconds |
+| --- | ---: |
+| inspect motion-report127 | 7.99 |
+| inspect branching4d127 | 42.72 |
+| inspect qualified-summary127 | 459.19 |
+| reactivate qualified-summary127 | 898.24 |
+| catalog at32 | 18.76 |
+
+
+These are individual local caller measurements including the lifecycle request and verification it performs, not confidence intervals or universal speed claims. Qualified workflow checks do more work than a small data contract. Inspection has bounded ancestry and storage; this release does not claim low latency at every possible history size.
+
+## Failures kept, not hidden
+
+The initial focused unit run passed9 of10 checks. One test wrongly expected an unchanged frozen dataset v1 to become invalid after importing v2. The corrected test preserves that legitimate behavior and deliberately alters original bound content to prove refusal. Later focused and regression runs retain the original assertions plus version, capacity, interruption and graph-dependency checks. The initial UI study passed functionally, but screenshot inspection found UTF-8 punctuation corrupted by a local file edit. The original captures remain archived; final reviewed captures use corrected text and recheck the same saved project. The first offline-guide phone-width check also exposed an unwrapped source path; the original overflow capture is retained and the final guide wraps source links. No failed outcome or report was silently replaced.
+
+The actual test deliberately changes a report after saving its original bytes. The resulting refusal is a successful negative check, not a repaired or newly verified report. The synthetic test project remains separate from private worlds. All original attempts, checked records and screenshots are indexed in the evidence archive.
+
+## Architecture and reproducibility
 
 ```mermaid
 flowchart LR
-  Request[Chat and selected inputs] --> Java[Java task owner]
-  Java --> Model[Installed local model]
-  Model --> Admission[Typed tool and stage checks]
-  Admission --> Browser[Actual browser controls]
-  Admission --> World[Original native world procedure]
-  Admission --> Canvas[Java creation worker and canvas]
-  Browser --> Visible[Independent visible-result observation]
-  World --> Physical[Original motion and revision verifier]
-  Canvas --> Rendered[Actual rendered behavior checks]
-  Visible --> Journal[Retained checked episode]
-  Physical --> Journal
-  Rendered --> Journal
-  Journal --> Recovery[History and explicit recovery]
+  User[Explicit procedure controls] --> Java[Java lifecycle owner]
+  Java --> Original[Unchanged source and procedure]
+  Java --> Verify[Original contract and outcome verifiers]
+  Verify --> Gate[Compatibility and capacity checks]
+  Gate --> Commit[Atomic lifecycle checkpoint]
+  Commit --> Choices[Active-only task choices]
+  Original --> History[Historical and descendant evidence]
+  Choices --> Run[Fresh-input execution]
+  Run --> Outcome[Independent outcome checks]
 ```
 
-Local checks passed: 119 distinct Java methods across retained successful invocations, 161 desktop checks, actual browser integration regression, isolated offline preparation and package receipt. The six final real-model requests include abrupt owned-process recovery, cold reopening, independently rendered calculator checks and original native world proofs. Initial failed runs are separately indexed. Hosted CI status is reported in the publication receipt, not inferred from these results.
+No new external dependency was added. Owned Java logic works within the established Java, native physics, Electron/Chromium and JSON stack; those existing dependencies have not disappeared. The continuing application is preserved rather than replaced by a separate procedure manager.
 
-[Verification summary](docs/readmes/126/verification.json), [actual browser study](docs/readmes/126/browser-study.json), [actual world and creation study](docs/readmes/126/model-study.json), [measurements](docs/readmes/126/measurements.json), [original evidence index](docs/readmes/126/original-evidence.json), [source inventory](docs/readmes/126/file-inventory.json), and [Obsidian architecture note](docs/obsidian/134-real-model-workspace.md) preserve the distinction between real inference, harness setup, unit fixtures and native outcomes. Planner request hashes, model digests and provider timing receipts are retained where the existing runtime exposes them. These do not include every raw prompt or transport byte. Local checksums are integrity checks, not administrator-proof attestation.
+| Source | Responsibility |
+| --- | --- |
+| [ProcedureLifecycle127.java](workspace-engine/src/main/java/fraymus/workspace/ProcedureLifecycle127.java) | Availability, bounded history, exact snapshot and event-chain checks |
+| [GoalRunner.java](workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java) | Original records, read-only contract reconstruction, atomic storage and execution admission |
+| [WorkflowRunner.java](workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java) | Workflow evidence, qualification, dependencies and lifecycle coordination |
+| [WorkspaceServer.java](workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java) | Interface ownership and explicit lifecycle routes |
+| [procedures127.js](workspace-desktop/renderer/procedures127.js) | Integrated inspection and visible refusal reasons |
+| [Actual app study](workspace-desktop/test/lifecycle127-integration.cjs) | Real rendered outcomes, abrupt Java interruption and full-bank controls |
 
-## Next: useful retained procedures
+[Verification summary](docs/readmes/127/verification.json), [actual app results](docs/readmes/127/lifecycle-study.json), [measured requests](docs/readmes/127/measurements.json), [original evidence index](docs/readmes/127/original-evidence.json), [source inventory](docs/readmes/127/file-inventory.json) and [connected engineering note](docs/obsidian/135-procedure-lifecycle.md) make the limits and provenance reviewable. Hosted CI is reported separately from local verification.
 
-Edition127 will give compatible versioned procedures a deliberate lifecycle: inspect, retire and reactivate them while preserving original sources and descendant evidence, without increasing the active limit. Edition128 connects qualified observation to a working artifact in one mission. Edition129 evaluates bounded changes against incumbents and simpler control before promotion or rollback. Edition130 concentrates those capabilities into coherent daily use. These remain planned phases with explicit acceptance gates, not capabilities claimed by edition126.
+## Next: an observation becomes a useful artifact
 
-The useful loop remains **request → observe → choose → act → independently check → remember → evaluate reuse**. This edition supplies new measured connections in that loop while keeping the existing Java application intact.
+Edition 128 should connect one calibrated recorded sequence to an existing persistent object, make a bounded motion prediction, create an interactive explanation, verify its calculations and rendered behavior, and retain the whole procedure. The same request must survive interruption and work with fresh input. This is planned work, not an installed capability of edition 127.
+
+After that, edition 129 should propose bounded changes from observed failures and compare them against the incumbent and simple control before promotion or rollback. Edition 130 should make the whole mission understandable in daily use: current state, uncertainty, cost allowance, results and retained skills in the same workspace. Those steps keep the agent's usable end-to-end behavior at the center of development.

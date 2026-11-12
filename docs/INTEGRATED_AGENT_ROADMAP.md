@@ -1,5 +1,7 @@
 # One continuing creative agent — direction review, 2026-11-12
 
+Edition127 update (2026-11-12): saved Java procedures now have explicit inspection, retirement and checked reactivation in the integrated app. Original source/descendant evidence is preserved;32 active entries and eight versions remain. Actual app restart/capacity/refusal checks and Java/native regressions passed. See [README-127](../README-127.md). Edition128 remains the next planned observation-to-artifact mission.
+
 The user's destination remains one local-first application with Java owning durable identity, clocks, goals, tools, evidence, memory and recovery. Browser, creation canvas, game/physics views and qualified camera observations are connected working surfaces. Existing source, authored worlds, private observations and published evidence stay preserved.
 
 This roadmap follows the review after edition124. It changes development priority toward integration; older numbered proposals remain dated history. A planned phase is not an installed capability.

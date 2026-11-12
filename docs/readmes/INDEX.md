@@ -1,3 +1,5 @@
+[Edition127 - saved Java procedure lifecycle](../../README-127.md) | [Offline guide](127/index.html)
+
 [Edition126 — real local-model workspace](../../README-126.md) · [Offline guide](126/index.html)
 
 [Edition125 — measured decision review](../../README-125.md) · [Offline guide](125/index.html)

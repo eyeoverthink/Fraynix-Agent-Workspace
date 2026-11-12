@@ -31,7 +31,7 @@ def preserve(p,logical):
  seen.add(logical);raw=p.read_bytes();key=sha(raw);dest=out/'originals'/(key+'.gz');packed=gzip.compress(raw,mtime=0);dest.parent.mkdir(exist_ok=True)
  if not dest.exists():dest.write_bytes(packed)
  originals.append({'logicalPath':logical,'path':dest.relative_to(r).as_posix(),'bytes':len(packed),'sha256':sha(packed),'rawBytes':len(raw),'rawSha256':key})
-for pattern in ['lifecycle127-*','validation127']:
+for pattern in ['lifecycle127-*','agency127-evidence','validation127']:
  for folder in sorted((r/'build').glob(pattern)):
   if not folder.is_dir():continue
   for p in sorted(folder.rglob('*')):
@@ -50,12 +50,12 @@ for n in sorted(paths):
  except UnicodeDecodeError:kind='binary'
  inventory.append({'path':n,'bytes':len(raw),'sha256':sha(raw),'hashKind':kind})
 write(out/'file-inventory.json',inventory)
-validation=f"Local validation passed: {len(checks)} distinct Java test methods, 161 desktop checks, the executable factory-kernel harnesses, the actual agency regression and isolated offline preparation/package checks. The actual lifecycle study includes real rendered reports, an abrupt owned Java-process interruption, a cold restart and complete32-active capacity controls. Hosted CI was checked before implementation and remains a separately reported publication result."
+validation=f"Local validation passed: {len(checks)} distinct Java test methods, 161 desktop checks, the executable factory-kernel harnesses, the actual agency regression and isolated offline preparation/package checks. The actual lifecycle study includes real rendered reports, an abrupt owned Java-process interruption, a cold restart and checks with a full collection of 32 active procedures. Hosted CI was checked before implementation and remains a separately reported publication result."
 results='\n'.join('- '+x for x in study['checks'])
 timing='| Observed operation | Milliseconds |\n| --- | ---: |\n'
 for name in ['inspect motion-report127','inspect branching4d127','inspect qualified-summary127','reactivate qualified-summary127','catalog at32']:
  row=next(x for x in study['timings'] if x['name']==name);timing+=f"| {name} | {row['ms']:.2f} |\n"
-failures='The initial focused unit run passed9 of10 checks. One test wrongly expected an unchanged frozen dataset v1 to become invalid after importing v2. The corrected test preserves that legitimate behavior and deliberately alters original bound content to prove refusal. Later focused and regression runs retain the original assertions plus version, capacity, interruption and graph-dependency checks. The initial UI study passed functionally, but screenshot inspection found UTF-8 punctuation corrupted by a local file edit. The original captures remain archived; final reviewed captures use corrected text and recheck the same saved project. No failed outcome or report was silently replaced.'
+failures='The initial focused unit run passed9 of10 checks. One test wrongly expected an unchanged frozen dataset v1 to become invalid after importing v2. The corrected test preserves that legitimate behavior and deliberately alters original bound content to prove refusal. Later focused and regression runs retain the original assertions plus version, capacity, interruption and graph-dependency checks. The initial UI study passed functionally, but screenshot inspection found UTF-8 punctuation corrupted by a local file edit. The original captures remain archived; final reviewed captures use corrected text and recheck the same saved project. The first offline-guide phone-width check also exposed an unwrapped source path; the original overflow capture is retained and the final guide wraps source links. No failed outcome or report was silently replaced.'
 md=(r/'docs/publication127/README-template.md').read_text(encoding='utf8')
 for k,value in {'VALIDATION':validation,'RESULTS':results,'TIMINGS':timing,'FAILURES':failures}.items():md=md.replace('{{'+k+'}}',value)
 assert '{{' not in md;text(r/'README-127.md',md);text(r/'README.md',md)
