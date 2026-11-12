@@ -85,6 +85,35 @@ public final class MerkleAppendOnlyJournal {
         }
     }
 
+    /** Recover only one complete, verified atomic append extending the exact committed bytes.
+     * The owner validates domain evidence before publication; both original byte sequences are preserved. */
+    public synchronized Path recoverPendingAppend(java.util.function.Consumer<List<JournalEntry>> ownerValidation) throws IOException {
+        synchronized (LOCKS.computeIfAbsent(logFile, ignored -> new Object())) {
+            try (var channel = FileChannel.open(lockFile(), StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+                 var held = channel.lock()) {
+                byte[] original = Files.exists(logFile) ? Files.readAllBytes(logFile) : new byte[0];
+                var disk = decodeVerified(new String(original, StandardCharsets.UTF_8));requirePrefix(disk);
+                List<Path> pending;
+                try(var files=Files.list(logFile.getParent())){pending=files.filter(p->p.getFileName().toString().matches("kernel-journal-.*\\.pending")).toList();}
+                if(pending.size()!=1)throw new IOException("Recovery requires exactly one pending append; originals retained");
+                Path candidate=pending.getFirst();byte[] proposed=Files.readAllBytes(candidate);
+                if(proposed.length==0||proposed[proposed.length-1]!='\n')throw new IOException("Pending append is incomplete; original retained");
+                var complete=decodeVerified(new String(proposed,StandardCharsets.UTF_8));
+                if(complete.size()!=disk.size()+1||proposed.length<=original.length||!Arrays.equals(original,Arrays.copyOf(proposed,original.length)))throw new IOException("Pending append does not extend the exact committed history");
+                for(int i=0;i<disk.size();i++)if(!disk.get(i).equals(complete.get(i)))throw new IOException("Pending append changed committed evidence");
+                try{ownerValidation.accept(List.copyOf(complete));}catch(RuntimeException invalid){throw new IOException("Pending append failed owner evidence checks; original retained",invalid);}
+                String key=complete.getLast().entryHash();
+                Path evidence=logFile.resolveSibling("journal-recovery-"+key+".evidence");
+                preserveRecovery(evidence,proposed);preserveRecovery(logFile.resolveSibling("journal-recovery-"+key+".before"),original);
+                commitPending(candidate,logFile);entries=List.copyOf(complete);return evidence;
+            }
+        }
+    }
+    private static void preserveRecovery(Path path,byte[] bytes)throws IOException{
+        if(Files.exists(path)){if(!Arrays.equals(Files.readAllBytes(path),bytes))throw new IOException("Retained recovery evidence changed");}
+        else writeForced(path,bytes);
+    }
+
     public synchronized List<JournalEntry> getEntries() { return List.copyOf(entries); }
     public synchronized int size() { return entries.size(); }
     public synchronized String getLastMerkleRoot() { return entries.isEmpty() ? "" : entries.get(entries.size() - 1).merkleRoot(); }
@@ -157,6 +186,9 @@ public final class MerkleAppendOnlyJournal {
     private static void atomicWrite(Path file, byte[] data) throws IOException {
         Path pending = file.resolveSibling("kernel-journal-" + UUID.randomUUID() + ".pending");
         writeForced(pending, data);
+        commitPending(pending,file);
+    }
+    private static void commitPending(Path pending,Path file)throws IOException {
         // No non-atomic fallback: a failed commit retains the previous journal and pending evidence.
         // Windows readers can briefly deny deletion of the destination. Retry only that
         // failure, with the same forced bytes and cross-process lock still held.

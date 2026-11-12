@@ -11,6 +11,7 @@ final class Witness042 {
     private final Path root;
     private final List<MerkleAppendOnlyJournal> segments=new ArrayList<>();
     private final int segmentSize=256;
+    private final JSONArray recoveredAppends=new JSONArray();
     Witness042(Path root)throws IOException{
         this.root=root;Files.createDirectories(root);
         try(var paths=Files.list(root)){
@@ -20,7 +21,27 @@ final class Witness042 {
                 segments.add(new MerkleAppendOnlyJournal(p));
             }
         }
+        // Validate every committed segment before considering the final unfinished atomic append.
+        String parent="GENESIS";
+        for(int i=0;i<segments.size();i++){
+            var journal=segments.get(i);var check=journal.verify();var entries=journal.getEntries();
+            final int ordinal=i;final String expectedParent=parent;
+            if(!check.pendingFiles().isEmpty()){
+                if(i!=segments.size()-1)throw new IOException("Pending append in a sealed segment; original retained");
+                Path retained=journal.recoverPendingAppend(candidate->validateSegment(candidate,ordinal,expectedParent));
+                recoveredAppends.put(new JSONObject().put("segment",i).put("evidenceFile",retained.getFileName().toString()).put("meaning","Recovered one complete hash-verified append, not a replayed world or browser action"));
+                entries=journal.getEntries();
+            }
+            try{validateSegment(entries,i,parent);}catch(RuntimeException invalid){throw new IOException("Witness segment evidence differs; original retained",invalid);}
+            if(i<segments.size()-1&&entries.size()!=segmentSize)throw new IOException("An incomplete witness segment was sealed");
+            parent=journal.getLastMerkleRoot();
+        }
         verify();
+    }
+    private void validateSegment(List<MerkleAppendOnlyJournal.JournalEntry> entries,int ordinal,String parent){
+        if(entries.isEmpty()||entries.size()>segmentSize)throw new IllegalStateException("Invalid witness segment size");
+        var first=entries.getFirst();if(!first.type().equals("segment")||!parent.equals(first.metadata().get("parentRoot"))||!Integer.toString(ordinal).equals(first.metadata().get("segment")))throw new IllegalStateException("Witness parent linkage differs");
+        for(var e:entries.subList(1,entries.size())){var data=new JSONObject(e.metadata().get("evidence"));if(!WorldFrames.hash(data).equals(e.metadata().get("sha256")))throw new IllegalStateException("Witness evidence hash differs");}
     }
     private void next()throws IOException{
         if(segments.size()>=1024)throw new IOException("Witness retention budget reached; preserve/archive before more background work");
@@ -45,7 +66,7 @@ final class Witness042 {
         }
         return summary().put("verified",true).put("records",total);
     }
-    synchronized JSONObject summary(){int total=segments.stream().mapToInt(MerkleAppendOnlyJournal::size).sum();return new JSONObject().put("segments",segments.size()).put("records",total).put("head",segments.isEmpty()?"GENESIS":segments.getLast().getLastMerkleRoot()).put("meaning","Hash/sequence integrity, not a signature or proof that a source claim is true");}
+    synchronized JSONObject summary(){int total=segments.stream().mapToInt(MerkleAppendOnlyJournal::size).sum();return new JSONObject().put("segments",segments.size()).put("records",total).put("head",segments.isEmpty()?"GENESIS":segments.getLast().getLastMerkleRoot()).put("recoveredAppends126",new JSONArray(recoveredAppends.toString())).put("meaning","Hash/sequence integrity, not a signature or proof that a source claim is true");}
     synchronized boolean hasAnchor(JSONObject anchor)throws IOException{
         verify();int target=anchor.getInt("records"),offset=0;
         if(target==0)return anchor.getInt("segments")==0&&anchor.getString("head").equals("GENESIS");
