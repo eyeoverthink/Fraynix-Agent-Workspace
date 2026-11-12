@@ -83,7 +83,8 @@ Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=
 
 Unknown, empty or duplicate strategy choices are refused. Non-default strategies require explicitly declared challenge geometry. General AI Play and requests without a strategy retain the existing default.
 
-![Returning collects the item](docs/readmes/123/return-full.png)
+![Verified task result with returning enabled](docs/readmes/123/return-full.png)
+![Native frame after confirmed return collection](docs/readmes/123/collected-native.png)
 ![The same course with remembered returns disabled](docs/readmes/123/return-disabled.png)
 ![Actual waiting in the integrated game](docs/readmes/123/live-wait.png)
 ![Verified strategy and retained attempts](docs/readmes/123/verified-strategy.png)
