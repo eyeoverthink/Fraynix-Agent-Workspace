@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "reviewedAtUtc": "2026-11-12T16:17:27.144373+00:00",
+  "inspected": [
+    "build/game124-ui-final/budget-controls.png",
+    "build/game124-ui-final/budget-30.png",
+    "build/game124-ui-final/budget-120.png",
+    "build/game124-ui-final/collected-after-return.png",
+    "build/game124-ui-final/budget-1100.png",
+    "build/budget124-costs.png",
+    "build/guide124-1440-viewport.png",
+    "build/guide124-390.png"
+  ],
+  "findings": [
+    "Actual integrated app screenshots show the allowance, retained decision, refusal and successful collection.",
+    "The compact app retains readable chat, controls and the original rendered game.",
+    "Chart legends were moved outside the data area, then reinspected. Unknown/no-benefit choices remain visible.",
+    "Offline guide inspected at desktop and narrow widths. Text and controls fit; small screenshots link to full originals. Automated interaction and no-overflow checks passed."
+  ],
+  "scope": "Manual inspection of genuine app captures and data-derived documentation. No fabricated app states; native and UI test scope remains in verification.json."
+}
