@@ -1,0 +1,11 @@
+# Edition 128 — observed motion to a working artifact
+
+2026-11-12. Parent main `86886289`. CI checked first; edition127 and earlier hosted runs remain in progress. Work in isolated edition128; preserve private projects and frozen001–127. No delegation or overlapping heavy studies.
+
+One durable chat request selects a completed recorded observation run, its explicit clock, calibrated plane and persistent world/body identity. Java pins original images, tracking rows, calibration and optional empirical profile; computes a causal, bounded constant-velocity forecast using only earlier accepted measurements; writes a working interactive motion explorer; and accepts completion only after an independent host exercises its controls and Java checks all visible source values and plotted coordinates. Predictions and rejected measurements remain distinguished. This is a planar motion explanation, not new native physics authority or general recognition.
+
+Reuse must select fresh source IDs and recompute every value. Save a versioned procedure only after the original source, forecast, artifact and rendered checks pass. Integrate edition127 inspect/retire/reactivate and existing chat/workflow recovery, limits and source gates. Checkpoint each stage; recheck source on resume; never relabel stale engine proofs. An explicit review boundary supports interruption testing without sleeps or fabricated success.
+
+Tests: analytic independent numerical cases; changed input, irregular timing, rejected/occluded rows and bounded gaps; original image/trace/calibration/report tampering and stale world refusal; interrupted checkpoint/restart, same workflow identity, stale host claims, no publication before audit; fresh-input procedure reuse and lifecycle; actual Electron controls, wider/narrower layouts and screenshots using recorded public footage with attribution. Keep failed attempts and distinguish fixture algebra from real tracking results. Report forecast errors and rejected predictions, not just software passes.
+
+Publish README128 and screenshot evidence, source inventory, original receipts, continuity notes and actual main/edition128/readme-128 push; fetch back and verify production, frozen evidence and metadata. Next129 remains measured bounded adaptation, not automatic self-training claims.

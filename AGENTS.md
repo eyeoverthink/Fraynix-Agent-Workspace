@@ -1,3 +1,7 @@
+## Edition128 active — 2026-11-12
+
+Isolated S:/Codex-Work/fraynix-workspace-edition128, parent86886289. CI checked first;127 pending. Read docs/EDITION_128_CONTRACT.md. Implement one durable observation-to-artifact mission with calibrated recorded source, causal forecasts, independently checked interactive output and reusable procedure. Preserve every source/outcome gate, frozen001–127 and private owners. No delegation, no overlapping heavy runs. Node dependency junction read-only. No128 publication yet.
+
 ## Edition127 - published and fetched back
 
 2026-11-12. Isolated S:/Codex-Work/fraynix-workspace-edition127; parent7369b946. Release fdffd9f50c248e4f40462853dd7d3d67217e304a; annotated readme-127. Main, edition127 and tag pushed atomically and fetched. Verified 1544 canonical sources, 46392 frozen hashes across127 editions and 316 original evidence entries. See docs/PUBLICATION_127.json.
