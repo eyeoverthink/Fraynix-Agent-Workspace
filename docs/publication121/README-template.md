@@ -28,7 +28,7 @@ All71 older regression courses finish without damage. These include the54 origin
 
 The explicit chat route uses owned Java scheduling and zero model calls. Choosing an Ollama model in the interface does not imply it authored these controller actions. Natural-language routes outside the supported task grammar retain their existing model and verification boundaries.
 
-![Actual returning in the integrated app](docs/readmes/121/return-live.png)
+![Braking at the start of the verified return](docs/readmes/121/return-live.png)
 
 ## Run or update from source
 
@@ -126,6 +126,7 @@ At implementation start,120 hosted jobs were still running. Local pass counts an
 
 - {{JAVA_COUNT}} distinct Java test methods, including native game trials, observed-motion boundaries, interruption coordination, task recovery, source verification and forged-evidence refusal.
 - 168 desktop checks and five actual visible chat requests, including abrupt termination of this test's own Java process.
+- Normal launcher preparation, replacement of an older installed game JAR, and refusal while a live Java owner uses the installation.
 - 71 older courses preserved; original24 pickup successes retained.
 - Six transformed reference-image cases and four refusals per renderer, plus the original reference regression.
 - Real integrated game captures, narrow desktop review, and offline guide interaction at1440 and390 pixels.
