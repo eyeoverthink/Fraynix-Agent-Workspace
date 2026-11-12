@@ -85,11 +85,22 @@ This is explicit upfront work, separate from later choice costs. The original ob
 
 The calibrated clock begins at Java admission and ends after the first verified terminal outcome. It includes construction, the simple-control comparison, actual AI simulation, frame capture, task saving, caller scheduling and source/outcome verification. The final timing-receipt write, subsequent audits and later application shutdown are outside that clock. The study additionally records the full request plus repeat audit. Actual chat elapsed times are reported separately and include presentation/polling and, where applicable, recovery.
 
-Interrupted or restarted timings remain in history but cannot calibrate later choices. Budget-selected runs are evaluation records, not self-qualifying training samples. A repeated start of an older task cannot invent a new fast clock. Choice receipts retain original and resolved requests, allowance, source hashes, samples, timing boundaries and decision. Restart and completion recheck these bindings. A changed renderer stops a learned choice before its AI inputs; a fresh direct request or new calibration is required.
+Interrupted or restarted timings remain in history but cannot calibrate later choices. Calibration currently accepts uninterrupted durations up to600seconds; longer observations remain retained outside that eligible workload range. Budget-selected runs are evaluation records, not self-qualifying training samples. A repeated start of an older task cannot invent a new fast clock. Choice receipts retain original and resolved requests, allowance, source hashes, samples, timing boundaries and decision. Restart and completion recheck these bindings. A changed renderer stops a learned choice before its AI inputs; a fresh direct request or new calibration is required.
 
 Checksummed receipts and owner checks detect accidental or tested alteration; they are not cryptographic attestation against an administrator rewriting the entire local project. The separate native verifier remains the authority for motion and completion. No physics, body position, collectible counter or finish condition is overwritten. Incompatible or damaged matched evidence is never silently discarded to obtain a favorable estimate. A new isolated project can collect fresh calibration after a runtime/resource change; the original project remains preserved. The existing **24 game-task history limit remains**.
 
 {{ENVIRONMENT}}
+
+## Launch a review project
+
+From the checkout root, with JDK21 and Node.js available:
+
+```powershell
+$env:FRAYNIX_WORKSPACE_PROJECT = Join-Path $env:USERPROFILE '.fraynix-agent-workspace/projects/edition124-review'
+.\scripts\Start-Agent-Workspace.ps1
+```
+
+This uses a separate review project. The launcher builds the installed Java runtime and checks desktop dependencies. First preparation may download dependencies; after preparing the cache, `-Offline` avoids package downloads. Use the app's **Stop Java & close app** action before updating an installation it still owns; the launcher also checks for live owners. [Launcher source](scripts/Start-Agent-Workspace.ps1).
 
 ## Try it
 
