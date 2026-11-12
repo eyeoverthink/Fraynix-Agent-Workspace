@@ -1,3 +1,9 @@
+## Edition123 validation checkpoint
+
+2026-11-12. Source92eb74b2 plus self-model description/UI test599be610; helper1eb4808a. Development36 complete native workflows PASS, original result build/pickup123-development under workspace-engine. Supported-wait full vs no-wait conservative observed6.2294s per extra pickup; return full vs no-return8.2823s; unsupported pickup no benefit. No default/policy promotion. Pilot excluded.
+
+Serial pipeline docs/publication123/remaining123.py active (unified session97711): reserved24, regression18, broad hardware, software12 plus reference/tasks. Logs build/reserved123.log etc. Do not overlap heavy checks or rebuild task-bound classes during native runs. Then docs/publication123/review123.py for desktop168/package/current receipt/actual6 UI requests. Helpers/document123/plot123/notes123/visual123 prepared but not yet run; inspect actual outcomes, adapt only to truthful output. document -> notes -> document refreshes source inventory after plan edit. Visual inspect app/chart/guide and create build/visual-review123.json. Then freeze123/Verify-Documentation/release123 atomic main/edition123/tag/readme-123 fetch audit/ci123/finish123 final receipt. No push yet. Preserve frozen001-122 and private worlds. Do not claim full gates or publication until outputs exist. Pending CI122 still in progress at12:53UTC;121 green.
+
 ## Edition123 - full-cost pickup study in progress
 
 Read docs/EDITION_123_CONTRACT.md. Isolated123 from98d0724b. CI122 still running; previous121 green. Same-controller four-way comparison, three repetitions, full durable costs, safety first. Default unchanged. No delegation/heavy overlap; private worlds and frozen001-122 preserved. Not published yet.

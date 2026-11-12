@@ -51,7 +51,9 @@ If either approach fails to finish safely, the comparison refuses an economic re
 
 Each measured row starts before creating its fresh project and task owner. It includes source checks, candidate construction, a fresh simple-control comparison, the AI trial, native frame capture, all durable task saves, final source/outcome verification, and closing the owned runtime. The phases are setup, task advancement, verification and shutdown. Advancement includes native execution **and** its surrounding validation, persistence and response construction.
 
-Simulation ticks are reported separately. The existing `workNanos` field is partial engine work and is not used as full wall time. UI scheduling, chat presentation and study-report writing are outside the Java-workflow clock. Actual visible request timings are recorded separately below, including the request interrupted for the restart test. Explicit Java routes make zero model calls; these measurements are not LLM inference benchmarks.
+Simulation ticks are reported separately. The existing `workNanos` field is partial engine work and is not used as full wall time. UI scheduling, chat presentation, post-study cost analysis and study-report writing are outside the Java-workflow clock. Each study records its analysis time separately in `analysisNanos`. The Java workspace is already running when a request starts; outer Gradle/test-JVM startup is excluded, while the task-owned native game startup is included. Actual visible request timings are recorded separately below, including the request interrupted for the restart test. Explicit Java routes make zero model calls; these measurements are not LLM inference benchmarks.
+
+{{ENVIRONMENT}}
 
 All strategies use fresh memory and the same declared geometry. Order rotates over three repetitions; each strategy occupies three of four positions, not complete counterbalancing. File-system caches and unrelated machine load can still affect elapsed time. We retain ranges and individual measurements instead of claiming statistical certainty or removing inconvenient samples.
 
