@@ -24,7 +24,7 @@ for folder in sorted((r/'build/validation128').iterdir()):
    if c.find('skipped') is None:checks.add(c.get('classname')+'.'+c.get('name'));count+=1
  suites.append({'name':folder.name,'executions':count})
 assert any(x['name']=='final' for x in suites)
-desktop=(r/'build/desktop128-final.log').read_text(encoding='utf8');assert 'fail 0' in desktop;desktop_count=int(re.search(r'# tests (\d+)',desktop)[1])
+desktop=(r/'build/desktop128-final.log').read_text(encoding='utf8');assert 'fail 0' in desktop;desktop_count=int(re.search(r'(?m)^. tests (\d+)',desktop)[1])
 for n in ['kernel128-final','java128-final','desktop128-final','agency128-regression','launcher128','package128','receipt128']:assert read('build/'+n+'.json')['exit']==0,n
 measured=[]
 for t in study['tasks']:
