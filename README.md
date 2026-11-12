@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace - Edition 127
 
+[Published and fetched verification receipt](docs/PUBLICATION_127.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-127)
+
 **Keep useful procedures available. Retire old versions without erasing how they were verified.**
 
 2026-11-12 | Java-owned lifecycle | One integrated application | Original evidence preserved
