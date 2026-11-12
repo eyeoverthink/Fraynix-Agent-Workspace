@@ -1,6 +1,13 @@
 package fraymus.workspace;
 import org.junit.Test;import static org.junit.Assert.*;import org.json.*;import java.nio.file.*;import java.util.*;
 public class GameBudgetTask124Test {
+ @Test public void interruptionBetweenTaskAndChoiceWritesCannotLoseBudgetAuthority()throws Exception{
+  Path repo=Path.of("..").toAbsolutePath().normalize(),project=Files.createTempDirectory("budget124-admission-interruption");String id=UUID.randomUUID().toString();
+  try(var game=new EmbeddedGameClient(repo,project);var raw=new GameTask115(repo,project,game)){raw.start(new JSONObject().put("id",id).put("request","Create a playable Mario level goombaTile=24 pickupStrategy=full pickupBudgetSeconds=30"));}
+  try(var game=new EmbeddedGameClient(repo,project);var tasks=new GameChoices124(repo,project,game)){
+   assertEquals("interrupted",tasks.read(id).getString("status"));assertTrue(assertThrows(IllegalStateException.class,()->tasks.control(id,"resume")).getMessage().contains("checkpoint is missing"));assertTrue(assertThrows(IllegalStateException.class,()->tasks.advance(id)).getMessage().contains("checkpoint is missing"));assertTrue(assertThrows(IllegalStateException.class,()->tasks.verify(id)).getMessage().contains("checkpoint is missing"));assertEquals(0,tasks.read(id).getJSONArray("trials").length());
+  }
+ }
  @Test public void oldFailedRecipeRetainsItsOriginalRefusalWithoutCalibration()throws Exception{
   Path repo=Path.of("..").toAbsolutePath().normalize(),project=Files.createTempDirectory("budget124-old-failure");String id=UUID.randomUUID().toString();
   try(var game=new EmbeddedGameClient(repo,project);var tasks=new GameChoices124(repo,project,game)){

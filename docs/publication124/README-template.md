@@ -63,7 +63,7 @@ Each row below is an actual budgeted task. The estimate is the recorded full-ver
 
 Three explicit runs per approach precede each development and software budget series; their order alternates. Fresh cases use budget mode before collecting comparison results, so they must abstain. The explicit calibration requests are upfront work, not hidden background runs. Their cost is not charged again to each later choice; this edition does not claim that calibration has earned back its acquisition cost. These are modest new conditions, not evidence of arbitrary-course generalization. The controller is not tuned against reserved results.
 
-Both earlier development passes are preserved separately. Review identified a known repeated cost: calibration sources are checked again at completion. The final version reserves time for that second check and collects fresh calibration under its new algorithm identity. Compatibility review also preserved the original refusal for a failed older recipe that has no AI comparison. Neither earlier pass qualifies final decisions; development calibration is rerun with the final wrapper identity.
+Earlier development and reserved passes are preserved separately. Review identified a known repeated cost: calibration sources are checked again at completion. The final version reserves time for that second check and collects fresh calibration under its new algorithm identity. Compatibility review also preserved the original refusal for a failed older recipe that has no AI comparison. An interruption between the task write and decision write cannot resume without the missing original decision. Earlier passes do not qualify final decisions; development calibration is rerun with the final wrapper identity.
 
 ### Unfamiliar-scene comparisons
 
@@ -145,6 +145,22 @@ Only eligible **explicit** runs feed calibration through that last link. No choi
 | `workspace-engine/.../GameBudgetStudy124Test.java` | Repeated actual native tasks and recovered/tampered receipt checks |
 | `workspace-desktop/renderer/brain-game.js` | Allowance input and human-readable decision evidence |
 | `workspace-desktop/test/game124-integration.cjs` | Actual chat, deliberate owned-process interruption and screenshots |
+
+```text
+workspace-engine/src/main/java/fraymus/workspace/
+  GameBudgetPolicy124.java   · decision math and strict request parsing
+  GameChoices124.java        · retained timing and evidence ownership
+  GameTask115.java           · original native execution and verification
+workspace-engine/src/test/java/fraymus/workspace/
+  GameBudgetPolicy124Test.java
+  GameBudgetStudy124Test.java
+  GameBudgetTask124Test.java
+workspace-desktop/
+  renderer/brain-game.js
+  test/game124-integration.cjs
+docs/readmes/124/            · screenshots, measurements, sources and originals
+docs/publication124/         · repeatable validation and publication helpers
+```
 
 [Measurements](docs/readmes/124/measurements.json) · [Verification](docs/readmes/124/verification.json) · [Original evidence](docs/readmes/124/original-evidence.json) · [Source inventory](docs/readmes/124/file-inventory.json)
 

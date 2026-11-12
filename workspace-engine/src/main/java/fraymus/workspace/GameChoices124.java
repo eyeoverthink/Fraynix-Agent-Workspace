@@ -22,6 +22,9 @@ final class GameChoices124 implements AutoCloseable {
   uuid(id);if(damaged.containsKey(id+".json"))throw new IllegalStateException("Choice checkpoint integrity needs attention; original retained");var r=records.get(id);
   if(r!=null&&!AgentFiles042.loadChecked(file(id)).similar(r))throw new IllegalStateException("Choice checkpoint changed outside its owner; original retained");return r;
  }
+ private void requireChoiceReceipt(String id,JSONObject r){
+  if(r==null&&GameBudgetPolicy124.STRATEGY.matcher(tasks.read(id).getString("request")).find()&&tasks.read(id).getString("request").toLowerCase(Locale.ROOT).contains("pickupbudgetseconds"))throw new IllegalStateException("Original budget decision checkpoint is missing; retained task cannot execute or certify without it");
+ }
  private static boolean fresh(JSONObject r,Instant now){long age=Duration.between(Instant.parse(r.getString("createdAt")),now).toSeconds();return age>=0&&age<=7*86400;}
  private JSONObject fact(JSONObject r)throws Exception{
   var m=tasks.measure123(r.getString("id"));if(!r.getString("resolved").equals(tasks.read(r.getString("id")).getString("request"))||!r.getJSONObject("parameters").similar(m.getJSONObject("parameters"))||!r.getString("trace").equals(m.getJSONObject("audit").getString("traceSha256")))throw new IllegalStateException("Measured task binding changed");
@@ -61,7 +64,7 @@ final class GameChoices124 implements AutoCloseable {
   if(r==null||!r.getBoolean("budgeted")||r.getJSONObject("decision").getJSONObject("result").getString("selected").equals("direct"))return;
   for(Object raw:t.getJSONArray("trials")){var initial=((JSONObject)raw).getJSONObject("initial");String renderer=WorldFrames.hash(initial.getJSONObject("renderer"));for(Object f:r.getJSONObject("decision").getJSONArray("samples"))if(Set.of("direct",r.getJSONObject("decision").getJSONObject("result").getString("selected")).contains(((JSONObject)f).getString("strategy"))&&!((JSONObject)f).getString("renderer").equals(renderer)){r.put("blocked","Renderer changed; start a fresh direct request or collect fresh evidence").put("eligible",false);save(r);if(t.getString("status").equals("running"))tasks.control(t.getString("id"),"interrupt");throw new IllegalStateException(r.getString("blocked"));}}
  }
- synchronized JSONObject advance(String id)throws Exception{var r=record(id);var before=tasks.read(id);checkRenderer(r,before);if(r!=null&&r.has("blocked"))throw new IllegalStateException(r.getString("blocked"));var t=tasks.advance(id);checkRenderer(r,t);if(t.getString("status").equals("failed")){
+ synchronized JSONObject advance(String id)throws Exception{var r=record(id);requireChoiceReceipt(id,r);var before=tasks.read(id);checkRenderer(r,before);if(r!=null&&r.has("blocked"))throw new IllegalStateException(r.getString("blocked"));var t=tasks.advance(id);checkRenderer(r,t);if(t.getString("status").equals("failed")){
    if(GameChallenge118.active(t.getJSONObject("parameters")))finish(r,tasks.measure123(id));
    else if(r!=null&&r.getString("timingStatus").equals("pending")){clocks.remove(id);r.put("eligible",false).put("timingStatus","Non-challenge failure retained; no terminal AI comparison for calibration");save(r);}
   }return read(id);}
@@ -70,10 +73,10 @@ final class GameChoices124 implements AutoCloseable {
   double seconds=(System.nanoTime()-start)/1e9;var f=m.getJSONObject("final");var c=f.getJSONObject("controller");var fact=new JSONObject().put("id",r.getString("id")).put("strategy",m.getString("strategy")).put("seconds",seconds).put("pickups",c.getInt("pickups")).put("safe",m.getBoolean("completionCertified")&&!f.getJSONObject("player").getBoolean("dead")&&c.getInt("damage")==0).put("renderer",WorldFrames.hash(f.getJSONObject("renderer")));
   r.put("seconds",seconds).put("fact",fact).put("trace",m.getJSONObject("audit").getString("traceSha256")).put("timingStatus","Measured through first verified terminal outcome; final receipt write and later shutdown excluded").put("eligible",!r.getBoolean("budgeted")&&!r.getBoolean("restarted")&&seconds>0&&seconds<=600);save(r);
  }
- synchronized JSONObject verify(String id)throws Exception{var r=record(id);var t=tasks.verify(id);if(r!=null){if(!r.getString("resolved").equals(t.getString("request")))throw new IllegalStateException("Resolved request changed");verifyChoice(r,false);checkRenderer(r,t);finish(r,tasks.measure123(id));}return read(id);}
- synchronized JSONObject measure(String id)throws Exception{var r=record(id);var m=tasks.measure123(id);if(r!=null){verifyChoice(r,false);finish(r,m);m.put("choice124",WorldFrames.copy(r));}return m;}
+ synchronized JSONObject verify(String id)throws Exception{var r=record(id);requireChoiceReceipt(id,r);var t=tasks.verify(id);if(r!=null){if(!r.getString("resolved").equals(t.getString("request")))throw new IllegalStateException("Resolved request changed");verifyChoice(r,false);checkRenderer(r,t);finish(r,tasks.measure123(id));}return read(id);}
+ synchronized JSONObject measure(String id)throws Exception{var r=record(id);requireChoiceReceipt(id,r);var m=tasks.measure123(id);if(r!=null){verifyChoice(r,false);finish(r,m);m.put("choice124",WorldFrames.copy(r));}return m;}
  synchronized JSONObject control(String id,String action)throws Exception{
-  var r=record(id);if(action.equals("resume")&&r!=null){if(r.has("blocked"))throw new IllegalStateException(r.getString("blocked"));verifyChoice(r,true);}
+  var r=record(id);if(action.equals("resume"))requireChoiceReceipt(id,r);if(action.equals("resume")&&r!=null){if(r.has("blocked"))throw new IllegalStateException(r.getString("blocked"));verifyChoice(r,true);}
   tasks.control(id,action); // Validate the transition before changing a durable timing receipt.
   if(action.equals("resume")&&r!=null){r.put("restarted",true).put("eligible",false).put("timingStatus","Restarted request: retained, excluded from calibration");clocks.remove(id);save(r);}return read(id);
  }
