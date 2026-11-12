@@ -1,6 +1,13 @@
 package fraymus.workspace;
 import org.junit.Test;import static org.junit.Assert.*;import org.json.*;import java.nio.file.*;import java.util.*;
 public class GameBudgetTask124Test {
+ @Test public void oldFailedRecipeRetainsItsOriginalRefusalWithoutCalibration()throws Exception{
+  Path repo=Path.of("..").toAbsolutePath().normalize(),project=Files.createTempDirectory("budget124-old-failure");String id=UUID.randomUUID().toString();
+  try(var game=new EmbeddedGameClient(repo,project);var tasks=new GameChoices124(repo,project,game)){
+   tasks.start(new JSONObject().put("id",id).put("request","Create a playable Mario level gapTiles=10 repairLimit=0"));var t=GameBudgetStudy124Test.done(tasks,id);assertEquals("failed",t.getString("status"));assertEquals("Actual playtest failed; no justified repair remains within the request budget",t.getString("reason"));assertFalse(t.getJSONObject("pickupChoice124").getBoolean("eligible"));assertThrows(IllegalStateException.class,()->tasks.verify(id));
+   Files.createDirectories(Path.of("build/budget124-task"));Files.writeString(Path.of("build/budget124-task/legacy-failure.json"),new JSONObject().put("passed",true).put("project",project.toString()).put("task",t).toString(2));
+  }
+ }
  @Test public void restartAndFailureCannotCalibrateAndLegacyCannotInventAClock()throws Exception{
   Path repo=Path.of("..").toAbsolutePath().normalize(),project=Files.createTempDirectory("budget124-restart"),out=Path.of("build/budget124-task");Files.createDirectories(out);String id=UUID.randomUUID().toString();var results=new JSONArray();String request="Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 pickupStrategy=budget pickupBudgetSeconds=0";
   try(var game=new EmbeddedGameClient(repo,project);var tasks=new GameChoices124(repo,project,game)){tasks.start(new JSONObject().put("id",id).put("request",request));tasks.advance(id);tasks.advance(id);tasks.advance(id);}

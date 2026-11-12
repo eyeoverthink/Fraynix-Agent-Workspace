@@ -72,7 +72,7 @@ for folder in sorted((r/'build').glob('game124-ui*')):
  for sub in ['game-tasks115','game-choices124','game-levels114','game-references115','agency-043','embedded-game']:
   for p in sorted((folder/'project'/sub).rglob('*')):
    if p.is_file() and p.suffix in ['.json','.jsonl','.png','.log']:preserve(p,p.relative_to(r).as_posix())
-for pattern in ['*124*.log','ci124*.json','study095-build*.json']:
+for pattern in ['*124*.log','ci124*.json','pipeline124.json','study095-build*.json']:
  for p in sorted((r/'build').glob(pattern)):preserve(p,p.relative_to(r).as_posix())
 write(out/'original-evidence.json',{'files':originals,'scope':'Exact initial development pilot, final repeated workflows, regressions, failed-task refusal, restart and actual chat originals. Private worlds excluded.'})
 sourcePaths={x['path'] for x in read('docs/readmes/123/file-inventory.json')}
@@ -93,6 +93,16 @@ def num(n):return 'not established' if n is None else f'{n:.2f}'
 findings=' '.join(f"{x['partition']}/{x['case']}: allowance {x['allowance']:g} selected {x['selected']}, collected {x['pickups']}, first verified outcome {x['seconds']:.2f}s." for x in rows if x['allowance']==30)
 renderer=datasets['development']['rows'][0]['measurement']['final']['renderer']
 values={'FINDINGS':findings,'ENVIRONMENT':f"Measured hardware renderer: {renderer['name']}. Software rendering is a separate same-case repeat, not additional unseen evidence. Java21; study owner limited to four processors and1024MiB heap, native child four processors/512MiB. Actual chat owner uses two processors/512MiB. Context fingerprints prevent pooling these clocks.",'RESULT_ROWS':'\n'.join(f"| {x['partition']} / {x['case']} | {x['allowance']:g} | {x['selected']} | {num(x['requiredSecondsPerPickup'])} | {x['pickups']} / {'verified' if x['completionCertified'] else 'refused'} | {x['seconds']:.2f} | {x['externalSeconds']:.2f} |" for x in rows),'VALIDATION':f"Local validation passed: {len(checks)} distinct Java methods,168 desktop checks,40 final native workflows,18 prior courses with no damage, six transformed reference images/four refusals, plus original reference regression. Native tests cover original checks, invalid allowances, uncertainty, failures, interrupted clocks, legacy restart, and altered choices/timing-source receipts. The actual app ran11 requests, recovered its deliberately interrupted Java owner, verified retained choice evidence and refused an impossible course. Zero LLM calls in these explicit Java routes; no model-training claim.",'CHAT_ROWS':'\n'.join(f"| {x['prompt']} | {x['elapsedMs']/1000:.2f} | {x['task']['status']} | {x['child'].get('audit',{}).get('aiPickups','not certified')} |" for x in ui['requests'])}
+reserved=[]
+for name in dict.fromkeys(x['case'] for x in datasets['reserved']['rows']):
+ pair=[x for x in datasets['reserved']['rows'] if x['case']==name];b=next(x for x in pair if x['requested'].startswith('budget'));f=next(x for x in pair if x['requested']=='full');bm=b['measurement'];fm=f['measurement']
+ reserved.append(f"| {name} | {bm['audit']['aiPickups']} / {'verified' if bm['completionCertified'] else 'refused'} | {fm['audit']['aiPickups']} / {'verified' if fm['completionCertified'] else 'refused'} | {(f['wallNanos']-b['wallNanos'])/1e9:.2f}s |")
+values['RESERVED_ROWS']='\n'.join(reserved)
+acquisition=[]
+for partition in ['development','software']:
+ for name in dict.fromkeys(x['case'] for x in datasets[partition]['rows']):
+  examples=[x for x in datasets[partition]['rows'] if x['case']==name and not x['requested'].startswith('budget')];acquisition.append(f"| {partition} / {name} | {len(examples)} | {sum(x['wallNanos'] for x in examples)/1e9:.2f} |")
+values['CALIBRATION_ROWS']='\n'.join(acquisition)
 def fill(s):
  for k,v in values.items():s=s.replace('{{'+k+'}}',v)
  assert '{{' not in s;return s

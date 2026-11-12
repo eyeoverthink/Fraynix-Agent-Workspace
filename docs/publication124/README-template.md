@@ -63,7 +63,23 @@ Each row below is an actual budgeted task. The estimate is the recorded full-ver
 
 Three explicit runs per approach precede each development and software budget series; their order alternates. Fresh cases use budget mode before collecting comparison results, so they must abstain. The explicit calibration requests are upfront work, not hidden background runs. Their cost is not charged again to each later choice; this edition does not claim that calibration has earned back its acquisition cost. These are modest new conditions, not evidence of arbitrary-course generalization. The controller is not tuned against reserved results.
 
-The initial development pass is preserved as a pilot. Review identified a known repeated cost: calibration sources are checked again at completion. The final version reserves time for that second check and collects fresh calibration under its new algorithm identity. Pilot timings do not qualify final decisions.
+Both earlier development passes are preserved separately. Review identified a known repeated cost: calibration sources are checked again at completion. The final version reserves time for that second check and collects fresh calibration under its new algorithm identity. Compatibility review also preserved the original refusal for a failed older recipe that has no AI comparison. Neither earlier pass qualifies final decisions; development calibration is rerun with the final wrapper identity.
+
+### Unfamiliar-scene comparisons
+
+These are one budgeted request and one explicit full request per new scene. They show the observed cost of caution, without treating a single comparison as sufficient calibration.
+
+| New case | Budget choice: pickups / finish | Explicit full: pickups / finish | External time change, full minus budget |
+| --- | --- | --- | --- |
+{{RESERVED_ROWS}}
+
+### Calibration acquisition
+
+This is explicit upfront work, separate from later choice costs. The original observations remain inspectable; there is no claimed amortized saving yet.
+
+| Partition / case | Explicit examples | External elapsed seconds total |
+| --- | --- | --- |
+{{CALIBRATION_ROWS}}
 
 ## Timing and persistence
 
@@ -71,7 +87,7 @@ The calibrated clock begins at Java admission and ends after the first verified 
 
 Interrupted or restarted timings remain in history but cannot calibrate later choices. Budget-selected runs are evaluation records, not self-qualifying training samples. A repeated start of an older task cannot invent a new fast clock. Choice receipts retain original and resolved requests, allowance, source hashes, samples, timing boundaries and decision. Restart and completion recheck these bindings. A changed renderer stops a learned choice before its AI inputs; a fresh direct request or new calibration is required.
 
-Checksummed receipts and owner checks detect accidental or tested alteration; they are not cryptographic attestation against an administrator rewriting the entire local project. The separate native verifier remains the authority for motion and completion. No physics, body position, collectible counter or finish condition is overwritten. The existing **24 game-task history limit remains**.
+Checksummed receipts and owner checks detect accidental or tested alteration; they are not cryptographic attestation against an administrator rewriting the entire local project. The separate native verifier remains the authority for motion and completion. No physics, body position, collectible counter or finish condition is overwritten. Incompatible or damaged matched evidence is never silently discarded to obtain a favorable estimate. A new isolated project can collect fresh calibration after a runtime/resource change; the original project remains preserved. The existing **24 game-task history limit remains**.
 
 {{ENVIRONMENT}}
 
