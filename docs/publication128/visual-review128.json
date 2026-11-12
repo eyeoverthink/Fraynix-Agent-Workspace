@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "reviewedAtUtc": "2026-11-12T23:16:14.476981+00:00",
+  "appImages": [
+    "motion-chart.png",
+    "motion-chart-detail.png",
+    "motion-chart-1100.png",
+    "procedure-evidence.png",
+    "calibrated-source.png"
+  ],
+  "guideImages": [
+    "guide128-1440-viewport.png",
+    "guide128-390.png"
+  ],
+  "checks": [
+    "Actual chart, selected axes, source-bound chat completion and procedure versions readable.",
+    "Guide reviewed at 1440 and 390 pixels; stage/filter/navigation/search and screenshot loading also independently exercised.",
+    "Tracking reference error and broad conditional future radius prominently disclosed.",
+    "Artifact has no horizontal document overflow at 1100 pixels. Existing expanded settings panel can scroll horizontally; no whole-app overflow-free claim."
+  ],
+  "scope": "Human-facing visual review of actual tool-returned images, plus machine assertions; no generated mockups."
+}

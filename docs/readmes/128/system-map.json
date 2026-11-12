@@ -1,0 +1,167 @@
+{
+  "modules": [
+    {
+      "id": "observation",
+      "name": "Original observations and causal forecast",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ObservationArtifact128.java",
+      "note": "docs/obsidian/136-observation-artifact.md"
+    },
+    {
+      "id": "workflow",
+      "name": "Durable workflow owner",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "note": "docs/obsidian/136-observation-artifact.md"
+    },
+    {
+      "id": "artifact",
+      "name": "Working artifact and numeric verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ObservationArtifactReport128.java",
+      "note": "docs/obsidian/136-observation-artifact.md"
+    },
+    {
+      "id": "host",
+      "name": "Independent rendered observations",
+      "source": "workspace-desktop/observation-artifact128.cjs",
+      "note": "docs/obsidian/136-observation-artifact.md"
+    },
+    {
+      "id": "study",
+      "name": "Actual app study",
+      "source": "workspace-desktop/test/observation128-integration.cjs",
+      "note": "docs/obsidian/136-observation-artifact.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/128/calibrated-source.png",
+      "title": "calibrated source"
+    },
+    {
+      "path": "docs/readmes/128/review-before-creation.png",
+      "title": "review before creation"
+    },
+    {
+      "path": "docs/readmes/128/verified-explorer.png",
+      "title": "verified explorer"
+    },
+    {
+      "path": "docs/readmes/128/fresh-source-reuse.png",
+      "title": "fresh source reuse"
+    },
+    {
+      "path": "docs/readmes/128/explorer-1100.png",
+      "title": "explorer 1100"
+    },
+    {
+      "path": "docs/readmes/128/motion-chart.png",
+      "title": "motion chart"
+    },
+    {
+      "path": "docs/readmes/128/motion-chart-detail.png",
+      "title": "motion chart detail"
+    },
+    {
+      "path": "docs/readmes/128/source-rows.png",
+      "title": "source rows"
+    },
+    {
+      "path": "docs/readmes/128/procedure-evidence.png",
+      "title": "procedure evidence"
+    },
+    {
+      "path": "docs/readmes/128/motion-chart-1100.png",
+      "title": "motion chart 1100"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/128/verification.json"
+    },
+    {
+      "path": "docs/readmes/128/observation-study.json"
+    },
+    {
+      "path": "docs/readmes/128/final-ui-review.json"
+    },
+    {
+      "path": "docs/readmes/128/measurements.json"
+    },
+    {
+      "path": "docs/readmes/128/original-evidence.json"
+    }
+  ],
+  "measurements": {
+    "rows": [
+      {
+        "name": "terrace-calibration",
+        "preparationMs": 13532.5477,
+        "requestMs": 10253,
+        "metrics": {
+          "measured": 95,
+          "availableForecasts": 93,
+          "maxErrorM": 0.11172725166891413,
+          "meanErrorM": 0.028547204267685575,
+          "rejected": 0,
+          "covered": 93,
+          "rows": 95,
+          "compared": 93
+        },
+        "independentReferenceSamples": 3,
+        "meanTrackingReferenceErrorM": 5.1470148479932325,
+        "resumes": 1,
+        "future": {
+          "fromOrdinals": [
+            94,
+            95
+          ],
+          "seconds": 24.400000000000002,
+          "positionM": [
+            3.350496467894259,
+            11.281615031818115
+          ],
+          "radiusM": 35.82027652094083,
+          "available": true,
+          "aheadS": 0.6000000000000014
+        }
+      },
+      {
+        "name": "terrace-later-a",
+        "preparationMs": 42168.007600000004,
+        "requestMs": 10247,
+        "metrics": {
+          "measured": 95,
+          "availableForecasts": 93,
+          "maxErrorM": 0.04008740354051262,
+          "meanErrorM": 0.007849217405895769,
+          "rejected": 0,
+          "covered": 93,
+          "rows": 95,
+          "compared": 93
+        },
+        "independentReferenceSamples": 3,
+        "meanTrackingReferenceErrorM": 0.8890964056456649,
+        "resumes": 0,
+        "future": {
+          "fromOrdinals": [
+            94,
+            95
+          ],
+          "seconds": 104.39999999999999,
+          "positionM": [
+            2.386718345280251,
+            4.9527369415257
+          ],
+          "radiusM": 20.63407256533126,
+          "available": true,
+          "aheadS": 0.5999999999999943
+        }
+      }
+    ],
+    "rejectedSource": {
+      "name": "terrace-later-b",
+      "reason": "page.evaluate: Error: Error invoking remote method 'workspace:request': Error: normalized box must be finite and between 0.0 and 1.0"
+    },
+    "scope": "Single measured task spans on this machine. First includes explicit review, crash, cold restart and UI checks; both include source/outcome rechecks. Preparation is tracked separately. No speedup estimate, repeated timing confidence or new unseen-footage claim."
+  },
+  "validation": "Local validation passed: 172 distinct Java test methods, 161 desktop checks, executable factory-kernel harnesses, the actual agency regression and isolated offline preparation/package checks. The actual study includes an abrupt owned-Java interruption, cold restart of the same request, changed-input reuse, retained procedure lifecycle and independent numeric/rendered outcomes. Hosted CI was checked first and is reported separately."
+}

@@ -1,3 +1,5 @@
+[Edition128 — observed motion to working artifact](../../README-128.md) | [Offline guide](128/index.html)
+
 [Edition127 - saved Java procedure lifecycle](../../README-127.md) | [Offline guide](127/index.html)
 
 [Edition126 — real local-model workspace](../../README-126.md) · [Offline guide](126/index.html)

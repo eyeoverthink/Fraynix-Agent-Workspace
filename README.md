@@ -1,131 +1,155 @@
-# Fraynix Agent Workspace - Edition 127
+# Fraynix Agent Workspace — Edition 128
 
-[Published and fetched verification receipt](docs/PUBLICATION_127.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-127)
+**One request connects an observed object, a bounded forecast and a working, independently checked artifact.**
 
-**Keep useful procedures available. Retire old versions without erasing how they were verified.**
+2026-11-12 · Local Java ownership · Persistent evidence · Integrated browser and canvas
 
-2026-11-12 | Java-owned lifecycle | One integrated application | Original evidence preserved
+[Previous edition](README-127.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/128/index.html) · [Acceptance contract](docs/EDITION_128_CONTRACT.md) · [Long-term direction](docs/INTEGRATED_AGENT_ROADMAP.md)
 
-[Previous edition](README-126.md) | [All editions](docs/readmes/INDEX.md) | [Interactive offline guide](docs/readmes/127/index.html) | [Acceptance contract](docs/EDITION_127_CONTRACT.md) | [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md)
+![Actual verified motion explorer in the app](docs/readmes/128/motion-chart.png)
 
-![Actual saved-procedure inspection](docs/readmes/127/review-workflow.png)
+## What the application is becoming
 
-## The application and its direction
+Fraynix is a continuing local agent workspace. Java owns durable tasks, observations, typed tools, world identity, procedure memory, verification and recovery. Chat, browser, creation canvas, Game Lab and physical simulation are working surfaces of that application. The intended loop remains **observe → choose → act → check → remember → evaluate reuse**.
 
-Fraynix is a continuing local agent workspace. Java owns durable tasks, typed actions, procedure memory, world state, verification and recovery. The desktop connects chat, a real browser, a working creation canvas, the integrated Game Lab, native physics and qualified observation tools. A local language model can choose admitted actions and explain results; Java and the independent host checks decide what actually succeeded.
+Edition 126 demonstrated a real local model completing supported browser, world and creation requests. Edition 127 added inspection, retirement and checked reactivation of saved procedures. Edition 128 connects the observation and creation surfaces: a recorded motion sequence becomes an interactive explanation, through one durable chat request, with original evidence retained. This phase uses a registered Java procedure and Java-authored artifact; it does not claim a new LLM generation or neural-weight training.
 
-The destination is one coherent loop: **request, observe, choose, act, check, remember, evaluate reuse**. The game and physics runtime supply controlled experiments and observable outcomes. Browser elements, files, bodies and observations retain their own tools, units and verifiers even when they belong to one mission.
+## The complete request
 
-Edition 126 demonstrated six real local-model requests across browser, world and creation work. Those dated results remain in [README-126](README-126.md). Edition 127 addresses a practical memory problem: a useful collection also needs to explain its methods and take old versions out of service without destroying evidence. This release does not claim new model training, consciousness, unrestricted browsing or automatic procedure adaptation.
+After selecting a completed calibrated observation, enter:
 
-## What is implemented
+> Create an observation-to-artifact explorer from the selected calibrated run and save the procedure as motion-explorer.
 
-| Control | Actual behavior | Evidence preserved |
-| --- | --- | --- |
-| Inspect | Shows exact name/version, kind, prerequisites, actions, recovery, source references, current compatibility, descendants and lifecycle history | Read-only inspection does not execute the procedure or change its original payload |
-| Retire | Removes the exact version from new model/UI task choices and rejects direct execution | Original procedure, source goal/workflow, report and descendant references remain stored |
-| Reactivate | Reconstructs the saved contract through the original Java verifiers, checks original evidence and compatibility, and requires a free active slot | A dated inspection and chained lifecycle event record what was checked |
-| Open source report | Opens the original checked report in the existing canvas when its evidence remains valid | The report is historical evidence, not a new execution |
-| Recovery | Lifecycle changes use the existing atomic goals checkpoint; interrupted work must settle before management | A failed write rolls back availability; committed retirement survives process loss |
+Java performs four stages:
 
-The collection still allows **32 active procedures and eight versions per name**. Retirement frees an active slot; it does not reset version numbering. Storage is bounded to 512 retired entries and 32 lifecycle changes per managed procedure, with an 8-million-byte lifecycle record ceiling. At a limit, operations refuse and retain originals. This release does not add deletion or unbounded history.
-
-The new lifecycle record is understood by edition127 and later compatible builds. Keep a separate project backup for downgrade; an older reader must not bypass or strip the new record to force a load.
-
-Legacy artifact recipes are a separate existing collection. These controls manage the shared Java procedure registry, including data analysis, procedural geometry, creation, qualified workflows and typed graphs. Management is an explicit user action, outside the model's tool authority.
-
-## Try it in the app
-
-Prepare with JDK 21 and Node.js, and select a separate review project:
-
-```powershell
-$env:FRAYNIX_WORKSPACE_PROJECT = Join-Path $env:USERPROFILE '.fraynix-agent-workspace/projects/edition127-review'
-.\scripts\Start-Agent-Workspace.ps1
-```
-
-A prepared checkout can use `-Offline`; first dependency preparation may require a network connection. This workflow does not require Docker or WSL. Preserve private projects and existing live Java owners when upgrading. Installed local models are needed for model-driven chat/generation; deterministic Java procedure management does not require a model call.
-
-1. Finish or cancel any running or interrupted task. Open **Skills, memory & settings**, then **Manage saved procedures**.
-2. Select the exact procedure and version. Review its actions, source references and current evidence result. Expand the original contract or lifecycle history for detail.
-3. Enter a reason and choose **Retire procedure**. It disappears from new task choices, while remaining visible under the retired filter.
-4. To restore it, inspect it again and choose **Reactivate after checks**. A full active collection, changed source, incompatible implementation or unavailable dependency prevents reactivation and shows the reason.
-5. Run a reactivated procedure on explicitly selected fresh inputs. Its ordinary source and outcome checks still run; reactivation is not proof that the next task will succeed.
-
-![Retired procedure remains inspectable](docs/readmes/127/review-retired.png)
-![Real checked report opened from inspection](docs/readmes/127/review-report.png)
-
-## Preserving evidence and dependencies
-
-The lifecycle is a separate entity in the same checked checkpoint as the original procedures. It never rewrites a procedure to mark it retired. Events bind the original procedure hash, prior event, reason, inspection evidence and time. Historical lookup continues to return original records so completed workflows and descendants can still explain their lineage.
-
-A retired parent does not automatically invalidate a descendant's past evidence. New typed-graph execution, however, requires its executable dependency nodes to be active. Inspection explains that distinction, and a graph cannot reactivate into an executable state with a retired required node. The native graph test verifies this boundary against actual physics execution with explicitly labelled unit-host observations.
-
-For a goal-backed procedure, Java reuses the original source-checking contract builder in a read-only projection, then compares the saved contract. For a workflow-backed procedure it checks the original stages, implementation/qualification evidence and independent audit, then compares the original publication contract. Only generated ID, version and verification timestamp are excluded from the contract comparison; identity and lifecycle hashes are checked separately. Checksums detect changes; they are not administrator-proof attestations.
-
-Imported dataset versions are immutable. Adding version 2 does not invalidate a procedure correctly bound to an intact version 1. Changing the original bound content or report is different and must refuse reactivation. A historical result never becomes a fresh observation just because it is inspected.
-
-![Changed original evidence is refused](docs/readmes/127/review-refused.png)
-
-## Actual validation and measured behavior
-
-Local validation passed: 147 distinct Java test methods, 161 desktop checks, the executable factory-kernel harnesses, the actual agency regression and isolated offline preparation/package checks. The actual lifecycle study includes real rendered reports, an abrupt owned Java-process interruption, a cold restart and checks with a full collection of 32 active procedures. Hosted CI was checked before implementation and remains a separately reported publication result.
-
-- Visible retirement preserves the original procedure and immutable source; new choices and direct execution refuse it. Empty reasons are rejected.
-- Actual owned Java process termination after commit and a cold app restart retain retirement; visible reactivation records independently reconstructed evidence and preserves the same ID/version.
-- A fresh input produces a separately verified v2 descendant. Retiring v1 preserves that descendant and its next execution.
-- Real rendered four-dimensional geometry and a qualified Java-authored input-summary workflow retain their own distinct evidence and survive retirement/reactivation. No model output is fabricated.
-- Full32 active bank refuses another save. Retirement frees exactly one slot; reactivation is disabled/refused while full, then succeeds only after a different entry retires.
-- Stale bank snapshots and altered original reports refuse changes/reactivation. The visible reason remains inspectable, with no horizontal dialog overflow at1100px.
-
-The full-capacity control saves aliases of one completed data procedure to fill the collection. That tests capacity accounting, not 32 distinct learned skills. Distinct task coverage comes from separately executed data tasks, four-dimensional procedural geometry, a qualified input-driven creation workflow and the native graph regression. Unit-host fixtures are explicitly labelled; the actual Electron study obtains real DOM observations and rendered reports without supplying success flags.
-
-| Observed operation | Milliseconds |
-| --- | ---: |
-| inspect motion-report127 | 7.99 |
-| inspect branching4d127 | 42.72 |
-| inspect qualified-summary127 | 459.19 |
-| reactivate qualified-summary127 | 898.24 |
-| catalog at32 | 18.76 |
-
-
-These are individual local caller measurements including the lifecycle request and verification it performs, not confidence intervals or universal speed claims. Qualified workflow checks do more work than a small data contract. Inspection has bounded ancestry and storage; this release does not claim low latency at every possible history size.
-
-## Failures kept, not hidden
-
-The initial focused unit run passed9 of10 checks. One test wrongly expected an unchanged frozen dataset v1 to become invalid after importing v2. The corrected test preserves that legitimate behavior and deliberately alters original bound content to prove refusal. Later focused and regression runs retain the original assertions plus version, capacity, interruption and graph-dependency checks. The initial UI study passed functionally, but screenshot inspection found UTF-8 punctuation corrupted by a local file edit. The original captures remain archived; final reviewed captures use corrected text and recheck the same saved project. The first offline-guide phone-width check also exposed an unwrapped source path; the original overflow capture is retained and the final guide wraps source links. No failed outcome or report was silently replaced.
-
-The actual test deliberately changes a report after saving its original bytes. The resulting refusal is a successful negative check, not a repaired or newly verified report. The synthetic test project remains separate from private worlds. All original attempts, checked records and screenshots are indexed in the evidence archive.
-
-## Architecture and reproducibility
+1. **Bind the observation.** Verify the original image hashes, completed tracker run, actual source timestamps, camera calibration and persistent world/body identity.
+2. **Forecast motion.** Use the last two earlier accepted measurements to forecast subsequent positions. Keep tracking losses, unprojectable observations and forecast refusals visible. No later measurement enters its own prediction.
+3. **Create the artifact.** Build a working explorer with axis selection, a frame scrubber, measured and predicted chart points, original rows, provenance, error metrics and a conditional future estimate.
+4. **Verify and retain.** The independent Electron host operates the controls and reads actual DOM/SVG values. Java checks source cells, summary values, future text, provenance and four rendered states. Only then can the reusable procedure be published. Chat completion checks the original evidence again.
 
 ```mermaid
 flowchart LR
-  User[Explicit procedure controls] --> Java[Java lifecycle owner]
-  Java --> Original[Unchanged source and procedure]
-  Java --> Verify[Original contract and outcome verifiers]
-  Verify --> Gate[Compatibility and capacity checks]
-  Gate --> Commit[Atomic lifecycle checkpoint]
-  Commit --> Choices[Active-only task choices]
-  Original --> History[Historical and descendant evidence]
-  Choices --> Run[Fresh-input execution]
-  Run --> Outcome[Independent outcome checks]
+    R[Chat request] --> O[Pin observations and calibration]
+    O --> F[Causal bounded forecast]
+    F --> A[Working motion explorer]
+    A --> V[Independent rendered and numeric checks]
+    V --> S[Save verified procedure]
+    I[Interruption] --> C[Recover same checkpoint]
+    C --> O
+    S --> N[Fresh inputs and fresh checks]
 ```
 
-No new external dependency was added. Owned Java logic works within the established Java, native physics, Electron/Chromium and JSON stack; those existing dependencies have not disappeared. The continuing application is preserved rather than replaced by a separate procedure manager.
+The existing workflow checkpoint owns these stages. A process interruption leaves the same request recoverable; completed stages remain bound to their original evidence. Source or implementation changes refuse continuation instead of silently replacing the proof.
 
-| Source | Responsibility |
+## Try it
+
+1. Start the normal workspace launcher. Use an isolated project for experiments; preserve your existing private project and camera recordings.
+2. In **3D Lab → Persistent world**, create or select a world. In the observations section, import a supported recorded-frame package and explicitly bind its target to a world body. Run tracking to completion.
+3. In **Measured world → camera, scale & uncertainty**, select the matching saved calibration and optional empirical uncertainty profile, then click **Measure selected run**.
+4. Click **Prepare motion explorer request**. This fills chat and lets you review the request before sending. You can also type the request above directly.
+5. For an explicit recovery boundary, add **“review after forecast.”** Use the existing mission **Resume** control after reviewing it.
+6. After completion, select another completed calibrated run and ask **“Reuse motion-explorer v1 for the selected observation-to-artifact explorer.”** Every value is recomputed and verified against that input. Add **“save the procedure as motion-explorer”** to retain a separately verified version.
+7. Use **Skills, memory & settings → Manage saved procedures** to inspect the original evidence, retire a version or reactivate it after checking its evidence again.
+
+The request does not start your webcam or move a physical device. The original camera consent and capture controls remain in place.
+
+![Same request paused before creation](docs/readmes/128/review-before-creation.png)
+
+## What was actually measured
+
+Local validation passed: 172 distinct Java test methods, 161 desktop checks, executable factory-kernel harnesses, the actual agency regression and isolated offline preparation/package checks. The actual study includes an abrupt owned-Java interruption, cold restart of the same request, changed-input reuse, retained procedure lifecycle and independent numeric/rendered outcomes. Hosted CI was checked first and is reported separately.
+
+- terrace-calibration: original pixels tracked into the same body identity without native motion
+- One visible chat request survives owned-Java termination at the forecast boundary, preserves identity and forecast, independently checks its real artifact and only then saves the procedure.
+- terrace-later-a: original pixels tracked into the same body identity without native motion
+- A changed footage sequence reuses a verified procedure but recomputes all values and passes fresh rendered checks. A third original seed outside the image is refused before tracking, rather than clipped or invented. Prior forecasts and source bytes remain unchanged.
+- Working explorer has no document overflow at1100px app width; all rows remain in its scrollable table.
+- Observed-motion procedure participates in original-evidence inspection, retirement and checked reactivation.
+
+| Recorded input | Accepted / rows | Forecast comparisons | Mean forecast error / m | Request / seconds | Tracking preparation / seconds |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| terrace-calibration | 95 / 95 | 93 | 0.028547 | 10.25 | 13.53 |
+| terrace-later-a | 95 / 95 | 93 | 0.007849 | 10.25 | 42.17 |
+
+| Independent reference check | Scored positions | Mean tracking error / m | Future radius at 0.6 s / m |
+| --- | ---: | ---: | ---: |
+| terrace-calibration | 3 | 5.147 | 35.820 |
+| terrace-later-a | 3 | 0.889 | 20.634 |
+
+The first request includes the explicit review and crash/restart interval. These are single observed costs, not typical latency claims.
+
+
+These are new executions using retained public EPFL footage and published camera calibration, not a new webcam recording or an unseen-footage generalization study. Dense inputs use explicit 96-frame windows at 25 fps, after the earlier sparse sequence supplied no accepted measurements. All source pixels remain in the local study; published numerical traces, hashes, receipts and limited attributed screenshots preserve the evidence without redistributing the source video. See [EPFL's source dataset](https://www.epfl.ch/labs/cvlab/data/data-pom-index-php/) and [the original video](https://documents.epfl.ch/groups/c/cv/cvlab-pom-video3/www/terrace1-c0.avi).
+
+Forecast error is measured against accepted projected tracker estimates. It is **not** automatically error against physical ground truth. **Independent reference scoring reveals substantial drift:** the first sequence averages about 5.15 m error at three annotated positions; the second averages about 0.89 m. These sparse checks do not establish overall accuracy. The 0.6-second future radii are approximately 35.82 m and 20.63 m, too broad to support precise control. This release verifies the data-to-artifact workflow, not useful physical prediction quality. Separate retained reference scores make that limitation inspectable. Human seed labels and boxes do not establish automatic person identification.
+
+![Fresh selected footage, freshly computed output](docs/readmes/128/fresh-source-reuse.png)
+
+## Forecast meaning and limits
+
+The model is a transparent planar constant-velocity estimator. It uses only earlier accepted points. It withholds a forecast when the measurement gap or look-ahead exceeds the declared limit. Defaults are 0.6 seconds for each limit and 5 m/s² as an explicit acceleration-envelope assumption. The API validates ranges: gaps/horizons 0.01–2 seconds and acceleration 0–100 m/s². These assumptions are retained with the task; they are not learned physical properties.
+
+The radius combines the latest positional radius, velocity uncertainty propagated from the two positions, and half the declared acceleration bound times elapsed time squared. A reported radius is an engineering envelope, not a calibrated confidence probability or a guarantee. Optional empirical tracking profiles retain their original camera/plane and evaluation qualifications.
+
+The world body is a stable **observational identity**. The mapping remains in the calibrated ground plane. This workflow does not equate camera-plane metres with a separately registered native 3D pose, and it does not apply its forecast as a native-world action. Actual native physics remains separately verified.
+
+Inputs retain the original 5–96-frame import capacity. A useful forecast requires at least three accepted projected points and one bounded comparison; inadequate evidence is refused. The existing 20-workflow, 32-active-procedure and eight-version limits remain. Completed edition 128 workflow history can use the existing checked archive. Edition 127 retirement preserves source and descendant evidence.
+
+## Failures and corrections
+
+The first sparse source yielded zero accepted measurements and was refused before creating a workflow or procedure. A 121-frame dense input was rejected by the unchanged 96-frame import limit; explicitly prepared 96-frame inputs respect that limit. The third original seed lies outside the image and remains refused, without clipping or inventing a target. A rendered audit exposed SVG 32-bit coordinate representation; the verifier now compares against that defined representation while retaining the strict geometry checks. A later chat completion refused a missing artifact-test receipt; the independent host now retains its actual checks in the existing receipt store. Both failures remain preserved. Test-driver timing, GET/POST and manual-selection-during-ownership mistakes are also retained. A thread diagnostic exposed repeated metadata loading per image; final verification reads one pinned metadata snapshot, hashes every original image and rechecks the snapshot afterward. The final complete study reruns on that final source; earlier attempts are not relabelled.
+
+All retained failures are dated originals. No failed task is counted as completed, and earlier proofs are not relabelled under changed code. See [verification](docs/readmes/128/verification.json), [actual app study](docs/readmes/128/observation-study.json), [original evidence inventory](docs/readmes/128/original-evidence.json) and [source inventory](docs/readmes/128/file-inventory.json).
+
+## Ownership and implementation
+
+| Layer | Responsibility |
 | --- | --- |
-| [ProcedureLifecycle127.java](workspace-engine/src/main/java/fraymus/workspace/ProcedureLifecycle127.java) | Availability, bounded history, exact snapshot and event-chain checks |
-| [GoalRunner.java](workspace-engine/src/main/java/fraymus/workspace/GoalRunner.java) | Original records, read-only contract reconstruction, atomic storage and execution admission |
-| [WorkflowRunner.java](workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java) | Workflow evidence, qualification, dependencies and lifecycle coordination |
-| [WorkspaceServer.java](workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java) | Interface ownership and explicit lifecycle routes |
-| [procedures127.js](workspace-desktop/renderer/procedures127.js) | Integrated inspection and visible refusal reasons |
-| [Actual app study](workspace-desktop/test/lifecycle127-integration.cjs) | Real rendered outcomes, abrupt Java interruption and full-bank controls |
+| [Java observation procedure](workspace-engine/src/main/java/fraymus/workspace/ObservationArtifact128.java) | Original images, clock, calibration and object binding; bounded causal forecast and explicit uncertainty |
+| [Workflow owner](workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java) | Atomic stages, interruption/recovery, original-evidence verification, procedure publication and fresh-source reuse |
+| [Artifact and verifier](workspace-engine/src/main/java/fraymus/workspace/ObservationArtifactReport128.java) | Input-derived working HTML and independent numeric/geometry checks |
+| [Independent host](workspace-desktop/observation-artifact128.cjs) | Exercise actual controls and observe visible DOM/SVG values; page-generated success flags have no authority |
+| [Java chat coordination](workspace-engine/src/main/java/fraymus/workspace/Domain044.java) | Selected-source admission, durable task ownership and rechecked completion |
 
-[Verification summary](docs/readmes/127/verification.json), [actual app results](docs/readmes/127/lifecycle-study.json), [measured requests](docs/readmes/127/measurements.json), [original evidence index](docs/readmes/127/original-evidence.json), [source inventory](docs/readmes/127/file-inventory.json) and [connected engineering note](docs/obsidian/135-procedure-lifecycle.md) make the limits and provenance reviewable. Hosted CI is reported separately from local verification.
+The [offline guide](docs/readmes/128/index.html) includes searchable source files, measured requests and actual screenshots. Open the repository as an Obsidian vault for the [linked note](docs/obsidian/136-observation-artifact.md) and [component canvas](docs/obsidian/136-observation-artifact.canvas).
 
-## Next: an observation becomes a useful artifact
+```text
+workspace-engine/src/main/java/fraymus/workspace/
+  ObservationArtifact128.java        original evidence and causal forecast
+  ObservationArtifactReport128.java  working explorer and numeric verifier
+  WorkflowRunner.java               durable stages and procedure reuse
+workspace-desktop/
+  observation-artifact128.cjs        independent rendered observations
+  test/observation128-integration.cjs actual app, interruption and reuse
+  test/observation128-review.cjs      reopen and recheck completed evidence
+docs/readmes/128/                    frozen results, source map and screenshots
+docs/publication128/                validation and publication helpers
+```
 
-Edition 128 should connect one calibrated recorded sequence to an existing persistent object, make a bounded motion prediction, create an interactive explanation, verify its calculations and rendered behavior, and retain the whole procedure. The same request must survive interruption and work with fresh input. This is planned work, not an installed capability of edition 127.
+No new third-party runtime dependency was added. The application still uses its existing JDK, JSON, native physics, Electron/Chromium and other declared dependencies. It is a local Java-owned system, not a claim that every existing dependency has been replaced.
 
-After that, edition 129 should propose bounded changes from observed failures and compare them against the incumbent and simple control before promotion or rollback. Edition 130 should make the whole mission understandable in daily use: current state, uncertainty, cost allowance, results and retained skills in the same workspace. Those steps keep the agent's usable end-to-end behavior at the center of development.
+## Run and develop
+
+Use JDK 21 and the repository's Gradle wrapper. On Windows, the normal entry point is [Start-Agent-Workspace.ps1](scripts/Start-Agent-Workspace.ps1); `-PrepareOnly -Offline` validates an already provisioned local installation. The desktop's existing locked dependencies must be available. This does not install packages silently or connect a private project to a second simultaneous owner.
+
+Focused validation:
+
+```powershell
+.\gradlew.bat :workspace-engine:test --tests fraymus.workspace.ObservationArtifact128Test
+cd workspace-desktop
+npm test
+```
+
+For the retained study, the original source video SHA-256 is `b7efa4d87e9080baecbf52e0fce5a6c014e14dcfe3b1089c14f9008194bcc106`. Inputs contain 96 consecutive frames starting at source frames 500 and 2500 (25 fps). The starting box is copied unchanged from each previously declared source package; source reference positions are reserved for separate scoring, not tracking input. The third start at 3500 is retained as a refusal. Exact preparation records are included in the original evidence inventory.
+
+The actual app study is [observation128-integration.cjs](workspace-desktop/test/observation128-integration.cjs). Its recorded inputs are separately prepared from the cited original footage. Its controls, crash boundary, changed-input reuse and screenshots are real app operations. The unit tests clearly distinguish analytic and typed-host fixtures from rendered integration evidence.
+
+![Actual app at 1100 pixels](docs/readmes/128/explorer-1100.png)
+
+## Next phases
+
+**129 — evaluated adaptation.** First address the observed tracking/calibration drift and overly broad forecast bounds. Use independent references alongside retained failures and forecast residuals to propose a bounded change, compare it with the incumbent and a simpler baseline on separate cases, measure total cost and preserve rollback. A changed policy earns promotion through better outcomes; changing weights or producing a vivid chart is not enough.
+
+**130 — coherent daily use.** Make the current mission, selected observation, uncertainty, results, resource allowance and reusable procedure understandable in the existing workspace. Validate complete tasks at supported widths, clean installation, interruption and recovery.
+
+The destination remains one continuing agent with connected observation, world, browser and creation tools. Each domain keeps its units, authority and evidence checks. See the [integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md) and [contributor continuity notes](README-CONTRIBUTORS.md) before extending it.

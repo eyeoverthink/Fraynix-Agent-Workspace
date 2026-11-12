@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "observation",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ObservationArtifact128.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "workflow",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "artifact",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ObservationArtifactReport128.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "host",
+      "type": "file",
+      "file": "workspace-desktop/observation-artifact128.cjs",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "study",
+      "type": "file",
+      "file": "workspace-desktop/test/observation128-integration.cjs",
+      "x": 430,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "observation",
+      "toNode": "workflow"
+    },
+    {
+      "id": "1",
+      "fromNode": "workflow",
+      "toNode": "artifact"
+    },
+    {
+      "id": "2",
+      "fromNode": "artifact",
+      "toNode": "host"
+    },
+    {
+      "id": "3",
+      "fromNode": "host",
+      "toNode": "study"
+    }
+  ]
+}
