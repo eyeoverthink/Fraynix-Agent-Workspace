@@ -87,6 +87,18 @@ public class BrowserOutcome126Test {
             f.agency.tick();var g=f.agency.read(t.getString("id"));assertEquals(1,g.getInt("failures"));assertEquals("ready",g.getString("status"));assertEquals(3,replies.get());
         }
     }
+    @Test public void intermediateChecksDoNotSpendRepairBudgetAndSuccessStopsFurtherModelActions()throws Exception{
+        var calls=new java.util.concurrent.atomic.AtomicInteger();
+        try(var f=new Agency043Test.Fixture(q->{
+            int n=calls.getAndIncrement();if(n>1)throw new AssertionError("No extra model decision after verified result");
+            return Agency043Test.reply(n==0?"browser.type":"browser.click",n==0?new JSONObject().put("observation","initial").put("ref","0").put("text","alpha"):new JSONObject().put("observation","typed").put("ref","1"));
+        })){
+            var c=contract().put("url","http://127.0.0.1/labelled-unit-control");var t=f.agency.start(new JSONObject().put("goal","Record alpha once").put("model","unit-fixture").put(BrowserOutcome126.KEY,c));
+            f.agency.tick();f.acknowledge(f.claim(),new JSONObject().put("observation","initial"));f.agency.tick();f.acknowledge(f.claim(),new JSONObject().put("observation","typed"));
+            var check=f.claim();assertTrue(check.getJSONObject("extra").getBoolean("progressCheck126"));var notYet=receipt(c,t,check);notYet.getJSONArray("checks").getJSONObject(0).put("text","not yet");f.acknowledge(check,notYet);assertEquals(0,f.agency.read(t.getString("id")).getInt("failures"));
+            f.agency.tick();f.acknowledge(f.claim(),new JSONObject().put("observation","clicked"));check=f.claim();f.acknowledge(check,receipt(c,t,check));f.agency.tick();assertEquals(2,calls.get());assertEquals("verified",f.agency.read(t.getString("id")).getString("outcome"));assertTrue(f.agency.verify112(t.getString("id")).getBoolean("passed"));
+        }
+    }
     @Test public void unsuccessfulActualCheckReturnsToPlanningWithoutCertifyingSuccess()throws Exception{
         try(var f=new Agency043Test.Fixture(q->Agency043Test.reply("finish",new JSONObject().put("summary","claimed")))){
             var c=contract().put("url","http://127.0.0.1/labelled-unit-control");var t=f.agency.start(new JSONObject().put("goal","Record alpha").put("model","unit-fixture").put(BrowserOutcome126.KEY,c));
