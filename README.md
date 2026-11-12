@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — Edition 128
 
+[Published and fetched verification receipt](docs/PUBLICATION_128.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-128)
+
 **One request connects an observed object, a bounded forecast and a working, independently checked artifact.**
 
 2026-11-12 · Local Java ownership · Persistent evidence · Integrated browser and canvas
