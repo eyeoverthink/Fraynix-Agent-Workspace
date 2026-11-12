@@ -1,5 +1,6 @@
 import {Inputs100Panel} from './inputs100.js';
 import {Workspace099} from './workspace099.js';
+import {BrowserChecks126} from './browser-checks126.js';
 import {Construction051} from './construction051.js';
 import {Workshop050} from './workshop050.js';
 import {Agency043Panel} from './agency043.js';
@@ -138,7 +139,7 @@ $('back').onclick=()=>safe(()=>request('back'));$('forward').onclick=()=>safe(()
 $('new-artifact').onclick=()=>safe(()=>{requireSaved();setCanvasMode('preview');return request('new');});
 $('proof').onclick=()=>safe(async()=>{requireSaved();$('proof').disabled=true;notice('Running the real browser → artifact → test → skill proof');try{await request('proof');notice('Guided proof passed: browser, runnable app, tests and skill saved');}finally{$('proof').disabled=false;}});
 $('game').onclick=()=>safe(async()=>{await brainGame.openIntegrated();notice('Original Java game runtime is integrated here; no separate editor window');});
-$('run').onclick=()=>safe(async()=>{requireSaved();const goal=$('goal').value.trim();if(!goal)return;message(goal,'user');await request('agent',{goal,model:$('model').value,planWorld099:document.querySelector('#plan-world099').checked});});
+$('run').onclick=()=>safe(async()=>{requireSaved();const goal=$('goal').value.trim();if(!goal)return;message(goal,'user');await request('agent',{goal,model:$('model').value,planWorld099:document.querySelector('#plan-world099').checked,...(window.browserChecks126?.contract()?{browserContract126:window.browserChecks126.contract()}:{})});});
 $('goal').addEventListener('keydown',e=>{if(e.ctrlKey&&e.key==='Enter')$('run').click();});
 $('stop').onclick=()=>safe(()=>request('stop'));
 $('observe-browser').onclick=()=>safe(async()=>{const result=await request('tool',{tool:'browser.observe',args:{}});$('observation').textContent=JSON.stringify(result,null,2);$('inspection').showModal();updateLayout();});
@@ -157,6 +158,7 @@ $('test-canvas').onclick=()=>safe(async()=>{requireSaved();const result=await re
 $('save-skill').onclick=()=>safe(async()=>{requireSaved();const name=artifact.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,50)||'web-artifact';await request('tool',{tool:'skill.save',args:{name:name.length<3?'web-'+name:name,description:artifact.title+' — verified interactive web artifact'}});notice('Verified recipe saved in the project skill library');});
 for(const kind of ['browser','canvas'])$('expand-'+kind).onclick=()=>{const className=kind+'-focus';const active=document.body.classList.contains(className);document.body.classList.remove('browser-focus','canvas-focus');if(!active)document.body.classList.add(className);$('expand-browser').textContent=!active&&kind==='browser'?'Restore':'Expand';$('expand-canvas').textContent=!active&&kind==='canvas'?'Restore':'Expand';updateLayout();};
 window.workbench099=new Workspace099(request,updateLayout);
+window.browserChecks126=new BrowserChecks126();
 window.inputs100=new Inputs100Panel(request,source=>creationPanel.open(source));
 host.onEvent(({type,value})=>{
   window.inputs100.event(type,value);

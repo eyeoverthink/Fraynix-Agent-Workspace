@@ -24,7 +24,8 @@ function createAgency043({api,execute,openArtifact,getArtifact,getSurface,showPr
    try{if(['open','recipe','reverify','report'].includes(c.kind)){
      const a=await api('/api/artifact/read',{id:c.extra.artifact.id});if(a.version!==c.extra.artifact.version)throw Error('Java-selected artifact version changed');await showPreview();await openArtifact(a);
      result=c.kind==='open'?{id:a.id,version:a.version}:await execute('canvas.test',{steps:c.extra.steps||c.args.steps});
-    }else result=await execute(c.tool,c.args);
+    }else if(c.kind==='browser-check126')result=await require('./browser-outcome126.cjs').observeOutcome126(getSurface('browser'),c);
+    else result=await execute(c.tool,c.args);
    }catch(e){error=e.message;}
    afterId=await capture(kind,'after');
   });

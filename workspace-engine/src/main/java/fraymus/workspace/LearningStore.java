@@ -109,6 +109,22 @@ public final class LearningStore {
         if(raw.has("transition")){String transition=raw.getString("transition");if(!Set.of("refresh-before-action","refresh-after-change","read-budget","repair","none").contains(transition))throw new IllegalArgumentException("Invalid transition");item.put("transition",transition);}
         steps.put(item);commit(List.of(record("episode",episode)));return new JSONObject().put("saved",true).put("steps",steps.length());
     }
+    /** Only the Java browser gate can close this type of verified episode; public end still needs an artifact receipt. */
+    synchronized JSONObject endBrowser126(JSONObject task) throws IOException {
+        JSONObject stored=null;
+        for(Object raw:AgentFiles042.loadChecked(root.getParent().resolve("agency-043/tasks.json")).getJSONArray("tasks")){
+            var candidate=(JSONObject)raw;if(candidate.getString("id").equals(task.getString("id")))stored=candidate;
+        }
+        if(stored==null)throw new IllegalStateException("Browser task is not durably recorded");
+        Agency043.verifyHistory(stored);
+        var proof=BrowserOutcome126.evidence(stored);
+        if(!WorldFrames.hash(proof).equals(WorldFrames.hash(BrowserOutcome126.evidence(task)))||!stored.getString("episodeId").equals(task.getString("episodeId")))throw new IllegalStateException("Browser episode and original task differ");
+        var episode=require(task.getString("episodeId"),"episode");
+        if(!episode.getString("status").equals("running")||!episode.getString("goalDigest").equals(digest(stored.getString("goal"))))throw new IllegalStateException("Browser episode is closed or belongs to another request");
+        var steps=episode.getJSONArray("steps");if(steps.length()>=96)throw new IllegalStateException("Episode step limit reached");
+        steps.put(new JSONObject().put("index",steps.length()).put("at",now()).put("tool","browser.check").put("ok",true).put("failure","none").put("browserVerified126",true).put("contractSha256",WorldFrames.hash(stored.getJSONObject(BrowserOutcome126.KEY))).put("receiptSha256",WorldFrames.hash(proof)));
+        episode.put("status","verified").put("endedAt",now());commit(List.of(record("episode",episode)));return episode;
+    }
     public synchronized JSONObject end(JSONObject input) throws IOException {
         var episode=require(input.getString("id"),"episode");if(!episode.getString("status").equals("running"))throw new IllegalStateException("Episode is already closed");
         String status=input.getString("status");if(!Set.of("verified","completed-unverified","failed","cancelled").contains(status))throw new IllegalArgumentException("Invalid episode outcome");

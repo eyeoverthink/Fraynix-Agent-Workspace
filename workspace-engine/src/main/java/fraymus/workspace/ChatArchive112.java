@@ -69,6 +69,8 @@ final class ChatArchive112 {
         }proof.put("frames",frames);
         if(g.optString("family044").equals("workflow")){
             if(workflows==null)throw new IllegalStateException("Native workflow verifier unavailable");proof.put("workflow",workflows.check(WorldFrames.copy(g)));
+        }else if(outcome.equals("verified")&&g.has(BrowserOutcome126.KEY)){
+            proof.put("browserOutcome126",BrowserOutcome126.evidence(g));
         }else if(outcome.equals("verified")){
             var ref=g.getJSONObject(g.getString("mode").equals("inspect")?"report":"artifact");var artifact=store.read(ref.getString("id"));var test=artifact.optJSONObject("test");
             if(artifact.getInt("version")!=ref.getInt("version")||!WorldFrames.hash(artifact.getJSONObject("contents")).equals(ref.getString("sha256"))||test==null||!test.getBoolean("passed")||test.getInt("version")!=artifact.getInt("version")||test.getJSONArray("checks").isEmpty())throw new IllegalStateException("Original chat artifact or test changed");

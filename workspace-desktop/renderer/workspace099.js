@@ -83,6 +83,7 @@ export class Workspace099 {
     this.card.querySelector('#task099-request').textContent=task.goal;this.card.querySelector('#task099-request').title=task.goal;
     this.card.querySelector('#task099-progress').textContent=task.reason||'';
     this.card.querySelector('#task099-result').textContent=task.summary||'';this.card.querySelector('#task099-details').hidden=!task.summary;
-    this.card.querySelector('#task099-open').hidden=task.status!=='completed'||task.outcome!=='verified';
+    this.card.querySelector('#task099-open').hidden=task.status!=='completed'||task.outcome!=='verified'||!!task.browserOutcome126;
+    if(task.browserOutcome126){const r=task.browserOutcome126.receipt;this.card.querySelector('#task099-result').textContent=`${task.summary} Checked ${r.checks.length} visible result(s) at ${r.observedAt}. ${r.url}`;}
   }
 }
