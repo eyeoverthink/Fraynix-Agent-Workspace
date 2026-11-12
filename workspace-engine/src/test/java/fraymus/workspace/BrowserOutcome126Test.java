@@ -17,6 +17,12 @@ public class BrowserOutcome126Test {
         var action=contract();action.getJSONArray("checks").getJSONObject(0).put("action","click");assertThrows(IllegalArgumentException.class,()->BrowserOutcome126.contract(action));
         var duplicate=contract();duplicate.getJSONArray("checks").put(duplicate.getJSONArray("checks").getJSONObject(0));assertThrows(IllegalArgumentException.class,()->BrowserOutcome126.contract(duplicate));
     }
+    @Test public void browserCriteriaPinTheWorkbenchWithoutUsingDomainOverride()throws Exception{
+        try(var f=new Agency043Test.Fixture(q->{throw new AssertionError("No model expected during admission");})){
+            f.agency.install044(new Domain044((route,args)->{throw new AssertionError("Browser contract must not initialize another selected domain: "+route);},f.store));
+            var t=start(f);assertEquals("workbench",t.getString("mode"));assertTrue(t.has(BrowserOutcome126.KEY));assertFalse(t.has("family044"));
+        }
+    }
     @Test public void actualValuesAreComparedAndModelSuccessFlagsAreRefused(){
         var c=contract();var t=new JSONObject().put("id",UUID.randomUUID().toString()).put("generation",2);var e=new JSONObject().put("id",UUID.randomUUID().toString());var r=receipt(c,t,e);
         assertTrue(BrowserOutcome126.compare(c,r,t.getString("id"),2,e.getString("id")));
