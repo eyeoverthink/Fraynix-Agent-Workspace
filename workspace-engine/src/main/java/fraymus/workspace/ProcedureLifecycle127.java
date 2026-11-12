@@ -39,7 +39,7 @@ final class ProcedureLifecycle127 {
     static JSONObject change(JSONObject state,List<JSONObject> procedures,JSONObject p,JSONObject input,JSONObject evidence){
         SpatialScene.keys(input,"id","action","expectedHash","reason");validate(state,procedures);
         if(!input.getString("id").equals(p.getString("id"))||!token(state,procedures).equals(input.getString("expectedHash")))throw new IllegalStateException("Procedure bank changed; inspect again");
-        String action=input.getString("action"),reason=input.getString("reason").strip();if(reason.isEmpty()||reason.length()>240)throw new IllegalArgumentException("Give a reason using 1Ã¢â‚¬â€œ240 characters");
+        String action=input.getString("action"),reason=input.getString("reason").strip();if(reason.isEmpty()||reason.length()>240)throw new IllegalArgumentException("Give a reason using 1–240 characters");
         if(!Set.of("retire","reactivate").contains(action)||action.equals("retire")==retired(state,p))throw new IllegalStateException("Procedure is already in that state or action is unsupported");
         if(p.optString("publication101").equals("pending"))throw new IllegalStateException("Pending procedures cannot change availability");
         long retired=procedures.stream().filter(x->retired(state,x)).count();
