@@ -59,7 +59,7 @@ final class BrowserOutcome126 {
         boolean witnessed=false;String hash=WorldFrames.hash(receipt);
         for(Object raw:task.getJSONArray("history")){
             var row=(JSONObject)raw;var d=row.getJSONObject("detail");
-            if(row.getString("kind").equals("browser-outcome126")&&d.optString("resultSha256").equals(hash)
+            if(row.getString("kind").equals("browser-outcome")&&d.optString("resultSha256").equals(hash)
                 &&d.optString("beforeId").equals(proof.getString("beforeId"))&&d.optString("afterId").equals(proof.getString("afterId")))witnessed=true;
         }
         if(!witnessed)throw new IllegalStateException("Original browser observation is not in the task journal");

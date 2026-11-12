@@ -32,6 +32,14 @@ public class BrowserOutcome126Test {
         assertThrows(IllegalStateException.class,()->BrowserOutcome126.compare(c,r,t.getString("id"),3,e.getString("id")));
         assertThrows(IllegalStateException.class,()->BrowserOutcome126.compare(c,WorldFrames.copy(r).put("checks",new JSONArray()),t.getString("id"),2,e.getString("id")));
     }
+    @Test public void publicLearningEndpointsCannotManufactureABrowserSuccess()throws Exception{
+        try(var f=new Agency043Test.Fixture(q->{throw new AssertionError();})){
+            String id=UUID.randomUUID().toString();f.learning.begin(new JSONObject().put("id",id).put("taskKind","browser-task").put("goal","test"));
+            assertThrows(IllegalArgumentException.class,()->f.learning.step(new JSONObject().put("id",id).put("step",new JSONObject().put("tool","browser.check").put("ok",true).put("browserVerified126",true))));
+            assertThrows(IllegalStateException.class,()->f.learning.end(new JSONObject().put("id",id).put("status","verified")));
+            assertEquals("running",f.learning.read("episode",id).getString("status"));
+        }
+    }
     @Test public void criteriaArePartOfOriginalObjectiveAndWrongToolCannotExecute()throws Exception{
         try(var f=new Agency043Test.Fixture(q->Agency043Test.reply("canvas.write",new JSONObject().put("title","wrong").put("files",new JSONObject().put("index.html","wrong"))))){
             var t=start(f);var changed=f.agency.read(t.getString("id"));changed.getJSONObject(BrowserOutcome126.KEY).put("url","https://changed.test/");assertThrows(IllegalStateException.class,()->ChatChain052.verifyObjective(changed));
@@ -53,6 +61,14 @@ public class BrowserOutcome126Test {
             f.acknowledge(claim,receipt(c,t,claim));var done=f.agency.read(t.getString("id"));assertEquals("verified",done.getString("outcome"));assertTrue(f.agency.verify112(t.getString("id")).getBoolean("passed"));
             var altered=WorldFrames.copy(done);altered.getJSONObject(BrowserOutcome126.PROOF).getJSONObject("receipt").getJSONArray("checks").getJSONObject(0).put("text","wrong");assertThrows(IllegalStateException.class,()->BrowserOutcome126.evidence(altered));
             var state=f.agency.history112();f.agency.archive112(new JSONObject().put("planSha256",state.getString("planSha256")).put("ids",new JSONArray().put(t.getString("id"))));assertTrue(f.agency.verify112(t.getString("id")).getBoolean("passed"));
+        }
+    }
+    @Test public void realContinuingRuntimeWitnessAcceptsTheWholeBrowserCompletion()throws Exception{
+        try(var f=new Agency043Test.Fixture(q->{throw new AssertionError();});var brain=new BrainService(f.root);var runtime=new AgentRuntime042(f.root,brain,JSONObject::new,()->{},false,new AgentClock042(),false)){
+            f.agency.close();f.agency=new Agency043(f.root,f.store,f.learning,q->Agency043Test.reply("finish",new JSONObject().put("summary","claimed")),id->{},runtime::record043,()->false,false);
+            var c=contract().put("url","http://127.0.0.1/labelled-unit-control");var t=f.agency.start(new JSONObject().put("goal","Record alpha").put("model","unit-fixture").put(BrowserOutcome126.KEY,c));
+            f.agency.tick();f.acknowledge(f.claim(),new JSONObject());f.agency.tick();var claim=f.claim();f.acknowledge(claim,receipt(c,t,claim));
+            assertEquals("verified",f.agency.read(t.getString("id")).getString("outcome"));assertTrue(runtime.state().getJSONObject("witness").getLong("records")>0);
         }
     }
     @Test public void unsuccessfulActualCheckReturnsToPlanningWithoutCertifyingSuccess()throws Exception{

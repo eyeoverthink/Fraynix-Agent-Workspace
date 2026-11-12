@@ -175,9 +175,9 @@ final class Agency043 implements AutoCloseable {
             if(error.isEmpty()&&effect.getString("kind").equals("browser-check126")){
                 if(!result.optString("url").equals(a.getJSONObject("source").getString("url")))throw new IllegalStateException("Browser observation and captured page differ");
                 boolean passed=BrowserOutcome126.compare(g.getJSONObject(BrowserOutcome126.KEY),result,g.getString("id"),g.getInt("generation"),effect.getString("id"));
-                record(g,"browser-check126",new JSONObject().put("passed",passed).put("result",result));
+                record(g,"browser-check",new JSONObject().put("passed",passed).put("result",result));
                 if(passed){g.put(BrowserOutcome126.PROOF,new JSONObject().put("receipt",WorldFrames.copy(result)).put("beforeId",in.getString("beforeId")).put("afterId",in.getString("afterId")));
-                    record(g,"browser-outcome126",new JSONObject().put("resultSha256",WorldFrames.hash(result)).put("beforeId",in.getString("beforeId")).put("afterId",in.getString("afterId")));
+                    record(g,"browser-outcome",new JSONObject().put("resultSha256",WorldFrames.hash(result)).put("beforeId",in.getString("beforeId")).put("afterId",in.getString("afterId")));
                 }else error="Browser outcome check failed. The actual URL and visible results must match the original browser criteria. Observed: "+result;
             }
             claims.remove(g.getJSONObject("claim").getString("nonce"));g.remove("claim");g.remove("effect");consumed=true;
