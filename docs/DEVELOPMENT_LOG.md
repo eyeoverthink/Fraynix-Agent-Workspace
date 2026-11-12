@@ -1,3 +1,9 @@
+## Edition124 continuation — admission guard c1ec36d3, presentation65bffa07
+
+2026-11-12. Continue same isolated edition124 checkout. Pipeline remaining124.py/session90575 is still running serially. Final wrapper includes original missing-decision guard: orphan budget tasks cannot advance/resume/certify; the raw task remains readable. Guard added after broad regression compiled4de8bddb; preserve that scope, not all-current relabelling. Current-source software/UI and focused native checks cover it. Source-scope receipt build/validation-source124.json.
+
+After remaining124.py succeeds, RUN python docs/publication124/complete124.py. It safely preserves the earlier reserved pass, runs final wrapper tests, and collects fresh27development+4reserved under the final wrapper identity. Existing earlier development pilot and pre-compatibility directories stay archived. Then plot124 -> document124 -> notes124 -> document124 -> visual124; inspect real screenshots and chart/guide, write visual-review124.json, freeze/documentation-check, release124/fetched audit/CI/finish124. No124 push yet. Keep verification, originals and negative cases; no delegation or heavy overlap. Latest helper commit5f68ac30. Full final native dataset40 includes software9 from remaining pipeline.
+
 ## Edition124 validation checkpoint — final implementation 4de8bddb
 
 2026-11-12. S:/Codex-Work/fraynix-workspace-edition124, branchedition124; parent1d328f37. Pipeline docs/publication124/remaining124.py is active (unified session90575): reserved4PASS, then18 regressions, broad hardware checks, software9,168desktop checks/package and11actual UI requests. Heavy validation must remain serial. Production wrapper and controller are frozen; do not rebuild/modify Java during active native checks.
