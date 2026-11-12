@@ -4,6 +4,10 @@ package agent;
 public final class ContactRecovery119 {
     public enum Phase { OBSERVE, WAIT, RELEASE, JUMP, REFUSED }
     public record Decision(boolean override,float horizontal,boolean jump,String reason) {}
+    private final boolean supportEdge;
+    private int edgeStarts;
+    public ContactRecovery119(){this(false);}
+    public ContactRecovery119(boolean supportEdge){this.supportEdge=supportEdge;}
     private Phase phase=Phase.OBSERVE;
     private long lastTick=-1,stillSince,until,jumpUntil;
     private float anchorX,anchorY,startX,direction;
@@ -22,8 +26,9 @@ public final class ContactRecovery119 {
             throw new IllegalArgumentException("Finite positions, direction and increasing ticks required");
         if(lastTick<0||Math.abs(x-anchorX)>.008f||Math.abs(y-anchorY)>.008f){anchorX=x;anchorY=y;stillSince=tick;}
         lastTick=tick;supported=supportContact;blocked=opposingContact;
-        if(phase==Phase.OBSERVE&&tick-stillSince>=24&&supportContact&&opposingContact){
+        if(phase==Phase.OBSERVE&&tick-stillSince>=24&&supportContact&&(opposingContact||supportEdge&&!grounded)){
             if(attempts>=3||!floorBehind){phase=Phase.REFUSED;return no("Contact escape refused: unsupported retreat or attempt limit");}
+            if(!opposingContact)edgeStarts++;
             direction=Math.signum(travel);startX=x;
             if(rearThreat){phase=Phase.WAIT;until=tick+180;}
             else {attempts++;until=tick+90;phase=Phase.RELEASE;}
@@ -45,5 +50,5 @@ public final class ContactRecovery119 {
         return no(phase==Phase.REFUSED?"Contact recovery budget refused":"Observe actual displacement and contacts");
     }
     private static Decision no(String reason){return new Decision(false,0,false,reason);}
-    public java.util.Map<String,Object> observation(){return java.util.Map.of("phase",phase.name(),"attempts",attempts,"stillTicks",Math.max(0,lastTick-stillSince),"supportContact",supported,"opposingContact",blocked);}
+    public java.util.Map<String,Object> observation(){return java.util.Map.of("phase",phase.name(),"attempts",attempts,"stillTicks",Math.max(0,lastTick-stillSince),"supportContact",supported,"opposingContact",blocked,"edgeStarts122",edgeStarts);}
 }

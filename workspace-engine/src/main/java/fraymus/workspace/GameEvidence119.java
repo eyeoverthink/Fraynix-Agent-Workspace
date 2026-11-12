@@ -5,7 +5,7 @@ import java.util.*;
 /** Bounds and labels for native recovery observations; existing source/outcome checks remain external. */
 final class GameEvidence119 {
     static void verify(JSONObject c,int tick){
-        if(!Set.of("recover119","opportunity120","revisit121","observe121").contains(c.getString("policy")))return;
+        if(!Set.of("recover119","opportunity120","revisit121","observe121","contact122").contains(c.getString("policy")))return;
         int deferred=c.getInt("pickupDeferrals"),skipped=c.getInt("pickupSkips"),attempts=c.getJSONObject("contactRecovery119").getInt("attempts");
         long checks=c.getLong("contactChecks"),overrides=c.getLong("contactOverrides");
         if(deferred<0||deferred>tick*4L||skipped<0||attempts<0||attempts>3||checks<0||checks>tick||overrides<0||overrides>checks||c.getLong("contactNanos")<0)throw new IllegalStateException("Invalid recovery counters");
