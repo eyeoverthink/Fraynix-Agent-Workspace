@@ -36,7 +36,7 @@ async function main(){
   assert(row.elapsedMs,'Bounded task timeout');if(restart){assert(crashed);assert.notEqual(row.child.trials[0].sessionId,row.child.trials[1].sessionId);assert.equal(row.child.trials[0].status,'interrupted');}await save();return row;
  }
  try{
-  await open();record.self=await api('/api/self/read',{query:'game'});await page.locator('#game-tab').click();await page.waitForFunction(()=>document.querySelector('#game-status').textContent.includes('tick'));
+  await open();record.self=await api('/api/self/read',{query:'game'});assert(JSON.stringify(record.self).includes('pickupStrategy=full/no-wait/no-return/direct'),'Agent capability list exposes current pickup choices');await page.locator('#game-tab').click();await page.waitForFunction(()=>document.querySelector('#game-status').textContent.includes('tick'));
   const cases=[['return','full',1,true,'return-full.png'],['return','no-return',0,false,'return-disabled.png'],['turtle','full',1,false,'wait-full.png'],['turtle','direct',0,false,'wait-disabled.png']];let full,last;
   for(const [choice,strategy,pickups,restart,file] of cases){
    if(!await page.locator('#game-level-builder').evaluate(e=>e.open))await page.locator('#game-level-builder > summary').click();
