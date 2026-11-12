@@ -1,0 +1,37 @@
+[
+  {
+    "attempt": "browser126-complete",
+    "error": "AssertionError [ERR_ASSERTION]: Stopped by you\n+ actual - expected\n\n+ 'cancelled'\n- 'completed'\n\n    at task (S:\\Codex-Work\\fraynix-workspace-edition126\\workspace-desktop\\test\\browser126-integration.cjs:30:10)\n    at async main (S:\\Codex-Work\\fraynix-workspace-edition126\\workspace-desktop\\test\\browser126-integration.cjs:37:396)",
+    "scope": "Retained original failure, not counted as a successful final request."
+  },
+  {
+    "attempt": "browser126-final",
+    "error": "AssertionError [ERR_ASSERTION]: Stopped by you\n+ actual - expected\n\n+ 'cancelled'\n- 'completed'\n\n    at S:\\Codex-Work\\fraynix-workspace-edition126\\workspace-desktop\\test\\browser126-recovery-continue.cjs:9:1646",
+    "scope": "Retained original failure, not counted as a successful final request."
+  },
+  {
+    "attempt": "browser126-first",
+    "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'Nothing recorded'\n- 'Recorded Atlas'\n\n    at direct (S:\\Codex-Work\\fraynix-workspace-edition126\\workspace-desktop\\test\\browser126-integration.cjs:33:772)\n    at async main (S:\\Codex-Work\\fraynix-workspace-edition126\\workspace-desktop\\test\\browser126-integration.cjs:36:3)",
+    "scope": "Retained original failure, not counted as a successful final request."
+  },
+  {
+    "attempt": "browser126-fourth",
+    "error": "locator.uncheck: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#browser126-enabled')\u001b[22m\n\u001b[2m    - locator resolved to <input type=\"checkbox\" id=\"browser126-enabled\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    56 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at task (S:\\Codex-Work\\fraynix-workspace-edition126\\workspace-desktop\\test\\browser126-integration.cjs:31:235)\n    at async main (S:\\Codex-Work\\fraynix-workspace-edition126\\workspace-desktop\\test\\browser126-integration.cjs:36:31)",
+    "scope": "Retained original failure, not counted as a successful final request."
+  },
+  {
+    "attempt": "browser126-second",
+    "error": "AssertionError [ERR_ASSERTION]: Actual chat request admitted\n    at task (S:\\Codex-Work\\fraynix-workspace-edition126\\workspace-desktop\\test\\browser126-integration.cjs:22:155)\n    at async main (S:\\Codex-Work\\fraynix-workspace-edition126\\workspace-desktop\\test\\browser126-integration.cjs:36:31)",
+    "scope": "Retained original failure, not counted as a successful final request."
+  },
+  {
+    "attempt": "browser126-third",
+    "error": "AssertionError [ERR_ASSERTION]: Surface capture/execution failed: Unknown trusted task event\n+ actual - expected\n\n+ 'interrupted'\n- 'completed'\n\n    at task (S:\\Codex-Work\\fraynix-workspace-edition126\\workspace-desktop\\test\\browser126-integration.cjs:29:10)\n    at async main (S:\\Codex-Work\\fraynix-workspace-edition126\\workspace-desktop\\test\\browser126-integration.cjs:36:31)",
+    "scope": "Retained original failure, not counted as a successful final request."
+  },
+  {
+    "attempt": "browser126-verified",
+    "error": "electronApplication.firstWindow: Target page, context or browser has been closed\n    at launch (S:\\Codex-Work\\fraynix-workspace-edition126\\workspace-desktop\\test\\calibration-integration.cjs:5:311)\n    at async open (S:\\Codex-Work\\fraynix-workspace-edition126\\workspace-desktop\\test\\browser126-integration.cjs:15:36)\n    at async task (S:\\Codex-Work\\fraynix-workspace-edition126\\workspace-desktop\\test\\browser126-integration.cjs:25:650)\n    at async main (S:\\Codex-Work\\fraynix-workspace-edition126\\workspace-desktop\\test\\browser126-integration.cjs:37:431)",
+    "scope": "Retained original failure, not counted as a successful final request."
+  }
+]

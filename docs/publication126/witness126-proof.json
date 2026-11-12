@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "at": "2026-11-12T20:11:49.974524+00:00",
+  "checks": [
+    {
+      "original": "build\\witness126-crash-original\\kernel-journal-3c805d68-63eb-40ed-8976-8f563c318131.pending",
+      "retained": "build\\browser126-fourth\\project\\runtime-042\\witness\\segment-000000\\journal-recovery-337f94cc3acd6a79e986106a40144855948e46685fb4dba8062c2db617cb3e53.evidence",
+      "bytes": 163897,
+      "sha256": "9f1aa9ec2d8929d0cf1352fedc8040d11abd0ef39c84147bdd71fda7f8d18706"
+    },
+    {
+      "original": "build\\witness126-crash-original\\kernel-journal.log",
+      "retained": "build\\browser126-fourth\\project\\runtime-042\\witness\\segment-000000\\journal-recovery-337f94cc3acd6a79e986106a40144855948e46685fb4dba8062c2db617cb3e53.before",
+      "bytes": 162249,
+      "sha256": "2ca8f8488b23e415c7e30df166ad7743f0027d7b25fb9888e8fa130e28f2df2f"
+    }
+  ],
+  "scope": "Independent byte-for-byte comparison of the exact interrupted candidate and committed log with the recovery evidence; no claim about truth of logged actions."
+}

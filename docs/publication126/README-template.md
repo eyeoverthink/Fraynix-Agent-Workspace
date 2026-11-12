@@ -33,7 +33,7 @@ No external library or provider was introduced. The existing application still u
 
 {{RESULTS}}
 
-The installed model was **gpt-oss:20b**, digest `f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe`. Java-owned planning used CPU-only inference with four threads; the local-model service's residency was checked. Tests ran serially on this installation, not on the user's newer RTX5070 computer. Model loading, prompt evaluation, generation and complete caller time remain distinct measurements.
+The installed model was **gpt-oss:20b**, digest `f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe`. Java-owned planning used CPU-only inference with four threads; the local-model service's residency was checked. Tests ran serially on this installation, not on the user's newer RTX 5070 computer. Model loading, prompt evaluation, generation and complete caller time remain distinct measurements.
 
 {{TIMINGS}}
 
@@ -43,7 +43,7 @@ These are individual actual runs, not confidence intervals or a claim of consist
 
 The labelled local pages exercise named inputs, a real button and a visible result. The app's existing reference leases require current observations for click/type actions. The final planner receives the current page references separately from brief action/error summaries; older observations remain stored but do not supply actionable references in that prompt. Repeated unchanged reads retain the existing bound. A stale reference is refused. The model selects actual controls; Java preserves allowed tools, proposals, admission, effects and outcomes. The separate driver also reads the result and verifies that the form was submitted exactly once.
 
-The frozen contract can contain1–8 distinct selectors and bounded expected text. The ordinary interface exposes one result check. It requires an exact HTTP(S) URL without embedded credentials. The host reads all checks in one isolated snapshot and rejects navigation during that observation. Java checks task, attempt, effect, contract hash, actual values and the associated captured page before recording success. An intermediate post-action mismatch continues planning without consuming a repair attempt; an incorrect explicit finish remains a failed check. Changed criteria, missing checks, a wrong URL, hidden/duplicate elements, stale action authority and fabricated success fields cannot satisfy the gate.
+The frozen contract can contain 1–8 distinct selectors and bounded expected text. The ordinary interface exposes one result check. It requires an exact HTTP(S) URL without embedded credentials. The host reads all checks in one isolated snapshot and rejects navigation during that observation. Java checks task, attempt, effect, contract hash, actual values and the associated captured page before recording success. An intermediate post-action mismatch continues planning without consuming a repair attempt; an incorrect explicit finish remains a failed check. Changed criteria, missing checks, a wrong URL, hidden/duplicate elements, stale action authority and fabricated success fields cannot satisfy the gate.
 
 This verifies declared DOM results at a particular time, using bounded element geometry and style checks. It does not establish pixel-level visibility through every overlay or ancestor transparency. A website can display text without an external service processing a transaction. The contract does not prove that a payment, message or remote database update occurred. Such tasks require a separate service-side verifier; this release does not introduce one.
 
@@ -67,7 +67,7 @@ The actual model generates a local packing calculator through the existing Java 
 After restart the saved procedure remains identifiable. Explicitly replaying the generated implementation into a new artifact must pass the independent changed-input checks again. This demonstrates a working retained implementation and repeatable behavior within the declared scope. It does not establish automatic adaptation to arbitrary new requests.
 
 ![Actual generated calculator](docs/readmes/126/creation.png)
-![Replayed implementation after restart](docs/readmes/126/creation-replayed.png)
+![Same saved replay reopened and calculating seven times three](docs/readmes/126/calculator-replay-1600.png)
 
 ## Recovery and honest failures
 
@@ -81,7 +81,7 @@ Passing validation means the tested contract and stated behavior hold for those 
 
 ## Try the integrated workflow
 
-Prepare with JDK21 and Node.js, then choose a separate project for review:
+Prepare with JDK 21 and Node.js, then choose a separate project for review:
 
 ```powershell
 $env:FRAYNIX_WORKSPACE_PROJECT = Join-Path $env:USERPROFILE '.fraynix-agent-workspace/projects/edition126-review'

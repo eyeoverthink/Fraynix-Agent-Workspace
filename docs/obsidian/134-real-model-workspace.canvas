@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "java",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Agency043.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "proof",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/BrowserOutcome126.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "host",
+      "type": "file",
+      "file": "workspace-desktop/browser-outcome126.cjs",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "world",
+      "type": "file",
+      "file": "workspace-desktop/test/model126-integration.cjs",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "recovery",
+      "type": "file",
+      "file": "workspace-desktop/test/browser126-integration.cjs",
+      "x": 430,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "java",
+      "toNode": "proof"
+    },
+    {
+      "id": "1",
+      "fromNode": "proof",
+      "toNode": "host"
+    },
+    {
+      "id": "2",
+      "fromNode": "host",
+      "toNode": "world"
+    },
+    {
+      "id": "3",
+      "fromNode": "world",
+      "toNode": "recovery"
+    }
+  ]
+}

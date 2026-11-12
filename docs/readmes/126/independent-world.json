@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "kind": "direct-world-0",
+      "checks": [
+        {
+          "sourceId": "A",
+          "positionErrorM": 5.3644204788732227e-05,
+          "normalizedAngleErrorDeg": 2.4148365394514667e-06,
+          "terminalSpeedMps": 1.6129492717900485e-06
+        },
+        {
+          "sourceId": "B",
+          "positionErrorM": 5.121233909809152e-05,
+          "normalizedAngleErrorDeg": 0.0,
+          "terminalSpeedMps": 1.4193723264881814e-06
+        }
+      ]
+    },
+    {
+      "kind": "direct-world-1",
+      "checks": [
+        {
+          "sourceId": "A",
+          "positionErrorM": 0.0008920409202492944,
+          "normalizedAngleErrorDeg": 0.00037862141936010723,
+          "terminalSpeedMps": 7.548236380213972e-05
+        },
+        {
+          "sourceId": "B",
+          "positionErrorM": 4.8288474654516615e-05,
+          "normalizedAngleErrorDeg": 0.0002551283660982916,
+          "terminalSpeedMps": 0.0001435790604808665
+        }
+      ]
+    },
+    {
+      "kind": "world-0",
+      "checks": [
+        {
+          "sourceId": "A",
+          "positionErrorM": 5.3644204788732227e-05,
+          "normalizedAngleErrorDeg": 2.4148365394514667e-06,
+          "terminalSpeedMps": 1.6129492717900485e-06
+        },
+        {
+          "sourceId": "B",
+          "positionErrorM": 5.121233909809152e-05,
+          "normalizedAngleErrorDeg": 0.0,
+          "terminalSpeedMps": 1.4193723264881814e-06
+        }
+      ]
+    },
+    {
+      "kind": "world-1",
+      "checks": [
+        {
+          "sourceId": "A",
+          "positionErrorM": 0.0008920409202492944,
+          "normalizedAngleErrorDeg": 0.00037862141936010723,
+          "terminalSpeedMps": 7.548236380213972e-05
+        },
+        {
+          "sourceId": "B",
+          "positionErrorM": 4.8288474654516615e-05,
+          "normalizedAngleErrorDeg": 0.0002551283660982916,
+          "terminalSpeedMps": 0.0001435790604808665
+        }
+      ]
+    }
+  ],
+  "scope": "Independent recomputation from retained actual world bodies, normalizing recorded floating-point quaternions before angular comparison. Original driver results remain unmodified; zero clamped angles there are not a physical precision claim."
+}

@@ -19,6 +19,9 @@ for folder,data in [(broot,b),(mroot,m)]:
   shutil.copy2(folder/name,out/name);shots.append(name)
 assert read('build/browser126-history-review.json')['passed']
 shutil.copy2(broot/'browser-recovery-history.png',out/'browser-recovery-history.png');shots.append('browser-recovery-history.png')
+replayReview=read('build/model126-replay-review.json');assert replayReview['passed']
+for name in replayReview['captures']:
+ shutil.copy2(mroot/name,out/name);shots.append(name)
 assert read('build/witness126-proof.json')['passed']
 assert read('build/independent126-world.json')['passed']
 shutil.copy2(r/'build/independent126-world.json',out/'independent-world.json')

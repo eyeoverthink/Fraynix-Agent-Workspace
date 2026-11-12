@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "at": "2026-11-12T20:46:38.010081+00:00",
+  "reviewer": "Primary agent visual inspection",
+  "images": [
+    "build/browser126-passed/browser-A-model.png",
+    "build/browser126-passed/browser-B-model.png",
+    "build/browser126-passed/browser-recovery-history.png",
+    "build/browser126-passed/browser-review-1100.png",
+    "build/model126-complete/world-0.png",
+    "build/model126-complete/world-1.png",
+    "build/model126-complete/creation.png",
+    "build/model126-complete/creation-replayed.png",
+    "build/model126-complete/creation-1100.png",
+    "build/model126-complete/calculator-replay-1600.png",
+    "build/model126-complete/calculator-replay-1100.png",
+    "build/guide126-1440-viewport.png",
+    "build/guide126-390.png"
+  ],
+  "findings": [
+    "Actual browser results and dated history are readable; history is explicitly not a fresh observation.",
+    "Original replay captures show the retained spatial world. Separate later captures explicitly open the SAME saved calculator, show 7 -> 21 at both widths, and leave original implementation/test receipts unchanged.",
+    "Actual model world report exposes target residuals and native validation.",
+    "Guide filters, baseline scope, source links, original screenshots, and responsive layout checked. No page overflow; screenshot opens full size."
+  ],
+  "scope": "Documentation visual review, not new model trials or remeasured latency."
+}

@@ -1,0 +1,89 @@
+{
+  "rows": [
+    {
+      "task": "Browser Atlas",
+      "kind": "browser",
+      "seconds": 294.0628937,
+      "modelCalls": 4,
+      "recovered": false,
+      "outcome": "verified",
+      "scope": "Complete caller span; later historical checks excluded.",
+      "resumedCallerSeconds": 0.0
+    },
+    {
+      "task": "Browser Beryl",
+      "kind": "browser",
+      "seconds": 555.9218975,
+      "modelCalls": 7,
+      "recovered": false,
+      "outcome": "verified",
+      "scope": "Complete caller span; later historical checks excluded.",
+      "resumedCallerSeconds": 0.0
+    },
+    {
+      "task": "Browser Cedar",
+      "kind": "browser",
+      "seconds": 299.35383429999996,
+      "modelCalls": 4,
+      "recovered": true,
+      "outcome": "verified",
+      "scope": "Complete caller span; later historical checks excluded.",
+      "resumedCallerSeconds": 0.0
+    },
+    {
+      "task": "world-0",
+      "kind": "world",
+      "seconds": 97.8743774,
+      "modelCalls": 1,
+      "recovered": false,
+      "outcome": "verified",
+      "scope": "Complete chat caller span; creation counts actual contract/code worker calls separately from Agency planning."
+    },
+    {
+      "task": "world-1",
+      "kind": "world",
+      "seconds": 128.8279098,
+      "modelCalls": 1,
+      "recovered": false,
+      "outcome": "verified",
+      "scope": "Complete chat caller span; creation counts actual contract/code worker calls separately from Agency planning."
+    },
+    {
+      "task": "creation",
+      "kind": "creation",
+      "seconds": 204.49312089999998,
+      "modelCalls": 2,
+      "recovered": false,
+      "outcome": "verified",
+      "scope": "Complete chat caller span; creation counts actual contract/code worker calls separately from Agency planning."
+    }
+  ],
+  "baselines": [
+    {
+      "task": "Direct browser A",
+      "seconds": 0.4490930999999996,
+      "scope": "Scripted explicit browser actions plus independent result/submission observation; no model planning or durable chat admission."
+    },
+    {
+      "task": "Direct browser B",
+      "seconds": 0.6008728000000001,
+      "scope": "Scripted explicit browser actions plus independent result/submission observation; no model planning or durable chat admission."
+    },
+    {
+      "task": "direct-world-0",
+      "seconds": 9.8155517,
+      "scope": "Direct equivalent world task; same native verifier; independent recheck excluded."
+    },
+    {
+      "task": "direct-world-1",
+      "seconds": 41.369421100000004,
+      "scope": "Direct equivalent world task; same native verifier; independent recheck excluded."
+    },
+    {
+      "task": "Replay generated implementation",
+      "seconds": 1.1716754999999994,
+      "scope": "Explicit replay of unchanged generated files into a new artifact, with changed-input checks; not fresh generation."
+    }
+  ],
+  "scope": "Individual serial measurements, not statistical intervals. Baselines have explicitly different admission/generation scope. Setup and independent rechecks are not attributed to model work."
+}

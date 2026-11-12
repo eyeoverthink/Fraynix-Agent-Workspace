@@ -1,3 +1,5 @@
+[Edition126 — real local-model workspace](../../README-126.md) · [Offline guide](126/index.html)
+
 [Edition125 — measured decision review](../../README-125.md) · [Offline guide](125/index.html)
 
 [Edition124 — budgeted optional actions](../../README-124.md) · [Offline guide](124/index.html)

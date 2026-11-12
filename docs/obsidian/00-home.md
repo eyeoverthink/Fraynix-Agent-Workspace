@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/134-real-model-workspace.md]] · [[README-126.md]]
+
 Current: [[docs/obsidian/133-measured-decision-review.md]] · [[README-125.md]]
 
 Current: [[docs/obsidian/132-budgeted-optional-actions.md]] · [[README-124.md]]

@@ -1,0 +1,310 @@
+{
+  "passed": true,
+  "javaChecks": [
+    "fraymus.workspace.Agency043Test.actualStoredReceiptAndFrozenCounterStepsAreRequiredBeforeClaimIsConsumed",
+    "fraymus.workspace.Agency043Test.claimedHostInterruptionRejectsOldNonceAndExplicitResumeStartsFreshObservation",
+    "fraymus.workspace.Agency043Test.commitFailureAfterConsumingHostClaimInterruptsInsteadOfWaitingForever",
+    "fraymus.workspace.Agency043Test.explicitScreenQuestionUsesNativeInspectionAndCounterCreationUsesOnlyTheCreationStage",
+    "fraymus.workspace.Agency043Test.inspectionReportRequiresActualStoredMatchingReportAssertions",
+    "fraymus.workspace.Agency043Test.missingActionAuthorityRefusesClearlyWhilePureDefinitionReadsRemainPassive",
+    "fraymus.workspace.Agency043Test.prematureModelFinishCannotCreateAnArtifactOrVisualRoutine",
+    "fraymus.workspace.Agency043Test.queuedAndClaimedTasksRestoreAsInterruptedWithoutSilentReplay",
+    "fraymus.workspace.Agency043Test.registeredSchemasRejectInventedFieldsAndAssertionFreeTests",
+    "fraymus.workspace.Agency043Test.rejectedNativeModelSyntaxRetriesWithinBudgetWithoutExecutingRejectedArguments",
+    "fraymus.workspace.Agency043Test.unverifiedConversationIsNotPresentedAsVerifiedOutcomeToTheContinuingBrain",
+    "fraymus.workspace.Agent042Test.acceptedCameraOutputsExpireAndReplayCannotRefreshThem",
+    "fraymus.workspace.Agent042Test.actualSharedCortexCheckpointReplayLeaseAndRestart",
+    "fraymus.workspace.Agent042Test.appraisalAblationsActuallyChangeWork",
+    "fraymus.workspace.Agent042Test.checkedStateRejectsAlterationWithoutErasingOriginal",
+    "fraymus.workspace.Agent042Test.clocksKeepWallRollbackAndBootDomainsSeparate",
+    "fraymus.workspace.Agent042Test.failedGoalsAreWitnessedOnceWithoutRewardingSuccess",
+    "fraymus.workspace.Agent042Test.missingNeuralCheckpointDoesNotSilentlyResetBrain",
+    "fraymus.workspace.Agent042Test.reportEscapesSourceDataAndKeepsExactSnapshot",
+    "fraymus.workspace.Agent042Test.witnessSegmentsVerifyExactCheckpointPrefixAndRefuseDamage",
+    "fraymus.workspace.BrowserOutcome126Test.actualValuesAreComparedAndModelSuccessFlagsAreRefused",
+    "fraymus.workspace.BrowserOutcome126Test.browserCriteriaPinTheWorkbenchWithoutUsingDomainOverride",
+    "fraymus.workspace.BrowserOutcome126Test.criteriaArePartOfOriginalObjectiveAndWrongToolCannotExecute",
+    "fraymus.workspace.BrowserOutcome126Test.intermediateChecksDoNotSpendRepairBudgetAndSuccessStopsFurtherModelActions",
+    "fraymus.workspace.BrowserOutcome126Test.planningUsesOnlyCurrentActionReferencesAndBoundsUnchangedReads",
+    "fraymus.workspace.BrowserOutcome126Test.prematureFinishNeedsClaimedActualObservationAndRestartDropsOldAuthority",
+    "fraymus.workspace.BrowserOutcome126Test.publicLearningEndpointsCannotManufactureABrowserSuccess",
+    "fraymus.workspace.BrowserOutcome126Test.realContinuingRuntimeWitnessAcceptsTheWholeBrowserCompletion",
+    "fraymus.workspace.BrowserOutcome126Test.strictFrozenCriteriaRejectActionsCredentialsDuplicatesAndUnboundedInput",
+    "fraymus.workspace.BrowserOutcome126Test.successfulFrozenObservationIsRetainedVerifiedAndArchivable",
+    "fraymus.workspace.BrowserOutcome126Test.unsuccessfulActualCheckReturnsToPlanningWithoutCertifyingSuccess",
+    "fraymus.workspace.Chat099Test.malformedPreferenceIsRejectedBeforeAdmission",
+    "fraymus.workspace.Chat099Test.optionalPlanningKeepsDirectDefaultAndReviewRefusal",
+    "fraymus.workspace.Chat099Test.planningChoiceIsSealedWhileOlderObjectiveHashesStayCompatible",
+    "fraymus.workspace.ChatArchive112Test.archivedTasksCannotResumeCancelOrReceiveOldEffects",
+    "fraymus.workspace.ChatArchive112Test.changedScreenPixelsAndMetadataRefuseFreshEvidenceChecks",
+    "fraymus.workspace.ChatArchive112Test.corruptMissingAndNonFileSnapshotsRefuseWithoutChangingCheckpoint",
+    "fraymus.workspace.ChatArchive112Test.exactCheckpointAndTaskJournalSurviveColdLookup",
+    "fraymus.workspace.ChatArchive112Test.preparedSnapshotsWithoutCommitPreserveActiveTasksAndCanBeRetried",
+    "fraymus.workspace.ChatArchive112Test.revisedOriginalReportRefusesBeforeAndAfterArchive",
+    "fraymus.workspace.ChatArchive112Test.selectedTasksLeaveCancelledAndInterruptedRecordsUntouched",
+    "fraymus.workspace.ChatArchive112Test.staleDuplicateUnknownAndActiveRequestsDoNotChangeCheckpoint",
+    "fraymus.workspace.ChatArchive112Test.unverifiedConversationStaysUnverifiedAndLimitRemains24",
+    "fraymus.workspace.ChatChain052Test.automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+    "fraymus.workspace.ChatChain052Test.discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+    "fraymus.workspace.ChatChain052Test.duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+    "fraymus.workspace.ChatChain052Test.failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+    "fraymus.workspace.ChatChain052Test.largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+    "fraymus.workspace.ChatChain052Test.legacyTaskDoesNotClaimCompleteTimingCoverage",
+    "fraymus.workspace.ChatChain052Test.numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+    "fraymus.workspace.ChatChain052Test.oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+    "fraymus.workspace.ChatChain052Test.payloadHistoryProjectionRetainsPolicyRequirementsAndContraryOutcomes",
+    "fraymus.workspace.ChatChain052Test.providerMapMetadataIsRetainedWithoutUnrelatedFields",
+    "fraymus.workspace.ChatChain052Test.queuedObjectiveSealRefusesChangedRequest",
+    "fraymus.workspace.ChatChain052Test.summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+    "fraymus.workspace.CreationPlanner044Test.acceptedGenerationKeepsOriginalGoalAndSurvivesInterfaceDetach",
+    "fraymus.workspace.CreationPlanner044Test.cancelledGenerationCannotApplyItsLateModelReply",
+    "fraymus.workspace.CreationPlanner044Test.changedModelAdmissionCannotWriteAnArtifact",
+    "fraymus.workspace.CreationPlanner044Test.foreignHostNonceCannotCreateAJavaModelRequest",
+    "fraymus.workspace.CreationPlanner044Test.wrongStageAndInvalidArgumentsAreRefusedBeforeBoundedRetryCanWrite",
+    "fraymus.workspace.CreationRetry102Test.anotherTaskCannotInheritTheRejectionHint",
+    "fraymus.workspace.CreationRetry102Test.reopenedSameTaskRetainsRejectedNativeFormatWithoutChangingChecks",
+    "fraymus.workspace.CreationTest.behaviorMustBeObservableAndSourceCountsAreDerived",
+    "fraymus.workspace.CreationTest.changedSourceIsPreservedAndRejected",
+    "fraymus.workspace.CreationTest.externalRevisionAndFalsePassedFlagCannotBecomeSuccess",
+    "fraymus.workspace.CreationTest.failedReceiptCausesOwnedRevisionThenVerifiedFreshSourceSkill",
+    "fraymus.workspace.CreationTest.foreignNonceCancellationAndInventedPassingValuesCannotComplete",
+    "fraymus.workspace.CreationTest.modelContractIsFrozenBeforeCodeAndDigestCannotChange",
+    "fraymus.workspace.CreationTest.restartReconcilesPendingWriteAndReusesPassingReceipt",
+    "fraymus.workspace.CreationTest.threeDraftBudgetIsNotResetByExplicitResume",
+    "fraymus.workspace.Domain044Test.actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+    "fraymus.workspace.Domain044Test.constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+    "fraymus.workspace.Domain044Test.creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+    "fraymus.workspace.Domain044Test.interruptedChildCannotProduceSuccessfulCompletion",
+    "fraymus.workspace.Domain044Test.inventedHostFactsDoNotReplaceActualJavaRead",
+    "fraymus.workspace.Domain044Test.javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+    "fraymus.workspace.Domain044Test.nativeWaitUsesActualChildAndRetainsItsIdentity",
+    "fraymus.workspace.Domain044Test.reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+    "fraymus.workspace.Domain044Test.reportStageCannotSkipActualReads",
+    "fraymus.workspace.Domain044Test.retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+    "fraymus.workspace.Domain044Test.retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+    "fraymus.workspace.Domain044Test.retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+    "fraymus.workspace.Domain044Test.savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+    "fraymus.workspace.Domain044Test.sourceFreeHostSuccessAndForeignChildrenAreRejected",
+    "fraymus.workspace.Domain044Test.typedOptionsPreserveExplicitValuesAndRejectContradictions",
+    "fraymus.workspace.Domain044Test.workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+    "fraymus.workspace.GoalArchive111Test.activeBudgetRemains64AndCancelledStandaloneGoalsStayActive",
+    "fraymus.workspace.GoalArchive111Test.exactGoalBytesAndOwnedReferencesSurviveColdRecheck",
+    "fraymus.workspace.GoalArchive111Test.missingCorruptAndNonFileArchiveRefuseWithOriginalCheckpoint",
+    "fraymus.workspace.GoalArchive111Test.preparedGoalFilesWithoutCommitRetainActiveBytesAndRetry",
+    "fraymus.workspace.GoalArchive111Test.retainedImplementationReadsArchivedChildrenAndVerifiesFreshInputs",
+    "fraymus.workspace.GoalArchive111Test.revisedOriginalReportStillRefusesAfterGoalArchive",
+    "fraymus.workspace.GoalArchive111Test.revisedSourceStillRefusesAfterGoalArchive",
+    "fraymus.workspace.GoalArchive111Test.staleInvalidActiveAndCancelledRequestsNeverCommit",
+    "fraymus.workspace.GoalRunnerTest.aForeignNativeRunIsPreservedAndSourceVersionsAreRequired",
+    "fraymus.workspace.GoalRunnerTest.cancelledIntentAndInventedHostReceiptsCannotBecomeSkills",
+    "fraymus.workspace.GoalRunnerTest.frozenSceneAndReportEffectsHaveStableIdentitiesAndRejectChangedContent",
+    "fraymus.workspace.GoalRunnerTest.importedTextCannotInstallHandlersOrEscapePhysicalDomain",
+    "fraymus.workspace.GoalRunnerTest.intentSurvivesRestartRequiresExplicitResumeAndHasFiniteRecovery",
+    "fraymus.workspace.KnowledgeStoreTest.cancellationFencesLateCallbacksAndCannotInventSuccess",
+    "fraymus.workspace.KnowledgeStoreTest.changedHumanCategoryMakesFrozenResearchStale",
+    "fraymus.workspace.KnowledgeStoreTest.exactObservationAndHumanIdentitySurviveRestartWithoutWorldMutation",
+    "fraymus.workspace.KnowledgeStoreTest.interruptedPrefixResumesWithNewLeaseAndExactCachedSources",
+    "fraymus.workspace.KnowledgeStoreTest.operationalSelfStateDoesNotConfuseDeclaredToolsWithInternetEvidence",
+    "fraymus.workspace.KnowledgeStoreTest.reportEscapesUntrustedTextAndCorruptedCacheCannotResume",
+    "fraymus.workspace.KnowledgeStoreTest.searchFallbackKeepsFailedSearchAndOnlyActualResultSources",
+    "fraymus.workspace.LearningStoreTest.episodeCannotClaimVerificationWithoutAnActualReceipt",
+    "fraymus.workspace.LearningStoreTest.failedCheckpointDoesNotMutateTheLiveLearningWorld",
+    "fraymus.workspace.LearningStoreTest.interruptedEpisodeRestoresWithoutRawTaskOrPageText",
+    "fraymus.workspace.LearningStoreTest.noGainAndRegressionCannotBecomeLearning",
+    "fraymus.workspace.LearningStoreTest.policyPrivilegesMissingFixturesAndStaleParentsAreRejected",
+    "fraymus.workspace.LearningStoreTest.usefulCandidatePromotesPersistsAndRollsBack",
+    "fraymus.workspace.LocalModelAdmissionTest.freshDigestMetadataPassesWhileProxyChangesFail",
+    "fraymus.workspace.LocalModelAdmissionTest.redirectsAndNonlocalEndpointsAreRejectedWithoutFollowing",
+    "fraymus.workspace.WitnessRecovery126Test.changedPrefixAndNonAppendCandidatesRemainRefused",
+    "fraymus.workspace.WitnessRecovery126Test.completePendingAppendRetainsBothOriginalsAndCheckpointAnchor",
+    "fraymus.workspace.WitnessRecovery126Test.interruptedFirstSegmentHeaderCanRecoverOnlyItsProperParent",
+    "fraymus.workspace.WitnessRecovery126Test.partialAndAmbiguousPendingFilesAreNeverDiscarded",
+    "fraymus.workspace.WitnessRecovery126Test.validChainWithInvalidWitnessPayloadCannotBePromoted"
+  ],
+  "javaSuites": [
+    {
+      "name": "eighth",
+      "executions": 35
+    },
+    {
+      "name": "fifth",
+      "executions": 44
+    },
+    {
+      "name": "final",
+      "executions": 119
+    },
+    {
+      "name": "fourth",
+      "executions": 33
+    },
+    {
+      "name": "ninth",
+      "executions": 36
+    },
+    {
+      "name": "second",
+      "executions": 44
+    },
+    {
+      "name": "sixth",
+      "executions": 30
+    },
+    {
+      "name": "third",
+      "executions": 60
+    }
+  ],
+  "desktopChecks": 161,
+  "kernelHarnesses": [
+    "JournalContinuityTest",
+    "LocalSkillsTest",
+    "FactoryKernelIntegrationTest"
+  ],
+  "actualChatRequests": 6,
+  "actualAbruptRecovery": true,
+  "worldIndependentChecks": true,
+  "creationIndependentChecks": true,
+  "browserIndependentChecks": true,
+  "model": [
+    {
+      "name": "gpt-oss:20b",
+      "model": "gpt-oss:20b",
+      "modified_at": "2026-10-26T05:18:15.6288505-07:00",
+      "size": 13793441566,
+      "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+      "details": {
+        "parent_model": "dhiltgen/gpt-oss:20b-llamacpp",
+        "format": "gguf",
+        "family": "gpt-oss",
+        "families": [
+          "gpt-oss"
+        ],
+        "parameter_size": "20.9B",
+        "quantization_level": "MXFP4",
+        "context_length": 131072,
+        "embedding_length": 2880,
+        "runner": "llamacpp"
+      },
+      "capabilities": [
+        "completion",
+        "tools",
+        "thinking"
+      ]
+    }
+  ],
+  "measurements": {
+    "rows": [
+      {
+        "task": "Browser Atlas",
+        "kind": "browser",
+        "seconds": 294.0628937,
+        "modelCalls": 4,
+        "recovered": false,
+        "outcome": "verified",
+        "scope": "Complete caller span; later historical checks excluded.",
+        "resumedCallerSeconds": 0.0
+      },
+      {
+        "task": "Browser Beryl",
+        "kind": "browser",
+        "seconds": 555.9218975,
+        "modelCalls": 7,
+        "recovered": false,
+        "outcome": "verified",
+        "scope": "Complete caller span; later historical checks excluded.",
+        "resumedCallerSeconds": 0.0
+      },
+      {
+        "task": "Browser Cedar",
+        "kind": "browser",
+        "seconds": 299.35383429999996,
+        "modelCalls": 4,
+        "recovered": true,
+        "outcome": "verified",
+        "scope": "Complete caller span; later historical checks excluded.",
+        "resumedCallerSeconds": 0.0
+      },
+      {
+        "task": "world-0",
+        "kind": "world",
+        "seconds": 97.8743774,
+        "modelCalls": 1,
+        "recovered": false,
+        "outcome": "verified",
+        "scope": "Complete chat caller span; creation counts actual contract/code worker calls separately from Agency planning."
+      },
+      {
+        "task": "world-1",
+        "kind": "world",
+        "seconds": 128.8279098,
+        "modelCalls": 1,
+        "recovered": false,
+        "outcome": "verified",
+        "scope": "Complete chat caller span; creation counts actual contract/code worker calls separately from Agency planning."
+      },
+      {
+        "task": "creation",
+        "kind": "creation",
+        "seconds": 204.49312089999998,
+        "modelCalls": 2,
+        "recovered": false,
+        "outcome": "verified",
+        "scope": "Complete chat caller span; creation counts actual contract/code worker calls separately from Agency planning."
+      }
+    ],
+    "baselines": [
+      {
+        "task": "Direct browser A",
+        "seconds": 0.4490930999999996,
+        "scope": "Scripted explicit browser actions plus independent result/submission observation; no model planning or durable chat admission."
+      },
+      {
+        "task": "Direct browser B",
+        "seconds": 0.6008728000000001,
+        "scope": "Scripted explicit browser actions plus independent result/submission observation; no model planning or durable chat admission."
+      },
+      {
+        "task": "direct-world-0",
+        "seconds": 9.8155517,
+        "scope": "Direct equivalent world task; same native verifier; independent recheck excluded."
+      },
+      {
+        "task": "direct-world-1",
+        "seconds": 41.369421100000004,
+        "scope": "Direct equivalent world task; same native verifier; independent recheck excluded."
+      },
+      {
+        "task": "Replay generated implementation",
+        "seconds": 1.1716754999999994,
+        "scope": "Explicit replay of unchanged generated files into a new artifact, with changed-input checks; not fresh generation."
+      }
+    ],
+    "scope": "Individual serial measurements, not statistical intervals. Baselines have explicitly different admission/generation scope. Setup and independent rechecks are not attributed to model work."
+  },
+  "launcher": {
+    "passed": true,
+    "scope": "Isolated offline preparation and package/build receipt."
+  },
+  "sourceScopes": {
+    "production": "a381d5a6",
+    "browserOriginal": "46e21739fe26c67bf9249c63409136e86a5a75ca",
+    "browserContinuation": {
+      "startedAt": "2026-11-12T20:17:53.885Z",
+      "source": "ab01c83d8dc4363c02a56d1253b6d51b548c5d4a",
+      "originalError": "AssertionError [ERR_ASSERTION]: Stopped by you\n+ actual - expected\n\n+ 'cancelled'\n- 'completed'\n\n    at S:\\Codex-Work\\fraynix-workspace-edition126\\workspace-desktop\\test\\browser126-recovery-continue.cjs:9:1646",
+      "originalResult": "build/browser126-final/result.json",
+      "scope": "Reverify completed requests and original clocks in the same project. Earlier cancelled recovery remains an unsuccessful attempt; new recovery uses corrected bounded-read context."
+    },
+    "worldCreation": "ab01c83d8dc4363c02a56d1253b6d51b548c5d4a",
+    "worldCreationContinuation": {
+      "source": "ab01c83d8dc4363c02a56d1253b6d51b548c5d4a",
+      "startedAt": "2026-11-12T20:33:08.769Z",
+      "originalResult": "build/model126-first/result.json",
+      "originalError": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert(created.independent.every(c=>c.passed))\n\n    at main (S:\\Codex-Work\\fraynix-workspace-edition126\\workspace-desktop\\test\\model126-integration.cjs:27:260)",
+      "scope": "Preserve all three completed model requests and clocks. Await actual artifact opening before independent interaction; no model rerun or generated-code edit."
+    },
+    "scope": "A/B completed on46e21739. 14ef2cb0 restores unchanged-read limits and supplies current references. Its forced crash exposed a complete pending witness append. f4ebdbd5 adds exact verified append recovery, then resumes that SAME original task. That model repeated submission and was cancelled. ab01c83d checks original outcomes after every mutation and stops at the first passing check; final new recovery and world/creation run onab01c83d. Finala381d5a6 changes only two List indexing calls for the kernel module Java17 compatibility; final kernel/Java/package checks and historical UI use that build. No model outcome is relabelled as a new run. Current context is not claimed for older calls. Cancelled recovery and corrected drivers remain separate originals."
+  },
+  "scope": "Supported labelled browser/world/creation tasks. No arbitrary browsing, new physical generalization, automatic neural training or automatic procedure adaptation claim."
+}
