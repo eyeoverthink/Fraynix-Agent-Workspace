@@ -1,3 +1,11 @@
+## Edition124 validation checkpoint — final implementation 4de8bddb
+
+2026-11-12. S:/Codex-Work/fraynix-workspace-edition124, branchedition124; parent1d328f37. Pipeline docs/publication124/remaining124.py is active (unified session90575): reserved4PASS, then18 regressions, broad hardware checks, software9,168desktop checks/package and11actual UI requests. Heavy validation must remain serial. Production wrapper and controller are frozen; do not rebuild/modify Java during active native checks.
+
+Two completed development passes are retained separately in workspace-engine/build/budget124-development-pilot and budget124-development-pre-compatibility, with logs/XML. They are not final calibration. Initial pass prompted explicit completion-source-check reserve. Later compatibility review preserved original failure for older non-challenge recipes; real test added. After the running pipeline finishes, rerun python docs/publication124/validate124.py development to collect27 final runs under the4de8bddb wrapper identity. Preserve all earlier outputs; do not delete user projects.
+
+Then run plot124, document124, notes124, document124; render guide with visual124.cjs, inspect actual app/chart/guide screenshots, write visual-review124.json; freeze124 and Verify-Documentation. Commit final helpers/metadata before release124; then CI check and finish124. Atomic main/edition124/readme-124 pushes with fresh fetched-source/all-history/original-archive audit remain REQUIRED. No124 push claimed yet. Existing raw verification, explicit failed outcomes,24-task limit and no-delegation rule remain.
+
 ## Edition124 implementation checkpoint — 2026-11-12
 
 Continue in S:/Codex-Work/fraynix-workspace-edition124, branch edition124, parent1d328f37. Correct private target remains eyeoverthink/Fraynix-Agent-Workspace. Read docs/EDITION_124_CONTRACT.md. CI checked first:123/122 pending. Pure policy checks pass. Initial development native pass is running; preserve it as build/budget124-development-pilot once complete, then collect final calibration under the updated algorithm including a reserve for repeated completion source checks. Do not mix pilot timings with final profiles.

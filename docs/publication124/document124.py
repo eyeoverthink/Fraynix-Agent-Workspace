@@ -59,7 +59,7 @@ for folder in folders:
  for p in sorted(folder.rglob('*')):
   if p.is_file() and p.suffix in ['.json','.jsonl','.xml','.png','.txt','.log']:
    preserve(p,p.relative_to(r).as_posix())
-   if p.name=='result.json':findprojects(read(p))
+   if p.name in ['result.json','legacy-failure.json']:findprojects(read(p))
 for project in projects:
  assert project.is_dir(),project
  for sub in ['game-levels114','game-tasks115','game-choices124','game-references115']:
