@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace · Edition 122
 
+[Published and fetched verification receipt](docs/PUBLICATION_122.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-122)
+
 **Avoid dangerous descending contact. Recover from a supported edge. Verify the actual finish.**
 
 2026-11-12 · Local Java execution, original native physics and one integrated workspace.
