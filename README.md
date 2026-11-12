@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace · Edition 125
 
+[Published and fetched verification receipt](docs/PUBLICATION_125.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-125)
+
 **Review whether an optional action was worth its complete cost.**
 
 2026-11-12 · Local Java task ownership, original native physics, retained evidence.
