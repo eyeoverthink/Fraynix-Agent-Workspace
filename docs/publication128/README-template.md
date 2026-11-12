@@ -27,6 +27,18 @@ Java performs four stages:
 3. **Create the artifact.** Build a working explorer with axis selection, a frame scrubber, measured and predicted chart points, original rows, provenance, error metrics and a conditional future estimate.
 4. **Verify and retain.** The independent Electron host operates the controls and reads actual DOM/SVG values. Java checks source cells, summary values, future text, provenance and four rendered states. Only then can the reusable procedure be published. Chat completion checks the original evidence again.
 
+```mermaid
+flowchart LR
+    R[Chat request] --> O[Pin observations and calibration]
+    O --> F[Causal bounded forecast]
+    F --> A[Working motion explorer]
+    A --> V[Independent rendered and numeric checks]
+    V --> S[Save verified procedure]
+    I[Interruption] --> C[Recover same checkpoint]
+    C --> O
+    S --> N[Fresh inputs and fresh checks]
+```
+
 The existing workflow checkpoint owns these stages. A process interruption leaves the same request recoverable; completed stages remain bound to their original evidence. Source or implementation changes refuse continuation instead of silently replacing the proof.
 
 ## Try it
@@ -82,6 +94,21 @@ All retained failures are dated originals. No failed task is counted as complete
 | [Artifact and verifier](workspace-engine/src/main/java/fraymus/workspace/ObservationArtifactReport128.java) | Input-derived working HTML and independent numeric/geometry checks |
 | [Independent host](workspace-desktop/observation-artifact128.cjs) | Exercise actual controls and observe visible DOM/SVG values; page-generated success flags have no authority |
 | [Java chat coordination](workspace-engine/src/main/java/fraymus/workspace/Domain044.java) | Selected-source admission, durable task ownership and rechecked completion |
+
+The [offline guide](docs/readmes/128/index.html) includes searchable source files, measured requests and actual screenshots. Open the repository as an Obsidian vault for the [linked note](docs/obsidian/136-observation-artifact.md) and [component canvas](docs/obsidian/136-observation-artifact.canvas).
+
+```text
+workspace-engine/src/main/java/fraymus/workspace/
+  ObservationArtifact128.java        original evidence and causal forecast
+  ObservationArtifactReport128.java  working explorer and numeric verifier
+  WorkflowRunner.java               durable stages and procedure reuse
+workspace-desktop/
+  observation-artifact128.cjs        independent rendered observations
+  test/observation128-integration.cjs actual app, interruption and reuse
+  test/observation128-review.cjs      reopen and recheck completed evidence
+docs/readmes/128/                    frozen results, source map and screenshots
+docs/publication128/                validation and publication helpers
+```
 
 No new third-party runtime dependency was added. The application still uses its existing JDK, JSON, native physics, Electron/Chromium and other declared dependencies. It is a local Java-owned system, not a claim that every existing dependency has been replaced.
 
