@@ -7,7 +7,7 @@ def write(p,v):p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes((json.du
 def text(p,s):p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(s.encode())
 def sha(b):return hashlib.sha256(b).hexdigest()
 uiroot=r/'build/game121-ui-reviewed';ui=read(uiroot/'result.json');assert ui['passed'] and all(ui[k] for k in ['returnFrame','collectionFrame','riskFrame'])
-paths={'development':'controller121-development','reserved':'controller121-reserved','software-reserved':'controller121-mesa-reserved'}
+paths={'development':'controller121-development-final','reserved':'controller121-reserved','software-reserved':'controller121-mesa-reserved'}
 for part in ['old119-development','old119-reserved','old118-development','old118-reserved','new','early-probes']:paths['regression-'+part]='controller121-old-'+part
 paths['regression-old120-reserved']='controller121-old120-reserved'
 for part in ['regression','wider','reserved']:paths['regression-old117-'+part]='controller121-old117-'+part
@@ -52,7 +52,7 @@ def preserve(p,logical):
  b=p.read_bytes();raw=sha(b);dest=out/'originals'/(raw+'.gz');packed=gzip.compress(b,mtime=0);dest.parent.mkdir(exist_ok=True)
  if not dest.exists():dest.write_bytes(packed)
  originals.append({'logicalPath':logical,'path':dest.relative_to(r).as_posix(),'bytes':len(packed),'sha256':sha(packed),'rawBytes':len(b),'rawSha256':raw})
-folders=[r/'build/validation121']+list((r/'workspace-engine/build').glob('controller121*'))+[r/'workspace-engine/build'/n for n in ['reference121-final','reference121-mesa','reference115','game115-repair','game115-restart','challenge118-task','challenge118-failed','challenge118-image','recovery119-task','opportunity120-task','opportunity121-task']]
+folders=[r/'build/validation121',r/'build/diagnostics121']+list((r/'workspace-engine/build').glob('controller121*'))+[r/'workspace-engine/build'/n for n in ['reference121-final','reference121-mesa','reference115','game115-repair','game115-restart','challenge118-task','challenge118-failed','challenge118-image','recovery119-task','opportunity120-task','opportunity121-task']]
 projects={}
 for folder in folders:
  for p in sorted(folder.rglob('*')):
@@ -102,9 +102,9 @@ def fill(s):
  for k,v in values.items():s=s.replace('{{'+k+'}}',v)
  assert '{{' not in s;return s
 md=fill((r/'docs/publication121/README-template.md').read_text(encoding='utf8'));text(r/'README-121.md',md);text(r/'README.md',md)
-text(r/note,'# Enemy reversals and actual pickup return value — edition121\n\n[[README-121.md]] records one useful return on the development ablation,71 older safe finishes and native wall reversals. Two development enemy-contact deaths remain under both old and new control. '+reservedText+'\n\nKeep every source/outcome gate. No physics rewrite, new model training or procedure admission. Next: improve landing around late enemies, reserve new cases, and calibrate the cost of optional returns. [[docs/PLAYABLE_LEVEL_CREATION_PLAN.md]]\n')
+text(r/note,'# Enemy reversals and actual pickup return value â€” edition121\n\n[[README-121.md]] records one useful return on the development ablation,71 older safe finishes and native wall reversals. Two development enemy-contact deaths remain under both old and new control. '+reservedText+'\n\nKeep every source/outcome gate. No physics rewrite, new model training or procedure admission. Next: improve landing around late enemies, reserve new cases, and calibrate the cost of optional returns. [[docs/PLAYABLE_LEVEL_CREATION_PLAN.md]]\n')
 write(r/'docs/obsidian/129-enemy-reversals-and-return-value.canvas',{'nodes':[{'id':m['id'],'type':'file','file':m['source'],'x':i%3*430,'y':i//3*250,'width':390,'height':190} for i,m in enumerate(modules)],'edges':[{'id':str(i),'fromNode':modules[i]['id'],'toNode':modules[i+1]['id']} for i in range(len(modules)-1)]})
 html=fill((r/'docs/publication121/guide-template.html').read_text(encoding='utf8'))+'<script id="system-data" type="application/json">'+json.dumps(system)+'</script><script id="inventory-data" type="application/json">'+json.dumps(inventory)+'</script></html>';text(out/'index.html',html)
-for name,link in [('docs/readmes/INDEX.md','[Edition121 — enemy reversals and useful returns](../../README-121.md) · [Offline guide](121/index.html)'),('docs/obsidian/00-home.md','Current: [[docs/obsidian/129-enemy-reversals-and-return-value.md]] · [[README-121.md]]')]:
+for name,link in [('docs/readmes/INDEX.md','[Edition121 â€” enemy reversals and useful returns](../../README-121.md) Â· [Offline guide](121/index.html)'),('docs/obsidian/00-home.md','Current: [[docs/obsidian/129-enemy-reversals-and-return-value.md]] Â· [[README-121.md]]')]:
  p=r/name;s=p.read_text(encoding='utf-8-sig');text(p,link+'\n\n'+s if not s.startswith(link) else s)
 print(json.dumps({'passed':True,'javaChecks':len(checks),'sources':len(inventory),'originalEntries':len(originals),'reserved':reservedText}))

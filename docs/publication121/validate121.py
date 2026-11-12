@@ -10,7 +10,9 @@ def run(name,args,opts=''):
  print(json.dumps({'check':name,'exit':p.returncode,'seconds':round(time.time()-start,3)}),flush=True)
  if p.returncode:raise SystemExit(p.returncode)
 group=sys.argv[1]
-if group=='regression':
+if group=='development':
+ run('hardware121-development-final',[':workspace-engine:test','--tests','fraymus.workspace.GameController121Test'],'-Dstudy121.output=build/controller121-development-final')
+elif group=='regression':
  for part in ['old119-development','old119-reserved','old118-development','old118-reserved','new','early-probes']:
   run('hardware121-'+part,[':workspace-engine:test','--tests','fraymus.workspace.GameController120Test'],f'-Dstudy120.partition={part} -Dstudy120.policies=revisit121 -Dstudy120.requireWins=true -Dstudy120.output=build/controller121-old-{part}')
  run('hardware121-old120-reserved',[':workspace-engine:test','--tests','fraymus.workspace.GameController120Test'],'-Dstudy120.reserved=true -Dstudy120.policies=revisit121 -Dstudy120.requireWins=true -Dstudy120.output=build/controller121-old120-reserved')
