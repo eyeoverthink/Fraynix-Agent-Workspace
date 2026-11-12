@@ -12,7 +12,7 @@ assert [len(datasets[k]['rows']) for k in datasets]==[26,14,13]
 assert all(d['passed'] for d in datasets.values())
 assert read('build/pipeline125.json')['passed']
 uiroot=r/'build/game125-ui-final';ui=read(uiroot/'result.json');assert ui['passed'] and len(ui['requests'])==15
-shots=['decision-review.png','insufficient-comparisons.png','recovered-cost.png','saved-review-reopened.png','failed-cost-review.png','review-1100.png']
+shots=['decision-review.png','insufficient-comparisons.png','recovered-cost.png','saved-review-reopened.png','failed-cost-review.png','review-1100.png','collected-after-return.png']
 for name in shots:shutil.copy2(uiroot/name,out/name)
 shutil.copy2(r/'build/cost-review125.png',out/'cost-review.png')
 for key,data in datasets.items():write(out/('study-'+key+'.json'),data)

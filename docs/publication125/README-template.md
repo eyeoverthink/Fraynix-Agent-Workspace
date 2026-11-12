@@ -25,6 +25,8 @@ Fraynix remains one local agent workspace. Java owns continuing identity, tasks,
 
 These are established layers with their own dated evidence. Edition 125 reruns the declared relevant checks below; it does not claim to revalidate every earlier domain or to train model weights. The next integration phase tests the local model's use of these connected capabilities.
 
+![Actual integrated game after a return and pickup, with live task progress](docs/readmes/125/collected-after-return.png)
+
 ## What works in this edition
 
 A retained budget request now has a cost record and an independent outcome review. Open its task history to see time to the first verified outcome, recorded operation time, later verification work and uncertain interrupted intervals. **Compare with later trials** checks the original task and seeks subsequent explicit direct/full runs under the same conditions. It requires three per approach. The six examples used to calibrate the original decision cannot count as later evaluation. **Open saved review** rechecks the stored review and its original sources; later trials do not rewrite that old result.
