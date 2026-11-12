@@ -1,3 +1,9 @@
+## Edition124 visible review continuation — 2026-11-12
+
+Active serial session96809 runs continue-ui124.py, then complete124.py automatically on success. Earlier remaining124/session90575 finished: broad Java203 distinct so far,18prior courses,software9,168desktop checks,launcher/package PASS. First actual UI driver failed its own incorrect expectation that allowance30 must choose full. App correctly chose direct at estimated88.10s/pickup; all9 completed requests and crash/recovery retained in build/game124-ui. No decision-policy change. Driver-before-budget-assertion.cjs and failed log preserved.
+
+Final visible review is build/game124-ui-final, using SAME original project build/game124-ui/project and all six calibration observations. It verifies recorded choices at0/4/30, adds explicit120 with recovery, unknown scene and impossible-course refusal, total12 requests. No samples deleted or relabelled. Current scripts1d36ccc2; production guardc1ec36d3/UI65bffa07. After UI success, complete124 safely archives previous reserved pass, runs final wrapper tests and fresh27development+4reserved. Final table40 includes software9. Then documented plot/document/notes/guide/manual visual review/freeze/check/release/fetched audit/CI/finish workflow is still required. No124 publication yet. No delegation or heavy overlap; preserve private worlds and frozen001–123.
+
 ## Edition124 continuation — admission guard c1ec36d3, presentation65bffa07
 
 2026-11-12. Continue same isolated edition124 checkout. Pipeline remaining124.py/session90575 is still running serially. Final wrapper includes original missing-decision guard: orphan budget tasks cannot advance/resume/certify; the raw task remains readable. Guard added after broad regression compiled4de8bddb; preserve that scope, not all-current relabelling. Current-source software/UI and focused native checks cover it. Source-scope receipt build/validation-source124.json.
