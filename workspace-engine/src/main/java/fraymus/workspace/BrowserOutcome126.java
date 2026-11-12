@@ -48,6 +48,17 @@ final class BrowserOutcome126 {
         return passed;
     }
 
+    static JSONObject planningContext(JSONObject task) {
+        var context=new JSONObject().put("currentObservationId",task.optString("observation"));
+        var actions=new JSONArray();
+        for(Object raw:task.getJSONArray("recent")){
+            var row=(JSONObject)raw;var result=row.getJSONObject("result");
+            if(task.has("observation")&&result.optString("observation").equals(task.getString("observation")))context.put("currentPage",WorldFrames.copy(result));
+            actions.put(new JSONObject().put("tool",row.getString("tool")).put("error",result.optString("error")));
+        }
+        return context.put("recentActions",actions).put("historyScope","Older observations remain in the retained journal; their action references are invalid. Only currentPage supplies actionable references.");
+    }
+
     static JSONObject evidence(JSONObject task) {
         ChatChain052.verifyObjective(task);
         var proof=task.getJSONObject(PROOF);var receipt=proof.getJSONObject("receipt");

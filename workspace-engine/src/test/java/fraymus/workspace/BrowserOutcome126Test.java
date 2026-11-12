@@ -71,6 +71,22 @@ public class BrowserOutcome126Test {
             assertEquals("verified",f.agency.read(t.getString("id")).getString("outcome"));assertTrue(runtime.state().getJSONObject("witness").getLong("records")>0);
         }
     }
+    @Test public void planningUsesOnlyCurrentActionReferencesAndBoundsUnchangedReads()throws Exception{
+        var old=new JSONObject().put("observation","old-ref").put("controls",new JSONArray().put("old-control"));
+        var fresh=new JSONObject().put("observation","new-ref").put("controls",new JSONArray().put("new-control"));
+        var task=new JSONObject().put("observation","new-ref").put("recent",new JSONArray().put(new JSONObject().put("tool","browser.observe").put("result",old)).put(new JSONObject().put("tool","browser.observe").put("result",fresh)));
+        var context=BrowserOutcome126.planningContext(task);assertEquals("new-ref",context.getString("currentObservationId"));assertTrue(context.getJSONObject("currentPage").similar(fresh));assertFalse(context.toString().contains("old-ref"));assertEquals(2,task.getJSONArray("recent").length());
+        var replies=new java.util.concurrent.atomic.AtomicInteger();
+        try(var f=new Agency043Test.Fixture(q->{
+            boolean offersObserve=q.getJSONArray("tools").toList().toString().contains("browser_observe");
+            if(replies.getAndIncrement()<2)assertTrue(offersObserve);else assertFalse(offersObserve);
+            return Agency043Test.reply("browser.observe",new JSONObject());
+        })){
+            var t=start(f);f.agency.tick();f.acknowledge(f.claim(),new JSONObject().put("observation","initial"));
+            for(int i=0;i<2;i++){f.agency.tick();f.acknowledge(f.claim(),new JSONObject().put("observation","later"+i));}
+            f.agency.tick();var g=f.agency.read(t.getString("id"));assertEquals(1,g.getInt("failures"));assertEquals("ready",g.getString("status"));assertEquals(3,replies.get());
+        }
+    }
     @Test public void unsuccessfulActualCheckReturnsToPlanningWithoutCertifyingSuccess()throws Exception{
         try(var f=new Agency043Test.Fixture(q->Agency043Test.reply("finish",new JSONObject().put("summary","claimed")))){
             var c=contract().put("url","http://127.0.0.1/labelled-unit-control");var t=f.agency.start(new JSONObject().put("goal","Record alpha").put("model","unit-fixture").put(BrowserOutcome126.KEY,c));
