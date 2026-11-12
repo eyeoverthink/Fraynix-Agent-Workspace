@@ -74,7 +74,7 @@ public final class WorkspaceServer implements AutoCloseable {
         var available=new JSONArray();var snapshot=catalog;
         if(snapshot!=null)for(var model:snapshot.models())if(model.available()&&model.capabilities().contains("tools"))available.put(new JSONObject().put("name",model.name()).put("endpoint",model.endpoint()).put("bytes",model.bytes()).put("capabilities",model.capabilities()));
         return new JSONObject().put("name","Fraynix Agent Workspace").put("project",store.root().toString()).put("models",available)
-            .put("discovering",snapshot==null).put("artifacts",store.artifacts()).put("skills",store.skills()).put("learning",learning.state()).put("spatialScenes",spatial.list()).put("scenes",scenes.scenes()).put("datasets",measurements.datasets()).put("comparisons",measurements.comparisons("")).put("calibrations",calibrations.list()).put("workflows",workflows.list()).put("goals",goals.list()).put("procedures",goals.procedures()).put("baseline","6341404");
+            .put("discovering",snapshot==null).put("artifacts",store.artifacts()).put("skills",store.skills()).put("learning",learning.state()).put("spatialScenes",spatial.list()).put("scenes",scenes.scenes()).put("datasets",measurements.datasets()).put("comparisons",measurements.comparisons("")).put("calibrations",calibrations.list()).put("workflows",workflows.list()).put("goals",goals.list()).put("procedures",goals.activeProcedures127()).put("baseline","6341404");
     }
     public HttpServer start() throws IOException {
         HttpServer server=HttpServer.create(new InetSocketAddress("127.0.0.1",0),0);server.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
@@ -472,9 +472,12 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/goals/start" -> result=goals.start(input);
                     case "/api/goals/read" -> result=costs087.read(input.getString("id"));
                     // Never acquire the workflow monitor while holding goals: the supervisor owns that lock order.
-                    case "/api/goals/list" -> result=new JSONObject().put("goals",goals.list()).put("procedures",goals.procedures());
+                    case "/api/goals/list" -> result=new JSONObject().put("goals",goals.list()).put("procedures",goals.activeProcedures127());
                                         case "/api/goals/resume" -> result=goals.resume(input.getString("id"));
                                         case "/api/goals/ack" -> result=goals.acknowledge(input);
+                    case "/api/procedures127/catalog" -> {SpatialScene.keys(input);result=workflows.procedureCatalog127();}
+                    case "/api/procedures127/read" -> result=workflows.inspectProcedure127(input);
+                    case "/api/procedures127/change" -> {if(agency.busy()||sharedBusy043()||agency.state().getJSONArray("tasks").toList().stream().anyMatch(x->"interrupted".equals(((java.util.Map<?,?>)x).get("status"))))throw new IllegalStateException("Finish or stop active/interrupted chat work before managing procedures");result=workflows.changeProcedure127(input);}
                     case "/api/procedures/save" -> result=goals.saveProcedure(input.getString("goalId"),input.getString("name"));
                     case "/api/procedures/run" -> {var args087=input;result=costs087.start(()->goals.runProcedure(args087));}
                     case "/api/brain/calibration-trace" -> result=brain.calibrationTrace068(input);

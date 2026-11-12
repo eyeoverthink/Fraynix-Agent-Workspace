@@ -99,8 +99,7 @@ public final class WorkflowRunner implements AutoCloseable {
         source(w);for(int i=0;i<3;i++)verifiedStage(w,i);var b=bundle(w);var a=artifacts.read(w.getJSONObject("report").getString("id"));var audit=w.getJSONObject("audit");if(!audit.getBoolean("passed")||!audit.getJSONObject("artifact").similar(Creation.reference(a)))throw new IllegalStateException("Independent passing audit no longer matches the created app");
         var d=w.getJSONObject("definition");w.put("metrics",new JSONObject().put("stages",3).put("observationRows",w.getJSONObject("dataBinding").has("rowCount")?w.getJSONObject("dataBinding").getInt("rowCount"):source(w).getJSONArray("rows").length()).put("evidenceRows",audit.getInt("rowCount")).put("maxPlotError",audit.getDouble("maxPlotError")).put("qualityPassed",stage(w,0).getJSONObject("metrics").getBoolean("qualityPassed")).put("endpointErrorM",stage(w,1).getJSONObject("metrics").getDouble("endpointErrorM")));
         if(!d.getString("saveSkillName").isEmpty()){
-            var defaults=new JSONObject().put("request",d.getString("request")).put("title",d.getString("title")).put("modelName",d.getString("modelName")).put("parameters",d.getJSONObject("physics").getJSONObject("parameters")).put("targetM",d.getJSONObject("physics").getDouble("targetM")).put("disturbanceMps",d.getJSONObject("physics").getDouble("disturbanceMps")).put("maxGapS",d.getDouble("maxGapS")).put("speedLimitMps",d.getDouble("speedLimitMps")).put("responsive",d.optBoolean("responsive",false));
-            var p=new JSONObject().put("kind",PROCEDURE).put("sourceWorkflowId",w.getString("id")).put("report",w.getJSONObject("report")).put("defaults",defaults).put("sourceData",w.getJSONObject("dataBinding")).put("prerequisites",new JSONArray(List.of("Fresh explicitly selected observation dataset/version","Frozen data criteria and separate native simulation conditions","Admitted installed local model","No other shared workflow or goal"))).put("actions",new JSONArray(List.of("Analyze and verify original observation data","Execute and verify native world goal","Build actual qualified source evidence","Generate and test interactive content","Independently verify every cell and native chart point"))).put("recovery",new JSONArray(List.of("Stable child intents reconcile interrupted starts","Reuse completed verified stages","Incomplete physics resumes as a new recorded attempt","Three total creation drafts including audit repair","Explicit resume after interruption; stop cancels owned work"))).put("scope",WorkflowEvidence.SCOPE+" Registered three-stage workflow, not a general planner or LLM-weight training.");w.put("savedSkill",goals.retainWorkflow(p,d.getString("saveSkillName")));
+            w.put("savedSkill",goals.retainWorkflow(evidenceProcedure127(w),d.getString("saveSkillName")));
         }
         w.put("status","completed");change(w,"All three actual stages and independent data/geometry audit verified"+(!d.getString("saveSkillName").isEmpty()?"; reusable workflow retained":""));goals.releaseWorkflow(w.getString("id"));artifacts.event("java_workflow_completed",view(w));
     }
@@ -125,6 +124,7 @@ public final class WorkflowRunner implements AutoCloseable {
     private void recoverPointer(JSONObject w,JSONObject s){if(!s.has("goalId")){var g=goals.findOwned(w.getString("id"),(graph(w)?"graph:":"")+s.getString("name"));if(g!=null)s.put("goalId",g.getString("id"));}}
     public synchronized JSONObject cancel(String id) throws Exception {var w=raw(id);if(Qualification105.own(w))return cancel105(w);requireChildControl105(w);if(settled(w))throw new IllegalStateException("Workflow already settled");var s=stage(w,w.getInt("stageIndex"));recoverPointer(w,s);if(s.has("goalId")){var g=goals.read(s.getString("goalId"));if(Set.of("running","waiting-host","interrupted").contains(g.getString("status")))goals.controlOwned(id,g.getString("id"),true);}w.put("status","cancelled");w.remove("claim");change(w,"Stopped owned work; no workflow skill promoted");goals.releaseWorkflow(id);return view(w);}
     public synchronized JSONObject reuse(JSONObject input) throws Exception {
+        goals.requireRunnable127(input.getString("name"),input.getInt("version"));
         if(input.has("worldBinding"))return reuseGraph(input);
         for(Object raw:goals.procedures()){var p=(JSONObject)raw;if(p.getString("name").equals(input.getString("name"))&&p.getInt("version")==input.getInt("version")&&DataSummary104.supported(p.getString("kind")))return reuse101(input,p);}
         SpatialScene.keys(input,"name","version","request","title","datasetId","datasetVersion","parameters","targetM","disturbanceMps","maxGapS","speedLimitMps","modelName","saveSkillName","responsive");JSONObject chosen=null;for(Object raw:goals.procedures()){var p=(JSONObject)raw;if(p.getString("name").equals(input.getString("name"))&&p.getInt("version")==input.getInt("version"))chosen=p;}if(chosen==null||!chosen.getString("kind").equals(PROCEDURE))throw new IllegalArgumentException("Select a retained evidence workflow");var args=new JSONObject(chosen.getJSONObject("defaults").toString());for(String k:input.keySet())if(!Set.of("name","version").contains(k)){if(k.equals("parameters")){for(String key:input.getJSONObject(k).keySet())args.getJSONObject(k).put(key,input.getJSONObject(k).get(key));}else args.put(k,input.get(k));}args.put("saveSkillName",input.optString("saveSkillName",""));return start(args,chosen);
@@ -269,7 +269,7 @@ public final class WorkflowRunner implements AutoCloseable {
         }
         if(executableCount105()+missing+1>20||goals.list().length()+2*missing+3>64)throw new IllegalStateException("Insufficient original workflow/goal capacity for all examples and selected-source verification; nothing started");
         var bank=goals.procedures();int version=1;for(Object raw:bank){var p=(JSONObject)raw;if(p.getString("name").equals(def.getString("saveSkillName"))){if(!p.getString("kind").equals(DataSummary104.KIND))throw new IllegalArgumentException("Use a distinct summary skill name");version=Math.max(version,p.getInt("version")+1);}}
-        if(bank.length()>=32||version>8)throw new IllegalStateException("Insufficient saved-procedure capacity; nothing started");
+        if(!goals.procedureCapacity127()||version>8)throw new IllegalStateException("Insufficient saved-procedure capacity; nothing started");
         stages.put(new JSONObject().put("name","selected-data").put("status","pending").put("reused",false));
         var q=new JSONObject().put("schema",Qualification105.KIND).put("codeSha256",Qualification105.code()).put("definitionSha256",WorldFrames.hash(def)).put("bankBefore",bank.length()).put("missingExamples",missing).put("reviewAfterExamples",review).put("sourceKind","synthetic software qualification; selected source retains its own provenance");
         var maintenance107=Qualification107.manifest(refresh,baseline107);q.put("maintenance107",maintenance107).put("maintenanceSha256",WorldFrames.hash(maintenance107));
@@ -399,8 +399,9 @@ public final class WorkflowRunner implements AutoCloseable {
         if(!name.isEmpty()&&!name.matches("[a-z][a-z0-9-]{2,55}"))throw new IllegalArgumentException("Graph skill name needs3..56 lowercase letters, digits or hyphens");
         if(input.has("reviewEachNode")&&!(input.get("reviewEachNode") instanceof Boolean))throw new IllegalArgumentException("Review each node must be boolean");
         var def=graphMemo.get(input.getJSONObject("graph"),goals);
+        for(Object raw:def.getJSONArray("nodes")){var n=(JSONObject)raw;if(n.getString("kind").equals("procedure")){var ref=n.getJSONObject("skill");goals.requireRunnable127(ref.getString("name"),ref.getInt("version"));}}
         if(goals.list().length()+def.getJSONArray("nodes").length()-1>64)throw new IllegalStateException("Insufficient retained-goal capacity for every graph procedure");
-        if(!name.isEmpty()){int version=1;var retained=goals.procedures();for(Object raw:retained){var p=(JSONObject)raw;if(p.getString("name").equals(name)){if(!p.getString("kind").equals(SkillGraph046.KIND))throw new IllegalArgumentException("Use a distinct name for this graph task family");version=Math.max(version,p.getInt("version")+1);}}if(retained.length()>=32||version>8)throw new IllegalStateException("No retained skill capacity for the requested graph version");}
+        if(!name.isEmpty()){int version=1;var retained=goals.procedures();for(Object raw:retained){var p=(JSONObject)raw;if(p.getString("name").equals(name)){if(!p.getString("kind").equals(SkillGraph046.KIND))throw new IllegalArgumentException("Use a distinct name for this graph task family");version=Math.max(version,p.getInt("version")+1);}}if(!goals.procedureCapacity127()||version>8)throw new IllegalStateException("No retained skill capacity for the requested graph version");}
         var binding=WorldFrames.copy(input.getJSONObject("worldBinding"));SkillGraph046.current(goals,binding);
         var scene=goals.worlds().source(SkillGraph046.binding(binding));
         for(Object raw:def.getJSONArray("nodes")){var n=(JSONObject)raw;if(n.getString("kind").equals("procedure"))WorldPlan.intent(scene,n.getJSONArray("targets"),n.getDouble("forceLimitN"),n.getDouble("torqueLimitNm"));}
@@ -410,7 +411,7 @@ public final class WorkflowRunner implements AutoCloseable {
         goals.reserveWorkflow(id);resetGraphClock(w);try{change(w,"Typed graph, exact verified procedures, source and wrench ceilings frozen before any effect");}catch(Exception e){goals.releaseWorkflow(id);throw e;}return view(w);
     }
     public synchronized JSONObject graphCatalog() throws Exception {
-        var all=new JSONArray();for(Object raw:goals.procedures()){var p=(JSONObject)raw;if(p.getString("kind").equals(WorldPlan.PROCEDURE)){try{SkillGraph046.selected(goals,SkillGraph046.ref(p));all.put(new JSONObject().put("skill",SkillGraph046.ref(p)).put("defaults",p.getJSONObject("defaults")));}catch(Exception invalid){all.put(new JSONObject().put("name",p.getString("name")).put("version",p.getInt("version")).put("unavailable",invalid.getMessage()));}}}
+        var all=new JSONArray();for(Object raw:goals.activeProcedures127()){var p=(JSONObject)raw;if(p.getString("kind").equals(WorldPlan.PROCEDURE)){try{SkillGraph046.selected(goals,SkillGraph046.ref(p));all.put(new JSONObject().put("skill",SkillGraph046.ref(p)).put("defaults",p.getJSONObject("defaults")));}catch(Exception invalid){all.put(new JSONObject().put("name",p.getString("name")).put("version",p.getInt("version")).put("unavailable",invalid.getMessage()));}}}
         return new JSONObject().put("schema",SkillGraph046.SCHEMA).put("procedures",all).put("memo",graphMemo.metrics()).put("scope",SkillGraph046.SCOPE);
     }
     private JSONObject graphSource(JSONObject w,int index){return index==0?w.getJSONObject("worldBinding"):stage(w,index-1).getJSONObject("output").getJSONObject("world");}
@@ -476,7 +477,7 @@ public final class WorkflowRunner implements AutoCloseable {
         double nativeTime=0;for(int i=0;i<w.getInt("stageIndex");i++)nativeTime+=stage(w,i).getJSONObject("output").getJSONObject("metrics").getDouble("timeS");
         chargeGraphClock(w);w.put("metrics",new JSONObject().put("stages",w.getJSONArray("stages").length()).put("worldCommits",w.getInt("stageIndex")).put("nativeTimeS",nativeTime).put("awakeElapsedMs",1_200_000-w.getLong("graphRemainingMs")).put("modelCalls",0).put("cells",audit.getInt("cells")).put("maxPlotError",audit.getDouble("maxPlotError")));
         if(!w.getString("saveSkillName").isEmpty()){
-            var p=new JSONObject().put("kind",SkillGraph046.KIND).put("sourceWorkflowId",w.getString("id")).put("graph",w.getJSONObject("graph")).put("graphSha256",w.getString("graphSha256")).put("graphCodeSha256",w.getString("graphCodeSha256")).put("report",w.getJSONObject("report")).put("defaults",new JSONObject().put("title",w.getString("title")).put("request",w.getString("request")).put("modelName",w.getString("modelName")).put("reviewEachNode",w.getBoolean("reviewEachNode"))).put("scope",SkillGraph046.SCOPE);
+            var p=graphProcedure127(w);
             w.put("savedSkill",goals.retainWorkflow(p,w.getString("saveSkillName")));
         }
         w.put("status","completed");change(w,"Exact procedure graph, original native commits and actual rendered comparison verified"+(w.has("savedSkill")?"; graph version retained":""));goals.releaseWorkflow(w.getString("id"));artifacts.event("java_workflow_completed",view(w));
@@ -493,6 +494,56 @@ public final class WorkflowRunner implements AutoCloseable {
         if(chosen==null||!chosen.getString("kind").equals(SkillGraph046.KIND)||!chosen.getString("graphCodeSha256").equals(SkillGraph046.code())||!chosen.getString("graphSha256").equals(WorldFrames.hash(chosen.getJSONObject("graph"))))throw new IllegalStateException("Unknown or incompatible retained graph version");
         var source=raw(chosen.getString("sourceWorkflowId"));if(!source.getString("status").equals("completed"))throw new IllegalStateException("Retained graph lost its completed source");graphVerified(source);graphArtifact(source);if(!source.getJSONObject("graph").similar(chosen.getJSONObject("graph"))||!source.getJSONObject("report").similar(chosen.getJSONObject("report"))||!source.getJSONObject("audit").getBoolean("passed")||!source.getJSONObject("audit").getString("dataSha256").equals(WorldFrames.hash(GraphReport046.data(source))))throw new IllegalStateException("Retained graph differs from its original verified procedure graph");
         var args=WorldFrames.copy(chosen.getJSONObject("defaults")).put("graph",chosen.getJSONObject("graph"));for(String k:input.keySet())if(!Set.of("name","version").contains(k))args.put(k,input.get(k));args.put("saveSkillName",input.optString("saveSkillName",""));return startGraph(args,chosen);
+    }
+
+    private JSONObject evidenceProcedure127(JSONObject w){var d=w.getJSONObject("definition");
+var defaults=new JSONObject().put("request",d.getString("request")).put("title",d.getString("title")).put("modelName",d.getString("modelName")).put("parameters",d.getJSONObject("physics").getJSONObject("parameters")).put("targetM",d.getJSONObject("physics").getDouble("targetM")).put("disturbanceMps",d.getJSONObject("physics").getDouble("disturbanceMps")).put("maxGapS",d.getDouble("maxGapS")).put("speedLimitMps",d.getDouble("speedLimitMps")).put("responsive",d.optBoolean("responsive",false));
+            var p=new JSONObject().put("kind",PROCEDURE).put("sourceWorkflowId",w.getString("id")).put("report",w.getJSONObject("report")).put("defaults",defaults).put("sourceData",w.getJSONObject("dataBinding")).put("prerequisites",new JSONArray(List.of("Fresh explicitly selected observation dataset/version","Frozen data criteria and separate native simulation conditions","Admitted installed local model","No other shared workflow or goal"))).put("actions",new JSONArray(List.of("Analyze and verify original observation data","Execute and verify native world goal","Build actual qualified source evidence","Generate and test interactive content","Independently verify every cell and native chart point"))).put("recovery",new JSONArray(List.of("Stable child intents reconcile interrupted starts","Reuse completed verified stages","Incomplete physics resumes as a new recorded attempt","Three total creation drafts including audit repair","Explicit resume after interruption; stop cancels owned work"))).put("scope",WorkflowEvidence.SCOPE+" Registered three-stage workflow, not a general planner or LLM-weight training.");
+        return p;
+    }
+    private JSONObject graphProcedure127(JSONObject w){
+var p=new JSONObject().put("kind",SkillGraph046.KIND).put("sourceWorkflowId",w.getString("id")).put("graph",w.getJSONObject("graph")).put("graphSha256",w.getString("graphSha256")).put("graphCodeSha256",w.getString("graphCodeSha256")).put("report",w.getJSONObject("report")).put("defaults",new JSONObject().put("title",w.getString("title")).put("request",w.getString("request")).put("modelName",w.getString("modelName")).put("reviewEachNode",w.getBoolean("reviewEachNode"))).put("scope",SkillGraph046.SCOPE);
+        return p;
+    }
+    public synchronized JSONObject procedureCatalog127(){return goals.catalog127();}
+    public synchronized JSONObject inspectProcedure127(JSONObject input){
+        SpatialScene.keys(input,"id");var p=goals.procedure127(input.getString("id"));var catalog=goals.catalog127();var evidence=new JSONObject();
+        try{evidence=verifyRetained127(p,new HashSet<>());}catch(Exception error){evidence.put("passed",false).put("reason",String.valueOf(error.getMessage()));}
+        var descendants=new JSONArray();
+        for(Object raw:goals.procedures()){var child=(JSONObject)raw;try{var source=child.has("sourceGoalId")?goals.goalSource127(child.getString("sourceGoalId")):raw(child.getString("sourceWorkflowId"));if(refers127(source,p.getString("id")))descendants.put(new JSONObject().put("id",child.getString("id")).put("name",child.getString("name")).put("version",child.getInt("version")));}catch(Exception e){descendants.put(new JSONObject().put("id",child.getString("id")).put("unavailable",String.valueOf(e.getMessage())));}}
+        return new JSONObject().put("procedure",p).put("lifecycle",goals.lifecycleDetails127(p)).put("evidence",evidence).put("descendants",descendants).put("expectedHash",catalog.getString("expectedHash")).put("active",catalog.getInt("active")).put("activeLimit",32).put("scope","Availability changes preserve original records and descendants. Current evidence checks are dated, not a new execution on fresh inputs.");
+    }
+    private static boolean refers127(JSONObject source,String id){
+        if(source.optJSONObject("skill",new JSONObject()).optString("id").equals(id))return true;
+        if(source.has("graph"))for(Object raw:source.getJSONObject("graph").getJSONArray("nodes"))if(((JSONObject)raw).optJSONObject("skill",new JSONObject()).optString("id").equals(id))return true;
+        return false;
+    }
+    private JSONObject verifyRetained127(JSONObject p,Set<String> seen)throws Exception{
+        if(p.optString("publication101").equals("pending"))throw new IllegalStateException("Procedure publication is still pending");
+        if(p.has("sourceGoalId"))return goals.verifyProcedureSource127(p);
+        if(seen.size()>=8||!seen.add(p.getString("id")))throw new IllegalStateException("Procedure ancestry cycles or exceeds eight links");
+        try{
+            var w=raw(p.getString("sourceWorkflowId"));if(!w.getString("status").equals("completed")||!w.has("savedSkill")||!w.getJSONObject("savedSkill").getString("id").equals(p.getString("id")))throw new IllegalStateException("Original completed workflow publication is missing");
+            if(w.has("skill")){var ref=w.getJSONObject("skill");var parent=goals.procedure127(ref.getString("id"));if(!parent.getString("name").equals(ref.getString("name"))||parent.getInt("version")!=ref.getInt("version"))throw new IllegalStateException("Workflow procedure ancestry changed");verifyRetained127(parent,seen);}
+            JSONObject expected;
+            if(DataSummary104.supported(p.getString("kind"))){
+                if(w.has("qualificationOwner105")){var owner=raw(w.getString("qualificationOwner105"));if(!owner.getJSONObject("qualification105").getString("codeSha256").equals(Qualification105.code()))throw new IllegalStateException("Qualification implementation changed; explicitly upgrade before reactivation");checked108(owner);}
+                if(w.has("implementation103"))Implementation103.current(w.getJSONObject("implementation103"));verifiedArchive110(w);expected=procedure103(w).put("publication101","published");
+            }else if(p.getString("kind").equals(SkillGraph046.KIND)){
+                graphVerified(w);var a=graphArtifact(w);if(!w.getString("graphCodeSha256").equals(SkillGraph046.code())||!w.getJSONObject("audit").getBoolean("passed")||!w.getJSONObject("audit").getJSONObject("artifact").similar(Creation.reference(a))||!w.getJSONObject("audit").getString("dataSha256").equals(WorldFrames.hash(GraphReport046.data(w))))throw new IllegalStateException("Original graph evidence or implementation changed");
+                for(Object raw:w.getJSONObject("graph").getJSONArray("nodes")){var n=(JSONObject)raw;if(n.getString("kind").equals("procedure")){var ref=n.getJSONObject("skill");goals.requireRunnable127(ref.getString("name"),ref.getInt("version"));}}
+                expected=graphProcedure127(w);
+            }else if(p.getString("kind").equals(PROCEDURE)){
+                source(w);for(int i=0;i<3;i++)verifiedStage(w,i);bundle(w);var a=artifacts.read(w.getJSONObject("report").getString("id"));if(!w.getJSONObject("audit").getBoolean("passed")||!w.getJSONObject("audit").getJSONObject("artifact").similar(Creation.reference(a)))throw new IllegalStateException("Original workflow audit changed");expected=evidenceProcedure127(w);
+            }else throw new IllegalStateException("Unregistered retained workflow kind");
+            expected.put("name",p.getString("name"));ProcedureLifecycle127.compareContract(p,expected);
+            return new JSONObject().put("passed",true).put("sourceWorkflowId",w.getString("id")).put("sourceSha256",WorldFrames.hash(w)).put("procedureSha256",WorldFrames.hash(p));
+        }finally{seen.remove(p.getString("id"));}
+    }
+    public synchronized JSONObject changeProcedure127(JSONObject input)throws Exception{
+        SpatialScene.keys(input,"id","action","expectedHash","reason");
+        if(closed||values().stream().anyMatch(w->!Set.of("completed","cancelled").contains(w.getString("status"))))throw new IllegalStateException("Finish or cancel running/interrupted workflows before changing procedure availability");
+        goals.lifecycleIdle127();var inspection=inspectProcedure127(new JSONObject().put("id",input.getString("id")));goals.changeProcedure127(input,inspection.getJSONObject("evidence"));return inspectProcedure127(new JSONObject().put("id",input.getString("id")));
     }
     // Archive pointers live in the same atomic checkpoint as active records. No second mutable index.
     private Path archiveDirectory110(){
