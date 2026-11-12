@@ -1,0 +1,18 @@
+{
+  "heldStarts": [
+    1000,
+    1500,
+    2100,
+    3000,
+    4500
+  ],
+  "footage": "https://documents.epfl.ch/groups/c/cv/cvlab-pom-video3/www/terrace1-c0.avi",
+  "sources": {
+    "workspace-engine/src/main/java/fraymus/workspace/ScaleAwareFlow129.java": "74832fc007bab5aec1b165b555850793e58ff72d0a148f71332c6fd90cc95529",
+    "workspace-engine/src/test/java/fraymus/workspace/ObservationStudy129.java": "8138d5809b71ce06bafd6429a57203468d0728a2d5aa851550196932b2420821",
+    "scripts/Prepare-Observation129-confirm.py": "e3cc7430eb3159a7689d7006c6b82fd95a0521e55ea6186841d43c8ed888b7ca"
+  },
+  "gate": "Separate confirmation: at least 80% of incumbent accepted reference count, strictly lower accepted mean error, strictly more references within one metre, no increase in accepted errors over two metres. Also pass negative controls. No candidate changes after first held evaluation.",
+  "reason": "Original gate required strict reduction from zero severe errors and failed; do not relabel it. New independent windows test the unchanged candidate with a non-increase condition.",
+  "scope": "Same fixed public camera, disjoint windows; small correlated research sample, not general recognition qualification."
+}
