@@ -1,31 +1,31 @@
 {
   "passed": true,
-  "reviewedAtUtc": "2026-11-12T01:36:43.496716+00:00",
+  "reviewedAtUtc": "2026-11-12T01:50:31.992411+00:00",
   "method": "Actual screenshot files displayed and visually inspected by the coding agent; browser interaction checks recorded separately.",
   "images": [
     {
-      "path": "build/game121-ui-reviewed/return-live.png",
-      "sha256": "49fba22d6d182233b53fa1bcea9fc4c99f9eea48e17434f9dde9e663985002b5"
+      "path": "build/game121-ui-final/return-live.png",
+      "sha256": "5fac909df586aff2423ffbfc663901d6581656897edcc5e8844ec7012690b530"
     },
     {
-      "path": "build/game121-ui-reviewed/collected-after-return.png",
-      "sha256": "136e7789854d2cd3f2cdb1945b3a3db361dae1b40f67e9bdcb3a2a7053e8bebb"
+      "path": "build/game121-ui-final/collected-after-return.png",
+      "sha256": "362102dfd55ca9875c53a38f8ab5ff5a3140bd7f875420de4b601478a579ebc2"
     },
     {
-      "path": "build/game121-ui-reviewed/return-completed.png",
-      "sha256": "82aea0396f700170dfa202c70f3b462130bb0181bcdf45585c5ab62293ea8f3f"
+      "path": "build/game121-ui-final/return-completed.png",
+      "sha256": "fc6785b22c0158752bbf472c88585d15d3406100aebf7042db408e587d2d2160"
     },
     {
-      "path": "build/game121-ui-reviewed/reversal-completed.png",
-      "sha256": "bbeee14357738f1efbbf00103faee4e208e2752a38536da6054205e5ce42264d"
+      "path": "build/game121-ui-final/reversal-completed.png",
+      "sha256": "b2dd77cda4044509bdd2bc7346b174174d70719af0a3a2015da19fca3f53693b"
     },
     {
-      "path": "build/game121-ui-reviewed/verified-return.png",
-      "sha256": "b4a575abbb307640288a804429771e416f6787e9f0071885d641b612374edac2"
+      "path": "build/game121-ui-final/verified-return.png",
+      "sha256": "1f3733f888d4980340c00f55d9936858dbc2cbeab3b2745d005c60b116bdb77c"
     },
     {
-      "path": "build/game121-ui-reviewed/challenge-1100.png",
-      "sha256": "c0d97b0140a00d2160237b4212ce8c5df0af8109b1cd72e449ee1899375ab30d"
+      "path": "build/game121-ui-final/challenge-1100.png",
+      "sha256": "5e171e64897117e1cb6f45e29526f01099e2e0750aa387b176c841f77295d745"
     },
     {
       "path": "docs/readmes/121/controller-motion.png",
@@ -33,11 +33,11 @@
     },
     {
       "path": "build/guide121-1440-viewport.png",
-      "sha256": "dda5b7d55bf23d4f036f68ef1c272895d56b3454333fdce9c5d8c57332641422"
+      "sha256": "e177ff8af2c4a03e3229545978dadd1bddbf1b3a18b559cd00273631088ab896"
     },
     {
       "path": "build/guide121-390.png",
-      "sha256": "c6594942d39bdc62179620775d8f736d727be614ea130d8acd7f005dee06f7c6"
+      "sha256": "74ff14258dbe0b0067f4e11f83949dcc64206904a19adffcef7cbc461f393505"
     }
   ],
   "observations": [
@@ -47,6 +47,7 @@
     "Saved-evidence screenshot shows the wall-reversal task; caption accurately identifies it.",
     "1100px integrated app controls remain usable and actual failed challenge stays refused.",
     "Motion chart shows return route, collision count, enemy velocity reversal and the added simulation time; encoding corrected and re-inspected.",
-    "Offline guide inspected at 1440px and 390px: readable wrapping, no horizontal overflow, source inventory and screenshot/phase/module controls exercised."
+    "Offline guide inspected at 1440px and 390px: readable wrapping, no horizontal overflow, source inventory and screenshot/phase/module controls exercised.",
+    "All five visible tasks repeated against the final packaged build after load-label correction; final screenshots inspected again. The original successful review remains archived."
   ]
 }

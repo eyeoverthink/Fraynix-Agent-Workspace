@@ -4,17 +4,17 @@
 
 2026-11-11 · Java owns execution and evidence; the integrated desktop shows the world, chat and task history.
 
-[Previous edition120](README-120.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/121/index.html) · [Development contract](docs/EDITION_121_CONTRACT.md) · [Phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md)
+[Previous edition 120](README-120.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/121/index.html) · [Development contract](docs/EDITION_121_CONTRACT.md) · [Phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md)
 
 ![Actual completed return task](docs/readmes/121/return-completed.png)
 
 ## What changed
 
-Edition120 proved that waiting for an enemy to clear could recover two previously missed optional pickups. It did **not** establish that returning to a missed pickup was useful. Edition121 supplies that missing comparison on a declared development course: the revised controller goes back, hits the original question block, collects the released mushroom through native collision, and reaches the finish without damage. The same revised controller with returns disabled finishes without the item. The original120 policy also finishes without it.
+Edition 120 proved that waiting for an enemy to clear could recover two previously missed optional pickups. It did **not** establish that returning to a missed pickup was useful. Edition 121 supplies that missing comparison on a declared development course: the revised controller goes back, hits the original question block, collects the released mushroom through native collision, and reaches the finish without damage. The same revised controller with returns disabled finishes without the item. The original 120 policy also finishes without it.
 
-This is a measured improvement within a bounded game task. It does not mean every return is worthwhile or every enemy encounter is solved. Two of the eight new development courses still kill the player under both120 and121. A simple controller survives one of those. Those results remain in the report and define a useful next engineering target.
+This is a measured improvement within a bounded game task. It does not mean every return is worthwhile or every enemy encounter is solved. Two of the eight new development courses still kill the player under both 120 and 121. A simple controller survives one of those. Those results remain in the report and define a useful next engineering target.
 
-All71 older regression courses finish without damage. These include the54 original courses,120's seven development and six reserved courses, and four early-return probes. The original24 collection courses retain their pickups. The controller still refuses the unsupported gap item; larger reach is not permission to cross missing ground.
+All 71 older regression courses finish without damage. These include the 54 original courses, 120's seven development and six reserved courses, and four early-return probes. The original 24 collection courses retain their pickups. The controller still refuses the unsupported gap item; larger reach is not permission to cross missing ground.
 
 ## Try it in the app
 
@@ -32,9 +32,9 @@ The explicit chat route uses owned Java scheduling and zero model calls. Choosin
 
 ## Run or update from source
 
-The supported Windows launcher is [Launch-Agent-Workspace.bat](Launch-Agent-Workspace.bat), backed by [Start-Agent-Workspace.ps1](scripts/Start-Agent-Workspace.ps1). It requires JDK21 and Node.js LTS. Initial preparation downloads the locked Java and desktop dependencies; later prepared runs can use `-Offline`.
+The supported Windows launcher is [Launch-Agent-Workspace.bat](Launch-Agent-Workspace.bat), backed by [Start-Agent-Workspace.ps1](scripts/Start-Agent-Workspace.ps1). It requires JDK 21 and Node.js LTS. Initial preparation downloads the locked Java and desktop dependencies; later prepared runs can use `-Offline`.
 
-Before updating an existing installation, use **Stop Java & close app**. Closing only the window may leave the durable Java owner running. The launcher protects that owner rather than rebuilding its loaded installation. Edition121 also fixes the stopped-owner preparation path to refresh the native Game Lab code and assets together with the workspace engine; an existing game folder must not leave an older controller installed.
+Before updating an existing installation, use **Stop Java & close app**. Closing only the window may leave the durable Java owner running. The launcher protects that owner rather than rebuilding its loaded installation. Edition 121 also fixes the stopped-owner preparation path to refresh the native Game Lab code and assets together with the workspace engine; an existing game folder must not leave an older controller installed.
 
 For an isolated review, choose a new project directory rather than reusing a live personal world:
 
@@ -47,7 +47,7 @@ Use a distinct unused review name if that directory is already active. `-Prepare
 
 ## The experiment that proves return value
 
-A late supported block is initially deferred because of a moving enemy. After the encounter, the player lands farther than120's1.75-unit return limit. The new policy considers up to2.75 original game units, with the same240-tick deadline, at most three return starts, once per object, continuous ground, braking room and fresh approach checks. The item remains identified by its persistent object ID.
+A late supported block is initially deferred because of a moving enemy. After the encounter, the player lands farther than120's 1.75-unit return limit. The new policy considers up to 2.75 original game units, with the same 240-tick deadline, at most three return starts, once per object, continuous ground, braking room and fresh approach checks. The item remains identified by its persistent object ID.
 
 The comparison below uses the same declared scene and fresh runtime memory for every policy. **observe121** is the same new controller with returns disabled. It includes the observation and collectible-handling improvements, so the contrast isolates return availability.
 
@@ -63,27 +63,27 @@ Returning earns an item at extra time cost. It is useful for an objective that v
 
 ## What the failures taught us
 
-The first longer-return prototype did not succeed. Braking away from forward travel caused the local recovery logic to count a stall before the player could turn. For121, recovery is reset while the returning player is still braking away from the local goal. The return's fixed deadline remains in force, so this does not permit endless retries.
+The first longer-return prototype did not succeed. Braking away from forward travel caused the local recovery logic to count a stall before the player could turn. For 121, recovery is reset while the returning player is still braking away from the local goal. The return's fixed deadline remains in force, so this does not permit endless retries.
 
-The next run reached and hit the block but missed the released mushroom. The ordinary wall ray saw the collectible as an obstacle and triggered a jump over it.121 excludes mushroom/flower bodies from obstacle jumping. It still uses the original body, collision, power-up and sprite behavior; no pickup counter or transform is edited to manufacture success.
+The next run reached and hit the block but missed the released mushroom. The ordinary wall ray saw the collectible as an obstacle and triggered a jump over it. 121 excludes mushroom/flower bodies from obstacle jumping. It still uses the original body, collision, power-up and sprite behavior; no pickup counter or transform is edited to manufacture success.
 
 Both unsuccessful runs are retained. The final run establishes collection through actual native collision, then finish contact. Early unsupported/braking-limited returns remain refused. Two late-enemy contact deaths remain unresolved. Their player, enemy, velocity, timing and decision traces are included rather than converted into successful certificates.
 
 ## Reversals and observation
 
-`OpportunityMotion121` remembers at most64 live enemy identities and at most16 detailed reversal events. It observes actual body velocities, removes departed identities, and requires increasing observation ticks. A nearby reversal makes a linear clearance estimate uncertain for30 ticks. A forecast whose projected enemy path intersects observed ground geometry is also refused, because a wall may reverse that enemy before the predicted clearance occurs.
+`OpportunityMotion121` remembers at most 64 live enemy identities and at most 16 detailed reversal events. It observes actual body velocities, removes departed identities, and requires increasing observation ticks. A nearby reversal makes a linear clearance estimate uncertain for 30 ticks. A forecast whose projected enemy path intersects observed ground geometry is also refused, because a wall may reverse that enemy before the predicted clearance occurs.
 
 The native wall courses record actual direction reversals and finish safely. Boundary tests separately demonstrate that a nearby reversal or a native wall invalidates an otherwise linear clearance forecast. These are different claims: recording reversals is proven in playable courses; a general survival advantage from the uncertainty guard is not established by those courses alone.
 
-Waiting keeps the existing180 ticks per wait,360 total and three-start bounds. Return and waiting cannot overlap. Permanent structural refusal remains authoritative. A recent threat or missing ground does not become acceptable because the controller remembers the object.
+Waiting keeps the existing 180 ticks per wait, 360 total and three-start bounds. Return and waiting cannot overlap. Permanent structural refusal remains authoritative. A recent threat or missing ground does not become acceptable because the controller remembers the object.
 
 ## New development and reserved results
 
-Eight development courses were declared before tuning. Six finish under121, with four pickups and two deaths;120 and the return-disabled comparison retain six finishes and three pickups. Simple control's results are included as a meaningful baseline, including the course it finishes while the more elaborate controllers fail.
+Eight development courses were declared before tuning. Six finish under 121, with four pickups and two deaths; 120 and the return-disabled comparison retain six finishes and three pickups. Simple control's results are included as a meaningful baseline, including the course it finishes while the more elaborate controllers fail.
 
 {{RESERVED_RESULT}}
 
-The reserved turtle-reversal course collects its optional item but then stalls for25 seconds under120,121 and the return-disabled comparison. Its item is included in the pickup total, but the course is not a successful finish and is not certified as a completed task. This is a separate remaining gap from the two development deaths.
+The reserved turtle-reversal course collects its optional item but then stalls for 25 seconds under 120, 121 and the return-disabled comparison. Its item is included in the pickup total, but the course is not a successful finish and is not certified as a completed task. This is a separate remaining gap from the two development deaths.
 
 The reserved return comparison below lists courses where both policies finish safely and enabling returns earns an extra item. The controller was fixed before these scenes ran.
 
@@ -116,7 +116,7 @@ Five actual visible requests cover old terrain repair, return with abrupt proces
 
 ## CI was checked first
 
-The edition119 main run43104121657 failed an older load interruption test. The test slept30 milliseconds and assumed cancellation would occur inside an active simulation attempt. That assumption depends on scheduling. Edition121 coordinates cancellation after a real durable native checkpoint, confirms retained partial rows, then checks interrupted status, restart, fresh completed evaluation and the existing force/gap/initial-state forgery refusals.
+The edition119 main run43104121657 failed an older load interruption test. The test slept 30 milliseconds and assumed cancellation would occur inside an active simulation attempt. That assumption depends on scheduling. Edition 121 coordinates cancellation after a real durable native checkpoint, confirms retained partial rows, then checks interrupted status, restart, fresh completed evaluation and the existing force/gap/initial-state forgery refusals.
 
 Final publication review also restored the original UTF-8 punctuation in the older load-result label. The focused load check and complete visible review were repeated after this presentation correction; the controller and reserved outcomes were unchanged.
 
@@ -129,9 +129,9 @@ At implementation start,120 hosted jobs were still running. Local pass counts an
 - {{JAVA_COUNT}} distinct Java test methods, including native game trials, observed-motion boundaries, interruption coordination, task recovery, source verification and forged-evidence refusal.
 - 168 desktop checks and five actual visible chat requests, including abrupt termination of this test's own Java process.
 - Normal launcher preparation, replacement of an older installed game JAR, and refusal while a live Java owner uses the installation.
-- 71 older courses preserved; original24 pickup successes retained.
+- 71 older courses preserved; original 24 pickup successes retained.
 - Six transformed reference-image cases and four refusals per renderer, plus the original reference regression.
-- Real integrated game captures, narrow desktop review, and offline guide interaction at1440 and390 pixels.
+- Real integrated game captures, narrow desktop review, and offline guide interaction at 1440 and 390 pixels.
 - Complete source inventory, original compressed evidence, immutable numbered editions, documentation validation and fetched Git byte audits.
 
 [Machine-readable scope](docs/readmes/121/verification.json) · [Actual UI record](docs/readmes/121/actual-ui.json) · [Hardware references](docs/readmes/121/reference-hardware.json) · [Software references](docs/readmes/121/reference-software.json)

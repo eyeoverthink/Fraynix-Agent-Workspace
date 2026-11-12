@@ -1,3 +1,5 @@
+[Edition121 — enemy reversals and useful returns](../../README-121.md) · [Offline guide](121/index.html)
+
 [Edition120 — bounded pickup waiting and return cost](../../README-120.md) · [Offline guide](120/index.html)
 
 [Edition119 — contact recovery and pickup reconsideration](../../README-119.md) · [Offline guide](119/index.html)

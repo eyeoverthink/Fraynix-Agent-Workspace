@@ -1,0 +1,116 @@
+{
+  "modules": [
+    {
+      "id": "motion",
+      "name": "Observed enemy direction",
+      "source": "src/main/java/agent/OpportunityMotion121.java",
+      "note": "docs/obsidian/129-enemy-reversals-and-return-value.md"
+    },
+    {
+      "id": "opportunity",
+      "name": "Bounded return and waiting",
+      "source": "src/main/java/agent/PickupOpportunity120.java",
+      "note": "docs/obsidian/129-enemy-reversals-and-return-value.md"
+    },
+    {
+      "id": "control",
+      "name": "Ordinary player input",
+      "source": "src/main/java/agent/GameInput.java",
+      "note": "docs/obsidian/129-enemy-reversals-and-return-value.md"
+    },
+    {
+      "id": "runtime",
+      "name": "Original native simulation",
+      "source": "src/main/java/runtime/EmbeddedGameRuntime.java",
+      "note": "docs/obsidian/129-enemy-reversals-and-return-value.md"
+    },
+    {
+      "id": "task",
+      "name": "Durable checked task",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameTask115.java",
+      "note": "docs/obsidian/129-enemy-reversals-and-return-value.md"
+    },
+    {
+      "id": "verify",
+      "name": "Motion receipt verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameEvidence121.java",
+      "note": "docs/obsidian/129-enemy-reversals-and-return-value.md"
+    },
+    {
+      "id": "proof",
+      "name": "Actual visible review",
+      "source": "workspace-desktop/test/game121-integration.cjs",
+      "note": "docs/obsidian/129-enemy-reversals-and-return-value.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/121/old-repair-regression.png",
+      "title": "old-repair-regression.png"
+    },
+    {
+      "path": "docs/readmes/121/challenge-controls.png",
+      "title": "challenge-controls.png"
+    },
+    {
+      "path": "docs/readmes/121/return-native.png",
+      "title": "return-native.png"
+    },
+    {
+      "path": "docs/readmes/121/return-live.png",
+      "title": "return-live.png"
+    },
+    {
+      "path": "docs/readmes/121/collected-native.png",
+      "title": "collected-native.png"
+    },
+    {
+      "path": "docs/readmes/121/collected-after-return.png",
+      "title": "collected-after-return.png"
+    },
+    {
+      "path": "docs/readmes/121/return-completed.png",
+      "title": "return-completed.png"
+    },
+    {
+      "path": "docs/readmes/121/reversal-completed.png",
+      "title": "reversal-completed.png"
+    },
+    {
+      "path": "docs/readmes/121/verified-return.png",
+      "title": "verified-return.png"
+    },
+    {
+      "path": "docs/readmes/121/declined-pickup.png",
+      "title": "declined-pickup.png"
+    },
+    {
+      "path": "docs/readmes/121/gap-refused.png",
+      "title": "gap-refused.png"
+    },
+    {
+      "path": "docs/readmes/121/challenge-1100.png",
+      "title": "challenge-1100.png"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/121/actual-ui.json"
+    },
+    {
+      "path": "docs/readmes/121/reference-hardware.json"
+    },
+    {
+      "path": "docs/readmes/121/reference-software.json"
+    },
+    {
+      "path": "docs/readmes/121/measurements.json"
+    },
+    {
+      "path": "docs/readmes/121/verification.json"
+    },
+    {
+      "path": "docs/readmes/121/original-evidence.json"
+    }
+  ]
+}

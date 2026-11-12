@@ -1,3 +1,11 @@
+## Progress through edition121 — 2026-11-11
+
+[Edition121](../README-121.md) establishes a useful return by actual collision/finish and a return-disabled comparison. One extra development pickup,71 older safe finishes, native wall reversals observed. Two development enemy-contact deaths remain. Reserved hardware/software outcomes and every unsuccessful prototype are retained. [Contract](EDITION_121_CONTRACT.md).
+
+General AI Play and declared challenge tasks use revisit121; old nonchallenge recipes retain safe117. Original physics and verification remain. No model training or new saved-procedure admission.
+
+Next122: late-enemy landing/contact timing, new reserved cases and comparison with simple control. Next123: repeated full-cost measurements and user objective to choose optional returns. Later: expanded image components and verified procedure lifecycle under existing collection limits. Earlier entries below are dated history.
+
 ## Progress through edition120 — 2026-11-11
 
 Two retained supported pickups are collected after bounded waiting and actual clearance. The unsupported gap stays refused. Seven development finishes/three pickups/zero damage and all54 older finishes preserved. [Edition120](../README-120.md) records six reserved hardware/software outcomes, complete costs, original unsuccessful returns and actual chat/restart evidence. [Contract](EDITION_120_CONTRACT.md).
