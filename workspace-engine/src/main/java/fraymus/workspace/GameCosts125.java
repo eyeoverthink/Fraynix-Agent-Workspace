@@ -49,7 +49,7 @@ final class GameCosts125 implements AutoCloseable {
     synchronized boolean busy(){return tasks.busy();}
     private JSONObject source(String id)throws Exception {
         var m=measure(id);var c=m.getJSONObject("choice124");var timing=m.getJSONObject("timing125");
-        String request=tasks.read(id).getString("request"),renderer=WorldFrames.hash(m.getJSONObject("final").getJSONObject("renderer"));boolean safe=m.getBoolean("completionCertified")&&m.getJSONObject("audit").getInt("aiDamage")==0;
+        String request=tasks.read(id).getString("request"),renderer=WorldFrames.hash(m.getJSONObject("final").getJSONObject("renderer"));boolean safe=m.getBoolean("completionCertified")&&m.getJSONObject("audit").getInt("aiDamage")==0&&!m.getJSONObject("final").getJSONObject("player").getBoolean("dead");
         if(!timing.getString("requestHash").equals(WorldFrames.hash(new JSONObject().put("request",request)))||!c.getString("resolved").equals(request)||!c.getJSONObject("parameters").similar(m.getJSONObject("parameters")))throw new IllegalStateException("Timing or choice request binding changed");
         if(c.has("fact")) {
             var fact=c.getJSONObject("fact");
