@@ -13,7 +13,7 @@ for i,(_,_,report) in enumerate(rows):
  m=report['metrics'];pred=m.get('predictedSecondsPerPickup');observed=m.get('observedSecondsPerPickupUpper')
  if pred is not None:ax[0].plot(pred,i-.12,'o',color='#ffbf70',label='Original predicted threshold' if i==0 else None)
  if observed is not None:ax[0].plot(observed,i+.12,'s',color='#71e1b9',label='Independent observed upper' if i==0 else None)
- if pred is None and observed is None:ax[0].text(.5,i,'Unestablished',va='center',fontsize=9,color='#ffbf70')
+ if pred is None and observed is None:ax[0].text(.5,i,'No added benefit' if m.get('benefitLower',1)<=0 else 'Inconclusive',va='center',fontsize=9,color='#ffbf70')
  for strategy,offset,color in [('direct',-.14,'#79b7ff'),('full',.14,'#71e1b9')]:
   samples=[s['seconds'] for s in report['samples'] if s['strategy']==strategy]
   if samples:ax[1].plot([min(samples),max(samples)],[i+offset,i+offset],color=color,lw=7,label=strategy+' range' if i==0 else None)
