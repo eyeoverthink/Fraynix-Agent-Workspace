@@ -120,7 +120,7 @@ The edition119 main run43104121657 failed an older load interruption test. The t
 
 Final publication review also restored the original UTF-8 punctuation in the older load-result label. The focused load check and complete visible review were repeated after this presentation correction; the controller and reserved outcomes were unchanged.
 
-The production entry point retains its existing behavior. A package-local checkpoint observer enables deterministic coordination at the actual checkpoint boundary. No simulation, verification or attempt budget is relaxed. The original CI log and failed test report are archived. A prior120 continuity note mistyped the119 run ID as43104121687; this edition records the correct43104121657 without rewriting frozen history.
+The production entry point retains its existing behavior. A package-local checkpoint observer enables deterministic coordination at the actual checkpoint boundary. No simulation, verification or attempt budget is relaxed. A final repeat caught a second test race: cleanup could interrupt the worker again while it saved the stopped result. Cleanup now waits after the single requested cancellation and only forces shutdown if the test times out. Three fresh native repetitions retain the full stopped-state, restart and tampering assertions. The original CI log and both failed test reports are archived. A prior120 continuity note mistyped the119 run ID as43104121687; this edition records the correct43104121657 without rewriting frozen history.
 
 At implementation start,120 hosted jobs were still running. Local pass counts and a fetched Git publication do not establish hosted CI success. The publication receipt records the later observed status separately.
 

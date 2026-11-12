@@ -8,8 +8,10 @@ def run(name,args):
  with (r/'build'/f'{name}.log').open('wb') as f:p=subprocess.run(args,env=env,stdout=f,stderr=subprocess.STDOUT)
  print(json.dumps({'check':name,'exit':p.returncode,'seconds':round(time.time()-start,3)}),flush=True)
  if p.returncode:raise SystemExit(p.returncode)
-run('load121-label-final',['cmd','/c','gradlew.bat',':workspace-engine:test','--tests','fraymus.workspace.Load055Test','--console=plain','--max-workers=2'])
-shutil.copytree(r/'workspace-engine/build/test-results/test',r/'build/validation121/load121-label-final-engine',dirs_exist_ok=True)
+for attempt in range(1,4):
+ name=f'load121-label-final-{attempt}'
+ run(name,['cmd','/c','gradlew.bat',':workspace-engine:test','--tests','fraymus.workspace.Load055Test','--rerun-tasks','--console=plain','--max-workers=2'])
+ shutil.copytree(r/'workspace-engine/build/test-results/test',r/'build/validation121'/(name+'-engine'),dirs_exist_ok=True)
 run('package121-label-final',['cmd','/c','gradlew.bat','prepareGameRuntime115',':workspace-engine:installDist','--console=plain','--max-workers=2'])
 run('stamp121-label-final',['node','scripts/Study-Build095.cjs','--stamp'])
 shutil.copy2(r/'build/study095-build.json',r/'build/study095-build-before-ui121-final.json')

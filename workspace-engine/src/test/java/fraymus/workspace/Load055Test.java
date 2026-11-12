@@ -16,7 +16,7 @@ public class Load055Test {
             var partial=AgentFiles042.loadChecked(file).getJSONArray("attempts").getJSONObject(0);
             assertEquals("running",partial.getString("status"));assertTrue(partial.getJSONArray("rows").length()>0);
             assertTrue("Stop must reach the checkpointed live experiment",future.cancel(true));}
-        finally {worker.shutdownNow();assertTrue(worker.awaitTermination(20,TimeUnit.SECONDS));}
+        finally {worker.shutdown();if(!worker.awaitTermination(20,TimeUnit.SECONDS)){worker.shutdownNow();fail("Cancelled native experiment did not terminate");}}
         var stopped=AgentFiles042.loadChecked(file);Files.writeString(root.resolve("original-stopped.json"),stopped.toString());assertTrue(stopped.getJSONArray("attempts").toList().stream().anyMatch(v->new JSONObject((java.util.Map<?,?>)v).getString("status").equals("interrupted")));
         var results=Load055.evaluate(folder,run);assertTrue(results.getBoolean("complete"));assertTrue(results.getInt("attempts")>3);var original=AgentFiles042.loadChecked(file);Files.writeString(root.resolve("original-resumed.json"),original.toString());
         var completed=original.getJSONArray("attempts").getJSONObject(original.getJSONArray("attempts").length()-1);var spec=Load055.protocol().getJSONArray("cases").getJSONObject(2);assertFalse(Load055.verifyAttempt(completed,run,spec).getBoolean("stable"));
