@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "reviewedAtUtc": "2026-11-12T18:56:17.242320+00:00",
+  "inspected": [
+    {
+      "path": "docs/readmes/125/cost-review.png",
+      "sha256": "62aad5d1d48296edef3fd62eb5786751b76d2b3efdd07de36a783a7feda6b71d"
+    },
+    {
+      "path": "docs/readmes/125/decision-review.png",
+      "sha256": "1d65edcf3a5c4f6cd00c46ea64d8796a193343c24023a0e54930b51be816f91c"
+    },
+    {
+      "path": "docs/readmes/125/review-1100.png",
+      "sha256": "7c22e4d4bfc2998b1a05a4b795a2bf90c11b02941e26c87fdb62c5a119ae5e01"
+    },
+    {
+      "path": "docs/readmes/125/recovered-cost.png",
+      "sha256": "7756684f2c67061015b1d83464ea8118c35a862479a10b4686d07f3415166786"
+    },
+    {
+      "path": "docs/readmes/125/failed-cost-review.png",
+      "sha256": "c5adabf60d3f9ef7bf7c46631ee9d7f805f6e43732a824e52f970f241a86e94e"
+    },
+    {
+      "path": "docs/readmes/125/insufficient-comparisons.png",
+      "sha256": "00faf63faf5abc1cf4a9f2a14f603a5cc6cbd538b7d1e9efb5769a9738ddff48"
+    },
+    {
+      "path": "docs/readmes/125/saved-review-reopened.png",
+      "sha256": "b5b0f029ba8d73de1894b284f13a95f0ca7d6d60de0705feaa2a21c17ffcb31c"
+    },
+    {
+      "path": "docs/readmes/125/collected-after-return.png",
+      "sha256": "cc4a4a6512213b6e39b0b588f24ce4b0aac279b3c9ffdd16392d9c5271d086ce"
+    },
+    {
+      "path": "build/guide125-1440-viewport.png",
+      "sha256": "9dcea343f6fe6ade37935469529e9da7e30c0681ed4ba246fd68089cc9fc445f"
+    },
+    {
+      "path": "build/guide125-390.png",
+      "sha256": "dec2d9c2fb5c6ecf0ed3506e68f5dda0c15ccc8aee501e5cfb6cd22c7abc0c18"
+    }
+  ],
+  "findings": [
+    "Chart clipping corrected; labels, empirical ranges and both legends visible. No-added-benefit and inconclusive results distinguished.",
+    "Actual app captures show insufficient evidence, original and reopened saved review, wall-clock uncertainty after interruption and failed-course refusal. Compact 1100-pixel capture shows complete comparison metrics in the existing scrollable view.",
+    "Actual game/pickup capture is from the preserved initial seven requests before the presentation-only refresh fix; native source unchanged.",
+    "Guide readable at 1440 and 390 pixels; interactive comparisons, invalid input, phase/module/source selection, image selection and overflow checks passed.",
+    "No synthetic or edited app screenshot used. Isolated test projects only."
+  ]
+}

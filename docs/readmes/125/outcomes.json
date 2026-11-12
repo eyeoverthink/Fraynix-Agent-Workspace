@@ -1,0 +1,42 @@
+[
+  {
+    "partition": "development",
+    "case": "known-return",
+    "runs": 13,
+    "certified": 13,
+    "dead": 0,
+    "uncertified": 0
+  },
+  {
+    "partition": "development",
+    "case": "no-gain",
+    "runs": 13,
+    "certified": 13,
+    "dead": 0,
+    "uncertified": 0
+  },
+  {
+    "partition": "reserved",
+    "case": "fresh-wait",
+    "runs": 7,
+    "certified": 7,
+    "dead": 0,
+    "uncertified": 0
+  },
+  {
+    "partition": "reserved",
+    "case": "fresh-return",
+    "runs": 7,
+    "certified": 0,
+    "dead": 7,
+    "uncertified": 7
+  },
+  {
+    "partition": "software",
+    "case": "known-return",
+    "runs": 13,
+    "certified": 13,
+    "dead": 0,
+    "uncertified": 0
+  }
+]

@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "cost",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TaskCost125.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "review",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GameCosts125.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "math",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GameCostReview125.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "runtime",
+      "type": "file",
+      "file": "src/main/java/runtime/EmbeddedGameRuntime.java",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "proof",
+      "type": "file",
+      "file": "workspace-desktop/test/game125-integration.cjs",
+      "x": 430,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "cost",
+      "toNode": "review"
+    },
+    {
+      "id": "1",
+      "fromNode": "review",
+      "toNode": "math"
+    },
+    {
+      "id": "2",
+      "fromNode": "math",
+      "toNode": "runtime"
+    },
+    {
+      "id": "3",
+      "fromNode": "runtime",
+      "toNode": "proof"
+    }
+  ]
+}

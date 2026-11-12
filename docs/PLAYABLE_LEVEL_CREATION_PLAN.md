@@ -1,3 +1,9 @@
+## Progress through edition 125 — 2026-11-12
+
+[Edition 125](../README-125.md) records complete task costs and independently reviews optional-action decisions using later explicit trials. Recovery uncertainty, original calibration exclusion and complete cohort/source checks remain visible. The controller, selector and original native verification are unchanged. [Contract](EDITION_125_CONTRACT.md).
+
+The next priority returns to the entire agent: 126 real local-model world/browser/creation selection; 127 procedure lifecycle; 128 calibrated observation-to-artifact mission; 129 evaluated adaptation; 130 coherent daily use. [Integrated roadmap](INTEGRATED_AGENT_ROADMAP.md) defines acceptance gates. Earlier contact-only proposals below remain dated history, not the current direction.
+
 ## Progress through edition124 — 2026-11-12
 
 [Edition124](../README-124.md) adds opt-in user allowance and conservative benefit/cost decisions around the unchanged native task verifier. Repeated fresh explicit calibration; no-benefit and unknown-scene abstention; original and recovered evidence stays authoritative. [Contract](EDITION_124_CONTRACT.md).

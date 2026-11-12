@@ -1,0 +1,78 @@
+{
+  "modules": [
+    {
+      "id": "cost",
+      "name": "Durable operation costs",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TaskCost125.java",
+      "note": "docs/obsidian/133-measured-decision-review.md"
+    },
+    {
+      "id": "review",
+      "name": "Independent decision review",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameCosts125.java",
+      "note": "docs/obsidian/133-measured-decision-review.md"
+    },
+    {
+      "id": "math",
+      "name": "Measured comparison",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameCostReview125.java",
+      "note": "docs/obsidian/133-measured-decision-review.md"
+    },
+    {
+      "id": "runtime",
+      "name": "Original native simulation",
+      "source": "src/main/java/runtime/EmbeddedGameRuntime.java",
+      "note": "docs/obsidian/133-measured-decision-review.md"
+    },
+    {
+      "id": "proof",
+      "name": "Actual visible review",
+      "source": "workspace-desktop/test/game125-integration.cjs",
+      "note": "docs/obsidian/133-measured-decision-review.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/125/decision-review.png",
+      "title": "decision review"
+    },
+    {
+      "path": "docs/readmes/125/insufficient-comparisons.png",
+      "title": "insufficient comparisons"
+    },
+    {
+      "path": "docs/readmes/125/recovered-cost.png",
+      "title": "recovered cost"
+    },
+    {
+      "path": "docs/readmes/125/saved-review-reopened.png",
+      "title": "saved review reopened"
+    },
+    {
+      "path": "docs/readmes/125/failed-cost-review.png",
+      "title": "failed cost review"
+    },
+    {
+      "path": "docs/readmes/125/review-1100.png",
+      "title": "review 1100"
+    },
+    {
+      "path": "docs/readmes/125/collected-after-return.png",
+      "title": "collected after return"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/125/actual-ui.json"
+    },
+    {
+      "path": "docs/readmes/125/measurements.json"
+    },
+    {
+      "path": "docs/readmes/125/verification.json"
+    },
+    {
+      "path": "docs/readmes/125/original-evidence.json"
+    }
+  ]
+}

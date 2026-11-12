@@ -8,7 +8,7 @@ for partition in ['development','reserved','software']:
  for entry in d['reviews']:
   if entry['role']=='final':rows.append((partition,entry['case'],entry['report']))
 plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'figure.facecolor':'#101822','axes.facecolor':'#101822','text.color':'#e9edf4','axes.labelcolor':'#e9edf4','xtick.color':'#c2cfdd','ytick.color':'#c2cfdd','axes.edgecolor':'#35465a'})
-fig,ax=plt.subplots(1,2,figsize=(16,8));y=np.arange(len(rows));labels=[f'{p} / {case}\n{report["metrics"]["missedOpportunity"]}' for p,case,report in rows]
+fig,ax=plt.subplots(1,2,figsize=(18,8));y=np.arange(len(rows));labels=[f'{p} / {case}\n{report["metrics"]["missedOpportunity"]}' for p,case,report in rows]
 for i,(_,_,report) in enumerate(rows):
  m=report['metrics'];pred=m.get('predictedSecondsPerPickup');observed=m.get('observedSecondsPerPickupUpper')
  if pred is not None:ax[0].plot(pred,i-.12,'o',color='#ffbf70',label='Original predicted threshold' if i==0 else None)
@@ -20,9 +20,10 @@ for i,(_,_,report) in enumerate(rows):
  terminal=report['sources'][0]['timing'].get('terminal',{})
  if terminal:ax[1].plot(terminal['seconds'],i,'D',color='#ffbf70',label='Original budget request' if i==0 else None)
 ax[0].set_yticks(y,labels);ax[1].set_yticks(y,[])
+ax[0].set_xlim(0,22);ax[1].set_xlim(0,50)
 for a in ax:a.invert_yaxis();a.grid(axis='x',alpha=.15);a.set_axisbelow(True);a.legend(loc='upper center',bbox_to_anchor=(.5,-.14),fontsize=8)
 ax[0].set_xlabel('Extra seconds per additional pickup');ax[0].set_title('Prediction and independent cost comparison')
 ax[1].set_xlabel('First verified outcome · elapsed seconds');ax[1].set_title('Three later explicit runs per strategy')
 fig.suptitle('Edition125 · evaluate the decision against actual outcomes',fontsize=18,x=.55)
 fig.text(.18,.02,'Recorded empirical ranges, not confidence intervals. Failed or recovered observations do not establish a useful optional action.',fontsize=10)
-fig.tight_layout(rect=[0,.045,1,.94]);fig.savefig(r/'build/cost-review125.png',dpi=150);plt.close(fig)
+fig.subplots_adjust(left=.25,right=.98,bottom=.23,top=.84,wspace=.22);fig.savefig(r/'build/cost-review125.png',dpi=150);plt.close(fig)

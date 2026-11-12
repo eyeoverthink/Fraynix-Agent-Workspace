@@ -1,0 +1,1028 @@
+{
+  "taskId": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+  "events": [
+    {
+      "status": "Java is rechecking original sources and measured outcomes…",
+      "selected": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+      "result": ""
+    },
+    {
+      "status": "Java is rechecking original sources and measured outcomes…",
+      "selected": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+      "result": ""
+    },
+    {
+      "status": "Java is rechecking original sources and measured outcomes…",
+      "selected": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+      "result": ""
+    },
+    {
+      "status": "Saved review 451b5112-ce08-4a20-87c8-110393274d01",
+      "selected": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+      "result": "Independent comparisons: 0 direct / 0 full.Need three later independent direct and full trials; no benefit inferred from missing comparisonsMissed useful opportunity: unestablished.Original prediction: 93.88 extra s per pickup.Review took 2.85 s before saving. Policy unchanged; later trials do not rewrite the original decision."
+    },
+    {
+      "status": "Saved review 451b5112-ce08-4a20-87c8-110393274d01",
+      "selected": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+      "result": "Independent comparisons: 0 direct / 0 full.Need three later independent direct and full trials; no benefit inferred from missing comparisonsMissed useful opportunity: unestablished.Original prediction: 93.88 extra s per pickup.Review took 2.85 s before saving. Policy unchanged; later trials do not rewrite the original decision."
+    },
+    {
+      "status": "Saved review 451b5112-ce08-4a20-87c8-110393274d01",
+      "selected": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+      "result": "Independent comparisons: 0 direct / 0 full.Need three later independent direct and full trials; no benefit inferred from missing comparisonsMissed useful opportunity: unestablished.Original prediction: 93.88 extra s per pickup.Review took 2.85 s before saving. Policy unchanged; later trials do not rewrite the original decision."
+    },
+    {
+      "status": "Saved review 451b5112-ce08-4a20-87c8-110393274d01",
+      "selected": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+      "result": "Independent comparisons: 0 direct / 0 full.Need three later independent direct and full trials; no benefit inferred from missing comparisonsMissed useful opportunity: unestablished.Original prediction: 93.88 extra s per pickup.Review took 2.85 s before saving. Policy unchanged; later trials do not rewrite the original decision."
+    },
+    {
+      "status": "Saved review 451b5112-ce08-4a20-87c8-110393274d01",
+      "selected": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+      "result": "Independent comparisons: 0 direct / 0 full.Need three later independent direct and full trials; no benefit inferred from missing comparisonsMissed useful opportunity: unestablished.Original prediction: 93.88 extra s per pickup.Review took 2.85 s before saving. Policy unchanged; later trials do not rewrite the original decision."
+    },
+    {
+      "status": "Saved review 451b5112-ce08-4a20-87c8-110393274d01",
+      "selected": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+      "result": "Independent comparisons: 0 direct / 0 full.Need three later independent direct and full trials; no benefit inferred from missing comparisonsMissed useful opportunity: unestablished.Original prediction: 93.88 extra s per pickup.Review took 2.85 s before saving. Policy unchanged; later trials do not rewrite the original decision."
+    },
+    {
+      "status": "Saved review 451b5112-ce08-4a20-87c8-110393274d01",
+      "selected": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+      "result": "Independent comparisons: 0 direct / 0 full.Need three later independent direct and full trials; no benefit inferred from missing comparisonsMissed useful opportunity: unestablished.Original prediction: 93.88 extra s per pickup.Review took 2.85 s before saving. Policy unchanged; later trials do not rewrite the original decision."
+    },
+    {
+      "status": "Saved review 451b5112-ce08-4a20-87c8-110393274d01",
+      "selected": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+      "result": "Independent comparisons: 0 direct / 0 full.Need three later independent direct and full trials; no benefit inferred from missing comparisonsMissed useful opportunity: unestablished.Original prediction: 93.88 extra s per pickup.Review took 2.85 s before saving. Policy unchanged; later trials do not rewrite the original decision."
+    },
+    {
+      "status": "Saved review 451b5112-ce08-4a20-87c8-110393274d01",
+      "selected": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+      "result": "Independent comparisons: 0 direct / 0 full.Need three later independent direct and full trials; no benefit inferred from missing comparisonsMissed useful opportunity: unestablished.Original prediction: 93.88 extra s per pickup.Review took 2.85 s before saving. Policy unchanged; later trials do not rewrite the original decision."
+    }
+  ],
+  "backend": {
+    "excluded": [],
+    "at": "2026-11-12T18:37:10.683637500Z",
+    "decision": {
+      "reason": "Abstained from optional actions; see the retained evidence assessments",
+      "scope": "Exact-condition empirical envelope; not a probability, hard deadline or safety guarantee. Ordinary safety checks remain authoritative.",
+      "alternatives": [
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-return",
+          "samples": 0
+        },
+        {
+          "reason": "At least three direct and three alternative measurements are required",
+          "baselineSamples": 3,
+          "strategy": "no-wait",
+          "samples": 0
+        },
+        {
+          "reason": "Conservative estimate exceeds the allowance",
+          "extraSecondsUpper": 41.325499300000004,
+          "decisionOverheadSeconds": 4.0135455,
+          "alternative": {
+            "minSeconds": 61.1451251,
+            "maxPickups": 1,
+            "minPickups": 1,
+            "maxSeconds": 85.2916174
+          },
+          "baseline": {
+            "minSeconds": 43.9661181,
+            "maxPickups": 0,
+            "minPickups": 0,
+            "maxSeconds": 56.287269
+          },
+          "samples": 3,
+          "benefitLower": 1,
+          "benefitUpper": 1,
+          "variationReserveSeconds": 48.29298460000001,
+          "requiredSecondsPerPickup": 93.88202940000002,
+          "baselineSamples": 3,
+          "strategy": "full",
+          "recordingReserveSeconds": 0.25,
+          "estimatedExtraSeconds": 93.88202940000002
+        }
+      ],
+      "allowance": 30,
+      "selected": "direct"
+    },
+    "sources": [
+      {
+        "renderer": "43bfd12f5c011b571860d56cd1dabc25443f2d96b65d0407af41ae2fbecc24d7",
+        "timing": {
+          "schema": 125,
+          "createdAt": "2026-11-12T18:28:42.392329400Z",
+          "unknownCalls": 0,
+          "restarted": false,
+          "requestHash": "ff816981f8e98d2f468e59ac5f8c619ff6a732450b8c39bb1bbfbadf759e4324",
+          "id": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+          "terminal": {
+            "seconds": 72.0884345,
+            "at": "2026-11-12T18:29:54.480491Z",
+            "clock": "monotonic",
+            "comparable": true
+          },
+          "boot": "21f62032-5055-4e1b-879b-f577b4c70380",
+          "events": [
+            {
+              "phase": "admission",
+              "seconds": 2.6116339,
+              "at": "2026-11-12T18:28:45.004171100Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3130964,
+              "at": "2026-11-12T18:28:45.801584100Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 1.4868821,
+              "at": "2026-11-12T18:28:47.727624900Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.313635,
+              "at": "2026-11-12T18:28:48.515617600Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2419893,
+              "at": "2026-11-12T18:28:49.219222800Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2676441,
+              "at": "2026-11-12T18:28:49.946894400Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2452557,
+              "at": "2026-11-12T18:28:50.625113600Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2579815,
+              "at": "2026-11-12T18:28:51.332358700Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2422427,
+              "at": "2026-11-12T18:28:52.023984700Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2434999,
+              "at": "2026-11-12T18:28:52.724346500Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2481407,
+              "at": "2026-11-12T18:28:53.418199600Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2543853,
+              "at": "2026-11-12T18:28:54.140537800Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2500458,
+              "at": "2026-11-12T18:28:54.838470200Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.241421,
+              "at": "2026-11-12T18:28:55.541255700Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2547948,
+              "at": "2026-11-12T18:28:56.252426700Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2466151,
+              "at": "2026-11-12T18:28:56.958481300Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.243207,
+              "at": "2026-11-12T18:28:57.659768900Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2495769,
+              "at": "2026-11-12T18:28:58.367126300Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2624306,
+              "at": "2026-11-12T18:28:59.077149800Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2558669,
+              "at": "2026-11-12T18:28:59.793025400Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2519961,
+              "at": "2026-11-12T18:29:00.519285400Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2668137,
+              "at": "2026-11-12T18:29:01.239358400Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2630314,
+              "at": "2026-11-12T18:29:01.966047Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2521696,
+              "at": "2026-11-12T18:29:02.677172600Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2621816,
+              "at": "2026-11-12T18:29:03.396249300Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2504599,
+              "at": "2026-11-12T18:29:04.110356100Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2832581,
+              "at": "2026-11-12T18:29:04.854369600Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2702686,
+              "at": "2026-11-12T18:29:05.594004900Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2843861,
+              "at": "2026-11-12T18:29:06.336428800Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3463155,
+              "at": "2026-11-12T18:29:07.149713200Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 1.5046997,
+              "at": "2026-11-12T18:29:09.125842500Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3660789,
+              "at": "2026-11-12T18:29:09.964096100Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3234394,
+              "at": "2026-11-12T18:29:10.863253100Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2759953,
+              "at": "2026-11-12T18:29:11.721577400Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2728914,
+              "at": "2026-11-12T18:29:12.565536300Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2734806,
+              "at": "2026-11-12T18:29:13.409805700Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2805844,
+              "at": "2026-11-12T18:29:14.286268900Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2811703,
+              "at": "2026-11-12T18:29:15.149906300Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2870785,
+              "at": "2026-11-12T18:29:16.012180400Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2848049,
+              "at": "2026-11-12T18:29:16.883739100Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.301121,
+              "at": "2026-11-12T18:29:17.765564500Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.295248,
+              "at": "2026-11-12T18:29:18.633168Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2835672,
+              "at": "2026-11-12T18:29:19.498505200Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2869086,
+              "at": "2026-11-12T18:29:20.371891800Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2981848,
+              "at": "2026-11-12T18:29:21.248555100Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2943357,
+              "at": "2026-11-12T18:29:22.136667800Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3192283,
+              "at": "2026-11-12T18:29:23.047203400Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2820279,
+              "at": "2026-11-12T18:29:23.920076100Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2987051,
+              "at": "2026-11-12T18:29:24.819803900Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.330185,
+              "at": "2026-11-12T18:29:25.748652900Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.2956796,
+              "at": "2026-11-12T18:29:26.642909300Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.304031,
+              "at": "2026-11-12T18:29:27.552475Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3223402,
+              "at": "2026-11-12T18:29:28.455062400Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.304776,
+              "at": "2026-11-12T18:29:29.352421800Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3185205,
+              "at": "2026-11-12T18:29:30.269445100Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3146842,
+              "at": "2026-11-12T18:29:31.182172500Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3085579,
+              "at": "2026-11-12T18:29:32.083734400Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3284237,
+              "at": "2026-11-12T18:29:33.002119900Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3043233,
+              "at": "2026-11-12T18:29:33.900989600Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3689185,
+              "at": "2026-11-12T18:29:34.858367100Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3566594,
+              "at": "2026-11-12T18:29:35.817361300Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3300584,
+              "at": "2026-11-12T18:29:36.740404300Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3116321,
+              "at": "2026-11-12T18:29:37.660026900Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.4815256,
+              "at": "2026-11-12T18:29:38.750808100Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3309856,
+              "at": "2026-11-12T18:29:39.677930200Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.343827,
+              "at": "2026-11-12T18:29:40.646294900Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3414773,
+              "at": "2026-11-12T18:29:41.592778100Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.334898,
+              "at": "2026-11-12T18:29:42.543918900Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.354702,
+              "at": "2026-11-12T18:29:43.510057700Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3399511,
+              "at": "2026-11-12T18:29:44.484257300Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.4821022,
+              "at": "2026-11-12T18:29:45.569665100Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3394653,
+              "at": "2026-11-12T18:29:46.524406600Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3538561,
+              "at": "2026-11-12T18:29:47.480757400Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3451505,
+              "at": "2026-11-12T18:29:48.435139400Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 0.3976316,
+              "at": "2026-11-12T18:29:49.434426400Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "execution",
+              "seconds": 1.8182641,
+              "at": "2026-11-12T18:29:51.870337300Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "verification",
+              "seconds": 2.5784764,
+              "at": "2026-11-12T18:29:54.480491Z",
+              "late": false,
+              "outcome": "returned"
+            },
+            {
+              "phase": "verification",
+              "seconds": 2.5823856,
+              "at": "2026-11-12T18:29:57.705117300Z",
+              "late": true,
+              "outcome": "returned"
+            },
+            {
+              "phase": "measurement",
+              "seconds": 2.2531077,
+              "at": "2026-11-12T18:30:00.975149500Z",
+              "late": true,
+              "outcome": "returned"
+            },
+            {
+              "phase": "verification",
+              "seconds": 2.5547087,
+              "at": "2026-11-12T18:32:14.319606700Z",
+              "late": true,
+              "outcome": "returned"
+            },
+            {
+              "phase": "measurement",
+              "seconds": 2.233044,
+              "at": "2026-11-12T18:32:17.523892300Z",
+              "late": true,
+              "outcome": "returned"
+            },
+            {
+              "phase": "measurement",
+              "seconds": 2.32014,
+              "at": "2026-11-12T18:35:11.501060900Z",
+              "late": true,
+              "outcome": "returned"
+            },
+            {
+              "phase": "measurement",
+              "seconds": 2.2608085,
+              "at": "2026-11-12T18:35:22.457531200Z",
+              "late": true,
+              "outcome": "returned"
+            },
+            {
+              "phase": "measurement",
+              "seconds": 2.3655551,
+              "at": "2026-11-12T18:37:10.196436700Z",
+              "late": true,
+              "outcome": "returned"
+            }
+          ]
+        },
+        "audit": {
+          "wins": 1,
+          "aiPickups": 0,
+          "aiEnemyLanding": {
+            "chosenContact": false,
+            "reason": "No predicted enemy contact in descending approach",
+            "chosenSupported": true,
+            "nanos": 3056300,
+            "ticks": 10,
+            "overrides": 0,
+            "desiredContact": false,
+            "horizontal": 1,
+            "checks": 86,
+            "threatLimit": 64,
+            "horizonTicks": 60,
+            "edgeStarts": 0,
+            "x": 13.300469,
+            "y": 0.6143242,
+            "override": false
+          },
+          "failures": 1,
+          "aiDamage": 0,
+          "aiPickupDeferrals": 1,
+          "aiContactAttempts": 0,
+          "repairCount": 0,
+          "aiOpportunity": {
+            "phase": "TRAVEL",
+            "returnsEnabled123": false,
+            "reason": "No optional wait or return",
+            "waitTicks": 0,
+            "waitStarts": 0,
+            "revisitTicks": 0,
+            "decisions": [],
+            "waitAborts": 0,
+            "waitsEnabled123": false,
+            "waitClears": 0,
+            "revisitStarts": 0,
+            "motion121": {
+              "reversals": 0,
+              "checks": 523,
+              "returnReach": 2.75,
+              "stabilityTicks": 30,
+              "tracked": 0,
+              "returnsEnabled": false,
+              "events": [],
+              "forecastRefusals": 0
+            }
+          },
+          "existingAI": "won",
+          "pickupDecisions": [
+            {
+              "reason": "Enemy motion intersects the pickup approach",
+              "kind": "BUMP_BLOCK",
+              "targetY": 1.375,
+              "supportY": 0.5,
+              "targetX": 10.625,
+              "action": "deferred for fresh observation",
+              "clearance": 0.75,
+              "tick": 284,
+              "objectId": "b459ae64-2a56-3bce-870f-68c8e5b036bb"
+            }
+          ],
+          "trials": 2,
+          "simpleControl": "failed",
+          "pickupStrategy": "direct",
+          "scope": "Actual finish contact on this candidate; comparison is not a guarantee for unfamiliar levels. No procedure-bank admission or model training.",
+          "aiPickupSkips": 0,
+          "traceSha256": "2b97e1d933127c11eed9541b82d2130e681c00cca46c1c804f7bd2be7040c8f3",
+          "passed": true,
+          "candidateId": "56d1ba97-aaf5-33b0-b05a-df74c8ecf948",
+          "inputChunks": 71,
+          "completionControl": "contact123-direct"
+        },
+        "safe": true,
+        "id": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+        "choice": {
+          "original": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=budget pickupBudgetSeconds=30",
+          "fact": {
+            "seconds": 71.6456063,
+            "renderer": "43bfd12f5c011b571860d56cd1dabc25443f2d96b65d0407af41ae2fbecc24d7",
+            "safe": true,
+            "id": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+            "pickups": 0,
+            "strategy": "direct"
+          },
+          "timingStatus": "Measured through first verified terminal outcome; final receipt write and later shutdown excluded",
+          "decision": {
+            "result": {
+              "reason": "Abstained from optional actions; see the retained evidence assessments",
+              "scope": "Exact-condition empirical envelope; not a probability, hard deadline or safety guarantee. Ordinary safety checks remain authoritative.",
+              "alternatives": [
+                {
+                  "reason": "At least three direct and three alternative measurements are required",
+                  "baselineSamples": 3,
+                  "strategy": "no-return",
+                  "samples": 0
+                },
+                {
+                  "reason": "At least three direct and three alternative measurements are required",
+                  "baselineSamples": 3,
+                  "strategy": "no-wait",
+                  "samples": 0
+                },
+                {
+                  "reason": "Conservative estimate exceeds the allowance",
+                  "extraSecondsUpper": 41.325499300000004,
+                  "decisionOverheadSeconds": 4.0135455,
+                  "alternative": {
+                    "minSeconds": 61.1451251,
+                    "maxPickups": 1,
+                    "minPickups": 1,
+                    "maxSeconds": 85.2916174
+                  },
+                  "baseline": {
+                    "minSeconds": 43.9661181,
+                    "maxPickups": 0,
+                    "minPickups": 0,
+                    "maxSeconds": 56.287269
+                  },
+                  "samples": 3,
+                  "benefitLower": 1,
+                  "benefitUpper": 1,
+                  "variationReserveSeconds": 48.29298460000001,
+                  "requiredSecondsPerPickup": 93.88202940000002,
+                  "baselineSamples": 3,
+                  "strategy": "full",
+                  "recordingReserveSeconds": 0.25,
+                  "estimatedExtraSeconds": 93.88202940000002
+                }
+              ],
+              "allowance": 30,
+              "selected": "direct"
+            },
+            "analysisNanos": 2377600,
+            "sources": [
+              {
+                "fact": {
+                  "seconds": 43.9661181,
+                  "renderer": "43bfd12f5c011b571860d56cd1dabc25443f2d96b65d0407af41ae2fbecc24d7",
+                  "safe": true,
+                  "id": "b2b49cdb-7b56-4c99-8b93-26fd676ea1d5",
+                  "pickups": 0,
+                  "strategy": "direct"
+                },
+                "id": "b2b49cdb-7b56-4c99-8b93-26fd676ea1d5",
+                "recordSha256": "a0fe70a6b04977466ed1e7ddd3bf37961bcba43e40fe1ffe55ec928e500c3137"
+              },
+              {
+                "fact": {
+                  "seconds": 61.1451251,
+                  "renderer": "43bfd12f5c011b571860d56cd1dabc25443f2d96b65d0407af41ae2fbecc24d7",
+                  "safe": true,
+                  "id": "2a5eb614-af22-44c4-a350-50d112b2dba0",
+                  "pickups": 1,
+                  "strategy": "full"
+                },
+                "id": "2a5eb614-af22-44c4-a350-50d112b2dba0",
+                "recordSha256": "00507ff754910cdcc7a3fca4c8260d0df23ff5a281911033474de3b06b28e585"
+              },
+              {
+                "fact": {
+                  "seconds": 63.7957566,
+                  "renderer": "43bfd12f5c011b571860d56cd1dabc25443f2d96b65d0407af41ae2fbecc24d7",
+                  "safe": true,
+                  "id": "56d78d1b-fbf9-402c-a59c-bf24385aa2a0",
+                  "pickups": 1,
+                  "strategy": "full"
+                },
+                "id": "56d78d1b-fbf9-402c-a59c-bf24385aa2a0",
+                "recordSha256": "b509e13750f2d67bc023311a2cb04c9b0f9e75df147879252dd6282a25e8bf3e"
+              },
+              {
+                "fact": {
+                  "seconds": 51.8461736,
+                  "renderer": "43bfd12f5c011b571860d56cd1dabc25443f2d96b65d0407af41ae2fbecc24d7",
+                  "safe": true,
+                  "id": "507413b1-3866-4388-b7ec-a80321b55061",
+                  "pickups": 0,
+                  "strategy": "direct"
+                },
+                "id": "507413b1-3866-4388-b7ec-a80321b55061",
+                "recordSha256": "6b3c028b5973e457d8fa480e631ad1bdab8bc0a5e95c1c477ca5f9aad76908af"
+              },
+              {
+                "fact": {
+                  "seconds": 56.287269,
+                  "renderer": "43bfd12f5c011b571860d56cd1dabc25443f2d96b65d0407af41ae2fbecc24d7",
+                  "safe": true,
+                  "id": "500992e8-5431-4a6d-93e6-06809ac7f019",
+                  "pickups": 0,
+                  "strategy": "direct"
+                },
+                "id": "500992e8-5431-4a6d-93e6-06809ac7f019",
+                "recordSha256": "2663852d021580130b8366a47c4be1611f3ab4e9c73c267b23d05a03af71841d"
+              },
+              {
+                "fact": {
+                  "seconds": 85.2916174,
+                  "renderer": "43bfd12f5c011b571860d56cd1dabc25443f2d96b65d0407af41ae2fbecc24d7",
+                  "safe": true,
+                  "id": "2c45afc1-7cd5-4d4b-be16-595423e5cc2b",
+                  "pickups": 1,
+                  "strategy": "full"
+                },
+                "id": "2c45afc1-7cd5-4d4b-be16-595423e5cc2b",
+                "recordSha256": "ce39ce66cd863daa63b887309b1d2f9b01d1d6eb812bb59e35b2792e29605f6f"
+              }
+            ],
+            "rejected": [],
+            "admissionSeconds": 2.1103143,
+            "damagedRecords": 0,
+            "completionVerificationReserveSeconds": 1.9032312,
+            "overheadSeconds": 4.0135455,
+            "samples": [
+              {
+                "seconds": 43.9661181,
+                "renderer": "43bfd12f5c011b571860d56cd1dabc25443f2d96b65d0407af41ae2fbecc24d7",
+                "safe": true,
+                "id": "b2b49cdb-7b56-4c99-8b93-26fd676ea1d5",
+                "pickups": 0,
+                "strategy": "direct"
+              },
+              {
+                "seconds": 61.1451251,
+                "renderer": "43bfd12f5c011b571860d56cd1dabc25443f2d96b65d0407af41ae2fbecc24d7",
+                "safe": true,
+                "id": "2a5eb614-af22-44c4-a350-50d112b2dba0",
+                "pickups": 1,
+                "strategy": "full"
+              },
+              {
+                "seconds": 63.7957566,
+                "renderer": "43bfd12f5c011b571860d56cd1dabc25443f2d96b65d0407af41ae2fbecc24d7",
+                "safe": true,
+                "id": "56d78d1b-fbf9-402c-a59c-bf24385aa2a0",
+                "pickups": 1,
+                "strategy": "full"
+              },
+              {
+                "seconds": 51.8461736,
+                "renderer": "43bfd12f5c011b571860d56cd1dabc25443f2d96b65d0407af41ae2fbecc24d7",
+                "safe": true,
+                "id": "507413b1-3866-4388-b7ec-a80321b55061",
+                "pickups": 0,
+                "strategy": "direct"
+              },
+              {
+                "seconds": 56.287269,
+                "renderer": "43bfd12f5c011b571860d56cd1dabc25443f2d96b65d0407af41ae2fbecc24d7",
+                "safe": true,
+                "id": "500992e8-5431-4a6d-93e6-06809ac7f019",
+                "pickups": 0,
+                "strategy": "direct"
+              },
+              {
+                "seconds": 85.2916174,
+                "renderer": "43bfd12f5c011b571860d56cd1dabc25443f2d96b65d0407af41ae2fbecc24d7",
+                "safe": true,
+                "id": "2c45afc1-7cd5-4d4b-be16-595423e5cc2b",
+                "pickups": 1,
+                "strategy": "full"
+              }
+            ]
+          },
+          "budgeted": true,
+          "createdAt": "2026-11-12T18:28:44.996218800Z",
+          "seconds": 71.6456063,
+          "trace": "2b97e1d933127c11eed9541b82d2130e681c00cca46c1c804f7bd2be7040c8f3",
+          "restarted": false,
+          "eligible": false,
+          "host": "33054906fcadc3cab29a036064ed5a0ebbf2d331a2e4e6d1ff750ce6a672bbfc",
+          "id": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+          "boot": "4a6f2288-b3da-4a8a-9af6-9e0a59eefd87",
+          "parameters": {
+            "pickupTile": 42,
+            "turtleTile": 0,
+            "seed": 127,
+            "goombaTile": 46,
+            "gapTiles": 2,
+            "secondGapTiles": 2,
+            "obstacleHeight": 1,
+            "obstacleTile": 60,
+            "lengthTiles": 72
+          },
+          "resolved": "Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=direct pickupBudgetSeconds=30",
+          "algorithm": "c3c12624d94078e1f274edffc4919ab5476d782076c9a9894e0fd98c9855150a"
+        }
+      }
+    ],
+    "invalidMatchedEvidence": false,
+    "implementation": "982ae44c456b87450245f823700dcce5247fc9dc3fd7f8506237ce002f8546e8",
+    "scope": "Later repeated explicit comparisons, not randomization or a guarantee. Original policy unchanged. Complete first-outcome spans, later checks and recovered wall spans are separate. Review clock excludes final review-file write.",
+    "id": "451b5112-ce08-4a20-87c8-110393274d01",
+    "metrics": {
+      "established": false,
+      "reason": "Need three later independent direct and full trials; no benefit inferred from missing comparisons",
+      "predictedSecondsPerPickup": 93.88202940000002,
+      "fullSamples": 0,
+      "directSamples": 0,
+      "missedOpportunity": "unestablished"
+    },
+    "reviewSeconds": 2.8528931,
+    "taskId": "214cf569-d338-4c8c-97e3-aafc3decf0b0",
+    "samples": []
+  },
+  "passed": true
+}
