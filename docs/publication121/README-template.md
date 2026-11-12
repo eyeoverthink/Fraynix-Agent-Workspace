@@ -55,7 +55,7 @@ The comparison below uses the same declared scene and fresh runtime memory for e
 | --- | ---: | ---: | ---: | ---: |
 {{BENEFIT_ROWS}}
 
-Returning earns an item at extra time cost. It is useful for an objective that values the optional power-up; it is not a speed improvement. These are single complete-run timings, including native simulation, rendering and bridge work. Repeated timing distributions and a calibrated benefit gate remain future work.
+Returning earns an item at extra time cost. It is useful for an objective that values the optional power-up; it is not a speed improvement. These are single complete-run timings through the final frame, including native simulation, rendering and bridge work; later process cleanup is excluded. Repeated timing distributions and a calibrated benefit gate remain future work.
 
 ![Measured native motion and costs](docs/readmes/121/controller-motion.png)
 
@@ -82,6 +82,15 @@ Waiting keeps the existing180 ticks per wait,360 total and three-start bounds. R
 Eight development courses were declared before tuning. Six finish under121, with four pickups and two deaths;120 and the return-disabled comparison retain six finishes and three pickups. Simple control's results are included as a meaningful baseline, including the course it finishes while the more elaborate controllers fail.
 
 {{RESERVED_RESULT}}
+
+The reserved return comparison below lists courses where both policies finish safely and enabling returns earns an extra item. The controller was fixed before these scenes ran.
+
+| Reserved course | With returns | Returns disabled | Extra total simulation ticks |
+| --- | ---: | ---: | ---: |
+{{RESERVED_BENEFIT_ROWS}}
+
+[Per-course return benefit](docs/readmes/121/reserved-return-benefit.json)
+
 
 | Partition | Policy | Finishes | Pickups | Deaths | Return ticks | Median complete time |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
