@@ -32,7 +32,7 @@ public class GameController121Test {
                     Files.write(out.resolve(row.getString("name")+"-"+policy+".png"),Base64.getDecoder().decode(frame.getString("pngBase64")));Files.writeString(out.resolve("result.json"),result.toString(2));game.close();
                 }
             }
-            if(Boolean.getBoolean("study121.requireBenefit")){
+            if(Boolean.parseBoolean(System.getProperty("study121.requireBenefit",Boolean.toString(!reserved&&only.isEmpty()&&policies.contains("revisit121")&&policies.contains("observe121")&&policies.contains("opportunity120"))))){
                 var course=result.getJSONArray("cases").toList().stream().map(x->new JSONObject((Map<?,?>)x)).filter(x->x.getString("name").equals("late-room")).findFirst().orElseThrow();
                 for(Object raw:course.getJSONArray("trials")){var t=(JSONObject)raw;String p=t.getString("policy");if(!Set.of("revisit121","observe121","opportunity120").contains(p))continue;var c=t.getJSONObject("final").getJSONObject("controller");assertTrue(t.getBoolean("won"));assertEquals(0,c.getInt("damage"));assertEquals(p.equals("revisit121")?1:0,c.getInt("pickups"));if(p.equals("revisit121")){assertEquals(1,c.getJSONObject("opportunity120").getInt("revisitStarts"));assertTrue(c.getJSONObject("opportunity120").getInt("revisitTicks")>0);}}
             }

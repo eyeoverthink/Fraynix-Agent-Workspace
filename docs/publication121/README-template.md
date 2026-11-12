@@ -1,10 +1,10 @@
-# Fraynix Agent Workspace · Edition 121
+# Fraynix Agent Workspace Â· Edition 121
 
 **Observed enemy reversals, bounded returns, and an actual pickup benefit.**
 
-2026-11-11 · Java owns execution and evidence; the integrated desktop shows the world, chat and task history.
+2026-11-11 Â· Java owns execution and evidence; the integrated desktop shows the world, chat and task history.
 
-[Previous edition120](README-120.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/121/index.html) · [Development contract](docs/EDITION_121_CONTRACT.md) · [Phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md)
+[Previous edition120](README-120.md) Â· [All editions](docs/readmes/INDEX.md) Â· [Interactive offline guide](docs/readmes/121/index.html) Â· [Development contract](docs/EDITION_121_CONTRACT.md) Â· [Phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md)
 
 ![Actual completed return task](docs/readmes/121/return-completed.png)
 
@@ -44,7 +44,7 @@ Returning earns an item at extra time cost. It is useful for an objective that v
 
 ![Measured native motion and costs](docs/readmes/121/controller-motion.png)
 
-[All measurements](docs/readmes/121/measurements.json) · [Exact original evidence index](docs/readmes/121/original-evidence.json)
+[All measurements](docs/readmes/121/measurements.json) Â· [Exact original evidence index](docs/readmes/121/original-evidence.json)
 
 ## What the failures taught us
 
@@ -72,13 +72,13 @@ Eight development courses were declared before tuning. Six finish under121, with
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
 {{CONTROLLER_ROWS}}
 
-Software rendering repeats the same reserved scenes; it does not create additional unseen examples. Native simulation is unchanged. {{COST_RESULT}}
+The original game camera still activates and removes enemies according to its existing rules. The useful return is not evidence of avoiding a persistent off-screen enemy. Software rendering repeats the same reserved scenes; it does not create additional unseen examples. Native simulation is unchanged. {{COST_RESULT}}
 
 ## Durable chat, restart and verification
 
 The task runner still binds the original source and assets, constructed component lineage, installed engine identity, native owner/session, exact bounded actions, frame receipts and final outcome. `GameEvidence121` adds bounds and consistency checks for motion history, reversal events, return policy settings and the return-disabled comparison. It calls the existing waiting/contact verifiers; it does not replace them.
 
-Changing a counter, inventing a same-direction reversal, altering policy limits or tampering with a retained task remains refused. A completed result is recomputed from retained evidence. A process interruption does not relabel partial execution as success: explicit resume starts a fresh native trial and retains the interrupted one.
+Older proofs remain bound to their original compiled engine identity; this release does not relabel them as new evidence. Changing a counter, inventing a same-direction reversal, altering policy limits or tampering with a retained task remains refused. A completed result is recomputed from retained evidence. A process interruption does not relabel partial execution as success: explicit resume starts a fresh native trial and retains the interrupted one.
 
 Five actual visible requests cover old terrain repair, return with abrupt process recovery, wall reversal, unsupported pickup refusal and a genuinely failed challenge. Screenshots are dated captures from those isolated runs.
 
@@ -105,7 +105,7 @@ At implementation start,120 hosted jobs were still running. Local pass counts an
 - Real integrated game captures, narrow desktop review, and offline guide interaction at1440 and390 pixels.
 - Complete source inventory, original compressed evidence, immutable numbered editions, documentation validation and fetched Git byte audits.
 
-[Machine-readable scope](docs/readmes/121/verification.json) · [Actual UI record](docs/readmes/121/actual-ui.json) · [Hardware references](docs/readmes/121/reference-hardware.json) · [Software references](docs/readmes/121/reference-software.json)
+[Machine-readable scope](docs/readmes/121/verification.json) Â· [Actual UI record](docs/readmes/121/actual-ui.json) Â· [Hardware references](docs/readmes/121/reference-hardware.json) Â· [Software references](docs/readmes/121/reference-software.json)
 
 ## Architecture and project direction
 
