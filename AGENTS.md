@@ -1,3 +1,7 @@
+## Edition122 - investigation
+
+2026-11-12. Isolated S:/Codex-Work/fraynix-workspace-edition122 from cdc5bdcb. CI121 main/release SUCCESS. Read docs/EDITION_122_CONTRACT.md. Fix recorded side-contact deaths and stationary supported edge stall using ordinary controls. Keep previous return benefits and all checks. No delegation/heavy overlap; private worlds and frozen001-121 preserved. Not published yet.
+
 ## Edition121 — published and fetched back
 
 2026-11-11 America/Los_Angeles. Isolated S:/Codex-Work/fraynix-workspace-edition121, parent6999d1a3; production26cad633. Source edc744f2b5311fe7c2e02a36270b0cad19f37a7f. CI checked first:119 main43104121657 FAILED Load055 interruption assertion;120 main43115922490/release43115639334 pending. Original log/XML retained. The120 note's43104121687 was a transcription error, corrected here without rewriting frozen history. Load055 interruption test now coordinates at a real durable native checkpoint; retained partial trace, restart and forgery checks remain. A final repeat exposed a second interrupt from test cleanup during stopped-state persistence; cleanup now waits after one cancellation and three fresh native repeats retain the assertions. Original failed attempt archived. Release 572969f3f91f01ae5e0ae7a56bb8a61195e0eb9d; annotated readme-121. Main, edition121 and tag pushed atomically and fetched. Verified 1492 canonical sources, 42165 frozen hashes across121 editions and 1305 original evidence entries. See docs/PUBLICATION_121.json.
