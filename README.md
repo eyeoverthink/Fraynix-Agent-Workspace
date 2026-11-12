@@ -1,175 +1,195 @@
-# Fraynix Agent Workspace · Edition 122
+# Fraynix Agent Workspace · Edition 123
 
-[Published and fetched verification receipt](docs/PUBLICATION_122.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-122)
+**Measure the pickup benefit. Count the whole workflow. Keep safety ahead of speed.**
 
-**Avoid dangerous descending contact. Recover from a supported edge. Verify the actual finish.**
+2026-11-12 · Local Java decisions, original native physics, durable checked tasks.
 
-2026-11-12 · Local Java execution, original native physics and one integrated workspace.
+[Previous edition](README-122.md) · [All editions](docs/readmes/INDEX.md) · [Interactive cost guide](docs/readmes/123/index.html) · [Acceptance contract](docs/EDITION_123_CONTRACT.md) · [Phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md)
 
-[Previous edition](README-121.md) · [All editions](docs/readmes/INDEX.md) · [Offline interactive guide](docs/readmes/122/index.html) · [Acceptance contract](docs/EDITION_122_CONTRACT.md) · [Phased plan](docs/PLAYABLE_LEVEL_CREATION_PLAN.md)
+![Pickup approaches in the actual app](docs/readmes/123/pickup-controls.png)
 
-![The corrected edge course in the app](docs/readmes/122/edge-completed.png)
+## What changed
 
-## What edition 122 changes
+Edition 122 fixed two recorded enemy-contact deaths and a supported-edge stall. Edition 123 asks a different question: when does waiting or returning for a power-up earn its extra work? It adds four explicit pickup approaches to the same controller, makes them available through durable chat requests, and measures repeated complete workflows. The default remains the edition 122 behavior.
 
-Edition 121 established a useful return to missed pickups, but retained two enemy-contact deaths and a turtle course that stopped making progress. This edition works directly from those recorded failures. It adds a short enemy-contact forecast during descent and a bounded escape from stationary support at a block edge. Both issue ordinary controls. The original enemy collision rules, player movement, gravity, terrain and success conditions remain in force.
+| Pickup approach | Optional waiting | Remembered returns | Preserved behavior |
+| --- | --- | --- | --- |
+| `full` | Enabled | Enabled | Existing default |
+| `no-wait` | Disabled | Enabled | Contact, terrain, risk and recovery checks |
+| `no-return` | Enabled | Disabled | Contact, terrain, risk and recovery checks |
+| `direct` | Disabled | Disabled | Safe forward pickups and every safety check |
 
-The retained failures are development cases now, not new unseen tests. A separate set of eight reserved courses was declared before tuning. Its first run completed one valid case, then rejected a length outside the existing 48–72-tile builder limit. Six invalid lengths were corrected to 72 before their candidates could run; the controller, seeds, gaps, enemies and other settings stayed fixed. A second admission rejection found the high-edge turtle initially over its seed-dependent gap; it was placed at the adjacent supported tile before that candidate could launch. All declared inputs are then checked before any run. Both rejected attempts are retained, and repeating the first two valid cases is not additional unseen evidence. Their outcomes, the original failures and every comparison remain available below. A safer forecast is a decision aid; only native collision and finish evidence establish what happened.
+These are controlled feature comparisons. `direct` does not mean blind forward motion, and disabling remembered returns does not prohibit every backward movement used by normal collision recovery. No physics, body transform, collectible counter or finish condition is overwritten.
 
-## Try the corrected courses
+## Measured findings
 
-1. Launch the workspace and open **Game Lab** in the integrated creation canvas.
-2. Expand the level-building controls and choose **Descending enemy approach**, **Late turtle approach**, or **Supported edge recovery**.
-3. Prepare and send the chat request. Java constructs an isolated candidate, runs the simple comparison and then the AI trial, and checks the outcome.
-4. Watch the live counters for descending-contact corrections and supported-edge escapes. The counters describe actions, not success.
-5. Open **Level task history** to inspect the retained attempts, actual finish and collected items. A successful candidate reopens at its start for review.
-6. Try **Return to a cleared pickup** to check that the previous return behavior remains available. The unsupported gap pickup still has a separate refusal case.
+On development / supported-return, full versus no-return added 1.00–1.00 pickups per run; paired wall-time change was 7.65 to 8.28 seconds. On development / supported-wait, full versus no-wait added 1.00–1.00 pickups per run; paired wall-time change was 4.06 to 6.23 seconds. On reserved / fresh-return, full versus no-return added 0.00–0.00 pickups per run; paired wall-time change was -0.16 to 0.51 seconds. On reserved / fresh-wait, full versus no-wait added 1.00–1.00 pickups per run; paired wall-time change was 3.92 to 6.18 seconds. On software / fresh-return, full versus no-return added 0.00–0.00 pickups per run; paired wall-time change was -0.20 to 1.66 seconds. All negative and mixed comparisons remain below. Costs are measured on this host, not promised for another machine.
 
-![Actual contact forecast in the native game](docs/readmes/122/contact-live.png)
+The table reports totals across repetitions. A pickup count of three means one pickup in each of three runs, not three objects in one course. Times are elapsed **complete Java workflow** seconds.
 
-The explicit level-task route uses Java and makes zero model calls. Selecting an Ollama model in the interface does not mean it generated these actions. General chat retains its existing model routes. No model-weight training or automatic skill-bank admission is claimed here.
+| Partition / case | Approach | Finishes | Pickups total | Damage / deaths | Median wall seconds | Observed range |
+| --- | --- | --- | --- | --- | --- | --- |
+| development / supported-return | direct | 3/3 | 0 | 0 / 0 | 23.98 | 23.71–24.18 |
+| development / supported-return | full | 3/3 | 3 | 0 / 0 | 31.97 | 31.54–32.23 |
+| development / supported-return | no-return | 3/3 | 0 | 0 / 0 | 23.95 | 23.89–24.01 |
+| development / supported-return | no-wait | 3/3 | 3 | 0 / 0 | 32.22 | 31.77–32.43 |
+| development / supported-wait | direct | 3/3 | 0 | 0 / 0 | 18.00 | 17.91–18.36 |
+| development / supported-wait | full | 3/3 | 3 | 0 / 0 | 22.26 | 22.19–24.71 |
+| development / supported-wait | no-return | 3/3 | 3 | 0 / 0 | 22.23 | 21.81–22.28 |
+| development / supported-wait | no-wait | 3/3 | 0 | 0 / 0 | 18.13 | 18.08–18.48 |
+| development / unsupported-pickup | direct | 3/3 | 0 | 0 / 0 | 23.07 | 22.75–23.18 |
+| development / unsupported-pickup | full | 3/3 | 0 | 0 / 0 | 22.91 | 22.64–22.99 |
+| development / unsupported-pickup | no-return | 3/3 | 0 | 0 / 0 | 22.92 | 22.62–23.05 |
+| development / unsupported-pickup | no-wait | 3/3 | 0 | 0 / 0 | 23.00 | 22.89–23.24 |
+| reserved / fresh-return | direct | 3/3 | 3 | 0 / 0 | 25.29 | 25.06–25.56 |
+| reserved / fresh-return | full | 3/3 | 3 | 0 / 0 | 25.50 | 25.42–26.17 |
+| reserved / fresh-return | no-return | 3/3 | 3 | 0 / 0 | 25.57 | 25.47–25.66 |
+| reserved / fresh-return | no-wait | 3/3 | 3 | 0 / 0 | 25.42 | 25.39–25.66 |
+| reserved / fresh-wait | direct | 3/3 | 0 | 0 / 0 | 18.01 | 17.87–18.13 |
+| reserved / fresh-wait | full | 3/3 | 3 | 0 / 0 | 22.81 | 22.13–24.12 |
+| reserved / fresh-wait | no-return | 3/3 | 3 | 0 / 0 | 22.60 | 22.41–22.90 |
+| reserved / fresh-wait | no-wait | 3/3 | 0 | 0 / 0 | 18.11 | 17.94–18.21 |
+| software / fresh-return | direct | 3/3 | 3 | 0 / 0 | 25.97 | 25.67–26.34 |
+| software / fresh-return | full | 3/3 | 3 | 0 / 0 | 25.89 | 25.77–27.48 |
+| software / fresh-return | no-return | 3/3 | 3 | 0 / 0 | 25.88 | 25.82–26.10 |
+| software / fresh-return | no-wait | 3/3 | 3 | 0 / 0 | 25.94 | 25.92–26.38 |
 
-## Why the enemy deaths happened
+![Full workflow time and observed pickup benefit](docs/readmes/123/pickup-costs.png)
 
-The original observations show the player descending toward an enemy while the controller tries to line up a landing. An enemy at a similar height can cause fatal side contact before the desired top contact occurs. In the late-turtle case the player reaches the ground too close to the enemy to recover reliably with the old timing.
+## When is it worth it?
 
-`EnemyLanding122` evaluates at most three horizontal choices, using up to 60 fixed simulation steps per forecast. It reads current position, velocity, movement parameters and collision geometry. It checks a conservative enemy envelope along the descent and a short separation margin at touchdown. An alternative is chosen only if the predicted landing is supported and avoids the predicted contact. The next frame supplies a fresh observation.
+A slower approach can be useful if it adds a pickup the user values enough. For comparisons with three safe paired finishes and an extra pickup in every pair, Java reports:
 
-The revised policy also stops using the older descending stomp-alignment heuristic. Existing policies remain selectable for comparison. These changes do not teleport the player, edit enemy speed, modify collision normals or force a stomp. If no supported contact-free alternative is found, the forecast records that limitation instead of manufacturing safety.
+`observed conservative threshold = max(0, largest measured elapsed-time increase) / smallest measured extra-pickup count`
 
-The forecast is deliberately narrow: it approximates short enemy motion from current velocity. It is not a full prediction of all future wall reversals, shell behavior or multiple-body interactions. Native outcomes and the fresh reserved comparison remain necessary.
+The [interactive guide](docs/readmes/123/index.html) lets you enter how many extra seconds you would allow per additional pickup and compare that allowance with the measured threshold. It does not change the controller. Three observations are not a statistical confidence bound or a prediction guarantee for another machine or level.
 
-## Why the turtle course stalled
+| Partition / case | Enabled approach vs comparison | Extra pickups per pair (range) | Extra wall seconds (range) | Observed seconds per extra pickup | Assessment |
+| --- | --- | --- | --- | --- | --- |
+| development / supported-return | full vs no-wait | 0.00–0.00 | -0.69 to 0.46 | not established | No additional pickup benefit demonstrated |
+| development / supported-return | full vs no-return | 1.00–1.00 | 7.65 to 8.28 | 8.28 | Extra pickup in every repeat: compare its value with the measured cost threshold |
+| development / supported-return | no-return vs direct | 0.00–0.00 | -0.29 to 0.24 | not established | No additional pickup benefit demonstrated |
+| development / supported-return | no-wait vs direct | 1.00–1.00 | 8.04 to 8.45 | 8.45 | Extra pickup in every repeat: compare its value with the measured cost threshold |
+| development / supported-return | full vs direct | 1.00–1.00 | 7.36 to 8.53 | 8.53 | Extra pickup in every repeat: compare its value with the measured cost threshold |
+| development / supported-wait | full vs no-wait | 1.00–1.00 | 4.06 to 6.23 | 6.23 | Extra pickup in every repeat: compare its value with the measured cost threshold |
+| development / supported-wait | full vs no-return | 0.00–0.00 | -0.09 to 2.48 | not established | No additional pickup benefit demonstrated |
+| development / supported-wait | no-return vs direct | 1.00–1.00 | 3.90 to 4.23 | 4.23 | Extra pickup in every repeat: compare its value with the measured cost threshold |
+| development / supported-wait | no-wait vs direct | 0.00–0.00 | -0.23 to 0.48 | not established | No additional pickup benefit demonstrated |
+| development / supported-wait | full vs direct | 1.00–1.00 | 3.83 to 6.71 | 6.71 | Extra pickup in every repeat: compare its value with the measured cost threshold |
+| development / unsupported-pickup | full vs no-wait | 0.00–0.00 | -0.36 to 0.09 | not established | No additional pickup benefit demonstrated |
+| development / unsupported-pickup | full vs no-return | 0.00–0.00 | -0.40 to 0.37 | not established | No additional pickup benefit demonstrated |
+| development / unsupported-pickup | no-return vs direct | 0.00–0.00 | -0.45 to 0.17 | not established | No additional pickup benefit demonstrated |
+| development / unsupported-pickup | no-wait vs direct | 0.00–0.00 | -0.18 to 0.49 | not established | No additional pickup benefit demonstrated |
+| development / unsupported-pickup | full vs direct | 0.00–0.00 | -0.54 to 0.16 | not established | No additional pickup benefit demonstrated |
+| reserved / fresh-return | full vs no-wait | 0.00–0.00 | -0.01 to 0.51 | not established | No additional pickup benefit demonstrated |
+| reserved / fresh-return | full vs no-return | 0.00–0.00 | -0.16 to 0.51 | not established | No additional pickup benefit demonstrated |
+| reserved / fresh-return | no-return vs direct | 0.00–0.00 | 0.01 to 0.42 | not established | No additional pickup benefit demonstrated |
+| reserved / fresh-return | no-wait vs direct | 0.00–0.00 | -0.13 to 0.37 | not established | No additional pickup benefit demonstrated |
+| reserved / fresh-return | full vs direct | 0.00–0.00 | -0.14 to 0.88 | not established | No additional pickup benefit demonstrated |
+| reserved / fresh-wait | full vs no-wait | 1.00–1.00 | 3.92 to 6.18 | 6.18 | Extra pickup in every repeat: compare its value with the measured cost threshold |
+| reserved / fresh-wait | full vs no-return | 0.00–0.00 | -0.47 to 1.21 | not established | No additional pickup benefit demonstrated |
+| reserved / fresh-wait | no-return vs direct | 1.00–1.00 | 4.28 to 5.03 | 5.03 | Extra pickup in every repeat: compare its value with the measured cost threshold |
+| reserved / fresh-wait | no-wait vs direct | 0.00–0.00 | -0.02 to 0.20 | not established | No additional pickup benefit demonstrated |
+| reserved / fresh-wait | full vs direct | 1.00–1.00 | 4.12 to 6.25 | 6.25 | Extra pickup in every repeat: compare its value with the measured cost threshold |
+| software / fresh-return | full vs no-wait | 0.00–0.00 | -0.18 to 1.10 | not established | No additional pickup benefit demonstrated |
+| software / fresh-return | full vs no-return | 0.00–0.00 | -0.20 to 1.66 | not established | No additional pickup benefit demonstrated |
+| software / fresh-return | no-return vs direct | 0.00–0.00 | -0.52 to 0.43 | not established | No additional pickup benefit demonstrated |
+| software / fresh-return | no-wait vs direct | 0.00–0.00 | -0.03 to 0.26 | not established | No additional pickup benefit demonstrated |
+| software / fresh-return | full vs direct | 0.00–0.00 | -0.20 to 1.14 | not established | No additional pickup benefit demonstrated |
 
-The player had collected a mushroom and was resting on a block edge. Its original grounding probe reported airborne and its controller reported downward velocity, but measured position stayed constant and the physics contact list showed real terrain support. The landing guard repeatedly selected zero horizontal movement. The older contact recovery required an opposing wall contact, which was no longer present at that edge.
+If either approach fails to finish safely, the comparison refuses an economic recommendation. If no additional pickup is demonstrated, it says so. A consistently faster approach with no worse pickup count can still be useful. Mixed outcomes and overlapping timings remain visible; there is no invented single utility score.
 
-The revised recovery admits this additional observed condition: stationary position for at least 24 ticks, a real terrain support contact, and a missing grounded indication. It checks the ground behind before issuing a short retreat. Once ordinary motion reaches usable support, the existing recovery can jump forward. The original three-attempt limit and wait/retreat/jump deadlines remain. No grounded flag is written and no body is moved directly.
+## What the clock includes
 
-![Supported-edge escape in progress](docs/readmes/122/edge-live.png)
+Each measured row starts before creating its fresh project and task owner. It includes source checks, candidate construction, a fresh simple-control comparison, the AI trial, native frame capture, all durable task saves, final source/outcome verification, and closing the owned runtime. The phases are setup, task advancement, verification and shutdown. Advancement includes native execution **and** its surrounding validation, persistence and response construction.
 
-This distinction matters beyond this course: requested velocity is not proof of movement, and a single grounding probe is not the whole contact state. Recovery uses the combination of observed displacement, contacts and nearby support, then verifies subsequent progress.
+Simulation ticks are reported separately. The existing `workNanos` field is partial engine work and is not used as full wall time. UI scheduling, chat presentation, post-study cost analysis and study-report writing are outside the Java-workflow clock. Each study records its analysis time separately in `analysisNanos`. The Java workspace is already running when a request starts; outer Gradle/test-JVM startup is excluded, while the task-owned native game startup is included. Actual visible request timings are recorded separately below, including the request interrupted for the restart test. Explicit Java routes make zero model calls; these measurements are not LLM inference benchmarks.
 
-## Measured outcomes
+Measured native renderer: NVIDIA GeForce GTX 1660 Ti/PCIe/SSE2; Java 21.0.10. The test owner reports 4 processors and a 1024 MiB heap limit. The native child uses four processors and a 512 MiB heap. These are process limits, not a claim about total machine capacity. Software rendering is reported separately.
 
-Development: 8/8 finishes, 8 pickups, 0 damage and 0 deaths. Fresh reserved: revised 8/8 finishes, 7 pickups, 0 damage, 0 deaths; previous 121 7/8, 6 pickups, 0 damage, 1 death. Software repeat: 8/8, 7 pickups, 0 damage, 0 deaths. No tuning against reserved results.
+All strategies use fresh memory and the same declared geometry. Order rotates over three repetitions; each strategy occupies three of four positions, not complete counterbalancing. File-system caches and unrelated machine load can still affect elapsed time. We retain ranges and individual measurements instead of claiming statistical certainty or removing inconvenient samples.
 
-| Partition | Controller | Finishes | Pickups | Damage | Deaths | Median complete trial time |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| development | contact122 | 8/8 | 8 | 0 | 0 | 4.155 s |
-| development | revisit121 | 4/8 | 6 | 0 | 2 | 4.762 s |
-| development | simple | 1/8 | n/a | n/a | 4 | 2.633 s |
-| reserved | contact122 | 8/8 | 7 | 0 | 0 | 4.073 s |
-| reserved | revisit121 | 7/8 | 6 | 0 | 1 | 3.589 s |
-| reserved | simple | 1/8 | n/a | n/a | 5 | 2.317 s |
-| software-reserved | contact122 | 8/8 | 7 | 0 | 0 | 4.254 s |
-| software-reserved | revisit121 | 7/8 | 6 | 0 | 1 | 3.775 s |
-| software-reserved | simple | 1/8 | n/a | n/a | 5 | 2.431 s |
-| baseline | revisit121 | 4/8 | 6 | 0 | 2 | 4.735 s |
-| baseline | simple | 1/8 | n/a | n/a | 4 | 2.757 s |
+## Cases and verification
 
-Complete trial time includes the fresh native launch, simulation, rendering and bridge work through the final frame; later cleanup is excluded. These are individual runs, not a calibrated speed claim. The new forecast adds work and can change the route. Finishing and retaining useful pickups are evaluated separately.
+Development contains a supported wait, a supported return, and an unsupported pickup. The first pilot is retained separately and excluded from repeated statistics. Two new measurement cases were declared before running: seed 251 with a shifted turtle approach, and seed 257 with a supported remembered return. Software rendering repeats the seed 257 case on the same geometry; it is a portability repeat, not additional unseen evidence. The new wait case shifts the turtle; the new return case changes the seed while retaining the same return geometry. These are modest checks, not proof of generalization to arbitrary courses. No controller tuning follows their outcomes.
 
-| Retained failure | Previous controller | Revised controller | Revised contact corrections | Edge escapes |
-| --- | --- | --- | ---: | ---: |
-| retained-near-guard | failed | finished | 28 | 0 |
-| retained-late-turtle | failed | finished | 14 | 0 |
-| retained-turtle-edge | failed | finished | 0 | 1 |
+Local checks passed: 195 distinct Java test methods, 168 desktop checks, 72 complete repeated workflows, 18 prior course executions with no damage, six transformed reference images and four refusal cases per renderer, plus the original reference regression. The actual app completed five requests, recovered its own interrupted Java process, and retained/refused an impossible sixth course. These edition123 regression counts are separate from the 85 executions documented in edition122.
 
-![Original and revised native traces](docs/readmes/122/controller-motion.png)
+`GameEvidence123` checks that disabled actions stayed disabled. All previous source, asset, component, engine, owner, session, action, image, motion and outcome checks remain. Strategy identity is tied to the original request. Old proofs remain bound to their original engine identity. A failed trial can now be verified for **measurement**, with `completionCertified=false`; the ordinary completion verifier still refuses it. This does not promote failed tasks or bypass the task history limit of 24.
 
-All 85 regression course executions finish without damage: the previous 71 courses plus the 14 edition 121 development/reserved courses. The original 24 pickup successes remain, and all three prior reserved return benefits still collect their item. Overlapping layouts are not additional unseen evidence.
+CI was checked first: edition 122 main and release were still running, while the latest completed edition 121 runs had succeeded. Hosted CI status is recorded separately from local validation and the fetched publication audit.
 
-All eight fresh reserved courses finish in this declared set. This does not establish safety for arbitrary levels, moving shells or untested combinations.
+## Try it in the app
 
-[Complete measurements](docs/readmes/122/measurements.json) · [Original evidence index](docs/readmes/122/original-evidence.json) · [Reserved results](docs/readmes/122/controller-reserved.json)
+1. Open the integrated **Game Lab**, then expand **Create a level from the original components**.
+2. Choose **Return to a cleared pickup** or the turtle/pickup course.
+3. Choose a **Pickup approach**, prepare the request, and send it through chat.
+4. Inspect the verified completion, actual pickups and the wait/return counters in task history. A completed candidate reopens at its start for review.
+5. Repeat the same course with another approach. Keep full timing separate from game ticks; use the measured guide for the edition's controlled comparisons.
 
-## Verification and recovery
+For example:
 
-The durable task still binds the source, component construction, assets, installed engine identity, native owner/session, bounded actions, frame receipts and observed outcome. `GameEvidence122` validates the additional forecast counters, horizon, enemy limit, selected input, support/contact conditions and edge-start bounds alongside the existing checks. A claimed safe override with an unsafe landing is rejected. A forecast without an observation is rejected. Changing retained evidence is rejected.
-
-Old proofs remain tied to their original compiled engine. They are never relabelled as evidence from this release. A failed trial remains a failure even if an item was collected. An interrupted trial stays recorded when a new native session resumes the durable request.
-
-Seven actual visible requests exercise old terrain repair, the three corrected courses, return after an abrupt owned-process interruption, unsupported-pickup refusal and an intentionally failed challenge. The failed challenge remains interrupted until explicitly cancelled; the system does not repair challenge terrain to force a pass.
-
-| Actual request | Wall time | Durable status | Certified AI pickups |
-| --- | ---: | --- | ---: |
-| Create a playable Mario level gapTiles=10 repairLimit=2; construct, playtest and repair it. | 63.937 s | completed | 1 |
-| Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0; compare controls and report skipped pickups. | 62.255 s | completed | 1 |
-| Create a playable Mario level seed=109 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=40 goombaTile=42 repairLimit=0; compare controls and report skipped pickups. | 59.121 s | completed | 1 |
-| Create a playable Mario level seed=113 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=40 turtleTile=44 repairLimit=0; compare controls and report skipped pickups. | 44.636 s | completed | 1 |
-| Create a playable Mario level seed=157 lengthTiles=72 gapTiles=3 secondGapTiles=2 pickupTile=11 turtleTile=16 obstacleTile=14 obstacleHeight=2 repairLimit=0; compare controls and report skipped pickups. | 132.875 s | completed | 1 |
-| Create a playable Mario level seed=50 lengthTiles=72 gapTiles=3 secondGapTiles=2 pickupTile=18 goombaTile=28 obstacleTile=25 obstacleHeight=2 repairLimit=0 | 45.984 s | completed | 0 |
-| Create a playable Mario level gapTiles=10 pickupTile=17 goombaTile=45. | 23.553 s | interrupted | not certified |
-
-![Saved evidence in the integrated workspace](docs/readmes/122/verified-contact.png)
-
-## Tests and CI
-
-CI was checked before implementation. Both edition 121 main and release jobs succeeded, including the corrected load-interruption test. The original status snapshot is retained. Edition 122 hosted CI is reported separately from local verification and publication.
-
-- 188 distinct Java test methods: native trials, boundary checks, provenance, restart and tampering refusal.
-- 168 desktop checks, seven visible requests, abrupt process recovery and a narrow desktop review.
-- Original reference-image checks remain: six transformed cases and four refusals on each renderer, plus the earlier reference regression.
-- The fresh reserved set is repeated with actual software rendering. This repeats the same scenes; it is not another unseen dataset.
-- Normal launcher preparation and build receipts are checked around the visible review.
-- Real screenshots, source inventory, exact compressed originals, linked documents and all historical edition hashes are verified before publication.
-
-[Validation record](docs/readmes/122/verification.json) · [Actual UI record](docs/readmes/122/actual-ui.json) · [Hardware references](docs/readmes/122/reference-hardware.json) · [Software references](docs/readmes/122/reference-software.json)
-
-## Running from source
-
-Use [Launch-Agent-Workspace.bat](Launch-Agent-Workspace.bat), backed by [Start-Agent-Workspace.ps1](scripts/Start-Agent-Workspace.ps1). JDK 21 and Node.js LTS are required. First preparation downloads locked dependencies; a prepared installation can use the offline mode.
-
-Before updating an installed build, use **Stop Java & close app**. Closing just the desktop may leave its durable Java owner alive. Preparation preserves running owners and refreshes both workspace and native Game Lab installations when stopped.
-
-For an isolated review, choose a new project directory:
-
-```powershell
-$env:FRAYNIX_WORKSPACE_PROJECT = Join-Path $env:USERPROFILE '.fraynix-agent-workspace/projects/review-edition122'
-.\Launch-Agent-Workspace.bat
+```text
+Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=no-return
 ```
 
-Use a different unused name if that project is already active. Existing personal worlds and databases are not test fixtures.
+Unknown, empty or duplicate strategy choices are refused. Non-default strategies require explicitly declared challenge geometry. General AI Play and requests without a strategy retain the existing default.
 
-## Architecture and direction
+![Verified task result with returning enabled](docs/readmes/123/return-full.png)
+![Native frame after confirmed return collection](docs/readmes/123/collected-native.png)
+![The same course with remembered returns disabled](docs/readmes/123/return-disabled.png)
+![Actual waiting in the integrated game](docs/readmes/123/live-wait.png)
+![Verified strategy and retained attempts](docs/readmes/123/verified-strategy.png)
 
-The app remains a local Java-owned agent workspace. Java maintains durable tasks, entities, actions and evidence. The desktop hosts the integrated game view, browser, canvas and chat. Game Lab supplies an observable environment with real native execution; serialized state makes experiments inspectable and reproducible.
+## Actual visible requests
+
+These are separate end-to-end app observations, not pooled into the repeated Java timings. All screenshots are actual captures from an isolated review project.
+
+| Request | Elapsed seconds | Final chat status | Verified AI pickups |
+| --- | --- | --- | --- |
+| Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=full; compare controls and report skipped pickups. | 61.884 | completed | 1 |
+| Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=2 pickupTile=42 goombaTile=46 obstacleTile=60 obstacleHeight=1 repairLimit=0 pickupStrategy=no-return; compare controls and report skipped pickups. | 42.047 | completed | 0 |
+| Create a playable Mario level seed=53 lengthTiles=64 gapTiles=2 secondGapTiles=2 turtleTile=15 obstacleTile=26 obstacleHeight=2 repairLimit=0 pickupStrategy=full; compare controls and report skipped pickups. | 37.779 | completed | 1 |
+| Create a playable Mario level seed=53 lengthTiles=64 gapTiles=2 secondGapTiles=2 turtleTile=15 obstacleTile=26 obstacleHeight=2 repairLimit=0 pickupStrategy=direct; compare controls and report skipped pickups. | 29.693 | completed | 0 |
+| Create a playable Mario level seed=50 lengthTiles=72 gapTiles=3 secondGapTiles=2 pickupTile=18 goombaTile=28 obstacleTile=25 obstacleHeight=2 repairLimit=0 pickupStrategy=full | 41.149 | completed | 0 |
+| Create a playable Mario level gapTiles=10 pickupTile=17 goombaTile=45 pickupStrategy=direct. | 19.918 | interrupted | not certified |
+
+![An impossible course remains refused](docs/readmes/123/failed-course.png)
+![Compact integrated layout](docs/readmes/123/pickup-1100.png)
+
+## Implementation and evidence
 
 ```mermaid
 flowchart LR
- Chat[Chat request] --> Task[Durable Java task]
- Task --> Source[Verified candidate]
- Source --> World[Original native physics]
- World --> Observe[Position velocity contacts terrain]
- Observe --> Forecast[Bounded descending-contact forecast]
- Observe --> Recovery[Supported-edge recovery]
- Forecast --> Input[Ordinary player controls]
- Recovery --> Input
- Input --> World
- World --> Verify[Source and actual outcome checks]
- Verify --> History[Retained evidence and review]
+ Request[Chat request and explicit approach] --> Task[Durable Java task]
+ Task --> Source[Source and candidate checks]
+ Source --> Compare[Fresh simple comparison and AI trial]
+ Compare --> Native[Original native physics]
+ Native --> Verify[Actual outcome and action checks]
+ Verify --> Measure[Complete workflow timing]
+ Measure --> Analysis[Repeated cost and pickup comparison]
+ Analysis --> Value[Observed threshold for a user allowance]
 ```
 
 ```text
-src/main/java/agent/EnemyLanding122.java       short contact forecast
-src/main/java/agent/ContactRecovery119.java   opt-in supported-edge recovery
-src/main/java/agent/GameInput.java            bounded ordinary controls
-workspace-engine/.../GameEvidence122.java    added receipt checks
-workspace-engine/.../GameTask115.java         durable task and outcome audit
-workspace-desktop/renderer/brain-game.js      integrated controls and presets
-workspace-desktop/test/game122-integration.cjs actual visible review
+src/main/java/agent/PickupStrategy123.java          native feature choices
+src/main/java/agent/PickupOpportunity120.java      bounded wait/return behavior
+workspace-engine/.../GameStrategy123.java         request and policy binding
+workspace-engine/.../GameEvidence123.java         disabled-action checks
+workspace-engine/.../GameTask115.java             durable execution and measurement verification
+workspace-engine/.../GameCost123.java             repeated cost and benefit analysis
+workspace-engine/.../GamePickupStudy123Test.java  complete native study
+workspace-desktop/renderer/brain-game.js          integrated pickup selector
 ```
 
-A separate recorded-evidence pass rechecks every applicable controller receipt across the baseline, development, reserved, software and 85 regression executions. It checks native tick/session continuity as well as the existing controller bounds; it does not manufacture another live trial.
+[Measurements](docs/readmes/123/measurements.json) · [Verification](docs/readmes/123/verification.json) · [Original evidence index](docs/readmes/123/original-evidence.json) · [Source inventory](docs/readmes/123/file-inventory.json)
 
-No new external framework is added. Existing native rendering and physics dependencies remain. This edition is a measured controller improvement, not general visual recognition, general intelligence or neural training.
+No new external framework, automatic policy promotion, neural weight training or saved-skill admission is introduced. The app remains a local Java-controlled system with one integrated presentation. The evidence establishes the measured trade-offs, not a general valuation of health, survival or future levels.
 
 ## Next phases
 
-**123: choose optional actions from measured value and cost.** Repeat complete tasks to measure variability. Compare finishing quickly against collecting useful power-ups, including cases where waiting, returning or extra observation costs more than it earns. Keep the return-disabled and simple-control comparisons.
+**124: preference-aware optional actions.** Use explicit user time allowances and an uncertainty-aware cost estimate, then test on new scenes before changing the default. Include cases where the estimate should abstain. Count the cost of estimating and verifying the decision itself.
 
-**124: richer contact uncertainty.** Use new declared cases for wall reversals during prediction, moving shells, mixed enemies and changing support. Compare predicted contact with actual contact and retain false alarms as well as missed hazards. Do not tune against a set while calling it unseen.
+**125: broader contact uncertainty.** Add declared moving-shell, enemy-reversal and changing-support cases. Keep actual contact, false alarms, missed hazards and bounded recovery visible. Earlier plans for broader image components and reusable verified procedures remain on the roadmap.
 
-**Later: broader creation and verified procedures.** Expand explicitly supported image components, retain unknown-region refusal, and qualify reusable procedures only after reconstruction, changed-condition playtests, recovery and source/outcome verification. Existing collection limits remain.
-
-[Architecture](docs/ARCHITECTURE.md) · [Project memory](docs/PROJECT_MEMORY.md) · [Development log](docs/DEVELOPMENT_LOG.md) · [Contributor handoff](README-CONTRIBUTORS.md) · [Obsidian map](docs/obsidian/130-enemy-contact-and-supported-edge-recovery.canvas)
+[Architecture](docs/ARCHITECTURE.md) · [Project memory](docs/PROJECT_MEMORY.md) · [Development log](docs/DEVELOPMENT_LOG.md) · [Contributor handoff](README-CONTRIBUTORS.md) · [Obsidian map](docs/obsidian/131-full-cost-pickup-choices.canvas)

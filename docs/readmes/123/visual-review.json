@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "method": "Manual inspection of actual app screenshots, native collection frame, plotted measurements and wide/narrow browser captures, plus automated interaction checks.",
+  "appImages": [
+    "pickup-controls.png",
+    "collected-native.png",
+    "return-live.png",
+    "live-wait.png",
+    "verified-strategy.png",
+    "pickup-1100.png",
+    "failed-course.png"
+  ],
+  "chart": "pickup-costs.png",
+  "guides": [
+    "guide-wide.png",
+    "guide-narrow.png"
+  ],
+  "observations": [
+    "New selector fits the existing integrated controls.",
+    "Native post-collection frame shows the powered-up character with its proper sprite.",
+    "Live return and wait captures show the corresponding actual status.",
+    "History retains the selected strategy and simple comparison; failure remains stopped/refused.",
+    "Compact app view retains accessible chat and game controls.",
+    "Guide text and comparison details wrap at390; charts and screenshots open at full size.",
+    "Chart labels, observed ranges and measured pickup totals are legible; no claimed confidence bound."
+  ]
+}

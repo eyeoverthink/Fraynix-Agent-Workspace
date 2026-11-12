@@ -1,0 +1,99 @@
+{
+  "nodes": [
+    {
+      "id": "strategy",
+      "type": "file",
+      "file": "src/main/java/agent/PickupStrategy123.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "control",
+      "type": "file",
+      "file": "src/main/java/agent/PickupOpportunity120.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "runtime",
+      "type": "file",
+      "file": "src/main/java/runtime/EmbeddedGameRuntime.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "task",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GameTask115.java",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "verify",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GameEvidence123.java",
+      "x": 430,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "cost",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/GameCost123.java",
+      "x": 860,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "proof",
+      "type": "file",
+      "file": "workspace-desktop/test/game123-integration.cjs",
+      "x": 0,
+      "y": 500,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "strategy",
+      "toNode": "control"
+    },
+    {
+      "id": "1",
+      "fromNode": "control",
+      "toNode": "runtime"
+    },
+    {
+      "id": "2",
+      "fromNode": "runtime",
+      "toNode": "task"
+    },
+    {
+      "id": "3",
+      "fromNode": "task",
+      "toNode": "verify"
+    },
+    {
+      "id": "4",
+      "fromNode": "verify",
+      "toNode": "cost"
+    },
+    {
+      "id": "5",
+      "fromNode": "cost",
+      "toNode": "proof"
+    }
+  ]
+}

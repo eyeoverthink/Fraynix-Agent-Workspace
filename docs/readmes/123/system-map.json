@@ -1,0 +1,122 @@
+{
+  "modules": [
+    {
+      "id": "strategy",
+      "name": "Explicit pickup choices",
+      "source": "src/main/java/agent/PickupStrategy123.java",
+      "note": "docs/obsidian/131-full-cost-pickup-choices.md"
+    },
+    {
+      "id": "control",
+      "name": "Bounded waiting and returning",
+      "source": "src/main/java/agent/PickupOpportunity120.java",
+      "note": "docs/obsidian/131-full-cost-pickup-choices.md"
+    },
+    {
+      "id": "runtime",
+      "name": "Original native simulation",
+      "source": "src/main/java/runtime/EmbeddedGameRuntime.java",
+      "note": "docs/obsidian/131-full-cost-pickup-choices.md"
+    },
+    {
+      "id": "task",
+      "name": "Durable checked task",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameTask115.java",
+      "note": "docs/obsidian/131-full-cost-pickup-choices.md"
+    },
+    {
+      "id": "verify",
+      "name": "Action and outcome checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameEvidence123.java",
+      "note": "docs/obsidian/131-full-cost-pickup-choices.md"
+    },
+    {
+      "id": "cost",
+      "name": "Measured complete cost",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameCost123.java",
+      "note": "docs/obsidian/131-full-cost-pickup-choices.md"
+    },
+    {
+      "id": "proof",
+      "name": "Actual visible review",
+      "source": "workspace-desktop/test/game123-integration.cjs",
+      "note": "docs/obsidian/131-full-cost-pickup-choices.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/123/pickup-controls.png",
+      "title": "Pickup choices in Game Lab"
+    },
+    {
+      "path": "docs/readmes/123/return-full.png",
+      "title": "Verified return-enabled result"
+    },
+    {
+      "path": "docs/readmes/123/return-disabled.png",
+      "title": "Same course without remembered returns"
+    },
+    {
+      "path": "docs/readmes/123/wait-full.png",
+      "title": "Verified waiting-enabled result"
+    },
+    {
+      "path": "docs/readmes/123/wait-disabled.png",
+      "title": "Same course without waiting"
+    },
+    {
+      "path": "docs/readmes/123/verified-strategy.png",
+      "title": "Strategy and evidence in task history"
+    },
+    {
+      "path": "docs/readmes/123/unsupported-pickup.png",
+      "title": "Unsupported pickup left behind"
+    },
+    {
+      "path": "docs/readmes/123/failed-course.png",
+      "title": "Impossible course refused"
+    },
+    {
+      "path": "docs/readmes/123/pickup-1100.png",
+      "title": "Compact layout"
+    },
+    {
+      "path": "docs/readmes/123/live-wait.png",
+      "title": "Live waiting"
+    },
+    {
+      "path": "docs/readmes/123/return-native.png",
+      "title": "Native frame during a return"
+    },
+    {
+      "path": "docs/readmes/123/return-live.png",
+      "title": "Integrated view during a return"
+    },
+    {
+      "path": "docs/readmes/123/collected-native.png",
+      "title": "Native frame after collection"
+    },
+    {
+      "path": "docs/readmes/123/collected-after-return.png",
+      "title": "Integrated view after collection"
+    },
+    {
+      "path": "docs/readmes/123/declined-pickup.png",
+      "title": "Recorded pickup refusal"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/123/actual-ui.json"
+    },
+    {
+      "path": "docs/readmes/123/measurements.json"
+    },
+    {
+      "path": "docs/readmes/123/verification.json"
+    },
+    {
+      "path": "docs/readmes/123/original-evidence.json"
+    }
+  ]
+}

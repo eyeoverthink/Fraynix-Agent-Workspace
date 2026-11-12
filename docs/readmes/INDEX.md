@@ -1,3 +1,5 @@
+[Edition123 — full-cost pickup choices](../../README-123.md) · [Offline guide](123/index.html)
+
 [Edition122 — enemy contact and edge recovery](../../README-122.md) · [Offline guide](122/index.html)
 
 [Edition121 — enemy reversals and useful returns](../../README-121.md) · [Offline guide](121/index.html)

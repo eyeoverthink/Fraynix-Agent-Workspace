@@ -1,0 +1,5 @@
+# Full-cost pickup choices — edition123
+
+[[README-123.md]] records 72 repeated workflows and four explicit pickup strategies. On development / supported-return, full versus no-return added 1.00–1.00 pickups per run; paired wall-time change was 7.65 to 8.28 seconds. On development / supported-wait, full versus no-wait added 1.00–1.00 pickups per run; paired wall-time change was 4.06 to 6.23 seconds. On reserved / fresh-return, full versus no-return added 0.00–0.00 pickups per run; paired wall-time change was -0.16 to 0.51 seconds. On reserved / fresh-wait, full versus no-wait added 1.00–1.00 pickups per run; paired wall-time change was 3.92 to 6.18 seconds. On software / fresh-return, full versus no-return added 0.00–0.00 pickups per run; paired wall-time change was -0.20 to 1.66 seconds. All negative and mixed comparisons remain below. Costs are measured on this host, not promised for another machine.
+
+Default remains contact122. No automatic value policy. Next: explicit user allowances and uncertainty on new courses, then broader contacts. [[docs/PLAYABLE_LEVEL_CREATION_PLAN.md]]

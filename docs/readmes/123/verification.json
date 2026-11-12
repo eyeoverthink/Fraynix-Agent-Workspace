@@ -1,0 +1,1501 @@
+{
+  "passed": true,
+  "javaChecks": [
+    "agent.ActorControlsTest.rejectsOldEpisodesDuplicateSequencesAndExpiredCommands",
+    "agent.ContactObserver119Test.changedGoalCannotSubstituteOppositeFloorForTheCommittedRetreat",
+    "agent.ContactObserver119Test.sensorsAndNonTerrainCannotJustifyARecoveryLanding",
+    "agent.ContactRecovery119Test.realDisplacementDistinguishesTravelFromLodgedContact",
+    "agent.ContactRecovery119Test.rearThreatWaitIsBoundedAndMustClearBeforeRetreat",
+    "agent.ContactRecovery119Test.repeatedTickAndNonFiniteObservationAreRejected",
+    "agent.ContactRecovery119Test.successfulEscapesDoNotResetTheTotalAttemptBudget",
+    "agent.ContactRecovery119Test.unsupportedRetreatAndCeilingNeverGrantAnInventedJump",
+    "agent.EnemyLanding122Test.distantEnemyDoesNotChangeOrdinaryInputAndNonfiniteInputIsRefused",
+    "agent.EnemyLanding122Test.missingSupportCannotBePromotedToSafeLanding",
+    "agent.EnemyLanding122Test.retainedDescendingApproachBrakesBeforeSideContact",
+    "agent.EnemyLanding122Test.stationarySupportedEdgeUsesBoundedRetreatWithoutInventingGroundedState",
+    "agent.EnemyLanding122Test.supportedEdgeNeverRetreatsWithoutGroundBehind",
+    "agent.LandingGuard116Test.clearGroundPreservesTheRequestedInput",
+    "agent.LandingGuard116Test.unknownFloorDoesNotInventASupportedLanding",
+    "agent.MotorRecoveryTest.blockedMovementBacksUpThenJumpsThroughNormalInputs",
+    "agent.MotorRecoveryTest.ceilingPreventsTheForwardJumpUntilThereIsRoom",
+    "agent.MotorRecoveryTest.repeatedFailuresAndUnsafeBackoffStopInsteadOfLooping",
+    "agent.OpportunityMotion121Test.nativeWallInvalidatesLinearClearancePrediction",
+    "agent.OpportunityMotion121Test.observedReversalInvalidatesNearbyForecastUntilFreshStableWindow",
+    "agent.OpportunityMotion121Test.returnDisabledPolicyCannotChooseAnOtherwiseSafeRememberedBlock",
+    "agent.OpportunityTiming120Test.pricesBothDirectionsAndRejectsStationaryOrUnboundedThreats",
+    "agent.OpportunityTiming120Test.prospectiveHoldCollisionAndUnknownMotionRefuse",
+    "agent.PickupOpportunity120Test.earlierWaitCannotOverrideLaterPermanentRefusal",
+    "agent.PickupOpportunity120Test.nativeFloorLossAbortsWaitingWithoutFakingCollection",
+    "agent.PickupOpportunity120Test.permanentRefusalCannotBeRevisited",
+    "agent.PickupOpportunity120Test.returnCannotSpendBrakingDistanceBeyondObservedPlatform",
+    "agent.PickupOpportunity120Test.returnRequiresWholeObservedGroundAndHasADeadline",
+    "agent.PickupOpportunity120Test.waitingExpiresEvenWhenReportedVelocityNeverProducesClearance",
+    "agent.PickupSafety118Test.considersApproachingMotionAndRetainsSafeOpportunities",
+    "agent.PickupSafety118Test.refusesUnsupportedBlockedAndLowClearanceTargets",
+    "agent.PickupSafety118Test.timesSmallPlayerJumpUsingClosingMotion",
+    "agent.PlayMemoryTest.corruptMemoryIsPreservedBeforeReplacement",
+    "agent.PlayMemoryTest.failedChoiceChangesNextRunAndSurvivesRestart",
+    "agent.PlayMemoryTest.keepsUsefulKnownRouteInsteadOfRandomlyChangingEverySuccessfulAction",
+    "agent.PlayMemoryTest.measuredRewardFavorsSuccessfulPolicyAfterExploration",
+    "agent.PowerupPlannerTest.declinedBlockDoesNotInheritAnotherItemsFailure",
+    "agent.PowerupPlannerTest.identifiesMushroomAndTimesOutUnreachablePickup",
+    "agent.PowerupPlannerTest.laterRunAvoidsPreviouslyUnreachableOptionalBlock",
+    "agent.PowerupPlannerTest.recognizesActivePowerupBlockAndStopsTargetingAfterUse",
+    "agent.PowerupPlannerTest.threatDeferralRechecksLaterWithAFiniteBudgetAndNoFalseLearning",
+    "agent.Pursuit117Test.descendingMushroomDoesNotInviteAnUnnecessaryJump",
+    "agent.Pursuit117Test.staticFlowerStillAllowsASupportedJumpAndPredictionIsBounded",
+    "editor.EditorCorrectionsTest.assetSelectionDoesNotInsertAndPlacementRequiresExplicitMode",
+    "editor.EditorCorrectionsTest.exportedOriginalLevelCanBeImportedAndInvalidTypesAreRejected",
+    "editor.FraynixWorkspaceTest.chatSceneBridgeDeserializesGsonGameObjectAndMovesSquare",
+    "editor.FraynixWorkspaceTest.liveChatSeparatesAttachmentsUsesOwnIdentityAndRestoresEvidence",
+    "editor.ModelAvailabilityTest.advertisedDecisionAndEmbeddingModelsAreNotOfferedForChat",
+    "editor.ModelAvailabilityTest.driveDiscoveryReportsMissingBlobsWithoutClaimingTheyAreServed",
+    "factory.EditorPhysicsRegressionTest.dynamicBoxFallsAndLandsOnStaticBox",
+    "factory.EditorPhysicsRegressionTest.editorChangesRefreshFixtureAndDoNotShiftObjectByColliderOffset",
+    "factory.EditorPhysicsRegressionTest.physicsValuesAndIdentitySurviveActualCheckpointDeserialization",
+    "factory.EditorPhysicsRegressionTest.repeatedInspectionKeepsOneStatusAndDoesNotAddSceneComponents",
+    "factory.EditorPhysicsRegressionTest.visibleEditorCommandsAreIdempotentAndRegisterLateComponents",
+    "factory.FactorySceneIntegrationTest.checkpointDoesNotPretendAnInterruptedWorkerIsStillRunning",
+    "factory.FactorySceneIntegrationTest.circleBodyUsesCircleFixture",
+    "factory.FactorySceneIntegrationTest.fixedStepConsumesElapsedTimeAndDoesNotAdvanceAtZero",
+    "factory.FactorySceneIntegrationTest.jsonPreservesIdentityAndCloneAllocatesFreshIdentity",
+    "factory.FactorySceneIntegrationTest.legacyDuplicateEditorHandlesAreMigratedWithoutChangingPersistentIds",
+    "factory.FactorySceneIntegrationTest.legacyJsonWithoutUuidIsMigrated",
+    "factory.FactorySceneIntegrationTest.legacySceneSaveIsAnIdentityPreservingRoundtrip",
+    "factory.FactorySceneIntegrationTest.localToolsUseTheLiveCapturedWorldWithoutAddingEntitiesAndRestoreReceipts",
+    "factory.FactorySceneIntegrationTest.negativeAndNonFiniteElapsedTimesAreRejected",
+    "factory.FactorySceneIntegrationTest.sceneAndActualKernelTaskSurviveSessionRestart",
+    "factory.FactorySceneIntegrationTest.sharedWorldCloneRemapsSceneAndPickingHandles",
+    "factory.FactorySceneIntegrationTest.typedWorldTransformEditsReachRestoredScene",
+    "factory.FactorySceneIntegrationTest.unregisteredClassesCannotBeLoadedAsComponents",
+    "factory.FullMarioLevelTest.importsEveryComponentAndRoundTripsTheOriginalLevel",
+    "factory.FullMarioLevelTest.originalAssetsResolveAndPillboxRegistersBothFixtures",
+    "factory.FullMarioLevelTest.transformClonePreservesRotationAndLayer",
+    "factory.GridPlacementRegressionTest.duplicatePressAndReleaseDoNotLeavePlacementDragging",
+    "factory.GridPlacementRegressionTest.pickingTracksViewportMoveResizePanAndZoom",
+    "factory.GridPlacementRegressionTest.rectangularCellsUseTheirOwnAxisSpacing",
+    "factory.GridPlacementRegressionTest.tileEdgesMatchTheGridOnBothSidesOfZero",
+    "factory.SceneAgentIntegrationTest.applicationIsGuardedAndUndoSurvivesRestart",
+    "factory.SceneAgentIntegrationTest.backgroundPreviewIdentityAllocationIsUniqueAcrossThreads",
+    "factory.SceneAgentIntegrationTest.failedSceneInstallationRestoresTheCheckpointAndKeepsOriginalWorld",
+    "factory.SceneAgentIntegrationTest.invalidOrExecutablePropertiesRejectTheWholeDraft",
+    "factory.SceneAgentIntegrationTest.modelQueriesFeedBackIntoARealAdapterProposalAndDetachedPreview",
+    "factory.SceneAgentIntegrationTest.observationIncludesCompleteComponentsRuntimeAndSelection",
+    "factory.SceneAgentIntegrationTest.rotatedColliderBoundsAndSpatialQueriesMatchActualLocalOffsets",
+    "factory.SceneAgentIntegrationTest.stagedCreationSimulatesRealCollisionWithoutChangingLiveScene",
+    "factory.SceneModelBudgetTest.fullLevelProducesBoundedValidJsonAndRetainsSelectedEntity",
+    "factory.SolidRaycastTest.sensorsAndTheActorDoNotHideTheNearestSolidBlock",
+    "fraymus.workspace.Agency043Test.actualStoredReceiptAndFrozenCounterStepsAreRequiredBeforeClaimIsConsumed",
+    "fraymus.workspace.Agency043Test.claimedHostInterruptionRejectsOldNonceAndExplicitResumeStartsFreshObservation",
+    "fraymus.workspace.Agency043Test.commitFailureAfterConsumingHostClaimInterruptsInsteadOfWaitingForever",
+    "fraymus.workspace.Agency043Test.explicitScreenQuestionUsesNativeInspectionAndCounterCreationUsesOnlyTheCreationStage",
+    "fraymus.workspace.Agency043Test.inspectionReportRequiresActualStoredMatchingReportAssertions",
+    "fraymus.workspace.Agency043Test.missingActionAuthorityRefusesClearlyWhilePureDefinitionReadsRemainPassive",
+    "fraymus.workspace.Agency043Test.prematureModelFinishCannotCreateAnArtifactOrVisualRoutine",
+    "fraymus.workspace.Agency043Test.queuedAndClaimedTasksRestoreAsInterruptedWithoutSilentReplay",
+    "fraymus.workspace.Agency043Test.registeredSchemasRejectInventedFieldsAndAssertionFreeTests",
+    "fraymus.workspace.Agency043Test.rejectedNativeModelSyntaxRetriesWithinBudgetWithoutExecutingRejectedArguments",
+    "fraymus.workspace.Agency043Test.unverifiedConversationIsNotPresentedAsVerifiedOutcomeToTheContinuingBrain",
+    "fraymus.workspace.ChatChain052Test.automaticCompletionRechecksCurrentArtifactInsteadOfTrustingOldSuccess",
+    "fraymus.workspace.ChatChain052Test.discoverySummaryKeepsExactBindingsAndBothEndsWithoutBreakingJson",
+    "fraymus.workspace.ChatChain052Test.duplicateWarningsKeepEveryOriginalOccurrenceBeyondRecentWindow",
+    "fraymus.workspace.ChatChain052Test.failedPlannerCallIsTimedAndDoesNotBecomeAnAction",
+    "fraymus.workspace.ChatChain052Test.largeRecentObservationHasExplicitOmissionHashAndKeepsFailure",
+    "fraymus.workspace.ChatChain052Test.legacyTaskDoesNotClaimCompleteTimingCoverage",
+    "fraymus.workspace.ChatChain052Test.numericRefusalExplainsOriginalBoundsWithoutChangingThem",
+    "fraymus.workspace.ChatChain052Test.oversizedRequirementsRefuseRatherThanBeingSilentlyTruncated",
+    "fraymus.workspace.ChatChain052Test.payloadHistoryProjectionRetainsPolicyRequirementsAndContraryOutcomes",
+    "fraymus.workspace.ChatChain052Test.providerMapMetadataIsRetainedWithoutUnrelatedFields",
+    "fraymus.workspace.ChatChain052Test.queuedObjectiveSealRefusesChangedRequest",
+    "fraymus.workspace.ChatChain052Test.summaryRetainsRejectedQualityAndDoesNotDumpMetrics",
+    "fraymus.workspace.Domain044Test.actualQueueCompletionRecordsTheVerifiedReportInTheSameLearningEpisode",
+    "fraymus.workspace.Domain044Test.constructionReuseExposesOnlyExplicitChangesAndKeepsOriginalLimits",
+    "fraymus.workspace.Domain044Test.creationPromptsAreOwnedBoundedAndKeepSourceReserved",
+    "fraymus.workspace.Domain044Test.interruptedChildCannotProduceSuccessfulCompletion",
+    "fraymus.workspace.Domain044Test.inventedHostFactsDoNotReplaceActualJavaRead",
+    "fraymus.workspace.Domain044Test.javaRoutesEveryFormerDesktopFamilyWithoutChangingWebCreation",
+    "fraymus.workspace.Domain044Test.nativeWaitUsesActualChildAndRetainsItsIdentity",
+    "fraymus.workspace.Domain044Test.reportMustHaveFrozenOriginalAssertionsAndExactSourceVersion",
+    "fraymus.workspace.Domain044Test.reportStageCannotSkipActualReads",
+    "fraymus.workspace.Domain044Test.retainedAppearancePolicyCannotChangeCategoryOrInstallDetectorOptions",
+    "fraymus.workspace.Domain044Test.retainedSkillSchemasKeepDefaultsOptionalAndHideBoundDetectorPolicy",
+    "fraymus.workspace.Domain044Test.retainedSkillSourceAndForceDefaultsCannotBeSilentlyChanged",
+    "fraymus.workspace.Domain044Test.savedGraphChatSelectsExactVersionAndWorkflowBeforePlanning",
+    "fraymus.workspace.Domain044Test.sourceFreeHostSuccessAndForeignChildrenAreRejected",
+    "fraymus.workspace.Domain044Test.typedOptionsPreserveExplicitValuesAndRejectContradictions",
+    "fraymus.workspace.Domain044Test.workflowBootstrapBindsDatasetAndSceneInJavaBeforeAnyHostAction",
+    "fraymus.workspace.EmbeddedGameTest.originalGameRunsHiddenWithoutEditorAndAcceptsActualRuntimeControls",
+    "fraymus.workspace.GameChallenge118Test.actualAiFailureCannotBePublishedAsChallengeCompletion",
+    "fraymus.workspace.GameChallenge118Test.boundsDeclaredConstructionAndRefusesUnsupportedRequests",
+    "fraymus.workspace.GameChallenge118Test.challengeRequiresAiFinishAndPreservesRestartedSimpleFailure",
+    "fraymus.workspace.GameChallenge118Test.clonesOriginalBehaviorAndRefusesRelabelledGeometry",
+    "fraymus.workspace.GameChallenge118Test.enemyReferenceIsRefusedInsteadOfDroppingTheEnemy",
+    "fraymus.workspace.GameContact122Test.recordedContactFailuresFinishAfterRestartAndRejectAlteredForecasts",
+    "fraymus.workspace.GameController120Test.compareContactRecoveryAndPickupDecisions",
+    "fraymus.workspace.GameController122Test.compareContactRecoveryAndPickupDecisions",
+    "fraymus.workspace.GameCost123Test.conservativeBreakEvenUsesWorstObservedCostAndMinimumGain",
+    "fraymus.workspace.GameCost123Test.declaredCasesPassGeometryAdmission",
+    "fraymus.workspace.GameCost123Test.explicitStrategiesAreBoundedAndDefaultIsPreserved",
+    "fraymus.workspace.GameCost123Test.failedFinishRefusesEconomicRecommendationEvenWithMoreItems",
+    "fraymus.workspace.GameCost123Test.incompleteAndUnboundTimingsAreRejected",
+    "fraymus.workspace.GameCost123Test.sameOutcomeCanBeConsistentlyFaster",
+    "fraymus.workspace.GameCost123Test.timingNoiseDoesNotBecomeAClaimedSaving",
+    "fraymus.workspace.GameLevels114Test.analyzesFullSourceAndDistinguishesExample",
+    "fraymus.workspace.GameLevels114Test.refusesChangedSourceAndAssetsOnAnIsolatedCopy",
+    "fraymus.workspace.GameLevels114Test.refusesInvalidParametersAndTraversal",
+    "fraymus.workspace.GameLevels114Test.rejectsChangedCandidateEvenIfItsManifestHashIsUpdated",
+    "fraymus.workspace.GameLevels114Test.savesVariedReconstructibleCandidatesWithoutChangingSource",
+    "fraymus.workspace.GameOpportunity120Test.inventedExpiredOrRepeatedWaitingIsRefused",
+    "fraymus.workspace.GameOpportunity120Test.supportedPickupsCompleteAfterWaitAndRestartWithEveryReceiptChecked",
+    "fraymus.workspace.GameOpportunity121Test.inventedExpiredOrRepeatedWaitingIsRefused",
+    "fraymus.workspace.GameOpportunity121Test.supportedPickupsCompleteAfterWaitAndRestartWithEveryReceiptChecked",
+    "fraymus.workspace.GamePickupStudy123Test.repeatedFullWorkflowCostsKeepEveryOutcomeAndCheck",
+    "fraymus.workspace.GamePickupTask123Test.disabledReturnSurvivesRestartAndFailureIsMeasuredWithoutCompletion",
+    "fraymus.workspace.GameRecovery119Test.recoveryCountersCannotInventAttemptsOrUnboundedDeferrals",
+    "fraymus.workspace.GameRecovery119Test.retainedFailuresCompleteThroughVerifiedTaskAndRecovery",
+    "fraymus.workspace.GameReference115Test.actualOverviewReconstructsAndRunsWithFreshScaleAndOcclusionChecks",
+    "fraymus.workspace.GameReference116Test.freshNativeImagesReconstructAndPlayWithRefusalsRetained",
+    "fraymus.workspace.GameTask115Test.interruptionRestartsFreshSessionAndNoRepairBudgetReallyStops",
+    "fraymus.workspace.GameTask115Test.realPhysicsRepairsObservedFallsAndRechecksEvidence",
+    "fraymus.workspace.GameTask115Test.routesRequestsAndBoundsRepairs",
+    "fraymus.workspace.Load055Test.stopPreservesPartialEvidenceThenExplicitRestartReevaluatesAndRejectsTampering",
+    "fraymus.workspace.SpatialGame040Test.actualGameEntitiesAndOriginalRasterShareOneTickAndPlayerIdentity",
+    "nervous.NeuromorphicCoreTest.bothTimingDirectionsChangeWeightsAndFrozenEvaluationDoesNot",
+    "nervous.NeuromorphicCoreTest.causalAndAnticausalSpikePairsChangeActualSynapsesInOppositeDirections",
+    "nervous.NeuromorphicCoreTest.rejectsCorruptCheckpoint",
+    "nervous.NeuromorphicCoreTest.seededCoreAndCheckpointContinueIdentically",
+    "physics2dtmp.CollisionDetectorTests.pointInBox2DShouldReturnFalseTestOne",
+    "physics2dtmp.CollisionDetectorTests.pointInBox2DShouldReturnFalseTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointInBox2DShouldReturnTrueTestFour",
+    "physics2dtmp.CollisionDetectorTests.pointInBox2DShouldReturnTrueTestOne",
+    "physics2dtmp.CollisionDetectorTests.pointInBox2DShouldReturnTrueTestThree",
+    "physics2dtmp.CollisionDetectorTests.pointInBox2DShouldReturnTrueTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointInCircleShouldReturnFalseTestOne",
+    "physics2dtmp.CollisionDetectorTests.pointInCircleShouldReturnFalseTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointInCircleShouldReturnTrueTestFive",
+    "physics2dtmp.CollisionDetectorTests.pointInCircleShouldReturnTrueTestFour",
+    "physics2dtmp.CollisionDetectorTests.pointInCircleShouldReturnTrueTestOne",
+    "physics2dtmp.CollisionDetectorTests.pointInCircleShouldReturnTrueTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointInRotatedBox2DShouldReturnTrueTestOne",
+    "physics2dtmp.CollisionDetectorTests.pointInRotatedBox2DShouldReturnTrueTestThree",
+    "physics2dtmp.CollisionDetectorTests.pointInRotatedShouldReturnFalseTestOne",
+    "physics2dtmp.CollisionDetectorTests.pointInRotatedShouldReturnFalseTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointInRotatedShouldReturnTrueTestFour",
+    "physics2dtmp.CollisionDetectorTests.pointInRotatedShouldReturnTrueTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointOnLine2DShouldReturnTrueTest",
+    "physics2dtmp.CollisionDetectorTests.pointOnLine2DShouldReturnTrueTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointOnLineShouldReturnFalseTestOne",
+    "physics2dtmp.CollisionDetectorTests.pointOnLineShouldReturnFalseTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointOnLineShouldReturnTrueTestFour",
+    "physics2dtmp.CollisionDetectorTests.pointOnLineShouldReturnTrueTestOne",
+    "physics2dtmp.CollisionDetectorTests.pointOnLineShouldReturnTrueTestThree",
+    "physics2dtmp.CollisionDetectorTests.pointOnLineShouldReturnTrueTestTwo",
+    "physics2dtmp.CollisionDetectorTests.pointOnVerticalLineShouldReturnTrue",
+    "renderer.AnimationTextureBatchTest.animationSwitchRegistersNewTextureBeforeDrawing",
+    "renderer.AnimationTextureBatchTest.fullSamplerTableMovesAnimationInsteadOfUsingSlotZeroOrEight",
+    "renderer.ShaderPortability116Test.bothNativeShadersCompileAndInvalidShaderFailsExplicitly",
+    "renderer.ShaderSourceTest.loadsCrLfShaderWithoutAnOpenGlContext",
+    "renderer.ShaderSourceTest.loadsLfShaderWithoutAnOpenGlContext"
+  ],
+  "javaSuites": [
+    {
+      "name": "development123",
+      "executions": 1
+    },
+    {
+      "name": "hardware-artifacts",
+      "executions": 0
+    },
+    {
+      "name": "hardware123-main-engine",
+      "executions": 72
+    },
+    {
+      "name": "hardware123-main-root",
+      "executions": 120
+    },
+    {
+      "name": "pilot123",
+      "executions": 1
+    },
+    {
+      "name": "regression123-development-engine",
+      "executions": 1
+    },
+    {
+      "name": "regression123-reserved-engine",
+      "executions": 1
+    },
+    {
+      "name": "regression123-waits-engine",
+      "executions": 1
+    },
+    {
+      "name": "reserved123",
+      "executions": 1
+    },
+    {
+      "name": "software123-engine",
+      "executions": 5
+    },
+    {
+      "name": "software123-root",
+      "executions": 48
+    },
+    {
+      "name": "unit123",
+      "executions": 8
+    }
+  ],
+  "desktopChecks": 168,
+  "launcher": {
+    "passed": true,
+    "scope": "Isolated PrepareOnly Offline; package receipt verified before and after actual UI."
+  },
+  "actualChatRequests": 6,
+  "actualAbruptRecovery": true,
+  "actualAiFailureRefused": true,
+  "referenceControllerResults": {
+    "hardware": {
+      "cases": 6,
+      "refusals": 4,
+      "aiWins": 6
+    },
+    "software": {
+      "cases": 6,
+      "refusals": 4,
+      "aiWins": 6
+    }
+  },
+  "regressionExecutions": 18,
+  "studyRows": 72,
+  "measurements": {
+    "strategies": [
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 23.7078593,
+          "median": 23.976438,
+          "max": 24.1779129,
+          "mean": 23.954070066666663
+        },
+        "waitStarts": 0,
+        "pickups": 0,
+        "returnStarts": 0,
+        "strategy": "direct",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 8.8,
+          "median": 8.8,
+          "max": 8.8,
+          "mean": 8.8
+        },
+        "partition": "development",
+        "case": "supported-return"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 31.535012,
+          "median": 31.9737292,
+          "max": 32.2346142,
+          "mean": 31.9144518
+        },
+        "waitStarts": 0,
+        "pickups": 3,
+        "returnStarts": 3,
+        "strategy": "full",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 14,
+          "median": 14,
+          "max": 14,
+          "mean": 14
+        },
+        "partition": "development",
+        "case": "supported-return"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 23.8886901,
+          "median": 23.9522665,
+          "max": 24.0085388,
+          "mean": 23.9498318
+        },
+        "waitStarts": 0,
+        "pickups": 0,
+        "returnStarts": 0,
+        "strategy": "no-return",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 8.8,
+          "median": 8.8,
+          "max": 8.8,
+          "mean": 8.8
+        },
+        "partition": "development",
+        "case": "supported-return"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 31.7697328,
+          "median": 32.2210828,
+          "max": 32.4278742,
+          "mean": 32.13956326666666
+        },
+        "waitStarts": 0,
+        "pickups": 3,
+        "returnStarts": 3,
+        "strategy": "no-wait",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 14,
+          "median": 14,
+          "max": 14,
+          "mean": 14
+        },
+        "partition": "development",
+        "case": "supported-return"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 17.911127,
+          "median": 17.9991448,
+          "max": 18.3622644,
+          "mean": 18.090845400000003
+        },
+        "waitStarts": 0,
+        "pickups": 0,
+        "returnStarts": 0,
+        "strategy": "direct",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 8,
+          "median": 8,
+          "max": 8,
+          "mean": 8
+        },
+        "partition": "development",
+        "case": "supported-wait"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 22.1943917,
+          "median": 22.2614853,
+          "max": 24.7103632,
+          "mean": 23.055413400000003
+        },
+        "waitStarts": 3,
+        "pickups": 3,
+        "returnStarts": 0,
+        "strategy": "full",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 10.8,
+          "median": 10.8,
+          "max": 10.8,
+          "mean": 10.800000000000002
+        },
+        "partition": "development",
+        "case": "supported-wait"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 21.8133312,
+          "median": 22.2298064,
+          "max": 22.2796306,
+          "mean": 22.1075894
+        },
+        "waitStarts": 3,
+        "pickups": 3,
+        "returnStarts": 0,
+        "strategy": "no-return",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 10.8,
+          "median": 10.8,
+          "max": 10.8,
+          "mean": 10.800000000000002
+        },
+        "partition": "development",
+        "case": "supported-wait"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 18.0751272,
+          "median": 18.1303008,
+          "max": 18.4809444,
+          "mean": 18.2287908
+        },
+        "waitStarts": 0,
+        "pickups": 0,
+        "returnStarts": 0,
+        "strategy": "no-wait",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 8,
+          "median": 8,
+          "max": 8,
+          "mean": 8
+        },
+        "partition": "development",
+        "case": "supported-wait"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 22.7506869,
+          "median": 23.0687043,
+          "max": 23.1805135,
+          "mean": 22.999968233333334
+        },
+        "waitStarts": 0,
+        "pickups": 0,
+        "returnStarts": 0,
+        "strategy": "direct",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 9.2,
+          "median": 9.2,
+          "max": 9.2,
+          "mean": 9.2
+        },
+        "partition": "development",
+        "case": "unsupported-pickup"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 22.6438306,
+          "median": 22.9058392,
+          "max": 22.9856389,
+          "mean": 22.8451029
+        },
+        "waitStarts": 0,
+        "pickups": 0,
+        "returnStarts": 0,
+        "strategy": "full",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 9.2,
+          "median": 9.2,
+          "max": 9.2,
+          "mean": 9.2
+        },
+        "partition": "development",
+        "case": "unsupported-pickup"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 22.6193522,
+          "median": 22.9203952,
+          "max": 23.0470968,
+          "mean": 22.8622814
+        },
+        "waitStarts": 0,
+        "pickups": 0,
+        "returnStarts": 0,
+        "strategy": "no-return",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 9.2,
+          "median": 9.2,
+          "max": 9.2,
+          "mean": 9.2
+        },
+        "partition": "development",
+        "case": "unsupported-pickup"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 22.892396,
+          "median": 23.0001773,
+          "max": 23.244184,
+          "mean": 23.045585766666665
+        },
+        "waitStarts": 0,
+        "pickups": 0,
+        "returnStarts": 0,
+        "strategy": "no-wait",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 9.2,
+          "median": 9.2,
+          "max": 9.2,
+          "mean": 9.2
+        },
+        "partition": "development",
+        "case": "unsupported-pickup"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 25.0578395,
+          "median": 25.2945745,
+          "max": 25.5555413,
+          "mean": 25.302651766666667
+        },
+        "waitStarts": 0,
+        "pickups": 3,
+        "returnStarts": 0,
+        "strategy": "direct",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 9.8,
+          "median": 9.8,
+          "max": 9.8,
+          "mean": 9.8
+        },
+        "partition": "reserved",
+        "case": "fresh-return"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 25.4151398,
+          "median": 25.5019404,
+          "max": 26.1718933,
+          "mean": 25.6963245
+        },
+        "waitStarts": 0,
+        "pickups": 3,
+        "returnStarts": 0,
+        "strategy": "full",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 9.8,
+          "median": 9.8,
+          "max": 9.8,
+          "mean": 9.8
+        },
+        "partition": "reserved",
+        "case": "fresh-return"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 25.4742781,
+          "median": 25.5703852,
+          "max": 25.6593106,
+          "mean": 25.5679913
+        },
+        "waitStarts": 0,
+        "pickups": 3,
+        "returnStarts": 0,
+        "strategy": "no-return",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 9.8,
+          "median": 9.8,
+          "max": 9.8,
+          "mean": 9.8
+        },
+        "partition": "reserved",
+        "case": "fresh-return"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 25.389609,
+          "median": 25.4239627,
+          "max": 25.6605365,
+          "mean": 25.4913694
+        },
+        "waitStarts": 0,
+        "pickups": 3,
+        "returnStarts": 0,
+        "strategy": "no-wait",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 9.8,
+          "median": 9.8,
+          "max": 9.8,
+          "mean": 9.8
+        },
+        "partition": "reserved",
+        "case": "fresh-return"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 17.8664056,
+          "median": 18.009664,
+          "max": 18.1299841,
+          "mean": 18.002017900000002
+        },
+        "waitStarts": 0,
+        "pickups": 0,
+        "returnStarts": 0,
+        "strategy": "direct",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 8,
+          "median": 8,
+          "max": 8,
+          "mean": 8
+        },
+        "partition": "reserved",
+        "case": "fresh-wait"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 22.1263705,
+          "median": 22.8120528,
+          "max": 24.1151531,
+          "mean": 23.0178588
+        },
+        "waitStarts": 3,
+        "pickups": 3,
+        "returnStarts": 0,
+        "strategy": "full",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 11.2,
+          "median": 11.2,
+          "max": 11.2,
+          "mean": 11.199999999999998
+        },
+        "partition": "reserved",
+        "case": "fresh-wait"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 22.4119529,
+          "median": 22.5978306,
+          "max": 22.9003952,
+          "mean": 22.636726233333334
+        },
+        "waitStarts": 3,
+        "pickups": 3,
+        "returnStarts": 0,
+        "strategy": "no-return",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 11.2,
+          "median": 11.2,
+          "max": 11.2,
+          "mean": 11.199999999999998
+        },
+        "partition": "reserved",
+        "case": "fresh-wait"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 17.9363726,
+          "median": 18.1137615,
+          "max": 18.2098785,
+          "mean": 18.086670866666665
+        },
+        "waitStarts": 0,
+        "pickups": 0,
+        "returnStarts": 0,
+        "strategy": "no-wait",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 8,
+          "median": 8,
+          "max": 8,
+          "mean": 8
+        },
+        "partition": "reserved",
+        "case": "fresh-wait"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 25.6664373,
+          "median": 25.9713433,
+          "max": 26.3408692,
+          "mean": 25.992883266666666
+        },
+        "waitStarts": 0,
+        "pickups": 3,
+        "returnStarts": 0,
+        "strategy": "direct",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 9.8,
+          "median": 9.8,
+          "max": 9.8,
+          "mean": 9.8
+        },
+        "partition": "software",
+        "case": "fresh-return"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 25.7667058,
+          "median": 25.8947059,
+          "max": 27.4849332,
+          "mean": 26.382114966666666
+        },
+        "waitStarts": 0,
+        "pickups": 3,
+        "returnStarts": 0,
+        "strategy": "full",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 9.8,
+          "median": 9.8,
+          "max": 9.8,
+          "mean": 9.8
+        },
+        "partition": "software",
+        "case": "fresh-return"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 25.8202613,
+          "median": 25.8830133,
+          "max": 26.0954569,
+          "mean": 25.932910500000002
+        },
+        "waitStarts": 0,
+        "pickups": 3,
+        "returnStarts": 0,
+        "strategy": "no-return",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 9.8,
+          "median": 9.8,
+          "max": 9.8,
+          "mean": 9.8
+        },
+        "partition": "software",
+        "case": "fresh-return"
+      },
+      {
+        "wins": 3,
+        "damage": 0,
+        "wallSeconds": {
+          "min": 25.9232941,
+          "median": 25.9423925,
+          "max": 26.3817158,
+          "mean": 26.082467466666667
+        },
+        "waitStarts": 0,
+        "pickups": 3,
+        "returnStarts": 0,
+        "strategy": "no-wait",
+        "repetitions": 3,
+        "deaths": 0,
+        "simulationSeconds": {
+          "min": 9.8,
+          "median": 9.8,
+          "max": 9.8,
+          "mean": 9.8
+        },
+        "partition": "software",
+        "case": "fresh-return"
+      }
+    ],
+    "comparisons": [
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.6860708,
+          "median": -0.454145,
+          "max": 0.4648814,
+          "mean": -0.22511146666666668
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "no-wait",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "partition": "development",
+        "case": "supported-return"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": 7.6463219,
+          "median": 7.9651904,
+          "max": 8.2823477,
+          "mean": 7.96462
+        },
+        "safePairedFinishes": true,
+        "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+        "comparison": "no-return",
+        "extraPickups": {
+          "min": 1,
+          "median": 1,
+          "max": 1,
+          "mean": 1
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "observedConservativeSecondsPerExtraPickup": 8.2823477,
+        "partition": "development",
+        "case": "supported-return"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.2892228,
+          "median": 0.0321008,
+          "max": 0.2444072,
+          "mean": -0.004238266666666675
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "no-return",
+        "pairs": 3,
+        "partition": "development",
+        "case": "supported-return"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": 8.0431699,
+          "median": 8.0618735,
+          "max": 8.4514362,
+          "mean": 8.185493200000002
+        },
+        "safePairedFinishes": true,
+        "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 1,
+          "median": 1,
+          "max": 1,
+          "mean": 1
+        },
+        "enabled": "no-wait",
+        "pairs": 3,
+        "observedConservativeSecondsPerExtraPickup": 8.4514362,
+        "partition": "development",
+        "case": "supported-return"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": 7.3570991,
+          "median": 7.9972912,
+          "max": 8.5267549,
+          "mean": 7.960381733333333
+        },
+        "safePairedFinishes": true,
+        "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 1,
+          "median": 1,
+          "max": 1,
+          "mean": 1
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "observedConservativeSecondsPerExtraPickup": 8.5267549,
+        "partition": "development",
+        "case": "supported-return"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": 4.0640909,
+          "median": 4.1863581,
+          "max": 6.2294188,
+          "mean": 4.8266226
+        },
+        "safePairedFinishes": true,
+        "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+        "comparison": "no-wait",
+        "extraPickups": {
+          "min": 1,
+          "median": 1,
+          "max": 1,
+          "mean": 1
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "observedConservativeSecondsPerExtraPickup": 6.2294188,
+        "partition": "development",
+        "case": "supported-wait"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.0852389,
+          "median": 0.4481541,
+          "max": 2.4805568,
+          "mean": 0.9478239999999999
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "no-return",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "partition": "development",
+        "case": "supported-wait"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": 3.9022042,
+          "median": 3.9173662,
+          "max": 4.2306616,
+          "mean": 4.016744
+        },
+        "safePairedFinishes": true,
+        "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 1,
+          "median": 1,
+          "max": 1,
+          "mean": 1
+        },
+        "enabled": "no-return",
+        "pairs": 3,
+        "observedConservativeSecondsPerExtraPickup": 4.2306616,
+        "partition": "development",
+        "case": "supported-wait"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.2319636,
+          "median": 0.1640002,
+          "max": 0.4817996,
+          "mean": 0.1379454
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "no-wait",
+        "pairs": 3,
+        "partition": "development",
+        "case": "supported-wait"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": 3.8321273,
+          "median": 4.3503583,
+          "max": 6.7112184,
+          "mean": 4.964568
+        },
+        "safePairedFinishes": true,
+        "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 1,
+          "median": 1,
+          "max": 1,
+          "mean": 1
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "observedConservativeSecondsPerExtraPickup": 6.7112184,
+        "partition": "development",
+        "case": "supported-wait"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.3563467,
+          "median": -0.3383448,
+          "max": 0.0932429,
+          "mean": -0.20048286666666668
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "no-wait",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "partition": "development",
+        "case": "unsupported-pickup"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.4032662,
+          "median": -0.014556,
+          "max": 0.3662867,
+          "mean": -0.017178500000000003
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "no-return",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "partition": "development",
+        "case": "unsupported-pickup"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.4493521,
+          "median": -0.1334167,
+          "max": 0.1697083,
+          "mean": -0.1376868333333333
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "no-return",
+        "pairs": 3,
+        "partition": "development",
+        "case": "unsupported-pickup"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.1803362,
+          "median": -0.1763083,
+          "max": 0.4934971,
+          "mean": 0.04561753333333333
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "no-wait",
+        "pairs": 3,
+        "partition": "development",
+        "case": "unsupported-pickup"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.5366829,
+          "median": -0.0830654,
+          "max": 0.1551523,
+          "mean": -0.15486533333333333
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "partition": "development",
+        "case": "unsupported-pickup"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.0088229,
+          "median": 0.1123314,
+          "max": 0.5113568,
+          "mean": 0.20495509999999997
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "no-wait",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "partition": "reserved",
+        "case": "fresh-return"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.1552454,
+          "median": 0.0276623,
+          "max": 0.5125827,
+          "mean": 0.12833319999999998
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "no-return",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "partition": "reserved",
+        "case": "fresh-return"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": 0.0148439,
+          "median": 0.3647361,
+          "max": 0.4164386,
+          "mean": 0.2653395333333333
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "no-return",
+        "pairs": 3,
+        "partition": "reserved",
+        "case": "fresh-return"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.1315786,
+          "median": 0.3317695,
+          "max": 0.365962,
+          "mean": 0.18871763333333336
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "no-wait",
+        "pairs": 3,
+        "partition": "reserved",
+        "case": "fresh-return"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.1404015,
+          "median": 0.4441009,
+          "max": 0.8773188,
+          "mean": 0.39367273333333336
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "partition": "reserved",
+        "case": "fresh-return"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": 3.916492,
+          "median": 4.6982913,
+          "max": 6.1787805,
+          "mean": 4.931187933333334
+        },
+        "safePairedFinishes": true,
+        "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+        "comparison": "no-wait",
+        "extraPickups": {
+          "min": 1,
+          "median": 1,
+          "max": 1,
+          "mean": 1
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "observedConservativeSecondsPerExtraPickup": 6.1787805,
+        "partition": "reserved",
+        "case": "fresh-wait"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.4714601,
+          "median": 0.4000999,
+          "max": 1.2147579,
+          "mean": 0.3811325666666667
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "no-return",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "partition": "reserved",
+        "case": "fresh-wait"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": 4.2819688,
+          "median": 4.5881666,
+          "max": 5.0339896,
+          "mean": 4.634708333333333
+        },
+        "safePairedFinishes": true,
+        "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 1,
+          "median": 1,
+          "max": 1,
+          "mean": 1
+        },
+        "enabled": "no-return",
+        "pairs": 3,
+        "observedConservativeSecondsPerExtraPickup": 5.0339896,
+        "partition": "reserved",
+        "case": "fresh-wait"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.0162226,
+          "median": 0.069967,
+          "max": 0.2002145,
+          "mean": 0.08465296666666666
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "no-wait",
+        "pairs": 3,
+        "partition": "reserved",
+        "case": "fresh-wait"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": 4.1167065,
+          "median": 4.6820687,
+          "max": 6.2487475,
+          "mean": 5.015840900000001
+        },
+        "safePairedFinishes": true,
+        "assessment": "Extra pickup in every repeat: compare its value with the measured cost threshold",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 1,
+          "median": 1,
+          "max": 1,
+          "mean": 1
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "observedConservativeSecondsPerExtraPickup": 6.2487475,
+        "partition": "reserved",
+        "case": "fresh-wait"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.1756867,
+          "median": -0.0285882,
+          "max": 1.1032174,
+          "mean": 0.29964749999999996
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "no-wait",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "partition": "software",
+        "case": "fresh-return"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.200751,
+          "median": -0.1163075,
+          "max": 1.6646719,
+          "mean": 0.44920446666666675
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "no-return",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "partition": "software",
+        "case": "fresh-return"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.5206079,
+          "median": -0.08833,
+          "max": 0.4290196,
+          "mean": -0.05997276666666668
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "no-return",
+        "pairs": 3,
+        "partition": "software",
+        "case": "fresh-return"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.0289508,
+          "median": 0.0408466,
+          "max": 0.2568568,
+          "mean": 0.0895842
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "no-wait",
+        "pairs": 3,
+        "partition": "software",
+        "case": "fresh-return"
+      },
+      {
+        "elapsedDeltaSeconds": {
+          "min": -0.2046375,
+          "median": 0.2282686,
+          "max": 1.144064,
+          "mean": 0.3892317
+        },
+        "safePairedFinishes": true,
+        "assessment": "No additional pickup benefit demonstrated",
+        "comparison": "direct",
+        "extraPickups": {
+          "min": 0,
+          "median": 0,
+          "max": 0,
+          "mean": 0
+        },
+        "enabled": "full",
+        "pairs": 3,
+        "partition": "software",
+        "case": "fresh-return"
+      }
+    ],
+    "scope": "Measured complete Java task calls, source/outcome verification, persistence and shutdown. UI scheduling and study report writing are separate. Observed ranges from repeated timings are not statistical confidence bounds. No automatic policy promotion or assigned user value.",
+    "rows": 72,
+    "repetitionsPerApproach": 3,
+    "pilotExcluded": true,
+    "controllerTunedAfterReserved": false
+  },
+  "modelCalls": 0,
+  "sourceCommit": "13908322dc55b9703e29748597a0e4bc265fef19",
+  "scope": "Same contact122 controller with explicit wait/return ablations. Full Java workflow timing and separate actual app timings. All source and outcome checks retained. No automatic cost policy, user value assumption, neural training or skill promotion."
+}

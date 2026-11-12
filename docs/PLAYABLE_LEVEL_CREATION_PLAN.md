@@ -1,3 +1,9 @@
+## Progress through edition123 — 2026-11-12
+
+[Edition123](../README-123.md) measures complete workflow costs of optional waiting and returns with the same contact122 controller. Four explicit approaches;72 repeated fresh-project workflows, retained simple comparisons and failed-task measurement refusal. No default promotion, model training or automatic utility assignment. [Contract](EDITION_123_CONTRACT.md).
+
+Next124: explicit user time allowances and uncertainty-aware estimates, measured estimation cost and abstention on new cases. Next125: moving shells, reversals and changing supports. Then broader image components and verified procedure lifecycle. Earlier entries remain dated history.
+
 ## Progress through edition122 — 2026-11-12
 
 [Edition122](../README-122.md) fixes the retained descending-contact deaths and supported-edge stall through ordinary input.85 older course executions finish without damage; original24 pickups and three previous return benefits remain. Fresh reserved outcomes and every comparison are retained in the edition. [Contract](EDITION_122_CONTRACT.md).
