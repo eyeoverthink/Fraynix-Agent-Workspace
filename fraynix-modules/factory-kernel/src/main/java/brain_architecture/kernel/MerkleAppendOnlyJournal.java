@@ -96,13 +96,13 @@ public final class MerkleAppendOnlyJournal {
                 List<Path> pending;
                 try(var files=Files.list(logFile.getParent())){pending=files.filter(p->p.getFileName().toString().matches("kernel-journal-.*\\.pending")).toList();}
                 if(pending.size()!=1)throw new IOException("Recovery requires exactly one pending append; originals retained");
-                Path candidate=pending.getFirst();byte[] proposed=Files.readAllBytes(candidate);
+                Path candidate=pending.get(0);byte[] proposed=Files.readAllBytes(candidate);
                 if(proposed.length==0||proposed[proposed.length-1]!='\n')throw new IOException("Pending append is incomplete; original retained");
                 var complete=decodeVerified(new String(proposed,StandardCharsets.UTF_8));
                 if(complete.size()!=disk.size()+1||proposed.length<=original.length||!Arrays.equals(original,Arrays.copyOf(proposed,original.length)))throw new IOException("Pending append does not extend the exact committed history");
                 for(int i=0;i<disk.size();i++)if(!disk.get(i).equals(complete.get(i)))throw new IOException("Pending append changed committed evidence");
                 try{ownerValidation.accept(List.copyOf(complete));}catch(RuntimeException invalid){throw new IOException("Pending append failed owner evidence checks; original retained",invalid);}
-                String key=complete.getLast().entryHash();
+                String key=complete.get(complete.size()-1).entryHash();
                 Path evidence=logFile.resolveSibling("journal-recovery-"+key+".evidence");
                 preserveRecovery(evidence,proposed);preserveRecovery(logFile.resolveSibling("journal-recovery-"+key+".before"),original);
                 commitPending(candidate,logFile);entries=List.copyOf(complete);return evidence;
