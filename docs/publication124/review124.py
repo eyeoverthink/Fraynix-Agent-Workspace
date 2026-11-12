@@ -11,4 +11,4 @@ run('desktop124-extra',['node','--test','test/inputs100.test.cjs','test/data-cre
 env['FRAYNIX_WORKSPACE_PROJECT']=str(r/'build/launcher124-isolated-project');run('launcher124',['powershell.exe','-NoProfile','-ExecutionPolicy','Bypass','-File','scripts/Start-Agent-Workspace.ps1','-PrepareOnly','-Offline']);env.pop('FRAYNIX_WORKSPACE_PROJECT',None)
 run('package124',['cmd','/c','gradlew.bat','prepareGameRuntime115',':workspace-engine:installDist','--console=plain','--max-workers=2'])
 run('stamp124',['node','scripts/Study-Build095.cjs','--stamp']);shutil.copy2(r/'build/study095-build.json',r/'build/study095-build-before-ui124.json')
-env['GAME124_OUTPUT']=str(r/'build/game124-ui');run('game124-ui',['node','workspace-desktop/test/game124-integration.cjs']);run('receipt124',['node','scripts/Study-Build095.cjs'])
+env['GAME124_OUTPUT']=str(r/'build/game124-ui-final');run('game124-ui',['node','workspace-desktop/test/game124-integration.cjs']);run('receipt124',['node','scripts/Study-Build095.cjs'])

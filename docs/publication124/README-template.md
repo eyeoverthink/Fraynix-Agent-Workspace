@@ -106,12 +106,15 @@ Create a playable Mario level seed=127 lengthTiles=72 gapTiles=2 secondGapTiles=
 For explicit calibration use the same request with `pickupStrategy=direct` or `pickupStrategy=full` and omit `pickupBudgetSeconds`. Invalid, duplicate, missing or non-finite allowances are refused. The selected allowance is your preference; the system does not assign an intrinsic value to a pickup.
 
 ![Tight allowance and recorded evidence](docs/readmes/124/budget-4.png)
-![Generous allowance with verified return and restart](docs/readmes/124/budget-30.png)
+![Thirty-second allowance and retained uncertainty](docs/readmes/124/budget-30.png)
+![Larger explicit allowance and recovery](docs/readmes/124/budget-120.png)
 ![New scene without matched evidence](docs/readmes/124/unknown-scene.png)
 
 ## Validation and actual app review
 
 {{VALIDATION}}
+
+The actual app showed greater timing variation than the isolated runner. Its30-second allowance was declined; the review then used an explicit120-second allowance without discarding any samples. The initial review driver incorrectly assumed30 must select full; its failed assertion and all original records are retained. The corrected driver checks the actual verified threshold.
 
 The broad regression pass preceded the final admission-interruption guard. That guard receives a focused recheck, and final development/reserved/software datasets plus actual chat run with it. The native controller and original task verifier remain unchanged. Exact scope and earlier attempts are retained in the evidence.
 
