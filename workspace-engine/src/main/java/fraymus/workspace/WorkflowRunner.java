@@ -700,7 +700,7 @@ var p=new JSONObject().put("kind",SkillGraph046.KIND).put("sourceWorkflowId",w.g
     }
     private void publish128(JSONObject w)throws Exception{if(!w.getString("status").equals("completed"))throw new IllegalStateException("Parent must complete before publication");verify128(w);var ref=w.getJSONObject("pendingSkill101");w.put("savedSkill",ref);change(w,"Completed mission linked to pending reusable procedure");goals.publishWorkflow101(procedure128(w),ref);w.remove("pendingSkill101");change(w,"Procedure published after original evidence recheck");}
     private JSONObject reuse128(JSONObject input,JSONObject chosen)throws Exception{
-        SpatialScene.keys(input,"name","version","request","title","modelName","runId","geometryId","profileId","bodyId","saveSkillName","reviewAfterForecast128","horizonS","maxGapS","accelerationBoundMps2");verifyRetained127(chosen,new HashSet<>());
+        SpatialScene.keys(input,"name","version","request","title","modelName","runId","geometryId","profileId","bodyId","saveSkillName","reviewAfterForecast128","horizonS","maxGapS","accelerationBoundMps2","forecastPolicy129","baselineWindowS","maxForecastRadiusM");verifyRetained127(chosen,new HashSet<>());
         if(!input.has("runId")||!input.has("geometryId"))throw new IllegalArgumentException("Choose fresh observation and calibration IDs; retained input is never silently reused");
         var args=WorldFrames.copy(chosen.getJSONObject("defaults"));for(String k:input.keySet())if(!Set.of("name","version").contains(k))args.put(k,input.get(k));args.put("saveSkillName",input.optString("saveSkillName",""));return start128(args,chosen);
     }

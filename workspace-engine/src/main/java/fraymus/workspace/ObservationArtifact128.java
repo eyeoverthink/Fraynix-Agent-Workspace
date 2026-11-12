@@ -12,9 +12,9 @@ final class ObservationArtifact128 {
     ObservationArtifact128(Path project,WorldObservationStore o,MetricObservationStore m,WorldLedger w){imageRoot=project.toAbsolutePath().normalize().resolve("world-observations/datasets");observations=o;metrics=m;worlds=w;}
     static boolean own(JSONObject w){return KIND.equals(w.optString("profile128"));}
     static boolean requested(String text){return ChatPolicy044.has(text,"observation[- ]to[- ]artifact|(?:observed motion|calibrated (?:observation|footage)).*(?:explorer|artifact|interactive)");}
-    static String code(){var s=new StringBuilder(KIND);for(Class<?> c:List.of(ObservationArtifact128.class,ObservationArtifactReport128.class))try(var in=c.getResourceAsStream(c.getSimpleName()+".class")){s.append(PerceptionStore.hash(in.readAllBytes()));}catch(Exception e){throw new IllegalStateException(e);}return MeasurementStore.hash(s.toString());}
+    static String code(){var s=new StringBuilder(KIND);for(Class<?> c:List.of(ObservationArtifact128.class,ObservationArtifactReport128.class,ObservationForecast129.class))try(var in=c.getResourceAsStream(c.getSimpleName()+".class")){s.append(PerceptionStore.hash(in.readAllBytes()));}catch(Exception e){throw new IllegalStateException(e);}return MeasurementStore.hash(s.toString());}
     static JSONObject definition(JSONObject in){
-        SpatialScene.keys(in,"profile128","request","title","modelName","runId","geometryId","profileId","bodyId","horizonS","maxGapS","accelerationBoundMps2","saveSkillName","reviewAfterForecast128");
+        SpatialScene.keys(in,"profile128","request","title","modelName","runId","geometryId","profileId","bodyId","horizonS","maxGapS","accelerationBoundMps2","saveSkillName","reviewAfterForecast128","forecastPolicy129","baselineWindowS","maxForecastRadiusM");
         if(!KIND.equals(in.getString("profile128")))throw new IllegalArgumentException("Unknown observation mission");
         var d=WorldFrames.copy(in);for(String k:List.of("request","title","modelName"))Creation.text(d,k,k.equals("request")?4000:140);
         for(String k:List.of("runId","geometryId"))UUID.fromString(d.getString(k));
@@ -23,6 +23,7 @@ final class ObservationArtifact128 {
             double v=d.has(k)?number(d,k):(k.equals("accelerationBoundMps2")?5:.6);
             PlaneCalibration.bounded(v,k.equals("accelerationBoundMps2")?0:.01,k.equals("accelerationBoundMps2")?100:2);d.put(k,v);
         }
+        if(d.has("forecastPolicy129"))ObservationForecast129.validate(d);else if(d.has("baselineWindowS")||d.has("maxForecastRadiusM"))throw new IllegalArgumentException("Declare the bounded forecast policy for precision settings");
         String name=d.optString("saveSkillName","");if(!name.isEmpty()&&!name.matches("[a-z][a-z0-9-]{2,55}"))throw new IllegalArgumentException("Choose a3..56 character procedure name");d.put("saveSkillName",name);
         if(d.has("reviewAfterForecast128")&&!(d.get("reviewAfterForecast128") instanceof Boolean))throw new IllegalArgumentException("Review must be boolean");
         return d;
@@ -44,9 +45,10 @@ final class ObservationArtifact128 {
         var view=metrics.view(req);view.remove("nativeStale");
         var rows=new JSONArray();for(Object raw:view.getJSONArray("rows")){var row=(JSONObject)raw;if(row.getString("bodyId").equals(body))rows.put(WorldFrames.copy(row));}
         if(rows.length()!=frames.length()-1)throw new IllegalStateException("Missing or duplicate bound-body metric rows");
-        return new JSONObject().put("runId",run.getString("id")).put("runSha256",WorldFrames.hash(run)).put("datasetId",dataset.getString("id")).put("datasetSha256",WorldFrames.hash(dataset)).put("metricSha256",WorldFrames.hash(view)).put("nativeBinding",WorldFrames.copy(binding)).put("bodyId",body).put("rows",rows).put("geometry",view.getJSONObject("geometry")).put("clock",view.getJSONObject("clock")).put("profile",view.get("profile")).put("uncertaintyMeaning",view.getString("uncertaintyMeaning")).put("source",dataset.getString("source")).put("license",dataset.optString("license","See original dataset terms"));
+        return new JSONObject().put("runId",run.getString("id")).put("trackerPolicy",run.optString("trackerPolicy",ObservationMethods129.DEFAULT)).put("runSha256",WorldFrames.hash(run)).put("datasetId",dataset.getString("id")).put("datasetSha256",WorldFrames.hash(dataset)).put("metricSha256",WorldFrames.hash(view)).put("nativeBinding",WorldFrames.copy(binding)).put("bodyId",body).put("rows",rows).put("geometry",view.getJSONObject("geometry")).put("clock",view.getJSONObject("clock")).put("profile",view.get("profile")).put("uncertaintyMeaning",view.getString("uncertaintyMeaning")).put("source",dataset.getString("source")).put("license",dataset.optString("license","See original dataset terms"));
     }
     static JSONObject forecast(JSONObject source,JSONObject definition){
+        if(ObservationForecast129.selected(definition))return ObservationForecast129.forecast(source,definition);
         double horizon=definition.getDouble("horizonS"),gap=definition.getDouble("maxGapS"),accel=definition.getDouble("accelerationBoundMps2");
         JSONArray original=source.getJSONArray("rows"),out=new JSONArray();JSONObject previous=null,last=null;double time=-1,errorSum=0,maxError=0;int measured=0,compared=0,covered=0,available=0;
         for(Object raw:original){var row=WorldFrames.copy((JSONObject)raw);double t=number(row,"seconds");if(t<=time)throw new IllegalArgumentException("Observation times must strictly increase");time=t;
