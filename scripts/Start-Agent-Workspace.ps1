@@ -39,7 +39,9 @@ try {
     $desktop = Join-Path $repo 'workspace-desktop'
     Push-Location -LiteralPath $desktop
     try {
-        $lockHash = (Get-FileHash -LiteralPath 'package-lock.json' -Algorithm SHA256).Hash
+        $taskLockHasher121=[Security.Cryptography.SHA256]::Create()
+        try { $lockHash=([BitConverter]::ToString($taskLockHasher121.ComputeHash([IO.File]::ReadAllBytes((Join-Path $desktop 'package-lock.json'))))).Replace('-','') }
+        finally { $taskLockHasher121.Dispose() }
         $stamp = Join-Path $desktop 'node_modules/.fraynix-lock-sha256'
         $previous = if (Test-Path -LiteralPath $stamp) { [IO.File]::ReadAllText($stamp).Trim() } else { '' }
         & node.exe (Join-Path $repo 'scripts/Verify-Desktop-Cache.cjs') $desktop
