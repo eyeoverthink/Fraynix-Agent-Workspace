@@ -6,7 +6,9 @@
 
 [Previous edition](README-129.md) · [All editions](docs/readmes/INDEX.md) · [Offline illustrated guide](docs/readmes/130/index.html) · [Acceptance contract](docs/EDITION_130_CONTRACT.md) · [Frozen experiment protocol](docs/OBSERVATION_130_LOCK.json)
 
-![Actual independent reference audit in the application](docs/readmes/130/physical-accuracy.png)
+![Actual independent reference audit in the application](docs/readmes/130/audit-readable.png)
+
+This UI example is one previously evaluated window. The separate confirmation failed; the results below retain those losses.
 
 ## The direction stays the same
 
@@ -35,15 +37,15 @@ An audit is saved with its original references, source/clock/geometry/trace iden
 
 The first development version exhausted its features and returned only 5 of 15 reference positions. Its source and results remain in the evidence archive. The revised candidate returned all 15 development references. Both development passes used already exposed footage and are **not held-out evidence**.
 
-Before inspecting new results, the candidate, preparation code, three comparison methods and gates were committed. The first five dense windows (700, 1900, 2700, 3700, 4700) gave a better numerical result, but a later provenance audit found that three overlap sparse frames used in edition037. That comparison is retained as **exposed diagnostic evidence, not held qualification**. [The correction](docs/OBSERVATION_130_PROVENANCE_CORRECTION.json) records all prior frame indices and overlaps. Its mean accepted errors of0.669m versus0.301m cannot support a promotion claim.
+Before inspecting new results, the candidate, preparation code, three comparison methods and gates were committed. The first five dense windows (700, 1900, 2700, 3700, 4700) gave a better numerical result, but a later provenance audit found that three overlap sparse frames used in edition 037. That comparison is retained as **exposed diagnostic evidence, not held qualification**. [The correction](docs/OBSERVATION_130_PROVENANCE_CORRECTION.json) records all prior frame indices and overlaps. Its mean accepted errors of 0.669 m versus 0.301 m cannot support a promotion claim.
 
-A second protocol locked the **unchanged candidate** before five other96-frame windows:2000,2300,2400,4600,4800. It conservatively excludes all037 declared source intervals and every128/129/first130 dense window. The seed rule remains first eligible subject, first annotation only, assumed1750mm height; later250mm-grid positions only score. No tuning or replacement followed results. Same camera, correlated people/background: this is still not cross-camera generalization.
+A second protocol locked the **unchanged candidate** before five other 96-frame windows: 2000,2300,2400,4600,4800. It conservatively excludes all edition 037 declared source intervals and every 128/129/first 130 dense window. The seed rule remains first eligible subject, first annotation only, assumed 1750 mm height; later 250 mm-grid positions only score. No tuning or replacement followed results. Same camera, correlated people/background: this is still not cross-camera generalization.
 
 {{TRACKING}}
 
-**Confirmation failed.** The candidate returned6/15 reference measurements versus10/15 for the incumbent, and only5 positions within1m versus6. Its lower accepted-only error does not compensate for the additional losses. On the five references both returned, the posthoc paired mean was worse:0.707m versus0.569m. The incumbent also failed one entire execution at frame window2400 with “Box is too small or reversed”; the original failure is retained, with no invented partial trace. All three references in that failed execution remain unavailable. Completed-run timing is not an end-to-end speed claim.
+**Confirmation failed.** The candidate returned 6/15 reference measurements versus 10/15 for the incumbent, and only 5 positions within 1 m versus 6. Its lower accepted-only error does not compensate for the additional losses. On the five references both returned, the posthoc paired mean was worse: 0.707 m versus 0.569 m. The incumbent also failed one entire execution at frame window 2400 with “Box is too small or reversed”; the original failure is retained, with no invented partial trace. All three references in that failed execution remain unavailable. Completed-run timing is not an end-to-end speed claim.
 
-The predeclared gate required at least90% of incumbent availability, at least15% lower mean accepted error, strictly more positions within1m, and no additional severe errors. Availability and useful-position gates failed; an execution failure also prevents a complete qualification. Neither default changes. **Physical accuracy remains unresolved.** The functioning addition is the independent audit and its original-evidence/restart checks.
+The predeclared gate required at least 90% of incumbent availability, at least 15% lower mean accepted error, strictly more positions within 1 m, and no additional severe errors. Availability and useful-position gates failed; an execution failure also prevents a complete qualification. Neither default changes. **Physical accuracy remains unresolved.** The functioning addition is the independent audit and its original-evidence/restart checks.
 
 {{COVERAGE}}
 
@@ -66,6 +68,8 @@ The stricter forecast's availability, coverage and width must be read together. 
 {{VALIDATION}}
 
 {{APP_CHECKS}}
+
+A final presentation review replaces the cramped audit table with readable cards, reopens the same completed project, rechecks the original outcomes and compares every displayed audit value. It does not rerun or relabel the original workflow timings.
 
 The actual application study uses already evaluated windows to exercise UI and persistence; it is not another unseen-footage result. It includes a durable chat request, abrupt owned-Java termination, cold recovery of the same workflow, a fresh-source procedure reuse, retirement/reactivation checks and an accuracy audit recovered after another abrupt termination. Native verified world state stays unchanged during observation/auditing. Single measured workflow costs are reported as observations, not typical latency claims.
 

@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "tracking",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ObjectFlow130.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "audit",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PhysicalAudit130.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "panel",
+      "type": "file",
+      "file": "workspace-desktop/renderer/metric-panel.js",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "study",
+      "type": "file",
+      "file": "workspace-desktop/test/observation130-integration.cjs",
+      "x": 430,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "tracking",
+      "toNode": "audit"
+    },
+    {
+      "id": "1",
+      "fromNode": "audit",
+      "toNode": "panel"
+    },
+    {
+      "id": "2",
+      "fromNode": "panel",
+      "toNode": "study"
+    }
+  ]
+}

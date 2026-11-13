@@ -1,3 +1,7 @@
+## Edition130 continuity — 2026-11-12
+
+Recorded physical-accuracy qualification takes priority for this edition. Game Lab, playable-level creation, native verification and their defaults remain intact. An unpromoted experimental tracker on recorded windows does not certify physical reconstruction from an arbitrary game image or real camera. Refer to [the integrated roadmap](INTEGRATED_AGENT_ROADMAP.md) and the current physical-reference audit before using observed geometry as a verified action target.
+
 ## Progress through edition 125 — 2026-11-12
 
 [Edition 125](../README-125.md) records complete task costs and independently reviews optional-action decisions using later explicit trials. Recovery uncertainty, original calibration exclusion and complete cohort/source checks remain visible. The controller, selector and original native verification are unchanged. [Contract](EDITION_125_CONTRACT.md).

@@ -1,0 +1,170 @@
+{
+  "modules": [
+    {
+      "id": "tracking",
+      "name": "Object-supported feature tracker",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ObjectFlow130.java",
+      "note": "docs/obsidian/138-physical-reference-audits.md"
+    },
+    {
+      "id": "audit",
+      "name": "Independent physical reference audit",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PhysicalAudit130.java",
+      "note": "docs/obsidian/138-physical-reference-audits.md"
+    },
+    {
+      "id": "panel",
+      "name": "Visible audit controls",
+      "source": "workspace-desktop/renderer/metric-panel.js",
+      "note": "docs/obsidian/138-physical-reference-audits.md"
+    },
+    {
+      "id": "study",
+      "name": "Actual complete application study",
+      "source": "workspace-desktop/test/observation130-integration.cjs",
+      "note": "docs/obsidian/138-physical-reference-audits.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/130/calibrated-source.png",
+      "title": "calibrated source"
+    },
+    {
+      "path": "docs/readmes/130/review-before-creation.png",
+      "title": "review before creation"
+    },
+    {
+      "path": "docs/readmes/130/verified-explorer.png",
+      "title": "verified explorer"
+    },
+    {
+      "path": "docs/readmes/130/fresh-source-reuse.png",
+      "title": "fresh source reuse"
+    },
+    {
+      "path": "docs/readmes/130/explorer-1100.png",
+      "title": "explorer 1100"
+    },
+    {
+      "path": "docs/readmes/130/physical-accuracy.png",
+      "title": "physical accuracy"
+    },
+    {
+      "path": "docs/readmes/130/rechecked-audit.png",
+      "title": "rechecked audit"
+    },
+    {
+      "path": "docs/readmes/130/audit-readable-1100.png",
+      "title": "audit readable 1100"
+    },
+    {
+      "path": "docs/readmes/130/audit-readable.png",
+      "title": "audit readable"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/130/verification.json"
+    },
+    {
+      "path": "docs/readmes/130/observation-study.json"
+    },
+    {
+      "path": "docs/readmes/130/original-evidence.json"
+    },
+    {
+      "path": "docs/readmes/130/decision.json"
+    },
+    {
+      "path": "docs/readmes/130/coverage.json"
+    },
+    {
+      "path": "docs/readmes/130/exposed-comparison.json"
+    },
+    {
+      "path": "docs/readmes/130/provenance-correction.json"
+    },
+    {
+      "path": "docs/readmes/130/final-ui-review.json"
+    }
+  ],
+  "coverage": {
+    "summary": {
+      "flow/measurement": {
+        "references": 15,
+        "available": 10,
+        "coveredCentre": 6,
+        "coveredIncludingReferenceRadius": 6,
+        "meanErrorM": 0.9633430079336351,
+        "meanRadiusM": 0.7596321667944637
+      },
+      "flow/legacy-adjacent": {
+        "references": 15,
+        "available": 10,
+        "coveredCentre": 10,
+        "coveredIncludingReferenceRadius": 10,
+        "meanErrorM": 0.9628983614822951,
+        "meanRadiusM": 2.28290946886834
+      },
+      "flow/explicit-budget-1m": {
+        "references": 15,
+        "available": 5,
+        "coveredCentre": 4,
+        "coveredIncludingReferenceRadius": 4,
+        "meanErrorM": 0.5359982012738355,
+        "meanRadiusM": 0.8235970829598029
+      },
+      "fixed/measurement": {
+        "references": 15,
+        "available": 2,
+        "coveredCentre": 0,
+        "coveredIncludingReferenceRadius": 0,
+        "meanErrorM": 1.083524656279414,
+        "meanRadiusM": 0.8553556845583945
+      },
+      "fixed/legacy-adjacent": {
+        "references": 15,
+        "available": 9,
+        "coveredCentre": 7,
+        "coveredIncludingReferenceRadius": 7,
+        "meanErrorM": 2.9266344198515926,
+        "meanRadiusM": 4.24945619914343
+      },
+      "fixed/explicit-budget-1m": {
+        "references": 15,
+        "available": 2,
+        "coveredCentre": 0,
+        "coveredIncludingReferenceRadius": 0,
+        "meanErrorM": 2.4970470095957635,
+        "meanRadiusM": 0.7433721405139363
+      },
+      "object-flow/measurement": {
+        "references": 15,
+        "available": 6,
+        "coveredCentre": 5,
+        "coveredIncludingReferenceRadius": 5,
+        "meanErrorM": 0.6423045138623579,
+        "meanRadiusM": 0.7033737107526538
+      },
+      "object-flow/legacy-adjacent": {
+        "references": 15,
+        "available": 9,
+        "coveredCentre": 8,
+        "coveredIncludingReferenceRadius": 9,
+        "meanErrorM": 0.6526285438617568,
+        "meanRadiusM": 4.697222632628132
+      },
+      "object-flow/explicit-budget-1m": {
+        "references": 15,
+        "available": 7,
+        "coveredCentre": 6,
+        "coveredIncludingReferenceRadius": 6,
+        "meanErrorM": 0.5400471614757345,
+        "meanRadiusM": 0.8505032865320116
+      }
+    },
+    "scope": "Coverage only at sparse later reference timestamps. Both accepted availability and all-reference denominators reported. Not a validation at the full0.6second forecast horizon."
+  },
+  "validation": "Local checks passed: 192 distinct Java test methods, 161 desktop checks, executable kernel harnesses, the actual agency regression, isolated offline preparation and package verification. The actual app verifies cold recovery, new-source reuse, original procedure evidence and immutable physical audits. No verification condition was weakened."
+}

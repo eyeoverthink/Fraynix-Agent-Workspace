@@ -1,0 +1,49 @@
+{
+  "methods": {
+    "flow": {
+      "references": 15,
+      "available": 14,
+      "missing": 1,
+      "withinOneMetre": 12,
+      "overTwoMetres": 1,
+      "meanAcceptedErrorM": 0.6693444814668535,
+      "trackerMs": 6726.357
+    },
+    "fixed": {
+      "references": 15,
+      "available": 4,
+      "missing": 11,
+      "withinOneMetre": 2,
+      "overTwoMetres": 1,
+      "meanAcceptedErrorM": 1.4206349468409452,
+      "trackerMs": 5249.353999999999
+    },
+    "object-flow": {
+      "references": 15,
+      "available": 13,
+      "missing": 2,
+      "withinOneMetre": 13,
+      "overTwoMetres": 0,
+      "meanAcceptedErrorM": 0.3011033171001597,
+      "trackerMs": 5390.6123
+    }
+  },
+  "lockedGate": {
+    "availability": true,
+    "meanError": true,
+    "withinOneMetre": true,
+    "severeErrors": true,
+    "allSeeds": true
+  },
+  "gatePassed": true,
+  "defaultChanged": false,
+  "qualificationEligible": false,
+  "provenanceCorrection": "docs/OBSERVATION_130_PROVENANCE_CORRECTION.json",
+  "pairedDiagnostic": {
+    "references": 13,
+    "incumbentMeanM": 0.4135613611741587,
+    "candidateMeanM": 0.3011033171001597,
+    "scope": "Posthoc paired diagnostic, not a replacement for the predeclared gate; all missing positions remain in primary totals"
+  },
+  "limits": "Same-camera temporal windows. Candidate loses2/15 references vs1/15; no general object recognition, full occlusion recovery or probability guarantee. First exposed development attempt lost10/15; its source/results retained."
+}

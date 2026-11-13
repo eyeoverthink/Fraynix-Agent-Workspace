@@ -1,0 +1,68 @@
+{
+  "methods": {
+    "flow": {
+      "references": 15,
+      "available": 10,
+      "missing": 5,
+      "withinOneMetre": 6,
+      "overTwoMetres": 2,
+      "meanAcceptedErrorM": 0.9633430079336351,
+      "trackerMs": 9491.7109
+    },
+    "fixed": {
+      "references": 15,
+      "available": 2,
+      "missing": 13,
+      "withinOneMetre": 0,
+      "overTwoMetres": 0,
+      "meanAcceptedErrorM": 1.083524656279414,
+      "trackerMs": 5060.1113
+    },
+    "object-flow": {
+      "references": 15,
+      "available": 6,
+      "missing": 9,
+      "withinOneMetre": 5,
+      "overTwoMetres": 1,
+      "meanAcceptedErrorM": 0.6423045138623579,
+      "trackerMs": 3916.0677
+    }
+  },
+  "lockedGate": {
+    "availability": false,
+    "meanError": true,
+    "withinOneMetre": false,
+    "severeErrors": true,
+    "allSeeds": true
+  },
+  "gatePassed": false,
+  "executionFailures": [
+    {
+      "start": 2400,
+      "method": "flow",
+      "failure": {
+        "status": "execution-failed",
+        "exit": 1,
+        "source": "Original tool output retained in conversation; this diagnostic is transcribed, not a byte-exact stderr archive",
+        "error": "java.lang.IllegalArgumentException: Box is too small or reversed",
+        "stack": [
+          "PixelTracker$Box.from(PixelTracker.java:13)",
+          "FlowTracker.update(FlowTracker.java:106)",
+          "ObservationStudy130.main(ObservationStudy130.java:18)"
+        ],
+        "partialTraceAvailable": false,
+        "allThreeLaterReferencesUnavailable": true
+      }
+    }
+  ],
+  "defaultChanged": false,
+  "qualificationEligible": true,
+  "provenanceCorrection": "docs/OBSERVATION_130_PROVENANCE_CORRECTION.json",
+  "pairedDiagnostic": {
+    "references": 5,
+    "incumbentMeanM": 0.5690953342537406,
+    "candidateMeanM": 0.7071523880174417,
+    "scope": "Posthoc paired diagnostic, not a replacement for the predeclared gate; all missing positions remain in primary totals"
+  },
+  "limits": "Same-camera temporal windows; completed accepted-only errors must be read alongside all missing references and execution failures. Failed execution contributes no invented partial trace or zero-cost timing claim; summed timing covers completed executions only. No general object recognition, full occlusion recovery or probability guarantee."
+}
