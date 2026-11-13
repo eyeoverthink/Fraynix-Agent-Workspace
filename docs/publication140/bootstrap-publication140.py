@@ -1,5 +1,6 @@
 from pathlib import Path
 r=Path.cwd();old=r/'docs/publication139';new=r/'docs/publication140'
+if (new/'document140.py').exists():raise SystemExit('One-time bootstrap already completed. Preserve the reviewed publication tools; do not overwrite them.')
 for name in ['audit-publication139.py','freeze139.py','release139.py','finish139.py','finalize-inventory139.py','visual139.cjs','guide-template.html','guide.js','document139.py']:
  s=(old/name).read_text(encoding='utf8').replace('139','140').replace('7e66b0c86d3a665b5793ba795298a4eeb2c81cfa','86e0e5a3604df80a50699db762474240fa759851')
  if name=='freeze139.py':s=s.replace("prior['latest']==138","prior['latest']==139").replace('Foreground motion, spatial structure and disappearance','Corroborated warnings and bounded source restoration')

@@ -28,7 +28,7 @@ The interface shows advisory status, confirmed warnings, confirmation progress a
 
 {{RECOVERIES}}
 
-Advisories are reported even when they do not change an output. A confirmed warning on a correctly placed proposal is a false alarm. A continuity restoration is scored against the independent target box or visibility label; an internally accepted restoration is not automatically a correct one. The main tracking table still includes missing measurements and final accepted-output errors. Unknown labels cannot establish success.
+Advisories are reported even when they do not change an output. A confirmed warning on a correctly placed proposal is a false alarm. A continuity restoration is scored against the independent target box or visibility label; an internally accepted restoration is not automatically a correct one. Restoration counts describe returned tracker boxes; the observation filter can still refuse a measurement. The main tracking table includes filter acceptance, missing measurements and final accepted-output errors. Unknown labels cannot establish success.
 
 ## Development and controlled tests
 
