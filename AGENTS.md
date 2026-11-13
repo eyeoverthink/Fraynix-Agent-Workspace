@@ -1,3 +1,7 @@
+## Edition137 active — 2026-11-13
+
+Read docs/EDITION_137_CONTRACT.md. Parent72a3b969, isolated D:/Codex-Work/fraynix-workspace-edition137. CI checked FIRST and pending; docs passed. Verified reference reuse and transaction/startup cost measurement. Preserve defaults, checks and frozen001–136. No agents/overlapping heavy work or node-junction changes. No137 push yet.
+
 ## Edition136 — published and fetched back
 
 2026-11-13. Isolated S:/Codex-Work/fraynix-workspace-edition136, parent2b68dd34. CI checked FIRST: linked43398780691 had1030 engine tests,1 failed,2 skipped. Correct unpublished-procedure refusal had an obsolete test exception expectation; corrected type/message without weakening refusal or publication assertions. Method/scorer17fdb4ab, locke7ff6cb4, later labels and exact bytes9a52ceb9 before suffix predictions. Actual tested source/build in docs/readmes/136/verification.json. Release 0b42140a2bc5014fe82df4371652c7cadf3e2d20; annotated readme-136. Main, edition136 and tag pushed atomically and fetched. Verified 1643 canonical sources, 48406 frozen hashes across136 editions and 285 original evidence entries. See docs/PUBLICATION_136.json.
