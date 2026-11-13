@@ -1,0 +1,4445 @@
+{
+  "summary": {
+    "legacy-adjacent": {
+      "available": 930,
+      "totalRows": 950,
+      "radiusSum": 1573.4283331968477,
+      "referenceAvailable": 30,
+      "referenceCovered": 28,
+      "referenceErrorSum": 27.752203018301536,
+      "refused": 0,
+      "meanRadiusM": 1.6918584227923092,
+      "meanReferenceErrorM": 0.9250734339433845
+    },
+    "bounded-budget-1m": {
+      "available": 865,
+      "totalRows": 950,
+      "radiusSum": 591.6229326548764,
+      "referenceAvailable": 30,
+      "referenceCovered": 16,
+      "referenceErrorSum": 27.757766177558995,
+      "refused": 0,
+      "meanRadiusM": 0.6839571475778918,
+      "meanReferenceErrorM": 0.9252588725852998
+    },
+    "bounded-diagnostic-100m": {
+      "available": 930,
+      "totalRows": 950,
+      "radiusSum": 679.1006199131517,
+      "referenceAvailable": 30,
+      "referenceCovered": 16,
+      "referenceErrorSum": 27.757766177558995,
+      "refused": 0,
+      "meanRadiusM": 0.7302157203367223,
+      "meanReferenceErrorM": 0.9252588725852998
+    }
+  },
+  "results": [
+    {
+      "path": "build/diagnostic129/forecast-held-1200-fixed.json",
+      "sha256": "0638b253e7802e2ba23b4589e0c03648a157e6398400e53fc493940b651ccac9",
+      "input": "held-1200-fixed.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.8091435508952355,
+              "radiusM": 15.997006652310333,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "available": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 4.042202809234298,
+              "radiusM": 2.4363393238777364,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 6.685776713784779,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 26.4713,
+          "metrics": {
+            "measured": 16,
+            "availableForecasts": 47,
+            "maxErrorM": 0.9042242488474069,
+            "meanErrorM": 0.1251514162987631,
+            "rejected": 79,
+            "covered": 10,
+            "rows": 95,
+            "compared": 10
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "available": false,
+              "ordinal": 25
+            },
+            {
+              "available": false,
+              "ordinal": 50
+            },
+            {
+              "available": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.8789319491023886,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 29.6436,
+          "metrics": {
+            "measured": 16,
+            "availableForecasts": 5,
+            "maxErrorM": 0.13319698411666314,
+            "meanErrorM": 0.1125673995837373,
+            "rejected": 79,
+            "covered": 3,
+            "withheldForecasts": 90,
+            "rows": 95,
+            "compared": 3
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.8362219483253972,
+              "radiusM": 4.311826787232863,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "available": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 3.9341069961476673,
+              "radiusM": 2.2461339743419235,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 2.6653069333497563,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 13.6099,
+          "metrics": {
+            "measured": 16,
+            "availableForecasts": 47,
+            "maxErrorM": 1.4450127140016382,
+            "meanErrorM": 0.2019074628605871,
+            "rejected": 79,
+            "covered": 10,
+            "withheldForecasts": 48,
+            "rows": 95,
+            "compared": 10
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-held-1200-flow.json",
+      "sha256": "55d71a83afb933d8df81be90355fb87803790752113ff0ef01c4b7b10b858bb2",
+      "input": "held-1200-flow.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.6514609718098247,
+              "radiusM": 2.4248039185078514,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.7742060067044295,
+              "radiusM": 2.4445920775128784,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.2782599801218244,
+              "radiusM": 2.4446464673525967,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 2.489990363411578,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 40.5272,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.04402929374697209,
+            "meanErrorM": 0.008902806817261022,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 52.4,
+            "positionM": [
+              5.010629090167583,
+              7.773358415317601
+            ],
+            "radiusM": 28.184335183605697,
+            "available": true,
+            "aheadS": 0.6000000000000014
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.6579523234532161,
+              "radiusM": 0.9794421435107433,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.7769207526947486,
+              "radiusM": 0.986807147301902,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.2770321498554038,
+              "radiusM": 0.9858600086604287,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.9869697409125594,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 44.8642,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 66,
+            "maxErrorM": 0.05125353363424173,
+            "meanErrorM": 0.0121035819272274,
+            "rejected": 0,
+            "covered": 66,
+            "withheldForecasts": 29,
+            "rows": 95,
+            "compared": 66
+          },
+          "future": {
+            "reason": "Best declared radius 4.385589 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 4.385588739039545,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.6579523234532161,
+              "radiusM": 0.9794421435107433,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.7769207526947486,
+              "radiusM": 0.986807147301902,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.2770321498554038,
+              "radiusM": 0.9858600086604287,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.0507443700483028,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 29.8736,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.05669045493751641,
+            "meanErrorM": 0.014499240031135032,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              80,
+              95
+            ],
+            "seconds": 52.4,
+            "baselineS": 0.5999999999999943,
+            "positionM": [
+              5.046238233896553,
+              8.540591030667118
+            ],
+            "radiusM": 4.385588739039545,
+            "available": true,
+            "aheadS": 0.6000000000000014
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-held-1200-scale-aware.json",
+      "sha256": "9c1fd3cbc25d0dd0442d337e7a6114b1d6c6bf461bfa7af5967c23ab38436866",
+      "input": "held-1200-scale-aware.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.47950875916232233,
+              "radiusM": 2.4908256442291417,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.468629647609384,
+              "radiusM": 2.5591924118507605,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.1222481161829985,
+              "radiusM": 2.5693924545795395,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 2.56350081335869,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 37.157,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.07365200328689987,
+            "meanErrorM": 0.014009928813187557,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 52.4,
+            "positionM": [
+              4.98105793648666,
+              7.838061721629805
+            ],
+            "radiusM": 28.61079249770348,
+            "available": true,
+            "aheadS": 0.6000000000000014
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "available": false,
+              "ordinal": 25
+            },
+            {
+              "available": false,
+              "ordinal": 50
+            },
+            {
+              "available": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.9964607681725616,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 45.0422,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 9,
+            "maxErrorM": 0.10045300923081808,
+            "meanErrorM": 0.031596346901196184,
+            "rejected": 0,
+            "covered": 9,
+            "withheldForecasts": 86,
+            "rows": 95,
+            "compared": 9
+          },
+          "future": {
+            "reason": "Best declared radius 4.449268 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 4.449268386561214,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.46352522639394594,
+              "radiusM": 1.0026193360837106,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.4654304081612729,
+              "radiusM": 1.0289254806211365,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.1229651980475495,
+              "radiusM": 1.033174171625728,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.0783545449380376,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 29.5178,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.10045300923081808,
+            "meanErrorM": 0.017031322910018448,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              80,
+              95
+            ],
+            "seconds": 52.4,
+            "baselineS": 0.5999999999999943,
+            "positionM": [
+              5.066397811810615,
+              8.457959220603364
+            ],
+            "radiusM": 4.449268386561214,
+            "available": true,
+            "aheadS": 0.6000000000000014
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-held-1700-fixed.json",
+      "sha256": "739dd1a651b5ab706853c260c6e7ad70292edf1457b54033a27e7e67603f2dd2",
+      "input": "held-1700-fixed.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 4.355893620092314,
+              "radiusM": 1.212696282296821,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 25
+            },
+            {
+              "errorM": 3.923599870461448,
+              "radiusM": 1.3612374460049224,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "available": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 5.380097064028071,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 29.4156,
+          "metrics": {
+            "measured": 34,
+            "availableForecasts": 78,
+            "maxErrorM": 0.8842741634726237,
+            "meanErrorM": 0.23866405650388806,
+            "rejected": 61,
+            "covered": 28,
+            "rows": 95,
+            "compared": 28
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 72.39999999999999,
+            "positionM": [
+              2.8998976408437835,
+              5.449670946677231
+            ],
+            "radiusM": 18.239634446001276,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 4.474436205532997,
+              "radiusM": 0.6555466365351392,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 25
+            },
+            {
+              "errorM": 3.6023815415271727,
+              "radiusM": 0.5799003572402422,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "available": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.739192717902739,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 31.4193,
+          "metrics": {
+            "measured": 34,
+            "availableForecasts": 27,
+            "maxErrorM": 0.6164945405974622,
+            "meanErrorM": 0.20251479732674119,
+            "rejected": 61,
+            "covered": 18,
+            "withheldForecasts": 68,
+            "rows": 95,
+            "compared": 18
+          },
+          "future": {
+            "reason": "Best declared radius 3.499938 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 3.4999378792669456,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 4.474436205532997,
+              "radiusM": 0.6555466365351392,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 25
+            },
+            {
+              "errorM": 3.6023815415271727,
+              "radiusM": 0.5799003572402422,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "available": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 2.212540814624164,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 15.3426,
+          "metrics": {
+            "measured": 34,
+            "availableForecasts": 78,
+            "maxErrorM": 0.9327947244922532,
+            "meanErrorM": 0.23789537536762576,
+            "rejected": 61,
+            "covered": 28,
+            "withheldForecasts": 17,
+            "rows": 95,
+            "compared": 28
+          },
+          "future": {
+            "fromOrdinals": [
+              80,
+              95
+            ],
+            "seconds": 72.39999999999999,
+            "baselineS": 0.5999999999999943,
+            "positionM": [
+              3.1708370536455934,
+              4.8281239445280395
+            ],
+            "radiusM": 3.4999378792669456,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-held-1700-flow.json",
+      "sha256": "db6833f3635938f508aca37925e37438798a2047a93160a0265926ba355e861a",
+      "input": "held-1700-flow.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.3830672738698367,
+              "radiusM": 1.906817302374101,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.0772979554038258,
+              "radiusM": 1.8524341584518316,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.4169229845819113,
+              "radiusM": 1.839624580572118,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.8888000877535374,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 38.6375,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.033299498028048664,
+            "meanErrorM": 0.005489530087260845,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 72.39999999999999,
+            "positionM": [
+              4.439630136757542,
+              5.438821224910464
+            ],
+            "radiusM": 19.89340397156815,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.38583133166963673,
+              "radiusM": 0.7832999810225398,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.077610996173307,
+              "radiusM": 0.7632497570578837,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.4192245803722212,
+              "radiusM": 0.7575425849186788,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.7744540729259374,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 41.881,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 88,
+            "maxErrorM": 0.04083469978901428,
+            "meanErrorM": 0.008352444055529108,
+            "rejected": 0,
+            "covered": 88,
+            "withheldForecasts": 7,
+            "rows": 95,
+            "compared": 88
+          },
+          "future": {
+            "reason": "Best declared radius 3.637597 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 3.6375974586633313,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.38583133166963673,
+              "radiusM": 0.7832999810225398,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.077610996173307,
+              "radiusM": 0.7632497570578837,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.4192245803722212,
+              "radiusM": 0.7575425849186788,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.811634920531785,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 29.0796,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.04083469978901428,
+            "meanErrorM": 0.008372258928976821,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              80,
+              95
+            ],
+            "seconds": 72.39999999999999,
+            "baselineS": 0.5999999999999943,
+            "positionM": [
+              4.4361455487835695,
+              5.44858528243841
+            ],
+            "radiusM": 3.6375974586633313,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-held-1700-scale-aware.json",
+      "sha256": "712b11665b68a4a1c24c8d227f8d55d18e443ce3630a070c574cde01c11899c7",
+      "input": "held-1700-scale-aware.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.4023577289676823,
+              "radiusM": 1.8993932177659338,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.957123364150845,
+              "radiusM": 1.8860767611496998,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.2329489205125281,
+              "radiusM": 1.8845477897980498,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.912201409382714,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 36.9811,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.049467898395112495,
+            "meanErrorM": 0.007187590668015156,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 72.39999999999999,
+            "positionM": [
+              4.311620956357245,
+              5.533424400393234
+            ],
+            "radiusM": 20.344858530513058,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.4136411753732241,
+              "radiusM": 0.7808776890586979,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.9479271873774089,
+              "radiusM": 0.7752623985408507,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.2329493614883176,
+              "radiusM": 0.7744017188189611,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.7836812142241303,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 40.7965,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 88,
+            "maxErrorM": 0.042908637458148866,
+            "meanErrorM": 0.01086560869182123,
+            "rejected": 0,
+            "covered": 88,
+            "withheldForecasts": 7,
+            "rows": 95,
+            "compared": 88
+          },
+          "future": {
+            "reason": "Best declared radius 3.681608 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 3.6816076046515143,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.4136411753732241,
+              "radiusM": 0.7808776890586979,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.9479271873774089,
+              "radiusM": 0.7752623985408507,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.2329493614883176,
+              "radiusM": 0.7744017188189611,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.8203709301146436,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 29.2114,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.042908637458148866,
+            "meanErrorM": 0.010668424098529024,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              80,
+              95
+            ],
+            "seconds": 72.39999999999999,
+            "baselineS": 0.5999999999999943,
+            "positionM": [
+              4.3028255751490985,
+              5.564781326850343
+            ],
+            "radiusM": 3.6816076046515143,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-held-2200-fixed.json",
+      "sha256": "ab9e45bfc286c4ff5cc1bbe5d655c2babe378de3525aa34a891472134826a6f9",
+      "input": "held-2200-fixed.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "available": false,
+              "ordinal": 25
+            },
+            {
+              "errorM": 2.2142177757378376,
+              "radiusM": 5.397747121903836,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 2.000832843208864,
+              "radiusM": 5.1877240720705124,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 4.769703896178779,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 27.9879,
+          "metrics": {
+            "measured": 17,
+            "availableForecasts": 63,
+            "maxErrorM": 1.1784721852109996,
+            "meanErrorM": 0.24236174465662028,
+            "rejected": 78,
+            "covered": 11,
+            "rows": 95,
+            "compared": 11
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "available": false,
+              "ordinal": 25
+            },
+            {
+              "available": false,
+              "ordinal": 50
+            },
+            {
+              "available": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.6564205341684967,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 29.4594,
+          "metrics": {
+            "measured": 17,
+            "availableForecasts": 20,
+            "maxErrorM": 0.1965615732587744,
+            "meanErrorM": 0.08624794160593902,
+            "rejected": 78,
+            "covered": 6,
+            "withheldForecasts": 75,
+            "rows": 95,
+            "compared": 6
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "available": false,
+              "ordinal": 25
+            },
+            {
+              "errorM": 2.3042688671909457,
+              "radiusM": 3.1691696546455255,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 2.3540588965025515,
+              "radiusM": 1.7202210856133926,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 2.4361587538545666,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 12.695,
+          "metrics": {
+            "measured": 17,
+            "availableForecasts": 63,
+            "maxErrorM": 2.08471883663767,
+            "meanErrorM": 0.28994736522886955,
+            "rejected": 78,
+            "covered": 11,
+            "withheldForecasts": 32,
+            "rows": 95,
+            "compared": 11
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-held-2200-flow.json",
+      "sha256": "d763646b3732fee6daea53f07080594dfd52084b0943f76b7d08bfe29dd86c01",
+      "input": "held-2200-flow.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.24280214722434593,
+              "radiusM": 1.0603967523457831,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.606855575876328,
+              "radiusM": 1.0514018352755685,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.1300856278971756,
+              "radiusM": 1.0532500752948732,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.061166609095786,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 40.9169,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.011773852224759553,
+            "meanErrorM": 0.003205645466213713,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 92.39999999999999,
+            "positionM": [
+              3.6793227002820053,
+              1.4490474525547883
+            ],
+            "radiusM": 11.809649357920048,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.24297295580012268,
+              "radiusM": 0.4623480640168208,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.6000740039080158,
+              "radiusM": 0.4588276286693984,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.1330796121082096,
+              "radiusM": 0.4595807781596772,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.4703113834395312,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 40.5041,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 92,
+            "maxErrorM": 0.01948333052576009,
+            "meanErrorM": 0.006823346505968966,
+            "rejected": 0,
+            "covered": 92,
+            "withheldForecasts": 3,
+            "rows": 95,
+            "compared": 92
+          },
+          "future": {
+            "reason": "Best declared radius 2.843282 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 2.8432824002714328,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.24297295580012268,
+              "radiusM": 0.4623480640168208,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.6000740039080158,
+              "radiusM": 0.4588276286693984,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.1330796121082096,
+              "radiusM": 0.4595807781596772,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.47852375380472184,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 28.6624,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.01948333052576009,
+            "meanErrorM": 0.006776127616750999,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              82,
+              95
+            ],
+            "seconds": 92.39999999999999,
+            "baselineS": 0.519999999999996,
+            "positionM": [
+              3.7704965068153644,
+              1.3441908251070998
+            ],
+            "radiusM": 2.8432824002714328,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-held-2200-scale-aware.json",
+      "sha256": "20a36bfba87dc6299d3622ce7d5d5764c41d49382ced671bc866b1b0ffbe6b44",
+      "input": "held-2200-scale-aware.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.23541189175000246,
+              "radiusM": 1.061911668654782,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.6115324009379925,
+              "radiusM": 1.0502895793990463,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.1416860404038691,
+              "radiusM": 1.052674833870411,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.060497212076407,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 42.1088,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.01491405895486328,
+            "meanErrorM": 0.003591543203977319,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 92.39999999999999,
+            "positionM": [
+              3.672343297591242,
+              1.4352855634494652
+            ],
+            "radiusM": 11.80335003781482,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.23194157621769537,
+              "radiusM": 0.46283862327288555,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.6038121541225436,
+              "radiusM": 0.4583774536190806,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.1427471770498847,
+              "radiusM": 0.45929739301284456,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.47005184466274663,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 40.5971,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 92,
+            "maxErrorM": 0.02880217040654433,
+            "meanErrorM": 0.007260202609761928,
+            "rejected": 0,
+            "covered": 92,
+            "withheldForecasts": 3,
+            "rows": 95,
+            "compared": 92
+          },
+          "future": {
+            "reason": "Best declared radius 2.842550 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 2.8425504160967368,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.23194157621769537,
+              "radiusM": 0.46283862327288555,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.6038121541225436,
+              "radiusM": 0.4583774536190806,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.1427471770498847,
+              "radiusM": 0.45929739301284456,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.4782657580701042,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 28.9924,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.02880217040654433,
+            "meanErrorM": 0.0072128304987972465,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              82,
+              95
+            ],
+            "seconds": 92.39999999999999,
+            "baselineS": 0.519999999999996,
+            "positionM": [
+              3.7657305560619223,
+              1.3378569897080503
+            ],
+            "radiusM": 2.8425504160967368,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-held-3100-fixed.json",
+      "sha256": "b914ded282364e0f5741001cbf10e27137eb9d36d835b07daff7946dcbda4806",
+      "input": "held-3100-fixed.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 4.283554076034796,
+              "radiusM": 0.9150516569012376,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 25
+            },
+            {
+              "errorM": 5.09144796905945,
+              "radiusM": 6.496316292454361,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 3.9044322577352806,
+              "radiusM": 0.7240948517291714,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 5.0018631815740555,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 27.6276,
+          "metrics": {
+            "measured": 18,
+            "availableForecasts": 86,
+            "maxErrorM": 4.1716148754466715,
+            "meanErrorM": 0.9240071250657592,
+            "rejected": 77,
+            "covered": 13,
+            "rows": 95,
+            "compared": 14
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 4.283554076034796,
+              "radiusM": 0.9270516569012385,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 25
+            },
+            {
+              "available": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 3.9044322577352806,
+              "radiusM": 0.8280948517291684,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.7461675930082089,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 30.5226,
+          "metrics": {
+            "measured": 18,
+            "availableForecasts": 24,
+            "maxErrorM": 0.6931308765307064,
+            "meanErrorM": 0.21952353232324304,
+            "rejected": 77,
+            "covered": 9,
+            "withheldForecasts": 71,
+            "rows": 95,
+            "compared": 9
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 4.283554076034796,
+              "radiusM": 0.9270516569012385,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 25
+            },
+            {
+              "errorM": 4.479585129238966,
+              "radiusM": 2.201547925983744,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 3.9044322577352806,
+              "radiusM": 0.8280948517291684,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 2.8444894862634293,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 15.1974,
+          "metrics": {
+            "measured": 18,
+            "availableForecasts": 86,
+            "maxErrorM": 4.1716148754466715,
+            "meanErrorM": 1.1035268614530358,
+            "rejected": 77,
+            "covered": 14,
+            "withheldForecasts": 9,
+            "rows": 95,
+            "compared": 14
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-held-3100-flow.json",
+      "sha256": "45757972303ba973a9074a661f567501504920ed0d786ebad65be0a6bcc32204",
+      "input": "held-3100-flow.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.1885464034280389,
+              "radiusM": 2.351266523988613,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.0765703272295457,
+              "radiusM": 2.319942112477939,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.162997615205474,
+              "radiusM": 2.3273330491595785,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 2.3474145576861196,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 37.2396,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.059087005590255516,
+            "meanErrorM": 0.009035489691824562,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 128.4,
+            "positionM": [
+              4.598700457350198,
+              7.036198406741972
+            ],
+            "radiusM": 24.77993163692683,
+            "available": true,
+            "aheadS": 0.6000000000000085
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.19067169795670108,
+              "radiusM": 0.950584525201571,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.0611292183146035,
+              "radiusM": 0.9391710102573229,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.161333047617221,
+              "radiusM": 0.9412335402661688,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.9451769975915848,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 40.5307,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 85,
+            "maxErrorM": 0.06113541921618722,
+            "meanErrorM": 0.011355588636538795,
+            "rejected": 0,
+            "covered": 85,
+            "withheldForecasts": 10,
+            "rows": 95,
+            "compared": 85
+          },
+          "future": {
+            "reason": "Best declared radius 4.113642 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 4.113642005500339,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.19067169795670108,
+              "radiusM": 0.950584525201571,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.0611292183146035,
+              "radiusM": 0.9391710102573229,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.161333047617221,
+              "radiusM": 0.9412335402661688,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.9923312027551406,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 29.3008,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.06113541921618722,
+            "meanErrorM": 0.013118232207922555,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              80,
+              95
+            ],
+            "seconds": 128.4,
+            "baselineS": 0.5999999999999943,
+            "positionM": [
+              4.586449363498991,
+              7.031395105133799
+            ],
+            "radiusM": 4.113642005500339,
+            "available": true,
+            "aheadS": 0.6000000000000085
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-held-3100-scale-aware.json",
+      "sha256": "4860d29ec7febe2f95ffda86dde18312f79eb2506c66177cfafc2cca5e98026d",
+      "input": "held-3100-scale-aware.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.31565908269516196,
+              "radiusM": 2.3035214727333795,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.9828623360196215,
+              "radiusM": 2.3426039427738656,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.0885852520008206,
+              "radiusM": 2.3485769821298152,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 2.3485488299595962,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 38.9043,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.05591930647115071,
+            "meanErrorM": 0.009158002813680628,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 128.4,
+            "positionM": [
+              4.614182335666192,
+              6.886116798517332
+            ],
+            "radiusM": 24.74110031832256,
+            "available": true,
+            "aheadS": 0.6000000000000085
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.3258682835612934,
+              "radiusM": 0.9333859183329516,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.9644121957916073,
+              "radiusM": 0.9469258392275196,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.0882232480831702,
+              "radiusM": 0.9493729261863736,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.9452633764032443,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 41.058,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 85,
+            "maxErrorM": 0.0386524614265435,
+            "meanErrorM": 0.01161201396463787,
+            "rejected": 0,
+            "covered": 85,
+            "withheldForecasts": 10,
+            "rows": 95,
+            "compared": 85
+          },
+          "future": {
+            "reason": "Best declared radius 4.114554 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 4.114553807678235,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.3258682835612934,
+              "radiusM": 0.9333859183329516,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.9644121957916073,
+              "radiusM": 0.9469258392275196,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.0882232480831702,
+              "radiusM": 0.9493729261863736,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.9929987809383425,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 28.45,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.06888216657593728,
+            "meanErrorM": 0.014577906509374778,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              80,
+              95
+            ],
+            "seconds": 128.4,
+            "baselineS": 0.5999999999999943,
+            "positionM": [
+              4.574773706908356,
+              6.9568513504276215
+            ],
+            "radiusM": 4.114553807678235,
+            "available": true,
+            "aheadS": 0.6000000000000085
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-held-4300-fixed.json",
+      "sha256": "fae55d7557f1195d8757fe8024e0da10e5268daf2e73dc34b500c2c978a9d55e",
+      "input": "held-4300-fixed.json",
+      "records": [
+        {
+          "refused": "At least three accepted positions and one bounded forecast comparison required",
+          "policy": "legacy-adjacent",
+          "elapsedMs": 26.6084
+        },
+        {
+          "refused": "At least three accepted positions and one forecast within the declared radius are required; improve observations or explicitly choose a different precision budget",
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 24.586
+        },
+        {
+          "refused": "At least three accepted positions and one forecast within the declared radius are required; improve observations or explicitly choose a different precision budget",
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 12.2465
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-held-4300-flow.json",
+      "sha256": "333822cd21e9cd2c7d3d552fffc3a81888843a11c8511f9989ee64d6d690ca99",
+      "input": "held-4300-flow.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.42090667280358945,
+              "radiusM": 1.2625552446570276,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.5324618399084906,
+              "radiusM": 1.1534960332271424,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 0.8130526351243251,
+              "radiusM": 1.1338763127675653,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.2049842183784876,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 39.4862,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.03102687867410478,
+            "meanErrorM": 0.006967601598751041,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 176.4,
+            "positionM": [
+              3.231482130951782,
+              1.7798846789073994
+            ],
+            "radiusM": 12.89002191116902,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.42391724978122375,
+              "radiusM": 0.5400295494595804,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.5248402134567297,
+              "radiusM": 0.49894111489471293,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 0.8224265918259313,
+              "radiusM": 0.49014179639160554,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.5226017339678455,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 39.367,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 91,
+            "maxErrorM": 0.026672008741038672,
+            "meanErrorM": 0.011594980598161447,
+            "rejected": 0,
+            "covered": 91,
+            "withheldForecasts": 4,
+            "rows": 95,
+            "compared": 91
+          },
+          "future": {
+            "reason": "Best declared radius 2.947379 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 2.9473794405907743,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.42391724978122375,
+              "radiusM": 0.5400295494595804,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.5248402134567297,
+              "radiusM": 0.49894111489471293,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 0.8224265918259313,
+              "radiusM": 0.49014179639160554,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.5395063229571364,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 28.3097,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.026672008741038672,
+            "meanErrorM": 0.011417508724164931,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              81,
+              95
+            ],
+            "seconds": 176.4,
+            "baselineS": 0.5600000000000023,
+            "positionM": [
+              3.1453536129178126,
+              1.912709638176571
+            ],
+            "radiusM": 2.9473794405907743,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-held-4300-scale-aware.json",
+      "sha256": "8fe9fabdd9c0eaa9a6ea4a3b59f92bcf174e7b40bba45bd2465d44355cfd5b2c",
+      "input": "held-4300-scale-aware.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.41252314772937604,
+              "radiusM": 1.2605072412021179,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.48630908912130777,
+              "radiusM": 1.1466067386700358,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 0.793346795254921,
+              "radiusM": 1.129816170215211,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.200844995189857,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 43.9066,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.024349835728854196,
+            "meanErrorM": 0.007257817953185908,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 176.4,
+            "positionM": [
+              3.2671901469547002,
+              1.7188768604292561
+            ],
+            "radiusM": 12.813004831552545,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.4124554696228556,
+              "radiusM": 0.5393486838411216,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.4799146006960433,
+              "radiusM": 0.4963484402165454,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 0.8038345784988856,
+              "radiusM": 0.4885773351478813,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.5210000944685022,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 47.072,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 91,
+            "maxErrorM": 0.031013478953958763,
+            "meanErrorM": 0.0121959153896676,
+            "rejected": 0,
+            "covered": 91,
+            "withheldForecasts": 4,
+            "rows": 95,
+            "compared": 91
+          },
+          "future": {
+            "reason": "Best declared radius 2.940577 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 2.940576629158109,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.4124554696228556,
+              "radiusM": 0.5393486838411216,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.4799146006960433,
+              "radiusM": 0.4963484402165454,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 0.8038345784988856,
+              "radiusM": 0.4885773351478813,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.5379171772204048,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 25.4121,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.031013478953958763,
+            "meanErrorM": 0.011976576263399064,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              81,
+              95
+            ],
+            "seconds": 176.4,
+            "baselineS": 0.5600000000000023,
+            "positionM": [
+              3.2118400550309834,
+              1.87331642823111
+            ],
+            "radiusM": 2.940576629158109,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-confirm-1000-fixed.json",
+      "sha256": "6004d82b79b5894bb3f0e90805da11b3dcabe46c962436e0ba56fc705935c742",
+      "input": "confirm-1000-fixed.json",
+      "records": [
+        {
+          "refused": "At least three accepted positions and one bounded forecast comparison required",
+          "policy": "legacy-adjacent",
+          "elapsedMs": 25.0723
+        },
+        {
+          "refused": "At least three accepted positions and one forecast within the declared radius are required; improve observations or explicitly choose a different precision budget",
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 12.3077
+        },
+        {
+          "refused": "At least three accepted positions and one forecast within the declared radius are required; improve observations or explicitly choose a different precision budget",
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 11.044
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-confirm-1000-flow.json",
+      "sha256": "1495da3acea01a58cfcffb05aff1fb9c00de37b63a7b8b55103162e1985202c4",
+      "input": "confirm-1000-flow.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.2174142636228585,
+              "radiusM": 1.1685115237745867,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.7208460522309663,
+              "radiusM": 1.220975959944054,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 0.7055942271383248,
+              "radiusM": 1.3466604320664313,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.2627900020070593,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 42.7493,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.02462143252455604,
+            "meanErrorM": 0.006167012009483082,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 44.4,
+            "positionM": [
+              5.239220429927762,
+              4.771927330953179
+            ],
+            "radiusM": 16.065575715780444,
+            "available": true,
+            "aheadS": 0.6000000000000014
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.226820063119686,
+              "radiusM": 0.503678450423343,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.7165750562692546,
+              "radiusM": 0.5234018782603299,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 0.69224986780912,
+              "radiusM": 0.5695261858235817,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.5481960224244125,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 39.1436,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 92,
+            "maxErrorM": 0.046812004456948206,
+            "meanErrorM": 0.015295059898681832,
+            "rejected": 0,
+            "covered": 92,
+            "withheldForecasts": 3,
+            "rows": 95,
+            "compared": 92
+          },
+          "future": {
+            "reason": "Best declared radius 3.232404 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 3.23240425382808,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.226820063119686,
+              "radiusM": 0.503678450423343,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.7165750562692546,
+              "radiusM": 0.5234018782603299,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 0.69224986780912,
+              "radiusM": 0.5695261858235817,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.5569638651625508,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 29.8797,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.046812004456948206,
+            "meanErrorM": 0.01514122640366197,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              80,
+              95
+            ],
+            "seconds": 44.4,
+            "baselineS": 0.5999999999999943,
+            "positionM": [
+              5.1429809026243305,
+              4.687479681780168
+            ],
+            "radiusM": 3.23240425382808,
+            "available": true,
+            "aheadS": 0.6000000000000014
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-confirm-1000-scale-aware.json",
+      "sha256": "31d44040734727d6c241b1f5a1bc5c974320ee712d73f04021f1f52c713b2e79",
+      "input": "confirm-1000-scale-aware.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.22426106370789772,
+              "radiusM": 1.1678807762886863,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.8012408185062917,
+              "radiusM": 1.206934146864219,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 0.879116654566033,
+              "radiusM": 1.3135851669107246,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.2455636406533097,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 40.1355,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.022561097865036354,
+            "meanErrorM": 0.0054214820275096534,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 44.4,
+            "positionM": [
+              5.273611437096411,
+              4.570850089121942
+            ],
+            "radiusM": 15.5380484077991,
+            "available": true,
+            "aheadS": 0.6000000000000014
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.23225435476580839,
+              "radiusM": 0.5034048253528671,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.7983510089707632,
+              "radiusM": 0.518187316309191,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 0.8647669217786661,
+              "radiusM": 0.5572621342692293,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.5416968216558997,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 39.0433,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 92,
+            "maxErrorM": 0.044544069530920063,
+            "meanErrorM": 0.014761105976094738,
+            "rejected": 0,
+            "covered": 92,
+            "withheldForecasts": 3,
+            "rows": 95,
+            "compared": 92
+          },
+          "future": {
+            "reason": "Best declared radius 3.186297 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 3.1862970714615457,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.23225435476580839,
+              "radiusM": 0.5034048253528671,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.7983510089707632,
+              "radiusM": 0.518187316309191,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 0.8647669217786661,
+              "radiusM": 0.5572621342692293,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.5505308774783366,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 29.5973,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.044544069530920063,
+            "meanErrorM": 0.014622665896928299,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              80,
+              95
+            ],
+            "seconds": 44.4,
+            "baselineS": 0.5999999999999943,
+            "positionM": [
+              5.20423626907284,
+              4.4115293459339355
+            ],
+            "radiusM": 3.1862970714615457,
+            "available": true,
+            "aheadS": 0.6000000000000014
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-confirm-1500-fixed.json",
+      "sha256": "3e363bb2ac1449c5f4219fb807618062dc99ff95f9ccd69e47f7965d60f18318",
+      "input": "confirm-1500-fixed.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 1.8198989755755959,
+              "radiusM": 1.2410359635803645,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 25
+            },
+            {
+              "errorM": 2.0188065928519485,
+              "radiusM": 2.7068260039546534,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "available": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 2.5162131892011304,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 31.7099,
+          "metrics": {
+            "measured": 17,
+            "availableForecasts": 70,
+            "maxErrorM": 1.7207714048840894,
+            "meanErrorM": 0.40021474476006813,
+            "rejected": 78,
+            "covered": 13,
+            "rows": 95,
+            "compared": 13
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 64.39999999999999,
+            "positionM": [
+              3.570591456739935,
+              1.6566806160455234
+            ],
+            "radiusM": 13.358256638900164,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "available": false,
+              "ordinal": 25
+            },
+            {
+              "available": false,
+              "ordinal": 50
+            },
+            {
+              "available": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.6894980422630073,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 29.7256,
+          "metrics": {
+            "measured": 17,
+            "availableForecasts": 25,
+            "maxErrorM": 0.2912412956139889,
+            "meanErrorM": 0.08920170535229445,
+            "rejected": 78,
+            "covered": 6,
+            "withheldForecasts": 70,
+            "rows": 95,
+            "compared": 6
+          },
+          "future": {
+            "reason": "Best declared radius 4.067397 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 4.067397041434826,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 1.8198989755755959,
+              "radiusM": 1.577035963580364,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.6850012962328684,
+              "radiusM": 2.400231872966509,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "available": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.7946944205664286,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 13.29,
+          "metrics": {
+            "measured": 17,
+            "availableForecasts": 70,
+            "maxErrorM": 0.9149099566762816,
+            "meanErrorM": 0.39011231396701773,
+            "rejected": 78,
+            "covered": 13,
+            "withheldForecasts": 25,
+            "rows": 95,
+            "compared": 13
+          },
+          "future": {
+            "fromOrdinals": [
+              90,
+              95
+            ],
+            "seconds": 64.39999999999999,
+            "baselineS": 0.19999999999999574,
+            "positionM": [
+              3.666606288953058,
+              1.4870457221100943
+            ],
+            "radiusM": 4.067397041434826,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-confirm-1500-flow.json",
+      "sha256": "f5b9f57fb49c416e47ba1bee3ab5dd759259ea937a247359e8048f498f60a36f",
+      "input": "confirm-1500-flow.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.559262617672987,
+              "radiusM": 1.2694990398328796,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.3452628081718614,
+              "radiusM": 1.2759225374813383,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.7303779586433057,
+              "radiusM": 1.2257819260033787,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.2807996631522087,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 40.0443,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.030049068073240665,
+            "meanErrorM": 0.0053163469378332,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 64.39999999999999,
+            "positionM": [
+              3.746019967118754,
+              2.7467939193293285
+            ],
+            "radiusM": 13.778557565648182,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.5553663704601473,
+              "radiusM": 0.5437340158297056,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.3627965974658387,
+              "radiusM": 0.5434635114123219,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.7311243157839311,
+              "radiusM": 0.5260263453495746,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.5519134093044595,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 46.4213,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 91,
+            "maxErrorM": 0.04456699553447488,
+            "meanErrorM": 0.010431493778283115,
+            "rejected": 0,
+            "covered": 91,
+            "withheldForecasts": 4,
+            "rows": 95,
+            "compared": 91
+          },
+          "future": {
+            "reason": "Best declared radius 3.038782 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 3.0387824915684445,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.5553663704601473,
+              "radiusM": 0.5437340158297056,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.3627965974658387,
+              "radiusM": 0.5434635114123219,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.7311243157839311,
+              "radiusM": 0.5260263453495746,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.5698987305170528,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 23.791,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.04456699553447488,
+            "meanErrorM": 0.01034634464445874,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              81,
+              95
+            ],
+            "seconds": 64.39999999999999,
+            "baselineS": 0.5599999999999952,
+            "positionM": [
+              3.769861019591714,
+              2.7236694255943403
+            ],
+            "radiusM": 3.0387824915684445,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-confirm-1500-scale-aware.json",
+      "sha256": "ab1e7c711d0dbfda587ca390ee9859c9a8a752231193539f64fb2a62d58e90ab",
+      "input": "confirm-1500-scale-aware.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.43527751424324834,
+              "radiusM": 1.289272133355009,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.3099147760862615,
+              "radiusM": 1.2810918149618367,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.6585367398044224,
+              "radiusM": 1.2809884110179452,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.310613830880278,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 43.2877,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.025688440342226265,
+            "meanErrorM": 0.006131075616080056,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 64.39999999999999,
+            "positionM": [
+              3.8550879059695813,
+              2.8868343094480826
+            ],
+            "radiusM": 14.319917901005855,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.42291721177314784,
+              "radiusM": 0.5508681512427093,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.3169981526698427,
+              "radiusM": 0.5462160360879706,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.6548385311655147,
+              "radiusM": 0.5468038115574672,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.5633374074777061,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 48.0069,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 91,
+            "maxErrorM": 0.03845583417925358,
+            "meanErrorM": 0.011021831171139453,
+            "rejected": 0,
+            "covered": 91,
+            "withheldForecasts": 4,
+            "rows": 95,
+            "compared": 91
+          },
+          "future": {
+            "reason": "Best declared radius 3.096916 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 3.0969161341013125,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.42291721177314784,
+              "radiusM": 0.5508681512427093,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.3169981526698427,
+              "radiusM": 0.5462160360879706,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.6548385311655147,
+              "radiusM": 0.5468038115574672,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.5812168012742213,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 23.5974,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.03845583417925358,
+            "meanErrorM": 0.010943298880605846,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              80,
+              95
+            ],
+            "seconds": 64.39999999999999,
+            "baselineS": 0.5999999999999943,
+            "positionM": [
+              3.834305920569215,
+              2.9274933450554568
+            ],
+            "radiusM": 3.0969161341013125,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-confirm-2100-fixed.json",
+      "sha256": "7c0c29de11cee8b3bba8bade17779478a7fc4f47bdecf1a8ad0438de0d1a72a1",
+      "input": "confirm-2100-fixed.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 2.0276363374853235,
+              "radiusM": 4.272278144857843,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 3.538081924777534,
+              "radiusM": 4.664374829120937,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 0.8543355433525041,
+              "radiusM": 6.245487255611671,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 3.54696033176884,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 32.1689,
+          "metrics": {
+            "measured": 24,
+            "availableForecasts": 88,
+            "maxErrorM": 8.04676815158571,
+            "meanErrorM": 0.7387227972182864,
+            "rejected": 71,
+            "covered": 19,
+            "rows": 95,
+            "compared": 19
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "available": false,
+              "ordinal": 25
+            },
+            {
+              "available": false,
+              "ordinal": 50
+            },
+            {
+              "available": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.7013482131575706,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 31.2555,
+          "metrics": {
+            "measured": 24,
+            "availableForecasts": 24,
+            "maxErrorM": 0.13860646077994124,
+            "meanErrorM": 0.0556807227943554,
+            "rejected": 71,
+            "covered": 8,
+            "withheldForecasts": 71,
+            "rows": 95,
+            "compared": 8
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 2.3178151825664948,
+              "radiusM": 1.0398790482404774,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 25
+            },
+            {
+              "errorM": 2.35549753131711,
+              "radiusM": 2.7951519632572204,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 0.85135658686645,
+              "radiusM": 4.910582632585374,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 2.252321594824889,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 14.0488,
+          "metrics": {
+            "measured": 24,
+            "availableForecasts": 88,
+            "maxErrorM": 4.298478252464447,
+            "meanErrorM": 0.5563673873465241,
+            "rejected": 71,
+            "covered": 19,
+            "withheldForecasts": 7,
+            "rows": 95,
+            "compared": 19
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-confirm-2100-flow.json",
+      "sha256": "6d5f642f1ac9b6f8b09594e268286890e6270e3176bf0abc91ccb84e2af80fb3",
+      "input": "confirm-2100-flow.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.18559935976298292,
+              "radiusM": 1.5021760641659379,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.6942781221620238,
+              "radiusM": 1.6088980959919903,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 3.8874163909859805,
+              "radiusM": 1.9124365100640546,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.9003187591068376,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 41.3588,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.7386448646878847,
+            "meanErrorM": 0.07055526888210235,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 88.39999999999999,
+            "positionM": [
+              4.990114971104676,
+              9.22115084384042
+            ],
+            "radiusM": 40.60358006472251,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.17963126059004358,
+              "radiusM": 0.632197335214134,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.7122805944428796,
+              "radiusM": 0.6675514881866983,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 3.916465380770848,
+              "radiusM": 0.7802731894854391,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.6955554963793741,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 41.7174,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 79,
+            "maxErrorM": 0.7836090743871855,
+            "meanErrorM": 0.05701511781929911,
+            "rejected": 0,
+            "covered": 79,
+            "withheldForecasts": 16,
+            "rows": 95,
+            "compared": 79
+          },
+          "future": {
+            "reason": "Best declared radius 4.992299 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 4.9922989993235145,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.17963126059004358,
+              "radiusM": 0.632197335214134,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.7122805944428796,
+              "radiusM": 0.6675514881866983,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 3.916465380770848,
+              "radiusM": 0.7802731894854391,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.8070933109209925,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 31.3102,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.968703732910579,
+            "meanErrorM": 0.10118591799901965,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              80,
+              95
+            ],
+            "seconds": 88.39999999999999,
+            "baselineS": 0.5999999999999943,
+            "positionM": [
+              4.006610894071359,
+              15.820307819639133
+            ],
+            "radiusM": 4.9922989993235145,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-confirm-2100-scale-aware.json",
+      "sha256": "8142544b79c783517074512d4c7a5c342166c649aa12eae5295c2b8f53dd616a",
+      "input": "confirm-2100-scale-aware.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.18260105501163254,
+              "radiusM": 1.4998296025785003,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.5918668730679684,
+              "radiusM": 1.585918559696751,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 3.0015396440456827,
+              "radiusM": 1.6500024980602679,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.783218112855113,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 41.1544,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 1.0069742698653037,
+            "meanErrorM": 0.07320231433117448,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 88.39999999999999,
+            "positionM": [
+              4.8253476125267705,
+              9.744433504556083
+            ],
+            "radiusM": 35.044284636303395,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.1771972503457653,
+              "radiusM": 0.6312731604217772,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.6198842759291858,
+              "radiusM": 0.6588016364455819,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 2.98715928670255,
+              "radiusM": 0.6859196193913599,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.6797706329902382,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 41.6171,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 80,
+            "maxErrorM": 0.9137543462960402,
+            "meanErrorM": 0.0753369892190803,
+            "rejected": 0,
+            "covered": 80,
+            "withheldForecasts": 15,
+            "rows": 95,
+            "compared": 80
+          },
+          "future": {
+            "reason": "Best declared radius 4.569677 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 4.569676766252991,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.1771972503457653,
+              "radiusM": 0.6312731604217772,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.6198842759291858,
+              "radiusM": 0.6588016364455819,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 2.98715928670255,
+              "radiusM": 0.6859196193913599,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.7639128837926388,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 30.3759,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.9137543462960402,
+            "meanErrorM": 0.1001141095828981,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              80,
+              95
+            ],
+            "seconds": 88.39999999999999,
+            "baselineS": 0.5999999999999943,
+            "positionM": [
+              4.109399406444796,
+              14.401781874236091
+            ],
+            "radiusM": 4.569676766252991,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-confirm-3000-fixed.json",
+      "sha256": "9ba50b88429d2f077e85c7781fa793ad009e3024a8b32eb547913d86e319fde3",
+      "input": "confirm-3000-fixed.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "available": false,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.8476921480943296,
+              "radiusM": 2.9694056811678653,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.8267051938188827,
+              "radiusM": 18.262095950507938,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 5.012334760521431,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 27.2444,
+          "metrics": {
+            "measured": 20,
+            "availableForecasts": 51,
+            "maxErrorM": 0.7536782858243967,
+            "meanErrorM": 0.24507348342349541,
+            "rejected": 75,
+            "covered": 14,
+            "rows": 95,
+            "compared": 14
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "available": false,
+              "ordinal": 25
+            },
+            {
+              "available": false,
+              "ordinal": 50
+            },
+            {
+              "available": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.8427280390449036,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 28.878,
+          "metrics": {
+            "measured": 20,
+            "availableForecasts": 11,
+            "maxErrorM": 0.9316595673009699,
+            "meanErrorM": 0.5013531902770471,
+            "rejected": 75,
+            "covered": 7,
+            "withheldForecasts": 84,
+            "rows": 95,
+            "compared": 7
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "available": false,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.8476921480943302,
+              "radiusM": 2.9774056811678666,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 0.4096722912777568,
+              "radiusM": 3.5473905199074616,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 2.0225290312294537,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 13.2333,
+          "metrics": {
+            "measured": 20,
+            "availableForecasts": 51,
+            "maxErrorM": 0.9316595673009699,
+            "meanErrorM": 0.4986039831957389,
+            "rejected": 75,
+            "covered": 14,
+            "withheldForecasts": 44,
+            "rows": 95,
+            "compared": 14
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-confirm-3000-flow.json",
+      "sha256": "a7874317cb55bc7db397c46da2f132d4366eed974253df9bf2c52436bc5cfefc",
+      "input": "confirm-3000-flow.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.4379913467407525,
+              "radiusM": 1.557523463895403,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.8744060726932135,
+              "radiusM": 1.5701373366845717,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.4690221344879788,
+              "radiusM": 1.596922477460685,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.5880345240328761,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 40.0495,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.027229626394006185,
+            "meanErrorM": 0.00550103854805171,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 124.39999999999999,
+            "positionM": [
+              4.556628048933078,
+              4.354577187638189
+            ],
+            "radiusM": 17.55098183830656,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.43638185816576247,
+              "radiusM": 0.6510433061142115,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.8748805656549108,
+              "radiusM": 0.6554604399728969,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.467279039814492,
+              "radiusM": 0.6655645589407575,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.6700788552464436,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 47.8054,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 91,
+            "maxErrorM": 0.03131481175877219,
+            "meanErrorM": 0.00859634643090779,
+            "rejected": 0,
+            "covered": 91,
+            "withheldForecasts": 4,
+            "rows": 95,
+            "compared": 91
+          },
+          "future": {
+            "reason": "Best declared radius 3.403994 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 3.4039941400360023,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.43638185816576247,
+              "radiusM": 0.6510433061142115,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.8748805656549108,
+              "radiusM": 0.6554604399728969,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.467279039814492,
+              "radiusM": 0.6655645589407575,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.6892142331289397,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 33.4688,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.03131481175877219,
+            "meanErrorM": 0.008920803321229593,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              80,
+              95
+            ],
+            "seconds": 124.39999999999999,
+            "baselineS": 0.5999999999999943,
+            "positionM": [
+              4.629776385487216,
+              4.681238819808184
+            ],
+            "radiusM": 3.4039941400360023,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-confirm-3000-scale-aware.json",
+      "sha256": "22158b3d38ae08be19066e04cefa12dd713608923d68e3350ac2377fe8d89a5b",
+      "input": "confirm-3000-scale-aware.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.47694841879817435,
+              "radiusM": 1.548963206991671,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.878929158489471,
+              "radiusM": 1.5687645838345983,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.3847194644168328,
+              "radiusM": 1.6154415269232074,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.5909507668388116,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 37.8412,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.02355283907224465,
+            "meanErrorM": 0.005811435573712998,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 124.39999999999999,
+            "positionM": [
+              4.6237071180597065,
+              4.199438804049124
+            ],
+            "radiusM": 17.458507770221164,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.47576975051089304,
+              "radiusM": 0.6479483431657355,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.8817170519907118,
+              "radiusM": 0.6549901330199459,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.3819162301743573,
+              "radiusM": 0.6723763338588238,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.6711643729852192,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 40.1029,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 91,
+            "maxErrorM": 0.0378824341406412,
+            "meanErrorM": 0.00970875828048722,
+            "rejected": 0,
+            "covered": 91,
+            "withheldForecasts": 4,
+            "rows": 95,
+            "compared": 91
+          },
+          "future": {
+            "reason": "Best declared radius 3.403680 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 3.403679853091755,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.47576975051089304,
+              "radiusM": 0.6479483431657355,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.8817170519907118,
+              "radiusM": 0.6549901330199459,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.3819162301743573,
+              "radiusM": 0.6723763338588238,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.690286684159193,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 28.8074,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.0378824341406412,
+            "meanErrorM": 0.009961886032914136,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              80,
+              95
+            ],
+            "seconds": 124.39999999999999,
+            "baselineS": 0.5999999999999943,
+            "positionM": [
+              4.62144683891322,
+              4.519904433251297
+            ],
+            "radiusM": 3.403679853091755,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-confirm-4500-fixed.json",
+      "sha256": "144ea377a768093b7483e8389da1b10bc7f69db665d8aabca31b2598f8a6f64b",
+      "input": "confirm-4500-fixed.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 5.457751759789731,
+              "radiusM": 5.12413553392405,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.1795983455836525,
+              "radiusM": 1.8314523387210657,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 3.9111320486005554,
+              "radiusM": 35.858715296249045,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 8.322796926839736,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 29.1655,
+          "metrics": {
+            "measured": 26,
+            "availableForecasts": 82,
+            "maxErrorM": 3.8092212502296037,
+            "meanErrorM": 0.569775027019558,
+            "rejected": 69,
+            "covered": 22,
+            "rows": 95,
+            "compared": 22
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "available": false,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.1792332314092626,
+              "radiusM": 0.7932258101992365,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "available": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.8314011568744456,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 33.6048,
+          "metrics": {
+            "measured": 26,
+            "availableForecasts": 13,
+            "maxErrorM": 0.07704204854949101,
+            "meanErrorM": 0.038095136148069884,
+            "rejected": 69,
+            "covered": 9,
+            "withheldForecasts": 82,
+            "rows": 95,
+            "compared": 9
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 2.186403062591656,
+              "radiusM": 4.802557096004674,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 1.1792332314092626,
+              "radiusM": 0.7932258101992365,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 5.931380314981009,
+              "radiusM": 4.451447854996424,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 3.7274384874999122,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 14.166,
+          "metrics": {
+            "measured": 26,
+            "availableForecasts": 82,
+            "maxErrorM": 4.459112210552823,
+            "meanErrorM": 0.8088555043926239,
+            "rejected": 69,
+            "covered": 21,
+            "withheldForecasts": 13,
+            "rows": 95,
+            "compared": 22
+          },
+          "future": {
+            "reason": "Accepted-measurement gap or forecast horizon exceeded",
+            "available": false
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-confirm-4500-flow.json",
+      "sha256": "37900b679f73e9b04edcc0fc3153d0cfe05c1d899f31cf266eb2b98d869e6a88",
+      "input": "confirm-4500-flow.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.15049486004691906,
+              "radiusM": 1.7675726929407625,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.7243724523373015,
+              "radiusM": 1.9512695161334555,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.2943703344151132,
+              "radiusM": 1.9881628823888284,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.8942854432986223,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 39.812,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.07950855882919264,
+            "meanErrorM": 0.013775852427974985,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 184.4,
+            "positionM": [
+              2.4469298435557034,
+              5.446802178727956
+            ],
+            "radiusM": 21.798944156640538,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.15481705740288443,
+              "radiusM": 0.7293103209237131,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.7053406150962428,
+              "radiusM": 0.7970701308470682,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.2707408097256594,
+              "radiusM": 0.8123355033716089,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.7842367458135673,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 39.7638,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 90,
+            "maxErrorM": 0.066127837055016,
+            "meanErrorM": 0.01610525214020941,
+            "rejected": 0,
+            "covered": 90,
+            "withheldForecasts": 5,
+            "rows": 95,
+            "compared": 90
+          },
+          "future": {
+            "reason": "Best declared radius 3.801968 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 3.8019682955827454,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.15481705740288443,
+              "radiusM": 0.7293103209237131,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.7053406150962428,
+              "radiusM": 0.7970701308470682,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.2707408097256594,
+              "radiusM": 0.8123355033716089,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.8062464935405996,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 28.7587,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.066127837055016,
+            "meanErrorM": 0.01671018584029942,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              80,
+              95
+            ],
+            "seconds": 184.4,
+            "baselineS": 0.6000000000000227,
+            "positionM": [
+              2.493088015159677,
+              5.6299544623517885
+            ],
+            "radiusM": 3.8019682955827454,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-confirm-4500-scale-aware.json",
+      "sha256": "79ccf0442f2828c3c93bdb2345981cfd221535967bc6112371ff80e01aba1de5",
+      "input": "confirm-4500-scale-aware.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 0.16639568586650133,
+              "radiusM": 1.7627636971444314,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.6926615284298255,
+              "radiusM": 1.9624172180311328,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.33190840924572,
+              "radiusM": 1.965400717941548,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.8907531958453296,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 41.3014,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.08078184484930433,
+            "meanErrorM": 0.014655565813994695,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 184.4,
+            "positionM": [
+              2.425803866190131,
+              5.5296624295785035
+            ],
+            "radiusM": 21.771150623488083,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.17984155924473225,
+              "radiusM": 0.7282440621848572,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.6679215911311227,
+              "radiusM": 0.8009487996746161,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.3359801407825214,
+              "radiusM": 0.8048205207495112,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.7827716336189597,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 48.2522,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 90,
+            "maxErrorM": 0.06999359916988683,
+            "meanErrorM": 0.018614513902527028,
+            "rejected": 0,
+            "covered": 90,
+            "withheldForecasts": 5,
+            "rows": 95,
+            "compared": 90
+          },
+          "future": {
+            "reason": "Best declared radius 3.799479 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 3.7994787303309883,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 0.17984155924473225,
+              "radiusM": 0.7282440621848572,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 25
+            },
+            {
+              "errorM": 0.6679215911311227,
+              "radiusM": 0.8009487996746161,
+              "available": true,
+              "coveredIncludingGrid": true,
+              "ordinal": 50
+            },
+            {
+              "errorM": 1.3359801407825214,
+              "radiusM": 0.8048205207495112,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.8050872700973026,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 33.687,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.06999359916988683,
+            "meanErrorM": 0.019234248627135166,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              80,
+              95
+            ],
+            "seconds": 184.4,
+            "baselineS": 0.6000000000000227,
+            "positionM": [
+              2.523952281054693,
+              5.6457023310301215
+            ],
+            "radiusM": 3.7994787303309883,
+            "available": true,
+            "aheadS": 0.5999999999999943
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-flow-development.json",
+      "sha256": "6fa89614b134e77f932823d7c50eb2b8168e105d5fd13b72f82b905de6801084",
+      "input": "flow-development.json",
+      "records": [
+        {
+          "independentScores": [
+            {
+              "errorM": 3.5582028229289078,
+              "radiusM": 2.681369446287711,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 25
+            },
+            {
+              "errorM": 5.594911381296043,
+              "radiusM": 3.246865070703997,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 6.375815140918675,
+              "radiusM": 3.1872558649353433,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 2.9489127567997007,
+          "policy": "legacy-adjacent",
+          "elapsedMs": 42.2715,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.11172725166891413,
+            "meanErrorM": 0.028547204267685575,
+            "rejected": 0,
+            "covered": 93,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              94,
+              95
+            ],
+            "seconds": 24.400000000000002,
+            "positionM": [
+              3.350496467894259,
+              11.281615031818115
+            ],
+            "radiusM": 35.82027652094082,
+            "available": true,
+            "aheadS": 0.6000000000000014
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "available": false,
+              "ordinal": 25
+            },
+            {
+              "available": false,
+              "ordinal": 50
+            },
+            {
+              "available": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 0.9615385450498752,
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 44.1828,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 14,
+            "maxErrorM": 0.15809753384828118,
+            "meanErrorM": 0.0621932798628077,
+            "rejected": 0,
+            "covered": 14,
+            "withheldForecasts": 81,
+            "rows": 95,
+            "compared": 14
+          },
+          "future": {
+            "reason": "Best declared radius 5.106950 m exceeds requested 1.000000 m; no precise forecast claimed",
+            "bestRadiusM": 5.106949606767709,
+            "available": false,
+            "requestedRadiusM": 1
+          }
+        },
+        {
+          "independentScores": [
+            {
+              "errorM": 3.458863217640835,
+              "radiusM": 1.073253398057727,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 25
+            },
+            {
+              "errorM": 5.614551092822145,
+              "radiusM": 1.28613387461446,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 50
+            },
+            {
+              "errorM": 6.477644929673165,
+              "radiusM": 1.259546905279214,
+              "available": true,
+              "coveredIncludingGrid": false,
+              "ordinal": 75
+            }
+          ],
+          "meanAvailableRadiusM": 1.2093210474673686,
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 30.4871,
+          "metrics": {
+            "measured": 95,
+            "availableForecasts": 93,
+            "maxErrorM": 0.19115908934620957,
+            "meanErrorM": 0.05796513020194531,
+            "rejected": 0,
+            "covered": 93,
+            "withheldForecasts": 2,
+            "rows": 95,
+            "compared": 93
+          },
+          "future": {
+            "fromOrdinals": [
+              80,
+              95
+            ],
+            "seconds": 24.400000000000002,
+            "baselineS": 0.6000000000000014,
+            "positionM": [
+              3.552051468144411,
+              10.387742069601389
+            ],
+            "radiusM": 5.106949606767709,
+            "available": true,
+            "aheadS": 0.6000000000000014
+          }
+        }
+      ]
+    },
+    {
+      "path": "build/diagnostic129/forecast-scale-aware-second-terrace-calibration.json",
+      "sha256": "3b9b71f91d43a656cd46381453a6cee552a3c87df4d0dab110c75d6e0a4c7d5b",
+      "input": "scale-aware-second-terrace-calibration.json",
+      "records": [
+        {
+          "refused": "At least three accepted positions and one bounded forecast comparison required",
+          "policy": "legacy-adjacent",
+          "elapsedMs": 28.1167
+        },
+        {
+          "refused": "At least three accepted positions and one forecast within the declared radius are required; improve observations or explicitly choose a different precision budget",
+          "policy": "bounded-budget-1m",
+          "elapsedMs": 22.947
+        },
+        {
+          "refused": "At least three accepted positions and one forecast within the declared radius are required; improve observations or explicitly choose a different precision budget",
+          "policy": "bounded-diagnostic-100m",
+          "elapsedMs": 14.1459
+        }
+      ]
+    }
+  ],
+  "scope": "Summary uses the same ten held/confirmation incumbent traces. Other methods and development traces retained separately, including refusals. Source rows are already computed; only forecast evaluation runs. Single timings include JVM warmup and are not end-to-end speed claims. Independent coverage includes 250mm reference-grid uncertainty."
+}

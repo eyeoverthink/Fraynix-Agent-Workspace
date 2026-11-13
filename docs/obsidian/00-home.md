@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/137-tracking-precision.md]] | [[README-129.md]]
+
 Current: [[docs/obsidian/136-observation-artifact.md]] | [[README-128.md]]
 
 Current: [[docs/obsidian/135-procedure-lifecycle.md]] | [[README-127.md]]

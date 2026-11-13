@@ -4,6 +4,10 @@ r=Path.cwd();env=os.environ.copy();env['JAVA_HOME']='C:/Program Files/Eclipse Ad
 folder=r/'build/validation129';folder.mkdir(parents=True,exist_ok=True)
 def run(name,args,cwd=r):
  start=time.monotonic()
+ for suffix in ['log','json']:
+  prior=r/'build'/f'{name}.{suffix}'
+  if prior.exists():
+   archived=folder/'prior-successful-packages';archived.mkdir(exist_ok=True);shutil.copy2(prior,archived/(str(time.time_ns())+'-'+prior.name))
  with (r/'build'/f'{name}.log').open('wb') as out:p=subprocess.run(args,cwd=cwd,env=env,stdout=out,stderr=subprocess.STDOUT)
  result={'name':name,'exit':p.returncode,'seconds':time.monotonic()-start};(r/'build'/f'{name}.json').write_text(json.dumps(result,indent=2),encoding='utf8');print(json.dumps(result),flush=True)
  if p.returncode:raise SystemExit(p.returncode)
@@ -15,6 +19,9 @@ if group=='java':
  for t in tests:args+=['--tests','fraymus.workspace.'+t]
  run('java129-final',args+['--console=plain','--max-workers=2'])
  shutil.copytree(r/'workspace-engine/build/test-results/test',folder/'final',dirs_exist_ok=False)
+elif group in ['routing','optin','svg','wording']:
+ run(('routing129-final' if group=='routing' else group+'129-final'),['cmd','/c','gradlew.bat',':workspace-engine:test','--tests','fraymus.workspace.ObservationForecast129Test','--tests','fraymus.workspace.Domain044Test','--tests','fraymus.workspace.ObservationArtifact128Test','--console=plain','--max-workers=2'])
+ shutil.copytree(r/'workspace-engine/build/test-results/test',folder/group,dirs_exist_ok=False)
 elif group=='desktop':
  run('desktop129-final',['cmd','/c','npm.cmd','test'],r/'workspace-desktop')
  env['AGENCY043_OUTPUT']=str(r/'build/agency129-evidence')

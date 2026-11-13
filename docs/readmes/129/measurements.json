@@ -1,0 +1,554 @@
+{
+  "rows": [
+    {
+      "name": "held-1200",
+      "preparationMs": 17235.0082,
+      "requestMs": 11182,
+      "metrics": {
+        "measured": 95,
+        "availableForecasts": 66,
+        "maxErrorM": 0.05125353363424173,
+        "meanErrorM": 0.0121035819272274,
+        "rejected": 0,
+        "covered": 66,
+        "withheldForecasts": 29,
+        "rows": 95,
+        "compared": 66
+      },
+      "independentReferenceSamples": 3,
+      "meanTrackingReferenceErrorM": 0.9046013458993921,
+      "resumes": 1,
+      "future": {
+        "reason": "Best declared radius 4.385589 m exceeds requested 1.000000 m; no precise forecast claimed",
+        "bestRadiusM": 4.385588739039545,
+        "available": false,
+        "requestedRadiusM": 1
+      }
+    },
+    {
+      "name": "held-2200",
+      "preparationMs": 52159.184799999995,
+      "requestMs": 13924,
+      "metrics": {
+        "measured": 95,
+        "availableForecasts": 92,
+        "maxErrorM": 0.02880217040654433,
+        "meanErrorM": 0.007260202609761928,
+        "rejected": 0,
+        "covered": 92,
+        "withheldForecasts": 3,
+        "rows": 95,
+        "compared": 92
+      },
+      "independentReferenceSamples": 3,
+      "meanTrackingReferenceErrorM": 0.6679875150156237,
+      "resumes": 0,
+      "future": {
+        "reason": "Best declared radius 2.842550 m exceeds requested 1.000000 m; no precise forecast claimed",
+        "bestRadiusM": 2.8425504160967368,
+        "available": false,
+        "requestedRadiusM": 1
+      }
+    }
+  ],
+  "trackingDecisions": {
+    "cohorts": [
+      {
+        "cohort": "held",
+        "methods": {
+          "flow": {
+            "acceptedReferences": 15,
+            "totalReferences": 15,
+            "withinOneMetre": 9,
+            "overTwoMetres": 0,
+            "meanAcceptedErrorM": 0.7893359561723485,
+            "trackerMs": 5336.9008,
+            "inputs": [
+              {
+                "input": "held-1200-flow.json",
+                "sha256": "20ac4e1cb98ee061e1aa79e07990508ea023468d557ba56df875b0e9a4eb3f8f",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 2,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 768.2851,
+                  "meanAcceptedErrorM": 0.9046013458993921,
+                  "maxAcceptedErrorM": 1.2800102787600536
+                }
+              },
+              {
+                "input": "held-1700-flow.json",
+                "sha256": "796be0d2683033198dd924dc0b00fb80ad0b7e096776d1a6eba85bfdaf0af404",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 1,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 835.266,
+                  "meanAcceptedErrorM": 0.960366765620441,
+                  "maxAcceptedErrorM": 1.4211779967082114
+                }
+              },
+              {
+                "input": "held-2200-flow.json",
+                "sha256": "c03ceafb42b5126321531982c14c9c25eeaed23302ead480192e68d274f4efb9",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 2,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 1841.9597,
+                  "meanAcceptedErrorM": 0.6653418736111437,
+                  "maxAcceptedErrorM": 1.1313869182530991
+                }
+              },
+              {
+                "input": "held-3100-flow.json",
+                "sha256": "f2df4ea6dab2fef1fcd55f2bc3b82b9632828e369af7e671664abd547af94721",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 1,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 808.8405,
+                  "meanAcceptedErrorM": 0.8176352383444209,
+                  "maxAcceptedErrorM": 1.1618756448228964
+                }
+              },
+              {
+                "input": "held-4300-flow.json",
+                "sha256": "89633c60eb17808d4a9b58b8fa60e188839174544dfabd1342030ee9555ecff1",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 3,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 1082.5495,
+                  "meanAcceptedErrorM": 0.5987345573863455,
+                  "maxAcceptedErrorM": 0.8298535638617603
+                }
+              }
+            ]
+          },
+          "fixed": {
+            "acceptedReferences": 4,
+            "totalReferences": 15,
+            "withinOneMetre": 0,
+            "overTwoMetres": 4,
+            "meanAcceptedErrorM": 4.206489495621201,
+            "trackerMs": 5798.002200000001,
+            "inputs": [
+              {
+                "input": "held-1200-fixed.json",
+                "sha256": "d20bf6b242dd3bb9e81cfbd03238c2c0f3b53d16061d9273b8f97f2053b80a38",
+                "metrics": {
+                  "scoredAccepted": 0,
+                  "withinOneMetre": 0,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 16,
+                  "trackerMs": 1319.9203,
+                  "meanAcceptedErrorM": null,
+                  "maxAcceptedErrorM": null
+                }
+              },
+              {
+                "input": "held-1700-fixed.json",
+                "sha256": "f4789c82c9b15af5024082cf4281c468ead45d599bd242578e13f71226dfe951",
+                "metrics": {
+                  "scoredAccepted": 2,
+                  "withinOneMetre": 0,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 34,
+                  "trackerMs": 1026.0185,
+                  "meanAcceptedErrorM": 4.013711309680231,
+                  "maxAcceptedErrorM": 4.356424919567208
+                }
+              },
+              {
+                "input": "held-2200-fixed.json",
+                "sha256": "78dcdda6e775c3d4681285cc7c8ee8cf8cfb46abb0ab01858acca5765772919d",
+                "metrics": {
+                  "scoredAccepted": 0,
+                  "withinOneMetre": 0,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 17,
+                  "trackerMs": 774.054,
+                  "meanAcceptedErrorM": null,
+                  "maxAcceptedErrorM": null
+                }
+              },
+              {
+                "input": "held-3100-fixed.json",
+                "sha256": "c19979622d9840db55f4a51635d3b3b6af72d024b1415d7150986e864805eb07",
+                "metrics": {
+                  "scoredAccepted": 2,
+                  "withinOneMetre": 0,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 18,
+                  "trackerMs": 1757.7021,
+                  "meanAcceptedErrorM": 4.399267681562172,
+                  "maxAcceptedErrorM": 4.804929349667087
+                }
+              },
+              {
+                "input": "held-4300-fixed.json",
+                "sha256": "8282f7fe29abe836853ecf800b256fb276fec07fdd1c99d45841bc9afb5286c1",
+                "metrics": {
+                  "scoredAccepted": 0,
+                  "withinOneMetre": 0,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 4,
+                  "trackerMs": 920.3073,
+                  "meanAcceptedErrorM": null,
+                  "maxAcceptedErrorM": null
+                }
+              }
+            ]
+          },
+          "scale-aware": {
+            "acceptedReferences": 15,
+            "totalReferences": 15,
+            "withinOneMetre": 11,
+            "overTwoMetres": 0,
+            "meanAcceptedErrorM": 0.7241121243000684,
+            "trackerMs": 4504.4069,
+            "inputs": [
+              {
+                "input": "held-1200-scale-aware.json",
+                "sha256": "befa4cf611efe565169861edb0751e38f97ed7e3ac548906865b567f715c6962",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 2,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 674.8168,
+                  "meanAcceptedErrorM": 0.7103128840634948,
+                  "maxAcceptedErrorM": 1.124415120090245
+                }
+              },
+              {
+                "input": "held-1700-scale-aware.json",
+                "sha256": "43550e1491ba0ab362af1c41446b5c2ac54d812b95a6ee35526077c2db76f93c",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 2,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 644.6135,
+                  "meanAcceptedErrorM": 0.8667368257130019,
+                  "maxAcceptedErrorM": 1.2354264703308835
+                }
+              },
+              {
+                "input": "held-2200-scale-aware.json",
+                "sha256": "c20fef3812ad8bf3ad25be852e1817e81d0b89ac3b32a0455862fcb5c24b46e7",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 2,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 1120.2364,
+                  "meanAcceptedErrorM": 0.6679875150156237,
+                  "maxAcceptedErrorM": 1.1403462724801117
+                }
+              },
+              {
+                "input": "held-3100-scale-aware.json",
+                "sha256": "55a1459ee66de6bcc39a6a8c2ff18b141ab7835c07393de37cae24d23a52a8d2",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 2,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 676.8052,
+                  "meanAcceptedErrorM": 0.8014819226748525,
+                  "maxAcceptedErrorM": 1.0880249355925975
+                }
+              },
+              {
+                "input": "held-4300-scale-aware.json",
+                "sha256": "d1ee660fa88b4c253302cee8674d61cd128f818ef4cbf73e8fc9211bb18b42c6",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 3,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 1387.935,
+                  "meanAcceptedErrorM": 0.5740414740333691,
+                  "maxAcceptedErrorM": 0.8093802263781896
+                }
+              }
+            ]
+          }
+        },
+        "promoted": false,
+        "failedCriterion": "Strictly fewer errors over two metres: both zero."
+      },
+      {
+        "cohort": "confirm",
+        "methods": {
+          "flow": {
+            "acceptedReferences": 15,
+            "totalReferences": 15,
+            "withinOneMetre": 9,
+            "overTwoMetres": 1,
+            "meanAcceptedErrorM": 1.068128973224448,
+            "trackerMs": 5935.1841,
+            "inputs": [
+              {
+                "input": "confirm-1000-flow.json",
+                "sha256": "f3ec396b69343780ef4711ec29e21234e2cb7c266923b3815ee131fde81e828c",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 3,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 1080.709,
+                  "meanAcceptedErrorM": 0.5503559024336656,
+                  "maxAcceptedErrorM": 0.7224544046762403
+                }
+              },
+              {
+                "input": "confirm-1500-flow.json",
+                "sha256": "16b84725b18878bb247cca2cf4e59e08a8fb006cca82f7fc8e8ab3177ee99c15",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 1,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 1009.4453,
+                  "meanAcceptedErrorM": 1.2136302113571007,
+                  "maxAcceptedErrorM": 1.7294508082290547
+                }
+              },
+              {
+                "input": "confirm-2100-flow.json",
+                "sha256": "2c9324d8616fb9d9d869fc514be868251beaeb6d921da067cc0932fc78d21e7f",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 1,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 2094.689,
+                  "meanAcceptedErrorM": 1.9039550004399013,
+                  "maxAcceptedErrorM": 3.846494761848255
+                }
+              },
+              {
+                "input": "confirm-3000-flow.json",
+                "sha256": "30e6bd49bad7eedbdcc9a5a00e80f7b04baca812955bcb6cf1adf3f1878f6a35",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 2,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 925.9279,
+                  "meanAcceptedErrorM": 0.9261093407859806,
+                  "maxAcceptedErrorM": 1.4705144850658698
+                }
+              },
+              {
+                "input": "confirm-4500-flow.json",
+                "sha256": "5248a03fa34408264716d88c0e79e4584e32acbed2aa74279e5a2bee1f871d79",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 2,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 824.4129,
+                  "meanAcceptedErrorM": 0.7465944111055925,
+                  "maxAcceptedErrorM": 1.3358371467270411
+                }
+              }
+            ]
+          },
+          "fixed": {
+            "acceptedReferences": 5,
+            "totalReferences": 15,
+            "withinOneMetre": 0,
+            "overTwoMetres": 0,
+            "meanAcceptedErrorM": 1.4635129063834103,
+            "trackerMs": 4721.2024,
+            "inputs": [
+              {
+                "input": "confirm-1000-fixed.json",
+                "sha256": "b6f79f835d92069105e10a59ab23436c7d475b8f6eb9c92a0819dd00a1f468ca",
+                "metrics": {
+                  "scoredAccepted": 0,
+                  "withinOneMetre": 0,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 1,
+                  "trackerMs": 825.2987,
+                  "meanAcceptedErrorM": null,
+                  "maxAcceptedErrorM": null
+                }
+              },
+              {
+                "input": "confirm-1500-fixed.json",
+                "sha256": "60e045d762ffea411919fd2a445a7464dae27c218064a1a194e10e1b3fde72f2",
+                "metrics": {
+                  "scoredAccepted": 1,
+                  "withinOneMetre": 0,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 17,
+                  "trackerMs": 817.4479,
+                  "meanAcceptedErrorM": 1.6745507020557284,
+                  "maxAcceptedErrorM": 1.6745507020557284
+                }
+              },
+              {
+                "input": "confirm-2100-fixed.json",
+                "sha256": "1b761b699fa021da8c401d443a72346d4100ef529ede17e860623d5c33136d83",
+                "metrics": {
+                  "scoredAccepted": 1,
+                  "withinOneMetre": 0,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 24,
+                  "trackerMs": 888.0609,
+                  "meanAcceptedErrorM": 1.8649211194681183,
+                  "maxAcceptedErrorM": 1.8649211194681183
+                }
+              },
+              {
+                "input": "confirm-3000-fixed.json",
+                "sha256": "822848fb62ef69abec2e543d258f42946cdaf73d5a59d64a03991839e97f767e",
+                "metrics": {
+                  "scoredAccepted": 1,
+                  "withinOneMetre": 0,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 20,
+                  "trackerMs": 1043.701,
+                  "meanAcceptedErrorM": 1.1227904651409018,
+                  "maxAcceptedErrorM": 1.1227904651409018
+                }
+              },
+              {
+                "input": "confirm-4500-fixed.json",
+                "sha256": "424995a3763131f86c93e925339f3bf523458b5dd8adb41ba54d21446f9e3f82",
+                "metrics": {
+                  "scoredAccepted": 2,
+                  "withinOneMetre": 0,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 26,
+                  "trackerMs": 1146.6939,
+                  "meanAcceptedErrorM": 1.3276511226261518,
+                  "maxAcceptedErrorM": 1.4794843762099836
+                }
+              }
+            ]
+          },
+          "scale-aware": {
+            "acceptedReferences": 15,
+            "totalReferences": 15,
+            "withinOneMetre": 9,
+            "overTwoMetres": 1,
+            "meanAcceptedErrorM": 1.0066544259247876,
+            "trackerMs": 5132.994,
+            "inputs": [
+              {
+                "input": "confirm-1000-scale-aware.json",
+                "sha256": "ddde759cb51878dac72344042edf970e9a7ac38fc1dae5c1ff9ab091ac047173",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 3,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 1361.9592,
+                  "meanAcceptedErrorM": 0.6345924622539386,
+                  "maxAcceptedErrorM": 0.8821426290470263
+                }
+              },
+              {
+                "input": "confirm-1500-scale-aware.json",
+                "sha256": "f827536d4631391fa6cb7527fbde56dc6223d8072e777e89c350f2872c2ef151",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 1,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 726.7459,
+                  "meanAcceptedErrorM": 1.1341462793599646,
+                  "maxAcceptedErrorM": 1.6587751722491935
+                }
+              },
+              {
+                "input": "confirm-2100-scale-aware.json",
+                "sha256": "6e2d053c4475c84d0744a892df57d9135fe827ec272a26366a84af175df19af9",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 1,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 1707.9081,
+                  "meanAcceptedErrorM": 1.5985658042035418,
+                  "maxAcceptedErrorM": 3.0154714114701173
+                }
+              },
+              {
+                "input": "confirm-3000-scale-aware.json",
+                "sha256": "5309906498404304e896ac69fb56be60d525a68ab0ab795ee49f2d662cbccb2b",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 2,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 767.8049,
+                  "meanAcceptedErrorM": 0.9100099878597181,
+                  "maxAcceptedErrorM": 1.3860791440625753
+                }
+              },
+              {
+                "input": "confirm-4500-scale-aware.json",
+                "sha256": "955a4e649b64f5210643d93a09de2ebc4e10d0ae1cec5036bce9c77d99a06e47",
+                "metrics": {
+                  "scoredAccepted": 3,
+                  "withinOneMetre": 2,
+                  "frames": 95,
+                  "references": 3,
+                  "accepted": 95,
+                  "trackerMs": 568.5759,
+                  "meanAcceptedErrorM": 0.7559575959467754,
+                  "maxAcceptedErrorM": 1.3485569531033583
+                }
+              }
+            ]
+          }
+        },
+        "promoted": false,
+        "failedCriterion": "Strictly more references within one metre: both nine."
+      }
+    ],
+    "decision": "Retain incumbent default. Unchanged candidate remains explicitly experimental. No post-confirmation tuning. Small correlated cases from one camera, not general tracking qualification."
+  },
+  "scope": "Single measured task spans on this machine. First includes explicit review, crash, cold restart and UI checks; both include source/outcome rechecks. Preparation is tracked separately. No speedup estimate, repeated timing confidence or new unseen-footage claim."
+}

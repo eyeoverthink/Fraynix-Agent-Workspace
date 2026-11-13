@@ -1,3 +1,5 @@
+[Edition129 — measured tracking and precision](../../README-129.md) | [Offline guide](129/index.html)
+
 [Edition128 — observed motion to working artifact](../../README-128.md) | [Offline guide](128/index.html)
 
 [Edition127 - saved Java procedure lifecycle](../../README-127.md) | [Offline guide](127/index.html)

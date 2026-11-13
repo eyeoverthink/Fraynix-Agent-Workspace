@@ -1,157 +1,167 @@
-# Fraynix Agent Workspace — Edition 128
+# Fraynix Agent Workspace — Edition 129
 
-[Published and fetched verification receipt](docs/PUBLICATION_128.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-128)
+**Measure tracking against independent references. Keep the proven default. Withhold forecasts that cannot meet the requested precision.**
 
-**One request connects an observed object, a bounded forecast and a working, independently checked artifact.**
+2026-11-12 · Java-owned tasks, evidence and recovery · Local browser, canvas and world
 
-2026-11-12 · Local Java ownership · Persistent evidence · Integrated browser and canvas
+[Previous edition](README-128.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/129/index.html) · [Acceptance contract](docs/EDITION_129_CONTRACT.md) · [Integrated direction](docs/INTEGRATED_AGENT_ROADMAP.md)
 
-[Previous edition](README-127.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/128/index.html) · [Acceptance contract](docs/EDITION_128_CONTRACT.md) · [Long-term direction](docs/INTEGRATED_AGENT_ROADMAP.md)
+![Actual motion explorer after verified completion](docs/readmes/129/motion-chart.png)
 
-![Actual verified motion explorer in the app](docs/readmes/128/motion-chart.png)
+## The application and its direction
 
-## What the application is becoming
+Fraynix is one continuing local agent workspace. Java owns durable goals, observations, typed tools, world identity, procedure memory, verification and recovery. Chat, browser, creation canvas, Game Lab and physics simulation are connected surfaces. The intended loop remains **observe → choose → act → check → remember → evaluate reuse**.
 
-Fraynix is a continuing local agent workspace. Java owns durable tasks, observations, typed tools, world identity, procedure memory, verification and recovery. Chat, browser, creation canvas, Game Lab and physical simulation are working surfaces of that application. The intended loop remains **observe → choose → act → check → remember → evaluate reuse**.
+Edition 126 demonstrated a real local model completing supported browser, world and creation requests. Edition 127 added procedure inspection, retirement and checked reactivation. Edition 128 connected a calibrated recorded observation to a verified working artifact, but independent references exposed tracking drift and broad prediction bounds. Edition 129 addresses those measurements without hiding the unsuccessful experiment. These changes use handwritten Java, existing dependencies and transparent algorithms; they add no external tracking service, neural training or fresh model call.
 
-Edition 126 demonstrated a real local model completing supported browser, world and creation requests. Edition 127 added inspection, retirement and checked reactivation of saved procedures. Edition 128 connects the observation and creation surfaces: a recorded motion sequence becomes an interactive explanation, through one durable chat request, with original evidence retained. This phase uses a registered Java procedure and Java-authored artifact; it does not claim a new LLM generation or neural-weight training.
+## What changed
 
-## The complete request
+- **Explicit precision:** choose a maximum forecast radius in the existing measured-world panel. The prepared chat request retains it through interruption, verification and saved-procedure reuse.
+- **Experimental longer causal baselines:** choose the smallest valid engineering envelope among earlier accepted positions in a bounded history. Acceleration during both the baseline and the future interval is included.
+- **Honest withholding:** a forecast wider than the chosen limit has no claimed position. It exposes the reason and best available bound, rather than clipping its uncertainty.
+- **Controlled tracking experiment:** an optional scale-aware flow candidate keeps feature patches within the target's image scale. It failed promotion. The existing flow tracker remains the default; the experimental option is labelled in the actual UI and recorded per run.
+- **Implementation identity:** tracker proofs now include nested and supporting implementation classes. Old incompatible proofs require explicit fresh runs; no evidence is relabelled under changed code.
 
-After selecting a completed calibrated observation, enter:
+## Try the complete request
 
-> Create an observation-to-artifact explorer from the selected calibrated run and save the procedure as motion-explorer.
+1. Start the normal workspace launcher. Preserve your private project; use an isolated project for experiments.
+2. Open **3D Lab → Persistent world**, select a saved world, import a supported recorded-frame package and bind its subject to a world body. Keep **Existing flow tracker** selected unless deliberately evaluating the experimental candidate. Confirm selection, then track the original pixels.
+3. Under **Measured world → camera, scale & uncertainty**, select the matching calibration and measure the completed run. Choose **Maximum forecast radius (m)**; the default is one metre.
+4. Click **Prepare motion explorer request**, review it in chat and send:
 
-Java performs four stages:
+> Create an observation-to-artifact explorer from the selected calibrated run, maximum forecast radius 1 metres, and save the procedure as motion-explorer.
 
-1. **Bind the observation.** Verify the original image hashes, completed tracker run, actual source timestamps, camera calibration and persistent world/body identity.
-2. **Forecast motion.** Use the last two earlier accepted measurements to forecast subsequent positions. Keep tracking losses, unprojectable observations and forecast refusals visible. No later measurement enters its own prediction.
-3. **Create the artifact.** Build a working explorer with axis selection, a frame scrubber, measured and predicted chart points, original rows, provenance, error metrics and a conditional future estimate.
-4. **Verify and retain.** The independent Electron host operates the controls and reads actual DOM/SVG values. Java checks source cells, summary values, future text, provenance and four rendered states. Only then can the reusable procedure be published. Chat completion checks the original evidence again.
+5. Add **“review after forecast”** to pause before artifact creation. Resume the same request from its mission controls; interruption retains the source, policy and checkpoint.
+6. Select another completed compatible observation and ask **“Reuse motion-explorer v1 for the selected calibrated observation-to-artifact explorer and save the procedure as motion-explorer.”** Values are recomputed from fresh inputs and independently checked before saving v2.
+7. Inspect, retire or reactivate versions through **Manage saved procedures**. Original source and descendant evidence remain intact.
+
+Ordinary requests without an explicit maximum forecast radius retain the original adjacent-point policy. The prepared request explicitly opts into the experimental mode. Its one-metre input is a starting requirement, not a learned tolerance.
+
+The radius is a task requirement, not a statement that the tracker is accurate to that distance. If no bounded comparison is possible, admission refuses before reserving a workflow. Invalid explicit precision requests are refused rather than silently replaced by defaults. This workflow does not start the webcam or actuate a physical device.
+
+![The selected calibrated source and precision controls](docs/readmes/129/calibrated-source.png)
 
 ```mermaid
 flowchart LR
-    R[Chat request] --> O[Pin observations and calibration]
-    O --> F[Causal bounded forecast]
-    F --> A[Working motion explorer]
-    A --> V[Independent rendered and numeric checks]
-    V --> S[Save verified procedure]
-    I[Interruption] --> C[Recover same checkpoint]
+    R[Chat request and precision] --> O[Original observations and calibration]
+    O --> F[Causal baseline candidates]
+    F --> B{Within radius budget?}
+    B -->|Yes| P[Bounded prediction]
+    B -->|No| W[Withhold with reason]
+    P --> A[Working motion explorer]
+    W --> A
+    A --> V[Independent numeric and rendered checks]
+    V --> S[Verified versioned procedure]
+    I[Interruption] --> C[Same source and checkpoint]
     C --> O
-    S --> N[Fresh inputs and fresh checks]
 ```
 
-The existing workflow checkpoint owns these stages. A process interruption leaves the same request recoverable; completed stages remain bound to their original evidence. Source or implementation changes refuse continuation instead of silently replacing the proof.
+## Tracking experiment: failed promotion, retained evidence
 
-## Try it
+We compared the original flow tracker, a simpler frozen appearance tracker and an unchanged scale-aware candidate. Each received the same original pixels and first-frame seed. Later reference annotations were opened only after tracking finished. Losses count separately from conditional accepted error.
 
-1. Start the normal workspace launcher. Use an isolated project for experiments; preserve your existing private project and camera recordings.
-2. In **3D Lab → Persistent world**, create or select a world. In the observations section, import a supported recorded-frame package and explicitly bind its target to a world body. Run tracking to completion.
-3. In **Measured world → camera, scale & uncertainty**, select the matching saved calibration and optional empirical uncertainty profile, then click **Measure selected run**.
-4. Click **Prepare motion explorer request**. This fills chat and lets you review the request before sending. You can also type the request above directly.
-5. For an explicit recovery boundary, add **“review after forecast.”** Use the existing mission **Resume** control after reviewing it.
-6. After completion, select another completed calibrated run and ask **“Reuse motion-explorer v1 for the selected observation-to-artifact explorer.”** Every value is recomputed and verified against that input. Add **“save the procedure as motion-explorer”** to retain a separately verified version.
-7. Use **Skills, memory & settings → Manage saved procedures** to inspect the original evidence, retire a version or reactivate it after checking its evidence again.
+Development exposed severe foreground occlusion: the original problematic window averaged about 5.15 m error at its three reference positions, while the candidate lost almost all observations. It did not solve this failure. The source camera's mathematical projection was checked against twenty independently forward-projected points using separate rotation products and radial-distortion bisection; this checks conventions and arithmetic, not physical calibration accuracy.
 
-The request does not start your webcam or move a physical device. The original camera consent and capture controls remain in place.
+The candidate was locked before five fresh windows. The original gate required a strict reduction in errors above two metres; both trackers had zero, so the gate failed. We retained that failure, predeclared a separate five-window confirmation with a non-increase condition, and left the candidate unchanged. Confirmation required more reference positions within one metre; both had nine, so it also failed. There was no third attempt or post-confirmation tuning.
 
-![Same request paused before creation](docs/readmes/128/review-before-creation.png)
+| Cohort / method | Accepted references /15 | Within 1 m | Over 2 m | Mean accepted error /m | Tracking /s |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| held / flow | 15 | 9 | 0 | 0.789 | 5.337 |
+| held / fixed | 4 | 0 | 4 | 4.206 | 5.798 |
+| held / scale-aware | 15 | 11 | 0 | 0.724 | 4.504 |
+| confirm / flow | 15 | 9 | 1 | 1.068 | 5.935 |
+| confirm / fixed | 5 | 0 | 0 | 1.464 | 4.721 |
+| confirm / scale-aware | 15 | 9 | 1 | 1.007 | 5.133 |
 
-## What was actually measured
 
-Local validation passed: 172 distinct Java test methods, 161 desktop checks, executable factory-kernel harnesses, the actual agency regression and isolated offline preparation/package checks. The actual study includes an abrupt owned-Java interruption, cold restart of the same request, changed-input reuse, retained procedure lifecycle and independent numeric/rendered outcomes. Hosted CI was checked first and is reported separately.
+Each cohort has fifteen sparse reference positions, only three per window. Frames are correlated and use one fixed EPFL camera. The frozen appearance baseline loses most targets; its accepted-only mean cannot be compared without its missing observations. No result establishes general recognition, automatic person identity or robust occlusion recovery. The candidate remains available only as an explicit experiment, not a promoted default. [First lock](docs/OBSERVATION_129_CANDIDATE_LOCK.json) · [Confirmation lock](docs/OBSERVATION_129_CONFIRMATION_LOCK.json) · [All decisions](docs/readmes/129/cohort-decisions.json).
 
-- terrace-calibration: original pixels tracked into the same body identity without native motion
+## Forecast mathematics and actual limits
+
+Let the earlier and latest accepted positions be separated by `d` seconds, with positional radii `r_a` and `r_b`. For look-ahead `h` and declared acceleration bound `A`, the new radius is:
+
+```text
+radius = r_b + h * (r_a + r_b) / d + A * h * (d + h) / 2
+prediction = b + (b - a) * h / d
+```
+
+The additional `A*h*d/2` term accounts for acceleration while estimating velocity. Only earlier accepted points enter the baseline; rejected predictions never become measured training data. The default baseline window, forecast horizon and maximum gap are each 0.6 seconds; default acceleration bound is 5 m/s². History is bounded to 96 positions and the declared window. A gap clears obsolete baseline history. Choose the narrowest valid envelope and withhold it if it exceeds the requested radius; do not shrink the bound itself.
+
+| Policy across 10 incumbent windows | Available forecasts | Mean available radius /m | Independent covered / available | Mean independent error /m |
+| --- | ---: | ---: | ---: | ---: |
+| legacy-adjacent | 930 / 950 | 1.692 | 28 / 30 | 0.925 |
+| bounded-budget-1m | 865 / 950 | 0.684 | 16 / 30 | 0.925 |
+| bounded-diagnostic-100m | 930 / 950 | 0.730 | 16 / 30 | 0.925 |
+
+
+**The narrower policy is not promoted as an accuracy improvement.** Independent coverage fell from 28/30 to 16/30 reference positions while mean reference error stayed about 0.925 m. The system keeps the original policy for ordinary requests; the new mode is an explicit experiment. No bounds are declared statistically calibrated from this study.
+
+These are engineering envelopes conditional on measurement radii, camera assumptions and the acceleration bound. They are **not calibrated probabilities**. Smooth tracking bias can violate their assumptions without producing a large self-residual. Forecast residuals against tracker estimates and independent grid-reference errors are reported separately. Narrower intervals do not repair wrong object associations. The grid has250 mm cells (±125 mm per axis); independent coverage includes its half-diagonal and is still a limited reference check.
+
+![Actual chart and withheld future explanation](docs/readmes/129/motion-chart-detail.png)
+
+## What passed in the connected application
+
+Local validation passed: 184 distinct Java test methods, 161 desktop checks, executable factory-kernel harnesses, the actual agency regression and isolated offline preparation/package checks. The actual study includes an abrupt owned-Java interruption, cold restart of the same request, changed-input reuse, retained procedure lifecycle and independent numeric/rendered outcomes. Hosted CI was checked first and is reported separately.
+
+- held-1200: original pixels tracked into the same body identity without native motion
 - One visible chat request survives owned-Java termination at the forecast boundary, preserves identity and forecast, independently checks its real artifact and only then saves the procedure.
-- terrace-later-a: original pixels tracked into the same body identity without native motion
-- A changed footage sequence reuses a verified procedure but recomputes all values and passes fresh rendered checks. A third original seed outside the image is refused before tracking, rather than clipped or invented. Prior forecasts and source bytes remain unchanged.
+- The first completed source-bound task and original clock remain unchanged after the driver-only navigation correction; fresh rendered checks still match.
+- held-2200: original pixels tracked into the same body identity without native motion
+- Explicit experimental choice persists in the second source. Reuse retains the chosen 1m precision limit; every available forecast respects it and the wider final prediction is withheld. This does not certify the measured positions.
 - Working explorer has no document overflow at1100px app width; all rows remain in its scrollable table.
 - Observed-motion procedure participates in original-evidence inspection, retirement and checked reactivation.
 
-| Recorded input | Accepted / rows | Forecast comparisons | Mean forecast error / m | Request / seconds | Tracking preparation / seconds |
+| Recorded input | Accepted / rows | Forecast comparisons | Mean residual vs tracker / m | Request / seconds | Tracking preparation / seconds |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| terrace-calibration | 95 / 95 | 93 | 0.028547 | 10.25 | 13.53 |
-| terrace-later-a | 95 / 95 | 93 | 0.007849 | 10.25 | 42.17 |
+| held-1200 | 95 / 95 | 66 | 0.012104 | 11.18 | 17.24 |
+| held-2200 | 95 / 95 | 92 | 0.007260 | 13.92 | 52.16 |
 
-| Independent reference check | Scored positions | Mean tracking error / m | Future radius at 0.6 s / m |
+| Independent reference check | Scored positions | Mean tracking error / m | Best future radius, WITHHELD / m |
 | --- | ---: | ---: | ---: |
-| terrace-calibration | 3 | 5.147 | 35.820 |
-| terrace-later-a | 3 | 0.889 | 20.634 |
+| held-1200 | 3 | 0.905 | 4.386 |
+| held-2200 | 3 | 0.668 | 2.843 |
 
 The first request includes the explicit review and crash/restart interval. These are single observed costs, not typical latency claims.
 
 
-These are new executions using retained public EPFL footage and published camera calibration, not a new webcam recording or an unseen-footage generalization study. Dense inputs use explicit 96-frame windows at 25 fps, after the earlier sparse sequence supplied no accepted measurements. All source pixels remain in the local study; published numerical traces, hashes, receipts and limited attributed screenshots preserve the evidence without redistributing the source video. See [EPFL's source dataset](https://www.epfl.ch/labs/cvlab/data/data-pom-index-php/) and [the original video](https://documents.epfl.ch/groups/c/cv/cvlab-pom-video3/www/terrace1-c0.avi).
+The UI demonstration reuses two already evaluated windows; it is not an extra held evaluation. The first request uses the incumbent; the second explicitly selects the candidate. Both use a one-metre forecast budget and withhold the wider final prediction. A working artifact is a software outcome, not proof of physical accuracy. The body remains an observational identity in a calibrated plane; no camera estimate is silently applied as a native 3D pose.
 
-Forecast error is measured against accepted projected tracker estimates. It is **not** automatically error against physical ground truth. **Independent reference scoring reveals substantial drift:** the first sequence averages about 5.15 m error at three annotated positions; the second averages about 0.89 m. These sparse checks do not establish overall accuracy. The 0.6-second future radii are approximately 35.82 m and 20.63 m, too broad to support precise control. This release verifies the data-to-artifact workflow, not useful physical prediction quality. Separate retained reference scores make that limitation inspectable. Human seed labels and boxes do not establish automatic person identification.
+![Fresh-input reuse retains the precision policy](docs/readmes/129/fresh-source-reuse.png)
 
-![Fresh selected footage, freshly computed output](docs/readmes/128/fresh-source-reuse.png)
+## Verification, compatibility and retained failures
 
-## Forecast meaning and limits
+Both predeclared tracking promotion gates failed; the original protocols and all 30 held method executions are retained. The first candidate lost nearly every observation in the foreground-occluded development case. The first focused test run had one failing test assertion because the public workflow view intentionally omits its definition; the corrected test reads the retained artifact definition, preserving the original failure. A source review also caught a chat helper that would discard initial precision settings; the corrected routing and new/reused-request checks are verified on final source. Independent forecast coverage also fell from28/30 to16/30 under narrower envelopes. This is not improved accuracy: ordinary requests retain the original policy, while the precision-limited mode requires an explicit request and remains experimental. The first actual app run recovered the same request but refused its chart: one SVG coordinate was parsed one float step away from the mathematically expected value. The renderer now writes explicit IEEE single-precision coordinates, preserving the existing strict verifier. A fresh source-bound complete study follows; the earlier unfinished task remains retained. A later driver tried selecting the experimental tracker while the artifact tab was visible; the corrected navigation continues the same project, rechecks the already completed first task and preserves its original timing. Visual review then clarified the chart and chat wording: residuals are against tracked estimates, not ground truth. A complete final-source run repeats both tasks after that presentation change; earlier successful and unsuccessful runs remain distinct. The final driver also waits for the actual host task lease to become idle before manual import, after an early import was correctly refused during cleanup. Continuation rechecks the completed first task without replacing its original timing. The final tests and actual study are reported separately. No failed attempt counts as success or is relabelled under a newer source.
 
-The model is a transparent planar constant-velocity estimator. It uses only earlier accepted points. It withholds a forecast when the measurement gap or look-ahead exceeds the declared limit. Defaults are 0.6 seconds for each limit and 5 m/s² as an explicit acceleration-envelope assumption. The API validates ranges: gaps/horizons 0.01–2 seconds and acceleration 0–100 m/s². These assumptions are retained with the task; they are not learned physical properties.
+All original pixel hashes, source clocks, camera definitions, stable body bindings, numeric source-cell checks, rendered chart checks, procedure ancestry and checkpoint ownership remain required. The independent host exercises actual axis/frame controls and reads DOM/SVG values; page-provided success flags cannot authorize completion. Compatible current-source procedures can be reused with fresh inputs. Changed implementation identities refuse incompatible historical execution; frozen prior editions and their original evidence remain untouched.
 
-The radius combines the latest positional radius, velocity uncertainty propagated from the two positions, and half the declared acceleration bound times elapsed time squared. A reported radius is an engineering envelope, not a calibrated confidence probability or a guarantee. Optional empirical tracking profiles retain their original camera/plane and evaluation qualifications.
+The existing 5–96-frame import,20-workflow,32-active-procedure and eight-version limits remain unchanged. No new runtime library is introduced. Private user projects and original footage stay local. Published numerical evidence includes losses and failed attempts; limited dated screenshots are attributed to [EPFL CVLab](https://www.epfl.ch/labs/cvlab/data/data-pom-index-php/), with the [original Terrace recording](https://documents.epfl.ch/groups/c/cv/cvlab-pom-video3/www/terrace1-c0.avi) identified by hash. The first-frame seed uses human ground annotations and a height assumption; it is not semantic detection.
 
-The world body is a stable **observational identity**. The mapping remains in the calibrated ground plane. This workflow does not equate camera-plane metres with a separately registered native 3D pose, and it does not apply its forecast as a native-world action. Actual native physics remains separately verified.
+[Verification](docs/readmes/129/verification.json) · [Actual app study](docs/readmes/129/observation-study.json) · [Numerical comparison](docs/readmes/129/forecast-comparison.json) · [Original evidence](docs/readmes/129/original-evidence.json) · [Source inventory](docs/readmes/129/file-inventory.json)
 
-Inputs retain the original 5–96-frame import capacity. A useful forecast requires at least three accepted projected points and one bounded comparison; inadequate evidence is refused. The existing 20-workflow, 32-active-procedure and eight-version limits remain. Completed edition 128 workflow history can use the existing checked archive. Edition 127 retirement preserves source and descendant evidence.
+## Implementation and reproduction
 
-## Failures and corrections
-
-The first sparse source yielded zero accepted measurements and was refused before creating a workflow or procedure. A 121-frame dense input was rejected by the unchanged 96-frame import limit; explicitly prepared 96-frame inputs respect that limit. The third original seed lies outside the image and remains refused, without clipping or inventing a target. A rendered audit exposed SVG 32-bit coordinate representation; the verifier now compares against that defined representation while retaining the strict geometry checks. A later chat completion refused a missing artifact-test receipt; the independent host now retains its actual checks in the existing receipt store. Both failures remain preserved. Test-driver timing, GET/POST and manual-selection-during-ownership mistakes are also retained. A thread diagnostic exposed repeated metadata loading per image; final verification reads one pinned metadata snapshot, hashes every original image and rechecks the snapshot afterward. The final complete study reruns on that final source; earlier attempts are not relabelled.
-
-All retained failures are dated originals. No failed task is counted as completed, and earlier proofs are not relabelled under changed code. See [verification](docs/readmes/128/verification.json), [actual app study](docs/readmes/128/observation-study.json), [original evidence inventory](docs/readmes/128/original-evidence.json) and [source inventory](docs/readmes/128/file-inventory.json).
-
-## Ownership and implementation
-
-| Layer | Responsibility |
+| Component | Responsibility |
 | --- | --- |
-| [Java observation procedure](workspace-engine/src/main/java/fraymus/workspace/ObservationArtifact128.java) | Original images, clock, calibration and object binding; bounded causal forecast and explicit uncertainty |
-| [Workflow owner](workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java) | Atomic stages, interruption/recovery, original-evidence verification, procedure publication and fresh-source reuse |
-| [Artifact and verifier](workspace-engine/src/main/java/fraymus/workspace/ObservationArtifactReport128.java) | Input-derived working HTML and independent numeric/geometry checks |
-| [Independent host](workspace-desktop/observation-artifact128.cjs) | Exercise actual controls and observe visible DOM/SVG values; page-generated success flags have no authority |
-| [Java chat coordination](workspace-engine/src/main/java/fraymus/workspace/Domain044.java) | Selected-source admission, durable task ownership and rechecked completion |
+| [ObservationForecast129](workspace-engine/src/main/java/fraymus/workspace/ObservationForecast129.java) | Causal envelopes, precision budget, withholding and chat settings |
+| [ObservationMethods129](workspace-engine/src/main/java/fraymus/workspace/ObservationMethods129.java) | Explicit tracking choice and complete implementation identity |
+| [ScaleAwareFlow129](workspace-engine/src/main/java/fraymus/workspace/ScaleAwareFlow129.java) | Locked experimental tracker; failed promotion |
+| [ObservationArtifact128](workspace-engine/src/main/java/fraymus/workspace/ObservationArtifact128.java) | Original source binding and policy dispatch |
+| [WorkflowRunner](workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java) | Durable stages, verification and saved-procedure reuse |
+| [Actual app study](workspace-desktop/test/observation129-integration.cjs) | Real UI, tracking, process interruption, fresh-input reuse and outcome checks |
 
-The [offline guide](docs/readmes/128/index.html) includes searchable source files, measured requests and actual screenshots. Open the repository as an Obsidian vault for the [linked note](docs/obsidian/136-observation-artifact.md) and [component canvas](docs/obsidian/136-observation-artifact.canvas).
-
-```text
-workspace-engine/src/main/java/fraymus/workspace/
-  ObservationArtifact128.java        original evidence and causal forecast
-  ObservationArtifactReport128.java  working explorer and numeric verifier
-  WorkflowRunner.java               durable stages and procedure reuse
-workspace-desktop/
-  observation-artifact128.cjs        independent rendered observations
-  test/observation128-integration.cjs actual app, interruption and reuse
-  test/observation128-review.cjs      reopen and recheck completed evidence
-docs/readmes/128/                    frozen results, source map and screenshots
-docs/publication128/                validation and publication helpers
-```
-
-No new third-party runtime dependency was added. The application still uses its existing JDK, JSON, native physics, Electron/Chromium and other declared dependencies. It is a local Java-owned system, not a claim that every existing dependency has been replaced.
-
-## Run and develop
-
-Use JDK 21 and the repository's Gradle wrapper. On Windows, the normal entry point is [Start-Agent-Workspace.ps1](scripts/Start-Agent-Workspace.ps1); `-PrepareOnly -Offline` validates an already provisioned local installation. The desktop's existing locked dependencies must be available. This does not install packages silently or connect a private project to a second simultaneous owner.
-
-Focused validation:
+Use Java21 and the project's Gradle wrapper. The existing desktop dependencies are unchanged. For a local experimental checkout, use a separate project directory; never silently share a private database between checkouts.
 
 ```powershell
-.\gradlew.bat :workspace-engine:test --tests fraymus.workspace.ObservationArtifact128Test
-cd workspace-desktop
-npm test
+.\scripts\Start-Agent-Workspace.ps1 -PrepareOnly -Offline
+.\gradlew.bat :workspace-engine:test --tests fraymus.workspace.ObservationForecast129Test --tests fraymus.workspace.Tracking129Test
+python docs/publication129/validate129.py java
+python docs/publication129/validate129.py desktop
+python docs/publication129/validate129.py package
 ```
 
-For the retained study, the original source video SHA-256 is `b7efa4d87e9080baecbf52e0fce5a6c014e14dcfe3b1089c14f9008194bcc106`. Inputs contain 96 consecutive frames starting at source frames 500 and 2500 (25 fps). The starting box is copied unchanged from each previously declared source package; source reference positions are reserved for separate scoring, not tracking input. The third start at 3500 is retained as a refusal. Exact preparation records are included in the original evidence inventory.
+The recorded research preparation scripts require the already downloaded EPFL source and decoder. They refuse changed locked sources and existing output folders. The actual app driver requires explicitly prepared media and verifies the installed build receipt. Do not rerun successful research to search for a better result; retain each original attempt. See [contract](docs/EDITION_129_CONTRACT.md), [offline guide](docs/readmes/129/index.html) and [Obsidian note](docs/obsidian/137-tracking-precision.md).
 
-The actual app study is [observation128-integration.cjs](workspace-desktop/test/observation128-integration.cjs). Its recorded inputs are separately prepared from the cited original footage. Its controls, crash boundary, changed-input reuse and screenshots are real app operations. The unit tests clearly distinguish analytic and typed-host fixtures from rendered integration evidence.
+## Next
 
-![Actual app at 1100 pixels](docs/readmes/128/explorer-1100.png)
-
-## Next phases
-
-**129 — evaluated adaptation.** First address the observed tracking/calibration drift and overly broad forecast bounds. Use independent references alongside retained failures and forecast residuals to propose a bounded change, compare it with the incumbent and a simpler baseline on separate cases, measure total cost and preserve rollback. A changed policy earns promotion through better outcomes; changing weights or producing a vivid chart is not enough.
-
-**130 — coherent daily use.** Make the current mission, selected observation, uncertainty, results, resource allowance and reusable procedure understandable in the existing workspace. Validate complete tasks at supported widths, clean installation, interruption and recovery.
-
-The destination remains one continuing agent with connected observation, world, browser and creation tools. Each domain keeps its units, authority and evidence checks. See the [integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md) and [contributor continuity notes](README-CONTRIBUTORS.md) before extending it.
+Edition 130 should make the continuing mission easier to use: show source age, tracking loss, precision requirement, withheld predictions, active work and saved procedures together in the existing workspace. Continue checking whole browser/world/creation requests and recovery. A later tracking proposal needs independent object-association evidence and genuinely new footage before promotion; more smoothing alone will not establish accuracy. The destination remains one coherent local agent with evidence, memory and useful creation—not an indefinite tracker-only branch.

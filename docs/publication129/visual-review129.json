@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "reviewedAtUtc": "2026-11-13T00:25:18.980237+00:00",
+  "images": [
+    "build/observation129-release/verified-explorer.png",
+    "build/observation129-release/motion-chart-detail.png",
+    "build/observation129-release/motion-chart-1100.png",
+    "build/guide129-390-viewport.png",
+    "build/guide129-1440-viewport.png"
+  ],
+  "checks": [
+    "Actual chart, withheld future explanation and chat distinguish tracked estimates from physical truth.",
+    "Artifact remains readable at1100px app width; chart details and controls are scrollable.",
+    "Offline guide readable at1440px and390px, with functional source search and screenshot selection."
+  ],
+  "limits": [
+    "The existing settings panel has an internal horizontal scroller at1100px; no claim of a full-app responsive redesign. Edition130 should improve that existing layout."
+  ]
+}
