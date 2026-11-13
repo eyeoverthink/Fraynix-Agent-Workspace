@@ -1,0 +1,158 @@
+{
+  "createdAtUtc": "2026-11-13T18:19:51.850287+00:00",
+  "algorithmLockSha256": "20f0f752b040f2f9148d072460a6f5e715a70607976e7f340506b573a0647571",
+  "downloads": [
+    {
+      "name": "Skating2",
+      "url": "https://drive.usercontent.google.com/download?id=1zMqJRHdrf_MnMKH6Rw7mmCzxMxObhzhw&export=download&confirm=t",
+      "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark",
+      "sha256": "c8e5f8eb6b9a329979e451eedd98eca1ca1d4a7c533b30e0ad4f631ed6995e13",
+      "bytes": 24251157,
+      "images": 473,
+      "groundtruthFiles": [
+        "Skating2/groundtruth_rect.1.txt",
+        "Skating2/groundtruth_rect.2.txt"
+      ],
+      "downloadedAtUtc": "2026-11-13T18:13:41.801941+00:00"
+    },
+    {
+      "name": "Suv",
+      "url": "https://drive.usercontent.google.com/download?id=17ZudGJuqc4VwNX85Ys81SjHOg5zAMu3i&export=download&confirm=t",
+      "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark",
+      "sha256": "18adce952aa58d2c0160729f01e4ec50b44d2fef5dce819174d49d7c91d9b65b",
+      "bytes": 8694084,
+      "images": 945,
+      "groundtruthFiles": [
+        "Suv/groundtruth_rect.txt"
+      ],
+      "downloadedAtUtc": "2026-11-13T18:13:46.113331+00:00"
+    },
+    {
+      "name": "Liquor",
+      "url": "https://drive.usercontent.google.com/download?id=1npRoxKorlgVqnf7fYtDkPrJ4pPBLQO1u&export=download&confirm=t",
+      "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark",
+      "sha256": "75632ad053e87c3b9bfd55916ac576d9eb7ea0cc6cc614bcbbdf8f9dc704469a",
+      "bytes": 68154452,
+      "images": 1741,
+      "groundtruthFiles": [
+        "Liquor/groundtruth_rect.txt"
+      ],
+      "downloadedAtUtc": "2026-11-13T18:15:52.324360+00:00"
+    }
+  ],
+  "records": [
+    {
+      "case": "skating2-1-1",
+      "name": "Skating2",
+      "target": 1,
+      "start": 1,
+      "end": 96,
+      "stride": 1,
+      "frames": 96,
+      "width": 640,
+      "height": 352,
+      "pack": "build/otb138/skating2-1-1.fobs.json",
+      "packSha256": "34200d7433b372db8448351adacd2a883814f4431d62cbabd2ccf21d2d81857e",
+      "labels": "docs/publication138/skating2-1-1-labels.json",
+      "labelsSha256": "6ad4c8b651c6224f2f28810805d5e5aa85ff66779035cc1f4bfc9539f8f48b83",
+      "visibilityCounts": {
+        "visible": 25,
+        "partial": 68,
+        "occluded": 0,
+        "out-of-view": 0,
+        "uncertain": 2
+      },
+      "distractorLabelledSamples": 95,
+      "originalGroundTruth": "Skating2/groundtruth_rect.1.txt",
+      "domain": "real-camera",
+      "exposure": "New recording for this project; source reviewed after method lock, before predictions."
+    },
+    {
+      "case": "skating2-2-1",
+      "name": "Skating2",
+      "target": 2,
+      "start": 1,
+      "end": 96,
+      "stride": 1,
+      "frames": 96,
+      "width": 640,
+      "height": 352,
+      "pack": "build/otb138/skating2-2-1.fobs.json",
+      "packSha256": "cf908a4c0a11dd049860ca7d1f3c7647b12d81c2f425af0fc9b6ccf08ae8c42e",
+      "labels": "docs/publication138/skating2-2-1-labels.json",
+      "labelsSha256": "dd9fe16ddfaf971419987a1dc6454b09dbc1e86885acd7350677abf8bd9a4bcd",
+      "visibilityCounts": {
+        "visible": 41,
+        "partial": 54,
+        "occluded": 0,
+        "out-of-view": 0,
+        "uncertain": 0
+      },
+      "distractorLabelledSamples": 93,
+      "originalGroundTruth": "Skating2/groundtruth_rect.2.txt",
+      "domain": "real-camera",
+      "exposure": "New recording for this project; source reviewed after method lock, before predictions."
+    },
+    {
+      "case": "suv-1-498",
+      "name": "Suv",
+      "target": 1,
+      "start": 498,
+      "end": 593,
+      "stride": 1,
+      "frames": 96,
+      "width": 320,
+      "height": 240,
+      "pack": "build/otb138/suv-1-498.fobs.json",
+      "packSha256": "f5b922701304a33b1ae067acc63841257ee7eb4f6ed379343cc7b176273e8ae7",
+      "labels": "docs/publication138/suv-1-498-labels.json",
+      "labelsSha256": "7d36c402fe6760a12a0c7231d4a85f14a3bceb27af09d7d9456b59cb274e78a2",
+      "visibilityCounts": {
+        "visible": 26,
+        "partial": 50,
+        "occluded": 1,
+        "out-of-view": 0,
+        "uncertain": 18
+      },
+      "distractorLabelledSamples": 0,
+      "originalGroundTruth": "Suv/groundtruth_rect.txt",
+      "domain": "real-camera",
+      "exposure": "New recording for this project; source reviewed after method lock, before predictions."
+    },
+    {
+      "case": "liquor-1-276",
+      "name": "Liquor",
+      "target": 1,
+      "start": 276,
+      "end": 486,
+      "stride": 3,
+      "frames": 71,
+      "width": 640,
+      "height": 480,
+      "pack": "build/otb138/liquor-1-276.fobs.json",
+      "packSha256": "73b46af7e2ffac2c471886d6f647e393db92d6f3b52051be3cf2dd806b980ffb",
+      "labels": "docs/publication138/liquor-1-276-labels.json",
+      "labelsSha256": "3bcb13f0aacc7c3c34159ad7e1eefc038c085513e384ef9fe991ebcb44fbb755",
+      "visibilityCounts": {
+        "visible": 11,
+        "partial": 57,
+        "occluded": 0,
+        "out-of-view": 0,
+        "uncertain": 2
+      },
+      "distractorLabelledSamples": 10,
+      "originalGroundTruth": "Liquor/groundtruth_rect.txt",
+      "domain": "real-camera",
+      "exposure": "New recording for this project; source reviewed after method lock, before predictions."
+    }
+  ],
+  "sourceReview": "Complete selected source frames inspected in original-pixel detail sheets before predictions: Skating2 first96 images for two targets, Suv498..593, Liquor276..486 stride3. Whole-sequence overviews reviewed for context. Critical Suv516..519/533..534 and681 inspected without boxes;518 is hidden, ambiguous leaf-covered cases remain uncertain. Skating2 body/limb fragments remain partial;83/84 target1 uncertain. Liquor cap cover lasts beyond96 images, hence stride3; target partly clips at image edge, never fully disappears. Two other bottle boxes manually checked on11 grid-review images, seed excluded from scores. Source-only AI judgments, not human-metrology ground truth. No fresh tracker outputs inspected before labels frozen.",
+  "limitations": [
+    "Three recordings, four target windows; the two skaters share one recording.",
+    "One confidently fully hidden Suv sample; no general complete-occlusion reliability claim.",
+    "Different-clothing skater crossing, similar-shaped amber bottles with different labels, and synthetic identical twins are distinct difficulty levels.",
+    "Coarse AI bottle-other boxes on10 later frames only; zero confirmed switches does not prove identity continuity.",
+    "Liquor stride3 skips intervening frames; no temporal completeness claim.",
+    "Visibility and bottle-other annotations lack independent human adjudication."
+  ]
+}

@@ -1,0 +1,1993 @@
+{
+  "schema": "association-labels-134-v1",
+  "objectKey": "subject",
+  "annotator": "OTB authors (target/skater boxes); Codex source-only AI (visibility/bottle others)",
+  "method": "external-annotations",
+  "exposure": "before-tracking",
+  "provenance": "Original external OTB target boxes, MATLAB one-based XYWH converted to normalized clipped corners. Source-only AI visibility reviewed after method lock and before predictions; no independent human adjudication. Skating2 reciprocal other boxes are external annotations for the other target. Liquor other boxes are coarse source-only AI annotations on10 later sampled images only; other images lack independent distractor labels. Missing distractor labels cannot prove no switches. No tracker outputs used. Source note138 explains crossing fallback and bottle cohort addition.",
+  "rows": [
+    {
+      "ordinal": 1,
+      "sourceFrame": 2,
+      "imageSha256": "636a8ba2a79a620103c383c7edd4c29955df1b53a233b2a2778f71f055ecf091",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.440625,
+        0.19318181818181818,
+        0.546875,
+        0.8607954545454546
+      ],
+      "otherBoxes": [
+        [
+          0.5375,
+          0.16761363636363635,
+          0.6890625,
+          0.875
+        ]
+      ]
+    },
+    {
+      "ordinal": 2,
+      "sourceFrame": 3,
+      "imageSha256": "094d6b0c005c96fb8297ead10812d2b345019b4573102c2c87fe0bc3b5cf457e",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.425,
+        0.1875,
+        0.546875,
+        0.8551136363636364
+      ],
+      "otherBoxes": [
+        [
+          0.534375,
+          0.16193181818181818,
+          0.6875,
+          0.875
+        ]
+      ]
+    },
+    {
+      "ordinal": 3,
+      "sourceFrame": 4,
+      "imageSha256": "b6a57da07619aac51493d6cf37742e0908b2b84d8e796132d59400c7a38a5ac5",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.4234375,
+        0.1903409090909091,
+        0.540625,
+        0.8664772727272727
+      ],
+      "otherBoxes": [
+        [
+          0.534375,
+          0.16761363636363635,
+          0.684375,
+          0.8607954545454546
+        ]
+      ]
+    },
+    {
+      "ordinal": 4,
+      "sourceFrame": 5,
+      "imageSha256": "fe6f6b883c5f5badf4d67c96913c71351e2a701099a5d7fdfd4e4e66368e6811",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.4171875,
+        0.19318181818181818,
+        0.5390625,
+        0.8636363636363636
+      ],
+      "otherBoxes": [
+        [
+          0.53125,
+          0.17045454545454544,
+          0.6765625,
+          0.8835227272727273
+        ]
+      ]
+    },
+    {
+      "ordinal": 5,
+      "sourceFrame": 6,
+      "imageSha256": "04927e73f6f6e9b006b2d5c20b435db4da1c08fb8f75b977cc05b48624332750",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.4078125,
+        0.19886363636363635,
+        0.534375,
+        0.8551136363636364
+      ],
+      "otherBoxes": [
+        [
+          0.5296875,
+          0.17329545454545456,
+          0.6625,
+          0.8664772727272727
+        ]
+      ]
+    },
+    {
+      "ordinal": 6,
+      "sourceFrame": 7,
+      "imageSha256": "4919a35684d47223cfbf2ec1ab59b5c4ba3a585d3b2e446901c46bf70e872d94",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.396875,
+        0.19602272727272727,
+        0.5265625,
+        0.8806818181818182
+      ],
+      "otherBoxes": [
+        [
+          0.5171875,
+          0.17897727272727273,
+          0.653125,
+          0.8721590909090909
+        ]
+      ]
+    },
+    {
+      "ordinal": 7,
+      "sourceFrame": 8,
+      "imageSha256": "e15673a9e00269d343e1a26f9e97cb78e20cfa7440bef35824ea64a76edc6865",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.38125,
+        0.21306818181818182,
+        0.5265625,
+        0.8721590909090909
+      ],
+      "otherBoxes": [
+        [
+          0.5046875,
+          0.17613636363636365,
+          0.6421875,
+          0.8721590909090909
+        ]
+      ]
+    },
+    {
+      "ordinal": 8,
+      "sourceFrame": 9,
+      "imageSha256": "49ba71c61e91fe48a2024c0b650a87b0dc2610dc95f551503536e2b60dc41891",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.371875,
+        0.21306818181818182,
+        0.5328125,
+        0.8721590909090909
+      ],
+      "otherBoxes": [
+        [
+          0.5015625,
+          0.18181818181818182,
+          0.6328125,
+          0.8607954545454546
+        ]
+      ]
+    },
+    {
+      "ordinal": 9,
+      "sourceFrame": 10,
+      "imageSha256": "e43a0f53692ec48f48fc80430c6d656f35b1217123c5c4a9508d54b5afb1a0f0",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.3671875,
+        0.22727272727272727,
+        0.51875,
+        0.8636363636363636
+      ],
+      "otherBoxes": [
+        [
+          0.475,
+          0.19886363636363635,
+          0.63125,
+          0.8579545454545454
+        ]
+      ]
+    },
+    {
+      "ordinal": 10,
+      "sourceFrame": 11,
+      "imageSha256": "06d48686c2b6bd47745fe38930ab829734d3c9285cc94bde1e7e553f949da542",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.3609375,
+        0.2215909090909091,
+        0.5140625,
+        0.8522727272727273
+      ],
+      "otherBoxes": [
+        [
+          0.465625,
+          0.20738636363636365,
+          0.6265625,
+          0.8607954545454546
+        ]
+      ]
+    },
+    {
+      "ordinal": 11,
+      "sourceFrame": 12,
+      "imageSha256": "3b00eba80f643454673aaf581f22928c5957717fe697dcd99cd55299e843098d",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.3515625,
+        0.2556818181818182,
+        0.5203125,
+        0.8693181818181818
+      ],
+      "otherBoxes": [
+        [
+          0.4625,
+          0.22727272727272727,
+          0.60625,
+          0.8607954545454546
+        ]
+      ]
+    },
+    {
+      "ordinal": 12,
+      "sourceFrame": 13,
+      "imageSha256": "1e38d737eb07ca2211ed3716c6e0849653328acb55bb1c86ebf080bde7fddc0f",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.35,
+        0.2727272727272727,
+        0.5234375,
+        0.8636363636363636
+      ],
+      "otherBoxes": [
+        [
+          0.44375,
+          0.24147727272727273,
+          0.5890625,
+          0.8636363636363636
+        ]
+      ]
+    },
+    {
+      "ordinal": 13,
+      "sourceFrame": 14,
+      "imageSha256": "dfe47d50602bbc4767208e05aee943c87d988bcbddef702def9770e0a0777908",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.3484375,
+        0.2727272727272727,
+        0.525,
+        0.8693181818181818
+      ],
+      "otherBoxes": [
+        [
+          0.43125,
+          0.2556818181818182,
+          0.5796875,
+          0.8721590909090909
+        ]
+      ]
+    },
+    {
+      "ordinal": 14,
+      "sourceFrame": 15,
+      "imageSha256": "7d9d9e4b886efb8a285fec85d449456429516eda54b491e88d25a5a7b6a6fb74",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.334375,
+        0.2840909090909091,
+        0.528125,
+        0.8693181818181818
+      ],
+      "otherBoxes": [
+        [
+          0.4015625,
+          0.26420454545454547,
+          0.5890625,
+          0.8693181818181818
+        ]
+      ]
+    },
+    {
+      "ordinal": 15,
+      "sourceFrame": 16,
+      "imageSha256": "3808779135c5d909bcef1141a850488d1ede927f1f9d197ba4e799b9f1c29c3f",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.3234375,
+        0.28125,
+        0.528125,
+        0.875
+      ],
+      "otherBoxes": [
+        [
+          0.3921875,
+          0.26136363636363635,
+          0.5921875,
+          0.8693181818181818
+        ]
+      ]
+    },
+    {
+      "ordinal": 16,
+      "sourceFrame": 17,
+      "imageSha256": "746cd54f2aa7c84ad3f4a005510f01728d3cf4b0f3538e7cef4b1cbdade4e63e",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.31875,
+        0.28125,
+        0.5328125,
+        0.8693181818181818
+      ],
+      "otherBoxes": [
+        [
+          0.3625,
+          0.2556818181818182,
+          0.584375,
+          0.8607954545454546
+        ]
+      ]
+    },
+    {
+      "ordinal": 17,
+      "sourceFrame": 18,
+      "imageSha256": "cb73f46f40f6112325dfc8ffbee562c13e333c3e33ab15c11f3a5c51a6039ca1",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.309375,
+        0.2784090909090909,
+        0.5359375,
+        0.8636363636363636
+      ],
+      "otherBoxes": [
+        [
+          0.3484375,
+          0.2471590909090909,
+          0.590625,
+          0.8721590909090909
+        ]
+      ]
+    },
+    {
+      "ordinal": 18,
+      "sourceFrame": 19,
+      "imageSha256": "9d5461cc01f92fcd0a14323f48d3e171b12ec3f7a703bddecac5df5cc92ce4b8",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.309375,
+        0.23863636363636365,
+        0.5359375,
+        0.8636363636363636
+      ],
+      "otherBoxes": [
+        [
+          0.328125,
+          0.24147727272727273,
+          0.584375,
+          0.8806818181818182
+        ]
+      ]
+    },
+    {
+      "ordinal": 19,
+      "sourceFrame": 20,
+      "imageSha256": "6581c8d8bb09344190807c84ded6397d23b69145736e2da4ba77cdf3a0a6cec9",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.3046875,
+        0.24147727272727273,
+        0.54375,
+        0.875
+      ],
+      "otherBoxes": [
+        [
+          0.315625,
+          0.22443181818181818,
+          0.5890625,
+          0.8806818181818182
+        ]
+      ]
+    },
+    {
+      "ordinal": 20,
+      "sourceFrame": 21,
+      "imageSha256": "985f4890a087a62d6e19753810fdcc137b6b851d1e6342f386dfe8d61a4f55cf",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.3234375,
+        0.25,
+        0.5578125,
+        0.8693181818181818
+      ],
+      "otherBoxes": [
+        [
+          0.3015625,
+          0.20170454545454544,
+          0.5921875,
+          0.8863636363636364
+        ]
+      ]
+    },
+    {
+      "ordinal": 21,
+      "sourceFrame": 22,
+      "imageSha256": "b07836ec385aec16e50610baf9b018942eef16034ba0302adb3c0924f481519c",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.3453125,
+        0.2471590909090909,
+        0.5609375,
+        0.8721590909090909
+      ],
+      "otherBoxes": [
+        [
+          0.30625,
+          0.2159090909090909,
+          0.5953125,
+          0.8863636363636364
+        ]
+      ]
+    },
+    {
+      "ordinal": 22,
+      "sourceFrame": 23,
+      "imageSha256": "4eacdb8be6f2fe7b257a1b290591dbaa91a5a29614fd06b54af7fe7ec3b839f3",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.3671875,
+        0.2471590909090909,
+        0.5609375,
+        0.8778409090909091
+      ],
+      "otherBoxes": [
+        [
+          0.328125,
+          0.21022727272727273,
+          0.6046875,
+          0.8920454545454546
+        ]
+      ]
+    },
+    {
+      "ordinal": 23,
+      "sourceFrame": 24,
+      "imageSha256": "5f7e4a6a0d1e467228b4dbcb0b50a3848c3dc06a87a5c17b3d198daa76ef1113",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.39375,
+        0.26420454545454547,
+        0.5734375,
+        0.8948863636363636
+      ],
+      "otherBoxes": [
+        [
+          0.3390625,
+          0.2585227272727273,
+          0.5578125,
+          0.8948863636363636
+        ]
+      ]
+    },
+    {
+      "ordinal": 24,
+      "sourceFrame": 25,
+      "imageSha256": "906c4debf888c22df857db6fbc102c00ff2b35b538b8ae3018d272352c610dcb",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4265625,
+        0.26420454545454547,
+        0.584375,
+        0.8579545454545454
+      ],
+      "otherBoxes": [
+        [
+          0.334375,
+          0.2869318181818182,
+          0.56875,
+          0.90625
+        ]
+      ]
+    },
+    {
+      "ordinal": 25,
+      "sourceFrame": 26,
+      "imageSha256": "5d2b86dfcca75f22262abd198913db839307e4ec79a568cc67a7706e4cfec148",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4234375,
+        0.3039772727272727,
+        0.5859375,
+        0.8948863636363636
+      ],
+      "otherBoxes": [
+        [
+          0.33125,
+          0.2784090909090909,
+          0.5828125,
+          0.8948863636363636
+        ]
+      ]
+    },
+    {
+      "ordinal": 26,
+      "sourceFrame": 27,
+      "imageSha256": "96549be8379a934287cff07d27f23ba4e101a9c91afcf770bcffa1e320af3b52",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.471875,
+        0.3181818181818182,
+        0.5984375,
+        0.8778409090909091
+      ],
+      "otherBoxes": [
+        [
+          0.321875,
+          0.2897727272727273,
+          0.575,
+          0.8721590909090909
+        ]
+      ]
+    },
+    {
+      "ordinal": 27,
+      "sourceFrame": 28,
+      "imageSha256": "aa3c75409fd5dc6364cc4b33fd727a01d35a5464f7d7c78b2a9855b3ceffd91e",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4515625,
+        0.3380681818181818,
+        0.60625,
+        0.8948863636363636
+      ],
+      "otherBoxes": [
+        [
+          0.3171875,
+          0.29545454545454547,
+          0.584375,
+          0.8977272727272727
+        ]
+      ]
+    },
+    {
+      "ordinal": 28,
+      "sourceFrame": 29,
+      "imageSha256": "04ace5d781ec3f77a293b12b1862e1104ad778ce0df894dd56e3acc4495ae608",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4859375,
+        0.3125,
+        0.6265625,
+        0.8806818181818182
+      ],
+      "otherBoxes": [
+        [
+          0.2953125,
+          0.26988636363636365,
+          0.59375,
+          0.8806818181818182
+        ]
+      ]
+    },
+    {
+      "ordinal": 29,
+      "sourceFrame": 30,
+      "imageSha256": "6c9f5fbcc386180e7ac85084a27f8b49f6145cacd49fc8a13c805c3f0d4a0d90",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4765625,
+        0.29545454545454547,
+        0.6328125,
+        0.8664772727272727
+      ],
+      "otherBoxes": [
+        [
+          0.2953125,
+          0.26136363636363635,
+          0.6015625,
+          0.8778409090909091
+        ]
+      ]
+    },
+    {
+      "ordinal": 30,
+      "sourceFrame": 31,
+      "imageSha256": "7fbe080efc75ecd6b570160f2903b21d0871b491d4ef6cdfb553dc9705a4e6d9",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.525,
+        0.26420454545454547,
+        0.646875,
+        0.8693181818181818
+      ],
+      "otherBoxes": [
+        [
+          0.284375,
+          0.21306818181818182,
+          0.6109375,
+          0.8892045454545454
+        ]
+      ]
+    },
+    {
+      "ordinal": 31,
+      "sourceFrame": 32,
+      "imageSha256": "e5a0a474af76d48211b25c3db9a677534d37e3aff83d0e130b42bf94779da177",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.5203125,
+        0.2585227272727273,
+        0.6515625,
+        0.8551136363636364
+      ],
+      "otherBoxes": [
+        [
+          0.2859375,
+          0.20454545454545456,
+          0.6078125,
+          0.8778409090909091
+        ]
+      ]
+    },
+    {
+      "ordinal": 32,
+      "sourceFrame": 33,
+      "imageSha256": "653d3721eb26fb10dbd5f139efc8ad81b94c849e42ff2d9e5b590eceb601c30b",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.5109375,
+        0.22443181818181818,
+        0.6453125,
+        0.8664772727272727
+      ],
+      "otherBoxes": [
+        [
+          0.2859375,
+          0.17897727272727273,
+          0.603125,
+          0.8693181818181818
+        ]
+      ]
+    },
+    {
+      "ordinal": 33,
+      "sourceFrame": 34,
+      "imageSha256": "f0acfa5490f13219dbffba8a1837ac21e115bc60e1bf98401e160559ff8b68fc",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.5453125,
+        0.21306818181818182,
+        0.6421875,
+        0.8465909090909091
+      ],
+      "otherBoxes": [
+        [
+          0.2859375,
+          0.17329545454545456,
+          0.6078125,
+          0.875
+        ]
+      ]
+    },
+    {
+      "ordinal": 34,
+      "sourceFrame": 35,
+      "imageSha256": "05d1dd74fcc3c0ba4ee637d2729e74e3dcbb73b98cb77ed4c30cad737e6c6a48",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.5328125,
+        0.1875,
+        0.625,
+        0.8522727272727273
+      ],
+      "otherBoxes": [
+        [
+          0.3078125,
+          0.15625,
+          0.6046875,
+          0.8494318181818182
+        ]
+      ]
+    },
+    {
+      "ordinal": 35,
+      "sourceFrame": 36,
+      "imageSha256": "a7c7f4444ee23e6775a6c9d2dcfe8e312790a8e2bb73c3ca5fbc9be92f19f4ad",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.525,
+        0.1903409090909091,
+        0.61875,
+        0.8664772727272727
+      ],
+      "otherBoxes": [
+        [
+          0.3109375,
+          0.15625,
+          0.5953125,
+          0.8579545454545454
+        ]
+      ]
+    },
+    {
+      "ordinal": 36,
+      "sourceFrame": 37,
+      "imageSha256": "3e5f606848ea196647f822782ddd81933ee898673d9499a5ea470c4592b574c9",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.515625,
+        0.19318181818181818,
+        0.615625,
+        0.8522727272727273
+      ],
+      "otherBoxes": [
+        [
+          0.334375,
+          0.16761363636363635,
+          0.584375,
+          0.8607954545454546
+        ]
+      ]
+    },
+    {
+      "ordinal": 37,
+      "sourceFrame": 38,
+      "imageSha256": "390eb82c380e20a8e1618c3afba7b0b4a47b2140730bf2464a55613d6612710d",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.515625,
+        0.20454545454545456,
+        0.61875,
+        0.8607954545454546
+      ],
+      "otherBoxes": [
+        [
+          0.3484375,
+          0.17613636363636365,
+          0.5875,
+          0.8636363636363636
+        ]
+      ]
+    },
+    {
+      "ordinal": 38,
+      "sourceFrame": 39,
+      "imageSha256": "c89b690882a9476aa67122abe0259e6af2f1d0c7e75ce2287ec353f87798e101",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.5125,
+        0.2215909090909091,
+        0.615625,
+        0.8494318181818182
+      ],
+      "otherBoxes": [
+        [
+          0.3921875,
+          0.21306818181818182,
+          0.584375,
+          0.875
+        ]
+      ]
+    },
+    {
+      "ordinal": 39,
+      "sourceFrame": 40,
+      "imageSha256": "580982101939c905fed6fb42afdef06700617241f3cba81d63b00d884d105a4f",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.496875,
+        0.2585227272727273,
+        0.6046875,
+        0.8352272727272727
+      ],
+      "otherBoxes": [
+        [
+          0.3921875,
+          0.25,
+          0.5890625,
+          0.8892045454545454
+        ]
+      ]
+    },
+    {
+      "ordinal": 40,
+      "sourceFrame": 41,
+      "imageSha256": "5049c1b7bb2533f52471afb41374aa76239ec3af5de56ca36485651403045ed8",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.53125,
+        0.26420454545454547,
+        0.6046875,
+        0.8409090909090909
+      ],
+      "otherBoxes": [
+        [
+          0.36875,
+          0.2528409090909091,
+          0.59375,
+          0.8551136363636364
+        ]
+      ]
+    },
+    {
+      "ordinal": 41,
+      "sourceFrame": 42,
+      "imageSha256": "2549fa4153e001b2540bdcf0ca26855f528887e97c57de941d984bc35b5148cb",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.51875,
+        0.26988636363636365,
+        0.6125,
+        0.8607954545454546
+      ],
+      "otherBoxes": [
+        [
+          0.3640625,
+          0.2528409090909091,
+          0.5984375,
+          0.8664772727272727
+        ]
+      ]
+    },
+    {
+      "ordinal": 42,
+      "sourceFrame": 43,
+      "imageSha256": "dc26146be397e2eb6d2686270eca4ed2d4a492bafad7d7a714de6f26f479ce0e",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4546875,
+        0.2755681818181818,
+        0.609375,
+        0.8323863636363636
+      ],
+      "otherBoxes": [
+        [
+          0.334375,
+          0.24431818181818182,
+          0.625,
+          0.8522727272727273
+        ]
+      ]
+    },
+    {
+      "ordinal": 43,
+      "sourceFrame": 44,
+      "imageSha256": "f4a0f95d9710811f10cb21836efce9850d2615003f6c3834aa69b2f979ac9d1c",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4703125,
+        0.26136363636363635,
+        0.6125,
+        0.8465909090909091
+      ],
+      "otherBoxes": [
+        [
+          0.5875,
+          0.23295454545454544,
+          0.7140625,
+          0.8721590909090909
+        ]
+      ]
+    },
+    {
+      "ordinal": 44,
+      "sourceFrame": 45,
+      "imageSha256": "68f38e9df14987525d62445ce1eda5e487957cea06deeaddf3e70561a4253560",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.478125,
+        0.23863636363636365,
+        0.6125,
+        0.8352272727272727
+      ],
+      "otherBoxes": [
+        [
+          0.5875,
+          0.22443181818181818,
+          0.7234375,
+          0.8465909090909091
+        ]
+      ]
+    },
+    {
+      "ordinal": 45,
+      "sourceFrame": 46,
+      "imageSha256": "b42e5d6c74f117f1cfa854e2e5e13815b529d9d86d536117999fa26b246de853",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.503125,
+        0.23011363636363635,
+        0.6,
+        0.8409090909090909
+      ],
+      "otherBoxes": [
+        [
+          0.5875,
+          0.2159090909090909,
+          0.7203125,
+          0.8551136363636364
+        ]
+      ]
+    },
+    {
+      "ordinal": 46,
+      "sourceFrame": 47,
+      "imageSha256": "46df0242073e1a0b8971ce203f98e4014877819c371592d9ad332fa802960fe8",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.5046875,
+        0.23579545454545456,
+        0.60625,
+        0.8409090909090909
+      ],
+      "otherBoxes": [
+        [
+          0.5875,
+          0.20738636363636365,
+          0.71875,
+          0.8551136363636364
+        ]
+      ]
+    },
+    {
+      "ordinal": 47,
+      "sourceFrame": 48,
+      "imageSha256": "a14bf7abb738e36065608416978c72e5bfccea02c2b76af2f0efd8c903868665",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4953125,
+        0.23011363636363635,
+        0.60625,
+        0.8551136363636364
+      ],
+      "otherBoxes": [
+        [
+          0.578125,
+          0.20738636363636365,
+          0.709375,
+          0.8579545454545454
+        ]
+      ]
+    },
+    {
+      "ordinal": 48,
+      "sourceFrame": 49,
+      "imageSha256": "f1602416da3037204086e0aa5899ab91a1623d086f6a654e7250441b4ac2e9ac",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.496875,
+        0.22727272727272727,
+        0.5921875,
+        0.8607954545454546
+      ],
+      "otherBoxes": [
+        [
+          0.5796875,
+          0.19318181818181818,
+          0.69375,
+          0.8380681818181818
+        ]
+      ]
+    },
+    {
+      "ordinal": 49,
+      "sourceFrame": 50,
+      "imageSha256": "23ea159d2442002d9ba887b1737272787947fa48cf7e50e5b741394345038eab",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4953125,
+        0.2215909090909091,
+        0.5890625,
+        0.8607954545454546
+      ],
+      "otherBoxes": [
+        [
+          0.5765625,
+          0.1875,
+          0.6890625,
+          0.8380681818181818
+        ]
+      ]
+    },
+    {
+      "ordinal": 50,
+      "sourceFrame": 51,
+      "imageSha256": "af18e94f01df2d94072724460c1f0a10cebc7ae4d2b464ab9d7a6b7cc3e2edb5",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4890625,
+        0.21306818181818182,
+        0.5796875,
+        0.8579545454545454
+      ],
+      "otherBoxes": [
+        [
+          0.5671875,
+          0.17897727272727273,
+          0.678125,
+          0.8380681818181818
+        ]
+      ]
+    },
+    {
+      "ordinal": 51,
+      "sourceFrame": 52,
+      "imageSha256": "1942711190b6c47131ee6b2660217410acaf44c31dd2ba84c3efb75e04bfcf65",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.478125,
+        0.2159090909090909,
+        0.5890625,
+        0.8522727272727273
+      ],
+      "otherBoxes": [
+        [
+          0.56875,
+          0.18181818181818182,
+          0.675,
+          0.8465909090909091
+        ]
+      ]
+    },
+    {
+      "ordinal": 52,
+      "sourceFrame": 53,
+      "imageSha256": "3b36e8140e0b94288c37740d06cc11c634da44d352147944f3676b957b8e9575",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4875,
+        0.20738636363636365,
+        0.58125,
+        0.8551136363636364
+      ],
+      "otherBoxes": [
+        [
+          0.5703125,
+          0.17897727272727273,
+          0.6796875,
+          0.8380681818181818
+        ]
+      ]
+    },
+    {
+      "ordinal": 53,
+      "sourceFrame": 54,
+      "imageSha256": "19c188df249cdd2628d7ea47657cc1c8a0a414578c737d72bb3524129807f798",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.4859375,
+        0.21022727272727273,
+        0.584375,
+        0.8465909090909091
+      ],
+      "otherBoxes": [
+        [
+          0.5703125,
+          0.17897727272727273,
+          0.68125,
+          0.8409090909090909
+        ]
+      ]
+    },
+    {
+      "ordinal": 54,
+      "sourceFrame": 55,
+      "imageSha256": "19caec8803fd6a6c2c9e69eb4679a3f52de8610aa01d0f05135f859be9177855",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.490625,
+        0.2159090909090909,
+        0.584375,
+        0.8465909090909091
+      ],
+      "otherBoxes": [
+        [
+          0.575,
+          0.17897727272727273,
+          0.6875,
+          0.84375
+        ]
+      ]
+    },
+    {
+      "ordinal": 55,
+      "sourceFrame": 56,
+      "imageSha256": "e21189e002bf7a8d9139ecd09bb5fb3c6ff8a7ef39d8b55d36fcdf107a6e4ad8",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.475,
+        0.21875,
+        0.5890625,
+        0.8409090909090909
+      ],
+      "otherBoxes": [
+        [
+          0.56875,
+          0.1875,
+          0.696875,
+          0.8352272727272727
+        ]
+      ]
+    },
+    {
+      "ordinal": 56,
+      "sourceFrame": 57,
+      "imageSha256": "79a6b60fd3c96563852cf9f76dc3cdd9704274d505cbc26d6be33552cfd70c4a",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.46875,
+        0.2215909090909091,
+        0.5765625,
+        0.8323863636363636
+      ],
+      "otherBoxes": [
+        [
+          0.5671875,
+          0.18181818181818182,
+          0.703125,
+          0.8465909090909091
+        ]
+      ]
+    },
+    {
+      "ordinal": 57,
+      "sourceFrame": 58,
+      "imageSha256": "5b75f09b42df6186a7ce724846b44c9d31e16cd626b5e97539efd81131780046",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.465625,
+        0.22443181818181818,
+        0.5796875,
+        0.8295454545454546
+      ],
+      "otherBoxes": [
+        [
+          0.5671875,
+          0.1875,
+          0.7109375,
+          0.84375
+        ]
+      ]
+    },
+    {
+      "ordinal": 58,
+      "sourceFrame": 59,
+      "imageSha256": "4f60096bb103753325ee8ef7735b2afd76a4b95bba743efd1f08105f54699bd1",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.4703125,
+        0.22727272727272727,
+        0.5796875,
+        0.8238636363636364
+      ],
+      "otherBoxes": [
+        [
+          0.5703125,
+          0.1846590909090909,
+          0.721875,
+          0.8465909090909091
+        ]
+      ]
+    },
+    {
+      "ordinal": 59,
+      "sourceFrame": 60,
+      "imageSha256": "58e2f6dc565bc00d2acfd342497f8bc941ca82222cebcd258397898bb789dd2f",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.4765625,
+        0.23011363636363635,
+        0.5703125,
+        0.8352272727272727
+      ],
+      "otherBoxes": [
+        [
+          0.5734375,
+          0.18181818181818182,
+          0.7234375,
+          0.8465909090909091
+        ]
+      ]
+    },
+    {
+      "ordinal": 60,
+      "sourceFrame": 61,
+      "imageSha256": "9974712a4d960fb75cb102ba43f4bfe872a77ff86d162cd40db65c9482a4c5d8",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.484375,
+        0.22443181818181818,
+        0.565625,
+        0.7954545454545454
+      ],
+      "otherBoxes": [
+        [
+          0.5703125,
+          0.18181818181818182,
+          0.753125,
+          0.8494318181818182
+        ]
+      ]
+    },
+    {
+      "ordinal": 61,
+      "sourceFrame": 62,
+      "imageSha256": "895fee20abe2f67fd76034530cdb8a89f790f0867d50eed112c5d3f22ae97829",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.4765625,
+        0.21022727272727273,
+        0.575,
+        0.8068181818181818
+      ],
+      "otherBoxes": [
+        [
+          0.5828125,
+          0.17613636363636365,
+          0.7609375,
+          0.8494318181818182
+        ]
+      ]
+    },
+    {
+      "ordinal": 62,
+      "sourceFrame": 63,
+      "imageSha256": "d4633249ae2a03f3c179026847e7486610d6514d95480fb4d572b1eba0bd2541",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.48125,
+        0.2159090909090909,
+        0.5734375,
+        0.8125
+      ],
+      "otherBoxes": [
+        [
+          0.5671875,
+          0.16193181818181818,
+          0.7671875,
+          0.84375
+        ]
+      ]
+    },
+    {
+      "ordinal": 63,
+      "sourceFrame": 64,
+      "imageSha256": "88546b1bc05ff220d1db68669dd7a6c5d62991a28dbc6eec72ee77e7cd807fb1",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.484375,
+        0.1875,
+        0.58125,
+        0.8096590909090909
+      ],
+      "otherBoxes": [
+        [
+          0.5640625,
+          0.15625,
+          0.7640625,
+          0.8465909090909091
+        ]
+      ]
+    },
+    {
+      "ordinal": 64,
+      "sourceFrame": 65,
+      "imageSha256": "26ccec0418ec27bb322a6672f079aa66fb274ed8f8b06823ef581907567610c1",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4640625,
+        0.19318181818181818,
+        0.5625,
+        0.8409090909090909
+      ],
+      "otherBoxes": [
+        [
+          0.559375,
+          0.13920454545454544,
+          0.7546875,
+          0.84375
+        ]
+      ]
+    },
+    {
+      "ordinal": 65,
+      "sourceFrame": 66,
+      "imageSha256": "467f27e1d225fc711bc9438423dac319b1f290fe805da5761735d73de128cf8b",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4796875,
+        0.17329545454545456,
+        0.575,
+        0.8068181818181818
+      ],
+      "otherBoxes": [
+        [
+          0.55625,
+          0.13920454545454544,
+          0.7296875,
+          0.8267045454545454
+        ]
+      ]
+    },
+    {
+      "ordinal": 66,
+      "sourceFrame": 67,
+      "imageSha256": "36c65166aec445e409afb0303cc27e671cc5c56ad479f222a697221e51264878",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4546875,
+        0.15625,
+        0.565625,
+        0.7954545454545454
+      ],
+      "otherBoxes": [
+        [
+          0.559375,
+          0.12215909090909091,
+          0.703125,
+          0.8267045454545454
+        ]
+      ]
+    },
+    {
+      "ordinal": 67,
+      "sourceFrame": 68,
+      "imageSha256": "fcdb1921a276be2fac131d288b04cc55aba271060f7fd9dbdcd7cbf85491afe1",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.45,
+        0.14772727272727273,
+        0.55625,
+        0.7982954545454546
+      ],
+      "otherBoxes": [
+        [
+          0.55625,
+          0.12215909090909091,
+          0.6765625,
+          0.8352272727272727
+        ]
+      ]
+    },
+    {
+      "ordinal": 68,
+      "sourceFrame": 69,
+      "imageSha256": "f4b5ecb80174287141801a59e74abbb38fea2470857105fd1b0e17e49dea3d0a",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.45625,
+        0.13920454545454544,
+        0.5421875,
+        0.8210227272727273
+      ],
+      "otherBoxes": [
+        [
+          0.540625,
+          0.12215909090909091,
+          0.6453125,
+          0.8380681818181818
+        ]
+      ]
+    },
+    {
+      "ordinal": 69,
+      "sourceFrame": 70,
+      "imageSha256": "6ae986dc8903e52febc699134c29662e86b0fb31cab63962c2e302db5d8d7809",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.453125,
+        0.14488636363636365,
+        0.5328125,
+        0.8522727272727273
+      ],
+      "otherBoxes": [
+        [
+          0.534375,
+          0.11647727272727272,
+          0.6375,
+          0.8465909090909091
+        ]
+      ]
+    },
+    {
+      "ordinal": 70,
+      "sourceFrame": 71,
+      "imageSha256": "9fad33e919518cde74db0645118acb74464528deeb03808ebf47ab1a2d77549a",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.446875,
+        0.15056818181818182,
+        0.528125,
+        0.8238636363636364
+      ],
+      "otherBoxes": [
+        [
+          0.525,
+          0.11363636363636363,
+          0.625,
+          0.84375
+        ]
+      ]
+    },
+    {
+      "ordinal": 71,
+      "sourceFrame": 72,
+      "imageSha256": "b8ed93f2e4e88aa6c2c359c8370c497046cb11e00d179b49eadf8327b5f25b2f",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4453125,
+        0.15625,
+        0.528125,
+        0.8068181818181818
+      ],
+      "otherBoxes": [
+        [
+          0.5296875,
+          0.11647727272727272,
+          0.6125,
+          0.8409090909090909
+        ]
+      ]
+    },
+    {
+      "ordinal": 72,
+      "sourceFrame": 73,
+      "imageSha256": "05beb2f3480bb97141b2a83bd1b74d3afb9f553e56f43b4b0774c7262e43552e",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4359375,
+        0.17045454545454544,
+        0.521875,
+        0.8068181818181818
+      ],
+      "otherBoxes": [
+        [
+          0.51875,
+          0.13352272727272727,
+          0.6046875,
+          0.8323863636363636
+        ]
+      ]
+    },
+    {
+      "ordinal": 73,
+      "sourceFrame": 74,
+      "imageSha256": "f64342a10d4400d54984185563f91d4615b8b28bc2417ce2e43ea04d4419e1f9",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4265625,
+        0.17045454545454544,
+        0.521875,
+        0.8125
+      ],
+      "otherBoxes": [
+        [
+          0.5171875,
+          0.14488636363636365,
+          0.60625,
+          0.84375
+        ]
+      ]
+    },
+    {
+      "ordinal": 74,
+      "sourceFrame": 75,
+      "imageSha256": "1d21ebcf10f5ca13ea3abb6d80184c905850e5994eb008587cbb86a6a17f9bce",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.44375,
+        0.18181818181818182,
+        0.521875,
+        0.8011363636363636
+      ],
+      "otherBoxes": [
+        [
+          0.5171875,
+          0.16477272727272727,
+          0.603125,
+          0.8409090909090909
+        ]
+      ]
+    },
+    {
+      "ordinal": 75,
+      "sourceFrame": 76,
+      "imageSha256": "3c0ebffba1cc2ae524448e02eb981770fdd5cd7bac36e72e13ca17a8a8a19623",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4515625,
+        0.19602272727272727,
+        0.521875,
+        0.8125
+      ],
+      "otherBoxes": [
+        [
+          0.5125,
+          0.17613636363636365,
+          0.6015625,
+          0.8295454545454546
+        ]
+      ]
+    },
+    {
+      "ordinal": 76,
+      "sourceFrame": 77,
+      "imageSha256": "e0de1781735d0a325c1e240c26d3eacea44e27da0e4d8e8e50307edb73779039",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4609375,
+        0.20738636363636365,
+        0.5171875,
+        0.8039772727272727
+      ],
+      "otherBoxes": [
+        [
+          0.5078125,
+          0.1903409090909091,
+          0.6046875,
+          0.8295454545454546
+        ]
+      ]
+    },
+    {
+      "ordinal": 77,
+      "sourceFrame": 78,
+      "imageSha256": "69d4535c99fafd0e45649d1a57b9d20dc63240b079d3ac6c22bc87d6c083dead",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4578125,
+        0.21306818181818182,
+        0.5171875,
+        0.8096590909090909
+      ],
+      "otherBoxes": [
+        [
+          0.503125,
+          0.20170454545454544,
+          0.5921875,
+          0.8409090909090909
+        ]
+      ]
+    },
+    {
+      "ordinal": 78,
+      "sourceFrame": 79,
+      "imageSha256": "30a79312234797d7ac382d592628822f662875dfc4245f58b914f31e244bd777",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.46875,
+        0.21875,
+        0.5234375,
+        0.7982954545454546
+      ],
+      "otherBoxes": [
+        [
+          0.4875,
+          0.20738636363636365,
+          0.5875,
+          0.8267045454545454
+        ]
+      ]
+    },
+    {
+      "ordinal": 79,
+      "sourceFrame": 80,
+      "imageSha256": "410e447ca1fdd73eb7ea51524a3f372ffd9b192782bb74a816b8d4fc7b312252",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.45625,
+        0.23295454545454544,
+        0.50625,
+        0.8267045454545454
+      ],
+      "otherBoxes": [
+        [
+          0.4859375,
+          0.20170454545454544,
+          0.58125,
+          0.8323863636363636
+        ]
+      ]
+    },
+    {
+      "ordinal": 80,
+      "sourceFrame": 81,
+      "imageSha256": "ffa1af861a1be91aa34708de4ca48e4efa6f1ae2b48d18111cb7afffec75af5a",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4609375,
+        0.22727272727272727,
+        0.534375,
+        0.8380681818181818
+      ],
+      "otherBoxes": [
+        [
+          0.4875,
+          0.19602272727272727,
+          0.5671875,
+          0.8409090909090909
+        ]
+      ]
+    },
+    {
+      "ordinal": 81,
+      "sourceFrame": 82,
+      "imageSha256": "3c64c548495a989552bb82d2efa3d1cfc8b0f67c202aabaa78e3e72ae408d5bd",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4671875,
+        0.22443181818181818,
+        0.515625,
+        0.8295454545454546
+      ],
+      "otherBoxes": [
+        [
+          0.478125,
+          0.20454545454545456,
+          0.575,
+          0.8607954545454546
+        ]
+      ]
+    },
+    {
+      "ordinal": 82,
+      "sourceFrame": 83,
+      "imageSha256": "e70162b8bf0f60a4adda5cca7d994c2fd9cc9f11a14f3736ab66eb4eb9b28120",
+      "visibility": "uncertain",
+      "note": "Source-only visibility uncertain; no invented target rectangle.",
+      "otherBoxes": [
+        [
+          0.4609375,
+          0.16761363636363635,
+          0.596875,
+          0.84375
+        ]
+      ]
+    },
+    {
+      "ordinal": 83,
+      "sourceFrame": 84,
+      "imageSha256": "71313f8862343ae790f042953923c4671391e5fe3ad5ae7eb1b847c96709e3c0",
+      "visibility": "uncertain",
+      "note": "Source-only visibility uncertain; no invented target rectangle.",
+      "otherBoxes": [
+        [
+          0.446875,
+          0.17329545454545456,
+          0.603125,
+          0.8636363636363636
+        ]
+      ]
+    },
+    {
+      "ordinal": 84,
+      "sourceFrame": 85,
+      "imageSha256": "0b3fdb881af8f57e83beea66ef5a41b1b3b7a62f2d2dd345400c9c2552f47665",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.515625,
+        0.1590909090909091,
+        0.58125,
+        0.78125
+      ],
+      "otherBoxes": [
+        [
+          0.403125,
+          0.13920454545454544,
+          0.628125,
+          0.8806818181818182
+        ]
+      ]
+    },
+    {
+      "ordinal": 85,
+      "sourceFrame": 86,
+      "imageSha256": "0d5efff56a7211d309466bdd1820e0df5d4d900b75e2ae76a158b123aea3651a",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.5,
+        0.16761363636363635,
+        0.58125,
+        0.8238636363636364
+      ],
+      "otherBoxes": [
+        [
+          0.4,
+          0.125,
+          0.5609375,
+          0.8096590909090909
+        ]
+      ]
+    },
+    {
+      "ordinal": 86,
+      "sourceFrame": 87,
+      "imageSha256": "ab47418799f80e072693adb744abc46b286d5e2c22df5880ab7fd16cc66e7dd4",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.5140625,
+        0.15625,
+        0.609375,
+        0.7897727272727273
+      ],
+      "otherBoxes": [
+        [
+          0.4078125,
+          0.13068181818181818,
+          0.55,
+          0.84375
+        ]
+      ]
+    },
+    {
+      "ordinal": 87,
+      "sourceFrame": 88,
+      "imageSha256": "f9c003c53bad0c3c74faacbcb9e6f733b0be29fe71c448cbdc5ad63ec0a93653",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.5109375,
+        0.17613636363636365,
+        0.609375,
+        0.8096590909090909
+      ],
+      "otherBoxes": [
+        [
+          0.4109375,
+          0.13352272727272727,
+          0.5640625,
+          0.8551136363636364
+        ]
+      ]
+    },
+    {
+      "ordinal": 88,
+      "sourceFrame": 89,
+      "imageSha256": "9ff824694afbc848e15b06cc166aed3ac592141a4e6cc5b499243a369338a221",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.5015625,
+        0.18181818181818182,
+        0.6171875,
+        0.8295454545454546
+      ],
+      "otherBoxes": [
+        [
+          0.4109375,
+          0.15056818181818182,
+          0.525,
+          0.8522727272727273
+        ]
+      ]
+    },
+    {
+      "ordinal": 89,
+      "sourceFrame": 90,
+      "imageSha256": "23b1b4e27a887c77ae05e6a6b3706aaca5a70a9970485b64e933a876cac1b40f",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.5046875,
+        0.1903409090909091,
+        0.61875,
+        0.8522727272727273
+      ],
+      "otherBoxes": [
+        [
+          0.41875,
+          0.16761363636363635,
+          0.525,
+          0.8210227272727273
+        ]
+      ]
+    },
+    {
+      "ordinal": 90,
+      "sourceFrame": 91,
+      "imageSha256": "b2d0a9462eb4278e23462a698a7e543fb62d2bcdd81c09924690e39d68684117",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.5046875,
+        0.21306818181818182,
+        0.625,
+        0.8238636363636364
+      ],
+      "otherBoxes": [
+        [
+          0.41875,
+          0.1846590909090909,
+          0.5109375,
+          0.7585227272727273
+        ]
+      ]
+    },
+    {
+      "ordinal": 91,
+      "sourceFrame": 92,
+      "imageSha256": "0f34fdf4229a3f50296ca84252012c62235fb430dc8bf2e550c6ff8a10eace22",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.503125,
+        0.2215909090909091,
+        0.621875,
+        0.8409090909090909
+      ],
+      "otherBoxes": [
+        [
+          0.415625,
+          0.1903409090909091,
+          0.503125,
+          0.8210227272727273
+        ]
+      ]
+    },
+    {
+      "ordinal": 92,
+      "sourceFrame": 93,
+      "imageSha256": "d95e7cb142191951abe631bda963b09f71fc20e556004f51985ce5385780b4ed",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.496875,
+        0.25,
+        0.6421875,
+        0.8125
+      ],
+      "otherBoxes": [
+        [
+          0.4125,
+          0.19886363636363635,
+          0.4984375,
+          0.8210227272727273
+        ]
+      ]
+    },
+    {
+      "ordinal": 93,
+      "sourceFrame": 94,
+      "imageSha256": "724e0fe385df1ef1ca6cb12ef4ac8512de449f1686f2b857f729c37114276f36",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.490625,
+        0.26420454545454547,
+        0.6328125,
+        0.8153409090909091
+      ],
+      "otherBoxes": [
+        [
+          0.409375,
+          0.25,
+          0.4984375,
+          0.8380681818181818
+        ]
+      ]
+    },
+    {
+      "ordinal": 94,
+      "sourceFrame": 95,
+      "imageSha256": "967b07dca105e299f69c1a26449d0de93af497e5bc63d6e429c73fab91a354f8",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.490625,
+        0.2840909090909091,
+        0.6359375,
+        0.8352272727272727
+      ],
+      "otherBoxes": [
+        [
+          0.4109375,
+          0.26136363636363635,
+          0.4921875,
+          0.8096590909090909
+        ]
+      ]
+    },
+    {
+      "ordinal": 95,
+      "sourceFrame": 96,
+      "imageSha256": "2f9dfce2f410653b484644e80c042a5dde26936e55209f3aa7a6fbba6ceab0eb",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.4921875,
+        0.2869318181818182,
+        0.6390625,
+        0.8181818181818182
+      ],
+      "otherBoxes": [
+        [
+          0.4171875,
+          0.26420454545454547,
+          0.5,
+          0.8238636363636364
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1048 @@
+{
+  "schema": "association-labels-134-v1",
+  "objectKey": "subject",
+  "annotator": "OTB authors (target/skater boxes); Codex source-only AI (visibility/bottle others)",
+  "method": "external-annotations",
+  "exposure": "before-tracking",
+  "provenance": "Original external OTB target boxes, MATLAB one-based XYWH converted to normalized clipped corners. Source-only AI visibility reviewed after method lock and before predictions; no independent human adjudication. Skating2 reciprocal other boxes are external annotations for the other target. Liquor other boxes are coarse source-only AI annotations on10 later sampled images only; other images lack independent distractor labels. Missing distractor labels cannot prove no switches. No tracker outputs used. Source note138 explains crossing fallback and bottle cohort addition.",
+  "rows": [
+    {
+      "ordinal": 1,
+      "sourceFrame": 279,
+      "imageSha256": "111e9b56a4753135af9e685ee921ab352e08eeca5ee408e844846bebb1cd3103",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.3984375,
+        0.3145833333333333,
+        0.5125,
+        0.7520833333333333
+      ]
+    },
+    {
+      "ordinal": 2,
+      "sourceFrame": 282,
+      "imageSha256": "1a02e3312aac6b8cd517c2202802d0bfb5ba0e895a4ad0af94d24fc82bf3ffee",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.3984375,
+        0.3145833333333333,
+        0.5125,
+        0.7520833333333333
+      ]
+    },
+    {
+      "ordinal": 3,
+      "sourceFrame": 285,
+      "imageSha256": "3625cb08a97e351e5e015f4174b8a855968567a2aad315d32efedbd258be9b27",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.3984375,
+        0.3145833333333333,
+        0.5125,
+        0.7520833333333333
+      ]
+    },
+    {
+      "ordinal": 4,
+      "sourceFrame": 288,
+      "imageSha256": "15013871cddd42ab929b998cdc193d0d2216a16c90e350115c469e2ce54cc155",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.3984375,
+        0.3145833333333333,
+        0.5125,
+        0.7520833333333333
+      ]
+    },
+    {
+      "ordinal": 5,
+      "sourceFrame": 291,
+      "imageSha256": "f10eba3f37dba38bda0601d71c4c6b18db3f658b258a789ea0a3d59ea6b8f6a2",
+      "visibility": "uncertain",
+      "note": "Source-only visibility uncertain; no invented target rectangle."
+    },
+    {
+      "ordinal": 6,
+      "sourceFrame": 294,
+      "imageSha256": "2b2a6371090b64d2c21b2f3d786c56a2fe93777ef5867ade7a5920540e39c5b2",
+      "visibility": "uncertain",
+      "note": "Source-only visibility uncertain; no invented target rectangle."
+    },
+    {
+      "ordinal": 7,
+      "sourceFrame": 297,
+      "imageSha256": "8d888c779f6b7a6ceccc0fc3822b4b478834d14c19f6998a89db8b5c88ff0915",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping. Two visible other bottles manually boxed from source-only grid review; coarse AI boxes, about5 source pixels allowance; not human adjudication.",
+      "targetBox": [
+        0.3984375,
+        0.3145833333333333,
+        0.5125,
+        0.7520833333333333
+      ],
+      "otherBoxes": [
+        [
+          0.21,
+          0.37,
+          0.35,
+          0.76
+        ],
+        [
+          0.55,
+          0.4,
+          0.68,
+          0.72
+        ]
+      ]
+    },
+    {
+      "ordinal": 8,
+      "sourceFrame": 300,
+      "imageSha256": "ef3c4d36e97a909075fd6486710913686ed743edbb75ac3a8ce5be97d4caffa2",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.3984375,
+        0.3145833333333333,
+        0.5125,
+        0.7520833333333333
+      ]
+    },
+    {
+      "ordinal": 9,
+      "sourceFrame": 303,
+      "imageSha256": "020051a1ce77df697e2c2eb93a99c618433f243ddafbf5bb165acee987b4cd2c",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.3984375,
+        0.3145833333333333,
+        0.5125,
+        0.7520833333333333
+      ]
+    },
+    {
+      "ordinal": 10,
+      "sourceFrame": 306,
+      "imageSha256": "f2e31aacbe6d46046db77abaadc007cf321ef3f7aece761669c64fbb3bb2dd8c",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.3984375,
+        0.3145833333333333,
+        0.5125,
+        0.7520833333333333
+      ]
+    },
+    {
+      "ordinal": 11,
+      "sourceFrame": 309,
+      "imageSha256": "34a80a1074664e7e32e9ffc26feb381858a9655e9d4222b9d58f5f3f0d9299bb",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.3984375,
+        0.3145833333333333,
+        0.5125,
+        0.7520833333333333
+      ]
+    },
+    {
+      "ordinal": 12,
+      "sourceFrame": 312,
+      "imageSha256": "94265285061c2286de935d9c0a4745e5900fa9d68e820340e4f78fcfb0b2236b",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.3984375,
+        0.3125,
+        0.5125,
+        0.75
+      ]
+    },
+    {
+      "ordinal": 13,
+      "sourceFrame": 315,
+      "imageSha256": "f5681249fb72133421fe382a259917054bc28d4436451c627d33dae58c399121",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.3984375,
+        0.3125,
+        0.5,
+        0.74375
+      ]
+    },
+    {
+      "ordinal": 14,
+      "sourceFrame": 318,
+      "imageSha256": "a7dc54e76790e880a2ee2aaf74b6a2b1d33a553f143091e78911e2693248d0eb",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping. Two visible other bottles manually boxed from source-only grid review; coarse AI boxes, about5 source pixels allowance; not human adjudication.",
+      "targetBox": [
+        0.390625,
+        0.29375,
+        0.5046875,
+        0.73125
+      ],
+      "otherBoxes": [
+        [
+          0.21,
+          0.37,
+          0.35,
+          0.76
+        ],
+        [
+          0.55,
+          0.4,
+          0.68,
+          0.72
+        ]
+      ]
+    },
+    {
+      "ordinal": 15,
+      "sourceFrame": 321,
+      "imageSha256": "d828f5bb652bf077891530d659f5d01533ebfb3486749e28df4a851f8ff4d75b",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.390625,
+        0.28541666666666665,
+        0.5046875,
+        0.7229166666666667
+      ]
+    },
+    {
+      "ordinal": 16,
+      "sourceFrame": 324,
+      "imageSha256": "6f0f597a951e73ce2e8e0f9331386b482422a7e29788d4d83250a1a468d2db7b",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.390625,
+        0.26875,
+        0.5046875,
+        0.70625
+      ]
+    },
+    {
+      "ordinal": 17,
+      "sourceFrame": 327,
+      "imageSha256": "365d7eefc276f7bef3c6ef5e302ea965b97ffad4b5f4890a4ce71dbedb7c916e",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.384375,
+        0.24375,
+        0.4984375,
+        0.68125
+      ]
+    },
+    {
+      "ordinal": 18,
+      "sourceFrame": 330,
+      "imageSha256": "7dcbb003bad9e0b9568b70b2804acafd108b02c43e6f67bc1673482201bc2f34",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.3796875,
+        0.22083333333333333,
+        0.4859375,
+        0.6354166666666666
+      ]
+    },
+    {
+      "ordinal": 19,
+      "sourceFrame": 333,
+      "imageSha256": "f66ebaad1934222889b2b4607eae600f941da6c65370ac2782bc678a4cb02cb8",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.3609375,
+        0.19166666666666668,
+        0.475,
+        0.6291666666666667
+      ]
+    },
+    {
+      "ordinal": 20,
+      "sourceFrame": 336,
+      "imageSha256": "52efc892d8c0436d9a7675fa267c0f3e29075ca602f66f851b6a91a41a7604cc",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.346875,
+        0.18125,
+        0.4609375,
+        0.61875
+      ]
+    },
+    {
+      "ordinal": 21,
+      "sourceFrame": 339,
+      "imageSha256": "8a6dba0ff48ae3af62c53523cdaa8b76f9e8b46393b70ecabf8c256791519752",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping. Two visible other bottles manually boxed from source-only grid review; coarse AI boxes, about5 source pixels allowance; not human adjudication.",
+      "targetBox": [
+        0.3359375,
+        0.1625,
+        0.45,
+        0.6
+      ],
+      "otherBoxes": [
+        [
+          0.21,
+          0.37,
+          0.35,
+          0.76
+        ],
+        [
+          0.55,
+          0.4,
+          0.68,
+          0.72
+        ]
+      ]
+    },
+    {
+      "ordinal": 22,
+      "sourceFrame": 342,
+      "imageSha256": "1a2a11071ff33c5aab2250f81373e4f8047f97c798fa92ca1b96e5b2cc78a348",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.31875,
+        0.14375,
+        0.41875,
+        0.5375
+      ]
+    },
+    {
+      "ordinal": 23,
+      "sourceFrame": 345,
+      "imageSha256": "6684617ca14d6401dac8d4e1c5da80a4449fa74112600621d08fb3265cd5a101",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.31875,
+        0.14375,
+        0.3984375,
+        0.5270833333333333
+      ]
+    },
+    {
+      "ordinal": 24,
+      "sourceFrame": 348,
+      "imageSha256": "ad40324da1e2d7b4fb6c22666f342d219369cf62af21210c051579a6be81692d",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.2953125,
+        0.1125,
+        0.38125,
+        0.4979166666666667
+      ]
+    },
+    {
+      "ordinal": 25,
+      "sourceFrame": 351,
+      "imageSha256": "45b484d45b63a19b22a966914ced7d707e82e11e82ebfe9e00a7f7aa2da67b56",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.2640625,
+        0.09375,
+        0.3703125,
+        0.48333333333333334
+      ]
+    },
+    {
+      "ordinal": 26,
+      "sourceFrame": 354,
+      "imageSha256": "9e6afa40197243197aa6853f58b5596c2939d87422201c8877ba7b812c00b28b",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.2625,
+        0.0875,
+        0.3515625,
+        0.475
+      ]
+    },
+    {
+      "ordinal": 27,
+      "sourceFrame": 357,
+      "imageSha256": "07566f5489df0b7da05b9ed42b450dfad1dc32549271ea247650404422c76b77",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.234375,
+        0.08125,
+        0.3328125,
+        0.48333333333333334
+      ]
+    },
+    {
+      "ordinal": 28,
+      "sourceFrame": 360,
+      "imageSha256": "457d811b9dcf2ca489bd38ad08776a635c5085dbb1288eb98b1085784f98759b",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping. Two visible other bottles manually boxed from source-only grid review; coarse AI boxes, about5 source pixels allowance; not human adjudication.",
+      "targetBox": [
+        0.2109375,
+        0.09791666666666667,
+        0.309375,
+        0.48541666666666666
+      ],
+      "otherBoxes": [
+        [
+          0.21,
+          0.37,
+          0.35,
+          0.76
+        ],
+        [
+          0.55,
+          0.4,
+          0.68,
+          0.72
+        ]
+      ]
+    },
+    {
+      "ordinal": 29,
+      "sourceFrame": 363,
+      "imageSha256": "fb423842b76cdc8b3d2ac55703a629403fb827fe442616fc747fc2dc2bdfad17",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.1875,
+        0.09791666666666667,
+        0.2890625,
+        0.4979166666666667
+      ]
+    },
+    {
+      "ordinal": 30,
+      "sourceFrame": 366,
+      "imageSha256": "58ecdc17d8ad6fb0cffe341ff63d0ad212cd8fbfe9f9bbe50455c6d86838e192",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.1546875,
+        0.11875,
+        0.2515625,
+        0.49166666666666664
+      ]
+    },
+    {
+      "ordinal": 31,
+      "sourceFrame": 369,
+      "imageSha256": "54673f5f74d7e788d0848c1377fa3895553a34f242b21237d37e0348d44da359",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.1453125,
+        0.11666666666666667,
+        0.2234375,
+        0.5
+      ]
+    },
+    {
+      "ordinal": 32,
+      "sourceFrame": 372,
+      "imageSha256": "1c3aafd0f2f3ead3fd4852fa4747dafa6206535d31de193ac36975f6f6cc7879",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.1125,
+        0.11666666666666667,
+        0.2171875,
+        0.5083333333333333
+      ]
+    },
+    {
+      "ordinal": 33,
+      "sourceFrame": 375,
+      "imageSha256": "d0ac6acf2296202a02f1acf05b0da1372b564fa74ef0e120f32f78b02da107fb",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.0875,
+        0.13541666666666666,
+        0.1921875,
+        0.5208333333333334
+      ]
+    },
+    {
+      "ordinal": 34,
+      "sourceFrame": 378,
+      "imageSha256": "c0bf39164ce3e2a4562713d674a361314532c8aeab05c0c185e16c70047854ad",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.05,
+        0.11875,
+        0.1640625,
+        0.55625
+      ]
+    },
+    {
+      "ordinal": 35,
+      "sourceFrame": 381,
+      "imageSha256": "9cb5a91a7bf2865fa5de263081abac24ac69d556f88d19871a5a1bb4d72e461e",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping. Two visible other bottles manually boxed from source-only grid review; coarse AI boxes, about5 source pixels allowance; not human adjudication.",
+      "targetBox": [
+        0.0234375,
+        0.1375,
+        0.1375,
+        0.575
+      ],
+      "otherBoxes": [
+        [
+          0.21,
+          0.37,
+          0.35,
+          0.76
+        ],
+        [
+          0.55,
+          0.4,
+          0.68,
+          0.72
+        ]
+      ]
+    },
+    {
+      "ordinal": 36,
+      "sourceFrame": 384,
+      "imageSha256": "95c5dc12160b4a4526bbd85c0a7dad3ca4044418eb0648721229b4ca8ed0af36",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.0078125,
+        0.15,
+        0.121875,
+        0.5875
+      ]
+    },
+    {
+      "ordinal": 37,
+      "sourceFrame": 387,
+      "imageSha256": "2a4dbcb3bee1a830f33f2dae348e5be2ea87d5b031bc3601973148ddf5734059",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.0046875,
+        0.16875,
+        0.10625,
+        0.60625
+      ]
+    },
+    {
+      "ordinal": 38,
+      "sourceFrame": 390,
+      "imageSha256": "85b61a75b0f42b13715dad7184a3c5d0178f9e7c973fef608f1b92297380e618",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.0046875,
+        0.16875,
+        0.1015625,
+        0.60625
+      ]
+    },
+    {
+      "ordinal": 39,
+      "sourceFrame": 393,
+      "imageSha256": "4149b35c0942eec0f7dc08b7f1e9c5281ebc9b56547dcf2b4c9821a8cade2ee5",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.0046875,
+        0.2,
+        0.0859375,
+        0.6375
+      ]
+    },
+    {
+      "ordinal": 40,
+      "sourceFrame": 396,
+      "imageSha256": "b4c0ed4426fe604055596291d5acdf9496a68ebdfe78f1ea897b5723e269daa0",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.0046875,
+        0.225,
+        0.0828125,
+        0.6625
+      ]
+    },
+    {
+      "ordinal": 41,
+      "sourceFrame": 399,
+      "imageSha256": "ed8d2a99e4a19c161882cd8e26371c48b673c1ee1e7649fe2d154fa6682da989",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.0046875,
+        0.225,
+        0.096875,
+        0.6916666666666667
+      ]
+    },
+    {
+      "ordinal": 42,
+      "sourceFrame": 402,
+      "imageSha256": "e366f9fb7802c9ca595cef399127c50f95b661373da5ae6aef81e791b0ad07f7",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping. Two visible other bottles manually boxed from source-only grid review; coarse AI boxes, about5 source pixels allowance; not human adjudication.",
+      "targetBox": [
+        0.0046875,
+        0.25,
+        0.11875,
+        0.6875
+      ],
+      "otherBoxes": [
+        [
+          0.21,
+          0.37,
+          0.35,
+          0.76
+        ],
+        [
+          0.55,
+          0.4,
+          0.68,
+          0.72
+        ]
+      ]
+    },
+    {
+      "ordinal": 43,
+      "sourceFrame": 405,
+      "imageSha256": "b1ad51fc18dae8527c1aebc201f1f996d1a18c554453d269700774c1cd1de9f8",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.0046875,
+        0.17708333333333334,
+        0.11875,
+        0.7333333333333333
+      ]
+    },
+    {
+      "ordinal": 44,
+      "sourceFrame": 408,
+      "imageSha256": "6352e2b5d30fb1ad08759f70710ddd25c1e39e6e1d9d433f124901588ba64e0c",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.0046875,
+        0.18125,
+        0.1640625,
+        0.7583333333333333
+      ]
+    },
+    {
+      "ordinal": 45,
+      "sourceFrame": 411,
+      "imageSha256": "51a50106fad6083ffd8d4c5e5c049cbea032ebf57d9de1af4e7591ddded3f117",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.0125,
+        0.19583333333333333,
+        0.171875,
+        0.7770833333333333
+      ]
+    },
+    {
+      "ordinal": 46,
+      "sourceFrame": 414,
+      "imageSha256": "066ca26595101a53abf432cec900a00a37bdd60d4ca26b5e3056f70e0c635568",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.0375,
+        0.1875,
+        0.21875,
+        0.79375
+      ]
+    },
+    {
+      "ordinal": 47,
+      "sourceFrame": 417,
+      "imageSha256": "e0efd4ff1acfcd18b41d36ff03c84e517016af2826a3ec198436ea13ffae3732",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.0765625,
+        0.20208333333333334,
+        0.2375,
+        0.8
+      ]
+    },
+    {
+      "ordinal": 48,
+      "sourceFrame": 420,
+      "imageSha256": "150b2b3ae9457501947a24123eb119fbc1f57812ec5fcad691f3bbf2b66fb6be",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.09375,
+        0.20208333333333334,
+        0.275,
+        0.8083333333333333
+      ]
+    },
+    {
+      "ordinal": 49,
+      "sourceFrame": 423,
+      "imageSha256": "ffbf05315f712723e179c3733dbfe026feba2cd75e7c7e501dbbd9e0e32cd733",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping. Two visible other bottles manually boxed from source-only grid review; coarse AI boxes, about5 source pixels allowance; not human adjudication.",
+      "targetBox": [
+        0.1515625,
+        0.18125,
+        0.3140625,
+        0.7833333333333333
+      ],
+      "otherBoxes": [
+        [
+          0.21,
+          0.37,
+          0.35,
+          0.76
+        ],
+        [
+          0.55,
+          0.4,
+          0.68,
+          0.72
+        ]
+      ]
+    },
+    {
+      "ordinal": 50,
+      "sourceFrame": 426,
+      "imageSha256": "b565defc06d4acdfb094bc07293e953ab22e5631939ec638f8b536a0a04d2498",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.2015625,
+        0.17708333333333334,
+        0.3609375,
+        0.7791666666666667
+      ]
+    },
+    {
+      "ordinal": 51,
+      "sourceFrame": 429,
+      "imageSha256": "d721b8b3c76965939f18f5e50c8a04cec23841609eef2e55a4d9841accb450e0",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.2484375,
+        0.175,
+        0.4,
+        0.7625
+      ]
+    },
+    {
+      "ordinal": 52,
+      "sourceFrame": 432,
+      "imageSha256": "ffe1e7c739ae93c00a296997fd43afc7ef27041825f299707bf3436a43221b6b",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.2984375,
+        0.17708333333333334,
+        0.4421875,
+        0.74375
+      ]
+    },
+    {
+      "ordinal": 53,
+      "sourceFrame": 435,
+      "imageSha256": "7c15062f4ca1422dd226defc935106e3f67db0f62542805933b340d9fec9aec0",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.334375,
+        0.19791666666666666,
+        0.471875,
+        0.7229166666666667
+      ]
+    },
+    {
+      "ordinal": 54,
+      "sourceFrame": 438,
+      "imageSha256": "52aacb533596bccddcbecfd3986bd21f30a75746267036cc85448f37f319ffe4",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.3625,
+        0.22083333333333333,
+        0.5015625,
+        0.725
+      ]
+    },
+    {
+      "ordinal": 55,
+      "sourceFrame": 441,
+      "imageSha256": "a5307baf2102cc671bc46ca4bb44d3ccd23edff85a0a4fb73e9862db50976382",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.3859375,
+        0.24166666666666667,
+        0.503125,
+        0.70625
+      ]
+    },
+    {
+      "ordinal": 56,
+      "sourceFrame": 444,
+      "imageSha256": "a69eb54c53e66587481e87ff685a9225ea3196310ca9bd6ee2cb0fdb7efe06e5",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping. Two visible other bottles manually boxed from source-only grid review; coarse AI boxes, about5 source pixels allowance; not human adjudication.",
+      "targetBox": [
+        0.384375,
+        0.2625,
+        0.4984375,
+        0.7
+      ],
+      "otherBoxes": [
+        [
+          0.21,
+          0.37,
+          0.35,
+          0.76
+        ],
+        [
+          0.55,
+          0.4,
+          0.68,
+          0.72
+        ]
+      ]
+    },
+    {
+      "ordinal": 57,
+      "sourceFrame": 447,
+      "imageSha256": "d5a4e3637802ff222ececedc4882a209794425b16b08d1af6424f59e6aba7745",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.39375,
+        0.275,
+        0.5078125,
+        0.7125
+      ]
+    },
+    {
+      "ordinal": 58,
+      "sourceFrame": 450,
+      "imageSha256": "c88b7bbefe0761a5bedf487fb6ca2763633722088fc80393b5237c4f64a22588",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.39375,
+        0.275,
+        0.5078125,
+        0.7125
+      ]
+    },
+    {
+      "ordinal": 59,
+      "sourceFrame": 453,
+      "imageSha256": "07bae08e496d4e8d3ca1bc4776f8711aa4a3349e8b48c5505b4f8dec14158089",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.39375,
+        0.2875,
+        0.5078125,
+        0.725
+      ]
+    },
+    {
+      "ordinal": 60,
+      "sourceFrame": 456,
+      "imageSha256": "26d60d8d394fd39bc172f865df1357bc5bddd34b4da6a93428514d849c32c5ad",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.39375,
+        0.29375,
+        0.5078125,
+        0.73125
+      ]
+    },
+    {
+      "ordinal": 61,
+      "sourceFrame": 459,
+      "imageSha256": "ee6a4ddc414ba7229e499a9950b5514f503d372e9d3fe4163f94617d593cdac3",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.39375,
+        0.29375,
+        0.5078125,
+        0.73125
+      ]
+    },
+    {
+      "ordinal": 62,
+      "sourceFrame": 462,
+      "imageSha256": "db444f93ad6a0d5fa78a8c21d96dd6c5d746a54af3fbccaa1f34a2a2f5496d7b",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping.",
+      "targetBox": [
+        0.39375,
+        0.29375,
+        0.5078125,
+        0.73125
+      ]
+    },
+    {
+      "ordinal": 63,
+      "sourceFrame": 465,
+      "imageSha256": "d76ad319fdbd30309a8f70fd5c6f83b177fa579c06581f53c9f6aaf502f32f46",
+      "visibility": "partial",
+      "note": "Source-only target visible with partial body/hand/tree cover or image-edge clipping. Two visible other bottles manually boxed from source-only grid review; coarse AI boxes, about5 source pixels allowance; not human adjudication.",
+      "targetBox": [
+        0.39375,
+        0.29375,
+        0.5078125,
+        0.73125
+      ],
+      "otherBoxes": [
+        [
+          0.21,
+          0.37,
+          0.35,
+          0.76
+        ],
+        [
+          0.55,
+          0.4,
+          0.68,
+          0.72
+        ]
+      ]
+    },
+    {
+      "ordinal": 64,
+      "sourceFrame": 468,
+      "imageSha256": "3e833d79ae5c209eee9f1e1ddd72548955999b48e677d1ffd9b47d3ac70d75f0",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.39375,
+        0.29375,
+        0.5078125,
+        0.73125
+      ]
+    },
+    {
+      "ordinal": 65,
+      "sourceFrame": 471,
+      "imageSha256": "14cae0179d6ebe76daff4105052ff3932d08372715a597904c88bde8d0ff25c7",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.39375,
+        0.29375,
+        0.5078125,
+        0.73125
+      ]
+    },
+    {
+      "ordinal": 66,
+      "sourceFrame": 474,
+      "imageSha256": "c42b62252f2b056b0a710baa317d38d8f6f2792d1ad340b811e5b486112eadbe",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.39375,
+        0.29375,
+        0.5078125,
+        0.73125
+      ]
+    },
+    {
+      "ordinal": 67,
+      "sourceFrame": 477,
+      "imageSha256": "c4953a4627b60b9eae5ab4f2ce308ec6463ca1cd679da42a99d5e2cc7de5e109",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.39375,
+        0.29375,
+        0.5078125,
+        0.73125
+      ]
+    },
+    {
+      "ordinal": 68,
+      "sourceFrame": 480,
+      "imageSha256": "29eb39a2ed2e38cb089e8e8dd07f5dcadd1e7c283b5bbd0dbea94d49e16b299e",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.39375,
+        0.29375,
+        0.5078125,
+        0.73125
+      ]
+    },
+    {
+      "ordinal": 69,
+      "sourceFrame": 483,
+      "imageSha256": "c5bf7d59beaf0d9e11613ec366c48b8bff3e112fdecf02965212e7770bb79546",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle.",
+      "targetBox": [
+        0.39375,
+        0.29375,
+        0.5078125,
+        0.73125
+      ]
+    },
+    {
+      "ordinal": 70,
+      "sourceFrame": 486,
+      "imageSha256": "0d4095db839215c43d964ea5d2b2a95cf55d98ef988969da9c3d3c85106bd062",
+      "visibility": "visible",
+      "note": "Source-only target visible. Original independent benchmark rectangle. Two visible other bottles manually boxed from source-only grid review; coarse AI boxes, about5 source pixels allowance; not human adjudication.",
+      "targetBox": [
+        0.39375,
+        0.29375,
+        0.5078125,
+        0.73125
+      ],
+      "otherBoxes": [
+        [
+          0.21,
+          0.37,
+          0.35,
+          0.76
+        ],
+        [
+          0.55,
+          0.4,
+          0.68,
+          0.72
+        ]
+      ]
+    }
+  ]
+}
