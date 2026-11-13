@@ -23,6 +23,13 @@ final class WorldObservationStore implements AutoCloseable {
     private JSONObject staging;
     private final JSONArray staged=new JSONArray();
     private long stagedBytes;
+    // Cache authority is exact current byte identity, never file size/time. Read callbacks return detached values.
+    private String verifiedBytes136;
+    private JSONObject verifiedState136;
+    private long reads136,bytes136,reused136,parsed136,validated136,writes136,readNs136,parseNs136,validateNs136,writeNs136;
+    synchronized JSONObject verificationCost136(){return new JSONObject().put("stateReads",reads136).put("stateBytesHashed",bytes136).put("exactByteReuses",reused136).put("parsedStates",parsed136).put("structuralValidations",validated136).put("durableWrites",writes136).put("readHashMs",readNs136/1e6).put("parseMs",parseNs136/1e6).put("validationMs",validateNs136/1e6).put("writeMs",writeNs136/1e6).put("scope","Current process only. Every state read hashes all bytes; only exact byte identity reuses validated structure. Source images and outcome audits retain their own checks.");}
+    private void validate136(JSONObject data){long start=System.nanoTime();try{validate(data);}finally{validated136++;validateNs136+=System.nanoTime()-start;}}
+
     WorldObservationStore(Path project,WorldLedger worlds) throws Exception {
         this.worlds=worlds;root=project.resolve("world-observations");file=root.resolve("state.json");lock=root.resolve("state.lock");
         access(true,data->{for(Object raw:data.getJSONArray("runs")){var r=(JSONObject)raw;if(r.getString("status").equals("running")){r.put("status","interrupted").put("reason","Process ended; explicitly resume this same run and exact prefix");}}return null;});
@@ -31,14 +38,29 @@ final class WorldObservationStore implements AutoCloseable {
     private synchronized <T>T access(boolean write,Tx<T> tx)throws Exception{
         Files.createDirectories(root);
         try(var channel=FileChannel.open(lock,StandardOpenOption.CREATE,StandardOpenOption.WRITE);var held=channel.lock()){
-            JSONObject data;
+            JSONObject data;String rawHash=null;
             if(Files.exists(file)){
-                if(Files.size(file)>24_000_000)throw new IllegalStateException("Observation history exceeds24MB; preserve and export it");
-                var e=new JSONObject(Files.readString(file));data=e.getJSONObject("payload");
-                if(!e.getString("version").equals(VERSION)||!e.getString("sha256").equals(WorldFrames.hash(data)))throw new IllegalStateException("Observation store integrity changed; original bytes preserved");
-            }else data=new JSONObject().put("datasets",new JSONArray()).put("runs",new JSONArray()).put("worlds",new JSONObject());
-            validate(data);T result=tx.apply(data);
-            if(write){validate(data);byte[] bytes=new JSONObject().put("version",VERSION).put("payload",data).put("sha256",WorldFrames.hash(data)).toString().getBytes(StandardCharsets.UTF_8);if(bytes.length>24_000_000)throw new IllegalStateException("Observation history capacity reached; no pruning");var pending=file.resolveSibling("state.pending.json");try(var out=FileChannel.open(pending,StandardOpenOption.CREATE,StandardOpenOption.TRUNCATE_EXISTING,StandardOpenOption.WRITE)){var b=ByteBuffer.wrap(bytes);while(b.hasRemaining())out.write(b);out.force(true);}Files.move(pending,file,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);}
+                long start=System.nanoTime();if(Files.size(file)>24_000_000)throw new IllegalStateException("Observation history exceeds24MB; preserve and export it");
+                byte[] raw=Files.readAllBytes(file);if(raw.length>24_000_000)throw new IllegalStateException("Observation history exceeds24MB; preserve and export it");
+                rawHash=PerceptionStore.hash(raw);reads136++;bytes136+=raw.length;readNs136+=System.nanoTime()-start;
+                if(verifiedState136!=null&&rawHash.equals(verifiedBytes136)){reused136++;data=write?WorldFrames.copy(verifiedState136):verifiedState136;}
+                else{
+                    start=System.nanoTime();var e=new JSONObject(new String(raw,StandardCharsets.UTF_8));data=e.getJSONObject("payload");parsed136++;parseNs136+=System.nanoTime()-start;
+                    if(!e.getString("version").equals(VERSION)||!e.getString("sha256").equals(WorldFrames.hash(data)))throw new IllegalStateException("Observation store integrity changed; original bytes preserved");
+                    validate136(data);
+                    if(!write){verifiedState136=data;verifiedBytes136=rawHash;}
+                }
+            }else {verifiedState136=null;verifiedBytes136=null;data=new JSONObject().put("datasets",new JSONArray()).put("runs",new JSONArray()).put("worlds",new JSONObject());validate136(data);}
+            T result=tx.apply(data);
+            if(write){
+                validate136(data);long start=System.nanoTime();byte[] bytes=new JSONObject().put("version",VERSION).put("payload",data).put("sha256",WorldFrames.hash(data)).toString().getBytes(StandardCharsets.UTF_8);
+                if(bytes.length>24_000_000)throw new IllegalStateException("Observation history capacity reached; no pruning");
+                long parseStart=System.nanoTime();var detached=new JSONObject(new String(bytes,StandardCharsets.UTF_8));parsed136++;parseNs136+=System.nanoTime()-parseStart;
+                var stored=detached.getJSONObject("payload");if(!WorldFrames.hash(stored).equals(detached.getString("sha256")))throw new IllegalStateException("Serialized observation integrity changed");
+                var pending=file.resolveSibling("state.pending.json");try(var out=FileChannel.open(pending,StandardOpenOption.CREATE,StandardOpenOption.TRUNCATE_EXISTING,StandardOpenOption.WRITE)){var b=ByteBuffer.wrap(bytes);while(b.hasRemaining())out.write(b);out.force(true);}
+                Files.move(pending,file,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);
+                verifiedBytes136=PerceptionStore.hash(bytes);verifiedState136=stored;writes136++;writeNs136+=System.nanoTime()-start;
+            }
             return result;
         }
     }
@@ -52,7 +74,7 @@ final class WorldObservationStore implements AutoCloseable {
         }
     }
     private static JSONObject find(JSONArray values,String id){UUID.fromString(id);for(Object raw:values){var v=(JSONObject)raw;if(v.getString("id").equals(id))return v;}throw new IllegalArgumentException("Unknown observation record");}
-    private static JSONObject summary(JSONObject r){var o=WorldFrames.copy(r);o.remove("trace");return o;}
+    private static JSONObject summary(JSONObject r){var o=new JSONObject();for(String key:r.keySet())if(!key.equals("trace"))o.put(key,r.get(key));return WorldFrames.copy(o);}
     synchronized boolean busy()throws Exception{return access(false,s->{for(Object raw:s.getJSONArray("runs"))if(((JSONObject)raw).getString("status").equals("running"))return true;return false;});}
     JSONObject state(String worldId)throws Exception{
         var nativeState=worldId.isEmpty()?null:worlds.observe(worldId);
