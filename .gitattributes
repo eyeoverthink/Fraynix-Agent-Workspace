@@ -13,9 +13,9 @@ imgui.ini whitespace=-blank-at-eof
 
 # Preserve independently supplied benchmark annotation bytes.
 docs/publication134/*groundtruth* -text
-docs/publication135/*groundtruth* -text
+docs/publication135/*groundtruth* -text whitespace=cr-at-eol
 
 # Keep pinned study input hashes portable across checkout newline settings.
-docs/OBSERVATION_135_LOCK.json -text
-docs/publication135/*labels.json -text
-docs/publication135/source135.json -text
+docs/OBSERVATION_135_LOCK.json -text whitespace=cr-at-eol
+docs/publication135/*labels.json -text whitespace=cr-at-eol
+docs/publication135/source135.json -text whitespace=cr-at-eol
