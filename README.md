@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — Edition 138
 
+[Published and fetched verification receipt](docs/PUBLICATION_138.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-138)
+
 **Detect suspect motion before the tracker reports loss.** Fraynix is a local Java agent workspace connecting durable chat goals, observed and simulated worlds, browser interaction, creation tools, verified skills and retained evidence. This edition adds an optional appearance check to the observation path. It keeps the existing tracker as the default.
 
 [Previous edition](README-137.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/138/index.html) · [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md) · [Contributor handoff](README-CONTRIBUTORS.md)

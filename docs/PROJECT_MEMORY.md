@@ -1,3 +1,21 @@
+## Edition138 — published and fetched back
+
+2026-11-13. Isolated J:/Codex-Work/fraynix-workspace-edition138; parent5ee114d6. CI checked FIRST,137 hosted run pending at start. Method/scorer freeze22818761, source-only clarification71ae5444, sources/labels57dc95fc, exact original annotation/lock bytes a4e3bb23 all before fresh predictions. Actual tested source/artifacts in docs/readmes/138/verification.json. Release 4af0b8ac7256518c7fae92bdc28b9eebd3d8426c; annotated readme-138. Main, edition138 and tag pushed atomically and fetched. Verified 1666 canonical sources, 48784 frozen hashes across138 editions and 158 original evidence entries. See docs/PUBLICATION_138.json.
+
+Explicit drift-guard-138 checks accepted flow proposals against immutable source color/spatial/foreground/background evidence and competing appearances. Suspect measurements withheld before flow reports loss; unique strong source matches require two consecutive images to recover. Monitor-only control preserves incumbent tracker/filter outputs exactly. Original pixels replay every decision before separate independent outcome scoring. No automatic target admission, weights, person recognition, default/capacity/authority changes or new runtime dependencies. Existing137 verified reference sets retained;138 uses only its original seed.
+
+Four fixed windows from three fresh public OTB recordings,355 later frames per method:332 visible/partial,1 confidently hidden,22 uncertain. Two Skating2 targets share footage; Liquor stride3. External benchmark target/reciprocal skater boxes; source-only AI visibility and10 later bottle distractor samples, NOT human adjudication. New guard122/332 correct versus default122/332; wrong overlaps130 vs132; missing80 vs78; labelled-other matches0 vs0. Warnings useful2, false0, missed wrong134. Report all costs; no promotion. Physical accuracy and broad complete-occlusion recovery remain unresolved.
+
+293 Java checks;161 desktop checks; kernel/agency and isolated offline/package preparation. Actual app12runs, independent host arithmetic, exact monitor equivalence, original-pixel replay, export, stop/resume exact prefix, owned-process crash/cold restart with exact bytes/timestamps and zero observation writes. Changed source refuses audit/export; restoration revalidates. Native world unchanged. Original attempts and source/results retained; hosted CI separate.
+
+## Next steps
+
+1. Detect gradual foreground drift that preserves similar colors. Develop spatial-part and foreground/background motion checks against the now-exposed138 failures, freeze the candidate, then evaluate on genuinely new footage. This study removed only two wrong overlaps and added no correct observations; it does not justify broader autonomous use or a default change.
+2. Collect independently reviewed complete occlusion/return and similar-object crossings. Keep uncertain visibility explicit, report missing observations, and measure warning delay, false alarms and correct recovery. One confidently hidden sample and sparse bottle distractor labels are insufficient for general recovery claims.
+3. Profile complete tracking, persistence and original-pixel audit costs. Reuse only immutable, source-bound evidence where every source and outcome check remains intact. Then connect qualified observations and supported appearance memories back to durable Java world/browser/creation goals.
+
+Unified Java world/browser/creation goals remain central. No agents/overlapping heavy jobs. Shared node junction read-only; preserve private projects and frozen001–138. Publish only Fraynix-Agent-Workspace, fetch/audit. Never relabel old proofs, tune on fresh outcomes, or rerun passed heavy tests without new cause.
+
 ## Edition138 — locally verified; publication preparation
 
 2026-11-13. Isolated J:/Codex-Work/fraynix-workspace-edition138; parent5ee114d6. CI checked FIRST,137 hosted run pending at start. Method/scorer freeze22818761, source-only clarification71ae5444, sources/labels57dc95fc, exact original annotation/lock bytes a4e3bb23 all before fresh predictions. Actual tested source/artifacts in docs/readmes/138/verification.json. No138 publication claimed until actual push and fetched audit pass.
