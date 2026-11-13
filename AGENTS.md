@@ -1,3 +1,7 @@
+## Edition133 active — 2026-11-12
+
+Continue isolated S:/Codex-Work/fraynix-workspace-edition133 from62c62fda. CI checked FIRST in build/ci133-start.json: hosted runs pending, not passed. Improve explicit candidate object association and visual ground-contact estimation; keep legacy-flow/ordinary forecast defaults and all source/outcome checks. Read docs/EDITION_133_CONTRACT.md. Use132 windows600/2600 for development only; freeze candidate before running1600/3600/4600 comparison. All are already exposed footage, not new held population. No semantic recognition, no certified contact or native actuation. No delegation/overlapping heavy work; node junction read-only. Preserve private projects and frozen001–132. Test actual UI/export/restart, document failures and full denominators, publish main/edition133/readme-133 then fetch/audit. No133 push yet.
+
 ## Edition132 — published and fetched back
 
 2026-11-12. Isolated S:/Codex-Work/fraynix-workspace-edition132; parent434616ec. Java annotation/audit source65e790b5; actual tested source in docs/readmes/132/verification.json. Release 76a43643293a987a839a52fc865696dd1b226017; annotated readme-132. Main, edition132 and tag pushed atomically and fetched. Verified 1600 canonical sources, 47562 frozen hashes across132 editions and 141 original evidence entries. See docs/PUBLICATION_132.json.

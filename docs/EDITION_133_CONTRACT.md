@@ -1,0 +1,11 @@
+# Edition133 — association and visual support candidates
+
+CI checked before changes on62c62fda;132 hosted runs in progress. Keep hosted/local outcomes separate.
+
+Add an explicitly selected handwritten Java tracker with a frozen appearance identity, competing-candidate checks, bounded search, loss refusal and two-image recovery. Preserve existing trackers, filter, metric geometry and forecast defaults. A contact estimator uses original lower-object pixels and local contrast; it can withhold when support is missing, ambiguous or clipped. A visual support point is not proof that an object physically touches a plane. No semantic person identification or physical actuation.
+
+Store candidate boxes/contact evidence in the ordinary durable run. Add a separate immutable contact audit using132 labels after predictions exist; retain missing and unobservable contacts in denominators. Recheck source images, original run, label, implementation and computed outcome after restart. Never retrofit candidate coordinates into the existing default metric anchor or uncertainty.
+
+Development uses existing132 windows600/2600 and labelled synthetic controls. Lock code before first new candidate evaluation on1600/3600/4600. All five windows and their AI annotations were previously exposed: this is a frozen prospective implementation comparison on existing material, not blinded human truth, fresh trajectories or held qualification. Do not tune after evaluation. Report full availability, error, unsupported contacts, timings and failures; retain the incumbent regardless. Compare candidate support points with its own box anchor and default132 published anchors on the same samples. Synthetic controls include lookalike distractors, complete occlusion, recovery, missing lower support and clipped images; no synthetic success substitutes for real measurements.
+
+Complete focused and appropriate connected-application regression, actual-app import/track/audit/export/cold-recheck and original-image screenshots. Preserve old records and refuse incompatible old code proofs rather than relabel them. Publish full README, linked edition, memory and development logs with fetched Git verification. One heavy job at a time, no delegation, no dependency installation through the shared node junction.
