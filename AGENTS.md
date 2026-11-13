@@ -1,3 +1,7 @@
+## Edition 134 active — 2026-11-12
+
+Isolated S:/Codex-Work/fraynix-workspace-edition134 from dcfa037f. CI checked FIRST; hosted compile/test/package still pending. Read docs/EDITION_134_CONTRACT.md. Explicit recovery, independent association/occlusion labels and immutable source audit; keep all defaults and old proof identities. Develop before freezing on synthetic/exposed EPFL only. New OTB Jogging/Lemming must remain unviewed until algorithm/scorer lock. No delegation or overlapping heavy work. Shared node junction read-only. Preserve private projects and frozen editions 001–133. No 134 publication yet.
+
 ## Edition133 — published and fetched back
 
 2026-11-12. Isolated S:/Codex-Work/fraynix-workspace-edition133; parent62c62fda. Candidate/audit/scorer locked11bbeea7 before comparison1600/3600/4600. Actual tested source and binary receipt in docs/readmes/133/verification.json. Release 6ac1a79fc1847dfb38f78ba29e73aae569df9ba6; annotated readme-133. Main, edition133 and tag pushed atomically and fetched. Verified 1610 canonical sources, 47761 frozen hashes across133 editions and 211 original evidence entries. See docs/PUBLICATION_133.json.
