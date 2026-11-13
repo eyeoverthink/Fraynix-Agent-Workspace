@@ -20,7 +20,7 @@ if group=='java':
  run('java136-final',args+['--console=plain','--max-workers=2'])
  shutil.copytree(r/'workspace-engine/build/test-results/test',folder/'final',dirs_exist_ok=False)
 elif group=='export':
- run('verified-export136',['cmd','/c','gradlew.bat',':workspace-engine:test','--tests','fraymus.workspace.VerifiedAppearances136Test','--tests','fraymus.workspace.AppearanceAudit136Test','--console=plain','--max-workers=2'])
+ run('verified-export136',['cmd','/c','gradlew.bat',':workspace-engine:test','--tests','fraymus.workspace.VerifiedAppearances135Test','--tests','fraymus.workspace.AppearanceAudit136Test','--console=plain','--max-workers=2'])
  shutil.copytree(r/'workspace-engine/build/test-results/test',folder/'verified-export-final',dirs_exist_ok=False)
 elif group=='desktop':
  run('desktop136-final',['cmd','/c','npm.cmd','test'],r/'workspace-desktop')
