@@ -15,7 +15,7 @@
     "docs/publication137/source137.json": "aadb25c59c59c5b276e3e75849eda3d9d20b4a9fd665131900e8771c69355136",
     "workspace-desktop/renderer/association134-panel.js": "962f4400f0cdfc72c6e6536dc9987006979ebb3b56ead628eef63f29eb93713d",
     "workspace-desktop/renderer/observation-panel.js": "80f55e4e892cf9bd061c05af1cb378ad4c601a4fec7e7952d6a9a3eec384d29c",
-    "workspace-desktop/test/corroborated140-integration.cjs": "97edf4e416f14d54e843a83fc5737bcab0e5967a7e43c6534c0ed73a41b2e6d8",
+    "workspace-desktop/test/corroborated140-integration.cjs": "37744399d3739387d95e391144fa01194f8a062b17f85c5ff4113e6d5a45c40b",
     "workspace-engine/src/main/java/fraymus/workspace/AppearanceAudit135.java": "9b645127417cfd6d48ab634ad8ea86fbe8ec1c51733a24929c0bad477d8b6b2c",
     "workspace-engine/src/main/java/fraymus/workspace/AppearanceEvidence138.java": "ebd7f297e37e03d998bc0991f0b24ab1a7cd37a44471b8adf0de511093de3e11",
     "workspace-engine/src/main/java/fraymus/workspace/AppearanceFlow135.java": "74c5798420dbf9627ce2e40b864e274bb1d28ed0900a06c3bf6442f432789f24",
@@ -41,8 +41,14 @@
     "workspace-engine/src/test/java/fraymus/workspace/CorroboratedGuard140Test.java": "f2e4e61a9916e2d9a1a9a12140a231cfa8583d3551e667b0ac393afef4c8dee3",
     "workspace-engine/src/test/java/fraymus/workspace/DriftGuard138Test.java": "6e2576cb25916d6275fcdc802a20ccd93fe707f3c315441963013a415f2b60d4",
     "workspace-engine/src/test/java/fraymus/workspace/ForegroundGuard139Test.java": "cf5e961a8f9eddce22f02a4f6c7d5d367027fe4d18d426b1f4c465de05aab9ea",
-    "workspace-engine/src/test/java/fraymus/workspace/RestorationImageStudy140.java": "9804d6a1695abc48c028b9bbffe4e514f397fdd459a279b869dc8984c02926e2"
+    "workspace-engine/src/test/java/fraymus/workspace/RestorationImageStudy140.java": "9804d6a1695abc48c028b9bbffe4e514f397fdd459a279b869dc8984c02926e2",
+    "docs/EDITION_140_SOURCE_NOTE.md": "544f210cc9d0ff75a2f665da22abf59e7e690150edcb8b35769688e78192e0fe"
   },
   "scope": "Production, scorer, controls and fixed protocol frozen before fresh pixels or annotations. No fresh-outcome tuning. Default and all checks retained.",
-  "byteFormatNote": "UTF-8 LF lock bytes finalized before any fresh source access; production/scorer unchanged from5f400a7f."
+  "byteFormatNote": "UTF-8 LF lock bytes finalized before any fresh source access; production/scorer unchanged from5f400a7f.",
+  "sourceOnlyClarification": {
+    "previousLockSha256": "f38ab366c9390a6f9c05eeb3ad9e4b45c56d27beeff21fc7b64f114a33db04c2",
+    "note": "docs/EDITION_140_SOURCE_NOTE.md",
+    "scope": "After annotation geometry checks, before fresh pixels/predictions: three eligible recordings, twelve runs. Only harness count description/assertion and source-note identity added. Production and scoring code unchanged from5f400a7f."
+  }
 }
