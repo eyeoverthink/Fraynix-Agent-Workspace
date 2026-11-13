@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/140-independent-contact-labels.md]] | [[README-132.md]]
+
 Current: [[docs/obsidian/139-valid-observations-and-recovery.md]] | [[README-131.md]]
 
 Current: [[docs/obsidian/138-physical-reference-audits.md]] | [[README-130.md]]

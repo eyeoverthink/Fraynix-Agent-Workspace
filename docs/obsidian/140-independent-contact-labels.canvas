@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "labels",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ObservationLabels132.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "panel",
+      "type": "file",
+      "file": "workspace-desktop/renderer/labels132-panel.js",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "tests",
+      "type": "file",
+      "file": "workspace-engine/src/test/java/fraymus/workspace/ObservationLabels132Test.java",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "study",
+      "type": "file",
+      "file": "workspace-desktop/test/labels132-integration.cjs",
+      "x": 430,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "labels",
+      "toNode": "panel"
+    },
+    {
+      "id": "1",
+      "fromNode": "panel",
+      "toNode": "tests"
+    },
+    {
+      "id": "2",
+      "fromNode": "tests",
+      "toNode": "study"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+[Edition132 — independent visibility and contact labels](../../README-132.md) | [Offline guide](132/index.html)
+
 [Edition131 — valid observations and bounded recovery](../../README-131.md) | [Offline guide](131/index.html)
 
 [Edition130 — physical reference audits](../../README-130.md) | [Offline guide](130/index.html)
