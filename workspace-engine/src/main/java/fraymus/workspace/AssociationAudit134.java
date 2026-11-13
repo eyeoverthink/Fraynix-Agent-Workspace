@@ -23,8 +23,8 @@ final class AssociationAudit134 {
 
     static String identity() {
         try (var in = AssociationAudit134.class.getResourceAsStream("AssociationAudit134.class")) {
-            try (var extra = AppearanceAudit135.class.getResourceAsStream("AppearanceAudit135.class"); var anchored=AppearanceAudit136.class.getResourceAsStream("AppearanceAudit136.class")) {
-                return MeasurementStore.hash(PerceptionStore.hash(in.readAllBytes()) + PerceptionStore.hash(extra.readAllBytes())+PerceptionStore.hash(anchored.readAllBytes()));
+            try (var extra = AppearanceAudit135.class.getResourceAsStream("AppearanceAudit135.class"); var anchored=AppearanceAudit136.class.getResourceAsStream("AppearanceAudit136.class"); var reference=ReferenceAudit137.class.getResourceAsStream("ReferenceAudit137.class")) {
+                return MeasurementStore.hash(PerceptionStore.hash(in.readAllBytes()) + PerceptionStore.hash(extra.readAllBytes())+PerceptionStore.hash(anchored.readAllBytes())+PerceptionStore.hash(reference.readAllBytes()));
             }
         } catch (Exception e) { throw new IllegalStateException(e); }
     }
@@ -40,7 +40,7 @@ final class AssociationAudit134 {
             .put("image", Base64.getEncoder().encodeToString(pixels));
     }
 
-    private JSONObject verifiedDataset(String id) throws Exception {
+    JSONObject verifiedDataset(String id) throws Exception {
         var d = observations.dataset(id);
         String hash = WorldFrames.hash(new JSONObject().put("objects", d.getJSONArray("objects")).put("frames", d.getJSONArray("frames")));
         if (!hash.equals(d.getString("contentSha256"))) throw new IllegalStateException("Original dataset manifest changed");
@@ -176,10 +176,11 @@ final class AssociationAudit134 {
         SpatialScene.keys(input,"labelId","runId");var record=read(input.getString("labelId"));var labels=record.getJSONObject("input");var run=observations.read(input.getString("runId"));
         if(!run.getString("status").equals("completed")||!run.getString("datasetId").equals(labels.getString("datasetId")))throw new IllegalArgumentException("Use the same completed labelled source");
         if(!run.getString("codeSha256").equals(WorldObservationStore.identity()))throw new IllegalStateException("Original tracker implementation differs; preserve its historical evidence");
-        var dataset=verifiedDataset(run.getString("datasetId"));String body=null;
+        observations.verifyReference137(run);var dataset=verifiedDataset(run.getString("datasetId"));String body=null;
         for(Object raw:run.getJSONArray("bindings")){var b=(JSONObject)raw;if(b.getString("objectKey").equals(labels.getString("objectKey")))body=b.getString("bodyId");}
         if(body==null)throw new IllegalArgumentException("Missing source-object binding");
-        return compute(labels,dataset,run,body).put("input",WorldFrames.copy(input)).put("codeSha256",identity()).put("trackerCodeSha256",run.getString("codeSha256")).put("runSha256",WorldFrames.hash(run)).put("labelSha256",WorldFrames.hash(record)).put("datasetSha256",WorldFrames.hash(dataset)).put("datasetId",dataset.getString("id")).put("trackerPolicy",run.optString("trackerPolicy","legacy-flow"));
+        var result=compute(labels,dataset,run,body);if(run.has("referenceMemory137"))result.put("reference137",ReferenceAudit137.check(run,body));
+        return result.put("input",WorldFrames.copy(input)).put("codeSha256",identity()).put("trackerCodeSha256",run.getString("codeSha256")).put("runSha256",WorldFrames.hash(run)).put("labelSha256",WorldFrames.hash(record)).put("datasetSha256",WorldFrames.hash(dataset)).put("datasetId",dataset.getString("id")).put("trackerPolicy",run.optString("trackerPolicy","legacy-flow"));
     }
     private static JSONObject appearance(JSONObject labels,JSONObject dataset,JSONObject run,String body){
         var trace=run.getJSONArray("trace");if(!trace.isEmpty())for(Object raw:trace.getJSONObject(0).getJSONArray("objects")){

@@ -448,7 +448,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='start'){const selected=observationBridge.selection();if(!selected)throw Error('Confirm the saved world and footage first');return api('/api/observations/start',selected);}
       if(input.command==='report'){const selected=observationBridge.selection();if(!selected)throw Error('Confirm the world and footage first');return observationBridge.action('observations.report',{}, {observationSelection:selected,observationEvidence:{id:input.args.id}});}
       if(input.command==='export'){const result=await api('/api/observations/export',input.args);return nativeExports.save('observed-world','json',JSON.stringify(result),{runId:input.args.id});}
-      if(!['state','read','frame','stop','resume','cost136'].includes(input.command))throw Error('Unknown observation operation');return api('/api/observations/'+input.command,input.args||{});
+      if(!['state','read','frame','stop','resume','cost136','references137'].includes(input.command))throw Error('Unknown observation operation');return api('/api/observations/'+input.command,input.args||{});
     }
     case 'persistentWorld':{
       if(input.command==='upgrade')return api('/api/construction051/upgrade',input.args);

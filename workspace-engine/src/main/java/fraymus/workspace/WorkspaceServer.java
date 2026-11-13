@@ -363,6 +363,7 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/labels132/read" -> result=labels132.read(input.getString("id"));
                     case "/api/labels132/audit" -> result=labels132.audit(input);
                     case "/api/labels132/audit-read" -> result=labels132.readAudit(input.getString("id"));
+                    case "/api/observations/references137" -> result=observations.references137();
                     case "/api/observations/cost136" -> result=observations.verificationCost136();
                     case "/api/observations/state" -> result=observations.state(input.optString("worldId",""));
                     case "/api/observations/import-begin" -> result=observations.begin(input);
