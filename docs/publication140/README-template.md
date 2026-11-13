@@ -1,6 +1,6 @@
 # Fraynix Agent Workspace — Edition 140
 
-**A warning needs corroboration. Recovery needs evidence.** Fraynix connects durable chat goals, a Java brain and simulation, observed worlds, browser interaction, data and creation tools, and reusable verified procedures. This edition addresses a concrete failure: one false motion warning in edition 139 suppressed many later valid observations.
+**Warnings, recovery and the cost of waiting.** Fraynix connects durable chat goals, a Java brain and simulation, observed worlds, browser interaction, data and creation tools, and reusable verified procedures. This edition tests a response to a concrete failure: one false motion warning in edition 139 suppressed many later valid observations.
 
 [Previous edition](README-139.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/140/index.html) · [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md) · [Contributor handoff](README-CONTRIBUTORS.md)
 
@@ -28,7 +28,7 @@ The interface shows advisory status, confirmed warnings, confirmation progress a
 
 {{RECOVERIES}}
 
-Advisories are reported even when they do not change an output. A confirmed warning on a correctly placed proposal is a false alarm. A continuity restoration is scored against the independent target box or visibility label; an internally accepted restoration is not automatically a correct one. Restoration counts describe returned tracker boxes; the observation filter can still refuse a measurement. The main tracking table includes filter acceptance, missing measurements and final accepted-output errors. Unknown labels cannot establish success.
+Advisories are reported even when they do not change an output. A confirmed warning on a correctly placed proposal is a false alarm. A continuity restoration is scored against the independent target box or visibility label; an internally accepted restoration is not automatically a correct one. Restoration counts describe returned tracker boxes; the observation filter can still refuse a measurement. The main tracking table includes filter acceptance, missing measurements and final accepted-output errors. Unknown labels cannot establish success. Warnings are per-frame flags. One warning can keep later outputs withheld, so missed warnings on underlying proposals are different from accepted tracking errors.
 
 ## Development and controlled tests
 

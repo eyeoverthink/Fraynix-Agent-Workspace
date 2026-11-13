@@ -1,3 +1,16 @@
+## Edition140 / 2026-11-13 — corroborated warnings and bounded restoration
+
+The unified Java world/browser/creation mission continues. [Edition140](../README-140.md) separates advisory disagreement from confirmed warnings and adds bounded original-source restoration, with defaults and every source/outcome check preserved. Fresh results, costs and limitations are retained.
+
+## Next steps
+
+1. **Recover useful observations after loss.** Use the now-exposed140 failures for development, then freeze the next method before new recordings. Separate motion-range failure, full obstruction and changed appearance. A recovered candidate must be checked against original evidence, competing matches and independent outcomes; waiting longer is not evidence.
+2. **Measure the price of delayed warnings.** Three-image corroboration can retain legitimate motion but also delay rejection of a wrong proposal. Compare correct retained measurements, missed wrong proposals, confirmed false warnings and restoration failures on the same histories. Keep the stronger139 guard and existing default available while this tradeoff is unresolved.
+3. **Qualify real-camera restoration.** Positive synthetic restoration tests establish the implemented mechanism, not its value on camera footage. Obtain independently reviewed full-cover/return and similar-object cases, preserving ambiguous boundaries and reporting every missed or incorrect return.
+4. **Reduce full-workflow cost without dropping checks.** Original-pixel replay and repeated verified reads contribute substantial latency. Profile complete tracking, UI review, restart and export; any retained computation must remain bound to exact source, code and outcome identities and pass corruption/restart checks.
+5. **Keep the shared application central.** Only qualified observations should feed durable Java world, browser and creation goals. The agent must distinguish measured state, predicted state and unknown state before choosing an action or retaining an appearance example.
+
+
 ## Edition139 / 2026-11-13 — foreground motion and spatial structure
 
 The unified Java world/browser/creation mission continues. [Edition139](../README-139.md) adds explicit immutable seed-part evidence and relative-motion warnings, retaining baseline behavior and every source/outcome check. Fresh camera disappearance/return results include withheld correct observations, uncertainty and full costs. No default promotion.

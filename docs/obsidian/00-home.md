@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/148-corroborated-restoration.md]] | [[README-140.md]]
+
 Current: [[docs/obsidian/147-foreground-structure.md]] | [[README-139.md]]
 
 Current: [[docs/obsidian/146-drift-evidence.md]] | [[README-138.md]]

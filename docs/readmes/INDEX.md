@@ -1,3 +1,5 @@
+[Edition140 — corroborated warnings and bounded restoration](../../README-140.md) | [Offline guide](140/index.html)
+
 [Edition139 — foreground motion and spatial structure](../../README-139.md) | [Offline guide](139/index.html)
 
 [Edition138 — drift evidence before loss](../../README-138.md) | [Offline guide](138/index.html)

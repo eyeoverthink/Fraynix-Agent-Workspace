@@ -22,8 +22,13 @@ sums={}
 for policy in lock['methods']:
  selected=[x for x in rows if x['policy']==policy]
  sums[policy]={'tracking':{k:sum(x['summary'][k] for x in selected) for k in ['labels','visible','correct','missing','overlapFailures','hidden','unsupported','uncertain','confirmedDistractorMatches']},'warnings':{k:sum((x['drift140'] or {}).get('summary',{}).get(k,0) for x in selected) for k in ['warnings','usefulWarnings','falseWarnings','unknownWarnings','missedWrongProposals','hiddenProposals','confirmedRecoveries']}}
-candidate=sums['corroborated-guard-140']['tracking'];base=sums['legacy-flow']['tracking']
+candidate=sums['corroborated-guard-140']['tracking'];base=sums['legacy-flow']['tracking'];earlier=sums['foreground-guard-139']['tracking']
 finding=f"Fresh guard: **{candidate['correct']}/{candidate['visible']} correct visible/partial observations**, versus **{base['correct']}/{base['visible']}** for the default. Accepted wrong overlaps: **{candidate['overlapFailures']} versus {base['overlapFailures']}**. Missing observations: **{candidate['missing']} versus {base['missing']}**. Confirmed labelled-other matches: **{candidate['confirmedDistractorMatches']} versus {base['confirmedDistractorMatches']}**. Hidden outputs: **{candidate['unsupported']}/{candidate['hidden']} versus {base['unsupported']}/{base['hidden']}**. These measured tradeoffs do not qualify a default promotion; the candidate remains explicit."
+restoration_counts={k:sum((x['drift140'] or {}).get('continuity',{}).get(k,0) for x in rows if x['policy']=='corroborated-guard-140') for k in ['correct','incorrect','unknown']}
+finding+=f" Compared with the earlier139 guard, the new candidate has **{candidate['correct']} versus {earlier['correct']} correct**, **{candidate['overlapFailures']} versus {earlier['overlapFailures']} wrong**, and **{candidate['missing']} versus {earlier['missing']} missing** observations. Fresh continuity restorations: **{restoration_counts['correct']} correct, {restoration_counts['incorrect']} incorrect, {restoration_counts['unknown']} unresolved**. Every extra accepted error remains counted."
+old_warnings=sums['foreground-guard-139']['warnings'];new_warnings=sums['corroborated-guard-140']['warnings']
+finding+=f" Confirmed false warnings were **{new_warnings['falseWarnings']} with140 and {old_warnings['falseWarnings']} with139**. This cohort does not demonstrate a false-alarm reduction or a useful continuity-restoration gain. The positive restoration result remains a controlled synthetic test, and the observed fresh-error regression is retained."
+
 timing=[]
 for x in study['runs']:
  if x['policy']!='monitor-only-140':continue
