@@ -19,9 +19,6 @@ if group=='java':
  for t in tests:args+=['--tests','fraymus.workspace.'+t]
  run('java130-final',args+['--console=plain','--max-workers=2'])
  shutil.copytree(r/'workspace-engine/build/test-results/test',folder/'final',dirs_exist_ok=False)
-elif group in ['routing','optin','svg','wording']:
- run(('routing130-final' if group=='routing' else group+'130-final'),['cmd','/c','gradlew.bat',':workspace-engine:test','--tests','fraymus.workspace.ObservationForecast130Test','--tests','fraymus.workspace.Domain044Test','--tests','fraymus.workspace.ObservationArtifact128Test','--console=plain','--max-workers=2'])
- shutil.copytree(r/'workspace-engine/build/test-results/test',folder/group,dirs_exist_ok=False)
 elif group=='desktop':
  run('desktop130-final',['cmd','/c','npm.cmd','test'],r/'workspace-desktop')
  env['AGENCY043_OUTPUT']=str(r/'build/agency130-evidence')
