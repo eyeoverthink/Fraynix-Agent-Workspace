@@ -1,3 +1,9 @@
+## Edition136 / 2026-11-13 — anchored memory and cheaper verified reads
+
+The unified Java world/browser/creation mission remains unchanged. [Edition136](../README-136.md) blocks49 observed wrong appearance admissions, but also52 correct ones; only3 rendered examples retained and no recovery gain. Camera learning remains unqualified; defaults stay intact. All36 controlled evidence-read hashes match; six-run summary408ms→20ms, while cold startup535ms→748ms. Every source/outcome check remains; no live-camera speed claim.
+
+Next: useful foreground/reference evidence with independent new camera labels, then cold-open/write efficiency and durable goals. Preserve all prior evidence, private projects, authority checks and human-review boundaries.
+
 ## Edition135 / 2026-11-13 — continuity and curated appearances
 
 The unified Java world/browser/creation mission remains unchanged. [Edition135](../README-135.md) preserves incumbent tracking continuity and adds independently audited appearance proposals. Fresh evaluation finds no recovery benefit:86/327 correct for all methods,46 automatic admissions with28 wrong. Defaults stay unchanged. A separate post-evaluation export retains16 fully visible reference-supported descriptors (11 real-camera,5 rendered) with original source/audit links; no automatic reuse or weight training.

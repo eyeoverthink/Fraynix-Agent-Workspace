@@ -1,3 +1,5 @@
+[Edition136 — anchored memory and evidence costs](../../README-136.md) | [Offline guide](136/index.html)
+
 [Edition 135 — continuity and checked appearances](../../README-135.md) | [Offline guide](135/index.html)
 
 [Edition 134 — identity recovery](../../README-134.md) | [Offline guide](134/index.html)

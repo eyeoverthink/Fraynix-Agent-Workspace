@@ -25,7 +25,7 @@ Screenshots are from the isolated application test, with public benchmark excerp
 
 ![Actual application: anchored appearance evidence](docs/readmes/136/box-535-seed-anchored-136.png)
 
-![Original source overlay and measured drift](docs/readmes/136/box-535-source-overlay.png)
+![Original source overlay and measured drift](docs/readmes/136/box-535-source-failure.png)
 
 ![Actual application: content-verified evidence costs](docs/readmes/136/evidence-cost136.png)
 

@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "anchor",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/AppearanceFlow136.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "audit",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/AppearanceAudit136.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "cost",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "panel",
+      "type": "file",
+      "file": "workspace-desktop/renderer/observation-panel.js",
+      "x": 1290,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "anchor",
+      "toNode": "audit"
+    },
+    {
+      "id": "1",
+      "fromNode": "audit",
+      "toNode": "cost"
+    },
+    {
+      "id": "2",
+      "fromNode": "cost",
+      "toNode": "panel"
+    }
+  ]
+}

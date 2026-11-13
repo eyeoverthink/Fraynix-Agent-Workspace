@@ -1,0 +1,129 @@
+{
+  "all36ResultHashesEqual": true,
+  "allSeedHashesEqual": true,
+  "rows": [
+    {
+      "runs": 1,
+      "bytes": 852229,
+      "baselineColdMs": 273.3182,
+      "candidateColdMs": 315.5335,
+      "operations": {
+        "summary": {
+          "baselineMedianMs": 97.2362,
+          "candidateMedianMs": 9.8455,
+          "ratio": 9.876207404397949
+        },
+        "run": {
+          "baselineMedianMs": 82.0382,
+          "candidateMedianMs": 29.9553,
+          "ratio": 2.7386873107596985
+        },
+        "dataset": {
+          "baselineMedianMs": 52.429,
+          "candidateMedianMs": 3.0848,
+          "ratio": 16.995915456431536
+        },
+        "image": {
+          "baselineMedianMs": 55.094,
+          "candidateMedianMs": 3.2519,
+          "ratio": 16.94209539038716
+        }
+      },
+      "verificationCost": {
+        "durableWrites": 1,
+        "structuralValidations": 2,
+        "readHashMs": 42.9996,
+        "parseMs": 50.0387,
+        "scope": "Current process only. Every state read hashes all bytes; only exact byte identity reuses validated structure. Source images and outcome audits retain their own checks.",
+        "validationMs": 40.9028,
+        "parsedStates": 2,
+        "stateBytesHashed": 11078977,
+        "stateReads": 13,
+        "writeMs": 130.1787,
+        "exactByteReuses": 12
+      }
+    },
+    {
+      "runs": 3,
+      "bytes": 1676836,
+      "baselineColdMs": 256.9718,
+      "candidateColdMs": 404.2755,
+      "operations": {
+        "summary": {
+          "baselineMedianMs": 167.979,
+          "candidateMedianMs": 9.8361,
+          "ratio": 17.077805227681704
+        },
+        "run": {
+          "baselineMedianMs": 130.0496,
+          "candidateMedianMs": 15.1263,
+          "ratio": 8.59758169545758
+        },
+        "dataset": {
+          "baselineMedianMs": 112.1877,
+          "candidateMedianMs": 4.701,
+          "ratio": 23.864645820038294
+        },
+        "image": {
+          "baselineMedianMs": 124.0549,
+          "candidateMedianMs": 4.933,
+          "ratio": 25.147962700182447
+        }
+      },
+      "verificationCost": {
+        "durableWrites": 1,
+        "structuralValidations": 2,
+        "readHashMs": 64.484,
+        "parseMs": 117.9041,
+        "scope": "Current process only. Every state read hashes all bytes; only exact byte identity reuses validated structure. Source images and outcome audits retain their own checks.",
+        "validationMs": 71.949,
+        "parsedStates": 2,
+        "stateBytesHashed": 21798868,
+        "stateReads": 13,
+        "writeMs": 226.8503,
+        "exactByteReuses": 12
+      }
+    },
+    {
+      "runs": 6,
+      "bytes": 4043457,
+      "baselineColdMs": 534.5487,
+      "candidateColdMs": 748.3811,
+      "operations": {
+        "summary": {
+          "baselineMedianMs": 408.2268,
+          "candidateMedianMs": 20.11,
+          "ratio": 20.299691695673797
+        },
+        "run": {
+          "baselineMedianMs": 264.4317,
+          "candidateMedianMs": 36.7757,
+          "ratio": 7.1903920251687925
+        },
+        "dataset": {
+          "baselineMedianMs": 257.3732,
+          "candidateMedianMs": 10.4193,
+          "ratio": 24.701582639908633
+        },
+        "image": {
+          "baselineMedianMs": 250.4924,
+          "candidateMedianMs": 10.6497,
+          "ratio": 23.521075711052895
+        }
+      },
+      "verificationCost": {
+        "durableWrites": 1,
+        "structuralValidations": 2,
+        "readHashMs": 138.8156,
+        "parseMs": 164.8445,
+        "scope": "Current process only. Every state read hashes all bytes; only exact byte identity reuses validated structure. Source images and outcome audits retain their own checks.",
+        "validationMs": 88.7721,
+        "parsedStates": 2,
+        "stateBytesHashed": 52564941,
+        "stateReads": 13,
+        "writeMs": 425.1643,
+        "exactByteReuses": 12
+      }
+    }
+  ]
+}
