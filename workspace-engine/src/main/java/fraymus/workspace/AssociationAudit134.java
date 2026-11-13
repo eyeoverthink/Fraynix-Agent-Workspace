@@ -23,8 +23,8 @@ final class AssociationAudit134 {
 
     static String identity() {
         try (var in = AssociationAudit134.class.getResourceAsStream("AssociationAudit134.class")) {
-            try (var extra = AppearanceAudit135.class.getResourceAsStream("AppearanceAudit135.class"); var anchored=AppearanceAudit136.class.getResourceAsStream("AppearanceAudit136.class"); var reference=ReferenceAudit137.class.getResourceAsStream("ReferenceAudit137.class");var drift=DriftAudit138.class.getResourceAsStream("DriftAudit138.class")) {
-                return MeasurementStore.hash(PerceptionStore.hash(in.readAllBytes()) + PerceptionStore.hash(extra.readAllBytes())+PerceptionStore.hash(anchored.readAllBytes())+PerceptionStore.hash(reference.readAllBytes())+PerceptionStore.hash(drift.readAllBytes()));
+            try (var extra = AppearanceAudit135.class.getResourceAsStream("AppearanceAudit135.class"); var anchored=AppearanceAudit136.class.getResourceAsStream("AppearanceAudit136.class"); var reference=ReferenceAudit137.class.getResourceAsStream("ReferenceAudit137.class");var drift=DriftAudit138.class.getResourceAsStream("DriftAudit138.class");var foreground=ForegroundAudit139.class.getResourceAsStream("ForegroundAudit139.class")) {
+                return MeasurementStore.hash(PerceptionStore.hash(in.readAllBytes()) + PerceptionStore.hash(extra.readAllBytes())+PerceptionStore.hash(anchored.readAllBytes())+PerceptionStore.hash(reference.readAllBytes())+PerceptionStore.hash(drift.readAllBytes())+PerceptionStore.hash(foreground.readAllBytes()));
             }
         } catch (Exception e) { throw new IllegalStateException(e); }
     }
@@ -181,6 +181,11 @@ final class AssociationAudit134 {
         if(body==null)throw new IllegalArgumentException("Missing source-object binding");
         var result=compute(labels,dataset,run,body);if(run.has("referenceMemory137"))result.put("reference137",ReferenceAudit137.check(run,body));
         if(DriftAudit138.uses(ObservationMethods129.policy(run)))result.put("drift138",DriftAudit138.check(run,dataset,labels,body,ordinal->{
+            byte[] pixels=Files.readAllBytes(imageRoot.resolve(dataset.getString("id")).resolve(ordinal+".image"));
+            if(!PerceptionStore.hash(pixels).equals(dataset.getJSONArray("frames").getJSONObject(ordinal).getString("imageSha256")))throw new IllegalStateException("Original replay source changed");
+            var image=javax.imageio.ImageIO.read(new java.io.ByteArrayInputStream(pixels));if(image==null)throw new IllegalStateException("Original replay image unavailable");return image;
+        }));
+        if(ForegroundAudit139.uses(ObservationMethods129.policy(run)))result.put("drift139",ForegroundAudit139.check(run,dataset,labels,body,ordinal->{
             byte[] pixels=Files.readAllBytes(imageRoot.resolve(dataset.getString("id")).resolve(ordinal+".image"));
             if(!PerceptionStore.hash(pixels).equals(dataset.getJSONArray("frames").getJSONObject(ordinal).getString("imageSha256")))throw new IllegalStateException("Original replay source changed");
             var image=javax.imageio.ImageIO.read(new java.io.ByteArrayInputStream(pixels));if(image==null)throw new IllegalStateException("Original replay image unavailable");return image;
