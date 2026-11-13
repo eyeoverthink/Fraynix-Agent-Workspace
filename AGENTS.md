@@ -1,3 +1,7 @@
+## Edition135 active — 2026-11-12
+
+Read docs/EDITION_135_CONTRACT.md. Isolated S:/Codex-Work/fraynix-workspace-edition135 from da90a8d0; CI checked FIRST and pending. Preserve incumbent continuity and defaults, add source-bound motion-checked examples and downstream identity evaluation. Lock before opening OTB Tiger2/Box. No agents or overlapping heavy work; node junction read-only. Preserve private projects and frozen001-134. No135 push yet.
+
 ## Edition 134 — published and fetched back
 
 2026-11-12. Isolated S:/Codex-Work/fraynix-workspace-edition134; parent dcfa037f. Candidate/audit/scorer source c1c163bf, lock 48c3ae37 before selected OTB pixels; source labels 3e45395d before predictions. Original annotation line endings preserved. Actual tested source/build receipt in docs/readmes/134/verification.json. Release 08a650c73eed6ddbd4cdc94800d57d2e97e9bde9; annotated readme-134. Main, edition134 and tag pushed atomically and fetched. Verified 1621 canonical sources, 47933 frozen hashes across134 editions and 157 original evidence entries. See docs/PUBLICATION_134.json.
