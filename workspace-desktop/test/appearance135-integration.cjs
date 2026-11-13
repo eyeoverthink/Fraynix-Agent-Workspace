@@ -41,7 +41,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
     if(caseName==='box-439'&&policy==='appearance-continuity-135'){assert.equal(run.resumes,1);assert.deepEqual(run.trace.slice(0,record.stoppedPrefix.trace.length),record.stoppedPrefix.trace);record.checks.push('Actual stopped Box task resumes the same source/run, preserves its complete original prefix and reproduces every checked appearance and later prediction.');}
     let appearances=null,appearanceExport=null;
     if(policy==='appearance-continuity-135'){
-     await page.locator('#appearances135-export').click();await idle();
+     await page.locator('#appearances135-export').click();await idle();assert.equal(await page.locator('#association134-status').textContent(),'Original source and outcome checks completed.');
      appearances=await api('/api/appearances135/retain',{auditId:audit.id});
      assert.equal(appearances.examples.length,{'box-439':2,'david3-57':6,'tiger2-59':3,'bird1-97':5}[caseName]);
      for(const example of appearances.examples){const row=input.rows.find(x=>x.ordinal===example.ordinal);assert.equal(row.visibility,'visible');assert.deepEqual(example.referenceBox,row.targetBox);assert.equal(example.imageSha256,row.imageSha256);assert.equal(example.descriptor.length,192);assert(example.proposedOverlap>=.5);}
