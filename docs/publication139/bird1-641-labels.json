@@ -1,0 +1,734 @@
+{
+  "schema": "association-labels-134-v1",
+  "objectKey": "subject",
+  "annotator": "VOT-LT2018 authors (rectangles/NaN); Codex source-only AI (visibility/cause/boundary uncertainty)",
+  "method": "external-annotations",
+  "exposure": "before-tracking",
+  "provenance": "Original VOT XYWH floats converted directly to clipped normalized corners, matching official parser (no MATLAB subtraction). NaN regions are not automatically treated as fully hidden: source-only AI review marks ambiguous/part-visible boundaries uncertain. No independent human adjudication of AI additions and no distractor boxes. All source images reviewed before predictions; labels never enter tracker.",
+  "rows": [
+    {
+      "ordinal": 1,
+      "sourceFrame": 643,
+      "imageSha256": "03d95503d38f0d41fd4ea1465fa588440fc1c3528069f0fe7bb148e44bb4481b",
+      "visibility": "visible",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms visible.",
+      "targetBox": [
+        0.41484375,
+        0.5958333333333333,
+        0.46171875,
+        0.6375
+      ]
+    },
+    {
+      "ordinal": 2,
+      "sourceFrame": 645,
+      "imageSha256": "5593d5e115f133cda3d15799fca3c2c5bb3dfccc86d3a30f4808b0a0a3a144f5",
+      "visibility": "visible",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms visible.",
+      "targetBox": [
+        0.3328125,
+        0.5944444444444444,
+        0.37578125,
+        0.6402777777777777
+      ]
+    },
+    {
+      "ordinal": 3,
+      "sourceFrame": 647,
+      "imageSha256": "3b62ac71693418b56e689ae2344241b878826f412cd877303f30c339cdb45a75",
+      "visibility": "visible",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms visible.",
+      "targetBox": [
+        0.25703125,
+        0.5638888888888889,
+        0.30390625,
+        0.6138888888888889
+      ]
+    },
+    {
+      "ordinal": 4,
+      "sourceFrame": 649,
+      "imageSha256": "d691fcba50734f54a8a86fd70711c5a6c86ed55b32f9b7dbd779b8c34625d8a6",
+      "visibility": "partial",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms partial.",
+      "targetBox": [
+        0.1875,
+        0.5027777777777778,
+        0.24609375,
+        0.5541666666666667
+      ]
+    },
+    {
+      "ordinal": 5,
+      "sourceFrame": 651,
+      "imageSha256": "a91204f38f788cf152b953dabdd23ae9534bb1d62ce25a330db6a37ab93eecaf",
+      "visibility": "partial",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms partial.",
+      "targetBox": [
+        0.13203125,
+        0.4791666666666667,
+        0.196875,
+        0.5305555555555556
+      ]
+    },
+    {
+      "ordinal": 6,
+      "sourceFrame": 653,
+      "imageSha256": "1423bd02854fe633817e68e24703faafa1e5905980914ded06261d5c6c00c65b",
+      "visibility": "partial",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms partial.",
+      "targetBox": [
+        0.0953125,
+        0.475,
+        0.153125,
+        0.5236111111111111
+      ]
+    },
+    {
+      "ordinal": 7,
+      "sourceFrame": 655,
+      "imageSha256": "df02f7fc613c77d00a39925dfb04d788c465a7c35ec5c88f3b129475e4527402",
+      "visibility": "partial",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms partial.",
+      "targetBox": [
+        0.07890625,
+        0.4930555555555556,
+        0.115625,
+        0.5375
+      ]
+    },
+    {
+      "ordinal": 8,
+      "sourceFrame": 656,
+      "imageSha256": "f0657d868f58c648eaaf3bd3d02e2b87ec889b5e216984e28c92df0febcb79a3",
+      "visibility": "uncertain",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review finds visible/ambiguous boundary fragments without an external box; no fabricated rectangle or absence."
+    },
+    {
+      "ordinal": 9,
+      "sourceFrame": 657,
+      "imageSha256": "392912b059ea81f33f3286def492bd0697ce4019a8bbee87f0ec3eaca23104ce",
+      "visibility": "uncertain",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review finds visible/ambiguous boundary fragments without an external box; no fabricated rectangle or absence."
+    },
+    {
+      "ordinal": 10,
+      "sourceFrame": 659,
+      "imageSha256": "b940ffc744e002419f0ed56db11a67b55a8d71c93de974e040f6ae67c08d034d",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 11,
+      "sourceFrame": 661,
+      "imageSha256": "1ff24c55a5558db356fe2b94dfad5fbe073b697add6226de58782c856b01c167",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 12,
+      "sourceFrame": 663,
+      "imageSha256": "c05975aab74e61ff3ab02aa8d8e63673ec5d10cebc3853d5c8bcd8b97feebe05",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 13,
+      "sourceFrame": 665,
+      "imageSha256": "dce52e307b24dc79c095404ff3a790ec09f069298b63f8293eebf8113cb96e10",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 14,
+      "sourceFrame": 667,
+      "imageSha256": "41df8f2bd168f67a081382e235ab96329a947d785a6f2c3a52daa164e2ac40ef",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 15,
+      "sourceFrame": 669,
+      "imageSha256": "7ea5bfdc329fa51c42c019ae0fdc8e7b5aa12cd9db66f3c4c39bb27bb55e3262",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 16,
+      "sourceFrame": 671,
+      "imageSha256": "3151304cae37557c76144115da5ca5282f0aa5e0629c20acf1a63a0919ef0c2e",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 17,
+      "sourceFrame": 673,
+      "imageSha256": "efec831adcb112a35673c940f040c3e04360c63ca83eb5344043b3cf6c9e24b4",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 18,
+      "sourceFrame": 675,
+      "imageSha256": "25da18734732ea0b386e7d231dc66e4dfdddedeb72a6e10f6794b1cfae206568",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 19,
+      "sourceFrame": 677,
+      "imageSha256": "b4b4cc3316dfd9e9d0c1f2238eadbfd8d16d0228b6fc04496df394a4e0050a43",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 20,
+      "sourceFrame": 679,
+      "imageSha256": "429635f211165e499d6c6f42fad27d5a47c2cf2bb27fe8b147685669242ea1f4",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 21,
+      "sourceFrame": 681,
+      "imageSha256": "8e3906cf9ae40e6da94f58e41e8c261921696475e42d05938412b9875c5f060e",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 22,
+      "sourceFrame": 683,
+      "imageSha256": "72bcdeb80a0a75d1ebd37852dde9830229f6c5365e706a1a91ce347ea46148d9",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 23,
+      "sourceFrame": 685,
+      "imageSha256": "6b7f534d3887065fcf35a88e4b93158442318bb820a753f993b0606a3bc89bbe",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 24,
+      "sourceFrame": 687,
+      "imageSha256": "b9a0bc4fc66efc4d3d9908ec62cfc9106da89641f6924e39ab0dc35568687168",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 25,
+      "sourceFrame": 689,
+      "imageSha256": "7a58360164cb07be233f66fcd03333b02251d0d13da4a40619989cdf348f0405",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 26,
+      "sourceFrame": 691,
+      "imageSha256": "6e70464c4b48d7896296f51f218954a6343be46acef77bddd2dc862a54792581",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 27,
+      "sourceFrame": 693,
+      "imageSha256": "0ad0d9bf7564fee46027c0b5d72118dc6da849dd407da02f0cc09e7861a400e3",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 28,
+      "sourceFrame": 695,
+      "imageSha256": "8c83e73de4fd3861b7ff734bba9e966fc0854fda45e3475dc11fda93895bd767",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 29,
+      "sourceFrame": 697,
+      "imageSha256": "75b01e12a5b3eec3f3151b767c4db7a78d78ff5ba9fd1d8fb52141455467dbd4",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 30,
+      "sourceFrame": 699,
+      "imageSha256": "35b780400cde803e33d82288856777e21f91e21011feb77d7421f009aef0035b",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 31,
+      "sourceFrame": 701,
+      "imageSha256": "46936ccee07f6d5483903e10df473bddb168a24a375474915d9d9395bfb3ad24",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 32,
+      "sourceFrame": 703,
+      "imageSha256": "c6c5c00dc4673399ebd04f366876c53544b3abcf5d996ba88099c468824b3a73",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 33,
+      "sourceFrame": 705,
+      "imageSha256": "0a4c823a51c83282a9ac0776c83e9643daf240c2d8bf4884a29e0cb4dd18c3db",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 34,
+      "sourceFrame": 707,
+      "imageSha256": "0f6ca1300b22040d9e37bc6f742aaf9c0cf2846daeaf434f028f820acc2db11d",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 35,
+      "sourceFrame": 709,
+      "imageSha256": "70f21929ad7097e5c4715bf85cf32ecac323fdb1d5475ba6c8dcf4b7fed3e056",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 36,
+      "sourceFrame": 711,
+      "imageSha256": "5b8ae5d7c647cade755396ca068ff9980987f01b7bf30f545a4af1bebdea4ab8",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 37,
+      "sourceFrame": 713,
+      "imageSha256": "f95322a71e56523fb2af22b6c9d2be99ea37ca3ff2f87582328b93004b48f234",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 38,
+      "sourceFrame": 715,
+      "imageSha256": "05026e4bdbf62ebc64f7b697d0cafa16e9fef293671b426b0a122c44959ca6c6",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 39,
+      "sourceFrame": 717,
+      "imageSha256": "79fa9b930f19511d6d957cd93cea9ae09c603ab65d8e5b285f22c2aaa93af6a8",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 40,
+      "sourceFrame": 719,
+      "imageSha256": "5a864056523d68ba3853dee29e5984d83f0e04966474298f50edb1be97918a2e",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 41,
+      "sourceFrame": 721,
+      "imageSha256": "99da16d2aeaa2fa476801036e32e1e2a6b53ab7147ce0d9b8ea531cf517c2f0d",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 42,
+      "sourceFrame": 723,
+      "imageSha256": "30af07cb860c8620cd56160f48fdf8d3e45383cbb6a0769ee51f8786a5a40e4a",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 43,
+      "sourceFrame": 725,
+      "imageSha256": "880b33959047fe12d627417b30ea38737917e6d628ef5e03726495ac2aba3658",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 44,
+      "sourceFrame": 727,
+      "imageSha256": "fc7c41ad7381d5c60a3e5b59dfaa1edfc90bae5065922a4a00ac42fe080e3be8",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 45,
+      "sourceFrame": 729,
+      "imageSha256": "fd80c0a9f47ab59bdfd78eb6164cf246bbd60b4cc112806d8c4263ce111fd52f",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 46,
+      "sourceFrame": 731,
+      "imageSha256": "11eb4f749ec7ec8f4ac28c755e3fe43c02cd4dd66e1d0223ecd7c397d75807d0",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 47,
+      "sourceFrame": 733,
+      "imageSha256": "68fb432503dbb49c4dbe883061b9a950314e001e3119862ca019da6c246aba50",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 48,
+      "sourceFrame": 735,
+      "imageSha256": "fcd454a1aca53ef67fdca1f57f12a3c007bd0b3375b8f13cdf0f57b2971a7b66",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 49,
+      "sourceFrame": 737,
+      "imageSha256": "bfe3a8df2e7018531ae3f1183f7e50db135c7da58c901977ab64495e3b944245",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 50,
+      "sourceFrame": 739,
+      "imageSha256": "184f78730d5739ecdf4fd657ee368ff6cfc8b6dee5ed6cd79949b7eb1be521e4",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 51,
+      "sourceFrame": 741,
+      "imageSha256": "e6deb085176e0c7b9e20a8efdb574a9d00dc33927f5d2c00fab26a04180e011f",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 52,
+      "sourceFrame": 743,
+      "imageSha256": "640bdd90c6ec5cf9a458fd9e840a55ba405e6bd82c4e5161cc8ed65814618561",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 53,
+      "sourceFrame": 745,
+      "imageSha256": "a52c6eaaec180afb307929517959edca5faf586923729e9bb1e13c1011a4b37b",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 54,
+      "sourceFrame": 747,
+      "imageSha256": "403baeb7a1d169c769a429433ed8d9c1a3d0a81594589f91cbdf3199046a5bdb",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 55,
+      "sourceFrame": 749,
+      "imageSha256": "52e46e5d985d376f0d48a3191866388e06e3167325f0b04cd0086fc6fb73fef9",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 56,
+      "sourceFrame": 751,
+      "imageSha256": "f292277e1b070edaade349e917b3fcc0a840e0767d9143679ad2cc5553a6c8bb",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 57,
+      "sourceFrame": 753,
+      "imageSha256": "b9ad770ea7cf154988064050617bcf80894e1c9e062e937d3cde3ac06984096e",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 58,
+      "sourceFrame": 755,
+      "imageSha256": "cc31be3ae13571983567a137c96116acae7c120c112e44432d9b0201f11424a5",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 59,
+      "sourceFrame": 757,
+      "imageSha256": "ab2501e33540a0c199e95c153100c38b1ab9a17b1c6dd0a0b4196b9f9995270c",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 60,
+      "sourceFrame": 759,
+      "imageSha256": "9c756eee26cc6b95ac2d661de9caf934d03e6064957e3eee8982071a1c801358",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 61,
+      "sourceFrame": 761,
+      "imageSha256": "94e82cabe21ae6ad97b3177d181a14db3c3a5ec18e6f0a366442b84a987616d0",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 62,
+      "sourceFrame": 763,
+      "imageSha256": "4225ee54a0544a0b82668f07defa883ae4b14bfee6a911da3b5b4fae97286832",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 63,
+      "sourceFrame": 765,
+      "imageSha256": "527229ab7a3ca2e374cb53a07cb3d5bb1ffde69b54e46c0182716c77cfcde0e5",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 64,
+      "sourceFrame": 767,
+      "imageSha256": "0f10e273114c4ebb9aa088d9501f28c759ae7e518d7e5891e568ec9d6fff0196",
+      "visibility": "out-of-view",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review confirms target fully outside active image."
+    },
+    {
+      "ordinal": 65,
+      "sourceFrame": 769,
+      "imageSha256": "b83923c79df5663d67ca3c1019e869faa5f1f77cfcd7a8fd2773dac5889671cc",
+      "visibility": "uncertain",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review finds visible/ambiguous boundary fragments without an external box; no fabricated rectangle or absence."
+    },
+    {
+      "ordinal": 66,
+      "sourceFrame": 771,
+      "imageSha256": "7c74f0d6e8177a1130518da38e69f9f68e9b4c6c0468f0fa0656ded51cd5422a",
+      "visibility": "uncertain",
+      "externalRegion": "nan-region",
+      "note": "External VOT NaN region; source-only AI review finds visible/ambiguous boundary fragments without an external box; no fabricated rectangle or absence."
+    },
+    {
+      "ordinal": 67,
+      "sourceFrame": 772,
+      "imageSha256": "f352daadf968f4ebc93a0092bdd37585a401a8d79afe0ee5daa5f0a8de6ef4be",
+      "visibility": "partial",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms partial.",
+      "targetBox": [
+        0.08203125,
+        0.6291666666666667,
+        0.109375,
+        0.6694444444444444
+      ]
+    },
+    {
+      "ordinal": 68,
+      "sourceFrame": 773,
+      "imageSha256": "faf346a90ba67e827f2654b59e1251275cf4f61cc35f9209a67d15b30e1ffcc3",
+      "visibility": "partial",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms partial.",
+      "targetBox": [
+        0.08125,
+        0.6236111111111111,
+        0.11796875,
+        0.6625
+      ]
+    },
+    {
+      "ordinal": 69,
+      "sourceFrame": 775,
+      "imageSha256": "5555ee986ad48f761e2a9999e1279a8ee92d7b59198d53b8bce0b89ac8b9d750",
+      "visibility": "partial",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms partial.",
+      "targetBox": [
+        0.0796875,
+        0.6138888888888889,
+        0.134375,
+        0.65
+      ]
+    },
+    {
+      "ordinal": 70,
+      "sourceFrame": 777,
+      "imageSha256": "4d46ef254e8e6353c518e98f1eeb9290b19842bdee1470bbf8e91d25e6aaef65",
+      "visibility": "partial",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms partial.",
+      "targetBox": [
+        0.0921875,
+        0.6097222222222223,
+        0.15078125,
+        0.6388888888888888
+      ]
+    },
+    {
+      "ordinal": 71,
+      "sourceFrame": 779,
+      "imageSha256": "09054ebb192bfb0ba604941a110de9183ea758de6ffd5dab8c7f817bcf8d68b4",
+      "visibility": "partial",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms partial.",
+      "targetBox": [
+        0.11015625,
+        0.5930555555555556,
+        0.17109375,
+        0.6208333333333333
+      ]
+    },
+    {
+      "ordinal": 72,
+      "sourceFrame": 781,
+      "imageSha256": "0742fd7b18f38ed8602b703c23841482d9c7d192e755213265a3d0d8f43fb695",
+      "visibility": "visible",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms visible.",
+      "targetBox": [
+        0.13359375,
+        0.5638888888888889,
+        0.19453125,
+        0.5972222222222222
+      ]
+    },
+    {
+      "ordinal": 73,
+      "sourceFrame": 783,
+      "imageSha256": "bb35177230e9591ef9dcf2fc56df04cb0680a5e38df235695013ba0ff3300518",
+      "visibility": "visible",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms visible.",
+      "targetBox": [
+        0.1546875,
+        0.5416666666666666,
+        0.21640625,
+        0.575
+      ]
+    },
+    {
+      "ordinal": 74,
+      "sourceFrame": 785,
+      "imageSha256": "e36135cf1529808bad66633352948a893fc099a7fbd6248a0910a91e008d410b",
+      "visibility": "visible",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms visible.",
+      "targetBox": [
+        0.18046875,
+        0.5166666666666667,
+        0.23984375,
+        0.5513888888888889
+      ]
+    },
+    {
+      "ordinal": 75,
+      "sourceFrame": 787,
+      "imageSha256": "7e4cb530b91cbdab070750eb6449a66d8ed3ef7a05e8debdebfeafdb636b8f80",
+      "visibility": "visible",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms visible.",
+      "targetBox": [
+        0.21171875,
+        0.4888888888888889,
+        0.265625,
+        0.525
+      ]
+    },
+    {
+      "ordinal": 76,
+      "sourceFrame": 789,
+      "imageSha256": "acc8814b99e5bec83f241de08bade07d7fe0ba859e1a4fd6217f6a3155407249",
+      "visibility": "visible",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms visible.",
+      "targetBox": [
+        0.24453125,
+        0.4583333333333333,
+        0.2921875,
+        0.49027777777777776
+      ]
+    },
+    {
+      "ordinal": 77,
+      "sourceFrame": 791,
+      "imageSha256": "751ef606e5172de934875e9ac32892eaf276f0770c5a2fcfed7600fdb19e69e1",
+      "visibility": "visible",
+      "externalRegion": "finite-rectangle",
+      "note": "External VOT finite rectangle; source-only AI review confirms visible.",
+      "targetBox": [
+        0.27265625,
+        0.43194444444444446,
+        0.32109375,
+        0.4652777777777778
+      ]
+    }
+  ]
+}
