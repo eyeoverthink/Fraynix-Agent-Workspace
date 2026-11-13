@@ -23,7 +23,9 @@ final class AssociationAudit134 {
 
     static String identity() {
         try (var in = AssociationAudit134.class.getResourceAsStream("AssociationAudit134.class")) {
-            return PerceptionStore.hash(in.readAllBytes());
+            try (var extra = AppearanceAudit135.class.getResourceAsStream("AppearanceAudit135.class")) {
+                return MeasurementStore.hash(PerceptionStore.hash(in.readAllBytes()) + PerceptionStore.hash(extra.readAllBytes()));
+            }
         } catch (Exception e) { throw new IllegalStateException(e); }
     }
 
@@ -196,9 +198,9 @@ final class AssociationAudit134 {
             if(lost){if(!hiddenBefore){episode=new JSONObject().put("hiddenStart",ordinal).put("visibleReturn",JSONObject.NULL).put("verifiedRecovery",JSONObject.NULL);episodes.put(episode);}hiddenBefore=true;}
             else if(seen&&episode!=null){if(episode.isNull("visibleReturn"))episode.put("visibleReturn",ordinal);if(correctHere&&episode.isNull("verifiedRecovery"))episode.put("verifiedRecovery",ordinal).put("sampleDelay",ordinal-episode.getInt("visibleReturn"));hiddenBefore=false;}
             else if(!seen){hiddenBefore=false;episode=null;}
-            scores.put(WorldFrames.copy(l).put("accepted",accepted).put("box",t.opt("box")).put("trackerStatus",t.getString("status")).put("targetOverlap",iou).put("otherOverlap",other).put("correct",correctHere).put("confirmedDistractorMatch",switched).put("unsupportedHiddenMeasurement",accepted&&lost).put("association",t.optJSONObject("association")==null?JSONObject.NULL:t.getJSONObject("association")));
+            scores.put(WorldFrames.copy(l).put("accepted",accepted).put("box",t.opt("box")).put("trackerStatus",t.getString("status")).put("targetOverlap",iou).put("otherOverlap",other).put("correct",correctHere).put("confirmedDistractorMatch",switched).put("unsupportedHiddenMeasurement",accepted&&lost).put("appearance135",t.optJSONObject("appearance135")==null?JSONObject.NULL:AppearanceAudit135.frameSummary(t.getJSONObject("appearance135"))).put("association",t.optJSONObject("association")==null?JSONObject.NULL:t.getJSONObject("association")));
         }
-        return new JSONObject().put("schema","association-audit-134-v1").put("scores",scores).put("episodes",episodes).put("scope","Independent target boxes and separately declared visibility score original runs. IoU failure is not automatically an identity switch. Distractor match requires overlap with an independently labelled other object. Missing and uncertain labels remain explicit; no physical or personal identity certification.")
+        return new JSONObject().put("appearance135",AppearanceAudit135.compute(labels,dataset,run,body)).put("schema","association-audit-134-v1").put("scores",scores).put("episodes",episodes).put("scope","Independent target boxes and separately declared visibility score original runs. IoU failure is not automatically an identity switch. Distractor match requires overlap with an independently labelled other object. Missing and uncertain labels remain explicit; no physical or personal identity certification.")
           .put("summary",new JSONObject().put("labels",scores.length()).put("visible",visible).put("available",available).put("missing",visible-available).put("correct",correct).put("overlapFailures",available-correct).put("meanOverlapAllVisible",visible==0?JSONObject.NULL:overlap/visible).put("hidden",hidden).put("unsupported",unsupported).put("confirmedDistractorMatches",switches).put("reacquired",reacquired).put("correctReacquired",correctReacquired).put("uncertain",uncertain));
     }
 }
