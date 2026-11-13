@@ -1,3 +1,5 @@
+[Edition 134 — identity recovery](../../README-134.md) | [Offline guide](134/index.html)
+
 [Edition133 — association and visual support](../../README-133.md) | [Offline guide](133/index.html)
 
 [Edition132 — independent visibility and contact labels](../../README-132.md) | [Offline guide](132/index.html)

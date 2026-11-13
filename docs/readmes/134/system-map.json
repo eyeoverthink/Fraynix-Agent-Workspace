@@ -1,0 +1,437 @@
+{
+  "modules": [
+    {
+      "id": "recovery",
+      "name": "Frozen part recovery",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/IdentityRecovery134.java",
+      "note": "docs/obsidian/142-identity-recovery.md"
+    },
+    {
+      "id": "audit",
+      "name": "Independent association audit",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AssociationAudit134.java",
+      "note": "docs/obsidian/142-identity-recovery.md"
+    },
+    {
+      "id": "panel",
+      "name": "Actual source and recovery controls",
+      "source": "workspace-desktop/renderer/association134-panel.js",
+      "note": "docs/obsidian/142-identity-recovery.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/134/jogging-1-identity-recovery-134.png",
+      "title": "jogging 1 identity recovery 134"
+    },
+    {
+      "path": "docs/readmes/134/hidden-target.png",
+      "title": "hidden target"
+    },
+    {
+      "path": "docs/readmes/134/measured-reacquisition.png",
+      "title": "measured reacquisition"
+    },
+    {
+      "path": "docs/readmes/134/jogging-1-legacy-flow.png",
+      "title": "jogging 1 legacy flow"
+    },
+    {
+      "path": "docs/readmes/134/jogging-2-identity-recovery-134.png",
+      "title": "jogging 2 identity recovery 134"
+    },
+    {
+      "path": "docs/readmes/134/lemming-1-identity-recovery-134.png",
+      "title": "lemming 1 identity recovery 134"
+    },
+    {
+      "path": "docs/readmes/134/association-1100.png",
+      "title": "association 1100"
+    },
+    {
+      "path": "docs/readmes/134/association-1600.png",
+      "title": "association 1600"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/134/verification.json"
+    },
+    {
+      "path": "docs/readmes/134/app-study.json"
+    },
+    {
+      "path": "docs/readmes/134/original-evidence.json"
+    },
+    {
+      "path": "docs/readmes/134/comparison.json"
+    }
+  ],
+  "comparison": {
+    "rows": [
+      {
+        "case": "jogging-1",
+        "policy": "legacy-flow",
+        "summary": {
+          "visible": 75,
+          "correct": 66,
+          "hidden": 1,
+          "reacquired": 3,
+          "confirmedDistractorMatches": 0,
+          "available": 66,
+          "correctReacquired": 3,
+          "uncertain": 0,
+          "labels": 76,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.6814323149355608,
+          "missing": 9,
+          "overlapFailures": 0
+        },
+        "episodes": [
+          {
+            "hiddenStart": 18,
+            "visibleReturn": 19,
+            "sampleDelay": 4,
+            "verifiedRecovery": 23
+          }
+        ],
+        "processingMs": 1990.1407,
+        "evidence": "build/association134-comparison/jogging-1-legacy-flow.json"
+      },
+      {
+        "case": "jogging-1",
+        "policy": "association-contact-133",
+        "summary": {
+          "visible": 75,
+          "correct": 9,
+          "hidden": 1,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 9,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 76,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.0908818472812143,
+          "missing": 66,
+          "overlapFailures": 0
+        },
+        "episodes": [
+          {
+            "hiddenStart": 18,
+            "visibleReturn": 19,
+            "verifiedRecovery": null
+          }
+        ],
+        "processingMs": 8293.1845,
+        "evidence": "build/association134-comparison/jogging-1-association-contact-133.json"
+      },
+      {
+        "case": "jogging-1",
+        "policy": "identity-recovery-134",
+        "summary": {
+          "visible": 75,
+          "correct": 2,
+          "hidden": 1,
+          "reacquired": 1,
+          "confirmedDistractorMatches": 0,
+          "available": 2,
+          "correctReacquired": 1,
+          "uncertain": 0,
+          "labels": 76,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.017810716429204888,
+          "missing": 73,
+          "overlapFailures": 0
+        },
+        "episodes": [
+          {
+            "hiddenStart": 18,
+            "visibleReturn": 19,
+            "verifiedRecovery": null
+          }
+        ],
+        "processingMs": 9539.6758,
+        "evidence": "build/association134-comparison/jogging-1-identity-recovery-134.json"
+      },
+      {
+        "case": "jogging-2",
+        "policy": "legacy-flow",
+        "summary": {
+          "visible": 76,
+          "correct": 6,
+          "hidden": 0,
+          "reacquired": 2,
+          "confirmedDistractorMatches": 0,
+          "available": 6,
+          "correctReacquired": 2,
+          "uncertain": 0,
+          "labels": 76,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.06403698401829058,
+          "missing": 70,
+          "overlapFailures": 0
+        },
+        "episodes": [],
+        "processingMs": 7557.9375,
+        "evidence": "build/association134-comparison/jogging-2-legacy-flow.json"
+      },
+      {
+        "case": "jogging-2",
+        "policy": "association-contact-133",
+        "summary": {
+          "visible": 76,
+          "correct": 10,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 10,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 76,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.10150187192297058,
+          "missing": 66,
+          "overlapFailures": 0
+        },
+        "episodes": [],
+        "processingMs": 6662.32,
+        "evidence": "build/association134-comparison/jogging-2-association-contact-133.json"
+      },
+      {
+        "case": "jogging-2",
+        "policy": "identity-recovery-134",
+        "summary": {
+          "visible": 76,
+          "correct": 2,
+          "hidden": 0,
+          "reacquired": 2,
+          "confirmedDistractorMatches": 0,
+          "available": 2,
+          "correctReacquired": 2,
+          "uncertain": 0,
+          "labels": 76,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.021037544914891217,
+          "missing": 74,
+          "overlapFailures": 0
+        },
+        "episodes": [],
+        "processingMs": 6068.4371,
+        "evidence": "build/association134-comparison/jogging-2-identity-recovery-134.json"
+      },
+      {
+        "case": "lemming-1",
+        "policy": "legacy-flow",
+        "summary": {
+          "visible": 95,
+          "correct": 11,
+          "hidden": 0,
+          "reacquired": 1,
+          "confirmedDistractorMatches": 0,
+          "available": 11,
+          "correctReacquired": 1,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.09613189464073134,
+          "missing": 84,
+          "overlapFailures": 0
+        },
+        "episodes": [],
+        "processingMs": 10744.5187,
+        "evidence": "build/association134-comparison/lemming-1-legacy-flow.json"
+      },
+      {
+        "case": "lemming-1",
+        "policy": "association-contact-133",
+        "summary": {
+          "visible": 95,
+          "correct": 4,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 4,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.03355154228926181,
+          "missing": 91,
+          "overlapFailures": 0
+        },
+        "episodes": [],
+        "processingMs": 12110.9475,
+        "evidence": "build/association134-comparison/lemming-1-association-contact-133.json"
+      },
+      {
+        "case": "lemming-1",
+        "policy": "identity-recovery-134",
+        "summary": {
+          "visible": 95,
+          "correct": 3,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 3,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.027300378076530126,
+          "missing": 92,
+          "overlapFailures": 0
+        },
+        "episodes": [],
+        "processingMs": 16572.5869,
+        "evidence": "build/association134-comparison/lemming-1-identity-recovery-134.json"
+      }
+    ],
+    "summary": {
+      "legacy-flow": {
+        "labels": 247,
+        "visible": 246,
+        "available": 83,
+        "missing": 163,
+        "correct": 83,
+        "overlapFailures": 0,
+        "hidden": 1,
+        "unsupported": 0,
+        "confirmedDistractorMatches": 0,
+        "reacquired": 6,
+        "correctReacquired": 6,
+        "uncertain": 0,
+        "processingMs": 20292.5969
+      },
+      "association-contact-133": {
+        "labels": 247,
+        "visible": 246,
+        "available": 23,
+        "missing": 223,
+        "correct": 23,
+        "overlapFailures": 0,
+        "hidden": 1,
+        "unsupported": 0,
+        "confirmedDistractorMatches": 0,
+        "reacquired": 0,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "processingMs": 27066.451999999997
+      },
+      "identity-recovery-134": {
+        "labels": 247,
+        "visible": 246,
+        "available": 7,
+        "missing": 239,
+        "correct": 7,
+        "overlapFailures": 0,
+        "hidden": 1,
+        "unsupported": 0,
+        "confirmedDistractorMatches": 0,
+        "reacquired": 3,
+        "correctReacquired": 3,
+        "uncertain": 0,
+        "processingMs": 32180.6998
+      }
+    },
+    "lock": {
+      "lockedAtUtc": "2026-11-13T06:51:47.743293+00:00",
+      "sourceCommit": "c1c163bff75d6bd6705853d3f38e2e76eceb2a7c",
+      "sourceHashes": {
+        "workspace-engine/src/main/java/fraymus/workspace/IdentityRecovery134.java": "112fcc53f68e31313d03487c91b3e900b2481be3849da4931de05acb70f64c67",
+        "workspace-engine/src/main/java/fraymus/workspace/AssociationAudit134.java": "cc99f2b0d594d229edc8d5ce4c3b0ed579c4151d4000493e43d37fbe8976d3d3",
+        "workspace-engine/src/main/java/fraymus/workspace/ObservationMethods129.java": "fab711fca5d223b2536d7b744bc41afa88145b1a83ce6247a2b3f6a94c1bbd30",
+        "workspace-engine/src/main/java/fraymus/workspace/ObservationFilter.java": "a0dc7560be00bca29dd7f72995d9cbe607b9e26f14be70286360dbf2d8764e21",
+        "workspace-engine/src/main/java/fraymus/workspace/VisualSupport133.java": "761ac6db4224b8d3a6b4cb9b2b234da7d0c95b198bb58f0bb064c8365e26e406",
+        "workspace-engine/src/test/java/fraymus/workspace/AssociationStudy134.java": "1ebe3b623041a3e3f003af08a20ac4ce08c51e29a6471df7ad4223802c468043"
+      },
+      "evaluation": [
+        "Jogging target 1, original images 1..305 stride4",
+        "Jogging target 2, same recording and images",
+        "Lemming original images 1..476 stride5"
+      ],
+      "methods": [
+        "legacy-flow",
+        "association-contact-133",
+        "identity-recovery-134"
+      ],
+      "source": "https://rvlab.snu.ac.kr/research/tracker_benchmark",
+      "priorExposure": "No selected OTB pixels or per-frame labels viewed and no selected OTB execution before this lock. Public sequence attributes and published article summaries were seen. Development used synthetic controls only. New visibility labels are AI source review, not independent human adjudication.",
+      "promotion": false,
+      "comparison": "Same external boxes and frozen visibility labels, all visible/hidden/uncertain denominators. IoU>=0.5 correct; confirmed other match only with other IoU>=0.5 and targetIoU<0.2. Report overlap failure separately. No tuning after evaluation."
+    },
+    "sources": {
+      "createdAtUtc": "2026-11-13T06:56:51.165842+00:00",
+      "algorithmLockSha256": "56d17ec0fbc9334d7a3bad42af0fcc744216070bb91dca9ca5a0495298e36791",
+      "downloads": [
+        {
+          "name": "Jogging",
+          "url": "https://drive.usercontent.google.com/download?id=1_9Bd12GCiEqWzfuejfEOT-pc_kZiHWXf&export=download&confirm=t",
+          "source": "https://rvlab.snu.ac.kr/research/tracker_benchmark",
+          "sha256": "967daf30c8827cd88b85cb2df322840a7bcf7f3119112852b2b3a067a8c09ba8",
+          "bytes": 8131339,
+          "downloadedAtUtc": "2026-11-13T06:52:10.200942+00:00"
+        },
+        {
+          "name": "Lemming",
+          "url": "https://drive.usercontent.google.com/download?id=1Wxy00vZabbUUELbfOieIs5cEin1_O0J7&export=download&confirm=t",
+          "source": "https://rvlab.snu.ac.kr/research/tracker_benchmark",
+          "sha256": "43a37f9244fe29abc9d05e4dc9d26f17c1ba13b081b7c10f78a88edb3bed9d3b",
+          "bytes": 64414887,
+          "downloadedAtUtc": "2026-11-13T06:53:04.228995+00:00"
+        }
+      ],
+      "records": [
+        {
+          "case": "jogging-1",
+          "pack": "build/otb134/jogging-1.fobs.json",
+          "packSha256": "6b26387f4823fc42c1540f999fdd84e873f3dcc44166fe48110521523d1cd3b1",
+          "labels": "docs/publication134/jogging-1-labels.json",
+          "labelsSha256": "103555776124aea9cc2949d664450a4bd209019f9e72ed4efbed1555367a176e",
+          "originalGroundTruth": "Jogging/groundtruth_rect.1.txt",
+          "width": 352,
+          "height": 288,
+          "frames": 77,
+          "stride": 4,
+          "visible": 75,
+          "hidden": 1,
+          "partial": 2
+        },
+        {
+          "case": "jogging-2",
+          "pack": "build/otb134/jogging-2.fobs.json",
+          "packSha256": "ce468c2197b50a3c2eb2a68f75526d6706371c0a83a1fa7554a0a344b05df1f9",
+          "labels": "docs/publication134/jogging-2-labels.json",
+          "labelsSha256": "91157e971ccae3d77bbeade2501afa42de7245bd8a2cd0934d4609063eb378d4",
+          "originalGroundTruth": "Jogging/groundtruth_rect.2.txt",
+          "width": 352,
+          "height": 288,
+          "frames": 77,
+          "stride": 4,
+          "visible": 76,
+          "hidden": 0,
+          "partial": 4
+        },
+        {
+          "case": "lemming-1",
+          "pack": "build/otb134/lemming-1.fobs.json",
+          "packSha256": "69116275eb9c8fdeab990ca98d1a226d1026a619dce0ddc702cbf4844e0c0528",
+          "labels": "docs/publication134/lemming-1-labels.json",
+          "labelsSha256": "1df2a1a49d5f60bec5b595b2383046f5dc6f3d01f221cf04e857eb7c2f5b7b15",
+          "originalGroundTruth": "Lemming/groundtruth_rect.txt",
+          "width": 640,
+          "height": 480,
+          "frames": 96,
+          "stride": 5,
+          "visible": 95,
+          "hidden": 0,
+          "partial": 16
+        }
+      ],
+      "sourceReview": "All173 selected original images inspected in source-only sheets, external boxes only. Pole frames53/73 and Lemming336..361 additionally inspected. Lemming retains a visible eye fragment: partial, not full occlusion. One fully hidden sampled Jogging target1 frame. No actual complete out-of-frame return in this chosen set; synthetic controls test large returns. Both Jogging targets share a recording. Not benchmark leaderboard results or general identity certification."
+    },
+    "defaultsUnchanged": true,
+    "promoted": false
+  },
+  "validation": "Local checks passed: 237 distinct Java tests, 161 desktop checks, executable kernel integration, actual agency regression and isolated offline/package preparation. Four actual app runs match all 323 frozen tracker/filter samples, verify overlap independently, export original evidence and cold-recheck after owned-Java termination. Every existing source/outcome condition remains intact."
+}

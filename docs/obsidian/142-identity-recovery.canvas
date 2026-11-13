@@ -1,0 +1,43 @@
+{
+  "nodes": [
+    {
+      "id": "recovery",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/IdentityRecovery134.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "audit",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/AssociationAudit134.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "panel",
+      "type": "file",
+      "file": "workspace-desktop/renderer/association134-panel.js",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "recovery",
+      "toNode": "audit"
+    },
+    {
+      "id": "1",
+      "fromNode": "audit",
+      "toNode": "panel"
+    }
+  ]
+}
