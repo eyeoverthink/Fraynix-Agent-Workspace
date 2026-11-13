@@ -38,7 +38,7 @@ public class ObservationCache136Test {
  }
  @Test public void callerBindingsCannotPoisonCachedDurableStateAndRestartRevalidates()throws Exception{
   try(var f=new ObservationLabels132Test.Fixture()){
-   var args=WorldObservationStoreTest.arguments(f.ledger,f.world,f.dataset,0);String id=f.observations.start(args).getString("id");args.getJSONArray("bindings").getJSONObject(0).put("objectKey","changed-by-caller");f.observations.stop(id);var stopped=f.observations.read(id);assertEquals("subject",stopped.getJSONArray("bindings").getJSONObject(0).getString("objectKey"));
+   var args=WorldObservationStoreTest.arguments(f.ledger,f.world,f.dataset,0);String id=f.observations.start(args).getString("id");args.getJSONArray("bindings").getJSONObject(0).put("objectKey","changed-by-caller");var stopped=WorldObservationStoreTest.settled(f.observations,id);assertEquals("completed",stopped.getString("status"));assertEquals("subject",stopped.getJSONArray("bindings").getJSONObject(0).getString("objectKey"));f.observations.close();
    try(var restarted=new WorldObservationStore(f.root,new WorldLedger(f.root))){assertTrue(stopped.similar(restarted.read(id)));assertTrue(restarted.verificationCost136().getLong("structuralValidations")>0);}
   }
  }
