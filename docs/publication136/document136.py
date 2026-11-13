@@ -16,7 +16,7 @@ for p in (r/'build/validation136/final').glob('*.xml'):
   if c.find('skipped') is None:checks.add(c.get('classname')+'.'+c.get('name'))
 assert checks
 desktop=(r/'build/desktop136-final.log').read_text(encoding='utf8');assert 'fail 0' in desktop;desktop_count=int(re.search(r'(?m)^. tests (\d+)',desktop)[1])
-for n in ['kernel136-final','java136-final','desktop136-final','agency136-regression','launcher136','package136','receipt136']:assert read('build/'+n+'.json')['exit']==0,n
+for n in ['kernel136-final','java136-combined','desktop136-final','agency136-regression','launcher136','package136','receipt136']:assert read('build/'+n+'.json')['exit']==0,n
 sources=read('docs/publication136/source136.json');full=read('build/comparison136-summary.json');comparison=full['later'];comparison.update({'development':full['development'],'lock':lock,'sources':sources,'defaultsUnchanged':True,'promoted':False});write(out/'comparison.json',comparison)
 cost=read('build/cost136-comparison.json');assert cost['all36ResultHashesEqual'] and cost['allSeedHashesEqual'];write(out/'cost-comparison.json',cost)
 v={'passed':True,'javaChecks':sorted(checks),'desktopChecks':desktop_count,'actualAppChecks':study['checks'],'production':study['source'],'buildReceipt':study['buildReceipt'],'candidateLock':lock,'defaultsUnchanged':True,'scope':'Software tests,24 comparisons on eight temporal windows with external boxes and source-only AI visibility; actual UI, exports, stop/resume and cold restart. Guard reduces contamination but rejects useful camera examples; unpromoted. Exact-content memo keeps source/outcome checks. Hosted CI separate.'};write(out/'verification.json',v)
