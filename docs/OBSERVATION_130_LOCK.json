@@ -1,0 +1,52 @@
+{
+  "edition": 130,
+  "lockedAtUtc": "2026-11-13T01:07:13.364643+00:00",
+  "footage": "https://documents.epfl.ch/groups/c/cv/cvlab-pom-video3/www/terrace1-c0.avi",
+  "heldStarts": [
+    700,
+    1900,
+    2700,
+    3700,
+    4700
+  ],
+  "framesPerWindow": 96,
+  "exposedDevelopment": [
+    500,
+    1000,
+    1200,
+    1500,
+    1700,
+    2100,
+    2200,
+    2500,
+    3000,
+    3100,
+    3500,
+    4300,
+    4500
+  ],
+  "scope": "Disjoint windows from same previously seen fixed camera and people; temporal holdout, not a new camera or population. First valid subject determined by seed rule, no replacement after results.",
+  "sources": {
+    "workspace-engine/src/main/java/fraymus/workspace/ObjectFlow130.java": "081770893463d191d7b1182d0bb9fc4fd75f30dfc16999ce47e3b46ff1cc454e",
+    "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java": "2b6e4552a38c503a4c6e0309d2db730f701d08038117a2f15663c55d1c08762f",
+    "workspace-engine/src/main/java/fraymus/workspace/PixelTracker.java": "85d569217814a39618796bfbe43dc0b7db1ca61378a60f0198099d248674425c",
+    "workspace-engine/src/main/java/fraymus/workspace/ObservationFilter.java": "a0dc7560be00bca29dd7f72995d9cbe607b9e26f14be70286360dbf2d8764e21",
+    "workspace-engine/src/main/java/fraymus/workspace/PlaneCalibration.java": "ecbc105f09f4afe5008b6ee5843408ce6b7e47ffa9586545e2a7998407e83ebe",
+    "workspace-engine/src/test/java/fraymus/workspace/ObservationStudy130.java": "3b2809a900edaf0f7028ea50a663b5d18bacf334743435054555562214330a9f",
+    "scripts/Prepare-Observation130.py": "894d91b668e34c140bdc95285807bae98f6b6ec6fa866514936accbed4c52e7a"
+  },
+  "methods": [
+    "flow",
+    "fixed",
+    "object-flow"
+  ],
+  "gate": {
+    "minAcceptedFractionOfIncumbent": 0.9,
+    "maxMeanErrorRatio": 0.85,
+    "strictlyMoreWithinOneMetre": true,
+    "noMoreErrorsOverTwoMetres": true,
+    "allWindowsMustProvideSeeds": true,
+    "defaultUnchangedEvenIfPassed": true
+  },
+  "uncertainty": "Score measurement and forecast coverage separately. No fitting, probabilistic claim or bound clipping in this study. All unavailable references remain in denominator."
+}

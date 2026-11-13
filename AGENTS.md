@@ -1,3 +1,7 @@
+## Edition130 active — 2026-11-12
+
+Isolated S:/Codex-Work/fraynix-workspace-edition130; parent18259fc8. User explicitly steers130 toward unresolved physical accuracy, ahead of the previously planned daily-use layout pass. CI checked first;129 still in progress. No delegation or overlapping heavy studies. Node junction read-only. Preserve private projects and frozen001–129. Existing default tracker and forecast unchanged unless an independently locked evaluation qualifies a change. Read docs/EDITION_130_CONTRACT.md. No130 publication yet.
+
 ## Edition129 — published and fetched back
 
 2026-11-12. Isolated S:/Codex-Work/fraynix-workspace-edition129; parent4b941ac6. Final production0a514d57; SVG serialization4e9cbb97; explicit opt-in422e6fb5; navigation correction03b6fd53. Release 5dd3d2740f0e935e82768fa51f776d0e2ee181e0; annotated readme-129. Main, edition129 and tag pushed atomically and fetched. Verified 1566 canonical sources, 46940 frozen hashes across129 editions and 316 original evidence entries. See docs/PUBLICATION_129.json.
