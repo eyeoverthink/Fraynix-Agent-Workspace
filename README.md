@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — Edition 134
 
+[Published and fetched verification receipt](docs/PUBLICATION_134.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-134)
+
 **Independent object labels now expose when a track is missing, on target, or matched to another labelled object. Java adds an explicit recovery candidate, immutable comparisons, source-image overlays and restart checks. The new candidate failed the real-footage comparison and is not promoted. Existing defaults remain unchanged.**
 
 2026-11-12 · Local Java agent · Observe, act, verify and retain
