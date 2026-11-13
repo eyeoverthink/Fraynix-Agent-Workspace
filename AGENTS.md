@@ -1,3 +1,7 @@
+## Edition136 active — 2026-11-13
+
+Read docs/EDITION_136_CONTRACT.md. Isolated from2b68dd34. CI checked FIRST: one stale exception-type expectation in DataCreation101Test, correct lifecycle refusal remains. Investigate anchored appearance admission and content-verified observation caching; keep defaults, all checks and frozen001–135. No agents, overlapping heavy work, node-junction changes or private-project reuse. No136 push yet.
+
 ## Edition 135 — published and fetched back
 
 2026-11-13. Isolated S:/Codex-Work/fraynix-workspace-edition135; parent da90a8d0. Frozen algorithm/scorer 4f3b719f, lock2f4bac45 before fresh pixels; source-only amendment b0223316 before extra sources; labels92839255 before predictions. Raw originally evaluated CRLF source-label/lock bytes restored to Git d492ff12, with declared whitespace4e3cff54; no label values or method changed. Actual tested source/build in docs/readmes/135/verification.json. Release d90ee94ede85d5b443b0e81a265427490900eb01; annotated readme-135. Main, edition135 and tag pushed atomically and fetched. Verified 1632 canonical sources, 48151 frozen hashes across135 editions and 215 original evidence entries. See docs/PUBLICATION_135.json.

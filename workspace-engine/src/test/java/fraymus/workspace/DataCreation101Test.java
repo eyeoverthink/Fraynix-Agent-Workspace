@@ -89,7 +89,7 @@ public class DataCreation101Test {
                 }
             }
             try(var f=new WorkflowTest.Fixture(root)){
-                if(window.equals("before-parent")){assertEquals("interrupted",f.workflows.read(id).getString("status"));assertEquals(0,f.goals.procedures().length());assertThrows(IllegalArgumentException.class,()->f.workflows.reuse(new JSONObject().put("name",ref.getString("name")).put("version",1)));f.workflows.cancel(id);assertEquals(0,f.goals.procedures().length());}
+                if(window.equals("before-parent")){assertEquals("interrupted",f.workflows.read(id).getString("status"));assertEquals(0,f.goals.procedures().length());assertTrue(assertThrows(IllegalStateException.class,()->f.workflows.reuse(new JSONObject().put("name",ref.getString("name")).put("version",1))).getMessage().contains("unpublished"));f.workflows.cancel(id);assertEquals(0,f.goals.procedures().length());}
                 else{var w=f.workflows.read(id);assertEquals("completed",w.getString("status"));assertEquals(ref.getString("id"),w.getJSONObject("savedSkill").getString("id"));assertFalse(w.has("pendingSkill101"));assertEquals(1,f.goals.procedures().length());assertEquals(2,f.goals.list().length());}
             }
             try(var f=new WorkflowTest.Fixture(root)){assertEquals(window.equals("before-parent")?0:1,f.goals.procedures().length());assertEquals(2,f.goals.list().length());}
