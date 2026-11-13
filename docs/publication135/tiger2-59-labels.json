@@ -1,0 +1,1245 @@
+{
+  "schema": "association-labels-134-v1",
+  "objectKey": "subject",
+  "annotator": "OTB authors (boxes); Codex source-only AI (visibility)",
+  "method": "external-annotations",
+  "exposure": "before-tracking",
+  "provenance": "External original OTB boxes converted from one-based XYWH to normalized corners. Only the first source box initializes tracking. Every selected image reviewed source-only after algorithm/scorer lock, before predictions. AI visibility is not independent human adjudication. No labelled distractors supplied. partial leaf cover and left-edge clipping. No real full out-of-frame return. Rendered Bird1 transitions remain uncertain; existing scorer does not bridge uncertain intervals into recovery delay.",
+  "rows": [
+    {
+      "ordinal": 1,
+      "sourceFrame": 60,
+      "imageSha256": "34b5f8d408fe7e83edbdf4fe88ad83539a51bf6af08a009c9fe897f87452605b",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.38125,
+        0.16875,
+        0.4875,
+        0.33125
+      ]
+    },
+    {
+      "ordinal": 2,
+      "sourceFrame": 61,
+      "imageSha256": "61beb98f71d07f21ebf0019003bf547e461785749f6ffeb6a1553a6ccd72ad9c",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4046875,
+        0.16875,
+        0.5109375,
+        0.33125
+      ]
+    },
+    {
+      "ordinal": 3,
+      "sourceFrame": 62,
+      "imageSha256": "48fe049bf5881259ead76b65b3c3ad57056c34b93435467e06660a62035cd8a6",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4203125,
+        0.16041666666666668,
+        0.5265625,
+        0.3229166666666667
+      ]
+    },
+    {
+      "ordinal": 4,
+      "sourceFrame": 63,
+      "imageSha256": "ca303bb86f07cc7dc9e0ba1989710e95db353249280f9329adafb3216b403e55",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.4421875,
+        0.15625,
+        0.5484375,
+        0.31875
+      ]
+    },
+    {
+      "ordinal": 5,
+      "sourceFrame": 64,
+      "imageSha256": "ff1e841fe13d8239ca5d9e616f09b93b9ca2880664f8cad249c7acf8a00112c5",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.4609375,
+        0.14791666666666667,
+        0.5671875,
+        0.3104166666666667
+      ]
+    },
+    {
+      "ordinal": 6,
+      "sourceFrame": 65,
+      "imageSha256": "7760380963fb52417cd85d66df36caedf763527ec21fcae60c6f2becc94bbc6d",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.4734375,
+        0.14166666666666666,
+        0.5796875,
+        0.30416666666666664
+      ]
+    },
+    {
+      "ordinal": 7,
+      "sourceFrame": 66,
+      "imageSha256": "9ad9d6b6b964dffc671b0b54900be04c80108f103ffa1c4aaaa3426c521a917a",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.4828125,
+        0.13541666666666666,
+        0.5890625,
+        0.29791666666666666
+      ]
+    },
+    {
+      "ordinal": 8,
+      "sourceFrame": 67,
+      "imageSha256": "06af2f2d631750028b7ce6cdf1f911bcdd38ccd677279c6e3f6e1283686ad5d0",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.475,
+        0.13333333333333333,
+        0.58125,
+        0.29583333333333334
+      ]
+    },
+    {
+      "ordinal": 9,
+      "sourceFrame": 68,
+      "imageSha256": "a2cd3394ef8e08dcfade6b299eb6e972ab492b1b1863a5ff6f8283405755bd37",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.475,
+        0.13541666666666666,
+        0.58125,
+        0.29791666666666666
+      ]
+    },
+    {
+      "ordinal": 10,
+      "sourceFrame": 69,
+      "imageSha256": "13898f1bc6fbce59b798b68c99967c66079e3ea7763f82994cc1df5246b9f9de",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.45625,
+        0.14166666666666666,
+        0.5625,
+        0.30416666666666664
+      ]
+    },
+    {
+      "ordinal": 11,
+      "sourceFrame": 70,
+      "imageSha256": "98f35a3cead7c0023ec8f8bb1b97e03427c05a35f1c58300a05594aef0bd6680",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.4375,
+        0.15416666666666667,
+        0.54375,
+        0.31666666666666665
+      ]
+    },
+    {
+      "ordinal": 12,
+      "sourceFrame": 71,
+      "imageSha256": "f47cfa8feb706990e9ca167b634e45392bf314cdadb67bed1acc9672e05fc756",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.409375,
+        0.16875,
+        0.515625,
+        0.33125
+      ]
+    },
+    {
+      "ordinal": 13,
+      "sourceFrame": 72,
+      "imageSha256": "7155bf1763ae853b399b74ee6131377463565642b9c082afbbf29b9faf4b3384",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.3765625,
+        0.18125,
+        0.4828125,
+        0.34375
+      ]
+    },
+    {
+      "ordinal": 14,
+      "sourceFrame": 73,
+      "imageSha256": "202fccb607b7a40ca5ae94765aab21e040dcdca4403203644a9fbdf8775b8982",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.3390625,
+        0.18541666666666667,
+        0.4453125,
+        0.34791666666666665
+      ]
+    },
+    {
+      "ordinal": 15,
+      "sourceFrame": 74,
+      "imageSha256": "58515f5ff9771259fa77e53563dbf86d80347ee9edfbe0581bdacd283c728ef5",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.3046875,
+        0.18958333333333333,
+        0.4109375,
+        0.35208333333333336
+      ]
+    },
+    {
+      "ordinal": 16,
+      "sourceFrame": 75,
+      "imageSha256": "f08dcd0eaa2ea0d7ef581c4a5570e24699985ab055e3b95a1701e4305dc545b5",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.2671875,
+        0.19375,
+        0.3734375,
+        0.35625
+      ]
+    },
+    {
+      "ordinal": 17,
+      "sourceFrame": 76,
+      "imageSha256": "b60d67024ea6e9da8b723fef16948cd5227589b6c20e579774f331016cdc47f3",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.2296875,
+        0.19791666666666666,
+        0.3359375,
+        0.36041666666666666
+      ]
+    },
+    {
+      "ordinal": 18,
+      "sourceFrame": 77,
+      "imageSha256": "060f90d5595d0a08aa4113dbf4db6fdb5044cefcb2d170dcb519e3980c2d22c1",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.1984375,
+        0.18958333333333333,
+        0.3046875,
+        0.35208333333333336
+      ]
+    },
+    {
+      "ordinal": 19,
+      "sourceFrame": 78,
+      "imageSha256": "6b22b619bc17f68dc7a8cf95efe1a962e34710925542dc037081d1058df3d7d7",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.1671875,
+        0.18125,
+        0.2734375,
+        0.34375
+      ]
+    },
+    {
+      "ordinal": 20,
+      "sourceFrame": 79,
+      "imageSha256": "703da520f63231d86c827e0291ea9ef603e9f93f8aa469dbf5e01a1b12c8d088",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.1359375,
+        0.17708333333333334,
+        0.2421875,
+        0.33958333333333335
+      ]
+    },
+    {
+      "ordinal": 21,
+      "sourceFrame": 80,
+      "imageSha256": "cf62faa852690e89fe0bb25da52d397f794ed7511edd37b46ec7ca8f3cd3ec5e",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.1015625,
+        0.16041666666666668,
+        0.2078125,
+        0.3229166666666667
+      ]
+    },
+    {
+      "ordinal": 22,
+      "sourceFrame": 81,
+      "imageSha256": "7e5924560aa2865f5f4109fb756d7c607b53303169ae6513a5301203fc81dfc1",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.0609375,
+        0.16041666666666668,
+        0.1671875,
+        0.3229166666666667
+      ]
+    },
+    {
+      "ordinal": 23,
+      "sourceFrame": 82,
+      "imageSha256": "f631abcd909ee54422ee96341d2034b93493b0719990a113b6106dcf940fd39c",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.034375,
+        0.16458333333333333,
+        0.140625,
+        0.32708333333333334
+      ]
+    },
+    {
+      "ordinal": 24,
+      "sourceFrame": 83,
+      "imageSha256": "74687da73320bcd1c5245fc24e9002017de3f03d9f60226115aebf71bce161d3",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.0015625,
+        0.17708333333333334,
+        0.1078125,
+        0.33958333333333335
+      ]
+    },
+    {
+      "ordinal": 25,
+      "sourceFrame": 84,
+      "imageSha256": "0cdc4c8b775067cf9d5c6ffaf373b732974a103da92142787d7a71fbf60a821d",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.0015625,
+        0.18541666666666667,
+        0.090625,
+        0.34791666666666665
+      ]
+    },
+    {
+      "ordinal": 26,
+      "sourceFrame": 85,
+      "imageSha256": "481c2c828a47e330aa5e8446c07a3a27dcbb20cb2fd12db2ed0ff652676c3f0e",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0,
+        0.20208333333333334,
+        0.09375,
+        0.3645833333333333
+      ]
+    },
+    {
+      "ordinal": 27,
+      "sourceFrame": 86,
+      "imageSha256": "91fd31693c700c74eedebbd79285397fcfa30578792ba717cc2697eeee4003f3",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0,
+        0.20208333333333334,
+        0.10625,
+        0.3645833333333333
+      ]
+    },
+    {
+      "ordinal": 28,
+      "sourceFrame": 87,
+      "imageSha256": "8d0e2a588cd49be3d5549050b111ae376b6dd5993c586d0a556b339cf14367ec",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0,
+        0.19791666666666666,
+        0.10625,
+        0.36041666666666666
+      ]
+    },
+    {
+      "ordinal": 29,
+      "sourceFrame": 88,
+      "imageSha256": "9935b389a2103b6c5ff5e6cab0e948d94d6c9e03fe51d6dc41802f4f167aabc9",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0,
+        0.19791666666666666,
+        0.10625,
+        0.36041666666666666
+      ]
+    },
+    {
+      "ordinal": 30,
+      "sourceFrame": 89,
+      "imageSha256": "8a9238eda7cf8330f597adaa25db010205a5c71bb0b23046e3ef7eca69425983",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0,
+        0.19791666666666666,
+        0.10625,
+        0.36041666666666666
+      ]
+    },
+    {
+      "ordinal": 31,
+      "sourceFrame": 90,
+      "imageSha256": "410986e28ca100bf8603e7e4a87cade0325016a14e09cd6e19404d14f82dae67",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0,
+        0.19375,
+        0.10625,
+        0.35625
+      ]
+    },
+    {
+      "ordinal": 32,
+      "sourceFrame": 91,
+      "imageSha256": "291bc3b633e4376f27bb890f39786476dc2d78b22e7df04bc02c5f08f2774900",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0,
+        0.19375,
+        0.10625,
+        0.35625
+      ]
+    },
+    {
+      "ordinal": 33,
+      "sourceFrame": 92,
+      "imageSha256": "c654666d8edf69f947b737b02a6d560d26064f38258598537fdcfafc774b06b1",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0,
+        0.19375,
+        0.10625,
+        0.35625
+      ]
+    },
+    {
+      "ordinal": 34,
+      "sourceFrame": 93,
+      "imageSha256": "157cb88bf56c792956dff388b4c3ebc263ba603dc4a9ce107ff03a17cca660fb",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0,
+        0.19375,
+        0.10625,
+        0.35625
+      ]
+    },
+    {
+      "ordinal": 35,
+      "sourceFrame": 94,
+      "imageSha256": "9365658ab99b090adf6a8977fba71afc83588dbd20b2aa8c78f72e7ac45c7e39",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.0078125,
+        0.19791666666666666,
+        0.1140625,
+        0.36041666666666666
+      ]
+    },
+    {
+      "ordinal": 36,
+      "sourceFrame": 95,
+      "imageSha256": "bac1c3c063b26858e0dae4f428c6fd5c2829992c28d4328e2582e5581a39d23a",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.0140625,
+        0.19791666666666666,
+        0.1203125,
+        0.36041666666666666
+      ]
+    },
+    {
+      "ordinal": 37,
+      "sourceFrame": 96,
+      "imageSha256": "48c58c2003bc169f335528d0571fd2c69692bc65303c6bf7aa367c7090625863",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.0234375,
+        0.19791666666666666,
+        0.1296875,
+        0.36041666666666666
+      ]
+    },
+    {
+      "ordinal": 38,
+      "sourceFrame": 97,
+      "imageSha256": "44c607907790abb981b2c7f4ec09697fdd42c597e70cfbb5407e7fc05a8be1e9",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.0421875,
+        0.20208333333333334,
+        0.1484375,
+        0.3645833333333333
+      ]
+    },
+    {
+      "ordinal": 39,
+      "sourceFrame": 98,
+      "imageSha256": "f2d6f5142d65c9787ef7819f6b73f12cf7efb63f9c48d908eb4d9ccaad8e26ef",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.0609375,
+        0.20208333333333334,
+        0.1671875,
+        0.3645833333333333
+      ]
+    },
+    {
+      "ordinal": 40,
+      "sourceFrame": 99,
+      "imageSha256": "b39e5a0a07d89609cd9448f892e3300b8fc77f073476f3dd3079cf2ca2f33b5b",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.0796875,
+        0.20208333333333334,
+        0.1859375,
+        0.3645833333333333
+      ]
+    },
+    {
+      "ordinal": 41,
+      "sourceFrame": 100,
+      "imageSha256": "8ff8fed66c4dfc2bdd13a104885fb132bc190dd023eb504fd94837a8b4ca1b3a",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.1015625,
+        0.20625,
+        0.2078125,
+        0.36875
+      ]
+    },
+    {
+      "ordinal": 42,
+      "sourceFrame": 101,
+      "imageSha256": "752ee6fc8a38df36c76e31f69e0386e584eec1fe53b10a09f3c017bfcc4b227f",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.1203125,
+        0.20625,
+        0.2265625,
+        0.36875
+      ]
+    },
+    {
+      "ordinal": 43,
+      "sourceFrame": 102,
+      "imageSha256": "703faa2838ddc30ee586f872ff8d489132e1893da053f9c515162ad66848bad5",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.1546875,
+        0.21041666666666667,
+        0.2609375,
+        0.3729166666666667
+      ]
+    },
+    {
+      "ordinal": 44,
+      "sourceFrame": 103,
+      "imageSha256": "8fde1ca0e10fadaee34bb0e9d82fb30b599a08bea9e8a8b2574ebc97cfd2168c",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.1890625,
+        0.21458333333333332,
+        0.2953125,
+        0.3770833333333333
+      ]
+    },
+    {
+      "ordinal": 45,
+      "sourceFrame": 104,
+      "imageSha256": "121134970dd96fb2ce1e84dc904f522150769c2bb06f2b891bb91a0af76f83d9",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.2234375,
+        0.21875,
+        0.3296875,
+        0.38125
+      ]
+    },
+    {
+      "ordinal": 46,
+      "sourceFrame": 105,
+      "imageSha256": "431316767096f85ff0279156a0223353f52ce3377735de8ed815efe845b64cb3",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.2546875,
+        0.22291666666666668,
+        0.3609375,
+        0.3854166666666667
+      ]
+    },
+    {
+      "ordinal": 47,
+      "sourceFrame": 106,
+      "imageSha256": "90620af2843c7a6a7d938ae5bb1f4f1dd01f4958e47f3ea92dcd68f172113f1b",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.2890625,
+        0.22708333333333333,
+        0.3953125,
+        0.38958333333333334
+      ]
+    },
+    {
+      "ordinal": 48,
+      "sourceFrame": 107,
+      "imageSha256": "d81cd0cdf6066a6be70b05beeff63a744e9b2353422f3b47a10019eb86d9c8b6",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.3265625,
+        0.23125,
+        0.4328125,
+        0.39375
+      ]
+    },
+    {
+      "ordinal": 49,
+      "sourceFrame": 108,
+      "imageSha256": "b7b91078f63f5d58c0cd8e38743780b393600be0c038c62d910c088a310e1393",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.3640625,
+        0.23541666666666666,
+        0.4703125,
+        0.39791666666666664
+      ]
+    },
+    {
+      "ordinal": 50,
+      "sourceFrame": 109,
+      "imageSha256": "923eb0c0eaf1d7e822dd60c1a7bcc47c6da6550573bb3895644af674d5037737",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.3984375,
+        0.23541666666666666,
+        0.5046875,
+        0.39791666666666664
+      ]
+    },
+    {
+      "ordinal": 51,
+      "sourceFrame": 110,
+      "imageSha256": "5dc4e6d7b34f68f55c8386182566d8ceafdb6ebb64abdbb2860ee223c544c64c",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4359375,
+        0.23958333333333334,
+        0.5421875,
+        0.40208333333333335
+      ]
+    },
+    {
+      "ordinal": 52,
+      "sourceFrame": 111,
+      "imageSha256": "3d0d2696982090e8eccc618a1d2a8c4f9e9e895e2938c66c871a75d37eea4582",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4734375,
+        0.23958333333333334,
+        0.5796875,
+        0.40208333333333335
+      ]
+    },
+    {
+      "ordinal": 53,
+      "sourceFrame": 112,
+      "imageSha256": "a52b421ef81ca36fee1c660bdcfca1815a221f8579e6dc919df66eefbedc8485",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4921875,
+        0.23541666666666666,
+        0.5984375,
+        0.39791666666666664
+      ]
+    },
+    {
+      "ordinal": 54,
+      "sourceFrame": 113,
+      "imageSha256": "713db3987caa888e3abc00172ce9e09eaa448242fa90915d59f402a2aee550f6",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.5109375,
+        0.22708333333333333,
+        0.6171875,
+        0.38958333333333334
+      ]
+    },
+    {
+      "ordinal": 55,
+      "sourceFrame": 114,
+      "imageSha256": "b73b4c3dbecede0d392823a47ddc878863b73384ee0aa6eeae30f7f586436600",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.5421875,
+        0.21875,
+        0.6484375,
+        0.38125
+      ]
+    },
+    {
+      "ordinal": 56,
+      "sourceFrame": 115,
+      "imageSha256": "0e008abf0ba14bad09110fefbeeb8434118cc666e0ce441d17a9434fe3f8193a",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.5484375,
+        0.21458333333333332,
+        0.6546875,
+        0.3770833333333333
+      ]
+    },
+    {
+      "ordinal": 57,
+      "sourceFrame": 116,
+      "imageSha256": "8c67f12c8e6918c0e1be98f417d03ec4d68ed200677eebd4c6720132472c490e",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.5640625,
+        0.20625,
+        0.6703125,
+        0.36875
+      ]
+    },
+    {
+      "ordinal": 58,
+      "sourceFrame": 117,
+      "imageSha256": "4e9a6e5a6d1aae2261e8b6f1d8d5057b69cd9040954e4a63558c5140be66a3d7",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.5484375,
+        0.19791666666666666,
+        0.6546875,
+        0.36041666666666666
+      ]
+    },
+    {
+      "ordinal": 59,
+      "sourceFrame": 118,
+      "imageSha256": "a08195e218c14c13cd7be56424d3972d057d5d993427f704060639f64c37101d",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.5296875,
+        0.18958333333333333,
+        0.6359375,
+        0.35208333333333336
+      ]
+    },
+    {
+      "ordinal": 60,
+      "sourceFrame": 119,
+      "imageSha256": "b1ba810bf84b1a3daf051f965eae7d241ba08bd43654faf64373e41decc403df",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.5109375,
+        0.18125,
+        0.6171875,
+        0.34375
+      ]
+    },
+    {
+      "ordinal": 61,
+      "sourceFrame": 120,
+      "imageSha256": "a11b6818c03d5233a3d98285ff583c9b6be220c0c2bbbf1e5ebf68695be11031",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.4953125,
+        0.17291666666666666,
+        0.6015625,
+        0.33541666666666664
+      ]
+    },
+    {
+      "ordinal": 62,
+      "sourceFrame": 121,
+      "imageSha256": "e8167acd504b85d4f49af1f74c3d700313c855cc3eec61ca4d8036c1569ace09",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.4765625,
+        0.16458333333333333,
+        0.5828125,
+        0.32708333333333334
+      ]
+    },
+    {
+      "ordinal": 63,
+      "sourceFrame": 122,
+      "imageSha256": "6269c0a85b49a052162be88062838c710cb472f57ab5435ef62bdfaf45e8193d",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.45,
+        0.16666666666666666,
+        0.55625,
+        0.32916666666666666
+      ]
+    },
+    {
+      "ordinal": 64,
+      "sourceFrame": 123,
+      "imageSha256": "d04373ab4a927e7ef9d59e0c61bc6646d2435bf05cd74af08e1271cd185cac11",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.425,
+        0.16875,
+        0.53125,
+        0.33125
+      ]
+    },
+    {
+      "ordinal": 65,
+      "sourceFrame": 124,
+      "imageSha256": "5e4825afc578986c89bb15e948ccbc0782f189515ba117a4cbff8ae988f583cc",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4203125,
+        0.17708333333333334,
+        0.5265625,
+        0.33958333333333335
+      ]
+    },
+    {
+      "ordinal": 66,
+      "sourceFrame": 125,
+      "imageSha256": "1500b94b94c79f432766c3e2b6f1cd233bbd873ce607a448c43957f43e5dd9c4",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4171875,
+        0.18958333333333333,
+        0.5234375,
+        0.35208333333333336
+      ]
+    },
+    {
+      "ordinal": 67,
+      "sourceFrame": 126,
+      "imageSha256": "13e89da07153447057b39e059edee0f0c91cc49afa406136926cf893c8b6aaeb",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4015625,
+        0.19375,
+        0.5078125,
+        0.35625
+      ]
+    },
+    {
+      "ordinal": 68,
+      "sourceFrame": 127,
+      "imageSha256": "fa13672cd67264637ada281c5e33963aa0ef53d6275969320ccb020ed9dfde62",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.3890625,
+        0.19375,
+        0.4953125,
+        0.35625
+      ]
+    },
+    {
+      "ordinal": 69,
+      "sourceFrame": 128,
+      "imageSha256": "bf1ce9913e031e029a0b43cc138b933eddae895b4b7a5f241e73c63b21f9d370",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.39375,
+        0.21041666666666667,
+        0.5,
+        0.3729166666666667
+      ]
+    },
+    {
+      "ordinal": 70,
+      "sourceFrame": 129,
+      "imageSha256": "e6359ac1cb2572262579165e4bc85ae3062582c4a248ba332e8aa3942b516874",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.3796875,
+        0.21458333333333332,
+        0.4859375,
+        0.3770833333333333
+      ]
+    },
+    {
+      "ordinal": 71,
+      "sourceFrame": 130,
+      "imageSha256": "96c913623fef10b5157a4ebedf8e7c32949e1803a0b4dbc5fb3cdd88261f5e9d",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.3546875,
+        0.19375,
+        0.4609375,
+        0.35625
+      ]
+    },
+    {
+      "ordinal": 72,
+      "sourceFrame": 131,
+      "imageSha256": "1069de5e6c7a6f0c45e7d9ada23dde969bb056cc577c8046d25fd4f6bab25d3a",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.3296875,
+        0.19166666666666668,
+        0.4359375,
+        0.3541666666666667
+      ]
+    },
+    {
+      "ordinal": 73,
+      "sourceFrame": 132,
+      "imageSha256": "1d4498010982c7abfb495a307cccabfca8c552d64c4ad2d80f778910280261d1",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.309375,
+        0.18541666666666667,
+        0.415625,
+        0.34791666666666665
+      ]
+    },
+    {
+      "ordinal": 74,
+      "sourceFrame": 133,
+      "imageSha256": "0cb5f1901d7f1b88685ed5ad7152ad558611f6c880424271ee4205195e5ed894",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.2828125,
+        0.18333333333333332,
+        0.3890625,
+        0.3458333333333333
+      ]
+    },
+    {
+      "ordinal": 75,
+      "sourceFrame": 134,
+      "imageSha256": "c0e34e1e13fc340fb843698e4866c9f8285747ac94fe3d978d434287dec7fcf0",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.253125,
+        0.17083333333333334,
+        0.359375,
+        0.3333333333333333
+      ]
+    },
+    {
+      "ordinal": 76,
+      "sourceFrame": 135,
+      "imageSha256": "531186376f76b0221432d7e9b4673f471a8dea128be5954781aad6c2bbb30ff7",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.24375,
+        0.17916666666666667,
+        0.35,
+        0.3416666666666667
+      ]
+    },
+    {
+      "ordinal": 77,
+      "sourceFrame": 136,
+      "imageSha256": "eb35be779dc2bdcbeaa1c660d2ec64d28d19a944bbd4c6587fda2703324f1861",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.253125,
+        0.18333333333333332,
+        0.359375,
+        0.3458333333333333
+      ]
+    },
+    {
+      "ordinal": 78,
+      "sourceFrame": 137,
+      "imageSha256": "953e21046cfff673f125370b7f07c360e88f78d015eb46c0babc47b682401bc8",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.2703125,
+        0.19166666666666668,
+        0.3765625,
+        0.3541666666666667
+      ]
+    },
+    {
+      "ordinal": 79,
+      "sourceFrame": 138,
+      "imageSha256": "1990f2d7db49d0d03ac3626390bae0f9b6514c72294ee67119ccea3dd79d618d",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.303125,
+        0.19791666666666666,
+        0.409375,
+        0.36041666666666666
+      ]
+    },
+    {
+      "ordinal": 80,
+      "sourceFrame": 139,
+      "imageSha256": "036d7a31b6734a632298cba365271441207cd7030ff06591816b8087a1863f3e",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.3421875,
+        0.20208333333333334,
+        0.4484375,
+        0.3645833333333333
+      ]
+    },
+    {
+      "ordinal": 81,
+      "sourceFrame": 140,
+      "imageSha256": "e5faca94af69750b9833af5c247149cd32b7e22efa4c8891d154aa04c3867652",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.371875,
+        0.21666666666666667,
+        0.478125,
+        0.37916666666666665
+      ]
+    },
+    {
+      "ordinal": 82,
+      "sourceFrame": 141,
+      "imageSha256": "9347ca1829360f7d490f667c345aeebbc9ee27e0802445d963d4a7c6494d3e18",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4015625,
+        0.21875,
+        0.5078125,
+        0.38125
+      ]
+    },
+    {
+      "ordinal": 83,
+      "sourceFrame": 142,
+      "imageSha256": "83bd3aebfbd1a218d965c026eff03ef3ce95e485c2547e9e517320d23e88b691",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4078125,
+        0.21458333333333332,
+        0.5140625,
+        0.3770833333333333
+      ]
+    },
+    {
+      "ordinal": 84,
+      "sourceFrame": 143,
+      "imageSha256": "112ab7e28eedde9aee4e5fbd17a3c255f0061c2f3488d3fc086ab333100c1e5b",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.403125,
+        0.21458333333333332,
+        0.509375,
+        0.3770833333333333
+      ]
+    },
+    {
+      "ordinal": 85,
+      "sourceFrame": 144,
+      "imageSha256": "b38355d42eacf72228de1620599d4572689f559b0a5636438c6aac60e82f2487",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.3953125,
+        0.21458333333333332,
+        0.5015625,
+        0.3770833333333333
+      ]
+    },
+    {
+      "ordinal": 86,
+      "sourceFrame": 145,
+      "imageSha256": "0072df6ab5efef417147434b5659426284bba9f9305f8262adf7468b25029a0f",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.3921875,
+        0.22291666666666668,
+        0.4984375,
+        0.3854166666666667
+      ]
+    },
+    {
+      "ordinal": 87,
+      "sourceFrame": 146,
+      "imageSha256": "6144e33550d6262f3acdc4817cb35a87e1f6bb563a4366e664f4c241385382d0",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.3921875,
+        0.22291666666666668,
+        0.4875,
+        0.3854166666666667
+      ]
+    },
+    {
+      "ordinal": 88,
+      "sourceFrame": 147,
+      "imageSha256": "efe54efddaa9dee34377c8e38f255b508d9c6ffc724bf75b27e632ef1d457c5c",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.371875,
+        0.21875,
+        0.478125,
+        0.38125
+      ]
+    },
+    {
+      "ordinal": 89,
+      "sourceFrame": 148,
+      "imageSha256": "725063da700f5169f1b11eb3644ef0c2dabf98854ed32d790ee97a749ef8a317",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.3625,
+        0.21666666666666667,
+        0.46875,
+        0.37916666666666665
+      ]
+    },
+    {
+      "ordinal": 90,
+      "sourceFrame": 149,
+      "imageSha256": "dc462baecbe1a334a28a5c154dc2bd726ae384e71983ceb70239f175c269ad04",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.3640625,
+        0.21041666666666667,
+        0.4703125,
+        0.3729166666666667
+      ]
+    },
+    {
+      "ordinal": 91,
+      "sourceFrame": 150,
+      "imageSha256": "f37391d3be94de1a81ae982cf7f5f17eaeb3f712f55a310bdbbaaf6d3988669c",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.3578125,
+        0.20625,
+        0.45,
+        0.36875
+      ]
+    },
+    {
+      "ordinal": 92,
+      "sourceFrame": 151,
+      "imageSha256": "33f6268484b4137eaccaa92495d4fe5cd73760a02d869b8223bb8f975a37275c",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.3484375,
+        0.20208333333333334,
+        0.4546875,
+        0.3645833333333333
+      ]
+    },
+    {
+      "ordinal": 93,
+      "sourceFrame": 152,
+      "imageSha256": "2e0dcb6ebfe4c14159871e24af96993f9c19e90edac2a4aaf1d8107266b78c2c",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.359375,
+        0.19791666666666666,
+        0.465625,
+        0.36041666666666666
+      ]
+    },
+    {
+      "ordinal": 94,
+      "sourceFrame": 153,
+      "imageSha256": "6287ee5987a8239a75bba5acfd8692a318903a5374160204d77e0ca513b5df2b",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.3859375,
+        0.19166666666666668,
+        0.4921875,
+        0.3541666666666667
+      ]
+    },
+    {
+      "ordinal": 95,
+      "sourceFrame": 154,
+      "imageSha256": "855a892fd41f93cb4285a2ad08041f8ac145220b106816bb9a67ea0e3d6b2d17",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.4109375,
+        0.18541666666666667,
+        0.5171875,
+        0.34791666666666665
+      ]
+    }
+  ]
+}

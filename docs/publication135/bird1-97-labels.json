@@ -1,0 +1,927 @@
+{
+  "schema": "association-labels-134-v1",
+  "objectKey": "subject",
+  "annotator": "OTB authors (boxes); Codex source-only AI (visibility)",
+  "method": "external-annotations",
+  "exposure": "before-tracking",
+  "provenance": "External original OTB boxes converted from one-based XYWH to normalized corners. Only the first source box initializes tracking. Every selected image reviewed source-only after algorithm/scorer lock, before predictions. AI visibility is not independent human adjudication. No labelled distractors supplied. rendered cloud disappearance and return; not real-world camera footage. No real full out-of-frame return. Rendered Bird1 transitions remain uncertain; existing scorer does not bridge uncertain intervals into recovery delay.",
+  "rows": [
+    {
+      "ordinal": 1,
+      "sourceFrame": 98,
+      "imageSha256": "6731ec1df30dd3fdf2a978fb1c9e66cc461a75dd689088852749b4b5e1bd3966",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.5138888888888888,
+        0.46,
+        0.5569444444444445,
+        0.5525
+      ]
+    },
+    {
+      "ordinal": 2,
+      "sourceFrame": 99,
+      "imageSha256": "dcf53be185feb47add9ccb060cd531223e172637f8e1314497dcdf4dd40870fa",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.5125,
+        0.46,
+        0.5555555555555556,
+        0.5525
+      ]
+    },
+    {
+      "ordinal": 3,
+      "sourceFrame": 100,
+      "imageSha256": "a7b2aaff229677721364c90cd2536f4263f96c1620de60c0bfadfbf99e5e5644",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.5125,
+        0.465,
+        0.5555555555555556,
+        0.5575
+      ]
+    },
+    {
+      "ordinal": 4,
+      "sourceFrame": 101,
+      "imageSha256": "c284e7782f0318756052610fe15775b2dbb4875bb77225fc061f2195313d3b95",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.5111111111111111,
+        0.465,
+        0.5541666666666667,
+        0.5575
+      ]
+    },
+    {
+      "ordinal": 5,
+      "sourceFrame": 102,
+      "imageSha256": "6187e9f51c7aa9bf8ba7bfcbdc25da2e6f2cc2942a85883ddc945dfe26b8f327",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.5111111111111111,
+        0.465,
+        0.5541666666666667,
+        0.5575
+      ]
+    },
+    {
+      "ordinal": 6,
+      "sourceFrame": 103,
+      "imageSha256": "6333dde0c970680af5d045017d2795f0c5beaf03951a58cc25c25d033354af4e",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.5083333333333333,
+        0.46,
+        0.5513888888888889,
+        0.5525
+      ]
+    },
+    {
+      "ordinal": 7,
+      "sourceFrame": 104,
+      "imageSha256": "7583e30f11a79e736b5920e4341fb1639eed3cc5e2efeab162b7267536308295",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.5083333333333333,
+        0.46,
+        0.5513888888888889,
+        0.5525
+      ]
+    },
+    {
+      "ordinal": 8,
+      "sourceFrame": 105,
+      "imageSha256": "f9b235fb829c18154293763e5c490853731cc12688c0d26adbb1f240f47c4b51",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.5083333333333333,
+        0.46,
+        0.5513888888888889,
+        0.5525
+      ]
+    },
+    {
+      "ordinal": 9,
+      "sourceFrame": 106,
+      "imageSha256": "1ffcbfd380e9e114601dff5f47be967b0308e3ef6d71703f53c4cc7071e29a16",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.5041666666666667,
+        0.46,
+        0.5472222222222223,
+        0.5525
+      ]
+    },
+    {
+      "ordinal": 10,
+      "sourceFrame": 107,
+      "imageSha256": "ab6b31168cc85996a0545fdcddf398f4cd7ebaab4fc5f8e00d82d62f46bb5074",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.5027777777777778,
+        0.4625,
+        0.5458333333333333,
+        0.555
+      ]
+    },
+    {
+      "ordinal": 11,
+      "sourceFrame": 108,
+      "imageSha256": "4a07032b5dc2e499e0337f6dd718c1d8f59da280eb2b82e1350a1b5a2d2ea15e",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.5027777777777778,
+        0.4625,
+        0.5458333333333333,
+        0.555
+      ]
+    },
+    {
+      "ordinal": 12,
+      "sourceFrame": 109,
+      "imageSha256": "37ba5378ea4194c040880b9b56aa03ae98893f5f7ba21bd2478aea9da0beb314",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.5013888888888889,
+        0.4625,
+        0.5444444444444444,
+        0.555
+      ]
+    },
+    {
+      "ordinal": 13,
+      "sourceFrame": 110,
+      "imageSha256": "81d911f26e395aa03f7ecb266dc2d883b194be0b15d5b1b189bf713d68f3ea74",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.5013888888888889,
+        0.4625,
+        0.5444444444444444,
+        0.555
+      ]
+    },
+    {
+      "ordinal": 14,
+      "sourceFrame": 111,
+      "imageSha256": "d32892ab1e963ba45922d3443a32fa86b3c5104e0a86758e47cc3fd5654640d1",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.49583333333333335,
+        0.4625,
+        0.5388888888888889,
+        0.555
+      ]
+    },
+    {
+      "ordinal": 15,
+      "sourceFrame": 112,
+      "imageSha256": "d1970460dd4ac0f132bdcb0987ff5fd3d6dd963a3d6dc599abc1b5e74984e07d",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.49583333333333335,
+        0.46,
+        0.5388888888888889,
+        0.5525
+      ]
+    },
+    {
+      "ordinal": 16,
+      "sourceFrame": 113,
+      "imageSha256": "2480dfe007abc676caae1041247d2424925b1e96d521270d042fadd47e2860fa",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.49583333333333335,
+        0.46,
+        0.5388888888888889,
+        0.5525
+      ]
+    },
+    {
+      "ordinal": 17,
+      "sourceFrame": 114,
+      "imageSha256": "bad168b55d69ea5c3043e5719d9057c6e13262133d38b1d54469f8e9dba97fd0",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.49444444444444446,
+        0.46,
+        0.5375,
+        0.5525
+      ]
+    },
+    {
+      "ordinal": 18,
+      "sourceFrame": 115,
+      "imageSha256": "9aa8ec329f0e7a5f68b95c228d3af28b22671341b1d90babc7afdecc9d6d8822",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.4930555555555556,
+        0.4625,
+        0.5361111111111111,
+        0.555
+      ]
+    },
+    {
+      "ordinal": 19,
+      "sourceFrame": 116,
+      "imageSha256": "e6c291604869d6870dfcb2fad0d341cd1df6c8745a53b1e3f676cd8f6a0821fb",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.4930555555555556,
+        0.4625,
+        0.5361111111111111,
+        0.555
+      ]
+    },
+    {
+      "ordinal": 20,
+      "sourceFrame": 117,
+      "imageSha256": "3db82b55d683c3a7085073667365e1406653e67ee4cf8892268640002b32ad11",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4930555555555556,
+        0.4625,
+        0.5361111111111111,
+        0.555
+      ]
+    },
+    {
+      "ordinal": 21,
+      "sourceFrame": 118,
+      "imageSha256": "a1f880ef06b85dbe94c91615e7f0a71dba88dd6f88611dd5b04f0a167e65f477",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.49166666666666664,
+        0.46,
+        0.5347222222222222,
+        0.5525
+      ]
+    },
+    {
+      "ordinal": 22,
+      "sourceFrame": 119,
+      "imageSha256": "cb5ba49abd25fe1c96cc9527f29cf11a8bf9176fff529c85f65c082ceda686a2",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.49166666666666664,
+        0.46,
+        0.5347222222222222,
+        0.5525
+      ]
+    },
+    {
+      "ordinal": 23,
+      "sourceFrame": 120,
+      "imageSha256": "0994745942966b06ab2e649722705fd03b20633d25bf1834490b7065a5e002e4",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4888888888888889,
+        0.4525,
+        0.5319444444444444,
+        0.545
+      ]
+    },
+    {
+      "ordinal": 24,
+      "sourceFrame": 121,
+      "imageSha256": "310ec31658f88b39406714395c48eaa530b82ed8955a58a6a5eb220a05df348c",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4888888888888889,
+        0.4525,
+        0.5319444444444444,
+        0.545
+      ]
+    },
+    {
+      "ordinal": 25,
+      "sourceFrame": 122,
+      "imageSha256": "ca56e034d7efe2f0356908e042c5c310589d3392f2b8665119685c8c450ec4ed",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4875,
+        0.45,
+        0.5305555555555556,
+        0.5425
+      ]
+    },
+    {
+      "ordinal": 26,
+      "sourceFrame": 123,
+      "imageSha256": "28afac4a793b9fc89e7ec5f7645dc6eaeeafac0ed79afdf0b6a91c6e6442602d",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4875,
+        0.45,
+        0.5305555555555556,
+        0.5425
+      ]
+    },
+    {
+      "ordinal": 27,
+      "sourceFrame": 124,
+      "imageSha256": "0afb6ab0fe1e44986e0b476b4384a7a1c18922bb2c4c301a4a47168d95d5b7a6",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4875,
+        0.46,
+        0.5305555555555556,
+        0.5525
+      ]
+    },
+    {
+      "ordinal": 28,
+      "sourceFrame": 125,
+      "imageSha256": "ffd9d753829bf18aac54144820cb234c7eeb1d41e35d14e715e8c947b20edb52",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4847222222222222,
+        0.4525,
+        0.5277777777777778,
+        0.545
+      ]
+    },
+    {
+      "ordinal": 29,
+      "sourceFrame": 126,
+      "imageSha256": "8984a858501d389ea7aa59c891ed37f20d852736824b86ab1e3286ad09ee7993",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4847222222222222,
+        0.4525,
+        0.5277777777777778,
+        0.545
+      ]
+    },
+    {
+      "ordinal": 30,
+      "sourceFrame": 127,
+      "imageSha256": "5041331e9d01aaa108e956881e4696c3b154d1cf963fd82f5d27fbd45d68af35",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4847222222222222,
+        0.45,
+        0.5277777777777778,
+        0.5425
+      ]
+    },
+    {
+      "ordinal": 31,
+      "sourceFrame": 128,
+      "imageSha256": "8af5175ac7c27e75eed38c9ae4b767890e1214a9ebdda841e70f647ddab15dec",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 32,
+      "sourceFrame": 129,
+      "imageSha256": "1919bc3659e7da8a0e07e34715b9c7459f970822366fa7cffbeb3162126834d4",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 33,
+      "sourceFrame": 130,
+      "imageSha256": "86931f28d875b5885b50f952529f20424ead6d61fb37967298a22fd058854f4f",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 34,
+      "sourceFrame": 131,
+      "imageSha256": "632fd79e9a62eab3b56a91cbcbcf0890e1a85a47ad36231a2300ac17fab1bf98",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 35,
+      "sourceFrame": 132,
+      "imageSha256": "e45b9621e8b9c146e3b38e0973ad76e5b1501e8e0955723aaf46041c3a93ad90",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 36,
+      "sourceFrame": 133,
+      "imageSha256": "054a6ee3c50676881e7d2199be70addc5171217e0dec91a6f1013f1e8fd3e9a8",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 37,
+      "sourceFrame": 134,
+      "imageSha256": "6dc0bef460eb9c305fc683e1efb0a51532257efc4e9cd08328ee168aa87c9370",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 38,
+      "sourceFrame": 135,
+      "imageSha256": "628abc50c0bf2dace164395725ac05fc9ac59fe40f469104d420fd8d3f6a63b2",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 39,
+      "sourceFrame": 136,
+      "imageSha256": "2518be0312748344cf26d666e2ef2dd697a367417c7ff195c16a980638b311f7",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 40,
+      "sourceFrame": 137,
+      "imageSha256": "0526b5ea5268b84ae307bf8fe176847870d10e23f5f3ee0e6880ebf99c2da2b5",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 41,
+      "sourceFrame": 138,
+      "imageSha256": "5427658f6e56fa1f5a5112b81cea69ddcf16e71c389f340e0e6be400cddd2c7b",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 42,
+      "sourceFrame": 139,
+      "imageSha256": "4f9a1dbed609c7440e3a1f0754e38d1d7d6e266483bda8d42cd9c7f50ebcd89c",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 43,
+      "sourceFrame": 140,
+      "imageSha256": "7ae2939ba5fb17ed9da0abec3e1a438af1877f27a9cd81c5e02e9c004db51880",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 44,
+      "sourceFrame": 141,
+      "imageSha256": "5456d126a0005414e065068e45088b08b13d3a11f281d3dac3497548c2f4bbf8",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 45,
+      "sourceFrame": 142,
+      "imageSha256": "a502cc96a0aa86e44d43602efe5764e61afc4cc62dedaa888ff5d2d7d6d46ff7",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 46,
+      "sourceFrame": 143,
+      "imageSha256": "bf242d1c593f36610ff8fa7844639545950f91b62720fedddae72bafc80b8c03",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 47,
+      "sourceFrame": 144,
+      "imageSha256": "25d2bc1062a64e80b7272b06d384f2b4b499b41e6eb5bc339d5d42c98ed1c3b9",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 48,
+      "sourceFrame": 145,
+      "imageSha256": "48b1ff681f579ff0d21a9997d8e9b0c394b71a2477810f63d268e28c3940bfb1",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 49,
+      "sourceFrame": 146,
+      "imageSha256": "bba4fe22594bc9db47fcb49dc7d0ba1cd5ffb4e04eb4380fa9fd078ff1843626",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 50,
+      "sourceFrame": 147,
+      "imageSha256": "4cdc64b4283c68958ef686c37db5dc4f1780bd6eef7d5d2fbd51d6414feee019",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 51,
+      "sourceFrame": 148,
+      "imageSha256": "317162a67e7dc2a97eb3331934f66855dfde37cec2031857d6edc9017dae55e8",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 52,
+      "sourceFrame": 149,
+      "imageSha256": "382bca3db5614393079c57ab001e89433956a8640920d0c2e267995f031cf950",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 53,
+      "sourceFrame": 150,
+      "imageSha256": "24b50bd1a9189c6f4671d68e9c999ca4bf5853176fa0841cb2b2243965309c37",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 54,
+      "sourceFrame": 151,
+      "imageSha256": "33e446a2828f55160cdc0db326a4630398970e0a0b974f21b9955f3aee3744f4",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 55,
+      "sourceFrame": 152,
+      "imageSha256": "649a72b716ec9479490daaf4f33e7f4417b46e0b3dda6ed3297251063aa5da86",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 56,
+      "sourceFrame": 153,
+      "imageSha256": "8647b8ab08a4e8be7b49216a8bf4eb350aa1ed9d1ee480a1690982010e1b0c96",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 57,
+      "sourceFrame": 154,
+      "imageSha256": "a613707d8a7d61dd810accdcfe35978247df45660c81aa65db82134f363ef6aa",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 58,
+      "sourceFrame": 155,
+      "imageSha256": "8ff54f3c86dff8b69b85f7e819c1f68f6fa83f851dd1174329fdd243f071a532",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 59,
+      "sourceFrame": 156,
+      "imageSha256": "53e63b86a9f93859b91777fa69a8a452e4aefe9cb3f271b348d398574426fd9f",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 60,
+      "sourceFrame": 157,
+      "imageSha256": "517858544f0496131e8cf04845ac52a49028ea1ee2794fe270e4bba9c36b7f09",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 61,
+      "sourceFrame": 158,
+      "imageSha256": "c0095e7e7e7fe9a155e1ab6417840cf0557ddb71050c6cd4ad20a1e4c5c1d609",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 62,
+      "sourceFrame": 159,
+      "imageSha256": "cb478c7b6fb427b1002494cfb469d96d4511164c7e93d0fcda6f23c2a0e8c5f1",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 63,
+      "sourceFrame": 160,
+      "imageSha256": "55afbda1615270bdb5d893bc4056d17c07e4b76667aaed7c6504b277e9e3cff3",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 64,
+      "sourceFrame": 161,
+      "imageSha256": "a8a533c790f01798bf4618d13dd1574e34487a292218f88d8b31346c7f69ce70",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 65,
+      "sourceFrame": 162,
+      "imageSha256": "b4b0488a113d2b2b10cae958c83afd88092f11ecc287591905318f870d7d193a",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 66,
+      "sourceFrame": 163,
+      "imageSha256": "5ae5fd089f3eb36dd23717b12e94bedde8a84179e98f87992411b69cbc26a502",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 67,
+      "sourceFrame": 164,
+      "imageSha256": "9388e1990abe349a3e4218f2b8cfef39467dc29b023a30c2a07f9ef6c5d2dace",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 68,
+      "sourceFrame": 165,
+      "imageSha256": "904d1e29a5d14052242032032978736e733ac0685cc75493e13e09274e758f99",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 69,
+      "sourceFrame": 166,
+      "imageSha256": "d1a3d7fd274a0cffa163d2b087c89f2a519e8cde943635b9aed485ee6e108175",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 70,
+      "sourceFrame": 167,
+      "imageSha256": "07653aa47d4d850a40622e24ae873c4f9d4e8a7da1f8967dcf799a82e2747049",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 71,
+      "sourceFrame": 168,
+      "imageSha256": "3b4606e72b0677936f2ebd5c7914d199869b4c53625e2367fd989ee4cdeca7e8",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 72,
+      "sourceFrame": 169,
+      "imageSha256": "0150f6cbfa817f34ed3de961de3535ff5b27c1774339a1f913d9b986b8785b4c",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 73,
+      "sourceFrame": 170,
+      "imageSha256": "8fd58dfeb27accf11d4f97976b4f8fe3de1d60ce008085e5d6c97ad1322fd979",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 74,
+      "sourceFrame": 171,
+      "imageSha256": "0f28e88417473ca7806167bfeb381ee35c99ba540ade132c1a4970c8ce8fc0b0",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 75,
+      "sourceFrame": 172,
+      "imageSha256": "38eb51e0dd9df139aed736cb202553781b32fda880348360e42c2c52fa8b2bf3",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 76,
+      "sourceFrame": 173,
+      "imageSha256": "8b2309f171acc57d3123a2c76339549d2ad3b98a1e0feb92a808f0a27cace9b9",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 77,
+      "sourceFrame": 174,
+      "imageSha256": "4c7d59329f1f034c481154de04b0c49dfcf1ce30bfa6f7c5f9f0172500121be6",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 78,
+      "sourceFrame": 175,
+      "imageSha256": "205823e2f3bf23a3ffc3c73085fd7144a922dcbcc6ce42da4c35ec30d782dd5c",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 79,
+      "sourceFrame": 176,
+      "imageSha256": "b96336d2a9faf5880c0dbc7aa43f1b7a03ad8af12843996a989949d5e5bea777",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 80,
+      "sourceFrame": 177,
+      "imageSha256": "71a8aac5e5998aed6f963b58cebe121e1901924ced84f819e939e55f41cceab5",
+      "visibility": "occluded",
+      "note": "Rendered cloud fully obscures the target; no visible target box."
+    },
+    {
+      "ordinal": 81,
+      "sourceFrame": 178,
+      "imageSha256": "fbdc03d5ef4d577c76ba0572928ee571de8ec570de293c10b280141809f18fd0",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 82,
+      "sourceFrame": 179,
+      "imageSha256": "a6ef3e6e5626cde674e3c0c9efe196689471cbc485fcbc5410c486459b5ae6da",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 83,
+      "sourceFrame": 180,
+      "imageSha256": "5971ab75349351f0f3339f40afe2793e9b528a2a30af0f83784966f1e32a9fd0",
+      "visibility": "uncertain",
+      "note": "Faint rendered transition; source-only reviewer cannot establish visibility confidently. No invented visible box."
+    },
+    {
+      "ordinal": 84,
+      "sourceFrame": 181,
+      "imageSha256": "a9d2b97cccefa35d3a48438c769d1e0b3336530c3bd61ffca67601278408ee73",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4777777777777778,
+        0.4,
+        0.5208333333333334,
+        0.4925
+      ]
+    },
+    {
+      "ordinal": 85,
+      "sourceFrame": 182,
+      "imageSha256": "6a0fdf408778fefecb567cad0b7ba16256522ede488d0c68fb4045790c4f927b",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.47638888888888886,
+        0.3925,
+        0.5194444444444445,
+        0.485
+      ]
+    },
+    {
+      "ordinal": 86,
+      "sourceFrame": 183,
+      "imageSha256": "861fadb2e2cff0ea4b7fd3bdfd9e408308364ff5dbc6b1506637862eb4b5624f",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.4777777777777778,
+        0.39,
+        0.5208333333333334,
+        0.4825
+      ]
+    },
+    {
+      "ordinal": 87,
+      "sourceFrame": 184,
+      "imageSha256": "35d97dee8f9ca773144f269cfc86a45b23bd2caccf95a8fd4ff46ba75f1d4f13",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.48333333333333334,
+        0.39,
+        0.5263888888888889,
+        0.4825
+      ]
+    },
+    {
+      "ordinal": 88,
+      "sourceFrame": 185,
+      "imageSha256": "04ac590017ef3ec2c1174b1e7d16ebf9665afeb719756a36e1f05ec20cef7756",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.48333333333333334,
+        0.39,
+        0.5263888888888889,
+        0.4825
+      ]
+    },
+    {
+      "ordinal": 89,
+      "sourceFrame": 186,
+      "imageSha256": "370abb783cd6e23fb6937f0faf82cc9ac9bc0e43c89935f47c41e607b40f455b",
+      "visibility": "partial",
+      "note": "Target remains visible despite partial cover, haze or clipping; external benchmark box.",
+      "targetBox": [
+        0.48333333333333334,
+        0.3875,
+        0.5263888888888889,
+        0.48
+      ]
+    },
+    {
+      "ordinal": 90,
+      "sourceFrame": 187,
+      "imageSha256": "6813742ffeefd2bdeae6d08d5fdd359738361db726ec8ff86dab73cbcb0706ee",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.48333333333333334,
+        0.3875,
+        0.5263888888888889,
+        0.48
+      ]
+    },
+    {
+      "ordinal": 91,
+      "sourceFrame": 188,
+      "imageSha256": "e2cf005c593c78687374c3649109403b437f11ed32b7936f868c533f987b4386",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.48194444444444445,
+        0.3775,
+        0.525,
+        0.47
+      ]
+    },
+    {
+      "ordinal": 92,
+      "sourceFrame": 189,
+      "imageSha256": "ceaf10a9f9118f00b78ad112133427c2b5333d778999d2533ec3c99fb885c567",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.48194444444444445,
+        0.3775,
+        0.525,
+        0.47
+      ]
+    },
+    {
+      "ordinal": 93,
+      "sourceFrame": 190,
+      "imageSha256": "0cb5db1f66f1ed988fd38856dd32f52a4bfc406f545c57543916dc855f1a735d",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.48194444444444445,
+        0.38,
+        0.525,
+        0.4725
+      ]
+    },
+    {
+      "ordinal": 94,
+      "sourceFrame": 191,
+      "imageSha256": "67007b1cbb839f9220e32b920d491b64236fbc3f73ab2c4c679ffa8a6315076a",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.48194444444444445,
+        0.38,
+        0.525,
+        0.4725
+      ]
+    },
+    {
+      "ordinal": 95,
+      "sourceFrame": 192,
+      "imageSha256": "fc95e09e6cf5da0ba5a6696d1007b34dc1e837898b6f361ffa341b29ad74c63f",
+      "visibility": "visible",
+      "note": "Target visible in source image; external benchmark box.",
+      "targetBox": [
+        0.48194444444444445,
+        0.38,
+        0.525,
+        0.4725
+      ]
+    }
+  ]
+}
