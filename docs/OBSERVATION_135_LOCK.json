@@ -1,0 +1,28 @@
+{
+  "lockedAtUtc": "2026-11-13T07:47:23.992844+00:00",
+  "sourceCommit": "4f3b719ff782dbda97be76ad507861afd0ff4b2a",
+  "sourceHashes": {
+    "workspace-engine/src/main/java/fraymus/workspace/AppearanceFlow135.java": "74c5798420dbf9627ce2e40b864e274bb1d28ed0900a06c3bf6442f432789f24",
+    "workspace-engine/src/main/java/fraymus/workspace/AppearanceAudit135.java": "9b645127417cfd6d48ab634ad8ea86fbe8ec1c51733a24929c0bad477d8b6b2c",
+    "workspace-engine/src/main/java/fraymus/workspace/AssociationAudit134.java": "a4117bef7e666a33a6bc3235b239510c1bf0b70c60b11906ebdc55050635ea93",
+    "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java": "5c4f2626d341ced71aee8b13cfc07130f4b77bfb26e2ff9ba889db13b9c9dd31",
+    "workspace-engine/src/main/java/fraymus/workspace/PixelTracker.java": "32d26bafaebb26a58a09efc6f71a0089c755cccd25cec47a87be8b67005c985b",
+    "workspace-engine/src/main/java/fraymus/workspace/AdaptiveTracker.java": "394fa106c3bfd68c8066f64d933380cb4caff4b96c4d1f95dfe2ed99e479d5b5",
+    "workspace-engine/src/main/java/fraymus/workspace/ObservationFilter.java": "a0dc7560be00bca29dd7f72995d9cbe607b9e26f14be70286360dbf2d8764e21",
+    "workspace-engine/src/main/java/fraymus/workspace/ObservationMethods129.java": "4f5dd7e9b19962ee792addef5bf60a359eecb6d5fbef238944a932a2095c2d58",
+    "workspace-engine/src/test/java/fraymus/workspace/AssociationStudy134.java": "1ebe3b623041a3e3f003af08a20ac4ce08c51e29a6471df7ad4223802c468043"
+  },
+  "methods": [
+    "legacy-flow",
+    "appearance-continuity-135",
+    "continuity-no-bank-135"
+  ],
+  "sources": [
+    "Original OTB Tiger2",
+    "Original OTB Box"
+  ],
+  "protocol": "docs/EDITION_135_CONTRACT.md",
+  "priorExposure": "Synthetic development and previously exposed Jogging1 only; no selected Tiger2/Box pixels, boxes or predictions opened before lock. Public source sequence attributes seen.",
+  "promotion": false,
+  "evaluation": "Source-only occlusion/return windows and external boxes plus separate AI visibility labels frozen before predictions. Score missingness, incorrect overlap, unsupported hidden output, admission contamination, bank benefit versus disabled control and costs. No outcome tuning."
+}
