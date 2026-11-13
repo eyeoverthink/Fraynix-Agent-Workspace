@@ -106,4 +106,16 @@ public class ObservationLabels132Test {
             assertEquals(64,f.store.state().getJSONArray("labels").length());
         }
     }
+    @Test public void growingHistoryDoesNotChangeAuditAndUnlabelledSourceBytesStillVerify()throws Exception {
+        try(var f=new Fixture()) {
+            var labels=f.store.save(input(f.dataset));var run=f.run();
+            var audit=f.store.audit(new JSONObject().put("labelId",labels.getString("id")).put("runId",run.getString("id")));
+            for(int i=0;i<3;i++)assertEquals("completed",f.run().getString("status"));
+            assertTrue(audit.similar(f.store.readAudit(audit.getString("id"))));
+            Path image=f.root.resolve("world-observations/datasets/"+f.dataset.getString("id")+"/8.image");
+            byte[] original=Files.readAllBytes(image),changed=original.clone();changed[20]^=1;Files.write(image,changed);
+            assertThrows(IllegalStateException.class,()->f.store.readAudit(audit.getString("id")));assertArrayEquals(changed,Files.readAllBytes(image));
+            Files.write(image,original);assertTrue(audit.similar(f.store.readAudit(audit.getString("id"))));
+        }
+    }
 }

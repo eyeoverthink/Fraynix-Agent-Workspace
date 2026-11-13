@@ -9,7 +9,7 @@ assert subprocess.run(['git','show-ref','--verify','--quiet','refs/tags/readme-1
 study=read('build/labels132-app/result.json');assert study['passed'];write(out/'app-study.json',study)
 for name in study['captures']:shutil.copy2(r/'build/labels132-app'/name,out/name)
 checks=set()
-for p in (r/'build/validation132/final').glob('*.xml'):
+for p in list((r/'build/validation132/final').glob('*.xml'))+list((r/'build/validation132/verifier-final').glob('*.xml')):
  e=ET.parse(p).getroot();assert int(e.get('failures','0'))+int(e.get('errors','0'))==0,p
  for c in e.findall('testcase'):
   if c.find('skipped') is None:checks.add(c.get('classname')+'.'+c.get('name'))
@@ -22,7 +22,7 @@ for c in study['comparisons']:
 for policy in ['legacy-flow','renewing-flow-131']:
  runs=[c for c in study['comparisons'] if c['policy']==policy];scores=[s for c in runs for s in c['audit']['scores']]
  values=[s for s in scores if 'filteredAnchorErrorPx' in s];raw=[s for s in scores if 'rawAnchorErrorPx' in s];projected=[s for s in scores if 'projectedContactErrorM' in s]
- total={'labels':len(scores),'observableContacts':sum(s['contact']=='observed' for s in scores),'contactAvailable':len(values),'withinLabelRadius':sum(s.get('withinLabelRadius',False) for s in scores),'rawAnchorMeanErrorPx':statistics.mean(s['rawAnchorErrorPx'] for s in raw) if raw else None,'filteredAnchorMeanErrorPx':statistics.mean(s['filteredAnchorErrorPx'] for s in values) if values else None,'projectedContactMeanErrorM':statistics.mean(s['projectedContactErrorM'] for s in projected) if projected else None,'unsupportedHiddenMeasurements':sum(s['unsupportedHiddenMeasurement'] for s in scores),'trackingMs':sum(c['trackingMs'] for c in runs),'auditMs':sum(c['auditMs'] for c in runs)}
+ total={'labels':len(scores),'observableContacts':sum(s['contact']=='observed' for s in scores),'contactAvailable':len(values),'withinLabelRadius':sum(s.get('withinLabelRadius',False) for s in scores),'rawAnchorMeanErrorPx':statistics.mean(s['rawAnchorErrorPx'] for s in raw) if raw else None,'filteredAnchorMeanErrorPx':statistics.mean(s['filteredAnchorErrorPx'] for s in values) if values else None,'projectedContactMeanErrorM':statistics.mean(s['projectedContactErrorM'] for s in projected) if projected else None,'unsupportedHiddenMeasurements':sum(s['unsupportedHiddenMeasurement'] for s in scores),'trackingMs':sum(c['trackingMs'] for c in runs if c['trackingMs'] is not None),'timedTrackingRuns':sum(c['trackingMs'] is not None for c in runs),'auditMs':sum(c['auditMs'] for c in runs)}
  total['contactMissing']=total['observableContacts']-total['contactAvailable'];comparison['summary'][policy]=total
 # Paired scoring is descriptive; it cannot erase missing measurements.
 a,b=[[c for c in study['comparisons'] if c['policy']==p] for p in ['legacy-flow','renewing-flow-131']]
@@ -34,7 +34,7 @@ for x,y in zip(a,b):
   if 'filteredAnchorErrorPx' in xs and 'filteredAnchorErrorPx' in ys:paired.append({'window':x['window'],'ordinal':xs['ordinal'],'defaultPx':xs['filteredAnchorErrorPx'],'candidatePx':ys['filteredAnchorErrorPx']})
 comparison['paired']={'count':len(paired),'defaultMeanPx':statistics.mean(x['defaultPx'] for x in paired) if paired else None,'candidateMeanPx':statistics.mean(x['candidatePx'] for x in paired) if paired else None,'rows':paired}
 write(out/'comparison.json',comparison)
-v={'passed':True,'javaChecks':sorted(checks),'desktopChecks':desktop_count,'actualAppChecks':study['checks'],'production':study['source'],'buildReceipt':study['buildReceipt'],'newModelCalls':0,'defaultsUnchanged':True,'scope':'Local regression and actual app/source-label diagnostics. Retrospective AI annotations are not blinded human truth or new trajectories. No tracker promotion or calibration. Hosted CI remains separate.'};write(out/'verification.json',v)
+v={'passed':True,'javaChecks':sorted(checks),'desktopChecks':desktop_count,'actualAppChecks':study['checks'],'production':study['source'],'buildReceipt':study['buildReceipt'],'finalVerifier':read('build/verifier132-final.json'),'newModelCalls':0,'defaultsUnchanged':True,'scope':'Local regression and actual app/source-label diagnostics. Retrospective AI annotations are not blinded human truth or new trajectories. No tracker promotion or calibration. Hosted CI remains separate.'};write(out/'verification.json',v)
 originals=[];seen=set()
 def preserve(p,logical):
  if not p.is_file() or logical in seen:return
@@ -46,7 +46,7 @@ for pattern in ['labels132-app*','agency132-evidence','validation132']:
   if not folder.is_dir():continue
   for p in sorted(folder.rglob('*')):
    if any(x in p.parts for x in ['desktop-profile','node_modules']) or p.name.endswith('.fobs.json'):continue
-   if p.is_file() and p.suffix in ['.json','.jsonl','.xml','.png','.txt','.log','.html','.css','.js','.cjs','.fworld','.previous','.csv','.evidence','.pending','.before','.java']:preserve(p,p.relative_to(r).as_posix())
+   if p.is_file() and p.suffix in ['.json','.jsonl','.xml','.png','.txt','.log','.html','.css','.js','.cjs','.fworld','.previous','.csv','.evidence','.pending','.before','.java','.class']:preserve(p,p.relative_to(r).as_posix())
 for p in sorted((r/'build').glob('*132*')):
  if p.is_file():preserve(p,p.relative_to(r).as_posix())
 for name in ['docs/OBSERVATION_132_PROTOCOL.json','docs/publication132/source-labels.json']:preserve(r/name,name)
@@ -61,12 +61,12 @@ for n in sorted(paths):
  except UnicodeDecodeError:kind='binary'
  inventory.append({'path':n,'bytes':len(raw),'sha256':sha(raw),'hashKind':kind})
 write(out/'file-inventory.json',inventory)
-validation=f"Local checks passed: {len(checks)} distinct Java methods, {desktop_count} desktop checks, executable kernel harnesses, actual agency regression and isolated offline/package preparation. The actual app independently checks label arithmetic, source identities, export/import and cold restart. No existing verification condition was weakened."
+validation=f"Local checks passed: {len(checks)} distinct Java methods across the broad baseline and affected final-verifier suites, {desktop_count} desktop checks, executable kernel harnesses, actual agency regression and isolated offline/package preparation. The actual app independently checks label arithmetic, source identities, export/import and cold restart. No existing verification condition was weakened."
 table='| Method | Available / visible contacts | Missing | Within 3 px / visible contacts | Raw mean error / px | Filtered mean error / px | Projected mean / m |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: |\n'
 for p,s in comparison['summary'].items():table+=f"| {p} | {s['contactAvailable']} / {s['observableContacts']} | {s['contactMissing']} | {s['withinLabelRadius']} / {s['observableContacts']} | {s['rawAnchorMeanErrorPx']:.3f} | {s['filteredAnchorMeanErrorPx']:.3f} | {s['projectedContactMeanErrorM']:.3f} |\n"
 pair=comparison['paired'];finding=f"On the {pair['count']} contact samples measured by both methods, mean filtered contact error is {pair['defaultMeanPx']:.3f} px for default and {pair['candidateMeanPx']:.3f} px for the candidate. This paired subset is descriptive, not qualification. The labels expose contact-anchor disagreement separately from missing tracks; they do not fix either error. Physical accuracy remains unresolved."
-cost='| Method | Tracking five runs / ms | Verified UI comparisons / ms |\n| --- | ---: | ---: |\n'
-for p,s in comparison['summary'].items():cost+=f"| {p} | {s['trackingMs']:.1f} | {s['auditMs']:.1f} |\n"
+cost='| Method | Tracking timed runs / ms | Verified UI comparisons / ms |\n| --- | ---: | ---: |\n'
+for p,s in comparison['summary'].items():cost+=f"| {p} | {s['trackingMs']:.1f} ({s['timedTrackingRuns']}/5 timed) | {s['auditMs']:.1f} |\n"
 attempts=(r/'build/attempts132.md').read_text(encoding='utf8') if (r/'build/attempts132.md').exists() else 'The initial focused Java checks and final regression pass are retained alongside the completed application study. No failed study is discarded or relabelled as a success.'
 md=(r/'docs/publication132/README-template.md').read_text(encoding='utf8')
 for k,value in {'RESULTS':table,'FINDING':finding,'COST':cost,'VALIDATION':validation,'APP_CHECKS':'\n'.join('- '+x for x in study['checks']),'ATTEMPTS':attempts}.items():md=md.replace('{{'+k+'}}',value)

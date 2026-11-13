@@ -46,7 +46,7 @@ Accepted-only mean errors exclude missing contacts. Read them beside the availab
 
 {{COST}}
 
-Timing is a single serial pass on this computer. Tracking includes selection, worker startup, source processing and polling. Comparison includes the real UI request, source verification, scoring and the returned result; it is not just arithmetic time. These measurements are diagnostic, not a stable speed benchmark.
+Timing records the original and continued serial work on this computer. Two completed tracker runs were retained after the initial interface timeout; one of their tracking timers was not saved before that timeout and remains unavailable. The table states how many runs have retained timings; missing timing is not zero. Tracking includes selection, worker startup, source processing and polling. Comparison includes the real UI request, source verification, scoring and the returned result; it is not just arithmetic time. These measurements are diagnostic, not a stable speed benchmark.
 
 ![Actual comparison with missing observations retained](docs/readmes/132/audit-1600.png)
 

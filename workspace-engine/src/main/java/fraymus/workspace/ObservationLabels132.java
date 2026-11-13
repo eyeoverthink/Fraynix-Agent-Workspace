@@ -13,11 +13,13 @@ final class ObservationLabels132 {
     private static final Set<String> VISIBILITY = Set.of("visible", "partial", "occluded", "out-of-view", "uncertain");
     private static final Set<String> CONTACT = Set.of("observed", "occluded", "out-of-view", "not-grounded", "uncertain");
     private final Path root;
+    private final Path imageRoot;
     private final WorldObservationStore observations;
     private final MetricObservationStore metrics;
 
     ObservationLabels132(Path project, WorldObservationStore observations, MetricObservationStore metrics) {
         root = project.resolve("observation-labels132");
+        imageRoot = project.resolve("world-observations/datasets");
         this.observations = observations;
         this.metrics = metrics;
     }
@@ -43,7 +45,17 @@ final class ObservationLabels132 {
         var d = observations.dataset(id);
         String hash = WorldFrames.hash(new JSONObject().put("objects", d.getJSONArray("objects")).put("frames", d.getJSONArray("frames")));
         if (!hash.equals(d.getString("contentSha256"))) throw new IllegalStateException("Original dataset manifest changed");
-        for (int i = 0; i < d.getJSONArray("frames").length(); i++) observations.image(id, i);
+        // dataset() has verified the complete retained observation store once. Dataset manifests
+        // are immutable. Check EVERY original image against this snapshot without reopening and
+        // hashing the growing world history once per frame. No cached checksum substitutes for bytes.
+        UUID.fromString(id);
+        var frames = d.getJSONArray("frames");
+        for (int i = 0; i < frames.length(); i++) {
+            Path file = imageRoot.resolve(id).resolve(i + ".image");
+            long size = Files.size(file);
+            if (size < 12 || size > 1_500_000) throw new IllegalStateException("Original source image size changed");
+            if (!PerceptionStore.hash(Files.readAllBytes(file)).equals(frames.getJSONObject(i).getString("imageSha256"))) throw new IllegalStateException("Original observation image integrity changed");
+        }
         return d;
     }
 
