@@ -35,7 +35,7 @@ async function main(){
   await page.locator('#metric-ref-radius130').fill(String(Math.sqrt(2)*.125));await page.locator('#metric-accuracy130').click();
   const audit=await until(()=>page.evaluate(()=>window.metricView.audit130));assert.equal(audit.measurement.references,3);assert.equal(audit.measurement.available,3);
   const study=JSON.parse(await fs.readFile(path.join(repo,'build/diagnostic130',b.name+'-object-flow.json'),'utf8'));
-  assert(Math.abs(audit.measurement.meanErrorM-study.metrics.meanAcceptedErrorM)<1e-10);assert.equal(await page.locator('#metric-audit-result130 tr').count(),4);
+  assert(Math.abs(audit.measurement.meanErrorM-study.metrics.meanAcceptedErrorM)<1e-10);assert.equal(await page.locator('#metric-audit-result130 article').count(),3);
   assert.match(await page.locator('#metric-audit-result130').textContent(),/Missing observations remain in the denominator/);record.audit130=audit;
   await page.locator('#metric-audit-result130').scrollIntoViewIfNeeded();await capture('physical-accuracy.png');
   await app.evaluate(()=>global.workspaceTest.crashEngine());await app.close().catch(()=>{});app=null;await open();
