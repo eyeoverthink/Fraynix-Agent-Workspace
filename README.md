@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — Edition 131
 
+[Published and fetched verification receipt](docs/PUBLICATION_131.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-131)
+
 **Collapsed tracking boxes are withheld safely. An explicit Java candidate renews features and attempts bounded, two-image recovery. Existing tracking and forecasting defaults stay intact.**
 
 2026-11-12 · Local Java agent · Persistent world, browser, creation and observation
