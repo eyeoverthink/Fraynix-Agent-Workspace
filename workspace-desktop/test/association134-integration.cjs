@@ -32,7 +32,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
     const iou=(a,b)=>{const intersection=Math.max(0,Math.min(a[2],b[2])-Math.max(a[0],b[0]))*Math.max(0,Math.min(a[3],b[3])-Math.max(a[1],b[1]));return intersection/((a[2]-a[0])*(a[3]-a[1])+(b[2]-b[0])*(b[3]-b[1])-intersection);};
     for(const row of audit.scores){const overlap=row.accepted&&row.targetBox?iou(row.box,row.targetBox):0;assert(Math.abs(overlap-row.targetOverlap)<1e-9);const other=row.accepted?Math.max(0,...(row.otherBoxes||[]).map(b=>iou(row.box,b))):0;assert.equal(row.confirmedDistractorMatch,row.accepted&&other>=.5&&(!row.targetBox||overlap<.2));}
     record.runs.push({caseName,policy,dataset,label,run,audit,trackingMs,auditMs:performance.now()-auditStart});assert.deepEqual(await api('/api/world/observe',{worldId:record.worldId}),record.nativeBefore);
-    const ordinal=caseName==='lemming-1'?'70':'19';await page.locator('#association134-frame').selectOption(ordinal);await idle();await capture(caseName+'-'+policy+'.png','#association134-canvas');
+    const ordinal=caseName==='lemming-1'?'70':policy==='legacy-flow'?'23':'19';await page.locator('#association134-frame').selectOption(ordinal);await idle();await capture(caseName+'-'+policy+'.png','#association134-canvas');
     if(caseName==='jogging-1'&&policy==='identity-recovery-134'){await page.locator('#association134-frame').selectOption('18');await idle();await capture('hidden-target.png','#association134-canvas');const recovered=audit.scores.find(x=>x.trackerStatus==='reacquired'&&x.correct);if(recovered){await page.locator('#association134-frame').selectOption(String(recovered.ordinal));await idle();await capture('measured-reacquisition.png','#association134-canvas');}}
     await save();
    }
