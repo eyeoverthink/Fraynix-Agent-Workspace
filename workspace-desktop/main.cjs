@@ -423,7 +423,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='select')return observationBridge.metricSelect(input.args);
       if(input.command==='report'){const result=await api('/api/metrics/report',input.args);emit('view','preview');await openArtifact(result.artifact);return result.artifact;}
       if(input.command==='export'){const result=await api('/api/metrics/export',input.args);return nativeExports.save('metric-world','json',JSON.stringify(result),{runId:input.args.runId});}
-      if(!['state','clock','geometry','view','fit','evaluate','source-frame'].includes(input.command))throw Error('Unknown metric operation');return api('/api/metrics/'+input.command,input.args||{});
+      if(!['state','clock','geometry','view','fit','evaluate','source-frame','accuracy130','accuracy-read130'].includes(input.command))throw Error('Unknown metric operation');return api('/api/metrics/'+input.command,input.args||{});
     }
     case 'observations':{
       if(input.command==='import')return observationBridge.importPack(input.args.pack);
