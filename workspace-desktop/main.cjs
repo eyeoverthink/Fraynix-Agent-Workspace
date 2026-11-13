@@ -425,6 +425,10 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='export'){const result=await api('/api/metrics/export',input.args);return nativeExports.save('metric-world','json',JSON.stringify(result),{runId:input.args.runId});}
       if(!['state','clock','geometry','view','fit','evaluate','source-frame','accuracy130','accuracy-read130'].includes(input.command))throw Error('Unknown metric operation');return api('/api/metrics/'+input.command,input.args||{});
     }
+    case 'association134':{
+      if(input.command==='export'||input.command==='audit-export'){const record=await api('/api/association134/'+(input.command==='export'?'read':'audit-read'),input.args);return nativeExports.save('association-134','json',JSON.stringify(record,null,2),{evidenceId:record.id});}
+      if(!['state','save','import','read','audit','audit-read'].includes(input.command))throw Error('Unknown association operation');return api('/api/association134/'+input.command,input.args||{});
+    }
     case 'contact133':{
       if(input.command==='export'){const record=await api('/api/contact133/read',input.args);return nativeExports.save('visual-support-133','json',JSON.stringify(record,null,2),{auditId:record.id});}
       if(!['state','audit','read'].includes(input.command))throw Error('Unknown contact operation');return api('/api/contact133/'+input.command,input.args||{});

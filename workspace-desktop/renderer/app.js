@@ -12,6 +12,7 @@ import {KnowledgePanel} from './knowledge-panel.js';
 import {TabletopPanel} from './tabletop-panel.js';
 import {MetricPanel} from './metric-panel.js';
 import {Labels132Panel} from './labels132-panel.js';
+import {Association134Panel} from './association134-panel.js';
 import {Contact133Panel} from './contact133-panel.js';
 import {ObservationPanel} from './observation-panel.js';
 import {PersistentWorldPanel} from './persistent-world-panel.js';
@@ -79,6 +80,7 @@ const persistentPanel=new PersistentWorldPanel({
 const observationPanel=new ObservationPanel({call:(command,args={})=>request('observations',{command,args}),persistent:persistentPanel,notice});
 const labels132Panel=new Labels132Panel({call:(command,args={})=>request('labels132',{command,args}),observation:observationPanel,notice});window.labels132View=labels132Panel;
 const contact133Panel=new Contact133Panel({labels:labels132Panel,call:(command,args={})=>request('contact133',{command,args}),notice});window.contact133View=contact133Panel;
+const association134Panel=new Association134Panel({labels:labels132Panel,after:contact133Panel.root,call:(command,args={})=>request('association134',{command,args}),notice});window.association134View=association134Panel;
 window.observationView=observationPanel;
 window.metricView=new MetricPanel({call:(command,args={})=>request('metrics',{command,args}),observation:observationPanel,notice});
 window.tabletopView=new TabletopPanel({call:(command,args={})=>request('tabletop',{command,args}),metricCall:(command,args={})=>request('metrics',{command,args}),persistent:persistentPanel,metric:window.metricView,notice});
