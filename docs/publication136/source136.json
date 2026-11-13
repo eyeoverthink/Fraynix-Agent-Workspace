@@ -1,0 +1,180 @@
+{
+  "createdAtUtc": "2026-11-13T14:37:36.704361+00:00",
+  "algorithmLockSha256": "c5fe768b1d1a28a9c0b66d3b30887cf45a7fee068bb03f6dcadfdc8e171c43e5",
+  "downloads": [
+    {
+      "name": "Tiger2",
+      "url": "https://drive.usercontent.google.com/download?id=1dZsl1xjXcOS18Pxgla-LSCWfee7wykgq&export=download&confirm=t",
+      "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark",
+      "sha256": "2e47aec8bd04af2cc72c0b6dea231169af2facbde3cf19ba0fe46e3e0cddb29b",
+      "bytes": 32033012,
+      "images": 365,
+      "groundtruthFiles": [
+        "Tiger2/groundtruth_rect.txt"
+      ],
+      "downloadedAtUtc": "2026-11-13T07:48:10.849101+00:00",
+      "archiveJpegEntries": 365,
+      "ignoredMacResourceForks": 0
+    },
+    {
+      "name": "Box",
+      "url": "https://drive.usercontent.google.com/download?id=1C75IzHEDuMBasLdZrdplLzUxodJHU2Ir&export=download&confirm=t",
+      "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark",
+      "sha256": "4608a3ca4896b783a7c06fc3d2b43013f1d07a4b107a955064c3bb17b6402a7c",
+      "bytes": 97218473,
+      "images": 1161,
+      "groundtruthFiles": [
+        "Box/groundtruth_rect.txt",
+        "__MACOSX/Box/._groundtruth_rect.txt"
+      ],
+      "downloadedAtUtc": "2026-11-13T07:49:37.132280+00:00",
+      "archiveJpegEntries": 2322,
+      "ignoredMacResourceForks": 1161
+    },
+    {
+      "name": "David3",
+      "url": "https://drive.usercontent.google.com/download?id=171GGIJvtzAZiNTLgTIwY0_c75sGCI0LU&export=download&confirm=t",
+      "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark",
+      "sha256": "d54103423502345759d48360f07346f3590b571dae4a15b805bab120ae4abd4e",
+      "bytes": 25763390,
+      "images": 252,
+      "groundtruthFiles": [
+        "David3/groundtruth_rect.txt"
+      ],
+      "downloadedAtUtc": "2026-11-13T07:52:24.731286+00:00"
+    },
+    {
+      "name": "Bird1",
+      "url": "https://drive.usercontent.google.com/download?id=18iUYX41Dnbk0EVB7gC_kqJupCYrWnlQU&export=download&confirm=t",
+      "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark",
+      "sha256": "3e05def08be6fa9bd02859986e660d492f3d560ef760f915f04750224e1254a5",
+      "bytes": 9043643,
+      "images": 408,
+      "groundtruthFiles": [
+        "Bird1/groundtruth_rect.txt"
+      ],
+      "downloadedAtUtc": "2026-11-13T07:52:34.977155+00:00"
+    }
+  ],
+  "records": [
+    {
+      "case": "tiger2-155",
+      "name": "Tiger2",
+      "start": 155,
+      "end": 250,
+      "pack": "build/otb136/tiger2-155.fobs.json",
+      "packSha256": "f3f71adab9bb1a6ca19ce68deb265f6a2c8efbeec913ea33e07629f4adf7ce52",
+      "labels": "docs/publication136/tiger2-155-labels.json",
+      "labelsSha256": "2267b141d912eb73c3341f7703d353b8de5401c3690ef62917dc2e658efc0bb1",
+      "frames": 96,
+      "stride": 1,
+      "width": 640,
+      "height": 480,
+      "visible": 95,
+      "hidden": 0,
+      "partial": 86,
+      "uncertain": 0,
+      "visibilityCounts": {
+        "visible": 9,
+        "partial": 86,
+        "occluded": 0,
+        "out-of-view": 0,
+        "uncertain": 0
+      },
+      "domain": "real-camera",
+      "reason": "later camera partial cover",
+      "originalGroundTruth": "Tiger2/groundtruth_rect.txt"
+    },
+    {
+      "case": "box-535",
+      "name": "Box",
+      "start": 535,
+      "end": 630,
+      "pack": "build/otb136/box-535.fobs.json",
+      "packSha256": "d7227572517348e8def1d4125f3120e1b501466b14aa59b4379971e297b6f30c",
+      "labels": "docs/publication136/box-535-labels.json",
+      "labelsSha256": "232b8f20823e12676d55b6566f94a8c3772604299eeea8a9f0830770726fcdca",
+      "frames": 96,
+      "stride": 1,
+      "width": 640,
+      "height": 480,
+      "visible": 95,
+      "hidden": 0,
+      "partial": 6,
+      "uncertain": 0,
+      "visibilityCounts": {
+        "visible": 89,
+        "partial": 6,
+        "occluded": 0,
+        "out-of-view": 0,
+        "uncertain": 0
+      },
+      "domain": "real-camera",
+      "reason": "later camera cover and return",
+      "originalGroundTruth": "Box/groundtruth_rect.txt"
+    },
+    {
+      "case": "david3-153",
+      "name": "David3",
+      "start": 153,
+      "end": 248,
+      "pack": "build/otb136/david3-153.fobs.json",
+      "packSha256": "b7cd5e9944fb0d179b0e39675d08f3770dfac04d434e65bde15076a91d77b776",
+      "labels": "docs/publication136/david3-153-labels.json",
+      "labelsSha256": "ae9ca125b993a99b1bcc2654a8b587500efccd23babfdebc0112019d13724202",
+      "frames": 96,
+      "stride": 1,
+      "width": 640,
+      "height": 480,
+      "visible": 95,
+      "hidden": 0,
+      "partial": 21,
+      "uncertain": 0,
+      "visibilityCounts": {
+        "visible": 74,
+        "partial": 21,
+        "occluded": 0,
+        "out-of-view": 0,
+        "uncertain": 0
+      },
+      "domain": "real-camera",
+      "reason": "later camera tree cover and return",
+      "originalGroundTruth": "David3/groundtruth_rect.txt"
+    },
+    {
+      "case": "bird1-193",
+      "name": "Bird1",
+      "start": 193,
+      "end": 288,
+      "pack": "build/otb136/bird1-193.fobs.json",
+      "packSha256": "b2748d62a360765aa132e7703e1d29ffe544f7ee4c53813f23eb088192db5319",
+      "labels": "docs/publication136/bird1-193-labels.json",
+      "labelsSha256": "a5b2e885cb7a3dda9edd82a08787fb29282c21f73e651e2cb3aaeb25eda083eb",
+      "frames": 96,
+      "stride": 1,
+      "width": 720,
+      "height": 400,
+      "visible": 95,
+      "hidden": 0,
+      "partial": 0,
+      "uncertain": 0,
+      "visibilityCounts": {
+        "visible": 95,
+        "partial": 0,
+        "occluded": 0,
+        "out-of-view": 0,
+        "uncertain": 0
+      },
+      "domain": "rendered",
+      "reason": "later rendered cloud transitions",
+      "originalGroundTruth": "Bird1/groundtruth_rect.txt"
+    }
+  ],
+  "sourceReview": "All384 predeclared later-window original images inspected in source-only crops before suffix predictions. External boxes never came from tracker output. Tiger2 leaf cover, early Box cover and David3 tree/post cover remain partial; rendered Bird1 remains visible. No complete occlusion or out-of-frame return in these later windows. The earlier135 development windows retain the rendered cloud disappearance. Recordings were already source-reviewed; these are new temporal predictions, not independent unseen videos.",
+  "limitations": [
+    "AI source visibility without independent human adjudication.",
+    "No independent distractor boxes; zero confirmed switches cannot establish no switching.",
+    "These later windows contain partial cover, not complete disappearance; no new full occlusion or out-of-frame return measurement.",
+    "Partial-cover camera tasks and rendered hidden task must be reported separately."
+  ]
+}
