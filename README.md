@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — Edition 133
 
+[Published and fetched verification receipt](docs/PUBLICATION_133.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-133)
+
 **Java now has an explicit appearance-association candidate and a separate pixel-derived visual-support estimator. Both expose uncertainty and refusal. Saved contact comparisons recheck original images, labels, runs and outcomes after restart. Existing tracking, metric anchors and forecasting defaults remain unchanged.**
 
 2026-11-12 · Local Java agent · Persistent world, browser, creation and observation
