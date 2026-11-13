@@ -1,3 +1,7 @@
+## Edition133 — 2026-11-12
+
+Explicit Java appearance association and visual support candidates now compare original pixels against immutable132 labels. Context/competing matches, strong two-image recovery and withheld support are source-backed diagnostics, not semantic identity or physical contact certification. Frozen comparison shows availability limits; legacy-flow and ordinary forecasts remain defaults. Contact audit can evaluate original stored default boxes without relabelling them as a new tracking proof. Keep the connected world/browser/creation mission central; next use reliable source age/uncertainty to request observations before durable physical goals. See [edition133 contract](EDITION_133_CONTRACT.md).
+
 ## Edition132 observation evidence — 2026-11-12
 
 Source-only visibility/contact annotations and immutable downstream audits are the current perception step. They preserve defaults and native world separation. Retrospective AI marks do not establish identity recognition, calibrated physical accuracy or human truth. Next: independently reviewed contacts/occlusions, an explicitly qualified contact estimator, fixed-horizon uncertainty and justified observation requests/refusals in the continuing Java goals. See [edition132 contract](EDITION_132_CONTRACT.md). The connected browser/world/creation application remains the destination; Game Lab is its simulation runtime, not a substitute for external evidence.
