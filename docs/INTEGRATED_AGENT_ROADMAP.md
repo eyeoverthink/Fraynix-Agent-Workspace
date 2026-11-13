@@ -1,3 +1,9 @@
+## Edition135 / 2026-11-13 — continuity and curated appearances
+
+The unified Java world/browser/creation mission remains unchanged. [Edition135](../README-135.md) preserves incumbent tracking continuity and adds independently audited appearance proposals. Fresh evaluation finds no recovery benefit:86/327 correct for all methods,46 automatic admissions with28 wrong. Defaults stay unchanged. A separate post-evaluation export retains16 fully visible reference-supported descriptors (11 real-camera,5 rendered) with original source/audit links; no automatic reuse or weight training.
+
+Next: prevent drift from contaminating memory, validate complete camera occlusion/return with independent target/distractor labels, then test explicit curated-reference reuse on new footage before promotion. Rendering/game experiments remain useful controlled environments; camera results need their own evidence and uncertainty. No source/coordinate/action checks may be bypassed to make a workflow look successful.
+
 ## Edition 134 — 2026-11-12
 
 Independent OTB object boxes and source-only AI visibility now audit lost tracking, target overlap, labelled distractor matches and recovery in the actual Java workspace. The frozen part-appearance candidate fails the simpler incumbent (7/246 versus 83/246 visible matches); it is explicit and unpromoted. The incumbent alone recovers after the one labelled full occlusion. No real full out-of-frame return is covered by this sample. Preserve defaults, physical-accuracy limits and all original evidence. Next improve supported continuity without template contamination, then independently adjudicated occlusion/re-entry and source-age gates in durable world/browser/creation goals. See [edition 134 contract](EDITION_134_CONTRACT.md).

@@ -40,7 +40,7 @@ for pattern in ['appearance135-app*','association135-comparison','agency135-evid
    if p.is_file() and p.suffix in ['.json','.jsonl','.xml','.png','.txt','.log','.html','.css','.js','.cjs','.fworld','.previous','.csv','.evidence','.pending','.before','.java','.class']:preserve(p,p.relative_to(r).as_posix())
 for p in sorted((r/'build').glob('*135*')):
  if p.is_file():preserve(p,p.relative_to(r).as_posix())
-for name in ['docs/OBSERVATION_135_LOCK.json','build/otb135/download.json','build/otb135/source-index.json']:preserve(r/name,name)
+for name in ['docs/OBSERVATION_135_LOCK.json','build/otb135/download.json','build/otb135/source-index.json','build/otb135/source-extra-index.json','build/otb135/window-selection.json']:preserve(r/name,name)
 for p in sorted((r/'docs/publication135').glob('*')):
  if p.suffix in ['.json','.txt']:preserve(p,p.relative_to(r).as_posix())
 write(out/'original-evidence.json',{'files':originals,'scope':'Original source/annotation hashes and exact external annotations, all comparison traces, actual app records, test results and failure attempts. Raw ZIP/JPEG/frame packs, source-review sheets and private/browser data excluded. Limited actual app screenshots attributed.'})
@@ -54,14 +54,14 @@ for n in sorted(paths):
  except UnicodeDecodeError:kind='binary'
  inventory.append({'path':n,'bytes':len(raw),'sha256':sha(raw),'hashKind':kind})
 write(out/'file-inventory.json',inventory)
-validation=f"Local checks passed: {len(checks)} distinct Java tests, {desktop_count} desktop checks, executable kernel integration, actual agency regression and isolated offline/package preparation. Six actual app runs match all570 frozen tracker/filter samples. Independent host overlap and admission checks, numeric appearance export, exact original evidence and cold recheck after owned-Java termination pass."
+validation=f"Local checks passed: {len(checks)} distinct Java tests, {desktop_count} desktop checks, executable kernel integration, actual agency regression and isolated offline/package preparation. Six actual app runs match all 570 frozen tracker/filter samples. Independent host overlap and admission checks, numeric appearance export, exact original evidence and cold recheck after owned-Java termination pass."
 table='| Method | Correct / visible or partial | Missing | Wrong overlap | Hidden output / hidden labels | Bank recoveries |\n| --- | ---: | ---: | ---: | ---: | ---: |\n'
 for policy,m in comparison['summary'].items():table+=f"| {policy} | {m['correct']} / {m['visible']} | {m['missing']} | {m['overlapFailures']} | {m['unsupported']} / {m['hidden']} | 0 |\n"
 table+='\n| Source / domain | Correct / visible or partial, all methods | Missing | Motion-admitted examples | Correct / incorrect examples | Fully visible export |\n| --- | ---: | ---: | ---: | ---: | ---: |\n'
 for source in sources['records']:
  row=next(x for x in comparison['rows'] if x['case']==source['case'] and x['policy']=='appearance-continuity-135');m=row['summary'];bank=row['appearance135']['summary'];app=next(x for x in study['runs'] if x['caseName']==source['case'] and x['policy']=='appearance-continuity-135')
  table+=f"| {source['case']} / {source['domain']} | {m['correct']} / {m['visible']} | {m['missing']} | {bank['admitted']} | {bank['independentlyCorrect']} / {bank['incorrect']} | {len(app['appearances']['examples'])} |\n"
-finding='All380 tracker/filter samples match the incumbent exactly. The motion-only admission rule accepts46 examples;18 agree with external boxes and28 do not. No bank recovery occurs on these windows. The candidate fails useful-bank qualification. A separate post-evaluation export retains16 fully visible examples rebuilt from independent boxes:11 camera and5 rendered. It does not turn the failed admission rule into reliable learning, and was not fed back into any measured run.'
+finding='All 380 tracker/filter samples match the incumbent exactly. The motion-only admission rule accepts 46 examples; 18 agree with external boxes and 28 do not. No bank recovery occurs on these windows. The candidate fails useful-bank qualification. A separate post-evaluation export retains 16 fully visible examples rebuilt from independent boxes: 11 camera and 5 rendered. It does not turn the failed admission rule into reliable learning, and was not fed back into any measured run.'
 cost='| Method | Standalone processing total / ms |\n| --- | ---: |\n'
 for policy,m in comparison['summary'].items():cost+=f"| {policy} | {m['processingMs']:.1f} |\n"
 cost+='\n| Actual app task | Tracking / ms | Audit plus any appearance export / ms |\n| --- | ---: | ---: |\n'

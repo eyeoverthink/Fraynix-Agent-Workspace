@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/143-appearance-continuity.md]] | [[README-135.md]]
+
 Current: [[docs/obsidian/142-identity-recovery.md]] | [[README-134.md]]
 
 Current: [[docs/obsidian/141-association-visual-support.md]] | [[README-133.md]]

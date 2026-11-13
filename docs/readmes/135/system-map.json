@@ -1,0 +1,3232 @@
+{
+  "modules": [
+    {
+      "id": "continuity",
+      "name": "Incumbent continuity and bounded appearance bank",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AppearanceFlow135.java",
+      "note": "docs/obsidian/143-appearance-continuity.md"
+    },
+    {
+      "id": "audit",
+      "name": "Independent admission audit",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AppearanceAudit135.java",
+      "note": "docs/obsidian/143-appearance-continuity.md"
+    },
+    {
+      "id": "curation",
+      "name": "Source-bound supported appearance export",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/VerifiedAppearances135.java",
+      "note": "docs/obsidian/143-appearance-continuity.md"
+    },
+    {
+      "id": "panel",
+      "name": "Actual source and comparison controls",
+      "source": "workspace-desktop/renderer/association134-panel.js",
+      "note": "docs/obsidian/143-appearance-continuity.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/135/box-439-appearance-continuity-135.png",
+      "title": "box 439 appearance continuity 135"
+    },
+    {
+      "path": "docs/readmes/135/box-439-legacy-flow.png",
+      "title": "box 439 legacy flow"
+    },
+    {
+      "path": "docs/readmes/135/box-439-continuity-no-bank-135.png",
+      "title": "box 439 continuity no bank 135"
+    },
+    {
+      "path": "docs/readmes/135/david3-57-appearance-continuity-135.png",
+      "title": "david3 57 appearance continuity 135"
+    },
+    {
+      "path": "docs/readmes/135/tiger2-59-appearance-continuity-135.png",
+      "title": "tiger2 59 appearance continuity 135"
+    },
+    {
+      "path": "docs/readmes/135/bird1-97-appearance-continuity-135.png",
+      "title": "bird1 97 appearance continuity 135"
+    },
+    {
+      "path": "docs/readmes/135/rendered-hidden-target.png",
+      "title": "rendered hidden target"
+    },
+    {
+      "path": "docs/readmes/135/appearance-1100.png",
+      "title": "appearance 1100"
+    },
+    {
+      "path": "docs/readmes/135/appearance-1600.png",
+      "title": "appearance 1600"
+    },
+    {
+      "path": "docs/readmes/135/box-439-source-drift.png",
+      "title": "box 439 source drift"
+    },
+    {
+      "path": "docs/readmes/135/david3-57-source-drift.png",
+      "title": "david3 57 source drift"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/135/verification.json"
+    },
+    {
+      "path": "docs/readmes/135/app-study.json"
+    },
+    {
+      "path": "docs/readmes/135/original-evidence.json"
+    },
+    {
+      "path": "docs/readmes/135/comparison.json"
+    }
+  ],
+  "comparison": {
+    "rows": [
+      {
+        "case": "tiger2-59",
+        "policy": "legacy-flow",
+        "summary": {
+          "visible": 95,
+          "correct": 22,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 22,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.17136332487885017,
+          "missing": 73,
+          "overlapFailures": 0
+        },
+        "appearance135": {
+          "summary": {
+            "admitted": 0,
+            "correctAcceptedRecoveries": 0,
+            "incorrect": 0,
+            "unknownRecoveries": 0,
+            "incorrectRecoveries": 0,
+            "independentlyCorrect": 0,
+            "bankRecoveries": 0,
+            "unknown": 0
+          },
+          "scope": "Motion-cycle conditions are not identity truth. Separate labels score each admission and bank recovery; unlabelled/uncertain examples remain unknown. Initial seed is excluded from learned-example counts. Historical evidence retains its original source and code identity.",
+          "available": false,
+          "admissions": [],
+          "enabled": false,
+          "recoveries": []
+        },
+        "episodes": [],
+        "processingMs": 9170.5511,
+        "evidence": "build/association135-comparison/tiger2-59-legacy-flow.json"
+      },
+      {
+        "case": "tiger2-59",
+        "policy": "appearance-continuity-135",
+        "summary": {
+          "visible": 95,
+          "correct": 22,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 22,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.17136332487885017,
+          "missing": 73,
+          "overlapFailures": 0
+        },
+        "appearance135": {
+          "summary": {
+            "admitted": 5,
+            "correctAcceptedRecoveries": 0,
+            "incorrect": 0,
+            "unknownRecoveries": 0,
+            "incorrectRecoveries": 0,
+            "independentlyCorrect": 5,
+            "bankRecoveries": 0,
+            "unknown": 0
+          },
+          "scope": "Motion-cycle conditions are not identity truth. Separate labels score each admission and bank recovery; unlabelled/uncertain examples remain unknown. Initial seed is excluded from learned-example counts. Historical evidence retains its original source and code identity.",
+          "available": true,
+          "admissions": [
+            {
+              "targetOverlap": 0.9320356673888369,
+              "sourceFrame": 62,
+              "visibility": "partial",
+              "imageSha256": "48fe049bf5881259ead76b65b3c3ad57056c34b93435467e06660a62035cd8a6",
+              "verdict": "correct",
+              "ordinal": 3,
+              "example": {
+                "descriptorSha256": "3497caf8f0d859631a0d7c8833a15837818a4f20accc4949a6a63117a34158c1",
+                "checks": {
+                  "reverseOverlap": 0.9967495229830501,
+                  "consecutiveStrongFrames": 3,
+                  "forward": {
+                    "seedPoints": 61,
+                    "inliers": 53,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 10.729767743409127,
+                    "dyPixels": -1.697388550654125,
+                    "medianForwardBackwardPixels": 0.04317992100609855,
+                    "scale": 1.011718737771663,
+                    "ambiguous": false,
+                    "reliablePoints": 56,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 2,
+                  "nearestAppearance": 0.8243496548091337,
+                  "reportedSpanY": 0.15172336313916993,
+                  "reverse": {
+                    "seedPoints": 62,
+                    "inliers": 52,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -10.722908588920518,
+                    "dyPixels": 1.7373215791999428,
+                    "medianForwardBackwardPixels": 0.034744381065493685,
+                    "scale": 0.9868092794639158,
+                    "ambiguous": false,
+                    "reliablePoints": 56,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.5801187414144732,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8150364298132886
+                },
+                "sourceOrdinal": 3,
+                "box": [
+                  0.41890656673352966,
+                  0.16202394023492273,
+                  0.5279056674289366,
+                  0.32872844718083927
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.8839866671734584,
+              "sourceFrame": 65,
+              "visibility": "visible",
+              "imageSha256": "7760380963fb52417cd85d66df36caedf763527ec21fcae60c6f2becc94bbc6d",
+              "verdict": "correct",
+              "ordinal": 6,
+              "example": {
+                "descriptorSha256": "5045859b3b50abce1cf9e77b2579ae9d28472d7b45febe505c0f66a9b7a7d689",
+                "checks": {
+                  "reverseOverlap": 0.9959738891574468,
+                  "consecutiveStrongFrames": 6,
+                  "forward": {
+                    "seedPoints": 64,
+                    "inliers": 52,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 6.014880696933687,
+                    "dyPixels": -2.7764382400269696,
+                    "medianForwardBackwardPixels": 0.05352022380184133,
+                    "scale": 1.0111359077481008,
+                    "ambiguous": false,
+                    "reliablePoints": 55,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 5,
+                  "nearestAppearance": 0.8746990227293278,
+                  "reportedSpanY": 0.2925155984406476,
+                  "reverse": {
+                    "seedPoints": 60,
+                    "inliers": 52,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -6.0441214480280365,
+                    "dyPixels": 2.8079434085398134,
+                    "medianForwardBackwardPixels": 0.04333713115633174,
+                    "scale": 0.9909836519478354,
+                    "ambiguous": false,
+                    "reliablePoints": 54,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.5404311715190501,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.7652381175539672
+                },
+                "sourceOrdinal": 6,
+                "box": [
+                  0.4670120362582913,
+                  0.13513459570613184,
+                  0.580019227639058,
+                  0.30796912370024565
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.8142198548652334,
+              "sourceFrame": 68,
+              "visibility": "visible",
+              "imageSha256": "a2cd3394ef8e08dcfade6b299eb6e972ab492b1b1863a5ff6f8283405755bd37",
+              "verdict": "correct",
+              "ordinal": 9,
+              "example": {
+                "descriptorSha256": "dde509119aac5826f41fa49ff7892b6fb799f4e9a1fee6993eb0ea9f38b6d083",
+                "checks": {
+                  "reverseOverlap": 0.9956069278213522,
+                  "consecutiveStrongFrames": 9,
+                  "forward": {
+                    "seedPoints": 62,
+                    "inliers": 58,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -2.966502331488087,
+                    "dyPixels": 0.42355114528918136,
+                    "medianForwardBackwardPixels": 0.051322638521811945,
+                    "scale": 1.0156718587555047,
+                    "ambiguous": false,
+                    "reliablePoints": 60,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 8,
+                  "nearestAppearance": 0.8384893507254506,
+                  "reportedSpanY": 0.23518355646756456,
+                  "reverse": {
+                    "seedPoints": 55,
+                    "inliers": 53,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 3.067322824865556,
+                    "dyPixels": -0.4181397355574461,
+                    "medianForwardBackwardPixels": 0.0331680304003015,
+                    "scale": 0.9838033735586409,
+                    "ambiguous": false,
+                    "reliablePoints": 54,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.5744729106774364,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8975812997927053
+                },
+                "sourceOrdinal": 9,
+                "box": [
+                  0.4662751033922571,
+                  0.1253243252338185,
+                  0.5840243384490486,
+                  0.3054113906147936
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.7293808689348187,
+              "sourceFrame": 71,
+              "visibility": "visible",
+              "imageSha256": "f47cfa8feb706990e9ca167b634e45392bf314cdadb67bed1acc9672e05fc756",
+              "verdict": "correct",
+              "ordinal": 12,
+              "example": {
+                "descriptorSha256": "0fc28d809d9eefa84414d8391458d25dfb00404a155b85f48d497b34aff35f26",
+                "checks": {
+                  "reverseOverlap": 0.9885768805268943,
+                  "consecutiveStrongFrames": 12,
+                  "forward": {
+                    "seedPoints": 54,
+                    "inliers": 36,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -13.858596430085882,
+                    "dyPixels": 6.18990117511661,
+                    "medianForwardBackwardPixels": 0.08458611615263167,
+                    "scale": 1.0183901640376596,
+                    "ambiguous": false,
+                    "reliablePoints": 39,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 11,
+                  "nearestAppearance": 0.73304834000149,
+                  "reportedSpanY": 0.3120373417702299,
+                  "reverse": {
+                    "seedPoints": 57,
+                    "inliers": 38,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 14.134223164578302,
+                    "dyPixels": -6.119408196991785,
+                    "medianForwardBackwardPixels": 0.09337055629612254,
+                    "scale": 0.9816865094959798,
+                    "ambiguous": false,
+                    "reliablePoints": 40,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.46086193207876297,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8851762931557258
+                },
+                "sourceOrdinal": 12,
+                "box": [
+                  0.39460872822515025,
+                  0.1583604176874906,
+                  0.5190177154823606,
+                  0.34863298643381235
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.5552098623390456,
+              "sourceFrame": 80,
+              "visibility": "partial",
+              "imageSha256": "cf62faa852690e89fe0bb25da52d397f794ed7511edd37b46ec7ca8f3cd3ec5e",
+              "verdict": "correct",
+              "ordinal": 21,
+              "example": {
+                "descriptorSha256": "1ff5680da0093ff44d138081c35cacd035e1f7f2e27186f9b057a67a6cbbf6e2",
+                "checks": {
+                  "reverseOverlap": 0.9904832529272596,
+                  "consecutiveStrongFrames": 3,
+                  "forward": {
+                    "seedPoints": 63,
+                    "inliers": 41,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -15.214322042259724,
+                    "dyPixels": -3.6698643063037295,
+                    "medianForwardBackwardPixels": 0.040506495420569166,
+                    "scale": 1.0116532355903567,
+                    "ambiguous": false,
+                    "reliablePoints": 43,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 20,
+                  "nearestAppearance": 0.7301665359521062,
+                  "reportedSpanY": 0.19343851545703503,
+                  "reverse": {
+                    "seedPoints": 63,
+                    "inliers": 44,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 14.969781932050957,
+                    "dyPixels": 3.683338660117524,
+                    "medianForwardBackwardPixels": 0.06356880406381578,
+                    "scale": 0.9908042828646038,
+                    "ambiguous": false,
+                    "reliablePoints": 45,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.6356811477058945,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.891453669303796
+                },
+                "sourceOrdinal": 21,
+                "box": [
+                  0.08198923929873922,
+                  0.13496308607110186,
+                  0.22458294407671,
+                  0.3530475757315278
+                ]
+              }
+            }
+          ],
+          "enabled": true,
+          "recoveries": []
+        },
+        "episodes": [],
+        "processingMs": 12893.8909,
+        "evidence": "build/association135-comparison/tiger2-59-appearance-continuity-135.json"
+      },
+      {
+        "case": "tiger2-59",
+        "policy": "continuity-no-bank-135",
+        "summary": {
+          "visible": 95,
+          "correct": 22,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 22,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.17136332487885017,
+          "missing": 73,
+          "overlapFailures": 0
+        },
+        "appearance135": {
+          "summary": {
+            "admitted": 0,
+            "correctAcceptedRecoveries": 0,
+            "incorrect": 0,
+            "unknownRecoveries": 0,
+            "incorrectRecoveries": 0,
+            "independentlyCorrect": 0,
+            "bankRecoveries": 0,
+            "unknown": 0
+          },
+          "scope": "Motion-cycle conditions are not identity truth. Separate labels score each admission and bank recovery; unlabelled/uncertain examples remain unknown. Initial seed is excluded from learned-example counts. Historical evidence retains its original source and code identity.",
+          "available": true,
+          "admissions": [],
+          "enabled": false,
+          "recoveries": []
+        },
+        "episodes": [],
+        "processingMs": 9254.5476,
+        "evidence": "build/association135-comparison/tiger2-59-continuity-no-bank-135.json"
+      },
+      {
+        "case": "box-439",
+        "policy": "legacy-flow",
+        "summary": {
+          "visible": 95,
+          "correct": 18,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 95,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.25672057978088897,
+          "missing": 0,
+          "overlapFailures": 77
+        },
+        "appearance135": {
+          "summary": {
+            "admitted": 0,
+            "correctAcceptedRecoveries": 0,
+            "incorrect": 0,
+            "unknownRecoveries": 0,
+            "incorrectRecoveries": 0,
+            "independentlyCorrect": 0,
+            "bankRecoveries": 0,
+            "unknown": 0
+          },
+          "scope": "Motion-cycle conditions are not identity truth. Separate labels score each admission and bank recovery; unlabelled/uncertain examples remain unknown. Initial seed is excluded from learned-example counts. Historical evidence retains its original source and code identity.",
+          "available": false,
+          "admissions": [],
+          "enabled": false,
+          "recoveries": []
+        },
+        "episodes": [],
+        "processingMs": 1278.0805,
+        "evidence": "build/association135-comparison/box-439-legacy-flow.json"
+      },
+      {
+        "case": "box-439",
+        "policy": "appearance-continuity-135",
+        "summary": {
+          "visible": 95,
+          "correct": 18,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 95,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.25672057978088897,
+          "missing": 0,
+          "overlapFailures": 77
+        },
+        "appearance135": {
+          "summary": {
+            "admitted": 8,
+            "correctAcceptedRecoveries": 0,
+            "incorrect": 6,
+            "unknownRecoveries": 0,
+            "incorrectRecoveries": 0,
+            "independentlyCorrect": 2,
+            "bankRecoveries": 0,
+            "unknown": 0
+          },
+          "scope": "Motion-cycle conditions are not identity truth. Separate labels score each admission and bank recovery; unlabelled/uncertain examples remain unknown. Initial seed is excluded from learned-example counts. Historical evidence retains its original source and code identity.",
+          "available": true,
+          "admissions": [
+            {
+              "targetOverlap": 0.9396456647687181,
+              "sourceFrame": 442,
+              "visibility": "visible",
+              "imageSha256": "ebca03beb2068618f69ae87835b9986d8a063e73bcd42e962902482975dbd91d",
+              "verdict": "correct",
+              "ordinal": 3,
+              "example": {
+                "descriptorSha256": "dfd3eb2dc6d7fad8514610ff2b584857d3877050be7f14bca4d9beff1b8b68a3",
+                "checks": {
+                  "reverseOverlap": 0.9984020603372312,
+                  "consecutiveStrongFrames": 3,
+                  "forward": {
+                    "seedPoints": 59,
+                    "inliers": 55,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -2.6196611693783325,
+                    "dyPixels": 1.9138635115315452,
+                    "medianForwardBackwardPixels": 0.05185482687759542,
+                    "scale": 0.9934543495250072,
+                    "ambiguous": false,
+                    "reliablePoints": 55,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 2,
+                  "nearestAppearance": 0.7098895624564358,
+                  "reportedSpanY": 0.1576705191333764,
+                  "reverse": {
+                    "seedPoints": 53,
+                    "inliers": 49,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 2.5971296707137697,
+                    "dyPixels": -1.882524074727698,
+                    "medianForwardBackwardPixels": 0.028204859391418466,
+                    "scale": 1.0064581513162925,
+                    "ambiguous": false,
+                    "reliablePoints": 49,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7223682057777701,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.9316537836826307
+                },
+                "sourceOrdinal": 3,
+                "box": [
+                  0.3720277252298483,
+                  0.08101896900820721,
+                  0.4923642169084155,
+                  0.29083644167852957
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.8937249564459495,
+              "sourceFrame": 446,
+              "visibility": "visible",
+              "imageSha256": "51783a33a9bd732c82d6a9f0f7bfe2b17071b8e18a826434aef64b54ba499515",
+              "verdict": "correct",
+              "ordinal": 7,
+              "example": {
+                "descriptorSha256": "15e2637fa25e0778541d7424034cf97c4ad677926e39af42c2bc3654a408878a",
+                "checks": {
+                  "reverseOverlap": 0.9989333420057961,
+                  "consecutiveStrongFrames": 7,
+                  "forward": {
+                    "seedPoints": 55,
+                    "inliers": 36,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -4.2379851864092615,
+                    "dyPixels": 2.4896131115910336,
+                    "medianForwardBackwardPixels": 0.13713906619344407,
+                    "scale": 0.9933709289686392,
+                    "ambiguous": false,
+                    "reliablePoints": 44,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 6,
+                  "nearestAppearance": 0.8029904784117675,
+                  "reportedSpanY": 0.1752751007157529,
+                  "reverse": {
+                    "seedPoints": 53,
+                    "inliers": 33,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 4.2544456701782,
+                    "dyPixels": -2.4807929544189733,
+                    "medianForwardBackwardPixels": 0.046382674304486615,
+                    "scale": 1.0071634523546389,
+                    "ambiguous": false,
+                    "reliablePoints": 43,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7229615490280001,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8891977933470049
+                },
+                "sourceOrdinal": 7,
+                "box": [
+                  0.3414748323046575,
+                  0.10750368377792437,
+                  0.458817002781052,
+                  0.3121002887111251
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.13754984800352968,
+              "sourceFrame": 466,
+              "visibility": "partial",
+              "imageSha256": "868a7b1a316bb5a5b1cdb84a5e9a4622ccbafaecaf52c92996e69f812751862a",
+              "verdict": "incorrect",
+              "ordinal": 27,
+              "example": {
+                "descriptorSha256": "530a853b6f4f16f4b41e14cb199ddc513060d019ed112cfc4ba44efb571a15fd",
+                "checks": {
+                  "reverseOverlap": 0.9991861719199124,
+                  "consecutiveStrongFrames": 3,
+                  "forward": {
+                    "seedPoints": 58,
+                    "inliers": 54,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 0.060652388385278755,
+                    "dyPixels": 0.050303858560653225,
+                    "medianForwardBackwardPixels": 0.025254947638900342,
+                    "scale": 1.001121946656316,
+                    "ambiguous": false,
+                    "reliablePoints": 57,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 26,
+                  "nearestAppearance": 0.10937888214982924,
+                  "reportedSpanY": 0.14695508121476325,
+                  "reverse": {
+                    "seedPoints": 58,
+                    "inliers": 53,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -0.06407842742842718,
+                    "dyPixels": -0.03389327469713521,
+                    "medianForwardBackwardPixels": 0.016585144137622836,
+                    "scale": 0.9986014556927956,
+                    "ambiguous": false,
+                    "reliablePoints": 56,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.6405734309361479,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.7145689900176102
+                },
+                "sourceOrdinal": 27,
+                "box": [
+                  0.31970207964884734,
+                  0.18704945783931015,
+                  0.41738037638147707,
+                  0.3573603341936389
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.13799981054319702,
+              "sourceFrame": 471,
+              "visibility": "partial",
+              "imageSha256": "55316cbfb68d7038a00a5fe6b5c694b33836a4cebb1a003a3a5b510ab7c5fe9c",
+              "verdict": "incorrect",
+              "ordinal": 32,
+              "example": {
+                "descriptorSha256": "a25515497fa007e9dfbc78a1fb27b9fd7aa83cb338266232887c88f1ab01c654",
+                "checks": {
+                  "reverseOverlap": 0.9994875731661489,
+                  "consecutiveStrongFrames": 8,
+                  "forward": {
+                    "seedPoints": 58,
+                    "inliers": 55,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 0.014021730229870855,
+                    "dyPixels": -0.031228270064161734,
+                    "medianForwardBackwardPixels": 0.018873396670398983,
+                    "scale": 1.0006816655862396,
+                    "ambiguous": false,
+                    "reliablePoints": 56,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 31,
+                  "nearestAppearance": 0.9940771252021733,
+                  "reportedSpanY": 0.22861448401410556,
+                  "reverse": {
+                    "seedPoints": 59,
+                    "inliers": 59,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -0.018977178690676055,
+                    "dyPixels": 0.022007969244810965,
+                    "medianForwardBackwardPixels": 0.013465075873037018,
+                    "scale": 0.9994941491703498,
+                    "ambiguous": false,
+                    "reliablePoints": 59,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7265151607203257,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.714756967327421
+                },
+                "sourceOrdinal": 32,
+                "box": [
+                  0.3196977428554206,
+                  0.18697714280349337,
+                  0.41735342015707594,
+                  0.3572485801499694
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.19288164425373863,
+              "sourceFrame": 474,
+              "visibility": "partial",
+              "imageSha256": "61862b2fe27003045836dae186c815892f69d7761616abe9471c76608d8dc096",
+              "verdict": "incorrect",
+              "ordinal": 35,
+              "example": {
+                "descriptorSha256": "2db080d824272ae43ece3376ce5e275493a111e008ddc3b2cf3884ba09a578bf",
+                "checks": {
+                  "reverseOverlap": 0.9983417672667255,
+                  "consecutiveStrongFrames": 11,
+                  "forward": {
+                    "seedPoints": 57,
+                    "inliers": 43,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 0.007414164224371689,
+                    "dyPixels": -0.0569582349757809,
+                    "medianForwardBackwardPixels": 0.02591846935295786,
+                    "scale": 0.9995272887291564,
+                    "ambiguous": false,
+                    "reliablePoints": 51,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 34,
+                  "nearestAppearance": 0.826059214694736,
+                  "reportedSpanY": 0.22908357395572657,
+                  "reverse": {
+                    "seedPoints": 58,
+                    "inliers": 41,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -0.009139207591545073,
+                    "dyPixels": 0.025369069162067603,
+                    "medianForwardBackwardPixels": 0.03673424397603619,
+                    "scale": 1.0010999888053669,
+                    "ambiguous": false,
+                    "reliablePoints": 49,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7280058840915888,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.7042143769265328
+                },
+                "sourceOrdinal": 35,
+                "box": [
+                  0.31987013297040956,
+                  0.18697046611019746,
+                  0.41721341867657513,
+                  0.35669722067479387
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.39785989835647334,
+              "sourceFrame": 487,
+              "visibility": "partial",
+              "imageSha256": "0c7c62cc2e9cb9f709d1470a59d6f848c59413783637275f4dc485445e1dba91",
+              "verdict": "incorrect",
+              "ordinal": 48,
+              "example": {
+                "descriptorSha256": "07c396db9d734f522e5a23378996edaf5ba9100ea7fab35286148a05fe3037c3",
+                "checks": {
+                  "reverseOverlap": 0.9893527656633776,
+                  "consecutiveStrongFrames": 3,
+                  "forward": {
+                    "seedPoints": 49,
+                    "inliers": 30,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 0.0004147427488021549,
+                    "dyPixels": -0.06306023852659592,
+                    "medianForwardBackwardPixels": 0.01631824285090218,
+                    "scale": 1.0046907933849196,
+                    "ambiguous": false,
+                    "reliablePoints": 45,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 47,
+                  "nearestAppearance": 0.6538893782505832,
+                  "reportedSpanY": 0.4237951410176918,
+                  "reverse": {
+                    "seedPoints": 50,
+                    "inliers": 30,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 0.005901146289431836,
+                    "dyPixels": 0.03911954332099299,
+                    "medianForwardBackwardPixels": 0.01945381437084088,
+                    "scale": 1.0006725610264948,
+                    "ambiguous": false,
+                    "reliablePoints": 46,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.5324755915868632,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.7710298338870584
+                },
+                "sourceOrdinal": 48,
+                "box": [
+                  0.3195675793822904,
+                  0.18420689998022077,
+                  0.4178714099472926,
+                  0.35560845070894254
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.1600825350766157,
+              "sourceFrame": 495,
+              "visibility": "visible",
+              "imageSha256": "d180725f36ee9631db5106d390df611f3ffcf2648bb07a22f2ce7abf639b34c5",
+              "verdict": "incorrect",
+              "ordinal": 56,
+              "example": {
+                "descriptorSha256": "efe5677d90c4594191baeb0facb0e151c05239eae28925c761ec6a9fd6e86441",
+                "checks": {
+                  "reverseOverlap": 0.9986383023765854,
+                  "consecutiveStrongFrames": 3,
+                  "forward": {
+                    "seedPoints": 53,
+                    "inliers": 35,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 0.021733279388342908,
+                    "dyPixels": 0.006751688845653803,
+                    "medianForwardBackwardPixels": 0.014175618760236913,
+                    "scale": 1.0002185387435891,
+                    "ambiguous": false,
+                    "reliablePoints": 51,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 55,
+                  "nearestAppearance": 0.8193487892179216,
+                  "reportedSpanY": 0.32185398637486984,
+                  "reverse": {
+                    "seedPoints": 50,
+                    "inliers": 30,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -0.0032229310521216803,
+                    "dyPixels": -0.007531900973802408,
+                    "medianForwardBackwardPixels": 0.011911182426906974,
+                    "scale": 0.9991978038819463,
+                    "ambiguous": false,
+                    "reliablePoints": 41,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.33711251330686454,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.7450815696830173
+                },
+                "sourceOrdinal": 56,
+                "box": [
+                  0.3194812103592195,
+                  0.18339053405142952,
+                  0.4185795762618407,
+                  0.3561774284457434
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.06987981528280762,
+              "sourceFrame": 499,
+              "visibility": "visible",
+              "imageSha256": "2d51f0ddb9e506258be8bb26c2edd0dea7e9813a61887fc1b765bb9cfa921bde",
+              "verdict": "incorrect",
+              "ordinal": 60,
+              "example": {
+                "descriptorSha256": "e78a070f1f3cb11f49cdacc1088835cbb656140ec375c64abf83aa83170358e3",
+                "checks": {
+                  "reverseOverlap": 0.9999046820508255,
+                  "consecutiveStrongFrames": 7,
+                  "forward": {
+                    "seedPoints": 53,
+                    "inliers": 47,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 0.012730879078816315,
+                    "dyPixels": 0.006776641575598319,
+                    "medianForwardBackwardPixels": 0.004312945454809275,
+                    "scale": 1.000828974455891,
+                    "ambiguous": false,
+                    "reliablePoints": 49,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 59,
+                  "nearestAppearance": 0.8152180491689541,
+                  "reportedSpanY": 0.11222576690557946,
+                  "reverse": {
+                    "seedPoints": 58,
+                    "inliers": 51,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -0.013909263274769046,
+                    "dyPixels": -0.005351518915929887,
+                    "medianForwardBackwardPixels": 0.004240211698518426,
+                    "scale": 0.9991798627777395,
+                    "ambiguous": false,
+                    "reliablePoints": 54,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.6303985056155336,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.7059061494051654
+                },
+                "sourceOrdinal": 60,
+                "box": [
+                  0.3194829550213612,
+                  0.1832912937819779,
+                  0.41870877860166356,
+                  0.3563004220758384
+                ]
+              }
+            }
+          ],
+          "enabled": true,
+          "recoveries": []
+        },
+        "episodes": [],
+        "processingMs": 2622.0503,
+        "evidence": "build/association135-comparison/box-439-appearance-continuity-135.json"
+      },
+      {
+        "case": "box-439",
+        "policy": "continuity-no-bank-135",
+        "summary": {
+          "visible": 95,
+          "correct": 18,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 95,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.25672057978088897,
+          "missing": 0,
+          "overlapFailures": 77
+        },
+        "appearance135": {
+          "summary": {
+            "admitted": 0,
+            "correctAcceptedRecoveries": 0,
+            "incorrect": 0,
+            "unknownRecoveries": 0,
+            "incorrectRecoveries": 0,
+            "independentlyCorrect": 0,
+            "bankRecoveries": 0,
+            "unknown": 0
+          },
+          "scope": "Motion-cycle conditions are not identity truth. Separate labels score each admission and bank recovery; unlabelled/uncertain examples remain unknown. Initial seed is excluded from learned-example counts. Historical evidence retains its original source and code identity.",
+          "available": true,
+          "admissions": [],
+          "enabled": false,
+          "recoveries": []
+        },
+        "episodes": [],
+        "processingMs": 1245.216,
+        "evidence": "build/association135-comparison/box-439-continuity-no-bank-135.json"
+      },
+      {
+        "case": "david3-57",
+        "policy": "legacy-flow",
+        "summary": {
+          "visible": 95,
+          "correct": 27,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 95,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.2665595397656848,
+          "missing": 0,
+          "overlapFailures": 68
+        },
+        "appearance135": {
+          "summary": {
+            "admitted": 0,
+            "correctAcceptedRecoveries": 0,
+            "incorrect": 0,
+            "unknownRecoveries": 0,
+            "incorrectRecoveries": 0,
+            "independentlyCorrect": 0,
+            "bankRecoveries": 0,
+            "unknown": 0
+          },
+          "scope": "Motion-cycle conditions are not identity truth. Separate labels score each admission and bank recovery; unlabelled/uncertain examples remain unknown. Initial seed is excluded from learned-example counts. Historical evidence retains its original source and code identity.",
+          "available": false,
+          "admissions": [],
+          "enabled": false,
+          "recoveries": []
+        },
+        "episodes": [],
+        "processingMs": 1367.3092,
+        "evidence": "build/association135-comparison/david3-57-legacy-flow.json"
+      },
+      {
+        "case": "david3-57",
+        "policy": "appearance-continuity-135",
+        "summary": {
+          "visible": 95,
+          "correct": 27,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 95,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.2665595397656848,
+          "missing": 0,
+          "overlapFailures": 68
+        },
+        "appearance135": {
+          "summary": {
+            "admitted": 28,
+            "correctAcceptedRecoveries": 0,
+            "incorrect": 22,
+            "unknownRecoveries": 0,
+            "incorrectRecoveries": 0,
+            "independentlyCorrect": 6,
+            "bankRecoveries": 0,
+            "unknown": 0
+          },
+          "scope": "Motion-cycle conditions are not identity truth. Separate labels score each admission and bank recovery; unlabelled/uncertain examples remain unknown. Initial seed is excluded from learned-example counts. Historical evidence retains its original source and code identity.",
+          "available": true,
+          "admissions": [
+            {
+              "targetOverlap": 0.9619412580537785,
+              "sourceFrame": 60,
+              "visibility": "visible",
+              "imageSha256": "cd571f2e4f2ee4dd411a4dc0c286367d4a0b0118a9e46ffff1cdcf9287c5c0e2",
+              "verdict": "correct",
+              "ordinal": 3,
+              "example": {
+                "descriptorSha256": "265560c4536c4bdfa76bd95745016d7bae9e8d31870de004bf5e5daba4243f0f",
+                "checks": {
+                  "reverseOverlap": 0.9953833400965489,
+                  "consecutiveStrongFrames": 3,
+                  "forward": {
+                    "seedPoints": 48,
+                    "inliers": 35,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 4.190035981167625,
+                    "dyPixels": -0.3369905327645313,
+                    "medianForwardBackwardPixels": 0.07744714113955134,
+                    "scale": 1.0050614237108935,
+                    "ambiguous": false,
+                    "reliablePoints": 38,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 2,
+                  "nearestAppearance": 0.878724372094312,
+                  "reportedSpanY": 0.2655247916803809,
+                  "reverse": {
+                    "seedPoints": 52,
+                    "inliers": 40,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -4.194637112768675,
+                    "dyPixels": 0.2518059858791162,
+                    "medianForwardBackwardPixels": 0.06781079973124066,
+                    "scale": 0.9926647030222084,
+                    "ambiguous": false,
+                    "reliablePoints": 42,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7395607308256408,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.9454460680546594
+                },
+                "sourceOrdinal": 3,
+                "box": [
+                  0.4733867538823922,
+                  0.39211382266724515,
+                  0.5329108585619248,
+                  0.6866014984501958
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.8974234581315912,
+              "sourceFrame": 64,
+              "visibility": "visible",
+              "imageSha256": "8d8a107368c513b2342eda105119e7a454765db53d84943653ae206f6484e71f",
+              "verdict": "correct",
+              "ordinal": 7,
+              "example": {
+                "descriptorSha256": "ca6f7d8260d0e7518db475346adb33e78fd7b34edc40e77c8d23b48a10929748",
+                "checks": {
+                  "reverseOverlap": 0.9993088747265116,
+                  "consecutiveStrongFrames": 3,
+                  "forward": {
+                    "seedPoints": 48,
+                    "inliers": 36,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 3.1641745398806194,
+                    "dyPixels": -0.4806834536625786,
+                    "medianForwardBackwardPixels": 0.0464982859055372,
+                    "scale": 1.0019133051361642,
+                    "ambiguous": false,
+                    "reliablePoints": 37,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 6,
+                  "nearestAppearance": 0.8213709196012655,
+                  "reportedSpanY": 0.19838130080016378,
+                  "reverse": {
+                    "seedPoints": 49,
+                    "inliers": 34,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -3.1578005206371245,
+                    "dyPixels": 0.4801422611510162,
+                    "medianForwardBackwardPixels": 0.04434043831011556,
+                    "scale": 0.9978466143972777,
+                    "ambiguous": false,
+                    "reliablePoints": 37,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.6666557317852565,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.9392505190951956
+                },
+                "sourceOrdinal": 7,
+                "box": [
+                  0.5020687759594868,
+                  0.38910412062860633,
+                  0.5615834024626495,
+                  0.6835449043810948
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.919261670937715,
+              "sourceFrame": 67,
+              "visibility": "visible",
+              "imageSha256": "7816039e678faaca8e1b7c62460118f39c3e2a091a9a104d454f347a635626db",
+              "verdict": "correct",
+              "ordinal": 10,
+              "example": {
+                "descriptorSha256": "899a855a2f8d944b719328c17f8b81f26fb2d568407cbd61807e9249c157b44d",
+                "checks": {
+                  "reverseOverlap": 0.9952387091918454,
+                  "consecutiveStrongFrames": 6,
+                  "forward": {
+                    "seedPoints": 50,
+                    "inliers": 37,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 3.4765470024742626,
+                    "dyPixels": 0.5248248313681643,
+                    "medianForwardBackwardPixels": 0.04434560055719721,
+                    "scale": 0.996718821651951,
+                    "ambiguous": false,
+                    "reliablePoints": 46,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 9,
+                  "nearestAppearance": 0.8922842027618663,
+                  "reportedSpanY": 0.2169723563412083,
+                  "reverse": {
+                    "seedPoints": 51,
+                    "inliers": 37,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -3.5210367078535114,
+                    "dyPixels": -0.5119924947667585,
+                    "medianForwardBackwardPixels": 0.058646069466994105,
+                    "scale": 1.0049612352991,
+                    "ambiguous": false,
+                    "reliablePoints": 41,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.5946768906688116,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.9555686787639994
+                },
+                "sourceOrdinal": 10,
+                "box": [
+                  0.521426617060612,
+                  0.3897813269028275,
+                  0.5807594191925337,
+                  0.683322558502861
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.9613385153543236,
+              "sourceFrame": 70,
+              "visibility": "visible",
+              "imageSha256": "b60b5e26a36bc790ca58b5de3e3f28abf32888f935d4b376e1e139cdf6cd1b0f",
+              "verdict": "correct",
+              "ordinal": 13,
+              "example": {
+                "descriptorSha256": "a81f1794b359e5da6e41c71e4442c162b0e6434a4969e0ff8d5ebea88a5d95b1",
+                "checks": {
+                  "reverseOverlap": 0.9832236551178147,
+                  "consecutiveStrongFrames": 9,
+                  "forward": {
+                    "seedPoints": 49,
+                    "inliers": 45,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 3.6024501082509914,
+                    "dyPixels": 1.025046750350782,
+                    "medianForwardBackwardPixels": 0.07377044243190453,
+                    "scale": 1.0018546741106042,
+                    "ambiguous": false,
+                    "reliablePoints": 46,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 12,
+                  "nearestAppearance": 0.6814996117364012,
+                  "reportedSpanY": 0.2013457659686304,
+                  "reverse": {
+                    "seedPoints": 53,
+                    "inliers": 44,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -3.7450865169004715,
+                    "dyPixels": -0.8499543873162452,
+                    "medianForwardBackwardPixels": 0.09287365582242713,
+                    "scale": 1.0049863836545763,
+                    "ambiguous": false,
+                    "reliablePoints": 44,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7453930582605816,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.929413038084899
+                },
+                "sourceOrdinal": 13,
+                "box": [
+                  0.5449166037986979,
+                  0.39999814813539936,
+                  0.6036521243048845,
+                  0.690584407481796
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.9205637344584429,
+              "sourceFrame": 75,
+              "visibility": "visible",
+              "imageSha256": "697241af57036349306d73b0bdd400747a83271ca44c8e0da5ca102d08a4eb5a",
+              "verdict": "correct",
+              "ordinal": 18,
+              "example": {
+                "descriptorSha256": "5510f1276bf1356f7bd5d7d241d11da1d1c7f13363cad4cf48f50926032a171b",
+                "checks": {
+                  "reverseOverlap": 0.9959703002553092,
+                  "consecutiveStrongFrames": 3,
+                  "forward": {
+                    "seedPoints": 51,
+                    "inliers": 33,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 2.138353437096498,
+                    "dyPixels": -0.39329235594476586,
+                    "medianForwardBackwardPixels": 0.06149105042627513,
+                    "scale": 0.9983056488942301,
+                    "ambiguous": false,
+                    "reliablePoints": 35,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 17,
+                  "nearestAppearance": 0.790114114099618,
+                  "reportedSpanY": 0.2440394465248159,
+                  "reverse": {
+                    "seedPoints": 49,
+                    "inliers": 34,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -2.1513470562634893,
+                    "dyPixels": 0.3940989229181753,
+                    "medianForwardBackwardPixels": 0.04648834846773199,
+                    "scale": 0.9996769199122248,
+                    "ambiguous": false,
+                    "reliablePoints": 37,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.5560837704826238,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.9387755769895829
+                },
+                "sourceOrdinal": 18,
+                "box": [
+                  0.5721380317394837,
+                  0.3960846756819273,
+                  0.6319196327729502,
+                  0.6918462807948665
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.8421366796403393,
+              "sourceFrame": 78,
+              "visibility": "visible",
+              "imageSha256": "14913218829bbbc4448f3650ab975e149aaee74cf6cc25a8f0b71647c0467447",
+              "verdict": "correct",
+              "ordinal": 21,
+              "example": {
+                "descriptorSha256": "f069ae8ab5ec3c5b468172182cd5c3589de82572d82298900f8285a005a65b61",
+                "checks": {
+                  "reverseOverlap": 0.9956241174807051,
+                  "consecutiveStrongFrames": 6,
+                  "forward": {
+                    "seedPoints": 43,
+                    "inliers": 34,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 3.3871265299959816,
+                    "dyPixels": 0.6462330446979934,
+                    "medianForwardBackwardPixels": 0.0878500953374328,
+                    "scale": 0.9841413316046069,
+                    "ambiguous": false,
+                    "reliablePoints": 39,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 20,
+                  "nearestAppearance": 0.7998545721501948,
+                  "reportedSpanY": 0.3053080933816049,
+                  "reverse": {
+                    "seedPoints": 44,
+                    "inliers": 33,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -3.444586721296673,
+                    "dyPixels": -0.662640269004072,
+                    "medianForwardBackwardPixels": 0.06444545500147632,
+                    "scale": 1.0159893805493105,
+                    "ambiguous": false,
+                    "reliablePoints": 38,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7433289390664743,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.9455441003711672
+                },
+                "sourceOrdinal": 21,
+                "box": [
+                  0.590790423153913,
+                  0.40627862677901866,
+                  0.6486476838239099,
+                  0.692519811146372
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.0673915165004767,
+              "sourceFrame": 88,
+              "visibility": "partial",
+              "imageSha256": "0d3227d3410920c1ef995937f7fb0f83dc000dd6b22fd00498937de566d2987f",
+              "verdict": "incorrect",
+              "ordinal": 31,
+              "example": {
+                "descriptorSha256": "c2cbbcf15f7daf9bef9ca0b2208c9e2ae5555e5e197850fc2df51a02528d6f2a",
+                "checks": {
+                  "reverseOverlap": 0.9925047776033962,
+                  "consecutiveStrongFrames": 3,
+                  "forward": {
+                    "seedPoints": 44,
+                    "inliers": 34,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -5.8354793601066035,
+                    "dyPixels": 0.4856126053784209,
+                    "medianForwardBackwardPixels": 0.03615287666516495,
+                    "scale": 1.0001344929764764,
+                    "ambiguous": false,
+                    "reliablePoints": 36,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 30,
+                  "nearestAppearance": 0.4012430492085186,
+                  "reportedSpanY": 0.2654191665406098,
+                  "reverse": {
+                    "seedPoints": 42,
+                    "inliers": 37,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 5.747815152121063,
+                    "dyPixels": -0.49078309979546475,
+                    "medianForwardBackwardPixels": 0.04297084802927763,
+                    "scale": 1.0010008151282495,
+                    "ambiguous": false,
+                    "reliablePoints": 38,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.6197956621617786,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8990825709045351
+                },
+                "sourceOrdinal": 31,
+                "box": [
+                  0.5570675940042172,
+                  0.40933047264757144,
+                  0.6141908738411226,
+                  0.6919403834196294
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 91,
+              "visibility": "partial",
+              "imageSha256": "62370afcfb27ba3e7c5c1e3b7ab77102b97fe227c21b9729b5776cc6e9324c0a",
+              "verdict": "incorrect",
+              "ordinal": 34,
+              "example": {
+                "descriptorSha256": "b69879d6f3c4d12bec63de39ef5bf8d99300b97535f1e12e41802b6ce79dac34",
+                "checks": {
+                  "reverseOverlap": 0.9958832195275902,
+                  "consecutiveStrongFrames": 6,
+                  "forward": {
+                    "seedPoints": 45,
+                    "inliers": 40,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -5.695044875553961,
+                    "dyPixels": 0.4188331738914002,
+                    "medianForwardBackwardPixels": 0.03350298443302909,
+                    "scale": 1.0006369470761802,
+                    "ambiguous": false,
+                    "reliablePoints": 40,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 33,
+                  "nearestAppearance": 0.9720575465107112,
+                  "reportedSpanY": 0.24535797958641534,
+                  "reverse": {
+                    "seedPoints": 47,
+                    "inliers": 41,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 5.69540996186123,
+                    "dyPixels": -0.4141239524559239,
+                    "medianForwardBackwardPixels": 0.03382830092438216,
+                    "scale": 1.001426911630558,
+                    "ambiguous": false,
+                    "reliablePoints": 42,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.727626151505172,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8710221750445251
+                },
+                "sourceOrdinal": 34,
+                "box": [
+                  0.5208793310480428,
+                  0.40943811104298744,
+                  0.5780879634099506,
+                  0.6924702922018993
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 94,
+              "visibility": "visible",
+              "imageSha256": "344207632a47d921bcd9ff650aa10b98ac76f069e92a6963c830d6e989a5c97c",
+              "verdict": "incorrect",
+              "ordinal": 37,
+              "example": {
+                "descriptorSha256": "dbaa20c40f0efd58cf0839ae52ff08d4a98eaca2e6f4cbbc979db8d51381781d",
+                "checks": {
+                  "reverseOverlap": 0.9978015267793823,
+                  "consecutiveStrongFrames": 9,
+                  "forward": {
+                    "seedPoints": 46,
+                    "inliers": 45,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -6.374923916897785,
+                    "dyPixels": 0.9758225496164243,
+                    "medianForwardBackwardPixels": 0.025659310368230943,
+                    "scale": 1.0015942506129774,
+                    "ambiguous": false,
+                    "reliablePoints": 45,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 36,
+                  "nearestAppearance": 0.7528494557475365,
+                  "reportedSpanY": 0.24558846451967814,
+                  "reverse": {
+                    "seedPoints": 51,
+                    "inliers": 50,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 6.38564897425654,
+                    "dyPixels": -1.0103582874982635,
+                    "medianForwardBackwardPixels": 0.035630573038230084,
+                    "scale": 0.9995075868359861,
+                    "ambiguous": false,
+                    "reliablePoints": 50,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7290099683636747,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8465524552442417
+                },
+                "sourceOrdinal": 37,
+                "box": [
+                  0.482044428865006,
+                  0.41631457288906687,
+                  0.5393364853019152,
+                  0.699759483682197
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 97,
+              "visibility": "visible",
+              "imageSha256": "898ba06267a493e21334ee129f5911680c54d6e730dbd1fd9ece3210d45f0fcf",
+              "verdict": "incorrect",
+              "ordinal": 40,
+              "example": {
+                "descriptorSha256": "82d380c09fcfcb8937f1ebd3b4f6d3748c22c0587844aebc3c15add8da682d1e",
+                "checks": {
+                  "reverseOverlap": 0.9956625491858908,
+                  "consecutiveStrongFrames": 12,
+                  "forward": {
+                    "seedPoints": 49,
+                    "inliers": 47,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -5.030535971003388,
+                    "dyPixels": 0.23518188074697832,
+                    "medianForwardBackwardPixels": 0.02533573377722208,
+                    "scale": 1.000824678615224,
+                    "ambiguous": false,
+                    "reliablePoints": 47,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 39,
+                  "nearestAppearance": 0.8329712470052703,
+                  "reportedSpanY": 0.16652593812138083,
+                  "reverse": {
+                    "seedPoints": 50,
+                    "inliers": 47,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 5.077260005496413,
+                    "dyPixels": -0.22502029461526263,
+                    "medianForwardBackwardPixels": 0.02601962079436367,
+                    "scale": 1.0001271728818741,
+                    "ambiguous": false,
+                    "reliablePoints": 47,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7627734708017476,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.83874341981169
+                },
+                "sourceOrdinal": 40,
+                "box": [
+                  0.44904955214249503,
+                  0.4221591585287723,
+                  0.5063877267508942,
+                  0.705832232907168
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 100,
+              "visibility": "visible",
+              "imageSha256": "2c1be26517081cef46e934c32f528fb0bf9d054ddd5c330f970a0db737ed5133",
+              "verdict": "incorrect",
+              "ordinal": 43,
+              "example": {
+                "descriptorSha256": "20b415c2c6c3c629868b026d427f42d7b2c4b6eaf25839f74c1ec04fe48987a2",
+                "checks": {
+                  "reverseOverlap": 0.9996054918615596,
+                  "consecutiveStrongFrames": 15,
+                  "forward": {
+                    "seedPoints": 50,
+                    "inliers": 50,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -3.271063816238936,
+                    "dyPixels": -0.14280618086360164,
+                    "medianForwardBackwardPixels": 0.016749560992433812,
+                    "scale": 1.0004559525767043,
+                    "ambiguous": false,
+                    "reliablePoints": 50,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 42,
+                  "nearestAppearance": 0.910283937666354,
+                  "reportedSpanY": 0.24454849129386536,
+                  "reverse": {
+                    "seedPoints": 44,
+                    "inliers": 43,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 3.2745830253956,
+                    "dyPixels": 0.1464772874095388,
+                    "medianForwardBackwardPixels": 0.02276169236094979,
+                    "scale": 0.999683550015996,
+                    "ambiguous": false,
+                    "reliablePoints": 43,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7607393355069596,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8636358854221562
+                },
+                "sourceOrdinal": 43,
+                "box": [
+                  0.4272932196016158,
+                  0.4229936041947364,
+                  0.4847635291899413,
+                  0.7073203990001362
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 103,
+              "visibility": "visible",
+              "imageSha256": "ac4c7fb28de7e94752b12b6d404b4fb659a81dbfd60619247b8ae85d0d17762a",
+              "verdict": "incorrect",
+              "ordinal": 46,
+              "example": {
+                "descriptorSha256": "c62bca895ccc734cc16283096b2ddd373e2db74cba4d8113b11e5f93473baf86",
+                "checks": {
+                  "reverseOverlap": 0.9979938085556832,
+                  "consecutiveStrongFrames": 18,
+                  "forward": {
+                    "seedPoints": 46,
+                    "inliers": 46,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -3.1298933586244715,
+                    "dyPixels": 0.42870108868339685,
+                    "medianForwardBackwardPixels": 0.034017017928727133,
+                    "scale": 1.000007951166659,
+                    "ambiguous": false,
+                    "reliablePoints": 46,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 45,
+                  "nearestAppearance": 0.8948928679211441,
+                  "reportedSpanY": 0.24397919923947753,
+                  "reverse": {
+                    "seedPoints": 56,
+                    "inliers": 50,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 3.1045776111164685,
+                    "dyPixels": -0.43757974456237037,
+                    "medianForwardBackwardPixels": 0.034371734841817075,
+                    "scale": 0.9998158598151203,
+                    "ambiguous": false,
+                    "reliablePoints": 50,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7589683866989213,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8425630439353331
+                },
+                "sourceOrdinal": 46,
+                "box": [
+                  0.4062029929085204,
+                  0.42401424476995514,
+                  0.463781606500128,
+                  0.7088768593810664
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 106,
+              "visibility": "visible",
+              "imageSha256": "7241ce62bf102a67f1f9861213d4617f88dc15ce0026fb54cea12da8a9b49d11",
+              "verdict": "incorrect",
+              "ordinal": 49,
+              "example": {
+                "descriptorSha256": "1fb8b6097fb1074afacce23733910027243d5cb866081f17b8e8291acbea013d",
+                "checks": {
+                  "reverseOverlap": 0.9974156410119033,
+                  "consecutiveStrongFrames": 21,
+                  "forward": {
+                    "seedPoints": 48,
+                    "inliers": 44,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -3.412051108762526,
+                    "dyPixels": 0.5007878962473313,
+                    "medianForwardBackwardPixels": 0.048717377558369995,
+                    "scale": 1.0016179291104075,
+                    "ambiguous": false,
+                    "reliablePoints": 45,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 48,
+                  "nearestAppearance": 0.9544688732587809,
+                  "reportedSpanY": 0.24315515821125142,
+                  "reverse": {
+                    "seedPoints": 48,
+                    "inliers": 44,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 3.404223831961474,
+                    "dyPixels": -0.5427754838339638,
+                    "medianForwardBackwardPixels": 0.039519862733977826,
+                    "scale": 0.9996772825156167,
+                    "ambiguous": false,
+                    "reliablePoints": 44,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7592282855963629,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8341103491137765
+                },
+                "sourceOrdinal": 49,
+                "box": [
+                  0.38417800588515977,
+                  0.42855318464133807,
+                  0.44196150279554675,
+                  0.7144294325137788
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 109,
+              "visibility": "visible",
+              "imageSha256": "b52de23a23a4d6989f44b183c36aed5378a66e1fdd005d23dd231ee5d217b3f3",
+              "verdict": "incorrect",
+              "ordinal": 52,
+              "example": {
+                "descriptorSha256": "cf5d4ec1822c753ae4900df8086682ea49132fc7c80b3a539f486fa48493f596",
+                "checks": {
+                  "reverseOverlap": 0.999036116641968,
+                  "consecutiveStrongFrames": 24,
+                  "forward": {
+                    "seedPoints": 46,
+                    "inliers": 40,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -3.7411259517901954,
+                    "dyPixels": 0.7800676120336334,
+                    "medianForwardBackwardPixels": 0.02262042571251307,
+                    "scale": 1.0001411203015265,
+                    "ambiguous": false,
+                    "reliablePoints": 40,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 51,
+                  "nearestAppearance": 0.9466344138760637,
+                  "reportedSpanY": 0.2521340524463227,
+                  "reverse": {
+                    "seedPoints": 50,
+                    "inliers": 46,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 3.7492317997786557,
+                    "dyPixels": -0.7997025844610164,
+                    "medianForwardBackwardPixels": 0.03468696597458586,
+                    "scale": 0.9998524029463565,
+                    "ambiguous": false,
+                    "reliablePoints": 46,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.6116061181807714,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8494822427944715
+                },
+                "sourceOrdinal": 52,
+                "box": [
+                  0.35924328450195164,
+                  0.4340526086508739,
+                  0.4171318415425295,
+                  0.720448627693733
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 112,
+              "visibility": "visible",
+              "imageSha256": "9872b90dadec1b847003307c15a7bdfa9361f8ce2c76dea3071be35e26ffa024",
+              "verdict": "incorrect",
+              "ordinal": 55,
+              "example": {
+                "descriptorSha256": "0d2e35308acc771a2e1ff8eb0556e8b37e71eceea098feb1096d322117e2a573",
+                "checks": {
+                  "reverseOverlap": 0.9994216162196922,
+                  "consecutiveStrongFrames": 27,
+                  "forward": {
+                    "seedPoints": 49,
+                    "inliers": 47,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -3.625050467878282,
+                    "dyPixels": -0.14017179380550715,
+                    "medianForwardBackwardPixels": 0.02563574813059233,
+                    "scale": 1.0020193798297128,
+                    "ambiguous": false,
+                    "reliablePoints": 48,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 54,
+                  "nearestAppearance": 0.9160390584614088,
+                  "reportedSpanY": 0.25168683579775175,
+                  "reverse": {
+                    "seedPoints": 45,
+                    "inliers": 45,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 3.6251056191630937,
+                    "dyPixels": 0.12124809642710943,
+                    "medianForwardBackwardPixels": 0.024975048483635357,
+                    "scale": 0.9981964056522361,
+                    "ambiguous": false,
+                    "reliablePoints": 45,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7553907569226584,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.841586740571148
+                },
+                "sourceOrdinal": 55,
+                "box": [
+                  0.3361728910801319,
+                  0.43390765345507476,
+                  0.3942732165531837,
+                  0.7213513689533311
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 115,
+              "visibility": "visible",
+              "imageSha256": "db91f9c4f45c108fc711ba700013dfb58129b20f312142ef4568283d59f5c4bb",
+              "verdict": "incorrect",
+              "ordinal": 58,
+              "example": {
+                "descriptorSha256": "c1783ee6c2ffa5b45b4621f4f016d3a4c24bfb5e91c424555c24868a3a01b754",
+                "checks": {
+                  "reverseOverlap": 0.9993476866652196,
+                  "consecutiveStrongFrames": 30,
+                  "forward": {
+                    "seedPoints": 47,
+                    "inliers": 44,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -2.667742183875191,
+                    "dyPixels": -0.4628248349047084,
+                    "medianForwardBackwardPixels": 0.036526094452220915,
+                    "scale": 1.0007937010039363,
+                    "ambiguous": false,
+                    "reliablePoints": 44,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 57,
+                  "nearestAppearance": 0.9385545966866466,
+                  "reportedSpanY": 0.24093522237135692,
+                  "reverse": {
+                    "seedPoints": 51,
+                    "inliers": 46,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 2.6643444328235972,
+                    "dyPixels": 0.4515387880068289,
+                    "medianForwardBackwardPixels": 0.028432971738752227,
+                    "scale": 0.9988809772916796,
+                    "ambiguous": false,
+                    "reliablePoints": 46,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7505791797793567,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8562696111579362
+                },
+                "sourceOrdinal": 58,
+                "box": [
+                  0.3171152585232035,
+                  0.43241937259957824,
+                  0.37538317470325056,
+                  0.7206922210692848
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 118,
+              "visibility": "visible",
+              "imageSha256": "680f483c2bba4b311a23f2544607770b1c104b17152454a31169de155f24d5d4",
+              "verdict": "incorrect",
+              "ordinal": 61,
+              "example": {
+                "descriptorSha256": "9fc160c5606039fba6157621fc05b5c4bbf25c0ff9fa55933052712929512601",
+                "checks": {
+                  "reverseOverlap": 0.9978790422506268,
+                  "consecutiveStrongFrames": 33,
+                  "forward": {
+                    "seedPoints": 46,
+                    "inliers": 42,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -2.2989134058796594,
+                    "dyPixels": 0.37847701482931484,
+                    "medianForwardBackwardPixels": 0.034911826806675636,
+                    "scale": 1.0013486816479946,
+                    "ambiguous": false,
+                    "reliablePoints": 42,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 60,
+                  "nearestAppearance": 0.9224335906061293,
+                  "reportedSpanY": 0.25012367487797205,
+                  "reverse": {
+                    "seedPoints": 50,
+                    "inliers": 43,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 2.280335477780426,
+                    "dyPixels": -0.3935838469643329,
+                    "medianForwardBackwardPixels": 0.036134874580661995,
+                    "scale": 0.9994496122021768,
+                    "ambiguous": false,
+                    "reliablePoints": 44,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.678714366063394,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8365160296077907
+                },
+                "sourceOrdinal": 61,
+                "box": [
+                  0.30391545657185465,
+                  0.432227827574015,
+                  0.36233975076096114,
+                  0.7212743356674891
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 121,
+              "visibility": "visible",
+              "imageSha256": "e31db368cd986acf29587d79ba7858404fcf8fa83be8684b33a3db4b98d4c612",
+              "verdict": "incorrect",
+              "ordinal": 64,
+              "example": {
+                "descriptorSha256": "61ad91d461d9df2ca227ab4adfb612f7ffaaf7cdeeb9da9f2ea0e2c6f66fd0db",
+                "checks": {
+                  "reverseOverlap": 0.9970928011002087,
+                  "consecutiveStrongFrames": 36,
+                  "forward": {
+                    "seedPoints": 54,
+                    "inliers": 51,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -0.7930416242832621,
+                    "dyPixels": 1.0757320426736783,
+                    "medianForwardBackwardPixels": 0.0214767744683923,
+                    "scale": 1.0012312322585035,
+                    "ambiguous": false,
+                    "reliablePoints": 51,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 63,
+                  "nearestAppearance": 0.8011591418185755,
+                  "reportedSpanY": 0.16362603321823674,
+                  "reverse": {
+                    "seedPoints": 53,
+                    "inliers": 49,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 0.7645292158662755,
+                    "dyPixels": -1.076641423715671,
+                    "medianForwardBackwardPixels": 0.02058203946888849,
+                    "scale": 0.9996491815987096,
+                    "ambiguous": false,
+                    "reliablePoints": 49,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7119653280255834,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8562054166783294
+                },
+                "sourceOrdinal": 64,
+                "box": [
+                  0.29739203383475177,
+                  0.43998368580290315,
+                  0.3558937861285897,
+                  0.7294134076776801
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 124,
+              "visibility": "visible",
+              "imageSha256": "39c94998595e1be0287e9107bb03c574b58d33f700fbd9e9aa5ff913093d769d",
+              "verdict": "incorrect",
+              "ordinal": 67,
+              "example": {
+                "descriptorSha256": "d542934cc006ebe331d4d716a09bdf5b1107c6015b747fdf7066d75941792cdc",
+                "checks": {
+                  "reverseOverlap": 0.9989735929825931,
+                  "consecutiveStrongFrames": 39,
+                  "forward": {
+                    "seedPoints": 54,
+                    "inliers": 51,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -0.45691109778698547,
+                    "dyPixels": -0.16244737544980126,
+                    "medianForwardBackwardPixels": 0.02449254911703358,
+                    "scale": 1.0002991484345745,
+                    "ambiguous": false,
+                    "reliablePoints": 54,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 66,
+                  "nearestAppearance": 0.9638183543082934,
+                  "reportedSpanY": 0.2489543417070593,
+                  "reverse": {
+                    "seedPoints": 53,
+                    "inliers": 50,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 0.4489316995167201,
+                    "dyPixels": 0.13843593892124773,
+                    "medianForwardBackwardPixels": 0.026561516317440942,
+                    "scale": 0.9998838900589658,
+                    "ambiguous": false,
+                    "reliablePoints": 51,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.675541362859278,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8282042249679281
+                },
+                "sourceOrdinal": 67,
+                "box": [
+                  0.2909759320898567,
+                  0.44221018876891094,
+                  0.3496131206557043,
+                  0.7323099637788939
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 127,
+              "visibility": "visible",
+              "imageSha256": "08437a765e860cd9709bac99a21042261d3843c12671f565de7fa063ea21c245",
+              "verdict": "incorrect",
+              "ordinal": 70,
+              "example": {
+                "descriptorSha256": "28383bf0c8d2d92fe62ce96b5030dcdb505b4b47445a52fda599d77c49701d54",
+                "checks": {
+                  "reverseOverlap": 0.9979054544491114,
+                  "consecutiveStrongFrames": 42,
+                  "forward": {
+                    "seedPoints": 53,
+                    "inliers": 48,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 2.582368205214763,
+                    "dyPixels": -0.98520608987603,
+                    "medianForwardBackwardPixels": 0.02409045678823745,
+                    "scale": 0.9989934225441334,
+                    "ambiguous": false,
+                    "reliablePoints": 49,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 69,
+                  "nearestAppearance": 0.9247859742891181,
+                  "reportedSpanY": 0.2391837807784761,
+                  "reverse": {
+                    "seedPoints": 51,
+                    "inliers": 47,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -2.569319909019299,
+                    "dyPixels": 0.9240592531564573,
+                    "medianForwardBackwardPixels": 0.02069208082131309,
+                    "scale": 1.001780779329954,
+                    "ambiguous": false,
+                    "reliablePoints": 48,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7110212224294485,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8465517710567559
+                },
+                "sourceOrdinal": 70,
+                "box": [
+                  0.30005917902012114,
+                  0.4386150644308656,
+                  0.35864818368829604,
+                  0.7284764559470993
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 130,
+              "visibility": "visible",
+              "imageSha256": "1a308e75f431a714fa4060591b92bd6347cd4cc090fa86f407654ea6127c5783",
+              "verdict": "incorrect",
+              "ordinal": 73,
+              "example": {
+                "descriptorSha256": "34985dd8dac81a59808eac0c20fbec26dcbe95b8df6f5e557bca7c450005e932",
+                "checks": {
+                  "reverseOverlap": 0.9989310221004776,
+                  "consecutiveStrongFrames": 45,
+                  "forward": {
+                    "seedPoints": 51,
+                    "inliers": 49,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 6.18294554918819,
+                    "dyPixels": 0.1668642570839154,
+                    "medianForwardBackwardPixels": 0.02358672711903474,
+                    "scale": 0.9985850250053959,
+                    "ambiguous": false,
+                    "reliablePoints": 49,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 72,
+                  "nearestAppearance": 0.9625214551682401,
+                  "reportedSpanY": 0.24984255289046736,
+                  "reverse": {
+                    "seedPoints": 51,
+                    "inliers": 47,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -6.1829924740219155,
+                    "dyPixels": -0.18677724733356627,
+                    "medianForwardBackwardPixels": 0.023094925748553007,
+                    "scale": 1.0019526558032434,
+                    "ambiguous": false,
+                    "reliablePoints": 49,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7847205930706925,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8390968118588207
+                },
+                "sourceOrdinal": 73,
+                "box": [
+                  0.3305030155972464,
+                  0.4375672007694058,
+                  0.3889124074909781,
+                  0.7265399817173417
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 133,
+              "visibility": "visible",
+              "imageSha256": "672216904119c85d6dfa41cac8b7fe309716fcb5f71a1da52353a9f934bc7878",
+              "verdict": "incorrect",
+              "ordinal": 76,
+              "example": {
+                "descriptorSha256": "801322fab947692b51cc9f1100998c3adfac2afb1560570048f6fb20abbd41ac",
+                "checks": {
+                  "reverseOverlap": 0.9977636259581388,
+                  "consecutiveStrongFrames": 48,
+                  "forward": {
+                    "seedPoints": 50,
+                    "inliers": 49,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 6.433356105752722,
+                    "dyPixels": -0.5365185035666116,
+                    "medianForwardBackwardPixels": 0.028188206608369428,
+                    "scale": 0.998738908245037,
+                    "ambiguous": false,
+                    "reliablePoints": 50,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 75,
+                  "nearestAppearance": 0.9284382479735999,
+                  "reportedSpanY": 0.24095795537211548,
+                  "reverse": {
+                    "seedPoints": 48,
+                    "inliers": 45,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -6.4027412646635185,
+                    "dyPixels": 0.5339675067406802,
+                    "medianForwardBackwardPixels": 0.03963911481436918,
+                    "scale": 1.0012117659572328,
+                    "ambiguous": false,
+                    "reliablePoints": 45,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7495699273590118,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8329966499493712
+                },
+                "sourceOrdinal": 76,
+                "box": [
+                  0.37228480261394303,
+                  0.43419807703329916,
+                  0.4305113785440685,
+                  0.722266400056025
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 136,
+              "visibility": "visible",
+              "imageSha256": "5111bbe218a89db750bef52a3f9f8e0401ea826b4c1dda134e4e32135a6fd9e8",
+              "verdict": "incorrect",
+              "ordinal": 79,
+              "example": {
+                "descriptorSha256": "f3fc01159d6c87c238eed66bafa8a43a9379917b123077a5b0f2c172510f21fd",
+                "checks": {
+                  "reverseOverlap": 0.9972428403937487,
+                  "consecutiveStrongFrames": 51,
+                  "forward": {
+                    "seedPoints": 48,
+                    "inliers": 46,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 4.078931433500728,
+                    "dyPixels": -0.5404079342007293,
+                    "medianForwardBackwardPixels": 0.03290363127231974,
+                    "scale": 1.0002027034466296,
+                    "ambiguous": false,
+                    "reliablePoints": 46,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 78,
+                  "nearestAppearance": 0.8765461288953871,
+                  "reportedSpanY": 0.25075724451911197,
+                  "reverse": {
+                    "seedPoints": 49,
+                    "inliers": 44,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -4.1090733319609,
+                    "dyPixels": 0.53777015828571,
+                    "medianForwardBackwardPixels": 0.03093506185903996,
+                    "scale": 1.0004014923596725,
+                    "ambiguous": false,
+                    "reliablePoints": 45,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.6804335668449784,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8549363425866501
+                },
+                "sourceOrdinal": 79,
+                "box": [
+                  0.40517117999508434,
+                  0.43087483121805314,
+                  0.463381164020623,
+                  0.7188610679759814
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 139,
+              "visibility": "visible",
+              "imageSha256": "1068dc2ca8ed912056934461b12b4376e0918dee52419be1006e7f74726dc591",
+              "verdict": "incorrect",
+              "ordinal": 82,
+              "example": {
+                "descriptorSha256": "349ffc5a5b0f538695774cfd79623427c9ee3a9fcb4111afe1908ff75a6ece85",
+                "checks": {
+                  "reverseOverlap": 0.9979731642821239,
+                  "consecutiveStrongFrames": 54,
+                  "forward": {
+                    "seedPoints": 46,
+                    "inliers": 44,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 3.063546496780262,
+                    "dyPixels": 0.29010914091307427,
+                    "medianForwardBackwardPixels": 0.027786935530727544,
+                    "scale": 0.9994475505875685,
+                    "ambiguous": false,
+                    "reliablePoints": 44,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 81,
+                  "nearestAppearance": 0.9195782396176545,
+                  "reportedSpanY": 0.25048133227461405,
+                  "reverse": {
+                    "seedPoints": 51,
+                    "inliers": 43,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -3.083858883352434,
+                    "dyPixels": -0.2794531759370784,
+                    "medianForwardBackwardPixels": 0.020657411765547005,
+                    "scale": 1.0011301499202205,
+                    "ambiguous": false,
+                    "reliablePoints": 44,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.6796848748061103,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8934981526472436
+                },
+                "sourceOrdinal": 82,
+                "box": [
+                  0.4208980003457662,
+                  0.43256056017254774,
+                  0.47912810737081646,
+                  0.7206463528227964
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 142,
+              "visibility": "visible",
+              "imageSha256": "8b0d2dd631c0f026eaa0596a20aec06b0b4eaa97e61417b8eafd36180a0d7c89",
+              "verdict": "incorrect",
+              "ordinal": 85,
+              "example": {
+                "descriptorSha256": "6ffc8631adb9866ba322b51d5164ab2ede4bf46aca906e2299f7c9dc41b1db9d",
+                "checks": {
+                  "reverseOverlap": 0.9978323584877193,
+                  "consecutiveStrongFrames": 57,
+                  "forward": {
+                    "seedPoints": 51,
+                    "inliers": 46,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 3.049320459106525,
+                    "dyPixels": 0.3702146264346453,
+                    "medianForwardBackwardPixels": 0.03395929897080242,
+                    "scale": 0.999571753777901,
+                    "ambiguous": false,
+                    "reliablePoints": 46,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 84,
+                  "nearestAppearance": 0.8990829977204011,
+                  "reportedSpanY": 0.24049268903721185,
+                  "reverse": {
+                    "seedPoints": 44,
+                    "inliers": 43,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -3.05840902186722,
+                    "dyPixels": -0.37634889463063814,
+                    "medianForwardBackwardPixels": 0.031589502626632744,
+                    "scale": 1.0015144807389118,
+                    "ambiguous": false,
+                    "reliablePoints": 43,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.6789094385500667,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.829677260956413
+                },
+                "sourceOrdinal": 85,
+                "box": [
+                  0.43761175105113126,
+                  0.43370064617750503,
+                  0.49591561192268085,
+                  0.7221513262788555
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 145,
+              "visibility": "visible",
+              "imageSha256": "db46ec7bdad34d0909e30ca098000ac0ee40782bf4fdcb0e854b302e8cde16fe",
+              "verdict": "incorrect",
+              "ordinal": 88,
+              "example": {
+                "descriptorSha256": "cccb88aff7a3b209c8e95a134896d1adcd3982db457941250ea36b3434c064f2",
+                "checks": {
+                  "reverseOverlap": 0.9977665211197312,
+                  "consecutiveStrongFrames": 60,
+                  "forward": {
+                    "seedPoints": 49,
+                    "inliers": 49,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 4.327760566272389,
+                    "dyPixels": -0.04510783943516117,
+                    "medianForwardBackwardPixels": 0.01958761092926977,
+                    "scale": 1.0008130068906,
+                    "ambiguous": false,
+                    "reliablePoints": 49,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 87,
+                  "nearestAppearance": 0.9465139028782691,
+                  "reportedSpanY": 0.16362940298019277,
+                  "reverse": {
+                    "seedPoints": 48,
+                    "inliers": 47,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -4.347060439106883,
+                    "dyPixels": 0.05408180223767545,
+                    "medianForwardBackwardPixels": 0.01775890394020811,
+                    "scale": 1.000044885238064,
+                    "ambiguous": false,
+                    "reliablePoints": 48,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7512209834411797,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8151984178856929
+                },
+                "sourceOrdinal": 88,
+                "box": [
+                  0.46414301489666787,
+                  0.4334304438206461,
+                  0.5224954979450073,
+                  0.7221216757440097
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 148,
+              "visibility": "visible",
+              "imageSha256": "4015411091ef50dd1736a1126c6bdbdf009fe2505c0b98dc8be7c4fbb4653580",
+              "verdict": "incorrect",
+              "ordinal": 91,
+              "example": {
+                "descriptorSha256": "8e460248969726b404f2faafc53a0fd48e17885e7296b390b10728f6dc95b065",
+                "checks": {
+                  "reverseOverlap": 0.9970123443612385,
+                  "consecutiveStrongFrames": 63,
+                  "forward": {
+                    "seedPoints": 52,
+                    "inliers": 51,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 5.039498611655887,
+                    "dyPixels": -0.5574279285789032,
+                    "medianForwardBackwardPixels": 0.03036179677503614,
+                    "scale": 1.0001535526364662,
+                    "ambiguous": false,
+                    "reliablePoints": 51,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 90,
+                  "nearestAppearance": 0.9362980188379901,
+                  "reportedSpanY": 0.2400465137921073,
+                  "reverse": {
+                    "seedPoints": 50,
+                    "inliers": 48,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -5.004237285708214,
+                    "dyPixels": 0.5777068514006203,
+                    "medianForwardBackwardPixels": 0.039827233449846386,
+                    "scale": 1.0003255401191005,
+                    "ambiguous": false,
+                    "reliablePoints": 48,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7478106092486095,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.829709899436771
+                },
+                "sourceOrdinal": 91,
+                "box": [
+                  0.4960595673641976,
+                  0.4321114418393933,
+                  0.5545057965426382,
+                  0.7212664704064151
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0,
+              "sourceFrame": 151,
+              "visibility": "visible",
+              "imageSha256": "98df13ea278449ed71ef5aebc248b954c587d4d9a2ab1799a641643a7fccbf53",
+              "verdict": "incorrect",
+              "ordinal": 94,
+              "example": {
+                "descriptorSha256": "43a87a8f509e52adeceaf4bd97893d577b5ab4628dd4f811f5083f1b48bfa713",
+                "checks": {
+                  "reverseOverlap": 0.9984471825761052,
+                  "consecutiveStrongFrames": 66,
+                  "forward": {
+                    "seedPoints": 49,
+                    "inliers": 48,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 3.685213986739228,
+                    "dyPixels": -0.10634184624346688,
+                    "medianForwardBackwardPixels": 0.01450239678318242,
+                    "scale": 1.0002728329418786,
+                    "ambiguous": false,
+                    "reliablePoints": 48,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 93,
+                  "nearestAppearance": 0.9274774328012274,
+                  "reportedSpanY": 0.23987353900952482,
+                  "reverse": {
+                    "seedPoints": 53,
+                    "inliers": 52,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -3.69573857089685,
+                    "dyPixels": 0.10112381659982361,
+                    "medianForwardBackwardPixels": 0.019551346893546675,
+                    "scale": 1.0005043435559244,
+                    "ambiguous": false,
+                    "reliablePoints": 52,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7113616615674543,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8329959783498532
+                },
+                "sourceOrdinal": 94,
+                "box": [
+                  0.5214641391511596,
+                  0.4294599861288252,
+                  0.5799594898265016,
+                  0.7188580368384115
+                ]
+              }
+            }
+          ],
+          "enabled": true,
+          "recoveries": []
+        },
+        "episodes": [],
+        "processingMs": 3170.8001,
+        "evidence": "build/association135-comparison/david3-57-appearance-continuity-135.json"
+      },
+      {
+        "case": "david3-57",
+        "policy": "continuity-no-bank-135",
+        "summary": {
+          "visible": 95,
+          "correct": 27,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 95,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.2665595397656848,
+          "missing": 0,
+          "overlapFailures": 68
+        },
+        "appearance135": {
+          "summary": {
+            "admitted": 0,
+            "correctAcceptedRecoveries": 0,
+            "incorrect": 0,
+            "unknownRecoveries": 0,
+            "incorrectRecoveries": 0,
+            "independentlyCorrect": 0,
+            "bankRecoveries": 0,
+            "unknown": 0
+          },
+          "scope": "Motion-cycle conditions are not identity truth. Separate labels score each admission and bank recovery; unlabelled/uncertain examples remain unknown. Initial seed is excluded from learned-example counts. Historical evidence retains its original source and code identity.",
+          "available": true,
+          "admissions": [],
+          "enabled": false,
+          "recoveries": []
+        },
+        "episodes": [],
+        "processingMs": 1372.7679,
+        "evidence": "build/association135-comparison/david3-57-continuity-no-bank-135.json"
+      },
+      {
+        "case": "bird1-97",
+        "policy": "legacy-flow",
+        "summary": {
+          "visible": 42,
+          "correct": 19,
+          "hidden": 33,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 19,
+          "correctReacquired": 0,
+          "uncertain": 20,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.3777317645258097,
+          "missing": 23,
+          "overlapFailures": 0
+        },
+        "appearance135": {
+          "summary": {
+            "admitted": 0,
+            "correctAcceptedRecoveries": 0,
+            "incorrect": 0,
+            "unknownRecoveries": 0,
+            "incorrectRecoveries": 0,
+            "independentlyCorrect": 0,
+            "bankRecoveries": 0,
+            "unknown": 0
+          },
+          "scope": "Motion-cycle conditions are not identity truth. Separate labels score each admission and bank recovery; unlabelled/uncertain examples remain unknown. Initial seed is excluded from learned-example counts. Historical evidence retains its original source and code identity.",
+          "available": false,
+          "admissions": [],
+          "enabled": false,
+          "recoveries": []
+        },
+        "episodes": [
+          {
+            "hiddenStart": 48,
+            "visibleReturn": null,
+            "verifiedRecovery": null
+          }
+        ],
+        "processingMs": 10299.5545,
+        "evidence": "build/association135-comparison/bird1-97-legacy-flow.json"
+      },
+      {
+        "case": "bird1-97",
+        "policy": "appearance-continuity-135",
+        "summary": {
+          "visible": 42,
+          "correct": 19,
+          "hidden": 33,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 19,
+          "correctReacquired": 0,
+          "uncertain": 20,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.3777317645258097,
+          "missing": 23,
+          "overlapFailures": 0
+        },
+        "appearance135": {
+          "summary": {
+            "admitted": 5,
+            "correctAcceptedRecoveries": 0,
+            "incorrect": 0,
+            "unknownRecoveries": 0,
+            "incorrectRecoveries": 0,
+            "independentlyCorrect": 5,
+            "bankRecoveries": 0,
+            "unknown": 0
+          },
+          "scope": "Motion-cycle conditions are not identity truth. Separate labels score each admission and bank recovery; unlabelled/uncertain examples remain unknown. Initial seed is excluded from learned-example counts. Historical evidence retains its original source and code identity.",
+          "available": true,
+          "admissions": [
+            {
+              "targetOverlap": 0.8133760196165143,
+              "sourceFrame": 100,
+              "visibility": "visible",
+              "imageSha256": "a7b2aaff229677721364c90cd2536f4263f96c1620de60c0bfadfbf99e5e5644",
+              "verdict": "correct",
+              "ordinal": 3,
+              "example": {
+                "descriptorSha256": "d587a2556abd7d4219d16e4eee866a3959b6560bfa3882c5ab34ad3b23a9a743",
+                "checks": {
+                  "reverseOverlap": 0.9924496053030054,
+                  "consecutiveStrongFrames": 3,
+                  "forward": {
+                    "seedPoints": 20,
+                    "inliers": 17,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -0.518206645555523,
+                    "dyPixels": 0.07918551407485097,
+                    "medianForwardBackwardPixels": 0.045861539239977794,
+                    "scale": 1.0420138038261846,
+                    "ambiguous": false,
+                    "reliablePoints": 17,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 2,
+                  "nearestAppearance": 0.8783022095845394,
+                  "reportedSpanY": 0.49477344524626,
+                  "reverse": {
+                    "seedPoints": 21,
+                    "inliers": 18,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 0.5524540029641116,
+                    "dyPixels": -0.02046859934782219,
+                    "medianForwardBackwardPixels": 0.04953767919514679,
+                    "scale": 0.9590146750687563,
+                    "ambiguous": false,
+                    "reliablePoints": 19,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.6809959841995813,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.9552586002378232
+                },
+                "sourceOrdinal": 3,
+                "box": [
+                  0.5079402156014312,
+                  0.4572549764732105,
+                  0.5556803365914089,
+                  0.5598192364065173
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.6852299197669779,
+              "sourceFrame": 103,
+              "visibility": "visible",
+              "imageSha256": "6333dde0c970680af5d045017d2795f0c5beaf03951a58cc25c25d033354af4e",
+              "verdict": "correct",
+              "ordinal": 6,
+              "example": {
+                "descriptorSha256": "530a14fa573105de6a8f6964e03af81a36b5bb31de03a483174016aed2ba2b03",
+                "checks": {
+                  "reverseOverlap": 0.9918669959495522,
+                  "consecutiveStrongFrames": 6,
+                  "forward": {
+                    "seedPoints": 27,
+                    "inliers": 21,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -0.5731127509127418,
+                    "dyPixels": 0.22907335595340328,
+                    "medianForwardBackwardPixels": 0.12068221104535835,
+                    "scale": 1.0250769116434397,
+                    "ambiguous": false,
+                    "reliablePoints": 24,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 5,
+                  "nearestAppearance": 0.7552448930254836,
+                  "reportedSpanY": 0.34308717196190563,
+                  "reverse": {
+                    "seedPoints": 29,
+                    "inliers": 23,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 0.5538043045518748,
+                    "dyPixels": -0.21920376544042597,
+                    "medianForwardBackwardPixels": 0.06482507983665743,
+                    "scale": 0.9715614356820257,
+                    "ambiguous": false,
+                    "reliablePoints": 23,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.4513161716801595,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.932356594060613
+                },
+                "sourceOrdinal": 6,
+                "box": [
+                  0.5019353430405249,
+                  0.4538156825096756,
+                  0.5539482394303101,
+                  0.565559517979343
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.7544816442122048,
+              "sourceFrame": 106,
+              "visibility": "visible",
+              "imageSha256": "1ffcbfd380e9e114601dff5f47be967b0308e3ef6d71703f53c4cc7071e29a16",
+              "verdict": "correct",
+              "ordinal": 9,
+              "example": {
+                "descriptorSha256": "e72d9e5ec52dd94b16ba2f48128304129f4cbcc15240be26d547244d70c5e383",
+                "checks": {
+                  "reverseOverlap": 0.967769175868534,
+                  "consecutiveStrongFrames": 9,
+                  "forward": {
+                    "seedPoints": 29,
+                    "inliers": 18,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -0.5625202926884612,
+                    "dyPixels": -0.23110690667230926,
+                    "medianForwardBackwardPixels": 0.08386662633922133,
+                    "scale": 0.9598242500021846,
+                    "ambiguous": false,
+                    "reliablePoints": 18,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 8,
+                  "nearestAppearance": 0.8297801026729827,
+                  "reportedSpanY": 0.607483128884644,
+                  "reverse": {
+                    "seedPoints": 29,
+                    "inliers": 23,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 0.5559558641996887,
+                    "dyPixels": -0.011564616671876138,
+                    "medianForwardBackwardPixels": 0.13900140053630314,
+                    "scale": 1.0250674410587142,
+                    "ambiguous": false,
+                    "reliablePoints": 23,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.4434272131650838,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.9655360575753051
+                },
+                "sourceOrdinal": 9,
+                "box": [
+                  0.49951601435797255,
+                  0.45615794060567066,
+                  0.5490844095138808,
+                  0.5626500411664282
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.9433362402126168,
+              "sourceFrame": 113,
+              "visibility": "visible",
+              "imageSha256": "2480dfe007abc676caae1041247d2424925b1e96d521270d042fadd47e2860fa",
+              "verdict": "correct",
+              "ordinal": 16,
+              "example": {
+                "descriptorSha256": "6d5325b1ecc005d6207476bdbc25e196869c8bd55f120e4a9b15e7b57fd39e2b",
+                "checks": {
+                  "reverseOverlap": 0.976835188607781,
+                  "consecutiveStrongFrames": 3,
+                  "forward": {
+                    "seedPoints": 21,
+                    "inliers": 16,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -0.5113243864937544,
+                    "dyPixels": -0.13305925465060398,
+                    "medianForwardBackwardPixels": 0.0769807775975151,
+                    "scale": 1.0155059410997826,
+                    "ambiguous": false,
+                    "reliablePoints": 16,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 15,
+                  "nearestAppearance": 0.7579142224758572,
+                  "reportedSpanY": 0.32978052972012195,
+                  "reverse": {
+                    "seedPoints": 22,
+                    "inliers": 19,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 0.5451483356332574,
+                    "dyPixels": 0.26685680224449015,
+                    "medianForwardBackwardPixels": 0.0752758993815607,
+                    "scale": 0.9963384337335982,
+                    "ambiguous": false,
+                    "reliablePoints": 19,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.6919093664443988,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8648552068566406
+                },
+                "sourceOrdinal": 16,
+                "box": [
+                  0.494842541115965,
+                  0.46057085099492945,
+                  0.537698982896041,
+                  0.552643077528899
+                ]
+              }
+            },
+            {
+              "targetOverlap": 0.8254021996520972,
+              "sourceFrame": 116,
+              "visibility": "visible",
+              "imageSha256": "e6c291604869d6870dfcb2fad0d341cd1df6c8745a53b1e3f676cd8f6a0821fb",
+              "verdict": "correct",
+              "ordinal": 19,
+              "example": {
+                "descriptorSha256": "22e5c1328cbe5a11dc5508829f5063e5d4742e8636a60bae1865f62580637c3f",
+                "checks": {
+                  "reverseOverlap": 0.9949373477703102,
+                  "consecutiveStrongFrames": 6,
+                  "forward": {
+                    "seedPoints": 24,
+                    "inliers": 19,
+                    "method": "pyramidal-flow",
+                    "dxPixels": -0.5980556239025248,
+                    "dyPixels": -0.15267374575122972,
+                    "medianForwardBackwardPixels": 0.11570120802197674,
+                    "scale": 0.9636784998163737,
+                    "ambiguous": false,
+                    "reliablePoints": 20,
+                    "invalidBoxRejected": false
+                  },
+                  "previousSourceOrdinal": 18,
+                  "nearestAppearance": 0.7807815367414875,
+                  "reportedSpanY": 0.49616512999301426,
+                  "reverse": {
+                    "seedPoints": 22,
+                    "inliers": 17,
+                    "method": "pyramidal-flow",
+                    "dxPixels": 0.5967591369618219,
+                    "dyPixels": 0.13891174267502038,
+                    "medianForwardBackwardPixels": 0.07650533068766753,
+                    "scale": 1.040327223709528,
+                    "ambiguous": false,
+                    "reliablePoints": 17,
+                    "invalidBoxRejected": false
+                  },
+                  "reportedSpanX": 0.7414307574773007,
+                  "verification": "motion-cycle-135",
+                  "originalColorAgreement": 0.8304524228944483
+                },
+                "sourceOrdinal": 19,
+                "box": [
+                  0.492552378056083,
+                  0.45993484382163047,
+                  0.5332347165483271,
+                  0.5473362549049676
+                ]
+              }
+            }
+          ],
+          "enabled": true,
+          "recoveries": []
+        },
+        "episodes": [
+          {
+            "hiddenStart": 48,
+            "visibleReturn": null,
+            "verifiedRecovery": null
+          }
+        ],
+        "processingMs": 14355.2684,
+        "evidence": "build/association135-comparison/bird1-97-appearance-continuity-135.json"
+      },
+      {
+        "case": "bird1-97",
+        "policy": "continuity-no-bank-135",
+        "summary": {
+          "visible": 42,
+          "correct": 19,
+          "hidden": 33,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 19,
+          "correctReacquired": 0,
+          "uncertain": 20,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.3777317645258097,
+          "missing": 23,
+          "overlapFailures": 0
+        },
+        "appearance135": {
+          "summary": {
+            "admitted": 0,
+            "correctAcceptedRecoveries": 0,
+            "incorrect": 0,
+            "unknownRecoveries": 0,
+            "incorrectRecoveries": 0,
+            "independentlyCorrect": 0,
+            "bankRecoveries": 0,
+            "unknown": 0
+          },
+          "scope": "Motion-cycle conditions are not identity truth. Separate labels score each admission and bank recovery; unlabelled/uncertain examples remain unknown. Initial seed is excluded from learned-example counts. Historical evidence retains its original source and code identity.",
+          "available": true,
+          "admissions": [],
+          "enabled": false,
+          "recoveries": []
+        },
+        "episodes": [
+          {
+            "hiddenStart": 48,
+            "visibleReturn": null,
+            "verifiedRecovery": null
+          }
+        ],
+        "processingMs": 10168.9399,
+        "evidence": "build/association135-comparison/bird1-97-continuity-no-bank-135.json"
+      }
+    ],
+    "summary": {
+      "legacy-flow": {
+        "labels": 380,
+        "visible": 327,
+        "available": 231,
+        "missing": 96,
+        "correct": 86,
+        "overlapFailures": 145,
+        "hidden": 33,
+        "unsupported": 0,
+        "confirmedDistractorMatches": 0,
+        "reacquired": 0,
+        "correctReacquired": 0,
+        "uncertain": 20,
+        "processingMs": 22115.495300000002
+      },
+      "appearance-continuity-135": {
+        "labels": 380,
+        "visible": 327,
+        "available": 231,
+        "missing": 96,
+        "correct": 86,
+        "overlapFailures": 145,
+        "hidden": 33,
+        "unsupported": 0,
+        "confirmedDistractorMatches": 0,
+        "reacquired": 0,
+        "correctReacquired": 0,
+        "uncertain": 20,
+        "processingMs": 33042.0097
+      },
+      "continuity-no-bank-135": {
+        "labels": 380,
+        "visible": 327,
+        "available": 231,
+        "missing": 96,
+        "correct": 86,
+        "overlapFailures": 145,
+        "hidden": 33,
+        "unsupported": 0,
+        "confirmedDistractorMatches": 0,
+        "reacquired": 0,
+        "correctReacquired": 0,
+        "uncertain": 20,
+        "processingMs": 22041.4714
+      }
+    },
+    "lock": {
+      "lockedAtUtc": "2026-11-13T07:47:23.992844+00:00",
+      "sourceCommit": "4f3b719ff782dbda97be76ad507861afd0ff4b2a",
+      "sourceHashes": {
+        "workspace-engine/src/main/java/fraymus/workspace/AppearanceFlow135.java": "74c5798420dbf9627ce2e40b864e274bb1d28ed0900a06c3bf6442f432789f24",
+        "workspace-engine/src/main/java/fraymus/workspace/AppearanceAudit135.java": "9b645127417cfd6d48ab634ad8ea86fbe8ec1c51733a24929c0bad477d8b6b2c",
+        "workspace-engine/src/main/java/fraymus/workspace/AssociationAudit134.java": "a4117bef7e666a33a6bc3235b239510c1bf0b70c60b11906ebdc55050635ea93",
+        "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java": "5c4f2626d341ced71aee8b13cfc07130f4b77bfb26e2ff9ba889db13b9c9dd31",
+        "workspace-engine/src/main/java/fraymus/workspace/PixelTracker.java": "32d26bafaebb26a58a09efc6f71a0089c755cccd25cec47a87be8b67005c985b",
+        "workspace-engine/src/main/java/fraymus/workspace/AdaptiveTracker.java": "394fa106c3bfd68c8066f64d933380cb4caff4b96c4d1f95dfe2ed99e479d5b5",
+        "workspace-engine/src/main/java/fraymus/workspace/ObservationFilter.java": "a0dc7560be00bca29dd7f72995d9cbe607b9e26f14be70286360dbf2d8764e21",
+        "workspace-engine/src/main/java/fraymus/workspace/ObservationMethods129.java": "4f5dd7e9b19962ee792addef5bf60a359eecb6d5fbef238944a932a2095c2d58",
+        "workspace-engine/src/test/java/fraymus/workspace/AssociationStudy134.java": "1ebe3b623041a3e3f003af08a20ac4ce08c51e29a6471df7ad4223802c468043"
+      },
+      "methods": [
+        "legacy-flow",
+        "appearance-continuity-135",
+        "continuity-no-bank-135"
+      ],
+      "sources": [
+        "Original OTB Tiger2",
+        "Original OTB Box"
+      ],
+      "protocol": "docs/EDITION_135_CONTRACT.md",
+      "priorExposure": "Synthetic development and previously exposed Jogging1 only; no selected Tiger2/Box pixels, boxes or predictions opened before lock. Public source sequence attributes seen.",
+      "promotion": false,
+      "evaluation": "Source-only occlusion/return windows and external boxes plus separate AI visibility labels frozen before predictions. Score missingness, incorrect overlap, unsupported hidden output, admission contamination, bank benefit versus disabled control and costs. No outcome tuning."
+    },
+    "sources": {
+      "createdAtUtc": "2026-11-13T07:58:40.740820+00:00",
+      "algorithmLockSha256": "357a22faab52ce37998643792552c024cf602c0518b0cc2eba7fc726bd0c5a30",
+      "downloads": [
+        {
+          "name": "Tiger2",
+          "url": "https://drive.usercontent.google.com/download?id=1dZsl1xjXcOS18Pxgla-LSCWfee7wykgq&export=download&confirm=t",
+          "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark",
+          "sha256": "2e47aec8bd04af2cc72c0b6dea231169af2facbde3cf19ba0fe46e3e0cddb29b",
+          "bytes": 32033012,
+          "images": 365,
+          "groundtruthFiles": [
+            "Tiger2/groundtruth_rect.txt"
+          ],
+          "downloadedAtUtc": "2026-11-13T07:48:10.849101+00:00",
+          "archiveJpegEntries": 365,
+          "ignoredMacResourceForks": 0
+        },
+        {
+          "name": "Box",
+          "url": "https://drive.usercontent.google.com/download?id=1C75IzHEDuMBasLdZrdplLzUxodJHU2Ir&export=download&confirm=t",
+          "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark",
+          "sha256": "4608a3ca4896b783a7c06fc3d2b43013f1d07a4b107a955064c3bb17b6402a7c",
+          "bytes": 97218473,
+          "images": 1161,
+          "groundtruthFiles": [
+            "Box/groundtruth_rect.txt",
+            "__MACOSX/Box/._groundtruth_rect.txt"
+          ],
+          "downloadedAtUtc": "2026-11-13T07:49:37.132280+00:00",
+          "archiveJpegEntries": 2322,
+          "ignoredMacResourceForks": 1161
+        },
+        {
+          "name": "David3",
+          "url": "https://drive.usercontent.google.com/download?id=171GGIJvtzAZiNTLgTIwY0_c75sGCI0LU&export=download&confirm=t",
+          "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark",
+          "sha256": "d54103423502345759d48360f07346f3590b571dae4a15b805bab120ae4abd4e",
+          "bytes": 25763390,
+          "images": 252,
+          "groundtruthFiles": [
+            "David3/groundtruth_rect.txt"
+          ],
+          "downloadedAtUtc": "2026-11-13T07:52:24.731286+00:00"
+        },
+        {
+          "name": "Bird1",
+          "url": "https://drive.usercontent.google.com/download?id=18iUYX41Dnbk0EVB7gC_kqJupCYrWnlQU&export=download&confirm=t",
+          "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark",
+          "sha256": "3e05def08be6fa9bd02859986e660d492f3d560ef760f915f04750224e1254a5",
+          "bytes": 9043643,
+          "images": 408,
+          "groundtruthFiles": [
+            "Bird1/groundtruth_rect.txt"
+          ],
+          "downloadedAtUtc": "2026-11-13T07:52:34.977155+00:00"
+        }
+      ],
+      "records": [
+        {
+          "case": "tiger2-59",
+          "name": "Tiger2",
+          "start": 59,
+          "end": 154,
+          "pack": "build/otb135/tiger2-59.fobs.json",
+          "packSha256": "1760c728d5d116c91d7079d56bd069437a1b6c6aac1ce48d31471e986b7f13b5",
+          "labels": "docs/publication135/tiger2-59-labels.json",
+          "labelsSha256": "73d15ae97581fae3a717081c06bd04a76e4e65960830c33d108167f4832f1876",
+          "frames": 96,
+          "stride": 1,
+          "width": 640,
+          "height": 480,
+          "visible": 95,
+          "hidden": 0,
+          "partial": 76,
+          "uncertain": 0,
+          "visibilityCounts": {
+            "visible": 19,
+            "partial": 76,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "domain": "real-camera",
+          "reason": "partial leaf cover and left-edge clipping",
+          "originalGroundTruth": "Tiger2/groundtruth_rect.txt"
+        },
+        {
+          "case": "box-439",
+          "name": "Box",
+          "start": 439,
+          "end": 534,
+          "pack": "build/otb135/box-439.fobs.json",
+          "packSha256": "8d7668c4096401d29bcce813df9201b7d9af47153c5e1ff40d4a2d8d2ba3086d",
+          "labels": "docs/publication135/box-439-labels.json",
+          "labelsSha256": "9f0b1494683b9df7328232c33da0ec90030e00b35b049ac13e80159be0475929",
+          "frames": 96,
+          "stride": 1,
+          "width": 640,
+          "height": 480,
+          "visible": 95,
+          "hidden": 0,
+          "partial": 47,
+          "uncertain": 0,
+          "visibilityCounts": {
+            "visible": 48,
+            "partial": 47,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "domain": "real-camera",
+          "reason": "partial cover by caliper",
+          "originalGroundTruth": "Box/groundtruth_rect.txt"
+        },
+        {
+          "case": "david3-57",
+          "name": "David3",
+          "start": 57,
+          "end": 152,
+          "pack": "build/otb135/david3-57.fobs.json",
+          "packSha256": "f0eaf4c1a1c331d91bb40f2cf5294921824186d0c29ce4cb2ecbd01a7d149f51",
+          "labels": "docs/publication135/david3-57-labels.json",
+          "labelsSha256": "76fa252eac2bb0f9a594a88a3872f4bd9b758c690b0f31c5217e4571e8bf07e8",
+          "frames": 96,
+          "stride": 1,
+          "width": 640,
+          "height": 480,
+          "visible": 95,
+          "hidden": 0,
+          "partial": 13,
+          "uncertain": 0,
+          "visibilityCounts": {
+            "visible": 82,
+            "partial": 13,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "domain": "real-camera",
+          "reason": "partial tree occlusion and return",
+          "originalGroundTruth": "David3/groundtruth_rect.txt"
+        },
+        {
+          "case": "bird1-97",
+          "name": "Bird1",
+          "start": 97,
+          "end": 192,
+          "pack": "build/otb135/bird1-97.fobs.json",
+          "packSha256": "e1751c6cdb4e49e7ce43c26b2212a73dd958cf557136d01d68c59980971530e5",
+          "labels": "docs/publication135/bird1-97-labels.json",
+          "labelsSha256": "3f5a10968b942be446c7fe1f79559581667f7f7269c2af2c698ede819b403b75",
+          "frames": 96,
+          "stride": 1,
+          "width": 720,
+          "height": 400,
+          "visible": 42,
+          "hidden": 33,
+          "partial": 17,
+          "uncertain": 20,
+          "visibilityCounts": {
+            "visible": 25,
+            "partial": 17,
+            "occluded": 33,
+            "out-of-view": 0,
+            "uncertain": 20
+          },
+          "domain": "rendered",
+          "reason": "rendered cloud disappearance and return; not real-world camera footage",
+          "originalGroundTruth": "Bird1/groundtruth_rect.txt"
+        }
+      ],
+      "sourceReview": "Source overviews at stride8 used to locate events; all384 selected original images inspected in detailed source-only crops. External boxes never came from tracker output. No fresh predictions before label freeze. Tiger2/Box/David3 retain visible remnants, so partial; rendered Bird1 has cloud disappearance and uncertain fade boundaries. No full out-of-frame return in real camera footage. Box shares a tabletop setting with previously seen Lemming but is a different target recording. Selection based on source visibility, not model outcomes.",
+      "limitations": [
+        "AI source visibility without independent human adjudication.",
+        "No independent distractor boxes; zero confirmed switches cannot establish no switching.",
+        "Existing frozen association scorer breaks recovery episodes at uncertain labels; Bird1 delay across its uncertain reveal is unresolved.",
+        "Partial-cover camera tasks and rendered hidden task must be reported separately."
+      ]
+    },
+    "defaultsUnchanged": true,
+    "promoted": false
+  },
+  "validation": "Local checks passed: 252 distinct Java tests, 161 desktop checks, executable kernel integration, actual agency regression and isolated offline/package preparation. Six actual app runs match all 570 frozen tracker/filter samples. Independent host overlap and admission checks, numeric appearance export, exact original evidence and cold recheck after owned-Java termination pass."
+}
