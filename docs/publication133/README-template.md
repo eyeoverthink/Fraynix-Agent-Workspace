@@ -28,9 +28,9 @@ The new audit can use an earlier completed run as **stored-box evidence**. It do
 
 ## What the measurements establish
 
-The fixed source set is the same five already exposed EPFL camera1 windows from edition132: 600, 1600, 2600, 3600 and 4600. Each has 96 original images; labels use slots1/25/50/75/95. **25 labels, 22 observable contact points and three unobservable contacts** remain in the evidence.
+The fixed source set is the same five already exposed EPFL camera1 windows from edition 132: 600, 1600, 2600, 3600 and 4600. Each has 96 original images; labels use slots 1/25/50/75/95. **25 labels, 22 observable contact points and three unobservable contacts** remain in the evidence.
 
-Development used600/2600. The final implementation and scorer were [locked](docs/OBSERVATION_133_LOCK.json) before running the new comparison on1600/3600/4600. No tuning followed that comparison. These are previously exposed images and retrospective AI annotations, not new trajectories, blinded human truth or held qualification. Complete target occlusion and out-of-view cases have synthetic software tests; this real subset cannot establish their general failure rates.
+Development used 600/2600. The final implementation and scorer were [locked](docs/OBSERVATION_133_LOCK.json) before running the new comparison on 1600/3600/4600. No tuning followed that comparison. These are previously exposed images and retrospective AI annotations, not new trajectories, blinded human truth or held qualification. Complete target occlusion and out-of-view cases have synthetic software tests; this real subset cannot establish their general failure rates.
 
 {{RESULTS}}
 
@@ -46,9 +46,9 @@ Source-only processing timings are measured separately from actual-app execution
 
 ## Try it
 
-1. Run [Start-Agent-Workspace.ps1](scripts/Start-Agent-Workspace.ps1) with the existing Java21 setup. [Architecture and setup](docs/ARCHITECTURE.md) remain available; no new dependency is required.
+1. Run [Start-Agent-Workspace.ps1](scripts/Start-Agent-Workspace.ps1) with the existing Java 21 setup. [Architecture and setup](docs/ARCHITECTURE.md) remain available; no new dependency is required.
 2. Open **Spatial → Real footage**, import a supported frame package or local video, and identify the source object in its first image. Seed quality matters: a partial or ambiguous seed can prevent reliable association.
-3. Use **Independent labels → Open source-only view** to inspect original pixels and freeze visibility/contact labels. Mark only observable points and declare prior exposure honestly. Existing edition132 label import/export still works.
+3. Use **Independent labels → Open source-only view** to inspect original pixels and freeze visibility/contact labels. Mark only observable points and declare prior exposure honestly. Existing edition 132 label import/export still works.
 4. Keep **Existing flow tracker**, or explicitly select **Experimental133 · appearance association & visual support**. Confirm the saved world/body binding and run tracking. The candidate records association and support evidence in the same durable observation run.
 5. Select a frozen label set and completed run in the independent-label controls. Open **Visual support → Evaluate selected run & labels**. The audit recomputes support from the retained boxes and original pixels; label coordinates never enter estimation.
 6. Inspect the labelled sample selector. Gold is the annotation; teal is the visual-support candidate; pink is the retained box. No teal point means support was withheld. Read availability, missing counts and unobservable references before comparing means.

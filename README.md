@@ -1,111 +1,106 @@
-# Fraynix Agent Workspace — Edition 132
+# Fraynix Agent Workspace — Edition 133
 
-[Published and fetched verification receipt](docs/PUBLICATION_132.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-132)
-
-**Independent visibility and ground-contact labels now live in the Java application. Mark original images, freeze the evidence, compare tracking against it, and recheck the same result after restart. Tracking and forecasting defaults remain unchanged.**
+**Java now has an explicit appearance-association candidate and a separate pixel-derived visual-support estimator. Both expose uncertainty and refusal. Saved contact comparisons recheck original images, labels, runs and outcomes after restart. Existing tracking, metric anchors and forecasting defaults remain unchanged.**
 
 2026-11-12 · Local Java agent · Persistent world, browser, creation and observation
 
-[Previous edition](README-131.md) · [All editions](docs/readmes/INDEX.md) · [Illustrated offline guide](docs/readmes/132/index.html) · [Acceptance contract](docs/EDITION_132_CONTRACT.md) · [Fixed diagnostic protocol](docs/OBSERVATION_132_PROTOCOL.json)
+[Previous edition](README-132.md) · [All editions](docs/readmes/INDEX.md) · [Illustrated offline guide](docs/readmes/133/index.html) · [Contract](docs/EDITION_133_CONTRACT.md) · [Frozen implementation comparison](docs/OBSERVATION_133_LOCK.json)
 
-![Actual application with independently labelled contact evidence](docs/readmes/132/source-contact-label.png)
+![Visual support in the actual application](docs/readmes/133/default-visual-support.png)
 
-Original public EPFL footage in the actual application. The yellow mark is the reviewer's contact annotation; there is no tracker overlay in this view. It is not a new webcam recording or a generated mockup.
+Actual app with public EPFL footage. Pink marks the retained tracking box, gold the independent AI-reviewed annotation, and teal the new visual-support candidate. Source-only annotation remains a separate view without tracking overlays. No generated mockups or new private webcam footage.
 
 ## The connected application
 
-Fraynix joins **observe → choose → act → verify → retain → evaluate reuse** in one local workspace. Java owns continuing worlds, durable tasks, typed actions, source evidence, recovery and reusable procedures. Chat, browser, the creation canvas, Game Lab and 3D physics are working surfaces of that system. Observations can become a verified motion explorer; successful creation and world procedures retain their evidence and can be inspected, retired or reactivated.
+Fraynix connects **observe → choose → act → verify → retain → evaluate reuse** in one local workspace. Java owns persistent worlds, durable goals, action validation, recovery, evidence and reusable procedures. Chat, browser, creation canvas, Game Lab and physics are working surfaces of that system. Observed motion can become a verified artifact; successful procedures retain their sources and can be inspected, retired or reactivated.
 
-This edition strengthens the boundary between seeing a plausible track and having evidence for a physical claim. It adds handwritten Java logic and desktop controls without a new model, external runtime library or paid service. It does not claim person recognition, consciousness, general physical accuracy or hardware actuation. Existing simulation and observation state remain separate.
+This edition improves how the app investigates physical observations. It adds handwritten Java processing and real desktop controls without a new model, paid service or runtime dependency. It does not turn appearance matches into personal identification, or visual support into certified physical contact. Native simulated state remains separate from camera estimates.
 
 ## What changed
 
-- **Source-only annotation view.** Open imported footage before running a tracker. Inspect original frames, choose the source object, label visibility, and click an observable contact point. The view does not request or display tracking output. The first frame remains an identification seed and is excluded from scoring.
-- **Explicit uncertainty.** Visibility can be visible, partial, fully occluded, out of view or uncertain. Contact can be observed, occluded, out of view, not grounded or uncertain. Only an observed contact receives coordinates and a declared 1–32 source-pixel allowance. The server refuses a visible contact on a fully hidden or uncertain target, incompatible frame labels, duplicate samples and invented hidden coordinates.
-- **Immutable evidence.** Freeze ordered labels with an annotator, method, provenance and prior-exposure declaration. Every row binds its original frame number and image checksum. The set binds the complete original dataset. Corrections are new sets; existing labels are never overwritten. Export/import preserves the exact set identity and refuses altered exports.
-- **Independent downstream scoring.** Choose a completed run of that same source. Java scores accepted measurements against the frozen labels, separates visibility categories, keeps missing contacts in the denominator, and compares both raw box and filtered anchors with visible contact points. An optional matching camera calibration projects those errors into metres.
-- **Cold re-verification.** Saved comparisons bind the label set, completed run, code and optional metric view. Reopening rereads original image bytes and recomputes the outcome. Changed evidence, code, clock, geometry or outcome refuses. Each project retains up to 64 label sets and 64 comparisons without pruning. Verification reads the original observation history once per immutable dataset snapshot, then checks every image byte checksum; it does not repeatedly revalidate the growing history for each image or substitute cached success for original bytes.
+- **Explicit association candidate.** Select `association-contact-133` for a new run. It compares frozen seed appearance and surrounding context, searches bounded scale/position alternatives, checks spatially separate competing matches and can corroborate a weaker match with local optical flow. It preserves the original appearance instead of training itself on each new guess. After loss, stronger original-appearance agreement and two successive consistent proposals are required before reacquisition.
+- **Pixel-derived support.** `VisualSupport133` learns a fixed lower-object versus surrounding-color contrast from the seed. It finds connected lower-object pixels and requires their termination to lie within the image and search region. It withholds sparse, clipped, unseparated or missing support. The box bottom is never substituted when support is missing.
+- **Contact estimation independent of tracker choice.** A new contact audit can evaluate the existing flow tracker's retained boxes or the explicit association candidate. The estimator does not need to replace the tracker to be useful. The ordinary box-bottom metric anchor and its uncertainty remain unchanged.
+- **Evidence survives restart.** Every audit binds the exact label set, source manifest, complete original run, original tracker code and current support implementation. It checks every original image, including unlabelled frames, and recomputes its result when reopened. Up to 64 immutable audits are retained without pruning. Export writes the verified original record.
+- **Readable audit overlays.** Inspect each labelled frame, see the candidate point or its refusal reason, and compare available/missing contacts beside accepted-only errors. An unsupported point on an unobservable reference remains an explicit count.
 
-Labels do not enter tracker updates, the observation filter, forecasting, fitting or native actions. `legacy-flow` remains the tracking default; ordinary adjacent-point forecasts remain the forecasting default. Earlier experimental choices and their failed qualification results remain intact.
+The new audit can use an earlier completed run as **stored-box evidence**. It does not rerun the earlier tracker, assert a new tracking proof or rewrite its code identity. Earlier incompatible tracking proofs remain retained and refused by their existing checks; this edition does not relabel them as current. The contact audit records `trackerReplayed: false` and preserves the original tracker-code identity.
 
-Every estimate and numeric tracker field across all **950 frames** is compared with the already published edition131 traces on identical source bytes. They match exactly; only the declared object identity and descriptive label differ between the historical standalone study and the persistent app. See the [published-evidence compatibility check](docs/readmes/132/compatibility.json).
+## What the measurements establish
 
-## What the labels mean
+The fixed source set is the same five already exposed EPFL camera1 windows from edition 132: 600, 1600, 2600, 3600 and 4600. Each has 96 original images; labels use slots 1/25/50/75/95. **25 labels, 22 observable contact points and three unobservable contacts** remain in the evidence.
 
-A box's bottom centre is an assumption about contact, not an independent observation. A walking person's planted foot can differ from that centre because of pose, cropping, occlusion and tracking drift. The annotation convention used here marks the midpoint of visible support extremities when both contact the ground, otherwise a visible planted foot. Hidden or ambiguous support is not reconstructed from the track.
+Development used 600/2600. The final implementation and scorer were [locked](docs/OBSERVATION_133_LOCK.json) before running the new comparison on 1600/3600/4600. No tuning followed that comparison. These are previously exposed images and retrospective AI annotations, not new trajectories, blinded human truth or held qualification. Complete target occlusion and out-of-view cases have synthetic software tests; this real subset cannot establish their general failure rates.
 
-The allowance describes reviewer imprecision in original pixels. It is not a calibrated probability interval and is never added to the tracker radius. Projected errors use the same declared camera calibration as the tracker, so they isolate contact disagreement; they do **not** independently validate camera geometry, scale or real-world location. A measurement while fully hidden is unsupported by that frame, but is not sufficient proof of an identity switch. Unlabelled frames remain unevaluated.
-
-## Fixed retrospective diagnostic
-
-Before the new comparisons, the protocol and manual annotations were committed. We reused five already studied EPFL Terrace camera1 windows beginning at 600, 1600, 2600, 3600 and 4600. Each has 96 original frames. The fixed label slots are 1, 25, 50, 75 and 95: **25 labels, 22 observable contacts and three unobservable contacts**. All slots remain in the evidence. Ten serial runs compare default flow with the explicit, unpromoted edition131 candidate.
-
-The annotations were visually reviewed by AI from original images without tracker overlays. The reviewer had already seen edition131 aggregate results. They are independent of the tracking calculations, **not blinded human gold-standard, new trajectories, new population or held qualification**. The original annotations and exposure declaration are in [source-labels.json](docs/publication132/source-labels.json). No tuning or promotion follows this diagnostic.
-
-| Method | Available / visible contacts | Missing | Within 3 px / visible contacts | Raw mean error / px | Filtered mean error / px | Projected mean / m |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| legacy-flow | 21 / 22 | 1 | 0 / 22 | 40.956 | 40.974 | 1.024 |
-| renewing-flow-131 | 13 / 22 | 9 | 0 / 22 | 22.699 | 22.667 | 0.626 |
+| Method | Available / observable | Missing | Within 3 px / observable | Accepted-only mean / px | Unsupported on unobservable references |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Published 132 default filtered box anchor | 21 /22 | 1 | 0 /22 | 40.974 | Not a support-point estimate |
+| candidate visual support | 4 /22 | 18 | 2 /22 | 4.278 | 0 |
+| default-support visual support | 8 /22 | 14 | 5 /22 | 3.275 | 0 |
 
 
-Accepted-only mean errors exclude missing contacts. Read them beside the available/total counts. The fixed sample contains partial occlusion and one cropped contact, but **no fully occluded or completely out-of-view target labels**. Those paths have synthetic software tests; this real-footage subset cannot estimate their false-measurement rates or general false-reacquisition performance.
+The frozen comparison subset 1600/3600/4600 has 14 observable contacts. candidate: 3/14 returned, 1/14 within 3 px, mean accepted error 5.331px. default-support: 5/14 returned, 2/14 within 3 px, mean accepted error 4.617px. On all 8 samples where default-box visual support is available, the original raw box anchor averages 11.468px error and new support 3.275px. This paired subset is descriptive; it does not erase the missing contacts. The conservative association candidate misses too many targets. Contact precision improves on some visible samples, but availability is substantially lower.
 
-On the 13 contact samples measured by both methods, mean filtered contact error is 22.604 px for default and 22.667 px for the candidate. This paired subset is descriptive, not qualification. The labels expose contact-anchor disagreement separately from missing tracks; they do not fix either error. Physical accuracy remains unresolved. In window2600 the default anchor differs horizontally from the visible marked contact by 51.7px at sample50, 81.5px at sample75, 109.1px at sample95. Changing box height alone cannot correct these labelled horizontal errors. Target association needs independent review alongside contact estimation; this does not by itself certify an identity switch.
+The three-pixel allowance describes reviewer precision, not calibrated probability. Accepted-only errors exclude missing contacts; availability stays in every table. A visible foot-shaped region is an image hypothesis, not proof of contact with a real plane. Appearance similarity cannot certify object identity. **Neither candidate is promoted. Physical accuracy and general association remain unresolved.**
 
-| Method | Tracking timed runs / ms | Verified UI comparisons / ms |
+| Processing | Measured total / ms | Scope |
+| --- | ---: | --- |
+| candidate | 41921.7 | Five fixed 96-image windows; new tracking/filter/support |
+| default-support | 1670.9 | Five fixed 96-image windows; new support on published default boxes; historical tracking excluded |
+
+| Actual app run | Tracking / ms | Verified UI audit / ms |
 | --- | ---: | ---: |
-| legacy-flow | 955231.2 (5/5 timed) | 64008.1 |
-| renewing-flow-131 | 1023622.3 (3/5 timed) | 74628.6 |
+| association-contact-133 | 12955.9 | 363.5 |
+| legacy-flow | 24936.6 | 1271.2 |
 
 
-Timing records the original and continued serial work on this computer. Completed tracker runs were retained across two driver timeouts. Two candidate tracking timers were not saved before those timeouts and remain unavailable. The table states how many runs have retained timings; missing timing is not zero. Tracking includes selection, worker startup, source processing and polling. Comparison includes the real UI request, source verification, scoring and the returned result; it is not just arithmetic time. These measurements are diagnostic, not a stable speed benchmark.
+Source-only processing timings are measured separately from actual-app execution. New support on published default boxes does not include the historical cost of tracking those boxes. Do not compare it as a faster replacement tracker. Actual-app timings include Java execution, original-source verification and UI completion, and are reported separately.
 
-![Actual comparison with missing observations retained](docs/readmes/132/audit-1600.png)
+![Candidate refusal in the actual application](docs/readmes/133/candidate-withheld.png)
 
-## Try the workflow
+## Try it
 
-1. Start the prepared Java21 workspace with [Start-Agent-Workspace.ps1](scripts/Start-Agent-Workspace.ps1). Existing setup instructions remain in [architecture](docs/ARCHITECTURE.md). This edition adds no installation requirement.
-2. In **Spatial → Real footage**, import a frame package or local video and identify the source object in its first frame. Import alone does not run tracking.
-3. Open **Independent labels · visibility & ground contact**. Select the footage and source object, then **Open source-only view**. Move the sample slider; sample zero is only the original seed.
-4. Label visibility and contact separately. Click a visible ground-contact point only when supported by the pixels. Describe the evidence and its pixel allowance; use unknown/occluded/out-of-view when appropriate. **Keep this label in draft** for each sample.
-5. Declare the annotator, method, prior exposure and provenance, then **Freeze source-bound labels**. Drafts are window-local until frozen. Revisions create new retained sets rather than replacing originals.
-6. Track the same footage using the existing flow default, or explicitly choose a candidate. Confirm the saved world and source-object/body binding as before. Predictions through missing frames are not counted as measurements.
-7. Select the frozen label set and completed run. Choose **Image pixels only**, or the correct fixed-camera calibration and original clock. **Compare with frozen labels** shows visibility counts, missing contacts and both anchor errors.
-8. **Export verified labels** to the project's exports. Import works against the same original dataset identity; it is not an unverified cross-project rebinding. Preserve the project with its original images to keep evidence readable. **Recheck original comparison** after restart to verify every source and outcome again.
+1. Run [Start-Agent-Workspace.ps1](scripts/Start-Agent-Workspace.ps1) with the existing Java 21 setup. [Architecture and setup](docs/ARCHITECTURE.md) remain available; no new dependency is required.
+2. Open **Spatial → Real footage**, import a supported frame package or local video, and identify the source object in its first image. Seed quality matters: a partial or ambiguous seed can prevent reliable association.
+3. Use **Independent labels → Open source-only view** to inspect original pixels and freeze visibility/contact labels. Mark only observable points and declare prior exposure honestly. Existing edition 132 label import/export still works.
+4. Keep **Existing flow tracker**, or explicitly select **Experimental133 · appearance association & visual support**. Confirm the saved world/body binding and run tracking. The candidate records association and support evidence in the same durable observation run.
+5. Select a frozen label set and completed run in the independent-label controls. Open **Visual support → Evaluate selected run & labels**. The audit recomputes support from the retained boxes and original pixels; label coordinates never enter estimation.
+6. Inspect the labelled sample selector. Gold is the annotation; teal is the visual-support candidate; pink is the retained box. No teal point means support was withheld. Read availability, missing counts and unobservable references before comparing means.
+7. Use **Export verified comparison** or **Recheck source & outcome**. Reopen after restart to verify the same evidence. Preserve the project and its original images; the exported audit alone is not a replacement for those source bytes.
 
-The existing observation-to-artifact chat workflow remains available: choose a calibrated run, prepare an explorer request, retain the forecast, create the artifact, independently check its contents, and save the procedure. This edition does not give the model authority to declare its own annotations independent or to use them as verified native movement.
+The observation-to-artifact chat workflow remains available. This edition adds no authority to convert an uncertain visual point into native movement. The Java goal runner still requires the existing action and outcome checks.
 
-## Tests and actual application checks
+## Validation and retained failures
 
-Local checks passed: 210 distinct Java methods across the broad baseline and affected final-verifier suites, 161 desktop checks, executable kernel harnesses, actual agency regression and isolated offline/package preparation. The actual app independently checks label arithmetic, source identities, export/import and cold restart. No existing verification condition was weakened.
+Local checks passed: 222 distinct Java tests, 161 desktop checks, executable kernel integration, actual agency regression and isolated offline/package preparation. Actual app checks independently recompute contact errors, compare 190 original tracker/filter frames, export exact evidence and cold-recheck after owned-Java termination. Existing verification conditions remain intact.
 
-The new Java tests cover source-only reads before tracking, unchanged native state, hidden versus partial versus missing counts, separate raw/filtered anchors, reference isolation, seed/duplicate/fractional/wrong-image refusals, impossible contact labels, damaged exports, exact restart, tampered labels/audits/images, wrong-dataset/incomplete-run refusal and capacity retention. Synthetic labels are explicitly marked as synthetic; they do not stand in for physical measurements.
+The new tests cover distinct versus identical distractors, missing lower pixels, clipped support, full disappearance, two-image recovery, source dimensions, immutable audit identities, original/unlabelled-image tampering, label isolation, wrong datasets, interrupted runs and unchanged native worlds. Generated controls validate software behavior, not real-world physical accuracy.
 
-- Original source view and real canvas contact click work before tracking. All 25 fixed study labels frozen through actual import controls before any new run. Three unobservable contacts retain no coordinates.
-- Original audit 519ab736c8b0 retains its identity; newly verified audit has identical numerical/source results and a new implementation identity.
-- Original audit 47bd3a9826ed retains its identity; newly verified audit has identical numerical/source results and a new implementation identity.
-- Original audit 519ab736c8b0 retains its identity; new implementation audit matches its numerical/source results.
-- Original audit af00e8089028 retains its identity; idempotent recheck matches its numerical/source results.
-- Original audit 47bd3a9826ed retains its identity; new implementation audit matches its numerical/source results.
-- Original audit f677f25c8236 retains its identity; idempotent recheck matches its numerical/source results.
-- Original audit 8218098a6969 retains its identity; idempotent recheck matches its numerical/source results.
-- Ten real Java tracker runs, including completed runs preserved from timed-out driver attempts, complete serially on the fixed public pixels. Independent host arithmetic agrees with every available contact error. Each audit retains original frame hashes, source binding and missing labels. Native world unchanged.
-- Actual comparison values checked at 1100 and 1600 px without horizontal page overflow; export bytes re-import idempotently with the same immutable identity.
-- Abrupt owned-Java termination and cold restart preserve all five frozen label sets, all ten original runs/audits and the untouched native world. Actual saved-comparison control recomputes the same result.
+- Default remains legacy-flow. Original600 pixels imported, existing source-only AI labels frozen through real controls before new runs; no annotations enter tracker or support estimator.
+- Both methods run through the real Java observation service. All190 estimate/tracker frames match frozen development or published132 originals, with only declared body identity/description differences. Host arithmetic independently checks every available contact error; native world unchanged.
+- Actual overlay, source sample selection, withheld-point display and comparison controls work at1100/1600 without page overflow. Export bytes equal the verified immutable record.
+- Abrupt owned-Java termination and cold restart retain both original runs, labels, contact proofs and untouched native world. Reopening actual saved comparison recomputes the same result.
 
-The first app attempt froze all labels and completed two tracker runs, but its second audit recheck exceeded the driver's 30-second wait. Original source code/class, saved audits, traces, failed driver records and a later failure screenshot are retained. The cause was repeatedly validating the entire growing observation history for each source image. The new verifier validates that history once per immutable dataset snapshot and still rereads/checks every original image, including unlabelled frames. The affected suites pass again. Continuation retains both completed tracker runs, creates new audit identities, compares original numerical outcomes and completes the remaining runs. The old audit identities are not relabelled under the new implementation. A bounded 120-second UI wait accommodates genuine source work; no source or outcome check is removed.
+The first development compilation failed because the standalone scoring driver used a compound `var` declaration; it was corrected. Initial synthetic checks caught accumulated box shrinkage and a missed identical competitor. Search scale now stays bounded against the original seed, and competitor refinement aligns pixel sampling; the unchanged controls pass. Logs/XML are retained.
 
-A later driver wait stopped at90 seconds while the fourth tracker run completed its original95 frames. This is the existing full-history tracking cost, not an incorrect label result. The four completed runs remain unchanged. Continuation uses a bounded10-minute tracking wait and keeps unavailable timer records absent; it does not skip source/history checks, shorten the fixed footage or restart completed runs. Both failed driver records remain, along with the retained later failure screenshot.
+The first development candidate returned two close contact points in600 but found a plausible wrong dark-coated object after loss. Context alone did not solve that reassignment. Stronger original-appearance recovery and local-motion corroboration were developed only on600/2600; the final stricter candidate retains fewer observations. Pixel-derived support was then separated so it can improve contact estimates on the original default boxes without adopting the strict tracker. Every intermediate development output is retained. First and final implementations are committed; intermediate parameter variants were not individually frozen and are not qualification evidence.
 
-[Verification](docs/readmes/132/verification.json) · [Actual app study](docs/readmes/132/app-study.json) · [Complete comparison](docs/readmes/132/comparison.json) · [Original evidence](docs/readmes/132/original-evidence.json) · [Source inventory](docs/readmes/132/file-inventory.json)
+The final algorithm/audit/scorer was locked before1600/3600/4600. Their full misses and unsupported rows remain. No post-comparison tuning or default change. All real labels are retrospective AI source review, not certified physical ground truth.
 
-CI was checked first and is reported separately from local verification. Pending hosted runs are never counted as passed. Publication is claimed only after main, edition132 and the annotated readme-132 tag have actually been pushed and fetched, with every source and frozen evidence hash checked. Private projects, raw video/frame packs, dependency folders and browser profiles are excluded. Limited public screenshots are attributed to [EPFL CVLab POM](https://www.epfl.ch/labs/cvlab/data/data-pom-index-php/); original research-use footage stays local.
+The first actual-app driver attempt stopped before tracking: its method selector was inside a collapsed section. The driver now opens that section before selecting it. The original project, failure screenshot and log remain in contact133-app-first-collapsed-control; no completed source run was repeated.
+
+The second UI attempt revealed a production integration error before tracking: a Windows default-encoding rewrite changed Unicode text and prevented the candidate-option replacement. The three affected desktop files were reconstructed from original UTF-8 Git sources with only the intended integration edits. The locked Java candidate/audit/scorer did not change. Packaging, desktop and agency checks were rerun on the corrected UI. The failed project/screenshot/log remain in contact133-app-second-missing-option.
+
+
+[Verification](docs/readmes/133/verification.json) · [Comparison and paired samples](docs/readmes/133/comparison.json) · [Actual-app evidence](docs/readmes/133/app-study.json) · [Original records](docs/readmes/133/original-evidence.json) · [Source inventory](docs/readmes/133/file-inventory.json)
+
+CI was checked before changes and remains a separate result from local tests and publication. A pending hosted run is never counted as a pass. Publication is claimed only after main, edition133 and readme-133 are pushed and fetched with their source and evidence verified. Private projects, raw video/frame packages and dependency/browser folders remain local. Limited public screenshots are attributed to [EPFL CVLab POM](https://www.epfl.ch/labs/cvlab/data/data-pom-index-php/).
 
 ## Next steps
 
-1. Obtain independent human review of contact/identity annotations and sequences with complete occlusion and genuine out-of-view transitions. Measure reviewer disagreement instead of treating these AI marks as certified truth.
-2. Check target association and implement an explicit ground-contact estimator that can say “unobservable,” and compare it with the current box-bottom assumption using separate development and untouched evaluation sequences. Keep identity association and contact accuracy as separate questions.
-3. Fit uncertainty on separate evidence, then check both useful width and coverage at fixed future horizons. Edition129's 28/30→16/30 coverage loss and the failed130/131 promotion gates are still unresolved evidence, not erased history.
-4. Connect justified physical tolerances to durable Java goals: request another view or refuse when the current observation cannot support an action. Keep advancing the unified mission, source-age, uncertainty and skills layout around the connected application.
+1. Obtain human-adjudicated association and contact labels, including ambiguous seeds, complete occlusion, similar-looking objects and actual exits/re-entries. Measure disagreements between reviewers.
+2. Improve availability without allowing unsupported reassignment. Evaluate multiple appearance hypotheses and part-level evidence against the simpler controls on separate, untouched sequences.
+3. Validate support geometry and uncertainty at fixed prediction horizons. Preserve the earlier coverage failures and missing samples; a narrower radius is useful only when its measured coverage remains adequate.
+4. Connect supported physical tolerances and source age to durable Java goals: request a better view or withhold the action when evidence is insufficient. Continue the unified world/browser/creation interface and reusable skills rather than letting the app become disconnected experiments.
 
-The destination remains a continuing local Java agent that observes, creates, tests and retains useful procedures with checkable outcomes.
+The destination remains one continuing local agent that observes, creates, tests and retains useful procedures with checkable outcomes.

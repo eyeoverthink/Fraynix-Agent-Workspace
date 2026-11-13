@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "association",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/AssociationContact133.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "support",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/VisualSupport133.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "audit",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ContactAudit133.java",
+      "x": 0,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "panel",
+      "type": "file",
+      "file": "workspace-desktop/renderer/contact133-panel.js",
+      "x": 430,
+      "y": 250,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "association",
+      "toNode": "support"
+    },
+    {
+      "id": "1",
+      "fromNode": "support",
+      "toNode": "audit"
+    },
+    {
+      "id": "2",
+      "fromNode": "audit",
+      "toNode": "panel"
+    }
+  ]
+}

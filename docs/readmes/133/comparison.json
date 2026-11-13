@@ -1,0 +1,429 @@
+{
+  "rows": [
+    {
+      "window": 600,
+      "policy": "candidate",
+      "development": true,
+      "evidence": "build/association133-development/final-600.json",
+      "summary": {
+        "meanPx": 1.118033988749891,
+        "unsupported": 0,
+        "processingMs": 7390.8188,
+        "within": 1,
+        "observable": 5,
+        "available": 1
+      },
+      "pairs": [
+        {
+          "window": 600,
+          "ordinal": 1,
+          "defaultRawPx": 12.204986500098478,
+          "defaultFilteredPx": 11.968491979827016,
+          "supportPx": 1.118033988749891
+        }
+      ]
+    },
+    {
+      "window": 600,
+      "policy": "default-support",
+      "development": true,
+      "evidence": "build/association133-development/default-support-600.json",
+      "summary": {
+        "meanPx": 1.0387006598552324,
+        "unsupported": 0,
+        "processingMs": 338.6219,
+        "within": 3,
+        "observable": 5,
+        "available": 3
+      },
+      "pairs": [
+        {
+          "window": 600,
+          "ordinal": 1,
+          "defaultRawPx": 12.204986500098478,
+          "defaultFilteredPx": 11.968491979827016,
+          "supportPx": 1.118033988749891
+        },
+        {
+          "window": 600,
+          "ordinal": 25,
+          "defaultRawPx": 11.964802786136294,
+          "defaultFilteredPx": 12.497394415923386,
+          "supportPx": 1.569496562244379
+        },
+        {
+          "window": 600,
+          "ordinal": 50,
+          "defaultRawPx": 18.638574690680613,
+          "defaultFilteredPx": 18.864398146736676,
+          "supportPx": 0.42857142857142705
+        }
+      ]
+    },
+    {
+      "window": 1600,
+      "policy": "candidate",
+      "development": false,
+      "evidence": "build/association133-comparison/candidate-1600.json",
+      "summary": {
+        "meanPx": 2.9999999999999893,
+        "unsupported": 0,
+        "processingMs": 8921.259,
+        "within": 1,
+        "observable": 5,
+        "available": 1
+      },
+      "pairs": [
+        {
+          "window": 1600,
+          "ordinal": 1,
+          "defaultRawPx": 7.689310876382014,
+          "defaultFilteredPx": 7.732198181960626,
+          "supportPx": 2.9999999999999893
+        }
+      ]
+    },
+    {
+      "window": 1600,
+      "policy": "default-support",
+      "development": false,
+      "evidence": "build/association133-comparison/default-support-1600.json",
+      "summary": {
+        "meanPx": 2.9999999999999893,
+        "unsupported": 0,
+        "processingMs": 363.0553,
+        "within": 1,
+        "observable": 5,
+        "available": 1
+      },
+      "pairs": [
+        {
+          "window": 1600,
+          "ordinal": 1,
+          "defaultRawPx": 7.689310876382014,
+          "defaultFilteredPx": 7.732198181960626,
+          "supportPx": 2.9999999999999893
+        }
+      ]
+    },
+    {
+      "window": 2600,
+      "policy": "candidate",
+      "development": true,
+      "evidence": "build/association133-development/final-2600.json",
+      "summary": {
+        "meanPx": null,
+        "unsupported": 0,
+        "processingMs": 10823.2546,
+        "within": 0,
+        "observable": 3,
+        "available": 0
+      },
+      "pairs": []
+    },
+    {
+      "window": 2600,
+      "policy": "default-support",
+      "development": true,
+      "evidence": "build/association133-development/default-support-2600.json",
+      "summary": {
+        "meanPx": null,
+        "unsupported": 0,
+        "processingMs": 302.8616,
+        "within": 0,
+        "observable": 3,
+        "available": 0
+      },
+      "pairs": []
+    },
+    {
+      "window": 3600,
+      "policy": "candidate",
+      "development": false,
+      "evidence": "build/association133-comparison/candidate-3600.json",
+      "summary": {
+        "meanPx": 6.009252125773294,
+        "unsupported": 0,
+        "processingMs": 6487.693,
+        "within": 0,
+        "observable": 4,
+        "available": 1
+      },
+      "pairs": [
+        {
+          "window": 3600,
+          "ordinal": 1,
+          "defaultRawPx": 15.062899622084664,
+          "defaultFilteredPx": 15.32769086610081,
+          "supportPx": 6.009252125773294
+        }
+      ]
+    },
+    {
+      "window": 3600,
+      "policy": "default-support",
+      "development": false,
+      "evidence": "build/association133-comparison/default-support-3600.json",
+      "summary": {
+        "meanPx": 4.140381682904599,
+        "unsupported": 0,
+        "processingMs": 339.4794,
+        "within": 1,
+        "observable": 4,
+        "available": 2
+      },
+      "pairs": [
+        {
+          "window": 3600,
+          "ordinal": 1,
+          "defaultRawPx": 15.062899622084664,
+          "defaultFilteredPx": 15.32769086610081,
+          "supportPx": 6.009252125773294
+        },
+        {
+          "window": 3600,
+          "ordinal": 25,
+          "defaultRawPx": 11.397008078043589,
+          "defaultFilteredPx": 10.992247138132322,
+          "supportPx": 2.2715112400359043
+        }
+      ]
+    },
+    {
+      "window": 4600,
+      "policy": "candidate",
+      "development": false,
+      "evidence": "build/association133-comparison/candidate-4600.json",
+      "summary": {
+        "meanPx": 6.98323886173171,
+        "unsupported": 0,
+        "processingMs": 8298.6521,
+        "within": 0,
+        "observable": 5,
+        "available": 1
+      },
+      "pairs": [
+        {
+          "window": 4600,
+          "ordinal": 1,
+          "defaultRawPx": 3.437270536428888,
+          "defaultFilteredPx": 3.515318355841526,
+          "supportPx": 6.98323886173171
+        }
+      ]
+    },
+    {
+      "window": 4600,
+      "policy": "default-support",
+      "development": false,
+      "evidence": "build/association133-comparison/default-support-4600.json",
+      "summary": {
+        "meanPx": 5.901674983876003,
+        "unsupported": 0,
+        "processingMs": 326.892,
+        "within": 0,
+        "observable": 5,
+        "available": 2
+      },
+      "pairs": [
+        {
+          "window": 4600,
+          "ordinal": 1,
+          "defaultRawPx": 3.437270536428888,
+          "defaultFilteredPx": 3.515318355841526,
+          "supportPx": 6.98323886173171
+        },
+        {
+          "window": 4600,
+          "ordinal": 50,
+          "defaultRawPx": 11.346821461456397,
+          "defaultFilteredPx": 10.612500903482395,
+          "supportPx": 4.820111106020295
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "candidate": {
+      "available": 4,
+      "observable": 22,
+      "missing": 18,
+      "within": 2,
+      "unsupported": 0,
+      "meanPx": 4.277631244063721,
+      "processingMs": 41921.6775
+    },
+    "default-support": {
+      "available": 8,
+      "observable": 22,
+      "missing": 14,
+      "within": 5,
+      "unsupported": 0,
+      "meanPx": 3.2750269141408612,
+      "processingMs": 1670.9102
+    }
+  },
+  "prospectiveSummary": {
+    "candidate": {
+      "available": 3,
+      "observable": 14,
+      "missing": 11,
+      "within": 1,
+      "unsupported": 0,
+      "meanPx": 5.330830329168331,
+      "processingMs": 23707.6041
+    },
+    "default-support": {
+      "available": 5,
+      "observable": 14,
+      "missing": 9,
+      "within": 2,
+      "unsupported": 0,
+      "meanPx": 4.616822666712238,
+      "processingMs": 1029.4267
+    }
+  },
+  "paired": {
+    "candidate": {
+      "count": 4,
+      "defaultRawMeanPx": 9.59861688374851,
+      "supportMeanPx": 4.277631244063721,
+      "rows": [
+        {
+          "window": 600,
+          "ordinal": 1,
+          "defaultRawPx": 12.204986500098478,
+          "defaultFilteredPx": 11.968491979827016,
+          "supportPx": 1.118033988749891
+        },
+        {
+          "window": 1600,
+          "ordinal": 1,
+          "defaultRawPx": 7.689310876382014,
+          "defaultFilteredPx": 7.732198181960626,
+          "supportPx": 2.9999999999999893
+        },
+        {
+          "window": 3600,
+          "ordinal": 1,
+          "defaultRawPx": 15.062899622084664,
+          "defaultFilteredPx": 15.32769086610081,
+          "supportPx": 6.009252125773294
+        },
+        {
+          "window": 4600,
+          "ordinal": 1,
+          "defaultRawPx": 3.437270536428888,
+          "defaultFilteredPx": 3.515318355841526,
+          "supportPx": 6.98323886173171
+        }
+      ]
+    },
+    "default-support": {
+      "count": 8,
+      "defaultRawMeanPx": 11.467709318913867,
+      "supportMeanPx": 3.2750269141408612,
+      "rows": [
+        {
+          "window": 600,
+          "ordinal": 1,
+          "defaultRawPx": 12.204986500098478,
+          "defaultFilteredPx": 11.968491979827016,
+          "supportPx": 1.118033988749891
+        },
+        {
+          "window": 600,
+          "ordinal": 25,
+          "defaultRawPx": 11.964802786136294,
+          "defaultFilteredPx": 12.497394415923386,
+          "supportPx": 1.569496562244379
+        },
+        {
+          "window": 600,
+          "ordinal": 50,
+          "defaultRawPx": 18.638574690680613,
+          "defaultFilteredPx": 18.864398146736676,
+          "supportPx": 0.42857142857142705
+        },
+        {
+          "window": 1600,
+          "ordinal": 1,
+          "defaultRawPx": 7.689310876382014,
+          "defaultFilteredPx": 7.732198181960626,
+          "supportPx": 2.9999999999999893
+        },
+        {
+          "window": 3600,
+          "ordinal": 1,
+          "defaultRawPx": 15.062899622084664,
+          "defaultFilteredPx": 15.32769086610081,
+          "supportPx": 6.009252125773294
+        },
+        {
+          "window": 3600,
+          "ordinal": 25,
+          "defaultRawPx": 11.397008078043589,
+          "defaultFilteredPx": 10.992247138132322,
+          "supportPx": 2.2715112400359043
+        },
+        {
+          "window": 4600,
+          "ordinal": 1,
+          "defaultRawPx": 3.437270536428888,
+          "defaultFilteredPx": 3.515318355841526,
+          "supportPx": 6.98323886173171
+        },
+        {
+          "window": 4600,
+          "ordinal": 50,
+          "defaultRawPx": 11.346821461456397,
+          "defaultFilteredPx": 10.612500903482395,
+          "supportPx": 4.820111106020295
+        }
+      ]
+    }
+  },
+  "lock": {
+    "edition": 133,
+    "development": [
+      600,
+      2600
+    ],
+    "frozenComparison": [
+      1600,
+      3600,
+      4600
+    ],
+    "labelSlots": [
+      1,
+      25,
+      50,
+      75,
+      95
+    ],
+    "scope": "All windows/AI labels previously exposed in132. New candidate fixed before this prospective implementation comparison, not new trajectories, blind human gold truth or held qualification. Missing and unobservable rows retained; no tuning after comparison; no default promotion. Stored default boxes are original132 evidence, never rerun or relabelled.",
+    "sourceHashes": {
+      "workspace-engine/src/main/java/fraymus/workspace/AssociationContact133.java": "15375733015fb623790e7c203ac4205f431f6849d819985cde16de63139d0055",
+      "workspace-engine/src/main/java/fraymus/workspace/VisualSupport133.java": "761ac6db4224b8d3a6b4cb9b2b234da7d0c95b198bb58f0bb064c8365e26e406",
+      "workspace-engine/src/main/java/fraymus/workspace/ContactAudit133.java": "292b16afd674ba416c4113d662882bcf3ecd1900866b8fb79966082c677e611d",
+      "workspace-engine/src/test/java/fraymus/workspace/ObservationStudy133.java": "72b8d3ae4f8a2859ae589348441797c330c3cd965f96d52929e795507cc9e9f8"
+    },
+    "labelsSha256": "9dde20b7937838614e3f43035c576126bfb05869461df9bdf8efc0baed14d810"
+  },
+  "defaultsUnchanged": true,
+  "promotionAttempted": false,
+  "published132Default": {
+    "labels": 25,
+    "observableContacts": 22,
+    "contactAvailable": 21,
+    "withinLabelRadius": 0,
+    "rawAnchorMeanErrorPx": 40.955649836096164,
+    "filteredAnchorMeanErrorPx": 40.97363501716133,
+    "projectedContactMeanErrorM": 1.0240388503711104,
+    "unsupportedHiddenMeasurements": 0,
+    "trackingMs": 955231.2015,
+    "timedTrackingRuns": 5,
+    "auditMs": 64008.112200000054,
+    "contactMissing": 1
+  }
+}

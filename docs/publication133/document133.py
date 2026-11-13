@@ -62,15 +62,15 @@ for n in sorted(paths):
  except UnicodeDecodeError:kind='binary'
  inventory.append({'path':n,'bytes':len(raw),'sha256':sha(raw),'hashKind':kind})
 write(out/'file-inventory.json',inventory)
-validation=f"Local checks passed: {len(checks)} distinct Java tests, {desktop_count} desktop checks, executable kernel integration, actual agency regression and isolated offline/package preparation. Actual app checks independently recompute contact errors, compare190 original tracker/filter frames, export exact evidence and cold-recheck after owned-Java termination. Existing verification conditions remain intact."
-table='| Method | Available / observable | Missing | Within3px / observable | Accepted-only mean / px | Unsupported on unobservable references |\n| --- | ---: | ---: | ---: | ---: | ---: |\n'
-old=comparison['published132Default'];table+=f"| Published132 default filtered box anchor | {old['contactAvailable']} /22 | {old['contactMissing']} | {old['withinLabelRadius']} /22 | {old['filteredAnchorMeanErrorPx']:.3f} | Not a support-point estimate |\n"
+validation=f"Local checks passed: {len(checks)} distinct Java tests, {desktop_count} desktop checks, executable kernel integration, actual agency regression and isolated offline/package preparation. Actual app checks independently recompute contact errors, compare 190 original tracker/filter frames, export exact evidence and cold-recheck after owned-Java termination. Existing verification conditions remain intact."
+table='| Method | Available / observable | Missing | Within 3 px / observable | Accepted-only mean / px | Unsupported on unobservable references |\n| --- | ---: | ---: | ---: | ---: | ---: |\n'
+old=comparison['published132Default'];table+=f"| Published 132 default filtered box anchor | {old['contactAvailable']} /22 | {old['contactMissing']} | {old['withinLabelRadius']} /22 | {old['filteredAnchorMeanErrorPx']:.3f} | Not a support-point estimate |\n"
 for policy,m in comparison['summary'].items():table+=f"| {policy} visual support | {m['available']} /{m['observable']} | {m['missing']} | {m['within']} /{m['observable']} | {m['meanPx']:.3f} | {m['unsupported']} |\n"
-finding='The frozen comparison subset1600/3600/4600 has14 observable contacts. '
-for policy,m in comparison['prospectiveSummary'].items():finding+=f"{policy}: {m['available']}/14 returned, {m['within']}/14 within3px, mean accepted error {m['meanPx']:.3f}px. "
-p=comparison['paired']['default-support'];finding+=f"On all{p['count']} samples where default-box visual support is available, the original raw box anchor averages {p['defaultRawMeanPx']:.3f}px error and new support {p['supportMeanPx']:.3f}px. This paired subset is descriptive; it does not erase the missing contacts. The conservative association candidate misses too many targets. Contact precision improves on some visible samples, but availability is substantially lower."
+finding='The frozen comparison subset 1600/3600/4600 has 14 observable contacts. '
+for policy,m in comparison['prospectiveSummary'].items():finding+=f"{policy}: {m['available']}/14 returned, {m['within']}/14 within 3 px, mean accepted error {m['meanPx']:.3f}px. "
+p=comparison['paired']['default-support'];finding+=f"On all {p['count']} samples where default-box visual support is available, the original raw box anchor averages {p['defaultRawMeanPx']:.3f}px error and new support {p['supportMeanPx']:.3f}px. This paired subset is descriptive; it does not erase the missing contacts. The conservative association candidate misses too many targets. Contact precision improves on some visible samples, but availability is substantially lower."
 cost='| Processing | Measured total / ms | Scope |\n| --- | ---: | --- |\n'
-for policy,m in comparison['summary'].items():cost+=f"| {policy} | {m['processingMs']:.1f} | Five fixed96-image windows; {'new tracking/filter/support' if policy=='candidate' else 'new support on published default boxes; historical tracking excluded'} |\n"
+for policy,m in comparison['summary'].items():cost+=f"| {policy} | {m['processingMs']:.1f} | Five fixed 96-image windows; {'new tracking/filter/support' if policy=='candidate' else 'new support on published default boxes; historical tracking excluded'} |\n"
 cost+='\n| Actual app run | Tracking / ms | Verified UI audit / ms |\n| --- | ---: | ---: |\n'
 for x in study['runs']:cost+=f"| {x['policy']} | {x['trackingMs']:.1f} | {x['auditMs']:.1f} |\n"
 attempts=(r/'build/attempts133.md').read_text(encoding='utf8');md=(r/'docs/publication133/README-template.md').read_text(encoding='utf8')

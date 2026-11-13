@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/141-association-visual-support.md]] | [[README-133.md]]
+
 Current: [[docs/obsidian/140-independent-contact-labels.md]] | [[README-132.md]]
 
 Current: [[docs/obsidian/139-valid-observations-and-recovery.md]] | [[README-131.md]]
