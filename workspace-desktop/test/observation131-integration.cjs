@@ -31,7 +31,7 @@ async function main(){
   await page.locator('#spatial-tab').click();await page.locator('#metric-panel').evaluate(e=>e.open=true);
   await page.evaluate(async s=>{window.observationView.runId=s.runId;window.metricView.geometryId=s.geometryId;await window.metricView.measure();},b.selection);
   await page.locator('#metric-reference-file').evaluate(e=>e.closest('details').open=true);
-  await page.locator('#metric-reference-file').setInputFiles(path.join(media,b.name+'.references.json'));
+  const researchReferences=JSON.parse(await fs.readFile(path.join(media,b.name+'.references.json'),'utf8'));const referenceFile=path.join(out,'audit-references.json');await fs.writeFile(referenceFile,JSON.stringify({source:researchReferences.source,references:researchReferences.references.map(({ordinal,positionM})=>({ordinal,positionM}))},null,2));await page.locator('#metric-reference-file').setInputFiles(referenceFile);
   await page.locator('#metric-ref-radius130').fill(String(Math.sqrt(2)*.125));await page.locator('#metric-accuracy130').click();
   const audit=await until(()=>page.evaluate(()=>window.metricView.audit130));assert.equal(audit.measurement.references,3);
   const study=JSON.parse(await fs.readFile(path.join(repo,'build/diagnostic131',b.name+'-renewing-flow.json'),'utf8'));

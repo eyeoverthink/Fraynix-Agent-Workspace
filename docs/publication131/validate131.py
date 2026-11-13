@@ -7,7 +7,7 @@ def run(name,args,cwd=r):
  for suffix in ['log','json']:
   prior=r/'build'/f'{name}.{suffix}'
   if prior.exists():
-   archived=folder/'prior-successful-packages';archived.mkdir(exist_ok=True);shutil.copy2(prior,archived/(str(time.time_ns())+'-'+prior.name))
+   archived=folder/'prior-attempts';archived.mkdir(exist_ok=True);shutil.copy2(prior,archived/(str(time.time_ns())+'-'+prior.name))
  with (r/'build'/f'{name}.log').open('wb') as out:p=subprocess.run(args,cwd=cwd,env=env,stdout=out,stderr=subprocess.STDOUT)
  result={'name':name,'exit':p.returncode,'seconds':time.monotonic()-start};(r/'build'/f'{name}.json').write_text(json.dumps(result,indent=2),encoding='utf8');print(json.dumps(result),flush=True)
  if p.returncode:raise SystemExit(p.returncode)
@@ -21,6 +21,9 @@ if group=='java':
  shutil.copytree(r/'workspace-engine/build/test-results/test',folder/'final',dirs_exist_ok=False)
 elif group=='desktop':
  run('desktop131-final',['cmd','/c','npm.cmd','test'],r/'workspace-desktop')
+ env['AGENCY043_OUTPUT']=str(r/'build/agency131-evidence')
+ run('agency131-regression',['node','workspace-desktop/test/agency043-integration.cjs'])
+elif group=='agency':
  env['AGENCY043_OUTPUT']=str(r/'build/agency131-evidence')
  run('agency131-regression',['node','workspace-desktop/test/agency043-integration.cjs'])
 elif group=='package':
