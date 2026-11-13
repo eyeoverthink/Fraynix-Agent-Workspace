@@ -43,7 +43,7 @@ write(out/'original-evidence.json',{'files':originals,'scope':'Original comparis
 paths={x['path'] for x in read('docs/readmes/135/file-inventory.json')}
 for n in subprocess.check_output(['git','diff','--name-only',parent,'HEAD'],text=True).splitlines():
  if n.startswith(('workspace-engine/','workspace-desktop/','src/','assets/','.github/')) or n in ['build.gradle','.gitattributes']:paths.add(n)
-paths.update(['docs/EDITION_136_CONTRACT.md','docs/OBSERVATION_136_LOCK.json','docs/publication136/source136.json']);inventory=[]
+paths.update(['docs/EDITION_136_CONTRACT.md','docs/EDITION_136_LABEL_NOTE.md','docs/OBSERVATION_136_LOCK.json','docs/publication136/source136.json']);inventory=[]
 for n in sorted(paths):
  raw=(r/n).read_bytes()
  try:raw=raw.decode('utf-8-sig').replace('\r\n','\n').encode();kind='utf8-lf'

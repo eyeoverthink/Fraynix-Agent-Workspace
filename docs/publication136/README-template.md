@@ -25,6 +25,8 @@ Screenshots are from the isolated application test, with public benchmark excerp
 
 ![Actual application: anchored appearance evidence](docs/readmes/136/box-535-seed-anchored-136.png)
 
+![Original source overlay and measured drift](docs/readmes/136/box-535-source-overlay.png)
+
 ![Actual application: content-verified evidence costs](docs/readmes/136/evidence-cost136.png)
 
 ![Actual application: later rendered target and supported examples](docs/readmes/136/bird1-193-seed-anchored-136.png)
@@ -58,7 +60,7 @@ The tracker and scorer were frozen at `17fdb4ab`; the method lock was committed 
 
 Each window has one seed image and 95 evaluated originals. All 384 later originals were reviewed source-only before predictions. The later cohort contains 113 partial and 267 fully visible samples, no fully hidden samples. Complete cloud disappearance remains confined to the earlier rendered development window; no new real-camera complete occlusion or out-of-frame return was demonstrated.
 
-Original boxes come from the [OTB benchmark by Yi Wu, Ming-Hsuan Yang and Jongwoo Lim](https://rvlab.snu.ac.kr/research/tracker_benchmark). Visibility is separate AI source review, not independent human adjudication. Source hashes and labels are pinned in the [manifest](docs/publication136/source136.json); the [contract](docs/EDITION_136_CONTRACT.md) and [method lock](docs/OBSERVATION_136_LOCK.json) record the evaluation boundary. Raw video, ZIPs and frame packs remain local; limited attributed screenshots and numeric evidence are published.
+Original boxes come from the [OTB benchmark by Yi Wu, Ming-Hsuan Yang and Jongwoo Lim](https://rvlab.snu.ac.kr/research/tracker_benchmark). Visibility is separate AI source review, not independent human adjudication. Source hashes and labels are pinned in the [manifest](docs/publication136/source136.json); the [contract](docs/EDITION_136_CONTRACT.md) and [method lock](docs/OBSERVATION_136_LOCK.json) record the evaluation boundary. Raw video, ZIPs and frame packs remain local; limited attributed screenshots and numeric evidence are published. [Source-note clarification](docs/EDITION_136_LABEL_NOTE.md): frozen later labels retain a generic sentence about the earlier rendered occlusion; the later rows have no hidden/uncertain samples. Original evaluated bytes are preserved.
 
 ## Why the new checks matter
 

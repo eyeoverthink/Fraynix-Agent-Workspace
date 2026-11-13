@@ -11,7 +11,7 @@ for folder in ['docs/readmes/136','docs/publication136']:
    b=gzip.decompress(p.read_bytes()) if p.suffix=='.gz' else p.read_bytes()
    for pattern in patterns:assert not re.search(pattern,b),str(p)
 run('git','-c','gc.auto=0','fetch','origin','main');run('git','merge-base','--is-ancestor','origin/main','HEAD')
-files=['AGENTS.md','README.md','README-136.md','README-CONTRIBUTORS.md','docs/ARCHITECTURE.md','docs/DEVELOPMENT_LOG.md','docs/PROJECT_MEMORY.md','docs/EDITION_136_CONTRACT.md','docs/PLAYABLE_LEVEL_CREATION_PLAN.md','docs/INTEGRATED_AGENT_ROADMAP.md','docs/obsidian/00-home.md','docs/obsidian/144-anchored-evidence.md','docs/obsidian/144-anchored-evidence.canvas','docs/readmes/INDEX.md','docs/readmes/editions.json','docs/readmes/136','docs/publication136']
+files=['AGENTS.md','README.md','README-136.md','README-CONTRIBUTORS.md','docs/ARCHITECTURE.md','docs/DEVELOPMENT_LOG.md','docs/PROJECT_MEMORY.md','docs/EDITION_136_CONTRACT.md','docs/EDITION_136_LABEL_NOTE.md','docs/PLAYABLE_LEVEL_CREATION_PLAN.md','docs/INTEGRATED_AGENT_ROADMAP.md','docs/obsidian/00-home.md','docs/obsidian/144-anchored-evidence.md','docs/obsidian/144-anchored-evidence.canvas','docs/readmes/INDEX.md','docs/readmes/editions.json','docs/readmes/136','docs/publication136']
 run('git','add',*files)
 logs=[str(p.relative_to(r)) for p in (r/'docs/publication136').glob('*.log')]
 if logs:run('git','add','-f',*logs)
