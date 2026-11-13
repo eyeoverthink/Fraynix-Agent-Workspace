@@ -1,3 +1,7 @@
+## Edition139 active — 2026-11-13
+
+Continue J:/Codex-Work/fraynix-workspace-edition139 from7e66b0c8. CI checked FIRST:43487640258 in progress; no hosted success claimed. Read docs/EDITION_139_CONTRACT.md. Develop foreground-motion/spatial-structure guard against exposed138 footage. Freeze code/scorer before downloading or viewing new VOT-LT2018 recordings. Preserve defaults, all checks, private projects and frozen001–138. No agents, overlapping heavy jobs or shared node-junction mutation. No139 publication yet.
+
 ## Edition138 — published and fetched back
 
 2026-11-13. Isolated J:/Codex-Work/fraynix-workspace-edition138; parent5ee114d6. CI checked FIRST,137 hosted run pending at start. Method/scorer freeze22818761, source-only clarification71ae5444, sources/labels57dc95fc, exact original annotation/lock bytes a4e3bb23 all before fresh predictions. Actual tested source/artifacts in docs/readmes/138/verification.json. Release 4af0b8ac7256518c7fae92bdc28b9eebd3d8426c; annotated readme-138. Main, edition138 and tag pushed atomically and fetched. Verified 1666 canonical sources, 48784 frozen hashes across138 editions and 158 original evidence entries. See docs/PUBLICATION_138.json.
