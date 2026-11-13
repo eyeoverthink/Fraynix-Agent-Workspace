@@ -33,4 +33,11 @@ public class AssociationContact133Test {
   var t=new AssociationContact133("x","source",scene(40,false,false,true),seed());assertThrows(IllegalArgumentException.class,()->t.update(new BufferedImage(32,32,1)));
   assertThrows(IllegalArgumentException.class,()->new AssociationContact133("x","x",scene(40,false,false,true),new PixelTracker.Box(.1,.1,.01,.1)));
  }
+ @Test public void aDifferentLookalikeAfterLossDoesNotAcquireIdentity(){
+  var t=new AssociationContact133("x","source",scene(40,false,false,true),seed());t.update(scene(40,true,false,true));
+  var other=scene(40,true,false,true);var g=other.createGraphics();draw(g,45,true,true);g.dispose();for(int i=0;i<4;i++)assertTrue(t.update(other).isNull("box"));
+ }
+ @Test public void clippedLowerSupportIsWithheld(){
+  var first=scene(40,false,false,true);var support=new VisualSupport133(first,seed());var cropped=new BufferedImage(200,160,BufferedImage.TYPE_INT_RGB);var g=cropped.createGraphics();g.setColor(new Color(0xd0c6b1));g.fillRect(0,0,200,160);g.translate(0,60);draw(g,40,true,false);g.dispose();assertTrue(support.support(cropped,new PixelTracker.Box(.2,90/160.,29/200.,70/160.)).isNull("pointImage"));
+ }
 }

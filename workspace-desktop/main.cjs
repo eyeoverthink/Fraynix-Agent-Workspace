@@ -229,7 +229,7 @@ async function executeRaw(tool,args={}){
     case 'skills.list':result=(await refresh()).skills;break;
     case 'skill.save':if(!currentArtifact)throw Error('Open an artifact first');result=await api('/api/skill/save',{...args,id:currentArtifact.id});await refresh();break;
     case 'skill.run':{
-      const skill=await api('/api/skill/read',args);await execute('canvas.write',{title:skill.title+' · '+new Date().toLocaleTimeString(),files:skill.files,sources:skill.sources});
+      const skill=await api('/api/skill/read',args);await execute('canvas.write',{title:skill.title+' Â· '+new Date().toLocaleTimeString(),files:skill.files,sources:skill.sources});
       result=await execute('canvas.test',{steps:skill.tests});break;
     }
     case 'memory.search':result=await api('/api/host/skill',{name:'memory.search',args});break;
@@ -289,7 +289,7 @@ async function learnFromEpisodes({proof=false,automatic=false}={}){
     const report=await replay(snapshot.activePolicy,candidate.policy,{signal:controller.signal,onProgress:id=>{emit('run',{active:true,phase:'Independent replay: '+id});activity('replay',id);}});checkStop();
     const result=await api('/api/learning/evaluate',{candidateId:candidate.id,...report});
     candidateId=null;
-    activity('learning',result.accepted?`Promoted controller v${candidate.policy.version}: ${result.baselinePassed}/8 â†’ ${result.candidatePassed}/8 replay cases passed`:'Candidate rejected: no verified gain or a regression',{evaluationId:result.id,baselineFailures:result.baselineFailures,candidateFailures:result.candidateFailures,regression:result.regression});
+    activity('learning',result.accepted?`Promoted controller v${candidate.policy.version}: ${result.baselinePassed}/8 Ã¢â€ â€™ ${result.candidatePassed}/8 replay cases passed`:'Candidate rejected: no verified gain or a regression',{evaluationId:result.id,baselineFailures:result.baselineFailures,candidateFailures:result.candidateFailures,regression:result.regression});
     return result;
   }catch(error){if(controller.signal.aborted)throw Error('Learning cancelled');throw error;}
   finally{
@@ -424,6 +424,10 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='report'){const result=await api('/api/metrics/report',input.args);emit('view','preview');await openArtifact(result.artifact);return result.artifact;}
       if(input.command==='export'){const result=await api('/api/metrics/export',input.args);return nativeExports.save('metric-world','json',JSON.stringify(result),{runId:input.args.runId});}
       if(!['state','clock','geometry','view','fit','evaluate','source-frame','accuracy130','accuracy-read130'].includes(input.command))throw Error('Unknown metric operation');return api('/api/metrics/'+input.command,input.args||{});
+    }
+    case 'contact133':{
+      if(input.command==='export'){const record=await api('/api/contact133/read',input.args);return nativeExports.save('visual-support-133','json',JSON.stringify(record,null,2),{auditId:record.id});}
+      if(!['state','audit','read'].includes(input.command))throw Error('Unknown contact operation');return api('/api/contact133/'+input.command,input.args||{});
     }
     case 'labels132':{
       if(input.command==='export'){const record=await api('/api/labels132/read',input.args);return nativeExports.save('source-labels-132','json',JSON.stringify(record,null,2),{labelId:record.id});}
