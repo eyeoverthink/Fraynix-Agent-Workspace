@@ -1,6 +1,6 @@
 # Fraynix Agent Workspace — Edition 130
 
-**Better object tracking on a bounded footage test, with independent physical-accuracy checks inside the app. Both existing defaults remain intact.**
+**Independent physical-accuracy checks inside the app. A new tracker candidate remains unpromoted. Both existing defaults remain intact.**
 
 2026-11-12 · Local Java agent, connected world/browser/creation surfaces
 
@@ -18,7 +18,7 @@ Edition 128 connected recorded observations to a working, independently checked 
 
 The new **object-supported feature tracker** is handwritten Java. It retains optical-flow feature identities, weighs features using the first object's colour distribution relative to surrounding pixels, checks forward/backward motion and patch agreement, and replenishes features only while enough tracked support remains. Its appearance evidence is frozen from the seed. It never receives later reference positions. Duplicate and missing observations still produce explicit losses.
 
-It is available as **Experimental130 · object-supported features** when starting a new recorded observation. `legacy-flow` remains the default. The edition 129 experimental choice remains available. Changing the implementation changes the source identity; old incompatible proofs are preserved and refused for fresh execution, never relabelled.
+It is available as **Experimental130 · unpromoted object features** when starting a new recorded observation. `legacy-flow` remains the default. The edition 129 experimental choice remains available. Changing the implementation changes the source identity; old incompatible proofs are preserved and refused for fresh execution, never relabelled.
 
 The new **physical accuracy audit** accepts 1–96 independent later positions, without fitting. It separately reports:
 
@@ -35,11 +35,15 @@ An audit is saved with its original references, source/clock/geometry/trace iden
 
 The first development version exhausted its features and returned only 5 of 15 reference positions. Its source and results remain in the evidence archive. The revised candidate returned all 15 development references. Both development passes used already exposed footage and are **not held-out evidence**.
 
-Before inspecting new results, the candidate, preparation code, three comparison methods and gates were committed. Five disjoint 96-frame windows begin at source frames 700, 1900, 2700, 3700 and 4700. These are different temporal windows from the same EPFL Terrace camera, with correlated scenes and people. The first eligible subject is selected by a fixed seed rule, using only its initial annotation plus a declared 1750 mm height assumption. Later 250 mm-grid references are separate scorer input. No substitution or tuning followed held results.
+Before inspecting new results, the candidate, preparation code, three comparison methods and gates were committed. The first five dense windows (700, 1900, 2700, 3700, 4700) gave a better numerical result, but a later provenance audit found that three overlap sparse frames used in edition037. That comparison is retained as **exposed diagnostic evidence, not held qualification**. [The correction](docs/OBSERVATION_130_PROVENANCE_CORRECTION.json) records all prior frame indices and overlaps. Its mean accepted errors of0.669m versus0.301m cannot support a promotion claim.
+
+A second protocol locked the **unchanged candidate** before five other96-frame windows:2000,2300,2400,4600,4800. It conservatively excludes all037 declared source intervals and every128/129/first130 dense window. The seed rule remains first eligible subject, first annotation only, assumed1750mm height; later250mm-grid positions only score. No tuning or replacement followed results. Same camera, correlated people/background: this is still not cross-camera generalization.
 
 {{TRACKING}}
 
-The candidate passes the predeclared bounded gate: at least 90% of the incumbent's available references, at least 15% lower mean accepted error, strictly more positions within one metre, and no additional errors above two metres. **This does not change the default or establish general physical accuracy.** It loses two reference positions versus one for the incumbent. On the 13 positions both returned, a separately reported paired diagnostic gives 0.414 m versus 0.301 m mean error; the improvement is not entirely explained by withholding the incumbent's large error.
+**Confirmation failed.** The candidate returned6/15 reference measurements versus10/15 for the incumbent, and only5 positions within1m versus6. Its lower accepted-only error does not compensate for the additional losses. On the five references both returned, the posthoc paired mean was worse:0.707m versus0.569m. The incumbent also failed one entire execution at frame window2400 with “Box is too small or reversed”; the original failure is retained, with no invented partial trace. All three references in that failed execution remain unavailable. Completed-run timing is not an end-to-end speed claim.
+
+The predeclared gate required at least90% of incumbent availability, at least15% lower mean accepted error, strictly more positions within1m, and no additional severe errors. Availability and useful-position gates failed; an execution failure also prevents a complete qualification. Neither default changes. **Physical accuracy remains unresolved.** The functioning addition is the independent audit and its original-evidence/restart checks.
 
 {{COVERAGE}}
 
@@ -65,13 +69,13 @@ The stricter forecast's availability, coverage and width must be read together. 
 
 The actual application study uses already evaluated windows to exercise UI and persistence; it is not another unseen-footage result. It includes a durable chat request, abrupt owned-Java termination, cold recovery of the same workflow, a fresh-source procedure reuse, retirement/reactivation checks and an accuracy audit recovered after another abrupt termination. Native verified world state stays unchanged during observation/auditing. Single measured workflow costs are reported as observations, not typical latency claims.
 
-[Verification](docs/readmes/130/verification.json) · [Actual application study](docs/readmes/130/observation-study.json) · [Tracking decision](docs/readmes/130/decision.json) · [Coverage](docs/readmes/130/coverage.json) · [Original evidence index](docs/readmes/130/original-evidence.json) · [Canonical source inventory](docs/readmes/130/file-inventory.json)
+[Verification](docs/readmes/130/verification.json) · [Actual application study](docs/readmes/130/observation-study.json) · [Confirmation decision](docs/readmes/130/decision.json) · [Coverage](docs/readmes/130/coverage.json) · [Original evidence index](docs/readmes/130/original-evidence.json) · [Canonical source inventory](docs/readmes/130/file-inventory.json)
 
 CI was checked first. Hosted CI status is recorded separately from local tests and actual fetched publication; pending runs are not passes. Original public video/frame packs and private camera/project data are not committed. Numerical evidence and limited attributed screenshots are retained. Footage: [EPFL CVLab POM dataset](https://www.epfl.ch/labs/cvlab/data/data-pom-index-php/); public research footage is not newly recorded webcam evidence.
 
 ## Next steps
 
-1. Diagnose the lost subject in the difficult window using independent association/occlusion labels; reserve a different camera or recording for the next locked evaluation.
+1. Diagnose the collapsed-box refusal and lost subjects in the confirmation windows using independent association/occlusion labels; reserve a different camera or recording for the next locked evaluation.
 2. Model uncertainty in the ground-contact anchor and association, then fit on separate training evidence. Test coverage **and** useful width at declared future horizons, including missing observations.
 3. Connect those qualified measurement limits to durable world goals: an action should ask for another observation or refuse when its physical tolerance cannot be supported.
 4. Return to coherent daily use: show the active mission, selected source, age, uncertainty, withholding reason and reusable procedure together, while preserving one continuing Java-owned workflow.
