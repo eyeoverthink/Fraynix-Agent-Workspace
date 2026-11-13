@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — Edition 132
 
+[Published and fetched verification receipt](docs/PUBLICATION_132.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-132)
+
 **Independent visibility and ground-contact labels now live in the Java application. Mark original images, freeze the evidence, compare tracking against it, and recheck the same result after restart. Tracking and forecasting defaults remain unchanged.**
 
 2026-11-12 · Local Java agent · Persistent world, browser, creation and observation
