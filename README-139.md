@@ -189,6 +189,8 @@ The destination remains one local agent system: Java owns durable goals, environ
 - The actual-app harness completed all twenty comparisons, restart/replay, export and source-tampering checks on its first attempt. No fresh-outcome changes or default promotion were made.
 
 
+- The first publication audit refused stale hashes for two roadmap documents updated after the inventory was generated. The failed attempt remains in Git history and the publication log. Documentation hashes were finalized after notes; the frozen production lock is still checked. This was corrected before any push.
+
 Hosted CI, local tests and fetched publication checks are distinct. Raw footage archives and private projects are not published. Exact source identities, external annotations, frozen labels, run traces, failures, tests and limited attributed app screenshots are retained.
 
 [Validation](docs/readmes/139/verification.json) · [Original evidence](docs/readmes/139/original-evidence.json) · [Comparison](docs/readmes/139/comparison.json) · [Source manifest](docs/publication139/source139.json) · [Method lock](docs/OBSERVATION_139_LOCK.json) · [Source inventory](docs/readmes/139/file-inventory.json)

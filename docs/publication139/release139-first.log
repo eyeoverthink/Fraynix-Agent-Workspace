@@ -1,0 +1,277 @@
+From https://github.com/eyeoverthink/Fraynix-Agent-Workspace
+ * branch              main       -> FETCH_HEAD
+warning: in the working copy of 'AGENTS.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'README-CONTRIBUTORS.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/ARCHITECTURE.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/DEVELOPMENT_LOG.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/INTEGRATED_AGENT_ROADMAP.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/PLAYABLE_LEVEL_CREATION_PLAN.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/PROJECT_MEMORY.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/publication139/README-template.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/publication139/document139.py', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/publication139/guide-template.html', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/publication139/visual139.cjs', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/readmes/editions.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/publication139/documentation-check.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/publication139/guide.js', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/readmes/139/guide.js', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/readmes/139/visual-review139.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/publication139/documentation139.log', CRLF will be replaced by LF the next time Git touches it
+[edition139 7c50b0e8] Document edition 139 foreground motion and spatial structure with independent retained evidence
+ 256 files changed, 484826 insertions(+), 112 deletions(-)
+ create mode 100644 README-139.md
+ create mode 100644 docs/obsidian/147-foreground-structure.canvas
+ create mode 100644 docs/obsidian/147-foreground-structure.md
+ create mode 100644 docs/publication139/documentation-check.json
+ create mode 100644 docs/publication139/documentation139.log
+ create mode 100644 docs/publication139/guide.js
+ create mode 100644 docs/readmes/139/app-study.json
+ create mode 100644 docs/readmes/139/ballet-100-drift.png
+ create mode 100644 docs/readmes/139/ballet-100-outcome.png
+ create mode 100644 docs/readmes/139/ballet-100-source.png
+ create mode 100644 docs/readmes/139/bicycle-98-drift.png
+ create mode 100644 docs/readmes/139/bicycle-98-outcome.png
+ create mode 100644 docs/readmes/139/bicycle-98-source.png
+ create mode 100644 docs/readmes/139/bike1-1-drift.png
+ create mode 100644 docs/readmes/139/bike1-1-outcome.png
+ create mode 100644 docs/readmes/139/bike1-1-source.png
+ create mode 100644 docs/readmes/139/bird1-641-drift.png
+ create mode 100644 docs/readmes/139/bird1-641-outcome.png
+ create mode 100644 docs/readmes/139/bird1-641-source.png
+ create mode 100644 docs/readmes/139/car1-1508-drift.png
+ create mode 100644 docs/readmes/139/car1-1508-outcome.png
+ create mode 100644 docs/readmes/139/car1-1508-source.png
+ create mode 100644 docs/readmes/139/comparison.json
+ create mode 100644 docs/readmes/139/drift-layout-1100.png
+ create mode 100644 docs/readmes/139/drift-layout-1600.png
+ create mode 100644 docs/readmes/139/file-inventory.json
+ create mode 100644 docs/readmes/139/guide-desktop.png
+ create mode 100644 docs/readmes/139/guide-mobile.png
+ create mode 100644 docs/readmes/139/guide.js
+ create mode 100644 docs/readmes/139/index.html
+ create mode 100644 docs/readmes/139/original-evidence.json
+ create mode 100644 docs/readmes/139/originals/0070b49139e940a32928f42f00636cdee5f4947afc3a86a174bbafd72abb47ce.gz
+ create mode 100644 docs/readmes/139/originals/009d82e4e9f5ff7c038d5991bbc5853f8dfd1e3b1f517c6b0c85e2ee35c633d5.gz
+ create mode 100644 docs/readmes/139/originals/00cc8e7c58745418cb3b8813f712b9d469ee5064dc585d1f1f489ab58fdda28e.gz
+ create mode 100644 docs/readmes/139/originals/01e59e45057cdbf3ba4850e63e0c0905c52b4cbf5bad70dcd88b61de70410185.gz
+ create mode 100644 docs/readmes/139/originals/02b7d43af36024c47115cf7bf949067867165d1f699af804b18988e5973657a7.gz
+ create mode 100644 docs/readmes/139/originals/0522e1bd8f34fb3dc6ee15b1947d62abfdc7d04a201f08bb953d855d7bf68e2c.gz
+ create mode 100644 docs/readmes/139/originals/06ae4ed061e5a14150c0c174db14431de294a124bc24689e4be94d1c2c091817.gz
+ create mode 100644 docs/readmes/139/originals/07a5dddc579e10597c73eb1ae3636453f1baa9837d6202c2c073e8f09603cc79.gz
+ create mode 100644 docs/readmes/139/originals/09d0aea9612e80b667992be07b964baec58a57449ba1f7c078d670213fae8f5f.gz
+ create mode 100644 docs/readmes/139/originals/0a5796e93f9b57ddf7c45f860485cbb7353fc0eda3dca753a444d0fd2a1573fe.gz
+ create mode 100644 docs/readmes/139/originals/134837f3c6df307892c0f12063b4fafd84a9eb5ea57b200430fd17914aa80d94.gz
+ create mode 100644 docs/readmes/139/originals/1413fb3041dfd0ed5a730c56b67a682b2aa0fccb9cd228f312dbac9df7965dc0.gz
+ create mode 100644 docs/readmes/139/originals/1706c2a598007ff6f40aed18df153b6b4b60596891214f0ad3f9a70fc70d5bd0.gz
+ create mode 100644 docs/readmes/139/originals/19f4039458ef52f503d0091b980811155aa4f983d7b240dbbcbb78e75ec0580f.gz
+ create mode 100644 docs/readmes/139/originals/1a5910eb2ff078374a0b0445c9250a5fe4bbbce57ab7e72936149c040763fb74.gz
+ create mode 100644 docs/readmes/139/originals/1ac5ea6b35c3e394496653799ce33ecaa76120e3596553131540fca2518ef68e.gz
+ create mode 100644 docs/readmes/139/originals/1b68441387b01e39c0c57b195d0d3cfaef04b467424b92fda79fcd70c0011b44.gz
+ create mode 100644 docs/readmes/139/originals/1e3da8c40ef3e306cc91aad754b4488048fa5e2cad1a05d25825a33e02528426.gz
+ create mode 100644 docs/readmes/139/originals/1ef0fa6eea6749bd9447a26c4db3060732cac0f5b301fedf65c12d2a894f6e88.gz
+ create mode 100644 docs/readmes/139/originals/1fc0859395c26f54eef2aa2b34acb446c44b0435ba5ce7b57cb8c884be965871.gz
+ create mode 100644 docs/readmes/139/originals/20ffadf26b0b41783bdef72e09a49b32729815d2ecb2e91260b952705134b480.gz
+ create mode 100644 docs/readmes/139/originals/231db008c2387d7137be5b9a5ede4668f9cbf26067a12f4310d7eba1360ce174.gz
+ create mode 100644 docs/readmes/139/originals/233c968c36c89a55c45831653bb41e1ca7884632e97d35ac3d640367a43aeaec.gz
+ create mode 100644 docs/readmes/139/originals/254db99cbb971550ff45c136b4263f06a0d95b9829a43b643749075508e48254.gz
+ create mode 100644 docs/readmes/139/originals/2764a83c777663ebe6b58be5c0a244d7794703e24d06411c20648fef94facc59.gz
+ create mode 100644 docs/readmes/139/originals/294188a27de922d1481b8c2ab95e8a9a8d7c42118e1d04ee4acbe04cc43d3c3c.gz
+ create mode 100644 docs/readmes/139/originals/2b0ea952cd0207e380f75fb43acefdeed6d5500a9ae8c42bbca9f9380b5c1469.gz
+ create mode 100644 docs/readmes/139/originals/2b44202069dbc4e7880eb44d16036c2bbd964b2f3990da1c89b604ede3592684.gz
+ create mode 100644 docs/readmes/139/originals/2b5064b5d3cd9fbad4835fa8b3bba3f73fb8c8d8159ba109bf67e5090e00dfe0.gz
+ create mode 100644 docs/readmes/139/originals/2be63a1c775a2fdb4f7fd3e90ff9050bc928c1ad73a5842c542486a1b41f0d54.gz
+ create mode 100644 docs/readmes/139/originals/338242c9dafbc767872622ccfd596c5572e7d3aa56303208c50c3cd8213f754f.gz
+ create mode 100644 docs/readmes/139/originals/33e8fe720a0adabae2237701242fd0bf46febc9c77852f38788e25634718a312.gz
+ create mode 100644 docs/readmes/139/originals/35842726f0a2b2a47cd4a01255fec52dbee7b35d6b90553e37c3d86471871fe8.gz
+ create mode 100644 docs/readmes/139/originals/364700218caaa4ab6b6546311f717daf9a57f8d8e5ba482e41a8d54a215f5895.gz
+ create mode 100644 docs/readmes/139/originals/373227772267792d5f4e8d99a003188ccc91bb5208faa4ae757fbbb368ccbff3.gz
+ create mode 100644 docs/readmes/139/originals/3924075d62893ca1321c5448ce24adea6fdf29bfd64f9074254d43b26020e46c.gz
+ create mode 100644 docs/readmes/139/originals/3977ba2cc840390abba6e73c17f4c095a28df6417316f47fc30bbab879679335.gz
+ create mode 100644 docs/readmes/139/originals/3eb2faa18477d8a7c6997f210d1027fbce5dd7af16104fe6a2e7a7df20ae8314.gz
+ create mode 100644 docs/readmes/139/originals/3f00fbde077295d5c0e6ebd1063906424b28b7d0f6f8f7d6d9db362998138d23.gz
+ create mode 100644 docs/readmes/139/originals/3f3276892f5efba5cf97c7a92cf60df95a4fdbe9c33c6e13218a655d4d9b1c64.gz
+ create mode 100644 docs/readmes/139/originals/435646679f85b7a42812f7e3dd5e9b5ffcc1b2c8040e77d4d4b5915b0ea853f9.gz
+ create mode 100644 docs/readmes/139/originals/439f1a3a65c68703c6d0dd8d1f676246d56b3b1cf2bd98091d5dab9f8c0b208b.gz
+ create mode 100644 docs/readmes/139/originals/449c0cbe5327e1f29cf39dcab44ca77041afe7fc3fc57544c66546fa2db21cf7.gz
+ create mode 100644 docs/readmes/139/originals/454d4c99bf97dd9b73647f0d795b7e5a95f1dcb7130539876095a59632b26ba2.gz
+ create mode 100644 docs/readmes/139/originals/4812747a44c92d65301c480a8ab5ce813757e26897f367666bfcd8cbab537cf2.gz
+ create mode 100644 docs/readmes/139/originals/4b6bad9fd227bb236d717e3162f6664496e6ce91ccec0ebc32ef556d23e72f3c.gz
+ create mode 100644 docs/readmes/139/originals/500d292f1622125b7cf8f6140febfb03009b914f6c47f8ea6cca99b02ba99209.gz
+ create mode 100644 docs/readmes/139/originals/5082e3b957d9796d7af2387f1d0aa2b6d8be71f32c3b40cdaa4003711f08f68c.gz
+ create mode 100644 docs/readmes/139/originals/5341b2f0d1d664396a0073b61b9f670b82014a28f431ec384b61944b6d022af6.gz
+ create mode 100644 docs/readmes/139/originals/5424ad80a3576256141ab487bbc0203d3f32a40b80eaa5edfdf7c965bb72c4ec.gz
+ create mode 100644 docs/readmes/139/originals/548537881550f25e8ac4739e4aeb3142bfb7f8820e209e8ce1b153a267d76bd5.gz
+ create mode 100644 docs/readmes/139/originals/54feff2dc7c1e3e6a94f14180a1367b73fb1af5c5d696fb8eebe715f596fe459.gz
+ create mode 100644 docs/readmes/139/originals/55dbff0a8c1502015321f04436e2ef956592293bab0ff94bc3e4345637158108.gz
+ create mode 100644 docs/readmes/139/originals/5603a4513500efe8edcc843e3a2673cfa564b2a04e892229da26a20173be8981.gz
+ create mode 100644 docs/readmes/139/originals/56da90a6446707bca8a33b3656fad8fe5af14db6c1e3a576c424c6a025134d7d.gz
+ create mode 100644 docs/readmes/139/originals/5772c92ff63fd03eeb00d33e52234799bd08e3053dd9f132d0953c8e140df91e.gz
+ create mode 100644 docs/readmes/139/originals/5be4f7a576eb2b1057a9b36e04f5d27e3cda706ab2ed3e8201ff0532d6378bc6.gz
+ create mode 100644 docs/readmes/139/originals/5bed1bd12b5ccac7deae3ab47b7205db3a96ec224300ecb787e60ffa7474cd6b.gz
+ create mode 100644 docs/readmes/139/originals/5e3a3fe9a40e77c91b9be262c27a0748089730e80f3393208e232327f442929c.gz
+ create mode 100644 docs/readmes/139/originals/601b9d2c98fff07f823e2ca29c27f60ec47cdd3bd2e0e662c6334016e04bc4ce.gz
+ create mode 100644 docs/readmes/139/originals/6032d6b1790cdbd82b0beaf89dbea55078df5ce461964dd5e13c04185d330c3f.gz
+ create mode 100644 docs/readmes/139/originals/609ad29dcaf2be17d93a681983497e4d21241679a6edb48787bd6f3266f20b4d.gz
+ create mode 100644 docs/readmes/139/originals/6252053c4bf5db206dea0214daa477cb032fc24e925181ec006107b31571d062.gz
+ create mode 100644 docs/readmes/139/originals/63dd058800f3edcbb693eead477cc7243cea31bb613494a35d82689c89be5c08.gz
+ create mode 100644 docs/readmes/139/originals/644d2565d2174372c23b128ce373c721626ff4dac86bf89d2135311dac5f8ca9.gz
+ create mode 100644 docs/readmes/139/originals/65096665c0b83991a60b1d98ea14363c5a284d3e21f849a24d789a87cbd3018f.gz
+ create mode 100644 docs/readmes/139/originals/6619be996461157c1a4db80b702ade94a0091539490910d72345de2526b9b929.gz
+ create mode 100644 docs/readmes/139/originals/66454331613767f58e7b4c57f0f07639a6789968d8158c7cdb508a4b859a7c20.gz
+ create mode 100644 docs/readmes/139/originals/66995b8bde44ba727ba97f6bd8b2fed10d5b521cff2c1f3a436a372975b1eac4.gz
+ create mode 100644 docs/readmes/139/originals/684468797e2e9e3799c8e6edaa7875a230081bf45ed826fb1b9f051445b43855.gz
+ create mode 100644 docs/readmes/139/originals/684d81d3108ebf2322579077c22450f302d0f8a943011e81f84a614cfaaeca07.gz
+ create mode 100644 docs/readmes/139/originals/69463d4ad3381f0ce1a8dc414e6809d45813e6ec008dd4dc8d22c87d89bfe90f.gz
+ create mode 100644 docs/readmes/139/originals/69c2dda16f04b121ff087b8a505bdba4cc14c64f87755f3ab83c0329738afb37.gz
+ create mode 100644 docs/readmes/139/originals/69cdcf6e2e5eec7df7edebf5330279b8a35171c0effaf82f647d459fdc772214.gz
+ create mode 100644 docs/readmes/139/originals/6b532c9e00d2b8fa3e49a6a21f4a0e68683b2dc9de0119cfa3ca64d505e79311.gz
+ create mode 100644 docs/readmes/139/originals/6c13306a055651b6a0898417e5bf2e60f72420f636b0becaeaf855161dfdf0fb.gz
+ create mode 100644 docs/readmes/139/originals/6db928e37a24bd4e9c9cb890d990c246ff2207dedf07ef03a460308289ac4fdf.gz
+ create mode 100644 docs/readmes/139/originals/6dcf501495cc988a8ccb2761abcbb371a4e16a6c0ea67b4e99a0c991fa9cecac.gz
+ create mode 100644 docs/readmes/139/originals/6f2b7e75647166db1025a7f9864a2f8ee64cb827513181667960b428a8c23187.gz
+ create mode 100644 docs/readmes/139/originals/717cf2e77fb4cd284b70f9252b6dffc14806de0df2e22b3a3c0c2db818897e7c.gz
+ create mode 100644 docs/readmes/139/originals/71a0b6fc99687a1aeb5d4b0eb71d6ca9f7c2f5299dccef52337c29fba53f3ae9.gz
+ create mode 100644 docs/readmes/139/originals/71da93f007b08a3542215a6d6a180d06aedfd47fc4204348b29fb4cc6278ff72.gz
+ create mode 100644 docs/readmes/139/originals/7207922283ecd209495f568e0a22a2e84e747ec3e5e458c0082e98c4f1c09bcc.gz
+ create mode 100644 docs/readmes/139/originals/72b0789a7ea9e69eadac1958ef2a90d88d86fd787cb747274cb984131f16e220.gz
+ create mode 100644 docs/readmes/139/originals/72c2b1cb279108c7100b503a883e17e1c87bd2bdb5cbb2d55fb72b1adb5c300c.gz
+ create mode 100644 docs/readmes/139/originals/73b040f66d3a4cfbd5d0f7a544adf4bb784c2ceece7a8dab54ce34d99080058c.gz
+ create mode 100644 docs/readmes/139/originals/771c5231440c72e77441373639f39ea1f84e82db51545169d3539ca095f0d2f2.gz
+ create mode 100644 docs/readmes/139/originals/7829c5c2183b9a76788f8f4de4461ebe51e7f4cd40db7f6518d5617f34fbd4b9.gz
+ create mode 100644 docs/readmes/139/originals/783708142ae55cadc7cfbe5f2104ef2dcd6c99d6e0ff8f4a7f00ab278dafba87.gz
+ create mode 100644 docs/readmes/139/originals/78de23f2a98eff485bb99d0319f31cde6aa847c0fcd8f84353bb88e42b4a9bdb.gz
+ create mode 100644 docs/readmes/139/originals/79d717726b95edc56489250c56420c18bb551617d003e58b3f7be899d4453cd4.gz
+ create mode 100644 docs/readmes/139/originals/7a356b445aa759a0cd891b176160678adabb6544e868730811aac710745d130a.gz
+ create mode 100644 docs/readmes/139/originals/7a5d1f612bf71031e260056e9b8c5864fb014a93d1a54159a35eabb7ff080072.gz
+ create mode 100644 docs/readmes/139/originals/7b41da2844136ef36f4d042195e33a9448fec092365f012a5db0e28d8ad6833f.gz
+ create mode 100644 docs/readmes/139/originals/7cad65aae0f69c26bc8e885c5218f10deefe832de23c524c358ee4bcd6a4dc26.gz
+ create mode 100644 docs/readmes/139/originals/7d6fad34517f871abf21c88bc9bb0a2bc7bbea09bd6286b858d9bb6883f27812.gz
+ create mode 100644 docs/readmes/139/originals/7d9f1d7b855d7d9f0e6164484a4ed1df256648d530a63cf933b3e48bd3be16c8.gz
+ create mode 100644 docs/readmes/139/originals/7f84c21e178d7880577734e222fa7eefe9d0536721884034401cefec89650b19.gz
+ create mode 100644 docs/readmes/139/originals/7f8841a965240cf634085ff108ae91571d29178a3c992f512dd5e0158d077444.gz
+ create mode 100644 docs/readmes/139/originals/7fbbd598f4d45934ed8829cbbf1ecbd9fca0a5623ae7b2c91d128e4543bbf5c7.gz
+ create mode 100644 docs/readmes/139/originals/7fee2151eb966c513429f72f8989ae3abed0b2e6377715cef722c35e7f19705d.gz
+ create mode 100644 docs/readmes/139/originals/80f21dc4af31b661a80348feac3a761a3944c80acd0c984839b96e8f62506b87.gz
+ create mode 100644 docs/readmes/139/originals/819d8331c95812570ed099e278178f655fd03b44aecdc21755b7e62c840e5fb8.gz
+ create mode 100644 docs/readmes/139/originals/8254acade5d4437b6c655ee1f94f64d2c5dc018362f668f7a23e4c7dbe34cd17.gz
+ create mode 100644 docs/readmes/139/originals/841e6c4615f72eaca858d1f3b58a4c6cba726d9aa4b5d322d32b4afbb5eb5d24.gz
+ create mode 100644 docs/readmes/139/originals/85793571a4b7d1bf5a6fa43d863e1a524743ea3fd8976a934a74733f49c737a4.gz
+ create mode 100644 docs/readmes/139/originals/8582fc790205b82598744afd2f055c25f8cc92e12a921297c5cfc24a23d6d568.gz
+ create mode 100644 docs/readmes/139/originals/8926c3a2db60cad8ea89019dd6c58c144fd1e0af336d142f0618dec3513a694a.gz
+ create mode 100644 docs/readmes/139/originals/89b6b767ab6510026fb1152ac6b88ffed805e5f43b202684969e737a2e385550.gz
+ create mode 100644 docs/readmes/139/originals/8a173d4cc96f3586a52895eb7e1fa1a2a084b4e893c880e51dc773a693bbd42b.gz
+ create mode 100644 docs/readmes/139/originals/8c44670fd12cf429e30e2956dd5acef135e8fda9bef906afb3823b1106eec1cb.gz
+ create mode 100644 docs/readmes/139/originals/8c73cccf067671c5958e790faacc38bf7081e5e7b0f60d05836e4bbb39f14dca.gz
+ create mode 100644 docs/readmes/139/originals/8c7b20477e2f26a5205ff2f89f5a44b2cf6a42a7216c82e5ec80eef7726433c7.gz
+ create mode 100644 docs/readmes/139/originals/8d819837f1bd2d4ab6ebb7c9757231921cd1a34a08589a886c6acca732c0e459.gz
+ create mode 100644 docs/readmes/139/originals/8dfce30a317e463d223cc7ea7e0490ea8b8e1f91c4a296b446bdbda11be513ec.gz
+ create mode 100644 docs/readmes/139/originals/8e35d9facdabd5edf21cf53d9f350de3017a9fdc5a482befd50831132829fda7.gz
+ create mode 100644 docs/readmes/139/originals/8ee30158e10ce276f90eed87fca0946b629e3cde414ec46816af590862202820.gz
+ create mode 100644 docs/readmes/139/originals/8fa7d9a4bebb90ddefe20d0278b48f4bd21cf98f634e538cac59cc33d7124fb6.gz
+ create mode 100644 docs/readmes/139/originals/9130317495a17dc145126bb93bb70e2b94b237021e4520bef7a96a0b2a5797a4.gz
+ create mode 100644 docs/readmes/139/originals/91e6c8e2dc91ef1ce57788dae3b0ef18a8d85bbecf2a879110001aa45a37cf67.gz
+ create mode 100644 docs/readmes/139/originals/94f2233bcd6e30507af8336986cb4677a0022657717522d5710cd7fd31555291.gz
+ create mode 100644 docs/readmes/139/originals/96a0a560c82aabd033950e1fedca52d657600bfec91e0df80898e0d0a949b54a.gz
+ create mode 100644 docs/readmes/139/originals/987ab62acbc15a53652d21e1ec1161f8812a732de8c6cc76bf073be7ef9f7c18.gz
+ create mode 100644 docs/readmes/139/originals/99096f0baace600af9400b7e60f5bca8e200f7ad9fc229aad1069a65ac952312.gz
+ create mode 100644 docs/readmes/139/originals/9a1a258e616f5657e440f323bf366e7be41a1f3a7fd813f8e5590e8d673d009c.gz
+ create mode 100644 docs/readmes/139/originals/9a2a68add2688a5c6a10aff352a42c6f5c02f8067792384eb7ead1d930b22a3f.gz
+ create mode 100644 docs/readmes/139/originals/9c57270b19d1d43299574df2f7c11a604643ce2e9ae8c9f7df9edb9b0a4dcc32.gz
+ create mode 100644 docs/readmes/139/originals/9da13f914101c161f204ecc3e54554604837b9a9fe0d0df7fa3d3d70dfe13078.gz
+ create mode 100644 docs/readmes/139/originals/9e1c6b3aa4ffb55616cf5bc70b64665ea58fa7380f9c5f7966f86cd0e756bd6b.gz
+ create mode 100644 docs/readmes/139/originals/9fb347d1e3b75ca2cd9e4087660face9c0216a53657d7783bd8d708ab2fe6fdf.gz
+ create mode 100644 docs/readmes/139/originals/a14562323a64409a1fe43f5cdb87c4e31bffe2cee7d1f0680ba8a4b83cb8b3db.gz
+ create mode 100644 docs/readmes/139/originals/a2ad0cb22f5dcb821a82f0f16ecd6cb0d664e9a1fcb3445209fa76ae44b63fe4.gz
+ create mode 100644 docs/readmes/139/originals/a2c51f1d77ee7f67b248737ce73ee58d28bbcd9fb0a4f36ed136e818a829f5b1.gz
+ create mode 100644 docs/readmes/139/originals/a34bc0c331919409c3095e50ace5a64e06f0bef736b391bc6cf4630ec78cb260.gz
+ create mode 100644 docs/readmes/139/originals/a35c9b09e84dacec24c7e5d02ebbefec3933ebb3eac844096b9e824a0ac1fd1b.gz
+ create mode 100644 docs/readmes/139/originals/a3fc1f7f7b70e8266970f2558e42017c6a3601f203f3b75f0ffd64a7a5c6143b.gz
+ create mode 100644 docs/readmes/139/originals/a50d446e5599d1bc60163021151b5743ac7456cb9e5aa98025b2cf3e33024b74.gz
+ create mode 100644 docs/readmes/139/originals/a62b337a48a7b54d55f57bec3b97aa0d090df691687f05222acdfff4d9b2590e.gz
+ create mode 100644 docs/readmes/139/originals/a67b6e319fbdb1a6f2a918d4404f3ec1bf9ebe19cb34885c8f192ee08d2e7c16.gz
+ create mode 100644 docs/readmes/139/originals/a690429f3b945434d0467f31995bbe8092c6b86ad76ddb66e831f7834962b882.gz
+ create mode 100644 docs/readmes/139/originals/a6d0b33b86a42d2c6bf27a0835a0205365ffd51b015fc560dda0eaef1c372a6e.gz
+ create mode 100644 docs/readmes/139/originals/a81f7de3d987da3863ae1f6c101a4fca96508bfb32b962a6f111b818a0021f8e.gz
+ create mode 100644 docs/readmes/139/originals/aa27782d5bf040c5d9a7668f24c73408ef19c3154611a0c47548bbc1a6808907.gz
+ create mode 100644 docs/readmes/139/originals/aa50ba8427323f9fce9cc02c35af69e1cb63c73ccc782ea1c1d763f14f04491e.gz
+ create mode 100644 docs/readmes/139/originals/ab91315a26128b0adddcae96d612cb91e04f20a111d523dfea9f386cb7155209.gz
+ create mode 100644 docs/readmes/139/originals/ad4d2c39d9bb0e1b67375ee51442d48af7ddce6bffe120bec0bc3bf848c3a24f.gz
+ create mode 100644 docs/readmes/139/originals/add8f86a070d710dc543caad337efe51d0de99b2933870c7b85c6197b745793e.gz
+ create mode 100644 docs/readmes/139/originals/ae2a48d0d95eec1501fb1761ab00b80ef4ff0961bec5b1fc7324215b0b4dedd2.gz
+ create mode 100644 docs/readmes/139/originals/ae9b05c71b1c60533f79301d83e1daef7beea70510f324cc0b26a3a95f72eb67.gz
+ create mode 100644 docs/readmes/139/originals/b090afacbe87581c7c387c24f18f7ddbe15b8da88926d9d67d1aa2f871c1bd60.gz
+ create mode 100644 docs/readmes/139/originals/b1e75ef3514ba062371c84a5b039199263d43dc26cffbb20b6cba19b254c1da2.gz
+ create mode 100644 docs/readmes/139/originals/b1edc43662e2d9c1b5dce5fe1ec10e7234de6b7bf2eea5e551d9a544abee3f84.gz
+ create mode 100644 docs/readmes/139/originals/b30f0559e62aa8e3c175f44f62fbc7629ec2a82e72f42b1176998df368c1f3cd.gz
+ create mode 100644 docs/readmes/139/originals/b3f815751444199ed12febb50b0a7beba3149f480d59e79e7c60a6847fdb8afa.gz
+ create mode 100644 docs/readmes/139/originals/b4a48721e87baafd91da2752bcaac69a7b1d7e7780b2ddc97fbc5e1e2070f989.gz
+ create mode 100644 docs/readmes/139/originals/b58f599a6700434518f04d53a16662281b6ca32b21756fa0de56dabdc21c3eb7.gz
+ create mode 100644 docs/readmes/139/originals/b64b6521312961351eff02c5d773f24af175bade59cabc13f28346148b0ce08c.gz
+ create mode 100644 docs/readmes/139/originals/b66c03f581cb4469b4bbcb0fd846fe5612b1f35ccb1132625cbaa218ba82cf51.gz
+ create mode 100644 docs/readmes/139/originals/b6d87dbf710a87967b645cb80acd4e4ec3414b1a1aea7820e0486b0bc5fb981e.gz
+ create mode 100644 docs/readmes/139/originals/b7ff959c31e8468452ab1f04dcdf4a76de693d0e18bdb35c2b9f13661125fba8.gz
+ create mode 100644 docs/readmes/139/originals/b9038c28017f2fa70d4627ae9300fcf9f9941dd5bf7c4dfd5126bb790067ecd9.gz
+ create mode 100644 docs/readmes/139/originals/ba21767ca7688d1bf520efb3f468e59e791c91e666aed5a61274f0666d5a003b.gz
+ create mode 100644 docs/readmes/139/originals/bc3b02c45945faedb2e9224383ff4e0e06353c82a51d8ae0b241f12bb02e02b3.gz
+ create mode 100644 docs/readmes/139/originals/bcc1f0d3a999bdafdf20f3cc0e7fcea7f9697dfa17478b455669a7398166d44e.gz
+ create mode 100644 docs/readmes/139/originals/c01f875f62179b6897c7af54df5ce36b173ac8403d2aa3586a8b3ff0e99a776d.gz
+ create mode 100644 docs/readmes/139/originals/c17504f56e85815a0d20ffb26b2111a836e2bbceb59b7089d8480da25ca03803.gz
+ create mode 100644 docs/readmes/139/originals/c2085da078826b0406415a43a2b75acf5d4a54a021059e0089e8a848e3834c8b.gz
+ create mode 100644 docs/readmes/139/originals/c37b52d9ef14b1a8213f31e6416fafc93f1864315c4cb5f1e877b254a0d389b4.gz
+ create mode 100644 docs/readmes/139/originals/c37e438fee2ec0a151d474a5f2dfcd7e58dfd4fbbc0747dc137d737dcb52e6ac.gz
+ create mode 100644 docs/readmes/139/originals/cb52d88f54202b44605df4e335284b8bc6bebc0b296534ba170e12468cfe81c6.gz
+ create mode 100644 docs/readmes/139/originals/cd3ec9feb87c30efde15a8e73aa85ce65ab9b015f6e31ee2ec807faa59249682.gz
+ create mode 100644 docs/readmes/139/originals/ce741a8fd63fe912ac0c791d1c028ced28e260fb29a1b3373fa43142e45816e8.gz
+ create mode 100644 docs/readmes/139/originals/d17cf46135239d6494aac955c6914cff21d360921deb1edf5721d420ed99be56.gz
+ create mode 100644 docs/readmes/139/originals/d1e7eb4678fae0db0027b4c2b146f04493cb1df0d9a3fa1e189ead12acdaf45c.gz
+ create mode 100644 docs/readmes/139/originals/d2ca046013f4b66b02b3af8c4aa97a2c7c551b07352f7bf157fd73d30fceb448.gz
+ create mode 100644 docs/readmes/139/originals/d2cd883ca4dc476a29e271e60b577de2731b1eeab9ccdfab9bd21c8aa9a8a6d7.gz
+ create mode 100644 docs/readmes/139/originals/d42ac6021c480afdd2636296919054c5349656cb31a7de8386fea8b189a2b21d.gz
+ create mode 100644 docs/readmes/139/originals/d958b722d72ca2489111ff7a47d3e9a416bb470efeacdb5934eb0c6a0bf71ad6.gz
+ create mode 100644 docs/readmes/139/originals/da5851e2d85b62a05f170fe3fa9d6f255f319cea106a279e960d762e101e3861.gz
+ create mode 100644 docs/readmes/139/originals/db8d45daa6b034fce7ee624516790bf7294fb63e5b2e46869ec557326d9edac2.gz
+ create mode 100644 docs/readmes/139/originals/dc445b10b4c3385725bd94484e51ba6a24f44edf00c76955f0dd4e9d6ae78de0.gz
+ create mode 100644 docs/readmes/139/originals/dd9566441c7f0ff910391eb1764c5415dd9493533b51b7f9a4db4cb0068e5dfd.gz
+ create mode 100644 docs/readmes/139/originals/e0f64624b05315acba3569a63925098fce77896479ceb1052d301db717212918.gz
+ create mode 100644 docs/readmes/139/originals/e1be726bedf29fbd0ff47727045a6d48e786f5d7dae70eb6f828c065aeec7771.gz
+ create mode 100644 docs/readmes/139/originals/e21f361070cab4e45d4e32a6811e5406347b1c9f26aed27d3b039946b6fdd8c1.gz
+ create mode 100644 docs/readmes/139/originals/e523ff4854f8a87deb60b0f79c5c6c1784b3a9601172585c9951a3dfacba2405.gz
+ create mode 100644 docs/readmes/139/originals/e56a6998cc06fdb1ea2c7e45a2a5da124ba7f22ca9cc49520589ef8d09757a42.gz
+ create mode 100644 docs/readmes/139/originals/e6088a4f8192746d440ab2413231ec653e1e44126066d6f0015e86b5cc1f4ad1.gz
+ create mode 100644 docs/readmes/139/originals/e746ee67ddc79c941a4c4dc610199ceafc57e38b29f236694dde13adb9143990.gz
+ create mode 100644 docs/readmes/139/originals/e7f1ca7072a7a36f91dea40f2b2a7d2ad855f0105622ebf5a68986e9901f6b52.gz
+ create mode 100644 docs/readmes/139/originals/e934bde612a9be8e3963b8a6407d9ea29f665a23d780ae64c2379fbc63605b2d.gz
+ create mode 100644 docs/readmes/139/originals/eb9f8590e731022bd812c8f21fdbd458dd7b8193dea3b1aecfa125bc43923f8b.gz
+ create mode 100644 docs/readmes/139/originals/ec26a635d2efcaa2a362803dc0b926c06ac290ca7f478905a186b946ca89a7bb.gz
+ create mode 100644 docs/readmes/139/originals/ecc34150291a669645ad00f1ac8502dcf1245603b8e5f7260366054850fbfd69.gz
+ create mode 100644 docs/readmes/139/originals/ee3f747b8f60360f788d32a17360c581149415e4e81a33cb03452a43af785f8d.gz
+ create mode 100644 docs/readmes/139/originals/efe29147b932c532accace0e6438053c4e5ebcfe92dbb6591ca04b70afdd5301.gz
+ create mode 100644 docs/readmes/139/originals/f09d7490a67788b79d55b0eacf2774d58ba0814fce8901568331f317d37ed512.gz
+ create mode 100644 docs/readmes/139/originals/f2a4c4bcd5c93dd757d6a11a57b5d162e76225d96ebae635123d4efb43f93bad.gz
+ create mode 100644 docs/readmes/139/originals/f3002cdbf65f075f467d19d018de773cc01410a5a6f7c8b84258689445ddd2e3.gz
+ create mode 100644 docs/readmes/139/originals/f3c621b9732ff708c23e19182fb89c882ef8c03c3ab43a906b8297195a6cd71e.gz
+ create mode 100644 docs/readmes/139/originals/f8e73063d19f4825f3e851f34c05df632362dc9bea78444af32ecdbebea4f78c.gz
+ create mode 100644 docs/readmes/139/originals/fa2e68c6e63c1c276db9888c012484c6334315f9c0b3d38f5a65ea3fb8c3cdd6.gz
+ create mode 100644 docs/readmes/139/originals/fb4f966b021afb51137179e0394c02bdc9b10565faf02e4db361a2d6cd6cc6cc.gz
+ create mode 100644 docs/readmes/139/originals/fb6b5807e3d2a9e4041e67eabc97d5e5b8212af967b66c73df4218310f6785c6.gz
+ create mode 100644 docs/readmes/139/originals/fd891d142820607868171a7b920afbac1f1809d5646a7da5ef0547dc7c389beb.gz
+ create mode 100644 docs/readmes/139/originals/ff4bc4e0603a1e87213e1aeb4f932209f98cb98501f96574e1bed6b2b30b2ad6.gz
+ create mode 100644 docs/readmes/139/system-map.json
+ create mode 100644 docs/readmes/139/verification.json
+ create mode 100644 docs/readmes/139/visual-review139.json
+ create mode 100644 docs/readmes/139/visual139.json
+Release 7c50b0e8722ec925d68cb1fb43ad764081cc8919
+Traceback (most recent call last):
+  File "J:\Codex-Work\fraynix-workspace-edition139\docs\publication139\audit-publication139.py", line 21, in <module>
+    assert digest(b)==row['sha256'] and len(b)==row['bytes'],row['path']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: docs/INTEGRATED_AGENT_ROADMAP.md
+Traceback (most recent call last):
+  File "J:\Codex-Work\fraynix-workspace-edition139\docs\publication139\release139.py", line 22, in <module>
+    run('python','docs/publication139/audit-publication139.py','HEAD',release)
+  File "J:\Codex-Work\fraynix-workspace-edition139\docs\publication139\release139.py", line 3, in <lambda>
+    r=Path.cwd();run=lambda *args,**kwargs:subprocess.run(args,check=True,**kwargs);git=lambda *args:subprocess.check_output(['git',*args],text=True).strip()
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\eyeka\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '('python', 'docs/publication139/audit-publication139.py', 'HEAD', '7c50b0e8722ec925d68cb1fb43ad764081cc8919')' returned non-zero exit status 1.

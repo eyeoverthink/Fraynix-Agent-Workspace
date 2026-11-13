@@ -27,3 +27,7 @@ if __name__=='__main__':
  short='## Edition139 / 2026-11-13 — foreground motion and spatial structure\n\nThe unified Java world/browser/creation mission continues. [Edition139](../README-139.md) adds explicit immutable seed-part evidence and relative-motion warnings, retaining baseline behavior and every source/outcome check. Fresh camera disappearance/return results include withheld correct observations, uncertainty and full costs. No default promotion.\n\n'+(r/'build/next139.md').read_text(encoding='utf8')+'\n\n'
  for name in ['docs/INTEGRATED_AGENT_ROADMAP.md','docs/PLAYABLE_LEVEL_CREATION_PLAN.md']:
   p=r/name;old=p.read_text(encoding='utf-8-sig');p.write_text(short+old if not old.startswith(short) else old,encoding='utf8')
+
+if __name__=='__main__':
+ import subprocess
+ subprocess.run(['python','docs/publication139/finalize-inventory139.py'],check=True)
