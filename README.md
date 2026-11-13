@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 136
 
+[Published and fetched verification receipt](docs/PUBLICATION_136.json) Â· [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-136)
+
 **Keep drift out of retained evidence; spend less time rereading unchanged history.** Updated 2026-11-13.
 
 [Previous: edition135](README-135.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/136/index.html) · [Development direction](docs/INTEGRATED_AGENT_ROADMAP.md) · [Contributor continuity](README-CONTRIBUTORS.md)
