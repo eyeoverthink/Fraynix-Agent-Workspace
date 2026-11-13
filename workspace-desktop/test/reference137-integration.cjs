@@ -19,11 +19,12 @@ const overlap=(a,b)=>{const i=Math.max(0,Math.min(a[2],b[2])-Math.max(a[0],b[0])
  const idle=()=>page.waitForFunction(()=>!window.association134View.busy&&!window.labels132View.observation.busy,{},{timeout:120000});
  async function load(spec){
   const pixels=await fs.readFile(spec.pack);assert.equal(sha(pixels),spec.packSha256);const labels=await fs.readFile(path.join(repo,spec.labels));assert.equal(sha(labels),spec.labelsSha256);
-  const dataset=await request('observations','import',{pack:JSON.parse(pixels)}),source=await api('/api/association134/source',{datasetId:dataset.id,ordinal:1});
+  const dataset=await request('observations','import',{pack:JSON.parse(pixels)}),source=await api('/api/labels132/source',{datasetId:dataset.id,ordinal:1});
   const input={...JSON.parse(labels),datasetId:dataset.id,datasetSha256:source.datasetSha256};const file=path.join(out,spec.case+'-labels.json');await fs.writeFile(file,JSON.stringify(input,null,2));
   await page.locator('#association134-panel').evaluate(e=>e.open=true);await idle();await page.locator('#association134-import').setInputFiles(file);await idle();const label=await page.evaluate(()=>window.association134View.record);assert.deepEqual(label.input,input);return {spec,dataset,label,input};
  }
  async function track(f,policy,set){
+  await page.waitForFunction(()=>!window.labels132View.observation.refreshing);
   await page.evaluate(async id=>{const v=window.labels132View.observation;v.root.open=true;v.datasetId=id;v.bindingKey='';await v.refresh();},f.dataset.id);await idle();
   await page.locator('#observations-method129').selectOption(policy);
   if(set){await page.locator('#observations-references137').evaluate(e=>e.open=true);await page.locator('#observations-references-refresh137').click();await idle();await page.locator('#observations-reference-set137').selectOption(set.id);await page.locator('#observations-reference-declaration137').fill('Same labelled '+f.spec.case.split('-')[0]+' target in a later non-overlapping window; operator declaration, not semantic identity proof.');}
