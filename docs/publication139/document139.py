@@ -1,5 +1,5 @@
 from pathlib import Path
-import json,hashlib,subprocess,shutil,gzip,xml.etree.ElementTree as ET,re
+import json,hashlib,subprocess,shutil,gzip,xml.etree.ElementTree as ET,re,datetime
 r=Path.cwd();out=r/'docs/readmes/139';out.mkdir(parents=True,exist_ok=True);parent='7e66b0c86d3a665b5793ba795298a4eeb2c81cfa'
 read=lambda p:json.loads((r/p).read_text(encoding='utf-8-sig'));sha=lambda b:hashlib.sha256(b).hexdigest()
 def text(p,s):p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(s.encode('utf8'))
@@ -60,7 +60,7 @@ for n in sorted(paths):
 write(out/'file-inventory.json',inventory)
 table='| Method / source | Correct / visible | Missing | Wrong overlaps | Other-object matches | Hidden outputs |\n| --- | ---: | ---: | ---: | ---: | ---: |\n'
 warn='| Method / source | Useful warnings | False warnings | Missed wrong proposals |\n| --- | ---: | ---: | ---: |\n'
-cost='| Actual task | Tracking / ms | Audit with replay / ms |\n| --- | ---: | ---: |\n'
+cost='| Measured run phase | Tracking / ms | Audit with replay / ms |\n| --- | ---: | ---: |\n'
 for x in rows:
  s=x['summary'];table+=f"| {x['policy']} / {x['case']} | {s['correct']}/{s['visible']} | {s['missing']} | {s['overlapFailures']} | {s['confirmedDistractorMatches']} | {s['unsupported']}/{s['hidden']} |\n"
  if x['drift139']:
@@ -69,7 +69,9 @@ for x in rows:
 st='| Recording / target | Original frames | Stride | Visible or partial | Hidden | Uncertain | Distractor-labelled samples |\n| --- | --- | ---: | ---: | ---: | ---: | ---: |\n'
 for s in sources['records']:
  c=s['visibilityCounts'];st+=f"| {s['name']} / {s['target']} | {s['start']}–{s['end']} | {s['stride']} | {c['visible']+c['partial']} | {c['occluded']+c['out-of-view']} | {c['uncertain']} | {s['distractorLabelledSamples']} |\n"
-warn+='\nFirst wrong visible proposal / first warning (later-frame ordinals, monitor control): '+ '; '.join(f"{x['case']} {x['firstWrongVisibleProposal']} / {x['firstWarning']}" for x in timing)+'. This descriptive timing is not advance prediction of drift; warnings can arrive after an error already exists.\n'
+warn+='\nFirst wrong visible proposal / first warning (later-frame ordinals, monitor control): '+ '; '.join(f"{x['case']} {x['firstWrongVisibleProposal']} / {x['firstWarning']}" for x in timing)+'. This descriptive timing is not advance prediction of drift; warnings can arrive after an error already exists, and a warning before the first error can be a false alarm.\n'
+elapsed=(datetime.datetime.fromisoformat(study['endedAt'].replace('Z','+00:00'))-datetime.datetime.fromisoformat(study['startedAt'].replace('Z','+00:00'))).total_seconds()
+cost+=f'\nThe entire actual-app harness took {elapsed:.1f} seconds ({elapsed/60:.1f} minutes), including imports, UI inspection, repeated verified reads, export, captures, stop/resume, crash/reopen and tamper checks. The phase intervals above are subsets of this elapsed time, not additional costs to add to it. Regression/build/documentation work is separate.\n'
 next_steps=(r/'build/next139.md').read_text(encoding='utf8')
 md=(r/'docs/publication139/README-template.md').read_text(encoding='utf8')
 for key,value in {'FINDING':finding,'RESULTS':table,'WARNINGS':warn,'SOURCES':st,'COSTS':cost,'VALIDATION':validation,'APP_CHECKS':'\n'.join('- '+x for x in v['actualAppChecks']),'SOURCE_REVIEW':sources['sourceReview'],'ATTEMPTS':(r/'build/attempts139.md').read_text(encoding='utf8'),'NEXT':next_steps}.items():md=md.replace('{{'+key+'}}',value)
@@ -79,7 +81,7 @@ system={'modules':modules,'screenshots':[{'path':'docs/readmes/139/'+name,'title
 text(r/note,'# Foreground motion and spatial structure — edition139\n\n[[README-139.md]]\n\n'+validation+'\n\n'+finding+'\n\n'+next_steps+'\n\nPreserve defaults, historical bytes and source/outcome checks. Continue [[docs/INTEGRATED_AGENT_ROADMAP.md]].\n')
 write(r/'docs/obsidian/147-foreground-structure.canvas',{'nodes':[{'id':x['id'],'type':'file','file':x['source'],'x':i*430,'y':0,'width':390,'height':190} for i,x in enumerate(modules)],'edges':[{'id':str(i),'fromNode':modules[i]['id'],'toNode':modules[i+1]['id']} for i in range(len(modules)-1)]})
 html=(r/'docs/publication139/guide-template.html').read_text(encoding='utf8')+'<script id="system-data" type="application/json">'+json.dumps(system).replace('</','<\\/')+'</script><script id="inventory-data" type="application/json">'+json.dumps(inventory).replace('</','<\\/')+'</script><script src="guide.js"></script></body></html>'
-text(out/'index.html',html);shutil.copy2(r/'docs/publication137/guide.js',out/'guide.js')
+text(out/'index.html',html);shutil.copy2(r/'docs/publication139/guide.js',out/'guide.js')
 for name,link in [('docs/readmes/INDEX.md','[Edition139 — foreground motion and spatial structure](../../README-139.md) | [Offline guide](139/index.html)'),('docs/obsidian/00-home.md','Current: [[docs/obsidian/147-foreground-structure.md]] | [[README-139.md]]')]:
  p=r/name;s=p.read_text(encoding='utf-8-sig');text(p,link+'\n\n'+s if not s.startswith(link) else s)
 print(json.dumps({'passed':True,'javaChecks':len(checks),'sources':len(inventory),'originalEntries':len(originals),'finding':finding}))

@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "appearance",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SpatialEvidence139.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "guard",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ForegroundGuard139.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "audit",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ForegroundAudit139.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "world",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java",
+      "x": 1290,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "panel",
+      "type": "file",
+      "file": "workspace-desktop/renderer/observation-panel.js",
+      "x": 1720,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "appearance",
+      "toNode": "guard"
+    },
+    {
+      "id": "1",
+      "fromNode": "guard",
+      "toNode": "audit"
+    },
+    {
+      "id": "2",
+      "fromNode": "audit",
+      "toNode": "world"
+    },
+    {
+      "id": "3",
+      "fromNode": "world",
+      "toNode": "panel"
+    }
+  ]
+}

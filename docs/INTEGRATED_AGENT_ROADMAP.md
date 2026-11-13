@@ -1,3 +1,15 @@
+## Edition139 / 2026-11-13 — foreground motion and spatial structure
+
+The unified Java world/browser/creation mission continues. [Edition139](../README-139.md) adds explicit immutable seed-part evidence and relative-motion warnings, retaining baseline behavior and every source/outcome check. Fresh camera disappearance/return results include withheld correct observations, uncertainty and full costs. No default promotion.
+
+## Next steps
+
+1. **Reduce false withholding before adding more autonomy.** Use these now-exposed failures for development: separate genuine replacement or background drift from normal scale, pose and lighting changes. Keep the immutable source anchor; any additional appearance example must pass the existing independent admission checks. Freeze the next candidate before new evaluation.
+2. **Make disappearance and return measurable.** Use larger targets, complete obstruction, re-entry and labelled lookalikes. Obtain independent visibility and target-identity review, retain uncertain boundaries, and measure correct recovery alongside false recovery and missing observations. Four confidently covered car images cannot establish general occlusion handling.
+3. **Earn back the added processing cost.** Profile full tracking, persistence and original-pixel replay. Compare any optimization on identical histories and interrupted tasks, retaining every source and outcome check. Faster computation without useful observations is insufficient.
+4. **Keep the connected application central.** Feed only qualified measurements into durable Java world, browser and creation goals. Clearly separate observed position, predicted position and unknown state. A missing or suspect measurement must not silently authorize a physical action or become appearance memory.
+
+
 ## Edition138 / 2026-11-13 — drift evidence before tracking loss
 
 The unified Java world/browser/creation mission continues. [Edition138](../README-138.md) adds an explicit original-appearance guard, an unchanged-output monitoring control and complete original-pixel replay before independent outcome scoring. Defaults and all verification remain. No target predictions become anchor memories. See fresh results, missing observations, false warnings and full task costs before judging utility.

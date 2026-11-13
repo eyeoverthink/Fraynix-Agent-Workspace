@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "reviewed": [
+    {
+      "path": "build/drift139-app/ballet-100-drift.png",
+      "sha256": "cd3ec9feb87c30efde15a8e73aa85ce65ab9b015f6e31ee2ec807faa59249682"
+    },
+    {
+      "path": "build/drift139-app/bicycle-98-source.png",
+      "sha256": "8c44670fd12cf429e30e2956dd5acef135e8fda9bef906afb3823b1106eec1cb"
+    },
+    {
+      "path": "build/drift139-app/bike1-1-drift.png",
+      "sha256": "449c0cbe5327e1f29cf39dcab44ca77041afe7fc3fc57544c66546fa2db21cf7"
+    },
+    {
+      "path": "build/drift139-app/car1-1508-source.png",
+      "sha256": "231db008c2387d7137be5b9a5ede4668f9cbf26067a12f4310d7eba1360ce174"
+    },
+    {
+      "path": "build/drift139-app/drift-layout-1100.png",
+      "sha256": "35842726f0a2b2a47cd4a01255fec52dbee7b35d6b90553e37c3d86471871fe8"
+    },
+    {
+      "path": "build/guide139-1440-viewport.png",
+      "sha256": "e5dfd3562f802faeb0d98a0de3950dc883360864c5f181700ee8bdb61b5e8d6c"
+    },
+    {
+      "path": "build/guide139-390.png",
+      "sha256": "4f198a7f1ed63ef8accaa1b58fd3941478d169410593ff903f17dd3bc617af1c"
+    }
+  ],
+  "findings": [
+    "Actual app captures show source pixels, proposal/part overlays and uncertainty labels without fabricated output.",
+    "The README hero explicitly identifies the bike1 false alarm; it is not presented as successful detection.",
+    "App controls, source legends and chat remain visible at the reviewed 1100 and 1600 widths.",
+    "Offline guide text, source links and filters render at 1440 and 390 pixels without document overflow. The six-column measurement table scrolls horizontally on narrow screens.",
+    "Small app labels in the mobile embedded screenshot require opening the full image; no claim of a mobile native app."
+  ]
+}

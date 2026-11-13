@@ -4,15 +4,17 @@
 
 [Previous edition](README-138.md) · [All editions](docs/readmes/INDEX.md) · [Offline interactive guide](docs/readmes/139/index.html) · [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md) · [Contributor handoff](README-CONTRIBUTORS.md)
 
-![Actual app: foreground evidence](docs/readmes/139/ballet-100-drift.png)
+![Actual app: a false drift warning on the bike1 control](docs/readmes/139/bike1-1-drift.png)
+
+This capture shows a limitation, not a successful detection: the orange proposal was correctly positioned according to the independent box, but the candidate withheld it. The full comparison below retains that cost.
 
 ## What changed
 
-Color alone can remain plausible while a tracking rectangle gradually slips onto background pixels. **foreground-guard-139** retains nine textured parts from the original object. It searches for those parts, checks whether they still form a coherent arrangement, and compares their motion with nearby background motion and the flow tracker's proposed movement. Two consecutive structural disagreements can withhold a measurement while the underlying tracker still reports success.
+Color alone can remain plausible while a tracking rectangle gradually slips onto background pixels. **foreground-guard-139** selects up to nine eligible textured parts from the original object. It searches for those parts, checks whether they still form a coherent arrangement, and compares their motion with nearby background motion and the flow tracker's proposed movement. Two consecutive structural disagreements can withhold a measurement while the underlying tracker still reports success.
 
-This is handwritten Java computation. It adds no model weights or runtime vision library. The initial appearance is immutable: tracked predictions never become new templates. Missing texture or surrounding background is insufficient evidence, not a fabricated certainty. The trace exposes eligible parts, matched parts, geometric agreement, original proposal, foreground/background displacement, warning reasons and recovery confirmations.
+This is handwritten Java computation. It adds no model weights or runtime vision library. The initial appearance is immutable: tracked predictions never become new templates. Missing texture or surrounding background is insufficient evidence for the spatial-part checks, not a fabricated certainty. The trace exposes eligible parts, matched parts, geometric agreement, original proposal, foreground/background displacement, warning reasons and recovery confirmations.
 
-Edition138's whole-appearance checks remain. Recovery requires a strong unique original-source match, spatial support when enough seed parts exist, and agreement across two images. A newly rejected image cannot alone certify recovery. Identical lookalikes must remain unresolved. This is appearance tracking, not person identification or general object understanding.
+Edition 138's whole-appearance checks remain. Recovery requires a strong unique original-source match, spatial support when enough seed parts exist, and agreement across two images. A newly rejected image cannot alone certify recovery. Identical lookalikes must remain unresolved. This is appearance tracking, not person identification or general object understanding.
 
 **monitor-only-139** computes the evidence without changing any incumbent tracker/filter output. Comparisons include **legacy-flow**, the unchanged default, and **drift-guard-138**. Earlier verified-reference features remain available with their original checks. No automatic appearance-memory admission is introduced.
 
@@ -23,6 +25,8 @@ Edition138's whole-appearance checks remain. Recovery requires a strong unique o
 {{RESULTS}}
 
 {{WARNINGS}}
+
+The continuous bike1 control reveals the main failure: its first warning at later-frame ordinal 14 flagged a proposal with overlap 0.895 as background-following. That correct proposal entered quarantine, and no source-qualified recovery succeeded during the rest of the window. Correct outputs fell from 87 to 13 while wrong overlaps fell from 8 to 0. One false alarm therefore has a much larger cost than its warning count suggests. This is post-run diagnosis, not a threshold adjustment; the original traces and diagnostic record are retained.
 
 Useful warnings identify an already wrong or hidden proposal; they do not prove advance knowledge. False warnings flag correct visible proposals. Missing measurements stay in the denominator. Withholding everything is not successful tracking. An overlap failure does not by itself establish an identity switch, and unlabelled distractors cannot establish switch-free behavior.
 
@@ -40,7 +44,7 @@ Ballet and bicycle test exits from the frame and returns. Some NaN annotation bo
 
 ### Previously exposed development footage
 
-The four edition138 windows are development data, not fresh evaluation. Across332 visible/partial samples, the default and138 guard each retained122 correct observations;139 retained72. Wrong accepted overlaps fell from132 for the default and130 for138 to1 for139. Missing measurements rose from78 to259. On the single confidently hidden sample, the default and138 produced an unsupported box;139 withheld it. These substantial recall losses prevent a promotion claim. The monitor control preserved the first skater's95 later tracker/filter outputs exactly. Complete development traces and costs are retained.
+The four edition 138 windows are development data, not fresh evaluation. Across 332 visible/partial samples, the default and the 138 guard each retained 122 correct observations; the 139 guard retained 72. Wrong accepted overlaps fell from 132 for the default and 130 for 138 to 1 for 139. Missing measurements rose from 78 to 259. On the single confidently hidden sample, the default and 138 produced an unsupported box; 139 withheld it. These substantial recall losses prevent a promotion claim. The monitor control preserved the first skater’s 95 later tracker/filter outputs exactly. Complete development traces and costs are retained.
 
 ## Verification and recovery
 
@@ -48,7 +52,7 @@ The four edition138 windows are development data, not fresh evaluation. Across33
 
 {{APP_CHECKS}}
 
-Before outcome scoring, the Java audit rebuilds the entire139 decision sequence from original pixels and the original seed. Each recorded decision must match. Independent labels never enter tracking. Source hashes, implementation identities, stored histories, world bindings and outcome checks remain mandatory. Changed pixels or forged decisions refuse verification/export. Completed-state restart does not silently rewrite evidence. Interrupted work requires explicit resume.
+Before outcome scoring, the Java audit rebuilds the entire 139 decision sequence from original pixels and the original seed. Each recorded decision must match. Independent labels never enter tracking. Source hashes, implementation identities, stored histories, world bindings and outcome checks remain mandatory. Changed pixels or forged decisions refuse verification/export. Completed-state restart does not silently rewrite evidence. Interrupted work requires explicit resume.
 
 The production interface shows accepted boxes, withheld original proposals and seed-part candidates separately. Purple marks uniquely matched seed parts; brown marks unconfirmed candidates. Neither color is a ground-truth label. A withheld observation does not move the native physical world.
 
@@ -56,11 +60,11 @@ The production interface shows accepted boxes, withheld original proposals and s
 
 {{COSTS}}
 
-These are measured durable tasks, including retained history and a separate audit with original-pixel replay. They are not a same-workload scaling benchmark or proof of live webcam speed. Extra spatial matching and replay have real costs. The study uses one owned Java process, bounded heap/processor settings and an isolated J: project; private projects and shared desktop dependencies remain intact.
+These are measured durable tasks, including retained history and a separate audit with original-pixel replay. They are not a same-workload scaling benchmark or proof of live webcam speed. Extra spatial matching and replay have real costs. The bike1 control took about 40.0 seconds with the default and 98.3 seconds with the active guard before the separate audit; the guard also retained far fewer correct observations. These single measured runs do not establish a general speed ratio. The study uses one owned Java process, bounded heap/processor settings and an isolated J: project; private projects and shared desktop dependencies remain intact.
 
 ## Review it locally
 
-Use JDK21 and the prepared desktop dependencies. From the checkout:
+Use JDK 21 and the prepared desktop dependencies. From the checkout:
 
 ```powershell
 $env:FRAYNIX_WORKSPACE_PROJECT = Join-Path $env:LOCALAPPDATA 'Fraynix-Review-139'
@@ -70,7 +74,7 @@ $env:FRAYNIX_WORKSPACE_PROJECT = Join-Path $env:LOCALAPPDATA 'Fraynix-Review-139
 After dependencies are cached, add `-Offline` to require local operation. Preserve your existing project path and stop its Java owner through its app before rebuilding that owner's installation.
 
 1. Open **Spatial → Real footage · observed world**. Select a saved world, import footage and mark the initial object rectangle.
-2. Run **Existing flow tracker** as the baseline. Choose the139 experimental method explicitly for a comparison; use the139 monitor to retain incumbent outputs.
+2. Run **Existing flow tracker** as the baseline. Choose the 139 experimental method explicitly for a comparison; use the 139 monitor to retain incumbent outputs.
 3. Inspect original pixels, the proposed box, matched parts and warning explanations. Do not treat the prediction overlay as a measurement.
 4. Import independently prepared identity/visibility labels under **Object identity · occlusion & recovery**. Audit the run and inspect false warnings, missing measurements and recovery outcomes.
 5. Stop/resume, reopen and reverify. Export the complete evidence within existing bounds. Keep the original project if an export exceeds a limit; never discard evidence to make it fit.
