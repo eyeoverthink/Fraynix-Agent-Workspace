@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 135
 
+[Published and fetched verification receipt](docs/PUBLICATION_135.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-135)
+
 **Continuity first; appearance memory must earn trust.** Updated 2026-11-13.
 
 [Previous: edition134](README-134.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/135/index.html) · [Development direction](docs/INTEGRATED_AGENT_ROADMAP.md) · [Contributor continuity](README-CONTRIBUTORS.md)
