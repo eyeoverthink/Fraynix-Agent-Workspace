@@ -1,3 +1,7 @@
+## Edition 140 active — 2026-11-13
+
+Continue J:/Codex-Work/fraynix-workspace-edition140 from 86e0e5a3. CI checked FIRST: 139 run43503115840 in progress; documentation passed, compile/tests pending. Preserve defaults, every check, private projects and frozen001–139. No agents or overlapping heavy jobs; shared node_modules is read-only. Develop reduced false warnings and bounded source-qualified continuity restoration on now-exposed139 footage; freeze method/scorer before new pixels or labels. No140 publication yet.
+
 ## Edition139 — published and fetched back
 
 2026-11-13. Isolated J:/Codex-Work/fraynix-workspace-edition139 from7e66b0c8. CI checked FIRST;138 hosted run pending, documentation subsequently passed while full compile/tests continued. Method/scorer frozen e7bd0ff7 before fresh pixels/annotations. Source-only cohort clarifications512fe0e1/0c7c40ff; sources/labels d84ccd12; strict-format/small-box and exact-rational normalization cc1d50a8/20db8d29 before predictions. Actual tested source/build in docs/readmes/139/verification.json. Release 319b3e5bf00200ec89758907493940701de7fe1d; annotated readme-139. Main, edition139 and tag pushed atomically and fetched. Verified 1675 canonical sources, 49020 frozen hashes across139 editions and 212 original evidence entries. See docs/PUBLICATION_139.json.
