@@ -1,3 +1,7 @@
+## Edition 134 — 2026-11-12
+
+Independent OTB object boxes and source-only AI visibility now audit lost tracking, target overlap, labelled distractor matches and recovery in the actual Java workspace. The frozen part-appearance candidate fails the simpler incumbent (7/246 versus 83/246 visible matches); it is explicit and unpromoted. The incumbent alone recovers after the one labelled full occlusion. No real full out-of-frame return is covered by this sample. Preserve defaults, physical-accuracy limits and all original evidence. Next improve supported continuity without template contamination, then independently adjudicated occlusion/re-entry and source-age gates in durable world/browser/creation goals. See [edition 134 contract](EDITION_134_CONTRACT.md).
+
 ## Edition133 — 2026-11-12
 
 Explicit Java appearance association and visual support candidates now compare original pixels against immutable132 labels. Context/competing matches, strong two-image recovery and withheld support are source-backed diagnostics, not semantic identity or physical contact certification. Frozen comparison shows availability limits; legacy-flow and ordinary forecasts remain defaults. Contact audit can evaluate original stored default boxes without relabelling them as a new tracking proof. Keep the connected world/browser/creation mission central; next use reliable source age/uncertainty to request observations before durable physical goals. See [edition133 contract](EDITION_133_CONTRACT.md).
