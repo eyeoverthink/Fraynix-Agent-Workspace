@@ -1,3 +1,9 @@
+## Edition 138 active — 2026-11-13
+
+Continue J:/Codex-Work/fraynix-workspace-edition138 from5ee114d6. CI checked FIRST, run43478086624 pending. Read docs/EDITION_138_CONTRACT.md. Implemented opt-in immutable-source drift guard and monitor-only control, complete original-pixel decision replay and independent warning/outcome scoring. Defaults unchanged; target predictions never enter anchor memory. Four targeted tests pass; first test compile typo and log preserved. Previously exposed137 Tiger2: wrong overlaps70→0, correct25 unchanged; Box75correct/20wrong unchanged. Development only. Freeze before downloading/viewing fresh Skating2/Suv; source-only windows/visibility/other boxes fixed before predictions; no outcome tuning. No publication yet.
+
+No agents/overlapping heavy jobs. Shared desktop dependency junction is read-only. Preserve private projects and frozen001–137. Publish only Fraynix-Agent-Workspace and audit fetched Git. No relabelled old proofs or invented promotion.
+
 ## Edition137 — published and fetched back
 
 2026-11-13. Isolated D:/Codex-Work/fraynix-workspace-edition137; parent72a3b969. CI checked FIRST, documentation passed and engine job pending at start. Method/scorer6764ffb8, incumbent archival comparisonc65d3640, frozen docs/OBSERVATION_137_LOCK.json before camera evaluation. Actual tested source/artifacts in docs/readmes/137/verification.json. Release 61f62eaae6a5832b259ae8b3ac4277f2fa19bb7b; annotated readme-137. Main, edition137 and tag pushed atomically and fetched. Verified 1657 canonical sources, 48607 frozen hashes across137 editions and 191 original evidence entries. See docs/PUBLICATION_137.json.

@@ -1,0 +1,19 @@
+from pathlib import Path
+r=Path.cwd()
+def edit(name,old,new):
+ p=r/name;s=p.read_text(encoding='utf8');assert old in s,name;p.write_text(s.replace(old,new),encoding='utf8')
+edit('workspace-engine/src/main/java/fraymus/workspace/ObservationMethods129.java','Set.of(DEFAULT,CANDIDATE,','Set.of(DEFAULT,CANDIDATE,"drift-guard-138","monitor-only-138",')
+edit('workspace-engine/src/main/java/fraymus/workspace/ObservationMethods129.java','return switch(policy){','return switch(policy){case "drift-guard-138"->new DriftGuard138(id,label,first,box,true);case "monitor-only-138"->new DriftGuard138(id,label,first,box,false);')
+edit('workspace-engine/src/main/java/fraymus/workspace/ObservationMethods129.java','List.of(ObservationMethods129.class,','List.of(ObservationMethods129.class,AppearanceEvidence138.class,DriftGuard138.class,DriftAudit138.class,')
+edit('workspace-engine/src/main/java/fraymus/workspace/AssociationAudit134.java','var reference=ReferenceAudit137.class.getResourceAsStream("ReferenceAudit137.class")','var reference=ReferenceAudit137.class.getResourceAsStream("ReferenceAudit137.class");var drift=DriftAudit138.class.getResourceAsStream("DriftAudit138.class")')
+edit('workspace-engine/src/main/java/fraymus/workspace/AssociationAudit134.java','PerceptionStore.hash(reference.readAllBytes()))','PerceptionStore.hash(reference.readAllBytes())+PerceptionStore.hash(drift.readAllBytes()))')
+edit('workspace-engine/src/main/java/fraymus/workspace/AssociationAudit134.java','return result.put("input",WorldFrames.copy(input))','''if(DriftAudit138.uses(ObservationMethods129.policy(run)))result.put("drift138",DriftAudit138.check(run,dataset,labels,body,ordinal->{
+            byte[] pixels=Files.readAllBytes(imageRoot.resolve(dataset.getString("id")).resolve(ordinal+".image"));
+            if(!PerceptionStore.hash(pixels).equals(dataset.getJSONArray("frames").getJSONObject(ordinal).getString("imageSha256")))throw new IllegalStateException("Original replay source changed");
+            var image=javax.imageio.ImageIO.read(new java.io.ByteArrayInputStream(pixels));if(image==null)throw new IllegalStateException("Original replay image unavailable");return image;
+        }));
+        return result.put("input",WorldFrames.copy(input))''')
+edit('workspace-desktop/renderer/observation-panel.js','<option value="verified-memory-137">','<option value="drift-guard-138">Experimental 138 · detect drift before loss</option><option value="monitor-only-138">Control 138 · monitor without changing flow</option><option value="verified-memory-137">')
+edit('workspace-desktop/renderer/observation-panel.js',"for(const row of frame.objects){const box=row.tracker.box;", "for(const row of frame.objects){const suspect=row.tracker.drift138;if(suspect?.withheld&&suspect.proposal.box){const b=suspect.proposal.box;c.save();c.strokeStyle='#ffb366';c.lineWidth=2;c.setLineDash([7,5]);c.strokeRect(b[0]*canvas.width,b[1]*canvas.height,(b[2]-b[0])*canvas.width,(b[3]-b[1])*canvas.height);c.restore();}const box=row.tracker.box;")
+edit('workspace-desktop/renderer/observation-panel.js',"o.tracker.status+' / '+o.estimate.status", "o.tracker.status+' / '+o.estimate.status+(o.tracker.drift138?.suspect?' · '+o.tracker.drift138.reasons.join('; '):'')")
+edit('workspace-desktop/renderer/association134-panel.js',"host.append(scope);if(a.appearance135", "host.append(scope);if(a.drift138){const d=a.drift138.summary,p=document.createElement('p');p.id='drift138-summary';p.textContent=`Drift monitor: ${d.warnings} warnings; ${d.usefulWarnings} contradicted proposals flagged, ${d.falseWarnings} correct proposals flagged, ${d.missedWrongProposals} wrong proposals missed. ${a.drift138.replayedFrames} original images replayed and verified. No automatic memory admissions.`;host.append(p);}if(a.appearance135")
