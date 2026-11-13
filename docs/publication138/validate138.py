@@ -19,9 +19,6 @@ if group=='java':
  for t in tests:args+=['--tests','fraymus.workspace.'+t]
  run('java138-final',args+['--console=plain','--max-workers=2'])
  shutil.copytree(r/'workspace-engine/build/test-results/test',folder/'final',dirs_exist_ok=False)
-elif group=='export':
- run('verified-export138',['cmd','/c','gradlew.bat',':workspace-engine:test','--tests','fraymus.workspace.VerifiedAppearances135Test','--tests','fraymus.workspace.AppearanceAudit137Test','--console=plain','--max-workers=2'])
- shutil.copytree(r/'workspace-engine/build/test-results/test',folder/'verified-export-final',dirs_exist_ok=False)
 elif group=='desktop':
  run('desktop138-final',['cmd','/c','npm.cmd','test'],r/'workspace-desktop')
  env['AGENCY043_OUTPUT']=str(r/'build/agency138-evidence')

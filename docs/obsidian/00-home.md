@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/146-drift-evidence.md]] | [[README-138.md]]
+
 Current: [[docs/obsidian/145-verified-references.md]] | [[README-137.md]]
 
 Current: [[docs/obsidian/144-anchored-evidence.md]] | [[README-136.md]]

@@ -1,178 +1,165 @@
-# Fraynix Agent Workspace — Edition 137
+# Fraynix Agent Workspace — Edition 138
 
-[Published and fetched verification receipt](docs/PUBLICATION_137.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-137)
+**Detect suspect motion before the tracker reports loss.** Fraynix is a local Java agent workspace connecting durable chat goals, observed and simulated worlds, browser interaction, creation tools, verified skills and retained evidence. This edition adds an optional appearance check to the observation path. It keeps the existing tracker as the default.
 
-**Verified camera references, protected evidence and cheaper reopening.** This local Java agent workspace connects chat, persistent worlds, physics, browser interaction and creation tools. Edition 137 improves its observation memory and persistence layer without changing the default tracker or increasing action authority.
+[Previous edition](README-137.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/138/index.html) · [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md) · [Contributor handoff](README-CONTRIBUTORS.md)
 
-[Previous edition](README-136.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/137/index.html) · [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md) · [Contributor handoff](README-CONTRIBUTORS.md)
+![Actual app drift monitoring](docs/readmes/138/skating2-1-1-drift.png)
 
-![Verified reference selection in the actual app](docs/readmes/137/references137.png)
+## The problem and the change
 
-## What changed
+An optical-flow tracker can follow locally consistent motion from background pixels or another object. A box may therefore be wrong while its status still says tracked. Waiting for complete loss misses that failure mode.
 
-- **Explicit reference reuse.** Select a retained appearance set that was independently checked against original source pixels and fully visible reference boxes. Up to six examples are selected deterministically from the full immutable set. Earlier evidence remains available.
-- **No learning from target predictions.** The reference bank stays frozen throughout the new run. A drifting prediction cannot become a new reference. This prevents that feedback path; it does not eliminate tracking drift.
-- **Separated evaluation.** The reference source and target must be distinct single-object datasets with no shared image hashes. An explicit same-object declaration is retained as operator input, not treated as an independent identity certificate.
-- **Conservative recovery.** Existing accepted flow measurements remain intact. After loss, reference matching requires a strong, spatially separated candidate and two consistent images. The seed-only control uses the same recovery logic without imported examples.
-- **Cheaper durable history.** Opening completed history checks all current bytes and validates it without rewriting it. Running tasks are still marked interrupted. Transaction copying avoids a redundant JSON serialization round trip while retaining full validation, checksums, serialized reparse, forced atomic writes and detached cache publication.
+The explicit **drift-guard-138** candidate checks each proposed measurement against immutable initial pixels: color distribution, spatial appearance, foreground/background separation, scale and competing appearances. A suspect proposal is preserved in the trace but withheld from the observation filter. Its orange dashed outline remains inspectable in the actual app. The warning explains which evidence disagreed; it does not claim semantic recognition or calibrated confidence.
 
-Both `verified-memory-137` and `seed-only-137` are explicit experimental choices. `legacy-flow` remains the default. There is no model-weight training, biometric person identification, new network dependency or physical-device actuation in this edition.
+After suspicion or loss, a strong, unique match to the original source must agree across two consecutive images before recovery. The original appearance never changes. Neither accepted nor rejected target predictions can teach this anchor.
+
+The **monitor-only-138** control computes the same warnings while leaving every incumbent tracker and filter output unchanged. The unchanged **legacy-flow** is the default and comparison baseline. Existing edition 137 verified-reference sets and earlier experimental methods remain available with their original verification requirements; this new guard uses its original seed, not an automatically growing appearance bank.
 
 ## Measured results
 
-The current-code curation retained 16 independently supported examples, including 11 camera examples. They remain frozen; no evaluation prediction was admitted. Verified-reference tracking produced 189/380 correct visible/partial measurements, versus 189/380 for seed-only and 189/380 for the default. Imported references produced 0 recovery events. Retention and provenance are operational; general camera recovery remains unqualified and no default promotion is made.
+Fresh guard: **122/332 correct visible/partial observations**, versus **122/332** for the default. Accepted wrong overlaps: **130 versus 132**. Missing observations: **80 versus 78**. Confirmed labelled-other matches: **0 versus 0**. Hidden outputs: **1/1 versus 1/1**. These measured tradeoffs do not qualify a default promotion; the candidate remains explicit.
 
-| Method / window | Correct / visible or partial | Missing | Wrong overlaps | Imported recoveries |
-| --- | ---: | ---: | ---: | ---: |
-| legacy-flow / tiger2-155 | 25 / 95 | 0 | 70 | 0 |
-| seed-only-137 / tiger2-155 | 25 / 95 | 0 | 70 | 0 |
-| verified-memory-137 / tiger2-155 | 25 / 95 | 0 | 70 | 0 |
-| legacy-flow / box-535 | 75 / 95 | 0 | 20 | 0 |
-| seed-only-137 / box-535 | 75 / 95 | 0 | 20 | 0 |
-| verified-memory-137 / box-535 | 75 / 95 | 0 | 20 | 0 |
-| legacy-flow / david3-153 | 34 / 95 | 13 | 48 | 0 |
-| seed-only-137 / david3-153 | 34 / 95 | 13 | 48 | 0 |
-| verified-memory-137 / david3-153 | 34 / 95 | 13 | 48 | 0 |
-| legacy-flow / bird1-193 | 55 / 95 | 40 | 0 | 0 |
-| seed-only-137 / bird1-193 | 55 / 95 | 40 | 0 | 0 |
-| verified-memory-137 / bird1-193 | 55 / 95 | 40 | 0 | 0 |
+| Method / source | Correct / visible | Missing | Wrong overlaps | Other-object matches | Hidden outputs |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| legacy-flow / skating2-1-1 | 26/93 | 3 | 64 | 0 | 0/0 |
+| monitor-only-138 / skating2-1-1 | 26/93 | 3 | 64 | 0 | 0/0 |
+| drift-guard-138 / skating2-1-1 | 26/93 | 5 | 62 | 0 | 0/0 |
+| legacy-flow / skating2-2-1 | 45/95 | 0 | 50 | 0 | 0/0 |
+| monitor-only-138 / skating2-2-1 | 45/95 | 0 | 50 | 0 | 0/0 |
+| drift-guard-138 / skating2-2-1 | 45/95 | 0 | 50 | 0 | 0/0 |
+| legacy-flow / suv-1-498 | 19/76 | 39 | 18 | 0 | 1/1 |
+| monitor-only-138 / suv-1-498 | 19/76 | 39 | 18 | 0 | 1/1 |
+| drift-guard-138 / suv-1-498 | 19/76 | 39 | 18 | 0 | 1/1 |
+| legacy-flow / liquor-1-276 | 32/68 | 36 | 0 | 0 | 0/0 |
+| monitor-only-138 / liquor-1-276 | 32/68 | 36 | 0 | 0 | 0/0 |
+| drift-guard-138 / liquor-1-276 | 32/68 | 36 | 0 | 0 | 0/0 |
 
 
-| Reference source | Retained fully visible examples | Excluded proposals |
+| Method / source | Useful warnings | False warnings | Missed wrong proposals |
+| --- | ---: | ---: | ---: |
+| monitor-only-138 / skating2-1-1 | 2 | 0 | 62 |
+| drift-guard-138 / skating2-1-1 | 2 | 0 | 62 |
+| monitor-only-138 / skating2-2-1 | 0 | 0 | 50 |
+| drift-guard-138 / skating2-2-1 | 0 | 0 | 50 |
+| monitor-only-138 / suv-1-498 | 0 | 0 | 22 |
+| drift-guard-138 / suv-1-498 | 0 | 0 | 22 |
+| monitor-only-138 / liquor-1-276 | 0 | 0 | 0 |
+| drift-guard-138 / liquor-1-276 | 0 | 0 | 0 |
+
+First wrong visible proposal / first warning (later-frame ordinals, monitor control): skating2-1-1 12 / 91; skating2-2-1 12 / None; suv-1-498 21 / None; liquor-1-276 None / None. This descriptive timing is not advance prediction of drift; warnings can arrive after an error already exists.
+
+
+Warnings, withholding and useful tracking are different quantities. A useful warning flags an already wrong or hidden proposal. A false warning flags a correct visible proposal. Missing observations remain in the denominator; a guard that simply refuses every image does not earn an accuracy claim. A low target overlap alone is not proof of switching objects: a confirmed other-object match requires independent distractor geometry.
+
+## What was tested
+
+| Recording / target | Original frames | Stride | Visible or partial | Hidden | Uncertain | Distractor-labelled samples |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| Skating2 / 1 | 1–96 | 1 | 93 | 0 | 2 | 95 |
+| Skating2 / 2 | 1–96 | 1 | 95 | 0 | 0 | 93 |
+| Suv / 1 | 498–593 | 1 | 76 | 1 | 18 | 0 |
+| Liquor / 1 | 276–486 | 3 | 68 | 0 | 2 | 10 |
+
+
+These are original public [Visual Tracker Benchmark recordings](https://rvlab.snu.ac.kr/research/tracker_benchmark), not rendered camera substitutes. Tracking and scoring code were frozen before opening the new recordings. Source-only inspection fixed all windows and labels before predictions. The two skaters share a recording; they do not constitute two independent videos.
+
+Skating2 tests overlapping people with different clothing. Liquor tests similar-shaped bottles with different labels. The separate synthetic control contains identical twins. These are different difficulty levels and should not be conflated. The first 96 Skating2 images were retained as a crossing/partial-cover test through the source-only clarification in [the source note](docs/EDITION_138_SOURCE_NOTE.md). No outcome-driven source replacement or threshold tuning occurred.
+
+Original benchmark target boxes and reciprocal skater boxes are independent of Fraynix tracking. Visibility is source-only AI review, without independent human adjudication. Two bottle distractors have coarse manually reviewed AI boxes on 10 later sampled images, about 5 source pixels allowance; other bottle frames lack independent distractor boxes. Zero confirmed matches on those unlabelled frames cannot prove switch-free tracking. Suv has one confidently fully hidden sample; ambiguous tree-covered images remain uncertain. Liquor uses stride 3 because its first cap-cover/return interval exceeds 96 original images; intervening images are not scored.
+
+![Independent source and outcome overlay](docs/readmes/138/suv-1-498-source.png)
+
+### Previously exposed development footage
+
+Tiger2 and Box windows already used in edition 137 were development controls, not fresh evaluation. On Tiger2, the guard retained 25 correct observations and withheld 70 wrong overlaps. On Box, 75 correct and 20 wrong overlaps remained unchanged. Across these 190 visible samples the number of correct observations stayed 100; wrong accepted overlaps fell 90→20, with 70 additional missing measurements. The monitor control preserved all 190 incumbent tracker/filter outputs exactly. These results motivated testing; they are not a substitute for the fresh comparison above.
+
+## Verification and recovery
+
+Local checks passed: 293 distinct Java tests, 161 desktop checks, kernel integration, actual agency regression and isolated offline/package preparation. Twelve actual-app fresh comparisons use 1065 later-frame outcomes. Exact monitor equivalence, original-pixel audit replay, independent host arithmetic, export, stop/resume and abrupt-process cold restart are verified.
+
+- Twelve actual-app fresh comparisons: four fixed target windows, three methods, identical source pixels. Independent host overlap/distractor/warning arithmetic agrees with Java. Monitor-only preserves every incumbent tracker/filter output. No automatic anchor admissions; defaults unchanged.
+- Explicit method selection, warning explanation, original-proposal overlay, independent audit UI, complete bounded export and exact stopped-prefix resume passed. Native physical world unchanged.
+- Owned-process crash and cold reopen preserve exact completed-state bytes/timestamp and zero observation writes. All12 runs/audits reverified, including original-pixel decision replay. Source modification refuses audit/export; original restoration revalidates.
+
+The new audit replays the complete selected tracker from original image bytes and the original seed before scoring warning usefulness. Every recorded decision must match. Downstream independent labels then score both accepted and withheld proposals. Existing source-image hashes, dataset/run identities, current-code checks, observation histories, world bindings and outcome checks remain in place. Changed sources or altered decision traces are refused. Reopening a completed history still performs no rewrite; active interrupted work still requires explicit resume.
+
+No default change, automatic memory admission, physical actuation, model-weight training, person recognition, new runtime library or capacity increase is introduced. Current run limits and the desktop’s 20 MB export bound remain unchanged. An export must contain its complete evidence within the existing limit; evidence is not discarded to fit it.
+
+## Complete workflow costs
+
+| Actual task | Tracking / ms | Audit with replay / ms |
 | --- | ---: | ---: |
-| tiger2-59 | 3 | 2 |
-| box-439 | 2 | 6 |
-| david3-57 | 6 | 22 |
-| bird1-97 | 5 | 0 |
+| legacy-flow / skating2-1-1 | 7678.1 | 225.2 |
+| monitor-only-138 / skating2-1-1 | 14524.9 | 3603.7 |
+| drift-guard-138 / skating2-1-1 | 23485.8 | 3452.8 |
+| legacy-flow / skating2-2-1 | 28206.4 | 211.9 |
+| monitor-only-138 / skating2-2-1 | 36161.3 | 2771.3 |
+| drift-guard-138 / skating2-2-1 | 44860.3 | 2702.5 |
+| legacy-flow / suv-1-498 | 54433.3 | 203.7 |
+| monitor-only-138 / suv-1-498 | 64227.6 | 13912.1 |
+| drift-guard-138 / suv-1-498 | 69419.1 | 13736.4 |
+| legacy-flow / liquor-1-276 | 52337.4 | 237.0 |
+| monitor-only-138 / liquor-1-276 | 57461.4 | 9866.1 |
+| drift-guard-138 / liquor-1-276 | 59313.0 | 10006.5 |
 
 
-These are earlier edition-135 source windows and later edition-136 evaluation windows from the same [OTB benchmark](https://rvlab.snu.ac.kr/research/tracker_benchmark) recordings. They have already been inspected in prior development. **They are not new unseen footage.** Tiger2, Box and David3 are camera recordings; Bird1 is rendered. Original benchmark boxes and source-only AI visibility annotations are retained. There is no independent human visibility adjudication or complete distractor annotation. The inherited generic annotation sentence is explained in [the preserved label note](docs/EDITION_136_LABEL_NOTE.md); per-frame labels determine the actual visibility counts. Later windows contain visible/partial targets, not a new complete-occlusion test.
+These timings include real durable processing and a separate audit stage. Audits for edition 138 replay original pixels, so their verification cost is real and explicitly reported. Tasks differ in content, retained history and method; the table is not a controlled claim of constant-time scaling or live camera speed. Edition137's earlier persistence improvements remain in place. This study runs in an isolated J: checkout; its timings must not be presented as a same-drive speed comparison with earlier D:/S: studies.
 
-The synthetic pose/return control proves that the new reference path can change a real recovery outcome; the seed-only control cannot recover that changed pose. An identical-twin control refuses the ambiguous match. These tests establish software behavior, not general camera accuracy.
+## Review the app
 
-![Independent outcome comparison on original camera pixels](docs/readmes/137/box-535-source-overlay.png)
-
-## Startup and write costs
-
-| Saved runs | Cold open, before → after / ms | Median write, before → after / ms |
-| ---: | ---: | ---: |
-| 1 | 360.7 → 152.8 | 161.9 → 124.6 |
-| 3 | 359.9 → 140.5 | 288.3 → 240.4 |
-| 6 | 751.0 → 235.9 | 798.6 → 592.6 |
-
-| Saved runs / read | Before median / ms | After median / ms |
-| --- | ---: | ---: |
-| 1 / summary | 9.00 | 10.98 |
-| 1 / run | 29.88 | 40.67 |
-| 1 / dataset | 2.89 | 3.09 |
-| 1 / image | 3.26 | 3.19 |
-| 3 / summary | 9.46 | 10.26 |
-| 3 / run | 14.46 | 14.09 |
-| 3 / dataset | 4.61 | 4.48 |
-| 3 / image | 4.67 | 4.66 |
-| 6 / summary | 14.83 | 16.65 |
-| 6 / run | 34.24 | 36.19 |
-| 6 / dataset | 9.22 | 10.91 |
-| 6 / image | 9.56 | 10.95 |
-
-
-Published edition-136 and edition-137 binaries used identical isolated copies of the same 1/3/6-run public history on the same D drive. All **36 read-result hashes** and **9 write-result/persisted-payload pairs** match. Writes modify a deterministic reason field in the isolated study; they measure persistence transactions, not full agent-task throughput. Each operation has three repeats; cold open has one measurement per size. Some reads regress, and no general speed or live-camera throughput claim follows.
-
-Every access still reads and hashes the complete state. Only exact current byte identity may reuse previously validated structure. Changed bytes with identical size/time, forged history, external writes, source modification and failed writes remain checked. State limits remain 24 MB, 16 datasets, 24 observation runs and 2,048 world revisions. No pruning or capacity increase hides the costs.
-
-![Actual evidence-processing counters](docs/readmes/137/evidence-cost137.png)
-
-## Try it
-
-For a separate review project on Windows, install JDK 21 and Node.js LTS, then run from this checkout:
+Use JDK 21 and the existing desktop dependencies. From the checkout, open a separate review project:
 
 ```powershell
-$env:FRAYNIX_WORKSPACE_PROJECT = Join-Path $env:LOCALAPPDATA 'Fraynix-Review-137'
+$env:FRAYNIX_WORKSPACE_PROJECT = Join-Path $env:LOCALAPPDATA 'Fraynix-Review-138'
 .\scripts\Start-Agent-Workspace.ps1
 ```
 
-The launcher checks dependencies and existing Java owners. First preparation may download packages; after preparation, use `-Offline` to require cached dependencies. Keep your existing project path unchanged and stop its Java owner through its app before rebuilding that owner's installation.
+After dependencies have been prepared, add `-Offline` to require local caches. Preserve your existing project path and stop its Java owner through its app before rebuilding that owner's installation.
 
-1. Follow [the Windows launcher](scripts/Start-Agent-Workspace.ps1) with Java 21 and the existing desktop dependencies. Use a separate project directory for evaluation; preserve your current private project.
-2. Open **Spatial → Real footage · observed world**. Load a saved world and import source footage with an initial object rectangle.
-3. Use the independent association-label workflow to import original reference boxes and visibility annotations. Run an appearance method, audit it, and retain a supported appearance set. Incorrect, partial and uncertain proposals cannot enter this curated set.
-4. Import separate target footage. Select **Experimental 137 · verified reference memory**. Open **Verified references**, list retained sets, select one and explain why it depicts the same object. Older code-incompatible evidence remains historical and is refused for current execution.
-5. Confirm the world and footage, then start tracking. Compare with **Control 137 · original seed only** and the existing flow tracker. Target outcome labels stay downstream of tracking.
-6. Inspect original frames and independent outcomes. Stop/resume preserves the exact run prefix. Export includes the reference set, original audit, labels, source run and donor pixels within existing bounds. The desktop file limit is 20 MB; Java also retains its 40 MB original-pixel and 64 MB raw-package bounds. If the complete export exceeds a limit, preserve/archive the project rather than discarding evidence.
-7. Reopen the project. Completed observation history retains its original bytes and modification time. Original source/code/outcome checks run again when opening an audit or reusing references.
+1. Open **Spatial → Real footage · observed world**. Select a saved world, import footage and define the initial object rectangle.
+2. Leave **Existing flow tracker** selected for the baseline. Confirm world and footage, then start tracking.
+3. Explicitly choose **Experimental138 · detect drift before loss** for the candidate, or **Control138 · monitor without changing flow** for comparison.
+4. Inspect the frame and its explanation. Blue is an accepted tracker box; a dashed orange box is a withheld proposal. Prediction and filtered estimate remain separate. A withheld observation does not move the native physical world.
+5. Import independently prepared identity/visibility labels under **Object identity · occlusion & recovery**. Run the audit and inspect useful warnings, false warnings, missed wrong proposals, hidden outputs and original source overlays.
+6. Stop and resume the same run, reopen the project and recheck the retained audit. Source or code changes must refuse stale evidence rather than silently relabel it.
+7. Export complete evidence within existing bounds. Keep the original project when a full export exceeds a limit.
 
-The desktop is presentation and interaction; Java owns observations, execution, persistence, validation and recovery. The Game Lab and 3D world remain connected parts of that system, not replacements for the browser, canvas or creation workflows.
-
-## Evidence path
+## Architecture and the larger goal
 
 ```mermaid
 flowchart LR
-  A[Original source images] --> B[Independent boxes and visibility]
-  B --> C[Audited supported appearances]
-  C --> D[Immutable reference set]
-  D --> E[Separated target run]
-  E --> F[Flow plus bounded recovery]
-  F --> G[Persistent observed world]
-  G --> H[Independent outcome audit]
-  H --> I[Replay and complete export]
+  A[Original pixels and initial rectangle] --> B[Immutable source appearance]
+  A --> C[Flow proposal]
+  B --> D[Drift evidence]
+  C --> D
+  D --> E[Accept or withhold measurement]
+  E --> F[Persistent observed world]
+  F --> G[Original-pixel replay audit]
+  H[Independent outcome labels] --> G
+  G --> I[Verified evidence for durable goals]
 ```
 
-The target run has no edge back into its own reference set. Reuse checks source pixels, annotations, original proposal, audit, implementation identity and selected examples. Prediction confidence alone is never permission to retain an appearance.
+Java owns observation processing, persistent state, decision validation, recovery and audit. The desktop presents the evidence and hosts interaction. The Game Lab, 3D world, browser, canvas and creation tools remain parts of one local system. Improving perception supports durable chat-driven tasks; it does not replace them with a standalone tracker demo.
 
-## Validation and limits
+## Next steps
 
-Local checks passed: 289 distinct Java tests, 161 desktop checks, kernel integration, actual agency regression and isolated offline/package preparation. Four source runs plus twelve evaluation runs exercise 1,520 source samples. A separate two-run synthetic control verifies a complete desktop export within 20 MB. All 380 incumbent outputs match published edition-136 original traces; independent host overlap arithmetic, source curation, stopped-prefix preservation, export and cold restart pass.
-
-- Four current-code source runs independently audited; only fully visible correct proposals curated from original reference-box pixels. All source labels and original bytes fixed before evaluation.
-- Twelve separated evaluation runs (three methods × four windows), 1140 original frame outcomes independently scored. No automatic admissions; candidate/control share the same frozen source references. Default unchanged.
-- Actual reference-selection controls, same-target declaration, stopped prefix/resume, complete Java reference bundle including donor pixels and explicit desktop export-size refusal, and four independent overlays exercised. Native world unchanged.
-- Owned-process crash and cold reopen preserve exact completed-state bytes and timestamp with zero observation writes. All16 runs, labels, source examples and outcomes reverified; changed donor pixels refuse audit/export, restored originals reverify.
-- Separate actual-app synthetic control: two runs/16 samples, complete small export with all13 donor images, reference labels/audit/source run and unchanged native world.
-
-The first compile attempt caught a malformed class-resource expression introduced while extending audit identity hashing; it was corrected before camera evaluation. The next 11 persistence/provenance/cache checks passed, followed by all three frozen-reference tracker controls. Original logs and results remain archived. A UTF-8 label encoding issue and an incorrect source-inspection route in the app test were corrected during preparation, before evaluation. The first cost comparison is retained alongside the final-build comparison; no failed camera result is removed or tuned away.
-
-The first actual-app attempt completed ten runs, then correctly refused a complete export above the existing desktop20MB limit. The test had expected an export within that bound. Original result/log/screenshot retained. The same project and ten immutable runs were reopened and reverified; only remaining runs continue. Java bundle contents are checked separately, desktop refusal retained, and a small complete export is tested independently. No tracker/scorer, default or capacity changed.
+1. Detect gradual foreground drift that preserves similar colors. Develop spatial-part and foreground/background motion checks against the now-exposed138 failures, freeze the candidate, then evaluate on genuinely new footage. This study removed only two wrong overlaps and added no correct observations; it does not justify broader autonomous use or a default change.
+2. Collect independently reviewed complete occlusion/return and similar-object crossings. Keep uncertain visibility explicit, report missing observations, and measure warning delay, false alarms and correct recovery. One confidently hidden sample and sparse bottle distractor labels are insufficient for general recovery claims.
+3. Profile complete tracking, persistence and original-pixel audit costs. Reuse only immutable, source-bound evidence where every source and outcome check remains intact. Then connect qualified observations and supported appearance memories back to durable Java world/browser/creation goals.
 
 
-Hosted CI is reported separately from local checks and fetched Git publication. Original attempts, full run traces and numerical comparisons are preserved in [original evidence](docs/readmes/137/original-evidence.json), [validation](docs/readmes/137/verification.json), [comparison](docs/readmes/137/comparison.json) and [cost measurements](docs/readmes/137/cost-comparison.json). Screenshots are actual application captures using public evaluation pixels.
+## Evidence, attempts and handoff
 
-## Complete task costs
+The first targeted-test attempt stopped at a compile-time test-variable typo; the unchanged test assertions passed after correction. Its original failure log is retained. Before fresh predictions, source-only review added Liquor for similar-shaped distractors and clarified Skating2 as a crossing/partial-cover test. Original evaluated CRLF annotation and method-lock bytes were explicitly preserved in Git before running the new footage. No thresholds, algorithm, scorer or defaults were tuned on fresh outcomes.
 
-| Actual task | Track / ms | Audit and optional retain / ms |
-| --- | ---: | ---: |
-| tiger2-59 / appearance-continuity-135 | 20679.1 | 600.2 |
-| box-439 / appearance-continuity-135 | 19534.4 | 539.1 |
-| david3-57 / appearance-continuity-135 | 31411.0 | 881.7 |
-| bird1-97 / appearance-continuity-135 | 54696.1 | 687.5 |
-| tiger2-155 / legacy-flow | 50557.8 | 261.5 |
-| tiger2-155 / seed-only-137 | 58097.8 | 844.4 |
-| tiger2-155 / verified-memory-137 | 65095.5 | 879.1 |
-| box-535 / legacy-flow | 71412.6 | 254.1 |
-| box-535 / seed-only-137 | 78707.4 | 799.5 |
-| box-535 / verified-memory-137 | 89689.8 | 797.5 |
-| david3-153 / legacy-flow | 88960.3 | 373.7 |
-| david3-153 / seed-only-137 | 96746.0 | 1303.0 |
-| david3-153 / verified-memory-137 | 104084.2 | 1380.3 |
-| bird1-193 / legacy-flow | 108657.1 | 325.5 |
-| bird1-193 / seed-only-137 | 116369.4 | 1116.3 |
-| bird1-193 / verified-memory-137 | 123293.8 | 1216.3 |
+A prepublication README encoding check caught garbled punctuation introduced by a Windows-default text read. The owned documentation check was interrupted, the new template was repaired using explicit UTF-8, and documentation verification was rerun. Production, frozen tracking/scoring code, labels and completed app tests were unchanged.
 
 
-Tasks differ in source content, method and retained history size. These timings describe the observed workflow; they do not isolate a single cause or establish constant-time scaling.
+Hosted CI is reported separately from local verification and fetched publication. Raw footage, source-image archives and private projects are not committed. Exact source hashes, original annotations, provenance, selected labels, run traces, failures, tests and limited attributed app screenshots are preserved.
 
-## Next steps and the larger goal
+[Validation](docs/readmes/138/verification.json) · [Original evidence](docs/readmes/138/original-evidence.json) · [Fresh comparison](docs/readmes/138/comparison.json) · [Source manifest](docs/publication138/source138.json) · [Method lock](docs/OBSERVATION_138_LOCK.json) · [Contract](docs/EDITION_138_CONTRACT.md)
 
-1. Evaluate genuinely new camera occlusions and returns with independently adjudicated foreground, target and distractor labels. Use the outcome to decide whether any experimental method earns promotion.
-2. Improve the evidence used to distinguish the object from its background and similar objects. A useful reference must improve recovery without worsening wrong-object measurements; retaining more descriptors alone is insufficient.
-3. Profile complete observation tasks as the history grows. Consider separately stored immutable frame evidence to reduce repeated serialization, while retaining every source, chain, recovery and outcome check.
-4. Connect only qualified observations to durable chat-driven world and creation goals, preserving source age, uncertainty, explicit action validation and independent success checks.
+[Immutable appearance](workspace-engine/src/main/java/fraymus/workspace/AppearanceEvidence138.java) · [Guard](workspace-engine/src/main/java/fraymus/workspace/DriftGuard138.java) · [Pixel replay audit](workspace-engine/src/main/java/fraymus/workspace/DriftAudit138.java) · [Actual-app test](workspace-desktop/test/drift138-integration.cjs) · [Source inventory](docs/readmes/138/file-inventory.json) · [Project memory](docs/PROJECT_MEMORY.md)
 
-The destination remains one local agent system that can observe, predict, act, create, verify and remember useful procedures across sessions. Better measurements and lower evidence costs support that goal. They are not evidence of consciousness, unrestricted autonomy or general intelligence.
-
-Raw benchmark footage is not committed. The source manifest records the original local execution paths and exact pack hashes; original public archive locations and hashes remain in [the source manifest from edition 135](docs/publication135/source135.json). Normal app use accepts your own footage.
-
-## Source and handoff
-
-[Reference validation](workspace-engine/src/main/java/fraymus/workspace/ReferenceMemory137.java) · [Frozen-reference tracking](workspace-engine/src/main/java/fraymus/workspace/VerifiedMemoryFlow137.java) · [Recovery audit](workspace-engine/src/main/java/fraymus/workspace/ReferenceAudit137.java) · [Durable observations](workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java) · [Actual-app test](workspace-desktop/test/reference137-integration.cjs) · [Method lock](docs/OBSERVATION_137_LOCK.json) · [Source manifest](docs/publication137/source137.json) · [Full source inventory](docs/readmes/137/file-inventory.json) · [Project memory](docs/PROJECT_MEMORY.md)
-
-Do not replace historical proof identities, modify frozen editions, silently change defaults, write against a private project during tests, or claim a successful publication before fetching and checking the remote commit. See [AGENTS.md](AGENTS.md) and [the edition contract](docs/EDITION_137_CONTRACT.md).
+Preserve frozen editions, exact annotation bytes, original failed comparisons and private data. Do not promote a candidate, increase action authority or claim a publication without supporting measurements and a fetched Git audit. See [AGENTS.md](AGENTS.md).

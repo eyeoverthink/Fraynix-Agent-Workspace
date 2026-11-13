@@ -1,3 +1,14 @@
+## Edition138 / 2026-11-13 — drift evidence before tracking loss
+
+The unified Java world/browser/creation mission continues. [Edition138](../README-138.md) adds an explicit original-appearance guard, an unchanged-output monitoring control and complete original-pixel replay before independent outcome scoring. Defaults and all verification remain. No target predictions become anchor memories. See fresh results, missing observations, false warnings and full task costs before judging utility.
+
+## Next steps
+
+1. Detect gradual foreground drift that preserves similar colors. Develop spatial-part and foreground/background motion checks against the now-exposed138 failures, freeze the candidate, then evaluate on genuinely new footage. This study removed only two wrong overlaps and added no correct observations; it does not justify broader autonomous use or a default change.
+2. Collect independently reviewed complete occlusion/return and similar-object crossings. Keep uncertain visibility explicit, report missing observations, and measure warning delay, false alarms and correct recovery. One confidently hidden sample and sparse bottle distractor labels are insufficient for general recovery claims.
+3. Profile complete tracking, persistence and original-pixel audit costs. Reuse only immutable, source-bound evidence where every source and outcome check remains intact. Then connect qualified observations and supported appearance memories back to durable Java world/browser/creation goals.
+
+
 ## Edition137 / 2026-11-13 — frozen verified references and cheaper durable history
 
 The unified Java world/browser/creation mission remains unchanged. [Edition137](../README-137.md) connects independently supported reference examples to explicit bounded recovery while refusing target-prediction learning and source/evaluation overlap. Completed history reopens without rewriting; complete transaction and source/outcome checks remain. See the measured camera results and full costs before making any promotion claim.
