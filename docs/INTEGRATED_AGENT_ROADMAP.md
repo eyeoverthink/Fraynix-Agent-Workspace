@@ -1,3 +1,9 @@
+## Edition131 direction update — 2026-11-12
+
+Strict box consumers and default policies remain intact. Invalid producers no longer abort the exposed2400 case. Feature renewal and bounded two-image recovery are explicit Java options, with one recorded return demonstrated in the actual app. Five locked camera1 windows are new pixels of shared trajectories, not independent events. All20 executions finish; candidate9/15 versus default14/15 accepted references fails qualification despite lower accepted-only error. Physical accuracy remains unresolved. The original130 default and patched default produce identical estimates on these healthy windows. See [README-131](../README-131.md).
+
+Next132 should use independent association/occlusion and ground-contact labels, reserve genuinely independent trajectories, and quantify false recovery and anchor error. Then fit uncertainty on separate data and measure coverage/useful width at fixed future horizons before using physical tolerances to admit or refuse world actions. A software fix or functioning durable artifact is not calibrated physical competence. Preserve the connected Java-owned world/browser/creation direction, private projects and frozen evidence. The layout phase remains after the measurement gap.
+
 ## Edition130 direction update — 2026-11-12
 
 The user prioritized unresolved physical accuracy before the previously proposed layout pass. Edition130 adds an explicit object-supported tracker and immutable independent-reference audits; both existing defaults stay intact. First130 comparison overlapped edition 037 footage and is disqualified as held evidence. The unchanged candidate fails conservative confirmation:6/15 accepted versus 10/15; paired error is worse. The incumbent also has one collapsed-box execution failure. This is a correlated same-camera result, not general physical competence. Edition129's failed promotion and undercoverage remain unchanged historical evidence.

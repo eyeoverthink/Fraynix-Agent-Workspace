@@ -1,0 +1,40 @@
+{
+  "originalFailures": [
+    {
+      "logicalPath": "build/diagnostic130/confirm-2400-flow.failure.json",
+      "path": "docs/readmes/130/originals/f6a4c5b7dd44ad561e3a54c2c8c5e22f7fb17c9e60d85bd71623f48d8b42f20c.gz",
+      "bytes": 338,
+      "sha256": "8aa21f2325be26f4194e5baac8807f01ea6b7b7a2849c5c27631c5e18779b9f7",
+      "rawBytes": 521,
+      "rawSha256": "f6a4c5b7dd44ad561e3a54c2c8c5e22f7fb17c9e60d85bd71623f48d8b42f20c",
+      "original": {
+        "status": "execution-failed",
+        "exit": 1,
+        "source": "Original tool output retained in conversation; this diagnostic is transcribed, not a byte-exact stderr archive",
+        "error": "java.lang.IllegalArgumentException: Box is too small or reversed",
+        "stack": [
+          "PixelTracker$Box.from(PixelTracker.java:13)",
+          "FlowTracker.update(FlowTracker.java:106)",
+          "ObservationStudy130.main(ObservationStudy130.java:18)"
+        ],
+        "partialTraceAvailable": false,
+        "allThreeLaterReferencesUnavailable": true
+      }
+    }
+  ],
+  "patchedMetrics": {
+    "scoredAccepted": 3,
+    "withinOneMetre": 2,
+    "frames": 95,
+    "references": 3,
+    "accepted": 95,
+    "trackerMs": 1789.2366,
+    "meanAcceptedErrorM": 1.0369769478733843,
+    "maxAcceptedErrorM": 2.336310546243151
+  },
+  "checks": {
+    "sameOriginalPixels": true,
+    "sameReferences": true
+  },
+  "scope": "Previously exposed130 confirmation replay. Removes an execution failure with strict parser/filter unchanged; not fresh qualification or certified physical accuracy."
+}

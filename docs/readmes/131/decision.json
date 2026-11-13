@@ -1,0 +1,59 @@
+{
+  "methods": {
+    "original130-flow": {
+      "references": 15,
+      "available": 14,
+      "missing": 1,
+      "withinOneMetre": 8,
+      "overTwoMetres": 2,
+      "meanAcceptedErrorM": 0.9450960168836068,
+      "trackerMs": 7087.5509999999995
+    },
+    "flow": {
+      "references": 15,
+      "available": 14,
+      "missing": 1,
+      "withinOneMetre": 8,
+      "overTwoMetres": 2,
+      "meanAcceptedErrorM": 0.9450960168836068,
+      "trackerMs": 7560.3976999999995
+    },
+    "fixed": {
+      "references": 15,
+      "available": 2,
+      "missing": 13,
+      "withinOneMetre": 2,
+      "overTwoMetres": 0,
+      "meanAcceptedErrorM": 0.4338270857717921,
+      "trackerMs": 5235.6219
+    },
+    "renewing-flow": {
+      "references": 15,
+      "available": 9,
+      "missing": 6,
+      "withinOneMetre": 7,
+      "overTwoMetres": 0,
+      "meanAcceptedErrorM": 0.6279581820324712,
+      "trackerMs": 12049.7983
+    }
+  },
+  "lockedGate": {
+    "availability": false,
+    "meanError": true,
+    "withinOneMetre": false,
+    "severeErrors": true,
+    "allSeeds": true
+  },
+  "gatePassed": false,
+  "executionFailures": [],
+  "defaultChanged": false,
+  "qualificationEligible": true,
+  "sourceLock": "docs/OBSERVATION_131_LOCK.json",
+  "pairedDiagnostic": {
+    "references": 9,
+    "incumbentMeanM": 0.6751647506326608,
+    "candidateMeanM": 0.6279581820324712,
+    "scope": "Posthoc paired diagnostic, not a replacement for the predeclared gate; all missing positions remain in primary totals"
+  },
+  "limits": "New camera1 pixels of shared event/people; not independent trajectories; completed accepted-only errors must be read alongside all missing references and execution failures. Failed execution contributes no invented partial trace or zero-cost timing claim; summed timing covers completed executions only. No general object recognition, full occlusion recovery or probability guarantee."
+}

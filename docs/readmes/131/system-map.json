@@ -1,0 +1,198 @@
+{
+  "modules": [
+    {
+      "id": "tracking",
+      "name": "Feature renewal and bounded recovery",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RenewingFlow131.java",
+      "note": "docs/obsidian/139-valid-observations-and-recovery.md"
+    },
+    {
+      "id": "audit",
+      "name": "Independent physical reference audit",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PhysicalAudit130.java",
+      "note": "docs/obsidian/139-valid-observations-and-recovery.md"
+    },
+    {
+      "id": "panel",
+      "name": "Visible audit controls",
+      "source": "workspace-desktop/renderer/metric-panel.js",
+      "note": "docs/obsidian/139-valid-observations-and-recovery.md"
+    },
+    {
+      "id": "study",
+      "name": "Actual complete application study",
+      "source": "workspace-desktop/test/observation131-integration.cjs",
+      "note": "docs/obsidian/139-valid-observations-and-recovery.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/131/calibrated-source.png",
+      "title": "calibrated source"
+    },
+    {
+      "path": "docs/readmes/131/review-before-creation.png",
+      "title": "review before creation"
+    },
+    {
+      "path": "docs/readmes/131/verified-explorer.png",
+      "title": "verified explorer"
+    },
+    {
+      "path": "docs/readmes/131/fresh-source-reuse.png",
+      "title": "fresh source reuse"
+    },
+    {
+      "path": "docs/readmes/131/explorer-1100.png",
+      "title": "explorer 1100"
+    },
+    {
+      "path": "docs/readmes/131/physical-accuracy.png",
+      "title": "physical accuracy"
+    },
+    {
+      "path": "docs/readmes/131/rechecked-audit.png",
+      "title": "rechecked audit"
+    },
+    {
+      "path": "docs/readmes/131/audit-readable-1100.png",
+      "title": "audit readable 1100"
+    },
+    {
+      "path": "docs/readmes/131/audit-readable.png",
+      "title": "audit readable"
+    },
+    {
+      "path": "docs/readmes/131/fresh-recovery.png",
+      "title": "fresh recovery"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/131/verification.json"
+    },
+    {
+      "path": "docs/readmes/131/observation-study.json"
+    },
+    {
+      "path": "docs/readmes/131/original-evidence.json"
+    },
+    {
+      "path": "docs/readmes/131/decision.json"
+    },
+    {
+      "path": "docs/readmes/131/coverage.json"
+    },
+    {
+      "path": "docs/readmes/131/diagnostics.json"
+    },
+    {
+      "path": "docs/readmes/131/collapse-reproduction.json"
+    },
+    {
+      "path": "docs/readmes/131/final-ui-review.json"
+    }
+  ],
+  "coverage": {
+    "summary": {
+      "original130-flow/measurement": {
+        "references": 15,
+        "available": 14,
+        "coveredCentre": 6,
+        "coveredIncludingReferenceRadius": 6,
+        "meanErrorM": 0.9450960168836068,
+        "meanRadiusM": 0.6070987049721795
+      },
+      "original130-flow/legacy-adjacent": {
+        "references": 15,
+        "available": 14,
+        "coveredCentre": 13,
+        "coveredIncludingReferenceRadius": 13,
+        "meanErrorM": 0.9465678182684532,
+        "meanRadiusM": 1.83165222232834
+      },
+      "original130-flow/explicit-budget-1m": {
+        "references": 15,
+        "available": 12,
+        "coveredCentre": 5,
+        "coveredIncludingReferenceRadius": 6,
+        "meanErrorM": 0.9408140163132369,
+        "meanRadiusM": 0.709216535091374
+      },
+      "flow/measurement": {
+        "references": 15,
+        "available": 14,
+        "coveredCentre": 6,
+        "coveredIncludingReferenceRadius": 6,
+        "meanErrorM": 0.9450960168836068,
+        "meanRadiusM": 0.6070987049721795
+      },
+      "flow/legacy-adjacent": {
+        "references": 15,
+        "available": 14,
+        "coveredCentre": 13,
+        "coveredIncludingReferenceRadius": 13,
+        "meanErrorM": 0.9465678182684532,
+        "meanRadiusM": 1.83165222232834
+      },
+      "flow/explicit-budget-1m": {
+        "references": 15,
+        "available": 12,
+        "coveredCentre": 5,
+        "coveredIncludingReferenceRadius": 6,
+        "meanErrorM": 0.9408140163132369,
+        "meanRadiusM": 0.709216535091374
+      },
+      "fixed/measurement": {
+        "references": 15,
+        "available": 2,
+        "coveredCentre": 1,
+        "coveredIncludingReferenceRadius": 2,
+        "meanErrorM": 0.4338270857717921,
+        "meanRadiusM": 0.6676228146100307
+      },
+      "fixed/legacy-adjacent": {
+        "references": 15,
+        "available": 11,
+        "coveredCentre": 8,
+        "coveredIncludingReferenceRadius": 9,
+        "meanErrorM": 3.1516081616254525,
+        "meanRadiusM": 6.060641457656265
+      },
+      "fixed/explicit-budget-1m": {
+        "references": 15,
+        "available": 2,
+        "coveredCentre": 1,
+        "coveredIncludingReferenceRadius": 1,
+        "meanErrorM": 1.9772123771249435,
+        "meanRadiusM": 0.7326961239891386
+      },
+      "renewing-flow/measurement": {
+        "references": 15,
+        "available": 9,
+        "coveredCentre": 5,
+        "coveredIncludingReferenceRadius": 7,
+        "meanErrorM": 0.6279581820324712,
+        "meanRadiusM": 0.5152224336855344
+      },
+      "renewing-flow/legacy-adjacent": {
+        "references": 15,
+        "available": 10,
+        "coveredCentre": 10,
+        "coveredIncludingReferenceRadius": 10,
+        "meanErrorM": 0.7680902873029758,
+        "meanRadiusM": 2.712257508415031
+      },
+      "renewing-flow/explicit-budget-1m": {
+        "references": 15,
+        "available": 9,
+        "coveredCentre": 7,
+        "coveredIncludingReferenceRadius": 7,
+        "meanErrorM": 0.613914061068269,
+        "meanRadiusM": 0.6527135632269602
+      }
+    },
+    "scope": "Coverage only at sparse later reference timestamps. Both accepted availability and all-reference denominators reported. Not a validation at the full0.6second forecast horizon."
+  },
+  "validation": "Local checks passed: 202 distinct Java test methods, 161 desktop checks, executable kernel harnesses, the actual agency regression, isolated offline preparation and package verification. The actual app verifies cold recovery, new-source reuse, original procedure evidence and immutable physical audits. No verification condition was weakened."
+}

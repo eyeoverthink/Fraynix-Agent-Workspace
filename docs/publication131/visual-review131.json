@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "reviewedAtUtc": "2026-11-13T03:03:29.003838+00:00",
+  "files": [
+    {
+      "path": "build/observation131-complete/verified-explorer.png",
+      "sha256": "b17860a1a11be5b69ec3de92b6325ae6157a6e22bc15b178b8f7609d96dc4d5d"
+    },
+    {
+      "path": "build/observation131-complete/audit-readable.png",
+      "sha256": "9cb54ad6424d1a109643811404781e97f1675fbf6565a3979d4c5e7cfe688435"
+    },
+    {
+      "path": "build/observation131-complete/audit-readable-1100.png",
+      "sha256": "1d9f27e13eab9cf40a5b56494d116e3e0224944a22c6f3dc1798ba0d912ecefc"
+    },
+    {
+      "path": "build/observation131-complete/fresh-recovery.png",
+      "sha256": "079e488358f45d473723368985e3b0d4928bed50c44e8d3fa4b68524a90f51de"
+    },
+    {
+      "path": "build/guide131-1440-viewport.png",
+      "sha256": "6e9b83863e973af0453fa3f10b25b203aee4fb7c04a45d1db28a24614f560d3b"
+    },
+    {
+      "path": "build/guide131-390-viewport.png",
+      "sha256": "7ae820f76daa245f44c09d43eceabd337f46cb701aef3ba815352eee73135b72"
+    }
+  ],
+  "checks": [
+    "Actual app audit values readable at1100 and expanded1600; native cards match saved references.",
+    "Real recovered track and graph visible, frame653 reacquired label and source hash shown.",
+    "Working artifact clearly distinguishes residual against tracker from physical accuracy.",
+    "Offline guide at1440/390 readable with failed qualification visible; links, filters and no page overflow verified."
+  ],
+  "limits": "Internal panels intentionally scroll; this is not a redesign of the whole layout. Old stale capture retained under its explicit filename."
+}

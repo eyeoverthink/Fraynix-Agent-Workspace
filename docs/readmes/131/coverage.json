@@ -1,0 +1,101 @@
+{
+  "summary": {
+    "original130-flow/measurement": {
+      "references": 15,
+      "available": 14,
+      "coveredCentre": 6,
+      "coveredIncludingReferenceRadius": 6,
+      "meanErrorM": 0.9450960168836068,
+      "meanRadiusM": 0.6070987049721795
+    },
+    "original130-flow/legacy-adjacent": {
+      "references": 15,
+      "available": 14,
+      "coveredCentre": 13,
+      "coveredIncludingReferenceRadius": 13,
+      "meanErrorM": 0.9465678182684532,
+      "meanRadiusM": 1.83165222232834
+    },
+    "original130-flow/explicit-budget-1m": {
+      "references": 15,
+      "available": 12,
+      "coveredCentre": 5,
+      "coveredIncludingReferenceRadius": 6,
+      "meanErrorM": 0.9408140163132369,
+      "meanRadiusM": 0.709216535091374
+    },
+    "flow/measurement": {
+      "references": 15,
+      "available": 14,
+      "coveredCentre": 6,
+      "coveredIncludingReferenceRadius": 6,
+      "meanErrorM": 0.9450960168836068,
+      "meanRadiusM": 0.6070987049721795
+    },
+    "flow/legacy-adjacent": {
+      "references": 15,
+      "available": 14,
+      "coveredCentre": 13,
+      "coveredIncludingReferenceRadius": 13,
+      "meanErrorM": 0.9465678182684532,
+      "meanRadiusM": 1.83165222232834
+    },
+    "flow/explicit-budget-1m": {
+      "references": 15,
+      "available": 12,
+      "coveredCentre": 5,
+      "coveredIncludingReferenceRadius": 6,
+      "meanErrorM": 0.9408140163132369,
+      "meanRadiusM": 0.709216535091374
+    },
+    "fixed/measurement": {
+      "references": 15,
+      "available": 2,
+      "coveredCentre": 1,
+      "coveredIncludingReferenceRadius": 2,
+      "meanErrorM": 0.4338270857717921,
+      "meanRadiusM": 0.6676228146100307
+    },
+    "fixed/legacy-adjacent": {
+      "references": 15,
+      "available": 11,
+      "coveredCentre": 8,
+      "coveredIncludingReferenceRadius": 9,
+      "meanErrorM": 3.1516081616254525,
+      "meanRadiusM": 6.060641457656265
+    },
+    "fixed/explicit-budget-1m": {
+      "references": 15,
+      "available": 2,
+      "coveredCentre": 1,
+      "coveredIncludingReferenceRadius": 1,
+      "meanErrorM": 1.9772123771249435,
+      "meanRadiusM": 0.7326961239891386
+    },
+    "renewing-flow/measurement": {
+      "references": 15,
+      "available": 9,
+      "coveredCentre": 5,
+      "coveredIncludingReferenceRadius": 7,
+      "meanErrorM": 0.6279581820324712,
+      "meanRadiusM": 0.5152224336855344
+    },
+    "renewing-flow/legacy-adjacent": {
+      "references": 15,
+      "available": 10,
+      "coveredCentre": 10,
+      "coveredIncludingReferenceRadius": 10,
+      "meanErrorM": 0.7680902873029758,
+      "meanRadiusM": 2.712257508415031
+    },
+    "renewing-flow/explicit-budget-1m": {
+      "references": 15,
+      "available": 9,
+      "coveredCentre": 7,
+      "coveredIncludingReferenceRadius": 7,
+      "meanErrorM": 0.613914061068269,
+      "meanRadiusM": 0.6527135632269602
+    }
+  },
+  "scope": "Coverage only at sparse later reference timestamps. Both accepted availability and all-reference denominators reported. Not a validation at the full0.6second forecast horizon."
+}
