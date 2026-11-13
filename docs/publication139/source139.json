@@ -269,7 +269,7 @@
       "pack": "build/vot139/ballet-100.fobs.json",
       "packSha256": "f5814fcab214ea4faefba814d43cf92fe63ef3c137c44423e958929cc9244786",
       "labels": "docs/publication139/ballet-100-labels.json",
-      "labelsSha256": "a14562323a64409a1fe43f5cdb87c4e31bffe2cee7d1f0680ba8a4b83cb8b3db",
+      "labelsSha256": "e1be726bedf29fbd0ff47727045a6d48e786f5d7dae70eb6f828c065aeec7771",
       "visibilityCounts": {
         "visible": 18,
         "partial": 16,
@@ -440,7 +440,7 @@
       "pack": "build/vot139/bicycle-98.fobs.json",
       "packSha256": "1838cf4fdcdda8758aea997d916bad74ef9a2dccb62d975bfb4b45f2fad714d7",
       "labels": "docs/publication139/bicycle-98-labels.json",
-      "labelsSha256": "7a356b445aa759a0cd891b176160678adabb6544e868730811aac710745d130a",
+      "labelsSha256": "1e3da8c40ef3e306cc91aad754b4488048fa5e2cad1a05d25825a33e02528426",
       "visibilityCounts": {
         "visible": 7,
         "partial": 27,
@@ -645,7 +645,7 @@
       "pack": "build/vot139/bike1-1.fobs.json",
       "packSha256": "f38f94a802c904f0d6c11dd18b3a69008f84f43e40eda0b79d321d41a02da2d3",
       "labels": "docs/publication139/bike1-1-labels.json",
-      "labelsSha256": "ec26a635d2efcaa2a362803dc0b926c06ac290ca7f478905a186b946ca89a7bb",
+      "labelsSha256": "6252053c4bf5db206dea0214daa477cb032fc24e925181ec006107b31571d062",
       "visibilityCounts": {
         "visible": 95,
         "partial": 0,
@@ -857,7 +857,7 @@
       "pack": "build/vot139/bird1-641.fobs.json",
       "packSha256": "69b6cb469aef2e9682177dba9e9f97c961adc8c1492f52e00b98e4e8c7e63944",
       "labels": "docs/publication139/bird1-641-labels.json",
-      "labelsSha256": "c37e438fee2ec0a151d474a5f2dfcd7e58dfd4fbbc0747dc137d737dcb52e6ac",
+      "labelsSha256": "02b7d43af36024c47115cf7bf949067867165d1f699af804b18988e5973657a7",
       "visibilityCounts": {
         "visible": 9,
         "partial": 9,
@@ -1034,13 +1034,13 @@
       "pack": "build/vot139/car1-1508.fobs.json",
       "packSha256": "feed4c28877811844f587aba3fba20e1635fe8572ed08e51e50b4fa5f78b3d9b",
       "labels": "docs/publication139/car1-1508-labels.json",
-      "labelsSha256": "a35c9b09e84dacec24c7e5d02ebbefec3933ebb3eac844096b9e824a0ac1fd1b",
+      "labelsSha256": "4812747a44c92d65301c480a8ab5ce813757e26897f367666bfcd8cbab537cf2",
       "visibilityCounts": {
-        "visible": 21,
-        "partial": 13,
+        "visible": 12,
+        "partial": 2,
         "occluded": 4,
         "out-of-view": 0,
-        "uncertain": 19
+        "uncertain": 39
       },
       "distractorLabelledSamples": 0,
       "originalGroundTruth": "docs/publication139/car1-groundtruth.txt",
@@ -1119,7 +1119,7 @@
       "exposure": "New source imagery for this project, reviewed after method freeze and before predictions."
     }
   ],
-  "sourceReview": "All362 selected source images reviewed in source-only contact sheets before predictions. Ballet/bicycle edge fragments inspected in detail; their absence labels begin before full visual disappearance and end after partial return, so ambiguous boundaries remain uncertain. VOT bird1 is a real onboard flight camera with black borders, distinct from rendered OTB Bird1; its selected event is another active-image exit. Car1 enters behind a central vertical structure and returns; detailed source crops support four confidently hidden frames1533\u20131536, with19 NaN boundary frames uncertain. Bike1 first96 images remain visible. Bird1 stride2 with explicit interval endpoints gives78 sampled images and skips intervening frames. External boxes plus separate AI visibility/cause review, no independent human adjudication and no other-object geometry. Frozen scorer breaks recovery episodes at uncertainty; descriptive boundary return tables must not invent recovery timing across those gaps.",
+  "sourceReview": "All362 selected source images reviewed in source-only contact sheets before predictions. Ballet/bicycle edge fragments inspected in detail; their absence labels begin before full visual disappearance and end after partial return, so ambiguous boundaries remain uncertain. VOT bird1 is a real onboard flight camera with black borders, distinct from rendered OTB Bird1; its selected event is another active-image exit. Car1 enters behind a central vertical structure and returns; detailed source crops support four confidently hidden frames1533\u20131536, with19 NaN boundary frames uncertain. Bike1 first96 images remain visible. Bird1 stride2 with explicit interval endpoints gives78 sampled images and skips intervening frames. External boxes plus separate AI visibility/cause review, no independent human adjudication and no other-object geometry. Frozen scorer breaks recovery episodes at uncertainty; descriptive boundary return tables must not invent recovery timing across those gaps. Existing audit format requires every scored rectangle to have both normalized sides at least0.025. 20 visible small/clipped external boxes are therefore retained as uncertain/unscorable, never expanded or classified hidden. Original external rectangles remain intact; pre-format inputs retained in Git d84ccd12 and original evidence. Unsupported extra row metadata was removed; the same external finite/NaN distinction remains in row notes.",
   "priorImageOverlap": {
     "priorPublicationFiles": 16,
     "uniquePriorImageHashes": 1216,
@@ -1133,5 +1133,227 @@
     "No independent distractor boxes, so zero confirmed switches is not proof of identity continuity.",
     "Preserved uncertain boundaries limit frozen scorer recovery-episode counts.",
     "Official SHA1, CRC and uncompressed size match; listed compressed sizes differ from exact ZIP lengths."
+  ],
+  "formatCorrectionsBeforeTracking": [
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1509,
+      "originalVisibility": "visible",
+      "externalBox": [
+        0.4046875,
+        0.1375,
+        0.43515625,
+        0.1625
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1510,
+      "originalVisibility": "visible",
+      "externalBox": [
+        0.4046875,
+        0.1375,
+        0.434375,
+        0.1625
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1511,
+      "originalVisibility": "visible",
+      "externalBox": [
+        0.4046875,
+        0.1375,
+        0.43359375,
+        0.1625
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1512,
+      "originalVisibility": "visible",
+      "externalBox": [
+        0.40546875,
+        0.1375,
+        0.4328125,
+        0.1625
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1513,
+      "originalVisibility": "visible",
+      "externalBox": [
+        0.40546875,
+        0.1375,
+        0.43203125,
+        0.1625
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1514,
+      "originalVisibility": "visible",
+      "externalBox": [
+        0.40546875,
+        0.1375,
+        0.43046875,
+        0.1625
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1515,
+      "originalVisibility": "visible",
+      "externalBox": [
+        0.40625,
+        0.1375,
+        0.4296875,
+        0.1625
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1516,
+      "originalVisibility": "visible",
+      "externalBox": [
+        0.40625,
+        0.1375,
+        0.428125,
+        0.1625
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1517,
+      "originalVisibility": "visible",
+      "externalBox": [
+        0.40625,
+        0.1375,
+        0.42734375,
+        0.1625
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1518,
+      "originalVisibility": "partial",
+      "externalBox": [
+        0.40625,
+        0.1375,
+        0.42578125,
+        0.1625
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1519,
+      "originalVisibility": "partial",
+      "externalBox": [
+        0.40625,
+        0.1375,
+        0.425,
+        0.1625
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1520,
+      "originalVisibility": "partial",
+      "externalBox": [
+        0.40625,
+        0.1375,
+        0.42421875,
+        0.1625
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1521,
+      "originalVisibility": "partial",
+      "externalBox": [
+        0.40625,
+        0.1375,
+        0.42265625,
+        0.1625
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1522,
+      "originalVisibility": "partial",
+      "externalBox": [
+        0.40625,
+        0.1375,
+        0.421875,
+        0.1625
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1546,
+      "originalVisibility": "partial",
+      "externalBox": [
+        0.3625,
+        0.1361111111111111,
+        0.37890625,
+        0.16527777777777777
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1547,
+      "originalVisibility": "partial",
+      "externalBox": [
+        0.36171875,
+        0.1361111111111111,
+        0.37890625,
+        0.16527777777777777
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1548,
+      "originalVisibility": "partial",
+      "externalBox": [
+        0.36015625,
+        0.13472222222222222,
+        0.37890625,
+        0.1638888888888889
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1549,
+      "originalVisibility": "partial",
+      "externalBox": [
+        0.359375,
+        0.13472222222222222,
+        0.37890625,
+        0.1638888888888889
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1550,
+      "originalVisibility": "partial",
+      "externalBox": [
+        0.35859375,
+        0.13333333333333333,
+        0.38046875,
+        0.1638888888888889
+      ]
+    },
+    {
+      "case": "car1-1508",
+      "sourceFrame": 1551,
+      "originalVisibility": "partial",
+      "externalBox": [
+        0.35703125,
+        0.13333333333333333,
+        0.38046875,
+        0.1638888888888889
+      ]
+    }
   ]
 }
