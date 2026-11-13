@@ -229,7 +229,7 @@ async function executeRaw(tool,args={}){
     case 'skills.list':result=(await refresh()).skills;break;
     case 'skill.save':if(!currentArtifact)throw Error('Open an artifact first');result=await api('/api/skill/save',{...args,id:currentArtifact.id});await refresh();break;
     case 'skill.run':{
-      const skill=await api('/api/skill/read',args);await execute('canvas.write',{title:skill.title+' Â· '+new Date().toLocaleTimeString(),files:skill.files,sources:skill.sources});
+      const skill=await api('/api/skill/read',args);await execute('canvas.write',{title:skill.title+' · '+new Date().toLocaleTimeString(),files:skill.files,sources:skill.sources});
       result=await execute('canvas.test',{steps:skill.tests});break;
     }
     case 'memory.search':result=await api('/api/host/skill',{name:'memory.search',args});break;
@@ -289,7 +289,7 @@ async function learnFromEpisodes({proof=false,automatic=false}={}){
     const report=await replay(snapshot.activePolicy,candidate.policy,{signal:controller.signal,onProgress:id=>{emit('run',{active:true,phase:'Independent replay: '+id});activity('replay',id);}});checkStop();
     const result=await api('/api/learning/evaluate',{candidateId:candidate.id,...report});
     candidateId=null;
-    activity('learning',result.accepted?`Promoted controller v${candidate.policy.version}: ${result.baselinePassed}/8 Ã¢â€ â€™ ${result.candidatePassed}/8 replay cases passed`:'Candidate rejected: no verified gain or a regression',{evaluationId:result.id,baselineFailures:result.baselineFailures,candidateFailures:result.candidateFailures,regression:result.regression});
+    activity('learning',result.accepted?`Promoted controller v${candidate.policy.version}: ${result.baselinePassed}/8 â†’ ${result.candidatePassed}/8 replay cases passed`:'Candidate rejected: no verified gain or a regression',{evaluationId:result.id,baselineFailures:result.baselineFailures,candidateFailures:result.candidateFailures,regression:result.regression});
     return result;
   }catch(error){if(controller.signal.aborted)throw Error('Learning cancelled');throw error;}
   finally{
