@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "reference",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ReferenceMemory137.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "tracker",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/VerifiedMemoryFlow137.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "audit",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ReferenceAudit137.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "cost",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java",
+      "x": 1290,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "panel",
+      "type": "file",
+      "file": "workspace-desktop/renderer/observation-panel.js",
+      "x": 1720,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "reference",
+      "toNode": "tracker"
+    },
+    {
+      "id": "1",
+      "fromNode": "tracker",
+      "toNode": "audit"
+    },
+    {
+      "id": "2",
+      "fromNode": "audit",
+      "toNode": "cost"
+    },
+    {
+      "id": "3",
+      "fromNode": "cost",
+      "toNode": "panel"
+    }
+  ]
+}

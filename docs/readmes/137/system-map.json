@@ -1,0 +1,760 @@
+{
+  "modules": [
+    {
+      "id": "reference",
+      "name": "Verified reference provenance",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ReferenceMemory137.java",
+      "note": "docs/obsidian/145-verified-references.md"
+    },
+    {
+      "id": "tracker",
+      "name": "Frozen reference recovery",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/VerifiedMemoryFlow137.java",
+      "note": "docs/obsidian/145-verified-references.md"
+    },
+    {
+      "id": "audit",
+      "name": "Independent recovery evidence",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ReferenceAudit137.java",
+      "note": "docs/obsidian/145-verified-references.md"
+    },
+    {
+      "id": "cost",
+      "name": "Durable observation transactions",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java",
+      "note": "docs/obsidian/145-verified-references.md"
+    },
+    {
+      "id": "panel",
+      "name": "Reference selection controls",
+      "source": "workspace-desktop/renderer/observation-panel.js",
+      "note": "docs/obsidian/145-verified-references.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/137/tiger2-155-verified.png",
+      "title": "tiger2 155 verified"
+    },
+    {
+      "path": "docs/readmes/137/box-535-verified.png",
+      "title": "box 535 verified"
+    },
+    {
+      "path": "docs/readmes/137/references137.png",
+      "title": "references137"
+    },
+    {
+      "path": "docs/readmes/137/david3-153-verified.png",
+      "title": "david3 153 verified"
+    },
+    {
+      "path": "docs/readmes/137/bird1-193-verified.png",
+      "title": "bird1 193 verified"
+    },
+    {
+      "path": "docs/readmes/137/reference-layout-1100.png",
+      "title": "reference layout 1100"
+    },
+    {
+      "path": "docs/readmes/137/reference-layout-1600.png",
+      "title": "reference layout 1600"
+    },
+    {
+      "path": "docs/readmes/137/evidence-cost137.png",
+      "title": "evidence cost137"
+    },
+    {
+      "path": "docs/readmes/137/box-535-source-overlay.png",
+      "title": "box 535 source overlay"
+    },
+    {
+      "path": "docs/readmes/137/tiger2-155-source-overlay.png",
+      "title": "tiger2 155 source overlay"
+    },
+    {
+      "path": "docs/readmes/137/bird1-193-source-overlay.png",
+      "title": "bird1 193 source overlay"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/137/verification.json"
+    },
+    {
+      "path": "docs/readmes/137/app-study.json"
+    },
+    {
+      "path": "docs/readmes/137/small-export.json"
+    },
+    {
+      "path": "docs/readmes/137/original-evidence.json"
+    },
+    {
+      "path": "docs/readmes/137/comparison.json"
+    },
+    {
+      "path": "docs/readmes/137/cost-comparison.json"
+    }
+  ],
+  "comparison": {
+    "rows": [
+      {
+        "case": "tiger2-155",
+        "policy": "legacy-flow",
+        "summary": {
+          "visible": 95,
+          "correct": 25,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 95,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.2366726482182605,
+          "missing": 0,
+          "overlapFailures": 70
+        },
+        "reference137": null,
+        "trackingMs": 50557.8223,
+        "auditMs": 261.539300000004
+      },
+      {
+        "case": "tiger2-155",
+        "policy": "seed-only-137",
+        "summary": {
+          "visible": 95,
+          "correct": 25,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 95,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.2366726482182605,
+          "missing": 0,
+          "overlapFailures": 70
+        },
+        "reference137": {
+          "memorySha256": "30d15bf75432eb1598b26c4257b3691bd6bc1e01375663a34037e2e721155ff2",
+          "scope": "Frozen provenance and consecutive recovery checks. Independent target/visibility labels in the enclosing audit determine correctness; internal confidence is not identity proof.",
+          "importedRecoveries": 0,
+          "automaticAdmissions": 0,
+          "samples": 95,
+          "recoveries": 0
+        },
+        "trackingMs": 58097.84300000002,
+        "auditMs": 844.3796000000439
+      },
+      {
+        "case": "tiger2-155",
+        "policy": "verified-memory-137",
+        "summary": {
+          "visible": 95,
+          "correct": 25,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 95,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.2366726482182605,
+          "missing": 0,
+          "overlapFailures": 70
+        },
+        "reference137": {
+          "memorySha256": "30d15bf75432eb1598b26c4257b3691bd6bc1e01375663a34037e2e721155ff2",
+          "scope": "Frozen provenance and consecutive recovery checks. Independent target/visibility labels in the enclosing audit determine correctness; internal confidence is not identity proof.",
+          "importedRecoveries": 0,
+          "automaticAdmissions": 0,
+          "samples": 95,
+          "recoveries": 0
+        },
+        "trackingMs": 65095.484600000025,
+        "auditMs": 879.0567000000156
+      },
+      {
+        "case": "box-535",
+        "policy": "legacy-flow",
+        "summary": {
+          "visible": 95,
+          "correct": 75,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 95,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.6588432296384793,
+          "missing": 0,
+          "overlapFailures": 20
+        },
+        "reference137": null,
+        "trackingMs": 71412.64970000001,
+        "auditMs": 254.06990000000224
+      },
+      {
+        "case": "box-535",
+        "policy": "seed-only-137",
+        "summary": {
+          "visible": 95,
+          "correct": 75,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 95,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.6588432296384793,
+          "missing": 0,
+          "overlapFailures": 20
+        },
+        "reference137": {
+          "memorySha256": "774e53a847d4e2968b749dc9853f181cc8c5707ed87366931839ef7fdced0e8e",
+          "scope": "Frozen provenance and consecutive recovery checks. Independent target/visibility labels in the enclosing audit determine correctness; internal confidence is not identity proof.",
+          "importedRecoveries": 0,
+          "automaticAdmissions": 0,
+          "samples": 95,
+          "recoveries": 0
+        },
+        "trackingMs": 78707.3505,
+        "auditMs": 799.5224000000162
+      },
+      {
+        "case": "box-535",
+        "policy": "verified-memory-137",
+        "summary": {
+          "visible": 95,
+          "correct": 75,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 95,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.6588432296384793,
+          "missing": 0,
+          "overlapFailures": 20
+        },
+        "reference137": {
+          "memorySha256": "774e53a847d4e2968b749dc9853f181cc8c5707ed87366931839ef7fdced0e8e",
+          "scope": "Frozen provenance and consecutive recovery checks. Independent target/visibility labels in the enclosing audit determine correctness; internal confidence is not identity proof.",
+          "importedRecoveries": 0,
+          "automaticAdmissions": 0,
+          "samples": 95,
+          "recoveries": 0
+        },
+        "trackingMs": 89689.77339999995,
+        "auditMs": 797.5026000000071
+      },
+      {
+        "case": "david3-153",
+        "policy": "legacy-flow",
+        "summary": {
+          "visible": 95,
+          "correct": 34,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 82,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.2506379170698522,
+          "missing": 13,
+          "overlapFailures": 48
+        },
+        "reference137": null,
+        "trackingMs": 88960.2926,
+        "auditMs": 373.73119999998016
+      },
+      {
+        "case": "david3-153",
+        "policy": "seed-only-137",
+        "summary": {
+          "visible": 95,
+          "correct": 34,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 82,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.2506379170698522,
+          "missing": 13,
+          "overlapFailures": 48
+        },
+        "reference137": {
+          "memorySha256": "8ffab3c6f0ab0bd721e7699490d0b4dedb41b0e138eda7a19249116be67d33c4",
+          "scope": "Frozen provenance and consecutive recovery checks. Independent target/visibility labels in the enclosing audit determine correctness; internal confidence is not identity proof.",
+          "importedRecoveries": 0,
+          "automaticAdmissions": 0,
+          "samples": 95,
+          "recoveries": 0
+        },
+        "trackingMs": 96746.022,
+        "auditMs": 1302.9565000000002
+      },
+      {
+        "case": "david3-153",
+        "policy": "verified-memory-137",
+        "summary": {
+          "visible": 95,
+          "correct": 34,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 82,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.2506379170698522,
+          "missing": 13,
+          "overlapFailures": 48
+        },
+        "reference137": {
+          "memorySha256": "8ffab3c6f0ab0bd721e7699490d0b4dedb41b0e138eda7a19249116be67d33c4",
+          "scope": "Frozen provenance and consecutive recovery checks. Independent target/visibility labels in the enclosing audit determine correctness; internal confidence is not identity proof.",
+          "importedRecoveries": 0,
+          "automaticAdmissions": 0,
+          "samples": 95,
+          "recoveries": 0
+        },
+        "trackingMs": 104084.21110000001,
+        "auditMs": 1380.3461000000243
+      },
+      {
+        "case": "bird1-193",
+        "policy": "legacy-flow",
+        "summary": {
+          "visible": 95,
+          "correct": 55,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 55,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.44950626798027726,
+          "missing": 40,
+          "overlapFailures": 0
+        },
+        "reference137": null,
+        "trackingMs": 108657.11969999998,
+        "auditMs": 325.51069999998435
+      },
+      {
+        "case": "bird1-193",
+        "policy": "seed-only-137",
+        "summary": {
+          "visible": 95,
+          "correct": 55,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 55,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.44950626798027726,
+          "missing": 40,
+          "overlapFailures": 0
+        },
+        "reference137": {
+          "memorySha256": "fa1da3ad3f93ab5c015c4d30e288471db8bd244e86f4a55d062e6a4d953353a3",
+          "scope": "Frozen provenance and consecutive recovery checks. Independent target/visibility labels in the enclosing audit determine correctness; internal confidence is not identity proof.",
+          "importedRecoveries": 0,
+          "automaticAdmissions": 0,
+          "samples": 95,
+          "recoveries": 0
+        },
+        "trackingMs": 116369.40090000007,
+        "auditMs": 1116.2900000000373
+      },
+      {
+        "case": "bird1-193",
+        "policy": "verified-memory-137",
+        "summary": {
+          "visible": 95,
+          "correct": 55,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 55,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.44950626798027726,
+          "missing": 40,
+          "overlapFailures": 0
+        },
+        "reference137": {
+          "memorySha256": "fa1da3ad3f93ab5c015c4d30e288471db8bd244e86f4a55d062e6a4d953353a3",
+          "scope": "Frozen provenance and consecutive recovery checks. Independent target/visibility labels in the enclosing audit determine correctness; internal confidence is not identity proof.",
+          "importedRecoveries": 0,
+          "automaticAdmissions": 0,
+          "samples": 95,
+          "recoveries": 0
+        },
+        "trackingMs": 123293.82090000005,
+        "auditMs": 1216.3158999999287
+      }
+    ],
+    "summary": {
+      "legacy-flow": {
+        "tracking": {
+          "labels": 380,
+          "visible": 380,
+          "correct": 189,
+          "missing": 53,
+          "overlapFailures": 138,
+          "hidden": 0,
+          "unsupported": 0,
+          "uncertain": 0
+        },
+        "importedRecoveries": 0,
+        "recoveries": 0
+      },
+      "seed-only-137": {
+        "tracking": {
+          "labels": 380,
+          "visible": 380,
+          "correct": 189,
+          "missing": 53,
+          "overlapFailures": 138,
+          "hidden": 0,
+          "unsupported": 0,
+          "uncertain": 0
+        },
+        "importedRecoveries": 0,
+        "recoveries": 0
+      },
+      "verified-memory-137": {
+        "tracking": {
+          "labels": 380,
+          "visible": 380,
+          "correct": 189,
+          "missing": 53,
+          "overlapFailures": 138,
+          "hidden": 0,
+          "unsupported": 0,
+          "uncertain": 0
+        },
+        "importedRecoveries": 0,
+        "recoveries": 0
+      }
+    },
+    "retained": [
+      {
+        "case": "tiger2-59",
+        "examples": 3,
+        "setId": "f7cc11bf9c4e35dbc7a1b6b7a2606fb4cfd6041e3094677aa4941be5d845783e",
+        "excluded": 2
+      },
+      {
+        "case": "box-439",
+        "examples": 2,
+        "setId": "50134a60e1deb646b4dff5eb1bf7b1e75158a4c6cde1f19d546e95b86f275f32",
+        "excluded": 6
+      },
+      {
+        "case": "david3-57",
+        "examples": 6,
+        "setId": "200ed0bc04ce9beb3db07d495539651e1a0fd34638c43fb6b6e62d897abcd637",
+        "excluded": 22
+      },
+      {
+        "case": "bird1-97",
+        "examples": 5,
+        "setId": "cd332fef1832f5fb203c7be59658c3e4fd9a770d46baeecf6ce0f6392d51eec9",
+        "excluded": 0
+      }
+    ],
+    "lock": {
+      "edition": 137,
+      "methods": [
+        "legacy-flow",
+        "seed-only-137",
+        "verified-memory-137"
+      ],
+      "sourcePolicy": "appearance-continuity-135",
+      "sourceHashes": {
+        "workspace-engine/src/main/java/fraymus/workspace/VerifiedMemoryFlow137.java": "7718e044e2a076893a3d97a7171e4cb68b9557f1386410423dc1aadfca716b2c",
+        "workspace-engine/src/main/java/fraymus/workspace/ReferenceMemory137.java": "f2421c90ed033d3953924164dc0ead9ca42fe1527cd783f60ceada738d838bf9",
+        "workspace-engine/src/main/java/fraymus/workspace/ReferenceAudit137.java": "464500bf43212c7019333b668744216e9f99efb7ef65c4f901fcfff579ad7325",
+        "workspace-engine/src/main/java/fraymus/workspace/ParsedJson137.java": "d5b859e5185fba555502accf30c6b1d299a5e6d2bb0ec3ddaddd48e8597f559a",
+        "workspace-engine/src/main/java/fraymus/workspace/ObservationMethods129.java": "a7126b35734e2bfb63cfd7f383686278f5339cec570f41e7ff438570517d01e3",
+        "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java": "997d526096adacdc362bd20f84e99df62f12b145918f1bce737953fd8ab5ef62",
+        "workspace-engine/src/main/java/fraymus/workspace/AssociationAudit134.java": "ac0759321ef569ffc71b69ed211dcf33689072aa5188177c7d2d844a7ed3485f",
+        "workspace-engine/src/main/java/fraymus/workspace/VerifiedAppearances135.java": "da439f16d5d4e607e6dd1fa91d3b491a313122a19c8ef2383c6ee9beb9888fab",
+        "workspace-engine/src/main/java/fraymus/workspace/PixelTracker.java": "32d26bafaebb26a58a09efc6f71a0089c755cccd25cec47a87be8b67005c985b",
+        "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java": "5c4f2626d341ced71aee8b13cfc07130f4b77bfb26e2ff9ba889db13b9c9dd31",
+        "workspace-engine/src/main/java/fraymus/workspace/ObservationFilter.java": "a0dc7560be00bca29dd7f72995d9cbe607b9e26f14be70286360dbf2d8764e21",
+        "workspace-engine/src/main/java/fraymus/workspace/AppearanceFlow135.java": "74c5798420dbf9627ce2e40b864e274bb1d28ed0900a06c3bf6442f432789f24",
+        "workspace-engine/src/main/java/fraymus/workspace/AppearanceAudit135.java": "9b645127417cfd6d48ab634ad8ea86fbe8ec1c51733a24929c0bad477d8b6b2c",
+        "docs/publication137/source137.json": "aadb25c59c59c5b276e3e75849eda3d9d20b4a9fd665131900e8771c69355136"
+      },
+      "scope": "Frozen before137 camera evaluation; fixed imported references and existing thresholds. All previous windows exposed; no unseen-data or human-adjudication claim. No post-result tuning."
+    },
+    "sources": {
+      "records": [
+        {
+          "case": "tiger2-59",
+          "name": "Tiger2",
+          "start": 59,
+          "end": 154,
+          "pack": "S:/Codex-Work/fraynix-workspace-edition135/build/otb135/tiger2-59.fobs.json",
+          "packSha256": "1760c728d5d116c91d7079d56bd069437a1b6c6aac1ce48d31471e986b7f13b5",
+          "labels": "docs/publication135/tiger2-59-labels.json",
+          "labelsSha256": "73d15ae97581fae3a717081c06bd04a76e4e65960830c33d108167f4832f1876",
+          "frames": 96,
+          "stride": 1,
+          "width": 640,
+          "height": 480,
+          "visible": 95,
+          "hidden": 0,
+          "partial": 76,
+          "uncertain": 0,
+          "visibilityCounts": {
+            "visible": 19,
+            "partial": 76,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "domain": "real-camera",
+          "reason": "partial leaf cover and left-edge clipping",
+          "originalGroundTruth": "Tiger2/groundtruth_rect.txt",
+          "role": "reference-source"
+        },
+        {
+          "case": "box-439",
+          "name": "Box",
+          "start": 439,
+          "end": 534,
+          "pack": "S:/Codex-Work/fraynix-workspace-edition135/build/otb135/box-439.fobs.json",
+          "packSha256": "8d7668c4096401d29bcce813df9201b7d9af47153c5e1ff40d4a2d8d2ba3086d",
+          "labels": "docs/publication135/box-439-labels.json",
+          "labelsSha256": "9f0b1494683b9df7328232c33da0ec90030e00b35b049ac13e80159be0475929",
+          "frames": 96,
+          "stride": 1,
+          "width": 640,
+          "height": 480,
+          "visible": 95,
+          "hidden": 0,
+          "partial": 47,
+          "uncertain": 0,
+          "visibilityCounts": {
+            "visible": 48,
+            "partial": 47,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "domain": "real-camera",
+          "reason": "partial cover by caliper",
+          "originalGroundTruth": "Box/groundtruth_rect.txt",
+          "role": "reference-source"
+        },
+        {
+          "case": "david3-57",
+          "name": "David3",
+          "start": 57,
+          "end": 152,
+          "pack": "S:/Codex-Work/fraynix-workspace-edition135/build/otb135/david3-57.fobs.json",
+          "packSha256": "f0eaf4c1a1c331d91bb40f2cf5294921824186d0c29ce4cb2ecbd01a7d149f51",
+          "labels": "docs/publication135/david3-57-labels.json",
+          "labelsSha256": "76fa252eac2bb0f9a594a88a3872f4bd9b758c690b0f31c5217e4571e8bf07e8",
+          "frames": 96,
+          "stride": 1,
+          "width": 640,
+          "height": 480,
+          "visible": 95,
+          "hidden": 0,
+          "partial": 13,
+          "uncertain": 0,
+          "visibilityCounts": {
+            "visible": 82,
+            "partial": 13,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "domain": "real-camera",
+          "reason": "partial tree occlusion and return",
+          "originalGroundTruth": "David3/groundtruth_rect.txt",
+          "role": "reference-source"
+        },
+        {
+          "case": "bird1-97",
+          "name": "Bird1",
+          "start": 97,
+          "end": 192,
+          "pack": "S:/Codex-Work/fraynix-workspace-edition135/build/otb135/bird1-97.fobs.json",
+          "packSha256": "e1751c6cdb4e49e7ce43c26b2212a73dd958cf557136d01d68c59980971530e5",
+          "labels": "docs/publication135/bird1-97-labels.json",
+          "labelsSha256": "3f5a10968b942be446c7fe1f79559581667f7f7269c2af2c698ede819b403b75",
+          "frames": 96,
+          "stride": 1,
+          "width": 720,
+          "height": 400,
+          "visible": 42,
+          "hidden": 33,
+          "partial": 17,
+          "uncertain": 20,
+          "visibilityCounts": {
+            "visible": 25,
+            "partial": 17,
+            "occluded": 33,
+            "out-of-view": 0,
+            "uncertain": 20
+          },
+          "domain": "rendered",
+          "reason": "rendered cloud disappearance and return; not real-world camera footage",
+          "originalGroundTruth": "Bird1/groundtruth_rect.txt",
+          "role": "reference-source"
+        },
+        {
+          "case": "tiger2-155",
+          "name": "Tiger2",
+          "start": 155,
+          "end": 250,
+          "pack": "S:/Codex-Work/fraynix-workspace-edition136/build/otb136/tiger2-155.fobs.json",
+          "packSha256": "f3f71adab9bb1a6ca19ce68deb265f6a2c8efbeec913ea33e07629f4adf7ce52",
+          "labels": "docs/publication136/tiger2-155-labels.json",
+          "labelsSha256": "2267b141d912eb73c3341f7703d353b8de5401c3690ef62917dc2e658efc0bb1",
+          "frames": 96,
+          "stride": 1,
+          "width": 640,
+          "height": 480,
+          "visible": 95,
+          "hidden": 0,
+          "partial": 86,
+          "uncertain": 0,
+          "visibilityCounts": {
+            "visible": 9,
+            "partial": 86,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "domain": "real-camera",
+          "reason": "later camera partial cover",
+          "originalGroundTruth": "Tiger2/groundtruth_rect.txt",
+          "role": "evaluation"
+        },
+        {
+          "case": "box-535",
+          "name": "Box",
+          "start": 535,
+          "end": 630,
+          "pack": "S:/Codex-Work/fraynix-workspace-edition136/build/otb136/box-535.fobs.json",
+          "packSha256": "d7227572517348e8def1d4125f3120e1b501466b14aa59b4379971e297b6f30c",
+          "labels": "docs/publication136/box-535-labels.json",
+          "labelsSha256": "232b8f20823e12676d55b6566f94a8c3772604299eeea8a9f0830770726fcdca",
+          "frames": 96,
+          "stride": 1,
+          "width": 640,
+          "height": 480,
+          "visible": 95,
+          "hidden": 0,
+          "partial": 6,
+          "uncertain": 0,
+          "visibilityCounts": {
+            "visible": 89,
+            "partial": 6,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "domain": "real-camera",
+          "reason": "later camera cover and return",
+          "originalGroundTruth": "Box/groundtruth_rect.txt",
+          "role": "evaluation"
+        },
+        {
+          "case": "david3-153",
+          "name": "David3",
+          "start": 153,
+          "end": 248,
+          "pack": "S:/Codex-Work/fraynix-workspace-edition136/build/otb136/david3-153.fobs.json",
+          "packSha256": "b7cd5e9944fb0d179b0e39675d08f3770dfac04d434e65bde15076a91d77b776",
+          "labels": "docs/publication136/david3-153-labels.json",
+          "labelsSha256": "ae9ca125b993a99b1bcc2654a8b587500efccd23babfdebc0112019d13724202",
+          "frames": 96,
+          "stride": 1,
+          "width": 640,
+          "height": 480,
+          "visible": 95,
+          "hidden": 0,
+          "partial": 21,
+          "uncertain": 0,
+          "visibilityCounts": {
+            "visible": 74,
+            "partial": 21,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "domain": "real-camera",
+          "reason": "later camera tree cover and return",
+          "originalGroundTruth": "David3/groundtruth_rect.txt",
+          "role": "evaluation"
+        },
+        {
+          "case": "bird1-193",
+          "name": "Bird1",
+          "start": 193,
+          "end": 288,
+          "pack": "S:/Codex-Work/fraynix-workspace-edition136/build/otb136/bird1-193.fobs.json",
+          "packSha256": "b2748d62a360765aa132e7703e1d29ffe544f7ee4c53813f23eb088192db5319",
+          "labels": "docs/publication136/bird1-193-labels.json",
+          "labelsSha256": "a5b2e885cb7a3dda9edd82a08787fb29282c21f73e651e2cb3aaeb25eda083eb",
+          "frames": 96,
+          "stride": 1,
+          "width": 720,
+          "height": 400,
+          "visible": 95,
+          "hidden": 0,
+          "partial": 0,
+          "uncertain": 0,
+          "visibilityCounts": {
+            "visible": 95,
+            "partial": 0,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "domain": "rendered",
+          "reason": "later rendered cloud transitions",
+          "originalGroundTruth": "Bird1/groundtruth_rect.txt",
+          "role": "evaluation"
+        }
+      ],
+      "scope": "Previously exposed135 donor windows and later136 evaluation windows from the same recordings. No newly unseen footage, no independent human visibility adjudication; Bird1 rendered. Original exact source and label bytes retained."
+    },
+    "defaultsUnchanged": true,
+    "promoted": false
+  },
+  "validation": "Local checks passed: 289 distinct Java tests, 161 desktop checks, kernel integration, actual agency regression and isolated offline/package preparation. Four source runs plus twelve evaluation runs exercise 1,520 source samples. A separate two-run synthetic control verifies a complete desktop export within 20 MB. All 380 incumbent outputs match published edition-136 original traces; independent host overlap arithmetic, source curation, stopped-prefix preservation, export and cold restart pass."
+}

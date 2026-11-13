@@ -1,3 +1,5 @@
+[Edition137 — verified references and durable evidence](../../README-137.md) | [Offline guide](137/index.html)
+
 [Edition136 — anchored memory and evidence costs](../../README-136.md) | [Offline guide](136/index.html)
 
 [Edition 135 — continuity and checked appearances](../../README-135.md) | [Offline guide](135/index.html)

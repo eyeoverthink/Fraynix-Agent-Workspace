@@ -1,3 +1,9 @@
+## Edition137 / 2026-11-13 — frozen verified references and cheaper durable history
+
+The unified Java world/browser/creation mission remains unchanged. [Edition137](../README-137.md) connects independently supported reference examples to explicit bounded recovery while refusing target-prediction learning and source/evaluation overlap. Completed history reopens without rewriting; complete transaction and source/outcome checks remain. See the measured camera results and full costs before making any promotion claim.
+
+Next: stronger independently checked foreground evidence on genuinely new occlusions/returns; separately stored immutable frame evidence to reduce repeated persistence work; then qualified observations in durable goals. Preserve prior proof identities, private projects, authority checks and defaults.
+
 ## Edition136 / 2026-11-13 — anchored memory and cheaper verified reads
 
 The unified Java world/browser/creation mission remains unchanged. [Edition136](../README-136.md) blocks49 observed wrong appearance admissions, but also52 correct ones; only3 rendered examples retained and no recovery gain. Camera learning remains unqualified; defaults stay intact. All36 controlled evidence-read hashes match; six-run summary408ms→20ms, while cold startup535ms→748ms. Every source/outcome check remains; no live-camera speed claim.

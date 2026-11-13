@@ -1,184 +1,176 @@
-# Fraynix Agent Workspace — edition 136
+# Fraynix Agent Workspace — Edition 137
 
-[Published and fetched verification receipt](docs/PUBLICATION_136.json) Â· [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-136)
+**Verified camera references, protected evidence and cheaper reopening.** This local Java agent workspace connects chat, persistent worlds, physics, browser interaction and creation tools. Edition 137 improves its observation memory and persistence layer without changing the default tracker or increasing action authority.
 
-**Keep drift out of retained evidence; spend less time rereading unchanged history.** Updated 2026-11-13.
+[Previous edition](README-136.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/137/index.html) · [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md) · [Contributor handoff](README-CONTRIBUTORS.md)
 
-[Previous: edition135](README-135.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/136/index.html) · [Development direction](docs/INTEGRATED_AGENT_ROADMAP.md) · [Contributor continuity](README-CONTRIBUTORS.md)
-
-This remains the local Java agent workspace: durable chat goals, persistent physics worlds, browser and canvas tools, creation workflows, reusable procedures and independently checked outcomes. Reliable perception is needed before an agent can safely reuse what it thinks it saw. This edition improves that boundary and the cost of retrieving evidence; it does not claim that object identity, general learning or physical accuracy are solved.
+![Verified reference selection in the actual app](docs/readmes/137/references137.png)
 
 ## What changed
 
-| Addition | Working behavior | Limit |
-| --- | --- | --- |
-| Original-image anchor | Optional `seed-anchored-136` requires fresh forward and reverse motion checks against the immutable first image before admitting an appearance | Rejects drift, but also many useful examples; remains experimental |
-| Independent admission audit | Rechecks original seed, geometry, motion conditions, retained history and external target references | Motion consistency is not semantic identity; labels remain downstream only |
-| Content-bound evidence reuse | Reads and SHA-256 hashes every current state byte under the existing lock; exact matches reuse a validated parsed structure | Every changed state, source image and outcome retains its checks; capacity remains 24 MB |
-| Detached write cache | Copies before mutation; validates and reparses serialized content; installs the cache only after atomic durable write | More cold-open work; no timestamp shortcut, history pruning or altered proof identities |
-| Cost control | **Show evidence-processing cost** displays reads, bytes hashed, structural checks, reuse and durable writes | Current-process counters, not a claim about physical accuracy |
-| CI correction | Updates an obsolete exception expectation for unpublished procedures | The lifecycle refusal and unchanged publication state are still tested |
+- **Explicit reference reuse.** Select a retained appearance set that was independently checked against original source pixels and fully visible reference boxes. Up to six examples are selected deterministically from the full immutable set. Earlier evidence remains available.
+- **No learning from target predictions.** The reference bank stays frozen throughout the new run. A drifting prediction cannot become a new reference. This prevents that feedback path; it does not eliminate tracking drift.
+- **Separated evaluation.** The reference source and target must be distinct single-object datasets with no shared image hashes. An explicit same-object declaration is retained as operator input, not treated as an independent identity certificate.
+- **Conservative recovery.** Existing accepted flow measurements remain intact. After loss, reference matching requires a strong, spatially separated candidate and two consistent images. The seed-only control uses the same recovery logic without imported examples.
+- **Cheaper durable history.** Opening completed history checks all current bytes and validates it without rewriting it. Running tasks are still marked interrupted. Transaction copying avoids a redundant JSON serialization round trip while retaining full validation, checksums, serialized reparse, forced atomic writes and detached cache publication.
 
-Local checks passed: 281 distinct Java tests, 161 desktop checks, kernel integration, actual agency regression and isolated offline/package preparation. Six actual app runs reproduce all 570 frozen tracker/filter samples. Independent host arithmetic, supported-example export or explicit refusal, stopped-prefix preservation and cold restart pass.
+Both `verified-memory-137` and `seed-only-137` are explicit experimental choices. `legacy-flow` remains the default. There is no model-weight training, biometric person identification, new network dependency or physical-device actuation in this edition.
 
-## Actual application
+## Measured results
 
-Screenshots are from the isolated application test, with public benchmark excerpts. Private camera/project data was not used.
+The current-code curation retained 16 independently supported examples, including 11 camera examples. They remain frozen; no evaluation prediction was admitted. Verified-reference tracking produced 189/380 correct visible/partial measurements, versus 189/380 for seed-only and 189/380 for the default. Imported references produced 0 recovery events. Retention and provenance are operational; general camera recovery remains unqualified and no default promotion is made.
 
-![Actual application: anchored appearance evidence](docs/readmes/136/box-535-seed-anchored-136.png)
-
-![Original source overlay and measured drift](docs/readmes/136/box-535-source-failure.png)
-
-![Actual application: content-verified evidence costs](docs/readmes/136/evidence-cost136.png)
-
-![Actual application: later rendered target and supported examples](docs/readmes/136/bird1-193-seed-anchored-136.png)
-
-![Actual application at 1600 pixels](docs/readmes/136/appearance-1600.png)
-
-[All captures and checks](docs/readmes/136/app-study.json) · [1100-pixel view](docs/readmes/136/appearance-1100.png)
-
-## Did the memory boundary improve?
-
-On the four known development windows, the previous bank admitted 46 examples: 18 correct and 28 wrong. The anchored bank admitted none, rejecting both groups. On the later four windows, the prior bank admitted 58: 37 correct and 21 wrong. The anchored bank admitted 3, all correct and all rendered; it rejected the remaining 34 correct and 21 wrong examples. Across both cohorts it prevents 49 observed wrong admissions but also loses 52 of 55 correct proposals. That is a useful contamination boundary, not successful general appearance learning.
-
-| Cohort / method | Correct measurements / visible | Missing | Wrong overlaps | Admitted | Correct / wrong admissions |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| development / legacy-flow | 86 / 327 | 96 | 145 | 0 | 0 / 0 |
-| development / appearance-continuity-135 | 86 / 327 | 96 | 145 | 46 | 18 / 28 |
-| development / seed-anchored-136 | 86 / 327 | 96 | 145 | 0 | 0 / 0 |
-| later / legacy-flow | 189 / 380 | 53 | 138 | 0 | 0 / 0 |
-| later / appearance-continuity-135 | 189 / 380 | 53 | 138 | 58 | 37 / 21 |
-| later / seed-anchored-136 | 189 / 380 | 53 | 138 | 3 | 3 / 0 |
+| Method / window | Correct / visible or partial | Missing | Wrong overlaps | Imported recoveries |
+| --- | ---: | ---: | ---: | ---: |
+| legacy-flow / tiger2-155 | 25 / 95 | 0 | 70 | 0 |
+| seed-only-137 / tiger2-155 | 25 / 95 | 0 | 70 | 0 |
+| verified-memory-137 / tiger2-155 | 25 / 95 | 0 | 70 | 0 |
+| legacy-flow / box-535 | 75 / 95 | 0 | 20 | 0 |
+| seed-only-137 / box-535 | 75 / 95 | 0 | 20 | 0 |
+| verified-memory-137 / box-535 | 75 / 95 | 0 | 20 | 0 |
+| legacy-flow / david3-153 | 34 / 95 | 13 | 48 | 0 |
+| seed-only-137 / david3-153 | 34 / 95 | 13 | 48 | 0 |
+| verified-memory-137 / david3-153 | 34 / 95 | 13 | 48 | 0 |
+| legacy-flow / bird1-193 | 55 / 95 | 40 | 0 | 0 |
+| seed-only-137 / bird1-193 | 55 / 95 | 40 | 0 | 0 |
+| verified-memory-137 / bird1-193 | 55 / 95 | 40 | 0 | 0 |
 
 
-All 760 tracker/filter outputs per method match the incumbent across development and later windows. Existing accepted outputs are deliberately preserved, including their errors. No bank recovery occurs. The guard is working as an admission restriction, but **has not qualified as useful camera appearance learning**: it retains no new camera examples in these cohorts. Three correct admissions are from rendered Bird1 only. Positive synthetic tests also demonstrate real admission and recovery; the implementation is not an always-reject placeholder.
-
-All three methods still achieve only 189/380 correct visible/partial measurements on the later windows, with 53 missing and 138 wrong overlaps. In the camera subset that is 134/285; the rendered subset is 55/95. No independent distractor boxes are supplied, so zero confirmed switches does not establish switch-free tracking. The existing tracker, filter and forecast defaults stay unchanged.
-
-Fully visible examples are still exportable only after the independent audit supports them. Their descriptors are rebuilt from reference boxes and original pixels. Empty, incorrect, partial or uncertain sets cannot become a pretend successful export. No automatic training, evaluation feedback, LLM weight update or identity recognition was added.
-
-## Evaluation scope and source honesty
-
-The tracker and scorer were frozen at `17fdb4ab`; the method lock was committed at `e7ff6cb4`. Later-window labels were committed before predictions, with exact byte preservation corrected at `9a52ceb9`. No threshold changes followed either comparison. Existing edition135 windows are development evidence. Later temporal sections of the same already source-reviewed recordings are new predictions, **not independent unseen videos**.
-
-| Source | Earlier development window | Later window | Later source event |
-| --- | --- | --- | --- |
-| Tiger2 |59–154|155–250| Camera; partial leaf cover |
-| Box |439–534|535–630| Camera; early partial cover, then visible rotation |
-| David3 |57–152|153–248| Camera; partial tree/post cover and return |
-| Bird1 |97–192|193–288| Rendered flight; target remains visible |
-
-Each window has one seed image and 95 evaluated originals. All 384 later originals were reviewed source-only before predictions. The later cohort contains 113 partial and 267 fully visible samples, no fully hidden samples. Complete cloud disappearance remains confined to the earlier rendered development window; no new real-camera complete occlusion or out-of-frame return was demonstrated.
-
-Original boxes come from the [OTB benchmark by Yi Wu, Ming-Hsuan Yang and Jongwoo Lim](https://rvlab.snu.ac.kr/research/tracker_benchmark). Visibility is separate AI source review, not independent human adjudication. Source hashes and labels are pinned in the [manifest](docs/publication136/source136.json); the [contract](docs/EDITION_136_CONTRACT.md) and [method lock](docs/OBSERVATION_136_LOCK.json) record the evaluation boundary. Raw video, ZIPs and frame packs remain local; limited attributed screenshots and numeric evidence are published. [Source-note clarification](docs/EDITION_136_LABEL_NOTE.md): frozen later labels retain a generic sentence about the earlier rendered occlusion; the later rows have no hidden/uncertain samples. Original evaluated bytes are preserved.
-
-## Why the new checks matter
-
-```mermaid
-flowchart LR
-    Source[Immutable first image] --> Anchor[Fresh forward and reverse reconstruction]
-    Frames[Current source pixels] --> Flow[Existing Java tracker]
-    Flow --> Estimate[Existing observation filter]
-    Flow --> Candidate[Appearance proposal]
-    Candidate --> Anchor
-    Anchor -->|strong direct agreement| Bank[Bounded experimental bank]
-    Anchor -->|insufficient evidence| Refusal[Retained refusal and diagnostics]
-    Bank --> Audit[Independent source and outcome audit]
-    Audit -->|fully visible and supported| Export[Reference-box numeric descriptor export]
-```
-
-A chain of small tracking errors can be internally consistent while walking onto the wrong texture. `AppearanceFlow136` requires a direct reconstruction from the original image, plus a reverse reconstruction back to that same seed. Each must use strong optical flow and at least 0.75 box overlap. The original six-example limit, initial seed, quarantine, competition checks and two-image recovery confirmation remain. `AppearanceAudit136` rechecks the anchor and scores proposals using independent labels. The metadata keeps the compatible `appearance135` API key with a new explicit schema; older evidence is never relabelled as a current proof.
-
-This restriction is intentionally separate from the independent curation boundary. Neither motion direction proves identity. Better foreground evidence and controlled reference reuse are still needed to admit useful camera examples without contamination.
-
-## Evidence-processing measurements
-
-| Saved runs | Operation | Baseline median / ms | New median / ms |
-| ---: | --- | ---: | ---: |
-| 1 | summary | 97.24 | 9.85 |
-| 1 | run | 82.04 | 29.96 |
-| 1 | dataset | 52.43 | 3.08 |
-| 1 | image | 55.09 | 3.25 |
-| 3 | summary | 167.98 | 9.84 |
-| 3 | run | 130.05 | 15.13 |
-| 3 | dataset | 112.19 | 4.70 |
-| 3 | image | 124.05 | 4.93 |
-| 6 | summary | 408.23 | 20.11 |
-| 6 | run | 264.43 | 36.78 |
-| 6 | dataset | 257.37 | 10.42 |
-| 6 | image | 250.49 | 10.65 |
-
-| Saved runs | Baseline cold open / ms | New cold open / ms |
-| ---: | ---: | ---: |
-| 1 | 273.32 | 315.53 |
-| 3 | 256.97 | 404.28 |
-| 6 | 534.55 | 748.38 |
-
-
-The comparison uses identical first-1/3/6 completed prefixes from the closed public edition135 study, with published135 binaries versus136. Original run/history hashes remain intact. All 36 returned result hashes agree; only the current engine identity is omitted from summary-result comparison, never from saved run proofs. Each operation has three repeats. These are local measurements, not a statistically calibrated universal speedup.
-
-At six runs, repeated summary reads improve from 408.2 ms to 20.1 ms median; complete run reads from 264.4 ms to 36.8 ms. Cold open regresses from 534.5 ms to 748.4 ms because the new write cache is detached and checked. That cost is retained in the report. Reuse still hashes all bytes on every access. Source-image bytes are checked separately on each image access. The baseline sampling profile contains substantial canonical JSON and JSON parsing/serialization work; inclusive samples are not exclusive elapsed time.
-
-Standalone anchored tracking itself costs more: 49.7 seconds for the later four windows versus 17.4 seconds for the prior bank and 11.8 seconds for incumbent. Reconstructing from the original source is additional work. The evidence-read optimization must not be presented as making this experimental tracker faster or establishing real-time camera throughput.
-
-| Actual task | Tracking / ms | Audit plus optional export / ms |
+| Reference source | Retained fully visible examples | Excluded proposals |
 | --- | ---: | ---: |
-| box-535 / seed-anchored-136 | 29312.0 | 445.4 |
-| box-535 / legacy-flow | 15329.2 | 411.1 |
-| box-535 / appearance-continuity-135 | 28743.7 | 3015.7 |
-| david3-153 / seed-anchored-136 | 54249.2 | 671.9 |
-| tiger2-155 / seed-anchored-136 | 51294.5 | 681.5 |
-| bird1-193 / seed-anchored-136 | 76539.5 | 2068.9 |
+| tiger2-59 | 3 | 2 |
+| box-439 | 2 | 6 |
+| david3-57 | 6 | 22 |
+| bird1-97 | 5 | 0 |
 
 
-Actual app runs include UI polling, durable writes and a stop/resume in the first run. Their datasets and history differ, so these totals are not a controlled policy comparison. Full writes and audits still scale with retained history. No verification was removed to obtain lower read timings.
+These are earlier edition-135 source windows and later edition-136 evaluation windows from the same [OTB benchmark](https://rvlab.snu.ac.kr/research/tracker_benchmark) recordings. They have already been inspected in prior development. **They are not new unseen footage.** Tiger2, Box and David3 are camera recordings; Bird1 is rendered. Original benchmark boxes and source-only AI visibility annotations are retained. There is no independent human visibility adjudication or complete distractor annotation. The inherited generic annotation sentence is explained in [the preserved label note](docs/EDITION_136_LABEL_NOTE.md); per-frame labels determine the actual visibility counts. Later windows contain visible/partial targets, not a new complete-occlusion test.
+
+The synthetic pose/return control proves that the new reference path can change a real recovery outcome; the seed-only control cannot recover that changed pose. An identical-twin control refuses the ambiguous match. These tests establish software behavior, not general camera accuracy.
+
+![Independent outcome comparison on original camera pixels](docs/readmes/137/box-535-source-overlay.png)
+
+## Startup and write costs
+
+| Saved runs | Cold open, before → after / ms | Median write, before → after / ms |
+| ---: | ---: | ---: |
+| 1 | 360.7 → 152.8 | 161.9 → 124.6 |
+| 3 | 359.9 → 140.5 | 288.3 → 240.4 |
+| 6 | 751.0 → 235.9 | 798.6 → 592.6 |
+
+| Saved runs / read | Before median / ms | After median / ms |
+| --- | ---: | ---: |
+| 1 / summary | 9.00 | 10.98 |
+| 1 / run | 29.88 | 40.67 |
+| 1 / dataset | 2.89 | 3.09 |
+| 1 / image | 3.26 | 3.19 |
+| 3 / summary | 9.46 | 10.26 |
+| 3 / run | 14.46 | 14.09 |
+| 3 / dataset | 4.61 | 4.48 |
+| 3 / image | 4.67 | 4.66 |
+| 6 / summary | 14.83 | 16.65 |
+| 6 / run | 34.24 | 36.19 |
+| 6 / dataset | 9.22 | 10.91 |
+| 6 / image | 9.56 | 10.95 |
+
+
+Published edition-136 and edition-137 binaries used identical isolated copies of the same 1/3/6-run public history on the same D drive. All **36 read-result hashes** and **9 write-result/persisted-payload pairs** match. Writes modify a deterministic reason field in the isolated study; they measure persistence transactions, not full agent-task throughput. Each operation has three repeats; cold open has one measurement per size. Some reads regress, and no general speed or live-camera throughput claim follows.
+
+Every access still reads and hashes the complete state. Only exact current byte identity may reuse previously validated structure. Changed bytes with identical size/time, forged history, external writes, source modification and failed writes remain checked. State limits remain 24 MB, 16 datasets, 24 observation runs and 2,048 world revisions. No pruning or capacity increase hides the costs.
+
+![Actual evidence-processing counters](docs/readmes/137/evidence-cost137.png)
 
 ## Try it
 
-1. Start the normal workspace with Java 21 and the existing dependencies. Use a separate project for experiments.
-2. In Spatial, load a persistent world and import an observation frame pack. Bind its subject to a world body.
-3. Keep `legacy-flow` for normal default behavior. Select `seed-anchored-136` explicitly to inspect the new restriction, or `appearance-continuity-135` to compare the previous bank.
-4. Import independent source-bound target/visibility labels in the association panel; they are never passed into tracking.
-5. Run, audit and inspect the source overlay, missingness, admissions and refusal reasons. Export supported visible examples only after verification.
-6. Click **Show evidence-processing cost** to see work performed by this process. Restart resets counters but retains original evidence.
-7. Export the audit or labels; reopen a saved audit after restart to recheck its source and outcomes. Incompatible code proofs remain refused.
+For a separate review project on Windows, install JDK 21 and Node.js LTS, then run from this checkout:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\Start-Agent-Workspace.ps1
+$env:FRAYNIX_WORKSPACE_PROJECT = Join-Path $env:LOCALAPPDATA 'Fraynix-Review-137'
+.\scripts\Start-Agent-Workspace.ps1
 ```
 
-No new vision framework or service dependency was introduced. Existing Electron/Chromium, Bullet and JSON dependencies remain. This is Java-owned processing logic, not a claim that the whole app has zero dependencies. No LLM call or private webcam session was needed for this study.
+The launcher checks dependencies and existing Java owners. First preparation may download packages; after preparation, use `-Offline` to require cached dependencies. Keep your existing project path unchanged and stop its Java owner through its app before rebuilding that owner's installation.
 
-## Validation, failures and recovery
+1. Follow [the Windows launcher](scripts/Start-Agent-Workspace.ps1) with Java 21 and the existing desktop dependencies. Use a separate project directory for evaluation; preserve your current private project.
+2. Open **Spatial → Real footage · observed world**. Load a saved world and import source footage with an initial object rectangle.
+3. Use the independent association-label workflow to import original reference boxes and visibility annotations. Run an appearance method, audit it, and retain a supported appearance set. Incorrect, partial and uncertain proposals cannot enter this curated set.
+4. Import separate target footage. Select **Experimental 137 · verified reference memory**. Open **Verified references**, list retained sets, select one and explain why it depicts the same object. Older code-incompatible evidence remains historical and is refused for current execution.
+5. Confirm the world and footage, then start tracking. Compare with **Control 137 · original seed only** and the existing flow tracker. Target outcome labels stay downstream of tracking.
+6. Inspect original frames and independent outcomes. Stop/resume preserves the exact run prefix. Export includes the reference set, original audit, labels, source run and donor pixels within existing bounds. The desktop file limit is 20 MB; Java also retains its 40 MB original-pixel and 64 MB raw-package bounds. If the complete export exceeds a limit, preserve/archive the project rather than discarding evidence.
+7. Reopen the project. Completed observation history retains its original bytes and modification time. Original source/code/outcome checks run again when opening an audit or reusing references.
 
-- Actual stopped Box task resumes the same source/run, preserves its complete original prefix and reproduces every checked appearance and later prediction.
-- External OTB boxes plus source-only AI visibility frozen through actual import controls before each tracking task. Labels never enter tracking. Existing legacy-flow default remains selected initially.
-- Six actual Java runs: four candidate windows plus incumbent and prior-bank Box controls. All 570 tracker/filter samples equal frozen evidence; independent host overlap, admission-correctness and distractor arithmetic match. Native world remains unchanged.
-- Source overlays, visible/partial states, appearance provenance and independent admission verdicts displayed at 1100/1600 without page overflow. Label and audit exports match their immutable records; exact label reimport preserves identity.
-- Any fully visible reference-supported admissions retained/exported from original source pixels. Empty/unsupported sets refused. All retained sets reverified after restart; no feedback into measured tracking.
-- Abrupt owned-Java termination and cold restart retain all six original runs, labels, association proofs and untouched native world. Reopening actual saved comparison recomputes the same result.
-- Actual cost control reports all-byte hashing and exact-byte structural reuse; full source/outcome checks, defaults and scene unchanged.
+The desktop is presentation and interaction; Java owns observations, execution, persistence, validation and recovery. The Game Lab and 3D world remain connected parts of that system, not replacements for the browser, canvas or creation workflows.
 
-Tests include positive synthetic admissions/recovery, duplicate distractors, bounded memory, unchanged incumbent output, altered anchor evidence, same-size/same-time corruption, re-signed broken histories, valid external writers, failed-write isolation, input/output alias isolation, restart and source tampering. The broad regression includes world goals, data/creation workflows, procedure lifecycle, archives and recovery. All source image, code identity, history and independent outcome checks remain.
+## Evidence path
 
-CI run43398780691 was checked first. It completed 1030 engine tests with one failure and two skipped tests. Its failing test expected an older exception type for an unpublished procedure; the actual lifecycle guard correctly refused it. The corrected test checks `IllegalStateException`, the unpublished reason and unchanged publication state. The whole failing class and broader local regression are rerun. Hosted CI for the new publication is reported separately; local success is not hosted CI success.
+```mermaid
+flowchart LR
+  A[Original source images] --> B[Independent boxes and visibility]
+  B --> C[Audited supported appearances]
+  C --> D[Immutable reference set]
+  D --> E[Separated target run]
+  E --> F[Flow plus bounded recovery]
+  F --> G[Persistent observed world]
+  G --> H[Independent outcome audit]
+  H --> I[Replay and complete export]
+```
 
-Retained attempts: the linked CI failure is preserved as its original XML, status and archive hash; its corrected lifecycle assertion and the complete class pass locally. The first focused136 guard/cache run passed. The malformed initial Git attribute newline was corrected before later predictions and raw label hashes re-staged; label values and method thresholds never changed. No default promotion is claimed. Further app/report issues, if found, are appended here rather than discarded.
+The target run has no edge back into its own reference set. Reuse checks source pixels, annotations, original proposal, audit, implementation identity and selected examples. Prediction confidence alone is never permission to retain an appearance.
 
-Broad regression first attempt caught a test-fixture restart race: the alias test opened a second same-JVM store while its cancelled worker could still hold the original file lock. The corrected test waits for actual completed work, checks the unchanged caller-bound key, closes the first store, then reopens and verifies the durable record. Production locking/integrity code is unchanged. Preserve the first broad report; rerun the corrected cache class only after the broad run finishes.
+## Validation and limits
 
-The corrected cache class passes all6 checks; combined with280 unchanged successful broad checks,281 distinct tests are verified (overlapping cache checks counted once). A source-note clarification records inherited135 prose in frozen later labels about rendered occlusion; later numeric rows remain all visible/partial. No evaluated bytes, labels or thresholds were changed.
+Local checks passed: 289 distinct Java tests, 161 desktop checks, kernel integration, actual agency regression and isolated offline/package preparation. Four source runs plus twelve evaluation runs exercise 1,520 source samples. A separate two-run synthetic control verifies a complete desktop export within 20 MB. All 380 incumbent outputs match published edition-136 original traces; independent host overlap arithmetic, source curation, stopped-prefix preservation, export and cold restart pass.
+
+- Four current-code source runs independently audited; only fully visible correct proposals curated from original reference-box pixels. All source labels and original bytes fixed before evaluation.
+- Twelve separated evaluation runs (three methods × four windows), 1140 original frame outcomes independently scored. No automatic admissions; candidate/control share the same frozen source references. Default unchanged.
+- Actual reference-selection controls, same-target declaration, stopped prefix/resume, complete Java reference bundle including donor pixels and explicit desktop export-size refusal, and four independent overlays exercised. Native world unchanged.
+- Owned-process crash and cold reopen preserve exact completed-state bytes and timestamp with zero observation writes. All16 runs, labels, source examples and outcomes reverified; changed donor pixels refuse audit/export, restored originals reverify.
+- Separate actual-app synthetic control: two runs/16 samples, complete small export with all13 donor images, reference labels/audit/source run and unchanged native world.
+
+The first compile attempt caught a malformed class-resource expression introduced while extending audit identity hashing; it was corrected before camera evaluation. The next 11 persistence/provenance/cache checks passed, followed by all three frozen-reference tracker controls. Original logs and results remain archived. A UTF-8 label encoding issue and an incorrect source-inspection route in the app test were corrected during preparation, before evaluation. The first cost comparison is retained alongside the final-build comparison; no failed camera result is removed or tuned away.
+
+The first actual-app attempt completed ten runs, then correctly refused a complete export above the existing desktop20MB limit. The test had expected an export within that bound. Original result/log/screenshot retained. The same project and ten immutable runs were reopened and reverified; only remaining runs continue. Java bundle contents are checked separately, desktop refusal retained, and a small complete export is tested independently. No tracker/scorer, default or capacity changed.
 
 
-[Verification receipt](docs/readmes/136/verification.json) · [Comparison](docs/readmes/136/comparison.json) · [Timing data](docs/readmes/136/cost-comparison.json) · [Original evidence](docs/readmes/136/original-evidence.json) · [Source inventory](docs/readmes/136/file-inventory.json)
+Hosted CI is reported separately from local checks and fetched Git publication. Original attempts, full run traces and numerical comparisons are preserved in [original evidence](docs/readmes/137/original-evidence.json), [validation](docs/readmes/137/verification.json), [comparison](docs/readmes/137/comparison.json) and [cost measurements](docs/readmes/137/cost-comparison.json). Screenshots are actual application captures using public evaluation pixels.
 
-## Project continuity and next steps
+## Complete task costs
 
-[Architecture](docs/ARCHITECTURE.md) · [Project memory](docs/PROJECT_MEMORY.md) · [Development log](docs/DEVELOPMENT_LOG.md) · [Implementation map](docs/obsidian/144-anchored-evidence.canvas)
+| Actual task | Track / ms | Audit and optional retain / ms |
+| --- | ---: | ---: |
+| tiger2-59 / appearance-continuity-135 | 20679.1 | 600.2 |
+| box-439 / appearance-continuity-135 | 19534.4 | 539.1 |
+| david3-57 / appearance-continuity-135 | 31411.0 | 881.7 |
+| bird1-97 / appearance-continuity-135 | 54696.1 | 687.5 |
+| tiger2-155 / legacy-flow | 50557.8 | 261.5 |
+| tiger2-155 / seed-only-137 | 58097.8 | 844.4 |
+| tiger2-155 / verified-memory-137 | 65095.5 | 879.1 |
+| box-535 / legacy-flow | 71412.6 | 254.1 |
+| box-535 / seed-only-137 | 78707.4 | 799.5 |
+| box-535 / verified-memory-137 | 89689.8 | 797.5 |
+| david3-153 / legacy-flow | 88960.3 | 373.7 |
+| david3-153 / seed-only-137 | 96746.0 | 1303.0 |
+| david3-153 / verified-memory-137 | 104084.2 | 1380.3 |
+| bird1-193 / legacy-flow | 108657.1 | 325.5 |
+| bird1-193 / seed-only-137 | 116369.4 | 1116.3 |
+| bird1-193 / verified-memory-137 | 123293.8 | 1216.3 |
 
-Earlier editions001–135 and their evidence are immutable. Publication remains `eyeoverthink/Fraynix-Agent-Workspace`; Chandra is separate. Private projects, credentials, raw captures and model weights are not committed. Main and the numbered tag are fetched and checked before publication is called complete.
 
-1. **Recover useful camera memory without admitting drift.** Test foreground masks or separately verified reference examples with explicit provenance, held apart from evaluation data. Measure rejected useful examples alongside accepted wrong ones.
-2. **Obtain independent complete-occlusion labels.** Human-adjudicated target and distractor boxes, genuinely new camera recordings, clear source visibility and actual out-of-frame returns are still missing.
-3. **Reduce cold-open and write cost safely.** Profile immutable segments or bounded write transactions; preserve every original history/source/outcome check and test interruption, external changes and tampering.
-4. **Bring reliable observations back to durable goals.** The destination remains one cohesive agent that observes, predicts, creates, acts and verifies. These perception experiments must earn accuracy before increasing authority over the persistent world.
+Tasks differ in source content, method and retained history size. These timings describe the observed workflow; they do not isolate a single cause or establish constant-time scaling.
+
+## Next steps and the larger goal
+
+1. Evaluate genuinely new camera occlusions and returns with independently adjudicated foreground, target and distractor labels. Use the outcome to decide whether any experimental method earns promotion.
+2. Improve the evidence used to distinguish the object from its background and similar objects. A useful reference must improve recovery without worsening wrong-object measurements; retaining more descriptors alone is insufficient.
+3. Profile complete observation tasks as the history grows. Consider separately stored immutable frame evidence to reduce repeated serialization, while retaining every source, chain, recovery and outcome check.
+4. Connect only qualified observations to durable chat-driven world and creation goals, preserving source age, uncertainty, explicit action validation and independent success checks.
+
+The destination remains one local agent system that can observe, predict, act, create, verify and remember useful procedures across sessions. Better measurements and lower evidence costs support that goal. They are not evidence of consciousness, unrestricted autonomy or general intelligence.
+
+Raw benchmark footage is not committed. The source manifest records the original local execution paths and exact pack hashes; original public archive locations and hashes remain in [the source manifest from edition 135](docs/publication135/source135.json). Normal app use accepts your own footage.
+
+## Source and handoff
+
+[Reference validation](workspace-engine/src/main/java/fraymus/workspace/ReferenceMemory137.java) · [Frozen-reference tracking](workspace-engine/src/main/java/fraymus/workspace/VerifiedMemoryFlow137.java) · [Recovery audit](workspace-engine/src/main/java/fraymus/workspace/ReferenceAudit137.java) · [Durable observations](workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java) · [Actual-app test](workspace-desktop/test/reference137-integration.cjs) · [Method lock](docs/OBSERVATION_137_LOCK.json) · [Source manifest](docs/publication137/source137.json) · [Full source inventory](docs/readmes/137/file-inventory.json) · [Project memory](docs/PROJECT_MEMORY.md)
+
+Do not replace historical proof identities, modify frozen editions, silently change defaults, write against a private project during tests, or claim a successful publication before fetching and checking the remote commit. See [AGENTS.md](AGENTS.md) and [the edition contract](docs/EDITION_137_CONTRACT.md).

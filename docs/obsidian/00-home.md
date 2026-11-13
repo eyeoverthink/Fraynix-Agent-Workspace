@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/145-verified-references.md]] | [[README-137.md]]
+
 Current: [[docs/obsidian/144-anchored-evidence.md]] | [[README-136.md]]
 
 Current: [[docs/obsidian/143-appearance-continuity.md]] | [[README-135.md]]
