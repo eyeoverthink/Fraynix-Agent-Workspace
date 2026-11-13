@@ -8,7 +8,7 @@ export class Association134Panel {
    <div class="observation-toolbar"><label>Frozen labels<select id="association134-labels"></select></label><button id="association134-read-labels">Recheck labels</button><button id="association134-export-labels">Export labels</button><button id="association134-refresh">Refresh runs</button></div>
    <p id="association134-provenance">No independent labels selected.</p>
    <div class="observation-toolbar"><label>Completed run<select id="association134-run"></select></label><button id="association134-audit">Compare identity &amp; recovery</button></div>
-   <div class="observation-toolbar"><label>Saved comparison<select id="association134-saved"></select></label><button id="association134-read">Recheck comparison</button><button id="association134-export">Export comparison</button></div>
+   <div class="observation-toolbar"><label>Saved comparison<select id="association134-saved"></select></label><button id="association134-read">Recheck comparison</button><button id="association134-export">Export comparison</button><button id="appearances135-export">Export supported visible examples</button></div>
    <p id="association134-status" role="status">No comparison selected.</p><div id="association134-results"></div>
    <label>Inspect labelled source sample<select id="association134-frame"></select></label><canvas id="association134-canvas" width="360" height="288" aria-label="Original image with independently labelled target and other objects, plus tracking result"></canvas><p id="association134-caption">Gold: reference target. Blue: labelled other object. Pink: tracker output.</p>`;
   after.after(this.root);this.root.ontoggle=()=>{if(this.root.open)this.action(()=>this.refresh());};
@@ -21,6 +21,7 @@ export class Association134Panel {
   on('association134-audit',async()=>{await this.show(await call('audit',{labelId:$('association134-labels').value,runId:$('association134-run').value}));await this.refresh();});
   on('association134-read',async()=>this.show(await call('audit-read',{id:$('association134-saved').value})));
   on('association134-export',async()=>notice('Verified comparison saved: '+(await call('audit-export',{id:$('association134-saved').value})).path));
+  on('appearances135-export',async()=>{if(!this.audit)throw Error('Open a verified comparison first');const result=await window.workspace.request({operation:'appearances135',command:'export',args:{auditId:this.audit.id}});notice('Verified appearance set saved: '+result.path);});
   $('association134-frame').onchange=()=>this.action(()=>this.paint());
  }
  async action(fn){if(this.busy)return;this.busy=true;this.root.setAttribute('aria-busy','true');$('association134-status').textContent='Checking original evidence…';try{await fn();$('association134-status').textContent='Original source and outcome checks completed.';}catch(e){$('association134-status').textContent=e.message;this.notice(e.message);}finally{this.busy=false;this.root.removeAttribute('aria-busy');}}

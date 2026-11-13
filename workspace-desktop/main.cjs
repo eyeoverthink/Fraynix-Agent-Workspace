@@ -425,6 +425,10 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='export'){const result=await api('/api/metrics/export',input.args);return nativeExports.save('metric-world','json',JSON.stringify(result),{runId:input.args.runId});}
       if(!['state','clock','geometry','view','fit','evaluate','source-frame','accuracy130','accuracy-read130'].includes(input.command))throw Error('Unknown metric operation');return api('/api/metrics/'+input.command,input.args||{});
     }
+    case 'appearances135':{
+      if(input.command==='export'){const record=await api('/api/appearances135/retain',input.args);return nativeExports.save('verified-appearances-135','json',JSON.stringify(record,null,2),{evidenceId:record.id});}
+      if(!['retain','read'].includes(input.command))throw Error('Unknown appearance evidence operation');return api('/api/appearances135/'+input.command,input.args||{});
+    }
     case 'association134':{
       if(input.command==='export'||input.command==='audit-export'){const record=await api('/api/association134/'+(input.command==='export'?'read':'audit-read'),input.args);return nativeExports.save('association-134','json',JSON.stringify(record,null,2),{evidenceId:record.id});}
       if(!['state','save','import','read','audit','audit-read'].includes(input.command))throw Error('Unknown association operation');return api('/api/association134/'+input.command,input.args||{});
