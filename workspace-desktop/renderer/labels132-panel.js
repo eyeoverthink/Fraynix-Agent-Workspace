@@ -72,9 +72,9 @@ export class Labels132Panel {
  }
  draftStatus() {$('labels132-draft').textContent=this.rows.size+' draft labels · samples '+[...this.rows.keys()].sort((a,b)=>a-b).join(', ')+'. Freeze to retain after restart.';}
  input() {if(!this.source)throw Error('Open source footage first');return {schema:'observation-labels-132-v1',datasetId:this.datasetId,datasetSha256:this.source.datasetSha256,objectKey:$('labels132-object').value,annotator:$('labels132-annotator').value.trim(),method:$('labels132-method').value,exposure:$('labels132-exposure').value,provenance:$('labels132-provenance').value.trim(),rows:[...this.rows.values()].sort((a,b)=>a.ordinal-b.ordinal)};}
- async showLabel(record) {this.record=record;this.labelId=record.id;const l=record.input;$('labels132-frozen').textContent='Frozen '+record.id.slice(0,16)+' · '+l.rows.length+' labels · '+l.annotator+' · '+l.method+' · '+l.exposure+'. '+l.provenance;}
+ async showLabel(record) {this.record=record;this.labelId=record.id;if([...$('labels132-saved').options].some(o=>o.value===record.id)){$('labels132-saved').value=record.id;this.refreshRuns();}const l=record.input;$('labels132-frozen').textContent='Frozen '+record.id.slice(0,16)+' · '+l.rows.length+' labels · '+l.annotator+' · '+l.method+' · '+l.exposure+'. '+l.provenance;}
  showAudit(audit) {
-  this.audit= audit; const host=$('labels132-results');host.replaceChildren();
+  this.audit= audit;$('labels132-run').value=audit.input.runId;$('labels132-geometry').value=audit.input.geometryId||''; const host=$('labels132-results');host.replaceChildren();
   const heading=document.createElement('h3');heading.textContent='Visibility and contact comparison';host.append(heading);
   const table=document.createElement('table');const head=document.createElement('tr');for(const name of ['Source visibility','Labelled frames','Accepted','Missing']){const th=document.createElement('th');th.textContent=name;head.append(th);}table.append(head);
   for(const [name,v]of Object.entries(audit.visibility)){const tr=document.createElement('tr');for(const value of [name,v.labels,v.accepted,v.missing]){const td=document.createElement('td');td.textContent=String(value);tr.append(td);}table.append(tr);}host.append(table);
