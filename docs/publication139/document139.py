@@ -31,8 +31,8 @@ for x in study['runs']:
  wrong=[a['ordinal'] for a in scored if a['visibility'] in ['visible','partial'] and a['proposalAccepted'] and a['proposalOverlap']<.5]
  warnings=[a['ordinal'] for a in scored if a['warning']]
  timing.append({'case':x['caseName'],'firstWrongVisibleProposal':wrong[0] if wrong else None,'firstWarning':warnings[0] if warnings else None,'scope':'Descriptive post-run timing, not an additional qualification score; original frame ordinal excludes initial seed.'})
-comparison={'warningTiming':timing,'rows':rows,'summary':sums,'lock':lock,'sources':sources,'development':read('build/drift139-development/results.json'),'defaultsUnchanged':True,'promoted':False};write(out/'comparison.json',comparison)
-validation=f"Local checks passed: {len(checks)} distinct Java tests, {desktop_count} desktop checks, kernel integration, actual agency regression and isolated offline/package preparation. Sixteen actual-app fresh comparisons use {sum(x['run']['totalFrames'] for x in study['runs'])} later-frame outcomes. Exact monitor equivalence, original-pixel audit replay, independent host arithmetic, export, stop/resume and abrupt-process cold restart are verified."
+comparison={'warningTiming':timing,'rows':rows,'summary':sums,'lock':lock,'sources':sources,'development':read('build/foreground139-development/results.json'),'defaultsUnchanged':True,'promoted':False};write(out/'comparison.json',comparison)
+validation=f"Local checks passed: {len(checks)} distinct Java tests, {desktop_count} desktop checks, kernel integration, actual agency regression and isolated offline/package preparation. Twenty actual-app fresh comparisons use {sum(x['run']['totalFrames'] for x in study['runs'])} later-frame outcomes. Exact monitor equivalence, original-pixel audit replay, independent host arithmetic, export, stop/resume and abrupt-process cold restart are verified."
 v={'passed':True,'javaChecks':sorted(checks),'desktopChecks':desktop_count,'actualAppChecks':list(dict.fromkeys(study['checks'])),'production':study['source'],'buildReceipt':study['buildReceipt'],'candidateLock':lock,'defaultsUnchanged':True,'scope':validation+' External VOT rectangles/absence with separate source-only AI visibility/cause review; no independent human adjudication of added labels. Hosted CI separate.'};write(out/'verification.json',v)
 originals=[];seen=set()
 def preserve(p,logical):
@@ -40,13 +40,13 @@ def preserve(p,logical):
  seen.add(logical);raw=p.read_bytes();key=sha(raw);dest=out/'originals'/(key+'.gz');packed=gzip.compress(raw,mtime=0);dest.parent.mkdir(exist_ok=True)
  if not dest.exists():dest.write_bytes(packed)
  originals.append({'logicalPath':logical,'path':dest.relative_to(r).as_posix(),'bytes':len(packed),'sha256':sha(packed),'rawBytes':len(raw),'rawSha256':key})
-for name in ['drift139-app','drift139-development','agency139-evidence','validation139']:
+for name in ['drift139-app','foreground139-development','agency139-evidence','validation139','source-labels139-first','source-labels139-exact-before']:
  for p in sorted((r/'build'/name).rglob('*')):
   if any(x in p.parts for x in ['desktop-profile','node_modules','exports']) or p.name.endswith('.fobs.json'):continue
   if p.is_file() and p.suffix in ['.json','.jsonl','.xml','.png','.txt','.log','.html','.css','.js','.cjs','.fworld','.previous','.csv','.evidence','.pending','.before','.java','.class']:preserve(p,p.relative_to(r).as_posix())
 for p in sorted((r/'build').glob('*139*')):
  if p.is_file() and p.suffix not in ['.zip','.jfr']:preserve(p,p.relative_to(r).as_posix())
-for name in ['docs/OBSERVATION_139_LOCK.json','docs/publication139/source139.json','build/vot139/source-index.json','build/vot139/download.json']:preserve(r/name,name)
+for name in ['docs/OBSERVATION_139_LOCK.json','docs/publication139/source139.json','build/vot139/source-index.json','build/vot139/download.json','build/vot139/occlusion-search.json','build/vot139/bird-occlusion-search.json','build/vot139/extra-source.json','build/vot139/bird-extra-source.json']:preserve(r/name,name)
 write(out/'original-evidence.json',{'files':originals,'scope':'Original run/audit records, development and fresh comparisons, tests, attempts, public app screenshots and startup/restart checks. Raw footage/images and private profiles excluded; exact source hashes/annotations/provenance retained.'})
 paths={x['path'] for x in read('docs/readmes/138/file-inventory.json')}
 for n in subprocess.check_output(['git','diff','--name-only',parent,'HEAD'],text=True).splitlines():

@@ -32,11 +32,11 @@ Useful warnings identify an already wrong or hidden proposal; they do not prove 
 
 Original [VOT-LT2018 recordings](https://www.votchallenge.net/vot2018/dataset.html) and official annotation archives were acquired after the method/scorer freeze. Selection follows the [contract](docs/EDITION_139_CONTRACT.md) and [source-only clarification](docs/EDITION_139_SOURCE_NOTE.md). Every selected image was inspected without tracker predictions, then source labels were frozen. No thresholds were changed after seeing fresh outcomes.
 
-Ballet and bicycle test exits from the frame and returns. Some NaN annotation boundaries contain visible fragments; these are uncertain rather than falsely counted as completely hidden. Bike1 has no annotated absence and remains a continuous-motion control. The additional bird1 source was selected by the first qualifying interior disappearance in metadata order. Its content and obstruction evidence are described in the [source manifest](docs/publication139/source139.json). VOT bird1 is distinct from the earlier rendered OTB Bird1. External rectangle/absence data and additional AI source judgments are separately recorded; AI review is not independent human adjudication. This bounded study is not a full VOT benchmark submission.
+Ballet and bicycle test exits from the frame and returns. Some NaN annotation boundaries contain visible fragments; these are uncertain rather than falsely counted as completely hidden. Bike1 has no annotated absence and remains a continuous-motion control. Bird1 and car1 were selected through the documented source-only extension. Bird1 is another active-image exit; car1 passes behind a central structure. Their source evidence is described in the [source manifest](docs/publication139/source139.json). VOT bird1 is distinct from the earlier rendered OTB Bird1. External rectangle/absence data and additional AI source judgments are separately recorded; AI review is not independent human adjudication. This bounded study is not a full VOT benchmark submission.
 
 {{SOURCE_REVIEW}}
 
-![Actual independent source/outcome view](docs/readmes/139/bird1-641-source.png)
+![Actual independent source/outcome view](docs/readmes/139/car1-1508-source.png)
 
 ### Previously exposed development footage
 

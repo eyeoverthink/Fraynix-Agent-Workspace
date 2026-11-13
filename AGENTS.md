@@ -1,6 +1,6 @@
 ## Edition139 active — 2026-11-13
 
-Continue J:/Codex-Work/fraynix-workspace-edition139 from7e66b0c8. CI checked FIRST:43487640258 in progress; no hosted success claimed. Read docs/EDITION_139_CONTRACT.md. Develop foreground-motion/spatial-structure guard against exposed138 footage. Freeze code/scorer before downloading or viewing new VOT-LT2018 recordings. Preserve defaults, all checks, private projects and frozen001–138. No agents, overlapping heavy jobs or shared node-junction mutation. No139 publication yet.
+Continue J:/Codex-Work/fraynix-workspace-edition139 from7e66b0c8. CI checked FIRST:43487640258 in progress; no hosted success claimed. Read docs/EDITION_139_CONTRACT.md. Develop foreground-motion/spatial-structure guard against exposed138 footage. Freeze code/scorer before downloading or viewing new VOT-LT2018 recordings. Preserve defaults, all checks, private projects and frozen001–138. No agents, overlapping heavy jobs or shared node-junction mutation. No139 publication yet. Method/scorer locked e7bd0ff7; fresh source labels finalized20db8d29 after source-only cohort clarifications. Five VOT windows,201 visible/partial,85 absent,71 uncertain/unscorable. No fresh predictions yet at this checkpoint. Broad Java regression in progress; source scripts and all attempts retained in build. Continue actual app20comparisons, package/desktop checks, documentation and fetched publication. Do not rerun passed targeted tests or tune the frozen method on new outcomes.
 
 ## Edition138 — published and fetched back
 

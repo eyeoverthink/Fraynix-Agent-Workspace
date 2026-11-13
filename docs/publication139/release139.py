@@ -16,7 +16,7 @@ run('git','add',*files)
 logs=[str(p.relative_to(r)) for p in (r/'docs/publication139').glob('*.log')]
 if logs:run('git','add','-f',*logs)
 run('git','diff','--cached','--check','--','.',':!docs/publication139/*.log')
-run('git','-c','gc.auto=0','commit','-m','Document edition 139 foreground motion and spatial structure with independent evidence with retained evidence')
+run('git','-c','gc.auto=0','commit','-m','Document edition 139 foreground motion and spatial structure with independent retained evidence')
 assert not git('status','--porcelain')
 release=git('rev-parse','HEAD');(r/'build/release139.json').write_text(json.dumps({'release':release}),encoding='utf8');print('Release '+release,flush=True)
 run('python','docs/publication139/audit-publication139.py','HEAD',release)

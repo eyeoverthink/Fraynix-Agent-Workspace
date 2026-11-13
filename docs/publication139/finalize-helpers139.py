@@ -1,0 +1,10 @@
+from pathlib import Path
+r=Path.cwd()
+p=r/'docs/publication139/document139.py';s=p.read_text(encoding='utf8').replace('build/drift139-development','build/foreground139-development').replace("'drift139-development'","'foreground139-development'").replace('Sixteen actual-app','Twenty actual-app')
+s=s.replace("['drift139-app','foreground139-development','agency139-evidence','validation139']","['drift139-app','foreground139-development','agency139-evidence','validation139','source-labels139-first','source-labels139-exact-before']")
+s=s.replace("'build/vot139/download.json'","'build/vot139/download.json','build/vot139/occlusion-search.json','build/vot139/bird-occlusion-search.json','build/vot139/extra-source.json','build/vot139/bird-extra-source.json'")
+p.write_text(s,encoding='utf8')
+p=r/'docs/publication139/visual139.cjs';s=p.read_text(encoding='utf8').replace('count(),16','count(),20').replace('count(),4','count(),5');p.write_text(s,encoding='utf8')
+p=r/'docs/publication139/guide-template.html';s=p.read_text(encoding='utf8').replace('Four fresh public recordings: three disappearance/return windows and one visible-motion control.','Five fresh public recordings: three exits and returns, a structure occlusion and one visible-motion control.').replace('bike1 and bird1','bike1, bird1 and car1');p.write_text(s,encoding='utf8')
+p=r/'docs/publication139/README-template.md';s=p.read_text(encoding='utf8').replace('The additional bird1 source was selected by the first qualifying interior disappearance in metadata order. Its content and obstruction evidence are described', 'Bird1 and car1 were selected through the documented source-only extension. Bird1 is another active-image exit; car1 passes behind a central structure. Their source evidence is described').replace('docs/readmes/139/bird1-641-source.png','docs/readmes/139/car1-1508-source.png');p.write_text(s,encoding='utf8')
+p=r/'docs/publication139/release139.py';s=p.read_text(encoding='utf8').replace('with independent evidence with retained evidence','with independent retained evidence');p.write_text(s,encoding='utf8')
