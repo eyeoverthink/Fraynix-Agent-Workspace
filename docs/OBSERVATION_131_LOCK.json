@@ -27,7 +27,9 @@
     "workspace-engine/src/main/java/fraymus/workspace/ObservationFilter.java": "a0dc7560be00bca29dd7f72995d9cbe607b9e26f14be70286360dbf2d8764e21",
     "workspace-engine/src/main/java/fraymus/workspace/PlaneCalibration.java": "ecbc105f09f4afe5008b6ee5843408ce6b7e47ffa9586545e2a7998407e83ebe",
     "workspace-engine/src/test/java/fraymus/workspace/ObservationStudy131.java": "e0ff4214cbc60380130fa91363264bc9834f5d4f2a50b34afb29140180ee0ec3",
-    "scripts/Prepare-Observation131.py": "b5c5548818c5402cddce74d0570f3517d99ff4d73939b959f6c911e0e2cf7ae1"
+    "scripts/Prepare-Observation131.py": "b5c5548818c5402cddce74d0570f3517d99ff4d73939b959f6c911e0e2cf7ae1",
+    "docs/publication131/run131.py": "144ba9de387646e62ca13394a2f152f403a9e5d6cb1d2164efa650b48f0d5288",
+    "docs/publication131/measure131.py": "d794edb9db697c4125a493cad7ce63d397fd8ef2a1aed5e98ef462d9a6c39130"
   },
   "gate": {
     "minAcceptedFractionOfIncumbent": 1.0,
@@ -39,5 +41,6 @@
   },
   "scope": "Previously unused camera1 pixels of the SAME event and people as exposed camera0. No independent trajectory/population claim. First eligible fully in-frame seed by column order; fixed 1750mm height/500mm width assumption; no replacement of refused windows. Later grid positions used only after all tracking. Old camera0 confirmation is now development. This does not validate identities or metrology.",
   "uncertainty": "Unchanged uncalibrated envelopes, all missing references in denominator; explicit out-of-image diagnostic does not alter primary counts. No fitting or clipping.",
-  "provenanceReview": "Scoped search of historical preparation scripts, observation locks,037 contract and original research cache found camera0 use only; no camera1 frames were decoded or inspected before this lock. Raw video hash recorded on download."
+  "provenanceReview": "Scoped search of historical preparation scripts, observation locks,037 contract and original research cache found camera0 use only; no camera1 frames were decoded or inspected before this lock. Raw video hash recorded on download.",
+  "executionScriptsAddedBeforeDecodeUtc": "2026-11-13T02:32:56.888054+00:00"
 }
