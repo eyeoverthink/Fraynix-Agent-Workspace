@@ -1,3 +1,7 @@
+## Edition132 active — 2026-11-12
+
+Isolated S:/Codex-Work/fraynix-workspace-edition132; parent434616ec. CI checked first, pending. Read docs/EDITION_132_CONTRACT.md. Independent source-only occlusion/contact annotations and downstream immutable audit; no tracker/default changes or promotion. Retrospective AI visual labels, not blinded human truth. Preserve private projects and frozen001–131. No delegation or overlapping heavy work; node junction read-only. No132 publication yet.
+
 ## Edition131 — published and fetched back
 
 2026-11-12. Isolated S:/Codex-Work/fraynix-workspace-edition131; parent a4e50e71. Production candidate locked630c3201, execution protocol/UI d50b718a and binary identity db5fa077 before camera1 decode. Final tested source in docs/readmes/131/verification.json. Release 45ef3b2917758312ab25bf69796cc443932bd805; annotated readme-131. Main, edition131 and tag pushed atomically and fetched. Verified 1593 canonical sources, 47413 frozen hashes across131 editions and 235 original evidence entries. See docs/PUBLICATION_131.json.

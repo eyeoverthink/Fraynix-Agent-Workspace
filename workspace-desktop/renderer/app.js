@@ -11,6 +11,7 @@ import {SharedSpatial040} from './spatial-runtime040.js';
 import {KnowledgePanel} from './knowledge-panel.js';
 import {TabletopPanel} from './tabletop-panel.js';
 import {MetricPanel} from './metric-panel.js';
+import {Labels132Panel} from './labels132-panel.js';
 import {ObservationPanel} from './observation-panel.js';
 import {PersistentWorldPanel} from './persistent-world-panel.js';
 import {PosePanel} from './pose-panel.js';
@@ -75,6 +76,7 @@ const persistentPanel=new PersistentWorldPanel({
   })
 });
 const observationPanel=new ObservationPanel({call:(command,args={})=>request('observations',{command,args}),persistent:persistentPanel,notice});
+const labels132Panel=new Labels132Panel({call:(command,args={})=>request('labels132',{command,args}),observation:observationPanel,notice});window.labels132View=labels132Panel;
 window.observationView=observationPanel;
 window.metricView=new MetricPanel({call:(command,args={})=>request('metrics',{command,args}),observation:observationPanel,notice});
 window.tabletopView=new TabletopPanel({call:(command,args={})=>request('tabletop',{command,args}),metricCall:(command,args={})=>request('metrics',{command,args}),persistent:persistentPanel,metric:window.metricView,notice});

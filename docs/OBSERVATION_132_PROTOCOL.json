@@ -1,0 +1,26 @@
+{
+  "schema": "labels132-diagnostic-v1",
+  "windows": [
+    600,
+    1600,
+    2600,
+    3600,
+    4600
+  ],
+  "ordinals": [
+    1,
+    25,
+    50,
+    75,
+    95
+  ],
+  "source": "EPFL terrace1 camera1; public research footage used in edition131",
+  "scope": "Retrospective AI source-only visual annotations, independent of tracker calculations. Annotator has seen prior aggregate results; not blinded human truth, new trajectories, or held qualification. Every slot retained, including uncertainty. No tuning.",
+  "contactConvention": "For a grounded walking person, mark midpoint between visible ground-support extremities when both feet contact; otherwise visible planted foot. Do not mark airborne or occluded feet. This differs intentionally from a bounding-box bottom-centre. Pixel uncertainty declared by visual reviewer; not probabilistic.",
+  "pointAllowancePx": 3,
+  "trackerPolicies": [
+    "legacy-flow",
+    "renewing-flow-131"
+  ],
+  "labelsBeforeNewComparisons": true
+}

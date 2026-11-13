@@ -425,6 +425,10 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='export'){const result=await api('/api/metrics/export',input.args);return nativeExports.save('metric-world','json',JSON.stringify(result),{runId:input.args.runId});}
       if(!['state','clock','geometry','view','fit','evaluate','source-frame','accuracy130','accuracy-read130'].includes(input.command))throw Error('Unknown metric operation');return api('/api/metrics/'+input.command,input.args||{});
     }
+    case 'labels132':{
+      if(input.command==='export'){const record=await api('/api/labels132/read',input.args);return nativeExports.save('source-labels-132','json',JSON.stringify(record,null,2),{labelId:record.id});}
+      if(!['state','source','save','import','read','audit','audit-read'].includes(input.command))throw Error('Unknown source-label operation');return api('/api/labels132/'+input.command,input.args||{});
+    }
     case 'observations':{
       if(input.command==='import')return observationBridge.importPack(input.args.pack);
       if(input.command==='select')return observationBridge.select(input.args);

@@ -1,0 +1,409 @@
+{
+  "protocol": "docs/OBSERVATION_132_PROTOCOL.json",
+  "annotator": "Codex visual reviewer, original source images",
+  "method": "ai-source-only",
+  "exposure": "tracker-results-seen",
+  "provenance": "AI visual annotations from original EPFL camera1 pixels, viewed without tracking overlays. The reviewer has prior edition131 aggregate results. Pixel contact marks use the declared support convention and 3px allowance; no human adjudication, physical instrument truth, probability guarantee or held qualification. All 25 specified slots retained, including 3 unobservable contacts.",
+  "cohorts": [
+    {
+      "window": 600,
+      "packSha256": "85e44db9371a19dc37a94ad3c4ba73e59b998c945d0e9d0ac8ceb26f29325c00",
+      "objects": [
+        {
+          "key": "subject",
+          "label": "human-guided ground-contact subject",
+          "box": [
+            0.744501986424629,
+            0.1386001001982612,
+            0.8027100617925278,
+            0.5843192533942702
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "ordinal": 1,
+          "sourceFrame": 601,
+          "imageSha256": "7f11acc473f0bc4a5956bdfe3b29ec5299ddfa72cac8bd223a160a6e51b96cc8",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Grey long-coat subject on right; overlapping visible soles.",
+          "pointImage": [
+            0.7472222222222222,
+            0.6006944444444444
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 25,
+          "sourceFrame": 625,
+          "imageSha256": "1da7ea0f68a81533c6cc9177752f4eb4428da7e6345400e34d7a46c38e0a68e1",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Same coat subject near right edge, soles visible.",
+          "pointImage": [
+            0.8638888888888889,
+            0.5972222222222222
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 50,
+          "sourceFrame": 650,
+          "imageSha256": "94e04871c31d01d7f10894a5b96b1e387fa4b6c7923b114df1ca2cb6277e3328",
+          "visibility": "partial",
+          "contact": "observed",
+          "note": "Right side of coat approaches crop boundary; left planted foot visible.",
+          "pointImage": [
+            0.9166666666666666,
+            0.5590277777777778
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 75,
+          "sourceFrame": 675,
+          "imageSha256": "227f1dbcb700e5f11bcac7932bcea17e5af57f3ca40dd4ce35b67ac1902011f0",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Same coat at right; two low visible support extremities.",
+          "pointImage": [
+            0.9083333333333333,
+            0.5104166666666666
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 95,
+          "sourceFrame": 695,
+          "imageSha256": "7f2eab24d8e31e8b7a5e7fdca77d50890e5b1edf6767250c7c432c14a296a7d4",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Same coat behind foreground walker; both feet remain visible.",
+          "pointImage": [
+            0.8222222222222222,
+            0.4861111111111111
+          ],
+          "radiusPx": 3
+        }
+      ]
+    },
+    {
+      "window": 1600,
+      "packSha256": "e63e1c53bb54d85c6e5dfe1c8bb24859b11cdec0bb51964cd29ff0ae6f6982dc",
+      "objects": [
+        {
+          "key": "subject",
+          "label": "human-guided ground-contact subject",
+          "box": [
+            0.7418473464728121,
+            0.10746579923024877,
+            0.7836385237893755,
+            0.4248115181700067
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "ordinal": 1,
+          "sourceFrame": 1601,
+          "imageSha256": "2c0517c7fabb7e9f756f87f40dcf1906c2c4406241690aaf6acdf2aae4296af3",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Grey long-coat subject at back right, visible soles.",
+          "pointImage": [
+            0.7416666666666667,
+            0.4166666666666667
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 25,
+          "sourceFrame": 1625,
+          "imageSha256": "56739df9fb12d7ae7f3f2c9b849e89e9e4bcf112d16a8332a6e112f5a34428cf",
+          "visibility": "partial",
+          "contact": "observed",
+          "note": "Part of coat and leg obscured by foreground people; exposed planted foot at left.",
+          "pointImage": [
+            0.6444444444444445,
+            0.3993055555555556
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 50,
+          "sourceFrame": 1650,
+          "imageSha256": "cf9457f5ed3b8b59792affa15910bd467e64e4016af85430a0335358b3d82061",
+          "visibility": "partial",
+          "contact": "observed",
+          "note": "Right leg obscured by black-shirt walker; exposed left foot visible.",
+          "pointImage": [
+            0.5833333333333334,
+            0.3854166666666667
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 75,
+          "sourceFrame": 1675,
+          "imageSha256": "c44258e53aaa3c433448d756d6fb6afd3707c77ebb31536376e75700f7fab94e",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Grey long coat now clear of foreground walkers; planted foot visible.",
+          "pointImage": [
+            0.5027777777777778,
+            0.3715277777777778
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 95,
+          "sourceFrame": 1695,
+          "imageSha256": "96e482764ff8a6d977e871eb7e394907a83384203b21f7c9c1baf7c04ec26e84",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Same coat in back centre; low support foot visible.",
+          "pointImage": [
+            0.48333333333333334,
+            0.3611111111111111
+          ],
+          "radiusPx": 3
+        }
+      ]
+    },
+    {
+      "window": 2600,
+      "packSha256": "1b3e6c8e68d549d8feb8bfd6a74572d617ac6b07495fb9dff587f1ae13d058d5",
+      "objects": [
+        {
+          "key": "subject",
+          "label": "human-guided ground-contact subject",
+          "box": [
+            0.25624254203592156,
+            0.09706012333614843,
+            0.3115181438125497,
+            0.38563186258530685
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "ordinal": 1,
+          "sourceFrame": 2601,
+          "imageSha256": "d5bfabcc19054307dd53b41a74f12c54719146a04501b46ca272c70ce72d04da",
+          "visibility": "partial",
+          "contact": "occluded",
+          "note": "Intended long-coat seed subject behind clustered walkers; feet cannot be separated reliably."
+        },
+        {
+          "ordinal": 25,
+          "sourceFrame": 2625,
+          "imageSha256": "fd25c621830b0cc0ff6a3551c5180eb47a63797dd91c300c3ccbb62f86a0ca05",
+          "visibility": "partial",
+          "contact": "occluded",
+          "note": "Seed subject head visible behind foreground brown jacket; ground contact occluded."
+        },
+        {
+          "ordinal": 50,
+          "sourceFrame": 2650,
+          "imageSha256": "b1db5c246fc7cb05c6b920e61c80a9265bd609e751563c5c0096e5f81f385a3d",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Long-coat subject now separated in middle distance; planted right foot.",
+          "pointImage": [
+            0.4222222222222222,
+            0.3923611111111111
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 75,
+          "sourceFrame": 2675,
+          "imageSha256": "b73ddbf489d886469b01ce9f30053f88fc449ae16a98d606e3264f9f08fccd33",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Same long coat in middle distance; right planted foot.",
+          "pointImage": [
+            0.5194444444444445,
+            0.3888888888888889
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 95,
+          "sourceFrame": 2695,
+          "imageSha256": "523671609cff93205c10fe86a4a259b5085bf02cf6a5151e2332cf4efb71c604",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Same long coat, right planted foot visible.",
+          "pointImage": [
+            0.5722222222222222,
+            0.4097222222222222
+          ],
+          "radiusPx": 3
+        }
+      ]
+    },
+    {
+      "window": 3600,
+      "packSha256": "4929f4d0c8ed5a9d529bface41d72662fe5f6078d1394dd5f4220c66eb9eb3a9",
+      "objects": [
+        {
+          "key": "subject",
+          "label": "human-guided ground-contact subject",
+          "box": [
+            0.08235237779886019,
+            0.13258662666049847,
+            0.16853192195916533,
+            0.5510641259462908
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "ordinal": 1,
+          "sourceFrame": 3601,
+          "imageSha256": "16a155ddd307f7b10b60480ae1c7c85614888c80def042236ef3638060f9cfa4",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Brown sleeveless subject at front left; forward planted foot visible.",
+          "pointImage": [
+            0.17222222222222222,
+            0.5486111111111112
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 25,
+          "sourceFrame": 3625,
+          "imageSha256": "ca33cc8977dbbe670065bb3227fe7501b01a050035b74c6616d2eb253e9af556",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Same subject walking toward camera; planted left foot.",
+          "pointImage": [
+            0.23055555555555557,
+            0.59375
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 50,
+          "sourceFrame": 3650,
+          "imageSha256": "b917145be84b3aafd85d03b5c34658caec6deb10183429784bf79355ca845a56",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Same subject near front centre; low planted foot visible.",
+          "pointImage": [
+            0.2916666666666667,
+            0.71875
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 75,
+          "sourceFrame": 3675,
+          "imageSha256": "74e82724d6e8d705ad12645ff78925f5d2ef56fb7922dae2f1230dc4ade0f55a",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Same subject closest in centre; low planted foot visible.",
+          "pointImage": [
+            0.28888888888888886,
+            0.8298611111111112
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 95,
+          "sourceFrame": 3695,
+          "imageSha256": "734cc06fa801e13c0dbe26657537e4026779c42723459005a7d0dfe4d1d23c12",
+          "visibility": "partial",
+          "contact": "out-of-view",
+          "note": "Subject partly cropped at bottom; support extent leaves image, no complete contact annotation."
+        }
+      ]
+    },
+    {
+      "window": 4600,
+      "packSha256": "5d605d03adbc3003b7ceebf040637c94ce0e5e0c02830f1e1a6ecf25f2961bc6",
+      "objects": [
+        {
+          "key": "subject",
+          "label": "human-guided ground-contact subject",
+          "box": [
+            0.01768746396797106,
+            0.1056592809631609,
+            0.07952384433347871,
+            0.3960138369292664
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "ordinal": 1,
+          "sourceFrame": 4601,
+          "imageSha256": "3b8b09322a5d2ff23eba0f44d2680f8c588cd3c9296a39dd2dbd8db8723d4b8c",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Brown-jacket subject at back left, distinct from foreground scarf wearer; planted foot.",
+          "pointImage": [
+            0.058333333333333334,
+            0.4027777777777778
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 25,
+          "sourceFrame": 4625,
+          "imageSha256": "630429e400b0b3a2f3493445f8b9bef140c1ea7e5ab02b7be936f79136dad632",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Same subject walking right; forward planted foot.",
+          "pointImage": [
+            0.15,
+            0.3645833333333333
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 50,
+          "sourceFrame": 4650,
+          "imageSha256": "de81e7fc082574d883c5887098e143c48a58856d6d182f6985afcc33ace53d71",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Same subject at back centre-left; feet nearly overlap on ground.",
+          "pointImage": [
+            0.23055555555555557,
+            0.3506944444444444
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 75,
+          "sourceFrame": 4675,
+          "imageSha256": "692f7d0982c004c0aa1a8208b4857281c0335f8a21799c85c6331b6dc44ee53d",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Same subject wide stride; midpoint of visible low support extremities.",
+          "pointImage": [
+            0.3416666666666667,
+            0.3472222222222222
+          ],
+          "radiusPx": 3
+        },
+        {
+          "ordinal": 95,
+          "sourceFrame": 4695,
+          "imageSha256": "dcf09cabd68658500797f0e3611c6a931fab8b0790ea57d2e6242316a1b2a15f",
+          "visibility": "visible",
+          "contact": "observed",
+          "note": "Same subject at back centre; front planted foot.",
+          "pointImage": [
+            0.43333333333333335,
+            0.3715277777777778
+          ],
+          "radiusPx": 3
+        }
+      ]
+    }
+  ]
+}

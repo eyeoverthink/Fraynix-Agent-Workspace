@@ -1,0 +1,11 @@
+# Edition 132 — independent visibility and contact evidence
+
+CI was checked before changes on parent 434616ec8de6e0b30e0c67edbe389f7dc8ec81bb. Hosted CI was still running; local checks do not replace it.
+
+Build a Java-owned, immutable annotation and scoring workflow. The annotation view shows original source pixels without tracker output. Labels describe a specified source object, visibility, and whether its ground-contact point is actually observable. Hidden, uncertain and out-of-view contact points are not invented. Bind every label to the original frame number and image checksum, retain provenance and annotator uncertainty, and freeze labels before comparison. Import/export must preserve these bindings. Reads verify original bytes; audit reads recompute outcomes.
+
+Score measurements separately from predictions, retain missing rows in denominators, distinguish fully hidden observations from partial visibility, and compare independently observed contact points with both the raw box anchor and the filtered metric anchor. A measurement on an occluded target is unsupported evidence, not automatic proof of a different identity. A visually marked footpoint is not a certified ground measurement. Neither labels nor audit results enter tracking, filtering, forecasting, calibration fitting or native world actions.
+
+Use existing public EPFL pixels for a retrospective diagnostic with source-only AI visual annotations. Declare that the annotator has previously seen study-level results: this is independent of tracker calculations, not blinded human gold-standard or held qualification. Include all preregistered sample slots, including ambiguity. Synthetic controls cover full occlusion, missing tracks, contradictory labels and tampering. No tracker promotion or uncertainty fitting in this edition. Legacy-flow and ordinary adjacent forecasting remain defaults; earlier failed gates remain unchanged.
+
+Complete relevant regression checks, real app label editing/freezing/import/export/audit/restart, screenshots, frozen README, project memory and development log, then push main/edition132/readme-132 and verify fetched publication. Preserve private projects and frozen001–131. One heavy process at a time; no delegation.
