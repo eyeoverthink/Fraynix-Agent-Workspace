@@ -1,3 +1,7 @@
+## Edition132 observation evidence — 2026-11-12
+
+Source-only visibility/contact annotations and immutable downstream audits are the current perception step. They preserve defaults and native world separation. Retrospective AI marks do not establish identity recognition, calibrated physical accuracy or human truth. Next: independently reviewed contacts/occlusions, an explicitly qualified contact estimator, fixed-horizon uncertainty and justified observation requests/refusals in the continuing Java goals. See [edition132 contract](EDITION_132_CONTRACT.md). The connected browser/world/creation application remains the destination; Game Lab is its simulation runtime, not a substitute for external evidence.
+
 ## Edition130 continuity — 2026-11-12
 
 Recorded physical-accuracy qualification takes priority for this edition. Game Lab, playable-level creation, native verification and their defaults remain intact. An unpromoted experimental tracker on recorded windows does not certify physical reconstruction from an arbitrary game image or real camera. Refer to [the integrated roadmap](INTEGRATED_AGENT_ROADMAP.md) and the current physical-reference audit before using observed geometry as a verified action target.

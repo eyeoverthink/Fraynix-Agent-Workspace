@@ -18,7 +18,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
  async function idle(){await page.waitForFunction(()=>!window.labels132View.busy);}
  async function capture(name,target){await page.locator(target).scrollIntoViewIfNeeded();await sleep(350);await page.screenshot({path:path.join(out,name)});record.captures.push(name);await save();}
  try{
-  await open();await page.locator('#spatial-tab').click();await page.locator('#persistent-world-panel').evaluate(e=>{e.open=true;e.querySelector('details').open=true;});
+  await open();assert.equal(await page.locator('#observations-method129').inputValue(),'legacy-flow');await page.locator('#spatial-tab').click();await page.locator('#persistent-world-panel').evaluate(e=>{e.open=true;e.querySelector('details').open=true;});
   await until(async()=>await page.locator('#persistent-case option').count()===8);await page.locator('#persistent-case').selectOption('dev035-three-body-chain');await page.locator('#persistent-load').click();record.worldId=await until(()=>page.locator('#persistent-worlds').inputValue());
   const original=await api('/api/world/observe',{worldId:record.worldId});record.nativeBefore=original;
   record.geometry=await request('metrics','geometry',JSON.parse(await fs.readFile(path.join(media,'geometry.json'),'utf8')));
@@ -47,7 +47,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
    const run=await until(async()=>{const r=await api('/api/observations/read',{id:started.id});return r.status==='running'?null:r;});assert.equal(run.status,'completed',run.reason);
    const trackingMs=performance.now()-start;assert.deepEqual(run.trace.map(f=>f.imageSha256),d.dataset.frames.slice(1).map(f=>f.imageSha256));
    const auditStart=performance.now();await page.evaluate(async()=>window.labels132View.refresh());await page.locator('#labels132-saved').selectOption(d.labels.id);await page.locator('#labels132-run').selectOption(run.id);await page.locator('#labels132-geometry').selectOption(record.geometry.id);await page.locator('#labels132-audit').click();await idle();
-   const audit=await page.evaluate(()=>window.labels132View.audit);assert.equal(audit.input.runId,run.id);assert.equal(audit.summary.labels,5);
+   const audit=await page.evaluate(()=>window.labels132View.audit);assert.equal(audit.input.runId,run.id);assert.equal(audit.summary.labels,5);const unknown=audit.scores.filter(r=>r.contact!=='observed');assert.equal(await page.locator('#labels132-contact-unknown').textContent(),`Unobservable contact: ${unknown.length} / 5 labels. ${unknown.filter(r=>r.accepted).length} accepted measurements among those frames have no visible contact check.`);
    const metrics=await request('metrics','view',{runId:run.id,geometryId:record.geometry.id});
    // Independently recompute pixel distances from persisted observations and the frozen manual points.
    for(const score of audit.scores){const frame=run.trace.find(f=>f.ordinal===score.ordinal),object=frame.objects[0];assert.equal(score.accepted,object.estimate.accepted);const metric=metrics.rows.find(r=>r.ordinal===score.ordinal);if(score.filteredAnchorErrorPx!==undefined){const expected=Math.hypot((metric.pointImage[0]-score.pointImage[0])*d.dataset.width,(metric.pointImage[1]-score.pointImage[1])*d.dataset.height);assert(Math.abs(expected-score.filteredAnchorErrorPx)<1e-9);}else assert(score.contact!=='observed'||!score.accepted);}

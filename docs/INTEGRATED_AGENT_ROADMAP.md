@@ -1,3 +1,7 @@
+## Edition132 observation evidence — 2026-11-12
+
+Source-only visibility/contact annotations and immutable downstream audits are the current perception step. They preserve defaults and native world separation. Retrospective AI marks do not establish identity recognition, calibrated physical accuracy or human truth. Next: independently reviewed contacts/occlusions, an explicitly qualified contact estimator, fixed-horizon uncertainty and justified observation requests/refusals in the continuing Java goals. See [edition132 contract](EDITION_132_CONTRACT.md). The connected browser/world/creation application remains the destination; Game Lab is its simulation runtime, not a substitute for external evidence.
+
 ## Edition131 direction update — 2026-11-12
 
 Strict box consumers and default policies remain intact. Invalid producers no longer abort the exposed2400 case. Feature renewal and bounded two-image recovery are explicit Java options, with one recorded return demonstrated in the actual app. Five locked camera1 windows are new pixels of shared trajectories, not independent events. All20 executions finish; candidate9/15 versus default14/15 accepted references fails qualification despite lower accepted-only error. Physical accuracy remains unresolved. The original130 default and patched default produce identical estimates on these healthy windows. See [README-131](../README-131.md).
