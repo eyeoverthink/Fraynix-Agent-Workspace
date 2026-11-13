@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — Edition 129
 
+[Published and fetched verification receipt](docs/PUBLICATION_129.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-129)
+
 **Measure tracking against independent references. Keep the proven default. Withhold forecasts that cannot meet the requested precision.**
 
 2026-11-12 · Java-owned tasks, evidence and recovery · Local browser, canvas and world
