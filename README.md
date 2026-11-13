@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — Edition 130
 
+[Published and fetched verification receipt](docs/PUBLICATION_130.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-130)
+
 **Independent physical-accuracy checks inside the app. A new tracker candidate remains unpromoted. Both existing defaults remain intact.**
 
 2026-11-12 · Local Java agent, connected world/browser/creation surfaces
