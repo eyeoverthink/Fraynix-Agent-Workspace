@@ -101,6 +101,7 @@ final class ScaleAwareFlow129 implements ImageTracker {
                 for(int i=0;i<Math.min(12,vectors.size());i++){var v=vectors.get(i);visualVectors.put(new JSONArray(new double[]{rounded(v.x/current.width),rounded(v.y/current.height),rounded(v.nx/current.width),rounded(v.ny/current.height)}));}
             }
         }
+        boolean invalidBox=candidate!=null&&!candidate.measurable();if(invalidBox)candidate=null;
         // A second near-exact anchor copy does not acquire object identity from motion alone.
         boolean ambiguous=duplicate(current.p[0],candidate==null?box:candidate);
         String method=lost>0?"motion-recovery":"pyramidal-flow";double score=0;boolean accepted=candidate!=null&&!ambiguous;
@@ -109,6 +110,6 @@ final class ScaleAwareFlow129 implements ImageTracker {
         if(accepted){box=candidate;previousImage=image;previous=current;updates++;lost=0;if(score==0)score=vectors.isEmpty()?0:vectors.stream().mapToDouble(Vector::corr).average().orElse(0);}else lost++;
         observations++;
         return new JSONObject().put("id",id).put("label",label).put("status",status).put("box",accepted?box.json():JSONObject.NULL).put("lastKnownBox",box.json()).put("matchScore",score).put("appearanceUpdates",updates).put("scoreMeaning","Local patch correlation and motion consistency, not calibrated semantic confidence")
-            .put("motion",new JSONObject().put("method",method).put("objectMaxPyramidLevel",maxLevel).put("seedPoints",seeds.size()).put("reliablePoints",reliable).put("inliers",vectors.size()).put("medianForwardBackwardPixels",medianFb).put("dxPixels",dx).put("dyPixels",dy).put("scale",scale).put("ambiguous",ambiguous).put("vectors",visualVectors));
+            .put("motion",new JSONObject().put("method",method).put("objectMaxPyramidLevel",maxLevel).put("seedPoints",seeds.size()).put("reliablePoints",reliable).put("inliers",vectors.size()).put("medianForwardBackwardPixels",medianFb).put("dxPixels",dx).put("dyPixels",dy).put("scale",scale).put("ambiguous",ambiguous).put("invalidBoxRejected",invalidBox).put("vectors",visualVectors));
     }
 }

@@ -1,3 +1,7 @@
+## Edition131 active — 2026-11-12
+
+Isolated S:/Codex-Work/fraynix-workspace-edition131; parenta4e50e71. CI checked first;130 pending. Fix collapsed-box producers without relaxing strict input checks; investigate lost tracks, distinguish out-of-view subjects, and lock before fresh pixels. Defaults legacy-flow/ordinary adjacent forecasts unchanged. No delegation, no overlapping heavy studies, node junction read-only. Preserve private projects and frozen001–130. No131 publication yet.
+
 ## Edition130 — published and fetched back
 
 2026-11-12. Isolated S:/Codex-Work/fraynix-workspace-edition130; parent18259fc8. Candidate locked3e591ddd; runtime/audit e6a591d4; final tested build is retained in docs/readmes/130/verification.json. Release 5c619c0a6e491c814b01ca34a9302143b73f8f9b; annotated readme-130. Main, edition130 and tag pushed atomically and fetched. Verified 1580 canonical sources, 47158 frozen hashes across130 editions and 200 original evidence entries. See docs/PUBLICATION_130.json.

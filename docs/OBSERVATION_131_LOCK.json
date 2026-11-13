@@ -1,0 +1,43 @@
+{
+  "edition": 131,
+  "lockedAtUtc": "2026-11-13T02:22:33.871119+00:00",
+  "parent": "a4e50e7191a6359b8d444df789cf07c54c2fae56",
+  "footage": "https://documents.epfl.ch/groups/c/cv/cvlab-pom-video3/www/terrace1-c1.avi",
+  "heldStarts": [
+    600,
+    1600,
+    2600,
+    3600,
+    4600
+  ],
+  "framesPerWindow": 96,
+  "methods": [
+    "flow",
+    "fixed",
+    "renewing-flow"
+  ],
+  "sources": {
+    "workspace-engine/src/main/java/fraymus/workspace/PixelTracker.java": "32d26bafaebb26a58a09efc6f71a0089c755cccd25cec47a87be8b67005c985b",
+    "workspace-engine/src/main/java/fraymus/workspace/AdaptiveTracker.java": "394fa106c3bfd68c8066f64d933380cb4caff4b96c4d1f95dfe2ed99e479d5b5",
+    "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java": "5c4f2626d341ced71aee8b13cfc07130f4b77bfb26e2ff9ba889db13b9c9dd31",
+    "workspace-engine/src/main/java/fraymus/workspace/ScaleAwareFlow129.java": "e0c1c23518ae4e158a14f1d5913982379a2105cc384bddf18607bf299770d4de",
+    "workspace-engine/src/main/java/fraymus/workspace/ObjectFlow130.java": "6c50d5e63c413b092ef4b7835179b23742a664fe5cb72829fe88fe0e72b29d62",
+    "workspace-engine/src/main/java/fraymus/workspace/RenewingFlow131.java": "87ca30053f6a5c3908313c2a8626eda85d551c983160375f2ff0f492ea7c270a",
+    "workspace-engine/src/main/java/fraymus/workspace/ObservationMethods129.java": "eae1dd117baf8743a666032112b9ccdafa449f808d3d38e7d6c492b91ee4dd69",
+    "workspace-engine/src/main/java/fraymus/workspace/ObservationFilter.java": "a0dc7560be00bca29dd7f72995d9cbe607b9e26f14be70286360dbf2d8764e21",
+    "workspace-engine/src/main/java/fraymus/workspace/PlaneCalibration.java": "ecbc105f09f4afe5008b6ee5843408ce6b7e47ffa9586545e2a7998407e83ebe",
+    "workspace-engine/src/test/java/fraymus/workspace/ObservationStudy131.java": "e0ff4214cbc60380130fa91363264bc9834f5d4f2a50b34afb29140180ee0ec3",
+    "scripts/Prepare-Observation131.py": "b5c5548818c5402cddce74d0570f3517d99ff4d73939b959f6c911e0e2cf7ae1"
+  },
+  "gate": {
+    "minAcceptedFractionOfIncumbent": 1.0,
+    "maxMeanErrorRatio": 0.85,
+    "strictlyMoreWithinOneMetre": true,
+    "noMoreErrorsOverTwoMetres": true,
+    "allWindowsMustProvideSeeds": true,
+    "defaultUnchangedEvenIfPassed": true
+  },
+  "scope": "Previously unused camera1 pixels of the SAME event and people as exposed camera0. No independent trajectory/population claim. First eligible fully in-frame seed by column order; fixed 1750mm height/500mm width assumption; no replacement of refused windows. Later grid positions used only after all tracking. Old camera0 confirmation is now development. This does not validate identities or metrology.",
+  "uncertainty": "Unchanged uncalibrated envelopes, all missing references in denominator; explicit out-of-image diagnostic does not alter primary counts. No fitting or clipping.",
+  "provenanceReview": "Scoped search of historical preparation scripts, observation locks,037 contract and original research cache found camera0 use only; no camera1 frames were decoded or inspected before this lock. Raw video hash recorded on download."
+}
