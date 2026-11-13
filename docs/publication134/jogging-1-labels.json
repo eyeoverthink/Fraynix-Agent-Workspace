@@ -1,0 +1,1600 @@
+{
+  "schema": "association-labels-134-v1",
+  "objectKey": "subject",
+  "annotator": "OTB authors (boxes); Codex source-only AI (visibility)",
+  "method": "external-annotations",
+  "exposure": "before-tracking",
+  "provenance": "Original OTB target boxes; first-image box alone initializes tracker. Source-only AI visibility review before any evaluation outputs, with external target/other boxes overlaid for identity. No independent human visibility adjudication. MATLAB one-based XYWH converted to normalized corners, clipped to image. Full Jogging temporal extent sampled every4 images; first476 Lemming images sampled every5. Small visible remnants count partial, not fully occluded.",
+  "rows": [
+    {
+      "ordinal": 1,
+      "sourceFrame": 5,
+      "imageSha256": "0d28adccbcdbe8786393632ba02eacb9f40121dbf6e5fefd5a69d9df8587e073",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3096590909090909,
+        0.3506944444444444,
+        0.375,
+        0.7083333333333334
+      ],
+      "otherBoxes": [
+        [
+          0.5113636363636364,
+          0.3194444444444444,
+          0.6079545454545454,
+          0.6944444444444444
+        ]
+      ]
+    },
+    {
+      "ordinal": 2,
+      "sourceFrame": 9,
+      "imageSha256": "49a36277ff0c5a8080c3ec38c223acabcecf30c19136349467e598c36cc1d3be",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.29545454545454547,
+        0.3854166666666667,
+        0.35795454545454547,
+        0.7291666666666666
+      ],
+      "otherBoxes": [
+        [
+          0.5056818181818182,
+          0.3229166666666667,
+          0.59375,
+          0.7048611111111112
+        ]
+      ]
+    },
+    {
+      "ordinal": 3,
+      "sourceFrame": 13,
+      "imageSha256": "e9ced51f699fe3c0a72fc6b72b54e3ad7fc070d531768cdcfc0868db8fd7f77f",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.2556818181818182,
+        0.3854166666666667,
+        0.32670454545454547,
+        0.7465277777777778
+      ],
+      "otherBoxes": [
+        [
+          0.46875,
+          0.3541666666666667,
+          0.5568181818181818,
+          0.7361111111111112
+        ]
+      ]
+    },
+    {
+      "ordinal": 4,
+      "sourceFrame": 17,
+      "imageSha256": "7060d891747d19145857f7608bef9a673d2261620cc087eb050b8b4198227e61",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.2556818181818182,
+        0.3784722222222222,
+        0.3096590909090909,
+        0.7083333333333334
+      ],
+      "otherBoxes": [
+        [
+          0.45738636363636365,
+          0.3229166666666667,
+          0.5340909090909091,
+          0.71875
+        ]
+      ]
+    },
+    {
+      "ordinal": 5,
+      "sourceFrame": 21,
+      "imageSha256": "1d300044fd04285ef184403a98cc6aac3f1235f861ca2a7df3a381cf6c1adcfb",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.2727272727272727,
+        0.3715277777777778,
+        0.33238636363636365,
+        0.7152777777777778
+      ],
+      "otherBoxes": [
+        [
+          0.4659090909090909,
+          0.3263888888888889,
+          0.5482954545454546,
+          0.7291666666666666
+        ]
+      ]
+    },
+    {
+      "ordinal": 6,
+      "sourceFrame": 25,
+      "imageSha256": "990391c47af1dcfbb9630786d6c27510ed123b1442d5b4ae99a4ea7d73caf258",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.2897727272727273,
+        0.3576388888888889,
+        0.35795454545454547,
+        0.7013888888888888
+      ],
+      "otherBoxes": [
+        [
+          0.48295454545454547,
+          0.3263888888888889,
+          0.5710227272727273,
+          0.7118055555555556
+        ]
+      ]
+    },
+    {
+      "ordinal": 7,
+      "sourceFrame": 29,
+      "imageSha256": "ee73751b81d327ac43ebac205dbf7295ae5e1dcdc28a1968b2e20f81d84eef01",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3039772727272727,
+        0.3611111111111111,
+        0.3693181818181818,
+        0.7118055555555556
+      ],
+      "otherBoxes": [
+        [
+          0.5,
+          0.3194444444444444,
+          0.5880681818181818,
+          0.7083333333333334
+        ]
+      ]
+    },
+    {
+      "ordinal": 8,
+      "sourceFrame": 33,
+      "imageSha256": "9d6a332b17136d4dee10f38715c7de65656057b24998792f790e2af3cf117f92",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.29261363636363635,
+        0.3229166666666667,
+        0.36363636363636365,
+        0.6875
+      ],
+      "otherBoxes": [
+        [
+          0.4914772727272727,
+          0.3125,
+          0.5795454545454546,
+          0.6979166666666666
+        ]
+      ]
+    },
+    {
+      "ordinal": 9,
+      "sourceFrame": 37,
+      "imageSha256": "312f171f42d4691086cfd1b30d82af2104a27b75528554917fcd621d3fe4b0b7",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.30113636363636365,
+        0.34375,
+        0.36363636363636365,
+        0.6701388888888888
+      ],
+      "otherBoxes": [
+        [
+          0.4943181818181818,
+          0.2916666666666667,
+          0.5738636363636364,
+          0.6944444444444444
+        ]
+      ]
+    },
+    {
+      "ordinal": 10,
+      "sourceFrame": 41,
+      "imageSha256": "a666096fdc8236b6aca87881dbb1f82fc5d4e4aa293e5f0bdf69cef5b2f4376f",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.29261363636363635,
+        0.3229166666666667,
+        0.36363636363636365,
+        0.6701388888888888
+      ],
+      "otherBoxes": [
+        [
+          0.48579545454545453,
+          0.2986111111111111,
+          0.5653409090909091,
+          0.7013888888888888
+        ]
+      ]
+    },
+    {
+      "ordinal": 11,
+      "sourceFrame": 45,
+      "imageSha256": "5cf34ae6b6e98480e69756e353bdd9ece34cfe18bb5be8a7c57df97d504c5c75",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.28125,
+        0.3298611111111111,
+        0.3522727272727273,
+        0.6736111111111112
+      ],
+      "otherBoxes": [
+        [
+          0.46875,
+          0.2847222222222222,
+          0.5482954545454546,
+          0.6805555555555556
+        ]
+      ]
+    },
+    {
+      "ordinal": 12,
+      "sourceFrame": 49,
+      "imageSha256": "f6f49a4fb7ec79e69e012f0322a0fc16a37e7730b06711965c0990f40a768924",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.24147727272727273,
+        0.3055555555555556,
+        0.3039772727272727,
+        0.6631944444444444
+      ],
+      "otherBoxes": [
+        [
+          0.4318181818181818,
+          0.2777777777777778,
+          0.5113636363636364,
+          0.6736111111111112
+        ]
+      ]
+    },
+    {
+      "ordinal": 13,
+      "sourceFrame": 53,
+      "imageSha256": "6eb4458d5c5c84cffb21d6c8fabfe475414a85c3d7ded586e3d156cbca4f6af2",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.23579545454545456,
+        0.3402777777777778,
+        0.29829545454545453,
+        0.6736111111111112
+      ],
+      "otherBoxes": [
+        [
+          0.42613636363636365,
+          0.2951388888888889,
+          0.5056818181818182,
+          0.6909722222222222
+        ]
+      ]
+    },
+    {
+      "ordinal": 14,
+      "sourceFrame": 57,
+      "imageSha256": "d45422fb7a14e052e29b0f51a66c2ead0c60902cd0ef6258d941964174683b42",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.2528409090909091,
+        0.34375,
+        0.3096590909090909,
+        0.6909722222222222
+      ],
+      "otherBoxes": [
+        [
+          0.4289772727272727,
+          0.3090277777777778,
+          0.5085227272727273,
+          0.7048611111111112
+        ]
+      ]
+    },
+    {
+      "ordinal": 15,
+      "sourceFrame": 61,
+      "imageSha256": "9cfdd42e2b9dc84d797252c5bb2df271259c708cc1c5fdb660044cdb0015cdb6",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.29829545454545453,
+        0.3125,
+        0.3664772727272727,
+        0.6840277777777778
+      ],
+      "otherBoxes": [
+        [
+          0.4772727272727273,
+          0.2951388888888889,
+          0.5568181818181818,
+          0.6909722222222222
+        ]
+      ]
+    },
+    {
+      "ordinal": 16,
+      "sourceFrame": 65,
+      "imageSha256": "489349536a98af67983fe09e6da4d993ca4c15d25bdc3f193b0b3a65d626bcc5",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3125,
+        0.3194444444444444,
+        0.3806818181818182,
+        0.6770833333333334
+      ],
+      "otherBoxes": [
+        [
+          0.4943181818181818,
+          0.2708333333333333,
+          0.5823863636363636,
+          0.6736111111111112
+        ]
+      ]
+    },
+    {
+      "ordinal": 17,
+      "sourceFrame": 69,
+      "imageSha256": "a3ff07ecd4c769435d0cfbfc1207b15ca569e68dc37ff3de8f21aff4d23b48e0",
+      "visibility": "partial",
+      "note": "Source-only review: target partly covered or clipped.",
+      "targetBox": [
+        0.33238636363636365,
+        0.2986111111111111,
+        0.4005681818181818,
+        0.6770833333333334
+      ],
+      "otherBoxes": [
+        [
+          0.5056818181818182,
+          0.2777777777777778,
+          0.59375,
+          0.6805555555555556
+        ]
+      ]
+    },
+    {
+      "ordinal": 18,
+      "sourceFrame": 73,
+      "imageSha256": "5a2dcc2a7a4828415c5bf246f95683519232ece57d00670bdd008d66e46eb9a8",
+      "visibility": "occluded",
+      "note": "Target fully hidden behind pole; no visible target box.",
+      "otherBoxes": [
+        [
+          0.5113636363636364,
+          0.2777777777777778,
+          0.5994318181818182,
+          0.6805555555555556
+        ]
+      ]
+    },
+    {
+      "ordinal": 19,
+      "sourceFrame": 77,
+      "imageSha256": "268e543273743b6e3ad1d8dbff1a338d5f94c35ffd3dc08a584bff4d5d7ba111",
+      "visibility": "partial",
+      "note": "Source-only review: target partly covered or clipped.",
+      "targetBox": [
+        0.3409090909090909,
+        0.3090277777777778,
+        0.42329545454545453,
+        0.7013888888888888
+      ],
+      "otherBoxes": [
+        [
+          0.5142045454545454,
+          0.2951388888888889,
+          0.6022727272727273,
+          0.6979166666666666
+        ]
+      ]
+    },
+    {
+      "ordinal": 20,
+      "sourceFrame": 81,
+      "imageSha256": "d31f24ebbab1a0b2df3623366f1fbd3dceb65e0e7fd47199407da248ff304641",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.2897727272727273,
+        0.3402777777777778,
+        0.3664772727272727,
+        0.71875
+      ],
+      "otherBoxes": [
+        [
+          0.46875,
+          0.2951388888888889,
+          0.5568181818181818,
+          0.6979166666666666
+        ]
+      ]
+    },
+    {
+      "ordinal": 21,
+      "sourceFrame": 85,
+      "imageSha256": "2209abd0a4f597725d8de53b6e1e81d99ec659cdebc00d2eca3beb5537dcb163",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.29261363636363635,
+        0.3020833333333333,
+        0.3721590909090909,
+        0.6875
+      ],
+      "otherBoxes": [
+        [
+          0.4630681818181818,
+          0.2673611111111111,
+          0.5511363636363636,
+          0.6736111111111112
+        ]
+      ]
+    },
+    {
+      "ordinal": 22,
+      "sourceFrame": 89,
+      "imageSha256": "dae1ac0298872da0d485ad7c6a18a57e1b4024f224caec18be4b124bb6a5254b",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.32954545454545453,
+        0.3020833333333333,
+        0.4005681818181818,
+        0.6736111111111112
+      ],
+      "otherBoxes": [
+        [
+          0.4971590909090909,
+          0.2673611111111111,
+          0.5852272727272727,
+          0.6736111111111112
+        ]
+      ]
+    },
+    {
+      "ordinal": 23,
+      "sourceFrame": 93,
+      "imageSha256": "d72e68ef9886aa136e442fce9945719c4df264de0f98920ff86ea376b4a79804",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.36079545454545453,
+        0.2951388888888889,
+        0.42613636363636365,
+        0.6701388888888888
+      ],
+      "otherBoxes": [
+        [
+          0.5198863636363636,
+          0.2569444444444444,
+          0.6136363636363636,
+          0.6736111111111112
+        ]
+      ]
+    },
+    {
+      "ordinal": 24,
+      "sourceFrame": 97,
+      "imageSha256": "16eaf1ff892e560a8340bfba48f3ffd61cc5d05e5bf6554d6649f562b59b6275",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3693181818181818,
+        0.3159722222222222,
+        0.4460227272727273,
+        0.6875
+      ],
+      "otherBoxes": [
+        [
+          0.5284090909090909,
+          0.2777777777777778,
+          0.6221590909090909,
+          0.6944444444444444
+        ]
+      ]
+    },
+    {
+      "ordinal": 25,
+      "sourceFrame": 101,
+      "imageSha256": "0f4eab7595602564e1652ed5f7651d90177e0daec1ab816c55b48618b5e2c210",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3522727272727273,
+        0.3125,
+        0.4318181818181818,
+        0.6944444444444444
+      ],
+      "otherBoxes": [
+        [
+          0.5227272727272727,
+          0.2604166666666667,
+          0.6164772727272727,
+          0.6770833333333334
+        ]
+      ]
+    },
+    {
+      "ordinal": 26,
+      "sourceFrame": 105,
+      "imageSha256": "9a8566f15d8c4ad34c4915f8da6f4b8f55fb6b17baf72f709138c2951d80aa81",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3465909090909091,
+        0.2847222222222222,
+        0.41761363636363635,
+        0.6736111111111112
+      ],
+      "otherBoxes": [
+        [
+          0.5113636363636364,
+          0.2569444444444444,
+          0.6051136363636364,
+          0.6736111111111112
+        ]
+      ]
+    },
+    {
+      "ordinal": 27,
+      "sourceFrame": 109,
+      "imageSha256": "9ddb68aa96d9f69d6460e20d2afc844c28c8197ef6d1afdc88d82ac71989adb3",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3380681818181818,
+        0.2743055555555556,
+        0.4090909090909091,
+        0.6493055555555556
+      ],
+      "otherBoxes": [
+        [
+          0.4971590909090909,
+          0.22569444444444445,
+          0.5909090909090909,
+          0.6423611111111112
+        ]
+      ]
+    },
+    {
+      "ordinal": 28,
+      "sourceFrame": 113,
+      "imageSha256": "4124b92ae90b001524da53037fc16510e50b24749c3596e7b34fe315d531568c",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3125,
+        0.23958333333333334,
+        0.38636363636363635,
+        0.6145833333333334
+      ],
+      "otherBoxes": [
+        [
+          0.4659090909090909,
+          0.1875,
+          0.5681818181818182,
+          0.6215277777777778
+        ]
+      ]
+    },
+    {
+      "ordinal": 29,
+      "sourceFrame": 117,
+      "imageSha256": "d5adb99873ac0a784dafd2b0a9cfd38ef1e97c984768e9820532b7f68b7f0f2b",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.2840909090909091,
+        0.2777777777777778,
+        0.3494318181818182,
+        0.6597222222222222
+      ],
+      "otherBoxes": [
+        [
+          0.4460227272727273,
+          0.21875,
+          0.5426136363636364,
+          0.6388888888888888
+        ]
+      ]
+    },
+    {
+      "ordinal": 30,
+      "sourceFrame": 121,
+      "imageSha256": "426dedc32f746dd938382dea0fef2fcc375afae60eb1e5bf39c830b6e2aa9a6e",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.26420454545454547,
+        0.2986111111111111,
+        0.3352272727272727,
+        0.7013888888888888
+      ],
+      "otherBoxes": [
+        [
+          0.4346590909090909,
+          0.24305555555555555,
+          0.53125,
+          0.6631944444444444
+        ]
+      ]
+    },
+    {
+      "ordinal": 31,
+      "sourceFrame": 125,
+      "imageSha256": "a6429f15bd719254120b1899018ebf889ad97db212633b5ccba44aea2d5ee647",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3125,
+        0.3194444444444444,
+        0.375,
+        0.6805555555555556
+      ],
+      "otherBoxes": [
+        [
+          0.4715909090909091,
+          0.2638888888888889,
+          0.5681818181818182,
+          0.6840277777777778
+        ]
+      ]
+    },
+    {
+      "ordinal": 32,
+      "sourceFrame": 129,
+      "imageSha256": "3785617d4c5ed47d595a79c9d9ee67bdcefe6c0ef9fe5742262dd111c311f1ae",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.33238636363636365,
+        0.3194444444444444,
+        0.4119318181818182,
+        0.7048611111111112
+      ],
+      "otherBoxes": [
+        [
+          0.4943181818181818,
+          0.2708333333333333,
+          0.5909090909090909,
+          0.7048611111111112
+        ]
+      ]
+    },
+    {
+      "ordinal": 33,
+      "sourceFrame": 133,
+      "imageSha256": "b8fcc9598162ac2b775cf1595a7cac507ccf2410c857e68136b5b7c6a26f7f09",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3522727272727273,
+        0.3368055555555556,
+        0.4289772727272727,
+        0.7395833333333334
+      ],
+      "otherBoxes": [
+        [
+          0.5113636363636364,
+          0.2951388888888889,
+          0.6079545454545454,
+          0.7291666666666666
+        ]
+      ]
+    },
+    {
+      "ordinal": 34,
+      "sourceFrame": 137,
+      "imageSha256": "e9a3b976ff94965190492c958ac42c98b081ffaaf408f1b0bde422214768f851",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.36363636363636365,
+        0.3854166666666667,
+        0.4375,
+        0.7881944444444444
+      ],
+      "otherBoxes": [
+        [
+          0.5284090909090909,
+          0.3333333333333333,
+          0.6306818181818182,
+          0.7638888888888888
+        ]
+      ]
+    },
+    {
+      "ordinal": 35,
+      "sourceFrame": 141,
+      "imageSha256": "c5753302fdc7405f3ebc88180cab94cdea06afb9e5fa35c83a79130c6e90cb64",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.35795454545454547,
+        0.3923611111111111,
+        0.42329545454545453,
+        0.7881944444444444
+      ],
+      "otherBoxes": [
+        [
+          0.5142045454545454,
+          0.34375,
+          0.6164772727272727,
+          0.78125
+        ]
+      ]
+    },
+    {
+      "ordinal": 36,
+      "sourceFrame": 145,
+      "imageSha256": "c3a001ae862e265e27123492b63cd6434f7efd3d1a0a1373aa33e3d21b445877",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.36079545454545453,
+        0.3993055555555556,
+        0.4403409090909091,
+        0.7847222222222222
+      ],
+      "otherBoxes": [
+        [
+          0.5142045454545454,
+          0.3402777777777778,
+          0.6164772727272727,
+          0.7708333333333334
+        ]
+      ]
+    },
+    {
+      "ordinal": 37,
+      "sourceFrame": 149,
+      "imageSha256": "504e5931a0487d76d105c875bff145d522cc624b9cee7f23b57b88ba6b4a0412",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.375,
+        0.3715277777777778,
+        0.44886363636363635,
+        0.7743055555555556
+      ],
+      "otherBoxes": [
+        [
+          0.5170454545454546,
+          0.3229166666666667,
+          0.6193181818181818,
+          0.7673611111111112
+        ]
+      ]
+    },
+    {
+      "ordinal": 38,
+      "sourceFrame": 153,
+      "imageSha256": "5d087b057c9b75116693670c1f9df963677caad4a901512787e11a8ff71ce78b",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.375,
+        0.34375,
+        0.45170454545454547,
+        0.75
+      ],
+      "otherBoxes": [
+        [
+          0.5284090909090909,
+          0.2916666666666667,
+          0.6278409090909091,
+          0.7256944444444444
+        ]
+      ]
+    },
+    {
+      "ordinal": 39,
+      "sourceFrame": 157,
+      "imageSha256": "01a5439c981e5a176d2aed0a8ac4e9a2445bd80bc382c7c975af098a23722ff4",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.36079545454545453,
+        0.3055555555555556,
+        0.4289772727272727,
+        0.7118055555555556
+      ],
+      "otherBoxes": [
+        [
+          0.5085227272727273,
+          0.2534722222222222,
+          0.6079545454545454,
+          0.6875
+        ]
+      ]
+    },
+    {
+      "ordinal": 40,
+      "sourceFrame": 161,
+      "imageSha256": "6653f33c431ca31d98670aee014e35cb01138ae7d65b77198466e4b2141bb764",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.35795454545454547,
+        0.3194444444444444,
+        0.4346590909090909,
+        0.7083333333333334
+      ],
+      "otherBoxes": [
+        [
+          0.5113636363636364,
+          0.2673611111111111,
+          0.6022727272727273,
+          0.7013888888888888
+        ]
+      ]
+    },
+    {
+      "ordinal": 41,
+      "sourceFrame": 165,
+      "imageSha256": "af75119a630de9d6810719f39a172bae98c61b2df7ab8753e5760908e46f3c00",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3977272727272727,
+        0.3090277777777778,
+        0.4772727272727273,
+        0.71875
+      ],
+      "otherBoxes": [
+        [
+          0.5340909090909091,
+          0.2638888888888889,
+          0.625,
+          0.7083333333333334
+        ]
+      ]
+    },
+    {
+      "ordinal": 42,
+      "sourceFrame": 169,
+      "imageSha256": "0718c17bfbb3506a9008492e456bc6a39f9059e6ba9b4339fc5c254113296b28",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.39488636363636365,
+        0.3368055555555556,
+        0.4715909090909091,
+        0.7326388888888888
+      ],
+      "otherBoxes": [
+        [
+          0.5426136363636364,
+          0.2743055555555556,
+          0.6335227272727273,
+          0.7256944444444444
+        ]
+      ]
+    },
+    {
+      "ordinal": 43,
+      "sourceFrame": 173,
+      "imageSha256": "bda1272e52e18c0e0f3976ce431934d2481202dab44747b845ab3dda8b07ee12",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3835227272727273,
+        0.34375,
+        0.4602272727272727,
+        0.7604166666666666
+      ],
+      "otherBoxes": [
+        [
+          0.5454545454545454,
+          0.2847222222222222,
+          0.6363636363636364,
+          0.7256944444444444
+        ]
+      ]
+    },
+    {
+      "ordinal": 44,
+      "sourceFrame": 177,
+      "imageSha256": "089b100827834db65afec0a697a9ebd4e8983f27126383a78b9aa1808774f936",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3693181818181818,
+        0.3576388888888889,
+        0.45170454545454547,
+        0.7395833333333334
+      ],
+      "otherBoxes": [
+        [
+          0.53125,
+          0.2951388888888889,
+          0.6221590909090909,
+          0.7395833333333334
+        ]
+      ]
+    },
+    {
+      "ordinal": 45,
+      "sourceFrame": 181,
+      "imageSha256": "bf0fbd3bdacd20b8fab352fc339c75fcd10552a8471b0c873e9886dc5275883a",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.36079545454545453,
+        0.3541666666666667,
+        0.4431818181818182,
+        0.7604166666666666
+      ],
+      "otherBoxes": [
+        [
+          0.5227272727272727,
+          0.2986111111111111,
+          0.6136363636363636,
+          0.7430555555555556
+        ]
+      ]
+    },
+    {
+      "ordinal": 46,
+      "sourceFrame": 185,
+      "imageSha256": "d10f66a99106deb5899c64f16c975afb17c506c1df8318e05a3ae0bd261bdb7b",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3409090909090909,
+        0.3576388888888889,
+        0.4147727272727273,
+        0.7604166666666666
+      ],
+      "otherBoxes": [
+        [
+          0.4943181818181818,
+          0.3020833333333333,
+          0.5880681818181818,
+          0.7569444444444444
+        ]
+      ]
+    },
+    {
+      "ordinal": 47,
+      "sourceFrame": 189,
+      "imageSha256": "87d45d66b9bb36a9cd5f83aed9bcd7e8aca78793d43894940317022420b054a1",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3096590909090909,
+        0.34375,
+        0.3835227272727273,
+        0.7395833333333334
+      ],
+      "otherBoxes": [
+        [
+          0.4772727272727273,
+          0.2638888888888889,
+          0.5710227272727273,
+          0.71875
+        ]
+      ]
+    },
+    {
+      "ordinal": 48,
+      "sourceFrame": 193,
+      "imageSha256": "4b9a99ccddb386584fcb49c3bb26ce2fd1d7a468222da5fa60d6c4e397b87003",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3380681818181818,
+        0.3125,
+        0.4147727272727273,
+        0.7256944444444444
+      ],
+      "otherBoxes": [
+        [
+          0.5113636363636364,
+          0.2465277777777778,
+          0.6051136363636364,
+          0.7013888888888888
+        ]
+      ]
+    },
+    {
+      "ordinal": 49,
+      "sourceFrame": 197,
+      "imageSha256": "be7341e77a4c357ee4ef1b929d70eb17f83d3ef8884de34c55212753a7ca1a95",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.375,
+        0.3368055555555556,
+        0.4431818181818182,
+        0.7395833333333334
+      ],
+      "otherBoxes": [
+        [
+          0.5340909090909091,
+          0.2638888888888889,
+          0.6278409090909091,
+          0.7118055555555556
+        ]
+      ]
+    },
+    {
+      "ordinal": 50,
+      "sourceFrame": 201,
+      "imageSha256": "8e16a11f156312636fd136c53b57b97b1296ca14876e8e7624f3be711cd79a83",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.375,
+        0.3090277777777778,
+        0.45170454545454547,
+        0.71875
+      ],
+      "otherBoxes": [
+        [
+          0.5397727272727273,
+          0.25,
+          0.6335227272727273,
+          0.7256944444444444
+        ]
+      ]
+    },
+    {
+      "ordinal": 51,
+      "sourceFrame": 205,
+      "imageSha256": "a0df0e4dffda0d28e8973ea065b9ad3af1301964042693628a42e201a8c9e7bc",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.39204545454545453,
+        0.3506944444444444,
+        0.4772727272727273,
+        0.7638888888888888
+      ],
+      "otherBoxes": [
+        [
+          0.5625,
+          0.2881944444444444,
+          0.6534090909090909,
+          0.7465277777777778
+        ]
+      ]
+    },
+    {
+      "ordinal": 52,
+      "sourceFrame": 209,
+      "imageSha256": "a404edb35930a165edc41fe65abc0dfd89ea7b347afe5322c5b552d7da2f50b6",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.4005681818181818,
+        0.3645833333333333,
+        0.4715909090909091,
+        0.7777777777777778
+      ],
+      "otherBoxes": [
+        [
+          0.5767045454545454,
+          0.2916666666666667,
+          0.6676136363636364,
+          0.75
+        ]
+      ]
+    },
+    {
+      "ordinal": 53,
+      "sourceFrame": 213,
+      "imageSha256": "bb8895161f210a6954d7db0c99dc63925fa98d100e07318f0a04e85e04e2176b",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.4147727272727273,
+        0.3923611111111111,
+        0.48579545454545453,
+        0.8055555555555556
+      ],
+      "otherBoxes": [
+        [
+          0.5823863636363636,
+          0.3263888888888889,
+          0.6761363636363636,
+          0.7847222222222222
+        ]
+      ]
+    },
+    {
+      "ordinal": 54,
+      "sourceFrame": 217,
+      "imageSha256": "210d5f2d7055b25207ddeeffcbca63e934d7f03ba489d503f7dc7ef442c5473b",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3835227272727273,
+        0.4166666666666667,
+        0.4602272727272727,
+        0.8472222222222222
+      ],
+      "otherBoxes": [
+        [
+          0.5482954545454546,
+          0.3541666666666667,
+          0.6420454545454546,
+          0.8125
+        ]
+      ]
+    },
+    {
+      "ordinal": 55,
+      "sourceFrame": 221,
+      "imageSha256": "10292bf8b63b949f4fe24be0c6f177923caf3671a5a3d4deef77c994e79e45ff",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.36363636363636365,
+        0.4409722222222222,
+        0.44886363636363635,
+        0.8854166666666666
+      ],
+      "otherBoxes": [
+        [
+          0.5284090909090909,
+          0.3923611111111111,
+          0.6221590909090909,
+          0.8506944444444444
+        ]
+      ]
+    },
+    {
+      "ordinal": 56,
+      "sourceFrame": 225,
+      "imageSha256": "db9907c9e3ffef163dffdcba68952b47cc74a87d59052b1ff749ea335453cb49",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.34375,
+        0.4097222222222222,
+        0.42045454545454547,
+        0.8472222222222222
+      ],
+      "otherBoxes": [
+        [
+          0.5170454545454546,
+          0.3333333333333333,
+          0.6136363636363636,
+          0.8020833333333334
+        ]
+      ]
+    },
+    {
+      "ordinal": 57,
+      "sourceFrame": 229,
+      "imageSha256": "b713e4db4291edf99b099142eaaa865ed1276dac867bc1a6d7ea9d51c83aa398",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.32386363636363635,
+        0.3854166666666667,
+        0.4034090909090909,
+        0.8159722222222222
+      ],
+      "otherBoxes": [
+        [
+          0.4971590909090909,
+          0.2986111111111111,
+          0.59375,
+          0.7673611111111112
+        ]
+      ]
+    },
+    {
+      "ordinal": 58,
+      "sourceFrame": 233,
+      "imageSha256": "39dbc862f2980c70c426d37fd75b454c8ed1673d54d43f520ebe9067794f711f",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3096590909090909,
+        0.3784722222222222,
+        0.38920454545454547,
+        0.8055555555555556
+      ],
+      "otherBoxes": [
+        [
+          0.48295454545454547,
+          0.3020833333333333,
+          0.5795454545454546,
+          0.7708333333333334
+        ]
+      ]
+    },
+    {
+      "ordinal": 59,
+      "sourceFrame": 237,
+      "imageSha256": "ff3336a1679c6c8da05711766b4a0eb8fa57f8f830318e268c501717a5008aab",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.2840909090909091,
+        0.3159722222222222,
+        0.375,
+        0.7534722222222222
+      ],
+      "otherBoxes": [
+        [
+          0.45738636363636365,
+          0.2465277777777778,
+          0.5539772727272727,
+          0.7152777777777778
+        ]
+      ]
+    },
+    {
+      "ordinal": 60,
+      "sourceFrame": 241,
+      "imageSha256": "4c91d663e5164a27971781e44433e0608dbcf69e8611e8516365a63fc9185f6b",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3153409090909091,
+        0.3298611111111111,
+        0.39204545454545453,
+        0.7465277777777778
+      ],
+      "otherBoxes": [
+        [
+          0.48863636363636365,
+          0.2465277777777778,
+          0.5852272727272727,
+          0.7152777777777778
+        ]
+      ]
+    },
+    {
+      "ordinal": 61,
+      "sourceFrame": 245,
+      "imageSha256": "3acfa8f7d624961c273b25da5e3f05afac3f0a482985a0922540dfd07ec0acc8",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3380681818181818,
+        0.3194444444444444,
+        0.42613636363636365,
+        0.7638888888888888
+      ],
+      "otherBoxes": [
+        [
+          0.5198863636363636,
+          0.23958333333333334,
+          0.6164772727272727,
+          0.7083333333333334
+        ]
+      ]
+    },
+    {
+      "ordinal": 62,
+      "sourceFrame": 249,
+      "imageSha256": "59417ac1048ee2d12e6e87404536d271aaec26aecf3acab05e78b4c82358a3f4",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3409090909090909,
+        0.34375,
+        0.42329545454545453,
+        0.7916666666666666
+      ],
+      "otherBoxes": [
+        [
+          0.5198863636363636,
+          0.2569444444444444,
+          0.6164772727272727,
+          0.7256944444444444
+        ]
+      ]
+    },
+    {
+      "ordinal": 63,
+      "sourceFrame": 253,
+      "imageSha256": "e0f98013c533e3760945defb840fac6cde067ffd4c4b1335f690225326d552da",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.38636363636363635,
+        0.3645833333333333,
+        0.4630681818181818,
+        0.8125
+      ],
+      "otherBoxes": [
+        [
+          0.5369318181818182,
+          0.28125,
+          0.6335227272727273,
+          0.7638888888888888
+        ]
+      ]
+    },
+    {
+      "ordinal": 64,
+      "sourceFrame": 257,
+      "imageSha256": "e482bb071f2dab3a3a464b4ddd119e4b22b79ba82f9108a3ebed14fed6ccd4db",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3778409090909091,
+        0.3993055555555556,
+        0.45454545454545453,
+        0.8298611111111112
+      ],
+      "otherBoxes": [
+        [
+          0.5397727272727273,
+          0.3055555555555556,
+          0.6363636363636364,
+          0.7881944444444444
+        ]
+      ]
+    },
+    {
+      "ordinal": 65,
+      "sourceFrame": 261,
+      "imageSha256": "2e58c5a80b3f1339d67000f2d093f454694f513ddc682a31aaf47c3fed3c9c0e",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.39204545454545453,
+        0.4166666666666667,
+        0.4715909090909091,
+        0.8506944444444444
+      ],
+      "otherBoxes": [
+        [
+          0.5625,
+          0.3263888888888889,
+          0.6590909090909091,
+          0.8020833333333334
+        ]
+      ]
+    },
+    {
+      "ordinal": 66,
+      "sourceFrame": 265,
+      "imageSha256": "e663adf22e9de79c78f97f0f6e6402b306c85bb5ab668b1804ab87b25cb69fbf",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.35511363636363635,
+        0.4444444444444444,
+        0.4346590909090909,
+        0.8680555555555556
+      ],
+      "otherBoxes": [
+        [
+          0.5198863636363636,
+          0.3541666666666667,
+          0.6164772727272727,
+          0.8298611111111112
+        ]
+      ]
+    },
+    {
+      "ordinal": 67,
+      "sourceFrame": 269,
+      "imageSha256": "91fead255eb051ebaa9b8ec322bba2f3d83915ad7576990508ea464765c9dd8c",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3522727272727273,
+        0.4270833333333333,
+        0.4289772727272727,
+        0.875
+      ],
+      "otherBoxes": [
+        [
+          0.5028409090909091,
+          0.3611111111111111,
+          0.5965909090909091,
+          0.8298611111111112
+        ]
+      ]
+    },
+    {
+      "ordinal": 68,
+      "sourceFrame": 273,
+      "imageSha256": "f4a753d3347ce36b2ba7f434825be03f2d136da957d0cabc52f91097ebeff34f",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3409090909090909,
+        0.40625,
+        0.42329545454545453,
+        0.8611111111111112
+      ],
+      "otherBoxes": [
+        [
+          0.48295454545454547,
+          0.3194444444444444,
+          0.5880681818181818,
+          0.8159722222222222
+        ]
+      ]
+    },
+    {
+      "ordinal": 69,
+      "sourceFrame": 277,
+      "imageSha256": "7f49b5aab1324edbce7285ab6ab80686f9520d09c447e28656ddafda5650c03e",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3096590909090909,
+        0.4097222222222222,
+        0.38636363636363635,
+        0.84375
+      ],
+      "otherBoxes": [
+        [
+          0.4602272727272727,
+          0.3263888888888889,
+          0.5625,
+          0.8055555555555556
+        ]
+      ]
+    },
+    {
+      "ordinal": 70,
+      "sourceFrame": 281,
+      "imageSha256": "640af6443f372ac257405f76c9e405cddd22320951aadc42fc10535487de3cf7",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3039772727272727,
+        0.4027777777777778,
+        0.38636363636363635,
+        0.8229166666666666
+      ],
+      "otherBoxes": [
+        [
+          0.45454545454545453,
+          0.3159722222222222,
+          0.5568181818181818,
+          0.7951388888888888
+        ]
+      ]
+    },
+    {
+      "ordinal": 71,
+      "sourceFrame": 285,
+      "imageSha256": "3a1852b5a9267a08913fbf8bee4dcda96748ba9becbe4939eaafce7951e2baa2",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3210227272727273,
+        0.4201388888888889,
+        0.3977272727272727,
+        0.8645833333333334
+      ],
+      "otherBoxes": [
+        [
+          0.45454545454545453,
+          0.3402777777777778,
+          0.5568181818181818,
+          0.8229166666666666
+        ]
+      ]
+    },
+    {
+      "ordinal": 72,
+      "sourceFrame": 289,
+      "imageSha256": "7554fc41fd3be522f78fe8708f1e3470aba3405118abf48e58a35d7fd80948f1",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3153409090909091,
+        0.4166666666666667,
+        0.4090909090909091,
+        0.8611111111111112
+      ],
+      "otherBoxes": [
+        [
+          0.45454545454545453,
+          0.3402777777777778,
+          0.5568181818181818,
+          0.8402777777777778
+        ]
+      ]
+    },
+    {
+      "ordinal": 73,
+      "sourceFrame": 293,
+      "imageSha256": "a8f5ca5312d25670ba47d8d79b4b52ee87ca9a35e150836e76f03638fef3842e",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3210227272727273,
+        0.4409722222222222,
+        0.4034090909090909,
+        0.8715277777777778
+      ],
+      "otherBoxes": [
+        [
+          0.45170454545454547,
+          0.3541666666666667,
+          0.5539772727272727,
+          0.8541666666666666
+        ]
+      ]
+    },
+    {
+      "ordinal": 74,
+      "sourceFrame": 297,
+      "imageSha256": "5396816a50b47d21c1fb90e58644bebeafd4a20850ca3ad17ef04641857c1222",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.30113636363636365,
+        0.4340277777777778,
+        0.3835227272727273,
+        0.8958333333333334
+      ],
+      "otherBoxes": [
+        [
+          0.4460227272727273,
+          0.3680555555555556,
+          0.5482954545454546,
+          0.8680555555555556
+        ]
+      ]
+    },
+    {
+      "ordinal": 75,
+      "sourceFrame": 301,
+      "imageSha256": "b0471478c5bb1b08999bdb15024b7cea0f1c55438001eb95c5b3cc43df060c09",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.3039772727272727,
+        0.4652777777777778,
+        0.3835227272727273,
+        0.9236111111111112
+      ],
+      "otherBoxes": [
+        [
+          0.45170454545454547,
+          0.3611111111111111,
+          0.5539772727272727,
+          0.8611111111111112
+        ]
+      ]
+    },
+    {
+      "ordinal": 76,
+      "sourceFrame": 305,
+      "imageSha256": "1c72fb6abb94fe23f086723dd551ff3c2743d194ce08f1d8f6b995cc256b0d91",
+      "visibility": "visible",
+      "note": "Source-only review: target visible. Independent benchmark target box, not tracker output.",
+      "targetBox": [
+        0.2897727272727273,
+        0.4201388888888889,
+        0.3778409090909091,
+        0.8784722222222222
+      ],
+      "otherBoxes": [
+        [
+          0.42613636363636365,
+          0.34375,
+          0.5284090909090909,
+          0.84375
+        ]
+      ]
+    }
+  ]
+}
