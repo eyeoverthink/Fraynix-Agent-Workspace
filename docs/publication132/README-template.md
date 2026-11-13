@@ -26,6 +26,8 @@ This edition strengthens the boundary between seeing a plausible track and havin
 
 Labels do not enter tracker updates, the observation filter, forecasting, fitting or native actions. `legacy-flow` remains the tracking default; ordinary adjacent-point forecasts remain the forecasting default. Earlier experimental choices and their failed qualification results remain intact.
 
+Every estimate and numeric tracker field across all **950 frames** is compared with the already published edition131 traces on identical source bytes. They match exactly; only the declared object identity and descriptive label differ between the historical standalone study and the persistent app. See the [published-evidence compatibility check](docs/readmes/132/compatibility.json).
+
 ## What the labels mean
 
 A box's bottom centre is an assumption about contact, not an independent observation. A walking person's planted foot can differ from that centre because of pose, cropping, occlusion and tracking drift. The annotation convention used here marks the midpoint of visible support extremities when both contact the ground, otherwise a visible planted foot. Hidden or ambiguous support is not reconstructed from the track.
@@ -80,7 +82,7 @@ CI was checked first and is reported separately from local verification. Pending
 ## Next steps
 
 1. Obtain independent human review of contact/identity annotations and sequences with complete occlusion and genuine out-of-view transitions. Measure reviewer disagreement instead of treating these AI marks as certified truth.
-2. Implement an explicit ground-contact estimator that can say “unobservable,” and compare it with the current box-bottom assumption using separate development and untouched evaluation sequences. Keep identity association and contact accuracy as separate questions.
+2. Check target association and implement an explicit ground-contact estimator that can say “unobservable,” and compare it with the current box-bottom assumption using separate development and untouched evaluation sequences. Keep identity association and contact accuracy as separate questions.
 3. Fit uncertainty on separate evidence, then check both useful width and coverage at fixed future horizons. Edition129's 28/30→16/30 coverage loss and the failed130/131 promotion gates are still unresolved evidence, not erased history.
 4. Connect justified physical tolerances to durable Java goals: request another view or refuse when the current observation cannot support an action. Keep advancing the unified mission, source-age, uncertainty and skills layout around the connected application.
 

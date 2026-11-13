@@ -7,6 +7,7 @@ def text(p,s):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(s,encoding
 def write(p,v):text(p,json.dumps(v,indent=2,ensure_ascii=False)+'\n')
 assert subprocess.run(['git','show-ref','--verify','--quiet','refs/tags/readme-132']).returncode==1
 study=read('build/labels132-app/result.json');assert study['passed'];write(out/'app-study.json',study)
+compatibility=read('build/compatibility132.json');assert compatibility['passed'] and compatibility['frames']==950;write(out/'compatibility.json',compatibility)
 for name in study['captures']:shutil.copy2(r/'build/labels132-app'/name,out/name)
 checks=set()
 for p in list((r/'build/validation132/final').glob('*.xml'))+list((r/'build/validation132/verifier-final').glob('*.xml')):
@@ -33,8 +34,16 @@ for x,y in zip(a,b):
   assert xs['ordinal']==ys['ordinal']
   if 'filteredAnchorErrorPx' in xs and 'filteredAnchorErrorPx' in ys:paired.append({'window':x['window'],'ordinal':xs['ordinal'],'defaultPx':xs['filteredAnchorErrorPx'],'candidatePx':ys['filteredAnchorErrorPx']})
 comparison['paired']={'count':len(paired),'defaultMeanPx':statistics.mean(x['defaultPx'] for x in paired) if paired else None,'candidateMeanPx':statistics.mean(x['candidatePx'] for x in paired) if paired else None,'rows':paired}
+diagnostics=[]
+for c in study['comparisons']:
+ dataset=next(d['dataset'] for d in study['datasets'] if d['window']==c['window'])
+ for score in c['audit']['scores']:
+  if 'filteredAnchorErrorPx' not in score:continue
+  frame=next(f for f in c['run']['trace'] if f['ordinal']==score['ordinal']);obj=frame['objects'][0];position=obj['estimate']['position'];box=obj['tracker']['box'];point=score['pointImage']
+  diagnostics.append({'window':c['window'],'policy':c['policy'],'ordinal':score['ordinal'],'horizontalErrorPx':(position[0]-point[0])*dataset['width'],'verticalErrorPx':(position[1]+(box[3]-box[1])/2-point[1])*dataset['height'],'labelId':c['audit']['input']['labelId']})
+comparison['contactComponents']=diagnostics
 write(out/'comparison.json',comparison)
-v={'passed':True,'javaChecks':sorted(checks),'desktopChecks':desktop_count,'actualAppChecks':study['checks'],'production':study['source'],'buildReceipt':study['buildReceipt'],'finalVerifier':read('build/verifier132-final.json'),'newModelCalls':0,'defaultsUnchanged':True,'scope':'Local regression and actual app/source-label diagnostics. Retrospective AI annotations are not blinded human truth or new trajectories. No tracker promotion or calibration. Hosted CI remains separate.'};write(out/'verification.json',v)
+v={'passed':True,'javaChecks':sorted(checks),'desktopChecks':desktop_count,'actualAppChecks':study['checks'],'production':study['source'],'buildReceipt':study['buildReceipt'],'finalVerifier':read('build/verifier132-final.json'),'published131Compatibility':compatibility,'newModelCalls':0,'defaultsUnchanged':True,'scope':'Local regression and actual app/source-label diagnostics. Retrospective AI annotations are not blinded human truth or new trajectories. No tracker promotion or calibration. Hosted CI remains separate.'};write(out/'verification.json',v)
 originals=[];seen=set()
 def preserve(p,logical):
  if not p.is_file() or logical in seen:return
@@ -65,6 +74,7 @@ validation=f"Local checks passed: {len(checks)} distinct Java methods across the
 table='| Method | Available / visible contacts | Missing | Within 3 px / visible contacts | Raw mean error / px | Filtered mean error / px | Projected mean / m |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: |\n'
 for p,s in comparison['summary'].items():table+=f"| {p} | {s['contactAvailable']} / {s['observableContacts']} | {s['contactMissing']} | {s['withinLabelRadius']} / {s['observableContacts']} | {s['rawAnchorMeanErrorPx']:.3f} | {s['filteredAnchorMeanErrorPx']:.3f} | {s['projectedContactMeanErrorM']:.3f} |\n"
 pair=comparison['paired'];finding=f"On the {pair['count']} contact samples measured by both methods, mean filtered contact error is {pair['defaultMeanPx']:.3f} px for default and {pair['candidateMeanPx']:.3f} px for the candidate. This paired subset is descriptive, not qualification. The labels expose contact-anchor disagreement separately from missing tracks; they do not fix either error. Physical accuracy remains unresolved."
+drift=[x for x in diagnostics if x['window']==2600 and x['policy']=='legacy-flow'];finding+=' In window2600 the default anchor differs horizontally from the visible marked contact by '+', '.join(f"{x['horizontalErrorPx']:.1f}px at sample{x['ordinal']}" for x in drift)+'. Changing box height alone cannot correct these labelled horizontal errors. Target association needs independent review alongside contact estimation; this does not by itself certify an identity switch.'
 cost='| Method | Tracking timed runs / ms | Verified UI comparisons / ms |\n| --- | ---: | ---: |\n'
 for p,s in comparison['summary'].items():cost+=f"| {p} | {s['trackingMs']:.1f} ({s['timedTrackingRuns']}/5 timed) | {s['auditMs']:.1f} |\n"
 attempts=(r/'build/attempts132.md').read_text(encoding='utf8') if (r/'build/attempts132.md').exists() else 'The initial focused Java checks and final regression pass are retained alongside the completed application study. No failed study is discarded or relabelled as a success.'
