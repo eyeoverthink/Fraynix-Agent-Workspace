@@ -1,0 +1,26 @@
+{
+  "lockedAtUtc": "2026-11-13T06:51:47.743293+00:00",
+  "sourceCommit": "c1c163bff75d6bd6705853d3f38e2e76eceb2a7c",
+  "sourceHashes": {
+    "workspace-engine/src/main/java/fraymus/workspace/IdentityRecovery134.java": "112fcc53f68e31313d03487c91b3e900b2481be3849da4931de05acb70f64c67",
+    "workspace-engine/src/main/java/fraymus/workspace/AssociationAudit134.java": "cc99f2b0d594d229edc8d5ce4c3b0ed579c4151d4000493e43d37fbe8976d3d3",
+    "workspace-engine/src/main/java/fraymus/workspace/ObservationMethods129.java": "fab711fca5d223b2536d7b744bc41afa88145b1a83ce6247a2b3f6a94c1bbd30",
+    "workspace-engine/src/main/java/fraymus/workspace/ObservationFilter.java": "a0dc7560be00bca29dd7f72995d9cbe607b9e26f14be70286360dbf2d8764e21",
+    "workspace-engine/src/main/java/fraymus/workspace/VisualSupport133.java": "761ac6db4224b8d3a6b4cb9b2b234da7d0c95b198bb58f0bb064c8365e26e406",
+    "workspace-engine/src/test/java/fraymus/workspace/AssociationStudy134.java": "1ebe3b623041a3e3f003af08a20ac4ce08c51e29a6471df7ad4223802c468043"
+  },
+  "evaluation": [
+    "Jogging target 1, original images 1..305 stride4",
+    "Jogging target 2, same recording and images",
+    "Lemming original images 1..476 stride5"
+  ],
+  "methods": [
+    "legacy-flow",
+    "association-contact-133",
+    "identity-recovery-134"
+  ],
+  "source": "https://rvlab.snu.ac.kr/research/tracker_benchmark",
+  "priorExposure": "No selected OTB pixels or per-frame labels viewed and no selected OTB execution before this lock. Public sequence attributes and published article summaries were seen. Development used synthetic controls only. New visibility labels are AI source review, not independent human adjudication.",
+  "promotion": false,
+  "comparison": "Same external boxes and frozen visibility labels, all visible/hidden/uncertain denominators. IoU>=0.5 correct; confirmed other match only with other IoU>=0.5 and targetIoU<0.2. Report overlap failure separately. No tuning after evaluation."
+}
