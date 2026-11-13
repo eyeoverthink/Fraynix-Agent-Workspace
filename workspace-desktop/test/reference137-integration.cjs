@@ -33,6 +33,13 @@ const overlap=(a,b)=>{const i=Math.max(0,Math.min(a[2],b[2])-Math.max(a[0],b[0])
    const prefix=await until(async()=>{const r=await api('/api/observations/read',{id});return r.completedFrames>=12?r:null;});assert.equal(prefix.status,'running');await api('/api/observations/stop',{id});record.stoppedPrefix=await api('/api/observations/read',{id});await api('/api/observations/resume',{id});
   }
   const run=await until(async()=>{const r=await api('/api/observations/read',{id});return r.status==='running'?null:r;});assert.equal(run.status,'completed',run.reason);
+  if(policy==='legacy-flow'){
+   const originals=JSON.parse(await fs.readFile(path.join(repo,'docs/readmes/136/original-evidence.json'),'utf8'));
+   const entry=originals.files.find(x=>x.logicalPath==='build/association136-comparison/'+f.spec.case+'-legacy-flow.json');assert(entry);
+   const raw=zlib.gunzipSync(await fs.readFile(path.join(repo,entry.path)));assert.equal(sha(raw),entry.rawSha256);const expected=JSON.parse(raw);
+   const normalized=t=>Object.fromEntries(Object.entries(t).filter(([k])=>!['id','label'].includes(k)));
+   for(let i=0;i<run.trace.length;i++){assert.deepEqual(run.trace[i].objects[0].estimate,expected.trace[i].objects[0].estimate);assert.deepEqual(normalized(run.trace[i].objects[0].tracker),normalized(expected.trace[i].objects[0].tracker));}
+  }
   const trackingMs=performance.now()-start,auditStart=performance.now();const audit=await api('/api/association134/audit',{labelId:f.label.id,runId:id});
   for(const row of audit.scores){const actual=row.accepted&&row.targetBox?overlap(row.box,row.targetBox):0;assert(Math.abs(actual-row.targetOverlap)<1e-9);}
   if(set){assert.equal(run.referenceMemory137.setId,set.id);assert.equal(audit.reference137.automaticAdmissions,0);assert.equal(audit.reference137.samples,95);for(const frame of run.trace){const t=frame.objects[0].tracker.reference137;assert.equal(t.automaticAdmissions,0);assert.equal(t.importedEnabled,policy==='verified-memory-137');}}
