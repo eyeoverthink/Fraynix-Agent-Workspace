@@ -4,7 +4,7 @@ $('finding').textContent=data.finding;
 for(const s of data.screenshots)$('shot').add(new Option(s.title,s.path));
 function shot(){const s=data.screenshots.find(x=>x.path===$('shot').value);$('screenshot').src='../../../'+s.path;$('shot-caption').textContent=s.title;}
 $('shot').onchange=shot;shot();
-function table(){$('rows').replaceChildren();for(const row of data.comparison.rows){if($('method').value!=='all'&&row.policy!==$('method').value)continue;const s=row.summary,tr=document.createElement('tr');for(const value of [row.policy+' / '+row.case,s.correct+' / '+s.visible,s.missing,s.overlapFailures,s.confirmedDistractorMatches,s.unsupported]){const td=document.createElement('td');td.textContent=value;tr.append(td);}$('rows').append(tr);}}
+function table(){$('rows').replaceChildren();for(const row of data.comparison.rows){if($('method').value!=='all'&&row.policy!==$('method').value)continue;const s=row.summary,tr=document.createElement('tr');for(const value of [row.domain+' / '+row.policy+' / '+row.case,s.correct+' / '+s.visible,s.missing,s.overlapFailures,s.confirmedDistractorMatches,s.unsupported]){const td=document.createElement('td');td.textContent=value;tr.append(td);}$('rows').append(tr);}}
 $('method').onchange=table;table();
 for(const m of data.modules)$('module').add(new Option(m.name,m.id));
 function module(){const m=data.modules.find(x=>x.id===$('module').value);$('module-detail').replaceChildren();const a=document.createElement('a');a.href='../../../'+m.source;a.textContent=m.source;$('module-detail').append(a);}

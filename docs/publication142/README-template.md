@@ -1,119 +1,94 @@
 # Fraynix Agent Workspace — Edition 142
 
-**Recover after loss without quietly switching objects.** Fraynix connects durable chat goals, a Java brain and simulation, observed worlds, browser interaction, data and creation tools, and reusable verified procedures. Edition142 adds an explicit source-qualified recovery experiment. The underlying139 guard and default tracking remain intact.
+**Partial views from verified appearances.** Fraynix connects durable chat goals with a Java brain, simulation, observed worlds, browser interaction, data processing, creation tools and reusable verified procedures. This edition develops one perception mechanism within that connected application.
 
-[Previous edition](README-140.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/142/index.html) · [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md) · [Contributor handoff](README-CONTRIBUTORS.md)
+[Previous edition](README-141.md) · [All editions](docs/readmes/INDEX.md) · [Offline guide](docs/readmes/142/index.html) · [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md) · [Contributor handoff](README-CONTRIBUTORS.md)
 
 {{HERO}}
 
 ## What changed
 
-The optional **partial-reference-142** wraps the unchanged139 guard. Every accepted139 tracker proposal is preserved exactly. An additional recovery path becomes eligible only after genuine underlying flow loss. A warning that merely quarantines a still-tracked proposal cannot enable this path. The wrapper never resets or retrains the baseline tracker.
+The optional **partial-reference-142** method preserves every accepted proposal from foreground guard139. Only actual underlying flow loss enables supplemental recovery; warning-only withholding cannot bypass the guard. The baseline is never reset or retrained.
 
-The new Java search compares the immutable initial appearance at eight bounded scales. It retains three separate peaks per scale, refines their position and size, and compares the strongest candidate against competitors. This prevents a large match from crowding a smaller lookalike out of the search. Source texture, existing appearance/color/scale checks and immutable spatial parts must agree. A strong correlation is evidence of similar pixels, not semantic identity.
+The Java search retains the immutable initial appearance and up to six independently verified full-view examples. The existing reference store rechecks donor images, annotations, tracker implementation and outcomes before reuse. Descriptors are rebuilt from independent reference rectangles. Partial, uncertain and incorrect donor observations remain excluded. Donor and evaluation datasets cannot share image bytes. An operator must declare why they show the same object; this is not semantic identity proof.
 
-**Three consecutive source confirmations** are required. Adjacent images must also support coherent forward/backward optical flow with sufficient inliers, stable geometry and no ambiguity. An absent, competing, unsupported or discontinuous candidate resets confirmation. There is no time-based release and no automatic admission of predictions into appearance memory.
+Each appearance is compared using its full region and four fixed masks retaining 75% of that region. Grayscale texture/correlation, RGB error, bounded scale/location search and competing-location rejection qualify a candidate. Three consecutive matches from the same appearance also need coherent adjacent-image optical flow. Missing, ambiguous or discontinuous evidence resets confirmation. The interface distinguishes matching **visible support** from **inferred whole-object geometry**. Neither establishes depth, metric scale or physical contact.
 
-**partial-monitor-142** computes the same evidence while preserving every139 tracker and filter output. This is a control against139, not against the legacy default. Additional candidate measurements can affect later filter estimates, so complete filtered outcomes are also compared. Existing **legacy-flow** remains the default; all earlier experimental methods stay available.
+**partial-monitor-142** computes the same search but preserves guard139 tracker and filter outputs. **partial-seed-142** uses the same checked source bundle while disabling imported descriptors, measuring the value of references. Every additional raw box and filter-accepted result is scored separately. Earlier methods remain available; **legacy-flow remains the default**.
 
-The interface shows whether recovery is inactive, checking adjacent images, or source-confirmed. The independent outcome panel reports correct, incorrect and unscored supplemental boxes separately from filter-accepted supplemental measurements. No model weights, new runtime vision library, authority change or capacity increase is introduced.
+No evaluation prediction enters appearance memory. No new weights, external vision runtime, capacity increase, action authority or default change.
 
-## Fresh results
+## Measured results
 
 {{FINDING}}
 
 {{RESULTS}}
 
-{{WARNINGS}}
+Real footage and generated controls are separate. Missing measurements remain in the denominator. Low target overlap is an inaccurate box, not automatically an identity switch. A confirmed other-object match requires a separately labelled competitor. Uncertain labels cannot establish success.
+
+“Correct” means an accepted estimate has at least 0.5 intersection-over-union with the independent target rectangle. This is an image-box criterion, not precise geometry or real-world accuracy. A confirmed competitor match needs at least 0.5 overlap with its labelled box and less than 0.2 target overlap (or an independently absent target).
+
+The fresh generated partial-return case exposes a limitation: strong unique matches alternate between verified reference keys, resetting the required three-frame confirmation. It produces no extra recovery. The positive development fixture still establishes an executable recovery path, but does not qualify this new condition. No criteria were relaxed after viewing this result.
 
 {{RECOVERIES}}
 
-{{DIAGNOSTICS}}
+Additional raw boxes include measurements the filter later refuses. Supplemental measurements can influence later filter estimates; preserving baseline tracker proposals does not imply identical candidate filter history. The monitor must preserve both.
 
-The main table counts accepted filtered observations. The supplemental table counts all new returned boxes and the subset accepted by the filter. Missing observations remain in the denominator. Unknown labels do not establish success. A low overlap means an inaccurate box; without independent distractor geometry it does not identify which other object was followed.
-
-## Development and controlled tests
-
-The recordings evaluated in edition140 are exposed development data. In current-code comparisons,139 and142 both retain **83 correct, 10 wrong and 69 missing** visible/partial observations across `cat1`, `cat2` and `group1`, with no accepted hidden output. The new recovery path adds no observations there and preserves all93 accepted139 tracker proposals. The monitor matches139 exactly on the cat1 control. Complete traces and costs are retained.
-
-In this one sequential development pass, pixel processing across the three windows took 50.5 seconds for142 versus 45.2 seconds for139. The added search therefore cost work without an accuracy gain on these exposed cases. This is a single-pass measurement, not a repeated timing estimate or live-camera rate.
-
-A controlled image fixture moves a textured object after disappearance and enlarges it by50%. The new path returns correctly located boxes after three confirmations while139 stays withheld. A differently scaled copy prevents supplemental acceptance; interrupted confirmation resets. The inherited139 tracker can itself select a copy in one fixture: that error remains visible, and the supplement must not add another measurement. These are synthetic mechanism tests, not proof of camera-level identity recognition.
-
-Nine focused tests cover multi-scale search, competitors, uniform texture, repeated recovery, interruption, warning-only exclusion, dimensions, monitor equivalence, label-independent pixel replay, contradictory outcome labels, forged evidence, stopped prefixes, cold reopening and source tampering. Broader regression retains previous perception, world, goal, browser, creation, qualification and archive checks.
-
-## Sources, visibility and limits
-
-{{SOURCES}}
-
-Three source names were fixed before access: **car3, following and person2** from [VOT-LT2018](https://www.votchallenge.net/vot2018/dataset.html). The [frozen contract](docs/EDITION_142_CONTRACT.md) selects the first eligible disappearance/return interval, or the declared first96 control if no event qualifies. Seeds must satisfy the existing minimum size. Ineligible entries are recorded and excluded without replacement searches. Every selected image is reviewed without predictions; labels are committed before fresh runs. Code, thresholds and scoring rules are not tuned on fresh results.
+## Sources and experimental design
 
 {{SOURCE_REVIEW}}
 
-External rectangles and NaN annotations are independent of this tracker. Source-only AI visibility judgments are separately attributed; they are not independent human adjudication. No independent other-object rectangles are supplied, so zero labelled-other matches cannot prove switch-free tracking. Original annotations, checksums, exclusions and exact-rational normalization corrections are retained. Tiny or uncertain observations remain unscored rather than being expanded or called hidden.
+{{SOURCES}}
+
+[OTB source: SNU Robot Vision Lab](https://rvlab.snu.ac.kr/research/tracker_benchmark/). FaceOcc2 and Walking2 were fixed before source access. Frames 1–24 supply separate reference windows; frames 25–120 are the fixed real-footage evaluation windows. Original JPEGs and annotation bytes are unchanged; archive digests and ZIP integrity checks are retained. External benchmark geometry and AI source-only visibility/competitor labels are attributed separately. No independent human adjudication is claimed.
+
+The image-freshness check compares exact JPEG hashes with earlier source and label manifests. Its `frames` counts are distinct hashes, so repeated identical JPEGs count once there; the tracking tables retain every frame. This check does not detect differently encoded copies.
+
+Generated tests use new fixed textures, renderer-derived rectangles, full covers and a competing copy. They use the same donor audit, retention, durable tracking and outcome checks as footage. They establish controlled software behavior, not general camera reliability.
+
+Implementation, thresholds, source selection, scorer and app harness were frozen before new annotations/pixels. Labels were committed before evaluation. No tuning on fresh outcomes. Bounded windows are not a complete benchmark. Severe occlusion, arbitrary pose change, off-image whole geometry, identity ambiguity and physical accuracy remain limitations.
 
 {{SOURCE_IMAGE}}
 
-## Verification and persistence
+## Verification and recovery
 
 {{VALIDATION}}
 
 {{APP_CHECKS}}
 
-Each142 decision is reconstructed from original pixels and the saved initial seed before outcome scoring. Implementation identities, source hashes, world bindings, histories and outcome checks remain mandatory. Source or decision tampering refuses verification. Completed-state restart preserves original bytes and timestamps; interrupted work resumes explicitly. Observation experiments do not silently move the native physical world.
-
-## Measured costs
-
-{{COSTS}}
-
-These are bounded durable workflows and measured audit phases, not a live-camera speed claim. Imports, UI reads, replay, restart and export also cost time; complete harness duration includes them. Fresh windows differ from previous editions, so cross-edition duration is not a controlled performance comparison.
-
-## Review it locally
-
-Use JDK 21 and the prepared desktop dependencies. From the checkout:
-
-```powershell
-$env:FRAYNIX_WORKSPACE_PROJECT = Join-Path $env:LOCALAPPDATA 'Fraynix-Review-142'
-.\scripts\Start-Agent-Workspace.ps1
-```
-
-After dependencies are cached, add `-Offline` to require local operation. Preserve your existing project path and stop its Java owner through the app before rebuilding that owner's installation.
-
-1. Open **Spatial → Real footage · observed world**, choose a world, import footage and mark its initial rectangle.
-2. Compare **Existing flow tracker**, **Experimental139** and **Experimental142** explicitly. **Control142** preserves139 outputs.
-3. Inspect original pixels, source-part matches and recovery confirmation counts. Predictions are not measurements.
-4. Under **Object identity · occlusion & recovery**, import independently prepared target/visibility labels. Compare complete outcomes and supplemental-box outcomes.
-5. Reopen, reverify and export complete evidence within existing bounds. Keep the original project if an export is too large; do not discard evidence to fit a limit.
-
-## Role in the connected application
-
-```mermaid
-flowchart LR
-  A[Immutable original source] --> B[Search locations and scales]
-  C[Baseline139 tracker] --> D{Actual flow loss?}
-  D --> B
-  B --> E[Appearance, rivals, parts and repeated motion]
-  C --> F[Preserved baseline proposals]
-  E --> G[Supplemental candidate]
-  F --> H[Motion filter and persistent observed world]
-  G --> H
-  I[Independent labels] --> J[Original-pixel replay and outcome audit]
-  H --> J
-  J --> K[Qualified evidence for durable Java goals]
-```
-
-Java continues to own durable goals, environment state, validation, recovery and evaluation. The desktop presents the world, browser and creation canvas. Better perception serves complete tasks in that shared application. Observed, predicted and unknown states must remain distinct before an action or memory admission.
-
-{{NEXT}}
-
-## Attempts and publication
+Focused checks exercise alternate partially covered appearance recovery, seed-only ablation, competing copies, absent texture, three-image confirmation, interrupted confirmation, warning-only refusal, monitor equivalence, invalid descriptors, contradictory outcome labels, forged trace refusal and donor-source tampering. Every candidate decision is replayed from original pixels before independent scoring.
 
 {{ATTEMPTS}}
 
-Hosted CI, local validation and fetched Git verification are distinct. Raw footage archives and private projects are excluded from publication. Exact source identities, original annotations, frozen labels, complete traces, failed attempts and attributed app screenshots are retained.
+Hosted CI is separate from local validation and fetched publication. Historical receipts retain their original implementation identity.
 
-[Validation](docs/readmes/142/verification.json) · [Original evidence](docs/readmes/142/original-evidence.json) · [Comparison](docs/readmes/142/comparison.json) · [Source manifest](docs/publication142/source142.json) · [Method lock](docs/OBSERVATION_142_LOCK.json) · [Source inventory](docs/readmes/142/file-inventory.json)
+## Processing costs
 
-[Recovery wrapper](workspace-engine/src/main/java/fraymus/workspace/LossRecovery142.java) · [Source search](workspace-engine/src/main/java/fraymus/workspace/RecoverySearch142.java) · [Pixel replay and outcome audit](workspace-engine/src/main/java/fraymus/workspace/LossRecoveryAudit142.java) · [Actual-app test](workspace-desktop/test/partial142-integration.cjs) · [Project memory](docs/PROJECT_MEMORY.md)
+{{COSTS}}
 
-Preserve defaults, private data, frozen editions and every source/outcome check. Read [AGENTS.md](AGENTS.md) before continuing.
+{{DIAGNOSTICS}}
+
+Recorded search counts exclude repeated replay/restart work. Similarity is not probability. Future optimization must retain every source/outcome check and measure complete workflows.
+
+Methods run in a fixed order while the evidence collection grows. These are elapsed workflow measurements, not an isolated or randomized speed comparison between algorithms. Later runs can pay for more accumulated state and repeated verification. No responsiveness improvement is claimed.
+
+## Review in the app
+
+1. Start with `scripts/Start-Agent-Workspace.ps1` using Java 21. `-PrepareOnly -Offline` checks local preparation. Keep private projects separate from evaluation projects.
+2. Open **3D / World**, choose a saved world and import source footage. Import independent labels in **Object identity · occlusion & recovery**.
+3. Audit a completed appearance-continuity run and retain its supported full-view appearances.
+4. Import separate evaluation footage. Under **Verified reference appearances**, choose the set and explain the shared-object relationship.
+5. Explicitly select the partial-view candidate or control, confirm the world/footage binding and start. Inspect visible support, inferred rectangle, independent audit and complete export.
+6. Missing or changed evidence, source overlap, incompatible code and ambiguous matches must refuse or withhold. Keep these checks intact.
+
+## Application direction
+
+The goal remains a local agent that observes, plans, acts, verifies and retains useful procedures across interruption. Java owns durable goals, world state and verification. Browser, canvas, data and creation tools turn those goals into working artifacts. Perception improvements must earn their role through measured task outcomes.
+
+{{NEXT}}
+
+## Evidence and implementation
+
+[Verification](docs/readmes/142/verification.json) · [Actual app study](docs/readmes/142/app-study.json) · [Comparisons and timings](docs/readmes/142/comparison.json) · [Original evidence](docs/readmes/142/original-evidence.json) · [Source inventory](docs/readmes/142/file-inventory.json) · [Frozen protocol](docs/EDITION_142_CONTRACT.md) · [Source review](docs/publication142/source142.json)
+
+[Partial search](workspace-engine/src/main/java/fraymus/workspace/PartialSearch142.java) · [Recovery controller](workspace-engine/src/main/java/fraymus/workspace/PartialRecovery142.java) · [Pixel replay and scoring](workspace-engine/src/main/java/fraymus/workspace/PartialAudit142.java) · [Verified reference resolver](workspace-engine/src/main/java/fraymus/workspace/ReferenceMemory137.java). Earlier edition snapshots remain immutable.

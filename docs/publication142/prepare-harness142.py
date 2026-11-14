@@ -1,5 +1,7 @@
 from pathlib import Path
-r=Path.cwd();p=r/'workspace-desktop/test/partial142-integration.cjs';s=(r/'workspace-desktop/test/recovery141-integration.cjs').read_text(encoding='utf8').replace('141','142').replace('recovery142','partial142').replace('recovery-guard-142','partial-reference-142').replace('recovery-monitor-142','partial-monitor-142')
+r=Path.cwd();p=r/'workspace-desktop/test/partial142-integration.cjs'
+assert not p.exists(),'One-time preparation only; preserve the frozen harness and curated publication files'
+s=(r/'workspace-desktop/test/recovery141-integration.cjs').read_text(encoding='utf8').replace('141','142').replace('recovery142','partial142').replace('recovery-guard-142','partial-reference-142').replace('recovery-monitor-142','partial-monitor-142')
 s=s.replace('recovery after loss and independent evidence','partial views, verified references and independent outcomes')
 s=s.replace(' async function track(f,policy){',' async function track(f,policy,set){')
 needle="await page.locator('#observations-method129').selectOption(policy);await page.locator('#observations-select').click();"

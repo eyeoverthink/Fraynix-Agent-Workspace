@@ -1,3 +1,15 @@
+## Edition 142 / 2026-11-13 — partial views from verified appearances
+
+The unified Java world/browser/creation mission continues. [Edition142](../README-142.md) adds an explicit partial-view experiment with source provenance, original-pixel replay and independent outcomes. Real footage and generated controls remain separate; defaults and all checks retained.
+
+# Next steps
+
+1. **Maintain confirmation for verified reference hypotheses.** The new partial-return control finds strong unique matches, but alternating best reference keys reset confirmation at two frames. Test bounded per-reference continuity without treating a reference switch as identity proof or relaxing competitor rejection. This exposed cohort becomes development evidence; freeze the next change before new evaluation sources. Keep the original anchor and provenance, and never let predictions certify themselves.
+2. **Expand independently labelled occlusion and lookalike evidence.** Include true disappearance, re-entry, moving covers and similar objects with separately reviewed target/competitor geometry. Do not treat generated controls or an unknown visibility boundary as camera-level success.
+3. **Make useful references earn their processing cost.** Measure donor verification, search, persistence, repeated audit, restart and export together. Reuse exact source/code-bound computation only while preserving every check; compare complete tasks rather than a single matching call.
+4. **Return qualified observations to durable goals.** World, browser and creation tasks must distinguish observed support, inferred geometry and unknown identity. Improved tracking should demonstrably improve a complete task before it becomes a default or authorizes an action.
+
+
 ## Edition141 / 2026-11-13 — source-qualified recovery after loss
 
 The unified Java world/browser/creation mission continues. [Edition141](../README-141.md) adds explicit recovery after genuine flow loss while retaining baseline139 proposals, defaults and all checks. Fresh outcomes and costs remain separate from synthetic mechanism tests.

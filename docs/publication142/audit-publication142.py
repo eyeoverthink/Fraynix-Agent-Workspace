@@ -17,7 +17,8 @@ try:
  annotations=json.loads(text('docs/publication142/annotation-integrity142.json'))
  for row in annotations:
   original=blob(row['path']);assert len(original)==row['bytes'] and digest(original)==row['sha256'],row['path']
- for source in sources['records']:assert digest(blob(source['originalGroundTruth']))==source['originalGroundTruthSha256'],source['originalGroundTruth']
+ for source in sources['records']:
+  if 'originalGroundTruth' in source:assert digest(blob(source['originalGroundTruth']))==source['originalGroundTruthSha256'],source['originalGroundTruth']
  inventory=json.loads(text('docs/readmes/142/file-inventory.json'))
  for row in inventory:
   b=blob(row['path'])

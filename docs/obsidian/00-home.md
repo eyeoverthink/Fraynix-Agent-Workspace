@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/150-partial-views.md]] | [[README-142.md]]
+
 Current: [[docs/obsidian/149-loss-recovery.md]] | [[README-141.md]]
 
 Current: [[docs/obsidian/148-corroborated-restoration.md]] | [[README-140.md]]
