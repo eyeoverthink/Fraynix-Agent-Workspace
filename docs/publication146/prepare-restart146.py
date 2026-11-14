@@ -1,0 +1,11 @@
+from pathlib import Path
+r=Path.cwd();s=(r/'docs/publication145/restart-exposed145.cjs').read_text(encoding='utf8')
+s=s.replace('build/exposed145-app','build/return146-regression-app').replace('build/exposed145-restart','build/return146-restart')
+s=s.replace("r.caseName==='exposed-return'&&r.policy==='trajectory-guard-145'","r.caseName==='copy-remains'&&r.policy==='return-guard-146'")
+s=s.replace("trackerPolicy:'trajectory-guard-145'","trackerPolicy:'return-guard-146'")
+s=s.replace('exposed145 exposed-return pixels','already-exposed145 copy-remains pixels')
+s=s.replace('r.completedFrames>=8&&r.trace.some(f=>f.objects[0].tracker.ambiguity144.latched)','r.completedFrames>=12&&r.trace.some(f=>f.objects[0].tracker.references143.lossObserved&&!f.objects[0].tracker.ambiguity144.latched)')
+s=s.replace('result.recovered.trace.some(f=>f.objects[0].tracker.ambiguity144.latched)','result.recovered.trace.some(f=>f.objects[0].tracker.references143.lossObserved&&!f.objects[0].tracker.ambiguity144.latched)')
+s=s.replace('result.audit.trajectory145,source.audit.trajectory145','result.audit.continuity146,source.audit.continuity146')
+s=s.replace('while ambiguity was latched','during loss without a competing-object warning').replace('reconstructed the ambiguity state','reconstructed pre-loss motion and return decisions')
+(r/'docs/publication146/restart146.cjs').write_text(s,encoding='utf8')
