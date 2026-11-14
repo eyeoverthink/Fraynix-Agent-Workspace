@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — Edition 141
 
+[Published and fetched verification receipt](docs/PUBLICATION_141.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-141)
+
 **Recover after loss without quietly switching objects.** Fraynix connects durable chat goals, a Java brain and simulation, observed worlds, browser interaction, data and creation tools, and reusable verified procedures. Edition141 adds an explicit source-qualified recovery experiment. The underlying139 guard and default tracking remain intact.
 
 [Previous edition](README-140.md) · [All editions](docs/readmes/INDEX.md) · [Interactive offline guide](docs/readmes/141/index.html) · [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md) · [Contributor handoff](README-CONTRIBUTORS.md)
