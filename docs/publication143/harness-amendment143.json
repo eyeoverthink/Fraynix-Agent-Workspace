@@ -1,0 +1,18 @@
+{
+  "amendedAtUtc": "2026-11-14T04:45:49.575705+00:00",
+  "originalFreeze": "79204c34",
+  "sourceLabelsCommittedBeforeEvaluation": "6951c268",
+  "originalLockSha256": "9aa371e85c5c61540e6a7c3036b0697af2c7a97c1af075e7e4ac892ef49487d3",
+  "originalHarnessSha256": "f3fb3fc7c24fcbf9e4c72dccd8fef5f270f032767bf7795b439ae8c29891caf6",
+  "amendedHarnessSha256": "2c263d9f518f12109908daa18c9cc4b174c7e6fad2655d466b99b390354c8336",
+  "changedLockedFiles": [
+    "workspace-desktop/test/confirmation143-integration.cjs"
+  ],
+  "unchangedLockedFiles": 61,
+  "stage": "First donor retention check; no evaluation run started. First donor tracked and audited successfully before host assertion failed. Original attempt/state retained.",
+  "reason": "Original corner vs x+(right-x) representation differs by one floating-point unit. Compare exact canonical corners using the unchanged Java Box.from/json arithmetic. No epsilon, removed check, source/label change, search, threshold, outcome scorer or production change.",
+  "observedDifference": [
+    0.8159722222222222,
+    0.8159722222222221
+  ]
+}

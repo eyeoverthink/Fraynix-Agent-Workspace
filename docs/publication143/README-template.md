@@ -60,7 +60,7 @@ The image-freshness check compares exact JPEG hashes with earlier source and lab
 
 Generated tests use new fixed textures, renderer-derived rectangles, two cover intervals and a competing copy. The copy remains visible during the second cover, explicitly testing whether appearance alone confuses another object for the absent target. They use the same donor audit, retention, durable tracking and outcome checks as footage. They establish controlled software behavior, not general camera reliability.
 
-Implementation, thresholds, source selection, scorer and app harness were frozen before new annotations/pixels. Labels were committed before evaluation. No tuning on fresh outcomes. Bounded windows are not a complete benchmark. Severe occlusion, arbitrary pose change, off-image whole geometry, identity ambiguity and physical accuracy remain limitations.
+Implementation, thresholds, source selection, scorer and app harness were frozen before new annotations/pixels. Labels were committed before evaluation. No tuning on fresh outcomes. A donor-box representation assertion was corrected after source review but before evaluation: exact canonical arithmetic replaces exact raw-corner comparison; no tracker, threshold, scorer or label changed. Original lock and amendment are retained. Bounded windows are not a complete benchmark. Severe occlusion, arbitrary pose change, off-image whole geometry, identity ambiguity and physical accuracy remain limitations.
 
 {{SOURCE_IMAGE}}
 
