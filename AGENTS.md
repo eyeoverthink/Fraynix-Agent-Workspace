@@ -1,3 +1,7 @@
+## Edition144 active - 2026-11-14 UTC
+
+Read docs/EDITION_144_CONTRACT.md. Isolated J:/Codex-Work/fraynix-workspace-edition144 from5f36761f. CI checked first,143 in progress. No agents or overlapping heavy jobs; shared dependencies read-only; preserve private projects and frozen001-143. Focused tests running, no fresh144 fixtures yet. Finish freeze, tests, actual app, docs, push and fetched audit. No144 publication yet.
+
 ## Edition 143 — published and fetched back
 
 2026-11-13. Isolated J:/Codex-Work/fraynix-workspace-edition143 from fe1e5c3f. CI checked first: edition142 release and metadata runs in progress. Method, scorer, source protocol and app harness frozen at 79204c34 before new annotations or images. Source-only labels precede predictions. A donor-box representation assertion was corrected after source review but before evaluation: exact canonical arithmetic replaces exact raw-corner comparison; no tracker, threshold, scorer or label changed. Original lock and amendment are retained. Release 07126dcf9b674c2b6e05486bb0765384a017cabe; annotated readme-143. Main, edition143 and tag pushed atomically and fetched. Verified 1711 canonical sources, 49823 frozen hashes across 143 editions and 178 original evidence entries. See docs/PUBLICATION_143.json.
