@@ -11,7 +11,7 @@ for folder in ['docs/readmes/146','docs/publication146']:
    b=gzip.decompress(p.read_bytes()) if p.suffix=='.gz' else p.read_bytes()
    for pattern in patterns:assert not re.search(pattern,b),str(p)
 run('git','-c','gc.auto=0','fetch','origin','main');run('git','merge-base','--is-ancestor','origin/main','HEAD')
-files=['AGENTS.md','README.md','README-146.md','README-CONTRIBUTORS.md','docs/ARCHITECTURE.md','docs/DEVELOPMENT_LOG.md','docs/PROJECT_MEMORY.md','docs/EDITION_146_CONTRACT.md','docs/PLAYABLE_LEVEL_CREATION_PLAN.md','docs/INTEGRATED_AGENT_ROADMAP.md','docs/obsidian/00-home.md','docs/obsidian/154-return-continuity.md','docs/obsidian/154-return-continuity.canvas','docs/readmes/INDEX.md','docs/readmes/editions.json','docs/readmes/146','docs/publication146']
+files=['docs/.gitattributes','docs/OBSERVATION_146_LOCK.json','AGENTS.md','README.md','README-146.md','README-CONTRIBUTORS.md','docs/ARCHITECTURE.md','docs/DEVELOPMENT_LOG.md','docs/PROJECT_MEMORY.md','docs/EDITION_146_CONTRACT.md','docs/PLAYABLE_LEVEL_CREATION_PLAN.md','docs/INTEGRATED_AGENT_ROADMAP.md','docs/obsidian/00-home.md','docs/obsidian/154-return-continuity.md','docs/obsidian/154-return-continuity.canvas','docs/readmes/INDEX.md','docs/readmes/editions.json','docs/readmes/146','docs/publication146']
 run('git','add',*files)
 logs=[str(p.relative_to(r)) for p in (r/'docs/publication146').glob('*.log')]
 if logs:run('git','add','-f',*logs)

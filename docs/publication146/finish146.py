@@ -6,7 +6,7 @@ assert not git('status','--porcelain'),'Preserve unrelated changes before record
 audit=json.loads((r/'build/publication-audit146.json').read_text(encoding='utf8'));assert audit['passed'] and audit['remoteFetched']
 release=git('rev-parse','readme-146^{commit}');assert release==audit['commit']==git('rev-parse','HEAD')
 v=json.loads((r/'docs/readmes/146/verification.json').read_text(encoding='utf8'))
-receipt={'edition':146,'releaseCommit':release,'annotatedTag':'readme-146','tagObject':git('rev-parse','readme-146'),'audit':audit,'validation':v,'ci':{'scope':'CI checked before implementation. Hosted success is separate from local verification and fetched publication.'}}
+receipt={'storageCorrection':json.loads((r/'docs/publication146/storage-correction146.json').read_text(encoding='utf8')),'edition':146,'releaseCommit':release,'annotatedTag':'readme-146','tagObject':git('rev-parse','readme-146'),'audit':audit,'validation':v,'ci':{'scope':'CI checked before implementation. Hosted success is separate from local verification and fetched publication.'}}
 for key,p in [('beforeImplementation','build/ci146-start.json'),('beforePublication','build/ci146-before-publication.json'),('releasePreflight','build/ci146-release-preflight.json'),('afterRelease','build/release146-ci.json')]:
  if (r/p).exists():receipt['ci'][key]=json.loads((r/p).read_text(encoding='utf8'))
 (r/'docs/PUBLICATION_146.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf8')

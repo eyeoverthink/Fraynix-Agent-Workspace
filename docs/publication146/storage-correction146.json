@@ -1,0 +1,9 @@
+{
+  "priorCommit": "b3c996b0bb5b3dd2d02f94648e2488c120b96a45",
+  "failedBeforePush": true,
+  "oldGitSha256": "a00563ded6d04a58dec73d6dc1386dcb589bf7f6623d3be478f8478050abe63c",
+  "executedRawSha256": "0726440ce54a7a03705e6e3c495ca34a5985ca045d5ea7fc8122569770cb7daa",
+  "canonicalContentUnchanged": true,
+  "cause": "Root text/eol rules normalized the new lock while the manifest and executed harness hashed raw CRLF bytes. A docs-scoped rule stores the original executed bytes exactly.",
+  "scope": "No production, scorer, source labels, outcomes,90canonical frozen inputs or historical edition changed."
+}
