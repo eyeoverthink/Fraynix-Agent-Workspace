@@ -53,7 +53,7 @@ The unchanged146 check may withhold a legitimate return as well as a wrong objec
 5. Keep both objects visible until **Finish recording** is ready. The camera stops when the attempt finishes. Incomplete attempts remain preserved.
 6. Review original frames, record source-only labels and hashes, check source eligibility, and commit those inputs before running the frozen comparison harness. Never turn predictions into reference labels.
 
-Private raw samples remain in ignored local storage. Existing application imports still accept at most96frames; longer raw recordings are source archives, not expanded app capacity. No private camera pixels are included in the published screenshots or evidence bundle.
+Private raw samples remain in ignored local storage. Existing application imports still accept at most96frames; longer raw recordings are source archives, not expanded app capacity. No private camera pixels are included in the published screenshots or evidence bundle. Git verifies the published receipts, labels and source hashes; repeating original-pixel replay also requires authorized access to the local camera files.
 
 ## Verification, recovery and cost
 
