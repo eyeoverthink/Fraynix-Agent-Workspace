@@ -1,3 +1,15 @@
+## Edition141 / 2026-11-13 — source-qualified recovery after loss
+
+The unified Java world/browser/creation mission continues. [Edition141](../README-141.md) adds explicit recovery after genuine flow loss while retaining baseline139 proposals, defaults and all checks. Fresh outcomes and costs remain separate from synthetic mechanism tests.
+
+## Next steps
+
+1. **Handle partial views without inventing identity.** The car case exposes a gap between a full source template and a clipped, changing view. Develop visible-part geometry and independently verified alternate appearances on these now-exposed recordings. Preserve original anchors and competitor checks; never admit a suspect recovery as its own training example.
+2. **Qualify real disappearance and return.** Freeze the next method before new recordings with complete cover, re-entry and a similar-looking competing object. Label target and distractor rectangles independently, retain uncertain boundaries, and measure every correct, wrong and missing return. This cohort contains no confirmed fully hidden images and cannot qualify full-occlusion behavior.
+3. **Make the extra work earn its cost.** Measure end-to-end tracking, source replay, persistence, UI reads and reopening. Bound expensive recovery search and reuse only exact source/code-bound computation while retaining every source and outcome check. Do not trade away verification to improve a timing number.
+4. **Keep the connected application central.** Durable Java world, browser and creation goals should receive clear measured, predicted and unknown states. A missing or ambiguous object should trigger observation or an explicit refusal, not silently authorize manipulation or become appearance memory. Better recovery must improve complete tasks before it becomes the default.
+
+
 ## Edition140 / 2026-11-13 — corroborated warnings and bounded restoration
 
 The unified Java world/browser/creation mission continues. [Edition140](../README-140.md) separates advisory disagreement from confirmed warnings and adds bounded original-source restoration, with defaults and every source/outcome check preserved. Fresh results, costs and limitations are retained.

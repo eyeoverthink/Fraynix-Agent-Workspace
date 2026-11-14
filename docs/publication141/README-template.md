@@ -28,6 +28,8 @@ The interface shows whether recovery is inactive, checking adjacent images, or s
 
 {{RECOVERIES}}
 
+{{DIAGNOSTICS}}
+
 The main table counts accepted filtered observations. The supplemental table counts all new returned boxes and the subset accepted by the filter. Missing observations remain in the denominator. Unknown labels do not establish success. A low overlap means an inaccurate box; without independent distractor geometry it does not identify which other object was followed.
 
 ## Development and controlled tests

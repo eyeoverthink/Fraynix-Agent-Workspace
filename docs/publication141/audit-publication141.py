@@ -14,6 +14,10 @@ try:
  assert digest(blob('docs/OBSERVATION_141_LOCK.json'))==sources['algorithmLockSha256']
  for name,h in lock['sourceHashes'].items():assert digest(text(name).encode())==h,name
  for source in sources['records']:assert digest(blob(source['labels']))==source['labelsSha256'],source['labels']
+ annotations=json.loads(text('docs/publication141/annotation-integrity141.json'))
+ for row in annotations:
+  original=blob(row['path']);assert len(original)==row['bytes'] and digest(original)==row['sha256'],row['path']
+ for source in sources['records']:assert digest(blob(source['originalGroundTruth']))==source['originalGroundTruthSha256'],source['originalGroundTruth']
  inventory=json.loads(text('docs/readmes/141/file-inventory.json'))
  for row in inventory:
   b=blob(row['path'])
@@ -32,5 +36,6 @@ try:
    b=blob(key);raw=gzip.decompress(b);archiveChecks[key]=(len(b),digest(b),len(raw),digest(raw))
   assert archiveChecks[key]==(row['bytes'],row['sha256'],row['rawBytes'],row['rawSha256']),row['logicalPath']
  result={'passed':True,'verifiedAtUtc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'remote':'https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git','fetchedRef':ref,'remoteFetched':ref.startswith('refs/verify/'),'commit':actual,'rawLabelInputsVerified':len(sources['records']),'rawMethodLockVerified':True,'canonicalSourceFiles':len(inventory),'editions':len(manifest['editions']),'frozenHashes':frozen,'original141EvidenceFiles':len(original['files']),'distinctOriginalPayloads':len(archiveChecks),'method':'Every enumerated blob read from the specified Git tree; remoteFetched identifies a fresh verification ref. Source byte counts and canonical UTF-8 LF/binary hashes checked. All frozen edition hashes checked. Each unique immutable Git archive blob is decompressed once; every logical original entry is compared to its verified compressed/raw byte counts and SHA-256. No mutable-file timestamp or runtime-proof shortcut.'}
+ result['rawOriginalAnnotationsVerified']=len(annotations)
  (r/'build/publication-audit141.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8');print(json.dumps(result))
 finally:p.stdin.close();p.wait()

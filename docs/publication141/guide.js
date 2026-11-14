@@ -1,5 +1,6 @@
 const data=JSON.parse(document.querySelector('#system-data').textContent),files=JSON.parse(document.querySelector('#inventory-data').textContent),$=id=>document.getElementById(id);
 $('validation').textContent=data.validation;
+$('finding').textContent=data.finding;
 for(const s of data.screenshots)$('shot').add(new Option(s.title,s.path));
 function shot(){const s=data.screenshots.find(x=>x.path===$('shot').value);$('screenshot').src='../../../'+s.path;$('shot-caption').textContent=s.title;}
 $('shot').onchange=shot;shot();

@@ -1,0 +1,2136 @@
+{
+  "rows": [
+    {
+      "case": "following-255",
+      "policy": "legacy-flow",
+      "summary": {
+        "visible": 34,
+        "correct": 4,
+        "hidden": 0,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 4,
+        "correctReacquired": 0,
+        "uncertain": 17,
+        "labels": 51,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.1158497925075208,
+        "missing": 30,
+        "overlapFailures": 0
+      },
+      "recovery141": null,
+      "trackingMs": 7320.8513,
+      "auditMs": 123.86150000000089
+    },
+    {
+      "case": "following-255",
+      "policy": "foreground-guard-139",
+      "summary": {
+        "visible": 34,
+        "correct": 4,
+        "hidden": 0,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 4,
+        "correctReacquired": 0,
+        "uncertain": 17,
+        "labels": 51,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.1158497925075208,
+        "missing": 30,
+        "overlapFailures": 0
+      },
+      "recovery141": null,
+      "trackingMs": 13153.41,
+      "auditMs": 18045.8206
+    },
+    {
+      "case": "following-255",
+      "policy": "recovery-monitor-141",
+      "summary": {
+        "visible": 34,
+        "correct": 4,
+        "hidden": 0,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 4,
+        "correctReacquired": 0,
+        "uncertain": 17,
+        "labels": 51,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.1158497925075208,
+        "missing": 30,
+        "overlapFailures": 0
+      },
+      "recovery141": {
+        "schema": "loss-recovery-audit-141-v1",
+        "baselineAcceptedPreserved": 4,
+        "filtered": {
+          "correct": 0,
+          "incorrect": 0,
+          "accepted": 0,
+          "unknown": 0
+        },
+        "scores": [],
+        "additional": {
+          "correct": 0,
+          "incorrect": 0,
+          "returned": 0,
+          "unknown": 0
+        },
+        "scope": "Original pixels replay every decision before independent scoring. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+        "automaticAdmissions": 0,
+        "replayedFrames": 51
+      },
+      "trackingMs": 21205.1596,
+      "auditMs": 27934.118800000004
+    },
+    {
+      "case": "following-255",
+      "policy": "recovery-guard-141",
+      "summary": {
+        "visible": 34,
+        "correct": 4,
+        "hidden": 0,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 4,
+        "correctReacquired": 0,
+        "uncertain": 17,
+        "labels": 51,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.1158497925075208,
+        "missing": 30,
+        "overlapFailures": 0
+      },
+      "recovery141": {
+        "schema": "loss-recovery-audit-141-v1",
+        "baselineAcceptedPreserved": 4,
+        "filtered": {
+          "correct": 0,
+          "incorrect": 0,
+          "accepted": 0,
+          "unknown": 0
+        },
+        "scores": [],
+        "additional": {
+          "correct": 0,
+          "incorrect": 0,
+          "returned": 0,
+          "unknown": 0
+        },
+        "scope": "Original pixels replay every decision before independent scoring. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+        "automaticAdmissions": 0,
+        "replayedFrames": 51
+      },
+      "trackingMs": 28660.221300000005,
+      "auditMs": 27924.921299999987
+    },
+    {
+      "case": "person2-1",
+      "policy": "legacy-flow",
+      "summary": {
+        "visible": 95,
+        "correct": 95,
+        "hidden": 0,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 95,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 95,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.7853624632575814,
+        "missing": 0,
+        "overlapFailures": 0
+      },
+      "recovery141": null,
+      "trackingMs": 27087.09169999999,
+      "auditMs": 251.67050000000745
+    },
+    {
+      "case": "person2-1",
+      "policy": "foreground-guard-139",
+      "summary": {
+        "visible": 95,
+        "correct": 95,
+        "hidden": 0,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 95,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 95,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.7853624632575814,
+        "missing": 0,
+        "overlapFailures": 0
+      },
+      "recovery141": null,
+      "trackingMs": 60227.78140000001,
+      "auditMs": 47118.74900000001
+    },
+    {
+      "case": "person2-1",
+      "policy": "recovery-monitor-141",
+      "summary": {
+        "visible": 95,
+        "correct": 95,
+        "hidden": 0,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 95,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 95,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.7853624632575814,
+        "missing": 0,
+        "overlapFailures": 0
+      },
+      "recovery141": {
+        "schema": "loss-recovery-audit-141-v1",
+        "baselineAcceptedPreserved": 95,
+        "filtered": {
+          "correct": 0,
+          "incorrect": 0,
+          "accepted": 0,
+          "unknown": 0
+        },
+        "scores": [],
+        "additional": {
+          "correct": 0,
+          "incorrect": 0,
+          "returned": 0,
+          "unknown": 0
+        },
+        "scope": "Original pixels replay every decision before independent scoring. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+        "automaticAdmissions": 0,
+        "replayedFrames": 95
+      },
+      "trackingMs": 83178.94799999997,
+      "auditMs": 49101.803799999994
+    },
+    {
+      "case": "person2-1",
+      "policy": "recovery-guard-141",
+      "summary": {
+        "visible": 95,
+        "correct": 95,
+        "hidden": 0,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 95,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 95,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.7853624632575814,
+        "missing": 0,
+        "overlapFailures": 0
+      },
+      "recovery141": {
+        "schema": "loss-recovery-audit-141-v1",
+        "baselineAcceptedPreserved": 95,
+        "filtered": {
+          "correct": 0,
+          "incorrect": 0,
+          "accepted": 0,
+          "unknown": 0
+        },
+        "scores": [],
+        "additional": {
+          "correct": 0,
+          "incorrect": 0,
+          "returned": 0,
+          "unknown": 0
+        },
+        "scope": "Original pixels replay every decision before independent scoring. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+        "automaticAdmissions": 0,
+        "replayedFrames": 95
+      },
+      "trackingMs": 102942.40869999997,
+      "auditMs": 48991.48080000002
+    }
+  ],
+  "summary": {
+    "legacy-flow": {
+      "tracking": {
+        "labels": 146,
+        "visible": 129,
+        "correct": 99,
+        "missing": 30,
+        "overlapFailures": 0,
+        "hidden": 0,
+        "unsupported": 0,
+        "uncertain": 17,
+        "confirmedDistractorMatches": 0
+      },
+      "additional": {
+        "returned": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "unknown": 0
+      },
+      "filtered": {
+        "accepted": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "unknown": 0
+      }
+    },
+    "foreground-guard-139": {
+      "tracking": {
+        "labels": 146,
+        "visible": 129,
+        "correct": 99,
+        "missing": 30,
+        "overlapFailures": 0,
+        "hidden": 0,
+        "unsupported": 0,
+        "uncertain": 17,
+        "confirmedDistractorMatches": 0
+      },
+      "additional": {
+        "returned": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "unknown": 0
+      },
+      "filtered": {
+        "accepted": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "unknown": 0
+      }
+    },
+    "recovery-monitor-141": {
+      "tracking": {
+        "labels": 146,
+        "visible": 129,
+        "correct": 99,
+        "missing": 30,
+        "overlapFailures": 0,
+        "hidden": 0,
+        "unsupported": 0,
+        "uncertain": 17,
+        "confirmedDistractorMatches": 0
+      },
+      "additional": {
+        "returned": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "unknown": 0
+      },
+      "filtered": {
+        "accepted": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "unknown": 0
+      }
+    },
+    "recovery-guard-141": {
+      "tracking": {
+        "labels": 146,
+        "visible": 129,
+        "correct": 99,
+        "missing": 30,
+        "overlapFailures": 0,
+        "hidden": 0,
+        "unsupported": 0,
+        "uncertain": 17,
+        "confirmedDistractorMatches": 0
+      },
+      "additional": {
+        "returned": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "unknown": 0
+      },
+      "filtered": {
+        "accepted": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "unknown": 0
+      }
+    }
+  },
+  "measuredCohortBenefit": false,
+  "diagnostics": {
+    "scope": "Descriptive retained-trace diagnostics after completed evaluation. Similarity is not calibrated confidence. Trace evaluation counts exclude repeated work from resume, verification and replay. Combined source support is not a separate spatial-only score. No fresh tuning or changed qualification rules.",
+    "rows": [
+      {
+        "case": "following-255",
+        "attemptedSearches": 47,
+        "qualifiedUniqueSearches": 0,
+        "combinedSourceSupportPasses": 0,
+        "maximumConfirmations": 0,
+        "maximumRecordedSimilarity": 0.7790553450060342,
+        "traceCandidateEvaluations": 4133740
+      },
+      {
+        "case": "person2-1",
+        "attemptedSearches": 0,
+        "qualifiedUniqueSearches": 0,
+        "combinedSourceSupportPasses": 0,
+        "maximumConfirmations": 0,
+        "maximumRecordedSimilarity": 0,
+        "traceCandidateEvaluations": 0
+      }
+    ]
+  },
+  "lock": {
+    "edition": 141,
+    "lockedAtUtc": "2026-11-14T01:59:12.106360+00:00",
+    "parent": "d27846b206c73b8dc3326b398f746d0212a01fd9",
+    "methods": [
+      "legacy-flow",
+      "foreground-guard-139",
+      "recovery-monitor-141",
+      "recovery-guard-141"
+    ],
+    "sourceHashes": {
+      "docs/EDITION_138_CONTRACT.md": "254f45748d8425bc2a184ca6960e74ce1dc5c784a507d429b69ef4935b08719d",
+      "docs/EDITION_139_CONTRACT.md": "87307f1d7d9bb74421a5fb82aea4b998a598ad57f45c6d591c08e58ee17f7538",
+      "docs/EDITION_140_CONTRACT.md": "f52c75f86326aa13170aa6112089b6d734bb57364a60fefd41ec5f2ff119eea2",
+      "docs/EDITION_140_SOURCE_NOTE.md": "544f210cc9d0ff75a2f665da22abf59e7e690150edcb8b35769688e78192e0fe",
+      "docs/EDITION_141_CONTRACT.md": "47846f94fccdc79c9fb3daa890aa8c39345ab2351a1de4d60931b4e42ec7ab5a",
+      "docs/publication137/source137.json": "aadb25c59c59c5b276e3e75849eda3d9d20b4a9fd665131900e8771c69355136",
+      "docs/publication141/prepare141.py": "daeef6081d944ba4a341f10c5d12c0d9b758285d4ce50a0cfbd09fa53fad2bf3",
+      "docs/publication141/select141.py": "a056ed3ca3545b392916194de9b6f9d3564b4cf735fc9e753e107673b0c25243",
+      "workspace-desktop/renderer/association134-panel.js": "12c6c23238d810094199227dac59802d435ee915274d584de9cd93c0a9c6217a",
+      "workspace-desktop/renderer/observation-panel.js": "525c73752267e6a8414f9b7a602befde4e36937362302dce77807fca343abe6d",
+      "workspace-desktop/test/corroborated140-integration.cjs": "37744399d3739387d95e391144fa01194f8a062b17f85c5ff4113e6d5a45c40b",
+      "workspace-desktop/test/recovery141-integration.cjs": "0ea86d00b82f2f6be4c8584f28c1c404e299390e640fbb4557d4dd601fd91493",
+      "workspace-engine/src/main/java/fraymus/workspace/AppearanceAudit135.java": "9b645127417cfd6d48ab634ad8ea86fbe8ec1c51733a24929c0bad477d8b6b2c",
+      "workspace-engine/src/main/java/fraymus/workspace/AppearanceEvidence138.java": "ebd7f297e37e03d998bc0991f0b24ab1a7cd37a44471b8adf0de511093de3e11",
+      "workspace-engine/src/main/java/fraymus/workspace/AppearanceFlow135.java": "74c5798420dbf9627ce2e40b864e274bb1d28ed0900a06c3bf6442f432789f24",
+      "workspace-engine/src/main/java/fraymus/workspace/AssociationAudit134.java": "d47126ff4b548f2566e8664a35dc896e73fe62e65e9bc2a07560a8f53f91aa83",
+      "workspace-engine/src/main/java/fraymus/workspace/CorroboratedAudit140.java": "e97ae0670e8591aa117a4e729949a1682029a49621b18af45a67f565156052a2",
+      "workspace-engine/src/main/java/fraymus/workspace/CorroboratedGuard140.java": "a6501d1f48f1377b1e5bb5cdd733439fbeef84486e1fe76e2803c85c91cbd366",
+      "workspace-engine/src/main/java/fraymus/workspace/DriftAudit138.java": "b455c545624901c9423775365d9a99497582715188abc1cadf593646a23bed4d",
+      "workspace-engine/src/main/java/fraymus/workspace/DriftGuard138.java": "740d78b062d164c831f5668f4f5baa82aafb99933c860b143f06b38cdbf754c1",
+      "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java": "5c4f2626d341ced71aee8b13cfc07130f4b77bfb26e2ff9ba889db13b9c9dd31",
+      "workspace-engine/src/main/java/fraymus/workspace/ForegroundAudit139.java": "9a82cedefff5011ae18d06121778de57723efec042b1099a43b1af6275a097de",
+      "workspace-engine/src/main/java/fraymus/workspace/ForegroundGuard139.java": "06f3a001a69bad4dc468ac03c1e8ae650a46c1aed8ad7a95c77c59005118945d",
+      "workspace-engine/src/main/java/fraymus/workspace/LossRecovery141.java": "4618d361e5f4e186553e1b4aefc8c90b7bc0ebb28fa647cfb04b8544c0d35f71",
+      "workspace-engine/src/main/java/fraymus/workspace/LossRecoveryAudit141.java": "50e167427acdf6d3e669dc8695c8ac58bf9db7642905f6de5e56cc63839e7e5a",
+      "workspace-engine/src/main/java/fraymus/workspace/ObservationFilter.java": "a0dc7560be00bca29dd7f72995d9cbe607b9e26f14be70286360dbf2d8764e21",
+      "workspace-engine/src/main/java/fraymus/workspace/ObservationMethods129.java": "7c8408e7538f0430a932c80c6a9e06e01fa494029c8ab5224601d7cf9ef28578",
+      "workspace-engine/src/main/java/fraymus/workspace/ParsedJson137.java": "d5b859e5185fba555502accf30c6b1d299a5e6d2bb0ec3ddaddd48e8597f559a",
+      "workspace-engine/src/main/java/fraymus/workspace/PixelTracker.java": "32d26bafaebb26a58a09efc6f71a0089c755cccd25cec47a87be8b67005c985b",
+      "workspace-engine/src/main/java/fraymus/workspace/RecoverySearch141.java": "c947d2ead889de83eba5bafefc0ec47ae0fd8eb42bf423d284769046b5f2f903",
+      "workspace-engine/src/main/java/fraymus/workspace/ReferenceAudit137.java": "464500bf43212c7019333b668744216e9f99efb7ef65c4f901fcfff579ad7325",
+      "workspace-engine/src/main/java/fraymus/workspace/ReferenceMemory137.java": "f2421c90ed033d3953924164dc0ead9ca42fe1527cd783f60ceada738d838bf9",
+      "workspace-engine/src/main/java/fraymus/workspace/RestorationGate140.java": "1531fd5326a5f78592f5475b0d47408244a56aa99f46343e6c7898073a300741",
+      "workspace-engine/src/main/java/fraymus/workspace/SpatialEvidence139.java": "66908d3c7d6d2f25654249b43701f2c702ea1a918707eabb92f7a4a0c569096b",
+      "workspace-engine/src/main/java/fraymus/workspace/VerifiedAppearances135.java": "da439f16d5d4e607e6dd1fa91d3b491a313122a19c8ef2383c6ee9beb9888fab",
+      "workspace-engine/src/main/java/fraymus/workspace/VerifiedMemoryFlow137.java": "7718e044e2a076893a3d97a7171e4cb68b9557f1386410423dc1aadfca716b2c",
+      "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java": "997d526096adacdc362bd20f84e99df62f12b145918f1bce737953fd8ab5ef62",
+      "workspace-engine/src/test/java/fraymus/workspace/CorroboratedGuard140Test.java": "f2e4e61a9916e2d9a1a9a12140a231cfa8583d3551e667b0ac393afef4c8dee3",
+      "workspace-engine/src/test/java/fraymus/workspace/DriftGuard138Test.java": "6e2576cb25916d6275fcdc802a20ccd93fe707f3c315441963013a415f2b60d4",
+      "workspace-engine/src/test/java/fraymus/workspace/ForegroundGuard139Test.java": "cf5e961a8f9eddce22f02a4f6c7d5d367027fe4d18d426b1f4c465de05aab9ea",
+      "workspace-engine/src/test/java/fraymus/workspace/LossRecovery141Test.java": "15e3c8590740cb9844205533fe29263462bad5940bb1037a027da22b25e4940d",
+      "workspace-engine/src/test/java/fraymus/workspace/RestorationImageStudy140.java": "9804d6a1695abc48c028b9bbffe4e514f397fdd459a279b869dc8984c02926e2"
+    },
+    "scope": "Production, scorer, controls, UI, source selection and fixed protocol frozen before fresh annotations or pixels. No fresh-outcome tuning. Source search is bounded and excludes ineligible entries without replacements. Default and all checks retained."
+  },
+  "sources": {
+    "createdAtUtc": "2026-11-14T02:19:34.781827+00:00",
+    "algorithmLockSha256": "8920d727afd9eb9dce11a13ece5324bf855552f1b9af539cf68b00f13a3aa836",
+    "excludedSources": [
+      {
+        "name": "car3",
+        "reason": "No qualifying measurable event or control seed",
+        "events": [],
+        "skippedEvents": []
+      }
+    ],
+    "records": [
+      {
+        "case": "following-255",
+        "name": "following",
+        "target": 1,
+        "start": 255,
+        "end": 306,
+        "stride": 1,
+        "sourceFrames": [
+          255,
+          256,
+          257,
+          258,
+          259,
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          280,
+          281,
+          282,
+          283,
+          284,
+          285,
+          286,
+          287,
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296,
+          297,
+          298,
+          299,
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306
+        ],
+        "frames": 52,
+        "width": 640,
+        "height": 480,
+        "pack": "build/vot141/following-255.fobs.json",
+        "packSha256": "62b7a17439554836b0f2902365c2020e442f2fd60e401bda8ec93079d618ac55",
+        "labels": "docs/publication141/following-255-labels.json",
+        "labelsSha256": "d8f46d69e8efdab9ec92bcd8828365a69d9bd192c7ec071b16d7b606ad0f5217",
+        "visibilityCounts": {
+          "visible": 3,
+          "partial": 31,
+          "occluded": 0,
+          "out-of-view": 0,
+          "uncertain": 17
+        },
+        "distractorLabelledSamples": 0,
+        "originalGroundTruth": "docs/publication141/following-groundtruth.txt",
+        "originalGroundTruthSha256": "7d7b2c809ac348ad5b405723c343ab616510ee0a66ecba18923a91deb85f3aae",
+        "domain": "real-camera",
+        "selection": {
+          "windowStart": 255,
+          "windowEnd": 306,
+          "stride": 1,
+          "indices": [
+            255,
+            256,
+            257,
+            258,
+            259,
+            260,
+            261,
+            262,
+            263,
+            264,
+            265,
+            266,
+            267,
+            268,
+            269,
+            270,
+            271,
+            272,
+            273,
+            274,
+            275,
+            276,
+            277,
+            278,
+            279,
+            280,
+            281,
+            282,
+            283,
+            284,
+            285,
+            286,
+            287,
+            288,
+            289,
+            290,
+            291,
+            292,
+            293,
+            294,
+            295,
+            296,
+            297,
+            298,
+            299,
+            300,
+            301,
+            302,
+            303,
+            304,
+            305,
+            306
+          ],
+          "absence": {
+            "start": 270,
+            "end": 286,
+            "qualifies": true
+          }
+        },
+        "skippedEvents": [],
+        "exposure": "New source images for this project, reviewed after method freeze and before predictions."
+      },
+      {
+        "case": "person2-1",
+        "name": "person2",
+        "target": 1,
+        "start": 1,
+        "end": 96,
+        "stride": 1,
+        "sourceFrames": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96
+        ],
+        "frames": 96,
+        "width": 1280,
+        "height": 720,
+        "pack": "build/vot141/person2-1.fobs.json",
+        "packSha256": "2c7e5106bf436228a465610edc278a68fb04be3eebe2afeeba6e81624e1e1439",
+        "labels": "docs/publication141/person2-1-labels.json",
+        "labelsSha256": "920e15965fe7ce578f542d96b2d8ca646b0089dcdb2636c15c908ed57760a277",
+        "visibilityCounts": {
+          "visible": 95,
+          "partial": 0,
+          "occluded": 0,
+          "out-of-view": 0,
+          "uncertain": 0
+        },
+        "distractorLabelledSamples": 0,
+        "originalGroundTruth": "docs/publication141/person2-groundtruth.txt",
+        "originalGroundTruthSha256": "f229102868875dfe5d430fe580e61c070226eadbc29f2fe2bae3dcd1463e76db",
+        "domain": "real-camera",
+        "selection": {
+          "windowStart": 1,
+          "windowEnd": 96,
+          "stride": 1,
+          "indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96
+          ],
+          "absence": null,
+          "note": "No qualifying event under fixed bounds; retain declared first96 control"
+        },
+        "skippedEvents": [],
+        "exposure": "New source images for this project, reviewed after method freeze and before predictions."
+      }
+    ],
+    "downloads": [
+      {
+        "name": "car3",
+        "kind": "annotations",
+        "url": "https://data.votchallenge.net/vot2018/longterm/car3.zip",
+        "file": "build/vot141/car3-annotations.zip",
+        "bytes": 37902,
+        "sha256": "57e44c0f04dd62c050ba68b60732ca4a1ddd8d106d03e0690e330d876c24eae3",
+        "publishedSha1": "24a53f28be0c30c4e491972478c699f4acd4300e",
+        "actualSha1": "24a53f28be0c30c4e491972478c699f4acd4300e",
+        "seconds": 0.0,
+        "checkedAt": "2026-11-14T02:16:28.215376+00:00",
+        "zipPayloadCompressedBytes": 37774,
+        "publishedCompressedBytes": 37902,
+        "uncompressedBytes": 37774,
+        "sizeMetadataMatchesArchive": true,
+        "sizeNote": "Published SHA1, ZIP CRC and uncompressed size verified. Published compressed size differs from actual ZIP length when sizeMetadataMatchesArchive is false; exact bytes and both sizes retained."
+      },
+      {
+        "name": "following",
+        "kind": "annotations",
+        "url": "https://data.votchallenge.net/vot2018/longterm/following.zip",
+        "file": "build/vot141/following-annotations.zip",
+        "bytes": 299719,
+        "sha256": "61868a671fda14b8d614d9b7597f1b8418e6914e9b85b99275c57c1d6ea873c5",
+        "publishedSha1": "aa70317c5d206b7a710667239b604dc940a5f74d",
+        "actualSha1": "aa70317c5d206b7a710667239b604dc940a5f74d",
+        "seconds": 0.0,
+        "checkedAt": "2026-11-14T02:16:28.218368+00:00",
+        "zipPayloadCompressedBytes": 299591,
+        "publishedCompressedBytes": 299719,
+        "uncompressedBytes": 299591,
+        "sizeMetadataMatchesArchive": true,
+        "sizeNote": "Published SHA1, ZIP CRC and uncompressed size verified. Published compressed size differs from actual ZIP length when sizeMetadataMatchesArchive is false; exact bytes and both sizes retained."
+      },
+      {
+        "name": "following",
+        "kind": "color",
+        "url": "https://data.votchallenge.net/sequences/3f2a3ce5c68d4a026236db26079250109ee499ca776484126616bf605c10762fd29c268de1b228d19736c0d8503964f38fbe53f757a8184e140a3792d4227d6b.zip",
+        "file": "build/vot141/following-color.zip",
+        "bytes": 509109821,
+        "sha256": "300f59ac76095e1389c3392973c0128945a7f89a5e375cdac62f9602ed40ff16",
+        "publishedSha1": "5310458dfdcc2386bb80fc940550bb82c51cc1ee",
+        "actualSha1": "5310458dfdcc2386bb80fc940550bb82c51cc1ee",
+        "seconds": 36.18700000003446,
+        "checkedAt": "2026-11-14T02:17:04.408236+00:00",
+        "zipPayloadCompressedBytes": 507858899,
+        "publishedCompressedBytes": 508384277,
+        "uncompressedBytes": 507858899,
+        "sizeMetadataMatchesArchive": false,
+        "sizeNote": "Published SHA1, ZIP CRC and uncompressed size verified. Published compressed size differs from actual ZIP length when sizeMetadataMatchesArchive is false; exact bytes and both sizes retained."
+      },
+      {
+        "name": "person2",
+        "kind": "annotations",
+        "url": "https://data.votchallenge.net/vot2018/longterm/person2.zip",
+        "file": "build/vot141/person2-annotations.zip",
+        "bytes": 58952,
+        "sha256": "00332f9d4abe2cff8787614c22ce064e7883fd9d5dc32d5499df9c8c8721a831",
+        "publishedSha1": "286e738b943f2d13cfdb65a6fdf9590b6a799db8",
+        "actualSha1": "286e738b943f2d13cfdb65a6fdf9590b6a799db8",
+        "seconds": 0.015999999945051968,
+        "checkedAt": "2026-11-14T02:17:05.016376+00:00",
+        "zipPayloadCompressedBytes": 58824,
+        "publishedCompressedBytes": 58952,
+        "uncompressedBytes": 58824,
+        "sizeMetadataMatchesArchive": true,
+        "sizeNote": "Published SHA1, ZIP CRC and uncompressed size verified. Published compressed size differs from actual ZIP length when sizeMetadataMatchesArchive is false; exact bytes and both sizes retained."
+      },
+      {
+        "name": "person2",
+        "kind": "color",
+        "url": "https://data.votchallenge.net/sequences/480df8d402066fae0b4d1f5e92ecb3c51ef8bfa18d851a07c864e974dfd40cc061c5df44a04b27fbd8c9c5f2fc443bb2a97979237e7a7d45e3e91128379e6f15.zip",
+        "file": "build/vot141/person2-color.zip",
+        "bytes": 298163845,
+        "sha256": "7ec9b4bd0235d3f1b452ae0b16a0d260d69923840fe7aa757988d755fdc4730c",
+        "publishedSha1": "b7923ca07266726f15663100e632f587c73d0e03",
+        "actualSha1": "b7923ca07266726f15663100e632f587c73d0e03",
+        "seconds": 23.43700000003446,
+        "checkedAt": "2026-11-14T02:17:28.448920+00:00",
+        "zipPayloadCompressedBytes": 297901523,
+        "publishedCompressedBytes": 298011689,
+        "uncompressedBytes": 297901523,
+        "sizeMetadataMatchesArchive": false,
+        "sizeNote": "Published SHA1, ZIP CRC and uncompressed size verified. Published compressed size differs from actual ZIP length when sizeMetadataMatchesArchive is false; exact bytes and both sizes retained."
+      }
+    ],
+    "annotationSearch": [
+      {
+        "name": "following",
+        "width": 640,
+        "height": 480,
+        "sourceLength": 12509,
+        "groundtruthSha256": "7d7b2c809ac348ad5b405723c343ab616510ee0a66ecba18923a91deb85f3aae",
+        "events": [
+          {
+            "start": 270,
+            "end": 286,
+            "qualifies": true
+          },
+          {
+            "start": 344,
+            "end": 361,
+            "qualifies": true
+          },
+          {
+            "start": 420,
+            "end": 438,
+            "qualifies": true
+          },
+          {
+            "start": 495,
+            "end": 512,
+            "qualifies": true
+          },
+          {
+            "start": 571,
+            "end": 588,
+            "qualifies": true
+          },
+          {
+            "start": 644,
+            "end": 662,
+            "qualifies": true
+          },
+          {
+            "start": 719,
+            "end": 738,
+            "qualifies": true
+          },
+          {
+            "start": 794,
+            "end": 813,
+            "qualifies": true
+          },
+          {
+            "start": 869,
+            "end": 888,
+            "qualifies": true
+          },
+          {
+            "start": 944,
+            "end": 964,
+            "qualifies": true
+          },
+          {
+            "start": 1018,
+            "end": 1039,
+            "qualifies": true
+          },
+          {
+            "start": 1093,
+            "end": 1114,
+            "qualifies": true
+          },
+          {
+            "start": 1168,
+            "end": 1189,
+            "qualifies": true
+          },
+          {
+            "start": 1243,
+            "end": 1264,
+            "qualifies": true
+          },
+          {
+            "start": 1318,
+            "end": 1339,
+            "qualifies": true
+          },
+          {
+            "start": 1393,
+            "end": 1414,
+            "qualifies": true
+          },
+          {
+            "start": 1468,
+            "end": 1489,
+            "qualifies": true
+          },
+          {
+            "start": 1543,
+            "end": 1564,
+            "qualifies": true
+          },
+          {
+            "start": 1619,
+            "end": 1638,
+            "qualifies": true
+          },
+          {
+            "start": 1694,
+            "end": 1713,
+            "qualifies": true
+          },
+          {
+            "start": 1769,
+            "end": 1788,
+            "qualifies": true
+          },
+          {
+            "start": 1844,
+            "end": 1863,
+            "qualifies": true
+          },
+          {
+            "start": 1918,
+            "end": 1939,
+            "qualifies": true
+          },
+          {
+            "start": 1993,
+            "end": 2014,
+            "qualifies": true
+          },
+          {
+            "start": 2068,
+            "end": 2089,
+            "qualifies": true
+          },
+          {
+            "start": 2143,
+            "end": 2164,
+            "qualifies": true
+          },
+          {
+            "start": 2218,
+            "end": 2239,
+            "qualifies": true
+          },
+          {
+            "start": 2293,
+            "end": 2314,
+            "qualifies": true
+          },
+          {
+            "start": 2368,
+            "end": 2389,
+            "qualifies": true
+          },
+          {
+            "start": 2444,
+            "end": 2463,
+            "qualifies": true
+          },
+          {
+            "start": 2519,
+            "end": 2538,
+            "qualifies": true
+          },
+          {
+            "start": 2593,
+            "end": 2614,
+            "qualifies": true
+          },
+          {
+            "start": 2669,
+            "end": 2688,
+            "qualifies": true
+          },
+          {
+            "start": 2744,
+            "end": 2763,
+            "qualifies": true
+          },
+          {
+            "start": 2819,
+            "end": 2838,
+            "qualifies": true
+          },
+          {
+            "start": 2894,
+            "end": 2913,
+            "qualifies": true
+          },
+          {
+            "start": 2969,
+            "end": 2988,
+            "qualifies": true
+          },
+          {
+            "start": 3044,
+            "end": 3063,
+            "qualifies": true
+          },
+          {
+            "start": 3119,
+            "end": 3138,
+            "qualifies": true
+          },
+          {
+            "start": 3194,
+            "end": 3213,
+            "qualifies": true
+          },
+          {
+            "start": 3269,
+            "end": 3288,
+            "qualifies": true
+          },
+          {
+            "start": 3344,
+            "end": 3363,
+            "qualifies": true
+          },
+          {
+            "start": 3419,
+            "end": 3438,
+            "qualifies": true
+          },
+          {
+            "start": 3494,
+            "end": 3513,
+            "qualifies": true
+          },
+          {
+            "start": 3569,
+            "end": 3588,
+            "qualifies": true
+          },
+          {
+            "start": 3644,
+            "end": 3663,
+            "qualifies": true
+          },
+          {
+            "start": 3719,
+            "end": 3738,
+            "qualifies": true
+          },
+          {
+            "start": 3794,
+            "end": 3814,
+            "qualifies": true
+          },
+          {
+            "start": 3868,
+            "end": 3889,
+            "qualifies": true
+          },
+          {
+            "start": 3943,
+            "end": 3964,
+            "qualifies": true
+          },
+          {
+            "start": 4018,
+            "end": 4039,
+            "qualifies": true
+          },
+          {
+            "start": 4093,
+            "end": 4114,
+            "qualifies": true
+          },
+          {
+            "start": 4168,
+            "end": 4189,
+            "qualifies": true
+          },
+          {
+            "start": 4243,
+            "end": 4264,
+            "qualifies": true
+          },
+          {
+            "start": 4318,
+            "end": 4339,
+            "qualifies": true
+          },
+          {
+            "start": 4393,
+            "end": 4414,
+            "qualifies": true
+          },
+          {
+            "start": 4468,
+            "end": 4489,
+            "qualifies": true
+          },
+          {
+            "start": 4543,
+            "end": 4564,
+            "qualifies": true
+          },
+          {
+            "start": 4618,
+            "end": 4639,
+            "qualifies": true
+          },
+          {
+            "start": 4693,
+            "end": 4714,
+            "qualifies": true
+          },
+          {
+            "start": 4768,
+            "end": 4789,
+            "qualifies": true
+          },
+          {
+            "start": 4843,
+            "end": 4864,
+            "qualifies": true
+          },
+          {
+            "start": 4918,
+            "end": 4939,
+            "qualifies": true
+          },
+          {
+            "start": 4993,
+            "end": 5014,
+            "qualifies": true
+          },
+          {
+            "start": 5068,
+            "end": 5089,
+            "qualifies": true
+          },
+          {
+            "start": 5143,
+            "end": 5164,
+            "qualifies": true
+          },
+          {
+            "start": 5218,
+            "end": 5239,
+            "qualifies": true
+          },
+          {
+            "start": 5293,
+            "end": 5314,
+            "qualifies": true
+          },
+          {
+            "start": 5368,
+            "end": 5389,
+            "qualifies": true
+          },
+          {
+            "start": 5443,
+            "end": 5464,
+            "qualifies": true
+          },
+          {
+            "start": 5518,
+            "end": 5539,
+            "qualifies": true
+          },
+          {
+            "start": 5593,
+            "end": 5614,
+            "qualifies": true
+          },
+          {
+            "start": 5668,
+            "end": 5689,
+            "qualifies": true
+          },
+          {
+            "start": 5743,
+            "end": 5764,
+            "qualifies": true
+          },
+          {
+            "start": 5818,
+            "end": 5839,
+            "qualifies": true
+          },
+          {
+            "start": 5893,
+            "end": 5914,
+            "qualifies": true
+          },
+          {
+            "start": 5969,
+            "end": 5989,
+            "qualifies": true
+          },
+          {
+            "start": 6043,
+            "end": 6064,
+            "qualifies": true
+          },
+          {
+            "start": 6118,
+            "end": 6139,
+            "qualifies": true
+          },
+          {
+            "start": 6194,
+            "end": 6213,
+            "qualifies": true
+          },
+          {
+            "start": 6268,
+            "end": 6288,
+            "qualifies": true
+          },
+          {
+            "start": 6343,
+            "end": 6364,
+            "qualifies": true
+          },
+          {
+            "start": 6418,
+            "end": 6439,
+            "qualifies": true
+          },
+          {
+            "start": 6493,
+            "end": 6514,
+            "qualifies": true
+          },
+          {
+            "start": 6568,
+            "end": 6589,
+            "qualifies": true
+          },
+          {
+            "start": 6643,
+            "end": 6664,
+            "qualifies": true
+          },
+          {
+            "start": 6719,
+            "end": 6738,
+            "qualifies": true
+          },
+          {
+            "start": 6793,
+            "end": 6814,
+            "qualifies": true
+          },
+          {
+            "start": 6868,
+            "end": 6889,
+            "qualifies": true
+          },
+          {
+            "start": 6943,
+            "end": 6964,
+            "qualifies": true
+          },
+          {
+            "start": 7018,
+            "end": 7039,
+            "qualifies": true
+          },
+          {
+            "start": 7093,
+            "end": 7114,
+            "qualifies": true
+          },
+          {
+            "start": 7168,
+            "end": 7189,
+            "qualifies": true
+          },
+          {
+            "start": 7243,
+            "end": 7264,
+            "qualifies": true
+          },
+          {
+            "start": 7319,
+            "end": 7338,
+            "qualifies": true
+          },
+          {
+            "start": 7393,
+            "end": 7414,
+            "qualifies": true
+          },
+          {
+            "start": 7468,
+            "end": 7489,
+            "qualifies": true
+          },
+          {
+            "start": 7544,
+            "end": 7563,
+            "qualifies": true
+          },
+          {
+            "start": 7618,
+            "end": 7639,
+            "qualifies": true
+          },
+          {
+            "start": 7693,
+            "end": 7714,
+            "qualifies": true
+          },
+          {
+            "start": 7768,
+            "end": 7789,
+            "qualifies": true
+          },
+          {
+            "start": 7843,
+            "end": 7864,
+            "qualifies": true
+          },
+          {
+            "start": 7918,
+            "end": 7939,
+            "qualifies": true
+          },
+          {
+            "start": 7993,
+            "end": 8014,
+            "qualifies": true
+          },
+          {
+            "start": 8068,
+            "end": 8089,
+            "qualifies": true
+          },
+          {
+            "start": 8143,
+            "end": 8164,
+            "qualifies": true
+          },
+          {
+            "start": 8218,
+            "end": 8238,
+            "qualifies": true
+          },
+          {
+            "start": 8294,
+            "end": 8314,
+            "qualifies": true
+          },
+          {
+            "start": 8368,
+            "end": 8388,
+            "qualifies": true
+          },
+          {
+            "start": 8444,
+            "end": 8463,
+            "qualifies": true
+          },
+          {
+            "start": 8519,
+            "end": 8538,
+            "qualifies": true
+          },
+          {
+            "start": 8594,
+            "end": 8613,
+            "qualifies": true
+          },
+          {
+            "start": 8669,
+            "end": 8688,
+            "qualifies": true
+          },
+          {
+            "start": 8744,
+            "end": 8763,
+            "qualifies": true
+          },
+          {
+            "start": 8819,
+            "end": 8838,
+            "qualifies": true
+          },
+          {
+            "start": 8894,
+            "end": 8913,
+            "qualifies": true
+          },
+          {
+            "start": 8969,
+            "end": 8988,
+            "qualifies": true
+          },
+          {
+            "start": 9044,
+            "end": 9063,
+            "qualifies": true
+          },
+          {
+            "start": 9119,
+            "end": 9138,
+            "qualifies": true
+          },
+          {
+            "start": 9193,
+            "end": 9214,
+            "qualifies": true
+          },
+          {
+            "start": 9269,
+            "end": 9289,
+            "qualifies": true
+          },
+          {
+            "start": 9343,
+            "end": 9364,
+            "qualifies": true
+          },
+          {
+            "start": 9419,
+            "end": 9438,
+            "qualifies": true
+          },
+          {
+            "start": 9493,
+            "end": 9514,
+            "qualifies": true
+          },
+          {
+            "start": 9568,
+            "end": 9588,
+            "qualifies": true
+          },
+          {
+            "start": 9644,
+            "end": 9663,
+            "qualifies": true
+          },
+          {
+            "start": 9719,
+            "end": 9738,
+            "qualifies": true
+          },
+          {
+            "start": 9793,
+            "end": 9814,
+            "qualifies": true
+          },
+          {
+            "start": 9868,
+            "end": 9889,
+            "qualifies": true
+          },
+          {
+            "start": 9943,
+            "end": 9964,
+            "qualifies": true
+          },
+          {
+            "start": 10018,
+            "end": 10038,
+            "qualifies": true
+          },
+          {
+            "start": 10094,
+            "end": 10113,
+            "qualifies": true
+          },
+          {
+            "start": 10168,
+            "end": 10189,
+            "qualifies": true
+          },
+          {
+            "start": 10244,
+            "end": 10263,
+            "qualifies": true
+          },
+          {
+            "start": 10319,
+            "end": 10338,
+            "qualifies": true
+          },
+          {
+            "start": 10393,
+            "end": 10414,
+            "qualifies": true
+          },
+          {
+            "start": 10468,
+            "end": 10489,
+            "qualifies": true
+          },
+          {
+            "start": 10544,
+            "end": 10564,
+            "qualifies": true
+          },
+          {
+            "start": 10618,
+            "end": 10639,
+            "qualifies": true
+          },
+          {
+            "start": 10693,
+            "end": 10714,
+            "qualifies": true
+          },
+          {
+            "start": 10768,
+            "end": 10789,
+            "qualifies": true
+          },
+          {
+            "start": 10844,
+            "end": 10864,
+            "qualifies": true
+          },
+          {
+            "start": 10918,
+            "end": 10939,
+            "qualifies": true
+          },
+          {
+            "start": 10993,
+            "end": 11014,
+            "qualifies": true
+          },
+          {
+            "start": 11068,
+            "end": 11089,
+            "qualifies": true
+          },
+          {
+            "start": 11143,
+            "end": 11164,
+            "qualifies": true
+          },
+          {
+            "start": 11218,
+            "end": 11239,
+            "qualifies": true
+          },
+          {
+            "start": 11293,
+            "end": 11314,
+            "qualifies": true
+          },
+          {
+            "start": 11368,
+            "end": 11389,
+            "qualifies": true
+          },
+          {
+            "start": 11443,
+            "end": 11464,
+            "qualifies": true
+          },
+          {
+            "start": 11518,
+            "end": 11539,
+            "qualifies": true
+          },
+          {
+            "start": 11593,
+            "end": 11613,
+            "qualifies": true
+          },
+          {
+            "start": 11668,
+            "end": 11689,
+            "qualifies": true
+          },
+          {
+            "start": 11743,
+            "end": 11764,
+            "qualifies": true
+          },
+          {
+            "start": 11818,
+            "end": 11839,
+            "qualifies": true
+          },
+          {
+            "start": 11893,
+            "end": 11913,
+            "qualifies": true
+          },
+          {
+            "start": 11968,
+            "end": 11989,
+            "qualifies": true
+          },
+          {
+            "start": 12043,
+            "end": 12064,
+            "qualifies": true
+          },
+          {
+            "start": 12118,
+            "end": 12139,
+            "qualifies": true
+          },
+          {
+            "start": 12193,
+            "end": 12214,
+            "qualifies": true
+          },
+          {
+            "start": 12268,
+            "end": 12289,
+            "qualifies": true
+          },
+          {
+            "start": 12343,
+            "end": 12364,
+            "qualifies": true
+          },
+          {
+            "start": 12418,
+            "end": 12439,
+            "qualifies": true
+          },
+          {
+            "start": 12493,
+            "end": 12509,
+            "qualifies": false
+          }
+        ],
+        "selection": {
+          "windowStart": 255,
+          "windowEnd": 306,
+          "stride": 1,
+          "indices": [
+            255,
+            256,
+            257,
+            258,
+            259,
+            260,
+            261,
+            262,
+            263,
+            264,
+            265,
+            266,
+            267,
+            268,
+            269,
+            270,
+            271,
+            272,
+            273,
+            274,
+            275,
+            276,
+            277,
+            278,
+            279,
+            280,
+            281,
+            282,
+            283,
+            284,
+            285,
+            286,
+            287,
+            288,
+            289,
+            290,
+            291,
+            292,
+            293,
+            294,
+            295,
+            296,
+            297,
+            298,
+            299,
+            300,
+            301,
+            302,
+            303,
+            304,
+            305,
+            306
+          ],
+          "absence": {
+            "start": 270,
+            "end": 286,
+            "qualifies": true
+          }
+        },
+        "skippedEvents": [],
+        "sheets": [
+          "build/vot141/following-sheet-1.jpg",
+          "build/vot141/following-sheet-2.jpg",
+          "build/vot141/following-sheet-3.jpg"
+        ]
+      },
+      {
+        "name": "person2",
+        "width": 1280,
+        "height": 720,
+        "sourceLength": 2623,
+        "groundtruthSha256": "f229102868875dfe5d430fe580e61c070226eadbc29f2fe2bae3dcd1463e76db",
+        "events": [],
+        "selection": {
+          "windowStart": 1,
+          "windowEnd": 96,
+          "stride": 1,
+          "indices": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96
+          ],
+          "absence": null,
+          "note": "No qualifying event under fixed bounds; retain declared first96 control"
+        },
+        "skippedEvents": [],
+        "sheets": [
+          "build/vot141/person2-sheet-1.jpg",
+          "build/vot141/person2-sheet-2.jpg",
+          "build/vot141/person2-sheet-3.jpg",
+          "build/vot141/person2-sheet-4.jpg"
+        ]
+      }
+    ],
+    "sourceReview": "All148 selected source images reviewed on seven contact sheets before predictions, with original-resolution boundary checks. Following255–306 shows a white car approaching the right edge and returning into view; part of the car remains visible throughout the external NaN interval270–286, so those17 images are uncertain/unscorable, not confirmed hidden. Finite frames259–269 and287–306 have a clipped target and are labelled partial. Person2 frames1–96 show an unobstructed person walking on grass, a visible-motion control. Car3 is excluded by the frozen size rule: its first rectangle is16px wide in1280px, below.025, with no qualifying annotated disappearance interval. No replacement source, full-occlusion success claim, human adjudication or independent distractor geometry.",
+    "rationalNormalizationCorrections": [],
+    "priorImageOverlap": {
+      "priorPublicationFiles": 24,
+      "uniquePriorImageHashes": 1754,
+      "matchedSelectedHashes": 0,
+      "scope": "Exact JPEG hashes against retained publication JSON image hashes; not proof against different encodings."
+    },
+    "limitations": [
+      "Bounded windows, not a full VOT benchmark or live camera validation.",
+      "External rectangles plus separately attributed AI source-only visibility; no independent human review.",
+      "No labelled distractor geometry, so zero labelled-other matches cannot establish switch-free identity.",
+      "Unknown and too-small observations stay explicit; original annotations retained."
+    ]
+  },
+  "development": {
+    "scope": "Previously exposed140 recordings; development, not fresh evaluation",
+    "rows": [
+      {
+        "case": "cat1-586",
+        "policy": "foreground-guard-139",
+        "exit": 0,
+        "seconds": 16.65700000000652,
+        "summary": {
+          "visible": 33,
+          "correct": 2,
+          "hidden": 5,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 2,
+          "correctReacquired": 0,
+          "uncertain": 5,
+          "labels": 43,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.04812322481124661,
+          "missing": 31,
+          "overlapFailures": 0
+        },
+        "processingMs": 14466.9172
+      },
+      {
+        "case": "cat1-586",
+        "policy": "recovery-guard-141",
+        "exit": 0,
+        "seconds": 20.90700000000652,
+        "summary": {
+          "visible": 33,
+          "correct": 2,
+          "hidden": 5,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 2,
+          "correctReacquired": 0,
+          "uncertain": 5,
+          "labels": 43,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.04812322481124661,
+          "missing": 31,
+          "overlapFailures": 0
+        },
+        "processingMs": 19731.7377,
+        "additional": {
+          "correct": 0,
+          "incorrect": 0,
+          "unknown": 0
+        },
+        "baselineAcceptedPreserved": 2
+      },
+      {
+        "case": "cat1-586",
+        "policy": "recovery-monitor-141",
+        "exit": 0,
+        "seconds": 20.859000000054948,
+        "summary": {
+          "visible": 33,
+          "correct": 2,
+          "hidden": 5,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 2,
+          "correctReacquired": 0,
+          "uncertain": 5,
+          "labels": 43,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.04812322481124661,
+          "missing": 31,
+          "overlapFailures": 0
+        },
+        "processingMs": 19694.2888,
+        "additional": {
+          "correct": 0,
+          "incorrect": 0,
+          "unknown": 0
+        },
+        "baselineAcceptedPreserved": 2
+      },
+      {
+        "case": "cat2-129",
+        "policy": "foreground-guard-139",
+        "exit": 0,
+        "seconds": 10.765999999945052,
+        "summary": {
+          "visible": 34,
+          "correct": 9,
+          "hidden": 7,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 11,
+          "correctReacquired": 0,
+          "uncertain": 2,
+          "labels": 43,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.234059189139846,
+          "missing": 23,
+          "overlapFailures": 2
+        },
+        "processingMs": 10091.9407
+      },
+      {
+        "case": "cat2-129",
+        "policy": "recovery-guard-141",
+        "exit": 0,
+        "seconds": 11.23499999998603,
+        "summary": {
+          "visible": 34,
+          "correct": 9,
+          "hidden": 7,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 11,
+          "correctReacquired": 0,
+          "uncertain": 2,
+          "labels": 43,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.234059189139846,
+          "missing": 23,
+          "overlapFailures": 2
+        },
+        "processingMs": 10059.2881,
+        "additional": {
+          "correct": 0,
+          "incorrect": 0,
+          "unknown": 0
+        },
+        "baselineAcceptedPreserved": 11
+      },
+      {
+        "case": "group1-1",
+        "policy": "foreground-guard-139",
+        "exit": 0,
+        "seconds": 21.625,
+        "summary": {
+          "visible": 95,
+          "correct": 72,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 80,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.5731755988293503,
+          "missing": 15,
+          "overlapFailures": 8
+        },
+        "processingMs": 20686.6282
+      },
+      {
+        "case": "group1-1",
+        "policy": "recovery-guard-141",
+        "exit": 0,
+        "seconds": 22.14000000001397,
+        "summary": {
+          "visible": 95,
+          "correct": 72,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 80,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.5731755988293503,
+          "missing": 15,
+          "overlapFailures": 8
+        },
+        "processingMs": 20732.5907,
+        "additional": {
+          "correct": 0,
+          "incorrect": 0,
+          "unknown": 0
+        },
+        "baselineAcceptedPreserved": 80
+      }
+    ]
+  },
+  "defaultsUnchanged": true,
+  "promoted": false
+}
