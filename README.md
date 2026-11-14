@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — Edition 143
 
+[Published and fetched verification receipt](docs/PUBLICATION_143.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-143)
+
 **Independent confirmation for verified appearances.** Fraynix connects durable chat goals with a Java brain, simulation, observed worlds, browser interaction, data processing, creation tools and reusable verified procedures. This edition develops one perception mechanism within that connected application.
 
 [Previous edition](README-142.md) · [All editions](docs/readmes/INDEX.md) · [Offline guide](docs/readmes/143/index.html) · [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md) · [Contributor handoff](README-CONTRIBUTORS.md)
