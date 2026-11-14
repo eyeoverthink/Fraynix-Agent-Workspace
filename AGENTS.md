@@ -1,3 +1,7 @@
+## Edition143 active — 2026-11-13
+
+Continue J:/Codex-Work/fraynix-workspace-edition143 from fe1e5c3f. CI checked first:142 release and metadata running. Preserve per-reference confirmation after actual flow loss, without pooling identity or weakening competitor/source/outcome checks. Develop on the exposed142 reference-switching failure. Freeze code, scorer, source selection and harness before new pixels. Fresh fixed names FaceOcc1 and Coupon; Jogging excluded before source access because134 already used it. Defaults unchanged. No agents or overlapping heavy jobs. Shared node dependency junction read-only. Complete tests, actual app, documentation/screenshots/notes and main push with fetched audit. No143 publication yet.
+
 ## Edition 142 — published and fetched back
 
 2026-11-13. Isolated J:/Codex-Work/fraynix-workspace-edition142 from 3aa81866. CI checked first: edition141 release/metadata running; edition140 release passed. Method, scorer, source protocol and app harness frozen at 5cad54b5 before new annotations or images. Source-only labels precede predictions. Release a66a95a4a7aa1708b4ad8253b8e2a62e7a4a5adc; annotated readme-142. Main, edition142 and tag pushed atomically and fetched. Verified 1702 canonical sources, 49616 frozen hashes across 142 editions and 196 original evidence entries. See docs/PUBLICATION_142.json.
