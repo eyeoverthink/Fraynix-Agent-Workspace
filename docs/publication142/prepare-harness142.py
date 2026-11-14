@@ -1,0 +1,28 @@
+from pathlib import Path
+r=Path.cwd();p=r/'workspace-desktop/test/partial142-integration.cjs';s=(r/'workspace-desktop/test/recovery141-integration.cjs').read_text(encoding='utf8').replace('141','142').replace('recovery142','partial142').replace('recovery-guard-142','partial-reference-142').replace('recovery-monitor-142','partial-monitor-142')
+s=s.replace('recovery after loss and independent evidence','partial views, verified references and independent outcomes')
+s=s.replace(' async function track(f,policy){',' async function track(f,policy,set){')
+needle="await page.locator('#observations-method129').selectOption(policy);await page.locator('#observations-select').click();"
+s=s.replace(needle,"""await page.locator('#observations-method129').selectOption(policy);
+  if(set){await page.locator('#observations-references137').evaluate(e=>e.open=true);await page.locator('#observations-references-refresh137').click();await idle();await page.locator('#observations-reference-set137').selectOption(set.id);await page.locator('#observations-reference-declaration137').fill('Same declared '+f.spec.group+' target in separate source pixels; independently verified full reference boxes, not semantic identity proof.');}
+  await page.locator('#observations-select').click();""")
+s=s.replace('manifest.records[0].case',"manifest.records.find(x=>x.role==='evaluation').case")
+s=s.replace("  const result={caseName:f.spec.case,policy,", """  let retained=null;if(policy==='appearance-continuity-135'){retained=await api('/api/appearances135/retain',{auditId:audit.id});assert(retained.examples.length);for(const e of retained.examples){const row=f.label.input.rows.find(r=>r.ordinal===e.ordinal);assert.equal(row.visibility,'visible');assert.deepEqual(row.targetBox,e.referenceBox);assert(e.proposedOverlap>=.5);}}
+  if(set){assert.equal(run.referenceMemory137.setId,set.id);for(const frame of run.trace){const m=frame.objects[0].tracker.partial142;assert.equal(m.automaticAdmissions,0);assert.equal(m.importedEnabled,policy!=='partial-seed-142');}}
+  const result={caseName:f.spec.case,role:f.spec.role,group:f.spec.group,domain:f.spec.domain,retained,policy,""")
+s=s.replace("if(policy==='partial-reference-142'){\n   const base", "if(['partial-reference-142','partial-seed-142'].includes(policy)){\n   const base")
+s=s.replace('  for(const spec of manifest.records){const f=await load(spec);for(const policy of lock.methods){const result=await track(f,policy);',"""  const donors={};for(const spec of manifest.records.filter(x=>x.role==='reference-source')){const f=await load(spec);donors[spec.group]=await track(f,'appearance-continuity-135');}
+  for(const spec of manifest.records.filter(x=>x.role==='evaluation')){const f=await load(spec);for(const policy of lock.methods){const result=await track(f,policy,policy.startsWith('partial-')?donors[spec.group].retained:null);""")
+s=s.replace('assert.equal(full.images.length,spec.frames);',"assert.equal(full.images.length,spec.frames);assert(full.referenceBundles137.some(b=>b.set.id===donors[spec.group].retained.id));assert(full.relatedDatasets.some(d=>d.dataset.id===donors[spec.group].dataset.id));")
+s=s.replace('assert.equal(record.runs.length,manifest.records.length*lock.methods.length);',"assert.equal(record.runs.length,manifest.records.filter(x=>x.role==='reference-source').length+manifest.records.filter(x=>x.role==='evaluation').length*lock.methods.length);")
+s=s.replace('All eligible fixed source windows compared with four methods and identical pixels.', 'Separate verified donor runs precede all fixed evaluation windows, compared with four methods and identical pixels. Real footage and generated occlusion/copy controls are reported separately.')
+s=s.replace("const target=record.runs.find(r=>r.policy==='partial-reference-142'),file=path.join(project,'world-observations/datasets',target.dataset.id,'12.image'),original=await fs.readFile(file),bad=Buffer.from(original);bad[20]^=1;await fs.writeFile(file,bad);", "const target=record.runs.find(r=>r.policy==='partial-reference-142');for(const data of [target.dataset,donors[target.group].dataset]){const file=path.join(project,'world-observations/datasets',data.id,'12.image'),original=await fs.readFile(file),bad=Buffer.from(original);bad[20]^=1;await fs.writeFile(file,bad);")
+s=s.replace("target.audit);record.checks.push", "target.audit);}record.checks.push")
+s=s.replace('Source modification refuses audit/export','Donor and evaluation source modification independently refuse audit/export')
+p.write_text(s,encoding='utf8')
+# Reuse the existing publication mechanics, revise report prose from actual142 evidence later.
+for name in ['audit-publication141.py','freeze141.py','release141.py','finish141.py','finalize-inventory141.py','visual141.cjs','guide-template.html','guide.js','document141.py','notes141.py','README-template.md','diagnostics141.py']:
+ t=(r/'docs/publication141'/name).read_text(encoding='utf8').replace('141','142').replace('d27846b206c73b8dc3326b398f746d0212a01fd9','3aa81866d6195303a45ea040ac24f731f35fbc04').replace('149-loss-recovery','150-partial-views').replace('recovery142','partial142').replace('recovery-guard-142','partial-reference-142').replace('recovery-monitor-142','partial-monitor-142')
+ if name=='freeze141.py':t=t.replace("prior['latest']==140","prior['latest']==141").replace('Verified recovery after tracking loss','Partial views from verified appearances')
+ if name=='document141.py':t=t.replace('docs/readmes/140/file-inventory.json','docs/readmes/141/file-inventory.json')
+ (r/'docs/publication142'/name.replace('141','142')).write_text(t,encoding='utf8')

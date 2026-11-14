@@ -1,3 +1,7 @@
+## Edition142 active — 2026-11-13
+
+Continue isolated J:/Codex-Work/fraynix-workspace-edition142 from3aa81866. CI141 runs in progress at start;140 release passed. Read docs/EDITION_142_CONTRACT.md. Explicit partial-reference/monitor/seed controls, verified137 appearance provenance, preserve139 baseline and legacy default. No agents or overlapping heavy jobs. Shared node junction read-only. Freeze before fresh sources; preserve every attempt. Current implementation not yet tested or frozen. Complete checks, actual app, documentation, push and fetch audit.
+
 ## Edition141 — published and fetched back
 
 2026-11-13. Isolated J:/Codex-Work/fraynix-workspace-edition141 fromd27846b2. CI checked FIRST:140 run43518090047 documentation passed, engine tests pending;139 hosted runs successful. No unobserved hosted success claimed. Method/scorer/harness/source-selection freeze05277fcb before fresh annotations or pixels. Actual tested source/build and locked bytes in docs/readmes/141/verification.json. Release 4a64c58e7f04a6db1a1a4c24590cf730705ee317; annotated readme-141. Main, edition141 and tag pushed atomically and fetched. Verified 1693 canonical sources, 49390 frozen hashes across141 editions and 162 original evidence entries. See docs/PUBLICATION_141.json.
