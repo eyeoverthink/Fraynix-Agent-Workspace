@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/151-reference-confirmation.md]] | [[README-143.md]]
+
 Current: [[docs/obsidian/150-partial-views.md]] | [[README-142.md]]
 
 Current: [[docs/obsidian/149-loss-recovery.md]] | [[README-141.md]]

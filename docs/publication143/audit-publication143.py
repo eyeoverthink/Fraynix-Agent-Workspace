@@ -13,6 +13,15 @@ try:
  lock=json.loads(text('docs/OBSERVATION_143_LOCK.json'))
  assert digest(blob('docs/OBSERVATION_143_LOCK.json'))==sources['algorithmLockSha256']
  for name,h in lock['sourceHashes'].items():assert digest(text(name).encode())==h,name
+ originalLock=json.loads(text('docs/publication143/lock143-original.json'))
+ assert set(originalLock['sourceHashes'])==set(lock['sourceHashes'])
+ changed=[n for n,h in originalLock['sourceHashes'].items() if lock['sourceHashes'][n]!=h]
+ assert changed==['workspace-desktop/test/confirmation143-integration.cjs'],changed
+ assert digest(text('docs/publication143/harness143-original.txt').encode())==originalLock['sourceHashes'][changed[0]]
+ amendment=json.loads(text('docs/publication143/donor-refusal143.json'))
+ assert amendment['amendedHarnessSha256']==lock['sourceHashes'][changed[0]]
+ sourceBefore=json.loads(subprocess.check_output(['git','show','6951c268:docs/publication143/source143.json']).decode('utf8'))
+ assert sourceBefore['records']==sources['records'] and sourceBefore['sourceReview']==sources['sourceReview']
  for source in sources['records']:assert digest(blob(source['labels']))==source['labelsSha256'],source['labels']
  annotations=json.loads(text('docs/publication143/annotation-integrity143.json'))
  for row in annotations:
@@ -38,5 +47,7 @@ try:
   assert archiveChecks[key]==(row['bytes'],row['sha256'],row['rawBytes'],row['rawSha256']),row['logicalPath']
  result={'passed':True,'verifiedAtUtc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'remote':'https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git','fetchedRef':ref,'remoteFetched':ref.startswith('refs/verify/'),'commit':actual,'rawLabelInputsVerified':len(sources['records']),'rawMethodLockVerified':True,'canonicalSourceFiles':len(inventory),'editions':len(manifest['editions']),'frozenHashes':frozen,'original143EvidenceFiles':len(original['files']),'distinctOriginalPayloads':len(archiveChecks),'method':'Every enumerated blob read from the specified Git tree; remoteFetched identifies a fresh verification ref. Source byte counts and canonical UTF-8 LF/binary hashes checked. All frozen edition hashes checked. Each unique immutable Git archive blob is decompressed once; every logical original entry is compared to its verified compressed/raw byte counts and SHA-256. No mutable-file timestamp or runtime-proof shortcut.'}
  result['rawOriginalAnnotationsVerified']=len(annotations)
+ result['originalFreezeAndTwoHarnessAmendmentsVerified']=True
+ result['productionScorerSourceLabelsUnchangedSincePreEvaluation']=True
  (r/'build/publication-audit143.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8');print(json.dumps(result))
 finally:p.stdin.close();p.wait()

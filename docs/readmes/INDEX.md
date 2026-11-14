@@ -1,3 +1,5 @@
+[Edition143 — independent appearance confirmation](../../README-143.md) | [Offline guide](143/index.html)
+
 [Edition142 — partial views from verified appearances](../../README-142.md) | [Offline guide](142/index.html)
 
 [Edition141 — recovery after loss](../../README-141.md) | [Offline guide](141/index.html)

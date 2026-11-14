@@ -36,6 +36,8 @@ This diagram shows the supplemental path after loss. The accepted baseline path 
 
 {{FINDING}}
 
+**Identity remains unresolved:** in the generated competing-copy case, both142 and143 accept the labelled copy once while the target is hidden. The new method improves confirmation continuity, but this failure prevents interpreting its repeated matches as identity proof. The optional method is not promoted.
+
 {{RESULTS}}
 
 Real footage and generated controls are separate. Missing measurements remain in the denominator. Low target overlap is an inaccurate box, not automatically an identity switch. A confirmed other-object match requires a separately labelled competitor. Uncertain labels cannot establish success.
@@ -60,7 +62,7 @@ The image-freshness check compares exact JPEG hashes with earlier source and lab
 
 Generated tests use new fixed textures, renderer-derived rectangles, two cover intervals and a competing copy. The copy remains visible during the second cover, explicitly testing whether appearance alone confuses another object for the absent target. They use the same donor audit, retention, durable tracking and outcome checks as footage. They establish controlled software behavior, not general camera reliability.
 
-Implementation, thresholds, source selection, scorer and app harness were frozen before new annotations/pixels. Labels were committed before evaluation. No tuning on fresh outcomes. A donor-box representation assertion was corrected after source review but before evaluation: exact canonical arithmetic replaces exact raw-corner comparison; no tracker, threshold, scorer or label changed. Original lock and amendment are retained. Bounded windows are not a complete benchmark. Severe occlusion, arbitrary pose change, off-image whole geometry, identity ambiguity and physical accuracy remain limitations.
+Implementation, thresholds, source selection, scorer and app harness were frozen before new annotations/pixels. Labels were committed before evaluation. No tuning on fresh outcomes. A donor-box representation assertion was corrected after source review but before evaluation: exact canonical arithmetic replaces exact raw-corner comparison; no tracker, threshold, scorer or label changed. The harness also records a zero-example donor refusal and leaves its four dependent trials unavailable, without substituting data or weakening admission. Original locks, refusals and amendments are retained. Bounded windows are not a complete benchmark. Severe occlusion, arbitrary pose change, off-image whole geometry, identity ambiguity and physical accuracy remain limitations.
 
 {{SOURCE_IMAGE}}
 
@@ -75,6 +77,8 @@ Focused checks reproduce the exposed reference-switching failure, verify positiv
 {{ATTEMPTS}}
 
 Hosted CI is separate from local validation and fetched publication. Historical receipts retain their original implementation identity.
+
+The retained trace shows zero supplemental searches on FaceOcc1: its withheld observations did not satisfy the actual underlying-flow-loss trigger. This camera case checks baseline preservation, not successful camera recovery. The generated return has16 unique-search frames and12 confirmed outputs despite8 adjacent best-reference switches; the copy case has3 unique-search frames and1 wrong confirmation. These are descriptive diagnostics, not new qualification rules.
 
 ## Processing costs
 

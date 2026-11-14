@@ -1,0 +1,1950 @@
+{
+  "modules": [
+    {
+      "id": "appearance",
+      "name": "Verified reference provenance",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ReferenceMemory137.java",
+      "note": "docs/obsidian/151-reference-confirmation.md"
+    },
+    {
+      "id": "guard",
+      "name": "Independent confirmation and monitor",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AppearanceConfirmation143.java",
+      "note": "docs/obsidian/151-reference-confirmation.md"
+    },
+    {
+      "id": "restore",
+      "name": "Fixed-region partial search",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ReferenceSearch143.java",
+      "note": "docs/obsidian/151-reference-confirmation.md"
+    },
+    {
+      "id": "audit",
+      "name": "Original-pixel replay and outcome audit",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ConfirmationAudit143.java",
+      "note": "docs/obsidian/151-reference-confirmation.md"
+    },
+    {
+      "id": "world",
+      "name": "Durable observed world",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java",
+      "note": "docs/obsidian/151-reference-confirmation.md"
+    },
+    {
+      "id": "panel",
+      "name": "Live drift evidence",
+      "source": "workspace-desktop/renderer/observation-panel.js",
+      "note": "docs/obsidian/151-reference-confirmation.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/143/faceocc1-25-outcome.png",
+      "title": "faceocc1 25 outcome"
+    },
+    {
+      "path": "docs/readmes/143/faceocc1-25-source.png",
+      "title": "faceocc1 25 source"
+    },
+    {
+      "path": "docs/readmes/143/faceocc1-25-drift.png",
+      "title": "faceocc1 25 drift"
+    },
+    {
+      "path": "docs/readmes/143/generated-partial-outcome.png",
+      "title": "generated partial outcome"
+    },
+    {
+      "path": "docs/readmes/143/generated-partial-source.png",
+      "title": "generated partial source"
+    },
+    {
+      "path": "docs/readmes/143/generated-partial-drift.png",
+      "title": "generated partial drift"
+    },
+    {
+      "path": "docs/readmes/143/generated-twin-outcome.png",
+      "title": "generated twin outcome"
+    },
+    {
+      "path": "docs/readmes/143/generated-twin-source.png",
+      "title": "generated twin source"
+    },
+    {
+      "path": "docs/readmes/143/generated-twin-drift.png",
+      "title": "generated twin drift"
+    },
+    {
+      "path": "docs/readmes/143/drift-layout-1100.png",
+      "title": "drift layout 1100"
+    },
+    {
+      "path": "docs/readmes/143/drift-layout-1600.png",
+      "title": "drift layout 1600"
+    },
+    {
+      "path": "docs/readmes/143/faceocc1-25-review-source.png",
+      "title": "Real OTB FaceOcc1: independently labelled completed source inspection. See the full results for recovery outcomes."
+    },
+    {
+      "path": "docs/readmes/143/faceocc1-25-review-drift.png",
+      "title": "Real OTB FaceOcc1: independently labelled completed source inspection. See the full results for recovery outcomes."
+    },
+    {
+      "path": "docs/readmes/143/generated-partial-review-source.png",
+      "title": "Generated partial-view control: first accepted supplemental measurement from verified alternate appearances. Not camera qualification."
+    },
+    {
+      "path": "docs/readmes/143/generated-partial-review-drift.png",
+      "title": "Generated partial-view control: first accepted supplemental measurement from verified alternate appearances. Not camera qualification."
+    },
+    {
+      "path": "docs/readmes/143/generated-twin-review-source.png",
+      "title": "Generated competing-copy control: inspect the second cover, with the independently labelled copy still visible. Not camera qualification."
+    },
+    {
+      "path": "docs/readmes/143/generated-twin-review-drift.png",
+      "title": "Generated competing-copy control: inspect the second cover, with the independently labelled copy still visible. Not camera qualification."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/143/verification.json"
+    },
+    {
+      "path": "docs/readmes/143/app-study.json"
+    },
+    {
+      "path": "docs/readmes/143/original-evidence.json"
+    },
+    {
+      "path": "docs/readmes/143/comparison.json"
+    }
+  ],
+  "comparison": {
+    "rows": [
+      {
+        "case": "faceocc1-25",
+        "domain": "real-camera",
+        "policy": "foreground-guard-139",
+        "summary": {
+          "visible": 92,
+          "correct": 77,
+          "hidden": 0,
+          "reacquired": 1,
+          "confirmedDistractorMatches": 0,
+          "available": 77,
+          "correctReacquired": 1,
+          "uncertain": 3,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.6929520705473707,
+          "missing": 15,
+          "overlapFailures": 0
+        },
+        "references143": null,
+        "trackingMs": 28212.1241,
+        "auditMs": 11589.943
+      },
+      {
+        "case": "faceocc1-25",
+        "domain": "real-camera",
+        "policy": "partial-reference-142",
+        "summary": {
+          "visible": 92,
+          "correct": 77,
+          "hidden": 0,
+          "reacquired": 1,
+          "confirmedDistractorMatches": 0,
+          "available": 77,
+          "correctReacquired": 1,
+          "uncertain": 3,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.6929520705473707,
+          "missing": 15,
+          "overlapFailures": 0
+        },
+        "references143": {
+          "schema": "partial-reference-audit-142-v1",
+          "baselineAcceptedPreserved": 80,
+          "filtered": {
+            "correct": 0,
+            "incorrect": 0,
+            "accepted": 0,
+            "unknown": 0
+          },
+          "scores": [],
+          "additional": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "automaticAdmissions": 0,
+          "replayedFrames": 95
+        },
+        "trackingMs": 47517.8372,
+        "auditMs": 12218.236799999999
+      },
+      {
+        "case": "faceocc1-25",
+        "domain": "real-camera",
+        "policy": "reference-monitor-143",
+        "summary": {
+          "visible": 92,
+          "correct": 77,
+          "hidden": 0,
+          "reacquired": 1,
+          "confirmedDistractorMatches": 0,
+          "available": 77,
+          "correctReacquired": 1,
+          "uncertain": 3,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.6929520705473707,
+          "missing": 15,
+          "overlapFailures": 0
+        },
+        "references143": {
+          "schema": "reference-confirmation-audit-143-v1",
+          "baselineAcceptedPreserved": 80,
+          "filtered": {
+            "correct": 0,
+            "incorrect": 0,
+            "accepted": 0,
+            "unknown": 0
+          },
+          "scores": [],
+          "additional": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "automaticAdmissions": 0,
+          "replayedFrames": 95
+        },
+        "trackingMs": 73544.64009999999,
+        "auditMs": 12811.223899999983
+      },
+      {
+        "case": "faceocc1-25",
+        "domain": "real-camera",
+        "policy": "reference-seed-143",
+        "summary": {
+          "visible": 92,
+          "correct": 77,
+          "hidden": 0,
+          "reacquired": 1,
+          "confirmedDistractorMatches": 0,
+          "available": 77,
+          "correctReacquired": 1,
+          "uncertain": 3,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.6929520705473707,
+          "missing": 15,
+          "overlapFailures": 0
+        },
+        "references143": {
+          "schema": "reference-confirmation-audit-143-v1",
+          "baselineAcceptedPreserved": 80,
+          "filtered": {
+            "correct": 0,
+            "incorrect": 0,
+            "accepted": 0,
+            "unknown": 0
+          },
+          "scores": [],
+          "additional": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "automaticAdmissions": 0,
+          "replayedFrames": 95
+        },
+        "trackingMs": 94091.0859,
+        "auditMs": 12527.526700000046
+      },
+      {
+        "case": "faceocc1-25",
+        "domain": "real-camera",
+        "policy": "reference-confirmation-143",
+        "summary": {
+          "visible": 92,
+          "correct": 77,
+          "hidden": 0,
+          "reacquired": 1,
+          "confirmedDistractorMatches": 0,
+          "available": 77,
+          "correctReacquired": 1,
+          "uncertain": 3,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.6929520705473707,
+          "missing": 15,
+          "overlapFailures": 0
+        },
+        "references143": {
+          "schema": "reference-confirmation-audit-143-v1",
+          "baselineAcceptedPreserved": 80,
+          "filtered": {
+            "correct": 0,
+            "incorrect": 0,
+            "accepted": 0,
+            "unknown": 0
+          },
+          "scores": [],
+          "additional": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "automaticAdmissions": 0,
+          "replayedFrames": 95
+        },
+        "trackingMs": 119472.50420000002,
+        "auditMs": 13011.6397
+      },
+      {
+        "case": "coupon-25",
+        "domain": "real-camera",
+        "policy": "foreground-guard-139",
+        "summary": {
+          "visible": 93,
+          "correct": 89,
+          "hidden": 0,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 89,
+          "correctReacquired": 0,
+          "uncertain": 2,
+          "labels": 95,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.9067260619178633,
+          "missing": 4,
+          "overlapFailures": 0
+        },
+        "references143": null,
+        "trackingMs": 125062.72589999996,
+        "auditMs": 10070.608299999963
+      },
+      {
+        "case": "generated-partial",
+        "domain": "generated-control",
+        "policy": "foreground-guard-139",
+        "summary": {
+          "visible": 16,
+          "correct": 0,
+          "hidden": 7,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 0,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 23,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0,
+          "missing": 16,
+          "overlapFailures": 0
+        },
+        "references143": null,
+        "trackingMs": 34235.38530000008,
+        "auditMs": 6479.070399999968
+      },
+      {
+        "case": "generated-partial",
+        "domain": "generated-control",
+        "policy": "partial-reference-142",
+        "summary": {
+          "visible": 16,
+          "correct": 1,
+          "hidden": 7,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 1,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 23,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.06020670541017292,
+          "missing": 15,
+          "overlapFailures": 0
+        },
+        "references143": {
+          "schema": "partial-reference-audit-142-v1",
+          "baselineAcceptedPreserved": 0,
+          "filtered": {
+            "correct": 1,
+            "incorrect": 0,
+            "accepted": 1,
+            "unknown": 0
+          },
+          "scores": [
+            {
+              "targetOverlap": 0.9633072865627668,
+              "visibility": "partial",
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 9
+            },
+            {
+              "targetOverlap": 0.9702558916872385,
+              "visibility": "visible",
+              "filterAccepted": false,
+              "outcome": "correct",
+              "ordinal": 21
+            }
+          ],
+          "additional": {
+            "correct": 2,
+            "incorrect": 0,
+            "returned": 2,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "automaticAdmissions": 0,
+          "replayedFrames": 23
+        },
+        "trackingMs": 44579.91379999998,
+        "auditMs": 23784.80489999999
+      },
+      {
+        "case": "generated-partial",
+        "domain": "generated-control",
+        "policy": "reference-monitor-143",
+        "summary": {
+          "visible": 16,
+          "correct": 0,
+          "hidden": 7,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 0,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 23,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0,
+          "missing": 16,
+          "overlapFailures": 0
+        },
+        "references143": {
+          "schema": "reference-confirmation-audit-143-v1",
+          "baselineAcceptedPreserved": 0,
+          "filtered": {
+            "correct": 0,
+            "incorrect": 0,
+            "accepted": 0,
+            "unknown": 0
+          },
+          "scores": [],
+          "additional": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "automaticAdmissions": 0,
+          "replayedFrames": 23
+        },
+        "trackingMs": 50610.950300000026,
+        "auditMs": 34187.09159999993
+      },
+      {
+        "case": "generated-partial",
+        "domain": "generated-control",
+        "policy": "reference-seed-143",
+        "summary": {
+          "visible": 16,
+          "correct": 0,
+          "hidden": 7,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 0,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 23,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0,
+          "missing": 16,
+          "overlapFailures": 0
+        },
+        "references143": {
+          "schema": "reference-confirmation-audit-143-v1",
+          "baselineAcceptedPreserved": 0,
+          "filtered": {
+            "correct": 0,
+            "incorrect": 0,
+            "accepted": 0,
+            "unknown": 0
+          },
+          "scores": [],
+          "additional": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "automaticAdmissions": 0,
+          "replayedFrames": 23
+        },
+        "trackingMs": 41616.92850000004,
+        "auditMs": 13846.456599999918
+      },
+      {
+        "case": "generated-partial",
+        "domain": "generated-control",
+        "policy": "reference-confirmation-143",
+        "summary": {
+          "visible": 16,
+          "correct": 12,
+          "hidden": 7,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 12,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 23,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.7337014990117953,
+          "missing": 4,
+          "overlapFailures": 0
+        },
+        "references143": {
+          "schema": "reference-confirmation-audit-143-v1",
+          "baselineAcceptedPreserved": 0,
+          "filtered": {
+            "correct": 12,
+            "incorrect": 0,
+            "accepted": 12,
+            "unknown": 0
+          },
+          "scores": [
+            {
+              "targetOverlap": 0.9848665412724215,
+              "visibility": "partial",
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 7
+            },
+            {
+              "targetOverlap": 0.9794324595994773,
+              "visibility": "partial",
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 8
+            },
+            {
+              "targetOverlap": 0.9633072865627668,
+              "visibility": "partial",
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 9
+            },
+            {
+              "targetOverlap": 0.9821457760393173,
+              "visibility": "partial",
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 10
+            },
+            {
+              "targetOverlap": 0.9848665412724215,
+              "visibility": "partial",
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 11
+            },
+            {
+              "targetOverlap": 0.9794324595994773,
+              "visibility": "partial",
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 12
+            },
+            {
+              "targetOverlap": 0.9892987412548132,
+              "visibility": "partial",
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 18
+            },
+            {
+              "targetOverlap": 0.9648818587066069,
+              "visibility": "partial",
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 19
+            },
+            {
+              "targetOverlap": 0.9865558282327648,
+              "visibility": "visible",
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 20
+            },
+            {
+              "targetOverlap": 0.9702558916872385,
+              "visibility": "visible",
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 21
+            },
+            {
+              "targetOverlap": 0.9892987412548132,
+              "visibility": "visible",
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 22
+            },
+            {
+              "targetOverlap": 0.9648818587066069,
+              "visibility": "visible",
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 23
+            }
+          ],
+          "additional": {
+            "correct": 12,
+            "incorrect": 0,
+            "returned": 12,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "automaticAdmissions": 0,
+          "replayedFrames": 23
+        },
+        "trackingMs": 53634.723499999964,
+        "auditMs": 34015.61800000002
+      },
+      {
+        "case": "generated-twin",
+        "domain": "generated-control",
+        "policy": "foreground-guard-139",
+        "summary": {
+          "visible": 16,
+          "correct": 0,
+          "hidden": 7,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 0,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 23,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0,
+          "missing": 16,
+          "overlapFailures": 0
+        },
+        "references143": null,
+        "trackingMs": 38388.86050000007,
+        "auditMs": 6646.867099999916
+      },
+      {
+        "case": "generated-twin",
+        "domain": "generated-control",
+        "policy": "partial-reference-142",
+        "summary": {
+          "visible": 16,
+          "correct": 0,
+          "hidden": 7,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 1,
+          "available": 0,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 23,
+          "unsupported": 1,
+          "meanOverlapAllVisible": 0,
+          "missing": 16,
+          "overlapFailures": 0
+        },
+        "references143": {
+          "schema": "partial-reference-audit-142-v1",
+          "baselineAcceptedPreserved": 0,
+          "filtered": {
+            "correct": 0,
+            "incorrect": 1,
+            "accepted": 1,
+            "unknown": 0
+          },
+          "scores": [
+            {
+              "targetOverlap": 0,
+              "visibility": "occluded",
+              "filterAccepted": true,
+              "outcome": "incorrect",
+              "ordinal": 15
+            }
+          ],
+          "additional": {
+            "correct": 0,
+            "incorrect": 1,
+            "returned": 1,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "automaticAdmissions": 0,
+          "replayedFrames": 23
+        },
+        "trackingMs": 49340.47540000011,
+        "auditMs": 24500.487800000003
+      },
+      {
+        "case": "generated-twin",
+        "domain": "generated-control",
+        "policy": "reference-monitor-143",
+        "summary": {
+          "visible": 16,
+          "correct": 0,
+          "hidden": 7,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 0,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 23,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0,
+          "missing": 16,
+          "overlapFailures": 0
+        },
+        "references143": {
+          "schema": "reference-confirmation-audit-143-v1",
+          "baselineAcceptedPreserved": 0,
+          "filtered": {
+            "correct": 0,
+            "incorrect": 0,
+            "accepted": 0,
+            "unknown": 0
+          },
+          "scores": [],
+          "additional": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "automaticAdmissions": 0,
+          "replayedFrames": 23
+        },
+        "trackingMs": 55990.109200000064,
+        "auditMs": 34268.60850000009
+      },
+      {
+        "case": "generated-twin",
+        "domain": "generated-control",
+        "policy": "reference-seed-143",
+        "summary": {
+          "visible": 16,
+          "correct": 0,
+          "hidden": 7,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 0,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 23,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0,
+          "missing": 16,
+          "overlapFailures": 0
+        },
+        "references143": {
+          "schema": "reference-confirmation-audit-143-v1",
+          "baselineAcceptedPreserved": 0,
+          "filtered": {
+            "correct": 0,
+            "incorrect": 0,
+            "accepted": 0,
+            "unknown": 0
+          },
+          "scores": [],
+          "additional": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "automaticAdmissions": 0,
+          "replayedFrames": 23
+        },
+        "trackingMs": 46791.319600000046,
+        "auditMs": 14298.170500000007
+      },
+      {
+        "case": "generated-twin",
+        "domain": "generated-control",
+        "policy": "reference-confirmation-143",
+        "summary": {
+          "visible": 16,
+          "correct": 0,
+          "hidden": 7,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 1,
+          "available": 0,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 23,
+          "unsupported": 1,
+          "meanOverlapAllVisible": 0,
+          "missing": 16,
+          "overlapFailures": 0
+        },
+        "references143": {
+          "schema": "reference-confirmation-audit-143-v1",
+          "baselineAcceptedPreserved": 0,
+          "filtered": {
+            "correct": 0,
+            "incorrect": 1,
+            "accepted": 1,
+            "unknown": 0
+          },
+          "scores": [
+            {
+              "targetOverlap": 0,
+              "visibility": "occluded",
+              "filterAccepted": true,
+              "outcome": "incorrect",
+              "ordinal": 15
+            }
+          ],
+          "additional": {
+            "correct": 0,
+            "incorrect": 1,
+            "returned": 1,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "automaticAdmissions": 0,
+          "replayedFrames": 23
+        },
+        "trackingMs": 58078.31600000011,
+        "auditMs": 34266.40090000001
+      }
+    ],
+    "refusals": [
+      {
+        "caseName": "coupon-25",
+        "domain": "real-camera",
+        "policy": "partial-reference-142",
+        "reason": "No independently supported fully visible examples in this audit",
+        "donorRun": "43a65b27-a999-4b4a-a23d-13a9470ea5f7",
+        "donorAudit": "b4c5a9f0f872cc350fd033c161447d4b8852048379b53450be069b6185294168",
+        "status": "unavailable-no-verified-references"
+      },
+      {
+        "caseName": "coupon-25",
+        "domain": "real-camera",
+        "policy": "reference-monitor-143",
+        "reason": "No independently supported fully visible examples in this audit",
+        "donorRun": "43a65b27-a999-4b4a-a23d-13a9470ea5f7",
+        "donorAudit": "b4c5a9f0f872cc350fd033c161447d4b8852048379b53450be069b6185294168",
+        "status": "unavailable-no-verified-references"
+      },
+      {
+        "caseName": "coupon-25",
+        "domain": "real-camera",
+        "policy": "reference-seed-143",
+        "reason": "No independently supported fully visible examples in this audit",
+        "donorRun": "43a65b27-a999-4b4a-a23d-13a9470ea5f7",
+        "donorAudit": "b4c5a9f0f872cc350fd033c161447d4b8852048379b53450be069b6185294168",
+        "status": "unavailable-no-verified-references"
+      },
+      {
+        "caseName": "coupon-25",
+        "domain": "real-camera",
+        "policy": "reference-confirmation-143",
+        "reason": "No independently supported fully visible examples in this audit",
+        "donorRun": "43a65b27-a999-4b4a-a23d-13a9470ea5f7",
+        "donorAudit": "b4c5a9f0f872cc350fd033c161447d4b8852048379b53450be069b6185294168",
+        "status": "unavailable-no-verified-references"
+      }
+    ],
+    "pairedCases": [
+      "faceocc1-25",
+      "generated-partial",
+      "generated-twin"
+    ],
+    "summary": {
+      "foreground-guard-139": {
+        "tracking": {
+          "labels": 236,
+          "visible": 217,
+          "correct": 166,
+          "missing": 51,
+          "overlapFailures": 0,
+          "hidden": 14,
+          "unsupported": 0,
+          "uncertain": 5,
+          "confirmedDistractorMatches": 0
+        },
+        "additional": {
+          "returned": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "unknown": 0
+        },
+        "filtered": {
+          "accepted": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "unknown": 0
+        }
+      },
+      "partial-reference-142": {
+        "tracking": {
+          "labels": 141,
+          "visible": 124,
+          "correct": 78,
+          "missing": 46,
+          "overlapFailures": 0,
+          "hidden": 14,
+          "unsupported": 1,
+          "uncertain": 3,
+          "confirmedDistractorMatches": 1
+        },
+        "additional": {
+          "returned": 3,
+          "correct": 2,
+          "incorrect": 1,
+          "unknown": 0
+        },
+        "filtered": {
+          "accepted": 2,
+          "correct": 1,
+          "incorrect": 1,
+          "unknown": 0
+        }
+      },
+      "reference-monitor-143": {
+        "tracking": {
+          "labels": 141,
+          "visible": 124,
+          "correct": 77,
+          "missing": 47,
+          "overlapFailures": 0,
+          "hidden": 14,
+          "unsupported": 0,
+          "uncertain": 3,
+          "confirmedDistractorMatches": 0
+        },
+        "additional": {
+          "returned": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "unknown": 0
+        },
+        "filtered": {
+          "accepted": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "unknown": 0
+        }
+      },
+      "reference-seed-143": {
+        "tracking": {
+          "labels": 141,
+          "visible": 124,
+          "correct": 77,
+          "missing": 47,
+          "overlapFailures": 0,
+          "hidden": 14,
+          "unsupported": 0,
+          "uncertain": 3,
+          "confirmedDistractorMatches": 0
+        },
+        "additional": {
+          "returned": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "unknown": 0
+        },
+        "filtered": {
+          "accepted": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "unknown": 0
+        }
+      },
+      "reference-confirmation-143": {
+        "tracking": {
+          "labels": 141,
+          "visible": 124,
+          "correct": 89,
+          "missing": 35,
+          "overlapFailures": 0,
+          "hidden": 14,
+          "unsupported": 1,
+          "uncertain": 3,
+          "confirmedDistractorMatches": 1
+        },
+        "additional": {
+          "returned": 13,
+          "correct": 12,
+          "incorrect": 1,
+          "unknown": 0
+        },
+        "filtered": {
+          "accepted": 13,
+          "correct": 12,
+          "incorrect": 1,
+          "unknown": 0
+        }
+      }
+    },
+    "measuredCohortBenefit": false,
+    "diagnostics": {
+      "scope": "Descriptive retained-trace diagnostics after completed evaluation. Similarity is not calibrated confidence. Position counts and five-region comparisons against each retained appearance exclude repeated work from resume, verification and replay. No fresh tuning or changed qualification rules.",
+      "rows": [
+        {
+          "case": "faceocc1-25",
+          "attemptedSearches": 0,
+          "qualifiedUniqueSearches": 0,
+          "confirmedFrames": 0,
+          "maximumConfirmations": 0,
+          "adjacentUniqueReferenceChanges": 0,
+          "maximumRecordedSimilarity": 0,
+          "traceCandidateEvaluations": 0,
+          "appearanceEvaluations": 0,
+          "referenceCountIncludingSeed": 7,
+          "descriptorRegionComparisons": 0
+        },
+        {
+          "case": "generated-partial",
+          "attemptedSearches": 23,
+          "qualifiedUniqueSearches": 16,
+          "confirmedFrames": 12,
+          "maximumConfirmations": 3,
+          "adjacentUniqueReferenceChanges": 8,
+          "maximumRecordedSimilarity": 0.9968241895403785,
+          "traceCandidateEvaluations": 5285281,
+          "appearanceEvaluations": 5569630,
+          "referenceCountIncludingSeed": 4,
+          "descriptorRegionComparisons": 27848150
+        },
+        {
+          "case": "generated-twin",
+          "attemptedSearches": 23,
+          "qualifiedUniqueSearches": 3,
+          "confirmedFrames": 1,
+          "maximumConfirmations": 3,
+          "adjacentUniqueReferenceChanges": 0,
+          "maximumRecordedSimilarity": 0.9968241895403785,
+          "traceCandidateEvaluations": 5362456,
+          "appearanceEvaluations": 5646805,
+          "referenceCountIncludingSeed": 4,
+          "descriptorRegionComparisons": 28234025
+        }
+      ]
+    },
+    "lock": {
+      "edition": 143,
+      "lockedAtUtc": "2026-11-14T04:23:00.920745+00:00",
+      "parent": "fe1e5c3fbe0a4512a00d5488efe6a73f42191f06",
+      "methods": [
+        "foreground-guard-139",
+        "partial-reference-142",
+        "reference-monitor-143",
+        "reference-seed-143",
+        "reference-confirmation-143"
+      ],
+      "sourceHashes": {
+        "docs/EDITION_138_CONTRACT.md": "254f45748d8425bc2a184ca6960e74ce1dc5c784a507d429b69ef4935b08719d",
+        "docs/EDITION_139_CONTRACT.md": "87307f1d7d9bb74421a5fb82aea4b998a598ad57f45c6d591c08e58ee17f7538",
+        "docs/EDITION_140_CONTRACT.md": "f52c75f86326aa13170aa6112089b6d734bb57364a60fefd41ec5f2ff119eea2",
+        "docs/EDITION_140_SOURCE_NOTE.md": "544f210cc9d0ff75a2f665da22abf59e7e690150edcb8b35769688e78192e0fe",
+        "docs/EDITION_141_CONTRACT.md": "47846f94fccdc79c9fb3daa890aa8c39345ab2351a1de4d60931b4e42ec7ab5a",
+        "docs/EDITION_142_CONTRACT.md": "586025393f5de3268108f64aa81d0410b7980b651c37ec29e0382e7b0a415695",
+        "docs/EDITION_143_CONTRACT.md": "a449be97f1b18cc3fa732189263842f865c3a0ce5eeced1d9b1665659b0d0104",
+        "docs/publication137/source137.json": "aadb25c59c59c5b276e3e75849eda3d9d20b4a9fd665131900e8771c69355136",
+        "docs/publication141/prepare141.py": "daeef6081d944ba4a341f10c5d12c0d9b758285d4ce50a0cfbd09fa53fad2bf3",
+        "docs/publication141/select141.py": "a056ed3ca3545b392916194de9b6f9d3564b4cf735fc9e753e107673b0c25243",
+        "docs/publication142/download142.py": "fb183cd6614b4bdb10282bc6ff65dca39e2e1b19f98999f8c950828cc1568862",
+        "docs/publication142/prepare142.py": "e6056017ab75b7dc5474fb82ecbe1c993e574c3e099c31499dd63efec951202e",
+        "docs/publication143/check-images143.py": "1dfd2009c5dbe8a8bc97d5e5dcf897690e38ade447443f4fdf536564b8955693",
+        "docs/publication143/download143.py": "89e637d871a44b6cd9e3d9c43b3bd04952f5f0845830c0c7f17adc20c42a0a83",
+        "docs/publication143/prepare143.py": "87766f14c9e1488a29d8c9826ab032b2ecc42986bb197d41e3e6cf7ee81adaf2",
+        "docs/publication143/review143.py": "da2d7fe87a6f5f33719f4ddd05da8e6372c47255eb12b7e0460e4cc317d200ec",
+        "workspace-desktop/renderer/association134-panel.js": "083c8f558e132156e076799c56b985ac6f90ff54ca2c5a9d1a9d695c9982d586",
+        "workspace-desktop/renderer/observation-panel.js": "8200063ee15e4b19371a69b08d1ea6e2260c9338a17c53fd270259ed9bfcbbb5",
+        "workspace-desktop/test/confirmation143-integration.cjs": "902d9447b9011e6ff1b0dc8ff706a719a1da8709fa4a3ae81fa84c3521f4c9c4",
+        "workspace-desktop/test/corroborated140-integration.cjs": "37744399d3739387d95e391144fa01194f8a062b17f85c5ff4113e6d5a45c40b",
+        "workspace-desktop/test/partial142-integration.cjs": "8b6c9f94758aee270117a4ebbbf561c64bd06aa8dff33c919a2d5ad0dcb62b11",
+        "workspace-desktop/test/recovery141-integration.cjs": "0ea86d00b82f2f6be4c8584f28c1c404e299390e640fbb4557d4dd601fd91493",
+        "workspace-engine/src/main/java/fraymus/workspace/AppearanceAudit135.java": "9b645127417cfd6d48ab634ad8ea86fbe8ec1c51733a24929c0bad477d8b6b2c",
+        "workspace-engine/src/main/java/fraymus/workspace/AppearanceConfirmation143.java": "9025800fab14ec2fa49b546ef800a612cd2ebdc3a007b02b88288874a3869f44",
+        "workspace-engine/src/main/java/fraymus/workspace/AppearanceEvidence138.java": "ebd7f297e37e03d998bc0991f0b24ab1a7cd37a44471b8adf0de511093de3e11",
+        "workspace-engine/src/main/java/fraymus/workspace/AppearanceFlow135.java": "74c5798420dbf9627ce2e40b864e274bb1d28ed0900a06c3bf6442f432789f24",
+        "workspace-engine/src/main/java/fraymus/workspace/AssociationAudit134.java": "72868ea05d321e3c719c327a2924395d34b383ebaace8df67a44a3b45681ecd9",
+        "workspace-engine/src/main/java/fraymus/workspace/ConfirmationAudit143.java": "c29b5517962310efbe0e2420af8993708a6f35d1295812c8653c7bba935afa7c",
+        "workspace-engine/src/main/java/fraymus/workspace/CorroboratedAudit140.java": "e97ae0670e8591aa117a4e729949a1682029a49621b18af45a67f565156052a2",
+        "workspace-engine/src/main/java/fraymus/workspace/CorroboratedGuard140.java": "a6501d1f48f1377b1e5bb5cdd733439fbeef84486e1fe76e2803c85c91cbd366",
+        "workspace-engine/src/main/java/fraymus/workspace/DriftAudit138.java": "b455c545624901c9423775365d9a99497582715188abc1cadf593646a23bed4d",
+        "workspace-engine/src/main/java/fraymus/workspace/DriftGuard138.java": "740d78b062d164c831f5668f4f5baa82aafb99933c860b143f06b38cdbf754c1",
+        "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java": "5c4f2626d341ced71aee8b13cfc07130f4b77bfb26e2ff9ba889db13b9c9dd31",
+        "workspace-engine/src/main/java/fraymus/workspace/ForegroundAudit139.java": "9a82cedefff5011ae18d06121778de57723efec042b1099a43b1af6275a097de",
+        "workspace-engine/src/main/java/fraymus/workspace/ForegroundGuard139.java": "06f3a001a69bad4dc468ac03c1e8ae650a46c1aed8ad7a95c77c59005118945d",
+        "workspace-engine/src/main/java/fraymus/workspace/LossRecovery141.java": "4618d361e5f4e186553e1b4aefc8c90b7bc0ebb28fa647cfb04b8544c0d35f71",
+        "workspace-engine/src/main/java/fraymus/workspace/LossRecoveryAudit141.java": "50e167427acdf6d3e669dc8695c8ac58bf9db7642905f6de5e56cc63839e7e5a",
+        "workspace-engine/src/main/java/fraymus/workspace/ObservationFilter.java": "a0dc7560be00bca29dd7f72995d9cbe607b9e26f14be70286360dbf2d8764e21",
+        "workspace-engine/src/main/java/fraymus/workspace/ObservationMethods129.java": "873d078df80fa750aed5d22647349c2b416fa9d40e179cd113440a3b69c3dd87",
+        "workspace-engine/src/main/java/fraymus/workspace/ParsedJson137.java": "d5b859e5185fba555502accf30c6b1d299a5e6d2bb0ec3ddaddd48e8597f559a",
+        "workspace-engine/src/main/java/fraymus/workspace/PartialAudit142.java": "1b985b3ce74fa6598c873b5a4b167f6713accec23545663354a475586450de55",
+        "workspace-engine/src/main/java/fraymus/workspace/PartialRecovery142.java": "90da9910e0464e696e369a078a1a02094656af1994e726c14d37d5067043c159",
+        "workspace-engine/src/main/java/fraymus/workspace/PartialSearch142.java": "6461339790860b3d2fed5353a5d7fd838ca5cd8be2cb5e4624ff7b8477a6a34a",
+        "workspace-engine/src/main/java/fraymus/workspace/PixelTracker.java": "32d26bafaebb26a58a09efc6f71a0089c755cccd25cec47a87be8b67005c985b",
+        "workspace-engine/src/main/java/fraymus/workspace/RecoverySearch141.java": "c947d2ead889de83eba5bafefc0ec47ae0fd8eb42bf423d284769046b5f2f903",
+        "workspace-engine/src/main/java/fraymus/workspace/ReferenceAudit137.java": "464500bf43212c7019333b668744216e9f99efb7ef65c4f901fcfff579ad7325",
+        "workspace-engine/src/main/java/fraymus/workspace/ReferenceMemory137.java": "ac0f76aca7483dbc74ed40ff092d07c97564f1dc6a828b7e3ccb7ae2dfc57075",
+        "workspace-engine/src/main/java/fraymus/workspace/ReferenceSearch143.java": "e6f3f5dcba41ba305fd767ba693ecd8b6daa05deb43598a20c9399ded383a7ff",
+        "workspace-engine/src/main/java/fraymus/workspace/RestorationGate140.java": "1531fd5326a5f78592f5475b0d47408244a56aa99f46343e6c7898073a300741",
+        "workspace-engine/src/main/java/fraymus/workspace/SpatialEvidence139.java": "66908d3c7d6d2f25654249b43701f2c702ea1a918707eabb92f7a4a0c569096b",
+        "workspace-engine/src/main/java/fraymus/workspace/VerifiedAppearances135.java": "da439f16d5d4e607e6dd1fa91d3b491a313122a19c8ef2383c6ee9beb9888fab",
+        "workspace-engine/src/main/java/fraymus/workspace/VerifiedMemoryFlow137.java": "7718e044e2a076893a3d97a7171e4cb68b9557f1386410423dc1aadfca716b2c",
+        "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java": "997d526096adacdc362bd20f84e99df62f12b145918f1bce737953fd8ab5ef62",
+        "workspace-engine/src/test/java/fraymus/workspace/AppearanceConfirmation143Test.java": "44eace66ab41b1e7007eef4ce984083df8677822c79d15bd7d359fb2c9cf0c5d",
+        "workspace-engine/src/test/java/fraymus/workspace/ConfirmationFixtures143.java": "c9fe74f0cfebe34adee60e61dde4f7938e220dc0f2ef75e295244b42d7c3b3cb",
+        "workspace-engine/src/test/java/fraymus/workspace/CorroboratedGuard140Test.java": "f2e4e61a9916e2d9a1a9a12140a231cfa8583d3551e667b0ac393afef4c8dee3",
+        "workspace-engine/src/test/java/fraymus/workspace/DriftGuard138Test.java": "6e2576cb25916d6275fcdc802a20ccd93fe707f3c315441963013a415f2b60d4",
+        "workspace-engine/src/test/java/fraymus/workspace/ForegroundGuard139Test.java": "cf5e961a8f9eddce22f02a4f6c7d5d367027fe4d18d426b1f4c465de05aab9ea",
+        "workspace-engine/src/test/java/fraymus/workspace/LossRecovery141Test.java": "15e3c8590740cb9844205533fe29263462bad5940bb1037a027da22b25e4940d",
+        "workspace-engine/src/test/java/fraymus/workspace/PartialFixtures142.java": "0d60accc5e6c48434ccc4fec60bf46224590c493521c06b0b537c6c6f90c55fd",
+        "workspace-engine/src/test/java/fraymus/workspace/PartialRecovery142Test.java": "31bcb44ee81fe94883e0c67c34e29bd6dbdfa5274d3307f2739bc32d7d47e162",
+        "workspace-engine/src/test/java/fraymus/workspace/RestorationImageStudy140.java": "9804d6a1695abc48c028b9bbffe4e514f397fdd459a279b869dc8984c02926e2"
+      },
+      "scope": "Production, scorer, controls, UI, source selection and actual-app harness frozen before fresh pixels/annotations. Donors are independently audited full views; evaluation cannot train references. Default and source/outcome checks retained.",
+      "harnessAmendment": {
+        "record": "docs/publication143/harness-amendment143.json",
+        "reason": "Exact donor-box equality uses existing PixelTracker.Box.from/json canonical arithmetic; no tolerance or scoring change.",
+        "eligibilityRecord": "docs/publication143/donor-refusal143.json"
+      }
+    },
+    "sources": {
+      "createdAtUtc": "2026-11-14T04:43:42.743227+00:00",
+      "algorithmLockSha256": "5c4c51413ade05879020652cb03ef39fd4030792936429b47a61ee07b4454499",
+      "records": [
+        {
+          "case": "faceocc1-1",
+          "group": "faceocc1",
+          "name": "FaceOcc1",
+          "target": 1,
+          "role": "reference-source",
+          "domain": "real-camera",
+          "start": 1,
+          "end": 24,
+          "stride": 1,
+          "frames": 24,
+          "width": 352,
+          "height": 288,
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "pack": "build/otb143/faceocc1-1.fobs.json",
+          "packSha256": "c6115f18a0108b35f926f6c391d62b9ca83e7aefbaa33faca54c36e2583e592f",
+          "labels": "docs/publication143/faceocc1-1-labels.json",
+          "labelsSha256": "450be3c70f6639632d657716a8fa2f073080ecb20d2332457ec18a3f1b14eb58",
+          "visibilityCounts": {
+            "visible": 22,
+            "partial": 0,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 1
+          },
+          "distractorLabelledSamples": 0,
+          "originalGroundTruth": "docs/publication143/FaceOcc1-groundtruth.txt",
+          "originalGroundTruthSha256": "0aacc27b21f4fe52c3e86d06b736d9ded8bdee13ea347464a97bb06347c1b0c1"
+        },
+        {
+          "case": "faceocc1-25",
+          "group": "faceocc1",
+          "name": "FaceOcc1",
+          "target": 1,
+          "role": "evaluation",
+          "domain": "real-camera",
+          "start": 25,
+          "end": 120,
+          "stride": 1,
+          "frames": 96,
+          "width": 352,
+          "height": 288,
+          "sourceFrames": [
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120
+          ],
+          "pack": "build/otb143/faceocc1-25.fobs.json",
+          "packSha256": "6b3c9f66d3a25f7670ed289b24e5fe88942a45057149b81ed539d5f9cae579f9",
+          "labels": "docs/publication143/faceocc1-25-labels.json",
+          "labelsSha256": "a9d194ac08e87d61cd72608014af6f5bda7cf42942e296724be3c2a7c36c2ad0",
+          "visibilityCounts": {
+            "visible": 12,
+            "partial": 80,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 3
+          },
+          "distractorLabelledSamples": 0,
+          "originalGroundTruth": "docs/publication143/FaceOcc1-groundtruth.txt",
+          "originalGroundTruthSha256": "0aacc27b21f4fe52c3e86d06b736d9ded8bdee13ea347464a97bb06347c1b0c1"
+        },
+        {
+          "case": "coupon-1",
+          "group": "coupon",
+          "name": "Coupon",
+          "target": 1,
+          "role": "reference-source",
+          "domain": "real-camera",
+          "start": 1,
+          "end": 24,
+          "stride": 1,
+          "frames": 24,
+          "width": 320,
+          "height": 240,
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "pack": "build/otb143/coupon-1.fobs.json",
+          "packSha256": "e88d4c6081d9e97203e626d236c7a9dd7357095de5c606b11181a24c3a566954",
+          "labels": "docs/publication143/coupon-1-labels.json",
+          "labelsSha256": "bc96a51777bed251cb7653f5dbf65dc538b5a30aeb8b9e5130982a388e248a33",
+          "visibilityCounts": {
+            "visible": 23,
+            "partial": 0,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "distractorLabelledSamples": 0,
+          "originalGroundTruth": "docs/publication143/Coupon-groundtruth.txt",
+          "originalGroundTruthSha256": "be645e5719469098a5bf18cb6a1985370814e93165e0182e7313b3da14e27218"
+        },
+        {
+          "case": "coupon-25",
+          "group": "coupon",
+          "name": "Coupon",
+          "target": 1,
+          "role": "evaluation",
+          "domain": "real-camera",
+          "start": 25,
+          "end": 120,
+          "stride": 1,
+          "frames": 96,
+          "width": 320,
+          "height": 240,
+          "sourceFrames": [
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120
+          ],
+          "pack": "build/otb143/coupon-25.fobs.json",
+          "packSha256": "8ff23eeec8d22c859b72e9c9229f3bde3bd13667f78d8e3816e0a8ac9587178c",
+          "labels": "docs/publication143/coupon-25-labels.json",
+          "labelsSha256": "495f2133159f0da85545a6e1135048d5adc32dc98f9ec4952ba2aa046a7277f4",
+          "visibilityCounts": {
+            "visible": 11,
+            "partial": 82,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 2
+          },
+          "distractorLabelledSamples": 0,
+          "originalGroundTruth": "docs/publication143/Coupon-groundtruth.txt",
+          "originalGroundTruthSha256": "be645e5719469098a5bf18cb6a1985370814e93165e0182e7313b3da14e27218"
+        },
+        {
+          "role": "reference-source",
+          "frames": 24,
+          "domain": "generated-control",
+          "case": "generated-reference",
+          "group": "generated",
+          "name": "generated-reference",
+          "target": 1,
+          "start": 1,
+          "end": 24,
+          "stride": 1,
+          "width": 320,
+          "height": 240,
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "pack": "build/generated143/generated-reference.fobs.json",
+          "packSha256": "39cc40e9d46afecd252d2f418c90f90ad8bd4574ec8fea82ef7111602250b2dd",
+          "labels": "docs/publication143/generated-reference-labels.json",
+          "labelsSha256": "89d41a6c1fdf613fcb729802a31b27fcbf8e48615e3530f78871c8c24edbf973",
+          "visibilityCounts": {
+            "visible": 23,
+            "partial": 0,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "distractorLabelledSamples": 0
+        },
+        {
+          "role": "evaluation",
+          "frames": 24,
+          "domain": "generated-control",
+          "case": "generated-partial",
+          "group": "generated",
+          "name": "generated-partial",
+          "target": 1,
+          "start": 1,
+          "end": 24,
+          "stride": 1,
+          "width": 320,
+          "height": 240,
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "pack": "build/generated143/generated-partial.fobs.json",
+          "packSha256": "156bb47c73c60212de10dc627e52444cbf76fca42c597371e5d0ec2ce149770f",
+          "labels": "docs/publication143/generated-partial-labels.json",
+          "labelsSha256": "a6fef4e26cd5d71075976b0a2d73aeb83026617622abe90dfc36421043fcad38",
+          "visibilityCounts": {
+            "visible": 4,
+            "partial": 12,
+            "occluded": 7,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "distractorLabelledSamples": 0
+        },
+        {
+          "role": "evaluation",
+          "frames": 24,
+          "domain": "generated-control",
+          "case": "generated-twin",
+          "group": "generated",
+          "name": "generated-twin",
+          "target": 1,
+          "start": 1,
+          "end": 24,
+          "stride": 1,
+          "width": 320,
+          "height": 240,
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "pack": "build/generated143/generated-twin.fobs.json",
+          "packSha256": "d45491c929acd42b7cf01c2f5bf27ca7d5b3775581794e614d7dcd8aaee50ad3",
+          "labels": "docs/publication143/generated-twin-labels.json",
+          "labelsSha256": "4eed2b1527a69407ef663e2dce40a2f5723ea3d03349fa4b01c4cf42aa108a19",
+          "visibilityCounts": {
+            "visible": 4,
+            "partial": 12,
+            "occluded": 7,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "distractorLabelledSamples": 19
+        }
+      ],
+      "downloads": [
+        {
+          "name": "FaceOcc1",
+          "url": "https://drive.usercontent.google.com/download?id=1fXprbfNSSUm2WuwyX21Q0mLJqX30Y1S0&export=download&confirm=t",
+          "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark/",
+          "sha256": "99a0f92cd2a1d9b15e20e7b2a77ff4da4f3d3aeb7b64ce718a44485e33ede0d6",
+          "bytes": 11182057,
+          "crcVerified": true,
+          "groundtruth": "FaceOcc1/groundtruth_rect.txt",
+          "groundtruthSha256": "0aacc27b21f4fe52c3e86d06b736d9ded8bdee13ea347464a97bb06347c1b0c1",
+          "downloadedAtUtc": "2026-11-14T04:42:35.111677+00:00"
+        },
+        {
+          "name": "Coupon",
+          "url": "https://drive.usercontent.google.com/download?id=1GKco-xggbmZgImuwGYeL2duxvO6iK89J&export=download&confirm=t",
+          "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark/",
+          "sha256": "eddd7aaf2d548bf991ae0623cf3c415b40a0530eb12da297286cfde26cf84760",
+          "bytes": 7816946,
+          "crcVerified": true,
+          "groundtruth": "Coupon/groundtruth_rect.txt",
+          "groundtruthSha256": "be645e5719469098a5bf18cb6a1985370814e93165e0182e7313b3da14e27218",
+          "downloadedAtUtc": "2026-11-14T04:42:37.770221+00:00"
+        }
+      ],
+      "sourceReview": "All 240 selected original camera frames inspected on ten source-only contact sheets, plus 23 original full-resolution boundary/detail frames before predictions. OTB rectangles are external annotations; visibility is AI review, not independent human adjudication. FaceOcc1 contains partial book cover, return and renewed side cover; uncertain boundaries retained. Coupon is page turning on the tracked booklet with hand overlap, not an independently established competing identity. No complete target disappearance or independently boxed lookalike occurs in these fixed camera windows. Exact occlusion/copy geometry is tested separately in generated controls.",
+      "limitations": [
+        "Bounded source windows, not a full benchmark.",
+        "External geometry and AI source-only visibility/competitor review, not independent human adjudication.",
+        "Generated occlusion and copy controls are separate from real-camera evidence.",
+        "Same-object declaration is not semantic identity proof; partial geometry remains inferred."
+      ]
+    },
+    "byDomain": {
+      "real-camera": {
+        "foreground-guard-139": {
+          "tracking": {
+            "labels": 95,
+            "visible": 92,
+            "correct": 77,
+            "missing": 15,
+            "overlapFailures": 0,
+            "hidden": 0,
+            "unsupported": 0,
+            "uncertain": 3,
+            "confirmedDistractorMatches": 0
+          },
+          "additional": {
+            "returned": 0,
+            "correct": 0,
+            "incorrect": 0,
+            "unknown": 0
+          },
+          "filtered": {
+            "accepted": 0,
+            "correct": 0,
+            "incorrect": 0,
+            "unknown": 0
+          }
+        },
+        "partial-reference-142": {
+          "tracking": {
+            "labels": 95,
+            "visible": 92,
+            "correct": 77,
+            "missing": 15,
+            "overlapFailures": 0,
+            "hidden": 0,
+            "unsupported": 0,
+            "uncertain": 3,
+            "confirmedDistractorMatches": 0
+          },
+          "additional": {
+            "returned": 0,
+            "correct": 0,
+            "incorrect": 0,
+            "unknown": 0
+          },
+          "filtered": {
+            "accepted": 0,
+            "correct": 0,
+            "incorrect": 0,
+            "unknown": 0
+          }
+        },
+        "reference-monitor-143": {
+          "tracking": {
+            "labels": 95,
+            "visible": 92,
+            "correct": 77,
+            "missing": 15,
+            "overlapFailures": 0,
+            "hidden": 0,
+            "unsupported": 0,
+            "uncertain": 3,
+            "confirmedDistractorMatches": 0
+          },
+          "additional": {
+            "returned": 0,
+            "correct": 0,
+            "incorrect": 0,
+            "unknown": 0
+          },
+          "filtered": {
+            "accepted": 0,
+            "correct": 0,
+            "incorrect": 0,
+            "unknown": 0
+          }
+        },
+        "reference-seed-143": {
+          "tracking": {
+            "labels": 95,
+            "visible": 92,
+            "correct": 77,
+            "missing": 15,
+            "overlapFailures": 0,
+            "hidden": 0,
+            "unsupported": 0,
+            "uncertain": 3,
+            "confirmedDistractorMatches": 0
+          },
+          "additional": {
+            "returned": 0,
+            "correct": 0,
+            "incorrect": 0,
+            "unknown": 0
+          },
+          "filtered": {
+            "accepted": 0,
+            "correct": 0,
+            "incorrect": 0,
+            "unknown": 0
+          }
+        },
+        "reference-confirmation-143": {
+          "tracking": {
+            "labels": 95,
+            "visible": 92,
+            "correct": 77,
+            "missing": 15,
+            "overlapFailures": 0,
+            "hidden": 0,
+            "unsupported": 0,
+            "uncertain": 3,
+            "confirmedDistractorMatches": 0
+          },
+          "additional": {
+            "returned": 0,
+            "correct": 0,
+            "incorrect": 0,
+            "unknown": 0
+          },
+          "filtered": {
+            "accepted": 0,
+            "correct": 0,
+            "incorrect": 0,
+            "unknown": 0
+          }
+        }
+      },
+      "generated-control": {
+        "foreground-guard-139": {
+          "tracking": {
+            "labels": 46,
+            "visible": 32,
+            "correct": 0,
+            "missing": 32,
+            "overlapFailures": 0,
+            "hidden": 14,
+            "unsupported": 0,
+            "uncertain": 0,
+            "confirmedDistractorMatches": 0
+          },
+          "additional": {
+            "returned": 0,
+            "correct": 0,
+            "incorrect": 0,
+            "unknown": 0
+          },
+          "filtered": {
+            "accepted": 0,
+            "correct": 0,
+            "incorrect": 0,
+            "unknown": 0
+          }
+        },
+        "partial-reference-142": {
+          "tracking": {
+            "labels": 46,
+            "visible": 32,
+            "correct": 1,
+            "missing": 31,
+            "overlapFailures": 0,
+            "hidden": 14,
+            "unsupported": 1,
+            "uncertain": 0,
+            "confirmedDistractorMatches": 1
+          },
+          "additional": {
+            "returned": 3,
+            "correct": 2,
+            "incorrect": 1,
+            "unknown": 0
+          },
+          "filtered": {
+            "accepted": 2,
+            "correct": 1,
+            "incorrect": 1,
+            "unknown": 0
+          }
+        },
+        "reference-monitor-143": {
+          "tracking": {
+            "labels": 46,
+            "visible": 32,
+            "correct": 0,
+            "missing": 32,
+            "overlapFailures": 0,
+            "hidden": 14,
+            "unsupported": 0,
+            "uncertain": 0,
+            "confirmedDistractorMatches": 0
+          },
+          "additional": {
+            "returned": 0,
+            "correct": 0,
+            "incorrect": 0,
+            "unknown": 0
+          },
+          "filtered": {
+            "accepted": 0,
+            "correct": 0,
+            "incorrect": 0,
+            "unknown": 0
+          }
+        },
+        "reference-seed-143": {
+          "tracking": {
+            "labels": 46,
+            "visible": 32,
+            "correct": 0,
+            "missing": 32,
+            "overlapFailures": 0,
+            "hidden": 14,
+            "unsupported": 0,
+            "uncertain": 0,
+            "confirmedDistractorMatches": 0
+          },
+          "additional": {
+            "returned": 0,
+            "correct": 0,
+            "incorrect": 0,
+            "unknown": 0
+          },
+          "filtered": {
+            "accepted": 0,
+            "correct": 0,
+            "incorrect": 0,
+            "unknown": 0
+          }
+        },
+        "reference-confirmation-143": {
+          "tracking": {
+            "labels": 46,
+            "visible": 32,
+            "correct": 12,
+            "missing": 20,
+            "overlapFailures": 0,
+            "hidden": 14,
+            "unsupported": 1,
+            "uncertain": 0,
+            "confirmedDistractorMatches": 1
+          },
+          "additional": {
+            "returned": 13,
+            "correct": 12,
+            "incorrect": 1,
+            "unknown": 0
+          },
+          "filtered": {
+            "accepted": 13,
+            "correct": 12,
+            "incorrect": 1,
+            "unknown": 0
+          }
+        }
+      }
+    },
+    "defaultsUnchanged": true,
+    "promoted": false
+  },
+  "validation": "Local checks passed: 343 distinct Java tests, 161 desktop checks, kernel integration, actual agency regression and isolated offline/package preparation. Three donor-source comparisons, with earlier failed-attempt runs preserved (2 retained sets) and 16 evaluation runs use 800 evaluation-frame outcomes; donor outcomes are counted separately. Exact monitor equivalence, original-pixel audit replay, independent host arithmetic, export, stop/resume and abrupt-process cold restart are verified.",
+  "finding": "Paired eligible real footage: candidate 77/92 correct, 15 missing, 0 wrong overlaps and 0 hidden outputs; guard139 77 correct, 15 missing, 0 wrong and 0 hidden outputs. Previous142: 77 correct, 0 wrong, 15 missing. Seed-only control: 77 correct, 0 wrong. Additional raw recoveries: 0 correct, 0 incorrect, 0 unscored. There are 0 confirmed absent and 3 uncertain reference samples per method. This real cohort does not establish a recovery gain without added errors.\n\nGenerated controls: candidate 12/32 correct, 0 low-overlap visible outputs, 1 output while the target was hidden and 1 labelled-other matches. Guard139: 0 correct; previous142: 1 correct, 0 wrong and 1 hidden outputs; seed-only: 0 correct. Additional raw boxes: 12 correct, 1 incorrect and 0 unscored. Generated controls do not establish camera reliability. Defaults remain unchanged; no promotion.\n\nEligibility refusal: Coupon donor tracking was correct on 23/23 references, but existing motion/appearance admission produced no verified examples. All four reference-dependent methods are unavailable on Coupon; its139 baseline remains in the full table. Paired totals compare only cases completed by every method. No replacement source or relaxed admission. 4 unavailable method/source combinations are retained, not counted as successful trials."
+}

@@ -1,3 +1,15 @@
+## Edition 143 / 2026-11-13 — independent appearance confirmation
+
+The unified Java world/browser/creation mission continues. [Edition143](../README-143.md) adds an explicit partial-view experiment with source provenance, original-pixel replay and independent outcomes. Real footage and generated controls remain separate; defaults and all checks retained.
+
+# Next steps
+
+1. **Separate appearance confirmation from identity continuity.** The fresh generated return improves from one accepted correct measurement with142 to12 with143, but both accept the labelled copy once while the target is hidden. Develop a bounded continuity/ambiguity constraint on this now-exposed failure; preserve the result and freeze the next change before new held-out tests. Repetition and a high match score are not identity proof.
+2. **Qualify complete occlusion and return on real footage.** The eligible FaceOcc1 window stays at77/92correct with15missing and no gain; no actual underlying-flow loss occurred, so the supplemental search never ran. Coupon yields no verified donor appearances despite23/23correct donor tracking; retain this legitimate refusal and investigate admission evidence without lowering standards or manufacturing examples. Use new independently labelled camera intervals with actual disappearance, return and competing objects; preserve uncertain labels.
+3. **Reduce repeated evidence work only with measured benefit.** Include reference verification, search, original-pixel replay, durable writes, reopening and export. Compare full workflows under equal collection sizes and preserve every source/code/outcome check. The fixed-order timings here are not an isolated speed comparison.
+4. **Connect qualified observations to durable goals.** World, browser and creation tasks must distinguish observed support, inferred geometry and unknown identity. Better box overlap must improve complete tasks before changing defaults or granting action authority. Keep the unified Java application as the destination.
+
+
 ## Edition 142 / 2026-11-13 — partial views from verified appearances
 
 The unified Java world/browser/creation mission continues. [Edition142](../README-142.md) adds an explicit partial-view experiment with source provenance, original-pixel replay and independent outcomes. Real footage and generated controls remain separate; defaults and all checks retained.
