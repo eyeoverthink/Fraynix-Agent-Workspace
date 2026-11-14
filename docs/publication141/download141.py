@@ -6,6 +6,12 @@ assert (r/'docs/OBSERVATION_141_LOCK.json').exists()
 for spec in [x for x in meta['sequences'] if x['name'] in ['car3','following','person2']]:
  for key,record in [('annotations',spec['annotations']),('color',spec['channels']['color'])]:
   if '--annotations-only' in sys.argv and key!='annotations':continue
+  # Skip an unused color archive only when source-only geometry already proves
+  # every allowed seed ineligible; selection and outcome rules are unchanged.
+  preflight=r/'build/annotation141-check.json'
+  if key=='color' and preflight.exists():
+   entry=next(x for x in json.loads(preflight.read_text(encoding='utf8')) if x['name']==spec['name'])
+   if not entry['firstSeedMeasurable'] and not any(x['seedMeasurable'] for x in entry['events']):continue
   url=urllib.parse.urljoin('https://data.votchallenge.net/vot2018/longterm/',record['url']);p=out/(spec['name']+'-'+key+'.zip');start=time.monotonic()
   if not p.exists():
    tmp=p.with_suffix('.download')
