@@ -50,11 +50,13 @@ New146 refusals are distinct from inherited143/144/145 refusals. Raw appearance 
 
 {{DEVELOPMENT}}
 
-## Fresh complete occlusion and re-entry
+## Fresh footage review and remaining qualification gap
 
 The method, scorer, UI, generator, app harness and source-selection criteria were frozen at `236d4b2f` before new pixels were accessed. The [contract](docs/EDITION_146_CONTRACT.md), [method lock](docs/OBSERVATION_146_LOCK.json) and [selection record](docs/publication146/source-selection146.json) define the protocol.
 
 Sources come from the [original OTB benchmark](https://rvlab.snu.ac.kr/research/tracker_benchmark/). The predeclared order is Coke, Subway, Woman and Human4. Selection uses source images, never tracker outcomes: the earliest eligible complete disappearance and return, ten visible/partial frames before and after, a bounded contiguous evaluation, and a disjoint source-qualified donor. Every rejected source or event remains recorded. A later donor-admission refusal does not trigger an easier replacement.
+
+**None of the four sources met both frozen eligibility requirements.** A supplemental Coke run preserves complete occlusion255–263 and return264, with an all-partial donor and explicitly unavailable145/146 comparisons. Generated-source preparation also found three exact donor/evaluation duplicates per case. Those cases remain fixed diagnostics, never fresh qualification. See the [pre-prediction amendment](docs/publication146/AMENDMENT-source-unavailable.md).
 
 {{SOURCE_REVIEW}}
 
@@ -66,7 +68,7 @@ The donor rule permits a disjoint window before or after the evaluation event. E
 
 {{CAMERA_SHOTS}}
 
-Fresh generated controls separately test a short legitimate return, a distant surviving copy, a same-path unseen copy and a delayed legitimate return. The same-path copy and short return have identical pixels after a declared identity substitution. They illustrate an observability limit and are not independent image trials. Generated geometry and already-exposed regressions do not establish camera reliability.
+Generated overlapping-source diagnostics test a short legitimate return, a distant surviving copy, a same-path unseen copy and a delayed legitimate return. The same-path copy and short return have identical pixels after a declared identity substitution. They illustrate an observability limit and are not independent image trials. Generated geometry and already-exposed regressions do not establish camera reliability.
 
 ## Review the behavior
 

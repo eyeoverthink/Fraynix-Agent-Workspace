@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/154-return-continuity.md]] | [[README-146.md]]
+
 Current: [[docs/obsidian/153-trajectory-continuity.md]] | [[README-145.md]]
 
 Current: [[docs/obsidian/152-ambiguity-continuity.md]] | [[README-144.md]]

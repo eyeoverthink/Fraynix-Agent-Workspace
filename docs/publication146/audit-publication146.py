@@ -16,7 +16,7 @@ try:
  subprocess.run(['git','merge-base','--is-ancestor','236d4b2f',ref],check=True)
  for name,h in lock['sourceHashes'].items():assert digest(text(name).encode())==h,name
  for source in sources['records']:assert digest(blob(source['labels']))==source['labelsSha256'],source['labels']
- annotations=json.loads(text('docs/publication146/annotation-integrity146.json'))
+ annotations=json.loads(text('docs/publication146/all-annotations146.json'))
  for row in annotations:
   raw=blob(row['path']);assert len(raw)==row['bytes'] and digest(raw)==row['sha256'],row['path']
  for source in sources['records']:

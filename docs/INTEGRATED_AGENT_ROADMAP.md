@@ -1,3 +1,15 @@
+## Edition146 / 2026-11-14 — continuity without a warning
+
+[Edition146](../README-146.md) checks returning appearances against pre-loss motion even when no competitor warning fired. Source review exhausted the fixed list without a qualifying reference/event pair. The complete camera occlusion is baseline-only; overlapping generated diagnostics and exposed regressions remain separate. Defaults unchanged; unified Java world/browser/creation remains the destination.
+
+## Next steps
+
+1. **Qualify full camera occlusion with an admissible reference.** Record a fixed-camera sequence with a clearly unobscured initial view, complete cover, return and a separate lookalike. Freeze source rules first; label before predictions. Existing partial-donor refusal must remain intact.
+2. **Correct the generated evaluation design before a new freeze.** Use disjoint positions or backgrounds for donor and evaluation images, assert image separation before execution, and preserve the146 overlap failure. Keep an identical-pixel substitution case as an explicit observability limit.
+3. **Measure the cost of conservatism.** Test turns, longer gaps and camera motion without using them to retune this frozen method. Count legitimate returns withheld alongside wrong objects prevented; do not promote a method that merely refuses everything.
+4. **Use qualified observations in a durable application task.** Let chat request an observed-object report or working artifact. Java must preserve measured, predicted and unknown states, retain source evidence and stop actions when identity is unresolved. Keep the connected world/browser/creation application central.
+
+
 ## Edition 145 / 2026-11-14 — measured trajectory evidence
 
 [Edition145](../README-145.md) tests bounded pre-loss target paths against retained rival paths. Original-pixel replay and independent outcomes measure recovered targets, wrong objects and refusal cost. Explicit experiment; defaults unchanged. Unified Java world/browser/creation remains the destination.

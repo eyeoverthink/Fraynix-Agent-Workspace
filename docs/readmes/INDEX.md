@@ -1,3 +1,5 @@
+[Edition146 - return continuity](../../README-146.md) | [Offline guide](146/index.html)
+
 [Edition145 - measured trajectory recovery](../../README-145.md) | [Offline guide](145/index.html)
 
 [Edition144 - identity ambiguity through loss](../../README-144.md) | [Offline guide](144/index.html)

@@ -1,3 +1,40 @@
+## Edition 146 — locally verified; publication preparation
+
+2026-11-14, America/Los_Angeles. Isolated J:/Codex-Work/fraynix-workspace-edition146 from672894ea. CI checked first:145 release43584281387 and metadata43584459961 both success. Older144 metadata failed CalibrationStoreTest; unchanged test included in this edition's broad local verification. Method, scorer, UI, generator, source selection and harness frozen236d4b2f before fresh pixels. Source-only labels committed before predictions. No publication claim until actual push and fetched audit pass.
+
+Explicit return-guard-146 screens supplemental145 returns without retained144 ambiguity using the existing145 target forecast and scale checks. Monitor146 preserves145 tracker/filter output. Baseline139 continuity and competed145 restorations remain exact. No new thresholds, search, self-anchoring, automatic appearance admission, defaults, permissions or capacity changes. Original-pixel replay measures every additional refusal, including correct returns lost. Uncalibrated motion bounds and identical on-path copies remain limitations; absence of a warning is not identity evidence.
+
+**Exposed regression:** the app reduces accepted measurements on the hidden copy from 1 to 0. It newly withholds 12 incorrect raw proposals without a competitor warning. The separate legitimate regression retains 6 correct supplemental measurements while newly withholding 2 correct raw proposals. This is development evidence, not fresh qualification.
+
+**Real-camera recovery remains unqualified.** The four predeclared sources yielded zero eligible event/reference pairs. Coke has a complete disappearance and return, but its all-partial donor supplies no admissible unobscured examples;145/146 comparisons are unavailable. Its existing139 baseline produced 8/30 correct visible measurements, 22 missing, 0 wrong overlaps and 0/9 hidden-frame outputs. This is a baseline-only diagnostic, not evidence for146.
+
+**Generated cases are diagnostics only:** three evaluation images duplicate donor images in each case. The app refused every reference-dependent start. The frozen generator, refusals and baseline-only outcomes are retained; these cases do not count as fresh qualification.
+
+Unavailable reference-dependent comparisons: 15. Defaults remain unchanged and the candidate is not promoted. Generated overlapping-source diagnostics and the identical-pixel limit are listed separately below; neither is camera qualification.
+
+374 distinct Java tests and 161 desktop checks passed, plus kernel integration, agency regression, offline preparation and package/build verification. 14 actual app runs across 3 isolated groups, plus one separately reported process-interruption regression. All original source, code and outcome checks remain required. Hosted CI is separate.
+
+- Initial focused compilation failed on a nonexistent test descriptor helper; corrected before the method freeze. Original log retained.
+- Human4 source preparation rejected two annotation filenames; only annotation2 is nonempty. Source-only correction and CRC/hash receipt retained.
+- First prepare146.py source-separation assertion failed: donor frames15,17,19 duplicate generated evaluation frames8,9,10. Generator unchanged; all four cases downgraded to overlapping-source diagnostics before any predictions. No fresh generated qualification claim.
+- All four predeclared camera sources were ineligible under the fixed full-occlusion plus unobscured-donor rules. Coke is retained as a supplemental baseline-only diagnostic with partial labels and no fabricated verified examples.
+- The actual generated app attempt correctly refused shared reference/evaluation images before tracking. Its frozen harness then attempted the wrong-source audit and failed. A separate explicit-unavailability continuation preserves the failure, checks every reference-dependent refusal and runs139 only; no source check is bypassed.
+
+## Next steps
+
+1. **Qualify full camera occlusion with an admissible reference.** Record a fixed-camera sequence with a clearly unobscured initial view, complete cover, return and a separate lookalike. Freeze source rules first; label before predictions. Existing partial-donor refusal must remain intact.
+2. **Correct the generated evaluation design before a new freeze.** Use disjoint positions or backgrounds for donor and evaluation images, assert image separation before execution, and preserve the146 overlap failure. Keep an identical-pixel substitution case as an explicit observability limit.
+3. **Measure the cost of conservatism.** Test turns, longer gaps and camera motion without using them to retune this frozen method. Count legitimate returns withheld alongside wrong objects prevented; do not promote a method that merely refuses everything.
+4. **Use qualified observations in a durable application task.** Let chat request an observed-object report or working artifact. Java must preserve measured, predicted and unknown states, retain source evidence and stop actions when identity is unresolved. Keep the connected world/browser/creation application central.
+
+Keep the unified Java world/browser/creation application central. No agents or overlapping heavy jobs. Shared dependency junction read-only. Preserve private projects and frozen001–146. Publish only Fraynix-Agent-Workspace; fetch and audit. Never relabel historical code-bound evidence.
+
+## Edition146 continuation — app validation complete; documentation captures running
+
+All broad374Java/161desktop/kernel/agency/package checks passed. Actual regression7runs passed: trajectory-return14514/21correct vs14612/21, two correct raw proposals newly withheld; copy-remains145one accepted wrong measurement vs146zero, twelve wrong raw proposals newly withheld, seven correct preserved. Coke2runs baseline-only8/30correct22missing0/9hidden outputs; all-partial donor correctly refuses retention and3dependent comparisons unavailable. Generated original attempt failed on shared-image start refusal then wrong-source audit. Separate committed5fdabb34 generated-unavailable146 continuation passed:12exact shared-image start refusals with no durable writes,4baseline-onlycases; total5runs. Frozen236d4b2f90source inputs unchanged; zero fresh recovery-qualified cases. Source-only labels/amendments f4d4c048 before predictions. Fixed generator evaluation8,9,10duplicatesdonor15,17,19; neverclaimfreshqualification. Alloriginalfailure evidence retained. Abrupt owned-Java restart during no-warning loss passed exacttrace/audit and unchangednativeworld. Diagnostics146passed2cases.
+
+ONE heavy job running session80398: sequential readonly screenshot captures regression then coke then generated, logs build/capture146-GROUP.log. Next review-screens146.py, inspectallactualimages/keyfullsize, document146.py after currentnotes; guide visual/manual receipt, notes/freeze/documentationcheck, actualrelease/fetch/fullGitaudit andfinishmetadata push. NO146pushyet. Noagents, oneheavyjob, sharednodejunctionread-only, privateworlds/defaults/frozen001–145intact.
+
 ## Edition146 continuation — source review complete; actual app tests next
 
 374 Java checks, kernel, package,161 desktop checks and agency passed. Source-only ordered review exhausted Coke/Subway/Woman/Human4; zero primary-eligible sources. Coke has complete occlusion255–263 and return264 but no unobscured qualifying donor. Pre-prediction supplemental amendment retains all-partial donor1–24, evaluation245–284, expects135 refusal and139 fallback;146 unavailable, never camera qualification. All64 selected frames reviewed at full resolution. Frozen236d4b2f/90source hashes unchanged. Next generate fixed controls, prepare/commit labels before predictions, serial actual groups/regression/generated/coke, abrupt restart, screenshots/docs and actual publication. No heavy job running at checkpoint. No146 push yet.

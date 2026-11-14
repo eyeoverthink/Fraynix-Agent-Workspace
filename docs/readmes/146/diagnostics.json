@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "frozenInputs": 90,
+  "rows": [
+    {
+      "group": "regression",
+      "case": "trajectory-return",
+      "domain": "exposed-development",
+      "checkedWithoutWarning": 8,
+      "newlyBlockedOrdinals": [
+        21,
+        22
+      ],
+      "supportedReturnOrdinals": [
+        9,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "screenedOutcomes": {
+        "correct": 2,
+        "incorrect": 0,
+        "returned": 2,
+        "unknown": 0
+      },
+      "filteredOutcomes": {
+        "correct": 6,
+        "incorrect": 0,
+        "accepted": 6,
+        "unknown": 0
+      },
+      "scope": "Every unchanged parent proposal checked; restored/predicted boxes never extend the original139 target anchor."
+    },
+    {
+      "group": "regression",
+      "case": "copy-remains",
+      "domain": "exposed-development",
+      "checkedWithoutWarning": 13,
+      "newlyBlockedOrdinals": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "supportedReturnOrdinals": [
+        9
+      ],
+      "screenedOutcomes": {
+        "correct": 0,
+        "incorrect": 12,
+        "returned": 12,
+        "unknown": 0
+      },
+      "filteredOutcomes": {
+        "correct": 1,
+        "incorrect": 0,
+        "accepted": 1,
+        "unknown": 0
+      },
+      "scope": "Every unchanged parent proposal checked; restored/predicted boxes never extend the original139 target anchor."
+    }
+  ]
+}

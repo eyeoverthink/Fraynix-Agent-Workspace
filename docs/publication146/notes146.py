@@ -25,7 +25,7 @@ if __name__=='__main__':
  s=status('locally verified; publication preparation','No publication claim until actual push and fetched audit pass.')
  for name in ['AGENTS.md','README-CONTRIBUTORS.md','docs/ARCHITECTURE.md','docs/PROJECT_MEMORY.md','docs/DEVELOPMENT_LOG.md']:
   p=r/name;old=p.read_text(encoding='utf-8-sig');p.write_text(s+old if not old.startswith(s) else old,encoding='utf8')
- short='## Edition146 / 2026-11-14 — continuity without a warning\n\n[Edition146](../README-146.md) checks returning appearances against pre-loss motion even when no competitor warning fired. Source-selected complete occlusions, exposed regressions and generated identity limits are reported separately. Defaults unchanged; unified Java world/browser/creation remains the destination.\n\n'+(r/'build/next146.md').read_text(encoding='utf8')+'\n\n'
+ short='## Edition146 / 2026-11-14 — continuity without a warning\n\n[Edition146](../README-146.md) checks returning appearances against pre-loss motion even when no competitor warning fired. Source review exhausted the fixed list without a qualifying reference/event pair. The complete camera occlusion is baseline-only; overlapping generated diagnostics and exposed regressions remain separate. Defaults unchanged; unified Java world/browser/creation remains the destination.\n\n'+(r/'build/next146.md').read_text(encoding='utf8')+'\n\n'
  for name in ['docs/INTEGRATED_AGENT_ROADMAP.md','docs/PLAYABLE_LEVEL_CREATION_PLAN.md']:
   p=r/name;old=p.read_text(encoding='utf-8-sig');p.write_text(short+old if not old.startswith(short) else old,encoding='utf8')
  subprocess.run(['python','-X','utf8','docs/publication146/finalize-inventory146.py'],check=True)

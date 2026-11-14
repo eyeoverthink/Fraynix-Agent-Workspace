@@ -34,8 +34,16 @@ def totals(policy):
  return {k:sum(x['summary'][k] for x in selected) for k in ['correct','visible','missing','overlapFailures','unsupported','hidden','confirmedDistractorMatches']},len(selected)
 camera,n=totals('return-guard-146');oldCamera,oldn=totals('trajectory-guard-145');assert n==oldn
 finding=f"**Exposed regression:** the app reduces accepted measurements on the hidden copy from {oldCopy['summary']['unsupported']} to {copy['summary']['unsupported']}. It newly withholds {copy['evidence']['screened']['incorrect']} incorrect raw proposals without a competitor warning. The separate legitimate regression retains {legitimate['evidence']['filtered']['correct']} correct supplemental measurements while newly withholding {legitimate['evidence']['screened']['correct']} correct raw proposals. This is development evidence, not fresh qualification."
-finding+=f"\n\n**Fresh camera events ({n} eligible paired comparisons):**146 retains {camera['correct']}/{camera['visible']} correct measurements versus145 {oldCamera['correct']}/{oldCamera['visible']}; missing {camera['missing']} versus {oldCamera['missing']}; wrong overlaps {camera['overlapFailures']} versus {oldCamera['overlapFailures']}; hidden outputs {camera['unsupported']} versus {oldCamera['unsupported']}; labelled-other matches {camera['confirmedDistractorMatches']} versus {oldCamera['confirmedDistractorMatches']}."
-refusals=[x for s in studies.values() for x in s.get('refusals',[])];finding+=f"\n\nUnavailable reference-dependent comparisons: {len(refusals)}. Defaults remain unchanged and the candidate is not promoted. Fresh generated controls and the identical-pixel limit are listed separately below; neither is camera qualification."
+if n:
+ finding+=f"\n\n**Fresh camera events ({n} eligible paired comparisons):**146 retains {camera['correct']}/{camera['visible']} correct measurements versus145 {oldCamera['correct']}/{oldCamera['visible']}."
+else:
+ finding+="\n\n**Real-camera recovery remains unqualified.** The four predeclared sources yielded zero eligible event/reference pairs. Coke has a complete disappearance and return, but its all-partial donor supplies no admissible unobscured examples;145/146 comparisons are unavailable."
+ for x in rows:
+  if x['domain']=='real-camera' and x['policy']=='foreground-guard-139':
+   q=x['summary'];finding+=f" Its existing139 baseline produced {q['correct']}/{q['visible']} correct visible measurements, {q['missing']} missing, {q['overlapFailures']} wrong overlaps and {q['unsupported']}/{q['hidden']} hidden-frame outputs. This is a baseline-only diagnostic, not evidence for146."
+finding+="\n\n**Generated cases are diagnostics only:** three evaluation images duplicate donor images in each case. The app refused every reference-dependent start. The frozen generator, refusals and baseline-only outcomes are retained; these cases do not count as fresh qualification."
+
+refusals=[x for s in studies.values() for x in s.get('refusals',[])];finding+=f"\n\nUnavailable reference-dependent comparisons: {len(refusals)}. Defaults remain unchanged and the candidate is not promoted. Generated overlapping-source diagnostics and the identical-pixel limit are listed separately below; neither is camera qualification."
 comparison={'rows':rows,'sources':sources,'lock':lock,'finding':finding,'defaultsUnchanged':True,'promoted':False,'refusals':refusals,'diagnostics':diagnostics};write(out/'comparison.json',comparison)
 validation=f"{len(checks)} distinct Java tests and {desktop_count} desktop checks passed, plus kernel integration, agency regression, offline preparation and package/build verification. {len(allruns)} actual app runs across {len(studies)} isolated groups, plus one separately reported process-interruption regression. All original source, code and outcome checks remain required. Hosted CI is separate."
 appchecks=list(dict.fromkeys([c for s in studies.values() for c in s['checks']]+restart['checks']))
@@ -54,12 +62,12 @@ for name in folders:
 for p in sorted((r/'build').glob('*146*')):
  if p.is_file() and p.suffix not in ['.zip','.jfr']:preserve(p,p.relative_to(r).as_posix())
 for p in sorted((r/'workspace-engine/build/return146-development').glob('*.json')):preserve(p,p.relative_to(r).as_posix())
-for name in ['docs/OBSERVATION_146_LOCK.json','docs/publication146/source146.json','docs/publication146/visibility146.json','docs/publication146/restart146.cjs','workspace-desktop/test/return146-integration.cjs']:preserve(r/name,name)
+for name in ['docs/publication146/generated-unavailable146.cjs','docs/publication146/AMENDMENT-source-unavailable.md','docs/OBSERVATION_146_LOCK.json','docs/publication146/source146.json','docs/publication146/visibility146.json','docs/publication146/restart146.cjs','workspace-desktop/test/return146-integration.cjs']:preserve(r/name,name)
 write(out/'original-evidence.json',{'files':originals,'scope':'Original runs, audits, tests, attempts, public source/app review, interrupted state and receipts. Raw source archives/images, private profiles and executable exports excluded. Their exact source hashes and provenance remain recorded.'})
 paths={x['path'] for x in read('docs/readmes/145/file-inventory.json')}
 for n in subprocess.check_output(['git','diff','--name-only',parent,'HEAD'],text=True).splitlines():
  if n.startswith(('workspace-engine/','workspace-desktop/','src/','assets/','.github/')) or n in ['build.gradle','.gitattributes']:paths.add(n)
-paths.update(['docs/publication146/.gitattributes','docs/EDITION_146_CONTRACT.md','docs/OBSERVATION_146_LOCK.json','docs/publication146/source146.json','docs/publication146/visibility146.json','docs/publication146/source-selection146.json','docs/publication146/diagnostics146.py','docs/publication146/restart146.cjs']);inventory=[]
+paths.update(['docs/publication146/generated-unavailable146.cjs','docs/publication146/all-annotations146.json','docs/publication146/AMENDMENT-source-unavailable.md','docs/publication146/.gitattributes','docs/EDITION_146_CONTRACT.md','docs/OBSERVATION_146_LOCK.json','docs/publication146/source146.json','docs/publication146/visibility146.json','docs/publication146/source-selection146.json','docs/publication146/diagnostics146.py','docs/publication146/restart146.cjs']);inventory=[]
 for n in sorted(paths):
  raw=(r/n).read_bytes()
  try:raw=raw.decode('utf-8-sig').replace('\r\n','\n').encode();kind='utf8-lf'
@@ -74,9 +82,15 @@ timings+=f"\nAdditional unfinished-run interruption: {elapsed(restart):.1f}s. Se
 sourceTable='| Source / role | Domain | Original frames | Visible / partial | Fully hidden / out-of-view | Uncertain |\n| --- | --- | --- | ---: | ---: | ---: |\n'
 for x in sources['records']:
  c=x['visibilityCounts'];sourceTable+=f"| {x['case']} / {x['role']} | {x['domain']} | {x['start']}–{x['end']} | {c['visible']} / {c['partial']} | {c['occluded']} / {c['out-of-view']} | {c['uncertain']} |\n"
-sourceReview='\n\n'.join('- '+json.dumps(x,ensure_ascii=False) for x in sources['sourceReview']['sources'])
+sourceReview='| Source | Reviewed frames | Primary eligibility | Source-only finding |\n| --- | ---: | --- | --- |\n'
+for x in sources['sourceReview']['sources']:
+ reason=x.get('notes','').replace('|','/')
+ if x['name']=='Coke':reason='Complete cover255–263; return264. Holding hand prevents the required unobscured donor. Supplemental baseline-only diagnostic.'
+ sourceReview+=f"| {x['name']} | {x['reviewedFrames'][0]}–{x['reviewedFrames'][1]} | {'Eligible' if x['eligible'] else 'Ineligible'} | {reason} |\n"
+sourceReview+='\nEvery rejected event, original annotation selection and review detail is retained in the [source-review record](docs/publication146/visibility146.json).'
+
 development='Already-exposed regression results are listed separately in the table and original group report. The production study uses genuine135 donor retention; no descriptor is injected into the app. The same pixels and original labels are checked against their published145 hashes.'
-reviewshots=[s for s in shots if 'case' in s];hero=next(s for s in reviewshots if s['group']=='regression' and s['case']=='copy-remains' and s['path'].endswith('drift.png'));hero='![Actual app: exposed copy regression with return continuity]('+hero['path']+')\n\nAlready-exposed development illustration; not fresh qualification. See all outcomes below.'
+blockedOrdinal=next(x['newlyBlockedOrdinals'][0] for x in diagnostics['rows'] if x['group']=='regression' and x['case']=='copy-remains');shots.sort(key=lambda s:0 if s.get('group')=='regression' and s.get('case')=='copy-remains' and s.get('ordinal')==blockedOrdinal and s['path'].endswith('drift.png') else 1);reviewshots=[s for s in shots if 'case' in s];hero=next(s for s in reviewshots if s['group']=='regression' and s['case']=='copy-remains' and s['ordinal']==blockedOrdinal and s['path'].endswith('drift.png'));hero='![Actual app: exposed copy regression with return continuity]('+hero['path']+')\n\nAlready-exposed development illustration; not fresh qualification. See all outcomes below.'
 cameraShots='\n\n'.join('!['+s['title']+']('+s['path']+')' for s in reviewshots if s['group'] not in ['regression','generated'] and s['path'].endswith('source.png'))
 nextSteps=(r/'build/next146.md').read_text(encoding='utf8');md=(r/'docs/publication146/README-template.md').read_text(encoding='utf8')
 for key,value in {'FINDING':finding,'HERO':hero,'RESULTS':table,'RECOVERIES':recovery,'DEVELOPMENT':development,'SOURCE_REVIEW':sourceReview,'SOURCES':sourceTable,'CAMERA_SHOTS':cameraShots,'VALIDATION':validation,'APP_CHECKS':'\n'.join('- '+x for x in appchecks),'ATTEMPTS':(r/'build/attempts146.md').read_text(encoding='utf8'),'COSTS':timings,'NEXT':nextSteps}.items():md=md.replace('{{'+key+'}}',value)

@@ -1,0 +1,2538 @@
+{
+  "modules": [
+    {
+      "id": "guard",
+      "name": "Return continuity without a warning",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ReturnContinuity146.java",
+      "note": "docs/obsidian/154-return-continuity.md"
+    },
+    {
+      "id": "trajectory",
+      "name": "Unchanged pre-loss motion bounds",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TrajectoryGate145.java",
+      "note": "docs/obsidian/154-return-continuity.md"
+    },
+    {
+      "id": "audit",
+      "name": "Replay and score added refusals",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ReturnAudit146.java",
+      "note": "docs/obsidian/154-return-continuity.md"
+    },
+    {
+      "id": "reference",
+      "name": "Verified donor provenance",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ReferenceMemory137.java",
+      "note": "docs/obsidian/154-return-continuity.md"
+    },
+    {
+      "id": "world",
+      "name": "Durable observations",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java",
+      "note": "docs/obsidian/154-return-continuity.md"
+    },
+    {
+      "id": "panel",
+      "name": "Actual source and decision display",
+      "source": "workspace-desktop/renderer/observation-panel.js",
+      "note": "docs/obsidian/154-return-continuity.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/146/regression-copy-remains-12-review-drift.png",
+      "title": "Already-exposed regression, not fresh qualification / copy-remains / return-guard-146. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "copy-remains",
+      "group": "regression",
+      "ordinal": 12
+    },
+    {
+      "path": "docs/readmes/146/regression-copy-remains-9-review-drift.png",
+      "title": "Already-exposed regression, not fresh qualification / copy-remains / return-guard-146. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "copy-remains",
+      "group": "regression",
+      "ordinal": 9
+    },
+    {
+      "path": "docs/readmes/146/regression-copy-remains-9-review-source.png",
+      "title": "Already-exposed regression, not fresh qualification / copy-remains / return-guard-146. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "copy-remains",
+      "group": "regression",
+      "ordinal": 9
+    },
+    {
+      "path": "docs/readmes/146/regression-copy-remains-12-review-source.png",
+      "title": "Already-exposed regression, not fresh qualification / copy-remains / return-guard-146. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "copy-remains",
+      "group": "regression",
+      "ordinal": 12
+    },
+    {
+      "path": "docs/readmes/146/regression-trajectory-return-9-review-drift.png",
+      "title": "Already-exposed regression, not fresh qualification / trajectory-return / return-guard-146. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "trajectory-return",
+      "group": "regression",
+      "ordinal": 9
+    },
+    {
+      "path": "docs/readmes/146/regression-trajectory-return-9-review-source.png",
+      "title": "Already-exposed regression, not fresh qualification / trajectory-return / return-guard-146. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "trajectory-return",
+      "group": "regression",
+      "ordinal": 9
+    },
+    {
+      "path": "docs/readmes/146/regression-trajectory-return-21-review-drift.png",
+      "title": "Already-exposed regression, not fresh qualification / trajectory-return / return-guard-146. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "trajectory-return",
+      "group": "regression",
+      "ordinal": 21
+    },
+    {
+      "path": "docs/readmes/146/regression-trajectory-return-21-review-source.png",
+      "title": "Already-exposed regression, not fresh qualification / trajectory-return / return-guard-146. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "trajectory-return",
+      "group": "regression",
+      "ordinal": 21
+    },
+    {
+      "path": "docs/readmes/146/generated-delayed-return-10-review-drift.png",
+      "title": "Generated overlapping-source diagnostic / delayed-return / foreground-guard-139. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "delayed-return",
+      "group": "generated",
+      "ordinal": 10
+    },
+    {
+      "path": "docs/readmes/146/generated-delayed-return-10-review-source.png",
+      "title": "Generated overlapping-source diagnostic / delayed-return / foreground-guard-139. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "delayed-return",
+      "group": "generated",
+      "ordinal": 10
+    },
+    {
+      "path": "docs/readmes/146/generated-same-path-copy-10-review-drift.png",
+      "title": "Generated overlapping-source diagnostic / same-path-copy / foreground-guard-139. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "same-path-copy",
+      "group": "generated",
+      "ordinal": 10
+    },
+    {
+      "path": "docs/readmes/146/generated-same-path-copy-10-review-source.png",
+      "title": "Generated overlapping-source diagnostic / same-path-copy / foreground-guard-139. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "same-path-copy",
+      "group": "generated",
+      "ordinal": 10
+    },
+    {
+      "path": "docs/readmes/146/generated-distant-copy-10-review-drift.png",
+      "title": "Generated overlapping-source diagnostic / distant-copy / foreground-guard-139. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "distant-copy",
+      "group": "generated",
+      "ordinal": 10
+    },
+    {
+      "path": "docs/readmes/146/generated-distant-copy-10-review-source.png",
+      "title": "Generated overlapping-source diagnostic / distant-copy / foreground-guard-139. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "distant-copy",
+      "group": "generated",
+      "ordinal": 10
+    },
+    {
+      "path": "docs/readmes/146/generated-short-return-10-review-drift.png",
+      "title": "Generated overlapping-source diagnostic / short-return / foreground-guard-139. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "short-return",
+      "group": "generated",
+      "ordinal": 10
+    },
+    {
+      "path": "docs/readmes/146/generated-short-return-10-review-source.png",
+      "title": "Generated overlapping-source diagnostic / short-return / foreground-guard-139. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "short-return",
+      "group": "generated",
+      "ordinal": 10
+    },
+    {
+      "path": "docs/readmes/146/coke-coke-245-19-review-drift.png",
+      "title": "Fresh camera baseline-only diagnostic; references unavailable / coke-245 / foreground-guard-139. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "coke-245",
+      "group": "coke",
+      "ordinal": 19
+    },
+    {
+      "path": "docs/readmes/146/coke-coke-245-19-review-source.png",
+      "title": "Fresh camera baseline-only diagnostic; references unavailable / coke-245 / foreground-guard-139. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "coke-245",
+      "group": "coke",
+      "ordinal": 19
+    },
+    {
+      "path": "docs/readmes/146/coke-coke-245-10-review-drift.png",
+      "title": "Fresh camera baseline-only diagnostic; references unavailable / coke-245 / foreground-guard-139. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "coke-245",
+      "group": "coke",
+      "ordinal": 10
+    },
+    {
+      "path": "docs/readmes/146/coke-coke-245-10-review-source.png",
+      "title": "Fresh camera baseline-only diagnostic; references unavailable / coke-245 / foreground-guard-139. Illustrative completed source and trace; consult all outcomes, including refusals and wrong objects.",
+      "case": "coke-245",
+      "group": "coke",
+      "ordinal": 10
+    },
+    {
+      "path": "docs/readmes/146/coke-drift-layout-1100.png",
+      "title": "coke / original study capture / drift-layout-1100.png"
+    },
+    {
+      "path": "docs/readmes/146/coke-drift-layout-1600.png",
+      "title": "coke / original study capture / drift-layout-1600.png"
+    },
+    {
+      "path": "docs/readmes/146/generated-drift-layout-1100.png",
+      "title": "generated / original study capture / drift-layout-1100.png"
+    },
+    {
+      "path": "docs/readmes/146/generated-drift-layout-1600.png",
+      "title": "generated / original study capture / drift-layout-1600.png"
+    },
+    {
+      "path": "docs/readmes/146/regression-trajectory-return-outcome.png",
+      "title": "regression / original study capture / trajectory-return-outcome.png"
+    },
+    {
+      "path": "docs/readmes/146/regression-trajectory-return-source.png",
+      "title": "regression / original study capture / trajectory-return-source.png"
+    },
+    {
+      "path": "docs/readmes/146/regression-trajectory-return-drift.png",
+      "title": "regression / original study capture / trajectory-return-drift.png"
+    },
+    {
+      "path": "docs/readmes/146/regression-copy-remains-outcome.png",
+      "title": "regression / original study capture / copy-remains-outcome.png"
+    },
+    {
+      "path": "docs/readmes/146/regression-copy-remains-source.png",
+      "title": "regression / original study capture / copy-remains-source.png"
+    },
+    {
+      "path": "docs/readmes/146/regression-copy-remains-drift.png",
+      "title": "regression / original study capture / copy-remains-drift.png"
+    },
+    {
+      "path": "docs/readmes/146/regression-drift-layout-1100.png",
+      "title": "regression / original study capture / drift-layout-1100.png"
+    },
+    {
+      "path": "docs/readmes/146/regression-drift-layout-1600.png",
+      "title": "regression / original study capture / drift-layout-1600.png"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/146/verification.json"
+    },
+    {
+      "path": "docs/readmes/146/comparison.json"
+    },
+    {
+      "path": "docs/readmes/146/original-evidence.json"
+    },
+    {
+      "path": "docs/readmes/146/restart-check.json"
+    }
+  ],
+  "comparison": {
+    "rows": [
+      {
+        "case": "coke-245",
+        "group": "coke",
+        "domain": "real-camera",
+        "policy": "foreground-guard-139",
+        "summary": {
+          "visible": 30,
+          "correct": 8,
+          "hidden": 9,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 8,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 39,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.21132226321445197,
+          "missing": 22,
+          "overlapFailures": 0
+        },
+        "evidence": null,
+        "trackingMs": 7910.111700000001,
+        "auditMs": 9066.859999999997
+      },
+      {
+        "case": "short-return",
+        "group": "generated",
+        "domain": "generated-overlap-diagnostic",
+        "policy": "foreground-guard-139",
+        "summary": {
+          "visible": 29,
+          "correct": 6,
+          "hidden": 2,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 6,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 31,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.20689571904433943,
+          "missing": 23,
+          "overlapFailures": 0
+        },
+        "evidence": null,
+        "trackingMs": 6734.601599999999,
+        "auditMs": 7768.4704
+      },
+      {
+        "case": "distant-copy",
+        "group": "generated",
+        "domain": "generated-overlap-diagnostic",
+        "policy": "foreground-guard-139",
+        "summary": {
+          "visible": 9,
+          "correct": 6,
+          "hidden": 22,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 6,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 31,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.6666639835873159,
+          "missing": 3,
+          "overlapFailures": 0
+        },
+        "evidence": null,
+        "trackingMs": 6780.667099999999,
+        "auditMs": 7239.921799999996
+      },
+      {
+        "case": "same-path-copy",
+        "group": "generated",
+        "domain": "generated-overlap-diagnostic",
+        "policy": "foreground-guard-139",
+        "summary": {
+          "visible": 9,
+          "correct": 6,
+          "hidden": 22,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 6,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 31,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.6666639835873159,
+          "missing": 3,
+          "overlapFailures": 0
+        },
+        "evidence": null,
+        "trackingMs": 8345.896,
+        "auditMs": 7706.5845000000045
+      },
+      {
+        "case": "delayed-return",
+        "group": "generated",
+        "domain": "generated-overlap-diagnostic",
+        "policy": "foreground-guard-139",
+        "summary": {
+          "visible": 17,
+          "correct": 6,
+          "hidden": 14,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 6,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 31,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.3529397560168143,
+          "missing": 11,
+          "overlapFailures": 0
+        },
+        "evidence": null,
+        "trackingMs": 8245.131799999996,
+        "auditMs": 6985.900299999994
+      },
+      {
+        "case": "trajectory-return",
+        "group": "regression",
+        "domain": "exposed-development",
+        "policy": "trajectory-guard-145",
+        "summary": {
+          "visible": 21,
+          "correct": 14,
+          "hidden": 2,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 14,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 23,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.6578602380552401,
+          "missing": 7,
+          "overlapFailures": 0
+        },
+        "evidence": {
+          "schema": "trajectory-recovery-audit-145-v1",
+          "baselineAcceptedPreserved": 6,
+          "blocked": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "filtered": {
+            "correct": 8,
+            "incorrect": 0,
+            "accepted": 8,
+            "unknown": 0
+          },
+          "scores": [
+            {
+              "targetOverlap": 0.990668740279937,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 9
+            },
+            {
+              "targetOverlap": 0.9523882913901419,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 14
+            },
+            {
+              "targetOverlap": 0.9865686746832153,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 15
+            },
+            {
+              "targetOverlap": 1,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 16
+            },
+            {
+              "targetOverlap": 0.9703359255992973,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 17
+            },
+            {
+              "targetOverlap": 0.9623186276545149,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 18
+            },
+            {
+              "targetOverlap": 0.9804501462612742,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 21
+            },
+            {
+              "targetOverlap": 0.9723504966991089,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 22
+            }
+          ],
+          "additional": {
+            "correct": 8,
+            "incorrect": 0,
+            "returned": 8,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. Restored144 refusals and still-blocked143 proposals are scored separately; original target and competitor trajectories replay without outcome labels. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "restored": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "automaticAdmissions": 0,
+          "replayedFrames": 23
+        },
+        "trackingMs": 12482.845500000001,
+        "auditMs": 19839.7471
+      },
+      {
+        "case": "trajectory-return",
+        "group": "regression",
+        "domain": "exposed-development",
+        "policy": "return-monitor-146",
+        "summary": {
+          "visible": 21,
+          "correct": 14,
+          "hidden": 2,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 14,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 23,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.6578602380552401,
+          "missing": 7,
+          "overlapFailures": 0
+        },
+        "evidence": {
+          "schema": "return-continuity-audit-146-v1",
+          "baselineAcceptedPreserved": 6,
+          "blocked": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "filtered": {
+            "correct": 8,
+            "incorrect": 0,
+            "accepted": 8,
+            "unknown": 0
+          },
+          "scores": [
+            {
+              "targetOverlap": 0.990668740279937,
+              "screened146": false,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 9
+            },
+            {
+              "targetOverlap": 0.9523882913901419,
+              "screened146": false,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 14
+            },
+            {
+              "targetOverlap": 0.9865686746832153,
+              "screened146": false,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 15
+            },
+            {
+              "targetOverlap": 1,
+              "screened146": false,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 16
+            },
+            {
+              "targetOverlap": 0.9703359255992973,
+              "screened146": false,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 17
+            },
+            {
+              "targetOverlap": 0.9623186276545149,
+              "screened146": false,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 18
+            },
+            {
+              "targetOverlap": 0.9804501462612742,
+              "screened146": false,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 21
+            },
+            {
+              "targetOverlap": 0.9723504966991089,
+              "screened146": false,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 22
+            }
+          ],
+          "additional": {
+            "correct": 8,
+            "incorrect": 0,
+            "returned": 8,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. New146 refusals without competitor warnings, inherited refusals and145 restorations are scored separately; original target and competitor trajectories replay without outcome labels. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "restored": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "screened": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "automaticAdmissions": 0,
+          "replayedFrames": 23
+        },
+        "trackingMs": 13756.822999999997,
+        "auditMs": 19832.694600000003
+      },
+      {
+        "case": "trajectory-return",
+        "group": "regression",
+        "domain": "exposed-development",
+        "policy": "return-guard-146",
+        "summary": {
+          "visible": 21,
+          "correct": 12,
+          "hidden": 2,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 12,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 23,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.5648697312476028,
+          "missing": 9,
+          "overlapFailures": 0
+        },
+        "evidence": {
+          "schema": "return-continuity-audit-146-v1",
+          "baselineAcceptedPreserved": 6,
+          "blocked": {
+            "correct": 2,
+            "incorrect": 0,
+            "returned": 2,
+            "unknown": 0
+          },
+          "filtered": {
+            "correct": 6,
+            "incorrect": 0,
+            "accepted": 6,
+            "unknown": 0
+          },
+          "scores": [
+            {
+              "targetOverlap": 0.990668740279937,
+              "screened146": false,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 9
+            },
+            {
+              "targetOverlap": 0.9523882913901419,
+              "screened146": false,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 14
+            },
+            {
+              "targetOverlap": 0.9865686746832153,
+              "screened146": false,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 15
+            },
+            {
+              "targetOverlap": 1,
+              "screened146": false,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 16
+            },
+            {
+              "targetOverlap": 0.9703359255992973,
+              "screened146": false,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 17
+            },
+            {
+              "targetOverlap": 0.9623186276545149,
+              "screened146": false,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 18
+            },
+            {
+              "targetOverlap": 0.9804501462612742,
+              "screened146": true,
+              "visibility": "visible",
+              "blocked": true,
+              "filterAccepted": false,
+              "outcome": "correct",
+              "ordinal": 21
+            },
+            {
+              "targetOverlap": 0.9723504966991089,
+              "screened146": true,
+              "visibility": "visible",
+              "blocked": true,
+              "filterAccepted": false,
+              "outcome": "correct",
+              "ordinal": 22
+            }
+          ],
+          "additional": {
+            "correct": 6,
+            "incorrect": 0,
+            "returned": 6,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. New146 refusals without competitor warnings, inherited refusals and145 restorations are scored separately; original target and competitor trajectories replay without outcome labels. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "restored": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "screened": {
+            "correct": 2,
+            "incorrect": 0,
+            "returned": 2,
+            "unknown": 0
+          },
+          "automaticAdmissions": 0,
+          "replayedFrames": 23
+        },
+        "trackingMs": 16022.9807,
+        "auditMs": 19808.74919999999
+      },
+      {
+        "case": "copy-remains",
+        "group": "regression",
+        "domain": "exposed-development",
+        "policy": "trajectory-guard-145",
+        "summary": {
+          "visible": 9,
+          "correct": 7,
+          "hidden": 14,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 1,
+          "available": 7,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 23,
+          "unsupported": 1,
+          "meanOverlapAllVisible": 0.7767392040969431,
+          "missing": 2,
+          "overlapFailures": 0
+        },
+        "evidence": {
+          "schema": "trajectory-recovery-audit-145-v1",
+          "baselineAcceptedPreserved": 6,
+          "blocked": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "filtered": {
+            "correct": 1,
+            "incorrect": 1,
+            "accepted": 2,
+            "unknown": 0
+          },
+          "scores": [
+            {
+              "targetOverlap": 0.990668740279937,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 9
+            },
+            {
+              "targetOverlap": 0,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 12
+            },
+            {
+              "targetOverlap": 0,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 13
+            },
+            {
+              "targetOverlap": 0,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 14
+            },
+            {
+              "targetOverlap": 0,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 15
+            },
+            {
+              "targetOverlap": 0,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 16
+            },
+            {
+              "targetOverlap": 0,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 17
+            },
+            {
+              "targetOverlap": 0,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 18
+            },
+            {
+              "targetOverlap": 0,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 19
+            },
+            {
+              "targetOverlap": 0,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 20
+            },
+            {
+              "targetOverlap": 0,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 21
+            },
+            {
+              "targetOverlap": 0,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 22
+            },
+            {
+              "targetOverlap": 0,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "incorrect",
+              "ordinal": 23
+            }
+          ],
+          "additional": {
+            "correct": 1,
+            "incorrect": 12,
+            "returned": 13,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. Restored144 refusals and still-blocked143 proposals are scored separately; original target and competitor trajectories replay without outcome labels. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "restored": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "automaticAdmissions": 0,
+          "replayedFrames": 23
+        },
+        "trackingMs": 15085.327699999994,
+        "auditMs": 17514.136499999993
+      },
+      {
+        "case": "copy-remains",
+        "group": "regression",
+        "domain": "exposed-development",
+        "policy": "return-monitor-146",
+        "summary": {
+          "visible": 9,
+          "correct": 7,
+          "hidden": 14,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 1,
+          "available": 7,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 23,
+          "unsupported": 1,
+          "meanOverlapAllVisible": 0.7767392040969431,
+          "missing": 2,
+          "overlapFailures": 0
+        },
+        "evidence": {
+          "schema": "return-continuity-audit-146-v1",
+          "baselineAcceptedPreserved": 6,
+          "blocked": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "filtered": {
+            "correct": 1,
+            "incorrect": 1,
+            "accepted": 2,
+            "unknown": 0
+          },
+          "scores": [
+            {
+              "targetOverlap": 0.990668740279937,
+              "screened146": false,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 9
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": false,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 12
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": false,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 13
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": false,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 14
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": false,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 15
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": false,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 16
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": false,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 17
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": false,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 18
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": false,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 19
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": false,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 20
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": false,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 21
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": false,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 22
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": false,
+              "visibility": "occluded",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "incorrect",
+              "ordinal": 23
+            }
+          ],
+          "additional": {
+            "correct": 1,
+            "incorrect": 12,
+            "returned": 13,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. New146 refusals without competitor warnings, inherited refusals and145 restorations are scored separately; original target and competitor trajectories replay without outcome labels. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "restored": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "screened": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "automaticAdmissions": 0,
+          "replayedFrames": 23
+        },
+        "trackingMs": 16584.335500000016,
+        "auditMs": 17730.1869
+      },
+      {
+        "case": "copy-remains",
+        "group": "regression",
+        "domain": "exposed-development",
+        "policy": "return-guard-146",
+        "summary": {
+          "visible": 9,
+          "correct": 7,
+          "hidden": 14,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 7,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 23,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.7767392040969431,
+          "missing": 2,
+          "overlapFailures": 0
+        },
+        "evidence": {
+          "schema": "return-continuity-audit-146-v1",
+          "baselineAcceptedPreserved": 6,
+          "blocked": {
+            "correct": 0,
+            "incorrect": 12,
+            "returned": 12,
+            "unknown": 0
+          },
+          "filtered": {
+            "correct": 1,
+            "incorrect": 0,
+            "accepted": 1,
+            "unknown": 0
+          },
+          "scores": [
+            {
+              "targetOverlap": 0.990668740279937,
+              "screened146": false,
+              "visibility": "visible",
+              "blocked": false,
+              "filterAccepted": true,
+              "outcome": "correct",
+              "ordinal": 9
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": true,
+              "visibility": "occluded",
+              "blocked": true,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 12
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": true,
+              "visibility": "occluded",
+              "blocked": true,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 13
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": true,
+              "visibility": "occluded",
+              "blocked": true,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 14
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": true,
+              "visibility": "occluded",
+              "blocked": true,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 15
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": true,
+              "visibility": "occluded",
+              "blocked": true,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 16
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": true,
+              "visibility": "occluded",
+              "blocked": true,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 17
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": true,
+              "visibility": "occluded",
+              "blocked": true,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 18
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": true,
+              "visibility": "occluded",
+              "blocked": true,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 19
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": true,
+              "visibility": "occluded",
+              "blocked": true,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 20
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": true,
+              "visibility": "occluded",
+              "blocked": true,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 21
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": true,
+              "visibility": "occluded",
+              "blocked": true,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 22
+            },
+            {
+              "targetOverlap": 0,
+              "screened146": true,
+              "visibility": "occluded",
+              "blocked": true,
+              "filterAccepted": false,
+              "outcome": "incorrect",
+              "ordinal": 23
+            }
+          ],
+          "additional": {
+            "correct": 1,
+            "incorrect": 0,
+            "returned": 1,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. New146 refusals without competitor warnings, inherited refusals and145 restorations are scored separately; original target and competitor trajectories replay without outcome labels. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "restored": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "screened": {
+            "correct": 0,
+            "incorrect": 12,
+            "returned": 12,
+            "unknown": 0
+          },
+          "automaticAdmissions": 0,
+          "replayedFrames": 23
+        },
+        "trackingMs": 17692.405499999993,
+        "auditMs": 17555.05900000001
+      }
+    ],
+    "sources": {
+      "createdAtUtc": "2026-11-14T20:31:55.248622+00:00",
+      "algorithmLockSha256": "0726440ce54a7a03705e6e3c495ca34a5985ca045d5ea7fc8122569770cb7daa",
+      "records": [
+        {
+          "case": "coke-1",
+          "group": "coke",
+          "name": "Coke",
+          "target": 1,
+          "role": "reference-source",
+          "domain": "real-camera",
+          "primaryEligible": false,
+          "supplementalNoReferenceDiagnostic": true,
+          "start": 1,
+          "end": 24,
+          "stride": 1,
+          "frames": 24,
+          "width": 640,
+          "height": 480,
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "pack": "build/otb146/coke-1.fobs.json",
+          "packSha256": "1e6f59f0f1ca18cef094c29467d06ab054093e4537c712ce69c2cbaf2b892fdb",
+          "labels": "docs/publication146/coke-1-labels.json",
+          "labelsSha256": "fcb386fa1cdaa2b939501104e957163e646e4d68f362b99254f83befab4be457",
+          "visibilityCounts": {
+            "visible": 0,
+            "partial": 23,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "distractorLabelledSamples": 0,
+          "originalGroundTruth": "docs/publication146/Coke-groundtruth.txt",
+          "originalGroundTruthSha256": "dfa71c09ef4f83a884025dc4a95e18da9168f12777fc2c4e7c361e3f1453ff23"
+        },
+        {
+          "case": "coke-245",
+          "group": "coke",
+          "name": "Coke",
+          "target": 1,
+          "role": "evaluation",
+          "domain": "real-camera",
+          "primaryEligible": false,
+          "supplementalNoReferenceDiagnostic": true,
+          "start": 245,
+          "end": 284,
+          "stride": 1,
+          "frames": 40,
+          "width": 640,
+          "height": 480,
+          "sourceFrames": [
+            245,
+            246,
+            247,
+            248,
+            249,
+            250,
+            251,
+            252,
+            253,
+            254,
+            255,
+            256,
+            257,
+            258,
+            259,
+            260,
+            261,
+            262,
+            263,
+            264,
+            265,
+            266,
+            267,
+            268,
+            269,
+            270,
+            271,
+            272,
+            273,
+            274,
+            275,
+            276,
+            277,
+            278,
+            279,
+            280,
+            281,
+            282,
+            283,
+            284
+          ],
+          "pack": "build/otb146/coke-245.fobs.json",
+          "packSha256": "76cd9901c12fb3a0ce6fbb5ef2da4c02ad01f013cd8e050c5f479db64dbaeb80",
+          "labels": "docs/publication146/coke-245-labels.json",
+          "labelsSha256": "a176bd58f0e3ef2c8e614d591e0658417ccdf19aaffc5e5414c2b232cd54f245",
+          "visibilityCounts": {
+            "visible": 0,
+            "partial": 30,
+            "occluded": 9,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "distractorLabelledSamples": 0,
+          "originalGroundTruth": "docs/publication146/Coke-groundtruth.txt",
+          "originalGroundTruthSha256": "dfa71c09ef4f83a884025dc4a95e18da9168f12777fc2c4e7c361e3f1453ff23",
+          "donorIdenticalEvaluationFrames": []
+        },
+        {
+          "role": "reference-source",
+          "frames": 24,
+          "domain": "generated-overlap-diagnostic",
+          "case": "generated-reference",
+          "group": "generated",
+          "qualificationEligible": false,
+          "name": "generated-reference",
+          "target": 1,
+          "start": 1,
+          "end": 24,
+          "stride": 1,
+          "width": 320,
+          "height": 240,
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "pack": "build/generated146/generated-reference.fobs.json",
+          "packSha256": "ba53964f462bac84db6b87b45a42af247f1eb7a0399cd0451328911db23e4551",
+          "labels": "docs/publication146/generated-reference-labels.json",
+          "labelsSha256": "77ea2007fdf6de8f3510ae4cdbb19b2b2c40e46d2d7aa897e07e45341354ee89",
+          "visibilityCounts": {
+            "visible": 23,
+            "partial": 0,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "distractorLabelledSamples": 0
+        },
+        {
+          "role": "evaluation",
+          "frames": 32,
+          "domain": "generated-overlap-diagnostic",
+          "case": "short-return",
+          "group": "generated",
+          "qualificationEligible": false,
+          "name": "short-return",
+          "target": 1,
+          "start": 1,
+          "end": 32,
+          "stride": 1,
+          "width": 320,
+          "height": 240,
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "pack": "build/generated146/short-return.fobs.json",
+          "packSha256": "9e37c0054576364fc473a1ddbe4310888196e22e935a0a854f838c9309e96a3d",
+          "labels": "docs/publication146/short-return-labels.json",
+          "labelsSha256": "ac20d6e5cefb1867e77e88d87ae272931006fc638985d6dcf44ca4fc54de1166",
+          "visibilityCounts": {
+            "visible": 29,
+            "partial": 0,
+            "occluded": 2,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "distractorLabelledSamples": 0,
+          "donorIdenticalEvaluationFrames": [
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "role": "evaluation",
+          "frames": 32,
+          "domain": "generated-overlap-diagnostic",
+          "case": "distant-copy",
+          "group": "generated",
+          "qualificationEligible": false,
+          "name": "distant-copy",
+          "target": 1,
+          "start": 1,
+          "end": 32,
+          "stride": 1,
+          "width": 320,
+          "height": 240,
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "pack": "build/generated146/distant-copy.fobs.json",
+          "packSha256": "99d563f9fcdb829197b409a774ed149dccb8d5f5ea6f3a305027a01b584ce3ac",
+          "labels": "docs/publication146/distant-copy-labels.json",
+          "labelsSha256": "e7b392672247bbfe16232ff7032d00f0197c26c510bf8976369715488535b561",
+          "visibilityCounts": {
+            "visible": 9,
+            "partial": 0,
+            "occluded": 22,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "distractorLabelledSamples": 20,
+          "donorIdenticalEvaluationFrames": [
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "role": "evaluation",
+          "frames": 32,
+          "domain": "generated-overlap-diagnostic",
+          "case": "same-path-copy",
+          "group": "generated",
+          "qualificationEligible": false,
+          "name": "same-path-copy",
+          "target": 1,
+          "start": 1,
+          "end": 32,
+          "stride": 1,
+          "width": 320,
+          "height": 240,
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "pack": "build/generated146/same-path-copy.fobs.json",
+          "packSha256": "00e907c629ace9eca6462cfeb653701193e210f68b3826e4131891b089a638f5",
+          "labels": "docs/publication146/same-path-copy-labels.json",
+          "labelsSha256": "3854eb564407e594f2079da03444ab7841f72ae7823ccb66c323e8c4e7fb775d",
+          "visibilityCounts": {
+            "visible": 9,
+            "partial": 0,
+            "occluded": 22,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "distractorLabelledSamples": 20,
+          "donorIdenticalEvaluationFrames": [
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "role": "evaluation",
+          "frames": 32,
+          "domain": "generated-overlap-diagnostic",
+          "case": "delayed-return",
+          "group": "generated",
+          "qualificationEligible": false,
+          "name": "delayed-return",
+          "target": 1,
+          "start": 1,
+          "end": 32,
+          "stride": 1,
+          "width": 320,
+          "height": 240,
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "pack": "build/generated146/delayed-return.fobs.json",
+          "packSha256": "f54c5505e0b646089c253b4aa02c0acf31d7942a9f82d25cde9e9a65e9eafd2e",
+          "labels": "docs/publication146/delayed-return-labels.json",
+          "labelsSha256": "68ce010b0ce75c03fca55def4484ed43727991a6964ebd3ca2288ca39bd9d4f8",
+          "visibilityCounts": {
+            "visible": 17,
+            "partial": 0,
+            "occluded": 14,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "distractorLabelledSamples": 0,
+          "donorIdenticalEvaluationFrames": [
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "role": "reference-source",
+          "frames": 24,
+          "domain": "exposed-development",
+          "case": "generated-reference",
+          "group": "regression",
+          "name": "generated-reference",
+          "target": 1,
+          "start": 1,
+          "end": 24,
+          "stride": 1,
+          "width": 320,
+          "height": 240,
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "pack": "build/regression146/generated-reference.fobs.json",
+          "packSha256": "07ddd657d8a43c8ae3ca767d9c54a7ef8b89d746b69cadad16fe4f6a6f1bafeb",
+          "labels": "docs/publication145/generated-reference-labels.json",
+          "labelsSha256": "3d44bf71c7d69ffe5cc17ce7c97f614e5549948a8e091af11454c88782257b0f",
+          "visibilityCounts": {
+            "visible": 23,
+            "partial": 0,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "distractorLabelledSamples": 0
+        },
+        {
+          "role": "evaluation",
+          "frames": 24,
+          "domain": "exposed-development",
+          "case": "trajectory-return",
+          "group": "regression",
+          "name": "trajectory-return",
+          "target": 1,
+          "start": 1,
+          "end": 24,
+          "stride": 1,
+          "width": 320,
+          "height": 240,
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "pack": "build/regression146/trajectory-return.fobs.json",
+          "packSha256": "819e8aeef33c9ec2cb3a31de247f2ff364ea96e6f7c2de99f69709fd34963f4a",
+          "labels": "docs/publication145/trajectory-return-labels.json",
+          "labelsSha256": "9805de470ea5821d4977e9d9b814cf4882d6725293ff1bd48d849368c4e34f9e",
+          "visibilityCounts": {
+            "visible": 21,
+            "partial": 0,
+            "occluded": 2,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "distractorLabelledSamples": 3,
+          "donorIdenticalEvaluationFrames": []
+        },
+        {
+          "role": "evaluation",
+          "frames": 24,
+          "domain": "exposed-development",
+          "case": "copy-remains",
+          "group": "regression",
+          "name": "copy-remains",
+          "target": 1,
+          "start": 1,
+          "end": 24,
+          "stride": 1,
+          "width": 320,
+          "height": 240,
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "pack": "build/regression146/copy-remains.fobs.json",
+          "packSha256": "0ad364cd804d86a472d01478ee1643c73afa0e3acf78289ece28c5aa75fd76ca",
+          "labels": "docs/publication145/copy-remains-labels.json",
+          "labelsSha256": "a58627427bb94a862665bcb62f5b0d66aedad756b3f210f2991616c935e215ec",
+          "visibilityCounts": {
+            "visible": 9,
+            "partial": 0,
+            "occluded": 14,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "distractorLabelledSamples": 17,
+          "donorIdenticalEvaluationFrames": []
+        }
+      ],
+      "downloads": [
+        {
+          "name": "Coke",
+          "url": "https://drive.usercontent.google.com/download?id=1nGsvt_IImvA4iJD22Qzm9jFPJxi-AudA&export=download&confirm=t",
+          "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark/",
+          "sha256": "3158a246da79646d0ef86bde44761d77c8d2df89cfb287ff25aa536f187a520b",
+          "bytes": 23547911,
+          "crcVerified": true,
+          "groundtruth": "Coke/groundtruth_rect.txt",
+          "groundtruthSha256": "dfa71c09ef4f83a884025dc4a95e18da9168f12777fc2c4e7c361e3f1453ff23",
+          "downloadedAtUtc": "2026-11-14T20:14:41.646474+00:00"
+        },
+        {
+          "name": "Subway",
+          "url": "https://drive.usercontent.google.com/download?id=1mjWj04H2mxTkzWxoeNC284oVJiYqKK1E&export=download&confirm=t",
+          "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark/",
+          "sha256": "4b9b877b6863b83e0f66303b55d03b7ec64bc35010d721fd184a864984b930d4",
+          "bytes": 10612286,
+          "crcVerified": true,
+          "groundtruth": "Subway/groundtruth_rect.txt",
+          "groundtruthSha256": "4cf2038049622c3140eb525a2057e7548e511819b7e930063281109569514dda",
+          "downloadedAtUtc": "2026-11-14T20:17:15.012276+00:00"
+        },
+        {
+          "name": "Woman",
+          "url": "https://drive.usercontent.google.com/download?id=14AcX4BpCar8iAMlm9Eg55uB64q_oaYu9&export=download&confirm=t",
+          "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark/",
+          "sha256": "44a52dcefc0f6ef37742b3ac62a8c6f53c43e93e58247ca54b377f83e946d0cc",
+          "bytes": 11466772,
+          "crcVerified": true,
+          "groundtruth": "Woman/groundtruth_rect.txt",
+          "groundtruthSha256": "3dd4f8fb1ec736e59033c06f75268d9563ef0d1f21a725d46f8144d30ab07fbf",
+          "downloadedAtUtc": "2026-11-14T20:18:09.178590+00:00"
+        },
+        {
+          "name": "Human4",
+          "url": "https://drive.usercontent.google.com/download?id=1DnZEER4mjBW-OM0TL97Sa6vN6MGdoBvs&export=download&confirm=t",
+          "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark/",
+          "sha256": "1cc2fc4fae9420b3c3002a38e18eaa138c5ff447ae7c8b6b0e353b7c475f720f",
+          "bytes": 59239784,
+          "crcVerified": true,
+          "groundtruth": "Human4/groundtruth_rect.2.txt",
+          "groundtruthSha256": "f96d1b47bd9144d5ef01e1775732e84de73e71139c966455dfb89e811d783786",
+          "downloadedAtUtc": "2026-11-14T20:21:57.835006+00:00",
+          "archiveAnnotationInventory": [
+            {
+              "path": "Human4/groundtruth_rect.1.txt",
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+              "path": "Human4/groundtruth_rect.2.txt",
+              "bytes": 9337,
+              "sha256": "f96d1b47bd9144d5ef01e1775732e84de73e71139c966455dfb89e811d783786"
+            }
+          ],
+          "sourcePreparationCorrection": "Original download succeeded but helper refused two annotation filenames. First is empty; select only nonempty source annotation2 before images or predictions. No redownload or outcome-based target selection."
+        }
+      ],
+      "sourceReview": {
+        "reviewer": "Codex source-only AI review; external OTB rectangles; no independent human adjudication",
+        "beforePredictions": true,
+        "sources": [
+          {
+            "name": "Coke",
+            "eligible": false,
+            "reviewedFrames": [
+              1,
+              291
+            ],
+            "contactSheetsReviewed": 19,
+            "completeOcclusionCandidate": {
+              "hiddenStart": 255,
+              "returnFrame": 264
+            },
+            "rejectedEvents": [
+              {
+                "frames": [
+                  33,
+                  40
+                ],
+                "reason": "Partial foliage cover; can remains visible"
+              },
+              {
+                "frames": [
+                  187,
+                  190
+                ],
+                "reason": "Partial foliage cover; exposed silver rim and side remain visible in full-resolution review"
+              },
+              {
+                "frames": [
+                  255,
+                  263
+                ],
+                "reason": "Complete disappearance is present, but a confidently fully unobscured 24-frame donor with at least12 fully visible frames was not established; the hand grips and covers portions of the can throughout. Conservative source-only eligibility refusal, before any tracking."
+              }
+            ],
+            "boundaryDetailsReviewed": [
+              188,
+              189,
+              190,
+              254,
+              255,
+              256,
+              263,
+              264,
+              265
+            ],
+            "notes": "Do not treat benchmark OCC metadata as full-occlusion qualification. No tracker executed and no outcome-driven replacement. Continue the declared candidate order.",
+            "supplementalNoReferenceDiagnostic": true,
+            "event": {
+              "hiddenStart": 255,
+              "returnFrame": 264
+            },
+            "evaluation": [
+              245,
+              284
+            ],
+            "donor": [
+              1,
+              24
+            ],
+            "ranges": [
+              {
+                "start": 1,
+                "end": 24,
+                "visibility": "partial"
+              },
+              {
+                "start": 245,
+                "end": 254,
+                "visibility": "partial"
+              },
+              {
+                "start": 255,
+                "end": 263,
+                "visibility": "occluded"
+              },
+              {
+                "start": 264,
+                "end": 284,
+                "visibility": "partial"
+              }
+            ],
+            "supplementalScope": "Excluded from primary qualification. Explicit no-verified-reference diagnostic: all donor frames are partial. Expect135 retention refusal and139 fallback;146 comparisons unavailable. Added before predictions after ordered primary list exhaustion.",
+            "selectedFullResolutionReview": {
+              "sheets": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16
+              ],
+              "donorFrames": [
+                1,
+                24
+              ],
+              "evaluationFrames": [
+                245,
+                284
+              ],
+              "completedAtUtc": "2026-11-14T20:31:13.208149+00:00",
+              "finding": "All selected frames reviewed at native resolution. Holding fingers obscure part of the can; partial visible labels preserved. Can completely hidden255–263, silver rim reappears264. No other can visible."
+            }
+          },
+          {
+            "name": "Subway",
+            "eligible": false,
+            "reviewedFrames": [
+              1,
+              175
+            ],
+            "contactSheetsReviewed": 11,
+            "boundaryDetailsReviewed": [
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              94,
+              95,
+              96,
+              97,
+              98
+            ],
+            "rejectedEvents": [
+              {
+                "frames": [
+                  37,
+                  44
+                ],
+                "reason": "Beige-coated pedestrian partially occludes target, but dark upper target silhouette remains visible; no confident two-frame complete disappearance"
+              },
+              {
+                "frames": [
+                  74,
+                  79
+                ],
+                "reason": "Overlap with white-coated pedestrian is partial; lower dark target silhouette remains visible"
+              },
+              {
+                "frames": [
+                  93,
+                  99
+                ],
+                "reason": "Foreground dark pedestrian covers lower target, but upper target silhouette remains visible"
+              }
+            ],
+            "notes": "No qualifying complete disappearance and return in175 source frames. Low contrast is not proof of full occlusion. No tracking executed."
+          },
+          {
+            "name": "Woman",
+            "eligible": false,
+            "reviewedFrames": [
+              1,
+              597
+            ],
+            "contactSheetsReviewed": 38,
+            "rejectedEvents": [
+              {
+                "frames": [
+                  1,
+                  597
+                ],
+                "reason": "The woman remains at least partly visible throughout the source. Parked cars obscure lower body; foliage and overhead wires partly obscure upper body, but no confident two-frame complete disappearance. Tree trunks are behind the walking target."
+              }
+            ],
+            "notes": "Source-only review before tracking; camera pans and zooms. No qualifying complete occlusion and return; no evaluation window selected."
+          },
+          {
+            "name": "Human4",
+            "eligible": false,
+            "reviewedFrames": [
+              1,
+              667
+            ],
+            "contactSheetsReviewed": 42,
+            "annotationTarget": 2,
+            "boundaryDetailsReviewed": [
+              128,
+              130,
+              132,
+              334,
+              335,
+              336,
+              337,
+              338,
+              339,
+              340,
+              341,
+              342,
+              343,
+              344,
+              425,
+              429,
+              433,
+              437,
+              529,
+              533,
+              537,
+              541,
+              585,
+              601,
+              617,
+              633,
+              649,
+              657,
+              665
+            ],
+            "rejectedEvents": [
+              {
+                "frames": [
+                  128,
+                  133
+                ],
+                "reason": "Sign obscures upper torso but legs remain visible."
+              },
+              {
+                "frames": [
+                  334,
+                  349
+                ],
+                "reason": "Traffic pole and tree partly obscure target; exposed clothing or limbs remain. No confidently complete two-frame disappearance."
+              },
+              {
+                "frames": [
+                  423,
+                  450
+                ],
+                "reason": "Tree grate/foliage partial overlap; torso and bright waist remain visible."
+              },
+              {
+                "frames": [
+                  577,
+                  667
+                ],
+                "reason": "Target becomes small and partly covered by cars and branches. Cannot confidently establish complete disappearance followed by ten visible/partial return frames; low contrast is not a complete-occlusion label."
+              }
+            ],
+            "notes": "All667 original frames reviewed before predictions; only nonempty archive annotation2 used, annotation1 is empty. No qualifying event established. Camera pans; no outcome selection."
+          }
+        ],
+        "primarySelectionExhausted": true,
+        "primaryEligibleCount": 0
+      },
+      "limitations": [
+        "Source-only event selection under frozen rules, not outcome selection.",
+        "External geometry and attributed AI visibility review; no independent human adjudication.",
+        "Generated controls and already-exposed regressions are separate from fresh footage.",
+        "Image-plane motion and identical appearances cannot certify identity."
+      ]
+    },
+    "lock": {
+      "edition": 146,
+      "lockedAtUtc": "2026-11-14T19:44:28.326726+00:00",
+      "parent": "672894eab948f372cfa368ce7168dc667951c4eb",
+      "methods": [
+        "trajectory-guard-145",
+        "return-monitor-146",
+        "return-guard-146"
+      ],
+      "sourceHashes": {
+        ".gitattributes": "1d4d4bdd03e6847acc41492268f1bef4b96399867b75ba1b918871440447e744",
+        "docs/EDITION_138_CONTRACT.md": "254f45748d8425bc2a184ca6960e74ce1dc5c784a507d429b69ef4935b08719d",
+        "docs/EDITION_139_CONTRACT.md": "87307f1d7d9bb74421a5fb82aea4b998a598ad57f45c6d591c08e58ee17f7538",
+        "docs/EDITION_140_CONTRACT.md": "f52c75f86326aa13170aa6112089b6d734bb57364a60fefd41ec5f2ff119eea2",
+        "docs/EDITION_140_SOURCE_NOTE.md": "544f210cc9d0ff75a2f665da22abf59e7e690150edcb8b35769688e78192e0fe",
+        "docs/EDITION_141_CONTRACT.md": "47846f94fccdc79c9fb3daa890aa8c39345ab2351a1de4d60931b4e42ec7ab5a",
+        "docs/EDITION_142_CONTRACT.md": "586025393f5de3268108f64aa81d0410b7980b651c37ec29e0382e7b0a415695",
+        "docs/EDITION_143_CONTRACT.md": "a449be97f1b18cc3fa732189263842f865c3a0ce5eeced1d9b1665659b0d0104",
+        "docs/EDITION_144_CONTRACT.md": "103e149773baf0b403db50c2efbab57910360fb128746e589ed4b2815442ac41",
+        "docs/EDITION_145_CONTRACT.md": "d1fe9c619495037b0a6301f05e1efd1e86e5100c0b9200158b1f05249e94121c",
+        "docs/EDITION_146_CONTRACT.md": "df1ef4b01c31c04f4fb37633d46293fb4621b118ade916076bfdf601ad78c627",
+        "docs/publication137/source137.json": "aadb25c59c59c5b276e3e75849eda3d9d20b4a9fd665131900e8771c69355136",
+        "docs/publication141/prepare141.py": "daeef6081d944ba4a341f10c5d12c0d9b758285d4ce50a0cfbd09fa53fad2bf3",
+        "docs/publication141/select141.py": "a056ed3ca3545b392916194de9b6f9d3564b4cf735fc9e753e107673b0c25243",
+        "docs/publication142/download142.py": "fb183cd6614b4bdb10282bc6ff65dca39e2e1b19f98999f8c950828cc1568862",
+        "docs/publication142/prepare142.py": "e6056017ab75b7dc5474fb82ecbe1c993e574c3e099c31499dd63efec951202e",
+        "docs/publication143/check-images143.py": "1dfd2009c5dbe8a8bc97d5e5dcf897690e38ade447443f4fdf536564b8955693",
+        "docs/publication143/download143.py": "89e637d871a44b6cd9e3d9c43b3bd04952f5f0845830c0c7f17adc20c42a0a83",
+        "docs/publication143/prepare143.py": "87766f14c9e1488a29d8c9826ab032b2ecc42986bb197d41e3e6cf7ee81adaf2",
+        "docs/publication143/review143.py": "da2d7fe87a6f5f33719f4ddd05da8e6372c47255eb12b7e0460e4cc317d200ec",
+        "docs/publication144/prepare144.py": "1343a5a11126f94ed04b974755bbd77618ff4be6e10ae603a4c56e8f7e1b5989",
+        "docs/publication145/download145.py": "33aba66f7dfc0d3ea79c26d58aba68480ce2697c3c4a1c8388971d306396c1dd",
+        "docs/publication145/prepare145.py": "5ba192f71d3ad37f873ade4edc76a0a96f9b1cf6aacb3745dbdfb77767339f54",
+        "docs/publication145/restart145.cjs": "ab530b3315c661e369a9336e835eaac18b28afa62fdd6ddfced64104b25a1ef6",
+        "docs/publication145/review145.py": "3c7e65671a56d62277b8434f3eb9a6aab3b19951f831a65b289e028032d7fe78",
+        "docs/publication145/source-selection145.json": "35bddc108093add2af3b5deccee27f3f9245da8e0cd16c9cca688cc95a4b412e",
+        "docs/publication146/restart146.cjs": "ac30ab9cbbfe2942b63b89682ab3d2ddd12e1c6a521430996bf0385fc5991767",
+        "docs/publication146/source-selection146.json": "16fb7d0f10f688bda2d8679c86d9fbf8c756667d357d3a86036e280474e1c9fb",
+        "workspace-desktop/renderer/association134-panel.js": "c967f2ecdc11a0db582e0265b220528a3da7d8e364acc85f523071ed27f7eadb",
+        "workspace-desktop/renderer/observation-panel.js": "8c5ec6c8571ef97c57906c3e688efba42d36870383e1b0990cf8c18ca46c76be",
+        "workspace-desktop/test/ambiguity144-integration.cjs": "88c8b09a86eb215420fe958aaf0ff9c192c39a240d1ee0dbd46d5466ec050fab",
+        "workspace-desktop/test/confirmation143-integration.cjs": "902d9447b9011e6ff1b0dc8ff706a719a1da8709fa4a3ae81fa84c3521f4c9c4",
+        "workspace-desktop/test/corroborated140-integration.cjs": "37744399d3739387d95e391144fa01194f8a062b17f85c5ff4113e6d5a45c40b",
+        "workspace-desktop/test/partial142-integration.cjs": "8b6c9f94758aee270117a4ebbbf561c64bd06aa8dff33c919a2d5ad0dcb62b11",
+        "workspace-desktop/test/recovery141-integration.cjs": "0ea86d00b82f2f6be4c8584f28c1c404e299390e640fbb4557d4dd601fd91493",
+        "workspace-desktop/test/return146-integration.cjs": "f27e76d7fcea463e8bc05784bc1ba56f2792c4dafcc15083a87834852f5ee0d7",
+        "workspace-desktop/test/trajectory145-integration.cjs": "c1cd74a4725ef3a456c74df859620e5f890512a5836503bce5f7ddd96f24b941",
+        "workspace-engine/src/main/java/fraymus/workspace/AmbiguityAudit144.java": "9436b7a0b3134b036ea7939971f51ddb497896381a6f610d6fb007b474f0284e",
+        "workspace-engine/src/main/java/fraymus/workspace/AmbiguityGuard144.java": "a540eb295805f94551544844794401610e2e046c61f43d2702158168c4881c41",
+        "workspace-engine/src/main/java/fraymus/workspace/AppearanceAudit135.java": "9b645127417cfd6d48ab634ad8ea86fbe8ec1c51733a24929c0bad477d8b6b2c",
+        "workspace-engine/src/main/java/fraymus/workspace/AppearanceConfirmation143.java": "9025800fab14ec2fa49b546ef800a612cd2ebdc3a007b02b88288874a3869f44",
+        "workspace-engine/src/main/java/fraymus/workspace/AppearanceEvidence138.java": "ebd7f297e37e03d998bc0991f0b24ab1a7cd37a44471b8adf0de511093de3e11",
+        "workspace-engine/src/main/java/fraymus/workspace/AppearanceFlow135.java": "74c5798420dbf9627ce2e40b864e274bb1d28ed0900a06c3bf6442f432789f24",
+        "workspace-engine/src/main/java/fraymus/workspace/AssociationAudit134.java": "64865db5daef9af8638754b8873f29a8a8c5b57838066fc8862c53ecf9e14d57",
+        "workspace-engine/src/main/java/fraymus/workspace/ConfirmationAudit143.java": "c29b5517962310efbe0e2420af8993708a6f35d1295812c8653c7bba935afa7c",
+        "workspace-engine/src/main/java/fraymus/workspace/CorroboratedAudit140.java": "e97ae0670e8591aa117a4e729949a1682029a49621b18af45a67f565156052a2",
+        "workspace-engine/src/main/java/fraymus/workspace/CorroboratedGuard140.java": "a6501d1f48f1377b1e5bb5cdd733439fbeef84486e1fe76e2803c85c91cbd366",
+        "workspace-engine/src/main/java/fraymus/workspace/DriftAudit138.java": "b455c545624901c9423775365d9a99497582715188abc1cadf593646a23bed4d",
+        "workspace-engine/src/main/java/fraymus/workspace/DriftGuard138.java": "740d78b062d164c831f5668f4f5baa82aafb99933c860b143f06b38cdbf754c1",
+        "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java": "5c4f2626d341ced71aee8b13cfc07130f4b77bfb26e2ff9ba889db13b9c9dd31",
+        "workspace-engine/src/main/java/fraymus/workspace/ForegroundAudit139.java": "9a82cedefff5011ae18d06121778de57723efec042b1099a43b1af6275a097de",
+        "workspace-engine/src/main/java/fraymus/workspace/ForegroundGuard139.java": "06f3a001a69bad4dc468ac03c1e8ae650a46c1aed8ad7a95c77c59005118945d",
+        "workspace-engine/src/main/java/fraymus/workspace/LossRecovery141.java": "4618d361e5f4e186553e1b4aefc8c90b7bc0ebb28fa647cfb04b8544c0d35f71",
+        "workspace-engine/src/main/java/fraymus/workspace/LossRecoveryAudit141.java": "50e167427acdf6d3e669dc8695c8ac58bf9db7642905f6de5e56cc63839e7e5a",
+        "workspace-engine/src/main/java/fraymus/workspace/ObservationFilter.java": "a0dc7560be00bca29dd7f72995d9cbe607b9e26f14be70286360dbf2d8764e21",
+        "workspace-engine/src/main/java/fraymus/workspace/ObservationMethods129.java": "a34f7a731e6fcc23d3ee23a74c503f6da6bb7af4a5c5133864541d7279d479c5",
+        "workspace-engine/src/main/java/fraymus/workspace/ParsedJson137.java": "d5b859e5185fba555502accf30c6b1d299a5e6d2bb0ec3ddaddd48e8597f559a",
+        "workspace-engine/src/main/java/fraymus/workspace/PartialAudit142.java": "1b985b3ce74fa6598c873b5a4b167f6713accec23545663354a475586450de55",
+        "workspace-engine/src/main/java/fraymus/workspace/PartialRecovery142.java": "90da9910e0464e696e369a078a1a02094656af1994e726c14d37d5067043c159",
+        "workspace-engine/src/main/java/fraymus/workspace/PartialSearch142.java": "6461339790860b3d2fed5353a5d7fd838ca5cd8be2cb5e4624ff7b8477a6a34a",
+        "workspace-engine/src/main/java/fraymus/workspace/PixelTracker.java": "32d26bafaebb26a58a09efc6f71a0089c755cccd25cec47a87be8b67005c985b",
+        "workspace-engine/src/main/java/fraymus/workspace/RecoverySearch141.java": "c947d2ead889de83eba5bafefc0ec47ae0fd8eb42bf423d284769046b5f2f903",
+        "workspace-engine/src/main/java/fraymus/workspace/ReferenceAudit137.java": "464500bf43212c7019333b668744216e9f99efb7ef65c4f901fcfff579ad7325",
+        "workspace-engine/src/main/java/fraymus/workspace/ReferenceMemory137.java": "66c71a75009a5d8790a391bf1d7c411e537197ab99d0449c9e91e2ee48915d20",
+        "workspace-engine/src/main/java/fraymus/workspace/ReferenceSearch143.java": "e6f3f5dcba41ba305fd767ba693ecd8b6daa05deb43598a20c9399ded383a7ff",
+        "workspace-engine/src/main/java/fraymus/workspace/RestorationGate140.java": "1531fd5326a5f78592f5475b0d47408244a56aa99f46343e6c7898073a300741",
+        "workspace-engine/src/main/java/fraymus/workspace/ReturnAudit146.java": "89c96602172427adb7d73e6df628c31d76c21fde71576cce0d91215450ee0817",
+        "workspace-engine/src/main/java/fraymus/workspace/ReturnContinuity146.java": "f5023815c0109014504d7fdd94c6f44bf383083b96cd7204293fbc95f52551eb",
+        "workspace-engine/src/main/java/fraymus/workspace/SpatialEvidence139.java": "66908d3c7d6d2f25654249b43701f2c702ea1a918707eabb92f7a4a0c569096b",
+        "workspace-engine/src/main/java/fraymus/workspace/TrajectoryAudit145.java": "e74976701c3bb49b461d0861342202dd4b05c444abeefd22df40f6119c15ada2",
+        "workspace-engine/src/main/java/fraymus/workspace/TrajectoryGate145.java": "cebcf964e4d2720d7a5bd35cef8f721fece90f8f8ebc6479835c8afdfbc51413",
+        "workspace-engine/src/main/java/fraymus/workspace/TrajectoryRecovery145.java": "d57c6432e12eb9c4b6f798e8fe4dd2dd274723fc11da611e315a52524af3dac9",
+        "workspace-engine/src/main/java/fraymus/workspace/TrajectorySearch145.java": "d40434091531b9d03049769a7f978a233e5f98c7fd3b936be9c1ecf42ae3bb82",
+        "workspace-engine/src/main/java/fraymus/workspace/VerifiedAppearances135.java": "da439f16d5d4e607e6dd1fa91d3b491a313122a19c8ef2383c6ee9beb9888fab",
+        "workspace-engine/src/main/java/fraymus/workspace/VerifiedMemoryFlow137.java": "7718e044e2a076893a3d97a7171e4cb68b9557f1386410423dc1aadfca716b2c",
+        "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java": "997d526096adacdc362bd20f84e99df62f12b145918f1bce737953fd8ab5ef62",
+        "workspace-engine/src/test/java/fraymus/workspace/AmbiguityFixtures144.java": "f397356d76c77971702e78c0aa0e82c79f91938516a59e174aa9ba74131539fa",
+        "workspace-engine/src/test/java/fraymus/workspace/AmbiguityGuard144Test.java": "ef6eb917c74426e6a039c6fd70489ca9892e48e1517047f7e5823617a4ecbd41",
+        "workspace-engine/src/test/java/fraymus/workspace/AppearanceConfirmation143Test.java": "44eace66ab41b1e7007eef4ce984083df8677822c79d15bd7d359fb2c9cf0c5d",
+        "workspace-engine/src/test/java/fraymus/workspace/ConfirmationFixtures143.java": "c9fe74f0cfebe34adee60e61dde4f7938e220dc0f2ef75e295244b42d7c3b3cb",
+        "workspace-engine/src/test/java/fraymus/workspace/CorroboratedGuard140Test.java": "f2e4e61a9916e2d9a1a9a12140a231cfa8583d3551e667b0ac393afef4c8dee3",
+        "workspace-engine/src/test/java/fraymus/workspace/DriftGuard138Test.java": "6e2576cb25916d6275fcdc802a20ccd93fe707f3c315441963013a415f2b60d4",
+        "workspace-engine/src/test/java/fraymus/workspace/ForegroundGuard139Test.java": "cf5e961a8f9eddce22f02a4f6c7d5d367027fe4d18d426b1f4c465de05aab9ea",
+        "workspace-engine/src/test/java/fraymus/workspace/LossRecovery141Test.java": "15e3c8590740cb9844205533fe29263462bad5940bb1037a027da22b25e4940d",
+        "workspace-engine/src/test/java/fraymus/workspace/PartialFixtures142.java": "0d60accc5e6c48434ccc4fec60bf46224590c493521c06b0b537c6c6f90c55fd",
+        "workspace-engine/src/test/java/fraymus/workspace/PartialRecovery142Test.java": "31bcb44ee81fe94883e0c67c34e29bd6dbdfa5274d3307f2739bc32d7d47e162",
+        "workspace-engine/src/test/java/fraymus/workspace/RestorationImageStudy140.java": "9804d6a1695abc48c028b9bbffe4e514f397fdd459a279b869dc8984c02926e2",
+        "workspace-engine/src/test/java/fraymus/workspace/ReturnContinuity146Test.java": "da0559c9cbc5cb32da95fe2c852d1e420fb442a7f920a9fce303193d531b8574",
+        "workspace-engine/src/test/java/fraymus/workspace/ReturnFixtures146.java": "b3d09c43d295aa8bb90d993b2ae714397c4c86a1dd5658f21fa0d8491c7c1a00",
+        "workspace-engine/src/test/java/fraymus/workspace/TrajectoryFixtures145.java": "1d665345b7f48913a24536f229ec7400da6e329db967b4b32357525665c15f7c"
+      },
+      "noFreshPixelsOrLabelsAccessed": true,
+      "sourceSelection": "Source-only event selection by predeclared criteria; commit independent labels before running predictions."
+    },
+    "finding": "**Exposed regression:** the app reduces accepted measurements on the hidden copy from 1 to 0. It newly withholds 12 incorrect raw proposals without a competitor warning. The separate legitimate regression retains 6 correct supplemental measurements while newly withholding 2 correct raw proposals. This is development evidence, not fresh qualification.\n\n**Real-camera recovery remains unqualified.** The four predeclared sources yielded zero eligible event/reference pairs. Coke has a complete disappearance and return, but its all-partial donor supplies no admissible unobscured examples;145/146 comparisons are unavailable. Its existing139 baseline produced 8/30 correct visible measurements, 22 missing, 0 wrong overlaps and 0/9 hidden-frame outputs. This is a baseline-only diagnostic, not evidence for146.\n\n**Generated cases are diagnostics only:** three evaluation images duplicate donor images in each case. The app refused every reference-dependent start. The frozen generator, refusals and baseline-only outcomes are retained; these cases do not count as fresh qualification.\n\nUnavailable reference-dependent comparisons: 15. Defaults remain unchanged and the candidate is not promoted. Generated overlapping-source diagnostics and the identical-pixel limit are listed separately below; neither is camera qualification.",
+    "defaultsUnchanged": true,
+    "promoted": false,
+    "refusals": [
+      {
+        "caseName": "coke-245",
+        "domain": "real-camera",
+        "policy": "trajectory-guard-145",
+        "reason": "No independently supported fully visible examples in this audit",
+        "donorRun": "780cd90b-5914-4d4a-8a8a-f19a4e985b43",
+        "donorAudit": "b02b74baaf7abf69c86cf1a516c8746deca158bfd832949d349639804192a6cc",
+        "status": "unavailable-no-verified-references"
+      },
+      {
+        "caseName": "coke-245",
+        "domain": "real-camera",
+        "policy": "return-monitor-146",
+        "reason": "No independently supported fully visible examples in this audit",
+        "donorRun": "780cd90b-5914-4d4a-8a8a-f19a4e985b43",
+        "donorAudit": "b02b74baaf7abf69c86cf1a516c8746deca158bfd832949d349639804192a6cc",
+        "status": "unavailable-no-verified-references"
+      },
+      {
+        "caseName": "coke-245",
+        "domain": "real-camera",
+        "policy": "return-guard-146",
+        "reason": "No independently supported fully visible examples in this audit",
+        "donorRun": "780cd90b-5914-4d4a-8a8a-f19a4e985b43",
+        "donorAudit": "b02b74baaf7abf69c86cf1a516c8746deca158bfd832949d349639804192a6cc",
+        "status": "unavailable-no-verified-references"
+      },
+      {
+        "caseName": "short-return",
+        "domain": "generated-overlap-diagnostic",
+        "policy": "trajectory-guard-145",
+        "reason": "Reference and evaluation share source image bytes",
+        "donorRun": "a13e4895-09e3-45bb-b1bd-0e32a824b373",
+        "donorAudit": "10277fbfda9fda03cd5984f2ee783e9f09bc8e5c7c3e527911ad38e1b7b87232",
+        "status": "unavailable-shared-source-images"
+      },
+      {
+        "caseName": "short-return",
+        "domain": "generated-overlap-diagnostic",
+        "policy": "return-monitor-146",
+        "reason": "Reference and evaluation share source image bytes",
+        "donorRun": "a13e4895-09e3-45bb-b1bd-0e32a824b373",
+        "donorAudit": "10277fbfda9fda03cd5984f2ee783e9f09bc8e5c7c3e527911ad38e1b7b87232",
+        "status": "unavailable-shared-source-images"
+      },
+      {
+        "caseName": "short-return",
+        "domain": "generated-overlap-diagnostic",
+        "policy": "return-guard-146",
+        "reason": "Reference and evaluation share source image bytes",
+        "donorRun": "a13e4895-09e3-45bb-b1bd-0e32a824b373",
+        "donorAudit": "10277fbfda9fda03cd5984f2ee783e9f09bc8e5c7c3e527911ad38e1b7b87232",
+        "status": "unavailable-shared-source-images"
+      },
+      {
+        "caseName": "distant-copy",
+        "domain": "generated-overlap-diagnostic",
+        "policy": "trajectory-guard-145",
+        "reason": "Reference and evaluation share source image bytes",
+        "donorRun": "a13e4895-09e3-45bb-b1bd-0e32a824b373",
+        "donorAudit": "10277fbfda9fda03cd5984f2ee783e9f09bc8e5c7c3e527911ad38e1b7b87232",
+        "status": "unavailable-shared-source-images"
+      },
+      {
+        "caseName": "distant-copy",
+        "domain": "generated-overlap-diagnostic",
+        "policy": "return-monitor-146",
+        "reason": "Reference and evaluation share source image bytes",
+        "donorRun": "a13e4895-09e3-45bb-b1bd-0e32a824b373",
+        "donorAudit": "10277fbfda9fda03cd5984f2ee783e9f09bc8e5c7c3e527911ad38e1b7b87232",
+        "status": "unavailable-shared-source-images"
+      },
+      {
+        "caseName": "distant-copy",
+        "domain": "generated-overlap-diagnostic",
+        "policy": "return-guard-146",
+        "reason": "Reference and evaluation share source image bytes",
+        "donorRun": "a13e4895-09e3-45bb-b1bd-0e32a824b373",
+        "donorAudit": "10277fbfda9fda03cd5984f2ee783e9f09bc8e5c7c3e527911ad38e1b7b87232",
+        "status": "unavailable-shared-source-images"
+      },
+      {
+        "caseName": "same-path-copy",
+        "domain": "generated-overlap-diagnostic",
+        "policy": "trajectory-guard-145",
+        "reason": "Reference and evaluation share source image bytes",
+        "donorRun": "a13e4895-09e3-45bb-b1bd-0e32a824b373",
+        "donorAudit": "10277fbfda9fda03cd5984f2ee783e9f09bc8e5c7c3e527911ad38e1b7b87232",
+        "status": "unavailable-shared-source-images"
+      },
+      {
+        "caseName": "same-path-copy",
+        "domain": "generated-overlap-diagnostic",
+        "policy": "return-monitor-146",
+        "reason": "Reference and evaluation share source image bytes",
+        "donorRun": "a13e4895-09e3-45bb-b1bd-0e32a824b373",
+        "donorAudit": "10277fbfda9fda03cd5984f2ee783e9f09bc8e5c7c3e527911ad38e1b7b87232",
+        "status": "unavailable-shared-source-images"
+      },
+      {
+        "caseName": "same-path-copy",
+        "domain": "generated-overlap-diagnostic",
+        "policy": "return-guard-146",
+        "reason": "Reference and evaluation share source image bytes",
+        "donorRun": "a13e4895-09e3-45bb-b1bd-0e32a824b373",
+        "donorAudit": "10277fbfda9fda03cd5984f2ee783e9f09bc8e5c7c3e527911ad38e1b7b87232",
+        "status": "unavailable-shared-source-images"
+      },
+      {
+        "caseName": "delayed-return",
+        "domain": "generated-overlap-diagnostic",
+        "policy": "trajectory-guard-145",
+        "reason": "Reference and evaluation share source image bytes",
+        "donorRun": "a13e4895-09e3-45bb-b1bd-0e32a824b373",
+        "donorAudit": "10277fbfda9fda03cd5984f2ee783e9f09bc8e5c7c3e527911ad38e1b7b87232",
+        "status": "unavailable-shared-source-images"
+      },
+      {
+        "caseName": "delayed-return",
+        "domain": "generated-overlap-diagnostic",
+        "policy": "return-monitor-146",
+        "reason": "Reference and evaluation share source image bytes",
+        "donorRun": "a13e4895-09e3-45bb-b1bd-0e32a824b373",
+        "donorAudit": "10277fbfda9fda03cd5984f2ee783e9f09bc8e5c7c3e527911ad38e1b7b87232",
+        "status": "unavailable-shared-source-images"
+      },
+      {
+        "caseName": "delayed-return",
+        "domain": "generated-overlap-diagnostic",
+        "policy": "return-guard-146",
+        "reason": "Reference and evaluation share source image bytes",
+        "donorRun": "a13e4895-09e3-45bb-b1bd-0e32a824b373",
+        "donorAudit": "10277fbfda9fda03cd5984f2ee783e9f09bc8e5c7c3e527911ad38e1b7b87232",
+        "status": "unavailable-shared-source-images"
+      }
+    ],
+    "diagnostics": {
+      "passed": true,
+      "frozenInputs": 90,
+      "rows": [
+        {
+          "group": "regression",
+          "case": "trajectory-return",
+          "domain": "exposed-development",
+          "checkedWithoutWarning": 8,
+          "newlyBlockedOrdinals": [
+            21,
+            22
+          ],
+          "supportedReturnOrdinals": [
+            9,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "screenedOutcomes": {
+            "correct": 2,
+            "incorrect": 0,
+            "returned": 2,
+            "unknown": 0
+          },
+          "filteredOutcomes": {
+            "correct": 6,
+            "incorrect": 0,
+            "accepted": 6,
+            "unknown": 0
+          },
+          "scope": "Every unchanged parent proposal checked; restored/predicted boxes never extend the original139 target anchor."
+        },
+        {
+          "group": "regression",
+          "case": "copy-remains",
+          "domain": "exposed-development",
+          "checkedWithoutWarning": 13,
+          "newlyBlockedOrdinals": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "supportedReturnOrdinals": [
+            9
+          ],
+          "screenedOutcomes": {
+            "correct": 0,
+            "incorrect": 12,
+            "returned": 12,
+            "unknown": 0
+          },
+          "filteredOutcomes": {
+            "correct": 1,
+            "incorrect": 0,
+            "accepted": 1,
+            "unknown": 0
+          },
+          "scope": "Every unchanged parent proposal checked; restored/predicted boxes never extend the original139 target anchor."
+        }
+      ]
+    }
+  },
+  "validation": "374 distinct Java tests and 161 desktop checks passed, plus kernel integration, agency regression, offline preparation and package/build verification. 14 actual app runs across 3 isolated groups, plus one separately reported process-interruption regression. All original source, code and outcome checks remain required. Hosted CI is separate.",
+  "finding": "**Exposed regression:** the app reduces accepted measurements on the hidden copy from 1 to 0. It newly withholds 12 incorrect raw proposals without a competitor warning. The separate legitimate regression retains 6 correct supplemental measurements while newly withholding 2 correct raw proposals. This is development evidence, not fresh qualification.\n\n**Real-camera recovery remains unqualified.** The four predeclared sources yielded zero eligible event/reference pairs. Coke has a complete disappearance and return, but its all-partial donor supplies no admissible unobscured examples;145/146 comparisons are unavailable. Its existing139 baseline produced 8/30 correct visible measurements, 22 missing, 0 wrong overlaps and 0/9 hidden-frame outputs. This is a baseline-only diagnostic, not evidence for146.\n\n**Generated cases are diagnostics only:** three evaluation images duplicate donor images in each case. The app refused every reference-dependent start. The frozen generator, refusals and baseline-only outcomes are retained; these cases do not count as fresh qualification.\n\nUnavailable reference-dependent comparisons: 15. Defaults remain unchanged and the candidate is not promoted. Generated overlapping-source diagnostics and the identical-pixel limit are listed separately below; neither is camera qualification."
+}
