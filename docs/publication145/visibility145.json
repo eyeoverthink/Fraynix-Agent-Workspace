@@ -1,0 +1,389 @@
+{
+  "createdAtUtc": "2026-11-14T08:54:44.053248+00:00",
+  "annotator": "Codex source-only AI visual review; external OTB authors supply target rectangles",
+  "exposure": "before-tracking",
+  "summary": "Reviewed all 288 selected original camera frames on 12 contact sheets and 24 full-resolution OTB-target overlays before any145 tracking prediction. Basketball target is the central green-uniform player; nearby defenders partially overlap early. Girl2 target wears yellow/green and pink; climbs steps carrying a scooter. No complete target disappearance in either fixed evaluation window. Visibility describes external target geometry; external rectangles are retained unchanged even where they omit extremities. Competitor boxes are manually marked visible extents at 12 Basketball and five Girl2 frames (not exhaustive, no interpolation). All identities are benchmark subject declarations, not semantic recognition. External geometry plus attributed AI visibility/competitor review is not independent human adjudication. These camera windows cannot qualify full-occlusion recovery; no easier substitute/window is selected.",
+  "Basketball": {
+    "ranges": [
+      {
+        "start": 1,
+        "end": 7,
+        "visibility": "visible"
+      },
+      {
+        "start": 8,
+        "end": 32,
+        "visibility": "partial"
+      },
+      {
+        "start": 33,
+        "end": 144,
+        "visibility": "visible"
+      }
+    ],
+    "otherBoxes": {
+      "12": [
+        [
+          0.057291666666666664,
+          0.6620370370370371,
+          0.1892361111111111,
+          0.9606481481481481
+        ]
+      ],
+      "18": [
+        [
+          0.2829861111111111,
+          0.5671296296296297,
+          0.3923611111111111,
+          0.8171296296296297
+        ]
+      ],
+      "24": [
+        [
+          0.4149305555555556,
+          0.5555555555555556,
+          0.4791666666666667,
+          0.7962962962962963
+        ]
+      ],
+      "26": [
+        [
+          0.4444444444444444,
+          0.5509259259259259,
+          0.4965277777777778,
+          0.7939814814814815
+        ]
+      ],
+      "28": [
+        [
+          0.4670138888888889,
+          0.5416666666666666,
+          0.5329861111111112,
+          0.7893518518518519
+        ]
+      ],
+      "30": [
+        [
+          0.4861111111111111,
+          0.5393518518518519,
+          0.5503472222222222,
+          0.7893518518518519
+        ]
+      ],
+      "32": [
+        [
+          0.5052083333333334,
+          0.5462962962962963,
+          0.5833333333333334,
+          0.7962962962962963
+        ]
+      ],
+      "40": [
+        [
+          0.5607638888888888,
+          0.5671296296296297,
+          0.6579861111111112,
+          0.8055555555555556
+        ]
+      ],
+      "60": [
+        [
+          0.5607638888888888,
+          0.5717592592592593,
+          0.6753472222222222,
+          0.8101851851851852
+        ]
+      ],
+      "90": [
+        [
+          0.4722222222222222,
+          0.4097222222222222,
+          0.6024305555555556,
+          0.6319444444444444
+        ]
+      ],
+      "120": [
+        [
+          0.6180555555555556,
+          0.30787037037037035,
+          0.7135416666666666,
+          0.5532407407407407
+        ]
+      ],
+      "144": [
+        [
+          0.7013888888888888,
+          0.3125,
+          0.8385416666666666,
+          0.5648148148148148
+        ]
+      ]
+    },
+    "note": "Early defender crossing is conservatively partial; no completely hidden target. Target rectangles are narrow original benchmark boxes, not redrawn from any prediction."
+  },
+  "Girl2": {
+    "ranges": [
+      {
+        "start": 1,
+        "end": 24,
+        "visibility": "visible"
+      },
+      {
+        "start": 385,
+        "end": 504,
+        "visibility": "visible"
+      }
+    ],
+    "otherBoxes": {
+      "24": [
+        [
+          0.1359375,
+          0.1875,
+          0.2328125,
+          0.6145833333333334
+        ],
+        [
+          0.053125,
+          0.33958333333333335,
+          0.1453125,
+          0.61875
+        ]
+      ],
+      "385": [
+        [
+          0.5859375,
+          0.0,
+          0.6921875,
+          0.22916666666666666
+        ]
+      ],
+      "432": [
+        [
+          0.3359375,
+          0.0,
+          0.4453125,
+          0.23958333333333334
+        ],
+        [
+          0.7921875,
+          0.0,
+          0.884375,
+          0.23333333333333334
+        ]
+      ],
+      "460": [
+        [
+          0.2625,
+          0.0,
+          0.4515625,
+          0.31666666666666665
+        ],
+        [
+          0.63125,
+          0.08541666666666667,
+          0.7171875,
+          0.28541666666666665
+        ]
+      ],
+      "504": [
+        [
+          0.240625,
+          0.0,
+          0.3875,
+          0.31875
+        ],
+        [
+          0.815625,
+          0.11875,
+          0.9125,
+          0.29791666666666666
+        ]
+      ]
+    },
+    "note": "Pose, blur, carrying scooter and stair ascent change appearance; target remains visible. Background pedestrians sampled separately."
+  },
+  "reviewSheets": [
+    {
+      "path": "build/otb145/review/Basketball-1.jpg",
+      "sha256": "c24cff2666a628023fa40b6cbf1eb6b05dda47c11a38ec96efbf059579ee3272",
+      "source": "Basketball",
+      "first": 1,
+      "last": 24
+    },
+    {
+      "path": "build/otb145/review/Basketball-25.jpg",
+      "sha256": "79dd2319ea22dd0d894d72baf7d6abddb7bd9275cc39cb0d38be336f1b45b9e9",
+      "source": "Basketball",
+      "first": 25,
+      "last": 48
+    },
+    {
+      "path": "build/otb145/review/Basketball-49.jpg",
+      "sha256": "c57319f22b2196220bfb1c03d9802c1136cf879c7e45c46cb09a905e1851c81f",
+      "source": "Basketball",
+      "first": 49,
+      "last": 72
+    },
+    {
+      "path": "build/otb145/review/Basketball-73.jpg",
+      "sha256": "ae56e9f38c18223ba6f381c6f86f32c2f632903fa49eea15041111673064a07a",
+      "source": "Basketball",
+      "first": 73,
+      "last": 96
+    },
+    {
+      "path": "build/otb145/review/Basketball-97.jpg",
+      "sha256": "26a1b88b046dfbd3ccacf46c44564d1ae8d4c096f63ee6c27fa176d6815dc18f",
+      "source": "Basketball",
+      "first": 97,
+      "last": 120
+    },
+    {
+      "path": "build/otb145/review/Basketball-121.jpg",
+      "sha256": "c540db86bcc26f3e8e5f883346893ae707ac89e468644f256657da84ace97a1f",
+      "source": "Basketball",
+      "first": 121,
+      "last": 144
+    },
+    {
+      "path": "build/otb145/review/Girl2-1.jpg",
+      "sha256": "9afcab0197c1350cc00c6e2897c2c6f654db7e286682da1ab544bf84ad3431b3",
+      "source": "Girl2",
+      "first": 1,
+      "last": 24
+    },
+    {
+      "path": "build/otb145/review/Girl2-385.jpg",
+      "sha256": "170c3e050883240ada68b981adac7bb43e2e7bc2e6a9bd39e512334edab0209d",
+      "source": "Girl2",
+      "first": 385,
+      "last": 408
+    },
+    {
+      "path": "build/otb145/review/Girl2-409.jpg",
+      "sha256": "d649eae04ce647a6a8fa6386711a3d068c5b5305b1217a92d16ad004ea5a9e8e",
+      "source": "Girl2",
+      "first": 409,
+      "last": 432
+    },
+    {
+      "path": "build/otb145/review/Girl2-433.jpg",
+      "sha256": "3443253b6fcd9ad50167f47eae8ee2b9da988b6ef574cda20cb794067428fd27",
+      "source": "Girl2",
+      "first": 433,
+      "last": 456
+    },
+    {
+      "path": "build/otb145/review/Girl2-457.jpg",
+      "sha256": "a4d37fb788df5f41496d506b6aba09bdb7dc997341cf17cf21fef4832c8eac45",
+      "source": "Girl2",
+      "first": 457,
+      "last": 480
+    },
+    {
+      "path": "build/otb145/review/Girl2-481.jpg",
+      "sha256": "73aa6493a27fb4a52dff1247848fbc3cee72dfc88484be1340232cbbc4748087",
+      "source": "Girl2",
+      "first": 481,
+      "last": 504
+    }
+  ],
+  "details": [
+    {
+      "path": "build/otb145/details/Basketball-1.png",
+      "sha256": "ee0f3b0904c636821cec540c51d9de17150d9b40858b36418df6cab3e2e99853"
+    },
+    {
+      "path": "build/otb145/details/Basketball-10.png",
+      "sha256": "7c914c71ce5ca0486c70fd33ac4cfd7bf4f8233400dbc5b03e0d6b81bc94e445"
+    },
+    {
+      "path": "build/otb145/details/Basketball-12.png",
+      "sha256": "9f30eed8c5fb49e05579254cb2cd05c86eea9ab9e21deee8275348606f065e5c"
+    },
+    {
+      "path": "build/otb145/details/Basketball-120.png",
+      "sha256": "d6e4093b81b78cb560aed8f45f5de74abc1413b18b0b1f63440af81877f834ba"
+    },
+    {
+      "path": "build/otb145/details/Basketball-14.png",
+      "sha256": "902cee626bd15d5ef9e9fae806e7c2cabbd5134135831abf55957f5371e65afc"
+    },
+    {
+      "path": "build/otb145/details/Basketball-144.png",
+      "sha256": "a055bd91496a7ad1326c7bc502f0da3ca108a054a28ba40dc759f271095c2e35"
+    },
+    {
+      "path": "build/otb145/details/Basketball-18.png",
+      "sha256": "bbb9d3dcbcacbe7091b087f769d74fd1fde2c9fc5d32b69ac5f2bf1e8bb529cb"
+    },
+    {
+      "path": "build/otb145/details/Basketball-20.png",
+      "sha256": "2a58e6253534fd989a5aba523f6bd7e1814f86b64ba25754c80903cf4240256b"
+    },
+    {
+      "path": "build/otb145/details/Basketball-24.png",
+      "sha256": "3b396fd74fa0b24ca677d31c5ff17422dfff1b7e16f122e1d8c3d391e4a6999b"
+    },
+    {
+      "path": "build/otb145/details/Basketball-25.png",
+      "sha256": "f4939a7a9d9332983a2a96d0ec1961851a230cb71266317f0ec2f518645d69bb"
+    },
+    {
+      "path": "build/otb145/details/Basketball-26.png",
+      "sha256": "8bf13b2706ba657b384f7841f60a59fbdd6230e796380b598001f1af4cc34e85"
+    },
+    {
+      "path": "build/otb145/details/Basketball-28.png",
+      "sha256": "bc808ad469099b39f0c27dc8f3aceef28abc10fd65283e1060c25fc6b76a94cd"
+    },
+    {
+      "path": "build/otb145/details/Basketball-30.png",
+      "sha256": "716c4a996e3fa1131186c34f4b3b102a1be64e2b59dd2529326efaf73eedf8e6"
+    },
+    {
+      "path": "build/otb145/details/Basketball-32.png",
+      "sha256": "a68400f3cf5f90242bf3fda5278a355926625484d384bdb512c970e352e19e7b"
+    },
+    {
+      "path": "build/otb145/details/Basketball-40.png",
+      "sha256": "c2a80a6bc779eab321dbf432546b985a9fe3498e89ae7aa4ec78a3a965be36f2"
+    },
+    {
+      "path": "build/otb145/details/Basketball-60.png",
+      "sha256": "fff8f41f89ab44316e40f9c7c8866a11331204b8eb5b78a65a0837b7185dd652"
+    },
+    {
+      "path": "build/otb145/details/Basketball-8.png",
+      "sha256": "3902877bc82fa7ad7c9ab10ed055b43e4012390bfc25a9be0fa79bf589a4b1e8"
+    },
+    {
+      "path": "build/otb145/details/Basketball-90.png",
+      "sha256": "7a8ef775b2403961d97ebb36912f4d875b3db778122db695fc4e3378a4af9877"
+    },
+    {
+      "path": "build/otb145/details/Girl2-1.png",
+      "sha256": "118fb58eec63bc4ea13d8e9819a136ea47480cfc421e6beac4e863615f2cfa42"
+    },
+    {
+      "path": "build/otb145/details/Girl2-24.png",
+      "sha256": "9547b9dfb7f6e8afc15705aab827d6d9ced30e057e7c4a3845d1f936076df4e1"
+    },
+    {
+      "path": "build/otb145/details/Girl2-385.png",
+      "sha256": "499dd725f916bbee68d5658728f75c882567f2698e1074015e8bfe3727a5b2a5"
+    },
+    {
+      "path": "build/otb145/details/Girl2-432.png",
+      "sha256": "963b04a30d42af4f552b447a1088c92b75722bf61dbfb5a9618d539b645907b1"
+    },
+    {
+      "path": "build/otb145/details/Girl2-460.png",
+      "sha256": "9bc70f84d54a29a25fd6ee06acc2973a9042e42452008743f60a44743b8dbdb9"
+    },
+    {
+      "path": "build/otb145/details/Girl2-504.png",
+      "sha256": "07ca521ec1be921bb3d3ae01a7ca87ba1c7d12240045b9c090f80fc69f9b276e"
+    }
+  ]
+}
