@@ -44,7 +44,8 @@ async function main(){
    $('s147-preview').onclick=async()=>{if(s.phase!=='idle')return;s.phase='opening';$('s147-preview').disabled=true;try{await window.metricView.startCamera();if(s.stopping){window.metricView.stopCamera();return;}s.phase='preview';$('s147-start').disabled=false;cue('Preview only. Confirm the target and lookalike are fully visible, then click Start clear reference.');await event('preview-started');}catch(e){s.error=e.message;s.phase='idle';if(!s.stopping)$('s147-preview').disabled=false;cue('Camera unavailable: '+e.message);}};
    function update(){
     const n=s.samples-s.phaseStart,b=$('s147-next');$('s147-count').textContent='PRIVATE RECORDING · '+s.samples+' samples · '+((performance.now()-s.started)/1000).toFixed(1)+' seconds · '+s.phase;
-    if(s.phase==='reference'&&s.samples>=24){b.disabled=false;b.textContent='Ready to cover the target';}
+    // 24 donor samples plus 10 separate pre-cover samples; never share source images.
+    if(s.phase==='reference'&&s.samples>=34){b.disabled=false;b.textContent='Ready to cover the target';}
     if(s.phase==='covered'&&n>=4){b.disabled=false;b.textContent='Ready to reveal the target';}
     if(s.phase==='returned'&&n>=24){b.disabled=false;b.textContent='Finish recording';}
    }

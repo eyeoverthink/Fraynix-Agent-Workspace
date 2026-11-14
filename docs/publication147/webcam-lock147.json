@@ -1,14 +1,14 @@
 {
   "edition": 147,
   "scope": "Separate authorized private webcam study; frozen before webcam pixels; public protocol unchanged",
-  "lockedAtUtc": "2026-11-14T21:56:13.281918+00:00",
+  "lockedAtUtc": "2026-11-14T21:59:33.565202+00:00",
   "algorithmLockSha256": "10c4d87aca055c73abfcd313fbc1c8fa63cb33e2dd069167d5c772b38f8c5fa5",
   "sourceHashes": {
-    "docs/EDITION_147_WEBCAM.md": "cd36bf7d407ec6da91aad1bb69da24b08408c64192b77555b813b43303921413",
-    "workspace-desktop/test/webcam147-recorder.cjs": "76e55ee37890ea8ba233ee50b0105c7438abe9cb16cbd0a5e0a39b4264fa5239",
+    "docs/EDITION_147_WEBCAM.md": "169daf3146fce7da7829c2c395682c75d1cff8729e0dbc4658d326b2e13f01fa",
+    "workspace-desktop/test/webcam147-recorder.cjs": "09bd8aea933ff52bb67b9ff5430c99c9bcefcc92c530a07dcdcc4405f810784f",
     "docs/publication147/prepare-webcam147.py": "8faf08c92a7b16b6db652570ab5bc0b54fea41af04adbb5e49fab1e27224348c",
     "docs/publication147/review-webcam147.py": "d8128fe0a25b2f0e6305a203e14124cb89bcde6d22328aad0495ffa3a3f941c4"
   },
-  "priorWebcamLockSha256": "ca5cc47058f0a8ec955cd8a1d197688428359495cbb59493586baf6998b54804",
-  "preAccessRevision": "Serialize preview opening and release late camera stream if stopped while opening. No camera accessed yet; method/protocol unchanged."
+  "priorWebcamLockSha256": "ea8b3fe6a61f09ea6f377eb4c4a673623d29950a49e4968fc3c0a3e9be3a9481",
+  "preAccessRevision": "Reserve34 clear samples:24 donor plus10 separate pre-cover context. Avoid overlap before recording; no pixels accessed and no eligibility rule changed."
 }
