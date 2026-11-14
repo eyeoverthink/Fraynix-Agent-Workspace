@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 146
 
+[Published and fetched verification receipt](docs/PUBLICATION_146.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-146)
+
 **A returning appearance needs motion evidence even when no competitor warning was recorded.** This optional Java check closes the path that previously allowed a distant copy to return on appearance alone. It reuses the existing measured trajectory, keeps the original decisions visible, and independently scores both wrong returns prevented and correct returns refused.
 
 **Exposed regression:** the app reduces accepted measurements on the hidden copy from 1 to 0. It newly withholds 12 incorrect raw proposals without a competitor warning. The separate legitimate regression retains 6 correct supplemental measurements while newly withholding 2 correct raw proposals. This is development evidence, not fresh qualification.
