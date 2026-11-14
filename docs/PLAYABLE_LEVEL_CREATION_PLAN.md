@@ -1,3 +1,15 @@
+## Edition 145 / 2026-11-14 — measured trajectory evidence
+
+[Edition145](../README-145.md) tests bounded pre-loss target paths against retained rival paths. Original-pixel replay and independent outcomes measure recovered targets, wrong objects and refusal cost. Explicit experiment; defaults unchanged. Unified Java world/browser/creation remains the destination.
+
+## Next steps
+
+1. **Check continuity even when no strong rival was detected.** The fresh copy-remains case bypassed the ambiguity latch and retained one wrong accepted measurement. Develop on this now-exposed failure, test both legitimate returns and copies, then freeze before new sources. Preserve baseline continuity and quantify any correct returns lost; a missing rival is not identity evidence. Do not promote145 or loosen thresholds based on its fresh results.
+2. **Qualify real occlusion and return deliberately.** Define source-only event-selection criteria before testing, then use genuinely new footage containing full cover, re-entry, a competing similar object, camera motion and a turn. Label target/competitors before predictions. The145 fixed camera windows contain no complete disappearance, and their many missing observations remain unresolved. Development replay and generated geometry are not camera qualification.
+3. **Make verification and search cost sustainable.** Measure and reuse exact source/code-bound computations while retaining every source and outcome check. Avoid duplicate spatial searches where equivalent evidence can be shared. Forecast complete-world export size before collection; preserve the existing limits and history. Report total task cost, including donor admission, replay, saves, restart and export.
+4. **Return qualified observations to useful durable goals.** Keep the unified Java world/browser/creation application central. A goal must distinguish measured support, predicted position and unknown identity, and stop or request new evidence when identity is unresolved. Demonstrate a complete task benefit before changing defaults or granting any additional action authority.
+
+
 ## Edition144 / 2026-11-14 — ambiguity continuity
 
 [Edition144](../README-144.md) retains competing-object evidence through loss. Pixel replay and independent outcomes measure prevented errors and useful recovery withheld. Explicit experiment; defaults unchanged. Unified Java world/browser/creation remains the destination.

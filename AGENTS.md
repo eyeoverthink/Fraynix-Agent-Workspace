@@ -1,3 +1,91 @@
+## Edition 145 — locally verified; publication preparation
+
+2026-11-14, America/Los_Angeles. Isolated J:/Codex-Work/fraynix-workspace-edition145 from c6445f6e. CI checked first:144 documentation passed, compile/tests pending at that check. Method, scorer, UI, source selection/generator and harness frozen at5922cb69 before fresh Basketball/Girl2 images or annotations. Source-only labels committed before predictions. No publication claim until actual push and fetched verification pass.
+
+Explicit trajectory-guard-145 wraps unchanged144. A fully confirmed143 appearance can override a144 refusal only when measured pre-loss target motion supports it and retained rival paths exclude it. At most five samples per path, eight rivals, twelve-frame horizon and capped uncertainty. Only accepted139 baseline observations anchor the target; predictions and restored proposals never extend that anchor. Path conflict, capacity overflow or stale/uncertain motion refuse. Missing rivals never erase evidence. Bounds are uncalibrated image-plane assumptions, not physical accuracy or semantic identity. Monitor145 preserves144 tracker/filter output. All144 accepted proposals remain unchanged. Original source, label, code and pixel replay checks remain mandatory. No defaults, permissions, capacity or automatic-admission changes.
+
+First app attempt refused120-frame camera packs at the existing96-frame limit after three donor runs, before any evaluation. Capacity-only amendment5535c984 partitions each fixed window into96+25 frames with one boundary seed; all119 scored transitions and original labels/pixels retained. Separate tail project repeats donor verification and preserves24-run capacity. This is chunked tracking with a new labelled boundary seed, not uninterrupted120-frame tracking. Frozen production/scorer/main harness unchanged. Original failure, pre-partition manifest and labels preserved. Source review finds no complete camera occlusion in these fixed windows; generated occlusions remain separate, not camera qualification.
+
+Fresh eligible camera comparisons (4 bounded chunks from two fixed source windows): guard145 91/238 correct versus144 91/238; wrong overlaps 0 versus 0, hidden outputs 0 versus 0. Raw restorations of144 refusals: {'returned': 0, 'correct': 0, 'incorrect': 0, 'unknown': 0}.
+
+Fresh generated controls (4 cases): guard145 43/60 correct versus144 43/60; wrong overlaps 0 versus 0, hidden outputs 1 versus 1, labelled-other matches 1 versus 1. Raw restorations: {'returned': 0, 'correct': 0, 'incorrect': 0, 'unknown': 0}. Generated geometry does not establish camera reliability.
+
+basketball-25: restored 0 correct / 0 incorrect / 0 unknown raw proposals. Filter-accepted restorations: 0 correct / 0 incorrect / 0 unknown; still withheld 0 correct / 0 incorrect / 0 unknown parent proposals.
+
+girl2-385: restored 0 correct / 0 incorrect / 0 unknown raw proposals. Filter-accepted restorations: 0 correct / 0 incorrect / 0 unknown; still withheld 0 correct / 0 incorrect / 0 unknown parent proposals.
+
+trajectory-return: restored 0 correct / 0 incorrect / 0 unknown raw proposals. Filter-accepted restorations: 0 correct / 0 incorrect / 0 unknown; still withheld 0 correct / 0 incorrect / 0 unknown parent proposals.
+
+copy-remains: restored 0 correct / 0 incorrect / 0 unknown raw proposals. Filter-accepted restorations: 0 correct / 0 incorrect / 0 unknown; still withheld 0 correct / 0 incorrect / 0 unknown parent proposals.
+
+crossing-copy: restored 0 correct / 0 incorrect / 0 unknown raw proposals. Filter-accepted restorations: 0 correct / 0 incorrect / 0 unknown; still withheld 0 correct / 1 incorrect / 0 unknown parent proposals.
+
+turning-return: restored 0 correct / 0 incorrect / 0 unknown raw proposals. Filter-accepted restorations: 0 correct / 0 incorrect / 0 unknown; still withheld 0 correct / 0 incorrect / 0 unknown parent proposals.
+
+basketball-120: restored 0 correct / 0 incorrect / 0 unknown raw proposals. Filter-accepted restorations: 0 correct / 0 incorrect / 0 unknown; still withheld 0 correct / 0 incorrect / 0 unknown parent proposals.
+
+girl2-480: restored 0 correct / 0 incorrect / 0 unknown raw proposals. Filter-accepted restorations: 0 correct / 0 incorrect / 0 unknown; still withheld 0 correct / 0 incorrect / 0 unknown parent proposals.
+
+basketball-25 activation: 0 frames with retained ambiguity; 0 also had a valid pre-loss target forecast; 0 qualified overrides.
+
+girl2-385 activation: 0 frames with retained ambiguity; 0 also had a valid pre-loss target forecast; 0 qualified overrides.
+
+trajectory-return activation: 0 frames with retained ambiguity; 0 also had a valid pre-loss target forecast; 0 qualified overrides.
+
+copy-remains activation: 0 frames with retained ambiguity; 0 also had a valid pre-loss target forecast; 0 qualified overrides.
+
+crossing-copy activation: 16 frames with retained ambiguity; 11 also had a valid pre-loss target forecast; 0 qualified overrides.
+
+turning-return activation: 0 frames with retained ambiguity; 0 also had a valid pre-loss target forecast; 0 qualified overrides.
+
+basketball-120 activation: 0 frames with retained ambiguity; 0 also had a valid pre-loss target forecast; 0 qualified overrides.
+
+girl2-480 activation: 0 frames with retained ambiguity; 0 also had a valid pre-loss target forecast; 0 qualified overrides.
+
+Defaults remain unchanged; no promotion. Motion bounds are uncalibrated image-plane assumptions. Unseen identical copies, camera movement, intersecting paths and long gaps remain limits; extra raw proposals can still be refused by the shared filter.
+
+Already-exposed development replay through the actual app (not fresh qualification):
+
+- exposed-return / ambiguity-guard-144: 6/21 correct, 0 hidden outputs, restored {}.
+- exposed-return / trajectory-monitor-145: 6/21 correct, 0 hidden outputs, restored {'correct': 0, 'incorrect': 0, 'returned': 0, 'unknown': 0}.
+- exposed-return / trajectory-guard-145: 8/21 correct, 0 hidden outputs, restored {'correct': 2, 'incorrect': 0, 'returned': 2, 'unknown': 0}.
+- exposed-copy / ambiguity-guard-144: 6/9 correct, 0 hidden outputs, restored {}.
+- exposed-copy / trajectory-monitor-145: 6/9 correct, 0 hidden outputs, restored {'correct': 0, 'incorrect': 0, 'returned': 0, 'unknown': 0}.
+- exposed-copy / trajectory-guard-145: 6/9 correct, 0 hidden outputs, restored {'correct': 0, 'incorrect': 0, 'returned': 0, 'unknown': 0}.
+
+The large comparison project correctly refuses complete-world export at the existing20MB desktop limit. Amendmenta8156950 retains the failure and requires full export plus active-ambiguity restart in a separate exposed-development project. No pruning or limit change. Fresh return does not latch ambiguity, so it is not used to qualify that restart precondition. Development outcomes remain separate from fresh camera/generated qualification.
+
+360 distinct Java checks, 161 desktop checks, kernel, agency, offline/package and actual app checks passed. The first development attempt failed two of nine checks; the before-freeze envelope correction and original attempts are retained. Final broad verification includes the additional capacity-overflow case. Full costs, evidence and screenshots are published. Hosted CI remains separate from local success.
+
+## Next steps
+
+1. **Check continuity even when no strong rival was detected.** The fresh copy-remains case bypassed the ambiguity latch and retained one wrong accepted measurement. Develop on this now-exposed failure, test both legitimate returns and copies, then freeze before new sources. Preserve baseline continuity and quantify any correct returns lost; a missing rival is not identity evidence. Do not promote145 or loosen thresholds based on its fresh results.
+2. **Qualify real occlusion and return deliberately.** Define source-only event-selection criteria before testing, then use genuinely new footage containing full cover, re-entry, a competing similar object, camera motion and a turn. Label target/competitors before predictions. The145 fixed camera windows contain no complete disappearance, and their many missing observations remain unresolved. Development replay and generated geometry are not camera qualification.
+3. **Make verification and search cost sustainable.** Measure and reuse exact source/code-bound computations while retaining every source and outcome check. Avoid duplicate spatial searches where equivalent evidence can be shared. Forecast complete-world export size before collection; preserve the existing limits and history. Report total task cost, including donor admission, replay, saves, restart and export.
+4. **Return qualified observations to useful durable goals.** Keep the unified Java world/browser/creation application central. A goal must distinguish measured support, predicted position and unknown identity, and stop or request new evidence when identity is unresolved. Demonstrate a complete task benefit before changing defaults or granting any additional action authority.
+
+Keep the durable unified Java world/browser/creation application central. No agents or overlapping heavy jobs. Shared dependency junction read-only. Preserve private projects and frozen001–145. Publish only Fraynix-Agent-Workspace; fetch and audit. Never relabel historical code-bound evidence.
+
+## Edition145 latest checkpoint — export refusal preserved; continuation running
+
+Main original/resume attempt then correctly refused complete-world export at desktop20MB cap after fresh trajectory-return comparison; old and145 both14/21correct,0extra restorations and NOambiguity latch. Original failed result/log copied build/trajectory145-export-failure.*. Amendmenta8156950: original frozen main harness unchanged; new workspace-desktop/test/trajectory145-resume-integration.cjs recognizes ONLY this exact export-capacity refusal, requires separate positive export, keeps every other check. Main continuation running session65290, log build/trajectory145-app-resume2.log (currently revalidating prior saved audits). ONE heavy job, no agents. Do not restart/repeat completed tracking.
+
+New separate exposed-regression source prepared build/exposed145-source; docs/publication145/source145-exposed.json; Exposed145.java calls original frozen unit-test frame()/scene() (textures143031/143819), labels from renderer, donor/evalbytes disjoint. Explicit exposed-development domain, never freshqualification. Source/harness amendment committed before auxiliary evaluation. After main passes run tail harness (fresh separateproject) then exposed145-integration.cjs (7runs inthirdisolatedproject); require actualapp restored.correct>0 onexposed-return and fullsmallprojectexport. Run restart-exposed145.cjs (NOToriginalrestart145 whose fresh-source latchprecondition absent), diagnostics145.py aggregates3studies, capture145.cjs, capture-exposed145.cjs, review-screens145.py and inspectallimages. Tail stillneeded: exactremaining24transitions percamera, no limit change.
+
+Docs helpers updated for main+tail fresh totals, exposed results separately, original capacity failures, and actual exposed active-latch restart. Inspect/generatedocs carefully (draftnotrun); original82sourcehashlock remains unchanged. 360Java/161desktop/10agency/kernel/package passed. Freshcamera mainchunks bothno145gain: Basketball25/95;Girl2 18/95. Generatedcopy/turn cases pending. Do not tune. Complete screenshots/README/offlineguide/notes/freeze/docscheck then actualmain+edition145+tagpush/fetchedaudit andfinishmetadata push/fetch. No145pushyet.
+
+## Edition145 checkpoint — actual app comparisons running
+
+Freeze5922cb69 and all82 frozen hashes unchanged. 360Java/52classes,161desktop,10agency,kernel,offline/package passed. New source review all288camera frames/12sheets/24details, source-only labels d091cdce before predictions. Fixed windows have NO complete camera disappearance: preserve this limitation; generated occlusions separate. Initial actual-app refused120frames at unchanged96 limit after3donors, before evaluation. Capacity-only amendment5535c984 partitions each fixed window96+25 with shared seed; ALL119 transitions preserved. Main source145 + source145-tail manifests, original labels and initial manifest retained. Tail project repeats donors; no24-run capacity change. Boundary has new labelled seed, NOT uninterrupted120frame tracking. Frozen production/scorer/main harness unchanged; tail harness added before tail evaluation.
+
+Main resume session92767 running node workspace-desktop/test/trajectory145-integration.cjs with DRIFT145_RESUME=1; logs build/trajectory145-app-resume.log, original failure build/trajectory145-capacity-failure.*. Do not overlap heavy jobs. Main Basketball95: all3methods25correct70missing0wrong/noextra; Girl2 baseline18correct77missing, restpending. No145push yet. After main passes run tail harness workspace-desktop/test/trajectory145-tail-integration.cjs (fresh build/trajectory145-tail-app), restart145.cjs, diagnostics145.py (now aggregates main+tail), capture145.cjs, review-screens145.py; inspect actual screenshots. Report helper document145.py aggregates main+tail, separate costs/receipts; source audit verifies original d091 manifest plus exact partition-label arithmetic. Helpers draft, inspect actual output. Finish README/guide/manualvisualreview/notes/freeze/docscheck, actual release145main+branch+tagpush+fetchedaudit, finish145metadata push/fetch. Preserve all attempts, private worlds/defaults, frozen001–144, sharednode junction read-only. No agents; ONE heavy job at a time. Python -X utf8.
+
+## Edition145 checkpoint — frozen; broad Java checks running
+
+Freeze5922cb69 before any fresh image access or source labels. Second focused run passed9 tests after a documented pre-freeze envelope correction; first2 failures and original trace retained. Final freeze adds overflow witness and10th capacity test, now included in broad validation. Kernel passed; validate145.py java running in session21911. One heavy job only; no agents; shared dependencies read-only. No fresh145 pixels generated/downloaded yet. Incumbent143/144/139/default source bytes checked unchanged.
+
+After broad pass: run download145.py, review145.py and fixed TrajectoryFixtures145 generator serially; inspect all288 selected camera images and details; author source-only visibility145.json and independent competitor boxes BEFORE predictions; prepare145.py and commit source data/labels. Then validate145.py package and desktop, actual trajectory145-integration.cjs, restart145.cjs, diagnostics145.py, capture145.cjs. Preserve every failed attempt. Do not tune frozen code/scorer/source selection on fresh outcomes. Report helpers drafted in docs/publication145; inspect remaining assumptions before using. Complete README/guide/visual review/notes, freeze/documentation validation, actual main+edition145+readme-145 push and fetched audit, finish metadata push/fetch. No145 publication yet.
+
 ## Edition 145 active — 2026-11-14 (America/Los_Angeles)
 
 Continue J:/Codex-Work/fraynix-workspace-edition145 from c6445f6e. CI checked first:144 documentation passed, compilation/tests pending. No agents or overlapping heavy jobs. Shared node_modules junction read-only. Preserve private worlds, all defaults/limits/verification and frozen001–144. Develop bounded target/rival trajectory evidence, freeze method/scorer/UI/harness/source choices before fresh Basketball and Girl2 pixels or labels. Target observations must precede loss; predictions/restored boxes never become anchors. Preserve every attempt. Test full app, document measured benefits and costs, publish main/edition145/readme-145 and fetch/audit. No145 publication yet.

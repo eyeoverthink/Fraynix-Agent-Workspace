@@ -1,0 +1,85 @@
+{
+  "nodes": [
+    {
+      "id": "guard",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TrajectoryRecovery145.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "confirm",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/AppearanceConfirmation143.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "audit",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TrajectoryAudit145.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "reference",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ReferenceMemory137.java",
+      "x": 1290,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "world",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java",
+      "x": 1720,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "panel",
+      "type": "file",
+      "file": "workspace-desktop/renderer/observation-panel.js",
+      "x": 2150,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "guard",
+      "toNode": "confirm"
+    },
+    {
+      "id": "1",
+      "fromNode": "confirm",
+      "toNode": "audit"
+    },
+    {
+      "id": "2",
+      "fromNode": "audit",
+      "toNode": "reference"
+    },
+    {
+      "id": "3",
+      "fromNode": "reference",
+      "toNode": "world"
+    },
+    {
+      "id": "4",
+      "fromNode": "world",
+      "toNode": "panel"
+    }
+  ]
+}
