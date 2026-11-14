@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 144
 
+[Published and fetched verification receipt](docs/PUBLICATION_144.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-144)
+
 **Remember competing objects through tracking loss.** A copy should not become confirmed merely because the object beside it disappears. Edition 144 adds an explicit Java ambiguity guard around the unchanged edition 143 confirmation engine, with source replay and independent outcome checks.
 
 [Previous edition143](README-143.md) · [Offline interactive guide](docs/readmes/144/index.html) · [Edition history](docs/readmes/INDEX.md) · [Contributor handoff](README-CONTRIBUTORS.md) · [Architecture](docs/ARCHITECTURE.md) · [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md)
