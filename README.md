@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 145
 
+[Published and fetched verification receipt](docs/PUBLICATION_145.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-145)
+
 **Recover a return only when its measured path supports it.** Edition 145 adds an optional Java trajectory check around the unchanged edition 144 ambiguity guard. An appearance must still pass the existing confirmation checks; then its return must fit motion observed before loss and remain separated from measured competing paths.
 
 **Measured result:** the actual app restores two extra correct measurements in an already-exposed development control, improving 6/21 to 8/21. The fresh camera and generated comparisons show no gain, and one fresh copy error remains. This is a bounded experimental capability, **not a promoted default or sustained-recovery claim**. All original verification and limits remain in place.
