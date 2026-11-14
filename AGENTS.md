@@ -1,3 +1,7 @@
+## Edition141 active — 2026-11-13
+
+Continue J:/Codex-Work/fraynix-workspace-edition141 fromd27846b2. CI checked FIRST:43518090047 documentation passed, engine tests in progress;139 runs passed. Improve source-qualified recovery after genuine flow loss while preserving139 accepted tracker proposals and its warning policy. Explicit candidate only. Freeze code/scorer before new source annotations/pixels. No agents or overlapping heavy jobs; shared node junction read-only. Preserve private projects and frozen001–140. No141 publication yet.
+
 ## Edition 140 — published and fetched back
 
 2026-11-13. Isolated J:/Codex-Work/fraynix-workspace-edition140 from86e0e5a3. CI checked FIRST:139 hosted run43503115840 in progress, documentation passed; no hosted success claimed. Production/scorer freeze5f400a7f, LF/renderer lock completion aa7a3178 before new source access. Actual tested source/build and locked bytes are recorded in docs/readmes/140/verification.json. Release 25c0d8601fdfbf28b8751b95fff729f789db3edd; annotated readme-140. Main, edition140 and tag pushed atomically and fetched. Verified 1685 canonical sources, 49216 frozen hashes across140 editions and 179 original evidence entries. See docs/PUBLICATION_140.json.
