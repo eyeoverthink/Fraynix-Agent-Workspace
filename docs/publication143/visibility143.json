@@ -1,0 +1,158 @@
+{
+  "reviewedAtUtc": "2026-11-14T04:43:40.079976+00:00",
+  "summary": "All 240 selected original camera frames inspected on ten source-only contact sheets, plus 23 original full-resolution boundary/detail frames before predictions. OTB rectangles are external annotations; visibility is AI review, not independent human adjudication. FaceOcc1 contains partial book cover, return and renewed side cover; uncertain boundaries retained. Coupon is page turning on the tracked booklet with hand overlap, not an independently established competing identity. No complete target disappearance or independently boxed lookalike occurs in these fixed camera windows. Exact occlusion/copy geometry is tested separately in generated controls.",
+  "FaceOcc1": {
+    "ranges": [
+      {
+        "start": 1,
+        "end": 23,
+        "visibility": "visible"
+      },
+      {
+        "start": 24,
+        "end": 24,
+        "visibility": "uncertain"
+      },
+      {
+        "start": 25,
+        "end": 67,
+        "visibility": "partial"
+      },
+      {
+        "start": 68,
+        "end": 69,
+        "visibility": "uncertain"
+      },
+      {
+        "start": 70,
+        "end": 81,
+        "visibility": "visible"
+      },
+      {
+        "start": 82,
+        "end": 82,
+        "visibility": "uncertain"
+      },
+      {
+        "start": 83,
+        "end": 120,
+        "visibility": "partial"
+      }
+    ],
+    "otherBoxes": {}
+  },
+  "Coupon": {
+    "ranges": [
+      {
+        "start": 1,
+        "end": 36,
+        "visibility": "visible"
+      },
+      {
+        "start": 37,
+        "end": 38,
+        "visibility": "uncertain"
+      },
+      {
+        "start": 39,
+        "end": 120,
+        "visibility": "partial"
+      }
+    ],
+    "otherBoxes": {}
+  },
+  "originalDetails": [
+    {
+      "path": "build/otb143/review/Coupon-frame-100.jpg",
+      "sha256": "df9c692a9a8d0e6de8aae0c99cbe95d02700ef0fcb2c83dee92c475ff94c88f0"
+    },
+    {
+      "path": "build/otb143/review/Coupon-frame-120.jpg",
+      "sha256": "0f0ba3a26829fc8612a722edb82265f7c78b89577e6ab42aa69081958da725ce"
+    },
+    {
+      "path": "build/otb143/review/Coupon-frame-37.jpg",
+      "sha256": "1fd3869b9e5ed49b33b438af019137e79702190a5b7a6e41872b04153cd4fa46"
+    },
+    {
+      "path": "build/otb143/review/Coupon-frame-39.jpg",
+      "sha256": "faac5befc4cc931619180808db73b1c58f6d90f5441e5e81de86c16b73db4ed1"
+    },
+    {
+      "path": "build/otb143/review/Coupon-frame-42.jpg",
+      "sha256": "d2d4e01eab362c1889548c43c853e603a24f5fc497e804174f149a8b0dc1ba21"
+    },
+    {
+      "path": "build/otb143/review/Coupon-frame-43.jpg",
+      "sha256": "25fe83673a016726115e7e643b19f1a731e204459061d7b58fb779c2331985cf"
+    },
+    {
+      "path": "build/otb143/review/Coupon-frame-44.jpg",
+      "sha256": "3c973e4c3b5a5c7d59964a7ae6710c3db9fb7ebf7c20a0b1e64079f69ff5f987"
+    },
+    {
+      "path": "build/otb143/review/Coupon-frame-45.jpg",
+      "sha256": "a367381c4aa54722f2b60f7b679fdae16309b1a55181631785dfd548e848041e"
+    },
+    {
+      "path": "build/otb143/review/Coupon-frame-49.jpg",
+      "sha256": "c1faf7feea4977d827aa19c8dffe520b7ac5dc2415bd4fa20dbfe2b0e1de240d"
+    },
+    {
+      "path": "build/otb143/review/Coupon-frame-60.jpg",
+      "sha256": "58bb71b44aedde599c514a1173a56ee3e8e535630541abbca551a1cd32dfd945"
+    },
+    {
+      "path": "build/otb143/review/Coupon-frame-80.jpg",
+      "sha256": "0513c691bb8676d81c24715be538d8ae986cc245702b3cfddec382a46383dbba"
+    },
+    {
+      "path": "build/otb143/review/FaceOcc1-frame-23.jpg",
+      "sha256": "0a5d4420d047025e5400a51c98631ba922e78e5ea94b54d2ac976f019ae0280b"
+    },
+    {
+      "path": "build/otb143/review/FaceOcc1-frame-24.jpg",
+      "sha256": "a355a185c0c0214d24212e7cb1705256f8428ffd0b953e5d8413cadc4312c281"
+    },
+    {
+      "path": "build/otb143/review/FaceOcc1-frame-25.jpg",
+      "sha256": "09dcb7921b8cc0c73d7e869d8055dbcb131b1dcda1b618f50bb4c72a5fcda177"
+    },
+    {
+      "path": "build/otb143/review/FaceOcc1-frame-65.jpg",
+      "sha256": "4f3c58e45719ff3c2af255219ac4bb73e78da3c7a3fc7194cf79718abfbc2794"
+    },
+    {
+      "path": "build/otb143/review/FaceOcc1-frame-66.jpg",
+      "sha256": "3d8fca978b770a5200e373c089e023dd8ba8e868b442b83236868831b199d772"
+    },
+    {
+      "path": "build/otb143/review/FaceOcc1-frame-67.jpg",
+      "sha256": "cebf5a7d79eeff79c200c38876162253f991ddd8a405521e754ae02201ff100f"
+    },
+    {
+      "path": "build/otb143/review/FaceOcc1-frame-68.jpg",
+      "sha256": "0d319010a50d996c7f511787a4c141b4f5cfe2372fc7852bef6294e34a5e41eb"
+    },
+    {
+      "path": "build/otb143/review/FaceOcc1-frame-69.jpg",
+      "sha256": "803225f6fdea397edcfd54d4e2ac001c2033d0c9dd1bd53186d7b0d0c3eba91e"
+    },
+    {
+      "path": "build/otb143/review/FaceOcc1-frame-81.jpg",
+      "sha256": "7453e216bb4052d5d6d5781baab41119335c7451973a25300593674f6cbdd30e"
+    },
+    {
+      "path": "build/otb143/review/FaceOcc1-frame-82.jpg",
+      "sha256": "01f6639540633b0b9f24496d489597ecf85ee6ad59894e80ea095eb5d8af83b5"
+    },
+    {
+      "path": "build/otb143/review/FaceOcc1-frame-83.jpg",
+      "sha256": "84fc38a4414fd41777c59673aadc945b8bfd796ef2cdfee7e5539ae61fe0fe6d"
+    },
+    {
+      "path": "build/otb143/review/FaceOcc1-frame-84.jpg",
+      "sha256": "7ab6deb207633feb4e2c0f4098ff04363db233db434584805f253ea44917f9a7"
+    }
+  ]
+}

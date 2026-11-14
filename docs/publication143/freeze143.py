@@ -10,7 +10,7 @@ p=r/'docs/readmes/editions.json';current=json.loads(p.read_text(encoding='utf-8-
 if current['latest']==143:
  assert current['editions'][:-1]==prior['editions'];assert subprocess.run(['git','show-ref','--verify','--quiet','refs/tags/readme-143']).returncode==1
 else:assert current==prior
-entry={'number':143,'date':'2026-11-13','title':'Partial views from verified appearances','status':'validated-local','markdown':'README-143.md','markdownSha256':sha(raw(r/'README-143.md')),'companion':'docs/readmes/143/index.html','tag':'readme-143','sourceBaseline':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'snapshotDirectory':'docs/readmes/143','snapshotFiles':[]}
+entry={'number':143,'date':'2026-11-13','title':'Independent confirmation for verified appearances','status':'validated-local','markdown':'README-143.md','markdownSha256':sha(raw(r/'README-143.md')),'companion':'docs/readmes/143/index.html','tag':'readme-143','sourceBaseline':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'snapshotDirectory':'docs/readmes/143','snapshotFiles':[]}
 patterns=[rb'gh[pousr]_[A-Za-z0-9]{30,}',rb'github_pat_[A-Za-z0-9_]{40,}',rb'sk-[A-Za-z0-9_-]{30,}',rb'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----']
 for f in sorted((r/'docs/readmes/143').rglob('*')):
  if not f.is_file():continue

@@ -20,15 +20,15 @@ const fs=require('node:fs/promises'),path=require('node:path'),assert=require('n
   await page.locator('#persistent-worlds').selectOption(study.worldId);
   await page.waitForFunction(id=>window.labels132View.observation.persistent.id===id,study.worldId,{timeout:60000});
   await page.locator('#expand-canvas').click();
-  for(const name of ['faceocc2-25','generated-partial','generated-twin']){
+  for(const name of ['faceocc1-25','generated-partial','generated-twin']){
    const row=study.runs.find(r=>r.caseName===name&&r.policy==='reference-confirmation-143');assert(row,name);
    let ordinal,caption;
-   if(name==='faceocc2-25'){ordinal=60;caption='Real OTB FaceOcc2 frame 85: partial face cover; retained baseline observation. This frame does not demonstrate supplemental recovery.';}
+   if(name==='faceocc1-25'){ordinal=row.audit.scores.find(s=>s.visibility==='partial')?.ordinal||20;caption='Real OTB FaceOcc1: independently labelled completed source inspection. See the full results for recovery outcomes.';}
    else if(name==='generated-partial'){
     const accepted=row.run.trace.find(f=>f.objects[0].tracker.references143.recovery.accepted);
     ordinal=accepted?.ordinal||row.run.trace.find(f=>f.objects[0].tracker.references143.recovery.confirmations===2)?.ordinal||row.run.trace.find(f=>f.objects[0].tracker.references143.lossObserved)?.ordinal||1;
     caption=accepted?'Generated partial-view control: first accepted supplemental measurement from verified alternate appearances. Not camera qualification.':'Generated partial-view control: incomplete confirmation; no accepted supplemental measurement in this run.';
-   }else{ordinal=12;caption='Generated competing-copy control: inspect ambiguous partial appearances and independently labelled other-object geometry. Not camera qualification.';}
+   }else{ordinal=15;caption='Generated competing-copy control: inspect the second cover, with the independently labelled copy still visible. Not camera qualification.';}
    assert.deepEqual(await api('/api/observations/read',{id:row.run.id}),row.run);
    assert.deepEqual(await api('/api/association134/audit-read',{id:row.audit.id}),row.audit);
    await page.locator('#association134-panel').evaluate(e=>e.open=true);await page.locator('#association134-refresh').click();await idle();
