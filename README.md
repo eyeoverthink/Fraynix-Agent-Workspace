@@ -1,212 +1,205 @@
-# Fraynix Agent Workspace — Edition 143
+# Fraynix Agent Workspace — edition 144
 
-[Published and fetched verification receipt](docs/PUBLICATION_143.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-143)
+**Remember competing objects through tracking loss.** A copy should not become confirmed merely because the object beside it disappears. Edition 144 adds an explicit Java ambiguity guard around the unchanged edition 143 confirmation engine, with source replay and independent outcome checks.
 
-**Independent confirmation for verified appearances.** Fraynix connects durable chat goals with a Java brain, simulation, observed worlds, browser interaction, data processing, creation tools and reusable verified procedures. This edition develops one perception mechanism within that connected application.
+[Previous edition143](README-143.md) · [Offline interactive guide](docs/readmes/144/index.html) · [Edition history](docs/readmes/INDEX.md) · [Contributor handoff](README-CONTRIBUTORS.md) · [Architecture](docs/ARCHITECTURE.md) · [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md)
 
-[Previous edition](README-142.md) · [All editions](docs/readmes/INDEX.md) · [Offline guide](docs/readmes/143/index.html) · [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md) · [Contributor handoff](README-CONTRIBUTORS.md)
+![Actual app: known-copy return and retained ambiguity](docs/readmes/144/copy-only-review-drift.png)
 
-![Actual app: real partial cover, retained baseline observation](docs/readmes/143/faceocc1-25-review-drift.png)
+This is a generated control viewed in the actual application. It is not camera qualification. Full outcomes below include every scored frame, including failures and missing measurements.
+
+## What the application is
+
+Fraynix is a local Java agent workspace connecting durable chat goals, a persistent physics world, Game Lab, browser observations, data processing and verified creation procedures. Java maintains execution state, source evidence, recovery and outcome checks; the desktop presents those capabilities. Local models choose and explain actions through bounded tools. The long-term aim remains one observable, persistent system that can create, test and improve useful procedures from measured outcomes.
+
+Tracking contributes observations to that system; an appearance match does not establish semantic identity, depth, calibrated physical contact or consciousness. This edition does not expand action authority, invent training gains or replace the unified application with a tracking demo. Existing defaults, native world state, capacities and private projects stay intact.
 
 ## What changed
 
-The optional **reference-confirmation-143** method keeps a separate confirmation history for the original appearance and each of up to six independently verified full-view examples. In edition142, two valid references could alternate as the best match and reset the sole confirmation counter. The new method searches and verifies each reference independently. One reference must earn all three consecutive confirmations; counts never move between references.
+1. **Retain ambiguity during a loss episode.** When an existing 143 appearance hypothesis has a strong match and a comparably strong competing location, record that ambiguity. Keep it when the competing location disappears, the frame becomes empty or the strongest reference changes.
+2. **Preserve existing confirmation.** Every immutable reference still earns its own three adjacent unique, motion-supported confirmations. Counts do not move between references. The original seed and up to six independently verified reference appearances are unchanged.
+3. **Separate appearance from identity continuity.** While ambiguity is retained, guard 144 withholds supplemental143 boxes. It keeps the original hypotheses and confirmation records so the refusal is inspectable. No arbitrary timeout turns absence into proof.
+4. **Restore through the existing baseline.** An accepted 139 baseline proposal clears the guard. Every accepted 139 proposal is preserved. This is inherited continuity, not new semantic identity certification; inherited baseline mistakes are outside this guard's guarantee.
+5. **Measure the cost of refusing.** The audit independently scores blocked parent proposals as correct, incorrect or unknown. Blocking a correct return is reported as lost useful recovery, not counted as a success.
 
-Each appearance uses the existing full-region and four fixed 75%-visible masks, textured correlation, RGB agreement and bounded scale/location search. Every appearance contributes to competing-location rejection. A reference is not allowed to declare a unique match merely because its own descriptor has no competitor. Missing, ambiguous or broken adjacent motion resets its history. The chosen output is the strongest fully confirmed reference; no weighted vote or pooled identity claim is used.
+The explicit choices are `reference-confirmation-143` (comparison), `ambiguity-monitor-144` (same143 tracker/filter output plus diagnostics), and `ambiguity-guard-144` (withhold ambiguous supplemental returns). The default remains `legacy-flow`.
 
-The candidate preserves all accepted foreground-guard139 proposals. Only actual underlying flow loss enables supplemental recovery, and baseline acceptance clears the supplemental histories. The baseline is never reset or retrained. **reference-monitor-143** performs the searches while preserving139 tracker/filter output. **reference-seed-143** keeps source provenance checks but disables imported descriptors. The unchanged **partial-reference-142** method is a separate comparison. **legacy-flow remains the default**.
+## Measured result
 
-The existing137 reference store rechecks original donor pixels, labels, implementation and outcomes. Descriptors come from independent full-view rectangles. Partial, uncertain or wrong donor observations remain excluded. Source and evaluation images must be disjoint; the operator's same-object declaration is not semantic identity proof. No target predictions enter memory. Visible support and inferred whole geometry remain distinct; neither establishes depth, metric scale or physical contact.
+Known-copy control: previous143 accepted 1 measurements while the target was hidden; guard144 accepted 0. The guard blocked 1 independently contradicted parent proposals and 0 correct proposals on that case.
 
-No new weights, external vision runtime, capacity increase, action authority or default change.
+Clean partial/full returns: guard144 24 correct versus143 24. Legitimate return after earlier competition: 6 correct parent proposals withheld, 0 incorrect proposals withheld. This conservative cost is part of the result.
 
-```mermaid
-flowchart LR
-    image[Current source image] --> search[Search verified appearances]
-    search --> rivals[Check all competing locations]
-    rivals --> a[Reference A history]
-    rivals --> b[Reference B history]
-    a --> confirm[One reference earns 3 consecutive checks]
-    b --> confirm
-    confirm --> filter[Existing observation filter]
-    filter --> audit[Independent outcome audit]
-```
+Established baseline return cleared ambiguity at samples [14]; later accepted supplemental returns at [21, 22, 23]. This sequence retained 5/19 correct observations, with 0 wrong overlaps and 0 hidden outputs.
 
-This diagram shows the supplemental path after loss. The accepted baseline path remains intact. Histories reset on missing, ambiguous or incoherent evidence; their counts are never pooled.
+Identical-pixel limit: 12 measurements while the target was hidden in unseen-copy, with 12 labelled-copy matches. These frames are exactly the clean-full pixels with a different declared identity; this is an observability limit, not an independent statistical trial. No claim of universal copy rejection.
 
-## Measured results
+Reused FaceOcc1 regression: 77/92 correct, 15 missing, 0 wrong overlaps, 0 hidden outputs. This source was exposed in143; it is not fresh camera qualification. Defaults remain unchanged and no method is promoted.
 
-**Paired eligible real footage:** candidate 77/92 correct, 15 missing, 0 wrong overlaps and 0 hidden outputs; guard139 77 correct, 15 missing, 0 wrong and 0 hidden outputs. Previous142: 77 correct, 0 wrong, 15 missing. Seed-only control: 77 correct, 0 wrong. Additional raw recoveries: 0 correct, 0 incorrect, 0 unscored. There are 0 confirmed absent and 3 uncertain reference samples per method. This real cohort does not establish a recovery gain without added errors.
-
-**Generated controls:** candidate 12/32 correct, 0 low-overlap visible outputs, 1 output while the target was hidden and 1 labelled-other matches. Guard139: 0 correct; previous142: 1 correct, 0 wrong and 1 hidden outputs; seed-only: 0 correct. Additional raw boxes: 12 correct, 1 incorrect and 0 unscored. Generated controls do not establish camera reliability. **Defaults remain unchanged; no promotion.**
-
-**Eligibility refusal:** Coupon donor tracking was correct on 23/23 references, but existing motion/appearance admission produced no verified examples. All four reference-dependent methods are unavailable on Coupon; its139 baseline remains in the full table. Paired totals compare only cases completed by every method. No replacement source or relaxed admission. 4 unavailable method/source combinations are retained, not counted as successful trials.
-
-**Identity remains unresolved:** in the generated competing-copy case, both142 and143 accept the labelled copy once while the target is hidden. The new method improves confirmation continuity, but this failure prevents interpreting its repeated matches as identity proof. The optional method is not promoted.
-
-| Method / source | Correct / visible | Missing | Wrong overlaps | Other-object matches | Hidden outputs |
+| Source / method | Correct / visible | Missing | Wrong overlaps | Hidden outputs | Other-object matches |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| real-camera / foreground-guard-139 / faceocc1-25 | 77/92 | 15 | 0 | 0 | 0/0 |
-| real-camera / partial-reference-142 / faceocc1-25 | 77/92 | 15 | 0 | 0 | 0/0 |
-| real-camera / reference-monitor-143 / faceocc1-25 | 77/92 | 15 | 0 | 0 | 0/0 |
-| real-camera / reference-seed-143 / faceocc1-25 | 77/92 | 15 | 0 | 0 | 0/0 |
-| real-camera / reference-confirmation-143 / faceocc1-25 | 77/92 | 15 | 0 | 0 | 0/0 |
-| real-camera / foreground-guard-139 / coupon-25 | 89/93 | 4 | 0 | 0 | 0/0 |
-| generated-control / foreground-guard-139 / generated-partial | 0/16 | 16 | 0 | 0 | 0/7 |
-| generated-control / partial-reference-142 / generated-partial | 1/16 | 15 | 0 | 0 | 0/7 |
-| generated-control / reference-monitor-143 / generated-partial | 0/16 | 16 | 0 | 0 | 0/7 |
-| generated-control / reference-seed-143 / generated-partial | 0/16 | 16 | 0 | 0 | 0/7 |
-| generated-control / reference-confirmation-143 / generated-partial | 12/16 | 4 | 0 | 0 | 0/7 |
-| generated-control / foreground-guard-139 / generated-twin | 0/16 | 16 | 0 | 0 | 0/7 |
-| generated-control / partial-reference-142 / generated-twin | 0/16 | 16 | 0 | 1 | 1/7 |
-| generated-control / reference-monitor-143 / generated-twin | 0/16 | 16 | 0 | 0 | 0/7 |
-| generated-control / reference-seed-143 / generated-twin | 0/16 | 16 | 0 | 0 | 0/7 |
-| generated-control / reference-confirmation-143 / generated-twin | 0/16 | 16 | 0 | 1 | 1/7 |
-
-Unavailable reference trials: coupon-25 / partial-reference-142 — No independently supported fully visible examples in this audit; coupon-25 / reference-monitor-143 — No independently supported fully visible examples in this audit; coupon-25 / reference-seed-143 — No independently supported fully visible examples in this audit; coupon-25 / reference-confirmation-143 — No independently supported fully visible examples in this audit
-
-
-Real footage and generated controls are separate. Missing measurements remain in the denominator. Low target overlap is an inaccurate box, not automatically an identity switch. A confirmed other-object match requires a separately labelled competitor. Uncertain labels cannot establish success.
-
-“Correct” means an accepted estimate has at least 0.5 intersection-over-union with the independent target rectangle. This is an image-box criterion, not precise geometry or real-world accuracy. A confirmed competitor match needs at least 0.5 overlap with its labelled box and less than 0.2 target overlap (or an independently absent target).
-
-The exposed edition142 reference-switching failure is a development regression, not fresh qualification. It now passes with independent histories. The results below come from the separately fixed new images and controls; misses and wrong outputs remain visible.
-
-| Source / method | Additional boxes: correct / incorrect / unknown | Filter accepted: correct / incorrect / unknown |
-| --- | ---: | ---: |
-| faceocc1-25 / partial-reference-142 | 0 / 0 / 0 | 0 / 0 / 0 |
-| faceocc1-25 / reference-monitor-143 | 0 / 0 / 0 | 0 / 0 / 0 |
-| faceocc1-25 / reference-seed-143 | 0 / 0 / 0 | 0 / 0 / 0 |
-| faceocc1-25 / reference-confirmation-143 | 0 / 0 / 0 | 0 / 0 / 0 |
-| generated-partial / partial-reference-142 | 2 / 0 / 0 | 1 / 0 / 0 |
-| generated-partial / reference-monitor-143 | 0 / 0 / 0 | 0 / 0 / 0 |
-| generated-partial / reference-seed-143 | 0 / 0 / 0 | 0 / 0 / 0 |
-| generated-partial / reference-confirmation-143 | 12 / 0 / 0 | 12 / 0 / 0 |
-| generated-twin / partial-reference-142 | 0 / 1 / 0 | 0 / 1 / 0 |
-| generated-twin / reference-monitor-143 | 0 / 0 / 0 | 0 / 0 / 0 |
-| generated-twin / reference-seed-143 | 0 / 0 / 0 | 0 / 0 / 0 |
-| generated-twin / reference-confirmation-143 | 0 / 1 / 0 | 0 / 1 / 0 |
+| real-camera-regression / faceocc1-25 / reference-confirmation-143 | 77/92 | 15 | 0 | 0/0 | 0 |
+| real-camera-regression / faceocc1-25 / ambiguity-monitor-144 | 77/92 | 15 | 0 | 0/0 | 0 |
+| real-camera-regression / faceocc1-25 / ambiguity-guard-144 | 77/92 | 15 | 0 | 0/0 | 0 |
+| generated-control / clean-partial / reference-confirmation-143 | 12/16 | 4 | 0 | 0/7 | 0 |
+| generated-control / clean-partial / ambiguity-monitor-144 | 12/16 | 4 | 0 | 0/7 | 0 |
+| generated-control / clean-partial / ambiguity-guard-144 | 12/16 | 4 | 0 | 0/7 | 0 |
+| generated-control / clean-full / reference-confirmation-143 | 12/16 | 4 | 0 | 0/7 | 0 |
+| generated-control / clean-full / ambiguity-monitor-144 | 12/16 | 4 | 0 | 0/7 | 0 |
+| generated-control / clean-full / ambiguity-guard-144 | 12/16 | 4 | 0 | 0/7 | 0 |
+| generated-control / copy-only / reference-confirmation-143 | 0/16 | 16 | 0 | 1/7 | 1 |
+| generated-control / copy-only / ambiguity-monitor-144 | 0/16 | 16 | 0 | 1/7 | 1 |
+| generated-control / copy-only / ambiguity-guard-144 | 0/16 | 16 | 0 | 0/7 | 0 |
+| generated-control / legitimate-after-rival / reference-confirmation-143 | 6/16 | 10 | 0 | 0/7 | 0 |
+| generated-control / legitimate-after-rival / ambiguity-monitor-144 | 6/16 | 10 | 0 | 0/7 | 0 |
+| generated-control / legitimate-after-rival / ambiguity-guard-144 | 0/16 | 16 | 0 | 0/7 | 0 |
+| generated-control / baseline-reset / reference-confirmation-143 | 5/19 | 14 | 0 | 0/4 | 0 |
+| generated-control / baseline-reset / ambiguity-monitor-144 | 5/19 | 14 | 0 | 0/4 | 0 |
+| generated-control / baseline-reset / ambiguity-guard-144 | 5/19 | 14 | 0 | 0/4 | 0 |
+| identity-limit / unseen-copy / reference-confirmation-143 | 0/0 | 0 | 0 | 12/23 | 12 |
+| identity-limit / unseen-copy / ambiguity-monitor-144 | 0/0 | 0 | 0 | 12/23 | 12 |
+| identity-limit / unseen-copy / ambiguity-guard-144 | 0/0 | 0 | 0 | 12/23 | 12 |
 
 
-Additional raw boxes include measurements the filter later refuses. Supplemental measurements can influence later filter estimates; preserving baseline tracker proposals does not imply identical candidate filter history. The monitor must preserve both.
+“Correct” requires an accepted estimate and at least 0.5 overlap with the independently labelled visible target. Hidden outputs are accepted estimates when labels say the target is absent. Low overlap alone does not prove an identity switch; labelled competing objects are reported separately. Missing measurements remain in the denominator. Full [comparison](docs/readmes/144/comparison.json) and [app records](docs/readmes/144/app-study.json) retain each run.
 
-## Sources and experimental design
+## Recovery benefit and refusal cost
 
-All 240 selected original camera frames inspected on ten source-only contact sheets, plus 23 original full-resolution boundary/detail frames before predictions. OTB rectangles are external annotations; visibility is AI review, not independent human adjudication. FaceOcc1 contains partial book cover, return and renewed side cover; uncertain boundaries retained. Coupon is page turning on the tracked booklet with hand overlap, not an independently established competing identity. No complete target disappearance or independently boxed lookalike occurs in these fixed camera windows. Exact occlusion/copy geometry is tested separately in generated controls.
+| Source / method | Additional correct / incorrect / unknown | Withheld correct / incorrect / unknown | Filter accepted correct / incorrect |
+| --- | ---: | ---: | ---: |
+| faceocc1-25 / reference-confirmation-143 | 0 / 0 / 0 | 0 / 0 / 0 | 0 / 0 |
+| faceocc1-25 / ambiguity-monitor-144 | 0 / 0 / 0 | 0 / 0 / 0 | 0 / 0 |
+| faceocc1-25 / ambiguity-guard-144 | 0 / 0 / 0 | 0 / 0 / 0 | 0 / 0 |
+| clean-partial / reference-confirmation-143 | 12 / 0 / 0 | 0 / 0 / 0 | 12 / 0 |
+| clean-partial / ambiguity-monitor-144 | 12 / 0 / 0 | 0 / 0 / 0 | 12 / 0 |
+| clean-partial / ambiguity-guard-144 | 12 / 0 / 0 | 0 / 0 / 0 | 12 / 0 |
+| clean-full / reference-confirmation-143 | 12 / 0 / 0 | 0 / 0 / 0 | 12 / 0 |
+| clean-full / ambiguity-monitor-144 | 12 / 0 / 0 | 0 / 0 / 0 | 12 / 0 |
+| clean-full / ambiguity-guard-144 | 12 / 0 / 0 | 0 / 0 / 0 | 12 / 0 |
+| copy-only / reference-confirmation-143 | 0 / 1 / 0 | 0 / 0 / 0 | 0 / 1 |
+| copy-only / ambiguity-monitor-144 | 0 / 1 / 0 | 0 / 0 / 0 | 0 / 1 |
+| copy-only / ambiguity-guard-144 | 0 / 0 / 0 | 0 / 1 / 0 | 0 / 0 |
+| legitimate-after-rival / reference-confirmation-143 | 6 / 0 / 0 | 0 / 0 / 0 | 6 / 0 |
+| legitimate-after-rival / ambiguity-monitor-144 | 6 / 0 / 0 | 0 / 0 / 0 | 6 / 0 |
+| legitimate-after-rival / ambiguity-guard-144 | 0 / 0 / 0 | 6 / 0 / 0 | 0 / 0 |
+| baseline-reset / reference-confirmation-143 | 3 / 0 / 0 | 0 / 0 / 0 | 0 / 0 |
+| baseline-reset / ambiguity-monitor-144 | 3 / 0 / 0 | 0 / 0 / 0 | 0 / 0 |
+| baseline-reset / ambiguity-guard-144 | 3 / 0 / 0 | 0 / 0 / 0 | 0 / 0 |
+| unseen-copy / reference-confirmation-143 | 0 / 12 / 0 | 0 / 0 / 0 | 0 / 12 |
+| unseen-copy / ambiguity-monitor-144 | 0 / 12 / 0 | 0 / 0 / 0 | 0 / 12 |
+| unseen-copy / ambiguity-guard-144 | 0 / 12 / 0 | 0 / 0 / 0 | 0 / 12 |
 
-| Recording / target | Original frames | Stride | Visible or partial | Hidden | Uncertain | Distractor-labelled samples |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| real-camera / reference-source / faceocc1-1 | 1–24 | 1 | 22 | 0 | 1 | 0 |
-| real-camera / evaluation / faceocc1-25 | 25–120 | 1 | 92 | 0 | 3 | 0 |
-| real-camera / reference-source / coupon-1 | 1–24 | 1 | 23 | 0 | 0 | 0 |
-| real-camera / evaluation / coupon-25 | 25–120 | 1 | 93 | 0 | 2 | 0 |
-| generated-control / reference-source / generated-reference | 1–24 | 1 | 23 | 0 | 0 | 0 |
-| generated-control / evaluation / generated-partial | 1–24 | 1 | 16 | 7 | 0 | 0 |
-| generated-control / evaluation / generated-twin | 1–24 | 1 | 16 | 7 | 0 | 19 |
+
+These are supplemental raw boxes and their downstream filter acceptance, separate from the final tracking totals. Candidate supplemental measurements can change later filter estimates. Monitor144 must match143's complete tracker/filter trace exactly. Source labels never guide the tracker or clear the guard.
+
+![Actual app: a clean partial return](docs/readmes/144/clean-partial-review-drift.png)
+
+![Independent source view of the known copy](docs/readmes/144/copy-only-review-source.png)
+
+![Identical-pixel identity limit](docs/readmes/144/unseen-copy-review-source.png)
+
+The last control uses exactly the clean-full pixels but declares the post-cover appearance a previously unseen copy. Its two labels describe different hidden histories. A pixel-only observer receives the same evidence in both; successful appearance confirmation cannot distinguish them. This paired demonstration is excluded from any claim of independent statistical replication.
+
+## Source design and freeze
+
+Method, scorer, UI, fixture generator, source protocol and actual-app harness were frozen at `bd2f83f0` before fresh 144 generated pixels or labels. Development used the exposed 143 failure. The [contract](docs/EDITION_144_CONTRACT.md), [method lock](docs/OBSERVATION_144_LOCK.json) and [source manifest](docs/publication144/source144.json) retain the exact choices and hashes.
+
+Before any evaluation predictions, the actual app rejected two newly inserted interface middle-dot characters encoded as single CP1252 bytes. Commit `c581f36f` converts only those two characters to valid UTF-8. The [encoding amendment](docs/publication144/ui-encoding144.json), original lock, original UI bytes and pre-amendment source manifest are retained. All tracking logic, thresholds, labels, source pixels and scoring remain unchanged. The source labels were committed at `58d78ef6` before evaluation.
+
+| Source | Role | Domain | Frames | Visible/partial | Hidden | Uncertain |
+| --- | --- | --- | ---: | ---: | ---: | ---: |
+| faceocc1-1 | reference-source | real-camera-regression | 24 | 22 | 0 | 1 |
+| faceocc1-25 | evaluation | real-camera-regression | 96 | 92 | 0 | 3 |
+| generated-reference | reference-source | generated-control | 24 | 23 | 0 | 0 |
+| clean-partial | evaluation | generated-control | 24 | 16 | 7 | 0 |
+| clean-full | evaluation | generated-control | 24 | 16 | 7 | 0 |
+| copy-only | evaluation | generated-control | 24 | 16 | 7 | 0 |
+| legitimate-after-rival | evaluation | generated-control | 24 | 16 | 7 | 0 |
+| baseline-reset | evaluation | generated-control | 24 | 19 | 4 | 0 |
+| unseen-copy | evaluation | identity-limit | 24 | 0 | 23 | 0 |
 
 
-[OTB source: SNU Robot Vision Lab](https://rvlab.snu.ac.kr/research/tracker_benchmark/). FaceOcc1 and Coupon were fixed before source access. Frames 1–24 supply separate reference windows; frames 25–120 are the fixed real-footage evaluation windows. Original JPEGs and annotation bytes are unchanged; archive digests and ZIP integrity checks are retained. External benchmark geometry and AI source-only visibility/competitor labels are attributed separately. No independent human adjudication is claimed.
+FaceOcc1 is reused from edition 143, with the original benchmark rectangles and attributed source-only AI visibility review. Its144 labels explicitly declare prior exposure. It is a real-camera regression, not new footage or human-adjudicated qualification. Fresh generated controls use fixed renderer geometry and new textures; no outcome-driven source replacement or method tuning. The clean-full/unseen-copy pair intentionally shares evaluation pixels. Donor and evaluation image bytes remain separate, checked before every use.
 
-The image-freshness check compares exact JPEG hashes with earlier source and label manifests. Its `frames` counts are distinct hashes, so repeated identical JPEGs count once there; the tracking tables retain every frame. This check does not detect differently encoded copies.
+Source reference: [OTB tracking benchmark](https://rvlab.snu.ac.kr/research/tracker_benchmark/). Original camera frames remain local; public documentation retains hashes, original annotations, provenance and illustrative app captures. No private webcam recording is published.
 
-Generated tests use new fixed textures, renderer-derived rectangles, two cover intervals and a competing copy. The copy remains visible during the second cover, explicitly testing whether appearance alone confuses another object for the absent target. They use the same donor audit, retention, durable tracking and outcome checks as footage. They establish controlled software behavior, not general camera reliability.
+## Review it in the app
 
-Implementation, thresholds, source selection, scorer and app harness were frozen before new annotations/pixels. Labels were committed before evaluation. No tuning on fresh outcomes. A donor-box representation assertion was corrected after source review but before evaluation: exact canonical arithmetic replaces exact raw-corner comparison; no tracker, threshold, scorer or label changed. The harness also records a zero-example donor refusal and leaves its four dependent trials unavailable, without substituting data or weakening admission. Original locks, refusals and amendments are retained. Bounded windows are not a complete benchmark. Severe occlusion, arbitrary pose change, off-image whole geometry, identity ambiguity and physical accuracy remain limitations.
+1. From this checkout, run `Launch-Agent-Workspace.bat` with the repository's Java21 and desktop prerequisites. The launcher prepares the Java runtime; isolated validation uses `scripts/Start-Agent-Workspace.ps1 -PrepareOnly -Offline`.
+2. Use an isolated project for experiments; preserve your existing project's data. In the spatial workspace, open saved-world observations and import a frame pack.
+3. Retain an appearance set from an independently labelled, successfully audited donor run. A run with no supported examples is refused; a correct track alone does not guarantee an admissible appearance.
+4. Select separate evaluation footage and an explicit method. Choose the verified reference set and declare why it is the same object. The declaration is not identity proof.
+5. Track and inspect the original frame, then open the independent outcome audit. A blocked parent confirmation is labelled “appearance confirmed but identity unresolved”; the audit reports correct and incorrect proposals withheld, with the retained ambiguity details in its evidence.
+6. Export the complete evidence. Stop/resume or cold reopen uses retained state and verifies original source/code/outcome evidence; changed proofs are refused rather than relabelled.
 
-![Real partial-cover source with independent outcome inspection](docs/readmes/143/faceocc1-25-review-source.png)
+The [offline guide](docs/readmes/144/index.html) lets you compare methods, inspect screenshots and follow source modules without launching a tracking job.
 
-Illustrative independently labelled partial-cover frame from the completed FaceOcc1 evaluation. See the recorded frame and outcome; this screenshot alone does not establish a recovery gain.
+## Verification
 
-![Generated partial-view control](docs/readmes/143/generated-partial-review-drift.png)
+350 distinct Java checks, 161 desktop checks, kernel integration, agency regression, offline preparation and package/build verification passed. Actual app: 23 comparison/donor runs plus one separately reported active-ambiguity interruption check; original source/outcome verification, replay, monitor equality, baseline preservation, stopped-prefix resume, abrupt restart, complete export and tamper refusal.
 
-![Generated competing-copy control](docs/readmes/143/generated-twin-review-source.png)
-
-These generated controls are separate from the real camera results. Selected frames illustrate completed evidence; the full tables include every scored frame.
-
-## Verification and recovery
-
-Local checks passed: 343 distinct Java tests, 161 desktop checks, kernel integration, actual agency regression and isolated offline/package preparation. Three donor-source comparisons, with earlier failed-attempt runs preserved (2 retained sets) and 16 evaluation runs use 800 evaluation-frame outcomes; donor outcomes are counted separately. Exact monitor equivalence, original-pixel audit replay, independent host arithmetic, export, stop/resume and abrupt-process cold restart are verified.
-
-- Separate donor runs precede all fixed evaluation windows. Retention with zero eligible examples is refused and recorded; reference-dependent cases remain unavailable without replacement. Eligible cases compare five methods and identical pixels. Real footage and generated occlusion/copy controls are reported separately. Independent host overlap/distractor/supplemental-outcome arithmetic agrees with Java. Monitor preserves every139 tracker/filter output; candidate preserves every accepted139 tracker proposal. No automatic anchor admissions; defaults unchanged.
+- Separate donor runs precede all fixed evaluation windows. Retention with zero eligible examples is refused and recorded; reference-dependent cases remain unavailable without replacement. Eligible cases compare three methods on identical pixels. Reused real footage, fresh generated cases and the paired identical-pixel identity limit are reported separately. Independent host overlap/distractor/supplemental-outcome arithmetic agrees with Java. Monitor preserves every143 tracker/filter output; candidate preserves every accepted139 tracker proposal. No automatic anchor admissions; defaults unchanged.
 - Explicit method selection, recovery explanation, original-source overlay, independent audit UI, complete bounded export and exact stopped-prefix resume passed. Native physical world unchanged.
 - Owned-process crash and cold reopen preserve exact completed-state bytes/timestamp and zero observation writes. All recorded runs/audits reverified, including original-pixel decision replay. Donor and evaluation source modification independently refuse audit/export; original restoration revalidates.
+- Killed only the owned Java process while ambiguity was latched and the run was unfinished
+- Cold reopen retained the exact committed prefix and interrupted status
+- Resume reconstructed the ambiguity state from original pixels before continuing
+- Complete trace and independent outcome audit exactly match the uninterrupted run
+- Native world unchanged; 24th observation run uses the existing capacity without expansion
 
-Focused checks reproduce the exposed reference-switching failure, verify positive recovery without pooling counts, and exercise seed-only ablation, competing copies, absent texture, interrupted confirmation, warning-only refusal, monitor equivalence, duplicate/malformed references, contradictory outcome labels, forged traces and donor-source tampering. Every candidate decision is replayed from original pixels before independent scoring.
+Seven focused development tests cover the published copy-only failure, clean recovery preservation, exact monitor/filter equivalence, deterministic replay, persistent ambiguity/no timeout, baseline clearing, warning-only behavior, independent refusal-cost scoring, forged-decision rejection and source tampering. They passed on the first test run. Broader historical regressions keep durable goals, skills, browser outcomes, creation and observation checks in scope.
 
-The first focused attempt passed all ten tests, including a reproduction of the exposed edition142 alternating-reference failure and positive recovery with separate histories. It also verified refusal after interrupted confirmation or competing copies, original-pixel replay, contradictory independent outcomes, malformed/duplicate references, warning-only refusal and source tampering. No fresh footage or new control textures were viewed during development. Broad and actual-app results are retained separately.
+The [supplemental interruption protocol](docs/EDITION_144_RESTART_CHECK.md) uses the 24th run slot after the fixed comparison, on its exposed copy-only source. It kills only the owned Java process while ambiguity is retained, cold-reopens the interrupted run, resumes from original pixels and compares the full trace/audit with the uninterrupted execution. Its [receipt](docs/readmes/144/restart-check.json) is separate from fresh-case results. [Diagnostics](docs/readmes/144/diagnostics.json) also compare the identical-pixel pair after excluding only their different target-provenance digest; every original digest still passes independent audit verification.
 
-The first actual-app attempt stopped after the first donor audit: the host compared uncanonicalized corners with the retained x+width/y+height representation (0.8159722222222222 versus 0.8159722222222221). The harness-only amendment compares exact canonical corners using existing Java Box arithmetic. No tolerance or outcome rule changed; all 61 other locked files, source pixels and labels remain unchanged. Original failed attempt is retained; no evaluation run had started. See [amendment](docs/publication143/harness-amendment143.json).
-
-The next attempt reached Coupon donor retention: 23/23 correct observations but zero eligible appearance admissions. Existing production correctly refused retention. The harness now retains that refusal, runs only139 for this fixed source, and records four reference-dependent methods as unavailable. No replacement source, fabricated example, relaxed criteria or outcome tuning. All source labels and production/scoring bytes remain frozen. Paired comparisons retain equal case coverage; full baseline/refusal rows remain visible.
+Focused Java tests passed on the first run, and all350 broad Java checks passed. The first agency app launch refused two invalid UTF-8 interface characters before any tracking evaluation. The failed attempt and original source bytes/lock are retained. Encoding-only amendmentc581f36f repairs those characters;161 desktop checks and10 actual agency checks then passed. Source images, labels, tracker, thresholds, scorer and harness did not change. The final app study and any subsequent attempts are retained in their original records.
 
 
-Hosted CI is separate from local validation and fetched publication. Historical receipts retain their original implementation identity.
+CI was checked before implementation. Hosted CI and local validation are distinct; consult the publication receipt and [GitHub Actions](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions) for actual hosted status. A successful local suite is not a claim that a queued hosted job passed.
 
-The retained trace shows zero supplemental searches on FaceOcc1: its withheld observations did not satisfy the actual underlying-flow-loss trigger. This camera case checks baseline preservation, not successful camera recovery. The generated return has16 unique-search frames and12 confirmed outputs despite8 adjacent best-reference switches; the copy case has3 unique-search frames and1 wrong confirmation. These are descriptive diagnostics, not new qualification rules.
+## Complete processing costs
 
-## Processing costs
-
-| Measured run phase | Tracking / ms | Audit with replay / ms |
+| Source / method | Tracking ms | Audit/replay ms |
 | --- | ---: | ---: |
-| real-camera / foreground-guard-139 / faceocc1-25 | 28212.1 | 11589.9 |
-| real-camera / partial-reference-142 / faceocc1-25 | 47517.8 | 12218.2 |
-| real-camera / reference-monitor-143 / faceocc1-25 | 73544.6 | 12811.2 |
-| real-camera / reference-seed-143 / faceocc1-25 | 94091.1 | 12527.5 |
-| real-camera / reference-confirmation-143 / faceocc1-25 | 119472.5 | 13011.6 |
-| real-camera / foreground-guard-139 / coupon-25 | 125062.7 | 10070.6 |
-| generated-control / foreground-guard-139 / generated-partial | 34235.4 | 6479.1 |
-| generated-control / partial-reference-142 / generated-partial | 44579.9 | 23784.8 |
-| generated-control / reference-monitor-143 / generated-partial | 50611.0 | 34187.1 |
-| generated-control / reference-seed-143 / generated-partial | 41616.9 | 13846.5 |
-| generated-control / reference-confirmation-143 / generated-partial | 53634.7 | 34015.6 |
-| generated-control / foreground-guard-139 / generated-twin | 38388.9 | 6646.9 |
-| generated-control / partial-reference-142 / generated-twin | 49340.5 | 24500.5 |
-| generated-control / reference-monitor-143 / generated-twin | 55990.1 | 34268.6 |
-| generated-control / reference-seed-143 / generated-twin | 46791.3 | 14298.2 |
-| generated-control / reference-confirmation-143 / generated-twin | 58078.3 | 34266.4 |
-| donor audit (retained) / faceocc1-1 | 2532.1 | 271.8 |
-| donor audit (retention refused) / coupon-1 | 3570.5 | 127.8 |
-| donor audit (retained) / generated-reference | 3954.3 | 213.9 |
+| faceocc1-25 / reference-confirmation-143 | 31076.5 | 12012.1 |
+| faceocc1-25 / ambiguity-monitor-144 | 50531.0 | 12283.4 |
+| faceocc1-25 / ambiguity-guard-144 | 81390.8 | 12488.9 |
+| clean-partial / reference-confirmation-143 | 33131.7 | 24029.3 |
+| clean-partial / ambiguity-monitor-144 | 34445.7 | 24440.1 |
+| clean-partial / ambiguity-guard-144 | 35199.0 | 23926.3 |
+| clean-full / reference-confirmation-143 | 36791.7 | 23946.8 |
+| clean-full / ambiguity-monitor-144 | 37303.6 | 23965.6 |
+| clean-full / ambiguity-guard-144 | 39133.7 | 24113.1 |
+| copy-only / reference-confirmation-143 | 40088.7 | 24661.2 |
+| copy-only / ambiguity-monitor-144 | 41716.2 | 24505.4 |
+| copy-only / ambiguity-guard-144 | 42348.0 | 24391.0 |
+| legitimate-after-rival / reference-confirmation-143 | 43335.2 | 24169.1 |
+| legitimate-after-rival / ambiguity-monitor-144 | 44236.1 | 23846.5 |
+| legitimate-after-rival / ambiguity-guard-144 | 45840.2 | 23903.1 |
+| baseline-reset / reference-confirmation-143 | 43970.6 | 19907.7 |
+| baseline-reset / ambiguity-monitor-144 | 45615.5 | 19798.0 |
+| baseline-reset / ambiguity-guard-144 | 46482.0 | 20001.8 |
+| unseen-copy / reference-confirmation-143 | 50494.9 | 24318.9 |
+| unseen-copy / ambiguity-monitor-144 | 52584.9 | 24268.1 |
+| unseen-copy / ambiguity-guard-144 | 52831.7 | 24475.0 |
 
-The actual-app interval across retained attempts and resumptions was 1698.9 seconds (28.3 minutes), including imports, UI inspection, repeated verified reads, export, captures, stop/resume, crash/reopen and tamper checks. The phase intervals above are subsets of this elapsed time, not additional costs to add to it. This wall-clock interval includes time between failed-attempt resumptions; it is not an uninterrupted benchmark. Regression/build/documentation work is separate.
+Complete app interval: 1833.9 seconds, including imports, source verification, UI reads, exports, screenshots, stop/resume, restart and tamper checks. Includes any retained failed-attempt/resume gaps. Phase timings are subsets, not additive costs. Fixed-order measurements are not an isolated speed comparison.
 
-
-| Source | Searches after loss | Qualified unique candidates | Highest recorded similarity | Max confirmations / adjacent reference switches | Position evaluations / descriptor-region comparisons |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| faceocc1-25 | 0 | 0 | — | 0 / 0 | 0 / 0 |
-| generated-partial | 23 | 16 | 0.997 | 3 / 8 | 5,285,281 / 27,848,150 |
-| generated-twin | 23 | 3 | 0.997 | 3 / 0 | 5,362,456 / 28,234,025 |
-
-These are descriptive post-run diagnostics, not new qualification criteria. Similarity is not a probability. Recorded evaluations exclude repeated work from resume and audit replay.
+Separate active-ambiguity interruption check: 96.5 seconds, outside the comparison interval above.
 
 
-Recorded search counts exclude repeated replay/restart work. Similarity is not probability. Future optimization must retain every source/outcome check and measure complete workflows.
-
-Methods run in a fixed order while the evidence collection grows. These are elapsed workflow measurements, not an isolated or randomized speed comparison between algorithms. Later runs can pay for more accumulated state and repeated verification. No responsiveness improvement is claimed.
-
-## Review in the app
-
-1. Start with `scripts/Start-Agent-Workspace.ps1` using Java 21. `-PrepareOnly -Offline` checks local preparation. Keep private projects separate from evaluation projects.
-2. Open **3D / World**, choose a saved world and import source footage. Import independent labels in **Object identity · occlusion & recovery**.
-3. Audit a completed appearance-continuity run and retain its supported full-view appearances.
-4. Import separate evaluation footage. Under **Verified reference appearances**, choose the set and explain the shared-object relationship.
-5. Explicitly select independent reference confirmation or a control, confirm the world/footage binding and start. Inspect visible support, inferred rectangle, independent audit and complete export.
-6. Missing or changed evidence, source overlap, incompatible code and ambiguous matches must refuse or withhold. Keep these checks intact.
-
-## Application direction
-
-The goal remains a local agent that observes, plans, acts, verifies and retains useful procedures across interruption. Java owns durable goals, world state and verification. Browser, canvas, data and creation tools turn those goals into working artifacts. Perception improvements must earn their role through measured task outcomes.
-
-# Next steps
-
-1. **Separate appearance confirmation from identity continuity.** The fresh generated return improves from one accepted correct measurement with142 to12 with143, but both accept the labelled copy once while the target is hidden. Develop a bounded continuity/ambiguity constraint on this now-exposed failure; preserve the result and freeze the next change before new held-out tests. Repetition and a high match score are not identity proof.
-2. **Qualify complete occlusion and return on real footage.** The eligible FaceOcc1 window stays at77/92correct with15missing and no gain; no actual underlying-flow loss occurred, so the supplemental search never ran. Coupon yields no verified donor appearances despite23/23correct donor tracking; retain this legitimate refusal and investigate admission evidence without lowering standards or manufacturing examples. Use new independently labelled camera intervals with actual disappearance, return and competing objects; preserve uncertain labels.
-3. **Reduce repeated evidence work only with measured benefit.** Include reference verification, search, original-pixel replay, durable writes, reopening and export. Compare full workflows under equal collection sizes and preserve every source/code/outcome check. The fixed-order timings here are not an isolated speed comparison.
-4. **Connect qualified observations to durable goals.** World, browser and creation tasks must distinguish observed support, inferred geometry and unknown identity. Better box overlap must improve complete tasks before changing defaults or granting action authority. Keep the unified Java application as the destination.
-
+The guard adds a bounded state transition around the unchanged search. This edition does not claim an isolated speedup. Search, verified reference resolution, persistence and original-pixel replay still contribute to complete workflow cost. No source or outcome check is skipped to improve timing.
 
 ## Evidence and implementation
 
-[Verification](docs/readmes/143/verification.json) · [Actual app study](docs/readmes/143/app-study.json) · [Comparisons and timings](docs/readmes/143/comparison.json) · [Original evidence](docs/readmes/143/original-evidence.json) · [Source inventory](docs/readmes/143/file-inventory.json) · [Frozen protocol](docs/EDITION_143_CONTRACT.md) · [Source review](docs/publication143/source143.json)
+- [Java guard](workspace-engine/src/main/java/fraymus/workspace/AmbiguityGuard144.java) and [pixel replay/outcome audit](workspace-engine/src/main/java/fraymus/workspace/AmbiguityAudit144.java).
+- [Unchanged143 confirmation](workspace-engine/src/main/java/fraymus/workspace/AppearanceConfirmation143.java) and [existing verified reference resolver](workspace-engine/src/main/java/fraymus/workspace/ReferenceMemory137.java).
+- [Focused tests](workspace-engine/src/test/java/fraymus/workspace/AmbiguityGuard144Test.java), [fixed source generator](workspace-engine/src/test/java/fraymus/workspace/AmbiguityFixtures144.java), [actual-app harness](workspace-desktop/test/ambiguity144-integration.cjs).
+- [Validation](docs/readmes/144/verification.json), [original evidence inventory](docs/readmes/144/original-evidence.json), [source inventory](docs/readmes/144/file-inventory.json), [linked system map](docs/obsidian/152-ambiguity-continuity.canvas).
 
-[Per-reference search](workspace-engine/src/main/java/fraymus/workspace/ReferenceSearch143.java) · [Independent confirmation controller](workspace-engine/src/main/java/fraymus/workspace/AppearanceConfirmation143.java) · [Pixel replay and scoring](workspace-engine/src/main/java/fraymus/workspace/ConfirmationAudit143.java) · [Verified reference resolver](workspace-engine/src/main/java/fraymus/workspace/ReferenceMemory137.java). Earlier edition snapshots remain immutable.
+Historical editions 001–143 and their evidence remain frozen. Publication targets `eyeoverthink/Fraynix-Agent-Workspace` main and edition144 with annotated `readme-144`, followed by a fetched-byte audit. No other repository is a publication target for this Java work.
+
+## Next steps
+
+1. **Recover useful returns after ambiguity with new evidence.** Use bounded, source-bound target and competitor trajectories to test whether a return continues the original object. Measure correct returns recovered against extra wrong-object acceptance. Neither a timer nor a missing rival is sufficient evidence. Develop on the now-exposed144 cases and freeze again before fresh evaluation.
+2. **Qualify on genuinely new camera occlusions and lookalikes.** Independently label target and competitors before predictions, including disappearance, re-entry, changing partial views and an original-view return. Keep uncertain identity explicit; generated controls and the reused FaceOcc1 regression cannot establish camera reliability.
+3. **Connect uncertainty to complete durable tasks and measure cost.** World, browser and creation goals should distinguish measured support, predicted state and unknown identity. Verify a useful end-to-end task before promoting an observation policy. Include source verification, search, replay, persistence and restart costs; reduce repeated work only with every source and outcome check intact.

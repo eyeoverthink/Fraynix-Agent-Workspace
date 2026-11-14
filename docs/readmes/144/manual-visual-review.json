@@ -1,0 +1,211 @@
+{
+  "passed": true,
+  "reviewedAtUtc": "2026-11-14T06:49:51.877721+00:00",
+  "scope": "Visual inspection by the implementing agent, not an independent human review. Actual app evidence is unmodified. Contact sheets are layout review aids only. All 8 detailed captures and all 4 desktop/mobile guide captures viewed at full size; 23 primary captures reviewed in overview.",
+  "findings": [
+    "Readable source, trace and audit views; no observed clipping of key evidence.",
+    "Known-copy view explicitly withholds confirmation; independent audit shows one incorrect proposal blocked.",
+    "Clean partial return retains visible-support and inferred whole-box distinction.",
+    "Unseen-copy view honestly displays remaining false confirmation and its independent contradiction.",
+    "Camera regression shows original footage and unchanged 77/92 result.",
+    "Desktop guide works at 1440px; mobile at 390px uses internal horizontal table scrolling for all outcome columns."
+  ],
+  "appImages": [
+    {
+      "path": "build/ambiguity144-app/baseline-reset-drift.png",
+      "sha256": "90d8e1a9aa59d6bb15297032342dc7aa7746ec7c60b40ea085399ec73d6949cf",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/baseline-reset-outcome.png",
+      "sha256": "d296ff17d1de379cbc5f38598d5f11436e7d80f9fff9666c34c59e8a951deaba",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/baseline-reset-source.png",
+      "sha256": "30347adc72ab3bfdaca385e3b1cb38b3d8d058e4fecab005d5774e1fc558ebbd",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/clean-full-drift.png",
+      "sha256": "99585b23e7717311ec18def83af1ae1380b45ea46064632f46c7142b6bec6a6f",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/clean-full-outcome.png",
+      "sha256": "e92effc3c818a17e84ec5272aab5ebd27426f6a054e106a5694cb10c3f87f8c7",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/clean-full-source.png",
+      "sha256": "be940e1271d526c0948c6470d7de32631c55baea6a1bbcc07dcb6105320f8a45",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/clean-partial-drift.png",
+      "sha256": "159dd72607d6e475dc09990d7c335fbd162e0f3c35836ba2394bbd46c25906d6",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/clean-partial-outcome.png",
+      "sha256": "0a7bb091e23f896d68bf9bb8c5b15fbf3c3649ab144a024c5c48ae3f85e6ed22",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/clean-partial-source.png",
+      "sha256": "be940e1271d526c0948c6470d7de32631c55baea6a1bbcc07dcb6105320f8a45",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/copy-only-drift.png",
+      "sha256": "b7ac7175becfd04261fcea4d7927433a24dd5dbe3feff1d687d9f0e6153580a6",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/copy-only-outcome.png",
+      "sha256": "8122ae802732e823f4a39a0564f76995ee3a700e63b77ad23d072d3e09d99330",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/copy-only-source.png",
+      "sha256": "730dfc581bbeef7c36835b95ca93457a091280070a17b7d3e497cb628bf4ff5b",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/drift-layout-1100.png",
+      "sha256": "97f83112fcd957e88298764055573284013c134ec6cccb062d909c478538f89c",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/drift-layout-1600.png",
+      "sha256": "5437988c44d9fd1f4f956635d9a3851ac530f2a251d9967af5a601af904f6201",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/faceocc1-25-drift.png",
+      "sha256": "a690c9118d9ec20c18d741cf56cc22a1e40d8c1382a41d848440ff0971258be8",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/faceocc1-25-outcome.png",
+      "sha256": "acbb2fe1eaa88d597e1912edeb6ef858ae4f3c960cff844debd19a2c290631de",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/faceocc1-25-source.png",
+      "sha256": "66bd6fba1174f2475e65b63bf14320eba64410aa2606f6cab8aa0dbfb31a93ae",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/legitimate-after-rival-drift.png",
+      "sha256": "bcdc59de8fcd36f68ccd3ef13c814e9918cc0a4f682f0758dfe6c8fe029430b2",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/legitimate-after-rival-outcome.png",
+      "sha256": "dfe8aa97465175f4d4c3fb0104af8dd70dd878c5908d84c17f0578492eafd9fc",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/legitimate-after-rival-source.png",
+      "sha256": "dfe8aa97465175f4d4c3fb0104af8dd70dd878c5908d84c17f0578492eafd9fc",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/unseen-copy-drift.png",
+      "sha256": "5437988c44d9fd1f4f956635d9a3851ac530f2a251d9967af5a601af904f6201",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/unseen-copy-outcome.png",
+      "sha256": "61f3923e9ef7326ff41b89f4f3eae66a4035a19fd420f9954c5044b7d21c90f2",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-app/unseen-copy-source.png",
+      "sha256": "3ffc976e0332f6132f63c6fc4eb61cea10af261a5c2155e5ddd06f5b00c8c65c",
+      "review": "23 primary app captures reviewed in contact-sheet overview; key full captures also inspected"
+    },
+    {
+      "path": "build/ambiguity144-review/clean-partial-review-drift.png",
+      "sha256": "4f26d2dc823fc6c09166368e7666be5ff011a3e29b5b26738456f31607249ab8",
+      "review": "All 8 detailed source/trace captures inspected at full size"
+    },
+    {
+      "path": "build/ambiguity144-review/clean-partial-review-source.png",
+      "sha256": "383928514d6bffdcf1454fa8c2a853d0f0eb0915624e2d92561f23675d38fbe0",
+      "review": "All 8 detailed source/trace captures inspected at full size"
+    },
+    {
+      "path": "build/ambiguity144-review/copy-only-review-drift.png",
+      "sha256": "a98c699df7c518f70714c0fc710569a37f2fd450be0c667d50e45d23b39b96d7",
+      "review": "All 8 detailed source/trace captures inspected at full size"
+    },
+    {
+      "path": "build/ambiguity144-review/copy-only-review-source.png",
+      "sha256": "d27fa99e2e4295f10ae100a44626fef09a18bba861498980f4ca807cc5aaada2",
+      "review": "All 8 detailed source/trace captures inspected at full size"
+    },
+    {
+      "path": "build/ambiguity144-review/faceocc1-25-review-drift.png",
+      "sha256": "f5921a89c7263292c2b3dff95ca0de2e8dd21992555a709ebdc658d762ae043d",
+      "review": "All 8 detailed source/trace captures inspected at full size"
+    },
+    {
+      "path": "build/ambiguity144-review/faceocc1-25-review-source.png",
+      "sha256": "2f21fa8ccff0ac15741c48f2dbd3c193feb29e290b172f53493b5530cf9f6599",
+      "review": "All 8 detailed source/trace captures inspected at full size"
+    },
+    {
+      "path": "build/ambiguity144-review/unseen-copy-review-drift.png",
+      "sha256": "e991f9c91456a4fd5e946f62421abbb9086a36bda710b42b0aabb513f9b64211",
+      "review": "All 8 detailed source/trace captures inspected at full size"
+    },
+    {
+      "path": "build/ambiguity144-review/unseen-copy-review-source.png",
+      "sha256": "5aee38c70346b218722f4ef50dda65678a4fd0234bb7a5c61857c72973f0e0d3",
+      "review": "All 8 detailed source/trace captures inspected at full size"
+    }
+  ],
+  "guideImages": [
+    {
+      "path": "build/guide144-1440-viewport.png",
+      "sha256": "37ec0d6b8e96af2c22f043da4bc5ce4237099e2f1235bbd3e0bdcac8c0fe1e6d"
+    },
+    {
+      "path": "build/guide144-1440.png",
+      "sha256": "da7b9f7e6cb493d0d19ba48f72071a77d85bb97d41fd91fe49fdcadf88798ae5"
+    },
+    {
+      "path": "build/guide144-390-viewport.png",
+      "sha256": "9c65f242aee68cf3650482577f2af94a0e58c467f9d317212f0438f88506c19b"
+    },
+    {
+      "path": "build/guide144-390.png",
+      "sha256": "a23a2999c5f9857c8f1aa5d868fb02f63cb6d99b9f8f6fae20cc950ee7972ea9"
+    }
+  ],
+  "automatedGuideChecks": {
+    "passed": true,
+    "checks": [
+      {
+        "width": 1440,
+        "filteredMeasurements": true,
+        "sourceNavigation": true,
+        "inventorySearch": true,
+        "screenshotLoaded": true,
+        "noHorizontalOverflow": true,
+        "errors": []
+      },
+      {
+        "width": 390,
+        "filteredMeasurements": true,
+        "sourceNavigation": true,
+        "inventorySearch": true,
+        "screenshotLoaded": true,
+        "noHorizontalOverflow": true,
+        "errors": []
+      }
+    ]
+  }
+}

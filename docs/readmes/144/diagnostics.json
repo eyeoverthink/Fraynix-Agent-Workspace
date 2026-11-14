@@ -1,0 +1,167 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "case": "faceocc1-25",
+      "domain": "real-camera-regression",
+      "latchedOrdinals": [],
+      "blockedOrdinals": [],
+      "clearedByBaselineOrdinals": [],
+      "acceptedSupplementalOrdinals": []
+    },
+    {
+      "case": "clean-partial",
+      "domain": "generated-control",
+      "latchedOrdinals": [],
+      "blockedOrdinals": [],
+      "clearedByBaselineOrdinals": [],
+      "acceptedSupplementalOrdinals": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ]
+    },
+    {
+      "case": "clean-full",
+      "domain": "generated-control",
+      "latchedOrdinals": [],
+      "blockedOrdinals": [],
+      "clearedByBaselineOrdinals": [],
+      "acceptedSupplementalOrdinals": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ]
+    },
+    {
+      "case": "copy-only",
+      "domain": "generated-control",
+      "latchedOrdinals": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "blockedOrdinals": [
+        15
+      ],
+      "clearedByBaselineOrdinals": [],
+      "acceptedSupplementalOrdinals": []
+    },
+    {
+      "case": "legitimate-after-rival",
+      "domain": "generated-control",
+      "latchedOrdinals": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "blockedOrdinals": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "clearedByBaselineOrdinals": [],
+      "acceptedSupplementalOrdinals": []
+    },
+    {
+      "case": "baseline-reset",
+      "domain": "generated-control",
+      "latchedOrdinals": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "blockedOrdinals": [],
+      "clearedByBaselineOrdinals": [
+        14
+      ],
+      "acceptedSupplementalOrdinals": [
+        21,
+        22,
+        23
+      ]
+    },
+    {
+      "case": "unseen-copy",
+      "domain": "identity-limit",
+      "latchedOrdinals": [],
+      "blockedOrdinals": [],
+      "clearedByBaselineOrdinals": [],
+      "acceptedSupplementalOrdinals": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ]
+    }
+  ],
+  "pairedIdenticalPixelsProduceIdenticalDecisionsAndEstimates": true,
+  "scope": "Post-run descriptive diagnostics; no method or qualification changes. Compare identity-pair traces after excluding only the memory digest, which binds different target manifests. Reference memories must otherwise match after excluding target IDs/hashes. Every original digest is independently reverified by the unchanged audit."
+}

@@ -1,3 +1,5 @@
+[Edition144 - identity ambiguity through loss](../../README-144.md) | [Offline guide](144/index.html)
+
 [Edition143 — independent appearance confirmation](../../README-143.md) | [Offline guide](143/index.html)
 
 [Edition142 — partial views from verified appearances](../../README-142.md) | [Offline guide](142/index.html)

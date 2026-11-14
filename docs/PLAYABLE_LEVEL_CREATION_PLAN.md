@@ -1,3 +1,14 @@
+## Edition144 / 2026-11-14 — ambiguity continuity
+
+[Edition144](../README-144.md) retains competing-object evidence through loss. Pixel replay and independent outcomes measure prevented errors and useful recovery withheld. Explicit experiment; defaults unchanged. Unified Java world/browser/creation remains the destination.
+
+## Next steps
+
+1. **Recover useful returns after ambiguity with new evidence.** Use bounded, source-bound target and competitor trajectories to test whether a return continues the original object. Measure correct returns recovered against extra wrong-object acceptance. Neither a timer nor a missing rival is sufficient evidence. Develop on the now-exposed144 cases and freeze again before fresh evaluation.
+2. **Qualify on genuinely new camera occlusions and lookalikes.** Independently label target and competitors before predictions, including disappearance, re-entry, changing partial views and an original-view return. Keep uncertain identity explicit; generated controls and the reused FaceOcc1 regression cannot establish camera reliability.
+3. **Connect uncertainty to complete durable tasks and measure cost.** World, browser and creation goals should distinguish measured support, predicted state and unknown identity. Verify a useful end-to-end task before promoting an observation policy. Include source verification, search, replay, persistence and restart costs; reduce repeated work only with every source and outcome check intact.
+
+
 ## Edition 143 / 2026-11-13 — independent appearance confirmation
 
 The unified Java world/browser/creation mission continues. [Edition143](../README-143.md) adds an explicit partial-view experiment with source provenance, original-pixel replay and independent outcomes. Real footage and generated controls remain separate; defaults and all checks retained.

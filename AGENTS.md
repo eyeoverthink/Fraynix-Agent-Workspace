@@ -1,3 +1,41 @@
+## Edition 144 — locally verified; publication preparation
+
+2026-11-14 UTC. Isolated J:/Codex-Work/fraynix-workspace-edition144 from5f36761f. CI143 checked first, running at that check; hosted success remains separate. Freezebd2f83f0 before fresh generated pixels/labels; labels58d78ef6. Actual app startup refused two invalid interface middle-dot bytes; encoding-only amendmentc581f36f BEFORE evaluation, original lock/UI/source manifest preserved. No tracking/scorer/label/pixel change. Reused FaceOcc1 explicitly exposed regression. No144 publication claimed until actual push/fetched audit.
+
+Explicit ambiguity-guard-144 retains strong competing-location evidence through underlying-flow loss, wrapping unchanged143 confirmations/search. No expiry or identity proof from a disappeared rival. Existing139 accepted continuity clears the latch; all accepted139 proposals preserved. Monitor144 matches143 tracker/filter exactly. Independent audit replays every original pixel and scores blocked correct/incorrect/unknown parent proposals as well as actual additional returns. No default, capacity, source-admission, authority, dependency or baseline reset changes.
+
+Known-copy control: previous143 accepted 1 measurements while the target was hidden; guard144 accepted 0. The guard blocked 1 independently contradicted parent proposals and 0 correct proposals on that case.
+
+Clean partial/full returns: guard144 24 correct versus143 24. Legitimate return after earlier competition: 6 correct parent proposals withheld, 0 incorrect proposals withheld. This conservative cost is part of the result.
+
+Established baseline return cleared ambiguity at samples [14]; later accepted supplemental returns at [21, 22, 23]. This sequence retained 5/19 correct observations, with 0 wrong overlaps and 0 hidden outputs.
+
+Identical-pixel limit: 12 measurements while the target was hidden in unseen-copy, with 12 labelled-copy matches. These frames are exactly the clean-full pixels with a different declared identity; this is an observability limit, not an independent statistical trial. No claim of universal copy rejection.
+
+Reused FaceOcc1 regression: 77/92 correct, 15 missing, 0 wrong overlaps, 0 hidden outputs. This source was exposed in143; it is not fresh camera qualification. Defaults remain unchanged and no method is promoted.
+
+350 Java checks, 161 desktop checks, kernel, agency, offline/package verification and actual app integrity/restart/tamper checks passed. Seven focused tests passed first attempt. All attempts retained. Full costs, original source/code/outcome checks and screenshot records remain available. No fresh camera qualification, physical accuracy promotion or semantic identity oracle.
+
+## Next steps
+
+1. **Recover useful returns after ambiguity with new evidence.** Use bounded, source-bound target and competitor trajectories to test whether a return continues the original object. Measure correct returns recovered against extra wrong-object acceptance. Neither a timer nor a missing rival is sufficient evidence. Develop on the now-exposed144 cases and freeze again before fresh evaluation.
+2. **Qualify on genuinely new camera occlusions and lookalikes.** Independently label target and competitors before predictions, including disappearance, re-entry, changing partial views and an original-view return. Keep uncertain identity explicit; generated controls and the reused FaceOcc1 regression cannot establish camera reliability.
+3. **Connect uncertainty to complete durable tasks and measure cost.** World, browser and creation goals should distinguish measured support, predicted state and unknown identity. Verify a useful end-to-end task before promoting an observation policy. Include source verification, search, replay, persistence and restart costs; reduce repeated work only with every source and outcome check intact.
+
+Keep the durable unified Java world/browser/creation application central. No agents or overlapping heavy jobs. Shared node junction read-only; preserve private projects and frozen001–144. Publish only Fraynix-Agent-Workspace; fetch and audit exact bytes. Never relabel incompatible historical proofs.
+
+## Edition144 checkpoint - main actual study passed
+
+Main build/ambiguity144-app/result.json passed:23runs,23captures, all original-pixel replay, monitor, native-world, export, stop/resume, completed cold-reopen/zero-write and donor/target tamper checks. Generated known-copy false1->0; clean returns24preserved; six legitimate post-rival returns withheld; baseline reset clears14 and adds21-23; unseen identical-copy still12false (explicit observability limit). Camera regression77/92correct15missing, no gain. diagnostics144 passed. Supplemental active-latch crash/restart running session64919, docs/publication144/restart144.cjs, uses24th existing slot; wait before other heavy jobs. Then capture144, document144/notes144, visual144/manual31screenshots plus guide, freeze144/documentation check, release144 actualpush/fetch and finish144 metadata. Helpers prepared but not yet run; no144 push. Source freezebd2f83f0, encoding-only amendmentc581f36f before evaluation; source labels58d78ef6. No method/scorer/pixel/label tuning. No agents, shared dependencies read-only, private worlds preserved.
+
+## Edition144 checkpoint - actual app running
+
+350Java/51classes, kernel,161desktop/10agency, offline/package/build checks pass. Freezebd2f83f0; source labels58d78ef6 before predictions. First agency launch refused2 invalid CP1252 middle-dot UI bytes; encoding-only amendmentc581f36f before evaluation, original lock/UI/source manifest preserved. No tracker/scorer/pixel/label/harness tuning. Actual app session95446, build/ambiguity144-app; do not overlap heavy jobs. Resume only with DRIFT144_RESUME=1 if needed, preserve all attempts. Await actual comparison, capture144, document144/notes144, visual review, freeze/docs validation, release144 push/fetch audit then finish144 metadata push/fetch. Helpers prepared but must inspect/run against measured results. No144 push yet. Shared dependencies read-only, no agents, private worlds untouched.
+
+## Edition144 checkpoint - frozen, broader verification running
+
+Freeze bd2f83f0 before fresh144 fixtures. Seven focused AmbiguityGuard144 tests passed first attempt; original XML retained build/validation144/first. Nine incumbent implementations unchanged (build/defaults144.json). validate144.py java is running in session96002; no overlapping heavy job. No new144 source pixels generated yet. Next after successful Java receipt: qualify144.py sequentially generates fixed sources, records labels in Git before predictions, packages, desktop/agency checks, then actual app. Preserve all attempts. Report known-copy fix, legitimate-return cost and identical-pixel identity limit separately; no camera qualification/default promotion. Publication helpers drafted, require result review and actual execution; no144 push yet. No agents; shared node_modules read-only.
+
 ## Edition144 active - 2026-11-14 UTC
 
 Read docs/EDITION_144_CONTRACT.md. Isolated J:/Codex-Work/fraynix-workspace-edition144 from5f36761f. CI checked first,143 in progress. No agents or overlapping heavy jobs; shared dependencies read-only; preserve private projects and frozen001-143. Focused tests running, no fresh144 fixtures yet. Finish freeze, tests, actual app, docs, push and fetched audit. No144 publication yet.

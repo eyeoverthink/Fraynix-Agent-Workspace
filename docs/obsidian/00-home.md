@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/152-ambiguity-continuity.md]] | [[README-144.md]]
+
 Current: [[docs/obsidian/151-reference-confirmation.md]] | [[README-143.md]]
 
 Current: [[docs/obsidian/150-partial-views.md]] | [[README-142.md]]

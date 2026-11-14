@@ -1,0 +1,21 @@
+{
+  "checkedAtUtc": "2026-11-14T06:58:40.695376+00:00",
+  "stage": "Before release commit, tag or push",
+  "failure": "git diff --cached --check refused an extra blank line at EOF in README.md and README-144.md",
+  "fix": "Removed trailing blank lines only; generator now writes one final newline. Method, source, labels, tests, screenshots and app outcomes unchanged.",
+  "files": [
+    {
+      "path": "README.md",
+      "beforeSha256": "3e060a99090c68fb09b69934bca420ecfc920834554cccb7a2e8fa8b18ae949a",
+      "afterSha256": "bf34c6c26dda5cd26cc315f5dc9e1acffd4623052307f01a0c839956949c6403",
+      "removedTrailingBytes": 1
+    },
+    {
+      "path": "README-144.md",
+      "beforeSha256": "3e060a99090c68fb09b69934bca420ecfc920834554cccb7a2e8fa8b18ae949a",
+      "afterSha256": "bf34c6c26dda5cd26cc315f5dc9e1acffd4623052307f01a0c839956949c6403",
+      "removedTrailingBytes": 1
+    }
+  ],
+  "historicalEditionsUntouched": true
+}
