@@ -7,7 +7,7 @@ const fs=require('node:fs/promises'),path=require('node:path'),assert=require('n
  const source=study.runs.find(r=>r.caseName==='copy-only'&&r.policy==='ambiguity-guard-144');assert(source);
  const out=path.join(repo,'build/ambiguity144-restart');await fs.mkdir(out);const project=path.join(repo,'build/ambiguity144-app/project');
  Object.assign(process.env,{FRAYNIX_WORKSPACE_PERSISTENT:'0',FRAYNIX_WORKSPACE_JAVA_HEAP_MIB:'768',FRAYNIX_WORKSPACE_JAVA_PROCESSORS:'2'});
- require('../../scripts/Study-Build095.cjs').verify(repo);let app;const result={passed:false,scope:'Additional durability regression using exposed144 copy-only pixels; not another independent fresh sequence.',startedAt:new Date().toISOString()};
+ const receipt=require('../../scripts/Study-Build095.cjs').verify(repo);let app;const result={passed:false,buildReceipt:receipt,harnessSha256:require('node:crypto').createHash('sha256').update(await fs.readFile(__filename)).digest('hex'),scope:'Additional durability regression using exposed144 copy-only pixels; not another independent fresh sequence.',startedAt:new Date().toISOString()};
  const api=(route,args={})=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args});
  async function open(){({app}=await launch(project));}
  async function until(fn){const end=Date.now()+900000;while(Date.now()<end){const r=await fn();if(r)return r;await new Promise(r=>setTimeout(r,250));}throw Error('Bounded recovery wait expired');}
