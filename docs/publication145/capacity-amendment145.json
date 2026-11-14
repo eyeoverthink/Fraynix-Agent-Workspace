@@ -1,0 +1,48 @@
+{
+  "createdAtUtc": "2026-11-14T08:57:57.501782+00:00",
+  "reason": "The first app attempt refused a120-frame pack at the existing96-frame import limit after three donor runs; zero evaluation runs had started. Original failure and manifest retained.",
+  "unchanged": [
+    "Production code, scorer, original labels, source pixels and lock",
+    "All selected source transitions, no omission or replacement",
+    "Existing96-frame,24-run and16-dataset limits",
+    "Every verification check"
+  ],
+  "change": "Partition each fixed120-frame camera interval into96 and25 frames, overlapping one boundary image as the second seed. This supplies fresh ground-truth seed geometry at the boundary; not uninterrupted120-frame tracking. Extra camera chunks use a separate isolated project, identical methods and their own donor verification. All119 planned scored transitions remain exactly once per method when references are available.",
+  "partitions": [
+    {
+      "case": "basketball-25",
+      "first": 25,
+      "last": 120,
+      "frames": 96,
+      "seedFrame": 25,
+      "scored": 95
+    },
+    {
+      "case": "basketball-120",
+      "first": 120,
+      "last": 144,
+      "frames": 25,
+      "seedFrame": 120,
+      "scored": 24
+    },
+    {
+      "case": "girl2-385",
+      "first": 385,
+      "last": 480,
+      "frames": 96,
+      "seedFrame": 385,
+      "scored": 95
+    },
+    {
+      "case": "girl2-480",
+      "first": 480,
+      "last": 504,
+      "frames": 25,
+      "seedFrame": 480,
+      "scored": 24
+    }
+  ],
+  "firstAttemptOnlyDonors": true,
+  "originalManifestSha256": "0a87186c6e4ab5261d10733a9b2373681464233d0cf67ded74b28e8b8b9272f4",
+  "freshEvaluationNotStarted": true
+}
