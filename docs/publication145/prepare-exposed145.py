@@ -1,0 +1,8 @@
+from pathlib import Path
+import json,hashlib
+r=Path.cwd();root=r/'build/exposed145-source';out=r/'docs/publication145';sha=lambda b:hashlib.sha256(b).hexdigest();records=[]
+for row in json.loads((root/'index.json').read_text(encoding='utf8')):
+ p=root/(row['case']+'.fobs.json');lp=out/(row['case']+'-labels.json');lp.write_bytes((root/lp.name).read_bytes());lab=json.loads(lp.read_bytes());row.update(name=row['case'],target=1,start=1,end=24,stride=1,width=320,height=240,sourceFrames=list(range(1,25)),pack=p.relative_to(r).as_posix(),packSha256=sha(p.read_bytes()),labels=lp.relative_to(r).as_posix(),labelsSha256=sha(lp.read_bytes()),visibilityCounts={v:sum(l['visibility']==v for l in lab['rows']) for v in ['visible','partial','occluded','out-of-view','uncertain']},distractorLabelledSamples=sum('otherBoxes' in l for l in lab['rows']));records.append(row)
+donor={x['imageSha256'] for x in json.loads((r/records[0]['pack']).read_bytes())['frames']}
+for row in records[1:]:assert not donor.intersection(x['imageSha256'] for x in json.loads((r/row['pack']).read_bytes())['frames'])
+manifest={'algorithmLockSha256':sha((r/'docs/OBSERVATION_145_LOCK.json').read_bytes()),'records':records,'sourceReview':'Already exposed unit-test pixels replayed through full verified donor retention, actual app and independent outcomes. Not fresh qualification.','limitation':'No new held-out recovery claim. Positive unit-test method is tested through actual production provenance and interruption.'};(out/'source145-exposed.json').write_bytes((json.dumps(manifest,indent=2)+'\n').encode());print(json.dumps({'records':len(records),'separateSourceBytes':True}))
