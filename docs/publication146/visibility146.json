@@ -1,0 +1,270 @@
+{
+  "reviewer": "Codex source-only AI review; external OTB rectangles; no independent human adjudication",
+  "beforePredictions": true,
+  "sources": [
+    {
+      "name": "Coke",
+      "eligible": false,
+      "reviewedFrames": [
+        1,
+        291
+      ],
+      "contactSheetsReviewed": 19,
+      "completeOcclusionCandidate": {
+        "hiddenStart": 255,
+        "returnFrame": 264
+      },
+      "rejectedEvents": [
+        {
+          "frames": [
+            33,
+            40
+          ],
+          "reason": "Partial foliage cover; can remains visible"
+        },
+        {
+          "frames": [
+            187,
+            190
+          ],
+          "reason": "Partial foliage cover; exposed silver rim and side remain visible in full-resolution review"
+        },
+        {
+          "frames": [
+            255,
+            263
+          ],
+          "reason": "Complete disappearance is present, but a confidently fully unobscured 24-frame donor with at least12 fully visible frames was not established; the hand grips and covers portions of the can throughout. Conservative source-only eligibility refusal, before any tracking."
+        }
+      ],
+      "boundaryDetailsReviewed": [
+        188,
+        189,
+        190,
+        254,
+        255,
+        256,
+        263,
+        264,
+        265
+      ],
+      "notes": "Do not treat benchmark OCC metadata as full-occlusion qualification. No tracker executed and no outcome-driven replacement. Continue the declared candidate order.",
+      "supplementalNoReferenceDiagnostic": true,
+      "event": {
+        "hiddenStart": 255,
+        "returnFrame": 264
+      },
+      "evaluation": [
+        245,
+        284
+      ],
+      "donor": [
+        1,
+        24
+      ],
+      "ranges": [
+        {
+          "start": 1,
+          "end": 24,
+          "visibility": "partial"
+        },
+        {
+          "start": 245,
+          "end": 254,
+          "visibility": "partial"
+        },
+        {
+          "start": 255,
+          "end": 263,
+          "visibility": "occluded"
+        },
+        {
+          "start": 264,
+          "end": 284,
+          "visibility": "partial"
+        }
+      ],
+      "supplementalScope": "Excluded from primary qualification. Explicit no-verified-reference diagnostic: all donor frames are partial. Expect135 retention refusal and139 fallback;146 comparisons unavailable. Added before predictions after ordered primary list exhaustion.",
+      "selectedFullResolutionReview": {
+        "sheets": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "donorFrames": [
+          1,
+          24
+        ],
+        "evaluationFrames": [
+          245,
+          284
+        ],
+        "completedAtUtc": "2026-11-14T20:31:13.208149+00:00",
+        "finding": "All selected frames reviewed at native resolution. Holding fingers obscure part of the can; partial visible labels preserved. Can completely hidden255\u2013263, silver rim reappears264. No other can visible."
+      }
+    },
+    {
+      "name": "Subway",
+      "eligible": false,
+      "reviewedFrames": [
+        1,
+        175
+      ],
+      "contactSheetsReviewed": 11,
+      "boundaryDetailsReviewed": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        94,
+        95,
+        96,
+        97,
+        98
+      ],
+      "rejectedEvents": [
+        {
+          "frames": [
+            37,
+            44
+          ],
+          "reason": "Beige-coated pedestrian partially occludes target, but dark upper target silhouette remains visible; no confident two-frame complete disappearance"
+        },
+        {
+          "frames": [
+            74,
+            79
+          ],
+          "reason": "Overlap with white-coated pedestrian is partial; lower dark target silhouette remains visible"
+        },
+        {
+          "frames": [
+            93,
+            99
+          ],
+          "reason": "Foreground dark pedestrian covers lower target, but upper target silhouette remains visible"
+        }
+      ],
+      "notes": "No qualifying complete disappearance and return in175 source frames. Low contrast is not proof of full occlusion. No tracking executed."
+    },
+    {
+      "name": "Woman",
+      "eligible": false,
+      "reviewedFrames": [
+        1,
+        597
+      ],
+      "contactSheetsReviewed": 38,
+      "rejectedEvents": [
+        {
+          "frames": [
+            1,
+            597
+          ],
+          "reason": "The woman remains at least partly visible throughout the source. Parked cars obscure lower body; foliage and overhead wires partly obscure upper body, but no confident two-frame complete disappearance. Tree trunks are behind the walking target."
+        }
+      ],
+      "notes": "Source-only review before tracking; camera pans and zooms. No qualifying complete occlusion and return; no evaluation window selected."
+    },
+    {
+      "name": "Human4",
+      "eligible": false,
+      "reviewedFrames": [
+        1,
+        667
+      ],
+      "contactSheetsReviewed": 42,
+      "annotationTarget": 2,
+      "boundaryDetailsReviewed": [
+        128,
+        130,
+        132,
+        334,
+        335,
+        336,
+        337,
+        338,
+        339,
+        340,
+        341,
+        342,
+        343,
+        344,
+        425,
+        429,
+        433,
+        437,
+        529,
+        533,
+        537,
+        541,
+        585,
+        601,
+        617,
+        633,
+        649,
+        657,
+        665
+      ],
+      "rejectedEvents": [
+        {
+          "frames": [
+            128,
+            133
+          ],
+          "reason": "Sign obscures upper torso but legs remain visible."
+        },
+        {
+          "frames": [
+            334,
+            349
+          ],
+          "reason": "Traffic pole and tree partly obscure target; exposed clothing or limbs remain. No confidently complete two-frame disappearance."
+        },
+        {
+          "frames": [
+            423,
+            450
+          ],
+          "reason": "Tree grate/foliage partial overlap; torso and bright waist remain visible."
+        },
+        {
+          "frames": [
+            577,
+            667
+          ],
+          "reason": "Target becomes small and partly covered by cars and branches. Cannot confidently establish complete disappearance followed by ten visible/partial return frames; low contrast is not a complete-occlusion label."
+        }
+      ],
+      "notes": "All667 original frames reviewed before predictions; only nonempty archive annotation2 used, annotation1 is empty. No qualifying event established. Camera pans; no outcome selection."
+    }
+  ],
+  "primarySelectionExhausted": true,
+  "primaryEligibleCount": 0
+}

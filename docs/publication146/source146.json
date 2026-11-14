@@ -1,0 +1,945 @@
+{
+  "createdAtUtc": "2026-11-14T20:31:55.248622+00:00",
+  "algorithmLockSha256": "0726440ce54a7a03705e6e3c495ca34a5985ca045d5ea7fc8122569770cb7daa",
+  "records": [
+    {
+      "case": "coke-1",
+      "group": "coke",
+      "name": "Coke",
+      "target": 1,
+      "role": "reference-source",
+      "domain": "real-camera",
+      "primaryEligible": false,
+      "supplementalNoReferenceDiagnostic": true,
+      "start": 1,
+      "end": 24,
+      "stride": 1,
+      "frames": 24,
+      "width": 640,
+      "height": 480,
+      "sourceFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "pack": "build/otb146/coke-1.fobs.json",
+      "packSha256": "1e6f59f0f1ca18cef094c29467d06ab054093e4537c712ce69c2cbaf2b892fdb",
+      "labels": "docs/publication146/coke-1-labels.json",
+      "labelsSha256": "fcb386fa1cdaa2b939501104e957163e646e4d68f362b99254f83befab4be457",
+      "visibilityCounts": {
+        "visible": 0,
+        "partial": 23,
+        "occluded": 0,
+        "out-of-view": 0,
+        "uncertain": 0
+      },
+      "distractorLabelledSamples": 0,
+      "originalGroundTruth": "docs/publication146/Coke-groundtruth.txt",
+      "originalGroundTruthSha256": "dfa71c09ef4f83a884025dc4a95e18da9168f12777fc2c4e7c361e3f1453ff23"
+    },
+    {
+      "case": "coke-245",
+      "group": "coke",
+      "name": "Coke",
+      "target": 1,
+      "role": "evaluation",
+      "domain": "real-camera",
+      "primaryEligible": false,
+      "supplementalNoReferenceDiagnostic": true,
+      "start": 245,
+      "end": 284,
+      "stride": 1,
+      "frames": 40,
+      "width": 640,
+      "height": 480,
+      "sourceFrames": [
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283,
+        284
+      ],
+      "pack": "build/otb146/coke-245.fobs.json",
+      "packSha256": "76cd9901c12fb3a0ce6fbb5ef2da4c02ad01f013cd8e050c5f479db64dbaeb80",
+      "labels": "docs/publication146/coke-245-labels.json",
+      "labelsSha256": "a176bd58f0e3ef2c8e614d591e0658417ccdf19aaffc5e5414c2b232cd54f245",
+      "visibilityCounts": {
+        "visible": 0,
+        "partial": 30,
+        "occluded": 9,
+        "out-of-view": 0,
+        "uncertain": 0
+      },
+      "distractorLabelledSamples": 0,
+      "originalGroundTruth": "docs/publication146/Coke-groundtruth.txt",
+      "originalGroundTruthSha256": "dfa71c09ef4f83a884025dc4a95e18da9168f12777fc2c4e7c361e3f1453ff23",
+      "donorIdenticalEvaluationFrames": []
+    },
+    {
+      "role": "reference-source",
+      "frames": 24,
+      "domain": "generated-overlap-diagnostic",
+      "case": "generated-reference",
+      "group": "generated",
+      "qualificationEligible": false,
+      "name": "generated-reference",
+      "target": 1,
+      "start": 1,
+      "end": 24,
+      "stride": 1,
+      "width": 320,
+      "height": 240,
+      "sourceFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "pack": "build/generated146/generated-reference.fobs.json",
+      "packSha256": "ba53964f462bac84db6b87b45a42af247f1eb7a0399cd0451328911db23e4551",
+      "labels": "docs/publication146/generated-reference-labels.json",
+      "labelsSha256": "77ea2007fdf6de8f3510ae4cdbb19b2b2c40e46d2d7aa897e07e45341354ee89",
+      "visibilityCounts": {
+        "visible": 23,
+        "partial": 0,
+        "occluded": 0,
+        "out-of-view": 0,
+        "uncertain": 0
+      },
+      "distractorLabelledSamples": 0
+    },
+    {
+      "role": "evaluation",
+      "frames": 32,
+      "domain": "generated-overlap-diagnostic",
+      "case": "short-return",
+      "group": "generated",
+      "qualificationEligible": false,
+      "name": "short-return",
+      "target": 1,
+      "start": 1,
+      "end": 32,
+      "stride": 1,
+      "width": 320,
+      "height": 240,
+      "sourceFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "pack": "build/generated146/short-return.fobs.json",
+      "packSha256": "9e37c0054576364fc473a1ddbe4310888196e22e935a0a854f838c9309e96a3d",
+      "labels": "docs/publication146/short-return-labels.json",
+      "labelsSha256": "ac20d6e5cefb1867e77e88d87ae272931006fc638985d6dcf44ca4fc54de1166",
+      "visibilityCounts": {
+        "visible": 29,
+        "partial": 0,
+        "occluded": 2,
+        "out-of-view": 0,
+        "uncertain": 0
+      },
+      "distractorLabelledSamples": 0,
+      "donorIdenticalEvaluationFrames": [
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "role": "evaluation",
+      "frames": 32,
+      "domain": "generated-overlap-diagnostic",
+      "case": "distant-copy",
+      "group": "generated",
+      "qualificationEligible": false,
+      "name": "distant-copy",
+      "target": 1,
+      "start": 1,
+      "end": 32,
+      "stride": 1,
+      "width": 320,
+      "height": 240,
+      "sourceFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "pack": "build/generated146/distant-copy.fobs.json",
+      "packSha256": "99d563f9fcdb829197b409a774ed149dccb8d5f5ea6f3a305027a01b584ce3ac",
+      "labels": "docs/publication146/distant-copy-labels.json",
+      "labelsSha256": "e7b392672247bbfe16232ff7032d00f0197c26c510bf8976369715488535b561",
+      "visibilityCounts": {
+        "visible": 9,
+        "partial": 0,
+        "occluded": 22,
+        "out-of-view": 0,
+        "uncertain": 0
+      },
+      "distractorLabelledSamples": 20,
+      "donorIdenticalEvaluationFrames": [
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "role": "evaluation",
+      "frames": 32,
+      "domain": "generated-overlap-diagnostic",
+      "case": "same-path-copy",
+      "group": "generated",
+      "qualificationEligible": false,
+      "name": "same-path-copy",
+      "target": 1,
+      "start": 1,
+      "end": 32,
+      "stride": 1,
+      "width": 320,
+      "height": 240,
+      "sourceFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "pack": "build/generated146/same-path-copy.fobs.json",
+      "packSha256": "00e907c629ace9eca6462cfeb653701193e210f68b3826e4131891b089a638f5",
+      "labels": "docs/publication146/same-path-copy-labels.json",
+      "labelsSha256": "3854eb564407e594f2079da03444ab7841f72ae7823ccb66c323e8c4e7fb775d",
+      "visibilityCounts": {
+        "visible": 9,
+        "partial": 0,
+        "occluded": 22,
+        "out-of-view": 0,
+        "uncertain": 0
+      },
+      "distractorLabelledSamples": 20,
+      "donorIdenticalEvaluationFrames": [
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "role": "evaluation",
+      "frames": 32,
+      "domain": "generated-overlap-diagnostic",
+      "case": "delayed-return",
+      "group": "generated",
+      "qualificationEligible": false,
+      "name": "delayed-return",
+      "target": 1,
+      "start": 1,
+      "end": 32,
+      "stride": 1,
+      "width": 320,
+      "height": 240,
+      "sourceFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "pack": "build/generated146/delayed-return.fobs.json",
+      "packSha256": "f54c5505e0b646089c253b4aa02c0acf31d7942a9f82d25cde9e9a65e9eafd2e",
+      "labels": "docs/publication146/delayed-return-labels.json",
+      "labelsSha256": "68ce010b0ce75c03fca55def4484ed43727991a6964ebd3ca2288ca39bd9d4f8",
+      "visibilityCounts": {
+        "visible": 17,
+        "partial": 0,
+        "occluded": 14,
+        "out-of-view": 0,
+        "uncertain": 0
+      },
+      "distractorLabelledSamples": 0,
+      "donorIdenticalEvaluationFrames": [
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "role": "reference-source",
+      "frames": 24,
+      "domain": "exposed-development",
+      "case": "generated-reference",
+      "group": "regression",
+      "name": "generated-reference",
+      "target": 1,
+      "start": 1,
+      "end": 24,
+      "stride": 1,
+      "width": 320,
+      "height": 240,
+      "sourceFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "pack": "build/regression146/generated-reference.fobs.json",
+      "packSha256": "07ddd657d8a43c8ae3ca767d9c54a7ef8b89d746b69cadad16fe4f6a6f1bafeb",
+      "labels": "docs/publication145/generated-reference-labels.json",
+      "labelsSha256": "3d44bf71c7d69ffe5cc17ce7c97f614e5549948a8e091af11454c88782257b0f",
+      "visibilityCounts": {
+        "visible": 23,
+        "partial": 0,
+        "occluded": 0,
+        "out-of-view": 0,
+        "uncertain": 0
+      },
+      "distractorLabelledSamples": 0
+    },
+    {
+      "role": "evaluation",
+      "frames": 24,
+      "domain": "exposed-development",
+      "case": "trajectory-return",
+      "group": "regression",
+      "name": "trajectory-return",
+      "target": 1,
+      "start": 1,
+      "end": 24,
+      "stride": 1,
+      "width": 320,
+      "height": 240,
+      "sourceFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "pack": "build/regression146/trajectory-return.fobs.json",
+      "packSha256": "819e8aeef33c9ec2cb3a31de247f2ff364ea96e6f7c2de99f69709fd34963f4a",
+      "labels": "docs/publication145/trajectory-return-labels.json",
+      "labelsSha256": "9805de470ea5821d4977e9d9b814cf4882d6725293ff1bd48d849368c4e34f9e",
+      "visibilityCounts": {
+        "visible": 21,
+        "partial": 0,
+        "occluded": 2,
+        "out-of-view": 0,
+        "uncertain": 0
+      },
+      "distractorLabelledSamples": 3,
+      "donorIdenticalEvaluationFrames": []
+    },
+    {
+      "role": "evaluation",
+      "frames": 24,
+      "domain": "exposed-development",
+      "case": "copy-remains",
+      "group": "regression",
+      "name": "copy-remains",
+      "target": 1,
+      "start": 1,
+      "end": 24,
+      "stride": 1,
+      "width": 320,
+      "height": 240,
+      "sourceFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "pack": "build/regression146/copy-remains.fobs.json",
+      "packSha256": "0ad364cd804d86a472d01478ee1643c73afa0e3acf78289ece28c5aa75fd76ca",
+      "labels": "docs/publication145/copy-remains-labels.json",
+      "labelsSha256": "a58627427bb94a862665bcb62f5b0d66aedad756b3f210f2991616c935e215ec",
+      "visibilityCounts": {
+        "visible": 9,
+        "partial": 0,
+        "occluded": 14,
+        "out-of-view": 0,
+        "uncertain": 0
+      },
+      "distractorLabelledSamples": 17,
+      "donorIdenticalEvaluationFrames": []
+    }
+  ],
+  "downloads": [
+    {
+      "name": "Coke",
+      "url": "https://drive.usercontent.google.com/download?id=1nGsvt_IImvA4iJD22Qzm9jFPJxi-AudA&export=download&confirm=t",
+      "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark/",
+      "sha256": "3158a246da79646d0ef86bde44761d77c8d2df89cfb287ff25aa536f187a520b",
+      "bytes": 23547911,
+      "crcVerified": true,
+      "groundtruth": "Coke/groundtruth_rect.txt",
+      "groundtruthSha256": "dfa71c09ef4f83a884025dc4a95e18da9168f12777fc2c4e7c361e3f1453ff23",
+      "downloadedAtUtc": "2026-11-14T20:14:41.646474+00:00"
+    },
+    {
+      "name": "Subway",
+      "url": "https://drive.usercontent.google.com/download?id=1mjWj04H2mxTkzWxoeNC284oVJiYqKK1E&export=download&confirm=t",
+      "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark/",
+      "sha256": "4b9b877b6863b83e0f66303b55d03b7ec64bc35010d721fd184a864984b930d4",
+      "bytes": 10612286,
+      "crcVerified": true,
+      "groundtruth": "Subway/groundtruth_rect.txt",
+      "groundtruthSha256": "4cf2038049622c3140eb525a2057e7548e511819b7e930063281109569514dda",
+      "downloadedAtUtc": "2026-11-14T20:17:15.012276+00:00"
+    },
+    {
+      "name": "Woman",
+      "url": "https://drive.usercontent.google.com/download?id=14AcX4BpCar8iAMlm9Eg55uB64q_oaYu9&export=download&confirm=t",
+      "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark/",
+      "sha256": "44a52dcefc0f6ef37742b3ac62a8c6f53c43e93e58247ca54b377f83e946d0cc",
+      "bytes": 11466772,
+      "crcVerified": true,
+      "groundtruth": "Woman/groundtruth_rect.txt",
+      "groundtruthSha256": "3dd4f8fb1ec736e59033c06f75268d9563ef0d1f21a725d46f8144d30ab07fbf",
+      "downloadedAtUtc": "2026-11-14T20:18:09.178590+00:00"
+    },
+    {
+      "name": "Human4",
+      "url": "https://drive.usercontent.google.com/download?id=1DnZEER4mjBW-OM0TL97Sa6vN6MGdoBvs&export=download&confirm=t",
+      "sourcePage": "https://rvlab.snu.ac.kr/research/tracker_benchmark/",
+      "sha256": "1cc2fc4fae9420b3c3002a38e18eaa138c5ff447ae7c8b6b0e353b7c475f720f",
+      "bytes": 59239784,
+      "crcVerified": true,
+      "groundtruth": "Human4/groundtruth_rect.2.txt",
+      "groundtruthSha256": "f96d1b47bd9144d5ef01e1775732e84de73e71139c966455dfb89e811d783786",
+      "downloadedAtUtc": "2026-11-14T20:21:57.835006+00:00",
+      "archiveAnnotationInventory": [
+        {
+          "path": "Human4/groundtruth_rect.1.txt",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "Human4/groundtruth_rect.2.txt",
+          "bytes": 9337,
+          "sha256": "f96d1b47bd9144d5ef01e1775732e84de73e71139c966455dfb89e811d783786"
+        }
+      ],
+      "sourcePreparationCorrection": "Original download succeeded but helper refused two annotation filenames. First is empty; select only nonempty source annotation2 before images or predictions. No redownload or outcome-based target selection."
+    }
+  ],
+  "sourceReview": {
+    "reviewer": "Codex source-only AI review; external OTB rectangles; no independent human adjudication",
+    "beforePredictions": true,
+    "sources": [
+      {
+        "name": "Coke",
+        "eligible": false,
+        "reviewedFrames": [
+          1,
+          291
+        ],
+        "contactSheetsReviewed": 19,
+        "completeOcclusionCandidate": {
+          "hiddenStart": 255,
+          "returnFrame": 264
+        },
+        "rejectedEvents": [
+          {
+            "frames": [
+              33,
+              40
+            ],
+            "reason": "Partial foliage cover; can remains visible"
+          },
+          {
+            "frames": [
+              187,
+              190
+            ],
+            "reason": "Partial foliage cover; exposed silver rim and side remain visible in full-resolution review"
+          },
+          {
+            "frames": [
+              255,
+              263
+            ],
+            "reason": "Complete disappearance is present, but a confidently fully unobscured 24-frame donor with at least12 fully visible frames was not established; the hand grips and covers portions of the can throughout. Conservative source-only eligibility refusal, before any tracking."
+          }
+        ],
+        "boundaryDetailsReviewed": [
+          188,
+          189,
+          190,
+          254,
+          255,
+          256,
+          263,
+          264,
+          265
+        ],
+        "notes": "Do not treat benchmark OCC metadata as full-occlusion qualification. No tracker executed and no outcome-driven replacement. Continue the declared candidate order.",
+        "supplementalNoReferenceDiagnostic": true,
+        "event": {
+          "hiddenStart": 255,
+          "returnFrame": 264
+        },
+        "evaluation": [
+          245,
+          284
+        ],
+        "donor": [
+          1,
+          24
+        ],
+        "ranges": [
+          {
+            "start": 1,
+            "end": 24,
+            "visibility": "partial"
+          },
+          {
+            "start": 245,
+            "end": 254,
+            "visibility": "partial"
+          },
+          {
+            "start": 255,
+            "end": 263,
+            "visibility": "occluded"
+          },
+          {
+            "start": 264,
+            "end": 284,
+            "visibility": "partial"
+          }
+        ],
+        "supplementalScope": "Excluded from primary qualification. Explicit no-verified-reference diagnostic: all donor frames are partial. Expect135 retention refusal and139 fallback;146 comparisons unavailable. Added before predictions after ordered primary list exhaustion.",
+        "selectedFullResolutionReview": {
+          "sheets": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "donorFrames": [
+            1,
+            24
+          ],
+          "evaluationFrames": [
+            245,
+            284
+          ],
+          "completedAtUtc": "2026-11-14T20:31:13.208149+00:00",
+          "finding": "All selected frames reviewed at native resolution. Holding fingers obscure part of the can; partial visible labels preserved. Can completely hidden255\u2013263, silver rim reappears264. No other can visible."
+        }
+      },
+      {
+        "name": "Subway",
+        "eligible": false,
+        "reviewedFrames": [
+          1,
+          175
+        ],
+        "contactSheetsReviewed": 11,
+        "boundaryDetailsReviewed": [
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          94,
+          95,
+          96,
+          97,
+          98
+        ],
+        "rejectedEvents": [
+          {
+            "frames": [
+              37,
+              44
+            ],
+            "reason": "Beige-coated pedestrian partially occludes target, but dark upper target silhouette remains visible; no confident two-frame complete disappearance"
+          },
+          {
+            "frames": [
+              74,
+              79
+            ],
+            "reason": "Overlap with white-coated pedestrian is partial; lower dark target silhouette remains visible"
+          },
+          {
+            "frames": [
+              93,
+              99
+            ],
+            "reason": "Foreground dark pedestrian covers lower target, but upper target silhouette remains visible"
+          }
+        ],
+        "notes": "No qualifying complete disappearance and return in175 source frames. Low contrast is not proof of full occlusion. No tracking executed."
+      },
+      {
+        "name": "Woman",
+        "eligible": false,
+        "reviewedFrames": [
+          1,
+          597
+        ],
+        "contactSheetsReviewed": 38,
+        "rejectedEvents": [
+          {
+            "frames": [
+              1,
+              597
+            ],
+            "reason": "The woman remains at least partly visible throughout the source. Parked cars obscure lower body; foliage and overhead wires partly obscure upper body, but no confident two-frame complete disappearance. Tree trunks are behind the walking target."
+          }
+        ],
+        "notes": "Source-only review before tracking; camera pans and zooms. No qualifying complete occlusion and return; no evaluation window selected."
+      },
+      {
+        "name": "Human4",
+        "eligible": false,
+        "reviewedFrames": [
+          1,
+          667
+        ],
+        "contactSheetsReviewed": 42,
+        "annotationTarget": 2,
+        "boundaryDetailsReviewed": [
+          128,
+          130,
+          132,
+          334,
+          335,
+          336,
+          337,
+          338,
+          339,
+          340,
+          341,
+          342,
+          343,
+          344,
+          425,
+          429,
+          433,
+          437,
+          529,
+          533,
+          537,
+          541,
+          585,
+          601,
+          617,
+          633,
+          649,
+          657,
+          665
+        ],
+        "rejectedEvents": [
+          {
+            "frames": [
+              128,
+              133
+            ],
+            "reason": "Sign obscures upper torso but legs remain visible."
+          },
+          {
+            "frames": [
+              334,
+              349
+            ],
+            "reason": "Traffic pole and tree partly obscure target; exposed clothing or limbs remain. No confidently complete two-frame disappearance."
+          },
+          {
+            "frames": [
+              423,
+              450
+            ],
+            "reason": "Tree grate/foliage partial overlap; torso and bright waist remain visible."
+          },
+          {
+            "frames": [
+              577,
+              667
+            ],
+            "reason": "Target becomes small and partly covered by cars and branches. Cannot confidently establish complete disappearance followed by ten visible/partial return frames; low contrast is not a complete-occlusion label."
+          }
+        ],
+        "notes": "All667 original frames reviewed before predictions; only nonempty archive annotation2 used, annotation1 is empty. No qualifying event established. Camera pans; no outcome selection."
+      }
+    ],
+    "primarySelectionExhausted": true,
+    "primaryEligibleCount": 0
+  },
+  "limitations": [
+    "Source-only event selection under frozen rules, not outcome selection.",
+    "External geometry and attributed AI visibility review; no independent human adjudication.",
+    "Generated controls and already-exposed regressions are separate from fresh footage.",
+    "Image-plane motion and identical appearances cannot certify identity."
+  ]
+}

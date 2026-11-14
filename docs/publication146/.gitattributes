@@ -1,0 +1,4 @@
+# Preserve exact independent source and evaluation input bytes.
+*-groundtruth.txt -text whitespace=cr-at-eol
+*-labels.json -text whitespace=cr-at-eol
+source146.json -text whitespace=cr-at-eol
