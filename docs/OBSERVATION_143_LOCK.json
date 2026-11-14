@@ -28,7 +28,7 @@
     "docs/publication143/review143.py": "da2d7fe87a6f5f33719f4ddd05da8e6372c47255eb12b7e0460e4cc317d200ec",
     "workspace-desktop/renderer/association134-panel.js": "083c8f558e132156e076799c56b985ac6f90ff54ca2c5a9d1a9d695c9982d586",
     "workspace-desktop/renderer/observation-panel.js": "8200063ee15e4b19371a69b08d1ea6e2260c9338a17c53fd270259ed9bfcbbb5",
-    "workspace-desktop/test/confirmation143-integration.cjs": "2c263d9f518f12109908daa18c9cc4b174c7e6fad2655d466b99b390354c8336",
+    "workspace-desktop/test/confirmation143-integration.cjs": "902d9447b9011e6ff1b0dc8ff706a719a1da8709fa4a3ae81fa84c3521f4c9c4",
     "workspace-desktop/test/corroborated140-integration.cjs": "37744399d3739387d95e391144fa01194f8a062b17f85c5ff4113e6d5a45c40b",
     "workspace-desktop/test/partial142-integration.cjs": "8b6c9f94758aee270117a4ebbbf561c64bd06aa8dff33c919a2d5ad0dcb62b11",
     "workspace-desktop/test/recovery141-integration.cjs": "0ea86d00b82f2f6be4c8584f28c1c404e299390e640fbb4557d4dd601fd91493",
@@ -76,6 +76,7 @@
   "scope": "Production, scorer, controls, UI, source selection and actual-app harness frozen before fresh pixels/annotations. Donors are independently audited full views; evaluation cannot train references. Default and source/outcome checks retained.",
   "harnessAmendment": {
     "record": "docs/publication143/harness-amendment143.json",
-    "reason": "Exact donor-box equality uses existing PixelTracker.Box.from/json canonical arithmetic; no tolerance or scoring change."
+    "reason": "Exact donor-box equality uses existing PixelTracker.Box.from/json canonical arithmetic; no tolerance or scoring change.",
+    "eligibilityRecord": "docs/publication143/donor-refusal143.json"
   }
 }
