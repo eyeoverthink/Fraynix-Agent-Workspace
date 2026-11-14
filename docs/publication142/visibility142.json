@@ -1,0 +1,173 @@
+{
+  "reviewedAtUtc": "2026-11-14T03:22:39.401672+00:00",
+  "FaceOcc2": {
+    "ranges": [
+      {
+        "start": 1,
+        "end": 76,
+        "visibility": "visible"
+      },
+      {
+        "start": 77,
+        "end": 80,
+        "visibility": "uncertain"
+      },
+      {
+        "start": 81,
+        "end": 89,
+        "visibility": "partial"
+      },
+      {
+        "start": 90,
+        "end": 90,
+        "visibility": "uncertain"
+      },
+      {
+        "start": 91,
+        "end": 120,
+        "visibility": "visible"
+      }
+    ],
+    "otherBoxes": {}
+  },
+  "Walking2": {
+    "ranges": [
+      {
+        "start": 1,
+        "end": 120,
+        "visibility": "visible"
+      }
+    ],
+    "otherBoxes": {
+      "26": [
+        [
+          0.17708333333333334,
+          0.23958333333333334,
+          0.234375,
+          0.5243055555555556
+        ],
+        [
+          0.2864583333333333,
+          0.08333333333333333,
+          0.3541666666666667,
+          0.2708333333333333
+        ]
+      ],
+      "60": [
+        [
+          0.17708333333333334,
+          0.21875,
+          0.234375,
+          0.5034722222222222
+        ],
+        [
+          0.2786458333333333,
+          0.059027777777777776,
+          0.34375,
+          0.2534722222222222
+        ]
+      ],
+      "96": [
+        [
+          0.17447916666666666,
+          0.19791666666666666,
+          0.234375,
+          0.4791666666666667
+        ],
+        [
+          0.2786458333333333,
+          0.041666666666666664,
+          0.34375,
+          0.22569444444444445
+        ]
+      ],
+      "120": [
+        [
+          0.17447916666666666,
+          0.18055555555555555,
+          0.22916666666666666,
+          0.4583333333333333
+        ],
+        [
+          0.2760416666666667,
+          0.027777777777777776,
+          0.3489583333333333,
+          0.22569444444444445
+        ]
+      ]
+    }
+  },
+  "summary": "All 240 selected original images were reviewed before predictions on ten numbered contact sheets. Twelve full-resolution images checked: FaceOcc2 77\u201380 and 88\u201391; Walking2 26,60,96,120. FaceOcc2: the face remains visible, with a book covering its lower portion during81\u201389; small boundary contact77\u201380 and90 is uncertain. No full disappearance occurs in the fixed120-image source interval. Walking2: the foreground target remains unobstructed while receding in a corridor with other people. Two independently source-marked competitor rectangles are supplied at four evaluation frames26,60,96,120 only; no interpolation, exhaustive distractor labelling or named-person identity claim. Source rectangles come from OTB; visibility and competitor rectangles are separate AI source-only review, not independent human adjudication. Generated controls supply separate exact occlusion/copy geometry. No complete-camera-occlusion qualification or source replacement is claimed.",
+  "contactSheets": [
+    {
+      "path": "build/otb142/review/FaceOcc2-1.jpg",
+      "sha256": "772f566e760961bc952413cac22963d3c73ad5760f997752525779fd6e5c2a6f",
+      "source": "FaceOcc2",
+      "first": 1,
+      "last": 24
+    },
+    {
+      "path": "build/otb142/review/FaceOcc2-25.jpg",
+      "sha256": "9d180458bb1e98149bf65f6e916bff962b9ee60c04fc1e579eb043beb0fa1b81",
+      "source": "FaceOcc2",
+      "first": 25,
+      "last": 48
+    },
+    {
+      "path": "build/otb142/review/FaceOcc2-49.jpg",
+      "sha256": "c5403e0d462ee5997136ececd2fcdc08dcb4e1896a8d0f4e2d1bb6854ac9b86a",
+      "source": "FaceOcc2",
+      "first": 49,
+      "last": 72
+    },
+    {
+      "path": "build/otb142/review/FaceOcc2-73.jpg",
+      "sha256": "bbf9d93124d2282a6548997affb312f2b9e261009c9bfb22a19e6dd85783e075",
+      "source": "FaceOcc2",
+      "first": 73,
+      "last": 96
+    },
+    {
+      "path": "build/otb142/review/FaceOcc2-97.jpg",
+      "sha256": "3953dc8a8b043dca942fc7fc0c197b64d72b5c7d85918dce56987c6f1fed4251",
+      "source": "FaceOcc2",
+      "first": 97,
+      "last": 120
+    },
+    {
+      "path": "build/otb142/review/Walking2-1.jpg",
+      "sha256": "68e046277795139938282deafdad6446ce19f5b4c8e7a14fc4398ea34cb9135c",
+      "source": "Walking2",
+      "first": 1,
+      "last": 24
+    },
+    {
+      "path": "build/otb142/review/Walking2-25.jpg",
+      "sha256": "055e359338ea84210b0e93b51ef59c569675effb6a2327d62f3f2676bc5bb68b",
+      "source": "Walking2",
+      "first": 25,
+      "last": 48
+    },
+    {
+      "path": "build/otb142/review/Walking2-49.jpg",
+      "sha256": "acc09be4965a8eb125c7971ae3460ae71d2cf2b17f6d5e89c5f9ab79fc6d5124",
+      "source": "Walking2",
+      "first": 49,
+      "last": 72
+    },
+    {
+      "path": "build/otb142/review/Walking2-73.jpg",
+      "sha256": "47ad17a604c3f1214ff942a85d64787f1779c5449ba2401bb68920c46fd81554",
+      "source": "Walking2",
+      "first": 73,
+      "last": 96
+    },
+    {
+      "path": "build/otb142/review/Walking2-97.jpg",
+      "sha256": "cd388655658faa2126adbacaad1a1e4ef0d8302b28879d76f35db6dd44228052",
+      "source": "Walking2",
+      "first": 97,
+      "last": 120
+    }
+  ]
+}
