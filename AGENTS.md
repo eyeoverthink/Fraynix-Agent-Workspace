@@ -1,3 +1,7 @@
+## Edition 145 active — 2026-11-14 (America/Los_Angeles)
+
+Continue J:/Codex-Work/fraynix-workspace-edition145 from c6445f6e. CI checked first:144 documentation passed, compilation/tests pending. No agents or overlapping heavy jobs. Shared node_modules junction read-only. Preserve private worlds, all defaults/limits/verification and frozen001–144. Develop bounded target/rival trajectory evidence, freeze method/scorer/UI/harness/source choices before fresh Basketball and Girl2 pixels or labels. Target observations must precede loss; predictions/restored boxes never become anchors. Preserve every attempt. Test full app, document measured benefits and costs, publish main/edition145/readme-145 and fetch/audit. No145 publication yet.
+
 ## Edition 144 — published and fetched back
 
 2026-11-14 UTC. Isolated J:/Codex-Work/fraynix-workspace-edition144 from5f36761f. CI143 checked first, running at that check; hosted success remains separate. Freezebd2f83f0 before fresh generated pixels/labels; labels58d78ef6. Actual app startup refused two invalid interface middle-dot bytes; encoding-only amendmentc581f36f BEFORE evaluation, original lock/UI/source manifest preserved. No tracking/scorer/label/pixel change. Reused FaceOcc1 explicitly exposed regression. Release 13003e60071ada845b386fa65d90dbf41ddd2c17; annotated readme-144. Main, edition144 and tag pushed atomically and fetched. Verified 1722 canonical sources, 50058 frozen hashes across 144 editions and 195 original evidence entries. See docs/PUBLICATION_144.json.

@@ -11,7 +11,7 @@ final class ReferenceMemory137 {
     private final Path project;
     private final WorldObservationStore observations;
     ReferenceMemory137(Path project,WorldObservationStore observations){this.project=project;this.observations=observations;}
-    static boolean uses(String policy){return Set.of("verified-memory-137","seed-only-137").contains(policy)||PartialAudit142.uses(policy)||ConfirmationAudit143.uses(policy)||AmbiguityAudit144.uses(policy);}
+    static boolean uses(String policy){return Set.of("verified-memory-137","seed-only-137").contains(policy)||PartialAudit142.uses(policy)||ConfirmationAudit143.uses(policy)||AmbiguityAudit144.uses(policy)||TrajectoryAudit145.uses(policy);}
 
     JSONObject resolve(String setId,String targetId,String declaration)throws Exception{
         if(declaration==null||declaration.isBlank()||declaration.length()>500)throw new IllegalArgumentException("Declare why the reference and target show the same object (1..500 characters)");
