@@ -33,9 +33,9 @@ async function main(){
   await page.exposeFunction('saveSource147',persist);
   await page.locator('#spatial-tab').click();
   await page.evaluate(()=>{
-   const panel=document.createElement('section');panel.id='source147';panel.style.cssText='position:fixed;inset:8px;z-index:9999;overflow:auto;background:#101b29;color:#edf5ff;border:1px solid #397a89;border-radius:14px;padding:24px;font:18px system-ui;';
+   const panel=document.createElement('dialog');panel.id='source147';panel.style.cssText='position:fixed;inset:8px;margin:0;width:calc(100% - 16px);height:calc(100% - 16px);max-width:none;max-height:none;box-sizing:border-box;z-index:9999;overflow:auto;background:#101b29;color:#edf5ff;border:1px solid #397a89;border-radius:14px;padding:24px;font:18px system-ui;';
    panel.innerHTML='<h1>Edition 147 · Private camera study · simpler controls</h1><p>Clear reference → cover → return, with a separate lookalike. No tracking runs during recording.</p><p id="s147-cue" style="padding:18px;background:#193849;font-size:25px;min-height:70px" role="status">Start the preview. Choose the target and keep the second object separate on the mat.</p><div id="s147-video-slot"></div><p id="s147-count">Camera off. No microphone. Images stay on this computer.</p><div id="s147-controls" style="display:flex;gap:12px;flex-wrap:wrap"><button id="s147-preview">Start private preview</button><button id="s147-start" disabled>Start clear reference</button><button id="s147-next" disabled>Waiting for reference</button><button id="s147-stop">Cancel / stop camera</button></div><p>This recording keeps running while you move between steps. Follow the large cue. Confirm Covered, then Returned. The recording saves automatically. Do not move the camera. The small cover must hide only the target.</p><details><summary>About this study</summary><p>One sample per second, up to five minutes. Saving finishes automatically after the return samples. Actual camera times and every captured sample are saved. Button clicks describe your actions; source images will be checked before tracking. This review recorder does not change the app’s tracker or defaults.</p></details>';
-   document.body.append(panel);const $=id=>document.getElementById(id),v=$('metric-camera-video');$('s147-video-slot').append(v);v.style.cssText='display:block;width:auto;max-width:100%;max-height:38vh;margin:auto;';panel.insertBefore($('s147-controls'),$('s147-video-slot'));panel.insertBefore($('s147-count'),$('s147-video-slot'));
+   document.body.append(panel);panel.showModal();panel.addEventListener('cancel',e=>e.preventDefault());const $=id=>document.getElementById(id),v=$('metric-camera-video');$('s147-video-slot').append(v);v.style.cssText='display:block;width:auto;max-width:100%;max-height:38vh;margin:auto;';panel.insertBefore($('s147-controls'),$('s147-video-slot'));panel.insertBefore($('s147-count'),$('s147-video-slot'));
    for(const b of panel.querySelectorAll('button'))b.style.cssText='padding:14px 20px;font-size:18px;cursor:pointer;border-radius:8px;';
    const s=window.source147={phase:'idle',samples:0,recording:false,busy:false,first:undefined,started:undefined,lastSample:-Infinity,lastSavedAt:undefined,phaseStart:0,error:null,stopping:false};
    const cue=t=>$('s147-cue').textContent=t;
@@ -72,9 +72,13 @@ async function main(){
    setInterval(()=>{if(!s.recording||s.stopping)return;const elapsed=performance.now()-s.started;if(elapsed>=300000)stop('limit').catch(()=>{});else if(performance.now()-(s.lastSavedAt??s.started)>5000){s.error='Camera stopped delivering source samples';stop('capture-error').catch(()=>{});}},1000);
    document.addEventListener('visibilitychange',()=>{if(document.hidden&&s.recording)stop('aborted').catch(()=>{});});
   });
+  await page.evaluate(()=>window.workspace.request({operation:'layout',bounds:{browser:{x:0,y:0,width:1,height:1,visible:false},canvas:{x:0,y:0,width:1,height:1,visible:false}}}));
   await fs.writeFile(path.join(root,'active.json'),JSON.stringify({dir,manifest,pid:process.pid,readyAt:new Date().toISOString()},null,2));
   console.log(JSON.stringify({ready:true,dir,scope:'Source-only private recorder; no tracking, no camera access until preview button'}));
   if(selfTest){
+   assert.equal(await page.locator('dialog#source147[open]').count(),1);
+   const controls=await page.locator('#s147-controls').boundingBox(),viewport=await page.evaluate(()=>({w:innerWidth,h:innerHeight}));assert(controls.y>=0&&controls.y+controls.height<=viewport.h&&controls.x+controls.width<=viewport.w,'Controls must fit the visible window');
+   await fs.writeFile(path.join(repo,'build/webcam147-v2-controls.png'),Buffer.from(await app.evaluate(()=>global.workspaceTest.capture()),'base64'));
    await page.locator('#s147-preview').click();await page.waitForFunction(()=>window.source147.phase==='preview');
    await page.locator('#s147-start').click();await page.waitForFunction(()=>window.source147.phase==='covering',{},{timeout:60000});
    assert.equal(await page.locator('#s147-next').isEnabled(),true);assert(receipt.frames.length>=34);
@@ -82,7 +86,7 @@ async function main(){
    await page.locator('#s147-next').click();await page.waitForFunction(()=>window.source147.phase==='finished',{},{timeout:45000});
    await queue;assert(receipt.complete&&receipt.closed&&receipt.syntheticRecorderCheck);assert(receipt.frames.length>=62);assert.equal(await page.evaluate(()=>!!window.metricView.stream),false);
    for(let i=1;i<receipt.frames.length;i++)assert(receipt.frames[i].seconds>receipt.frames[i-1].seconds);
-   const check={passed:true,scope:'Actual recorder controls and automatic persistence with explicitly synthetic Chromium camera; NOT tracking or physical-camera evidence',attempt:dir,samples:receipt.frames.length,checks:['Clear reference and context saved before cover cue','Covered and returned declarations advance exactly once','Automatic completion after24return samples','Camera released and continuous timestamped journal saved','No tracking or model calls']};
+   const check={passed:true,scope:'Actual recorder controls and automatic persistence with explicitly synthetic Chromium camera; NOT tracking or physical-camera evidence',attempt:dir,samples:receipt.frames.length,checks:['Modal recorder and native browser layers separated; controls fit viewport','Clear reference and context saved before cover cue','Covered and returned declarations advance exactly once','Automatic completion after24return samples','Camera released and continuous timestamped journal saved','No tracking or model calls']};
    await fs.writeFile(path.join(repo,'build/webcam147-v2-selftest.json'),JSON.stringify(check,null,2));console.log(JSON.stringify(check));return;
   }
   while(app.process().exitCode===null&&!sync.existsSync(path.join(dir,'close-request'))){
