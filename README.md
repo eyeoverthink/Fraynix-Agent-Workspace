@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 147
 
+[Published and fetched verification receipt](docs/PUBLICATION_147.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-147)
+
 **Test the same object through cover and return, with a separate lookalike in view.** This edition evaluates the existing Java tracking methods against fresh source evidence. It adds a private, manually paced recording instrument for review; it does not introduce a new tracker or promote an experimental default.
 
 **The new camera sequence qualifies for comparison, but useful return recovery failed.** The 24-frame unobscured donor tracked 23/23 scored frames correctly and admitted one independently checked appearance. All three unchanged methods—145, monitor 146 and guard 146—then produced 9/30 correct visible measurements, 21 missing, 0/19 unsupported hidden-frame measurements and 0 accepted matches to the labelled red lighter. All nine correct measurements occurred before cover; **0/21 visible return frames recovered**.
