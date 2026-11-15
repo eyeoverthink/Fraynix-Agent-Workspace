@@ -26,9 +26,9 @@ The recorder is an edition review/test instrument, not a new production camera m
 
 ## Source protocol and its limits
 
-The [method and public-source contract](docs/EDITION_147_CONTRACT.md) was frozen before any fresh source images. The user then chose their webcam; the [separate webcam contract](docs/EDITION_147_WEBCAM.md) and [capture/preparation lock](docs/publication147/webcam-lock147.json) were frozen before webcam access. The public protocol remains separate; unexecuted public candidates are not counted as tested footage.
+The [method and public-source contract](docs/EDITION_147_CONTRACT.md) was frozen before any fresh source images. The user then chose their webcam; the [separate webcam contract](docs/EDITION_147_WEBCAM.md) and [initial capture/preparation lock](docs/publication147/webcam-lock147.json) and [prospective revision2](docs/publication147/WEBCAM_REVISION_2.md) were frozen before webcam access. The public protocol remains separate; unexecuted public candidates are not counted as tested footage.
 
-For the webcam, use two distinct similar objects and a small cover under a fixed camera. Record at up to two samples per second. Source-only review selects the earliest qualifying complete-cover event, including ten earlier samples and twenty samples after return. The reference contains 24 earlier disjoint samples, starts fully unobscured and contains at least twelve fully visible scored examples. Every selected frame and cover boundary is reviewed before predictions. App admission of verified appearances remains a separate requirement.
+For the webcam, use two distinct similar objects and a small cover under a fixed camera. Revision2 records once per second; the rejected first attempt used about two samples per second. The acquisition cadence differs, so this is not a claim of equal temporal difficulty. Source-only review selects the earliest qualifying complete-cover event, including ten earlier samples and twenty samples after return. The reference contains 24 earlier disjoint samples, starts fully unobscured and contains at least twelve fully visible scored examples. Every selected frame and cover boundary is reviewed before predictions. App admission of verified appearances remains a separate requirement.
 
 {{SOURCE_REVIEW}}
 
@@ -47,10 +47,10 @@ The unchanged146 check may withhold a legitimate return as well as a wrong objec
 ## Repeat the private camera study
 
 1. Prepare the existing app with Java21 and the desktop dependencies. Use an isolated review project; do not change a private working project.
-2. Launch `node workspace-desktop/test/webcam147-recorder.cjs`. The review window contains the study controls. Camera access starts only through **Start private preview**.
-3. Identify the target and separate lookalike. Click **Start clear reference**, leaving both visible and hands away until **Ready to cover the target** is enabled.
-4. Cover only the target, confirm **Target is covered; hand away**, then use **Ready to reveal the target**. Reveal the same object, move it a little and confirm **Target returned; hand away**.
-5. Keep both objects visible until **Finish recording** is ready. The camera stops when the attempt finishes. Incomplete attempts remain preserved.
+2. Launch `node workspace-desktop/test/webcam147-recorder-v2.cjs`. The review window contains the study controls. Camera access starts only through **Start private preview**.
+3. Identify the target and separate lookalike. Click **Start clear reference**, leaving both visible and hands away until the large cue says **COVER THE BLACK LIGHTER**.
+4. Cover only the black lighter and click **Black lighter covered; hand away**. When the large cue says **UNCOVER**, reveal that same lighter, move it slightly and click **Black lighter returned; hand away**. Leave the red lighter visible and still.
+5. Keep both objects visible. After24 return samples, recording saves and the camera stops automatically; no final click is required. Incomplete attempts remain preserved.
 6. Review original frames, record source-only labels and hashes, check source eligibility, and commit those inputs before running the frozen comparison harness. Never turn predictions into reference labels.
 
 Private raw samples remain in ignored local storage. Existing application imports still accept at most96frames; longer raw recordings are source archives, not expanded app capacity. No private camera pixels are included in the published screenshots or evidence bundle. Git verifies the published receipts, labels and source hashes; repeating original-pixel replay also requires authorized access to the local camera files.
