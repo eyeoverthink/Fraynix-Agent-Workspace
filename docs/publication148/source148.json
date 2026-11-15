@@ -1,12 +1,12 @@
 {
-  "createdAtUtc": "2026-11-15T23:45:09.735942+00:00",
+  "createdAtUtc": "2026-11-15T23:45:48.593340+00:00",
   "algorithmLockSha256": "7aa5aa71eb5df65696084f71d122f03ea0829256a90e7d347d065efea167bcb3",
   "webcamLockSha256": "67165cf24ae47adc4333b79cf8a283d324354af44153b958dec89f161eada2c8",
   "records": [
     {
       "case": "black-lighter-movement-1",
       "group": "black-lighter-movement",
-      "name": "User black lighter; red lighter and tape-measure housing are distinct comparison objects",
+      "name": "Black lighter / separate red lighter and tape-measure housing",
       "target": 1,
       "role": "reference-source",
       "domain": "real-camera",
@@ -44,7 +44,7 @@
         24
       ],
       "pack": "build/webcam148-private/black-lighter-movement-1.fobs.json",
-      "packSha256": "90d6dfc8be954a70c631aa52eb91ca2fd461b243ed22a24c2582485070f474ae",
+      "packSha256": "1bf3081c67ecec176eb5f72ec5486d13e0774c88683fa2c8928c59d89b820345",
       "labels": "docs/publication148/black-lighter-movement-1-labels.json",
       "labelsSha256": "86366cc3549f8d1bb88c27fb412ef2ba6f3c3390dc72de5591979ca51fe9665b",
       "visibilityCounts": {
@@ -76,7 +76,7 @@
     {
       "case": "black-lighter-movement-27",
       "group": "black-lighter-movement",
-      "name": "User black lighter; red lighter and tape-measure housing are distinct comparison objects",
+      "name": "Black lighter / separate red lighter and tape-measure housing",
       "target": 1,
       "role": "evaluation",
       "domain": "real-camera",
@@ -144,7 +144,7 @@
         80
       ],
       "pack": "build/webcam148-private/black-lighter-movement-27.fobs.json",
-      "packSha256": "58783982392cfd5c446231fe866617e029a0b2ed11ffbaf2d8e49759ec1e893e",
+      "packSha256": "e777201ed9b120f96ce4e186f0c3d77f1feed2b75f0fc18dfa0fbf3b9fa27c9e",
       "labels": "docs/publication148/black-lighter-movement-27-labels.json",
       "labelsSha256": "8c66c5c54bc647089f9073e2b7a8f26385ee5e0be285f7d8fc0046832f00a788",
       "visibilityCounts": {
@@ -1107,7 +1107,7 @@
       {
         "attempt": "attempt-kOQd2t",
         "name": "black-lighter-movement",
-        "targetDescription": "User black lighter; red lighter and tape-measure housing are distinct comparison objects",
+        "targetDescription": "Black lighter / separate red lighter and tape-measure housing",
         "eligible": true,
         "physicalIdentityConfirmedByUser": true,
         "userConfirmation": "Saved; black lighter left at the new grid position",
@@ -2333,7 +2333,8 @@
           "Complete cover37\u201359; first return60 at the original position. Visible hand-assisted movement62\u201366 ends at a new held position67\u201395. Thus return precedes translation; not a displaced first re-entry.",
           "Manual image-plane boxes: initial48px-wide target center327,260.5; held final center357.5,263. Center moves about30.6px,0.64initial widths. No physical distance calibration. Image x increases; user calls the physical direction left.",
           "Partial-frame boxes62\u201366 approximate the whole target envelope from visible body and source continuity; they are not instrumented ground truth. Uncertain hand-covered competitors are not labelled in those frames.",
-          "No source splicing, retiming, resized comparison pixels, post-source tuning, automatic memory admission or default changes."
+          "No source splicing, retiming, resized comparison pixels, post-source tuning, automatic memory admission or default changes.",
+          "Initial app import refused an overlong display label before any run. The description was shortened to fit the unchanged80-character limit; original images, indices, timestamps, geometry and visibility are unchanged. Original packs preserved locally and original manifest remains in Git history."
         ]
       }
     ]
