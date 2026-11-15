@@ -9,11 +9,12 @@ def blob(name):
 def text(name):return blob(name).decode('utf-8-sig').replace('\r\n','\n')
 def digest(b):return hashlib.sha256(b).hexdigest()
 try:
- sources=json.loads(text('docs/publication147/source147.json'));lock=json.loads(text('docs/OBSERVATION_147_LOCK.json'));webcam=json.loads(text('docs/publication147/webcam-lock147.json'))
+ sources=json.loads(text('docs/publication147/source147.json'));lock=json.loads(text('docs/OBSERVATION_147_LOCK.json'));webcam=json.loads(text('docs/publication147/webcam-lock147.json'));webcam2=json.loads(text('docs/publication147/webcam-v2-lock147.json'))
  assert digest(blob('docs/OBSERVATION_147_LOCK.json'))==sources['algorithmLockSha256']
  assert digest(blob('docs/publication147/webcam-lock147.json'))==sources['webcamLockSha256']
- for commit in ['217173a5','2978178a']:subprocess.run(['git','merge-base','--is-ancestor',commit,ref],check=True)
- for frozen in [lock,webcam]:
+ assert digest(blob('docs/publication147/webcam-v2-lock147.json'))==sources['webcamRevision2LockSha256']
+ for commit in ['217173a5','2978178a','c03f94e8']:subprocess.run(['git','merge-base','--is-ancestor',commit,ref],check=True)
+ for frozen in [lock,webcam,webcam2]:
   for name,h in frozen['sourceHashes'].items():assert digest(text(name).encode())==h,name
  for source in sources['records']:assert digest(blob(source['labels']))==source['labelsSha256'],source['labels']
  inventory=json.loads(text('docs/readmes/147/file-inventory.json'))
