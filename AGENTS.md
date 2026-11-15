@@ -1,3 +1,13 @@
+## Edition 148 continuation — source-only movement rejection; second attempt ready
+
+2026-11-15, America/Los_Angeles. User completed first physical recording attempt-b5TAjX:79original640x480frames,6,003,331imagebytes,81.25s. Camera off and owned recorder session71674 closed. User confirmed covering and moving. Reviewed all79sourceframes before any tracking. The target rotates slightly but original-frame28 vs53/79 boxes imply only about2.5px center shift (initialwidth40px; predeclaredminimum20px). Thus failed source movement eligibility BEFORE predictions. Preserve originalattempt and docs/publication148/webcam-attempts148.json; do not call it a tracker result. No148 real tracking has run. Method/protocol remain exact7d48191c with115hashes; no threshold changes.
+
+Both predecessor147 CI runs43732193662 and43732397988 are now SUCCESS. Exact freshAPI receipt docs/publication148/ci-resume148.json. Eight focused checks, package and synthetic recorder lifecycle already passed; broad tests still pending.
+
+ONE active owned job: exec session92244, second recorder attempt-kOQd2t under build/webcam148-private, initiallyidle0samples. Same frozen recorder. User asked to start preview/reference, cover black, then uncover and move the ENTIRE black lighter one large mat square LEFT toward the tape; leave it there, red stationary; confirm return and wait automatic save. Physical identity/actions confirmation pending. Do not start another heavyjob while recorder active. After completion closeonlyowned recorder via close-request, source-only review, preserve allattempts. Qualify earliest completecover/movement with original frozen criteria; commit labels/hashes BEFORE predictions. Valid long occlusion beyond12-sample horizon remains an honest test refusal, not reason to tune.
+
+Continue actual comparison/restart/camera-free screenshots, broadJava/desktop/agency, documentation/notes/fullmainpush/fetchedaudit as already outlined below. No148pushyet. NewREADME is a template, not a finished release. Noagents; shareddependencyjunctionread-only; preserveprivateprojects/frozen001–147.
+
 ## Edition 148 active — frozen method, physical movement recording pending
 
 2026-11-15, America/Los_Angeles. Continue J:/Codex-Work/fraynix-workspace-edition148, branch edition148, parent c8a8c7efabd9a3a6ee2bb4e01180ffc736944edd. Nothing from148 has been pushed. Main remains published147. Checked predecessor CI43732193662/43732397988 first; both in progress without failed steps at last read. Exact initial connector receipt: docs/publication148/ci-start148.json.
