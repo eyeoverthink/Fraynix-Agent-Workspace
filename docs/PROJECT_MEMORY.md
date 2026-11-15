@@ -1,3 +1,83 @@
+## Edition 147 — locally verified; publication preparation
+
+2026-11-15, America/Los_Angeles. Isolated J:/Codex-Work/fraynix-workspace-edition147 from9f790c90. CI checked first; both146 release43640231088 and metadata43640421227 have now completed successfully. Initial pending state and later exact connector receipts are preserved. Method/public protocol frozen217173a5. User chose webcam; separate private capture/preparation protocol frozen before camera access, with pre-access lifecycle and disjoint-context corrections preserved in Git. Sources and labels committed before predictions. No publication claim until actual push and fetched audit pass.
+
+**The new camera sequence qualifies for comparison, but useful return recovery failed.** The 24-frame unobscured donor tracked 23/23 scored frames correctly and admitted one independently checked appearance. All three unchanged methods—145, monitor 146 and guard 146—then produced 9/30 correct visible measurements, 21 missing, 0/19 unsupported hidden-frame measurements and 0 accepted matches to the labelled red lighter. All nine correct measurements occurred before cover; **0/21 visible return frames recovered**.
+
+This closes the missing-source/reference gap from 146, not the recovery-capability gap. The full-cover event is source frames 38–56, followed by return 57; evaluation uses 28–77 and the causal donor uses 1–24. No reference-dependent comparison is unavailable. The guarded method adds no benefit on this sequence, because no supplemental proposal passes the earlier confirmation layer. It is not promoted; defaults remain unchanged.
+
+The post-comparison traces show 42/42 target-region hypotheses overlapping the correct lighter across 21 return frames, per method (initial seed and one retained reference). None passes the existing uniqueness requirement or gains a confirmation. That is a diagnostic lead, not proof of which physical distractor caused the veto, and not permission to relax the checks. The next method needs to distinguish genuine competing objects from ambiguous appearance matches while retaining wrong-object rejection.
+
+The user confirmed covering and returning the same black lighter. Source review shows an essentially stationary return; the red comparison is similar in shape but different in color. This is one fixed-camera, approximately 1 Hz test with manually reviewed image-plane boxes—not calibrated geometry, identical-object recognition, displaced-return qualification or general camera reliability. Camera pixels remain private.
+
+374 distinct Java checks and 161 desktop checks passed, plus kernel, agency, offline preparation and package verification. 4 actual app runs across 1 private study project(s), with separate unfinished-process recovery. Source eligibility and useful recovery remain distinct from execution checks. Hosted CI is reported separately.
+
+No new tracker or threshold, no automatic reference admission and no default promotion. Existing145/146 methods and legacy-flow default remain intact. Source eligibility, admitted references, verified execution and useful recovery are separate results. Camera pixel files remain private; only source hashes, attributed labels and camera-free actual app results are published. Keep the unified Java world/browser/creation application central.
+
+- Both predecessor146 CI runs 43640231088 and 43640421227 completed successfully. Initial pending status and later connector receipts are preserved separately.
+- The public benchmark candidates remained unexecuted after the user chose a private webcam. They are not counted as tested sources.
+- The first physical capture, attempt-LqxrwK, reached its storage limit without completion. Source-only inspection also found at least 48 consecutive covered samples, above the frozen32-sample ceiling. It was rejected before any tracker prediction and is preserved intact.
+- Revision 2 was frozen separately before the new capture: one sample per second, visible modal controls, automatic COVER/UNCOVER cues and automatic final save. Two explicitly synthetic camera lifecycle checks passed; neither is physical tracking evidence. An unused zero-frame UI attempt is preserved.
+- The completed physical capture, attempt-98Fe5G, contains 84 original samples and 6, 569, 882 camera-image bytes. Source-only labels and hashes were committed at 57e95cc9 before tracking. Selected donor 1–24 and evaluation 28–77 have disjoint image bytes; fully covered38–56; first visible return 57.
+- The user confirmed the performed actions. Pixel review shows an essentially stationary return, rather than a substantial change of location. The red comparison shares the lighter shape but differs in color. These limits remain explicit.
+- Camera pixels and pixel-containing app captures remain private. Only numeric receipts, attributed source labels, hashes and camera-free actual app result images are published.
+
+- The first camera-free documentation capture was blocked by the existing Content Security Policy when adding a style tag. The failed receipt is preserved. The helper now hides media through element display properties; no CSP or production security setting was changed.
+
+- The separate process-interruption check passed: killed only the owned Java process after 10 committed frames during source-labelled cover; reopened as interrupted with 10 frames; completed 49 with the exact uninterrupted trace and outcome audit.
+
+## Next steps
+
+1. Diagnose the failed return before changing thresholds. The exposed traces find strong target-region matches but fail the existing uniqueness check. Retain competing-region geometry and determine whether genuine distinct objects or ambiguous partial matches caused the veto. Develop on this now-exposed sequence, then freeze changes before fresh footage; preserve wrong-object rejection and every source/outcome check.
+2. Test a genuinely moved return, using new footage with measured displacement and a same-color comparison object. Keep source labels independent of predictions and record failures as well as successes.
+3. Measure useful recovery and full cost together: correct returns withheld, wrong objects accepted, hidden-frame outputs, time to recover, source replay, saves, restart and export. Reuse exact source/code-bound computations only when equivalent checks are demonstrated; do not loosen defaults based on one stationary scene.
+4. Connect qualified observations to one durable chat request that creates a verified observed-object report or working artifact. Carry measured, predicted and unknown states into the output; stop physical actions when identity remains unresolved. Keep the integrated Java world/browser/creation system central.
+
+No agents; ONE heavy job at a time. Shared dependency junction read-only. Preserve private projects and frozen001–146. Publish only Fraynix-Agent-Workspace, then fetch and audit exact bytes. Never relabel historical code-bound evidence.
+
+## Edition 147 — locally verified; publication preparation
+
+2026-11-15, America/Los_Angeles. Isolated J:/Codex-Work/fraynix-workspace-edition147 from9f790c90. CI checked first; both146 release43640231088 and metadata43640421227 have now completed successfully. Initial pending state and later exact connector receipts are preserved. Method/public protocol frozen217173a5. User chose webcam; separate private capture/preparation protocol frozen before camera access, with pre-access lifecycle and disjoint-context corrections preserved in Git. Sources and labels committed before predictions. No publication claim until actual push and fetched audit pass.
+
+**The new camera sequence qualifies for comparison, but useful return recovery failed.** The24-frame unobscured donor tracked23/23 scored frames correctly and admitted one independently checked appearance. All three unchanged methods—145, monitor146 and guard146—then produced9/30 correct visible measurements,21 missing,0/19 unsupported hidden-frame measurements and0 accepted matches to the labelled red lighter. All nine correct measurements occurred before cover; **0/21 visible return frames recovered**.
+
+This closes the missing-source/reference gap from146, not the recovery-capability gap. The full-cover event is source frames38–56, followed by return57; evaluation uses28–77 and the causal donor uses1–24. No reference-dependent comparison is unavailable. The guarded method adds no benefit on this sequence, because no supplemental proposal passes the earlier confirmation layer. It is not promoted; defaults remain unchanged.
+
+The post-comparison traces show42/42 target-region hypotheses overlapping the correct lighter across21 return frames, per method (initial seed and one retained reference). None passes the existing uniqueness requirement or gains a confirmation. That is a diagnostic lead, not proof of which physical distractor caused the veto, and not permission to relax the checks. The next method needs to distinguish genuine competing objects from ambiguous appearance matches while retaining wrong-object rejection.
+
+The user confirmed covering and returning the same black lighter. Source review shows an essentially stationary return; the red comparison is similar in shape but different in color. This is one fixed-camera, approximately1Hz test with manually reviewed image-plane boxes—not calibrated geometry, identical-object recognition, displaced-return qualification or general camera reliability. Camera pixels remain private.
+
+374 distinct Java checks and 161 desktop checks passed, plus kernel, agency, offline preparation and package verification. 4 actual app runs across 1 private study projects, with separate unfinished-process recovery. Source eligibility and useful recovery remain distinct from execution checks. Hosted CI is reported separately.
+
+No new tracker or threshold, no automatic reference admission and no default promotion. Existing145/146 methods and legacy-flow default remain intact. Source eligibility, admitted references, verified execution and useful recovery are separate results. Camera pixel files remain private; only source hashes, attributed labels and camera-free actual app results are published. Keep the unified Java world/browser/creation application central.
+
+- Both predecessor146 CI runs43640231088 and43640421227 completed successfully. Initial pending status and later connector receipts are preserved separately.
+- The public benchmark candidates remained unexecuted after the user chose a private webcam. They are not counted as tested sources.
+- The first physical capture, attempt-LqxrwK, reached its storage limit without completion. Source-only inspection also found at least48 consecutive covered samples, above the frozen32-sample ceiling. It was rejected before any tracker prediction and is preserved intact.
+- Revision2 was frozen separately before the new capture: one sample per second, visible modal controls, automatic COVER/UNCOVER cues and automatic final save. Two explicitly synthetic camera lifecycle checks passed; neither is physical tracking evidence. An unused zero-frame UI attempt is preserved.
+- The completed physical capture, attempt-98Fe5G, contains84 original samples and6,569,882 camera-image bytes. Source-only labels and hashes were committed at57e95cc9 before tracking. Selected donor1–24 and evaluation28–77 have disjoint image bytes; fully covered38–56; first visible return57.
+- The user confirmed the performed actions. Pixel review shows an essentially stationary return, rather than a substantial change of location. The red comparison shares the lighter shape but differs in color. These limits remain explicit.
+- Camera pixels and pixel-containing app captures remain private. Only numeric receipts, attributed source labels, hashes and camera-free actual app result images are published.
+
+- The first camera-free documentation capture was blocked by the existing Content Security Policy when adding a style tag. The failed receipt is preserved. The helper now hides media through element display properties; no CSP or production security setting was changed.
+
+- The separate process-interruption check passed: killed only the owned Java process after 10 committed frames during source-labelled cover; reopened as interrupted with 10 frames; completed49 with the exact uninterrupted trace and outcome audit.
+
+## Next steps
+
+1. Diagnose the failed return before changing thresholds. The exposed traces find strong target-region matches but fail the existing uniqueness check. Retain competing-region geometry and determine whether genuine distinct objects or ambiguous partial matches caused the veto. Develop on this now-exposed sequence, then freeze changes before fresh footage; preserve wrong-object rejection and every source/outcome check.
+2. Test a genuinely moved return, using new footage with measured displacement and a same-color comparison object. Keep source labels independent of predictions and record failures as well as successes.
+3. Measure useful recovery and full cost together: correct returns withheld, wrong objects accepted, hidden-frame outputs, time to recover, source replay, saves, restart and export. Reuse exact source/code-bound computations only when equivalent checks are demonstrated; do not loosen defaults based on one stationary scene.
+4. Connect qualified observations to one durable chat request that creates a verified observed-object report or working artifact. Carry measured, predicted and unknown states into the output; stop physical actions when identity remains unresolved. Keep the integrated Java world/browser/creation system central.
+
+No agents; ONE heavy job at a time. Shared dependency junction read-only. Preserve private projects and frozen001–146. Publish only Fraynix-Agent-Workspace, then fetch and audit exact bytes. Never relabel historical code-bound evidence.
+
+## Edition147 continuation — completed camera source; comparison verification running
+
+2026-11-15. Source-only labels committed57e95cc9 before predictions. Real attempt98Fe5G completed84frames, camera off, owned recorder closed. Source donor1–24; eval28–77; hidden38–56; return57. Black targetleft, red comparisonright. One verified reference admitted. All145/monitor146/guard146 runs:9/30visible correct,21missing,0/19hidden outputs,0red matches;0/21return recovery. Return essentially stationary. No new tracker or defaults. This is a useful failed qualification, not a successful recovery.
+
+Active ONE heavy job: exec81861, occlusion147-integration.cjs, build/occlusion147-black-lighter-webcam-app. Four runs and8,042,456-byteexport saved; remaining cold-reopen/original-source/tamper checks in progress. Do not overlap another heavy job. Next run restart147.cjs (unfinished-process crash), capture147.cjs (camera-free app results), diagnose147.py; then complete docs/notes/freeze/checks and actualmain/edition147/readme-147push/fetchedaudit. No147push yet. Prior374Java/161desktop and otherchecks passed; both146 CI runs success. Rawwebcampixels/privateappcaptures must remain local. Noagents; shareddependenciesread-only. Prepared findings/next/attempts underbuild; publicationhelpers not yetexecuted.
+
 ## Edition 147 continuation — 2026-11-15: simpler recorder ready for second capture
 
 Continue in J:/Codex-Work/fraynix-workspace-edition147, branch edition147. Nothing from147 has been pushed; main is still146. Both146 CI runs43640231088/43640421227 now SUCCESS; exact connector receipts are docs/publication147/ci-resume-Nov15.json. Existing374Java/161desktop/kernel/agency/package checks passed yesterday and production inputs remain unchanged. Do not repeat those heavy checks without a new reason. No agents. ONE heavy job at a time. Shared node_modules junction read-only.

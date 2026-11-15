@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "sheetsReviewed": 1,
+  "notes": [
+    "Reviewed all four original app images and the contact sheet: three actual result panels show9/30 correct,21missing,19hidden,zero hidden measurements and zero labelled red-lighter matches; all camera pixels are absent.",
+    "Recorder controls are visible, unobstructed and explicitly camera-off; this capture documents the synthetic-device lifecycle UI, not physical tracking performance.",
+    "Reviewed the final1450px and390px full offline-guide images and earlier viewport captures. Headings, findings, labels, links and source navigation are readable; the narrow table scrolls inside its section, without page overflow. Result image text is small at phone width; full-resolution PNGs and semantic numeric table remain available.",
+    "Failure to recover and the one stationary, different-color camera-pair limitation are prominent. No image suggests a successful return or exposed private camera pixels."
+  ],
+  "reviewedAt": "2026-11-15T15:42:33.800500+00:00",
+  "reviewer": "Codex visual inspection of actual captured images",
+  "appImages": [
+    {
+      "path": "build/occlusion147-black-lighter-webcam-review/black-lighter-webcam-28-return-guard-146-results.png",
+      "sha256": "96db73cd12b09760109140ccbaf84630dc75b7715f90bb195380c591f3f9be4d"
+    },
+    {
+      "path": "build/occlusion147-black-lighter-webcam-review/black-lighter-webcam-28-return-monitor-146-results.png",
+      "sha256": "7a9d7f0c39c9b4723b247747c45e503b4ad623cb22b0ea03794efb34d2eb02b0"
+    },
+    {
+      "path": "build/occlusion147-black-lighter-webcam-review/black-lighter-webcam-28-trajectory-guard-145-results.png",
+      "sha256": "d10312f35862d74aa4a1f2f50d16f4dc28995ff6265278829b4d098dbe3e5943"
+    },
+    {
+      "path": "build/webcam147-v2-controls.png",
+      "sha256": "686056673a50804e11d519177c55f51bac095484344c0a0170af1408ca096367"
+    }
+  ],
+  "guideImages": [
+    {
+      "path": "docs/readmes/147/guide147-1450.png",
+      "sha256": "8309b7a6bce4eace5011b86df1679fe4bca6e23fb28cc4af96c0e40d6b6735fd"
+    },
+    {
+      "path": "docs/readmes/147/guide147-1450-viewport.png",
+      "sha256": "a8454f01a816324ff4f0b4ec51c44425cdb1e0f50520ab2c0a27e459a0e45607"
+    },
+    {
+      "path": "docs/readmes/147/guide147-390.png",
+      "sha256": "a4eaed2093a01fd52090bec08a268826bd21b0dfac302616a98b751e168c5788"
+    },
+    {
+      "path": "docs/readmes/147/guide147-390-viewport.png",
+      "sha256": "7999692dac40ce6105f65219cbaabdc08e3305ff88bc3ce4aece10a836fd1df0"
+    }
+  ]
+}

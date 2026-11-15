@@ -29,6 +29,7 @@ for group in sorted({x['group'] for x in sources['records']}):
  for item in review['captures']:
   dest=group+'-'+item['name'];shutil.copy2(r/f'build/occlusion147-{group}-review'/item['name'],out/dest);shots.append({'path':'docs/readmes/147/'+dest,'title':item['caption']})
 assert studies and shots,'Actual completed studies and camera-free screenshots required'
+shutil.copy2(r/'build/webcam147-v2-controls.png',out/'recorder-controls.png');shots.append({'path':'docs/readmes/147/recorder-controls.png','title':'Actual revision2 recording controls with camera off, captured during the synthetic-device lifecycle check. UI evidence only; no physical camera pixels or tracking result.'})
 restart=read('build/occlusion147-restart/result.json');assert restart['passed'];assert restart['harnessSha256']==sha((r/'docs/publication147/restart147.cjs').read_bytes());no_pixels(restart);write(out/'restart-check.json',restart)
 checks=set()
 for p in (r/'build/validation147/final').glob('*.xml'):
@@ -42,7 +43,7 @@ allruns=[x for s in studies.values() for x in s['runs']];rows=[{'case':x['caseNa
 refusals=[x for s in studies.values() for x in s.get('refusals',[])]
 finding=(r/'build/findings147.md').read_text(encoding='utf8').strip();next_steps=(r/'build/next147.md').read_text(encoding='utf8').strip();attempts=(r/'build/attempts147.md').read_text(encoding='utf8').strip()
 comparison={'rows':rows,'sources':sources,'lock':lock,'webcamLock':webcam,'webcamRevision2Lock':webcam2,'finding':finding,'defaultsUnchanged':True,'promoted':False,'refusals':refusals};write(out/'comparison.json',comparison)
-validation=f'{len(checks)} distinct Java checks and {desktop_count} desktop checks passed, plus kernel, agency, offline preparation and package verification. {len(allruns)} actual app runs across {len(studies)} private study projects, with separate unfinished-process recovery. Source eligibility and useful recovery remain distinct from execution checks. Hosted CI is reported separately.'
+validation=f'{len(checks)} distinct Java checks and {desktop_count} desktop checks passed, plus kernel, agency, offline preparation and package verification. {len(allruns)} actual app runs across {len(studies)} private study project(s), with separate unfinished-process recovery. Source eligibility and useful recovery remain distinct from execution checks. Hosted CI is reported separately.'
 appchecks=list(dict.fromkeys([c for s in studies.values() for c in s['checks']]+restart['checks']))
 verification={'passed':True,'javaChecks':sorted(checks),'desktopChecks':desktop_count,'actualAppChecks':appchecks,'candidateLock':lock,'webcamLock':webcam,'webcamRevision2Lock':webcam2,'defaultsUnchanged':True,'scope':validation,'studies':{g:{'source':s['source'],'buildReceipt':s['buildReceipt'],'path':f'docs/readmes/147/{g}-app-study.json'} for g,s in studies.items()}}
 write(out/'verification.json',verification)
@@ -53,6 +54,7 @@ def preserve(p,logical):
  originals.append({'logicalPath':logical,'path':dest.relative_to(r).as_posix(),'bytes':len(packed),'sha256':sha(packed),'rawBytes':len(raw),'rawSha256':digest})
 # Explicit allowlist: never recurse into source images, private project stores or app screenshot folders.
 allowed=[r/f'build/occlusion147-{g}-app/result.json' for g in studies]+[r/f'build/occlusion147-{g}-review/result.json' for g in studies]
+allowed += [p for g in studies for p in (r/f'build/occlusion147-{g}-review').glob('result-attempt-*.json')]
 allowed += [r/'build/occlusion147-restart/result.json',r/'docs/OBSERVATION_147_LOCK.json',r/'docs/publication147/webcam-lock147.json',r/'docs/publication147/webcam-v2-lock147.json',r/'docs/publication147/webcam-attempts147.json',r/'docs/publication147/WEBCAM_REVISION_2.md',r/'workspace-desktop/test/webcam147-recorder-v2.cjs',r/'docs/publication147/restart147.cjs',r/'workspace-desktop/test/occlusion147-integration.cjs',r/'workspace-desktop/test/webcam147-recorder.cjs']
 allowed += list((r/'build/validation147').rglob('*.xml'))
 for pattern in ['*147*.json','*147*.log','*147*.md']:

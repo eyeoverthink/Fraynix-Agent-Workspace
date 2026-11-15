@@ -1,3 +1,13 @@
+## Edition147 / 2026-11-15 — eligible real camera evidence; recovery still missing
+
+[Edition147](../README-147.md) obtains a complete, independently labelled private-camera sequence with an unobscured causal reference. One verified appearance is retained. The unchanged145/146 methods all miss every visible return frame, while withholding all hidden measurements and avoiding accepted red-lighter matches. This is a measured failure, not a default promotion. The return is essentially stationary and the two objects differ in color.
+
+1. Diagnose the failed return before changing thresholds. The exposed traces find strong target-region matches but fail the existing uniqueness check. Retain competing-region geometry and determine whether genuine distinct objects or ambiguous partial matches caused the veto. Develop on this now-exposed sequence, then freeze changes before fresh footage; preserve wrong-object rejection and every source/outcome check.
+2. Test a genuinely moved return, using new footage with measured displacement and a same-color comparison object. Keep source labels independent of predictions and record failures as well as successes.
+3. Measure useful recovery and full cost together: correct returns withheld, wrong objects accepted, hidden-frame outputs, time to recover, source replay, saves, restart and export. Reuse exact source/code-bound computations only when equivalent checks are demonstrated; do not loosen defaults based on one stationary scene.
+4. Connect qualified observations to one durable chat request that creates a verified observed-object report or working artifact. Carry measured, predicted and unknown states into the output; stop physical actions when identity remains unresolved. Keep the integrated Java world/browser/creation system central.
+
+
 ## Edition146 / 2026-11-14 — continuity without a warning
 
 [Edition146](../README-146.md) checks returning appearances against pre-loss motion even when no competitor warning fired. Source review exhausted the fixed list without a qualifying reference/event pair. The complete camera occlusion is baseline-only; overlapping generated diagnostics and exposed regressions remain separate. Defaults unchanged; unified Java world/browser/creation remains the destination.

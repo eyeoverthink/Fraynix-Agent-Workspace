@@ -7,13 +7,14 @@ const fs=require('node:fs/promises'),path=require('node:path'),assert=require('n
  assert(study.passed);require('../../scripts/Study-Build095.cjs').verify(repo);
  Object.assign(process.env,{FRAYNIX_WORKSPACE_PERSISTENT:'0',FRAYNIX_WORKSPACE_JAVA_HEAP_MIB:'768',FRAYNIX_WORKSPACE_JAVA_PROCESSORS:'2'});
  const project=path.join(repo,'build/occlusion147-'+group+'-app/project'),state=path.join(project,'world-observations/state.json'),before=await fs.readFile(state),time=(await fs.stat(state)).mtimeMs;
- await fs.mkdir(out,{recursive:true});let app,page;const captures=[],errors=[];
+ await fs.mkdir(out,{recursive:true});if(await fs.stat(path.join(out,'result.json')).catch(()=>null))await fs.copyFile(path.join(out,'result.json'),path.join(out,'result-attempt-'+Date.now()+'.json'));let app,page;const captures=[],errors=[];
  const result={passed:false,startedAt:new Date().toISOString(),scope:'Actual app read-only result views. Every image, canvas and video hidden before screenshots; private camera pixels excluded. No new labels or tracking.',captures};
  try{
   ({app,page}=await launch(project));page.on('pageerror',e=>errors.push(e.message));
   await app.evaluate(({BrowserWindow})=>{const w=BrowserWindow.getAllWindows().find(w=>w.isVisible());w.setSize(1600,1050);w.setTitle('Fraynix | Edition 147 | Verified results · camera pixels private');});
   await page.waitForFunction(()=>window.association134View,{},{timeout:60000});
-  await page.addStyleTag({content:'canvas,img,video{display:none!important}#association134-panel::before{content:"Edition 147 · Actual saved comparison · Private camera pixels hidden";display:block;padding:16px;background:#193849;color:#fff;font-size:20px}#association134-results{max-height:none!important;overflow:visible!important}'});
+  const hidePrivatePixels=()=>page.evaluate(()=>{for(const e of document.querySelectorAll('canvas,img,video'))e.style.setProperty('display','none','important');const results=document.querySelector('#association134-results');results.style.setProperty('max-height','none','important');results.style.setProperty('overflow','visible','important');});
+  await hidePrivatePixels();
   const api=(route,args={})=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args});
   const idle=()=>page.waitForFunction(()=>!window.association134View.busy&&!window.labels132View.observation.busy&&!window.labels132View.busy&&!window.labels132View.observation.refreshing,{},{timeout:180000});
   await page.locator('#spatial-tab').click();await page.locator('#expand-canvas').click();
@@ -21,7 +22,7 @@ const fs=require('node:fs/promises'),path=require('node:path'),assert=require('n
    assert.deepEqual(await api('/api/observations/read',{id:row.run.id}),row.run);assert.deepEqual(await api('/api/association134/audit-read',{id:row.audit.id}),row.audit);
    await page.locator('#association134-panel').evaluate(e=>e.open=true);await page.locator('#association134-refresh').click();await idle();
    await page.locator('#association134-saved').selectOption(row.audit.id);await page.locator('#association134-read').click();await idle();
-   assert.equal(await page.locator('canvas:visible,img:visible,video:visible').count(),0);
+   await hidePrivatePixels();assert.equal(await page.locator('canvas:visible,img:visible,video:visible').count(),0);
    const name=row.caseName+'-'+row.policy+'-results.png';await page.locator('#association134-results').screenshot({path:path.join(out,name)});
    captures.push({name,case:row.caseName,policy:row.policy,caption:'Actual saved '+row.policy+' outcome comparison. Source camera pixels hidden; all counts retained.'});
   }

@@ -1,0 +1,2278 @@
+{
+  "modules": [
+    {
+      "id": "capture",
+      "name": "Private source recording",
+      "source": "workspace-desktop/test/webcam147-recorder-v2.cjs",
+      "note": "docs/obsidian/155-fresh-occlusion.md"
+    },
+    {
+      "id": "preflight",
+      "name": "Source-only qualification",
+      "source": "docs/publication147/preflight147.py",
+      "note": "docs/obsidian/155-fresh-occlusion.md"
+    },
+    {
+      "id": "guard",
+      "name": "Unchanged return continuity",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ReturnContinuity146.java",
+      "note": "docs/obsidian/155-fresh-occlusion.md"
+    },
+    {
+      "id": "reference",
+      "name": "Verified source appearances",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ReferenceMemory137.java",
+      "note": "docs/obsidian/155-fresh-occlusion.md"
+    },
+    {
+      "id": "audit",
+      "name": "Independent original-pixel replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ReturnAudit146.java",
+      "note": "docs/obsidian/155-fresh-occlusion.md"
+    },
+    {
+      "id": "world",
+      "name": "Durable observations",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java",
+      "note": "docs/obsidian/155-fresh-occlusion.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/147/black-lighter-webcam-black-lighter-webcam-28-trajectory-guard-145-results.png",
+      "title": "Actual saved trajectory-guard-145 outcome comparison. Source camera pixels hidden; all counts retained."
+    },
+    {
+      "path": "docs/readmes/147/black-lighter-webcam-black-lighter-webcam-28-return-monitor-146-results.png",
+      "title": "Actual saved return-monitor-146 outcome comparison. Source camera pixels hidden; all counts retained."
+    },
+    {
+      "path": "docs/readmes/147/black-lighter-webcam-black-lighter-webcam-28-return-guard-146-results.png",
+      "title": "Actual saved return-guard-146 outcome comparison. Source camera pixels hidden; all counts retained."
+    },
+    {
+      "path": "docs/readmes/147/recorder-controls.png",
+      "title": "Actual revision2 recording controls with camera off, captured during the synthetic-device lifecycle check. UI evidence only; no physical camera pixels or tracking result."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/147/verification.json"
+    },
+    {
+      "path": "docs/readmes/147/comparison.json"
+    },
+    {
+      "path": "docs/readmes/147/original-evidence.json"
+    },
+    {
+      "path": "docs/readmes/147/restart-check.json"
+    }
+  ],
+  "comparison": {
+    "rows": [
+      {
+        "case": "black-lighter-webcam-28",
+        "group": "black-lighter-webcam",
+        "domain": "real-camera",
+        "policy": "trajectory-guard-145",
+        "summary": {
+          "visible": 30,
+          "correct": 9,
+          "hidden": 19,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 9,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 49,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.29857097497192103,
+          "missing": 21,
+          "overlapFailures": 0
+        },
+        "evidence": {
+          "schema": "trajectory-recovery-audit-145-v1",
+          "baselineAcceptedPreserved": 9,
+          "blocked": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "filtered": {
+            "correct": 0,
+            "incorrect": 0,
+            "accepted": 0,
+            "unknown": 0
+          },
+          "scores": [],
+          "additional": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. Restored144 refusals and still-blocked143 proposals are scored separately; original target and competitor trajectories replay without outcome labels. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "restored": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "automaticAdmissions": 0,
+          "replayedFrames": 49
+        },
+        "trackingMs": 38358.4906,
+        "auditMs": 61908.975300000006
+      },
+      {
+        "case": "black-lighter-webcam-28",
+        "group": "black-lighter-webcam",
+        "domain": "real-camera",
+        "policy": "return-monitor-146",
+        "summary": {
+          "visible": 30,
+          "correct": 9,
+          "hidden": 19,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 9,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 49,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.29857097497192103,
+          "missing": 21,
+          "overlapFailures": 0
+        },
+        "evidence": {
+          "schema": "return-continuity-audit-146-v1",
+          "baselineAcceptedPreserved": 9,
+          "blocked": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "filtered": {
+            "correct": 0,
+            "incorrect": 0,
+            "accepted": 0,
+            "unknown": 0
+          },
+          "scores": [],
+          "additional": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. New146 refusals without competitor warnings, inherited refusals and145 restorations are scored separately; original target and competitor trajectories replay without outcome labels. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "restored": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "screened": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "automaticAdmissions": 0,
+          "replayedFrames": 49
+        },
+        "trackingMs": 43594.20959999999,
+        "auditMs": 61942.67489999998
+      },
+      {
+        "case": "black-lighter-webcam-28",
+        "group": "black-lighter-webcam",
+        "domain": "real-camera",
+        "policy": "return-guard-146",
+        "summary": {
+          "visible": 30,
+          "correct": 9,
+          "hidden": 19,
+          "reacquired": 0,
+          "confirmedDistractorMatches": 0,
+          "available": 9,
+          "correctReacquired": 0,
+          "uncertain": 0,
+          "labels": 49,
+          "unsupported": 0,
+          "meanOverlapAllVisible": 0.29857097497192103,
+          "missing": 21,
+          "overlapFailures": 0
+        },
+        "evidence": {
+          "schema": "return-continuity-audit-146-v1",
+          "baselineAcceptedPreserved": 9,
+          "blocked": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "filtered": {
+            "correct": 0,
+            "incorrect": 0,
+            "accepted": 0,
+            "unknown": 0
+          },
+          "scores": [],
+          "additional": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "scope": "Original pixels replay every decision before independent scoring. New146 refusals without competitor warnings, inherited refusals and145 restorations are scored separately; original target and competitor trajectories replay without outcome labels. Baseline139 accepted tracker proposals remain unchanged; the shared filter can still refuse supplemental boxes. No semantic identity or automatic admission.",
+          "restored": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "screened": {
+            "correct": 0,
+            "incorrect": 0,
+            "returned": 0,
+            "unknown": 0
+          },
+          "automaticAdmissions": 0,
+          "replayedFrames": 49
+        },
+        "trackingMs": 51435.6967,
+        "auditMs": 61966.3799
+      }
+    ],
+    "sources": {
+      "createdAtUtc": "2026-11-15T15:25:51.657955+00:00",
+      "algorithmLockSha256": "10c4d87aca055c73abfcd313fbc1c8fa63cb33e2dd069167d5c772b38f8c5fa5",
+      "webcamLockSha256": "71c83293d96a06ca3ce73402d9522082fec0269761b2ad9e200054add01b297d",
+      "records": [
+        {
+          "case": "black-lighter-webcam-1",
+          "group": "black-lighter-webcam",
+          "name": "Black lighter initially left of the red lighter",
+          "target": 1,
+          "role": "reference-source",
+          "domain": "real-camera",
+          "primaryEligible": true,
+          "start": 1,
+          "end": 24,
+          "stride": 1,
+          "frames": 24,
+          "width": 640,
+          "height": 480,
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "pack": "build/webcam147-private/black-lighter-webcam-1.fobs.json",
+          "packSha256": "3088d6cad7ee2d1d205aa2924bb804621fca9bc9ab3370b7d35985f8aa712e30",
+          "labels": "docs/publication147/black-lighter-webcam-1-labels.json",
+          "labelsSha256": "8aafbc6ad2b829f9861cff34415882f7b9c04fb7fd6fcd21c95bf596f0c32f39",
+          "visibilityCounts": {
+            "visible": 23,
+            "partial": 0,
+            "occluded": 0,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "distractorLabelledSamples": 0,
+          "preflight": {
+            "passed": true,
+            "donorFrames": 24,
+            "evaluationFrames": 50,
+            "fullyHiddenFrames": 19,
+            "lookalikeLabelledFrames": 50,
+            "donorEvaluationImagesDisjoint": true,
+            "scope": "Source preflight only; actual donor admission and recovery outcomes remain separate."
+          },
+          "privateImages": true
+        },
+        {
+          "case": "black-lighter-webcam-28",
+          "group": "black-lighter-webcam",
+          "name": "Black lighter initially left of the red lighter",
+          "target": 1,
+          "role": "evaluation",
+          "domain": "real-camera",
+          "primaryEligible": true,
+          "start": 28,
+          "end": 77,
+          "stride": 1,
+          "frames": 50,
+          "width": 640,
+          "height": 480,
+          "sourceFrames": [
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77
+          ],
+          "pack": "build/webcam147-private/black-lighter-webcam-28.fobs.json",
+          "packSha256": "0d77b2b59587ebe461ab69cba03f5d55f8da734805f16a02894a3003b7e2d40d",
+          "labels": "docs/publication147/black-lighter-webcam-28-labels.json",
+          "labelsSha256": "dd35809ec6367ce23bb6279d54861ab98aec76910997b635e3db4506fb4f8866",
+          "visibilityCounts": {
+            "visible": 30,
+            "partial": 0,
+            "occluded": 19,
+            "out-of-view": 0,
+            "uncertain": 0
+          },
+          "distractorLabelledSamples": 49,
+          "preflight": {
+            "passed": true,
+            "donorFrames": 24,
+            "evaluationFrames": 50,
+            "fullyHiddenFrames": 19,
+            "lookalikeLabelledFrames": 50,
+            "donorEvaluationImagesDisjoint": true,
+            "scope": "Source preflight only; actual donor admission and recovery outcomes remain separate."
+          },
+          "privateImages": true
+        }
+      ],
+      "privateCameraReceipts": [
+        {
+          "attempt": "attempt-98Fe5G",
+          "captureSha256": "cb6f9d5d02519556e85510ecac60a552bb4e4be14e08650ac640773d995b5b50",
+          "frameJournalSha256": "96112c12465171d76cbe044d2185ec92e5d537a14e31507dfeba3aae83f908cf",
+          "samples": 84,
+          "bytes": 6569882,
+          "eligible": true,
+          "events": [
+            {
+              "kind": "event",
+              "action": "preview-started",
+              "phase": "preview",
+              "sourceFrame": 0,
+              "elapsedS": null,
+              "receivedAt": "2026-11-15T15:19:57.630Z"
+            },
+            {
+              "kind": "event",
+              "action": "recording-started",
+              "phase": "reference",
+              "sourceFrame": 0,
+              "elapsedS": 0.00020000004768371582,
+              "receivedAt": "2026-11-15T15:20:19.504Z"
+            },
+            {
+              "kind": "event",
+              "action": "cue-cover",
+              "phase": "covering",
+              "sourceFrame": 34,
+              "elapsedS": 34.15860000014305,
+              "receivedAt": "2026-11-15T15:20:53.662Z"
+            },
+            {
+              "kind": "event",
+              "action": "user-covered",
+              "phase": "covered",
+              "sourceFrame": 45,
+              "elapsedS": 46.34410000014305,
+              "receivedAt": "2026-11-15T15:21:05.852Z"
+            },
+            {
+              "kind": "event",
+              "action": "cue-reveal",
+              "phase": "revealing",
+              "sourceFrame": 49,
+              "elapsedS": 49.8755,
+              "receivedAt": "2026-11-15T15:21:09.383Z"
+            },
+            {
+              "kind": "event",
+              "action": "user-returned",
+              "phase": "returned",
+              "sourceFrame": 60,
+              "elapsedS": 61.756799999952314,
+              "receivedAt": "2026-11-15T15:21:21.264Z"
+            },
+            {
+              "kind": "event",
+              "action": "finished",
+              "phase": "returned",
+              "sourceFrame": 84,
+              "elapsedS": 85.89160000014306,
+              "receivedAt": "2026-11-15T15:21:45.399Z"
+            }
+          ],
+          "frames": [
+            {
+              "sourceFrame": 1,
+              "imageSha256": "256d714521a333fcaa5d6b26bf7f023a9d6bed67ce3d2d0b320626e9a4b32f17",
+              "mediaTime": 21.999982,
+              "seconds": 0,
+              "width": 640,
+              "height": 480,
+              "bytes": 79104
+            },
+            {
+              "sourceFrame": 2,
+              "imageSha256": "8125e8de8fe4ef87a1e0d5a425043dd3804ebaadd6c1f13adea5be0ea498dfe6",
+              "mediaTime": 23.039977,
+              "seconds": 1.0399950000000011,
+              "width": 640,
+              "height": 480,
+              "bytes": 79179
+            },
+            {
+              "sourceFrame": 3,
+              "imageSha256": "0268deef44335c99c7b3788c83cc0ebb5ec848339f6eb01a84e3dfbf9fc391d4",
+              "mediaTime": 24.080159,
+              "seconds": 2.080176999999999,
+              "width": 640,
+              "height": 480,
+              "bytes": 79205
+            },
+            {
+              "sourceFrame": 4,
+              "imageSha256": "29ef2e8294e1931db0ced694e5b38b0bb109dfde9c9680f7e57cfc825c9acd27",
+              "mediaTime": 25.119983,
+              "seconds": 3.120001000000002,
+              "width": 640,
+              "height": 480,
+              "bytes": 79057
+            },
+            {
+              "sourceFrame": 5,
+              "imageSha256": "6b3d34d9273328ade7d7c2d5e13e5a812422f16e2d57fdd2b169d315cc631a67",
+              "mediaTime": 26.159963,
+              "seconds": 4.159981000000002,
+              "width": 640,
+              "height": 480,
+              "bytes": 78447
+            },
+            {
+              "sourceFrame": 6,
+              "imageSha256": "d44e8213b1b3ee0d697c62c79395243b4170edd5fb8ad47253e0e943464bb6fa",
+              "mediaTime": 27.200081,
+              "seconds": 5.200099000000002,
+              "width": 640,
+              "height": 480,
+              "bytes": 78566
+            },
+            {
+              "sourceFrame": 7,
+              "imageSha256": "63e299600e42cb1267a98ddc9e537a84a02f902c36e17072a96cb29fcce737da",
+              "mediaTime": 28.240007,
+              "seconds": 6.240024999999999,
+              "width": 640,
+              "height": 480,
+              "bytes": 78565
+            },
+            {
+              "sourceFrame": 8,
+              "imageSha256": "affb9b3d60d3f3be72a131842429db58cf0f9f063f234e352d4948adab31c1bd",
+              "mediaTime": 29.263984,
+              "seconds": 7.264002000000001,
+              "width": 640,
+              "height": 480,
+              "bytes": 78623
+            },
+            {
+              "sourceFrame": 9,
+              "imageSha256": "19ab822230ef6e1e51496cb0378ef4ae26846f5301eea5a1d6330939083ce727",
+              "mediaTime": 30.272245,
+              "seconds": 8.272263000000002,
+              "width": 640,
+              "height": 480,
+              "bytes": 78694
+            },
+            {
+              "sourceFrame": 10,
+              "imageSha256": "8e3875551715752e55e1e57a6780fa6369cd8c84ea639ba0b43e2cb8a63a6218",
+              "mediaTime": 31.31203,
+              "seconds": 9.312048,
+              "width": 640,
+              "height": 480,
+              "bytes": 78538
+            },
+            {
+              "sourceFrame": 11,
+              "imageSha256": "a86a99fc933b87dee2cb4dcbc5c4cc833fa9e241ebd534f1b6dcbdf87207d441",
+              "mediaTime": 32.35197,
+              "seconds": 10.351988000000002,
+              "width": 640,
+              "height": 480,
+              "bytes": 78818
+            },
+            {
+              "sourceFrame": 12,
+              "imageSha256": "2eb037469841ca73ed66afee52d3517ab0aec50df42725822aef3306a16e6119",
+              "mediaTime": 33.376095,
+              "seconds": 11.376113,
+              "width": 640,
+              "height": 480,
+              "bytes": 78734
+            },
+            {
+              "sourceFrame": 13,
+              "imageSha256": "73ce0cf46691c75d9e4d76e329f9ce8b520c2a41c1e061cb29f99c835a968708",
+              "mediaTime": 34.384008,
+              "seconds": 12.384026000000002,
+              "width": 640,
+              "height": 480,
+              "bytes": 78724
+            },
+            {
+              "sourceFrame": 14,
+              "imageSha256": "ac8164d0ca10a78d66448170e2f25d14fc1a2400e4d3dedea7687b615a42a01d",
+              "mediaTime": 35.424125,
+              "seconds": 13.424142999999997,
+              "width": 640,
+              "height": 480,
+              "bytes": 78702
+            },
+            {
+              "sourceFrame": 15,
+              "imageSha256": "e66b4146ab5934f131ee10d605aaf8f2d0e1bd8e6169d1cb6e74c0de5a519c54",
+              "mediaTime": 36.464004,
+              "seconds": 14.464022000000003,
+              "width": 640,
+              "height": 480,
+              "bytes": 78746
+            },
+            {
+              "sourceFrame": 16,
+              "imageSha256": "a2faec610eff25c810492878a1bd276cd2814075cceacbf09c7ebfea58a02179",
+              "mediaTime": 37.487998,
+              "seconds": 15.488015999999998,
+              "width": 640,
+              "height": 480,
+              "bytes": 78807
+            },
+            {
+              "sourceFrame": 17,
+              "imageSha256": "9217be35a4e57d840a920a81967692d105fb0312999933918b59f96890aed7d3",
+              "mediaTime": 38.495934,
+              "seconds": 16.495952,
+              "width": 640,
+              "height": 480,
+              "bytes": 78936
+            },
+            {
+              "sourceFrame": 18,
+              "imageSha256": "ab7b966a5e645083ab6932b6ec92165915c3bb5af2e10daf16fc84d83e2f7321",
+              "mediaTime": 39.536089,
+              "seconds": 17.536106999999998,
+              "width": 640,
+              "height": 480,
+              "bytes": 78882
+            },
+            {
+              "sourceFrame": 19,
+              "imageSha256": "cc4c2549de22b9b4ab9378ad811ee7271aff7ea3b888aaba27a5d04d11b63248",
+              "mediaTime": 40.57597,
+              "seconds": 18.575988,
+              "width": 640,
+              "height": 480,
+              "bytes": 78852
+            },
+            {
+              "sourceFrame": 20,
+              "imageSha256": "0aa3a863dda325ebea05fe4a120c06473af6aad5f5cb4aa6cf9d449b1d4250e1",
+              "mediaTime": 41.59998,
+              "seconds": 19.599998000000003,
+              "width": 640,
+              "height": 480,
+              "bytes": 78827
+            },
+            {
+              "sourceFrame": 21,
+              "imageSha256": "57ad589cf9e958d7f9f24d3327e88a93d07937ee114f9ad588f43dba54c057cf",
+              "mediaTime": 42.607948,
+              "seconds": 20.607966,
+              "width": 640,
+              "height": 480,
+              "bytes": 78934
+            },
+            {
+              "sourceFrame": 22,
+              "imageSha256": "a8c5b85397861fbd1bc0526fa51a755a48b35c337c84608924cdd334f550c31b",
+              "mediaTime": 43.647944,
+              "seconds": 21.647962000000003,
+              "width": 640,
+              "height": 480,
+              "bytes": 79004
+            },
+            {
+              "sourceFrame": 23,
+              "imageSha256": "5632b922bc3dd71066a7ad529819f960c05fea0028cfcb770fdb4ffd6c346f35",
+              "mediaTime": 44.688127,
+              "seconds": 22.688145000000002,
+              "width": 640,
+              "height": 480,
+              "bytes": 78835
+            },
+            {
+              "sourceFrame": 24,
+              "imageSha256": "72cff934e3b0ccc7018c8a5ff45986eafc7dbdc6d3a9bf1a8069c2c8525e3f63",
+              "mediaTime": 45.760074,
+              "seconds": 23.760092000000004,
+              "width": 640,
+              "height": 480,
+              "bytes": 78915
+            },
+            {
+              "sourceFrame": 25,
+              "imageSha256": "24231529f4fb80cfa2869187cdea4b08483c52ca65576e8b570f7a074583a704",
+              "mediaTime": 46.800007,
+              "seconds": 24.800025,
+              "width": 640,
+              "height": 480,
+              "bytes": 78887
+            },
+            {
+              "sourceFrame": 26,
+              "imageSha256": "20a08cd51c23ef1a5deedc74dd7a5add5194e9f3fe0e6e02729cf7726f511c9b",
+              "mediaTime": 47.839963,
+              "seconds": 25.839980999999998,
+              "width": 640,
+              "height": 480,
+              "bytes": 78915
+            },
+            {
+              "sourceFrame": 27,
+              "imageSha256": "6feb3c9160b7ff4baa931c3e2e4187b2d89d919dc8bfda1a06a8c0070113a437",
+              "mediaTime": 48.879947,
+              "seconds": 26.879965000000002,
+              "width": 640,
+              "height": 480,
+              "bytes": 79004
+            },
+            {
+              "sourceFrame": 28,
+              "imageSha256": "c4ef72dccbb1b42183d3f02622e9d62529cfe4b937cfef230211a86c61a0fac7",
+              "mediaTime": 49.919942,
+              "seconds": 27.91996,
+              "width": 640,
+              "height": 480,
+              "bytes": 78973
+            },
+            {
+              "sourceFrame": 29,
+              "imageSha256": "aca6f28df694748dbeaa10f34ed90cb922f30c509fe5382769f3a1b09dd7c8a0",
+              "mediaTime": 50.960124,
+              "seconds": 28.960142,
+              "width": 640,
+              "height": 480,
+              "bytes": 78825
+            },
+            {
+              "sourceFrame": 30,
+              "imageSha256": "328f0105069c974fb4596402af1d47c9078d30d171f854e222d6c25cb7aa6d1f",
+              "mediaTime": 51.984066,
+              "seconds": 29.984084,
+              "width": 640,
+              "height": 480,
+              "bytes": 78925
+            },
+            {
+              "sourceFrame": 31,
+              "imageSha256": "72263e738b051f4c14f851d2ae809ee5ec5a4481ee4fdb472748d1a75ea11e62",
+              "mediaTime": 52.992193,
+              "seconds": 30.992211,
+              "width": 640,
+              "height": 480,
+              "bytes": 79034
+            },
+            {
+              "sourceFrame": 32,
+              "imageSha256": "4698fbf44458d40e9fdbdb84ac51a93e5ba8cd4b27c6454264b81cdce8439a9c",
+              "mediaTime": 54.063949,
+              "seconds": 32.063967000000005,
+              "width": 640,
+              "height": 480,
+              "bytes": 78846
+            },
+            {
+              "sourceFrame": 33,
+              "imageSha256": "9ced16178e59849cf077ef29839fb987ee77a552cef4fc2f18463fbaa893f018",
+              "mediaTime": 55.071992,
+              "seconds": 33.072010000000006,
+              "width": 640,
+              "height": 480,
+              "bytes": 78914
+            },
+            {
+              "sourceFrame": 34,
+              "imageSha256": "f94125dc4cfac5c56b0f1118d3f9dd8238ae07cd86fb9453952f09b47584f52e",
+              "mediaTime": 56.095971,
+              "seconds": 34.095989,
+              "width": 640,
+              "height": 480,
+              "bytes": 78999
+            },
+            {
+              "sourceFrame": 35,
+              "imageSha256": "6384f1722bf4283d1f83f09b6fadd12d9d7a91336480c4eb9a35f83ade5fafb5",
+              "mediaTime": 57.104062,
+              "seconds": 35.104079999999996,
+              "width": 640,
+              "height": 480,
+              "bytes": 78983
+            },
+            {
+              "sourceFrame": 36,
+              "imageSha256": "feda8469fd240c3561d8511e244b598401d15e012aa8f8ca80002c4c4ee4a19a",
+              "mediaTime": 58.144058,
+              "seconds": 36.144076,
+              "width": 640,
+              "height": 480,
+              "bytes": 77133
+            },
+            {
+              "sourceFrame": 37,
+              "imageSha256": "11294c9b6966c298fb401349c479d1bf073016d09ff51c59c9e22e73cd441621",
+              "mediaTime": 59.183969,
+              "seconds": 37.183987,
+              "width": 640,
+              "height": 480,
+              "bytes": 76842
+            },
+            {
+              "sourceFrame": 38,
+              "imageSha256": "c6ae43c6636cf80d45c115882fe80aa342d7bd4dbe396cfee989171c2c9f990a",
+              "mediaTime": 60.208019,
+              "seconds": 38.208037000000004,
+              "width": 640,
+              "height": 480,
+              "bytes": 75731
+            },
+            {
+              "sourceFrame": 39,
+              "imageSha256": "6238b6c2be203036e8c1b4b301aa8685402e7c56946c09413d7bcd62cb1aef26",
+              "mediaTime": 61.24815,
+              "seconds": 39.24816800000001,
+              "width": 640,
+              "height": 480,
+              "bytes": 76334
+            },
+            {
+              "sourceFrame": 40,
+              "imageSha256": "b4e87d87f0f073734c800d6b3e8f542255269e362ca091e4afeacf75981aad7f",
+              "mediaTime": 62.255909,
+              "seconds": 40.255927,
+              "width": 640,
+              "height": 480,
+              "bytes": 78217
+            },
+            {
+              "sourceFrame": 41,
+              "imageSha256": "35517494aba7636ead097afae2be06aed32154b4f5c591f1e7afa21f4cf09271",
+              "mediaTime": 63.263908,
+              "seconds": 41.263926,
+              "width": 640,
+              "height": 480,
+              "bytes": 77154
+            },
+            {
+              "sourceFrame": 42,
+              "imageSha256": "b96b11addaf8c01c982cc50ebc4bbcdcac1a85fd4ab9700383d5f76eac880ac3",
+              "mediaTime": 64.303909,
+              "seconds": 42.303927,
+              "width": 640,
+              "height": 480,
+              "bytes": 75756
+            },
+            {
+              "sourceFrame": 43,
+              "imageSha256": "b5d2caef0bf9c7f47b9ddbe27ebf83bae54812186503e7d4a77cc33c1e7d4ef7",
+              "mediaTime": 65.455923,
+              "seconds": 43.455940999999996,
+              "width": 640,
+              "height": 480,
+              "bytes": 74668
+            },
+            {
+              "sourceFrame": 44,
+              "imageSha256": "e35ea1422e1152b18cf50f53197dcb42ecea424641cef8040bc7b5f613f6a6bc",
+              "mediaTime": 66.463973,
+              "seconds": 44.46399099999999,
+              "width": 640,
+              "height": 480,
+              "bytes": 74605
+            },
+            {
+              "sourceFrame": 45,
+              "imageSha256": "6b09ae61b5a6383f019bea8a5c8f9b7dc9d450a5cb8340c6bd17dfc90b995a7c",
+              "mediaTime": 67.663938,
+              "seconds": 45.663956,
+              "width": 640,
+              "height": 480,
+              "bytes": 74605
+            },
+            {
+              "sourceFrame": 46,
+              "imageSha256": "b2d88eeb060ce095b4e76ff57c2233b6afefdc2c811d1003b776aaba5ca08eea",
+              "mediaTime": 68.703931,
+              "seconds": 46.703948999999994,
+              "width": 640,
+              "height": 480,
+              "bytes": 74687
+            },
+            {
+              "sourceFrame": 47,
+              "imageSha256": "19a6934002e7f99c9d071737d2e1c4f4488f1b7a392812e1666b3c3d01448d5f",
+              "mediaTime": 69.743984,
+              "seconds": 47.744001999999995,
+              "width": 640,
+              "height": 480,
+              "bytes": 74611
+            },
+            {
+              "sourceFrame": 48,
+              "imageSha256": "9ad309ae8f676dde9fcec607f2445b0b578c915aa4f169d28a182f3b474bb853",
+              "mediaTime": 70.783988,
+              "seconds": 48.78400599999999,
+              "width": 640,
+              "height": 480,
+              "bytes": 74907
+            },
+            {
+              "sourceFrame": 49,
+              "imageSha256": "8deb4cb781e20aee0579b8e5a802f3d2c727fe89c063f2aa80271349b686be86",
+              "mediaTime": 71.824285,
+              "seconds": 49.824303,
+              "width": 640,
+              "height": 480,
+              "bytes": 74912
+            },
+            {
+              "sourceFrame": 50,
+              "imageSha256": "e199ed25dd40c182c7779eaac1f9b8470b0ba9aa7dad79718f1eb5671c03fa7f",
+              "mediaTime": 72.848078,
+              "seconds": 50.848096,
+              "width": 640,
+              "height": 480,
+              "bytes": 75162
+            },
+            {
+              "sourceFrame": 51,
+              "imageSha256": "4bd2abacb4992efaab59b98888fdd21cdae1ec87543f170c972fabb866454e8c",
+              "mediaTime": 73.855941,
+              "seconds": 51.855959,
+              "width": 640,
+              "height": 480,
+              "bytes": 74851
+            },
+            {
+              "sourceFrame": 52,
+              "imageSha256": "33d1245dd14218264ef2316ffb4c174f0bcc050128a24d5fcca0b14952d9f35e",
+              "mediaTime": 74.896047,
+              "seconds": 52.89606499999999,
+              "width": 640,
+              "height": 480,
+              "bytes": 74859
+            },
+            {
+              "sourceFrame": 53,
+              "imageSha256": "26d9a16992c18dfbe8a34f6e29b472fcb1f51bb7b9147f254f3b4ee7778f9ce3",
+              "mediaTime": 75.93603,
+              "seconds": 53.936048,
+              "width": 640,
+              "height": 480,
+              "bytes": 71701
+            },
+            {
+              "sourceFrame": 54,
+              "imageSha256": "14bcd0c0fdd92c73de3b2167d8fea1c80b09613fd575a7bb60ce801a2330f6e6",
+              "mediaTime": 76.959925,
+              "seconds": 54.959942999999996,
+              "width": 640,
+              "height": 480,
+              "bytes": 77680
+            },
+            {
+              "sourceFrame": 55,
+              "imageSha256": "2aba54f9f200e5d9ce1a48b386c7b5489c7e45019a8e252dc13f8dbd7c0580d6",
+              "mediaTime": 77.968152,
+              "seconds": 55.96817,
+              "width": 640,
+              "height": 480,
+              "bytes": 75405
+            },
+            {
+              "sourceFrame": 56,
+              "imageSha256": "811dbfbf594d4144f4c6f8fe3eb646ccc1ae82603b9c4e1f420e2c6d04ce9fd8",
+              "mediaTime": 78.992063,
+              "seconds": 56.992081,
+              "width": 640,
+              "height": 480,
+              "bytes": 77586
+            },
+            {
+              "sourceFrame": 57,
+              "imageSha256": "b293618839f0dda890278a9be7f7de53e6034d588c041ec86c1e235e76e4667f",
+              "mediaTime": 80.048157,
+              "seconds": 58.048175,
+              "width": 640,
+              "height": 480,
+              "bytes": 82408
+            },
+            {
+              "sourceFrame": 58,
+              "imageSha256": "47cae2980d6fbd440816cf1a1aa95dc20448c2544911d9e4ad4ea8315eeb7255",
+              "mediaTime": 81.055902,
+              "seconds": 59.05592,
+              "width": 640,
+              "height": 480,
+              "bytes": 80732
+            },
+            {
+              "sourceFrame": 59,
+              "imageSha256": "f83eb5a1dfaf415a371cf75379bf022cf4d18e7d0619a7c7b64e5b0a3310be3f",
+              "mediaTime": 82.079934,
+              "seconds": 60.07995199999999,
+              "width": 640,
+              "height": 480,
+              "bytes": 80787
+            },
+            {
+              "sourceFrame": 60,
+              "imageSha256": "220bd4740ba6c9f9a8223c95251d6df44f5c8dadef6cc7748cc991c0f9685e19",
+              "mediaTime": 83.120025,
+              "seconds": 61.120042999999995,
+              "width": 640,
+              "height": 480,
+              "bytes": 78846
+            },
+            {
+              "sourceFrame": 61,
+              "imageSha256": "eb009262a4f9e88efed1edc81c447ceb295252c75c59cfc8d49b86af07594b12",
+              "mediaTime": 84.160204,
+              "seconds": 62.16022199999999,
+              "width": 640,
+              "height": 480,
+              "bytes": 78843
+            },
+            {
+              "sourceFrame": 62,
+              "imageSha256": "593e409e409b36aec58771577b964c503d48ba056299994e258329377c166908",
+              "mediaTime": 85.199982,
+              "seconds": 63.2,
+              "width": 640,
+              "height": 480,
+              "bytes": 78834
+            },
+            {
+              "sourceFrame": 63,
+              "imageSha256": "21f5c5997396020fde903d0cb5c0f91629c0a90059a8698e05cfde1730636879",
+              "mediaTime": 86.239965,
+              "seconds": 64.239983,
+              "width": 640,
+              "height": 480,
+              "bytes": 78993
+            },
+            {
+              "sourceFrame": 64,
+              "imageSha256": "74d8c731258fd84757bbbafaade05377d1928135aa1599521dc7c59df0b05bda",
+              "mediaTime": 87.263923,
+              "seconds": 65.263941,
+              "width": 640,
+              "height": 480,
+              "bytes": 79151
+            },
+            {
+              "sourceFrame": 65,
+              "imageSha256": "5657dc0ee42463022c76e0cef37a01f6eb8a23e895d19837132781e6cbd135e9",
+              "mediaTime": 88.271929,
+              "seconds": 66.271947,
+              "width": 640,
+              "height": 480,
+              "bytes": 79165
+            },
+            {
+              "sourceFrame": 66,
+              "imageSha256": "87d0a850a5b8147330b859465bb96554ffc279e556bfa81330e0ebab6ba91983",
+              "mediaTime": 89.311911,
+              "seconds": 67.31192899999999,
+              "width": 640,
+              "height": 480,
+              "bytes": 79064
+            },
+            {
+              "sourceFrame": 67,
+              "imageSha256": "299d655f520d45e8cde4cc6b6db5120fb95a5449cdafb91c7a9c785a3fd54aff",
+              "mediaTime": 90.352019,
+              "seconds": 68.352037,
+              "width": 640,
+              "height": 480,
+              "bytes": 79126
+            },
+            {
+              "sourceFrame": 68,
+              "imageSha256": "3ab94d7c59b6befa028757194aa9b47c47ab19bb51fc2748f2d533223ac00f76",
+              "mediaTime": 91.376048,
+              "seconds": 69.376066,
+              "width": 640,
+              "height": 480,
+              "bytes": 79213
+            },
+            {
+              "sourceFrame": 69,
+              "imageSha256": "4b0f83a565988c7bc4025e7cc92cc0ec7cb67fb7f20572332047f7d19ee1a0a5",
+              "mediaTime": 92.383982,
+              "seconds": 70.384,
+              "width": 640,
+              "height": 480,
+              "bytes": 79112
+            },
+            {
+              "sourceFrame": 70,
+              "imageSha256": "2b25715baa1b92d0bbdab95bf50a424dd8e9f23e16e64ed01a75c85ccc799cc1",
+              "mediaTime": 93.423911,
+              "seconds": 71.423929,
+              "width": 640,
+              "height": 480,
+              "bytes": 79370
+            },
+            {
+              "sourceFrame": 71,
+              "imageSha256": "9fcc2f3bb2a4c98d12820c0c93542d64092216c5c48798938345ae93e509d22e",
+              "mediaTime": 94.463967,
+              "seconds": 72.463985,
+              "width": 640,
+              "height": 480,
+              "bytes": 78996
+            },
+            {
+              "sourceFrame": 72,
+              "imageSha256": "8627ab8d479a7461808eebeaf4000f9baef047d615835bc9093db764b16376dd",
+              "mediaTime": 95.487954,
+              "seconds": 73.487972,
+              "width": 640,
+              "height": 480,
+              "bytes": 79098
+            },
+            {
+              "sourceFrame": 73,
+              "imageSha256": "e1211c7c2f0229c3d2d7dcde52bc6cb5ff09798e21aaa5ded1e6ec986bd9af22",
+              "mediaTime": 96.495992,
+              "seconds": 74.49601,
+              "width": 640,
+              "height": 480,
+              "bytes": 79162
+            },
+            {
+              "sourceFrame": 74,
+              "imageSha256": "b460e48afc9b8f4a08c33d38ee8b74c7f0acb4c69277e30861c621b8fac379bc",
+              "mediaTime": 97.535896,
+              "seconds": 75.53591399999999,
+              "width": 640,
+              "height": 480,
+              "bytes": 79194
+            },
+            {
+              "sourceFrame": 75,
+              "imageSha256": "35da7b3d9d98e4596acc96c9fe7f493af662615aa68f299e57cc67ee03031a96",
+              "mediaTime": 98.576098,
+              "seconds": 76.576116,
+              "width": 640,
+              "height": 480,
+              "bytes": 79206
+            },
+            {
+              "sourceFrame": 76,
+              "imageSha256": "a8eebbafc15a2f855feb569bde1d9dc0ea8b18f8317803bc7e3693e4f9f4e39a",
+              "mediaTime": 99.600074,
+              "seconds": 77.600092,
+              "width": 640,
+              "height": 480,
+              "bytes": 79226
+            },
+            {
+              "sourceFrame": 77,
+              "imageSha256": "6020e3d58ce76227e1adb91b0daeec03ad9322a52caf50c6b78d5bee4ca2234b",
+              "mediaTime": 100.608072,
+              "seconds": 78.60809,
+              "width": 640,
+              "height": 480,
+              "bytes": 79211
+            },
+            {
+              "sourceFrame": 78,
+              "imageSha256": "5bd56005a15e2214003a0d02c8e46fa057148886bad36b68d0363cf3cd0e60b7",
+              "mediaTime": 101.648033,
+              "seconds": 79.648051,
+              "width": 640,
+              "height": 480,
+              "bytes": 79255
+            },
+            {
+              "sourceFrame": 79,
+              "imageSha256": "b528ea500852c7090558bcb65d0278f89c95cddf382b9fbac723975c6416891c",
+              "mediaTime": 102.688007,
+              "seconds": 80.688025,
+              "width": 640,
+              "height": 480,
+              "bytes": 79336
+            },
+            {
+              "sourceFrame": 80,
+              "imageSha256": "07d4a960b42df84ae705d6ff51ae4c2bade04bc3320719c116b86dbcbb598e4e",
+              "mediaTime": 103.71195,
+              "seconds": 81.711968,
+              "width": 640,
+              "height": 480,
+              "bytes": 79171
+            },
+            {
+              "sourceFrame": 81,
+              "imageSha256": "6dac2e1e1a84a1cb9dbdb696c074df01c33e4d9fc819b1c64dfdcc1081a312ee",
+              "mediaTime": 104.720025,
+              "seconds": 82.720043,
+              "width": 640,
+              "height": 480,
+              "bytes": 79200
+            },
+            {
+              "sourceFrame": 82,
+              "imageSha256": "18cd8b2b2bc4460ad111abc961c29f85de61835f2d35fcc1dc10734c5142920a",
+              "mediaTime": 105.759961,
+              "seconds": 83.759979,
+              "width": 640,
+              "height": 480,
+              "bytes": 79027
+            },
+            {
+              "sourceFrame": 83,
+              "imageSha256": "da79aab76422d56809fc5df7b17a4c694992ce450438e58811ecac34f9a9f4e5",
+              "mediaTime": 106.800007,
+              "seconds": 84.80002499999999,
+              "width": 640,
+              "height": 480,
+              "bytes": 79410
+            },
+            {
+              "sourceFrame": 84,
+              "imageSha256": "1cb5441340a5dee75f5cc6659412494ee66a9649d5c05a1fcdde055ea4a2cf6a",
+              "mediaTime": 107.823989,
+              "seconds": 85.824007,
+              "width": 640,
+              "height": 480,
+              "bytes": 79341
+            }
+          ]
+        }
+      ],
+      "sourceReview": {
+        "exposure": "before-tracking",
+        "date": "2026-11-15",
+        "sources": [
+          {
+            "name": "black-lighter-webcam",
+            "attempt": "attempt-98Fe5G",
+            "eligible": true,
+            "targetDescription": "Black lighter initially left of the red lighter",
+            "physicalIdentityConfirmedByUser": true,
+            "userConfirmation": "Saved automatically; actions completed",
+            "donor": [
+              1,
+              24
+            ],
+            "evaluation": [
+              28,
+              77
+            ],
+            "event": {
+              "hiddenStart": 38,
+              "returnFrame": 57
+            },
+            "ranges": [
+              {
+                "start": 1,
+                "end": 37,
+                "visibility": "visible"
+              },
+              {
+                "start": 38,
+                "end": 56,
+                "visibility": "occluded"
+              },
+              {
+                "start": 57,
+                "end": 84,
+                "visibility": "visible"
+              }
+            ],
+            "selectedReviewedSourceFrames": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77
+            ],
+            "targetPixelBoxes": {
+              "1": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "2": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "3": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "4": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "5": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "6": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "7": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "8": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "9": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "10": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "11": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "12": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "13": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "14": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "15": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "16": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "17": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "18": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "19": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "20": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "21": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "22": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "23": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "24": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "28": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "29": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "30": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "31": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "32": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "33": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "34": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "35": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "36": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "37": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "57": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "58": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "59": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "60": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "61": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "62": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "63": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "64": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "65": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "66": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "67": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "68": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "69": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "70": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "71": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "72": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "73": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "74": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "75": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "76": [
+                305,
+                201,
+                41,
+                120
+              ],
+              "77": [
+                305,
+                201,
+                41,
+                120
+              ]
+            },
+            "otherBoxes": {
+              "28": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "29": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "30": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "31": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "32": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "33": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "34": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "35": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "36": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "37": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "38": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "39": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "40": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "41": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "42": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "43": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "44": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "45": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "46": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "47": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "48": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "49": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "50": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "51": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "52": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "53": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "54": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "55": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "56": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "57": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "58": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "59": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "60": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "61": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "62": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "63": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "64": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "65": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "66": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "67": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "68": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "69": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "70": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "71": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "72": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "73": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "74": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "75": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "76": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ],
+              "77": [
+                [
+                  0.615625,
+                  0.4270833333333333,
+                  0.68125,
+                  0.6791666666666667
+                ]
+              ]
+            },
+            "lookalike": {
+              "distinctPhysicalObject": true,
+              "similarityRationale": "Both are cigarette lighters with an elongated body and metal top, but the comparison is red and the target is black. This is same-class/similar-shape, not identical appearance."
+            },
+            "review": {
+              "annotator": "Codex source-only pixel review; user independently confirms physical objects and actions",
+              "predictionsInspected": false,
+              "sourceCaptureSha256": "cb6f9d5d02519556e85510ecac60a552bb4e4be14e08650ac640773d995b5b50",
+              "nativeResolution": "640 x 480; every selected target/comparison crop inspected without resampling; full-frame contact sheets reviewed and frames1,38,56,57 inspected full-size",
+              "privateReviewSheets": [
+                "source-0001-0016.jpg",
+                "source-0017-0032.jpg",
+                "source-0033-0048.jpg",
+                "source-0049-0064.jpg",
+                "source-0065-0080.jpg",
+                "native-1.png",
+                "native-2.png",
+                "native-3.png",
+                "native-4.png"
+              ],
+              "geometry": "Manual enclosing rectangles include metal tops and bodies, exclude shadows. Objects remain approximately stationary; common rectangle judged within a few pixels across all visible selected frames. Not instrumented geometric ground truth.",
+              "event": "Earliest complete cover is frame38, first return is57. No target pixels visible38 through56. Cover and return are determined from source images, not recorder cue phases.",
+              "limitations": [
+                "The return is at essentially the original position; no substantial moved-return challenge is established by sampled pixels.",
+                "No claim about object identity during the opaque interval beyond the user-confirmed physical procedure.",
+                "One fixed webcam, one pair of different-colored objects, approximately1Hz; no general camera qualification or metric calibration."
+              ]
+            }
+          }
+        ]
+      },
+      "limitations": [
+        "Manual source-only annotations are independent of predictions but not independently instrumented truth.",
+        "Camera sampling and fixed planar view do not establish general identity or calibrated real-world accuracy.",
+        "Private source images remain local; hashes/labels only published.",
+        "Public benchmark protocol remains separate.",
+        "Revision2 acquired about1sample/second, unlike the rejected original2Hz attempt; temporal difficulty differs."
+      ],
+      "webcamRevision2LockSha256": "8bf56393997284d0b64a386a4988e8832e85b3e1f5d342c8792499738e1c8319",
+      "rejectedPriorAttempts": "docs/publication147/webcam-attempts147.json"
+    },
+    "lock": {
+      "edition": 147,
+      "lockedAtUtc": "2026-11-14T21:44:09.845027+00:00",
+      "parent": "9f790c90104ac18688ae46b7ffef17910057013d",
+      "methods": [
+        "trajectory-guard-145",
+        "return-monitor-146",
+        "return-guard-146"
+      ],
+      "unchangedTrackerEdition": 146,
+      "sourceHashes": {
+        ".gitattributes": "1d4d4bdd03e6847acc41492268f1bef4b96399867b75ba1b918871440447e744",
+        "docs/.gitattributes": "463804dbb8386a055da26f7aac17cd4a110905dacd0b40f9360e57dc123b468c",
+        "docs/EDITION_138_CONTRACT.md": "254f45748d8425bc2a184ca6960e74ce1dc5c784a507d429b69ef4935b08719d",
+        "docs/EDITION_139_CONTRACT.md": "87307f1d7d9bb74421a5fb82aea4b998a598ad57f45c6d591c08e58ee17f7538",
+        "docs/EDITION_140_CONTRACT.md": "f52c75f86326aa13170aa6112089b6d734bb57364a60fefd41ec5f2ff119eea2",
+        "docs/EDITION_140_SOURCE_NOTE.md": "544f210cc9d0ff75a2f665da22abf59e7e690150edcb8b35769688e78192e0fe",
+        "docs/EDITION_141_CONTRACT.md": "47846f94fccdc79c9fb3daa890aa8c39345ab2351a1de4d60931b4e42ec7ab5a",
+        "docs/EDITION_142_CONTRACT.md": "586025393f5de3268108f64aa81d0410b7980b651c37ec29e0382e7b0a415695",
+        "docs/EDITION_143_CONTRACT.md": "a449be97f1b18cc3fa732189263842f865c3a0ce5eeced1d9b1665659b0d0104",
+        "docs/EDITION_144_CONTRACT.md": "103e149773baf0b403db50c2efbab57910360fb128746e589ed4b2815442ac41",
+        "docs/EDITION_145_CONTRACT.md": "d1fe9c619495037b0a6301f05e1efd1e86e5100c0b9200158b1f05249e94121c",
+        "docs/EDITION_146_CONTRACT.md": "df1ef4b01c31c04f4fb37633d46293fb4621b118ade916076bfdf601ad78c627",
+        "docs/EDITION_147_CONTRACT.md": "0b0566363832fb7d6e03ef8accd015d9462d8597ac304c8f0be244a16d818041",
+        "docs/publication137/source137.json": "aadb25c59c59c5b276e3e75849eda3d9d20b4a9fd665131900e8771c69355136",
+        "docs/publication141/prepare141.py": "daeef6081d944ba4a341f10c5d12c0d9b758285d4ce50a0cfbd09fa53fad2bf3",
+        "docs/publication141/select141.py": "a056ed3ca3545b392916194de9b6f9d3564b4cf735fc9e753e107673b0c25243",
+        "docs/publication142/download142.py": "fb183cd6614b4bdb10282bc6ff65dca39e2e1b19f98999f8c950828cc1568862",
+        "docs/publication142/prepare142.py": "e6056017ab75b7dc5474fb82ecbe1c993e574c3e099c31499dd63efec951202e",
+        "docs/publication143/check-images143.py": "1dfd2009c5dbe8a8bc97d5e5dcf897690e38ade447443f4fdf536564b8955693",
+        "docs/publication143/download143.py": "89e637d871a44b6cd9e3d9c43b3bd04952f5f0845830c0c7f17adc20c42a0a83",
+        "docs/publication143/prepare143.py": "87766f14c9e1488a29d8c9826ab032b2ecc42986bb197d41e3e6cf7ee81adaf2",
+        "docs/publication143/review143.py": "da2d7fe87a6f5f33719f4ddd05da8e6372c47255eb12b7e0460e4cc317d200ec",
+        "docs/publication144/prepare144.py": "1343a5a11126f94ed04b974755bbd77618ff4be6e10ae603a4c56e8f7e1b5989",
+        "docs/publication145/download145.py": "33aba66f7dfc0d3ea79c26d58aba68480ce2697c3c4a1c8388971d306396c1dd",
+        "docs/publication145/prepare145.py": "5ba192f71d3ad37f873ade4edc76a0a96f9b1cf6aacb3745dbdfb77767339f54",
+        "docs/publication145/restart145.cjs": "ab530b3315c661e369a9336e835eaac18b28afa62fdd6ddfced64104b25a1ef6",
+        "docs/publication145/review145.py": "3c7e65671a56d62277b8434f3eb9a6aab3b19951f831a65b289e028032d7fe78",
+        "docs/publication145/source-selection145.json": "35bddc108093add2af3b5deccee27f3f9245da8e0cd16c9cca688cc95a4b412e",
+        "docs/publication146/restart146.cjs": "ac30ab9cbbfe2942b63b89682ab3d2ddd12e1c6a521430996bf0385fc5991767",
+        "docs/publication146/source-selection146.json": "16fb7d0f10f688bda2d8679c86d9fbf8c756667d357d3a86036e280474e1c9fb",
+        "docs/publication147/detail147.py": "cd6cd1e895b0be9aae49a391c724149893f939d45c2e11baff27a964dd3bea61",
+        "docs/publication147/download147.py": "502073c4871c4789118b60b751ee2dba9f36d29d04813a78cd3717c3c0f862ce",
+        "docs/publication147/preflight147.py": "9bc8c64a767c82f710352654cae8cb78ec584574d16be840cd0e309c4a29f85a",
+        "docs/publication147/prepare147.py": "73a0de35c340de2aacb3e66d1c86237ebcb6c3817f5bf29c5782980e3c9f4a56",
+        "docs/publication147/restart147.cjs": "fdd6ef83441056a6494570cd589f85c97737f6a5319a9725daf1c3255933c906",
+        "docs/publication147/review147.py": "cc11a3fd896db58ec82468d3e6815f53ce75d607e4b226b6e4082c5afec51ae3",
+        "docs/publication147/source-selection147.json": "a349174851170e25bc22d2ad7c839243346252ef6e415fd2e42fd1e90d3b94b3",
+        "docs/publication147/test-preflight147.py": "dc2a940ba719c60dc96f03ee276ce4cbe3e88aa5d489add42e28fa37d286cfc7",
+        "workspace-desktop/renderer/association134-panel.js": "c967f2ecdc11a0db582e0265b220528a3da7d8e364acc85f523071ed27f7eadb",
+        "workspace-desktop/renderer/observation-panel.js": "8c5ec6c8571ef97c57906c3e688efba42d36870383e1b0990cf8c18ca46c76be",
+        "workspace-desktop/test/ambiguity144-integration.cjs": "88c8b09a86eb215420fe958aaf0ff9c192c39a240d1ee0dbd46d5466ec050fab",
+        "workspace-desktop/test/confirmation143-integration.cjs": "902d9447b9011e6ff1b0dc8ff706a719a1da8709fa4a3ae81fa84c3521f4c9c4",
+        "workspace-desktop/test/corroborated140-integration.cjs": "37744399d3739387d95e391144fa01194f8a062b17f85c5ff4113e6d5a45c40b",
+        "workspace-desktop/test/occlusion147-integration.cjs": "1f616b3a6a8eb9db2b5d46cbd6480667bb0d16bed24690d6cf56a3407af97b20",
+        "workspace-desktop/test/partial142-integration.cjs": "8b6c9f94758aee270117a4ebbbf561c64bd06aa8dff33c919a2d5ad0dcb62b11",
+        "workspace-desktop/test/recovery141-integration.cjs": "0ea86d00b82f2f6be4c8584f28c1c404e299390e640fbb4557d4dd601fd91493",
+        "workspace-desktop/test/return146-integration.cjs": "f27e76d7fcea463e8bc05784bc1ba56f2792c4dafcc15083a87834852f5ee0d7",
+        "workspace-desktop/test/trajectory145-integration.cjs": "c1cd74a4725ef3a456c74df859620e5f890512a5836503bce5f7ddd96f24b941",
+        "workspace-engine/src/main/java/fraymus/workspace/AmbiguityAudit144.java": "9436b7a0b3134b036ea7939971f51ddb497896381a6f610d6fb007b474f0284e",
+        "workspace-engine/src/main/java/fraymus/workspace/AmbiguityGuard144.java": "a540eb295805f94551544844794401610e2e046c61f43d2702158168c4881c41",
+        "workspace-engine/src/main/java/fraymus/workspace/AppearanceAudit135.java": "9b645127417cfd6d48ab634ad8ea86fbe8ec1c51733a24929c0bad477d8b6b2c",
+        "workspace-engine/src/main/java/fraymus/workspace/AppearanceConfirmation143.java": "9025800fab14ec2fa49b546ef800a612cd2ebdc3a007b02b88288874a3869f44",
+        "workspace-engine/src/main/java/fraymus/workspace/AppearanceEvidence138.java": "ebd7f297e37e03d998bc0991f0b24ab1a7cd37a44471b8adf0de511093de3e11",
+        "workspace-engine/src/main/java/fraymus/workspace/AppearanceFlow135.java": "74c5798420dbf9627ce2e40b864e274bb1d28ed0900a06c3bf6442f432789f24",
+        "workspace-engine/src/main/java/fraymus/workspace/AssociationAudit134.java": "64865db5daef9af8638754b8873f29a8a8c5b57838066fc8862c53ecf9e14d57",
+        "workspace-engine/src/main/java/fraymus/workspace/ConfirmationAudit143.java": "c29b5517962310efbe0e2420af8993708a6f35d1295812c8653c7bba935afa7c",
+        "workspace-engine/src/main/java/fraymus/workspace/CorroboratedAudit140.java": "e97ae0670e8591aa117a4e729949a1682029a49621b18af45a67f565156052a2",
+        "workspace-engine/src/main/java/fraymus/workspace/CorroboratedGuard140.java": "a6501d1f48f1377b1e5bb5cdd733439fbeef84486e1fe76e2803c85c91cbd366",
+        "workspace-engine/src/main/java/fraymus/workspace/DriftAudit138.java": "b455c545624901c9423775365d9a99497582715188abc1cadf593646a23bed4d",
+        "workspace-engine/src/main/java/fraymus/workspace/DriftGuard138.java": "740d78b062d164c831f5668f4f5baa82aafb99933c860b143f06b38cdbf754c1",
+        "workspace-engine/src/main/java/fraymus/workspace/FlowTracker.java": "5c4f2626d341ced71aee8b13cfc07130f4b77bfb26e2ff9ba889db13b9c9dd31",
+        "workspace-engine/src/main/java/fraymus/workspace/ForegroundAudit139.java": "9a82cedefff5011ae18d06121778de57723efec042b1099a43b1af6275a097de",
+        "workspace-engine/src/main/java/fraymus/workspace/ForegroundGuard139.java": "06f3a001a69bad4dc468ac03c1e8ae650a46c1aed8ad7a95c77c59005118945d",
+        "workspace-engine/src/main/java/fraymus/workspace/LossRecovery141.java": "4618d361e5f4e186553e1b4aefc8c90b7bc0ebb28fa647cfb04b8544c0d35f71",
+        "workspace-engine/src/main/java/fraymus/workspace/LossRecoveryAudit141.java": "50e167427acdf6d3e669dc8695c8ac58bf9db7642905f6de5e56cc63839e7e5a",
+        "workspace-engine/src/main/java/fraymus/workspace/ObservationFilter.java": "a0dc7560be00bca29dd7f72995d9cbe607b9e26f14be70286360dbf2d8764e21",
+        "workspace-engine/src/main/java/fraymus/workspace/ObservationMethods129.java": "a34f7a731e6fcc23d3ee23a74c503f6da6bb7af4a5c5133864541d7279d479c5",
+        "workspace-engine/src/main/java/fraymus/workspace/ParsedJson137.java": "d5b859e5185fba555502accf30c6b1d299a5e6d2bb0ec3ddaddd48e8597f559a",
+        "workspace-engine/src/main/java/fraymus/workspace/PartialAudit142.java": "1b985b3ce74fa6598c873b5a4b167f6713accec23545663354a475586450de55",
+        "workspace-engine/src/main/java/fraymus/workspace/PartialRecovery142.java": "90da9910e0464e696e369a078a1a02094656af1994e726c14d37d5067043c159",
+        "workspace-engine/src/main/java/fraymus/workspace/PartialSearch142.java": "6461339790860b3d2fed5353a5d7fd838ca5cd8be2cb5e4624ff7b8477a6a34a",
+        "workspace-engine/src/main/java/fraymus/workspace/PixelTracker.java": "32d26bafaebb26a58a09efc6f71a0089c755cccd25cec47a87be8b67005c985b",
+        "workspace-engine/src/main/java/fraymus/workspace/RecoverySearch141.java": "c947d2ead889de83eba5bafefc0ec47ae0fd8eb42bf423d284769046b5f2f903",
+        "workspace-engine/src/main/java/fraymus/workspace/ReferenceAudit137.java": "464500bf43212c7019333b668744216e9f99efb7ef65c4f901fcfff579ad7325",
+        "workspace-engine/src/main/java/fraymus/workspace/ReferenceMemory137.java": "66c71a75009a5d8790a391bf1d7c411e537197ab99d0449c9e91e2ee48915d20",
+        "workspace-engine/src/main/java/fraymus/workspace/ReferenceSearch143.java": "e6f3f5dcba41ba305fd767ba693ecd8b6daa05deb43598a20c9399ded383a7ff",
+        "workspace-engine/src/main/java/fraymus/workspace/RestorationGate140.java": "1531fd5326a5f78592f5475b0d47408244a56aa99f46343e6c7898073a300741",
+        "workspace-engine/src/main/java/fraymus/workspace/ReturnAudit146.java": "89c96602172427adb7d73e6df628c31d76c21fde71576cce0d91215450ee0817",
+        "workspace-engine/src/main/java/fraymus/workspace/ReturnContinuity146.java": "f5023815c0109014504d7fdd94c6f44bf383083b96cd7204293fbc95f52551eb",
+        "workspace-engine/src/main/java/fraymus/workspace/SpatialEvidence139.java": "66908d3c7d6d2f25654249b43701f2c702ea1a918707eabb92f7a4a0c569096b",
+        "workspace-engine/src/main/java/fraymus/workspace/TrajectoryAudit145.java": "e74976701c3bb49b461d0861342202dd4b05c444abeefd22df40f6119c15ada2",
+        "workspace-engine/src/main/java/fraymus/workspace/TrajectoryGate145.java": "cebcf964e4d2720d7a5bd35cef8f721fece90f8f8ebc6479835c8afdfbc51413",
+        "workspace-engine/src/main/java/fraymus/workspace/TrajectoryRecovery145.java": "d57c6432e12eb9c4b6f798e8fe4dd2dd274723fc11da611e315a52524af3dac9",
+        "workspace-engine/src/main/java/fraymus/workspace/TrajectorySearch145.java": "d40434091531b9d03049769a7f978a233e5f98c7fd3b936be9c1ecf42ae3bb82",
+        "workspace-engine/src/main/java/fraymus/workspace/VerifiedAppearances135.java": "da439f16d5d4e607e6dd1fa91d3b491a313122a19c8ef2383c6ee9beb9888fab",
+        "workspace-engine/src/main/java/fraymus/workspace/VerifiedMemoryFlow137.java": "7718e044e2a076893a3d97a7171e4cb68b9557f1386410423dc1aadfca716b2c",
+        "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java": "997d526096adacdc362bd20f84e99df62f12b145918f1bce737953fd8ab5ef62",
+        "workspace-engine/src/test/java/fraymus/workspace/AmbiguityFixtures144.java": "f397356d76c77971702e78c0aa0e82c79f91938516a59e174aa9ba74131539fa",
+        "workspace-engine/src/test/java/fraymus/workspace/AmbiguityGuard144Test.java": "ef6eb917c74426e6a039c6fd70489ca9892e48e1517047f7e5823617a4ecbd41",
+        "workspace-engine/src/test/java/fraymus/workspace/AppearanceConfirmation143Test.java": "44eace66ab41b1e7007eef4ce984083df8677822c79d15bd7d359fb2c9cf0c5d",
+        "workspace-engine/src/test/java/fraymus/workspace/ConfirmationFixtures143.java": "c9fe74f0cfebe34adee60e61dde4f7938e220dc0f2ef75e295244b42d7c3b3cb",
+        "workspace-engine/src/test/java/fraymus/workspace/CorroboratedGuard140Test.java": "f2e4e61a9916e2d9a1a9a12140a231cfa8583d3551e667b0ac393afef4c8dee3",
+        "workspace-engine/src/test/java/fraymus/workspace/DriftGuard138Test.java": "6e2576cb25916d6275fcdc802a20ccd93fe707f3c315441963013a415f2b60d4",
+        "workspace-engine/src/test/java/fraymus/workspace/ForegroundGuard139Test.java": "cf5e961a8f9eddce22f02a4f6c7d5d367027fe4d18d426b1f4c465de05aab9ea",
+        "workspace-engine/src/test/java/fraymus/workspace/LossRecovery141Test.java": "15e3c8590740cb9844205533fe29263462bad5940bb1037a027da22b25e4940d",
+        "workspace-engine/src/test/java/fraymus/workspace/PartialFixtures142.java": "0d60accc5e6c48434ccc4fec60bf46224590c493521c06b0b537c6c6f90c55fd",
+        "workspace-engine/src/test/java/fraymus/workspace/PartialRecovery142Test.java": "31bcb44ee81fe94883e0c67c34e29bd6dbdfa5274d3307f2739bc32d7d47e162",
+        "workspace-engine/src/test/java/fraymus/workspace/RestorationImageStudy140.java": "9804d6a1695abc48c028b9bbffe4e514f397fdd459a279b869dc8984c02926e2",
+        "workspace-engine/src/test/java/fraymus/workspace/ReturnContinuity146Test.java": "da0559c9cbc5cb32da95fe2c852d1e420fb442a7f920a9fce303193d531b8574",
+        "workspace-engine/src/test/java/fraymus/workspace/ReturnFixtures146.java": "b3d09c43d295aa8bb90d993b2ae714397c4c86a1dd5658f21fa0d8491c7c1a00",
+        "workspace-engine/src/test/java/fraymus/workspace/TrajectoryFixtures145.java": "1d665345b7f48913a24536f229ec7400da6e329db967b4b32357525665c15f7c"
+      },
+      "noFreshPixelsOrLabelsAccessed": true,
+      "sourceSelection": "Source-only complete cover/return with causal unobscured reference and distinct lookalike; labels committed before predictions."
+    },
+    "webcamLock": {
+      "edition": 147,
+      "scope": "Separate authorized private webcam study; frozen before webcam pixels; public protocol unchanged",
+      "lockedAtUtc": "2026-11-14T21:59:33.565202+00:00",
+      "algorithmLockSha256": "10c4d87aca055c73abfcd313fbc1c8fa63cb33e2dd069167d5c772b38f8c5fa5",
+      "sourceHashes": {
+        "docs/EDITION_147_WEBCAM.md": "169daf3146fce7da7829c2c395682c75d1cff8729e0dbc4658d326b2e13f01fa",
+        "workspace-desktop/test/webcam147-recorder.cjs": "09bd8aea933ff52bb67b9ff5430c99c9bcefcc92c530a07dcdcc4405f810784f",
+        "docs/publication147/prepare-webcam147.py": "8faf08c92a7b16b6db652570ab5bc0b54fea41af04adbb5e49fab1e27224348c",
+        "docs/publication147/review-webcam147.py": "d8128fe0a25b2f0e6305a203e14124cb89bcde6d22328aad0495ffa3a3f941c4"
+      },
+      "priorWebcamLockSha256": "ea8b3fe6a61f09ea6f377eb4c4a673623d29950a49e4968fc3c0a3e9be3a9481",
+      "preAccessRevision": "Reserve34 clear samples:24 donor plus10 separate pre-cover context. Avoid overlap before recording; no pixels accessed and no eligibility rule changed."
+    },
+    "webcamRevision2Lock": {
+      "edition": 147,
+      "revision": 2,
+      "frozenBeforeNewPhysicalPixels": true,
+      "date": "2026-11-15",
+      "algorithmLockSha256": "10c4d87aca055c73abfcd313fbc1c8fa63cb33e2dd069167d5c772b38f8c5fa5",
+      "previousWebcamLockSha256": "71c83293d96a06ca3ce73402d9522082fec0269761b2ad9e200054add01b297d",
+      "sourceHashes": {
+        "docs/publication147/WEBCAM_REVISION_2.md": "2ed6ba2571318ef9168cd637cb496c2b329fda2cbaff4611f3a2ca0da285c8b5",
+        "workspace-desktop/test/webcam147-recorder-v2.cjs": "b353c718f41c11c1d261a909c953139ade426a7e73335c14dae86d5188e49248",
+        "docs/publication147/prepare-webcam147-v2.py": "47266c42c40173478dfd79585b33b55f021e590fd3bbebc9572122430d7b0c20"
+      },
+      "prePhysicalAccessNote": "Added proper modal dialog and native-surface separation after static layout review; unused real attempt had0samples and no preview. Recheck controls and lifecycle before fresh real pixels."
+    },
+    "finding": "**The new camera sequence qualifies for comparison, but useful return recovery failed.** The 24-frame unobscured donor tracked 23/23 scored frames correctly and admitted one independently checked appearance. All three unchanged methods—145, monitor 146 and guard 146—then produced 9/30 correct visible measurements, 21 missing, 0/19 unsupported hidden-frame measurements and 0 accepted matches to the labelled red lighter. All nine correct measurements occurred before cover; **0/21 visible return frames recovered**.\n\nThis closes the missing-source/reference gap from 146, not the recovery-capability gap. The full-cover event is source frames 38–56, followed by return 57; evaluation uses 28–77 and the causal donor uses 1–24. No reference-dependent comparison is unavailable. The guarded method adds no benefit on this sequence, because no supplemental proposal passes the earlier confirmation layer. It is not promoted; defaults remain unchanged.\n\nThe post-comparison traces show 42/42 target-region hypotheses overlapping the correct lighter across 21 return frames, per method (initial seed and one retained reference). None passes the existing uniqueness requirement or gains a confirmation. That is a diagnostic lead, not proof of which physical distractor caused the veto, and not permission to relax the checks. The next method needs to distinguish genuine competing objects from ambiguous appearance matches while retaining wrong-object rejection.\n\nThe user confirmed covering and returning the same black lighter. Source review shows an essentially stationary return; the red comparison is similar in shape but different in color. This is one fixed-camera, approximately 1 Hz test with manually reviewed image-plane boxes—not calibrated geometry, identical-object recognition, displaced-return qualification or general camera reliability. Camera pixels remain private.",
+    "defaultsUnchanged": true,
+    "promoted": false,
+    "refusals": []
+  },
+  "validation": "374 distinct Java checks and 161 desktop checks passed, plus kernel, agency, offline preparation and package verification. 4 actual app runs across 1 private study project(s), with separate unfinished-process recovery. Source eligibility and useful recovery remain distinct from execution checks. Hosted CI is reported separately.",
+  "finding": "**The new camera sequence qualifies for comparison, but useful return recovery failed.** The 24-frame unobscured donor tracked 23/23 scored frames correctly and admitted one independently checked appearance. All three unchanged methods—145, monitor 146 and guard 146—then produced 9/30 correct visible measurements, 21 missing, 0/19 unsupported hidden-frame measurements and 0 accepted matches to the labelled red lighter. All nine correct measurements occurred before cover; **0/21 visible return frames recovered**.\n\nThis closes the missing-source/reference gap from 146, not the recovery-capability gap. The full-cover event is source frames 38–56, followed by return 57; evaluation uses 28–77 and the causal donor uses 1–24. No reference-dependent comparison is unavailable. The guarded method adds no benefit on this sequence, because no supplemental proposal passes the earlier confirmation layer. It is not promoted; defaults remain unchanged.\n\nThe post-comparison traces show 42/42 target-region hypotheses overlapping the correct lighter across 21 return frames, per method (initial seed and one retained reference). None passes the existing uniqueness requirement or gains a confirmation. That is a diagnostic lead, not proof of which physical distractor caused the veto, and not permission to relax the checks. The next method needs to distinguish genuine competing objects from ambiguous appearance matches while retaining wrong-object rejection.\n\nThe user confirmed covering and returning the same black lighter. Source review shows an essentially stationary return; the red comparison is similar in shape but different in color. This is one fixed-camera, approximately 1 Hz test with manually reviewed image-plane boxes—not calibrated geometry, identical-object recognition, displaced-return qualification or general camera reliability. Camera pixels remain private."
+}

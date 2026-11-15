@@ -5,7 +5,7 @@ def status(stage,published=''):
  v=json.loads((r/'docs/readmes/147/verification.json').read_bytes());c=json.loads((r/'docs/readmes/147/comparison.json').read_bytes())
  return f'''## Edition 147 — {stage}
 
-2026-11-14, America/Los_Angeles. Isolated J:/Codex-Work/fraynix-workspace-edition147 from9f790c90. CI checked first; initial146 documentation passed with compilation/tests still pending. Method/public protocol frozen217173a5. User chose webcam; separate private capture/preparation protocol frozen before camera access, with pre-access lifecycle and disjoint-context corrections preserved in Git. Sources and labels committed before predictions. {published}
+2026-11-15, America/Los_Angeles. Isolated J:/Codex-Work/fraynix-workspace-edition147 from9f790c90. CI checked first; both146 release43640231088 and metadata43640421227 have now completed successfully. Initial pending state and later exact connector receipts are preserved. Method/public protocol frozen217173a5. User chose webcam; separate private capture/preparation protocol frozen before camera access, with pre-access lifecycle and disjoint-context corrections preserved in Git. Sources and labels committed before predictions. {published}
 
 {c['finding']}
 

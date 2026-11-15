@@ -11,7 +11,7 @@ for folder in ['docs/readmes/147','docs/publication147']:
    b=gzip.decompress(p.read_bytes()) if p.suffix=='.gz' else p.read_bytes()
    for pattern in patterns:assert not re.search(pattern,b),str(p)
 run('git','-c','gc.auto=0','fetch','origin','main');run('git','merge-base','--is-ancestor','origin/main','HEAD')
-files=['docs/OBSERVATION_147_LOCK.json','AGENTS.md','README.md','README-147.md','README-CONTRIBUTORS.md','docs/ARCHITECTURE.md','docs/DEVELOPMENT_LOG.md','docs/PROJECT_MEMORY.md','docs/EDITION_147_CONTRACT.md','docs/EDITION_147_WEBCAM.md','docs/obsidian/00-home.md','docs/obsidian/155-fresh-occlusion.md','docs/obsidian/155-fresh-occlusion.canvas','docs/readmes/INDEX.md','docs/readmes/editions.json','docs/readmes/147','docs/publication147']
+files=['docs/INTEGRATED_AGENT_ROADMAP.md','docs/PLAYABLE_LEVEL_CREATION_PLAN.md','docs/OBSERVATION_147_LOCK.json','AGENTS.md','README.md','README-147.md','README-CONTRIBUTORS.md','docs/ARCHITECTURE.md','docs/DEVELOPMENT_LOG.md','docs/PROJECT_MEMORY.md','docs/EDITION_147_CONTRACT.md','docs/EDITION_147_WEBCAM.md','docs/obsidian/00-home.md','docs/obsidian/155-fresh-occlusion.md','docs/obsidian/155-fresh-occlusion.canvas','docs/readmes/INDEX.md','docs/readmes/editions.json','docs/readmes/147','docs/publication147']
 run('git','add',*files)
 logs=[str(p.relative_to(r)) for p in (r/'docs/publication147').glob('*.log')]
 if logs:run('git','add','-f',*logs)

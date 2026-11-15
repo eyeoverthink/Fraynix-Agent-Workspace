@@ -9,6 +9,7 @@ for group in sorted({x['group'] for x in manifest['records']}):
   for p in sorted((r/'build'/('occlusion147-'+group+'-'+kind)).glob('*.png')):
    if p.name=='failure.png':continue
    items.append({'path':p.relative_to(r).as_posix(),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
+p=r/'build/webcam147-v2-controls.png';items.append({'path':p.relative_to(r).as_posix(),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
 for offset in range(0,len(items),4):
  sheet=Image.new('RGB',(1600,1100),'#10202d');d=ImageDraw.Draw(sheet)
  for i,item in enumerate(items[offset:offset+4]):

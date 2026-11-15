@@ -10,7 +10,7 @@ p=r/'docs/readmes/editions.json';current=json.loads(p.read_text(encoding='utf-8-
 if current['latest']==147:
  assert current['editions'][:-1]==prior['editions'];assert subprocess.run(['git','show-ref','--verify','--quiet','refs/tags/readme-147']).returncode==1
 else:assert current==prior
-entry={'number':147,'date':'2026-11-14','title':'Fresh camera occlusion and lookalike qualification','status':'validated-local','markdown':'README-147.md','markdownSha256':sha(raw(r/'README-147.md')),'companion':'docs/readmes/147/index.html','tag':'readme-147','sourceBaseline':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'snapshotDirectory':'docs/readmes/147','snapshotFiles':[]}
+entry={'number':147,'date':'2026-11-15','title':'Fresh camera occlusion and lookalike qualification','status':'validated-local','markdown':'README-147.md','markdownSha256':sha(raw(r/'README-147.md')),'companion':'docs/readmes/147/index.html','tag':'readme-147','sourceBaseline':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'snapshotDirectory':'docs/readmes/147','snapshotFiles':[]}
 patterns=[rb'gh[pousr]_[A-Za-z0-9]{30,}',rb'github_pat_[A-Za-z0-9_]{40,}',rb'sk-[A-Za-z0-9_-]{30,}',rb'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----']
 for f in sorted((r/'docs/readmes/147').rglob('*')):
  if not f.is_file():continue

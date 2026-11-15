@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/155-fresh-occlusion.md]] | [[README-147.md]]
+
 Current: [[docs/obsidian/154-return-continuity.md]] | [[README-146.md]]
 
 Current: [[docs/obsidian/153-trajectory-continuity.md]] | [[README-145.md]]
