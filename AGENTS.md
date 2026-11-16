@@ -1,3 +1,15 @@
+## Edition 152 — locally verified; publication pending
+
+2026-11-16. Java target eyeoverthink/Fraynix-Agent-Workspace; isolated J:/Codex-Work/fraynix-workspace-edition152. No subagents. One heavy check at a time.
+
+The explicit Java search handles rotated proposals without supplied return locations. On the two new generated returns it accepts 7/13 visible samples versus 4/13 for the simple default, with no wrong or hidden outputs. It refuses the identical-copy return. On the exposed camera recording it accepts 8/42 visible/partial samples, with 34 withheld, 0/30 hidden outputs and 0 matches to the labelled red object. Search proposals overlap all 30 returned camera frames, but none earns full confirmation. Defaults remain unchanged; fresh physical validation is pending.
+
+18 selected Java checks and 164 desktop checks passed, with no failures or skipped cases. Four generated app comparisons and one exposed-camera comparison passed execution, restart and source-integrity checks. Independent source geometry checks passed. These are scoped checks, not a rerun of every historical capability. Fresh webcam capture remains pending.
+
+The first development grid found rotated targets but missed a competing identical copy. Two safety tests failed; their original XML and debug receipts are retained. A denser proposal grid and joint translation refinement corrected that failure before the first new generated evaluation. No acceptance threshold was relaxed. The first app harness failed because a collapsed panel was not opened. A camera-study harness then tried to read an owned lock while the app was open; it now releases the app before comparing every file. The next camera attempt exceeded the browser request timeout before completion. A single background worker and visible progress polling now handle that operation; incomplete work is not reported as verified. The search mathematics stayed fixed through these UI/job changes. The final generated replay repeats exposed controls and is identified as regression; the separately retained initial prospective result has the same measured outcomes.
+
+Read README-152.md and docs/publication152/plan152.md. Private worlds and all camera sources preserved. No active camera. Fresh camera validation pending current setup confirmation. No altered historical tracker identities, threshold relaxation, automatic appearance admission or physical action authority. Original151 CI failures corrected locally; hosted status remains separate.
+
 ## Edition 151 — published and fetched back
 
 2026-11-16. Release d100f7d9e2206b60a73c192e815b632d7ef89c56; main, edition151 and readme-151 pushed atomically and fetched. Full151 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_151.json. Physical return recovery remains unresolved; defaults unchanged. The following local-study notes retain their original chronology.

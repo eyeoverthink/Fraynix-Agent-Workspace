@@ -29,3 +29,17 @@ Measure complete search/replay costs and preserve original source bytes, world
 state, prior numbered editions and private camera data. Publish the actual results
 and limits, screenshots, offline guide, linked notes and source/evidence hashes.
 Push main and edition152/readme-152, fetch and compare. No subagents; one heavy job.
+
+## Declared runtime correction after the first app trials
+
+The initial method at 86591529 completed the four new generated controls. The
+search grid/thresholds were frozen before those trials. The exposed camera
+calculation outlasted a single browser request. Final revision 7bccd697 adds one
+background worker, progress polling, bounded status retention and interruption
+refusal. It does not alter search/scoring mathematics. All four generated traces
+were repeated and compared exactly; they are now regression data, not newly held
+out again. Every failed harness/timeout attempt remains separate.
+
+No fresh webcam setup was confirmed during this implementation; do not substitute
+old footage for that gate. The original150 recording is exposed diagnosis only.
+The camera result has better target proposal coverage but no accepted return.

@@ -1,3 +1,5 @@
+[Edition152 — rotation search without return labels](../../README-152.md) | [Offline guide](152/index.html)
+
 [Edition151 — return diagnosis and verified replay](../../README-151.md) | [Offline guide](151/index.html)
 
 [Edition150 — verified starting references](../../README-150.md) | [Offline guide](150/index.html)

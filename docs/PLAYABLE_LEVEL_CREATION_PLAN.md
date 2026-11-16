@@ -1,3 +1,9 @@
+## Edition152 continuity — 2026-11-16
+
+The explicit Java search handles rotated proposals without supplied return locations. On the two new generated returns it accepts 7/13 visible samples versus 4/13 for the simple default, with no wrong or hidden outputs. It refuses the identical-copy return. On the exposed camera recording it accepts 8/42 visible/partial samples, with 34 withheld, 0/30 hidden outputs and 0 matches to the labelled red object. Search proposals overlap all 30 returned camera frames, but none earns full confirmation. Defaults remain unchanged; fresh physical validation is pending.
+
+Read [edition152](../README-152.md). Keep the unified Java agent/world/browser/creation direction. Next: new physical returns and stronger lookalikes, measured search cost, then verified incumbent continuity.
+
 ## Edition151 continuity — 2026-11-16
 
 The shifted/rotated camera return remains unresolved: **11/42 correct observations, 31 missing, 0/30 hidden outputs and 0 matches to the labelled red lighter**, exactly as in edition150. Read-only probes explain why; they do not add recovered observations. Reopening the unchanged verified comparison took **0.127 seconds median**, versus **129.227 seconds** for its cold full replay. Defaults and tracking thresholds remain unchanged.

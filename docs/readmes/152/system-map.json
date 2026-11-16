@@ -1,0 +1,215 @@
+{
+  "modules": [
+    {
+      "id": "search",
+      "name": "Label-free pose proposals",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RotationSearch152.java",
+      "note": "docs/obsidian/160-rotation-search.md"
+    },
+    {
+      "id": "confirm",
+      "name": "Same-reference confirmation",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RotationReturn152.java",
+      "note": "docs/obsidian/160-rotation-search.md"
+    },
+    {
+      "id": "proof",
+      "name": "Durable experimental evidence",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RotationExperiment152.java",
+      "note": "docs/obsidian/160-rotation-search.md"
+    },
+    {
+      "id": "view",
+      "name": "Visible search and progress",
+      "source": "workspace-desktop/renderer/association134-panel.js",
+      "note": "docs/obsidian/160-rotation-search.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/152/generated-return-22.png",
+      "title": "2026-11-16 · generated / return-22.png"
+    },
+    {
+      "path": "docs/readmes/152/generated-return-minus67.png",
+      "title": "2026-11-16 · generated / return-minus67.png"
+    },
+    {
+      "path": "docs/readmes/152/generated-wrong-only.png",
+      "title": "2026-11-16 · generated / wrong-only.png"
+    },
+    {
+      "path": "docs/readmes/152/generated-copy-veto.png",
+      "title": "2026-11-16 · generated / copy-veto.png"
+    },
+    {
+      "path": "docs/readmes/152/exposed150-exposed150-camera.png",
+      "title": "2026-11-16 · exposed150 / exposed150-camera.png"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/152/verification.json"
+    },
+    {
+      "path": "docs/readmes/152/comparison.json"
+    },
+    {
+      "path": "docs/readmes/152/original-evidence.json"
+    }
+  ],
+  "comparison": [
+    {
+      "case": "return-22",
+      "domain": "new generated software control",
+      "baseline": {
+        "visible": 13,
+        "correct": 4,
+        "hidden": 5,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 4,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 18,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.3076923076923077,
+        "missing": 9,
+        "overlapFailures": 0
+      },
+      "summary": {
+        "visible": 13,
+        "unsupported": 0,
+        "correct": 7,
+        "hidden": 5,
+        "confirmedDistractorMatches": 0,
+        "missing": 6,
+        "overlapFailures": 0
+      },
+      "totalMs": 7370.9598,
+      "experimentId": "0b3530e36fc93654be5eda58e813f0797e9d7030d2cf6fccb6527d4a032fff8e"
+    },
+    {
+      "case": "return-minus67",
+      "domain": "new generated software control",
+      "baseline": {
+        "visible": 13,
+        "correct": 4,
+        "hidden": 5,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 4,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 18,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.3076923076923077,
+        "missing": 9,
+        "overlapFailures": 0
+      },
+      "summary": {
+        "visible": 13,
+        "unsupported": 0,
+        "correct": 7,
+        "hidden": 5,
+        "confirmedDistractorMatches": 0,
+        "missing": 6,
+        "overlapFailures": 0
+      },
+      "totalMs": 6638.4814,
+      "experimentId": "5e21d34121d86db3f17bac174b0fff232e65564c79fa0f623e3d99add2d8f058"
+    },
+    {
+      "case": "wrong-only",
+      "domain": "new generated software control",
+      "baseline": {
+        "visible": 4,
+        "correct": 4,
+        "hidden": 14,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 4,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 18,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 1,
+        "missing": 0,
+        "overlapFailures": 0
+      },
+      "summary": {
+        "visible": 4,
+        "unsupported": 0,
+        "correct": 1,
+        "hidden": 14,
+        "confirmedDistractorMatches": 0,
+        "missing": 3,
+        "overlapFailures": 0
+      },
+      "totalMs": 6666.9853,
+      "experimentId": "ac754710c86271db107b1416b7f49fd8cb6a2d2ad324e28eeb7f6e415b7680f4"
+    },
+    {
+      "case": "copy-veto",
+      "domain": "new generated software control",
+      "baseline": {
+        "visible": 13,
+        "correct": 4,
+        "hidden": 5,
+        "reacquired": 1,
+        "confirmedDistractorMatches": 9,
+        "available": 13,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 18,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.3076923076923077,
+        "missing": 0,
+        "overlapFailures": 9
+      },
+      "summary": {
+        "visible": 13,
+        "unsupported": 0,
+        "correct": 1,
+        "hidden": 5,
+        "confirmedDistractorMatches": 0,
+        "missing": 12,
+        "overlapFailures": 0
+      },
+      "totalMs": 6810.2129,
+      "experimentId": "5df3a7c8d8316ff7aeaa8b2f3216cc50b273756064ca429cb375e69153cceb2c"
+    },
+    {
+      "case": "exposed150-camera",
+      "domain": "exposed edition150 camera",
+      "baseline": {
+        "visible": 42,
+        "correct": 11,
+        "hidden": 30,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 11,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 72,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.2608433688654656,
+        "missing": 31,
+        "overlapFailures": 0
+      },
+      "summary": {
+        "visible": 42,
+        "unsupported": 0,
+        "correct": 8,
+        "hidden": 30,
+        "confirmedDistractorMatches": 0,
+        "missing": 34,
+        "overlapFailures": 0
+      },
+      "totalMs": 509191.7584,
+      "experimentId": "17fabaf522e10bf9acd01f1a7f970b7fd6597117630a00ce8644a37b8a8e4be3"
+    }
+  ],
+  "finding": "The explicit Java search handles rotated proposals without supplied return locations. On the two new generated returns it accepts 7/13 visible samples versus 4/13 for the simple default, with no wrong or hidden outputs. It refuses the identical-copy return. On the exposed camera recording it accepts 8/42 visible/partial samples, with 34 withheld, 0/30 hidden outputs and 0 matches to the labelled red object. Search proposals overlap all 30 returned camera frames, but none earns full confirmation. Defaults remain unchanged; fresh physical validation is pending.",
+  "validation": "18 selected Java checks and 164 desktop checks passed, with no failures or skipped cases. Four generated app comparisons and one exposed-camera comparison passed execution, restart and source-integrity checks. Independent source geometry checks passed. These are scoped checks, not a rerun of every historical capability. Fresh webcam capture remains pending."
+}

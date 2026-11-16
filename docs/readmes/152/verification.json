@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "edition": 152,
+  "javaChecks": 18,
+  "desktopChecks": 164,
+  "appComparisons": 5,
+  "sourceGeometryChecks": {
+    "passed": true,
+    "checks": [
+      {
+        "case": "return-22",
+        "frames": 19,
+        "labels": 18,
+        "originalPackSha256": "de93561541fa25c0c7bb6135b710a9886d919bd7f9c0a1038243ca6f5bc42660",
+        "originalLabelsSha256": "fc7ff05bb0c4ab36c376acc72b466a94e676db1401c1e4b5a4dd447a282b6f28",
+        "independentCornerCalculation": true
+      },
+      {
+        "case": "return-minus67",
+        "frames": 19,
+        "labels": 18,
+        "originalPackSha256": "abad85ca296030c5d9b9ad9cc95583f7e1d12541455616a556ec5894d13ba7a7",
+        "originalLabelsSha256": "481873b89ba3a8ae11baeec94b99c4950c20f9ea27f261fd5f504e125a11d76b",
+        "independentCornerCalculation": true
+      },
+      {
+        "case": "wrong-only",
+        "frames": 19,
+        "labels": 18,
+        "originalPackSha256": "eaf48fd048cd125ec9af3e6cc926058d34b463d607f23dc3256536375dec1d03",
+        "originalLabelsSha256": "5264b5e61aa27d2d6ab355d5fabd223de35033caacb1b8f3ef891443fb57d817",
+        "independentCornerCalculation": true
+      },
+      {
+        "case": "copy-veto",
+        "frames": 19,
+        "labels": 18,
+        "originalPackSha256": "54c01a11bdbf761b9a93c377e22cf43c5f6bee42375e1f5199f4eba9144aeb7e",
+        "originalLabelsSha256": "ea26205d82fffe24360041e29316da5ec58e560e2382ebe35a72fe9109a0d3ba",
+        "independentCornerCalculation": true
+      }
+    ],
+    "scope": "Independent Python corner calculation verifies the original, unchanged generated labels. Initial producer shared Java pose-bound geometry; this separate check uses explicit transformed corners. No tracker results used."
+  },
+  "defaultsChanged": false,
+  "promoted": false,
+  "freshCameraTest": "pending setup confirmation",
+  "initialAndFinalGeneratedTracesEqual": true,
+  "scope": "18 selected Java checks and 164 desktop checks passed, with no failures or skipped cases. Four generated app comparisons and one exposed-camera comparison passed execution, restart and source-integrity checks. Independent source geometry checks passed. These are scoped checks, not a rerun of every historical capability. Fresh webcam capture remains pending."
+}
