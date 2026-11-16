@@ -45,6 +45,9 @@ async function inventory(root){const result={};async function walk(folder){for(c
    }
   }
   assert.deepEqual(await fs.readFile(stateFile),initialState);assert.equal((await api('/api/observations/cost136')).durableWrites,0);assert.deepEqual(await api('/api/world/observe',{worldId:study.worldId}),study.nativeBefore);
+  // Empty lock files are owned by the running Java store. Compare the complete retained namespaces
+  // after the owned test app releases them; do not omit files or weaken the byte comparison.
+  await app.close();app=null;
   for(const [dir,original]of Object.entries(originalNamespaces))assert.deepEqual(await inventory(path.join(project,dir)),original);
   assert.deepEqual(await inventory(path.join(source,'project')),beforeSource);assert.deepEqual(result.errors,[]);result.checks.push('Original project unchanged; copied evidence namespaces unchanged; zero observation writes; native world unchanged; no renderer errors');result.passed=true;
  }catch(e){result.error=e.stack;throw e;}finally{if(app)await app.close();result.endedAt=new Date().toISOString();await save();}
