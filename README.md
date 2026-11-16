@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 149
 
+[Published and fetched verification receipt](docs/PUBLICATION_149.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-149)
+
 **Recognize a returning object from fresh observations, then rebuild its motion history.** This edition adds an explicit Java experiment alongside the existing trackers. The default stays unchanged.
 
 **Fresh identity confirmation and a new observed motion segment work on generated controls, but the recorded-camera recovery gap remains unresolved. The candidate is not promoted.**
