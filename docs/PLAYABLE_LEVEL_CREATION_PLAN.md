@@ -1,3 +1,9 @@
+## Edition151 continuity — 2026-11-16
+
+The shifted/rotated camera return remains unresolved: **11/42 correct observations, 31 missing, 0/30 hidden outputs and 0 matches to the labelled red lighter**, exactly as in edition150. Read-only probes explain why; they do not add recovered observations. Reopening the unchanged verified comparison took **0.127 seconds median**, versus **129.227 seconds** for its cold full replay. Defaults and tracking thresholds remain unchanged.
+
+The integrated Java world/agent/creation direction is unchanged. Read [edition151](../README-151.md) for diagnostics and bounded replay reuse; no tracking promotion. Next proposals must work without labels and pass fresh identity tests.
+
 ## Edition 150 — observation evidence in the connected application
 
 [Edition 150](../README-150.md) retains an explicitly verified starting appearance even when novelty filtering correctly admits no learned examples. Generated recovery and restart checks remain separate from physical-camera outcomes. The new displaced-return recording still has 31 missing observations out of 42 visible/partial samples for all compared methods; no tracker is promoted.

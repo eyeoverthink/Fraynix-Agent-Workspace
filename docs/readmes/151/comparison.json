@@ -1,0 +1,268 @@
+{
+  "rows": [
+    {
+      "case": "webcam150-displaced-return-25",
+      "domain": "exposed edition150 camera footage",
+      "summary": {
+        "visible": 42,
+        "correct": 11,
+        "hidden": 30,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 11,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 72,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.2608433688654656,
+        "missing": 31,
+        "overlapFailures": 0
+      },
+      "diagnosis": {
+        "searchOverlapsTarget": 0,
+        "hiddenLabels": 30,
+        "missingReturns": 30,
+        "strongWithLabelGuidedSweep": 0,
+        "strongOtherAxisCrops": 0,
+        "fullyVisibleReturns": 30,
+        "returnsWithAmbiguityVeto": 0,
+        "strongAtLabelledTarget": 0
+      },
+      "timings": [
+        {
+          "kind": "cold",
+          "hashMs": 610.1308,
+          "reason": "Full original source, reference, code and outcome replay",
+          "totalMs": 129227.12,
+          "scope": "Every opening rereads evidence bytes before and after verification. Full replay on cold start, changed bytes or explicit replay. Memo is process-local, read-only and bounded; it is not new tracking evidence.",
+          "bytesHashed": 32272298,
+          "reusedReplay": false,
+          "retainedEntries": 1,
+          "filesHashed": 226,
+          "capacity": 8
+        },
+        {
+          "kind": "warm",
+          "hashMs": 136.3367,
+          "reason": "Exact evidence and code bytes match a completed replay in this process",
+          "totalMs": 138.1591,
+          "scope": "Every opening rereads evidence bytes before and after verification. Full replay on cold start, changed bytes or explicit replay. Memo is process-local, read-only and bounded; it is not new tracking evidence.",
+          "bytesHashed": 32272298,
+          "reusedReplay": true,
+          "retainedEntries": 1,
+          "filesHashed": 226,
+          "capacity": 8
+        },
+        {
+          "kind": "warm",
+          "hashMs": 124.8776,
+          "reason": "Exact evidence and code bytes match a completed replay in this process",
+          "totalMs": 126.6652,
+          "scope": "Every opening rereads evidence bytes before and after verification. Full replay on cold start, changed bytes or explicit replay. Memo is process-local, read-only and bounded; it is not new tracking evidence.",
+          "bytesHashed": 32272298,
+          "reusedReplay": true,
+          "retainedEntries": 1,
+          "filesHashed": 226,
+          "capacity": 8
+        },
+        {
+          "kind": "warm",
+          "hashMs": 123.2955,
+          "reason": "Exact evidence and code bytes match a completed replay in this process",
+          "totalMs": 125.0991,
+          "scope": "Every opening rereads evidence bytes before and after verification. Full replay on cold start, changed bytes or explicit replay. Memo is process-local, read-only and bounded; it is not new tracking evidence.",
+          "bytesHashed": 32272298,
+          "reusedReplay": true,
+          "retainedEntries": 1,
+          "filesHashed": 226,
+          "capacity": 8
+        },
+        {
+          "kind": "forced",
+          "hashMs": 125.522,
+          "reason": "Full original source, reference, code and outcome replay",
+          "totalMs": 125959.7129,
+          "scope": "Every opening rereads evidence bytes before and after verification. Full replay on cold start, changed bytes or explicit replay. Memo is process-local, read-only and bounded; it is not new tracking evidence.",
+          "bytesHashed": 32272298,
+          "reusedReplay": false,
+          "retainedEntries": 1,
+          "filesHashed": 226,
+          "capacity": 8
+        },
+        {
+          "kind": "cold-restart-after-restoration",
+          "hashMs": 159.0221,
+          "reason": "Full original source, reference, code and outcome replay",
+          "totalMs": 128952.6406,
+          "scope": "Every opening rereads evidence bytes before and after verification. Full replay on cold start, changed bytes or explicit replay. Memo is process-local, read-only and bounded; it is not new tracking evidence.",
+          "bytesHashed": 32272298,
+          "reusedReplay": false,
+          "retainedEntries": 1,
+          "filesHashed": 226,
+          "capacity": 8
+        }
+      ]
+    },
+    {
+      "case": "generated150-return",
+      "domain": "exposed generated controls",
+      "summary": {
+        "visible": 27,
+        "correct": 24,
+        "hidden": 18,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 24,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 45,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.8774284457811837,
+        "missing": 3,
+        "overlapFailures": 0
+      },
+      "diagnosis": {
+        "searchOverlapsTarget": 23,
+        "hiddenLabels": 18,
+        "missingReturns": 3,
+        "strongWithLabelGuidedSweep": 23,
+        "strongOtherAxisCrops": 0,
+        "fullyVisibleReturns": 23,
+        "returnsWithAmbiguityVeto": 0,
+        "strongAtLabelledTarget": 23
+      },
+      "timings": [
+        {
+          "kind": "cold",
+          "hashMs": 538.6002,
+          "reason": "Full original source, reference, code and outcome replay",
+          "totalMs": 74826.1136,
+          "scope": "Every opening rereads evidence bytes before and after verification. Full replay on cold start, changed bytes or explicit replay. Memo is process-local, read-only and bounded; it is not new tracking evidence.",
+          "bytesHashed": 24039766,
+          "reusedReplay": false,
+          "retainedEntries": 1,
+          "filesHashed": 254,
+          "capacity": 8
+        },
+        {
+          "kind": "warm",
+          "hashMs": 122.0504,
+          "reason": "Exact evidence and code bytes match a completed replay in this process",
+          "totalMs": 123.1796,
+          "scope": "Every opening rereads evidence bytes before and after verification. Full replay on cold start, changed bytes or explicit replay. Memo is process-local, read-only and bounded; it is not new tracking evidence.",
+          "bytesHashed": 24039766,
+          "reusedReplay": true,
+          "retainedEntries": 1,
+          "filesHashed": 254,
+          "capacity": 8
+        },
+        {
+          "kind": "warm",
+          "hashMs": 115.5375,
+          "reason": "Exact evidence and code bytes match a completed replay in this process",
+          "totalMs": 116.6811,
+          "scope": "Every opening rereads evidence bytes before and after verification. Full replay on cold start, changed bytes or explicit replay. Memo is process-local, read-only and bounded; it is not new tracking evidence.",
+          "bytesHashed": 24039766,
+          "reusedReplay": true,
+          "retainedEntries": 1,
+          "filesHashed": 254,
+          "capacity": 8
+        },
+        {
+          "kind": "warm",
+          "hashMs": 121.6096,
+          "reason": "Exact evidence and code bytes match a completed replay in this process",
+          "totalMs": 122.7238,
+          "scope": "Every opening rereads evidence bytes before and after verification. Full replay on cold start, changed bytes or explicit replay. Memo is process-local, read-only and bounded; it is not new tracking evidence.",
+          "bytesHashed": 24039766,
+          "reusedReplay": true,
+          "retainedEntries": 1,
+          "filesHashed": 254,
+          "capacity": 8
+        }
+      ]
+    },
+    {
+      "case": "generated150-wrong-pattern",
+      "domain": "exposed generated controls",
+      "summary": {
+        "visible": 4,
+        "correct": 4,
+        "hidden": 41,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 4,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 45,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.9999843096930633,
+        "missing": 0,
+        "overlapFailures": 0
+      },
+      "diagnosis": {
+        "searchOverlapsTarget": 0,
+        "hiddenLabels": 41,
+        "missingReturns": 0,
+        "strongWithLabelGuidedSweep": 0,
+        "strongOtherAxisCrops": 0,
+        "fullyVisibleReturns": 0,
+        "returnsWithAmbiguityVeto": 0,
+        "strongAtLabelledTarget": 0
+      },
+      "timings": [
+        {
+          "kind": "cold",
+          "hashMs": 114.6521,
+          "reason": "Full original source, reference, code and outcome replay",
+          "totalMs": 71266.1161,
+          "scope": "Every opening rereads evidence bytes before and after verification. Full replay on cold start, changed bytes or explicit replay. Memo is process-local, read-only and bounded; it is not new tracking evidence.",
+          "bytesHashed": 24039766,
+          "reusedReplay": false,
+          "retainedEntries": 2,
+          "filesHashed": 254,
+          "capacity": 8
+        },
+        {
+          "kind": "warm",
+          "hashMs": 114.0346,
+          "reason": "Exact evidence and code bytes match a completed replay in this process",
+          "totalMs": 114.9785,
+          "scope": "Every opening rereads evidence bytes before and after verification. Full replay on cold start, changed bytes or explicit replay. Memo is process-local, read-only and bounded; it is not new tracking evidence.",
+          "bytesHashed": 24039766,
+          "reusedReplay": true,
+          "retainedEntries": 2,
+          "filesHashed": 254,
+          "capacity": 8
+        },
+        {
+          "kind": "warm",
+          "hashMs": 117.3287,
+          "reason": "Exact evidence and code bytes match a completed replay in this process",
+          "totalMs": 118.3081,
+          "scope": "Every opening rereads evidence bytes before and after verification. Full replay on cold start, changed bytes or explicit replay. Memo is process-local, read-only and bounded; it is not new tracking evidence.",
+          "bytesHashed": 24039766,
+          "reusedReplay": true,
+          "retainedEntries": 2,
+          "filesHashed": 254,
+          "capacity": 8
+        },
+        {
+          "kind": "warm",
+          "hashMs": 113.5513,
+          "reason": "Exact evidence and code bytes match a completed replay in this process",
+          "totalMs": 114.5343,
+          "scope": "Every opening rereads evidence bytes before and after verification. Full replay on cold start, changed bytes or explicit replay. Memo is process-local, read-only and bounded; it is not new tracking evidence.",
+          "bytesHashed": 24039766,
+          "reusedReplay": true,
+          "retainedEntries": 2,
+          "filesHashed": 254,
+          "capacity": 8
+        }
+      ]
+    }
+  ],
+  "promoted": false,
+  "trackerDefaultsChanged": false,
+  "scope": "Unchanged historical outcomes; exposed retrospective probes and repeat-opening costs only"
+}

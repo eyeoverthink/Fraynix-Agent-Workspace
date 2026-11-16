@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/159-return-diagnosis.md]] | [[README-151.md]]
+
 Current: [[docs/obsidian/158-starting-references.md]] | [[README-150.md]]
 
 Current: [[docs/obsidian/157-fresh-identity.md]] | [[README-149.md]]

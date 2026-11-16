@@ -1,3 +1,5 @@
+[Edition151 — return diagnosis and verified replay](../../README-151.md) | [Offline guide](151/index.html)
+
 [Edition150 — verified starting references](../../README-150.md) | [Offline guide](150/index.html)
 
 [Edition149 — fresh identity and observed motion](../../README-149.md) | [Offline guide](149/index.html)

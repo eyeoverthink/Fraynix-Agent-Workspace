@@ -1,3 +1,9 @@
+## Edition151 continuity — 2026-11-16
+
+The shifted/rotated camera return remains unresolved: **11/42 correct observations, 31 missing, 0/30 hidden outputs and 0 matches to the labelled red lighter**, exactly as in edition150. Read-only probes explain why; they do not add recovered observations. Reopening the unchanged verified comparison took **0.127 seconds median**, versus **129.227 seconds** for its cold full replay. Defaults and tracking thresholds remain unchanged.
+
+The integrated Java world/agent/creation direction is unchanged. Read [edition151](../README-151.md) for diagnostics and bounded replay reuse; no tracking promotion. Next proposals must work without labels and pass fresh identity tests.
+
 ## Edition 150 — verified starting references and measured returns
 
 [Measured release](../README-150.md) · [Evidence and source domains](readmes/150/comparison.json)

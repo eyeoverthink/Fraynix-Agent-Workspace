@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "reviewedBy": "assistant-visual-inspection",
+  "images": [
+    {
+      "path": "build/study151-webcam150-displaced-return-final/webcam150-displaced-return-25-replay.png",
+      "sha256": "da7586f7c5280644bebba2f8ee5e6a85927a9a6e59375539e44d393fbdc2ba84",
+      "review": "Actual app capture visually inspected; source imagery hidden, numeric values and failure reasons legible. The element capture includes the app sticky navigation."
+    },
+    {
+      "path": "build/study151-webcam150-displaced-return-final/webcam150-displaced-return-25-diagnosis.png",
+      "sha256": "48502a39ced7210a594deaf129043fe54e5d991cfb55c47778a11e37ead8fada",
+      "review": "Actual app capture visually inspected; source imagery hidden, numeric values and failure reasons legible. The element capture includes the app sticky navigation."
+    },
+    {
+      "path": "build/study151-generated150/generated150-return-replay.png",
+      "sha256": "bfa3578a65a076dfa53c58950e2dafcb9a66a643743a3a4df1e4e7e09f371ed8",
+      "review": "Actual generated-control app view inspected. Numeric results and costs legible; no camera imagery. Wrong-pattern case correctly has no visible return rows, rather than invented recovery."
+    },
+    {
+      "path": "build/study151-generated150/generated150-return-diagnosis.png",
+      "sha256": "54ebdb42b3557a4fd04f0ed9f9737a54d48cf6535c1ed0b7966b0f68c7d323f0",
+      "review": "Actual generated-control app view inspected. Numeric results and costs legible; no camera imagery. Wrong-pattern case correctly has no visible return rows, rather than invented recovery."
+    },
+    {
+      "path": "build/study151-generated150/generated150-wrong-pattern-replay.png",
+      "sha256": "bcc53f2c0dca61c17401bca6615c7d8fcd1b23d4212d7809d1595c35865d0a96",
+      "review": "Actual generated-control app view inspected. Numeric results and costs legible; no camera imagery. Wrong-pattern case correctly has no visible return rows, rather than invented recovery."
+    },
+    {
+      "path": "build/study151-generated150/generated150-wrong-pattern-diagnosis.png",
+      "sha256": "6c6e6cdc9a06e1bc7522582cb30e9003bf6740bc11fb87404be17012a38da2d0",
+      "review": "Actual generated-control app view inspected. Numeric results and costs legible; no camera imagery. Wrong-pattern case correctly has no visible return rows, rather than invented recovery."
+    }
+  ]
+}
