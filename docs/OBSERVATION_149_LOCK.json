@@ -1,7 +1,7 @@
 {
   "edition": 149,
   "parent": "d3012d4bf02ce3c2396439099e9011d391ff8780",
-  "lockedAtUtc": "2026-11-16T01:32:16.980978+00:00",
+  "lockedAtUtc": "2026-11-16T01:43:26.101305+00:00",
   "methods": [
     "path-confirmation-148",
     "identity-monitor-149",
@@ -51,7 +51,7 @@
     "docs/publication148/prepare-webcam148.py": "3911e62cf0024747331e6c90ec8f7d47d149680bf25aaa9be683e6a899239fe9",
     "docs/publication148/restart148.cjs": "96243c99013f21ca51f0e353a731c7b0f7cd8b2144184e74d24a45f8f0d370df",
     "docs/publication148/test-preflight148.py": "36a50902cdb10b0b28c0d9aea1c2ed7d543ce46748e6ca16fa780b714842c878",
-    "docs/publication149/PROTOCOL_149.md": "70fd132e5e718072b28a36c22cac163a7655850924c0b05b348905fd443d1d1b",
+    "docs/publication149/PROTOCOL_149.md": "5a707f8ea0cceb297901ba2ba63e9145fd594e2d9f465b735d18a45be96f1337",
     "docs/publication149/capture149.cjs": "06dcd109fa231a19e63c03072960ca7da9f22cc0bc108bc1b162bf91bcd5ceaf",
     "docs/publication149/restart149.cjs": "64c689c73187401ff58fdabee01f4be2850dce5fb486b8fc5d7750a087cdaa7d",
     "workspace-desktop/renderer/association134-panel.js": "689c96cefba7fe66392837bdcaccdfb9b69b3597e1900f06f89a9c15d0c1c6e5",
@@ -105,7 +105,7 @@
     "workspace-engine/src/main/java/fraymus/workspace/ReturnGate148.java": "644a62a0de1230db4da8129db4650b510c14cec54fac071ce71d33ff036dc7af",
     "workspace-engine/src/main/java/fraymus/workspace/ReturnSearch148.java": "3a69ddd9fcaf2302d510fd42d3ef381f5edb8be6bdfbd751111263fadb767356",
     "workspace-engine/src/main/java/fraymus/workspace/SpatialEvidence139.java": "66908d3c7d6d2f25654249b43701f2c702ea1a918707eabb92f7a4a0c569096b",
-    "workspace-engine/src/main/java/fraymus/workspace/StructureSearch149.java": "11e007e688d69482b025aa6920b960bff46e3b2093b81d9adc0bba1948364ae6",
+    "workspace-engine/src/main/java/fraymus/workspace/StructureSearch149.java": "fea5756d681abb7010396035bdd6641f3683d46be2f1a628c2d8cea64ea605f4",
     "workspace-engine/src/main/java/fraymus/workspace/TrajectoryAudit145.java": "e74976701c3bb49b461d0861342202dd4b05c444abeefd22df40f6119c15ada2",
     "workspace-engine/src/main/java/fraymus/workspace/TrajectoryGate145.java": "cebcf964e4d2720d7a5bd35cef8f721fece90f8f8ebc6479835c8afdfbc51413",
     "workspace-engine/src/main/java/fraymus/workspace/TrajectoryRecovery145.java": "d57c6432e12eb9c4b6f798e8fe4dd2dd274723fc11da611e315a52524af3dac9",
@@ -122,8 +122,8 @@
     "workspace-engine/src/test/java/fraymus/workspace/DiagnosticSearch148.java": "7f7db00b1c0db6973be83efcaecf86508c600a1380d63435a9d19662ef7e511d",
     "workspace-engine/src/test/java/fraymus/workspace/DriftGuard138Test.java": "6e2576cb25916d6275fcdc802a20ccd93fe707f3c315441963013a415f2b60d4",
     "workspace-engine/src/test/java/fraymus/workspace/ForegroundGuard139Test.java": "cf5e961a8f9eddce22f02a4f6c7d5d367027fe4d18d426b1f4c465de05aab9ea",
-    "workspace-engine/src/test/java/fraymus/workspace/IdentityReserved149Test.java": "6fbe197e3f00b3b81ff4594986cb6dea5892ee4945e5eb724caa40dad3778155",
-    "workspace-engine/src/test/java/fraymus/workspace/IdentityReturn149Test.java": "893de6af70cac6b66e6d760a28df3452d8144ff30086bea18ff0bc6c3ce11349",
+    "workspace-engine/src/test/java/fraymus/workspace/IdentityReserved149Test.java": "6da67d695108a4669a6b331c4348ba1b1ef4dc854c5f391bd4776baf1e266e4a",
+    "workspace-engine/src/test/java/fraymus/workspace/IdentityReturn149Test.java": "eb5de07d7a3655ac2cb610cb780f50d4d8ce0dd6a9b1a82ff2f7492eb85aed18",
     "workspace-engine/src/test/java/fraymus/workspace/LossRecovery141Test.java": "15e3c8590740cb9844205533fe29263462bad5940bb1037a027da22b25e4940d",
     "workspace-engine/src/test/java/fraymus/workspace/PartialFixtures142.java": "0d60accc5e6c48434ccc4fec60bf46224590c493521c06b0b537c6c6f90c55fd",
     "workspace-engine/src/test/java/fraymus/workspace/PartialRecovery142Test.java": "31bcb44ee81fe94883e0c67c34e29bd6dbdfa5274d3307f2739bc32d7d47e162",
@@ -133,5 +133,8 @@
     "workspace-engine/src/test/java/fraymus/workspace/ReturnFixtures146.java": "b3d09c43d295aa8bb90d993b2ae714397c4c86a1dd5658f21fa0d8491c7c1a00",
     "workspace-engine/src/test/java/fraymus/workspace/TrajectoryFixtures145.java": "1d665345b7f48913a24536f229ec7400da6e329db967b4b32357525665c15f7c"
   },
-  "scope": "Full structural identity evidence followed by a new observed motion segment. Defaults unchanged; no automatic appearance admissions or physical action authority. Existing148 footage is exposed; reserved generated cases execute only after this lock is committed."
+  "scope": "Revision2 adds bounded search proposals from recent full matches and enforces geometry bounds. Identity thresholds unchanged. First frozen cohort failed zero added recovery and is preserved as exposed regression. New reserved cohort149401/149509/149601 runs only after this revision is committed. No promotion or fresh-camera qualification.",
+  "revision": 2,
+  "previousLockSha256": "30a8c1869f84755490cf0998f3f84f119e94ced313b236588128e7bf10918123",
+  "previousImplementation": "9e19970a"
 }

@@ -51,6 +51,10 @@ public class IdentityReturn149Test {
   assertThrows(IllegalArgumentException.class,()->new IdentityReturn149("body","object",frame(0,false),seed(),m,true));
   var search=new StructureSearch149(frame(0,false),seed(),refs());assertThrows(IllegalArgumentException.class,()->search.search(new BufferedImage(640,480,BufferedImage.TYPE_INT_RGB)));
  }
+ @Test public void searchNeverReturnsCollapsedOrOutOfBoundsGeometry(){
+  var tiny=new PixelTracker.Box(.1,.2,.026,.04);var first=scene(32,48,9,14977,false,false,false);var memory=refs();
+  var search=new StructureSearch149(first,tiny,memory);for(var match:search.search(first))assertTrue(match.box().toString(),match.box().measurable());
+ }
  @Test public void runtimeRebuildsStructureFromVerifiedOriginalsAndRefusesTampering()throws Exception{
   try(var f=new VerifiedAppearances135Test.Fixture()){
    var set=f.service.retain(f.audit.getString("id"));int revision=f.observations.state(f.world).getJSONObject("estimate").getInt("revision");

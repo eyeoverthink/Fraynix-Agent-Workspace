@@ -13,9 +13,11 @@ public class IdentityReserved149Test {
   boolean hidden=i>=5&&i<=22||repeated&&i==29;int x=i<5?32+2*i:128+2*(i-23);
   return scene(x,48,80,i<5?seed+50:wrong?seed+1:seed,hidden,false,false);
  }
- @Test public void reservedTexturesCoverReturnWrongPatternAndSecondLoss()throws Exception{
+ @Test public void exposedFirstCohortRegression()throws Exception{runSuite(new int[]{149101,149211,149307},"identity149-exposed-v2");}
+ @Test public void reservedTexturesCoverReturnWrongPatternAndSecondLoss()throws Exception{runSuite(new int[]{149401,149509,149601},"identity149-reserved-v2");}
+ static void runSuite(int[] textures,String directory)throws Exception{
   var cases=new JSONArray();int totalAdded=0;
-  for(int seed:new int[]{149101,149211,149307})for(String kind:new String[]{"return","wrong-pattern","second-loss"}){
+  for(int seed:textures)for(String kind:new String[]{"return","wrong-pattern","second-loss"}){
    boolean wrong=kind.equals("wrong-pattern"),repeated=kind.equals("second-loss");var t=new IdentityReturn149("body","reserved generated object",frame(seed,0,wrong,repeated),seed(),refs(seed),true);
    int visible=0,hidden=0,correct=0,incorrect=0,added=0,hiddenOutputs=0;var trace=new JSONArray();
    for(int i=1;i<=35;i++){
@@ -29,7 +31,7 @@ public class IdentityReserved149Test {
    totalAdded+=added;cases.put(new JSONObject().put("textureSeed",seed).put("case",kind).put("visible",visible).put("hidden",hidden).put("correct",correct).put("incorrect",incorrect).put("hiddenOutputs",hiddenOutputs).put("additional",added).put("trace",trace));
   }
   var result=new JSONObject().put("schema","reserved-generated-149-v1").put("cases",cases).put("additional",totalAdded).put("scope","Generated images with reserved textures and exact rendered boxes. Not real footage; no semantic identity or physical calibration claim.");
-  var dir=Path.of("build/identity149-reserved");Files.createDirectories(dir);var file=dir.resolve("result.json");
+  var dir=Path.of("build",directory);Files.createDirectories(dir);var file=dir.resolve("result.json");
   if(Files.exists(file))assertTrue("Repeated execution must preserve first reserved result",new JSONObject(Files.readString(file)).similar(result));else Files.writeString(file,result.toString(2));
   assertTrue("Require useful recovery in at least one reserved generated sequence",totalAdded>0);
  }

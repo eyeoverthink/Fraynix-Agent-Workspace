@@ -12,6 +12,7 @@ final class StructureSearch149 {
         JSONObject json(){return new JSONObject().put("box",box.json()).put("sourceKey",key).put("score",score).put("colorError",colorError).put("quadrantError",quadrantError).put("gradient",gradient).put("rivalScore",rival).put("fullObject",true).put("strong",strong).put("unique",unique);}
     }
     private final List<Example> refs=new ArrayList<>();
+    private final Map<String,Peak> observedSearchSeeds=new LinkedHashMap<>();
     private final PixelTracker.Box seed;
     private final int width,height;
     private int evaluations;
@@ -69,12 +70,12 @@ final class StructureSearch149 {
     }
     List<Match> search(BufferedImage image){
         if(image.getWidth()!=width||image.getHeight()!=height)throw new IllegalArgumentException("Frame dimensions changed");
-        evaluations=0;var peaks=new ArrayList<Peak>();
+        evaluations=0;var peaks=new ArrayList<Peak>(observedSearchSeeds.values());
         for(double f:new double[]{.75,.9,1,1.25,1.5}){
             double w=seed.w()*f,h=seed.h()*f;if(w<.025||h<.025||w>1||h>1)continue;
             double step=Math.max(1./192,Math.min(.025,Math.min(w,h)/3));var candidates=new ArrayList<List<Peak>>();for(var ref:refs)candidates.add(new ArrayList<>());
             for(int y=0;y<=Math.ceil((1-h)/step);y++)for(int x=0;x<=Math.ceil((1-w)/step);x++){
-                var box=new PixelTracker.Box(Math.min(1-w,x*step),Math.min(1-h,y*step),w,h);var d=sample(image,box,8);
+                var box=new PixelTracker.Box(Math.min(1-w,x*step),Math.min(1-h,y*step),w,h);if(!box.measurable())continue;var d=sample(image,box,8);
                 for(int r=0;r<refs.size();r++){var ref=refs.get(r);candidates.get(r).add(new Peak(box,correlation(ref.coarse,d),step,ref));evaluations++;}
             }
             for(var candidatesForRef:candidates){candidatesForRef.sort(Comparator.comparingDouble(Peak::score).reversed());var chosen=new ArrayList<Peak>();
@@ -86,14 +87,17 @@ final class StructureSearch149 {
             for(double f:new double[]{.96,1,1.04}){double w=peak.box.w()*f,h=peak.box.h()*f;if(w>1||h>1)continue;
                 for(double y=Math.max(0,peak.box.y()-peak.step);y<=Math.min(1-h,peak.box.y()+peak.step)+1e-10;y+=1./768)
                 for(double x=Math.max(0,peak.box.x()-peak.step);x<=Math.min(1-w,peak.box.x()+peak.step)+1e-10;x+=1./768){
-                    var found=full(image,new Peak(new PixelTracker.Box(x,y,w,h),0,0,peak.ref));if(found.score>best.score)best=found;
+                    var box=new PixelTracker.Box(x,y,w,h);if(!box.measurable())continue;var found=full(image,new Peak(box,0,0,peak.ref));if(found.score>best.score)best=found;
                 }
             }refined.add(best);
         }
-        var result=new ArrayList<Match>();
+        var result=new ArrayList<Match>();observedSearchSeeds.clear();
         for(var ref:refs){var top=refined.stream().filter(p->p.key.equals(ref.key)).max(Comparator.comparingDouble(Match::score)).orElseThrow();
             double rival=refined.stream().filter(p->PixelTracker.iou(p.box,top.box)<.25&&p.colorError<=.14).mapToDouble(Match::score).max().orElse(-1);
             result.add(new Match(top.box,top.key,top.score,top.colorError,top.quadrantError,top.gradient,rival,top.strong,top.strong&&rival<top.score-.08));
+            // A prior strong crop proposes one bounded search region only. Its old pixels, score and
+            // position do not count as current evidence; full matching and global rivals run again.
+            if(top.strong)observedSearchSeeds.put(ref.key,new Peak(top.box,top.score,.025,ref));
         }return List.copyOf(result);
     }
     int evaluations(){return evaluations;}
