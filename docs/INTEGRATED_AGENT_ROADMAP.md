@@ -1,3 +1,9 @@
+## Edition153 continuity — 2026-11-16
+
+The explicit Java experiment confirms 23/30 returned frames on the exposed camera recording, versus 0/30 with edition 152. It has 31/42 correct visible/partial observations, 11 withheld, 0 wrong overlaps, 0/30 hidden outputs and 0 matches to the labelled red object. Both new rendered return cases recover correct observations; wrong-only, changed-quadrant and identical-copy returns are refused. The paired search measurement is 4.35× faster with exactly identical scalar/optimized traces. Defaults remain unchanged; this is recorded evidence, not fresh physical validation.
+
+Read [edition153](../README-153.md). Keep the unified Java agent/world/browser/creation direction. Next: new physical evidence, verified incumbent continuity and complete cost reduction.
+
 ## Edition152 continuity — 2026-11-16
 
 The explicit Java search handles rotated proposals without supplied return locations. On the two new generated returns it accepts 7/13 visible samples versus 4/13 for the simple default, with no wrong or hidden outputs. It refuses the identical-copy return. On the exposed camera recording it accepts 8/42 visible/partial samples, with 34 withheld, 0/30 hidden outputs and 0 matches to the labelled red object. Search proposals overlap all 30 returned camera frames, but none earns full confirmation. Defaults remain unchanged; fresh physical validation is pending.

@@ -1,3 +1,15 @@
+## Edition 153 — locally verified; publication pending
+
+2026-11-16. Java target eyeoverthink/Fraynix-Agent-Workspace; isolated J:/Codex-Work/fraynix-workspace-edition153. No subagents. One heavy check at a time.
+
+The explicit Java experiment confirms 23/30 returned frames on the exposed camera recording, versus 0/30 with edition 152. It has 31/42 correct visible/partial observations, 11 withheld, 0 wrong overlaps, 0/30 hidden outputs and 0 matches to the labelled red object. Both new rendered return cases recover correct observations; wrong-only, changed-quadrant and identical-copy returns are refused. The paired search measurement is 4.35× faster with exactly identical scalar/optimized traces. Defaults remain unchanged; this is recorded evidence, not fresh physical validation.
+
+26 selected Java checks and 164 desktop checks passed, with no failures or skipped cases. Five generated app comparisons and one exposed-camera comparison passed execution, restart and source-integrity checks. Scalar and optimized traces match exactly on all six sources. Independent source geometry and separate outcome/cost gates passed. These are scoped checks, not a rerun of every historical capability. The user selected recorded tests only.
+
+The first eight-check development suite passed. The exposed fast development replay produced 23 correct returned observations; it was not a held-out result. The implementation and qualification gates were committed before rendering the five reserved sources. The final regression, arithmetic comparisons and actual-app evidence are retained separately. No failed reserved app attempt is omitted; the recorded final attempts passed their execution checks.
+
+Read README-153.md and docs/publication153/plan153.md. Keep original world/browser/creation direction, every historical tracker identity, defaults and source/outcome checks. Original private sources preserved. User selected recorded tests only; no camera active. No automatic appearance admission or physical action authority. Hosted CI status is separate from local verification.
+
 ## Edition 152 — published and fetched back
 
 2026-11-16. Release f440eea0810bb41d7941de2d7429a2bc456ad0f8; main, edition152 and readme-152 pushed atomically and fetched. Full152 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_152.json. Experimental search shipped; defaults unchanged and fresh physical validation pending. The following local-study notes retain their original chronology.

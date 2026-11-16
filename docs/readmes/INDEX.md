@@ -1,3 +1,5 @@
+[Edition153 — rotated confirmation and measured cost](../../README-153.md) | [Offline guide](153/index.html)
+
 [Edition152 — rotation search without return labels](../../README-152.md) | [Offline guide](152/index.html)
 
 [Edition151 — return diagnosis and verified replay](../../README-151.md) | [Offline guide](151/index.html)

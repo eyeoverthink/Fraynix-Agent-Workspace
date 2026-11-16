@@ -1,0 +1,149 @@
+{
+  "passed": true,
+  "generated": [
+    {
+      "case": "return-53",
+      "passed": true,
+      "acceptedReturns": 10,
+      "correctReturns": 10,
+      "summary": {
+        "visible": 17,
+        "unsupported": 0,
+        "correct": 11,
+        "hidden": 5,
+        "confirmedDistractorMatches": 0,
+        "missing": 6,
+        "overlapFailures": 0
+      }
+    },
+    {
+      "case": "moving-return-minus113",
+      "passed": true,
+      "acceptedReturns": 10,
+      "correctReturns": 10,
+      "summary": {
+        "visible": 17,
+        "unsupported": 0,
+        "correct": 11,
+        "hidden": 5,
+        "confirmedDistractorMatches": 0,
+        "missing": 6,
+        "overlapFailures": 0
+      }
+    },
+    {
+      "case": "wrong-only",
+      "passed": true,
+      "acceptedReturns": 0,
+      "correctReturns": 0,
+      "summary": {
+        "visible": 4,
+        "unsupported": 0,
+        "correct": 1,
+        "hidden": 18,
+        "confirmedDistractorMatches": 0,
+        "missing": 3,
+        "overlapFailures": 0
+      }
+    },
+    {
+      "case": "near-copy-only",
+      "passed": true,
+      "acceptedReturns": 0,
+      "correctReturns": 0,
+      "summary": {
+        "visible": 4,
+        "unsupported": 0,
+        "correct": 1,
+        "hidden": 18,
+        "confirmedDistractorMatches": 0,
+        "missing": 3,
+        "overlapFailures": 0
+      }
+    },
+    {
+      "case": "copy-veto",
+      "passed": true,
+      "acceptedReturns": 0,
+      "correctReturns": 0,
+      "summary": {
+        "visible": 17,
+        "unsupported": 0,
+        "correct": 1,
+        "hidden": 5,
+        "confirmedDistractorMatches": 0,
+        "missing": 16,
+        "overlapFailures": 0
+      }
+    }
+  ],
+  "cameraSafeOnExposedLabels": true,
+  "cameraAcceptedReturns": 23,
+  "pairedSearchMs": {
+    "SCALAR": [
+      30776.8393,
+      30753.4318,
+      30943.7687
+    ],
+    "PRECOMPUTED": [
+      7073.4921,
+      7075.1765,
+      7067.7587
+    ]
+  },
+  "medianSearchSpeedup": 4.351010627409904,
+  "fullCameraTraceExactlyEqual": true,
+  "generatedArithmetic": {
+    "passed": true,
+    "cases": [
+      {
+        "case": "return-53",
+        "sourcePackSha256": "c28a5e63b2fe5c683029b508c68544f14914c14bb055395f8d6305668863662c",
+        "result": "build/arithmetic153/return-53/result.json",
+        "resultSha256": "75f7d0751f1df8e9eb814b1ccfeec05b4f872bff3200c9b91f7231c5f65c4e93",
+        "scalarMs": 9113.7511,
+        "optimizedMs": 3861.1826,
+        "rowsCompared": 22
+      },
+      {
+        "case": "moving-return-minus113",
+        "sourcePackSha256": "b8dfd95b038d755726da39a34bf3553961b71c7ce97b0173b9da6bb6a40c36c7",
+        "result": "build/arithmetic153/moving-return-minus113/result.json",
+        "resultSha256": "734abafd9ff4539b064c337397f3479122d81cdb59596dc6b02a044903c9b566",
+        "scalarMs": 9138.4147,
+        "optimizedMs": 3810.7744,
+        "rowsCompared": 22
+      },
+      {
+        "case": "wrong-only",
+        "sourcePackSha256": "028b5cd2b1350d2a7c4650d8b22b3b289be5a76f2026d79c15d279086e95307d",
+        "result": "build/arithmetic153/wrong-only/result.json",
+        "resultSha256": "3d029ced97e60874d40f5bece0daeed711a4ca246f335146e283619140ade015",
+        "scalarMs": 8883.3472,
+        "optimizedMs": 3847.2544,
+        "rowsCompared": 22
+      },
+      {
+        "case": "near-copy-only",
+        "sourcePackSha256": "abb44b859bb7d556049866c86059bc01ed6beeeccb5895fcd207d3005e4cf047",
+        "result": "build/arithmetic153/near-copy-only/result.json",
+        "resultSha256": "cc9f3f06620baeb96948cfb0a4a8bdcd4334de5ccefb33ff61c346b9ae260936",
+        "scalarMs": 9002.6193,
+        "optimizedMs": 3909.1222,
+        "rowsCompared": 22
+      },
+      {
+        "case": "copy-veto",
+        "sourcePackSha256": "857bea53b7ad5d3ce213270698e2de6f7f89f60454aa76cf11203a73939bc218",
+        "result": "build/arithmetic153/copy-veto/result.json",
+        "resultSha256": "2d38bd0937dd4f376d83c65ccdb9e4d1991665d1d9342f8e683236a5686db498",
+        "scalarMs": 9101.9418,
+        "optimizedMs": 3958.4757,
+        "rowsCompared": 22
+      }
+    ],
+    "methodLockSha256": "c8791c8bcf1fb11901b2a5851257200efe7bd3c0b49c53a89a429624185bbdec",
+    "scope": "Full traces exactly equal for all five new rendered sources. No evaluation labels supplied."
+  },
+  "scope": "New rendered controls and exposed original camera, independently scored. Search arithmetic timings exclude source replay; actual app requests include verification. No fresh physical footage or default promotion."
+}
