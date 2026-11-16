@@ -4,14 +4,17 @@ const {launch}=require('../../workspace-desktop/test/calibration-integration.cjs
 const fs=require('node:fs/promises'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto'),cp=require('node:child_process');
 const repo=process.cwd(),prior=process.env.PRIOR151_ROOT;
 const group=process.env.STUDY151_GROUP||'webcam150-displaced-return';assert(['webcam150-displaced-return','generated150'].includes(group));assert(prior);
-const out=path.join(repo,'build/study151-'+group),project=path.join(out,'project'),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const attempt=process.env.STUDY151_ATTEMPT||'';assert(/^(|-[a-z0-9-]+)$/.test(attempt));
+const out=path.join(repo,'build/study151-'+group+attempt),project=path.join(out,'project'),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 async function inventory(root){const result={};async function walk(folder){for(const item of await fs.readdir(folder,{withFileTypes:true})){const file=path.join(folder,item.name);if(item.isSymbolicLink())throw Error('Linked source refused');if(item.isDirectory())await walk(file);else result[path.relative(root,file).replaceAll('\\','/')]=sha(await fs.readFile(file));}}await walk(root);return result;}
 (async()=>{
+ require('../../scripts/Study-Build095.cjs').verify(repo);
+ const lock=JSON.parse(await fs.readFile('docs/OBSERVATION_151_LOCK.json','utf8'));for(const [name,digest]of Object.entries(lock.sourceHashes))assert.equal(sha((await fs.readFile(name,'utf8')).replaceAll('\r\n','\n')),digest,name);
  assert(!(await fs.stat(out).catch(()=>null)),'Keep prior attempts; use a new named output if retry is needed');await fs.mkdir(out,{recursive:true});
  const source=path.join(prior,'build/reference150-'+group+'-app'),study=JSON.parse(await fs.readFile(path.join(source,'result.json'),'utf8'));assert(study.passed);
  const beforeSource=await inventory(path.join(source,'project'));await fs.cp(path.join(source,'project'),project,{recursive:true});assert.deepEqual(await inventory(project),beforeSource);
  Object.assign(process.env,{FRAYNIX_WORKSPACE_PERSISTENT:'0',FRAYNIX_WORKSPACE_JAVA_HEAP_MIB:'768',FRAYNIX_WORKSPACE_JAVA_PROCESSORS:'2'});
- const result={passed:false,source:cp.execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),startedAt:new Date().toISOString(),group,domain:group==='generated150'?'exposed generated controls':'exposed edition150 camera footage',priorReceiptSha256:sha(await fs.readFile(path.join(source,'result.json'))),sourceFiles:Object.keys(beforeSource).length,checks:[],cases:[],captures:[],errors:[]};
+ const result={passed:false,source:cp.execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),methodLockSha256:sha(await fs.readFile('docs/OBSERVATION_151_LOCK.json')),buildReceiptSha256:sha(await fs.readFile('build/study095-build.json')),startedAt:new Date().toISOString(),group,domain:group==='generated150'?'exposed generated controls':'exposed edition150 camera footage',priorReceiptSha256:sha(await fs.readFile(path.join(source,'result.json'))),sourceFiles:Object.keys(beforeSource).length,checks:[],cases:[],captures:[],errors:[]};
  let app,page;const save=()=>fs.writeFile(path.join(out,'result.json'),JSON.stringify(result,null,2)+'\n');
  const api=(route,args={})=>app.evaluate((_,x)=>global.workspaceTest.api(x.route,x.args),{route,args});
  const read=(id,forceReplay=false)=>api('/api/association134/verified-read151',{id,forceReplay});
