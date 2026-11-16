@@ -75,7 +75,7 @@ final class ReplayEvidence151 {
     }
     private static void collect(Path root,String name,Map<String,Path> leaves,boolean classesOnly)throws Exception {
         if(!Files.exists(root,LinkOption.NOFOLLOW_LINKS)){if(classesOnly)throw new IllegalStateException("Implementation missing");leaves.put(name+"/MISSING",null);return;}
-        Path real=root.toRealPath();if(!real.equals(root.toAbsolutePath().normalize()))throw new IllegalStateException("Evidence memo does not follow linked paths");
+        Path real=unlinkedRealPath(root);
         leaves.put(name+"/PRESENT",null);
         try(var stream=Files.walk(root)) {
             var iterator=stream.iterator();while(iterator.hasNext()){
@@ -89,5 +89,14 @@ final class ReplayEvidence151 {
                 if(leaves.size()>MAX_FILES)throw new TooLarge();
             }
         }
+    }
+    // Windows 8.3 spellings (for example RUNNER~1) are aliases, not links. Check
+    // every actual path component before canonicalizing; junctions/reparse points
+    // and symbolic links remain refused, including links in an ancestor directory.
+    static Path unlinkedRealPath(Path root)throws Exception {
+        Path absolute=root.toAbsolutePath().normalize(), current=absolute.getRoot();
+        for(Path part:absolute){current=current.resolve(part);var a=Files.readAttributes(current,java.nio.file.attribute.BasicFileAttributes.class,LinkOption.NOFOLLOW_LINKS);
+            if(a.isSymbolicLink()||a.isOther())throw new IllegalStateException("Evidence memo does not follow linked paths");}
+        return absolute.toRealPath();
     }
 }

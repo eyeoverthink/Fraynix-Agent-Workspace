@@ -50,6 +50,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final AssociationAudit134 association134;
     private final ReplayEvidence151 replay151;
     private final ReturnDiagnosis151 diagnosis151;
+    private final RotationExperiment152 rotation152;
     private final VerifiedAppearances135 appearances135;
     private final TabletopStore tabletop;
     private final KnowledgeStore knowledge;
@@ -74,6 +75,7 @@ public final class WorkspaceServer implements AutoCloseable {
         costs087=new CalibrationCosts087(project,goals);
         replay151=new ReplayEvidence151(project,association134);
         diagnosis151=new ReturnDiagnosis151(observations,association134,replay151);
+        rotation152=new RotationExperiment152(project,observations,association134,replay151);
         skillMemory=new SkillMemory048(project,goals);
         evidence049=new EvidenceStore049(project);
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
@@ -360,6 +362,8 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/association134/audit-read" -> result=association134.readAudit(input.getString("id"));
                     case "/api/association134/verified-read151" -> {SpatialScene.keys(input,"id","forceReplay");result=replay151.read(input.getString("id"),input.optBoolean("forceReplay",false));}
                     case "/api/association134/diagnose151" -> {SpatialScene.keys(input,"id");result=diagnosis151.diagnose(input.getString("id"));}
+                    case "/api/association134/search152" -> {SpatialScene.keys(input,"id");result=rotation152.run(input.getString("id"));}
+                    case "/api/association134/search152-read" -> {SpatialScene.keys(input,"id");result=rotation152.read(input.getString("id"));}
                     case "/api/contact133/state" -> result=contact133.state();
                     case "/api/contact133/audit" -> result=contact133.audit(input);
                     case "/api/contact133/read" -> result=contact133.read(input.getString("id"));
