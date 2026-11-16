@@ -1,3 +1,9 @@
+## Edition 150 — observation evidence in the connected application
+
+[Edition 150](../README-150.md) retains an explicitly verified starting appearance even when novelty filtering correctly admits no learned examples. Generated recovery and restart checks remain separate from physical-camera outcomes. The new displaced-return recording still has 31 missing observations out of 42 visible/partial samples for all compared methods; no tracker is promoted.
+
+The persistent Java world, Game Lab, browser and creation workflows remain the architectural foundation. Future observation-driven world or artifact requests must carry original evidence links and distinguish measured, predicted and unknown state. Unresolved image correspondence does not authorize a physical action. Continue the existing level-construction/playtesting plan below alongside independently qualified perception work.
+
 ## Edition 149 / 2026-11-15 — new identity evidence before new motion
 
 [Edition 149](../README-149.md) adds an explicit Java experiment: four adjacent full-reference matches and checked flow can establish a new observed motion segment after a long loss. Previously observed competitors remain a veto; predictions cannot authorize identity or enter memory. A failed first search implementation is preserved. The revised reserved generated cohort adds 48 correct observations without wrong or hidden outputs. The exposed 148 lighter comparison remains 11/30 correct with zero added recovery. New footage is explicitly exploratory because its 62-sample cover exceeds the frozen 60-sample ceiling; the full 93-frame event is preserved. Its correctly tracked donor 23/23 yields no learned reference because repeated appearances are rejected as duplicates, so 148/149 comparisons are unavailable. The existing 139 fallback reaches 29/30 visible samples with 0/62 hidden outputs and zero labelled-other matches. No 149 promotion follows.

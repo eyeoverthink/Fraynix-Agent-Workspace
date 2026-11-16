@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "reviewedBy": "assistant-visual-inspection",
+  "images": [
+    {
+      "path": "build/reference150-black-lighter-long-cover-exploratory-review/black-lighter-long-cover-exploratory-32-foreground-guard-139-results.png",
+      "sha256": "f6853e78e94a82ae19df70396c33672c61adb588d2344b8c5d153be50ae08408",
+      "reviewedAtUtc": "2026-11-16T08:32:27.179101+00:00",
+      "notes": "Viewed actual image. Readable 29/30 result and refusal/scope text; no private camera imagery; evidence section remains collapsed."
+    },
+    {
+      "path": "build/reference150-black-lighter-long-cover-exploratory-review/black-lighter-long-cover-exploratory-32-path-confirmation-148-results.png",
+      "sha256": "92577e120eb405e36e4960bd2c6512ef8d036dbce345670ca94df7de62f64604",
+      "reviewedAtUtc": "2026-11-16T08:32:27.179101+00:00",
+      "notes": "Viewed actual image. Readable 29/30 result and refusal/scope text; no private camera imagery; evidence section remains collapsed."
+    },
+    {
+      "path": "build/reference150-black-lighter-long-cover-exploratory-review/black-lighter-long-cover-exploratory-32-identity-monitor-149-results.png",
+      "sha256": "7eef48a7cfab581abc6d2d532ae21e1fe6ec7dbddcbf948c85bc8a8b6640fc8e",
+      "reviewedAtUtc": "2026-11-16T08:39:04.564570+00:00",
+      "notes": "Viewed actual image. Readable 29/30 result, zero additional returns and preserved-parent scope; no private camera imagery."
+    },
+    {
+      "path": "build/reference150-black-lighter-long-cover-exploratory-review/black-lighter-long-cover-exploratory-32-identity-return-149-results.png",
+      "sha256": "a2db70234a24b43552cc3c971cc225b288557f6207e9b7facea047ad3772ed38",
+      "reviewedAtUtc": "2026-11-16T08:44:39.178310+00:00",
+      "notes": "Viewed actual image. Readable 29/30 result and zero additional returns; no private imagery."
+    },
+    {
+      "path": "build/reference150-controls/starting-reference-controls.png",
+      "sha256": "c66c981a34dad23a75694931791b7324dadb3287e9df9dc67b18c9b0fb22b0c6",
+      "reviewedAtUtc": "2026-11-16T08:44:39.178310+00:00",
+      "notes": "Viewed actual app controls. Retention button, explanation, source-check status and 23/23 result are readable. Existing fixed footer overlaps the bottom collapsed-evidence area, not the new control or scored result. No private camera imagery."
+    },
+    {
+      "path": "build/reference150-controls/retained-starting-reference.png",
+      "sha256": "e66ed201d6de366f0431842eb82a56e8990d9718dc7d60b4cf62c4eb46a1e711",
+      "reviewedAtUtc": "2026-11-16T08:44:39.178310+00:00",
+      "notes": "Viewed actual selector. The retained set visibly says verified start and 0 learned, with same-object declaration and source-check explanation; no private camera imagery."
+    },
+    {
+      "path": "build/reference150-webcam150-displaced-return-review/webcam150-displaced-return-25-identity-return-149-results.png",
+      "sha256": "a6dbeb1cdd8e330b78ee206b876773cb83ba1f6b608600935faf015d255f6357",
+      "reviewedAtUtc": "2026-11-16T08:45:28.175347+00:00",
+      "notes": "Viewed actual fresh-camera result: 11/42 correct, 31 missing, 0/30 hidden, zero labelled-other matches and zero additional returns. Scope readable and private source imagery absent."
+    },
+    {
+      "path": "build/reference150-generated150-review/generated150-return-identity-return-149-results.png",
+      "sha256": "eaf40070929ab80765af71d052a88959cce3cf4f5dbd03cf4e47bebeae5b92d7",
+      "reviewedAtUtc": "2026-11-16T08:47:51.165051+00:00",
+      "notes": "Viewed generated return: 24/27 correct, 20 additional correct, zero incorrect or hidden outputs; readable scope and no source imagery."
+    },
+    {
+      "path": "build/reference150-generated150-review/generated150-wrong-pattern-identity-return-149-results.png",
+      "sha256": "57d60ca14b7aa895e2950e8e2accf90ed17836efca12e649f9c845f5b164e399",
+      "reviewedAtUtc": "2026-11-16T08:47:51.165051+00:00",
+      "notes": "Viewed generated wrong-pattern control: 4/4 initial visible, 0/41 hidden/out-of-view, zero additional or other-object matches; readable scope and no source imagery."
+    }
+  ]
+}

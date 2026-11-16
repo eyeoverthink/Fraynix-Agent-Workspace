@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "guard",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/StartingReference150.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "reference",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/VerifiedAppearances135.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "audit",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/IdentityAudit149.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "recorder",
+      "type": "file",
+      "file": "workspace-desktop/renderer/recorder150-timing.js",
+      "x": 1290,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "guard",
+      "toNode": "reference"
+    },
+    {
+      "id": "1",
+      "fromNode": "reference",
+      "toNode": "audit"
+    },
+    {
+      "id": "2",
+      "fromNode": "audit",
+      "toNode": "recorder"
+    }
+  ]
+}

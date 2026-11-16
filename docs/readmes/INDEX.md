@@ -1,3 +1,5 @@
+[Edition150 — verified starting references](../../README-150.md) | [Offline guide](150/index.html)
+
 [Edition149 — fresh identity and observed motion](../../README-149.md) | [Offline guide](149/index.html)
 
 [Edition148 — motion-supported return confirmation](../../README-148.md) | [Offline guide](148/index.html)

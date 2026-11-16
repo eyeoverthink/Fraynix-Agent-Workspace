@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "startedAt": "2026-11-16T08:44:48.300Z",
+  "scope": "Focused actual app read-only candidate result views from a completed full comparison. Every original source/outcome check for the displayed run is preserved. Every image, canvas and video is hidden before screenshots. No new labels or tracking. The UI audit-read performs the original full audit once; the returned audit must exactly equal the completed study. Other methods remain in the complete original study receipt.",
+  "captures": [
+    {
+      "name": "generated150-return-identity-return-149-results.png",
+      "case": "generated150-return",
+      "policy": "identity-return-149",
+      "caption": "Actual saved identity-return-149 outcome comparison. Source camera pixels hidden; all counts retained."
+    },
+    {
+      "name": "generated150-wrong-pattern-identity-return-149-results.png",
+      "case": "generated150-wrong-pattern",
+      "policy": "identity-return-149",
+      "caption": "Actual saved identity-return-149 outcome comparison. Source camera pixels hidden; all counts retained."
+    }
+  ],
+  "captureHarnessSha256": "12831c599d9c332af215d2a807329fb4b35d3c48c256ffff2f68cf25b73c6a68",
+  "fullStudyRuns": 9,
+  "completedStateUnchanged": true,
+  "zeroObservationWrites": true,
+  "nativeWorldUnchanged": true,
+  "privatePixelsExcluded": true,
+  "endedAt": "2026-11-16T08:47:19.240Z"
+}
