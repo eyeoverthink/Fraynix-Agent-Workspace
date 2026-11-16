@@ -18,12 +18,26 @@ if group=='focused':
   source=r/'workspace-engine/build/test-results/test'
   if source.exists():shutil.copytree(source,folder/('focused-'+str(time.time_ns())),dirs_exist_ok=False)
 elif group=='java':
+ # The two new classes have already passed against this frozen production build.
+ # Preserve their original results, then run all382 prior checks plus the positive filter/audit chain once; do not rerun
+ # the expensive reserved cases solely to make a combined test report.
+ import xml.etree.ElementTree as ET
+ focused=folder/'focused-v2';focused.mkdir(exist_ok=True)
+ for name in ['IdentityReturn149Test','IdentityReserved149Test']:
+  src=r/'workspace-engine/build/test-results/test'/('TEST-fraymus.workspace.'+name+'.xml')
+  dst=focused/src.name
+  if not dst.exists():shutil.copy2(src,dst)
+  check=ET.parse(dst).getroot();assert int(check.get('failures','0'))+int(check.get('errors','0'))+int(check.get('skipped','0'))==0
+ import hashlib
+ lock=json.loads((r/'docs/OBSERVATION_149_LOCK.json').read_bytes())
+ for name,digest in lock['sourceHashes'].items():assert hashlib.sha256((r/name).read_bytes().replace(b'\r\n',b'\n')).hexdigest()==digest,name
  run('kernel149-final',['cmd','/c','gradlew.bat',':factory-kernel:verifyIntegration','--console=plain','--max-workers=2'])
- tests=['IdentityReturn149Test','ReturnConfirmation148Test','ReturnContinuity146Test','TrajectoryRecovery145Test','CalibrationStoreTest','AmbiguityGuard144Test','AppearanceConfirmation143Test','PartialRecovery142Test','LossRecovery141Test','CorroboratedGuard140Test','ForegroundGuard139Test','DriftGuard138Test','AppearanceFlow135Test','AppearanceAudit135Test','VerifiedAppearances135Test','ObservationCache136Test','Persistence137Test','ReferenceMemory137Test','VerifiedMemoryFlow137Test','DataCreation101Test','AppearanceFlow136Test','AppearanceAudit136Test','IdentityRecovery134Test','AssociationAudit134Test','AssociationContact133Test','ContactAudit133Test','ObservationLabels132Test','Tracking131Test','FlowTrackerTest','PhysicalAudit130Test','Tracking130Test','ObservationForecast129Test','Tracking129Test','ObservationArtifact128Test','MetricObservationStoreTest','WorldObservationStoreTest','ObservationFilterTest','PlaneCalibrationTest','ProcedureLifecycle127Test','ProcedureGraph127Test','SkillGraph046Test','GoalRunnerTest','MotionDataTest','CreationTest','ProceduralTest','WorkflowTest','DataSummary104Test','Qualification105Test','Archive110Test','GoalArchive111Test','ChatArchive112Test','Agency043Test','Domain044Test','CreationPlanner044Test','BrowserOutcome126Test','WitnessRecovery126Test']
+ tests=['IdentityMotion149Test','ReturnConfirmation148Test','ReturnContinuity146Test','TrajectoryRecovery145Test','CalibrationStoreTest','AmbiguityGuard144Test','AppearanceConfirmation143Test','PartialRecovery142Test','LossRecovery141Test','CorroboratedGuard140Test','ForegroundGuard139Test','DriftGuard138Test','AppearanceFlow135Test','AppearanceAudit135Test','VerifiedAppearances135Test','ObservationCache136Test','Persistence137Test','ReferenceMemory137Test','VerifiedMemoryFlow137Test','DataCreation101Test','AppearanceFlow136Test','AppearanceAudit136Test','IdentityRecovery134Test','AssociationAudit134Test','AssociationContact133Test','ContactAudit133Test','ObservationLabels132Test','Tracking131Test','FlowTrackerTest','PhysicalAudit130Test','Tracking130Test','ObservationForecast129Test','Tracking129Test','ObservationArtifact128Test','MetricObservationStoreTest','WorldObservationStoreTest','ObservationFilterTest','PlaneCalibrationTest','ProcedureLifecycle127Test','ProcedureGraph127Test','SkillGraph046Test','GoalRunnerTest','MotionDataTest','CreationTest','ProceduralTest','WorkflowTest','DataSummary104Test','Qualification105Test','Archive110Test','GoalArchive111Test','ChatArchive112Test','Agency043Test','Domain044Test','CreationPlanner044Test','BrowserOutcome126Test','WitnessRecovery126Test']
  args=['cmd','/c','gradlew.bat',':workspace-engine:test']
  for t in tests:args+=['--tests','fraymus.workspace.'+t]
  run('java149-final',args+['--console=plain','--max-workers=2'])
  shutil.copytree(r/'workspace-engine/build/test-results/test',folder/'final',dirs_exist_ok=False)
+ for xml in focused.glob('*.xml'):shutil.copy2(xml,folder/'final'/xml.name)
 elif group=='desktop':
  run('desktop149-final',['cmd','/c','npm.cmd','test'],r/'workspace-desktop')
  env['AGENCY043_OUTPUT']=str(r/'build/agency149-evidence')

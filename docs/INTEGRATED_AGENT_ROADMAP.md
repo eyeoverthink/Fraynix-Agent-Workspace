@@ -1,3 +1,16 @@
+## Edition 149 / 2026-11-15 — new identity evidence before new motion
+
+[Edition 149](../README-149.md) adds an explicit Java experiment: four adjacent full-reference matches and checked flow can establish a new observed motion segment after a long loss. Previously observed competitors remain a veto; predictions cannot authorize identity or enter memory. A failed first search implementation is preserved. The revised reserved generated cohort adds 48 correct observations without wrong or hidden outputs. The recorded lighter comparison remains 11/30 correct with zero added recovery, so the candidate is not promoted.
+
+This remains part of the unified local Java world, browser, Game Lab, creation and durable-chat system. Observation experiments supply evidence to useful tasks; they are not the destination. No game behavior, private world, default tracker or physical-action authority changes here.
+
+1. **Qualify fresh real returns before promotion.** Keep this method frozen, record a genuinely new long cover and displaced return, and label the original images before predictions. Include a same-color lookalike and a wrong-object-only interval. Report missed returns and wrong matches together; neither generated controls nor reuse of the exposed148 recording establishes fresh-camera performance.
+2. **Separate search failures from identity failures.** Measure whether a candidate was never found, failed full structure, conflicted with another object, or lost adjacent-flow support. Preserve strong identity criteria; improve bounded search coverage or acquire independently verified appearances instead of teaching the tracker its own drift. Keep all failed cohorts visible.
+3. **Measure the complete cost of useful recovery.** Compare the extra correct observations with global search, original-source verification, replay, save, restart and export time. Remove repeated work only when exact source/code/outcome equivalence is demonstrated. The current CPU experiment is not a real-time throughput guarantee.
+4. **Use qualified observations in the connected agent.** Build a durable chat report or working artifact that includes observed segments, separately marked forecasts, unresolved identity and original evidence links. Keep physical actions blocked on unresolved correspondence. Maintain the same Java world, browser, creation and Game Lab architecture.
+5. **Add independent evidence for stronger physical claims.** Use actual capture timestamps for time-based motion only after cadence tests. Calibrate scale and uncertainty against separately measured motion. An unseen identical swap needs additional observations or an independent witness; a high image-match score cannot resolve it by itself.
+
+
 ## Edition 148 / 2026-11-15 — movement evidence exposes the recovery limit
 
 [Edition 148](../README-148.md) adds measured-path support to per-appearance confirmation. Controlled checks recover two additional target observations and retain copy-only refusals. Fresh webcam footage shows no added recovery: existing 146 and both 148 modes produce 11/30 correct visible or partial measurements, 19 missing, no hidden measurements and no labelled other-object matches. None tracks the final new position. The candidate remains explicit and unpromoted; the default and all verification checks stay intact.
