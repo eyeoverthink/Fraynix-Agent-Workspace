@@ -1,5 +1,7 @@
 ## Edition 153 — locally verified; publication pending
 
+Publication audit correction: exact original153 lock bytes are preserved with a targeted Git attribute after a pre-push newline mismatch. Original receipts and all source/outcome checks remain unchanged; failed audit retained.
+
 2026-11-16. Java target eyeoverthink/Fraynix-Agent-Workspace; isolated J:/Codex-Work/fraynix-workspace-edition153. No subagents. One heavy check at a time.
 
 The explicit Java experiment confirms 23/30 returned frames on the exposed camera recording, versus 0/30 with edition 152. It has 31/42 correct visible/partial observations, 11 withheld, 0 wrong overlaps, 0/30 hidden outputs and 0 matches to the labelled red object. Both new rendered return cases recover correct observations; wrong-only, changed-quadrant and identical-copy returns are refused. The paired search measurement is 4.35× faster with exactly identical scalar/optimized traces. Defaults remain unchanged; this is recorded evidence, not fresh physical validation.

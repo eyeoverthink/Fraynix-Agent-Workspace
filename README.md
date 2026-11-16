@@ -94,6 +94,8 @@ The experiment records original dataset, run and audit identities. Source and im
 
 Public screenshots omit private camera pixels. Public evidence archives retain original non-pixel result receipts and their hashes; they cannot replace the private source images or original descriptors in a verifier. The generated-source program is included for reproducibility. Historical README editions and their frozen assets are not rewritten to describe this newer behavior.
 
+The first publication audit refused the release before any push because Git normalized the method-lock JSON line endings. The original study hash referred to its exact Windows bytes. A narrow Git attribute now preserves those original bytes; no source hash, receipt, outcome or acceptance criterion was relabelled. The refused audit log and original lock are retained in the evidence index, and the corrected release receives the same full audit.
+
 ## Source map and reproducible work
 
 ```mermaid
