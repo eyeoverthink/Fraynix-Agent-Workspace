@@ -6,6 +6,14 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ReplayEvidence151Test {
+    @Test public void missingStateIsRefusedWithoutCreatingAnEmptyHistory()throws Exception {
+        try(var f=new StartingReference150Test.Fixture()) {
+            var memo=new ReplayEvidence151(f.root,f.association);String id=f.audit.getString("id");memo.read(id,false);
+            Path file=f.root.resolve("world-observations/state.json");byte[] original=Files.readAllBytes(file);Files.delete(file);
+            assertThrows(IllegalStateException.class,()->memo.read(id,false));assertFalse(Files.exists(file));Files.write(file,original);
+            assertFalse(memo.read(id,false).getJSONObject("cost151").getBoolean("reusedReplay"));
+        }
+    }
     @Test public void warmCopyForceAndColdRestartRetainExactOriginalOutcomes()throws Exception {
         try(var f=new StartingReference150Test.Fixture()) {
             var memo=new ReplayEvidence151(f.root,f.association);String id=f.audit.getString("id");

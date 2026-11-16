@@ -54,6 +54,7 @@ final class ReturnDiagnosis151 {
         }
         var after=replay.snapshot();if(!before.hash().equals(after.hash()))throw new IllegalStateException("Original diagnostic evidence changed; no result retained");
         return new JSONObject().put("schema","return-diagnosis-151-v1").put("auditId",id).put("auditSha256",WorldFrames.hash(audit)).put("evidenceFingerprint",after.hash())
+            .put("unchangedAppearanceThresholds",new JSONObject().put("minimumCorrelation",.94).put("maximumColorError",.10).put("maximumQuadrantError",.14).put("minimumGradient",.85))
             .put("trackerCodeSha256",audit.getString("trackerCodeSha256")).put("diagnosticCodeSha256",codeIdentity())
             .put("summary",new JSONObject().put("fullyVisibleReturns",returned).put("missingReturns",missing).put("hiddenLabels",hidden).put("strongAtLabelledTarget",targetStrong)
                 .put("strongWithLabelGuidedSweep",sweptStrong).put("searchOverlapsTarget",searchNear).put("returnsWithAmbiguityVeto",ambiguous).put("strongOtherAxisCrops",otherStrong))
@@ -92,7 +93,8 @@ final class ReturnDiagnosis151 {
         }
         double va=aa-sa*sa/256,vb=bb-sb*sb/256,correlation=va/256<.0005||vb/256<.0005?-1:Math.max(-1,Math.min(1,(ab-sa*sb/256)/Math.sqrt(va*vb)));
         error/=256;double quadrant=Arrays.stream(quadrants).max().orElse(64)/64,gradient=ga<.001||gb<.001?-1:gab/Math.sqrt(ga*gb);
-        return new JSONObject().put("score",correlation).put("colorError",error).put("quadrantError",quadrant).put("gradient",gradient)
+        var failed=new JSONArray();if(correlation<.94)failed.put("correlation");if(error>.10)failed.put("color");if(quadrant>.14)failed.put("quadrant");if(gradient<.85)failed.put("gradient");
+        return new JSONObject().put("score",correlation).put("colorError",error).put("quadrantError",quadrant).put("gradient",gradient).put("failedChecks",failed)
             .put("strong",correlation>=.94&&error<=.10&&quadrant<=.14&&gradient>=.85).put("inFrame",true);
     }
 }

@@ -22,6 +22,11 @@ final class ReplayEvidence151 {
 
     synchronized JSONObject read(String id,boolean forceReplay)throws Exception {
         if(!id.matches("[a-f0-9]{64}"))throw new IllegalArgumentException("Invalid evidence identity");
+        // The historical store initializes missing state on access. A read-only opening must refuse
+        // that condition instead of recreating an empty history, including on a warm request.
+        if(!Files.isRegularFile(project.resolve("world-observations/state.json"),LinkOption.NOFOLLOW_LINKS)){
+            entries.clear();throw new IllegalStateException("Original observation state is missing; no history recreated");
+        }
         long start=System.nanoTime(),hashStart=start,hashNs=0;Snapshot before;
         try{before=snapshot();}catch(TooLarge e){entries.clear();var audit=association.readAudit(id);return result(audit,false,"Evidence exceeds memo bounds; full original verification",0,0,0,start);}
         hashNs+=System.nanoTime()-hashStart;Entry entry=entries.get(id);
