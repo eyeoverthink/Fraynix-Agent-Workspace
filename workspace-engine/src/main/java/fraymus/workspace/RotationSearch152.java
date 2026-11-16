@@ -39,6 +39,7 @@ final class RotationSearch152 {
         for(var ref:references){
             var coarse=new ArrayList<Peak>();double step=Math.max(1,Math.min(4,Math.min(ref.w,ref.h)/16));double[] sample=new double[192];
             for(double scale:new double[]{.8,1,1.2})for(int angle=-180;angle<180;angle+=15){
+                if(Thread.currentThread().isInterrupted())throw new java.util.concurrent.CancellationException("Rotation search interrupted");
                 var peaks=new ArrayList<Peak>();
                 for(double y=0;y<=height;y+=step)for(double x=0;x<=width;x+=step){
                     var pose=new Pose(x,y,ref.w*scale,ref.h*scale,angle);

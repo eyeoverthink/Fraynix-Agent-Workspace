@@ -5,14 +5,34 @@ import java.nio.charset.StandardCharsets;
 import org.json.*;
 
 /** Explicit read-only research track, separately versioned so original proofs remain original. */
-final class RotationExperiment152 {
+final class RotationExperiment152 implements AutoCloseable {
     private final Path root;
     private final WorldObservationStore observations;
     private final AssociationAudit134 association;
     private final ReplayEvidence151 replay;
+    private final Object jobsLock=new Object();
+    private final java.util.LinkedHashMap<String,JSONObject> jobs=new java.util.LinkedHashMap<>();
+    private Thread worker;
+    private String activeJob;
     RotationExperiment152(Path project,WorldObservationStore observations,AssociationAudit134 association,ReplayEvidence151 replay){root=project.resolve("rotation-experiments152");this.observations=observations;this.association=association;this.replay=replay;}
+    JSONObject start(String id,boolean verify){
+        if(!id.matches("[a-f0-9]{64}"))throw new IllegalArgumentException("Invalid evidence identity");
+        synchronized(jobsLock){
+            if(worker!=null&&worker.isAlive())throw new IllegalStateException("A rotation calculation is already running");
+            while(jobs.size()>=4)jobs.remove(jobs.keySet().iterator().next());
+            String job=java.util.UUID.randomUUID().toString();activeJob=job;
+            jobs.put(job,new JSONObject().put("jobId",job).put("status","running").put("phase","Checking original source and outcomes").put("completedFrames",0).put("totalFrames",0));
+            worker=Thread.ofVirtual().name("rotation-experiment152").unstarted(()->{
+                try{var result=verify?read(id):run(id);synchronized(jobsLock){jobs.get(job).put("status","completed").put("phase","All source and outcome checks completed").put("result",result);}}
+                catch(Exception e){synchronized(jobsLock){jobs.get(job).put("status","failed").put("phase","No verified completion").put("error",e.getMessage()==null?e.getClass().getSimpleName():e.getMessage());}}
+            });worker.start();return new JSONObject(jobs.get(job).toString());
+        }
+    }
+    JSONObject status(String job){synchronized(jobsLock){var value=jobs.get(job);if(value==null)throw new IllegalArgumentException("Unknown or expired calculation; restart from original evidence");return new JSONObject(value.toString());}}
+    private void progress(String phase,int completed,int total){synchronized(jobsLock){if(Thread.currentThread()==worker&&activeJob!=null)jobs.get(activeJob).put("phase",phase).put("completedFrames",completed).put("totalFrames",total);}}
+    public void close(){synchronized(jobsLock){if(worker!=null)worker.interrupt();}}
     synchronized JSONObject run(String auditId)throws Exception{
-        long started=System.nanoTime();var content=evaluate(auditId);String id=WorldFrames.hash(content);content.put("id",id);
+        long started=System.nanoTime();var content=evaluate(auditId);if(Thread.currentThread().isInterrupted())throw new InterruptedException("Rotation calculation interrupted; no completion saved");String id=WorldFrames.hash(content);content.put("id",id);
         Files.createDirectories(root);ReplayEvidence151.unlinkedRealPath(root);
         Path file=root.resolve(id+".json");if(Files.exists(file)){if(!new JSONObject(Files.readString(file)).similar(content))throw new IllegalStateException("Saved rotation evidence differs");}
         else{
@@ -42,12 +62,14 @@ final class RotationExperiment152 {
         if(source==null)throw new IllegalStateException("Original source object missing");
         var memory=run.optJSONObject("referenceMemory137");if(memory==null)memory=new JSONObject().put("examples",new JSONArray());
         var first=WorldObservationStore.decode(observations.image(dataset.getString("id"),0));
+        progress("Checking the original reference and competing objects",0,dataset.getJSONArray("frames").length()-1);
         var tracker=new RotationReturn152(first,PixelTracker.Box.from(source.getJSONArray("box")),memory);
         var trace=new JSONArray();long evaluations=0;
         for(int i=1;i<dataset.getJSONArray("frames").length();i++){
             if(Thread.currentThread().isInterrupted())throw new InterruptedException("Rotation experiment interrupted; no completion saved");
             var row=tracker.update(WorldObservationStore.decode(observations.image(dataset.getString("id"),i)));
             row.put("imageSha256",dataset.getJSONArray("frames").getJSONObject(i).getString("imageSha256"));trace.put(row);evaluations+=row.getLong("evaluations");
+            progress("Searching original images; completion is not yet verified",i,dataset.getJSONArray("frames").length()-1);
         }
         var scores=new JSONArray();int visible=0,correct=0,missing=0,wrong=0,hidden=0,unsupported=0,others=0;
         for(Object raw:audit.getJSONArray("scores")){
@@ -58,6 +80,7 @@ final class RotationExperiment152 {
             if(accepted&&other>=.5)others++;
             scores.put(new JSONObject().put("ordinal",label.getInt("ordinal")).put("sourceFrame",label.getInt("sourceFrame")).put("visibility",visibility).put("accepted",accepted).put("correct",good).put("targetOverlap",overlap).put("otherOverlap",other));
         }
+        progress("Scoring labels and rechecking all original evidence",trace.length(),trace.length());
         var after=replay.snapshot();if(!before.hash().equals(after.hash()))throw new IllegalStateException("Original evidence or code changed during search; no completion retained");
         return new JSONObject().put("schema","rotation-experiment-152-v1").put("auditId",auditId).put("auditSha256",WorldFrames.hash(audit)).put("evidenceFingerprint",after.hash())
             .put("datasetId",dataset.getString("id")).put("datasetSha256",WorldFrames.hash(dataset)).put("runSha256",WorldFrames.hash(run)).put("objectKey",key)

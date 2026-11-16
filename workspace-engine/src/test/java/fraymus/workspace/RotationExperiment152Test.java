@@ -6,6 +6,23 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class RotationExperiment152Test {
+    private static JSONObject settled(RotationExperiment152 service,String id)throws Exception{
+        for(int i=0;i<6000;i++){var state=service.status(id);if(!state.getString("status").equals("running"))return state;Thread.sleep(10);}throw new AssertionError("Background calculation exceeded test bound");
+    }
+    @Test public void backgroundProgressBoundedConcurrencyAndDetachedStatus()throws Exception{
+        try(var f=new StartingReference150Test.Fixture();var service=new RotationExperiment152(f.root,f.observations,f.association,new ReplayEvidence151(f.root,f.association))){
+            var job=service.start(f.audit.getString("id"),false);String id=job.getString("jobId");assertThrows(IllegalStateException.class,()->service.start(f.audit.getString("id"),false));job.put("status","completed");
+            var done=settled(service,id);assertEquals(done.toString(),"completed",done.getString("status"));assertEquals(8,done.getInt("completedFrames"));
+            var original=done.getJSONObject("result").getJSONObject("experiment");done.getJSONObject("result").put("experiment",new JSONObject());assertTrue(original.similar(service.status(id).getJSONObject("result").getJSONObject("experiment")));
+            var verify=settled(service,service.start(original.getString("id"),true).getString("jobId"));assertEquals("completed",verify.getString("status"));assertTrue(original.similar(verify.getJSONObject("result").getJSONObject("experiment")));
+            assertThrows(IllegalArgumentException.class,()->service.status("unknown"));assertThrows(IllegalArgumentException.class,()->service.start("../wrong",false));
+        }
+    }
+    @Test public void interruptionNeverCreatesACompletedReceipt()throws Exception{
+        try(var f=new StartingReference150Test.Fixture();var service=new RotationExperiment152(f.root,f.observations,f.association,new ReplayEvidence151(f.root,f.association))){
+            var job=service.start(f.audit.getString("id"),false);service.close();var state=settled(service,job.getString("jobId"));assertEquals("failed",state.getString("status"));assertFalse(state.has("result"));assertFalse(Files.exists(f.root.resolve("rotation-experiments152")));
+        }
+    }
     @Test public void exactReplayLabelIsolationForgeryAndSourceRefusal()throws Exception{
         try(var f=new StartingReference150Test.Fixture()){
             var moved=WorldFrames.copy(f.labels);moved.put("provenance","Independent negative control labels; unchanged original pixels");
