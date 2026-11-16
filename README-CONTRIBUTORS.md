@@ -1,3 +1,7 @@
+## Edition 151 — published and fetched back
+
+2026-11-16. Release d100f7d9e2206b60a73c192e815b632d7ef89c56; main, edition151 and readme-151 pushed atomically and fetched. Full151 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_151.json. Physical return recovery remains unresolved; defaults unchanged. The following local-study notes retain their original chronology.
+
 ## Edition 151 — locally verified; publication pending
 
 2026-11-16, America/Los_Angeles. Isolated J:/Codex-Work/fraynix-workspace-edition151 from affcf65a. Active publication target remains eyeoverthink/Fraynix-Agent-Workspace, separate from Chandra. No subagents; one heavy check at a time.

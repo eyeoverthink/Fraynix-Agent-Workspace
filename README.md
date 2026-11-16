@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 151
 
+[Published and fetched receipt](docs/PUBLICATION_151.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-151)
+
 **Explain the failed return. Reopen verified evidence without repeating the same expensive computation.**
 
 [Previous: edition 150](README-150.md) · [All editions](docs/readmes/INDEX.md) · [Offline interactive guide](docs/readmes/151/index.html) · [Implementation contract](docs/publication151/plan151.md) · [Verification](docs/readmes/151/verification.json)
