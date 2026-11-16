@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 148
 
+[Published and fetched verification receipt](docs/PUBLICATION_148.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-148)
+
 **Confirm a returning object using measured motion, without forgetting competing regions.** Edition 148 adds an explicit Java experiment that lets each verified appearance accumulate confirmation only while the measured target and rival paths support it. The existing tracker remains the default.
 
 **The new Java method passes controlled recovery checks, but adds no useful recovery on this fresh camera sequence. It is not promoted.** The clear donor produced 23/23 correct measurements and one verified appearance. Existing 146, monitor 148 and candidate 148 each produced **11/30 correct visible or partly visible measurements, 19 missing, 0/23 unsupported hidden measurements and 0 accepted matches to the labelled other objects**.
