@@ -1,3 +1,7 @@
+## Edition 153 — published and fetched back
+
+2026-11-16. Release 9ec68fa5cfb7c0b660e8cc663f2ada6335d3e265; main, edition153 and readme-153 pushed atomically and fetched. Full153 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_153.json. Experimental rotated confirmation and exact arithmetic optimization shipped; defaults unchanged. User selected recorded tests; fresh physical validation remains a separate gate. The following local-study notes retain their original chronology.
+
 ## Edition 153 — locally verified; publication pending
 
 Publication audit correction: exact original153 lock bytes are preserved with a targeted Git attribute after a pre-push newline mismatch. Original receipts and all source/outcome checks remain unchanged; failed audit retained.

@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 153
 
+[Published and fetched receipt](docs/PUBLICATION_153.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-153)
+
 **Confirm rotated returns, preserve identity checks, measure the cost.** 2026-11-16.
 
 [Previous: edition 152](README-152.md) · [All editions](docs/readmes/INDEX.md) · [Offline interactive guide](docs/readmes/153/index.html) · [Verification](docs/readmes/153/verification.json)
