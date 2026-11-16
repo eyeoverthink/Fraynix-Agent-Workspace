@@ -1,0 +1,11 @@
+# Edition 149 — additional exploratory camera comparison
+
+Declared after source-only acquisition review, before any tracker predictions on attempt-rqrzd0. This is a protocol deviation, not a change to the primary qualification rules. The original CAMERA_PROTOCOL_149.md, preflight149.py and all frozen production/harness inputs remain unchanged.
+
+The third recording contains 134 original 640 × 480 samples. All originals were reviewed in full-frame sheets; all 117 selected donor/evaluation samples were additionally reviewed at native pixel scale. The user confirms moving the black target under cover and revealing it. Red is a separate, similarly shaped but differently colored object. It is not an identical-copy test. The tape and its housing were also moved during the cover; this changes the background and is recorded as a limitation, not silently ignored.
+
+The first full cover is frames 42–103: 62 samples, exceeding the prospective maximum of 60. Primary source eligibility is therefore **false**. The complete event with ten preceding and 21 returned samples is frames 32–124, 93 frames, within the unchanged 96-frame application limit. No interior frame is removed, no timestamp rescaled and no hidden interval shortened. The separate causal donor is frames 1–24, with disjoint original image bytes. Approximately 23 pixels of center displacement is measured in manual boxes; these are not calibrated physical distances.
+
+Run this one declared source as **exploratory-real-camera**, with primaryEligible=false, against unchanged 148, monitor149 and candidate149. Freeze these labels, hashes, source window and this decision in Git before execution. Retain all outcomes, including unavailable donor admission, missed returns and wrong objects. Runtime appearance admission, source replay, label scoring, tamper checks, restart behavior and export checks remain unchanged. No tracker, scorer, reference, threshold, limit or default is retuned for this source.
+
+This comparison can reveal behavior on this recording. It cannot retrospectively pass the original primary protocol, establish calibrated physical accuracy, or promote a default. Generated controls, the exposed148 regression and this post-acquisition exploratory comparison must remain distinct in every result and publication.
