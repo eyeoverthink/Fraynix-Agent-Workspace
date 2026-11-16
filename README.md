@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 150
 
+[Published and fetched verification receipt](docs/PUBLICATION_150.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-150)
+
 **Keep a verified starting reference even when nothing new has been learned.** This edition separates source validity from appearance novelty, improves the private recorder's timing cues, and tests returns through the existing Java tracking and verification pipeline. Tracking defaults and identity thresholds stay unchanged.
 
 **The verified starting-reference gap is fixed; physical return recovery remains unresolved. No tracker is promoted.**
