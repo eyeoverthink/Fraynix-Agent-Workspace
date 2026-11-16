@@ -36,7 +36,7 @@ async function inventory(root){const rows={};async function walk(dir){for(const 
    }
   }
   const stateFile=path.join(project,'world-observations/state.json'),stateBefore=await fs.readFile(stateFile),snapshots={};
-  for(const name of ['world-observations','association-labels134'])snapshots[name]=await inventory(path.join(project,name));
+  await app.close();app=null;for(const name of ['world-observations','association-labels134'])snapshots[name]=await inventory(path.join(project,name));await open();await page.locator('#spatial-tab').click();
   for(const row of result.cases){
    await page.locator('#association134-panel').evaluate(e=>e.open=true);await idle();await page.locator('#association134-refresh').click();await idle();await page.locator('#association134-saved').selectOption(row.auditId);
    await page.locator('#rotation152-panel').evaluate(e=>e.open=true);await page.locator('#rotation152-run').click();await idle();const found=await page.evaluate(()=>window.association134View.rotation152);assert(found&&found.experiment.auditId===row.auditId,await page.locator('#association134-status').textContent());row.result=found;await save();
