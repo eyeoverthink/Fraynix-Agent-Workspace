@@ -11,9 +11,10 @@ final class ReferenceMemory137 {
     private final Path project;
     private final WorldObservationStore observations;
     ReferenceMemory137(Path project,WorldObservationStore observations){this.project=project;this.observations=observations;}
-    static boolean uses(String policy){return Set.of("verified-memory-137","seed-only-137").contains(policy)||PartialAudit142.uses(policy)||ConfirmationAudit143.uses(policy)||AmbiguityAudit144.uses(policy)||TrajectoryAudit145.uses(policy)||ReturnAudit146.uses(policy)||ReturnAudit148.uses(policy);}
+    static boolean uses(String policy){return Set.of("verified-memory-137","seed-only-137").contains(policy)||PartialAudit142.uses(policy)||ConfirmationAudit143.uses(policy)||AmbiguityAudit144.uses(policy)||TrajectoryAudit145.uses(policy)||ReturnAudit146.uses(policy)||ReturnAudit148.uses(policy)||IdentityAudit149.uses(policy);}
 
-    JSONObject resolve(String setId,String targetId,String declaration)throws Exception{
+    JSONObject resolve(String setId,String targetId,String declaration)throws Exception{return resolve(setId,targetId,declaration,"");}
+    JSONObject resolve(String setId,String targetId,String declaration,String policy)throws Exception{
         if(declaration==null||declaration.isBlank()||declaration.length()>500)throw new IllegalArgumentException("Declare why the reference and target show the same object (1..500 characters)");
         if(RESOLVING.get())throw new IllegalStateException("Reference-derived or recursive source evidence is not supported");
         RESOLVING.set(true);
@@ -29,6 +30,7 @@ final class ReferenceMemory137 {
             var available=set.getJSONArray("examples");var chosen=new JSONArray();int n=Math.min(CAPACITY,available.length());
             // Deterministic chronological coverage, fixed before any target prediction.
             for(int i=0;i<n;i++)chosen.put(ParsedJson137.copy(available.getJSONObject(n==1?0:i*(available.length()-1)/(n-1))));
+            if(IdentityAudit149.uses(policy))for(Object raw:chosen){var e=(JSONObject)raw;var pixels=observations.image(source.getString("id"),e.getInt("ordinal"));e.put("structure149",StructureSearch149.descriptor(WorldObservationStore.decode(pixels),PixelTracker.Box.from(e.getJSONArray("referenceBox"))));}
             return new JSONObject().put("schema","verified-reference-memory-137-v1").put("setId",setId)
                 .put("setSha256",WorldFrames.hash(set)).put("sourceDatasetId",source.getString("id"))
                 .put("sourceDatasetSha256",WorldFrames.hash(source)).put("targetDatasetId",targetId)
@@ -42,7 +44,7 @@ final class ReferenceMemory137 {
         String policy=ObservationMethods129.policy(run);
         if(!uses(policy)){if(run.has("referenceMemory137"))throw new IllegalStateException("Unexpected reference memory on this method");return;}
         var memory=run.getJSONObject("referenceMemory137");
-        if(!resolve(memory.getString("setId"),run.getString("datasetId"),memory.getString("declaration")).similar(memory))throw new IllegalStateException("Reference provenance or selected examples changed");
+        if(!resolve(memory.getString("setId"),run.getString("datasetId"),memory.getString("declaration"),policy).similar(memory))throw new IllegalStateException("Reference provenance or selected examples changed");
     }
 
     JSONObject list()throws Exception{
