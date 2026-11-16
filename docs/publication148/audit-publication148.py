@@ -12,7 +12,7 @@ try:
  sources=json.loads(text('docs/publication148/source148.json'));lock=json.loads(text('docs/OBSERVATION_148_LOCK.json'));webcam=json.loads(text('docs/publication148/webcam-lock148.json'))
  assert digest(blob('docs/OBSERVATION_148_LOCK.json'))==sources['algorithmLockSha256']
  assert digest(blob('docs/publication148/webcam-lock148.json'))==sources['webcamLockSha256']
- for commit in ['7d48191c']:subprocess.run(['git','merge-base','--is-ancestor',commit,ref],check=True)
+ for commit in ['7d48191c','f6129073','aa35463e']:subprocess.run(['git','merge-base','--is-ancestor',commit,ref],check=True)
  for frozen in [lock,webcam]:
   for name,h in frozen['sourceHashes'].items():assert digest(text(name).encode())==h,name
  for source in sources['records']:assert digest(blob(source['labels']))==source['labelsSha256'],source['labels']

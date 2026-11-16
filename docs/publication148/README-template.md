@@ -37,6 +37,8 @@ The [prospective protocol](docs/publication148/PROTOCOL_148.md), [implementation
 
 The source is continuous, approximately one sample per second, with actual camera times preserved. The causal donor contains 24 earlier, disjoint source images. Evaluation includes ten samples before complete cover and twenty samples after return. Source-only review requires at least half a target-width of visible movement and separately reports the first-return displacement. Stationary footage cannot qualify as a movement test. Cues and clicks record intended actions; original image review determines visibility.
 
+The original timestamps remain in the private recording and source pack. This observation path uses a **sample-index clock**: its motion fit and twelve-sample horizon are not calibrated seconds, speed or acceleration. Variable capture gaps have not been silently retimed, but timestamp-aware physical prediction is a separate requirement.
+
 {{SOURCE_REVIEW}}
 
 All selected frames are reviewed and labelled before predictions. These attributed AI source-only labels are independent of tracker predictions, but are not independently instrumented ground truth. The user confirms the physical objects and actions. Admission of a verified reference is a separate app check; unsupported donors remain unavailable, never replaced by a fabricated reference.
@@ -76,6 +78,8 @@ The recorder is a review instrument inside an isolated actual app, not a new pro
 {{COSTS}}
 
 {{ATTEMPTS}}
+
+[Successful-run input provenance](docs/publication148/study-provenance148.json) preserves the distinction between the original attempt header, corrected input revision and unchanged production build.
 
 CI was checked before implementation. Hosted status is recorded separately from local checks and fetched publication. [GitHub Actions](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions) and the publication receipt identify the pushed revision; a local commit is not a completed push.
 

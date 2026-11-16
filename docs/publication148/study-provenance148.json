@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "initialAttemptSourceHeader": "f61290733aeeda619893c51a87170e355e3b67e2",
+  "effectiveInputRevision": "aa35463e7421c136a5cf1d4406e4ae27144f42d4",
+  "inputCommittedAt": "2026-11-15T15:45:48-08:00",
+  "productionBuildRevision": "7d48191cc403df701efa6e8ae3c9a285a0f50ed3",
+  "originalStudySha256": "dc63bbd94b09b27a76482dfa396ee82061b1ad6434cecaf9ed5b50b309a76ad4",
+  "manifestSha256": "8182e38537667d036554761b1af48cf6275f116b0e51283c543cba14994c3924",
+  "inputs": [
+    {
+      "case": "black-lighter-movement-1",
+      "packSha256": "1bf3081c67ecec176eb5f72ec5486d13e0774c88683fa2c8928c59d89b820345",
+      "labelsSha256": "86366cc3549f8d1bb88c27fb412ef2ba6f3c3390dc72de5591979ca51fe9665b",
+      "labelsUnchangedSinceFirstAttempt": true,
+      "framesAndObjectsMatchEveryExecutedRun": true,
+      "labelChanges": [
+        {
+          "before": "User black lighter; red lighter and tape-measure housing are distinct comparison objects",
+          "after": "Black lighter / separate red lighter and tape-measure housing"
+        }
+      ],
+      "runIds": [
+        "f15b5003-1ae6-452b-8265-fb00920f4caf"
+      ]
+    },
+    {
+      "case": "black-lighter-movement-27",
+      "packSha256": "e777201ed9b120f96ce4e186f0c3d77f1feed2b75f0fc18dfa0fbf3b9fa27c9e",
+      "labelsSha256": "8c66c5c54bc647089f9073e2b7a8f26385ee5e0be285f7d8fc0046832f00a788",
+      "labelsUnchangedSinceFirstAttempt": true,
+      "framesAndObjectsMatchEveryExecutedRun": true,
+      "labelChanges": [
+        {
+          "before": "User black lighter; red lighter and tape-measure housing are distinct comparison objects",
+          "after": "Black lighter / separate red lighter and tape-measure housing"
+        }
+      ],
+      "runIds": [
+        "23a62db0-a6ff-4f13-9b21-3d574effd8ef",
+        "0e1bac56-9831-475e-9d65-72e5fb9a801c",
+        "4a7b09ac-4e15-4047-833f-cf1d0785cdbd"
+      ]
+    }
+  ],
+  "scope": "Original resumed receipt retains the initial failed import source header. This separate receipt binds the actual revised packs to the committed manifest and every executed run. Only the object display label changed; image bytes, sample times, boxes and independent labels did not. The input revision precedes every successful import. No original receipt or method was relabelled."
+}

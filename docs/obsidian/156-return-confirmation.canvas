@@ -1,0 +1,85 @@
+{
+  "nodes": [
+    {
+      "id": "capture",
+      "type": "file",
+      "file": "workspace-desktop/test/webcam148-recorder.cjs",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "preflight",
+      "type": "file",
+      "file": "docs/publication148/preflight148.py",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "guard",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ReturnConfirmation148.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "reference",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ReferenceMemory137.java",
+      "x": 1290,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "audit",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ReturnAudit148.java",
+      "x": 1720,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    },
+    {
+      "id": "world",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java",
+      "x": 2150,
+      "y": 0,
+      "width": 390,
+      "height": 190
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "capture",
+      "toNode": "preflight"
+    },
+    {
+      "id": "1",
+      "fromNode": "preflight",
+      "toNode": "guard"
+    },
+    {
+      "id": "2",
+      "fromNode": "guard",
+      "toNode": "reference"
+    },
+    {
+      "id": "3",
+      "fromNode": "reference",
+      "toNode": "audit"
+    },
+    {
+      "id": "4",
+      "fromNode": "audit",
+      "toNode": "world"
+    }
+  ]
+}

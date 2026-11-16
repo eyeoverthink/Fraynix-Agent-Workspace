@@ -28,6 +28,9 @@ for group in sorted({x['group'] for x in sources['records']}):
  for item in review['captures']:
   dest=group+'-'+item['name'];shutil.copy2(r/f'build/occlusion148-{group}-review'/item['name'],out/dest);shots.append({'path':'docs/readmes/148/'+dest,'title':item['caption']})
 assert studies and shots,'Actual completed studies and camera-free screenshots required'
+provenance=read('docs/publication148/study-provenance148.json');assert provenance['passed'];no_pixels(provenance)
+assert provenance['originalStudySha256']==sha((r/'build/occlusion148-black-lighter-movement-app/result.json').read_bytes())
+write(out/'input-provenance.json',provenance)
 shutil.copy2(r/'build/webcam148-controls.png',out/'recorder-controls.png');shots.append({'path':'docs/readmes/148/recorder-controls.png','title':'Actual edition 148 recording controls with camera off, captured during the synthetic-device lifecycle check. UI evidence only; no physical camera pixels or tracking result.'})
 restart=read('build/occlusion148-restart/result.json');assert restart['passed'];assert restart['harnessSha256']==sha((r/'docs/publication148/restart148.cjs').read_bytes());no_pixels(restart);write(out/'restart-check.json',restart)
 checks=set()
@@ -36,6 +39,10 @@ for p in (r/'build/validation148/final').glob('*.xml'):
  for c in e.findall('testcase'):
   if c.find('skipped') is None:checks.add(c.get('classname')+'.'+c.get('name'))
 assert checks and any('ReturnConfirmation148Test' in x for x in checks) and any('CalibrationStoreTest.validationCannotRetuneWinnerAndFailedGateCannotApply' in x for x in checks)
+prior_checks=set(read('docs/readmes/147/verification.json')['javaChecks'])
+new_checks={x for x in checks if x.startswith('fraymus.workspace.ReturnConfirmation148Test.')}
+assert prior_checks<=checks,sorted(prior_checks-checks)
+assert len(new_checks)==8 and checks==prior_checks|new_checks,'Require every predecessor regression and all eight new checks'
 for name in ['kernel148-final','java148-final','desktop148-final','agency148-regression','launcher148','package148','receipt148']:assert read('build/'+name+'.json')['exit']==0,name
 desktop=(r/'build/desktop148-final.log').read_text(encoding='utf8');assert 'fail 0' in desktop;desktop_count=int(re.search(r'(?m)^. tests (\d+)',desktop)[1])
 allruns=[x for s in studies.values() for x in s['runs']];rows=[{'case':x['caseName'],'group':group,'domain':x['domain'],'policy':x['policy'],'summary':x['audit']['summary'],'evidence':x['audit'].get('confirmation148') or x['audit'].get('continuity146') or x['audit'].get('trajectory145'),'trackingMs':x['trackingMs'],'auditMs':x['auditMs']} for group,s in studies.items() for x in s['runs'] if x['role']=='evaluation']
@@ -44,7 +51,7 @@ finding=(r/'build/findings148.md').read_text(encoding='utf8').strip();next_steps
 comparison={'rows':rows,'sources':sources,'lock':lock,'webcamLock':webcam,'finding':finding,'defaultsUnchanged':True,'promoted':False,'refusals':refusals};write(out/'comparison.json',comparison)
 validation=f'{len(checks)} distinct Java checks and {desktop_count} desktop checks passed, plus kernel, agency, offline preparation and package verification. {len(allruns)} actual app runs across {len(studies)} private study project(s), with separate unfinished-process recovery. Source eligibility and useful recovery remain distinct from execution checks. Hosted CI is reported separately.'
 appchecks=list(dict.fromkeys([c for s in studies.values() for c in s['checks']]+restart['checks']))
-verification={'passed':True,'javaChecks':sorted(checks),'desktopChecks':desktop_count,'actualAppChecks':appchecks,'candidateLock':lock,'webcamLock':webcam,'defaultsUnchanged':True,'scope':validation,'studies':{g:{'source':s['source'],'buildReceipt':s['buildReceipt'],'path':f'docs/readmes/148/{g}-app-study.json'} for g,s in studies.items()}}
+verification={'passed':True,'javaChecks':sorted(checks),'desktopChecks':desktop_count,'actualAppChecks':appchecks,'candidateLock':lock,'webcamLock':webcam,'defaultsUnchanged':True,'scope':validation,'inputProvenance':provenance,'studies':{g:{'source':s['source'],'sourceHeaderScope':'Initial failed attempt; effective committed inputs are bound separately in inputProvenance','effectiveInputRevision':provenance['effectiveInputRevision'],'buildReceipt':s['buildReceipt'],'path':f'docs/readmes/148/{g}-app-study.json'} for g,s in studies.items()}}
 write(out/'verification.json',verification)
 originals=[]
 def preserve(p,logical):
@@ -54,6 +61,7 @@ def preserve(p,logical):
 # Explicit allowlist: never recurse into source images, private project stores or app screenshot folders.
 allowed=[r/f'build/occlusion148-{g}-app/result.json' for g in studies]+[r/f'build/occlusion148-{g}-review/result.json' for g in studies]
 allowed += [p for g in studies for p in (r/f'build/occlusion148-{g}-review').glob('result-attempt-*.json')]
+allowed += [p for g in studies for p in (r/f'build/occlusion148-{g}-app').glob('result-attempt-*.json')]
 allowed += [r/'build/occlusion148-restart/result.json',r/'docs/OBSERVATION_148_LOCK.json',r/'docs/publication148/webcam-lock148.json',r/'docs/publication148/restart148.cjs',r/'workspace-desktop/test/occlusion148-integration.cjs',r/'workspace-desktop/test/webcam148-recorder.cjs']
 allowed += list((r/'build/validation148').rglob('*.xml'))
 for pattern in ['*148*.json','*148*.log','*148*.md']:

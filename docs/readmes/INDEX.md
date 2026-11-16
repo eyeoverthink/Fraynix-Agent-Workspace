@@ -1,3 +1,5 @@
+[Edition148 — motion-supported return confirmation](../../README-148.md) | [Offline guide](148/index.html)
+
 [Edition147 — fresh camera qualification](../../README-147.md) | [Offline guide](147/index.html)
 
 [Edition146 - return continuity](../../README-146.md) | [Offline guide](146/index.html)

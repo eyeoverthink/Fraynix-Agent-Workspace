@@ -11,7 +11,7 @@ def status(stage,published=''):
 
 {v['scope']}
 
-Explicit path-confirmation-148 supports each immutable appearance's own three adjacent confirmations with measured target/rival paths. Monitor148 preserves146 exactly; candidate preserves every accepted146 proposal. No recovered anchors, automatic admissions, new horizon or default promotion. Existing143–146 implementations remain unchanged. Keep legacy-flow default,12-sample horizon,8 rivals,96frames,16datasets,24runs and20MB export. Same-path unseen copies remain unobservable; fixed image-plane bounds are not calibrated physical identity.
+Explicit path-confirmation-148 supports each immutable appearance's own three adjacent confirmations with measured target/rival paths. Monitor 148 preserves 146 exactly; the candidate preserves every accepted 146 proposal. No recovered anchors, automatic admissions, new horizon or default promotion. Existing 143–146 implementations remain unchanged. Keep the legacy-flow default, 12-sample horizon, 8 rivals, 96 frames, 16 datasets, 24 runs and 20 MB export. Same-path unseen copies remain unobservable; fixed image-plane bounds are not calibrated physical identity.
 
 {(r/'build/attempts148.md').read_text(encoding='utf8').strip()}
 
@@ -19,7 +19,7 @@ Explicit path-confirmation-148 supports each immutable appearance's own three ad
 
 {(r/'build/next148.md').read_text(encoding='utf8').strip()}
 
-Keep the unified Java world/browser/creation application central. Private camera pixels stay local; public hashes, attributed labels and camera-free actual app results are separate from private originals. Never relabel historical code-bound evidence. No agents; ONE heavy job at a time. Shared dependency junction read-only. Preserve private projects and frozen001–147. Publish only Fraynix-Agent-Workspace, then fetch and audit exact bytes.
+Keep the unified Java world/browser/creation application central. Private camera pixels stay local; public hashes, attributed labels and camera-free actual app results are separate from private originals. Never relabel historical code-bound evidence. No agents; ONE heavy job at a time. Shared dependency junction read-only. Preserve private projects and frozen 001–147. Publish only Fraynix-Agent-Workspace, then fetch and audit exact bytes.
 
 '''
 if __name__=='__main__':

@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "sheetsReviewed": 1,
+  "notes": [
+    "Reviewed all three actual outcome captures individually and the combined contact sheet; counts 11/30, 19 missing and zero added148 returns are readable and match receipts.",
+    "Camera-off recorder controls contain no source pixels. All four app images are accurately captioned.",
+    "Reviewed both full-page and viewport guide captures at 1450 and 390 pixels. Text wraps cleanly; mobile table scroll is contained; source links and selectors remain visible.",
+    "The guide foregrounds failed fresh recovery and unpromoted status. Original source images are absent; screenshots are actual UI evidence, not generated mockups."
+  ],
+  "reviewedAt": "2026-11-16T00:40:54.979416+00:00",
+  "reviewer": "Codex visual inspection of actual captured images",
+  "appImages": [
+    {
+      "path": "build/occlusion148-black-lighter-movement-review/black-lighter-movement-27-path-confirmation-148-results.png",
+      "sha256": "9be7fe9a8908aa6ffcb90713d60a97d81eda02cfbc29d3ec8a8d53a284d6caf2"
+    },
+    {
+      "path": "build/occlusion148-black-lighter-movement-review/black-lighter-movement-27-path-monitor-148-results.png",
+      "sha256": "2c52ff0d676fdced35d896437587ec7674b9be30cd7849f2cce9011f9a5cf2fe"
+    },
+    {
+      "path": "build/occlusion148-black-lighter-movement-review/black-lighter-movement-27-return-guard-146-results.png",
+      "sha256": "5d57b188280a114d359a836bc143246274d844ac15bf64dca7330a1421dbbfc9"
+    },
+    {
+      "path": "build/webcam148-controls.png",
+      "sha256": "4842034089ab6dfacce61abb98ce5b68f5217cdc224e026f88b10e21ad5ad6b4"
+    }
+  ],
+  "guideImages": [
+    {
+      "path": "docs/readmes/148/guide148-1450.png",
+      "sha256": "90f9ea7cce425d60ace73a0afb1574fae3495b91e4c352815431b1e115e63ed4"
+    },
+    {
+      "path": "docs/readmes/148/guide148-1450-viewport.png",
+      "sha256": "024f55affe6f9eac2f86d56c012ae09f8f157c7baffc2b397f2865ee78134be3"
+    },
+    {
+      "path": "docs/readmes/148/guide148-390.png",
+      "sha256": "871d08053c2e642db796b0d3e79703bb95ebe97d8fba4491f96d124440941b2c"
+    },
+    {
+      "path": "docs/readmes/148/guide148-390-viewport.png",
+      "sha256": "2f3f80f0a785acecbeaaa82795b4f368bb21704f57e396ccd606aadc1a3dfd36"
+    }
+  ]
+}
