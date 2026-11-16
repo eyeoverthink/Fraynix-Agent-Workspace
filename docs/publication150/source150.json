@@ -438,7 +438,7 @@
         24
       ],
       "pack": "build/webcam150-private/webcam150-displaced-return-1.fobs.json",
-      "packSha256": "9d7d6e8b19a990d2b1fd11893ff1b16c24025db50ca19dcd89642ebe8e0f2650",
+      "packSha256": "f5a5dd93d03a367d48fee7b13153b839ac96389235178d40f407bd0e88345332",
       "labels": "docs/publication150/webcam150-displaced-return-1-labels.json",
       "labelsSha256": "4c13bfec896a666495bf233ae1a311260f7bd2aba44410f515f492bca902c484",
       "visibilityCounts": {
@@ -555,7 +555,7 @@
         97
       ],
       "pack": "build/webcam150-private/webcam150-displaced-return-25.fobs.json",
-      "packSha256": "a9710a1b9280849195307816dee1e8e79cc31eee6babeca6d4b8ee5db9be1433",
+      "packSha256": "9d2acd64d37000426263225e1c4d5cad4425399994439eee1be8044509c65fa2",
       "labels": "docs/publication150/webcam150-displaced-return-25-labels.json",
       "labelsSha256": "227e6d1dff8cb92eed92b1c88ab2d8f333e1303682ecd26a656d10e9bf24714b",
       "visibilityCounts": {
@@ -3527,5 +3527,25 @@
       }
     ]
   },
-  "webcamLock150Sha256": "720ea97b9992d530d604cd21f45b195bc746b07b920b447e7cc42dc0d8f1cb37"
+  "webcamLock150Sha256": "720ea97b9992d530d604cd21f45b195bc746b07b920b447e7cc42dc0d8f1cb37",
+  "importLabelCorrection150": [
+    {
+      "case": "webcam150-displaced-return-1",
+      "originalPackSha256": "9d7d6e8b19a990d2b1fd11893ff1b16c24025db50ca19dcd89642ebe8e0f2650",
+      "correctedPackSha256": "f5a5dd93d03a367d48fee7b13153b839ac96389235178d40f407bd0e88345332",
+      "originalPrivatePack": "build/webcam150-private/webcam150-displaced-return-1.fobs-import-refused.json",
+      "previousLabel": "Black target lighter, initially left of red; returns translated right with a slight rotation",
+      "label": "Black target lighter",
+      "unchanged": "All source image bytes, timestamps, seed geometry, independent label files and source eligibility. Correction happened after import refusal, before any tracking."
+    },
+    {
+      "case": "webcam150-displaced-return-25",
+      "originalPackSha256": "a9710a1b9280849195307816dee1e8e79cc31eee6babeca6d4b8ee5db9be1433",
+      "correctedPackSha256": "9d2acd64d37000426263225e1c4d5cad4425399994439eee1be8044509c65fa2",
+      "originalPrivatePack": "build/webcam150-private/webcam150-displaced-return-25.fobs-import-refused.json",
+      "previousLabel": "Black target lighter, initially left of red; returns translated right with a slight rotation",
+      "label": "Black target lighter",
+      "unchanged": "All source image bytes, timestamps, seed geometry, independent label files and source eligibility. Correction happened after import refusal, before any tracking."
+    }
+  ]
 }
