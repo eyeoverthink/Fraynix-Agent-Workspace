@@ -1,0 +1,123 @@
+{
+  "relabelledAudit": {
+    "schema": "fresh-identity-audit-149-v1",
+    "parentAcceptedPreserved": 4,
+    "proposed": {
+      "correct": 3,
+      "incorrect": 1,
+      "returned": 4,
+      "unknown": 0
+    },
+    "filtered": {
+      "correct": 3,
+      "incorrect": 1,
+      "returned": 4,
+      "unknown": 0
+    },
+    "scores": [
+      {
+        "targetOverlap": 0,
+        "visibility": "visible",
+        "filterAccepted": true,
+        "restored": true,
+        "outcome": "incorrect",
+        "ordinal": 26
+      },
+      {
+        "targetOverlap": 0.9896501920349136,
+        "visibility": "visible",
+        "filterAccepted": true,
+        "restored": true,
+        "outcome": "correct",
+        "ordinal": 27
+      },
+      {
+        "targetOverlap": 0.9819754430532768,
+        "visibility": "visible",
+        "filterAccepted": true,
+        "restored": true,
+        "outcome": "correct",
+        "ordinal": 28
+      },
+      {
+        "targetOverlap": 0.9845249688706583,
+        "visibility": "visible",
+        "filterAccepted": true,
+        "restored": true,
+        "outcome": "correct",
+        "ordinal": 29
+      }
+    ],
+    "additional": {
+      "correct": 3,
+      "incorrect": 1,
+      "returned": 4,
+      "unknown": 0
+    },
+    "scope": "Original pixel replay precedes independent source-label scoring. Extra raw proposals, filter measurements and monitor-only proposals are distinct. Unchanged148 measurements are preserved. Source labels never guide tracking; all original source, descriptor and code checks remain mandatory.",
+    "automaticAdmissions": 0,
+    "replayedFrames": 29
+  },
+  "audit": {
+    "schema": "fresh-identity-audit-149-v1",
+    "parentAcceptedPreserved": 4,
+    "proposed": {
+      "correct": 4,
+      "incorrect": 0,
+      "returned": 4,
+      "unknown": 0
+    },
+    "filtered": {
+      "correct": 4,
+      "incorrect": 0,
+      "returned": 4,
+      "unknown": 0
+    },
+    "scores": [
+      {
+        "targetOverlap": 0.9794324595994676,
+        "visibility": "visible",
+        "filterAccepted": true,
+        "restored": true,
+        "outcome": "correct",
+        "ordinal": 26
+      },
+      {
+        "targetOverlap": 0.9896501920349136,
+        "visibility": "visible",
+        "filterAccepted": true,
+        "restored": true,
+        "outcome": "correct",
+        "ordinal": 27
+      },
+      {
+        "targetOverlap": 0.9819754430532768,
+        "visibility": "visible",
+        "filterAccepted": true,
+        "restored": true,
+        "outcome": "correct",
+        "ordinal": 28
+      },
+      {
+        "targetOverlap": 0.9845249688706583,
+        "visibility": "visible",
+        "filterAccepted": true,
+        "restored": true,
+        "outcome": "correct",
+        "ordinal": 29
+      }
+    ],
+    "additional": {
+      "correct": 4,
+      "incorrect": 0,
+      "returned": 4,
+      "unknown": 0
+    },
+    "scope": "Original pixel replay precedes independent source-label scoring. Extra raw proposals, filter measurements and monitor-only proposals are distinct. Unchanged148 measurements are preserved. Source labels never guide tracking; all original source, descriptor and code checks remain mandatory.",
+    "automaticAdmissions": 0,
+    "replayedFrames": 29
+  },
+  "scope": "Exposed generated Java tracker/filter/audit chain and in-memory source reconstruction. Not fresh camera qualification or a positive native-app process interruption. Separate app tests cover source verification, interruption and persistence on recorded footage.",
+  "passed": true,
+  "acceptedNewMeasurements": 4
+}

@@ -1,142 +1,216 @@
-# Fraynix Agent Workspace — edition 148
+# Fraynix Agent Workspace — edition 149
 
-[Published and fetched verification receipt](docs/PUBLICATION_148.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-148)
+**Recognize a returning object from fresh observations, then rebuild its motion history.** This edition adds an explicit Java experiment alongside the existing trackers. The default stays unchanged.
 
-**Confirm a returning object using measured motion, without forgetting competing regions.** Edition 148 adds an explicit Java experiment that lets each verified appearance accumulate confirmation only while the measured target and rival paths support it. The existing tracker remains the default.
+**Fresh identity confirmation and a new observed motion segment work on generated controls, but the recorded-camera recovery gap remains unresolved. The candidate is not promoted.**
 
-**The new Java method passes controlled recovery checks, but adds no useful recovery on this fresh camera sequence. It is not promoted.** The clear donor produced 23/23 correct measurements and one verified appearance. Existing 146, monitor 148 and candidate 148 each produced **11/30 correct visible or partly visible measurements, 19 missing, 0/23 unsupported hidden measurements and 0 accepted matches to the labelled other objects**.
+The first frozen implementation added zero recoveries on nine reserved generated sequences. Those failures exposed periodic coarse-grid search misses. Revision 2 added one bounded recent-match search proposal per reference and enforced geometry bounds; it did not relax any identity, rival or flow threshold. On a separate reserved cohort, the revised method recovered **48 additional correct observations**, with **zero wrong-pattern or hidden-object outputs**. The now-exposed first cohort also gained 48 correct observations. Each cohort contains nine sequences: three textures, each tested for a long cover and return, a wrong-pattern-only return, and a second cover after recovery. The retained-copy, source-integrity, replay and monitor checks passed separately.
 
-All methods have nine correct measurements before cover and two after return; none measures the lighter at its final new position (0/14). More precisely, one measurement is correct during the two original-position return samples, and one during the five partially obscured movement samples. The app's 1/1 verified reacquisition counts a brief return event, not sustained tracking through the rest of the sequence. The new candidate adds zero measurements. Its monitor preserves the existing result exactly, and the candidate preserves every existing accepted proposal.
+The exposed edition 148 real-camera regression remains **11/30 correct visible or partly visible measurements, 19 missing, 0/23 hidden measurements and zero accepted matches to labelled other objects**, for 148, monitor 149 and candidate 149 alike. The candidate adds zero observations and no new motion segment on this recording. The clear donor is 23/23 correct and yields one independently verified reference appearance. The earlier source is exposed regression material, not fresh footage or independently instrumented truth.
 
-The source qualifies as **full cover, return, then movement**: 23 completely hidden samples, first return at the original position, then about 30.6 pixels of visible displacement (0.639 initial target widths). It is not a displaced first return. Post-comparison traces report expired motion forecasts and insufficient new measured trajectory; later strong appearance hypotheses can fall on the tape-measure housing. These diagnoses do not justify relaxing identity checks or calling a prediction a measurement.
+The new search obtains strong full-crop matches on the brief original-position return, but does not sustain confirmation through the hand-assisted move or final position. Later hypotheses near the tape-measure housing fail the stricter correlation and gradient checks. This is an appearance/search limitation, not a reason to extend an expired trajectory or count a forecast as a measurement. The full reference rectangle is not foreground segmentation or semantic object identity.
 
-Generated controls separately demonstrate two additional correct returns alongside copy-only refusal. That is useful implementation evidence, not camera qualification. On this camera sequence the extra search costs more without improving outcomes: tracking takes about 38.0 seconds for 146, 56.5 seconds for monitor 148, and 66.1 seconds for candidate 148 (including one stop/resume). Independent replay/audit takes about 60.7, 84.0 and 84.1 seconds respectively. These are single-run workflow timings, not repeated performance estimates or real-time throughput guarantees.
+The monitor preserves every 148 tracker/filter output exactly. The candidate preserves accepted 148 proposals. Both add processing cost without improving the exposed 148 recorded-camera outcome. The default, existing limits and all source/outcome checks remain unchanged. No new physical action authority or automatic appearance admission is granted. Unseen identical substitutions remain unobservable from this image stream alone.
 
-The red lighter differs in color from the black target; the tape housing is a different object with similar dark partial structure. Labels were reviewed from original pixels before predictions, with physical actions confirmed by the user. This fixed-camera, approximately 1 Hz study does not establish identical-object discrimination, calibrated 3D identity or reliable tracking through long occlusion. The tracker uses sample steps; original camera timestamps remain in the private source, rather than establishing calibrated seconds or physical velocity in this method. Private camera pixels remain local; defaults and verification remain intact.
+A newly recorded exploratory long-cover case exposes a separate admission gap. Its reference tracks 23/23 samples correctly, but novelty filtering refuses all 21 repeated appearances considered for admission; no learned donor set is retained. The 148/149 comparisons that require that set are therefore unavailable. The existing 139 fallback reaches 29/30 visible samples with 0/62 hidden outputs and no matches to labelled other objects. This is not evidence of 149 recovery. The source exceeds the primary cover ceiling by two samples and is explicitly exploratory; full footage and all three capture attempts are preserved. Next work should distinguish verified source evidence from newly learned appearances, while keeping original-source and independent-outcome checks.
 
-[Previous edition](README-147.md) · [Offline guide](docs/readmes/148/index.html) · [All editions](docs/readmes/INDEX.md) · [Contributor handoff](README-CONTRIBUTORS.md) · [Architecture](docs/ARCHITECTURE.md) · [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md)
+[Previous edition](README-148.md) · [Offline guide](docs/readmes/149/index.html) · [All editions](docs/readmes/INDEX.md) · [Contributor handoff](README-CONTRIBUTORS.md) · [Architecture](docs/ARCHITECTURE.md) · [Integrated roadmap](docs/INTEGRATED_AGENT_ROADMAP.md)
 
-![Actual saved comparison; private camera pixels excluded](docs/readmes/148/black-lighter-movement-black-lighter-movement-27-return-guard-146-results.png)
+![Actual saved comparison; private camera pixels excluded](docs/readmes/149/black-lighter-movement-black-lighter-movement-27-identity-return-149-results.png)
 
-## One connected local application
+## The connected application
 
-Fraynix connects durable chat goals, a Java physics world, Game Lab, browser observations, data analysis and verified creation procedures. Java maintains state, execution, recovery and outcome checks. The desktop hosts the browser, canvas and controls. Local models choose and explain actions through installed tools. The goal remains one observable system that creates, tests and retains useful procedures from measured outcomes.
+Fraynix remains one local application connecting chat, a persistent Java physics world, Game Lab, browser observations, data analysis and verified creation procedures. Java maintains tasks, state, execution and recovery. The desktop presents the browser, canvas and controls; a local model can choose and explain installed actions. The destination is a system that observes, creates, tests and retains useful procedures from measured outcomes.
 
-Camera tracking supplies evidence to that system. It must distinguish measured, predicted and unknown states; seeing similar pixels does not establish physical identity. A task should carry that uncertainty into its reports and actions. This edition changes an optional observation method, not the app's architecture, local-model requirements, action permissions or private worlds.
+Tracking supplies evidence to that system. A similar-looking image is not sufficient authority to manipulate a physical object. Measured, predicted and unknown states must remain distinct in reports and action checks. This edition improves an optional observation path; it does not replace the app with a camera demo, add cloud inference, expand permissions or alter private worlds.
 
 ## What changed
 
-- `path-confirmation-148` is an explicit experimental option in the observation panel. It preserves every accepted 146 proposal and may add a measurement where 146 withholds one.
-- Each verified appearance keeps its own three-step confirmation history. Correlation, color, adjacent optical flow, target motion and rival separation must support it. Evidence is never pooled across references.
-- Spatial search records the locations of competing matches, including scores that can violate the existing uniqueness margin. A similar patch can be excluded only through measured separation; a high match score alone cannot clear ambiguity.
-- Original baseline measurements anchor the paths. Recovered estimates never become new anchors or appearance memory. Missing rivals remain retained; intersecting, uncertain, overflowing or expired paths refuse the additional return.
-- `path-monitor-148` records the new reasoning while preserving all 146 tracker and filter outputs. The app audit replays the original pixels before independently scoring additional returns.
-- The recorder checks fresh movement with a clear donor, full cover, return and a visible comparison object. Images remain local; published screenshots show the actual result interface with camera pixels hidden.
+- **Fresh full-object evidence:** verified original donor crops produce 16 × 16 spatial/color descriptors. The initial user-selected source crop also participates; its selected identity is an input assumption, not an independently certified identity. The full image region must match, including its quadrants and gradient structure. Partial matches cannot establish a new identity segment.
+- **Separate confirmation for each reference:** four adjacent full matches and checked optical flow are required. Missing, ambiguous or incoherent frames reset that reference’s history. References cannot pool confirmations.
+- **Retained ambiguity:** a known competing match remains a veto on added 149 measurements after it disappears. One surviving candidate does not erase evidence of a copy.
+- **New observed motion:** after confirmation, fit the most recent four or five measured boxes. The segment records its source reference and sample ordinals. It carries no velocity across the long cover.
+- **Honest forecasts:** the next-sample point is visibly marked as predicted. It never counts as an observation, appearance memory or identity confirmation. Fit residuals are not calibrated probability bounds.
+- **Exact compatibility:** `identity-monitor-149` keeps all 148 tracker/filter outputs. `identity-return-149` preserves accepted 148 proposals and can add measurements where 148 withholds them. The inherited parent can still make mistakes; this compatibility promise does not correct those errors.
 
-The twelve-sample forecast horizon, eight-rival limit, 96-frame import limit, 16 datasets, 24 runs and 20 MB export limit remain unchanged. There is no automatic reference admission or default promotion. No new library, transformer, image generator or cloud inference is required by this tracking change.
+No new model, transformer, cloud service or production library is required. All source, code, label, outcome and export checks remain. Limits remain six reference examples, 96 frames per dataset, 16 datasets, 24 runs and 20 MB exports. The older twelve-sample path horizon and eight-rival limit remain unchanged. No automatic appearance admission, default promotion or physical action authority is added.
 
-## Why this change
+“Full object” here means the complete reference rectangle, rather than one of the older partial masks. It is not a foreground segmentation or semantic recognition of a lighter. Background pixels, rotation and changes in the visible shape can still prevent a match. A fresh motion segment cannot compensate for missing identity evidence.
 
-The exposed edition 147 footage contained strong target matches but no accepted return. New diagnostic geometry places the strongest rival region on the black tape-measure housing, using only part of the reference image. This suggested testing measured separation before accumulating confirmation. The same older recording also contains 19 hidden samples, beyond the unchanged twelve-sample forecast horizon. It is development evidence, not fresh qualification, and its long gap must not be made to pass by extending that horizon.
+A recent strong match can suggest one extra bounded search region. It does not confirm the current frame: all full-object and global-rival checks still run. The initial frozen implementation missed objects between coarse-grid positions and added zero returns on nine reserved sequences. That failed cohort is preserved; the revised search uses another reserved cohort. Geometry bounds are also enforced before refined candidates enter confirmation.
 
-Generated controls test a moving target and a persistent similar copy. Positive recovery is required alongside wrong-object refusal; refusing everything is not useful recovery. These controls are separate from real footage.
+## Why a new motion segment
 
-## Fresh recording and source review
+```mermaid
+flowchart LR
+    S[Verified original reference] --> M[Full-object match in current image]
+    G[Global competing matches] --> V[Retained ambiguity veto]
+    M --> C[Four adjacent observations and checked flow]
+    V --> C
+    C --> H[New observed motion segment]
+    H --> P[Unmeasured next-sample prediction]
+    H --> A[Original-pixel replay and independent outcome audit]
+```
 
-The [prospective protocol](docs/publication148/PROTOCOL_148.md), [implementation lock](docs/OBSERVATION_148_LOCK.json) and [camera lock](docs/publication148/webcam-lock148.json) were frozen before new camera pixels. The user chose the black lighter as the target and the red lighter as the comparison object. Their similar shape and different color do not establish performance against identical copies.
+The forecast has no path back into reference admission or identity confirmation.
 
-The source is continuous, approximately one sample per second, with actual camera times preserved. The causal donor contains 24 earlier, disjoint source images. Evaluation includes ten samples before complete cover and twenty samples after return. Source-only review requires at least half a target-width of visible movement and separately reports the first-return displacement. Stationary footage cannot qualify as a movement test. Cues and clicks record intended actions; original image review determines visibility.
+Edition 148’s camera recording exposed a long hidden interval, a brief return at the original location, hand-assisted movement and failure to follow the final position. The old forecast had expired, and two brief baseline observations could not rebuild its required trajectory. Extending that forecast until it happened to fit would manufacture confidence.
 
-The original timestamps remain in the private recording and source pack. This observation path uses a **sample-index clock**: its motion fit and twelve-sample horizon are not calibrated seconds, speed or acceleration. Variable capture gaps have not been silently retimed, but timestamp-aware physical prediction is a separate requirement.
+Edition149 instead asks a different, observable question: do several new full-object matches agree with the original selected crop or a verified donor appearance, without a known competitor? Only then does it form a new observed segment. The [fixed protocol](docs/publication149/PROTOCOL_149.md) and [implementation lock](docs/OBSERVATION_149_LOCK.json) precede reserved-control execution. The older recording is **exposed regression material**, not a fresh camera validation.
 
-| Source / role | Original samples | Visible / partial | Fully covered |
-| --- | --- | ---: | ---: |
-| black-lighter-movement-1 / reference-source | 1–24 | 23 / 0 | 0 |
-| black-lighter-movement-27 / evaluation | 27–80 | 25 / 5 | 23 |
+## Evidence and results
 
+The original 148 webcam packs and committed source-only labels are reused unchanged as an exposed regression. Any new 149 capture is declared separately under the [fresh camera protocol](docs/publication149/CAMERA_PROTOCOL_149.md). Donor admission is repeated under the current implementation; old code-bound evidence is never relabelled. Original images and sampled RGB appearance arrays remain private. Published camera receipts are clearly marked derived views: they preserve measurements, decisions and source hashes, with hashes for omitted feature arrays and the complete unchanged private original. Public views cannot replace original evidence in the verifier. Their source-only labels were independent of the original predictions, but they are manual AI annotations, not instrumented ground truth.
 
-All selected frames are reviewed and labelled before predictions. These attributed AI source-only labels are independent of tracker predictions, but are not independently instrumented ground truth. The user confirms the physical objects and actions. Admission of a verified reference is a separate app check; unsupported donors remain unavailable, never replaced by a fabricated reference.
+| Source / role | Evidence domain | Original samples | Visible / partial | Fully covered |
+| --- | --- | --- | ---: | ---: |
+| black-lighter-movement-1 / reference-source | exposed-real-camera | 1–24 | 23 / 0 | 0 |
+| black-lighter-movement-27 / evaluation | exposed-real-camera | 27–80 | 25 / 5 | 23 |
+| black-lighter-long-cover-exploratory-1 / reference-source | exploratory-real-camera | 1–24 | 23 / 0 | 0 |
+| black-lighter-long-cover-exploratory-32 / evaluation | exploratory-real-camera | 32–124 | 30 / 0 | 62 |
 
-## Results, including failures
 
 | Source / method | Correct / visible | Missing | Wrong overlap | Hidden outputs | Other-object matches |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| black-lighter-movement-27 / return-guard-146 | 11/30 | 19 | 0 | 0/23 | 0 |
-| black-lighter-movement-27 / path-monitor-148 | 11/30 | 19 | 0 | 0/23 | 0 |
+| black-lighter-long-cover-exploratory-32 / foreground-guard-139 | 29/30 | 1 | 0 | 0/62 | 0 |
 | black-lighter-movement-27 / path-confirmation-148 | 11/30 | 19 | 0 | 0/23 | 0 |
+| black-lighter-movement-27 / identity-monitor-149 | 11/30 | 19 | 0 | 0/23 | 0 |
+| black-lighter-movement-27 / identity-return-149 | 11/30 | 19 | 0 | 0/23 | 0 |
 
 
-Correct measurements overlap the source-labelled target by at least 0.5 IoU. Missing observations remain in every denominator. A low overlap alone is not proof of an identity switch; overlaps with the labelled comparison object are counted separately. Accepted measurements during complete cover are unsupported outputs.
+Correct means at least 0.5 overlap with the independently labelled target. Missing observations stay in the denominator. Hidden outputs, bad overlap and labelled-other-object matches are reported separately. Unlabelled distractors cannot establish switch-free tracking.
 
 | Source / method | Additional restored correct / incorrect | Accepted supplemental correct / incorrect |
 | --- | ---: | ---: |
-| black-lighter-movement-27 / return-guard-146 | 0 / 0 | 0 / 0 |
-| black-lighter-movement-27 / path-monitor-148 | 0 / 0 | 0 / 0 |
+| black-lighter-long-cover-exploratory-32 / foreground-guard-139 | 0 / 0 | 0 / 0 |
 | black-lighter-movement-27 / path-confirmation-148 | 0 / 0 | 0 / 0 |
+| black-lighter-movement-27 / identity-monitor-149 | 0 / 0 | 0 / 0 |
+| black-lighter-movement-27 / identity-return-149 | 0 / 0 | 0 / 0 |
 
 
-Additional raw returns and measurements accepted by the shared filter are distinct. Monitor results are not applied measurements. Source eligibility, verified admission, completed execution and useful recovery are separate findings. The original 146 method is unchanged; this experiment does not correct errors that method already accepts.
+| Reserved generated texture / case | Correct / visible | Hidden outputs | Additional149 |
+| --- | ---: | ---: | ---: |
+| 149401 / return | 14/17 | 0/18 | 10 |
+| 149401 / wrong-pattern | 4/4 | 0/31 | 0 |
+| 149401 / second-loss | 10/16 | 0/19 | 6 |
+| 149509 / return | 14/17 | 0/18 | 10 |
+| 149509 / wrong-pattern | 4/4 | 0/31 | 0 |
+| 149509 / second-loss | 10/16 | 0/19 | 6 |
+| 149601 / return | 14/17 | 0/18 | 10 |
+| 149601 / wrong-pattern | 4/4 | 0/31 | 0 |
+| 149601 / second-loss | 10/16 | 0/19 | 6 |
 
-The fixed motion envelope is an image-plane assumption, not a calibrated probability or a guarantee of physical identity. An unseen identical copy on the same path may be indistinguishable. Camera motion, long occlusion, abrupt movement and unresolved competing paths can still prevent recovery.
 
-## Run and review
+**New-segment next-frame prediction, checked after evaluation:**
 
-Use the existing Windows launcher with Java 21 and installed desktop dependencies; preserve private working projects. For the isolated camera review instrument, run `node workspace-desktop/test/webcam148-recorder.cjs` from the checkout. Camera access starts only through **Start private preview**.
+| Source / case | New segments | Scored future centers | Mean / maximum error in pixels |
+| --- | ---: | ---: | ---: |
+| identity149-reserved-v2 / 149401 / return | 1 | 9 | 0.617 / 0.952 |
+| identity149-reserved-v2 / 149401 / wrong-pattern | 0 | 0 | unavailable |
+| identity149-reserved-v2 / 149401 / second-loss | 2 | 4 | 0.600 / 0.952 |
+| identity149-reserved-v2 / 149509 / return | 1 | 9 | 0.617 / 0.952 |
+| identity149-reserved-v2 / 149509 / wrong-pattern | 0 | 0 | unavailable |
+| identity149-reserved-v2 / 149509 / second-loss | 2 | 4 | 0.600 / 0.952 |
+| identity149-reserved-v2 / 149601 / return | 1 | 9 | 0.617 / 0.952 |
+| identity149-reserved-v2 / 149601 / wrong-pattern | 0 | 0 | unavailable |
+| identity149-reserved-v2 / 149601 / second-loss | 2 | 4 | 0.600 / 0.952 |
+| black-lighter-movement-27 | 0 | 0 | unavailable |
 
-![Actual recording controls with camera off](docs/readmes/148/recorder-controls.png)
+The prediction is never used as an observation. Hidden or unavailable future labels are excluded and counted in [the full motion receipt](docs/readmes/149/motion.json). Generated geometry is exact at 320 × 240 pixels; camera boxes are manually labelled at 640 × 480 pixels. These pixel/sample results are not calibrated physical speed or probability bounds.
 
-1. Leave both lighters visible and hands away; click **Start clear reference**. Wait for COVER.
-2. Cover only the black lighter; confirm when covered. The app cues UNCOVER after two more saved samples.
-3. Uncover the same lighter and slide it about one grid square left. Keep the red lighter still. Confirm the return with the hand away.
-4. Keep both objects visible until automatic save and camera shutoff. No final click is needed.
-5. Review original frames, preserve hashes and source-only labels, and commit those inputs before running the frozen comparison. Never use predictions as reference labels.
 
-The recorder is a review instrument inside an isolated actual app, not a new production camera mode. Its UI screenshot comes from the synthetic-device lifecycle check before preview; it is not physical tracking evidence. Private raw images, pixel-containing captures and project stores are excluded from Git. Public receipts verify hashes and outcomes; repeating original-pixel checks requires authorized access to the local source files.
+Raw supplemental boxes and measurements accepted by the shared filter are different results. Reserved generated cases test exact rendered geometry and repeatable logic; they cannot establish real-camera generalization. Fresh webcam confirmation remains a separate qualification requirement unless explicitly documented here.
 
-## Verification and full cost
+## Fresh camera qualification
 
-382 distinct Java checks and 161 desktop checks passed, plus kernel, agency, offline preparation and package verification. 4 actual app runs across 1 private study project(s), with separate unfinished-process recovery. Source eligibility and useful recovery remain distinct from execution checks. Hosted CI is reported separately.
+Three new private webcam recordings were completed and source-reviewed before tracker execution. All original images, times and failed attempts are retained locally.
 
-- Separate donor runs precede all fixed evaluation windows. Retention with zero eligible examples is refused and recorded; reference-dependent cases remain unavailable without replacement. Eligible cases compare three methods on identical pixels. Fresh real footage and generated trajectory controls are reported separately; no-reference cases retain an explicit baseline run and unavailability records. Independent host overlap/distractor/supplemental-outcome arithmetic agrees with Java. Monitor148 preserves every146 tracker/filter output; candidate preserves every146 measurement and independently scores additional148 returns. Three per-reference motion and path confirmations are checked without using outcome labels. No automatic anchor admissions; defaults unchanged.
-- Explicit method selection, recovery explanation, original-source overlay, independent audit UI, complete bounded export and exact stopped-prefix resume passed. Native physical world unchanged.
+- **Attempt 1:** 99 frames; complete 29-sample cover, but mostly rotation and about 2.9 pixels of center movement. Refused the predeclared movement minimum.
+- **Attempt 2:** 188 frames; clear translation, but 108 hidden samples required a 139-frame event, beyond the existing 96-frame dataset capacity. Refused without truncation or retiming.
+- **Attempt 3:** 134 frames; 62 hidden samples, two above the prospective 60-sample maximum. Primary eligibility remains false. The entire event, frames 32–124, fits in 93 frames, so it was declared as a **post-acquisition exploratory comparison** before predictions. Donor 1–24 and evaluation images are disjoint. All 134 original frames and all 117 selected native-pixel frames were reviewed. [Explicit deviation](docs/publication149/EXPLORATORY_CAMERA_149.md).
+
+The user confirms moving the same black lighter under cover and revealing it. The red lighter remains a separate, similarly shaped but differently colored comparison. The tape and housing also moved during the cover; the background change is retained and disclosed. Manual image-plane boxes are independent of predictions but not instrumented physical truth.
+
+The exploratory donor tracks **23/23** scored samples correctly, but admits **zero learned appearances**: 2 frames gather motion evidence and 21 say “appearance already represented.” The retention system therefore refuses to save a donor set. The frozen comparison records **148, monitor149 and candidate149 as unavailable** on this source; it does not invent references or replace the declared donor.
+
+The prescribed **existing foreground-guard-139 fallback** reaches **29/30** visible samples, with **1 missing, 0 wrong-overlap observations, 0/62 hidden outputs and 0 matches to labelled other objects**. This result belongs to that fallback on this one exploratory recording; it is not a 149 improvement or a comparison against the unavailable methods.
+
+The complete two-run workflow passed original-pixel replay, independent outcome arithmetic, original-source tamper refusal and restoration, export, and owned-process interruption/cold reopening of completed state. It does not prove interrupted positive149-segment recovery. No primary fresh149 recording qualified; no default is promoted. The first two ineligible sources were not tracked.
+
+## Review in the app
+
+Use the existing Windows launcher with Java 21 and the installed desktop dependencies. Preserve the private project path when switching checkouts. The edition 149 verification runs use isolated projects under `build`; they do not touch the active review world.
+
+1. Open the spatial view and import an authorized observation pack. Review and freeze source-only labels before evaluating a new source.
+2. Run and independently audit a separate clear donor; retain only supported fully visible appearances.
+3. Select the evaluation footage and a verified donor set. Explain why they show the same object. This declaration is not itself identity proof.
+4. Choose **Fresh identity monitor 149** to inspect decisions while retaining 148 outputs, or explicitly choose **Fresh full-object identity + new motion segment 149** for the candidate.
+5. Review every missing and unsupported measurement in **Object identity · occlusion & recovery**. The source view shows the observed segment and a dashed predicted point. Stop/resume and evidence export preserve the original checks.
+
+Public screenshots show the actual saved app results with camera pixels hidden. Reproducing the camera comparison requires authorized access to the original local files. The published hashes alone cannot reconstruct the recording.
+
+## Verification and complete cost
+
+393 distinct Java checks and 161 desktop checks passed, plus kernel, agency, offline preparation and package verification. 6 actual app runs across 2 private study project(s), with separate unfinished-process recovery. Source eligibility and useful recovery remain distinct from execution checks. Hosted CI is reported separately.
+
+The exposed generated tracker/filter/audit control accepted 4 new correct measurements through the unchanged filter, reproduced the trace and filter after source reconstruction, and refused a forged motion segment. Changing one independent outcome label correctly produced one failed outcome without changing the tracker. [Original chain result](docs/readmes/149/filter-audit.json).
+
+- Separate donor runs precede all fixed evaluation windows. Retention with zero eligible examples is refused and recorded; reference-dependent cases remain unavailable without replacement. Eligible cases compare three methods on identical pixels. Exposed real footage and generated controls are reported separately; no-reference cases retain an explicit baseline run and unavailability records. Independent host overlap/distractor/supplemental-outcome arithmetic agrees with Java. Monitor149 preserves every148 tracker/filter output; candidate preserves every148 measurement and independently scores additional149 returns. Four adjacent full-object per-reference confirmations and independent least-squares motion arithmetic are checked without using outcome labels. No automatic appearance admissions; defaults unchanged.
+- Donor retention refusal preserved. Fixed baseline and its complete export checked; no claim of148 method selection, recovery or prefix-resume validation on this unavailable source.
 - Owned-process crash and cold reopen preserve exact completed-state bytes/timestamp and zero observation writes. All recorded runs/audits reverified, including original-pixel decision replay. Donor and evaluation source modification independently refuse audit/export; original restoration revalidates.
+- Explicit method selection, recovery explanation, original-source overlay, independent audit UI, complete bounded export and exact stopped-prefix resume passed. Native physical world unchanged.
 - Killed only the owned Java process during a labelled camera occlusion after observed loss and while unfinished
 - Cold reopen retained the exact committed prefix and interrupted status
 - Resume reconstructed pre-loss motion and return decisions from original pixels before continuing
 - Complete trace and independent outcome audit exactly match the uninterrupted run
 - Native world unchanged; Additional observation run uses the existing capacity without expansion
 
+A separate exposed generated control runs positive new returns through the unchanged observation filter, reconstructs the tracker/filter from original frames and checks the independent audit. Changing its outcome label changes the score without changing the tracker; forging a segment is refused. Its fixture memory is not a production admission proof. Real-app source admission and interruption are checked separately on the exposed edition 148 camera footage, which has no added149 return. That interruption check does not qualify recovery of a positive new segment across a native-app process interruption.
+
 | Source / method | Tracking ms | Replay/audit ms |
 | --- | ---: | ---: |
-| black-lighter-movement-27 / return-guard-146 | 37957.5 | 60650.5 |
-| black-lighter-movement-27 / path-monitor-148 | 56513.9 | 83994.0 |
-| black-lighter-movement-27 / path-confirmation-148 | 66137.4 | 84057.4 |
+| black-lighter-long-cover-exploratory-32 / foreground-guard-139 | 31271.3 | 37454.0 |
+| black-lighter-movement-27 / path-confirmation-148 | 50627.0 | 82786.6 |
+| black-lighter-movement-27 / identity-monitor-149 | 122765.9 | 209386.2 |
+| black-lighter-movement-27 / identity-return-149 | 142120.7 | 205556.5 |
 
-Complete black-lighter-movement comparison workflow: 685.7s, 4 runs, 8040240 exported bytes. Includes checks, UI, source replay and retained retry intervals.
+Complete black-lighter-long-cover-exploratory comparison workflow: 124.2s, 2 runs, 11886372 exported bytes. Includes checks, UI, source replay and retained retry intervals.
 
-Separate interrupted-process check: 162.8s. Camera-free screenshot review: 232.2s.
+Complete black-lighter-movement comparison workflow: 1408.8s, 4 runs, 8075356 exported bytes. Includes checks, UI, source replay and retained retry intervals.
+
+Separate interrupted-process check: 376.1s. Camera-free screenshot review: 547.3s.
 
 
-- Both predecessor 147 CI runs, 43732193662 and 43732397988, completed successfully. Initial pending and later successful receipts are preserved separately.
-- The method, scorer, UI, source protocol and comparison harness were frozen at 7d48191c before fresh camera pixels. No post-footage threshold changes were made.
-- The first physical capture, attempt-b5TAjX, completed with 79 original frames and 6,003,331 image bytes. Source-only review found slight rotation and about 2.5 pixels of movement, below the predeclared 20-pixel minimum. It was rejected before any tracker prediction, preserved intact and never counted as a tracking result.
-- The second physical capture, attempt-kOQd2t, completed with 95 original frames, 7,090,391 image bytes and 97.98 seconds of capture. All 95 source frames were reviewed; all 78 selected donor/evaluation frames also received native-pixel review. Donor 1–24 and evaluation 27–80 use disjoint original images. Visibility and other-object labels were committed at f6129073 before predictions.
-- The first actual-app import refused an overlong object display label before any tracking run. Only that description was shortened to satisfy the existing limit, and revised pack hashes were committed at aa35463e before predictions. Original images, timestamps, boxes and visibility were unchanged. The failed receipt and original private packs are preserved; the limit was not loosened.
-- The resumed study keeps the first failed attempt's `source` header (f6129073). A separate receipt at `docs/publication148/study-provenance148.json` binds the successful runs to aa35463e and the unchanged 7d48191c production build. It verifies that only the display label changed, every executed frame/object matches the revised pack, independent labels are unchanged, and the revised input commit precedes every successful import. The original receipt was not rewritten.
-- The user confirmed covering the black lighter and leaving it at the new grid position. Pixel review independently distinguishes first return at the old position from subsequent movement. Partial whole-object boxes are manually inferred from visible body structure, not independently instrumented truth. Competitor boxes are omitted where the hand obscures them.
-- Both physical recorders were closed after automatic save and camera shutdown. Synthetic lifecycle frames and the camera-off controls screenshot are UI evidence only. Private camera images and pixel-containing screenshots are excluded from Git.
+### Attempts retained in the evidence
 
-- The separate interruption check stopped only its owned Java process after ten committed samples during labelled occlusion. Reopening retained that exact ten-sample prefix; resuming completed all 53 scored samples with the identical uninterrupted trace and independent outcome audit. The physical world remained unchanged.
+- The initial implementation was frozen at `9e19970a` before its reserved generated tests. Seven functional checks passed, but the reserved test failed: nine sequences produced zero additional recoveries. Original failed XML, trace, source lock and protocol are preserved.
+- Source review found periodic search-grid misses between strong matches. Revision 2 (`9090c62d`) adds a bounded recent-match search proposal and valid-box guards. Identity, optical-flow and competing-object thresholds are unchanged. Its production sources and comparison harness were frozen before a separate reserved cohort was executed.
+- All ten focused checks passed. The first, now-exposed cohort and the separate reserved cohort each produced 48 additional correct observations, zero incorrect outputs and zero hidden outputs across nine generated sequences. These are rendered controls, not camera footage.
+- Protocol wording clarification: its prose says return samples 23–32 and mentions exact-copy variants. The already-frozen reserved generator actually scores samples 1–35, with returns through 35, for the three listed cases: return, wrong-pattern and second-loss. All 35 samples are retained in the results. Known-copy refusal is a separate functional control using exposed fixture material, not a reserved new-copy cohort. The frozen files are preserved unchanged.
+- The complete recorded-camera app comparison passed independent original-pixel replay, source/descriptor tamper refusal and restoration, evidence export, stop/resume, cold reopening and UI checks. Its four runs include the clear donor and three evaluation methods. All evaluation methods remain at 11/30 correct visible or partial samples; none follows the final moved position. Generated recovery must not be reported as camera recovery.
+- Existing edition 148 camera packs and labels were reused unchanged. The user subsequently confirmed availability for a separately frozen fresh149 camera test. The original regression remains exposed; fresh capture status and results are reported separately. Private source pixels and screenshots containing them are excluded from publication.
+- A supplementary generated tracker/filter/audit check was added at `aada9782` after the camera result exposed a coverage gap: the real app comparison has no positive new149 segment. It passed: four new correct measurements reached the unchanged filter; exact source reconstruction, changed-label scoring and forged-segment refusal were checked. It does not retrospectively turn the camera restart into a positive new-segment interruption test.
+- All 148 defaults, existing capacities and frozen historical editions remain intact. No source proof is relabelled, and no model or external image-processing library was introduced.
 
-[Successful-run input provenance](docs/publication148/study-provenance148.json) preserves the distinction between the original attempt header, corrected input revision and unchanged production build.
+- First fresh149 capture attempt-q4SwFz completed99 original samples. All originals and84 selected native-pixel frames reviewed before predictions. Fully hidden43–71 (29 samples), first return72. Black lighter mainly rotated; approximate center shift2.9px versus22px source threshold. Frozen preflight refused movement. User physical-action confirmation retained, but does not override source pixels. No tracker execution on this source; original capture preserved. Repeat uses unchanged recorder/method/eligibility.
 
-CI was checked before implementation. Hosted status is recorded separately from local checks and fetched publication. [GitHub Actions](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions) and the publication receipt identify the pushed revision; a local commit is not a completed push.
+- Second fresh149 capture attempt-5tOX5W completed188original samples. All reviewed before prediction, with full-resolution boundary checks. Target clearly translated under cover, but fully hidden46–153 (108samples/about113seconds) exceeded frozen60-sample maximum; full event139frames exceeds96-frame capacity. No trimming/retiming or tracker execution. User confirmation preserved. Clarified next recording guidance: when MOVE UNDER COVER appears, move AND reveal without waiting for another cue. Method and eligibility unchanged.
 
-## Next steps
+- Third capture attempt-rqrzd0 completed134samples. All134 originals and117 selected native-pixel frames reviewed before prediction. Full cover42–103 is62samples, two above the frozen primary60-sample maximum; primary preflight remains refused. The complete32–124 event is93frames, inside the unchanged96frame capacity. Source-only exploratory declaration, labels and hashes committed6fdcbd75 before running unchanged comparison. No trimming/retiming/threshold change. Tape and housing also moved; red remains separate. This is post-acquisition exploratory camera evidence, not primary fresh qualification. All three physical attempts are retained.
+- Predecessor148 hosted runs43783077267 and43782824979 failed with runner communication loss; GitHub logs unavailable404, no particular assertion failure reported. Both failures retained, latestmain requested one retry. Hosted CI remains separate from passed local checks.
 
-1. **Recover movement without manufacturing new identity evidence.** Use this now-exposed failure for development: separate the long hidden interval, brief original-position return, hand-assisted movement and stable new position. Investigate how confirmed original observations can rebuild a valid motion history after return. After a long gap, test full-object structural evidence across several observed frames against retained lookalikes before authorizing a new motion anchor; do not describe that as renewal of an expired motion proof. Never use a restored guess as an anchor or appearance, extend a stale path until it fits, or erase a retained rival merely because it disappears.
-2. **Test short and long occlusions separately.** Freeze the next change before new footage. Include legitimate movement inside the supported forecast horizon, longer gaps, same-color lookalikes, wrong-object-only returns and unchanged-view controls. Label original pixels first and retain missed returns in the denominator. Long-gap identity needs additional verified evidence, not wider bounds alone. The current movement source remains a regression after this edition. For physical timing, use the retained capture timestamps and test variable cadence separately; sample steps must not be reported as calibrated seconds or velocity.
-3. **Make useful recovery worth its complete cost.** The 148 candidate spent more work for zero added camera measurements. Measure and remove duplicated spatial search or exact source-bound replay only when equivalent checks are demonstrated. Report full tracking, reference verification, save, restart, audit and export costs. Neither faster refusals nor successful generated fixtures alone justify promotion.
-4. **Keep the connected application central.** Use qualified observations in a durable chat request that produces a verified observed-object report or working artifact. Carry measured, predicted and unknown states into the result; unresolved identity must block physical actions. Continue the shared Java world, browser, Game Lab and creation system rather than treating tracker experiments as the destination.
+The implementation is pure Java image processing and bounded state. CPU search and original-pixel replay have real costs; successful execution is separate from useful recovery and from real-time throughput. Hosted CI status is separate from local verification and fetched publication.
 
-Keep the unified application central: qualified observations should support a durable chat request that produces a verified report or working artifact, carrying unresolved identity and measurement uncertainty through every stage.
+## Limits and next work
+
+An unseen pixel-identical substitution is not observable from this camera alone. Camera motion, rotation, changing light, small objects and partial returns can prevent confirmation. The new segment uses **image/sample units**, not calibrated seconds or physical velocity; original camera timestamps remain in private source data. Independent physical evidence is needed before claiming real-world identity or permitting physical action.
+
+1. **Separate verified source evidence from novelty.** The new donor is correctly tracked but all repeated appearances are excluded as duplicates. Design and test an explicit source-seed verification/retention path, keeping its user-selected identity assumption visible. Do not call duplicate frames newly learned examples or bypass original-source/outcome checks. Compare verified-seed-only, learned-reference and simple-control paths on sources frozen before evaluation.
+2. **Make camera tests easier to complete.** The recorder's “no rush” wording conflicts with the source event ceiling. Add clearly timed action cues and a predeclared capture window before the next recording; preserve actual times and all failures. Test complete cover, displaced return, same-color lookalikes and wrong-object-only intervals. The 62-sample exploratory case remains outside primary qualification.
+3. **Qualify fresh real returns before promotion.** First demonstrate a positive new segment across an actual app process interruption using a clearly labelled generated source. Then keep the method frozen, record a genuinely new long cover and displaced return, and label the original images before predictions. Include a same-color lookalike and a wrong-object-only interval. Report missed returns and wrong matches together; neither generated controls nor reuse of the exposed 148 recording establishes fresh-camera performance.
+4. **Separate search failures from identity failures.** After evaluation, compare scores at independently labelled target crops with the proposals the search actually found. That separates a missed search location from an appearance mismatch; account for manual box uncertainty. Also measure competing-object vetoes and lost adjacent-flow support. Keep these diagnostic labels out of live tracking. Preserve strong identity criteria; improve bounded search coverage or acquire independently verified appearances instead of teaching the tracker its own drift. Keep all failed cohorts visible.
+5. **Measure the complete cost of useful recovery.** Compare the extra correct observations with global search, original-source verification, replay, save, restart and export time. Remove repeated work only when exact source/code/outcome equivalence is demonstrated. The current CPU experiment is not a real-time throughput guarantee.
+6. **Use qualified observations in the connected agent.** Build a durable chat report or working artifact that includes observed segments, separately marked forecasts, unresolved identity and original evidence links. Keep physical actions blocked on unresolved correspondence. Maintain the same Java world, browser, creation and Game Lab architecture.
+7. **Add independent evidence for stronger physical claims.** Use actual capture timestamps for time-based motion only after cadence tests. Calibrate scale and uncertainty against separately measured motion. An unseen identical swap needs additional observations or an independent witness; a high image-match score cannot resolve it by itself.
+
+Maintain the unified Java world, browser, creation and durable-chat architecture. No stubs, invented outcomes, silent changes to defaults or overwritten historical evidence.

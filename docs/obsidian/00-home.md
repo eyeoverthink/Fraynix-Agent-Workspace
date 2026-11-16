@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/157-fresh-identity.md]] | [[README-149.md]]
+
 Current: [[docs/obsidian/156-return-confirmation.md]] | [[README-148.md]]
 
 Current: [[docs/obsidian/155-fresh-occlusion.md]] | [[README-147.md]]

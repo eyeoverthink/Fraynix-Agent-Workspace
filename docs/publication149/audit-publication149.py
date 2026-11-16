@@ -17,6 +17,16 @@ try:
  for frozen in [lock]:
   for name,h in frozen['sourceHashes'].items():assert digest(text(name).encode())==h,name
  for source in sources['records']:assert digest(blob(source['labels']))==source['labelsSha256'],source['labels']
+ for source in sources['records']:
+  if source['domain']=='exploratory-real-camera':
+   assert source['primaryEligible'] is False and source['preflight']['passed'] is False
+   assert source['preflight']['actualHiddenSamples']==62 and source['preflight']['primaryMaximum']==60
+   assert digest(blob(source['preflight']['declaration']))==source['preflight']['declarationSha256']
+   assert digest(blob('docs/publication149/prepare-exploratory149.py'))==source['preflight']['preparerSha256']
+   declaration=next(s for s in sources['freshSourceReview149']['sources'] if s['name']==source['group'])
+   assert declaration['eligible'] is False and declaration['donor']==[1,24] and declaration['evaluation']==[32,124]
+   assert declaration['event']=={'hiddenStart':42,'returnFrame':104}
+   assert source['sourceFrames']==list(range(source['start'],source['end']+1)) and source['stride']==1 and source['frames']<=96
  camera=json.loads(text('docs/publication149/webcam-lock149.json'));assert digest(blob('docs/OBSERVATION_149_LOCK.json'))==camera['algorithmLockSha256']
  for name,h in camera['sourceHashes'].items():assert digest(text(name).encode())==h,name
  if 'webcamLock149Sha256' in sources:assert digest(blob('docs/publication149/webcam-lock149.json'))==sources['webcamLock149Sha256']
@@ -45,9 +55,9 @@ try:
    b=blob(row['path']);raw=gzip.decompress(b);checked[row['path']]=(len(b),digest(b),len(raw),digest(raw))
   assert checked[row['path']]==(row['bytes'],row['sha256'],row['rawBytes'],row['rawSha256']),row['logicalPath']
   if row.get('transformation')=='public-view-149':
-   original=(r/row['logicalPath']).read_bytes();assert len(original)==row['privateOriginalBytes'] and digest(original)==row['privateOriginalSha256']
-   public,omitted=public_bytes(original);assert len(omitted)==row['omittedFeatureArrays'] and public==gzip.decompress(blob(row['path']))
+   private_original=(r/row['logicalPath']).read_bytes();assert len(private_original)==row['privateOriginalBytes'] and digest(private_original)==row['privateOriginalSha256']
+   public,omitted=public_bytes(private_original);assert len(omitted)==row['omittedFeatureArrays'] and public==gzip.decompress(blob(row['path']))
    check_public(json.loads(public))
- result={'passed':True,'verifiedAtUtc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'remote':'https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git','fetchedRef':ref,'remoteFetched':ref.startswith('refs/verify/'),'commit':actual,'rawLabelInputsVerified':len(sources['records']),'rawMethodLockVerified':True,'sourceScope':'Exposed148 regression and separately declared149 camera source; per-record domains and raw label hashes verified','canonicalSourceFiles':len(inventory),'editions':len(manifest['editions']),'frozenHashes':frozen,'original149EvidenceFiles':len(original['files']),'distinctOriginalPayloads':len(checked),'privateReceiptViews':sum(row.get('transformation')=='public-view-149' for row in original['files']),'productionScorerSourceLabelsUnchangedSincePreEvaluation':True,'privateSourceImagesPublished':False,'method':'Every enumerated Git blob checked for length and canonical LF or binary SHA-256. Frozen editions unchanged; every compressed original checked. Fresh fetched refs distinguish remote publication from local validation. Private camera pixels excluded.'}
+ result={'passed':True,'verifiedAtUtc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'remote':'https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git','fetchedRef':ref,'remoteFetched':ref.startswith('refs/verify/'),'commit':actual,'rawLabelInputsVerified':len(sources['records']),'rawMethodLockVerified':True,'sourceScope':'Exposed148 regression and separately declared exploratory149 camera source; primary eligibility and raw label hashes preserved','canonicalSourceFiles':len(inventory),'editions':len(manifest['editions']),'frozenHashes':frozen,'original149EvidenceFiles':len(original['files']),'distinctOriginalPayloads':len(checked),'privateReceiptViews':sum(row.get('transformation')=='public-view-149' for row in original['files']),'productionScorerSourceLabelsUnchangedSincePreEvaluation':True,'privateSourceImagesPublished':False,'method':'Every enumerated Git blob checked for length and canonical LF or binary SHA-256. Frozen editions unchanged; every compressed original checked. Fresh fetched refs distinguish remote publication from local validation. Private camera pixels excluded.'}
  (r/'build/publication-audit149.json').write_bytes((json.dumps(result,indent=2)+'\n').encode());print(json.dumps(result))
 finally:p.stdin.close();p.wait()
