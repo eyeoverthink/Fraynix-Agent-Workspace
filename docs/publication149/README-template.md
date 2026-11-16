@@ -90,7 +90,7 @@ Public screenshots show the actual saved app results with camera pixels hidden. 
 
 {{APP_CHECKS}}
 
-A separate exposed generated control runs positive new returns through the unchanged observation filter, reconstructs the tracker/filter from original frames and checks the independent audit. Changing its outcome label changes the score without changing the tracker; forging a segment is refused. Its fixture memory is not a production admission proof. Real-app source admission and interruption are checked separately on camera footage, which has no added149 return. Positive new-segment recovery across a native-app process interruption remains unqualified.
+A separate exposed generated control runs positive new returns through the unchanged observation filter, reconstructs the tracker/filter from original frames and checks the independent audit. Changing its outcome label changes the score without changing the tracker; forging a segment is refused. Its fixture memory is not a production admission proof. Real-app source admission and interruption are checked separately on the exposed edition 148 camera footage, which has no added149 return. That interruption check does not qualify recovery of a positive new segment across a native-app process interruption.
 
 {{COSTS}}
 
