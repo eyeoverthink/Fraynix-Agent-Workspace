@@ -1,3 +1,7 @@
+## Edition 152 — published and fetched back
+
+2026-11-16. Release f440eea0810bb41d7941de2d7429a2bc456ad0f8; main, edition152 and readme-152 pushed atomically and fetched. Full152 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_152.json. Experimental search shipped; defaults unchanged and fresh physical validation pending. The following local-study notes retain their original chronology.
+
 ## Edition 152 — locally verified; publication pending
 
 2026-11-16. Java target eyeoverthink/Fraynix-Agent-Workspace; isolated J:/Codex-Work/fraynix-workspace-edition152. No subagents. One heavy check at a time.

@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 152
 
+[Published and fetched receipt](docs/PUBLICATION_152.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-152)
+
 **Rotation search without supplied return locations.** 2026-11-16.
 
 [Previous: edition 151](README-151.md) · [All editions](docs/readmes/INDEX.md) · [Offline interactive guide](docs/readmes/152/index.html) · [Source and evidence](docs/readmes/152/verification.json)
