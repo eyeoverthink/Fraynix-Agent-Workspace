@@ -427,7 +427,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     }
     case 'appearances135':{
       if(input.command==='export'){const record=await api('/api/appearances135/retain',input.args);return nativeExports.save('verified-appearances-135','json',JSON.stringify(record,null,2),{evidenceId:record.id});}
-      if(!['retain','read'].includes(input.command))throw Error('Unknown appearance evidence operation');return api('/api/appearances135/'+input.command,input.args||{});
+      if(!['retain','read','retain-start150'].includes(input.command))throw Error('Unknown appearance evidence operation');return api('/api/appearances135/'+input.command,input.args||{});
     }
     case 'association134':{
       if(input.command==='export'||input.command==='audit-export'){const record=await api('/api/association134/'+(input.command==='export'?'read':'audit-read'),input.args);return nativeExports.save('association-134','json',JSON.stringify(record,null,2),{evidenceId:record.id});}

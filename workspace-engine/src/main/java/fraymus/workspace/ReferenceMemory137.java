@@ -56,7 +56,9 @@ final class ReferenceMemory137 {
                 if(Files.size(path)>1_000_000)throw new IllegalStateException("Reference set exceeds bound");
                 var set=new JSONObject(Files.readString(path));var payload=ParsedJson137.copy(set);payload.remove("id");String id=set.getString("id");
                 if(!path.getFileName().toString().equals(id+".json")||!id.equals(WorldFrames.hash(payload)))throw new IllegalStateException("Retained reference checksum changed");
-                sets.put(new JSONObject().put("id",id).put("datasetId",set.getString("datasetId")).put("examples",set.getJSONArray("examples").length()));
+                sets.put(new JSONObject().put("id",id).put("datasetId",set.getString("datasetId")).put("examples",set.getJSONArray("examples").length())
+                    .put("evidenceKind",set.optString("evidenceKind","learned-appearances-135"))
+                    .put("learnedExampleCount",set.optInt("learnedExampleCount",set.getJSONArray("examples").length())));
             }
         }
         return new JSONObject().put("sets",sets).put("scope","Listing checks saved bytes only; original source, code and outcome checks run before use. Older incompatible evidence remains historical.");

@@ -346,6 +346,7 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/metrics/export" -> result=metrics.export(input);
                     case "/api/metrics/report" -> {var view=metrics.view(input);result=new JSONObject().put("artifact",store.writeOnce("metric-report:"+WorldFrames.hash(view),MetricReport.build(view)));}
                     case "/api/appearances135/retain" -> result=appearances135.retain(input.getString("auditId"));
+                    case "/api/appearances135/retain-start150" -> {SpatialScene.keys(input,"auditId");result=appearances135.retainStartingReference(input.getString("auditId"));}
                     case "/api/appearances135/read" -> result=appearances135.read(input.getString("id"));
                     case "/api/association134/state" -> result=association134.state();
                     case "/api/association134/save" -> result=association134.save(input);

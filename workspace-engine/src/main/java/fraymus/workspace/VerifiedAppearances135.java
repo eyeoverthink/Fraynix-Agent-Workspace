@@ -47,7 +47,15 @@ final class VerifiedAppearances135 {
     }
 
     synchronized JSONObject retain(String auditId)throws Exception{
-        var result=evaluate(auditId);String id=WorldFrames.hash(result);result.put("id",id);Files.createDirectories(root);
+        return retainResult(evaluate(auditId));
+    }
+
+    synchronized JSONObject retainStartingReference(String auditId)throws Exception{
+        return retainResult(StartingReference150.evaluate(association,auditId,identity()));
+    }
+
+    private JSONObject retainResult(JSONObject result)throws Exception{
+        String id=WorldFrames.hash(result);result.put("id",id);Files.createDirectories(root);
         try(var channel=FileChannel.open(root.resolve("write.lock"),StandardOpenOption.CREATE,StandardOpenOption.WRITE);var lock=channel.lock()){
             Path file=root.resolve(id+".json");
             if(Files.exists(file)){if(!read(id).similar(result))throw new IllegalStateException("Appearance evidence identity conflict");return result;}
@@ -66,7 +74,10 @@ final class VerifiedAppearances135 {
         var file=root.resolve(id+".json");if(Files.size(file)>1_000_000)throw new IllegalStateException("Appearance set exceeds bound");
         var result=new JSONObject(Files.readString(file));var payload=WorldFrames.copy(result);payload.remove("id");
         if(!id.equals(result.getString("id"))||!id.equals(WorldFrames.hash(payload)))throw new IllegalStateException("Retained appearance checksum changed");
-        if(!evaluate(result.getJSONObject("input").getString("auditId")).similar(payload))throw new IllegalStateException("Appearance source, label, descriptor or code changed");
+        String auditId=result.getJSONObject("input").getString("auditId");
+        var expected=StartingReference150.SCHEMA.equals(result.getString("schema"))
+            ?StartingReference150.evaluate(association,auditId,identity()):evaluate(auditId);
+        if(!expected.similar(payload))throw new IllegalStateException("Appearance source, label, descriptor or code changed");
         return result;
     }
 }
