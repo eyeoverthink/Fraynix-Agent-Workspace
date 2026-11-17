@@ -1,136 +1,127 @@
-# Fraynix Agent Workspace — edition 154
+# Fraynix Agent Workspace — edition 155
 
-[Published and fetched receipt](docs/PUBLICATION_154.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-154)
+**Reconstruct the evidence. Repeat fewer calculations. Keep every check.** 2026-11-17.
 
-**Keep a supported track. Confirm a return. Reuse only verified work.** 2026-11-17.
+[Previous: edition 154](README-154.md) · [All editions](docs/readmes/INDEX.md) · [Offline guide](docs/readmes/155/index.html) · [Validation](docs/readmes/155/verification.json)
 
-[Previous: edition 153](README-153.md) · [All editions](docs/readmes/INDEX.md) · [Offline interactive guide](docs/readmes/154/index.html) · [Verification](docs/readmes/154/verification.json)
+Edition 155 reconstructs exactly the same evidence while reusing coordinate calculations. The exposed camera trace remains 34/42 correct observations, 8 withheld, 0 wrong overlaps and 0/30 hidden outputs, identical to 154. All eight app comparisons reproduce exact reference evidence. 7/7 harder generated cases meet their separate behavioral targets. Complete paired costs include the original verification. Defaults remain unchanged.
 
-The explicit Java comparison preserves supported original tracking and retains every confirmed 153 return. On the exposed camera recording it scores 34/42 correct visible/partial observations, versus 31/42 with 153; 8 remain withheld. There are 0 wrong overlaps, 0/30 hidden outputs and 0 matches to the labelled red object. All six new generated cases pass their declared outcome gates. Warm reopening takes 0.151 seconds median, with full byte checks; cold or forced verification still reconstructs. Defaults remain unchanged.
+![Actual continuous tracking and replay controls](docs/readmes/155/generated-reversing-motion.png)
 
-![Actual continuous tracking and replay controls](docs/readmes/154/generated-continuous-motion.png)
+## The application and this edition
 
-## The application and this step
+Fraynix remains one local agent workspace with a Java runtime, persistent world, physics, Game Lab, browser, creation canvas, durable goals and retained procedures. The long-term aim is an agent that can observe, propose, act and verify within that shared environment. Observations need to remain trustworthy when a view is interrupted, and their verification needs to be affordable enough to use in a larger task. This edition addresses that cost without changing the meaning of a successful check.
 
-Fraynix remains one local agent workspace with a Java runtime, persistent world, physics, Game Lab, browser, creation canvas, durable tasks and verified procedures. Perception supplies observations to that wider system; it does not replace it. A useful observation needs a source, a declared domain, an identity decision and an honest account of what remains unknown. This edition improves continuity and the cost of checking that evidence.
+The change is written directly in Java. It adds no dependency, GPU requirement or model service. The explicit comparison uses one bounded worker when requested. Existing library and desktop dependencies remain part of the application; the project is not dependency-free. No LLM training or new local-model evaluation is claimed here. The model selector visible in screenshots is an existing app control, not evidence of a model invocation during these tests.
 
-The user selected recorded tests only. The earlier camera sequence is exposed development and regression material, not new footage. Six separately rendered sources test new motion, disappearance, rotation and competing-object conditions. Existing tracking defaults, historical tracker identities, native world state and appearance memory remain unchanged. The new path is an explicit comparison that can be reviewed before it becomes an input to a wider agent task.
+The user selected recorded tests. The earlier black/red lighter recording is exposed regression material. Seven newly rendered sequences provide harder, source-labelled controls, not fresh camera footage. Historical tracker implementations, appearance admission, native world state and the default `legacy-flow` method remain unchanged. The new comparison is explicit and does not authorize physical actions or promote a tracker into default use.
 
-## Try the actual controls
+## Use the actual controls
 
-Open **Spatial → Object identity → Continuous tracking & confirmed returns · edition 154**. Select an independently audited recording and choose **Compare continuous tracking**. The app verifies the original sources and outcomes, runs the unchanged edition 153 search, and decides which observations have sufficient continuity or return evidence. Progress remains visible while the calculation runs.
+1. Start the Java workspace through its existing Windows launcher and select the intended private project. Keep each running project under its own owner; do not share its database with another app instance.
+2. Open **Spatial**, then **Object identity · occlusion & recovery**. Select a completed, independently labelled comparison whose original images and reference evidence are still available.
+3. Open **Exact reconstruction & harder returns · edition 155** and click **Compare exact reconstruction**. The app shows source verification and frame progress while the bounded background calculation runs.
+4. Read the result table: original continuity, confirmed return or withheld; matched or incorrect overlap; proposed image angle; and four-frame confirmation count. A proposed angle is not calibrated physical orientation.
+5. Use **Verify saved result** to reopen unchanged evidence. The process-local cache still rechecks all source and implementation bytes. Use **Replay every check** to explicitly reconstruct, even when a completed result is already in memory.
+6. Restarting clears the process-local cache. The first saved-result check after restart must rebuild the evidence. Missing source history is refused without recreating an empty replacement.
 
-The table identifies each output as `original-continuity`, `confirmed-return-153`, or `withheld`. It also shows independent visibility labels, target overlap, proposed image angle and confirmation count. Original continuity can be accepted before the fourth new search confirmation because it already has an uninterrupted measured history and fresh corroboration. A newly returned object cannot use that shortcut.
+The panel reports original-verification, search and image-read costs separately. Completion is shown only after original sources, results and final fingerprints verify. Closing the owned service interrupts its worker; cancellation cannot produce a completed receipt. A source change or mismatch is a refusal, not an instruction to silently revise the proof.
 
-**Verify saved result** checks the saved receipt and original evidence again. A completed replay can be reused only inside the current process when all relevant bytes still match. **Replay every check** explicitly reconstructs the original audit and the complete new comparison. Restarting also requires reconstruction. The interface distinguishes reuse from a fresh replay and displays the measured request, original-verification, image-reading and search costs.
+## What was expensive
 
-A saved search receipt is not a new camera sample. Reopening it does not train the model, add an appearance, move a simulated body or authorize a physical action. Proposed angles remain image-search hypotheses rather than calibrated physical pose. The default tracker is still `legacy-flow`; the earlier 152 and 153 comparisons remain available.
+The prior complete camera profile spent about 125 seconds on original verification and 88 seconds on rotation search. Image reading took about one second. Removing redundant history reads helped, but the full workload still needed over three minutes. These measured phases guided the work: reducing search arithmetic offers a useful saving while leaving the original audit intact.
 
-## Why combining the two paths matters
+For every angle and scale, the old search repeatedly calculates the pixel coordinates for the same grid columns and rows. The new path calculates each column's 64 x coordinates and each row's 64 image offsets once for that angle. Each candidate then samples precisely those pixels and performs the same correlation arithmetic. One angle's arrays are retained at a time; they do not accumulate across frames or become an appearance memory.
 
-Edition153 recovered 23 of 30 returned frames on the exposed recording, but its independent four-frame confirmation delayed the initial observations too. The existing tracker already had useful evidence at that point. Starting a fresh confirmation sequence on every comparison discarded three valid initial measurements. Simply taking whichever tracker supplied a box would introduce a different problem: an old track could jump to a lookalike after loss and bypass return verification.
+The grid uses repeated floating-point addition, exactly like the original traversal. It preserves the order of additions and subtractions before integer conversion. It preserves normalized boundary tests, sample validity, score accumulation order, all angles and scales, all global proposals, refinement order, competing-object checks and candidate counts. This matters because an apparently equivalent algebraic rewrite can cross a pixel boundary or change a tie.
 
-Edition154 treats the original uninterrupted segment and a newly confirmed return as different evidence. It preserves the original measured box exactly while all of these conditions hold:
+This is a computational optimization, not a narrower search. It does not select an area using an annotation, skip difficult frames, weaken a threshold, parallelize work across cores or trust old scores. The original 153 implementation remains available for comparison. The 154 continuity selector remains unchanged: current motion and full-object support can preserve an uninterrupted original track, but loss closes that segment. A later return must earn the existing four adjacent confirmations.
 
-| Original-segment requirement | Rule |
-| --- | --- |
-| Original measurement | Its existing observation filter accepted it, and the tracker reports `tracked` |
-| Current local motion | Pyramidal flow, no ambiguity, at least eight inliers, forward/backward error at most 1.2 pixels |
-| Adjacent continuity | Original boxes overlap by at least 0.55 intersection-over-union |
-| Current full-object support | A freshly sampled strong unique hypothesis overlaps the original box by at least 0.7 |
-| Competing objects | The complete rotation search has no retained ambiguity veto |
+## Harder continuity and return tests
 
-These conditions use the original run and current image-search evidence. They do not inspect evaluation target locations, visibility labels or whether the answer later scores as correct. There is no label-based choice of the better tracker. The source object's original seed and binding identify which original trace is being considered.
-
-Any failed condition closes the original segment permanently for this comparison. A later original `tracked` or `reacquired` box cannot reopen it. After loss, only the unchanged edition 153 confirmation can supply a return. That path still requires four adjacent strong unique matches to the same original reference, optical-flow consistency, all appearance thresholds and the full competing-object search. A subsequent loss still produces a missing observation until the evidence is sufficient again.
-
-When continuity passes, the exact original box is retained. Otherwise a confirmed 153 box is retained exactly; no averaging or geometric adjustment conceals disagreement. A conflicting or unsupported proposal is withheld. This is deliberately narrower than declaring every existing track valid. Its benefit must be assessed alongside missing frames and wrong-object outcomes.
-
-## Results and limitations
-
-| Source | Original correct | Nested 153 correct | Edition 154 correct | Withheld | Wrong / hidden / other | Full request s | Warm median s |
+| Source | Original correct | Nested 153 correct | Edition 155 correct | Withheld | Wrong / hidden / other | Full request s | Warm median s |
 | --- | ---: | ---: | ---: | ---: | --- | ---: | ---: |
-| continuous-motion | 22/22 | 19/22 | 22/22 | 0 | 0 / 0 of 0 / 0 | 5.08 | 0.119 |
-| return-67 | 4/17 | 11/17 | 14/17 | 3 | 0 / 0 of 5 / 0 | 4.00 | 0.116 |
-| wrong-only | 4/4 | 1/4 | 4/4 | 0 | 0 / 0 of 18 / 0 | 3.82 | 0.108 |
-| near-copy-only | 4/4 | 1/4 | 4/4 | 0 | 0 / 0 of 18 / 0 | 3.66 | 0.107 |
-| copy-veto | 4/17 | 1/17 | 4/17 | 13 | 0 / 0 of 5 / 0 | 3.94 | 0.108 |
-| double-return | 4/24 | 15/24 | 18/24 | 6 | 0 / 0 of 10 / 0 | 5.60 | 0.109 |
-| exposed150-camera | 11/42 | 31/42 | 34/42 | 8 | 0 / 0 of 30 / 0 | 218.57 | 0.151 |
+| reversing-motion | 31/31 | 28/31 | 31/31 | 0 | 0 / 0 of 0 / 0 | 5.83 | 0.160 |
+| long-cover-return | 5/18 | 12/18 | 15/18 | 3 | 0 / 0 of 12 / 0 | 3.97 | 0.152 |
+| partial-before-return | 5/22 | 12/22 | 15/22 | 7 | 0 / 0 of 5 / 0 | 3.90 | 0.141 |
+| double-return | 5/25 | 16/25 | 19/25 | 6 | 0 / 0 of 12 / 0 | 5.47 | 0.143 |
+| wrong-only | 5/5 | 2/5 | 5/5 | 0 | 0 / 0 of 22 / 0 | 3.10 | 0.144 |
+| near-copy-only | 5/5 | 2/5 | 5/5 | 0 | 0 / 0 of 22 / 0 | 3.02 | 0.143 |
+| copy-veto | 5/15 | 2/15 | 5/15 | 10 | 0 / 0 of 12 / 0 | 3.18 | 0.141 |
+| exposed150-camera | 11/42 | 31/42 | 34/42 | 8 | 0 / 0 of 30 / 0 | 185.24 | 0.148 |
 
 
-The camera improvement is 3 preserved initial observations; it is not additional recovery after occlusion. The same 23/30 returned frames remain confirmed, and the same 7 remain withheld. The nested 153 trace matches the published trace exactly. 11 original camera boxes are retained numerically unchanged where continuity qualifies. The other accepted observations come from unchanged return confirmation.
+The nested 153 column is the confirmation component already used in 154. Its difference from the combined result measures the existing continuity policy; it is not a tracking gain introduced by 155. The optimization must reproduce the complete reference result exactly.
 
-The six generated cases comprise uninterrupted translated motion, a 67° return, a wrong-pattern-only return, a similar object with one changed quadrant, a target accompanied by an identical competing copy, and two cover/return episodes with a changed second orientation. Patterns and schedules were fixed before tracking. A separate Python calculation checks source corners, boxes and visibility against the Java source generator. Neither calculation calls a tracker.
+The complete camera trace, scores, source identities and candidate counts equal published154. Accuracy remains34/42, including the same23/30 confirmed returned frames. Eight observations remain withheld: seven returned frames and one earlier partial view. Coordinate optimization adds no new acceptance or physical-accuracy claim. 11 original camera boxes remain numerically unchanged.
 
-The nested 153 comparison is the unchanged 153 tracker actually executed inside the new comparison on every frame. It is not a separately claimed application run. The camera's complete nested trace is also compared exactly with the published 153 trace for the same images. New source labels score only completed output. Confirmed153 outputs must remain present, and preserved original boxes must equal their original measured values.
+The new controls use fixed, previously unused rendered patterns and these conditions:
 
-The wrong-only, changed-quadrant and identical-copy tests retain all their initial visible observations and all their later negative or ambiguous intervals. A conservative refusal in the copy case is expected, even though one object is the original target. The system cannot resolve an invisible substitution by an identical-looking object without independent evidence. A red comparison lighter is visibly different from the black target and does not establish general lookalike discrimination.
+| Sequence | Added difficulty | Behavioral target |
+| --- | --- | --- |
+| Reversing motion | Fractional movement changes direction | Preserve all valid visible observations |
+| Long cover return | Twelve fully hidden samples, then a shifted 103° return | Recover without an unsupported hidden observation |
+| Partial before return | An opaque cover leaves only part visible before a complete −43° return | Keep identity checks and recover the later complete view |
+| Double return | Two loss episodes, with −103° and 137° returns | Rebuild confirmation after each loss |
+| Wrong only | Different texture at the expected return site | Do not accept the substitute |
+| Near copy only | Similar pattern with a changed quadrant | Do not accept partial resemblance as identity |
+| Copy veto | Original-looking patterns at two different sites | Retain the ambiguity veto |
 
-No fresh webcam recording, general physical-accuracy promotion, calibrated 3D pose or language-model weight training is claimed. The remaining missing camera returns and the confirmation delays are part of the result. The app's underlying metric-scale and uncertainty limitations are not removed by better continuity.
+The source generator records rendered geometry before tracking. An independent Python calculation checks schedules and bounding extents using a different geometric formulation. All source labels are imported before baseline or experimental tracking. Labels score the completed trace and never provide the return location to the search. For partial views, the external box denotes the known full extent of the rendered target; covered pixels are not claimed to have been observed.
 
-## Reduce complete replay work without trusting stale files
+Software equivalence and useful behavior are separate gates. Every optimized result must equal the complete reference result, including withheld frames, failures, scores and candidate counts. The separate behavioral targets above can fail even when exact reconstruction passes. The [qualification receipt](docs/readmes/155/qualification.json) records each target's actual outcome. A successful optimization does not erase an earlier tracking limitation. Identical-looking substitution after invisible motion still cannot be resolved from appearance alone; a differently coloured red lighter is not a strong same-colour lookalike test.
 
-The previous search repeatedly asked the observation store for the same immutable dataset while reading successive images. Each access correctly reread and hashed the growing observation history. The new path verifies a detached dataset manifest once, then opens each original image directly under that manifest. It checks path identity, image bounds and the exact original image hash before decoding. The complete source and implementation fingerprints are compared before and after processing. A changed manifest, image, label, run, reference or implementation still invalidates the result.
+## Complete costs, including verification
 
-The reference access path remains available to the measurement helper. It runs the same selection, search, scoring and verification through the older per-image store access. Alternating complete forced replays compare the full deterministic evidence, not merely summary counts. Timing fields are kept outside evidence identity so elapsed time cannot change a result's content-derived ID. The complete paired access-path check uses the uninterrupted generated case and the exposed camera recording. The other generated cases receive the actual-app execution, warm-read and independent outcome checks described below. This separates a real reduction in redundant history reads from any change to tracking mathematics.
+On the exposed camera, the first complete request took **185.241 seconds**; explicit full replay **226.620 seconds**; cold restarted verification **186.584 seconds**. Three unchanged warm readings had a median of **0.148 seconds**.
 
-A second saving applies to reopening a completed result. At most eight serialized results, each no larger than 4 MB, are held in a process-local cache. Each request validates the selected file's checksum and rereads every relevant source and code byte before and after reuse. File size and modification time are never sufficient. Returned JSON is detached so editing a response cannot alter the retained proof. Missing observation history is refused instead of being silently initialized.
+| Complete forced comparison | Original coordinates median s | Grid coordinates median s | Pairs | Ratio |
+| --- | ---: | ---: | ---: | ---: |
+| generated | 5.425 | 4.789 | 3 | 1.133 |
+| camera | 212.842 | 180.930 | 2 | 1.176 |
 
-The fingerprint conservatively covers the original observation, label and appearance namespaces. Adding otherwise valid evidence can therefore invalidate an older receipt and require a new comparison; the system does not silently update that receipt to a new source state.
+Three alternating pairs measure the generated direction-reversal case; two pairs measure the exposed camera. Each of the six other generated cases also has one complete reference/grid pair. All produce identical complete evidence and unchanged project inventories. Java 21, two active processors and a 768 MiB heap. These repeated local measurements do not guarantee a universal speed advantage. [Every timing](docs/readmes/155/qualification.json), including phase costs, remains available.
 
-The cache does not survive restart. An explicit full replay, changed evidence, changed implementation, unavailable cache entry or failed source check requires reconstruction or refusal. Saved files are never accepted because they look like a previous receipt. A forged outcome with a newly calculated checksum must still reproduce the actual computation. The existing 64-result capacity and four background-job statuses remain separate from the eight-entry replay cache.
+Each paired measurement opens new stores before the timed forced request. The timed work includes the original audit, source setup, per-image checks, global search, refinement, confirmation, independent scoring, final fingerprints and saved-result comparison. Store construction, importing data, creating the baseline tracking run, process startup and screenshot capture are separate costs. The reference path and optimized path alternate; there is no best-run selection. Actual app requests and command-line pairs are separate experiments. App timings vary between requests, so the initial request alone is not used to establish the saving.
 
-On the exposed camera, the first complete request took **218.572 seconds**; explicit full replay took **216.960 seconds**; cold restarted verification took **218.610 seconds**. Three unchanged warm reads had a median of **0.151 seconds**. These are different workloads.
+The same-process warm cache is a different workload. Its eight entries remain bounded to 4 MB of serialized content each. Every use verifies saved-receipt identity, rehashes relevant source and implementation bytes before and after the operation, and returns detached data. File size and modification time are never substitutes for content. A forged summary with a recomputed receipt checksum must reproduce the actual computation. Cold or forced verification still reconstructs. These timings do not establish live-camera frame rate.
 
-| Complete forced comparison | Repeated history access median s | Verified manifest access median s | History reads per pair |
-| --- | ---: | ---: | --- |
-| generated | 4.369 | 4.336 | 29 → 6 |
-| camera | 216.515 | 214.466 | 89 → 16 |
+## Verification and retained evidence
 
-The generated source uses three alternating pairs; the camera uses one pair. Both paths reconstruct identical complete results and leave the project unchanged. Java 21, two active processors and a 768 MiB heap were used. A single camera pair cannot establish a stable speed advantage; the byte/read reduction and measured timing are reported separately. No outcome or source check is removed. [Exact timings](docs/readmes/154/qualification.json) are retained in the qualification receipt.
+44 selected Java checks and 164 desktop checks passed, with no failures or skipped cases. Seven new generated app comparisons and one exposed-camera comparison passed visible-control, forced-replay, cold-restart and source-integrity checks. Complete reference/grid-search evidence matches exactly. Independent geometry and exact-evidence gates passed; harder behavioral targets and measured cost benefit are reported separately. These are scoped checks, not a rerun of every historical capability. Recorded tests only.
 
-Complete request timings cover original verification, source setup, image reading, search, independent scoring, fingerprint checks and result handling. Source import, the initial baseline run, process startup and screenshot capture are separate. The paired command-line measurements open new stores before the timed forced request; store construction is not included. Warm timings apply only to reopening unchanged evidence in the same process. They are not live-camera throughput or faster processing of unseen frames.
+The new arithmetic tests compare every sampled score in grids with fractional steps, border positions, unusual dimensions and the maximum supported image dimensions. Complete historical and optimized tracker traces are compared through movement, loss, wrong returns, valid returns and copies. Additional checks cover retained references, uniform frames, invalid dimensions, bounded grid inputs and cancellation.
 
-## Verification and evidence
+Service tests preserve source and outcome checks: cold reopening, explicit forced replay, same-size/time source corruption, missing-history refusal, forged outcomes, detached cache results, changed labels leaving the trace unchanged, background-worker bounds and cancellation. Regression includes the earlier continuity, rotation, evidence and path checks. The entire historical five-hour application suite is not represented by this selected local regression.
 
-35 selected Java checks and 164 desktop checks passed, with no failures or skipped cases. Six new generated app comparisons and one exposed-camera comparison passed visible-control, forced-replay, cold-restart and source-integrity checks. Complete reference/snapshot-access evidence matches exactly. Independent geometry and separate outcome/cost gates passed. These are scoped checks, not a rerun of every historical capability. Recorded tests only.
+The actual Electron/Java studies operate the visible controls, take three warm readings per case, force a complete replay, close and restart their own application, alter and restore an original image byte, and verify that the private source namespaces and native world state remain unchanged. Screenshots show the real controls and results. Private camera pixels are excluded; public receipts contain measurements and source identities rather than reconstructible private appearance arrays.
 
-The focused checks exercise initial preservation, irreversible loss of the original segment, unchanged return confirmation, prediction rejection, weak appearance, conflicting positions, competing objects, failed flow, detached results, background concurrency and cancellation. Service checks verify label isolation, full cold reconstruction, forced replay, a forged outcome with a recomputed checksum, source mutation with unchanged size and timestamp, and missing-history refusal without replacement data.
+The first nine Java checks passed, followed by 44 selected regression checks. An exposed six-frame camera search probe produced exact traces in 9.517 seconds through the reference path and 5.425 seconds through the grid path; this development probe excludes full reconstruction. A trailing-whitespace commit check was corrected before freezing. Method and qualification gates were committed at 5ce752d8 before rendering the new sources. The first study launcher stopped on a normal Java stderr startup notice before any source generation or app study; native exit-code handling was corrected and the passed tests were retained. The next launcher correctly refused an installed JAR older than a whitespace-only source edit; an explicit rebuild refreshed the installed artifacts before source generation. The documentation reader was corrected to read the original UTF-16 desktop log; the original log bytes remain unchanged. The first generated and camera application attempts passed their execution checks; no failed reserved app attempt was omitted.
 
-Actual Electron/Java studies use the visible compare, saved-verification and forced-replay controls. Each case receives three warm readings. The study closes its own app, starts it again and reconstructs a saved result. It alters an image byte while preserving file size and timestamp, requires refusal, then restores the original bytes. Original observation namespaces, private source projects and native world state are compared after the owned process closes. These checks do not close the user's unrelated application.
+CI was checked before work. Edition 154's publication runs were still running at that check; the preceding edition 153 runs had succeeded. Hosted CI status is reported separately at publication. The original private camera sources remain necessary for reproducing their checks; public summaries cannot replace those originals.
 
-The first nine-check development suite passed, followed by 35 selected regression checks. An editing-time character-encoding issue in the desktop source was detected in the diff and corrected before freezing the method; historical text and tracker code were preserved. The method and qualification gates were committed at 11417dcb before generating reserved 154 sources. The first generated and camera application attempts passed their execution checks; no failed reserved app attempt was omitted.
-
-GitHub CI was checked before implementation: both edition 153 publication runs had succeeded. Hosted verification for this edition is reported separately from local results. The full historical application suite is not represented by a selected local regression. Old README editions and original study outcomes remain frozen; later success does not rewrite an earlier failure or turn exposed material into a new evaluation.
-
-Public screenshots omit private camera pixels. Public result receipts contain measurements and evidence identities, not reconstructible appearance arrays. Original camera images and source descriptors remain local. The published summaries cannot replace those private originals when a verifier requires them.
-
-## Source map and next steps
+## Source map, continuity and next steps
 
 ```mermaid
 flowchart LR
-  A[Verified original run and images] --> B[Unchanged153 search]
-  A --> C[Original measured continuity]
-  B --> D[Evidence selection154]
-  C --> D
-  D --> E[Complete observation trace]
-  E --> F[Independent label scoring]
-  F --> G[Saved verified result]
-  G --> H[Fresh byte checks]
-  H --> I[Exact process-local reuse or full reconstruction]
+  A[Original source audit] --> B[Verified images and references]
+  B --> C[Exact coordinate grid]
+  C --> D[Every pose and refinement]
+  D --> E[Unchanged confirmation and continuity]
+  E --> F[Independent outcome scoring]
+  F --> G[Source and result verification]
+  G --> H[Saved evidence and complete cost]
 ```
 
-| Source | Responsibility |
+| Responsibility | Implementation |
 | --- | --- |
-| [ContinuityReturn154.java](workspace-engine/src/main/java/fraymus/workspace/ContinuityReturn154.java) | Preserve supported original boxes; keep loss and return boundaries explicit |
-| [ContinuityExperiment154.java](workspace-engine/src/main/java/fraymus/workspace/ContinuityExperiment154.java) | Verified image access, complete replay, bounded reuse and phase costs |
-| [RotationReturn153.java](workspace-engine/src/main/java/fraymus/workspace/RotationReturn153.java) | Unchanged return confirmation and competing-object veto |
-| [App panel](workspace-desktop/renderer/association134-panel.js) | Visible comparison, reuse, forced replay and evidence origin |
-| [Actual app study](docs/publication154/study154.cjs) | Controls, timings, restart, corruption refusal and world preservation |
-| [Replay measurement](docs/publication154/ReplayMeasure154.java) | Exact full-result comparison across image-access paths |
-| [Source generator](docs/publication154/ContinuitySources154.java) | Declared new generated cases and source-only labels |
+| Bounded coordinate plan, complete search | [RotationSearch155](workspace-engine/src/main/java/fraymus/workspace/RotationSearch155.java) |
+| Unchanged return rules with optimized search | [RotationReturn155](workspace-engine/src/main/java/fraymus/workspace/RotationReturn155.java) |
+| Preserve supported original observations | [ContinuityReturn154](workspace-engine/src/main/java/fraymus/workspace/ContinuityReturn154.java) |
+| Original verification, scoring, receipts and jobs | [ContinuityExperiment155](workspace-engine/src/main/java/fraymus/workspace/ContinuityExperiment155.java) |
+| Complete paired measurements | [ReplayMeasure155](docs/publication155/ReplayMeasure155.java) |
+| Frozen study plan and gates | [Plan](docs/publication155/plan155.md), [qualification](docs/publication155/qualify155.py), [method lock](docs/OBSERVATION_155_LOCK.json) |
 
-The [frozen method](docs/OBSERVATION_154_LOCK.json), [source inventory](docs/readmes/154/file-inventory.json), [evidence index](docs/readmes/154/original-evidence.json), [qualification](docs/readmes/154/qualification.json) and [Obsidian map](docs/obsidian/162-continuity-replay.canvas) connect the implementation to the measured result. Use a separate project for studies. The existing workspace launcher and normal Java world/browser/creation workflows remain available.
+The [offline guide](docs/readmes/155/index.html) provides case filtering, actual screenshot selection, component links and searchable source inventory without a CDN. The [Obsidian note](docs/obsidian/163-exact-reconstruction.md) and [canvas](docs/obsidian/163-exact-reconstruction.canvas) keep the change connected to the repository's broader architecture. Earlier README editions and frozen evidence remain unchanged.
 
-Next, measure continuity on more varied recorded views and partial covers without relaxing identity checks. Profile the remaining cold original-audit and search cost, including growing histories and reference banks; warm reopening is only one workload. Then use the verified observation episode in a durable chat-driven report or working artifact, with source links and clear measured, predicted and unknown states. The destination remains a connected local agent that can observe, act, verify and retain useful procedures across the whole application.
+The next work should follow the measured remainder: reduce original-verification reconstruction costs without changing its conclusions, test any unresolved harder-return behavior against independent labels, and connect qualified observations to durable tasks in the unified world/browser/creation workflow. An observation should carry its source, uncertainty and limitations into that task. Faster computation is useful when it makes a verified action affordable; it does not itself establish better perception, consciousness, general intelligence or physical safety.

@@ -1,0 +1,865 @@
+{
+  "passed": true,
+  "edition": 155,
+  "javaChecks": 44,
+  "desktopChecks": 164,
+  "appComparisons": 8,
+  "sourceGeometryChecks": {
+    "passed": true,
+    "checks": [
+      {
+        "case": "reversing-motion",
+        "frames": 32,
+        "labels": 31,
+        "originalPackSha256": "48a478f964260085e3fae2ed259478207a82fa15998b3ce8a4b0b8c398588e6e",
+        "originalLabelsSha256": "49cdb8b1af3403d5982fa80df9354f36efd9d874240c0a431d455a03170cdc7f",
+        "independentHalfExtents": true
+      },
+      {
+        "case": "long-cover-return",
+        "frames": 31,
+        "labels": 30,
+        "originalPackSha256": "75bca0621d9add1406056647b42fe288e3d287c3c7b27dd7c80480c15427282c",
+        "originalLabelsSha256": "8dfc664ca5a27de24cd2c96cd0f5598a7b848c8a525c42c01ff6a51a66f2d83b",
+        "independentHalfExtents": true
+      },
+      {
+        "case": "partial-before-return",
+        "frames": 28,
+        "labels": 27,
+        "originalPackSha256": "6fc647bdb2fabd9fa2f1c73a5765406b70b66797b646227e3e1f942ebd070a63",
+        "originalLabelsSha256": "e454761bc8888d083e16549f5244e445bb52194900ec20b5f06a310c2c77874d",
+        "independentHalfExtents": true
+      },
+      {
+        "case": "double-return",
+        "frames": 38,
+        "labels": 37,
+        "originalPackSha256": "ad3515b4db5fc739d8f71530d9426abebad23983d52e0011ad4e7daa6cec61eb",
+        "originalLabelsSha256": "b53ba90e6c1d77b730df0b3df215cdd9b2ac559740f923532a499a3c27c0d082",
+        "independentHalfExtents": true
+      },
+      {
+        "case": "wrong-only",
+        "frames": 28,
+        "labels": 27,
+        "originalPackSha256": "d68e0b7df5ccadc9c41bfb1b6d5ba12da3cf09abb108ac97b98896306f8cfb9e",
+        "originalLabelsSha256": "45e2779a6fb79bb60a123baa37fefd2d4a5bc6036a061966982d945efdb3917d",
+        "independentHalfExtents": true
+      },
+      {
+        "case": "near-copy-only",
+        "frames": 28,
+        "labels": 27,
+        "originalPackSha256": "6a7e848e347c3de97cb0b3b0c71eedcc1882ed9cb7779cf770fe3662db57d126",
+        "originalLabelsSha256": "a87da608d08debdb6bfb70d019db7ae0a71887206b5a255b455d6e541e4d613a",
+        "independentHalfExtents": true
+      },
+      {
+        "case": "copy-veto",
+        "frames": 28,
+        "labels": 27,
+        "originalPackSha256": "d69494e4f9cfe9ad1d0c4f51e5f2ace91e0ccaf0da77996e96d2fa127f6587a1",
+        "originalLabelsSha256": "afe9baa12ddcf513c4f835bd95609e919b1fd592ddc7379d4c92b1ae512a2985",
+        "independentHalfExtents": true
+      }
+    ],
+    "scope": "Independent source-only Python schedule and half-extents verification. No tracking results or predictions used."
+  },
+  "qualification": {
+    "passed": true,
+    "behavioralTargetsAllPassed": true,
+    "cases": [
+      {
+        "case": "reversing-motion",
+        "passed": true,
+        "behavioralTargetPassed": true,
+        "summary": {
+          "visible": 31,
+          "unsupported": 0,
+          "correct": 31,
+          "hidden": 0,
+          "confirmedDistractorMatches": 0,
+          "missing": 0,
+          "overlapFailures": 0
+        },
+        "preservedOriginalBoxes": 31,
+        "newlyPreservedComparedWith153": 3,
+        "warmMedianMs": 159.8305,
+        "fullRequestMs": 5826.8941,
+        "exactReferenceEvidence": true
+      },
+      {
+        "case": "long-cover-return",
+        "passed": true,
+        "behavioralTargetPassed": true,
+        "summary": {
+          "visible": 18,
+          "unsupported": 0,
+          "correct": 15,
+          "hidden": 12,
+          "confirmedDistractorMatches": 0,
+          "missing": 3,
+          "overlapFailures": 0
+        },
+        "preservedOriginalBoxes": 5,
+        "newlyPreservedComparedWith153": 3,
+        "warmMedianMs": 152.1307,
+        "fullRequestMs": 3974.3089,
+        "exactReferenceEvidence": true
+      },
+      {
+        "case": "partial-before-return",
+        "passed": true,
+        "behavioralTargetPassed": true,
+        "summary": {
+          "visible": 22,
+          "unsupported": 0,
+          "correct": 15,
+          "hidden": 5,
+          "confirmedDistractorMatches": 0,
+          "missing": 7,
+          "overlapFailures": 0
+        },
+        "preservedOriginalBoxes": 5,
+        "newlyPreservedComparedWith153": 3,
+        "warmMedianMs": 140.5503,
+        "fullRequestMs": 3899.6229,
+        "exactReferenceEvidence": true
+      },
+      {
+        "case": "double-return",
+        "passed": true,
+        "behavioralTargetPassed": true,
+        "summary": {
+          "visible": 25,
+          "unsupported": 0,
+          "correct": 19,
+          "hidden": 12,
+          "confirmedDistractorMatches": 0,
+          "missing": 6,
+          "overlapFailures": 0
+        },
+        "preservedOriginalBoxes": 5,
+        "newlyPreservedComparedWith153": 3,
+        "warmMedianMs": 143.0541,
+        "fullRequestMs": 5467.3904,
+        "exactReferenceEvidence": true
+      },
+      {
+        "case": "wrong-only",
+        "passed": true,
+        "behavioralTargetPassed": true,
+        "summary": {
+          "visible": 5,
+          "unsupported": 0,
+          "correct": 5,
+          "hidden": 22,
+          "confirmedDistractorMatches": 0,
+          "missing": 0,
+          "overlapFailures": 0
+        },
+        "preservedOriginalBoxes": 5,
+        "newlyPreservedComparedWith153": 3,
+        "warmMedianMs": 143.7132,
+        "fullRequestMs": 3095.1506,
+        "exactReferenceEvidence": true
+      },
+      {
+        "case": "near-copy-only",
+        "passed": true,
+        "behavioralTargetPassed": true,
+        "summary": {
+          "visible": 5,
+          "unsupported": 0,
+          "correct": 5,
+          "hidden": 22,
+          "confirmedDistractorMatches": 0,
+          "missing": 0,
+          "overlapFailures": 0
+        },
+        "preservedOriginalBoxes": 5,
+        "newlyPreservedComparedWith153": 3,
+        "warmMedianMs": 142.7738,
+        "fullRequestMs": 3021.6502,
+        "exactReferenceEvidence": true
+      },
+      {
+        "case": "copy-veto",
+        "passed": true,
+        "behavioralTargetPassed": true,
+        "summary": {
+          "visible": 15,
+          "unsupported": 0,
+          "correct": 5,
+          "hidden": 12,
+          "confirmedDistractorMatches": 0,
+          "missing": 10,
+          "overlapFailures": 0
+        },
+        "preservedOriginalBoxes": 5,
+        "newlyPreservedComparedWith153": 3,
+        "warmMedianMs": 140.9482,
+        "fullRequestMs": 3181.7222,
+        "exactReferenceEvidence": true
+      },
+      {
+        "case": "exposed150-camera",
+        "passed": true,
+        "behavioralTargetPassed": true,
+        "summary": {
+          "visible": 42,
+          "unsupported": 0,
+          "correct": 34,
+          "hidden": 30,
+          "confirmedDistractorMatches": 0,
+          "missing": 8,
+          "overlapFailures": 0
+        },
+        "preservedOriginalBoxes": 11,
+        "newlyPreservedComparedWith153": 3,
+        "warmMedianMs": 148.375,
+        "fullRequestMs": 185240.9931,
+        "exactReferenceEvidence": true
+      }
+    ],
+    "unchanged154CameraEvidence": true,
+    "completeReplayMeasurements": [
+      {
+        "case": "reversing-motion",
+        "projectUnchanged": true,
+        "scope": "Alternating complete forced verification with new process-local stores. Every original source/outcome check executed. Only coordinate arithmetic scheduling differs; every pose, original verification and complete output are exact. No camera capture.",
+        "experimentId": "c6539c58a8ac00358f5f5f3da49382dfc577ae9bda293265f9bef23b8842455a",
+        "fullEvidenceExactlyEqual": true,
+        "passed": true,
+        "measurements": [
+          {
+            "gridSearch": false,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": false,
+              "openingHashMs": 156.5324,
+              "historyReads": 6,
+              "finalHashMs": 70.3216,
+              "sourceSetupMs": 127.9638,
+              "reusedReplay": false,
+              "imageLoadMs": 166.3243,
+              "capacity": 8,
+              "originalReplayMs": 232.6279,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 5632.337,
+              "scoringMs": 0.2804,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 0,
+            "totalMs": 6403.8338
+          },
+          {
+            "gridSearch": true,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": true,
+              "openingHashMs": 137.9805,
+              "historyReads": 6,
+              "finalHashMs": 68.1841,
+              "sourceSetupMs": 85.4427,
+              "reusedReplay": false,
+              "imageLoadMs": 90.4585,
+              "capacity": 8,
+              "originalReplayMs": 168.4919,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 4341.2376,
+              "scoringMs": 0.0763,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 0,
+            "totalMs": 4901.352
+          },
+          {
+            "gridSearch": true,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": true,
+              "openingHashMs": 132.1418,
+              "historyReads": 6,
+              "finalHashMs": 66.3184,
+              "sourceSetupMs": 82.6363,
+              "reusedReplay": false,
+              "imageLoadMs": 89.2871,
+              "capacity": 8,
+              "originalReplayMs": 163.1226,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 4245.8382,
+              "scoringMs": 0.0766,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 1,
+            "totalMs": 4789.0432
+          },
+          {
+            "gridSearch": false,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": false,
+              "openingHashMs": 129.3224,
+              "historyReads": 6,
+              "finalHashMs": 63.087,
+              "sourceSetupMs": 79.9514,
+              "reusedReplay": false,
+              "imageLoadMs": 88.9986,
+              "capacity": 8,
+              "originalReplayMs": 164.0331,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 4890.7658,
+              "scoringMs": 0.0826,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 1,
+            "totalMs": 5425.0712
+          },
+          {
+            "gridSearch": false,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": false,
+              "openingHashMs": 126.9237,
+              "historyReads": 6,
+              "finalHashMs": 62.8285,
+              "sourceSetupMs": 78.8242,
+              "reusedReplay": false,
+              "imageLoadMs": 88.1961,
+              "capacity": 8,
+              "originalReplayMs": 156.476,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 4877.5806,
+              "scoringMs": 0.0709,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 2,
+            "totalMs": 5399.6546
+          },
+          {
+            "gridSearch": true,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": true,
+              "openingHashMs": 127.6696,
+              "historyReads": 6,
+              "finalHashMs": 63.5402,
+              "sourceSetupMs": 78.679,
+              "reusedReplay": false,
+              "imageLoadMs": 86.1358,
+              "capacity": 8,
+              "originalReplayMs": 151.8214,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 4246.8745,
+              "scoringMs": 0.0781,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 2,
+            "totalMs": 4763.8214
+          }
+        ]
+      },
+      {
+        "case": "long-cover-return",
+        "projectUnchanged": true,
+        "scope": "Alternating complete forced verification with new process-local stores. Every original source/outcome check executed. Only coordinate arithmetic scheduling differs; every pose, original verification and complete output are exact. No camera capture.",
+        "experimentId": "1a869b64a1a10368ff8819d3c2483e545cdcecaf09427af805ca17813854113f",
+        "fullEvidenceExactlyEqual": true,
+        "passed": true,
+        "measurements": [
+          {
+            "gridSearch": false,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": false,
+              "openingHashMs": 151.2744,
+              "historyReads": 6,
+              "finalHashMs": 69.2128,
+              "sourceSetupMs": 127.7268,
+              "reusedReplay": false,
+              "imageLoadMs": 77.6927,
+              "capacity": 8,
+              "originalReplayMs": 237.3409,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 4532.9484,
+              "scoringMs": 0.2455,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 0,
+            "totalMs": 5208.9584
+          },
+          {
+            "gridSearch": true,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": true,
+              "openingHashMs": 137.6666,
+              "historyReads": 6,
+              "finalHashMs": 67.8005,
+              "sourceSetupMs": 84.5585,
+              "reusedReplay": false,
+              "imageLoadMs": 74.2534,
+              "capacity": 8,
+              "originalReplayMs": 169.3717,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 3200.5546,
+              "scoringMs": 0.1477,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 0,
+            "totalMs": 3741.9493
+          }
+        ]
+      },
+      {
+        "case": "partial-before-return",
+        "projectUnchanged": true,
+        "scope": "Alternating complete forced verification with new process-local stores. Every original source/outcome check executed. Only coordinate arithmetic scheduling differs; every pose, original verification and complete output are exact. No camera capture.",
+        "experimentId": "7fcb233b152eae41c42293e7efeb9c0a40511e27dac808c09906b4611c1420ae",
+        "fullEvidenceExactlyEqual": true,
+        "passed": true,
+        "measurements": [
+          {
+            "gridSearch": false,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": false,
+              "openingHashMs": 152.3536,
+              "historyReads": 6,
+              "finalHashMs": 72.5915,
+              "sourceSetupMs": 121.3478,
+              "reusedReplay": false,
+              "imageLoadMs": 75.5775,
+              "capacity": 8,
+              "originalReplayMs": 231.6683,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 5134.7922,
+              "scoringMs": 0.208,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 0,
+            "totalMs": 5800.1078
+          },
+          {
+            "gridSearch": true,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": true,
+              "openingHashMs": 135.1618,
+              "historyReads": 6,
+              "finalHashMs": 65.9995,
+              "sourceSetupMs": 81.2535,
+              "reusedReplay": false,
+              "imageLoadMs": 68.0092,
+              "capacity": 8,
+              "originalReplayMs": 165.8426,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 3653.8428,
+              "scoringMs": 0.1772,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 0,
+            "totalMs": 4176.9963
+          }
+        ]
+      },
+      {
+        "case": "double-return",
+        "projectUnchanged": true,
+        "scope": "Alternating complete forced verification with new process-local stores. Every original source/outcome check executed. Only coordinate arithmetic scheduling differs; every pose, original verification and complete output are exact. No camera capture.",
+        "experimentId": "e97ed23f5627e980d4e83079622084f3f408420d64b7efeb73f11b35a8f7b18f",
+        "fullEvidenceExactlyEqual": true,
+        "passed": true,
+        "measurements": [
+          {
+            "gridSearch": false,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": false,
+              "openingHashMs": 154.9673,
+              "historyReads": 6,
+              "finalHashMs": 70.0626,
+              "sourceSetupMs": 129.2981,
+              "reusedReplay": false,
+              "imageLoadMs": 96.5573,
+              "capacity": 8,
+              "originalReplayMs": 241.1593,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 6803.5419,
+              "scoringMs": 0.2848,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 0,
+            "totalMs": 7511.238
+          },
+          {
+            "gridSearch": true,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": true,
+              "openingHashMs": 135.4618,
+              "historyReads": 6,
+              "finalHashMs": 66.6279,
+              "sourceSetupMs": 84.452,
+              "reusedReplay": false,
+              "imageLoadMs": 179.3692,
+              "capacity": 8,
+              "originalReplayMs": 171.5652,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 5084.344,
+              "scoringMs": 0.115,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 0,
+            "totalMs": 5732.6621
+          }
+        ]
+      },
+      {
+        "case": "wrong-only",
+        "projectUnchanged": true,
+        "scope": "Alternating complete forced verification with new process-local stores. Every original source/outcome check executed. Only coordinate arithmetic scheduling differs; every pose, original verification and complete output are exact. No camera capture.",
+        "experimentId": "354216271dc675d7743e358b1816cae2a624bda6521e45f55a47f4d78ebed8fd",
+        "fullEvidenceExactlyEqual": true,
+        "passed": true,
+        "measurements": [
+          {
+            "gridSearch": false,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": false,
+              "openingHashMs": 152.1867,
+              "historyReads": 6,
+              "finalHashMs": 70.8643,
+              "sourceSetupMs": 123.1015,
+              "reusedReplay": false,
+              "imageLoadMs": 66.3803,
+              "capacity": 8,
+              "originalReplayMs": 228.1497,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 4234.1447,
+              "scoringMs": 0.0672,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 0,
+            "totalMs": 4882.9174
+          },
+          {
+            "gridSearch": true,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": true,
+              "openingHashMs": 140.2288,
+              "historyReads": 6,
+              "finalHashMs": 69.72,
+              "sourceSetupMs": 80.9284,
+              "reusedReplay": false,
+              "imageLoadMs": 81.0594,
+              "capacity": 8,
+              "originalReplayMs": 165.4556,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 2745.2549,
+              "scoringMs": 0.0402,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 0,
+            "totalMs": 3287.6615
+          }
+        ]
+      },
+      {
+        "case": "near-copy-only",
+        "projectUnchanged": true,
+        "scope": "Alternating complete forced verification with new process-local stores. Every original source/outcome check executed. Only coordinate arithmetic scheduling differs; every pose, original verification and complete output are exact. No camera capture.",
+        "experimentId": "38c9441c38bed4920dcff0dcfe615c9e8a755e228d114616bf29c3a4019c3549",
+        "fullEvidenceExactlyEqual": true,
+        "passed": true,
+        "measurements": [
+          {
+            "gridSearch": false,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": false,
+              "openingHashMs": 158.3556,
+              "historyReads": 6,
+              "finalHashMs": 76.0452,
+              "sourceSetupMs": 124.8718,
+              "reusedReplay": false,
+              "imageLoadMs": 65.4989,
+              "capacity": 8,
+              "originalReplayMs": 236.3792,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 4249.6664,
+              "scoringMs": 0.0726,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 0,
+            "totalMs": 4919.1432
+          },
+          {
+            "gridSearch": true,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": true,
+              "openingHashMs": 137.4041,
+              "historyReads": 6,
+              "finalHashMs": 68.0107,
+              "sourceSetupMs": 83.524,
+              "reusedReplay": false,
+              "imageLoadMs": 59.6765,
+              "capacity": 8,
+              "originalReplayMs": 167.4006,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 2674.1011,
+              "scoringMs": 0.0421,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 0,
+            "totalMs": 3199.8188
+          }
+        ]
+      },
+      {
+        "case": "copy-veto",
+        "projectUnchanged": true,
+        "scope": "Alternating complete forced verification with new process-local stores. Every original source/outcome check executed. Only coordinate arithmetic scheduling differs; every pose, original verification and complete output are exact. No camera capture.",
+        "experimentId": "e8493ea1b0a4ae9e6dc5d08bba29a869a133baed22b67194b6dbe7901bdcb4b6",
+        "fullEvidenceExactlyEqual": true,
+        "passed": true,
+        "measurements": [
+          {
+            "gridSearch": false,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": false,
+              "openingHashMs": 154.9085,
+              "historyReads": 6,
+              "finalHashMs": 70.1031,
+              "sourceSetupMs": 121.5208,
+              "reusedReplay": false,
+              "imageLoadMs": 69.3181,
+              "capacity": 8,
+              "originalReplayMs": 238.735,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 4270.78,
+              "scoringMs": 0.0779,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 0,
+            "totalMs": 4933.7093
+          },
+          {
+            "gridSearch": true,
+            "cost": {
+              "openingBytesHashed": 9834862,
+              "gridSearch": true,
+              "openingHashMs": 135.2067,
+              "historyReads": 6,
+              "finalHashMs": 67.0567,
+              "sourceSetupMs": 81.6107,
+              "reusedReplay": false,
+              "imageLoadMs": 60.9946,
+              "capacity": 8,
+              "originalReplayMs": 171.2056,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 2776.0564,
+              "scoringMs": 0.0367,
+              "retainedEntries": 1,
+              "historyBytesHashed": 3048426
+            },
+            "repeat": 0,
+            "totalMs": 3297.4437
+          }
+        ]
+      },
+      {
+        "case": "exposed150-camera",
+        "projectUnchanged": true,
+        "scope": "Alternating complete forced verification with new process-local stores. Every original source/outcome check executed. Only coordinate arithmetic scheduling differs; every pose, original verification and complete output are exact. No camera capture.",
+        "experimentId": "afbd9578fbe3ae92c4e6d800dbf0e5e8bbda34d48c3ecb894e290d476cb32983",
+        "fullEvidenceExactlyEqual": true,
+        "passed": true,
+        "measurements": [
+          {
+            "gridSearch": false,
+            "cost": {
+              "openingBytesHashed": 32459138,
+              "gridSearch": false,
+              "openingHashMs": 140.7079,
+              "historyReads": 16,
+              "finalHashMs": 62.8151,
+              "sourceSetupMs": 242.2629,
+              "reusedReplay": false,
+              "imageLoadMs": 1109.9226,
+              "capacity": 8,
+              "originalReplayMs": 124430.4607,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 88589.046,
+              "scoringMs": 0.1675,
+              "retainedEntries": 1,
+              "historyBytesHashed": 75762032
+            },
+            "repeat": 0,
+            "totalMs": 214632.392
+          },
+          {
+            "gridSearch": true,
+            "cost": {
+              "openingBytesHashed": 32459138,
+              "gridSearch": true,
+              "openingHashMs": 122.2128,
+              "historyReads": 16,
+              "finalHashMs": 60.1285,
+              "sourceSetupMs": 235.295,
+              "reusedReplay": false,
+              "imageLoadMs": 1082.6498,
+              "capacity": 8,
+              "originalReplayMs": 123680.6353,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 55702.2644,
+              "scoringMs": 0.1195,
+              "retainedEntries": 1,
+              "historyBytesHashed": 75762032
+            },
+            "repeat": 0,
+            "totalMs": 180931.5013
+          },
+          {
+            "gridSearch": true,
+            "cost": {
+              "openingBytesHashed": 32459138,
+              "gridSearch": true,
+              "openingHashMs": 119.483,
+              "historyReads": 16,
+              "finalHashMs": 59.4043,
+              "sourceSetupMs": 231.6831,
+              "reusedReplay": false,
+              "imageLoadMs": 1070.864,
+              "capacity": 8,
+              "originalReplayMs": 123594.8883,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 55804.7601,
+              "scoringMs": 0.1413,
+              "retainedEntries": 1,
+              "historyBytesHashed": 75762032
+            },
+            "repeat": 1,
+            "totalMs": 180927.5656
+          },
+          {
+            "gridSearch": false,
+            "cost": {
+              "openingBytesHashed": 32459138,
+              "gridSearch": false,
+              "openingHashMs": 122.1743,
+              "historyReads": 16,
+              "finalHashMs": 60.365,
+              "sourceSetupMs": 220.7717,
+              "reusedReplay": false,
+              "imageLoadMs": 1079.4392,
+              "capacity": 8,
+              "originalReplayMs": 123430.4219,
+              "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+              "searchMs": 86090.7263,
+              "scoringMs": 0.1038,
+              "retainedEntries": 1,
+              "historyBytesHashed": 75762032
+            },
+            "repeat": 1,
+            "totalMs": 211051.8304
+          }
+        ]
+      }
+    ],
+    "costSummary": [
+      {
+        "case": "reversing-motion",
+        "pairs": 3,
+        "referenceMedianMs": 5425.0712,
+        "gridMedianMs": 4789.0432,
+        "medianRatio": 1.132808991992388,
+        "measuredReduction": true
+      },
+      {
+        "case": "long-cover-return",
+        "pairs": 1,
+        "referenceMedianMs": 5208.9584,
+        "gridMedianMs": 3741.9493,
+        "medianRatio": 1.3920440878234241,
+        "measuredReduction": true
+      },
+      {
+        "case": "partial-before-return",
+        "pairs": 1,
+        "referenceMedianMs": 5800.1078,
+        "gridMedianMs": 4176.9963,
+        "medianRatio": 1.3885834181849765,
+        "measuredReduction": true
+      },
+      {
+        "case": "double-return",
+        "pairs": 1,
+        "referenceMedianMs": 7511.238,
+        "gridMedianMs": 5732.6621,
+        "medianRatio": 1.3102530498003713,
+        "measuredReduction": true
+      },
+      {
+        "case": "wrong-only",
+        "pairs": 1,
+        "referenceMedianMs": 4882.9174,
+        "gridMedianMs": 3287.6615,
+        "medianRatio": 1.4852251060518245,
+        "measuredReduction": true
+      },
+      {
+        "case": "near-copy-only",
+        "pairs": 1,
+        "referenceMedianMs": 4919.1432,
+        "gridMedianMs": 3199.8188,
+        "medianRatio": 1.5373193007054027,
+        "measuredReduction": true
+      },
+      {
+        "case": "copy-veto",
+        "pairs": 1,
+        "referenceMedianMs": 4933.7093,
+        "gridMedianMs": 3297.4437,
+        "medianRatio": 1.4962224525622685,
+        "measuredReduction": true
+      },
+      {
+        "case": "exposed150-camera",
+        "pairs": 2,
+        "referenceMedianMs": 212842.11119999998,
+        "gridMedianMs": 180929.53345,
+        "medianRatio": 1.1763812526428643,
+        "measuredReduction": true
+      }
+    ],
+    "scope": "All exact reference/optimized evidence checks must pass. Harder behavioral goals and measured timing benefit reported separately, including failures. No defaults or thresholds changed. Exposed camera regression and new generated controls only."
+  },
+  "defaultsChanged": false,
+  "promoted": false,
+  "freshCameraTest": "not performed; user selected recorded tests only",
+  "scope": "44 selected Java checks and 164 desktop checks passed, with no failures or skipped cases. Seven new generated app comparisons and one exposed-camera comparison passed visible-control, forced-replay, cold-restart and source-integrity checks. Complete reference/grid-search evidence matches exactly. Independent geometry and exact-evidence gates passed; harder behavioral targets and measured cost benefit are reported separately. These are scoped checks, not a rerun of every historical capability. Recorded tests only."
+}

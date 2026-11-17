@@ -1,3 +1,9 @@
+## Edition 155 continuity — 2026-11-17
+
+Edition 155 reconstructs exactly the same evidence while reusing coordinate calculations. The exposed camera trace remains 34/42 correct observations, 8 withheld, 0 wrong overlaps and 0/30 hidden outputs, identical to 154. All eight app comparisons reproduce exact reference evidence. 7/7 harder generated cases meet their separate behavioral targets. Complete paired costs include the original verification. Defaults remain unchanged.
+
+Read [edition155](../README-155.md). Keep the unified Java agent/world/browser/creation direction. Next: varied continuity, remaining cold replay cost, evidence-linked durable tasks.
+
 ## Edition 154 continuity — 2026-11-17
 
 The explicit Java comparison preserves supported original tracking and retains every confirmed 153 return. On the exposed camera recording it scores 34/42 correct visible/partial observations, versus 31/42 with 153; 8 remain withheld. There are 0 wrong overlaps, 0/30 hidden outputs and 0 matches to the labelled red object. All six new generated cases pass their declared outcome gates. Warm reopening takes 0.151 seconds median, with full byte checks; cold or forced verification still reconstructs. Defaults remain unchanged.

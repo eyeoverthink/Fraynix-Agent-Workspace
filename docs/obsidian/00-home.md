@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/163-exact-reconstruction.md]] | [[README-155.md]]
+
 Current: [[docs/obsidian/162-continuity-replay.md]] | [[README-154.md]]
 
 Current: [[docs/obsidian/161-rotated-confirmation.md]] | [[README-153.md]]
