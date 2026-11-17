@@ -49,12 +49,12 @@
     "docs/publication157/verify-sources157.py": "dde647f213b6cf4eea621234ab4d006841e4b2c327c08d1bcf3e075e11553d8f",
     "docs/publication158/lock158.py": "dc6d6463a4f7da7c79ae8c9692a53014e8a406951a952562d3cc3c8950e062ff",
     "docs/publication158/plan158.md": "8c0f3b585994f58f85c97bbc6b48604677676f35443fcc42e28d4a7443fd85d0",
-    "docs/publication158/study158.cjs": "820abc40614bfa21f72088ea67a11b23188c5b01e2fb692cb162c93d95278dfd",
+    "docs/publication158/study158.cjs": "59f593f6389ceadefd712d930e13c1b8f421d67cbe2da3755991f81daf658a89",
     "docs/publication158/validate158.py": "8b321f55739dc97ed326ed50443a00cd8af7ea5556f14b0a7b9256ae44b368a1",
     "workspace-desktop/main.cjs": "339911993196c8aa03dabf93ebfa9e0838c4aa3cc527d2e0a865dc17c44fe226",
     "workspace-desktop/observation-task158.cjs": "ed175a0bdfec4e0e00118ce579d2094e2512b49149b001c333596caa373d3009",
     "workspace-desktop/package.json": "c2daa5b6e07756ab7931c59385adb042738cb1bc5f1fd0dc9e745bce6784a34c",
-    "workspace-desktop/renderer/association134-panel.js": "2a2fa01b134cda52a7e9de6757ced821e83b10a619f3c0f4956435ed739bb11f",
+    "workspace-desktop/renderer/association134-panel.js": "e10f52b3a20c9f49174d7a3ff56d8283f495a27d683c9528da69a74664725efb",
     "workspace-desktop/test/observation-task158.test.cjs": "17e21c84ac3c9f4479b8f5c3f3ad936326af7a3cfdc8006ed582393d9d850cdf",
     "workspace-desktop/workflows.cjs": "0abc9f9634be85464e739dcc046377fece2348080817954af2b12ef6f4cbbf10",
     "workspace-engine/src/main/java/fraymus/workspace/ChatPolicy044.java": "2864dacf0f995fcc25aa8be5e9a6c1412f6e7f9a407cc07cee7a9950291415ae",
@@ -106,6 +106,6 @@
     "workspace-engine/src/test/java/fraymus/workspace/RotationSearch153Test.java": "b87e260083beb41e3c61f8553049d0ec0781e41465cecf069f819332f18f8d5b",
     "workspace-engine/src/test/java/fraymus/workspace/RotationSearch155Test.java": "cf1c7d273c273e91843aa2b0661d9dc25e0eb09c0c1c577b99d01f2db2d9eef7"
   },
-  "priorMethodLockSha256": "aff39a636c69ca82a2947c1b0eec6d73c3a5da709185114124eed9f33e11574d",
-  "refinement": "After the first passed generated study, clarified that selection is not verification and added actual chart captures. Java implementation unchanged; final generated and camera tasks follow this lock."
+  "priorMethodLockSha256": "58f079504af5cf62feaa88866d37c15e2ebb924b0024971746a9c553736dd35d",
+  "refinement": "After passed generated tasks and a camera preparation timeout before task creation, disable Prepare while the existing panel refresh is busy; the study waits for readiness. Java implementation remains unchanged. Final tasks follow this lock."
 }
