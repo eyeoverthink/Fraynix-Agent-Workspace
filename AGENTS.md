@@ -1,3 +1,7 @@
+## Edition 154 — published and fetched back
+
+2026-11-17. Release f7cc806a1211fe10d7e8d775e9704226ef85e377; main, edition154 and readme-154 pushed atomically and fetched. Full154 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_154.json. Experimental continuity and complete replay reuse shipped; defaults unchanged. User selected recorded tests; fresh physical validation remains a separate gate. The following local-study notes retain their original chronology.
+
 ## Edition 154 — locally verified; publication pending
 
 2026-11-17. Java target eyeoverthink/Fraynix-Agent-Workspace; isolated J:/Codex-Work/fraynix-workspace-edition154. No subagents. One heavy check at a time. Edition153 CI passed before implementation.

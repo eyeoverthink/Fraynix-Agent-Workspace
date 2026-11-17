@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 154
 
+[Published and fetched receipt](docs/PUBLICATION_154.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-154)
+
 **Keep a supported track. Confirm a return. Reuse only verified work.** 2026-11-17.
 
 [Previous: edition 153](README-153.md) · [All editions](docs/readmes/INDEX.md) · [Offline interactive guide](docs/readmes/154/index.html) · [Verification](docs/readmes/154/verification.json)
