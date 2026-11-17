@@ -1,0 +1,576 @@
+{
+  "modules": [
+    {
+      "id": "search",
+      "name": "Exact original pixel access",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/StructureReplay156.java",
+      "note": "docs/obsidian/164-original-verification.md"
+    },
+    {
+      "id": "confirm",
+      "name": "Exact original identity replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/IdentityReplay156.java",
+      "note": "docs/obsidian/164-original-verification.md"
+    },
+    {
+      "id": "proof",
+      "name": "Exact evidence and replay costs",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ContinuityExperiment156.java",
+      "note": "docs/obsidian/164-original-verification.md"
+    },
+    {
+      "id": "view",
+      "name": "Actual controls and progress",
+      "source": "workspace-desktop/renderer/association134-panel.js",
+      "note": "docs/obsidian/164-original-verification.md"
+    },
+    {
+      "id": "measure",
+      "name": "Complete original-replay comparison",
+      "source": "docs/publication156/ReplayMeasure156.java",
+      "note": "docs/obsidian/164-original-verification.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/156/generated-reversing-motion.png",
+      "title": "2026-11-17 · generated / reversing-motion.png"
+    },
+    {
+      "path": "docs/readmes/156/generated-long-cover-return.png",
+      "title": "2026-11-17 · generated / long-cover-return.png"
+    },
+    {
+      "path": "docs/readmes/156/generated-partial-before-return.png",
+      "title": "2026-11-17 · generated / partial-before-return.png"
+    },
+    {
+      "path": "docs/readmes/156/generated-double-return.png",
+      "title": "2026-11-17 · generated / double-return.png"
+    },
+    {
+      "path": "docs/readmes/156/generated-wrong-only.png",
+      "title": "2026-11-17 · generated / wrong-only.png"
+    },
+    {
+      "path": "docs/readmes/156/generated-near-copy-only.png",
+      "title": "2026-11-17 · generated / near-copy-only.png"
+    },
+    {
+      "path": "docs/readmes/156/generated-copy-veto.png",
+      "title": "2026-11-17 · generated / copy-veto.png"
+    },
+    {
+      "path": "docs/readmes/156/exposed150-exposed150-camera.png",
+      "title": "2026-11-17 · exposed150 / exposed150-camera.png"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/156/verification.json"
+    },
+    {
+      "path": "docs/readmes/156/comparison.json"
+    },
+    {
+      "path": "docs/readmes/156/qualification.json"
+    },
+    {
+      "path": "docs/readmes/156/original-evidence.json"
+    }
+  ],
+  "comparison": [
+    {
+      "case": "reversing-motion",
+      "domain": "new rendered control",
+      "baseline": {
+        "visible": 31,
+        "correct": 31,
+        "hidden": 0,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 31,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 31,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.9833288808811379,
+        "missing": 0,
+        "overlapFailures": 0
+      },
+      "previous153": {
+        "correct": 28,
+        "visible": 31,
+        "missing": 3
+      },
+      "summary": {
+        "visible": 31,
+        "unsupported": 0,
+        "correct": 31,
+        "hidden": 0,
+        "confirmedDistractorMatches": 0,
+        "missing": 0,
+        "overlapFailures": 0
+      },
+      "preservedOriginalBoxes": 31,
+      "newlyPreservedComparedWith153": 3,
+      "totalMs": 46404.6779,
+      "cost": {
+        "historyReads": 645,
+        "finalHashMs": 82.8917,
+        "sourceSetupMs": 163.3625,
+        "reusedReplay": false,
+        "imageLoadMs": 93.7907,
+        "packedOriginalReplay": true,
+        "capacity": 8,
+        "originalReplayMs": 34946.199,
+        "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+        "searchMs": 11095.3194,
+        "scoringMs": 0.0799,
+        "retainedEntries": 1,
+        "historyBytesHashed": 2572383840
+      },
+      "warmMedianMs": 181.9225,
+      "experimentId": "d397c2467dbf7988004b795f8c81cfeebcdf852ea546bb674e25858e935234c7"
+    },
+    {
+      "case": "long-cover-return",
+      "domain": "new rendered control",
+      "baseline": {
+        "visible": 18,
+        "correct": 5,
+        "hidden": 12,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 5,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 30,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.2777777777777777,
+        "missing": 13,
+        "overlapFailures": 0
+      },
+      "previous153": {
+        "correct": 12,
+        "visible": 18,
+        "missing": 6
+      },
+      "summary": {
+        "visible": 18,
+        "unsupported": 0,
+        "correct": 15,
+        "hidden": 12,
+        "confirmedDistractorMatches": 0,
+        "missing": 3,
+        "overlapFailures": 0
+      },
+      "preservedOriginalBoxes": 5,
+      "newlyPreservedComparedWith153": 3,
+      "totalMs": 42112.1743,
+      "cost": {
+        "historyReads": 580,
+        "finalHashMs": 81.7447,
+        "sourceSetupMs": 152.336,
+        "reusedReplay": false,
+        "imageLoadMs": 70.8683,
+        "packedOriginalReplay": true,
+        "capacity": 8,
+        "originalReplayMs": 34338.4401,
+        "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+        "searchMs": 7449.1389,
+        "scoringMs": 0.0688,
+        "retainedEntries": 2,
+        "historyBytesHashed": 2313151360
+      },
+      "warmMedianMs": 182.796,
+      "experimentId": "f51e07cb438d7a0e2c0a05489468b1bed1ac50267f90314d3bb8e17e995767a0"
+    },
+    {
+      "case": "partial-before-return",
+      "domain": "new rendered control",
+      "baseline": {
+        "visible": 22,
+        "correct": 5,
+        "hidden": 5,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 5,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 27,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.22727272727272718,
+        "missing": 17,
+        "overlapFailures": 0
+      },
+      "previous153": {
+        "correct": 12,
+        "visible": 22,
+        "missing": 10
+      },
+      "summary": {
+        "visible": 22,
+        "unsupported": 0,
+        "correct": 15,
+        "hidden": 5,
+        "confirmedDistractorMatches": 0,
+        "missing": 7,
+        "overlapFailures": 0
+      },
+      "preservedOriginalBoxes": 5,
+      "newlyPreservedComparedWith153": 3,
+      "totalMs": 42542.1209,
+      "cost": {
+        "historyReads": 592,
+        "finalHashMs": 79.9904,
+        "sourceSetupMs": 146.1191,
+        "reusedReplay": false,
+        "imageLoadMs": 71.0156,
+        "packedOriginalReplay": true,
+        "capacity": 8,
+        "originalReplayMs": 34166.4417,
+        "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+        "searchMs": 8059.6618,
+        "scoringMs": 0.0506,
+        "retainedEntries": 3,
+        "historyBytesHashed": 2361009664
+      },
+      "warmMedianMs": 178.9158,
+      "experimentId": "7d58aca35ce697b015e1ad7b3361ea219dae406533589609ffd6401dd53d59d8"
+    },
+    {
+      "case": "double-return",
+      "domain": "new rendered control",
+      "baseline": {
+        "visible": 25,
+        "correct": 5,
+        "hidden": 12,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 5,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 37,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.19999999999999993,
+        "missing": 20,
+        "overlapFailures": 0
+      },
+      "previous153": {
+        "correct": 16,
+        "visible": 25,
+        "missing": 9
+      },
+      "summary": {
+        "visible": 25,
+        "unsupported": 0,
+        "correct": 19,
+        "hidden": 12,
+        "confirmedDistractorMatches": 0,
+        "missing": 6,
+        "overlapFailures": 0
+      },
+      "preservedOriginalBoxes": 5,
+      "newlyPreservedComparedWith153": 3,
+      "totalMs": 52494.8978,
+      "cost": {
+        "historyReads": 729,
+        "finalHashMs": 81.1602,
+        "sourceSetupMs": 160.9265,
+        "reusedReplay": false,
+        "imageLoadMs": 87.9591,
+        "packedOriginalReplay": true,
+        "capacity": 8,
+        "originalReplayMs": 43666.2755,
+        "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+        "searchMs": 8474.2382,
+        "scoringMs": 0.1122,
+        "retainedEntries": 4,
+        "historyBytesHashed": 2907391968
+      },
+      "warmMedianMs": 169.843,
+      "experimentId": "4c5379c9962c65de15aa0dec5f9212b722ae710e24a34800b896b21307cede43"
+    },
+    {
+      "case": "wrong-only",
+      "domain": "new rendered control",
+      "baseline": {
+        "visible": 5,
+        "correct": 5,
+        "hidden": 22,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 5,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 27,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.9999999999999997,
+        "missing": 0,
+        "overlapFailures": 0
+      },
+      "previous153": {
+        "correct": 2,
+        "visible": 5,
+        "missing": 3
+      },
+      "summary": {
+        "visible": 5,
+        "unsupported": 0,
+        "correct": 5,
+        "hidden": 22,
+        "confirmedDistractorMatches": 0,
+        "missing": 0,
+        "overlapFailures": 0
+      },
+      "preservedOriginalBoxes": 5,
+      "newlyPreservedComparedWith153": 3,
+      "totalMs": 36663.7803,
+      "cost": {
+        "historyReads": 510,
+        "finalHashMs": 78.3797,
+        "sourceSetupMs": 145.6099,
+        "reusedReplay": false,
+        "imageLoadMs": 57.745,
+        "packedOriginalReplay": true,
+        "capacity": 8,
+        "originalReplayMs": 30630.5447,
+        "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+        "searchMs": 5733.6796,
+        "scoringMs": 0.0299,
+        "retainedEntries": 5,
+        "historyBytesHashed": 2033977920
+      },
+      "warmMedianMs": 165.5248,
+      "experimentId": "03477c2fc91ce35b98f156e8de16a887ef62f36480d232643fc415e68f97d6de"
+    },
+    {
+      "case": "near-copy-only",
+      "domain": "new rendered control",
+      "baseline": {
+        "visible": 5,
+        "correct": 5,
+        "hidden": 22,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 5,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 27,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.9999999999999997,
+        "missing": 0,
+        "overlapFailures": 0
+      },
+      "previous153": {
+        "correct": 2,
+        "visible": 5,
+        "missing": 3
+      },
+      "summary": {
+        "visible": 5,
+        "unsupported": 0,
+        "correct": 5,
+        "hidden": 22,
+        "confirmedDistractorMatches": 0,
+        "missing": 0,
+        "overlapFailures": 0
+      },
+      "preservedOriginalBoxes": 5,
+      "newlyPreservedComparedWith153": 3,
+      "totalMs": 36798.5241,
+      "cost": {
+        "historyReads": 516,
+        "finalHashMs": 81.4307,
+        "sourceSetupMs": 144.4462,
+        "reusedReplay": false,
+        "imageLoadMs": 56.0798,
+        "packedOriginalReplay": true,
+        "capacity": 8,
+        "originalReplayMs": 30678.0983,
+        "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+        "searchMs": 5822.6304,
+        "scoringMs": 0.0291,
+        "retainedEntries": 6,
+        "historyBytesHashed": 2057907072
+      },
+      "warmMedianMs": 163.833,
+      "experimentId": "6cec8c8f68446c09cbf7bd8850253dc9f5836bdf79989ae81e3bf08be6afc8c9"
+    },
+    {
+      "case": "copy-veto",
+      "domain": "new rendered control",
+      "baseline": {
+        "visible": 15,
+        "correct": 5,
+        "hidden": 12,
+        "reacquired": 1,
+        "confirmedDistractorMatches": 9,
+        "available": 14,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 27,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.3333333333333332,
+        "missing": 1,
+        "overlapFailures": 9
+      },
+      "previous153": {
+        "correct": 2,
+        "visible": 15,
+        "missing": 13
+      },
+      "summary": {
+        "visible": 15,
+        "unsupported": 0,
+        "correct": 5,
+        "hidden": 12,
+        "confirmedDistractorMatches": 0,
+        "missing": 10,
+        "overlapFailures": 0
+      },
+      "preservedOriginalBoxes": 5,
+      "newlyPreservedComparedWith153": 3,
+      "totalMs": 33764.8914,
+      "cost": {
+        "historyReads": 473,
+        "finalHashMs": 78.4667,
+        "sourceSetupMs": 142.9224,
+        "reusedReplay": false,
+        "imageLoadMs": 58.0356,
+        "packedOriginalReplay": true,
+        "capacity": 8,
+        "originalReplayMs": 27536.4719,
+        "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+        "searchMs": 5894.1695,
+        "scoringMs": 0.0312,
+        "retainedEntries": 7,
+        "historyBytesHashed": 1886414816
+      },
+      "warmMedianMs": 163.9109,
+      "experimentId": "66b7675d42048c7f0cfc0f64c2ad1359d56e6946d4ea2ca08ea4cec58775dff8"
+    },
+    {
+      "case": "exposed150-camera",
+      "domain": "exposed edition150 camera",
+      "baseline": {
+        "visible": 42,
+        "correct": 11,
+        "hidden": 30,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 11,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 72,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.2608433688654656,
+        "missing": 31,
+        "overlapFailures": 0
+      },
+      "previous153": {
+        "correct": 31,
+        "visible": 42,
+        "missing": 11
+      },
+      "summary": {
+        "visible": 42,
+        "unsupported": 0,
+        "correct": 34,
+        "hidden": 30,
+        "confirmedDistractorMatches": 0,
+        "missing": 8,
+        "overlapFailures": 0
+      },
+      "preservedOriginalBoxes": 11,
+      "newlyPreservedComparedWith153": 3,
+      "totalMs": 168797.7915,
+      "cost": {
+        "historyReads": 2299,
+        "finalHashMs": 73.6822,
+        "sourceSetupMs": 230.6029,
+        "reusedReplay": false,
+        "imageLoadMs": 1245.6936,
+        "packedOriginalReplay": true,
+        "capacity": 8,
+        "originalReplayMs": 108745.1303,
+        "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+        "searchMs": 58451.3229,
+        "scoringMs": 0.1501,
+        "retainedEntries": 1,
+        "historyBytesHashed": 10886056973
+      },
+      "warmMedianMs": 148.2157,
+      "experimentId": "c3b554571765b26c0b53d500f102ef66854d2520f6b1ae1470aaf923b6eb5be5"
+    }
+  ],
+  "costComparison": [
+    {
+      "case": "reversing-motion",
+      "pairs": 3,
+      "referenceMedianMs": 55082.3423,
+      "packedMedianMs": 34660.7533,
+      "medianRatio": 1.5891847999737503,
+      "measuredReduction": true
+    },
+    {
+      "case": "long-cover-return",
+      "pairs": 1,
+      "referenceMedianMs": 49815.261,
+      "packedMedianMs": 34424.0554,
+      "medianRatio": 1.4471061128956932,
+      "measuredReduction": true
+    },
+    {
+      "case": "partial-before-return",
+      "pairs": 1,
+      "referenceMedianMs": 51019.2126,
+      "packedMedianMs": 35669.5706,
+      "medianRatio": 1.4303287575881276,
+      "measuredReduction": true
+    },
+    {
+      "case": "double-return",
+      "pairs": 1,
+      "referenceMedianMs": 63698.8152,
+      "packedMedianMs": 43719.7289,
+      "medianRatio": 1.4569810198434234,
+      "measuredReduction": true
+    },
+    {
+      "case": "wrong-only",
+      "pairs": 1,
+      "referenceMedianMs": 44355.4101,
+      "packedMedianMs": 30030.244,
+      "medianRatio": 1.4770246322340905,
+      "measuredReduction": true
+    },
+    {
+      "case": "near-copy-only",
+      "pairs": 1,
+      "referenceMedianMs": 44353.0605,
+      "packedMedianMs": 30180.8225,
+      "medianRatio": 1.4695775935198585,
+      "measuredReduction": true
+    },
+    {
+      "case": "copy-veto",
+      "pairs": 1,
+      "referenceMedianMs": 41417.5079,
+      "packedMedianMs": 27687.9885,
+      "medianRatio": 1.4958655411172248,
+      "measuredReduction": true
+    },
+    {
+      "case": "exposed150-camera",
+      "pairs": 2,
+      "referenceMedianMs": 180852.6526,
+      "packedMedianMs": 163001.11805,
+      "medianRatio": 1.1095178656659528,
+      "measuredReduction": true
+    }
+  ],
+  "finding": "Edition 156 reconstructs exactly the same evidence while converting each original frame to packed RGB once. The exposed camera trace remains 34/42 correct observations, 8 withheld, 0 wrong overlaps and 0/30 hidden outputs, identical to 155. All eight app comparisons reproduce exact reference evidence. 7/7 harder generated cases meet their separate behavioral targets. Complete paired costs include the original verification. Defaults remain unchanged. On two alternating exposed-camera pairs, complete forced verification measured 180.85 seconds with original pixel access and 163.00 seconds with packed access (9.9% less time).",
+  "validation": "55 selected Java checks and 164 desktop checks passed, with no failures or skipped cases. Seven new generated app comparisons and one exposed-camera comparison passed visible-control, forced-replay, cold-restart and source-integrity checks. Complete reference/packed-pixel evidence matches exactly. Independent geometry and exact-evidence gates passed; harder behavioral targets and measured cost benefit are reported separately. These are scoped checks, not a rerun of every historical capability. Recorded tests only."
+}

@@ -1,3 +1,15 @@
+## Edition 156 — locally verified; publication pending
+
+2026-11-17. Java target eyeoverthink/Fraynix-Agent-Workspace; isolated J:/Codex-Work/fraynix-workspace-edition156. No subagents. One heavy check at a time. Edition 155 and 154 CI were still running at the initial check. See the publication receipt for the latest check.
+
+Edition 156 reconstructs exactly the same evidence while converting each original frame to packed RGB once. The exposed camera trace remains 34/42 correct observations, 8 withheld, 0 wrong overlaps and 0/30 hidden outputs, identical to 155. All eight app comparisons reproduce exact reference evidence. 7/7 harder generated cases meet their separate behavioral targets. Complete paired costs include the original verification. Defaults remain unchanged. On two alternating exposed-camera pairs, complete forced verification measured 180.85 seconds with original pixel access and 163.00 seconds with packed access (9.9% less time).
+
+55 selected Java checks and 164 desktop checks passed, with no failures or skipped cases. Seven new generated app comparisons and one exposed-camera comparison passed visible-control, forced-replay, cold-restart and source-integrity checks. Complete reference/packed-pixel evidence matches exactly. Independent geometry and exact-evidence gates passed; harder behavioral targets and measured cost benefit are reported separately. These are scoped checks, not a rerun of every historical capability. Recorded tests only.
+
+An exposed original-audit development probe took 128.453 seconds through the original path and 92.395 seconds with packed pixel access, with complete audit equality and unchanged source files. This probe excludes the full rotation experiment. The 11 new checks passed before 44 selected regression checks; their distinct results cover the same final Java implementation. The method and qualification gates were committed at ceb078cd before rendering the reserved sources. The first generated and camera application attempts passed their execution checks; no failed reserved app attempt was omitted.
+
+Read README-156.md and docs/publication156/plan156.md. User selected recorded tests only; no camera active. Preserve the unified Java world/browser/creation direction, historical tracker identities, original private projects and defaults. No automatic appearance admission or physical action authority. Cold/forced reconstruction and byte-bound warm reuse are distinct costs. Hosted CI separate from local validation.
+
 ## Edition 155 — published and fetched back
 
 2026-11-17. Release 8da574cb7ee36ca08bb3eee0a76e3f542d9d4bed; main, edition155 and readme-155 pushed atomically and fetched. Full155 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_155.json. Experimental exact-coordinate reconstruction shipped; defaults unchanged. User selected recorded tests; fresh physical validation remains a separate gate. The following local-study notes retain their original chronology.
