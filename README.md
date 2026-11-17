@@ -121,3 +121,5 @@ flowchart LR
 5. Measure complete task cost and compare simple control against recalled procedures. Retain a learned improvement only after new outcome evaluations earn it.
 
 The destination stays one persistent, local Java agent system that can observe, propose, act, create, verify and remember—while keeping observations, assumptions, predictions and actual outcomes distinct.
+
+Publication audit caught Git line-ending normalization of the method lock. The original Windows bytes and their study hash remain in the evidence archive. The corrected audit checks that exact raw hash and separately compares its normalized text with the committed Git blob. No experimental input, result or check was relabelled; the failed release log is retained.
