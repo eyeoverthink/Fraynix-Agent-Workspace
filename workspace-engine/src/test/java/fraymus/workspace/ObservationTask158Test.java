@@ -4,6 +4,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import java.nio.file.*;
 import java.util.*;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /** Real source/replay fixtures; browser/DOM receipts here are typed unit fixtures, not browser evidence. */
 public class ObservationTask158Test {
@@ -29,7 +31,29 @@ public class ObservationTask158Test {
         var labels=new JSONObject().put("limits",c.getJSONObject("uncertainty").getString("meaning")).put("world","World "+world.getJSONObject("nativeBinding").getString("worldId")+" / revision "+world.getJSONObject("nativeBinding").getInt("expectedRevision")+" / body "+world.getString("bodyId")+". Native position: "+pos+". This is the simulation state, not a measured camera pose.").put("decision","Allowed: "+world.getString("observationUse")+". Physical placement: "+world.getString("physicalPlacement")+". "+world.getString("reason")).put("browser-url",browser.getString("url")).put("source","Evidence "+s.getString("evidenceId")+" / dataset "+s.getString("datasetId")+" / run "+s.getString("runId")+". "+c.getString("clockScope"));
         var refs=new JSONArray();for(Object raw:browser.getJSONArray("checks")){var row=(JSONObject)raw;refs.put(row.getString("selector")+": "+row.getString("text"));}return new JSONObject().put("id",a.getString("id")).put("version",a.getInt("version")).put("filters",filters).put("frames",frames).put("labels",labels).put("browser",refs).put("summary",new JSONArray().put(""+c.getInt("accepted")).put(""+c.getInt("withheld")).put(""+c.getInt("segments")));
     }
-    static JSONObject finish(Harness h,String id)throws Exception{var claim=WorkflowTest.driveToAudit(h.f,id);if(claim.getString("kind").equals("workflow.observation-browser158")){WorkflowTest.workflowAck(h.f,claim,browserHost(claim));claim=WorkflowTest.driveToAudit(h.f,id);}WorkflowTest.workflowAck(h.f,claim,artifactHost(h.f.artifacts.read(claim.getJSONObject("report").getString("id")),claim));var done=WorkflowTest.completed(h.f,id);assertEquals(done.toString(),"completed",done.getString("status"));return done;}
+    static JSONObject settled(WorkflowTest.Fixture f,String id)throws Exception{long end=System.nanoTime()+TimeUnit.SECONDS.toNanos(80);while(System.nanoTime()<end){var w=f.workflows.read(id);if(!w.getString("status").equals("running"))return w;Thread.sleep(10);}throw new AssertionError("Observation workflow did not settle");}
+    static void delayed(Harness h,CountDownLatch entered,CountDownLatch release)throws Exception{
+        var actual=new ObservationEvidence158(h.root,h.replay,new ReplayEvidence157(h.root,h.obs,h.association));var first=new AtomicBoolean(true);
+        var delayed=new ObservationTask158.Evidence(){public String fingerprint()throws Exception{return actual.fingerprint();}public JSONObject read(String id,boolean reconstruct)throws Exception{if(reconstruct&&first.getAndSet(false)){entered.countDown();if(!release.await(15,TimeUnit.SECONDS))throw new IllegalStateException("Test-controlled delay expired");}return actual.read(id,reconstruct);}};
+        h.f.workflows.install158(new ObservationTask158(h.root,delayed,h.association,h.obs,h.f.goals.worlds()));
+    }
+    @Test(timeout=90000) public void admissionAndCancellationStayResponsiveWhileRealVerificationWaits()throws Exception{
+        try(var seed=new StartingReference150Test.Fixture();var h=new Harness(seed.root)){
+            String evidence=h.evidence(seed.audit.getString("id"));var entered=new CountDownLatch(1);var release=new CountDownLatch(1);delayed(h,entered,release);
+            var w=h.f.workflows.start(definition(evidence));String id=w.getString("id");assertFalse(w.has("observation158"));assertTrue(entered.await(3,TimeUnit.SECONDS));
+            try{assertEquals("running",h.f.workflows.read(id).getString("status"));assertFalse(h.f.workflows.claim().has("id"));assertEquals("cancelled",h.f.workflows.cancel(id).getString("status"));}finally{release.countDown();}
+            var next=h.f.workflows.start(definition(evidence));finish(h,next.getString("id"));var old=h.f.workflows.read(id);assertEquals("cancelled",old.getString("status"));assertFalse(old.has("world158"));assertFalse(old.has("report"));
+        }
+    }
+    @Test(timeout=90000) public void restartDuringUnverifiedAdmissionReconstructsBeforeAnyAction()throws Exception{
+        try(var seed=new StartingReference150Test.Fixture()){
+            String id;var entered=new CountDownLatch(1);var release=new CountDownLatch(1);
+            try(var h=new Harness(seed.root)){String evidence=h.evidence(seed.audit.getString("id"));delayed(h,entered,release);var w=h.f.workflows.start(definition(evidence));id=w.getString("id");assertTrue(entered.await(3,TimeUnit.SECONDS));assertFalse(h.f.workflows.read(id).has("observation158"));}
+            finally{release.countDown();}
+            try(var h=new Harness(seed.root)){var w=h.f.workflows.read(id);assertEquals("interrupted",w.getString("status"));assertFalse(w.has("observation158"));h.f.workflows.resume(id);var done=finish(h,id);assertTrue(done.getJSONObject("sourceVerification158").getDouble("elapsedMs")>0);assertEquals("verified",done.getJSONObject("sourceVerification158").getString("status"));}
+        }
+    }
+    static JSONObject finish(Harness h,String id)throws Exception{var claim=WorkflowTest.driveToAudit(h.f,id);if(claim.getString("kind").equals("workflow.observation-browser158")){WorkflowTest.workflowAck(h.f,claim,browserHost(claim));claim=WorkflowTest.driveToAudit(h.f,id);}WorkflowTest.workflowAck(h.f,claim,artifactHost(h.f.artifacts.read(claim.getJSONObject("report").getString("id")),claim));var done=settled(h.f,id);assertEquals(done.toString(),"completed",done.getString("status"));return done;}
     @Test public void originalReplayToWorldBrowserArtifactAndRetainedLifecycle()throws Exception{
         try(var seed=new StartingReference150Test.Fixture();var h=new Harness(seed.root)){
             String evidence=h.evidence(seed.audit.getString("id"));var before=h.f.goals.worlds().observe(seed.world);var w=h.f.workflows.start(definition(evidence));var done=finish(h,w.getString("id"));assertTrue(before.similar(h.f.goals.worlds().observe(seed.world)));assertEquals("refused",done.getJSONObject("world158").getString("physicalPlacement"));assertTrue(done.getJSONArray("revalidations158").length()>0);
@@ -44,7 +68,7 @@ public class ObservationTask158Test {
     }
     @Test public void restartRechecksSameSourceAndRejectsStaleBrowserClaim()throws Exception{
         try(var seed=new StartingReference150Test.Fixture()){
-            JSONObject saved,claim;try(var h=new Harness(seed.root)){var in=definition(h.evidence(seed.audit.getString("id"))).put("reviewAfterWorld158",true);saved=h.f.workflows.start(in);saved=WorkflowTest.completed(h.f,saved.getString("id"));assertEquals("interrupted",saved.getString("status"));h.f.workflows.resume(saved.getString("id"));claim=WorkflowTest.driveToAudit(h.f,saved.getString("id"));}
+            JSONObject saved,claim;try(var h=new Harness(seed.root)){var in=definition(h.evidence(seed.audit.getString("id"))).put("reviewAfterWorld158",true);saved=h.f.workflows.start(in);saved=settled(h.f,saved.getString("id"));assertEquals("interrupted",saved.getString("status"));h.f.workflows.resume(saved.getString("id"));claim=WorkflowTest.driveToAudit(h.f,saved.getString("id"));}
             try(var h=new Harness(seed.root)){var resumed=h.f.workflows.resume(saved.getString("id"));assertTrue(saved.getJSONObject("world158").similar(resumed.getJSONObject("world158")));assertThrows(IllegalStateException.class,()->WorkflowTest.workflowAck(h.f,claim,browserHost(claim)));finish(h,saved.getString("id"));}
         }
     }
@@ -57,8 +81,8 @@ public class ObservationTask158Test {
     }
     @Test public void changedSourceOrWorldRefusesWithoutReplacingEvidence()throws Exception{
         try(var seed=new StartingReference150Test.Fixture();var h=new Harness(seed.root)){
-            var in=definition(h.evidence(seed.audit.getString("id"))).put("reviewAfterWorld158",true);var w=h.f.workflows.start(in);w=WorkflowTest.completed(h.f,w.getString("id"));final String id=w.getString("id");var binding=w.getJSONObject("observation158").getJSONObject("nativeBinding");h.f.goals.worlds().restore(seed.world,binding.getInt("expectedRevision"),binding.getString("expectedHash"),binding.getInt("expectedRevision"),"");assertThrows(IllegalStateException.class,()->h.f.workflows.resume(id));h.f.workflows.cancel(id);
-            Path image=seed.root.resolve("world-observations/datasets/"+seed.data.getString("id")+"/2.image");var original=Files.readAllBytes(image);var time=Files.getLastModifiedTime(image);var changed=original.clone();changed[changed.length/2]^=1;Files.write(image,changed);Files.setLastModifiedTime(image,time);assertThrows(Exception.class,()->h.f.workflows.start(in));assertFalse(h.f.goals.workflowReserved());Files.write(image,original);Files.setLastModifiedTime(image,time);
+            var in=definition(h.evidence(seed.audit.getString("id"))).put("reviewAfterWorld158",true);var w=h.f.workflows.start(in);w=settled(h.f,w.getString("id"));final String id=w.getString("id");var binding=w.getJSONObject("observation158").getJSONObject("nativeBinding");h.f.goals.worlds().restore(seed.world,binding.getInt("expectedRevision"),binding.getString("expectedHash"),binding.getInt("expectedRevision"),"");h.f.workflows.resume(id);assertEquals("interrupted",settled(h.f,id).getString("status"));h.f.workflows.cancel(id);
+            Path image=seed.root.resolve("world-observations/datasets/"+seed.data.getString("id")+"/2.image");var original=Files.readAllBytes(image);var time=Files.getLastModifiedTime(image);var changed=original.clone();changed[changed.length/2]^=1;Files.write(image,changed);Files.setLastModifiedTime(image,time);var rejected=h.f.workflows.start(in);assertEquals("interrupted",settled(h.f,rejected.getString("id")).getString("status"));assertFalse(h.f.workflows.read(rejected.getString("id")).has("report"));h.f.workflows.cancel(rejected.getString("id"));assertFalse(h.f.goals.workflowReserved());Files.write(image,original);Files.setLastModifiedTime(image,time);
         }
     }
 }

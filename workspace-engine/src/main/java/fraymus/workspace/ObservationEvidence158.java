@@ -12,13 +12,15 @@ final class ObservationEvidence158 implements ObservationTask158.Evidence {
     private record Entry(String fingerprint,String reconstructedId){}
     private final LinkedHashMap<String,Entry> memo=new LinkedHashMap<>(16,.75f,true);
     ObservationEvidence158(Path project,ContinuityExperiment157 replay,ReplayEvidence157 snapshots){this.project=project;this.root=project.resolve("observation-revalidations158");this.replay=replay;this.snapshots=snapshots;}
-    synchronized public JSONObject read(String id)throws Exception{
+    public String fingerprint()throws Exception{return snapshots.snapshot().hash();}
+    synchronized public JSONObject read(String id,boolean reconstruct)throws Exception{
         if(!id.matches("[a-f0-9]{64}"))throw new IllegalArgumentException("Invalid original evidence ID");
         Path file=project.resolve("continuity-experiments157").resolve(id+".json");ReplayEvidence157.unlinkedRealPath(file);
         if(Files.size(file)>8_000_000)throw new IllegalStateException("Original evidence exceeds bound");byte[] original=Files.readAllBytes(file);var saved=new JSONObject(new String(original,java.nio.charset.StandardCharsets.UTF_8));
         var content=WorldFrames.copy(saved);content.remove("id");if(!saved.getString("id").equals(id)||!WorldFrames.hash(content).equals(id)||!saved.getString("schema").equals("continuity-experiment-157-v1"))throw new IllegalStateException("Original evidence checksum or schema changed");
         if(!Files.isRegularFile(project.resolve("world-observations/state.json"),LinkOption.NOFOLLOW_LINKS))throw new IllegalStateException("Original observation history missing");
         var before=snapshots.snapshot();var cached=memo.get(id);JSONObject fresh;
+        if(!reconstruct&&(cached==null||!cached.fingerprint.equals(before.hash())))throw new IllegalStateException("Fresh reconstruction required; explicitly resume the Java verification stage");
         try{
             // A new full reconstruction is mandatory after restart or changed source/code bytes.
             fresh=cached!=null&&cached.fingerprint.equals(before.hash())?replay.read(cached.reconstructedId).getJSONObject("experiment"):replay.run(saved.getString("auditId")).getJSONObject("experiment");

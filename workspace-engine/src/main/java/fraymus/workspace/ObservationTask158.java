@@ -8,7 +8,7 @@ import java.nio.file.*;
 final class ObservationTask158 {
     static final String KIND="verified-observation-task-158-v1";
     static final String LIMIT="Recorded image-plane estimates; positional error is uncalibrated. No metric mapping, live pose or guaranteed physical identity. Physical placement refused.";
-    interface Evidence { JSONObject read(String id)throws Exception; }
+    interface Evidence { JSONObject read(String id,boolean reconstruct)throws Exception; String fingerprint()throws Exception; }
     private final Evidence evidence;
     private final AssociationAudit134 association;
     private final WorldObservationStore observations;
@@ -35,8 +35,10 @@ final class ObservationTask158 {
             if(Files.size(file)>20_000||!new JSONObject(Files.readString(file)).similar(p))throw new IllegalStateException("Original revalidation lineage changed");
         }
     }
-    JSONObject source(JSONObject d,boolean current)throws Exception{
-        var verified=evidence.read(d.getString("evidenceId"));var e=verified.getJSONObject("experiment");
+    String fingerprint()throws Exception{return evidence.fingerprint();}
+    JSONObject source(JSONObject d,boolean current)throws Exception{return source(d,current,true);}
+    JSONObject source(JSONObject d,boolean current,boolean reconstruct)throws Exception{
+        var verified=evidence.read(d.getString("evidenceId"),reconstruct);var e=verified.getJSONObject("experiment");
         if(!e.getString("schema").equals("continuity-experiment-157-v1")||!e.getString("id").equals(d.getString("evidenceId"))||e.getBoolean("physicalActionAuthorized"))throw new IllegalStateException("Unsupported observation evidence");
         var audit=observationsAudit(e);var label=association.read(audit.getJSONObject("input").getString("labelId"));
         var run=observations.read(audit.getJSONObject("input").getString("runId"));
@@ -50,7 +52,7 @@ final class ObservationTask158 {
         if(object==null)throw new IllegalStateException("Bound world body is missing");
         if(current){var now=worlds.observe(binding.getString("worldId"));if(now.has("pending")||now.getInt("expectedRevision")!=binding.getInt("expectedRevision")||!now.getString("expectedHash").equals(binding.getString("expectedHash")))throw new IllegalStateException("Bound world changed; select a fresh observation, preserve this task");}
         var context=context(e,dataset);
-        if(!e.similar(evidence.read(d.getString("evidenceId")).getJSONObject("experiment")))throw new IllegalStateException("Observation changed while binding task");
+        if(!e.similar(evidence.read(d.getString("evidenceId"),false).getJSONObject("experiment")))throw new IllegalStateException("Observation changed while binding task");
         return new JSONObject().put("evidenceId",e.getString("id")).put("evidenceSha256",WorldFrames.hash(e)).put("runId",run.getString("id")).put("runSha256",WorldFrames.hash(run)).put("datasetId",dataset.getString("id")).put("datasetSha256",WorldFrames.hash(dataset)).put("objectKey",key).put("bodyId",body).put("nativeBinding",WorldFrames.copy(binding)).put("worldSourceSha256",WorldFrames.hash(scene)).put("worldObject",WorldFrames.copy(object)).put("context",context).put("revalidation158",verified.getJSONObject("revalidation"));
     }
     private JSONObject observationsAudit(JSONObject e)throws Exception{

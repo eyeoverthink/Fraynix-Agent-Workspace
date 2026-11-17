@@ -11,6 +11,11 @@ import java.util.concurrent.*;
 public final class WorkflowRunner implements AutoCloseable {
     private ObservationArtifact128 observation128;
     private ObservationTask158 observation158;
+    private final ExecutorService verificationWorker158=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"java-observation-verifier158");t.setDaemon(true);return t;});
+    private Future<JSONObject> verificationJob158;
+    private String verificationOwner158="";
+    private int verificationGeneration158;
+    private final Set<String> publicationAttempts158=new HashSet<>();
     static final String PROCEDURE="evidence-workflow-v1";
     private static final List<String> STAGES=List.of("data","physics","creation");
     private String qualificationParent105="",qualificationChildId105="";private JSONObject qualificationCase105;
@@ -37,7 +42,7 @@ public final class WorkflowRunner implements AutoCloseable {
     private JSONObject active(){return activeRecords110().stream().filter(w->!settled(w)).findFirst().orElse(null);}
     private void change(JSONObject w,String reason) throws Exception {w.put("reason",reason).put("updatedAt",Instant.now());w.getJSONArray("history").put(new JSONObject().put("at",Instant.now()).put("reason",reason).put("step",w.getString("step")).put("status",w.getString("status")));save(w);}
     private JSONObject raw(String id){UUID.fromString(id);return resolve110(records110().stream().filter(w->w.getString("id").equals(id)).findFirst().orElseThrow(()->new IllegalArgumentException("Unknown workflow")));}
-    private JSONObject view(JSONObject w){if(Qualification105.own(w))return view105(w);var out=new JSONObject().put("workflow",true).put("procedure",ObservationTask158.own(w)?ObservationTask158.KIND:ObservationArtifact128.own(w)?ObservationArtifact128.KIND:graph(w)?SkillGraph046.KIND:dataCreation101(w)?w.getString("profile101"):PROCEDURE).put("attempt",w.getInt("resumes")+1);for(String k:List.of("id","title","request","modelName","status","step","resumes","createdAt","updatedAt","reason","history","stages","currentChild","bundle","audit","auditHistory","report","metrics","savedSkill","skill","dataBinding","graph","graphSha256","graphCodeSha256","worldBinding","graphRemainingMs","diagnostics","memo","reviewEachNode","profile101","code101","pendingSkill101","implementation103","qualification104","qualificationOwner105","qualificationCase105","profile128","sourceBinding128","forecast128","profile158","revalidations158","observation158","world158","browser158","hostPhase158"))if(w.has(k))out.put(k,w.get(k));return out;}
+    private JSONObject view(JSONObject w){if(Qualification105.own(w))return view105(w);var out=new JSONObject().put("workflow",true).put("procedure",ObservationTask158.own(w)?ObservationTask158.KIND:ObservationArtifact128.own(w)?ObservationArtifact128.KIND:graph(w)?SkillGraph046.KIND:dataCreation101(w)?w.getString("profile101"):PROCEDURE).put("attempt",w.getInt("resumes")+1);for(String k:List.of("id","title","request","modelName","status","step","resumes","createdAt","updatedAt","reason","history","stages","currentChild","bundle","audit","auditHistory","report","metrics","savedSkill","skill","dataBinding","graph","graphSha256","graphCodeSha256","worldBinding","graphRemainingMs","diagnostics","memo","reviewEachNode","profile101","code101","pendingSkill101","implementation103","qualification104","qualificationOwner105","qualificationCase105","profile128","sourceBinding128","forecast128","profile158","sourceVerification158","revalidations158","observation158","world158","browser158","hostPhase158"))if(w.has(k))out.put(k,w.get(k));return out;}
     public synchronized JSONObject read(String id){var out=view(raw(id));for(var r:records110())if(r.getString("id").equals(id)&&r.has("archive110"))out.put("archive110",WorldFrames.copy(r.getJSONObject("archive110")));return out;}
     public synchronized JSONArray list(){var all=new JSONArray();for(var w:activeRecords110())all.put(view(w));return all;}
     private JSONObject definition(JSONObject input) throws Exception {
@@ -79,7 +84,7 @@ public final class WorkflowRunner implements AutoCloseable {
         var a=bundle(w);w.put("bundle",Creation.reference(a));return WorkflowEvidence.creation(w,a);
     }
     private synchronized void tick(){
-        if(closed)return;var w=active();if(w==null||!w.getString("status").equals("running"))return;
+        if(closed)return;var w=active();if(w==null){publishPending158();return;}if(!w.getString("status").equals("running"))return;
         if(Qualification105.own(w)){tick105(w);return;}tickSingle105(w);
     }
     private void tickSingle105(JSONObject w){
@@ -152,7 +157,7 @@ public final class WorkflowRunner implements AutoCloseable {
         if(!audit.getBoolean("passed")||!audit.similar(w.getJSONObject("audit")))throw new IllegalStateException("Original visible data-creation evidence changed");return audit;
     }
     private JSONObject claim101(JSONObject w) throws Exception {
-        try{var old=w.optJSONObject("claim");if(old!=null&&old.getLong("expires")>System.currentTimeMillis())return new JSONObject();var handoff=handoff101(w);var child=verifiedStage(w,1);
+        try{if(w.optBoolean("needsVerification158"))return new JSONObject();var old=w.optJSONObject("claim");if(old!=null&&old.getLong("expires")>System.currentTimeMillis())return new JSONObject();var handoff=handoff101(w);var child=verifiedStage(w,1);
             if(!child.getJSONObject("dataHandoff100").similar(handoff))throw new IllegalStateException("Foreign data-creation child");
             var c=new JSONObject().put("nonce",UUID.randomUUID().toString()).put("expires",System.currentTimeMillis()+30_000).put("id",UUID.randomUUID().toString());w.put("claim",c);save(w);
             return WorldFrames.copy(c).put("kind",DataSummary104.summaryKind(w.getString("profile101"))?"workflow.data-summary-audit102":"workflow.data-creation-audit101").put("workflowId",w.getString("id")).put("report",w.getJSONObject("report")).put("filter",handoff.getJSONObject("preview").getJSONArray("sample").getJSONObject(0).getString("source_row")).put("rowCount",handoff.getJSONObject("preview").getInt("rowCount"));
@@ -691,7 +696,7 @@ var p=new JSONObject().put("kind",SkillGraph046.KIND).put("sourceWorkflowId",w.g
     private JSONObject artifact128(JSONObject w)throws Exception{verifyForecast128(w);var a=artifacts.read(w.getJSONObject("report").getString("id"));if(a.getInt("version")!=1||!Creation.reference(a).similar(w.getJSONObject("report"))||!a.getJSONObject("contents").similar(ObservationArtifactReport128.build(w).getJSONObject("files")))throw new IllegalStateException("Original working artifact changed");return a;}
     private JSONObject verify128(JSONObject w)throws Exception{source128(w,false);var audit=ObservationArtifactReport128.audit(w,artifact128(w),w.getJSONObject("audit").getJSONObject("observed"));if(!audit.getBoolean("passed")||!audit.similar(w.getJSONObject("audit")))throw new IllegalStateException("Original rendered evidence changed");return audit;}
     private JSONObject claim128(JSONObject w)throws Exception{
-        try{var old=w.optJSONObject("claim");if(old!=null&&old.getLong("expires")>System.currentTimeMillis())return new JSONObject();source128(w,false);artifact128(w);var c=new JSONObject().put("id",UUID.randomUUID().toString()).put("nonce",UUID.randomUUID().toString()).put("expires",System.currentTimeMillis()+30_000);w.put("claim",c);save(w);return WorldFrames.copy(c).put("kind","workflow.observation-audit128").put("workflowId",w.getString("id")).put("report",w.getJSONObject("report")).put("rowCount",w.getJSONObject("forecast128").getJSONArray("rows").length());}catch(Exception e){interrupt(w,"Observation audit preflight: "+e.getMessage());return new JSONObject();}
+        try{if(w.optBoolean("needsVerification158"))return new JSONObject();var old=w.optJSONObject("claim");if(old!=null&&old.getLong("expires")>System.currentTimeMillis())return new JSONObject();source128(w,false);artifact128(w);var c=new JSONObject().put("id",UUID.randomUUID().toString()).put("nonce",UUID.randomUUID().toString()).put("expires",System.currentTimeMillis()+30_000);w.put("claim",c);save(w);return WorldFrames.copy(c).put("kind","workflow.observation-audit128").put("workflowId",w.getString("id")).put("report",w.getJSONObject("report")).put("rowCount",w.getJSONObject("forecast128").getJSONArray("rows").length());}catch(Exception e){interrupt(w,"Observation audit preflight: "+e.getMessage());return new JSONObject();}
     }
     private JSONObject acknowledge128(JSONObject input)throws Exception{
         SpatialScene.keys(input,"workflowId","id","nonce","result","error");var w=raw(input.getString("workflowId"));var c=w.optJSONObject("claim");if(!w.getString("status").equals("running")||!w.getString("step").equals("audit")||c==null||!c.getString("id").equals(input.getString("id"))||!c.getString("nonce").equals(input.getString("nonce"))||c.getLong("expires")<System.currentTimeMillis())throw new IllegalStateException("Stale or foreign observation audit");w.remove("claim");
@@ -711,22 +716,72 @@ var p=new JSONObject().put("kind",SkillGraph046.KIND).put("sourceWorkflowId",w.g
         var args=WorldFrames.copy(chosen.getJSONObject("defaults"));for(String k:input.keySet())if(!Set.of("name","version").contains(k))args.put(k,input.get(k));args.put("saveSkillName",input.optString("saveSkillName",""));return start128(args,chosen);
     }
     synchronized void install158(ObservationTask158 service)throws Exception{
-        observation158=service;for(var w:values())if(ObservationTask158.own(w)&&w.getString("status").equals("completed")&&w.has("pendingSkill101"))try{publish158(w);}catch(Exception e){System.err.println("Observation158 publication pending: "+e.getMessage());}
+        observation158=service;for(var w:values())if(ObservationTask158.own(w)&&w.getString("status").equals("completed")&&w.has("pendingSkill101")){w.put("needsVerification158",true);change(w,"Completed procedure publication queued for original evidence verification");}
     }
-    private JSONObject source158(JSONObject w,boolean current)throws Exception{
+    private void publishPending158(){if(observation158==null)return;for(var w:values())if(ObservationTask158.own(w)&&w.getString("status").equals("completed")&&w.has("pendingSkill101")&&!publicationAttempts158.contains(w.getString("id"))){try{if(verificationGate158(w)){publicationAttempts158.add(w.getString("id"));publish158(w);}}catch(Exception e){publicationAttempts158.add(w.getString("id"));System.err.println("Observation158 publication pending: "+e.getMessage());}return;}}
+    private JSONObject source158(JSONObject w,boolean current)throws Exception{return source158(w,current,!current);}
+    private JSONObject source158(JSONObject w,boolean current,boolean reconstruct)throws Exception{
         if(observation158==null||!w.getString("code158").equals(ObservationTask158.code()))throw new IllegalStateException("Observation task implementation changed or unavailable");
         observation158.verifyLineages(w.optJSONArray("revalidations158"),w.getJSONObject("definition").getString("evidenceId"));
-        var actual=observation158.source(w.getJSONObject("definition"),current);var proof=actual.getJSONObject("revalidation158");actual.remove("revalidation158");var proofs=w.optJSONArray("revalidations158");if(proofs==null){proofs=new JSONArray();w.put("revalidations158",proofs);}boolean seen=false;for(Object raw:proofs)if(((JSONObject)raw).getString("id").equals(proof.getString("id")))seen=true;if(!seen){if(proofs.length()>=16)throw new IllegalStateException("Task revalidation limit16; preserve history");proofs.put(proof);}if(!actual.similar(w.getJSONObject("observation158")))throw new IllegalStateException("Pinned observation or world evidence changed");return actual;
+        if(current&&!reconstruct&&w.has("verifiedFingerprint158")&&!w.getString("verifiedFingerprint158").equals(observation158.fingerprint()))throw new IllegalStateException("Evidence store changed; explicitly resume full Java verification");
+        var actual=observation158.source(w.getJSONObject("definition"),current,reconstruct);var proof=actual.getJSONObject("revalidation158");actual.remove("revalidation158");var proofs=w.optJSONArray("revalidations158");if(proofs==null){proofs=new JSONArray();w.put("revalidations158",proofs);}boolean seen=false;for(Object raw:proofs)if(((JSONObject)raw).getString("id").equals(proof.getString("id")))seen=true;if(!seen){if(proofs.length()>=16)throw new IllegalStateException("Task revalidation limit16; preserve history");proofs.put(proof);}if(!actual.similar(w.getJSONObject("observation158")))throw new IllegalStateException("Pinned observation or world evidence changed");return actual;
     }
     private JSONObject start158(JSONObject input,JSONObject skill)throws Exception{
         if(closed||active()!=null||executableCount105()>=20||observation158==null)throw new IllegalStateException("Finish/resume/stop current work; workflow limit20");goals.workflowCapacity();
-        var d=ObservationTask158.definition(input);var src=observation158.source(d,true);var proof=src.getJSONObject("revalidation158");src.remove("revalidation158");var stages=new JSONArray();for(String name:List.of("observation","world","browser","artifact","verification"))stages.put(new JSONObject().put("name",name).put("status","pending"));
-        String id=UUID.randomUUID().toString();var w=new JSONObject().put("id",id).put("profile158",ObservationTask158.KIND).put("code158",ObservationTask158.code()).put("revalidations158",new JSONArray().put(proof)).put("definition",d).put("observation158",src).put("title",d.getString("title")).put("request",d.getString("request")).put("modelName",d.getString("modelName")).put("status","running").put("step","observation").put("stages",stages).put("stageIndex",0).put("resumes",0).put("deadline",System.currentTimeMillis()+1_200_000).put("createdAt",Instant.now()).put("history",new JSONArray()).put("auditHistory",new JSONArray());
+        var d=ObservationTask158.definition(input);var stages=new JSONArray();for(String name:List.of("observation","world","browser","artifact","verification"))stages.put(new JSONObject().put("name",name).put("status","pending"));
+        String id=UUID.randomUUID().toString();var w=new JSONObject().put("id",id).put("profile158",ObservationTask158.KIND).put("code158",ObservationTask158.code()).put("needsVerification158",true).put("definition",d).put("title",d.getString("title")).put("request",d.getString("request")).put("modelName",d.getString("modelName")).put("status","running").put("step","observation").put("stages",stages).put("stageIndex",0).put("resumes",0).put("deadline",System.currentTimeMillis()+1_200_000).put("createdAt",Instant.now()).put("history",new JSONArray()).put("auditHistory",new JSONArray());
         if(skill!=null)w.put("skill",new JSONObject().put("name",skill.getString("name")).put("version",skill.getInt("version")).put("id",skill.getString("id")));
-        goals.reserveWorkflow(id);try{change(w,"Verified recorded source, world binding and uncertainty pinned; no physical placement authorized");}catch(Exception e){goals.releaseWorkflow(id);throw e;}return view(w);
+        goals.reserveWorkflow(id);try{change(w,"Request retained; complete source verification queued in Java. No world or browser action authorized yet");}catch(Exception e){goals.releaseWorkflow(id);throw e;}return view(w);
+    }
+    /** Snapshot ancestry under the runner lock; costly reconstruction uses immutable copies outside it. */
+    private JSONArray ancestry158(JSONObject w)throws Exception{
+        var links=new JSONArray();var seen=new HashSet<String>();JSONObject ref=w.optJSONObject("skill");
+        while(ref!=null){
+            if(seen.size()>=8||!seen.add(ref.getString("id")))throw new IllegalStateException("Procedure ancestry cycles or exceeds eight links");
+            var p=goals.procedure127(ref.getString("id"));
+            if(!ObservationTask158.KIND.equals(p.getString("kind"))||!p.optString("publication101").equals("published")||!p.getString("name").equals(ref.getString("name"))||p.getInt("version")!=ref.getInt("version"))throw new IllegalStateException("Observation procedure ancestry changed");
+            var original=raw(p.getString("sourceWorkflowId"));
+            if(!original.getString("status").equals("completed")||!original.has("savedSkill")||!original.getJSONObject("savedSkill").getString("id").equals(p.getString("id")))throw new IllegalStateException("Original procedure workflow publication missing");
+            links.put(new JSONObject().put("procedure",p).put("workflow",original).put("workflowSha256",WorldFrames.hash(original)).put("procedureSha256",WorldFrames.hash(p)));
+            ref=original.optJSONObject("skill");
+        }
+        return links;
+    }
+    private JSONObject reconstruct158(JSONObject snapshot,JSONArray ancestry)throws Exception{
+        long start=System.nanoTime();String before=observation158.fingerprint();
+        for(int i=ancestry.length()-1;i>=0;i--){
+            if(Thread.currentThread().isInterrupted()||System.currentTimeMillis()>snapshot.getLong("deadline"))throw new IllegalStateException("Java verification interrupted or exceeded its task deadline");
+            var link=ancestry.getJSONObject(i);var original=WorldFrames.copy(link.getJSONObject("workflow"));var p=link.getJSONObject("procedure");
+            verify158(original);ProcedureLifecycle127.compareContract(p,procedure158(original).put("publication101","published").put("name",p.getString("name")));
+        }
+        if(snapshot.has("observation158"))source158(snapshot,!snapshot.getString("status").equals("completed"),true);
+        else{var source=observation158.source(snapshot.getJSONObject("definition"),true,true);snapshot.put("revalidations158",new JSONArray().put(source.getJSONObject("revalidation158")));source.remove("revalidation158");snapshot.put("observation158",source);}
+        if(snapshot.has("world158"))verifyWorld158(snapshot);if(snapshot.has("browser158"))verifyBrowser158(snapshot);if(snapshot.has("report"))artifact158(snapshot);if(snapshot.has("audit"))verify158(snapshot);
+        String after=observation158.fingerprint();if(!before.equals(after))throw new IllegalStateException("Sources or implementation changed during complete Java verification");
+        if(Thread.currentThread().isInterrupted()||System.currentTimeMillis()>snapshot.getLong("deadline"))throw new IllegalStateException("Java verification interrupted or exceeded its task deadline");
+        return new JSONObject().put("observation158",snapshot.getJSONObject("observation158")).put("revalidations158",snapshot.getJSONArray("revalidations158")).put("fingerprint",after).put("ancestry",ancestry).put("elapsedMs",(System.nanoTime()-start)/1e6);
+    }
+    private boolean verificationGate158(JSONObject w)throws Exception{
+        if(!w.optBoolean("needsVerification158"))return true;
+        String id=w.getString("id");int generation=w.getInt("resumes");
+        if(verificationJob158!=null){
+            if(!verificationOwner158.equals(id)||verificationGeneration158!=generation){if(!verificationJob158.isDone())return false;verificationJob158=null;}
+            else{
+                if(!verificationJob158.isDone())return false;var job=verificationJob158;verificationJob158=null;JSONObject result;
+                try{result=job.get();}catch(ExecutionException e){throw new IllegalStateException("Complete Java verification refused: "+e.getCause().getMessage(),e.getCause());}
+                if(!w.getString("code158").equals(ObservationTask158.code())||!result.getString("fingerprint").equals(observation158.fingerprint()))throw new IllegalStateException("Evidence changed before verification checkpoint");
+                for(Object raw:result.getJSONArray("ancestry")){var link=(JSONObject)raw;var p=link.getJSONObject("procedure");if(!WorldFrames.hash(goals.procedure127(p.getString("id"))).equals(link.getString("procedureSha256"))||!WorldFrames.hash(raw(p.getString("sourceWorkflowId"))).equals(link.getString("workflowSha256")))throw new IllegalStateException("Original procedure history changed during verification");}
+                if(w.has("skill")){var p=w.getJSONObject("skill");goals.requireRunnable127(p.getString("name"),p.getInt("version"));}
+                w.put("observation158",result.getJSONObject("observation158")).put("revalidations158",result.getJSONArray("revalidations158")).put("verifiedFingerprint158",result.getString("fingerprint")).put("needsVerification158",false).put("sourceVerification158",new JSONObject().put("status","verified").put("elapsedMs",result.getDouble("elapsedMs")).put("completedAt",Instant.now()).put("generation",generation));
+                source158(w,!w.getString("status").equals("completed"));change(w,"Complete original reconstruction and prior stages verified in Java; continuing with unchanged uncertainty");return true;
+            }
+        }
+        var snapshot=WorldFrames.copy(w);if(w.getString("status").equals("completed"))snapshot.put("deadline",System.currentTimeMillis()+1_200_000);var ancestry=ancestry158(w);verificationOwner158=id;verificationGeneration158=generation;
+        verificationJob158=verificationWorker158.submit(()->reconstruct158(snapshot,ancestry));
+        w.put("sourceVerification158",new JSONObject().put("status","running").put("startedAt",Instant.now()).put("generation",generation));change(w,"Java is reconstructing original sources and prior outcomes; the task remains readable and cancellable");return false;
     }
     private void tick158(JSONObject w){try{
-        if(System.currentTimeMillis()>w.getLong("deadline"))throw new IllegalStateException("Observation task exceeded1200seconds");if(w.getString("step").equals("audit"))return;source158(w,true);
+        if(System.currentTimeMillis()>w.getLong("deadline"))throw new IllegalStateException("Observation task exceeded1200seconds");if(!verificationGate158(w))return;if(w.getString("step").equals("audit"))return;source158(w,true);
         switch(w.getString("step")){
             case "observation"->{stage(w,0).put("status","completed");w.put("stageIndex",1).put("step","world");change(w,"Original source and complete replay verified; withheld estimates retained");}
             case "world"->{w.put("world158",ObservationTask158.worldDecision(w.getJSONObject("observation158")));stage(w,1).put("status","completed");w.put("stageIndex",2).put("step","browser");if(w.getJSONObject("definition").optBoolean("reviewAfterWorld158"))w.put("status","interrupted");change(w,"Bound world inspected; uncalibrated physical placement refused. "+(w.getString("status").equals("interrupted")?"Requested review; Resume when ready.":"Browser reference next."));}
@@ -744,7 +799,7 @@ var p=new JSONObject().put("kind",SkillGraph046.KIND).put("sourceWorkflowId",w.g
     private JSONObject artifact158(JSONObject w)throws Exception{verifyBrowser158(w);var a=artifacts.read(w.getJSONObject("report").getString("id"));if(a.getInt("version")!=1||!Creation.reference(a).similar(w.getJSONObject("report"))||!a.getJSONObject("contents").similar(ObservationReport158.build(w).getJSONObject("files")))throw new IllegalStateException("Original interactive report changed");return a;}
     private JSONObject verify158(JSONObject w)throws Exception{source158(w,false);var audit=ObservationReport158.audit(w,artifact158(w),w.getJSONObject("audit").getJSONObject("observed"));if(!audit.getBoolean("passed")||!audit.similar(w.getJSONObject("audit")))throw new IllegalStateException("Original rendered evidence changed");return audit;}
     private JSONObject claim158(JSONObject w)throws Exception{
-        try{var old=w.optJSONObject("claim");if(old!=null&&old.getLong("expires")>System.currentTimeMillis())return new JSONObject();source158(w,true);verifyWorld158(w);boolean browser=w.getString("hostPhase158").equals("browser");if(!browser)artifact158(w);
+        try{if(w.optBoolean("needsVerification158"))return new JSONObject();var old=w.optJSONObject("claim");if(old!=null&&old.getLong("expires")>System.currentTimeMillis())return new JSONObject();source158(w,true);verifyWorld158(w);boolean browser=w.getString("hostPhase158").equals("browser");if(!browser)artifact158(w);
             var c=new JSONObject().put("id",UUID.randomUUID().toString()).put("nonce",UUID.randomUUID().toString()).put("expires",System.currentTimeMillis()+60_000);w.put("claim",c);save(w);
             var result=WorldFrames.copy(c).put("kind",browser?"workflow.observation-browser158":"workflow.observation-artifact158").put("workflowId",w.getString("id")).put("generation",w.getInt("resumes")).put("contextSha256",WorldFrames.hash(w.getJSONObject("observation158"))).put("context158",w.getJSONObject("observation158").getJSONObject("context")).put("world158",w.getJSONObject("world158"));
             if(browser)result.put("browserContract126",w.getJSONObject("definition").getJSONObject("browserContract126")).put("contractSha256",WorldFrames.hash(w.getJSONObject("definition").getJSONObject("browserContract126")));else result.put("report",w.getJSONObject("report")).put("indexes",new JSONArray(ObservationReport158.indexes(w)));return result;
@@ -760,13 +815,13 @@ var p=new JSONObject().put("kind",SkillGraph046.KIND).put("sourceWorkflowId",w.g
         }catch(Exception e){interrupt(w,e.getMessage());}return view(w);
     }
     private JSONObject resume158(JSONObject w)throws Exception{
-        if(!w.getString("status").equals("interrupted")||w.getInt("resumes")>=3)throw new IllegalStateException("Resume interrupted observation task at most3 times");source158(w,true);if(w.has("world158"))verifyWorld158(w);if(w.has("browser158"))verifyBrowser158(w);if(w.has("report"))artifact158(w);if(w.has("audit"))verify158(w);w.remove("claim");w.put("status","running").put("resumes",w.getInt("resumes")+1).put("deadline",System.currentTimeMillis()+1_200_000);change(w,"Same observation, uncertainty, world and completed stages reverified; continuing");return view(w);
+        if(!w.getString("status").equals("interrupted")||w.getInt("resumes")>=3)throw new IllegalStateException("Resume interrupted observation task at most3 times");w.remove("claim");w.put("needsVerification158",true).put("status","running").put("resumes",w.getInt("resumes")+1).put("deadline",System.currentTimeMillis()+1_200_000);change(w,"Resume retained; Java will reverify the same source, world and completed stages before continuing");return view(w);
     }
     private JSONObject procedure158(JSONObject w){var defaults=WorldFrames.copy(w.getJSONObject("definition"));for(String k:List.of("evidenceId","browserContract126","saveSkillName","reviewAfterWorld158"))defaults.remove(k);return new JSONObject().put("kind",ObservationTask158.KIND).put("sourceWorkflowId",w.getString("id")).put("publication101","pending").put("defaults",defaults).put("prerequisites",new JSONArray().put("Fresh verified157 evidence and its unchanged world binding").put("Explicit browser contract")).put("actions",new JSONArray().put("Reverify observation and uncertainty").put("Inspect bound world; refuse unsupported physical placement").put("Inspect declared browser reference").put("Create and independently verify interactive report")).put("successChecks",new JSONArray().put("Original source, world, browser and rendered outcomes pass")).put("recovery",new JSONArray().put("Resume same checkpoint after source and world checks")).put("codeSha256",w.getString("code158")).put("sourceBinding158",new JSONObject().put("evidenceId",w.getJSONObject("observation158").getString("evidenceId")).put("sha256",WorldFrames.hash(w.getJSONObject("observation158")))).put("report",w.getJSONObject("report")).put("auditSha256",WorldFrames.hash(w.getJSONObject("audit")));}
     private void publish158(JSONObject w)throws Exception{if(!w.getString("status").equals("completed"))throw new IllegalStateException("Parent must complete before publication");verify158(w);var ref=w.getJSONObject("pendingSkill101");w.put("savedSkill",ref);change(w,"Completed observation task linked to pending procedure");goals.publishWorkflow101(procedure158(w),ref);w.remove("pendingSkill101");change(w,"Observation task procedure published after original evidence checks");}
     private JSONObject reuse158(JSONObject input,JSONObject chosen)throws Exception{
-        SpatialScene.keys(input,"name","version","request","title","modelName","evidenceId","browserContract126","saveSkillName","reviewAfterWorld158");verifyRetained127(chosen,new HashSet<>());if(!input.has("evidenceId")||!input.has("browserContract126"))throw new IllegalArgumentException("Select explicit fresh observation and browser criteria");var args=WorldFrames.copy(chosen.getJSONObject("defaults"));for(String k:input.keySet())if(!Set.of("name","version").contains(k))args.put(k,input.get(k));args.put("saveSkillName",input.optString("saveSkillName",""));return start158(args,chosen);
+        SpatialScene.keys(input,"name","version","request","title","modelName","evidenceId","browserContract126","saveSkillName","reviewAfterWorld158");if(!input.has("evidenceId")||!input.has("browserContract126"))throw new IllegalArgumentException("Select explicit fresh observation and browser criteria");var args=WorldFrames.copy(chosen.getJSONObject("defaults"));for(String k:input.keySet())if(!Set.of("name","version").contains(k))args.put(k,input.get(k));args.put("saveSkillName",input.optString("saveSkillName",""));return start158(args,chosen);
     }
 
-    @Override public synchronized void close(){closed=true;worker.shutdownNow();}
+    @Override public synchronized void close(){closed=true;worker.shutdownNow();verificationWorker158.shutdownNow();}
 }
