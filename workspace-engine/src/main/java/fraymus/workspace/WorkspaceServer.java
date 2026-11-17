@@ -52,6 +52,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final ReturnDiagnosis151 diagnosis151;
     private final RotationExperiment152 rotation152;
     private final RotationExperiment153 rotation153;
+    private final ContinuityExperiment154 continuity154;
     private final VerifiedAppearances135 appearances135;
     private final TabletopStore tabletop;
     private final KnowledgeStore knowledge;
@@ -78,6 +79,7 @@ public final class WorkspaceServer implements AutoCloseable {
         diagnosis151=new ReturnDiagnosis151(observations,association134,replay151);
         rotation152=new RotationExperiment152(project,observations,association134,replay151);
         rotation153=new RotationExperiment153(project,observations,association134,replay151);
+        continuity154=new ContinuityExperiment154(project,observations,association134,replay151);
         skillMemory=new SkillMemory048(project,goals);
         evidence049=new EvidenceStore049(project);
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
@@ -368,6 +370,10 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/association134/search152-read" -> {SpatialScene.keys(input,"id");result=rotation152.read(input.getString("id"));}
                     case "/api/association134/search152-start" -> {SpatialScene.keys(input,"id","verify");result=rotation152.start(input.getString("id"),input.optBoolean("verify",false));}
                     case "/api/association134/search152-status" -> {SpatialScene.keys(input,"jobId");result=rotation152.status(input.getString("jobId"));}
+                    case "/api/association134/continuity154" -> {SpatialScene.keys(input,"id");result=continuity154.run(input.getString("id"));}
+                    case "/api/association134/continuity154-read" -> {SpatialScene.keys(input,"id","forceReplay");result=continuity154.read(input.getString("id"),input.optBoolean("forceReplay",false));}
+                    case "/api/association134/continuity154-start" -> {SpatialScene.keys(input,"id","verify","forceReplay");result=continuity154.start(input.getString("id"),input.optBoolean("verify",false),input.optBoolean("forceReplay",false));}
+                    case "/api/association134/continuity154-status" -> {SpatialScene.keys(input,"jobId");result=continuity154.status(input.getString("jobId"));}
                     case "/api/association134/search153" -> {SpatialScene.keys(input,"id");result=rotation153.run(input.getString("id"));}
                     case "/api/association134/search153-read" -> {SpatialScene.keys(input,"id");result=rotation153.read(input.getString("id"));}
                     case "/api/association134/search153-start" -> {SpatialScene.keys(input,"id","verify");result=rotation153.start(input.getString("id"),input.optBoolean("verify",false));}
@@ -752,7 +758,7 @@ public final class WorkspaceServer implements AutoCloseable {
         requests.forEach((id,control)->{if(!durableRequests043.contains(id))control.cancel();});camera042.clear();game.close();selfModel.detach();
         try{if(agency!=null)agency.hostDetached();knowledge.hostDetached044();goals.hostDetached042(creation044==null?Set.of():creation044.retained());workflows.hostDetached042();learning.hostDetached042(agency==null?Set.of():agency.retainedEpisodes());for(Object raw:alignment041.state().getJSONArray("trials")){var t=(JSONObject)raw;if(t.optString("status").equals("running"))alignment041.finish(t.getString("id"),true);}for(Object raw:tabletop.state().getJSONArray("runs")){var t=(JSONObject)raw;if(t.optString("status").equals("running"))tabletop.stop(t.getString("id"));}}catch(Exception e){throw new IllegalStateException("Host detach needs attention",e);}
     }
-    @Override public synchronized void close(){if(closed)return;closed=true;if(rotation152!=null)rotation152.close();if(rotation153!=null)rotation153.close();requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();if(creation044!=null)creation044.close();if(agency!=null)agency.close();if(agentRuntime!=null)agentRuntime.close();if(gameTasks115!=null)gameTasks115.close();procedures078.close();procedures077.close();procedures076.close();memory075.close();memory074.close();observations.close();game.close();workflows.close();goals.close();perception.close();brain.close();if(agentRuntime!=null)try{agentRuntime.checkpoint();}catch(Exception e){System.err.println("Final shared cortex checkpoint needs attention: "+e.getMessage());}calibrations.close();scenes.close();if(httpServer!=null)httpServer.stop(0);try{store.close();}catch(IOException ignored){}}
+    @Override public synchronized void close(){if(closed)return;closed=true;if(rotation152!=null)rotation152.close();if(rotation153!=null)rotation153.close();if(continuity154!=null)continuity154.close();requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();if(creation044!=null)creation044.close();if(agency!=null)agency.close();if(agentRuntime!=null)agentRuntime.close();if(gameTasks115!=null)gameTasks115.close();procedures078.close();procedures077.close();procedures076.close();memory075.close();memory074.close();observations.close();game.close();workflows.close();goals.close();perception.close();brain.close();if(agentRuntime!=null)try{agentRuntime.checkpoint();}catch(Exception e){System.err.println("Final shared cortex checkpoint needs attention: "+e.getMessage());}calibrations.close();scenes.close();if(httpServer!=null)httpServer.stop(0);try{store.close();}catch(IOException ignored){}}
     private JSONObject plan(JSONObject input)throws Exception{return plan(input,false);}
     private JSONObject plan(JSONObject input,boolean javaOwned) throws Exception {
         if(catalog==null)throw new IllegalStateException("Local models are still being discovered");
