@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 159
 
+[Published and fetched receipt](docs/PUBLICATION_159.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-159)
+
 2026-11-17 · Local Java orchestration · Recorded calibrated actions · Defaults preserved
 
 [Previous edition 158](README-158.md) · [Offline interactive guide](docs/readmes/159/index.html) · [All editions](docs/readmes/INDEX.md) · [Development plan](docs/publication159/plan159.md)

@@ -1,3 +1,7 @@
+## Edition 159 — published and fetched back
+
+2026-11-17. Release 22d98d0919049b4b9ba3cbf1ca99cfae146acb2d; main, edition159 and readme-159 pushed atomically and fetched. Full159 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_159.json. Experimental calibrated recorded actions shipped; defaults unchanged. User selected recorded tests; fresh physical validation remains a separate gate. The following local-study notes retain their original chronology.
+
 ## Edition 159 — locally verified; publication pending
 
 2026-11-17. Correct Java target: eyeoverthink/Fraynix-Agent-Workspace, J:/Codex-Work/fraynix-workspace-edition159. No subagents. One heavy check at a time. Recorded sources only; no webcam active. CI checked first; see publication receipt.
