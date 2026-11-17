@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 158
 
+[Published and fetched receipt](docs/PUBLICATION_158.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-158)
+
 **Verified observations become a durable connected task.** 2026-11-17.
 
 [Previous: edition 157](README-157.md) · [All editions](docs/readmes/INDEX.md) · [Offline guide](docs/readmes/158/index.html) · [Verification](docs/readmes/158/verification.json)

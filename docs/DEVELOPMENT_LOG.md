@@ -1,3 +1,7 @@
+## Edition 158 — published and fetched back
+
+2026-11-17. Release ce36c99cedce6446d8e37167c8a3ae732f9b305d; main, edition158 and readme-158 pushed atomically and fetched. Full158 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_158.json. Experimental verified observation tasks shipped; defaults unchanged. User selected recorded tests; fresh physical validation remains a separate gate. The following local-study notes retain their original chronology.
+
 ## Edition 158 — locally verified; publication pending
 
 2026-11-17. Java target eyeoverthink/Fraynix-Agent-Workspace; isolated J:/Codex-Work/fraynix-workspace-edition158. No subagents. One heavy check at a time. Edition157 CI was still running at the initial check; edition156 passed. See publication receipt for latest CI status.
