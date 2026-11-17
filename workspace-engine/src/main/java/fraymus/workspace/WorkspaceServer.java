@@ -86,6 +86,7 @@ public final class WorkspaceServer implements AutoCloseable {
         continuity155=new ContinuityExperiment155(project,observations,association134,replay151);
         continuity156=new ContinuityExperiment156(project,observations,association134,new ReplayEvidence156(project,observations,association134));
         continuity157=new ContinuityExperiment157(project,observations,association134,new ReplayEvidence157(project,observations,association134));
+        try{workflows.install158(new ObservationTask158(project,continuity157,association134,observations,goals.worlds()));}catch(Exception e){throw new IOException("Observation task service could not start",e);}
         skillMemory=new SkillMemory048(project,goals);
         evidence049=new EvidenceStore049(project);
         scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
