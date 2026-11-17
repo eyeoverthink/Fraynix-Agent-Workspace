@@ -1,3 +1,5 @@
+[Edition 157 — precomputed original verification](../../README-157.md) | [Offline guide](157/index.html)
+
 [Edition 156 — exact original verification](../../README-156.md) | [Offline guide](156/index.html)
 
 [Edition 155 — exact reconstruction and harder returns](../../README-155.md) | [Offline guide](155/index.html)

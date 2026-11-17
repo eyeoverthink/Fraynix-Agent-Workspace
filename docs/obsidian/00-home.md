@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/165-precomputed-verification.md]] | [[README-157.md]]
+
 Current: [[docs/obsidian/164-original-verification.md]] | [[README-156.md]]
 
 Current: [[docs/obsidian/163-exact-reconstruction.md]] | [[README-155.md]]

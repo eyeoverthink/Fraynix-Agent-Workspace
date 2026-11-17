@@ -1,0 +1,161 @@
+[
+  {
+    "case": "long-cover-return",
+    "domain": "new rendered control",
+    "baseline": {
+      "visible": 18,
+      "correct": 5,
+      "hidden": 12,
+      "reacquired": 0,
+      "confirmedDistractorMatches": 0,
+      "available": 5,
+      "correctReacquired": 0,
+      "uncertain": 0,
+      "labels": 30,
+      "unsupported": 0,
+      "meanOverlapAllVisible": 0.2777777777777777,
+      "missing": 13,
+      "overlapFailures": 0
+    },
+    "previous153": {
+      "correct": 12,
+      "visible": 18,
+      "missing": 6
+    },
+    "summary": {
+      "visible": 18,
+      "unsupported": 0,
+      "correct": 15,
+      "hidden": 12,
+      "confirmedDistractorMatches": 0,
+      "missing": 3,
+      "overlapFailures": 0
+    },
+    "preservedOriginalBoxes": 5,
+    "newlyPreservedComparedWith153": 3,
+    "totalMs": 31904.8064,
+    "cost": {
+      "historyReads": 454,
+      "finalHashMs": 34.0055,
+      "sourceSetupMs": 88.7613,
+      "reusedReplay": false,
+      "imageLoadMs": 73.2215,
+      "capacity": 8,
+      "originalReplayMs": 23933.2224,
+      "precomputedOriginalReplay": true,
+      "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+      "searchMs": 7755.4236,
+      "scoringMs": 0.0962,
+      "retainedEntries": 1,
+      "historyBytesHashed": 502049998
+    },
+    "warmMedianMs": 74.3835,
+    "experimentId": "4488e030d5b95f2c5c02e520d9d0c4399884b62a7b2418c7886ea6ec56be2c62"
+  },
+  {
+    "case": "near-copy-only",
+    "domain": "new rendered control",
+    "baseline": {
+      "visible": 5,
+      "correct": 5,
+      "hidden": 22,
+      "reacquired": 0,
+      "confirmedDistractorMatches": 0,
+      "available": 5,
+      "correctReacquired": 0,
+      "uncertain": 0,
+      "labels": 27,
+      "unsupported": 0,
+      "meanOverlapAllVisible": 0.9999999999999997,
+      "missing": 0,
+      "overlapFailures": 0
+    },
+    "previous153": {
+      "correct": 2,
+      "visible": 5,
+      "missing": 3
+    },
+    "summary": {
+      "visible": 5,
+      "unsupported": 0,
+      "correct": 5,
+      "hidden": 22,
+      "confirmedDistractorMatches": 0,
+      "missing": 0,
+      "overlapFailures": 0
+    },
+    "preservedOriginalBoxes": 5,
+    "newlyPreservedComparedWith153": 3,
+    "totalMs": 26977.7366,
+    "cost": {
+      "historyReads": 381,
+      "finalHashMs": 32.6412,
+      "sourceSetupMs": 80.6284,
+      "reusedReplay": false,
+      "imageLoadMs": 62.0996,
+      "capacity": 8,
+      "originalReplayMs": 20935.1006,
+      "precomputedOriginalReplay": true,
+      "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+      "searchMs": 5851.3031,
+      "scoringMs": 0.0331,
+      "retainedEntries": 2,
+      "historyBytesHashed": 421323897
+    },
+    "warmMedianMs": 71.2425,
+    "experimentId": "eb2280052005b2ee50504a7aea4f8dbddb713138991ec2918834a99952ac251e"
+  },
+  {
+    "case": "exposed150-camera",
+    "domain": "exposed edition150 camera",
+    "baseline": {
+      "visible": 42,
+      "correct": 11,
+      "hidden": 30,
+      "reacquired": 0,
+      "confirmedDistractorMatches": 0,
+      "available": 11,
+      "correctReacquired": 0,
+      "uncertain": 0,
+      "labels": 72,
+      "unsupported": 0,
+      "meanOverlapAllVisible": 0.2608433688654656,
+      "missing": 31,
+      "overlapFailures": 0
+    },
+    "previous153": {
+      "correct": 31,
+      "visible": 42,
+      "missing": 11
+    },
+    "summary": {
+      "visible": 42,
+      "unsupported": 0,
+      "correct": 34,
+      "hidden": 30,
+      "confirmedDistractorMatches": 0,
+      "missing": 8,
+      "overlapFailures": 0
+    },
+    "preservedOriginalBoxes": 11,
+    "newlyPreservedComparedWith153": 3,
+    "totalMs": 138058.029,
+    "cost": {
+      "historyReads": 1890,
+      "finalHashMs": 64.2314,
+      "sourceSetupMs": 245.7789,
+      "reusedReplay": false,
+      "imageLoadMs": 1040.969,
+      "capacity": 8,
+      "originalReplayMs": 78741.4286,
+      "precomputedOriginalReplay": true,
+      "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+      "searchMs": 57911.0144,
+      "scoringMs": 0.1382,
+      "retainedEntries": 1,
+      "historyBytesHashed": 8949390030
+    },
+    "warmMedianMs": 146.897,
+    "experimentId": "f7e6fd12145097cc05759fff783e82094319aa82d0f37c6de72eb6277d40d907"
+  }
+]

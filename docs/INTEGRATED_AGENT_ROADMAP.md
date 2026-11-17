@@ -1,3 +1,9 @@
+## Edition 157 continuity — 2026-11-17
+
+Edition 157 reconstructs exactly the same evidence while reusing exact sampling coordinates and immutable reference calculations on fresh frame pixels. The exposed camera trace remains 34/42 correct observations, 8 withheld, 0 wrong overlaps and 0/30 hidden outputs, identical to 156. All three app comparisons reproduce exact reference evidence. 2/2 new generated cases meet their separate behavioral targets. Complete paired costs include the original verification. Defaults remain unchanged. On two alternating exposed-camera pairs, complete forced verification measured 147.26 seconds through published 156 and 135.86 seconds with precomputed terms (7.7% less time).
+
+Read [edition157](../README-157.md). Keep the unified Java agent/world/browser/creation direction. Next: varied continuity, remaining cold replay cost, evidence-linked durable tasks.
+
 ## Edition 156 continuity — 2026-11-17
 
 Edition 156 reconstructs exactly the same evidence while converting each original frame to packed RGB once. The exposed camera trace remains 34/42 correct observations, 8 withheld, 0 wrong overlaps and 0/30 hidden outputs, identical to 155. All eight app comparisons reproduce exact reference evidence. 7/7 harder generated cases meet their separate behavioral targets. Complete paired costs include the original verification. Defaults remain unchanged. On two alternating exposed-camera pairs, complete forced verification measured 180.85 seconds with original pixel access and 163.00 seconds with packed access (9.9% less time).

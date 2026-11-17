@@ -1,0 +1,251 @@
+{
+  "modules": [
+    {
+      "id": "search",
+      "name": "Exact sampled values and reference terms",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/StructureReplay157.java",
+      "note": "docs/obsidian/165-precomputed-verification.md"
+    },
+    {
+      "id": "confirm",
+      "name": "Exact original identity replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/IdentityReplay157.java",
+      "note": "docs/obsidian/165-precomputed-verification.md"
+    },
+    {
+      "id": "proof",
+      "name": "Exact evidence and replay costs",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ContinuityExperiment157.java",
+      "note": "docs/obsidian/165-precomputed-verification.md"
+    },
+    {
+      "id": "view",
+      "name": "Actual controls and progress",
+      "source": "workspace-desktop/renderer/association134-panel.js",
+      "note": "docs/obsidian/165-precomputed-verification.md"
+    },
+    {
+      "id": "measure",
+      "name": "Complete original-replay comparison",
+      "source": "docs/publication157/ReplayMeasure157.java",
+      "note": "docs/obsidian/165-precomputed-verification.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/157/generated-long-cover-return.png",
+      "title": "2026-11-17 · generated / long-cover-return.png"
+    },
+    {
+      "path": "docs/readmes/157/generated-near-copy-only.png",
+      "title": "2026-11-17 · generated / near-copy-only.png"
+    },
+    {
+      "path": "docs/readmes/157/exposed150-exposed150-camera.png",
+      "title": "2026-11-17 · exposed150 / exposed150-camera.png"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/157/verification.json"
+    },
+    {
+      "path": "docs/readmes/157/comparison.json"
+    },
+    {
+      "path": "docs/readmes/157/qualification.json"
+    },
+    {
+      "path": "docs/readmes/157/original-evidence.json"
+    }
+  ],
+  "comparison": [
+    {
+      "case": "long-cover-return",
+      "domain": "new rendered control",
+      "baseline": {
+        "visible": 18,
+        "correct": 5,
+        "hidden": 12,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 5,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 30,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.2777777777777777,
+        "missing": 13,
+        "overlapFailures": 0
+      },
+      "previous153": {
+        "correct": 12,
+        "visible": 18,
+        "missing": 6
+      },
+      "summary": {
+        "visible": 18,
+        "unsupported": 0,
+        "correct": 15,
+        "hidden": 12,
+        "confirmedDistractorMatches": 0,
+        "missing": 3,
+        "overlapFailures": 0
+      },
+      "preservedOriginalBoxes": 5,
+      "newlyPreservedComparedWith153": 3,
+      "totalMs": 31904.8064,
+      "cost": {
+        "historyReads": 454,
+        "finalHashMs": 34.0055,
+        "sourceSetupMs": 88.7613,
+        "reusedReplay": false,
+        "imageLoadMs": 73.2215,
+        "capacity": 8,
+        "originalReplayMs": 23933.2224,
+        "precomputedOriginalReplay": true,
+        "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+        "searchMs": 7755.4236,
+        "scoringMs": 0.0962,
+        "retainedEntries": 1,
+        "historyBytesHashed": 502049998
+      },
+      "warmMedianMs": 74.3835,
+      "experimentId": "4488e030d5b95f2c5c02e520d9d0c4399884b62a7b2418c7886ea6ec56be2c62"
+    },
+    {
+      "case": "near-copy-only",
+      "domain": "new rendered control",
+      "baseline": {
+        "visible": 5,
+        "correct": 5,
+        "hidden": 22,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 5,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 27,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.9999999999999997,
+        "missing": 0,
+        "overlapFailures": 0
+      },
+      "previous153": {
+        "correct": 2,
+        "visible": 5,
+        "missing": 3
+      },
+      "summary": {
+        "visible": 5,
+        "unsupported": 0,
+        "correct": 5,
+        "hidden": 22,
+        "confirmedDistractorMatches": 0,
+        "missing": 0,
+        "overlapFailures": 0
+      },
+      "preservedOriginalBoxes": 5,
+      "newlyPreservedComparedWith153": 3,
+      "totalMs": 26977.7366,
+      "cost": {
+        "historyReads": 381,
+        "finalHashMs": 32.6412,
+        "sourceSetupMs": 80.6284,
+        "reusedReplay": false,
+        "imageLoadMs": 62.0996,
+        "capacity": 8,
+        "originalReplayMs": 20935.1006,
+        "precomputedOriginalReplay": true,
+        "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+        "searchMs": 5851.3031,
+        "scoringMs": 0.0331,
+        "retainedEntries": 2,
+        "historyBytesHashed": 421323897
+      },
+      "warmMedianMs": 71.2425,
+      "experimentId": "eb2280052005b2ee50504a7aea4f8dbddb713138991ec2918834a99952ac251e"
+    },
+    {
+      "case": "exposed150-camera",
+      "domain": "exposed edition150 camera",
+      "baseline": {
+        "visible": 42,
+        "correct": 11,
+        "hidden": 30,
+        "reacquired": 0,
+        "confirmedDistractorMatches": 0,
+        "available": 11,
+        "correctReacquired": 0,
+        "uncertain": 0,
+        "labels": 72,
+        "unsupported": 0,
+        "meanOverlapAllVisible": 0.2608433688654656,
+        "missing": 31,
+        "overlapFailures": 0
+      },
+      "previous153": {
+        "correct": 31,
+        "visible": 42,
+        "missing": 11
+      },
+      "summary": {
+        "visible": 42,
+        "unsupported": 0,
+        "correct": 34,
+        "hidden": 30,
+        "confirmedDistractorMatches": 0,
+        "missing": 8,
+        "overlapFailures": 0
+      },
+      "preservedOriginalBoxes": 11,
+      "newlyPreservedComparedWith153": 3,
+      "totalMs": 138058.029,
+      "cost": {
+        "historyReads": 1890,
+        "finalHashMs": 64.2314,
+        "sourceSetupMs": 245.7789,
+        "reusedReplay": false,
+        "imageLoadMs": 1040.969,
+        "capacity": 8,
+        "originalReplayMs": 78741.4286,
+        "precomputedOriginalReplay": true,
+        "scope": "Every request rechecks original evidence/code bytes. Only exact process-local completed results can be reused; cold start or explicit full replay reconstructs. No size/time cache or persistent trust.",
+        "searchMs": 57911.0144,
+        "scoringMs": 0.1382,
+        "retainedEntries": 1,
+        "historyBytesHashed": 8949390030
+      },
+      "warmMedianMs": 146.897,
+      "experimentId": "f7e6fd12145097cc05759fff783e82094319aa82d0f37c6de72eb6277d40d907"
+    }
+  ],
+  "costComparison": [
+    {
+      "case": "long-cover-return",
+      "pairs": 3,
+      "referenceMedianMs": 33153.0403,
+      "precomputedMedianMs": 30309.539,
+      "medianRatio": 1.0938153925732754,
+      "measuredReduction": true
+    },
+    {
+      "case": "near-copy-only",
+      "pairs": 1,
+      "referenceMedianMs": 31420.9455,
+      "precomputedMedianMs": 26387.9166,
+      "medianRatio": 1.1907323331467556,
+      "measuredReduction": true
+    },
+    {
+      "case": "exposed150-camera",
+      "pairs": 2,
+      "referenceMedianMs": 147262.2039,
+      "precomputedMedianMs": 135860.93635,
+      "medianRatio": 1.0839186587131158,
+      "measuredReduction": true
+    }
+  ],
+  "finding": "Edition 157 reconstructs exactly the same evidence while reusing exact sampling coordinates and immutable reference calculations on fresh frame pixels. The exposed camera trace remains 34/42 correct observations, 8 withheld, 0 wrong overlaps and 0/30 hidden outputs, identical to 156. All three app comparisons reproduce exact reference evidence. 2/2 new generated cases meet their separate behavioral targets. Complete paired costs include the original verification. Defaults remain unchanged. On two alternating exposed-camera pairs, complete forced verification measured 147.26 seconds through published 156 and 135.86 seconds with precomputed terms (7.7% less time).",
+  "validation": "57 selected Java checks and 164 desktop checks passed, with no failures or skipped cases. Two new generated app comparisons and one exposed-camera comparison passed visible-control, forced-replay, cold-restart and source-integrity checks. Complete reference/precomputed evidence matches exactly. Independent geometry and exact-evidence gates passed; harder behavioral targets and measured cost benefit are reported separately. These are scoped checks, not a rerun of every historical capability. Recorded tests only."
+}
