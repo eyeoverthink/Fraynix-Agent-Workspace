@@ -1,3 +1,9 @@
+## Edition 154 continuity — 2026-11-17
+
+The explicit Java comparison preserves supported original tracking and retains every confirmed 153 return. On the exposed camera recording it scores 34/42 correct visible/partial observations, versus 31/42 with 153; 8 remain withheld. There are 0 wrong overlaps, 0/30 hidden outputs and 0 matches to the labelled red object. All six new generated cases pass their declared outcome gates. Warm reopening takes 0.151 seconds median, with full byte checks; cold or forced verification still reconstructs. Defaults remain unchanged.
+
+Read [edition154](../README-154.md). Keep the unified Java agent/world/browser/creation direction. Next: varied continuity, remaining cold replay cost, evidence-linked durable tasks.
+
 ## Edition153 continuity — 2026-11-16
 
 The explicit Java experiment confirms 23/30 returned frames on the exposed camera recording, versus 0/30 with edition 152. It has 31/42 correct visible/partial observations, 11 withheld, 0 wrong overlaps, 0/30 hidden outputs and 0 matches to the labelled red object. Both new rendered return cases recover correct observations; wrong-only, changed-quadrant and identical-copy returns are refused. The paired search measurement is 4.35× faster with exactly identical scalar/optimized traces. Defaults remain unchanged; this is recorded evidence, not fresh physical validation.

@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "search",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ContinuityReturn154.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "confirm",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/RotationReturn153.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "proof",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ContinuityExperiment154.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "view",
+      "type": "file",
+      "file": "workspace-desktop/renderer/association134-panel.js",
+      "x": 1290,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "measure",
+      "type": "file",
+      "file": "docs/publication154/ReplayMeasure154.java",
+      "x": 1720,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "search",
+      "toNode": "confirm"
+    },
+    {
+      "id": "1",
+      "fromNode": "confirm",
+      "toNode": "proof"
+    },
+    {
+      "id": "2",
+      "fromNode": "proof",
+      "toNode": "view"
+    },
+    {
+      "id": "3",
+      "fromNode": "view",
+      "toNode": "measure"
+    }
+  ]
+}

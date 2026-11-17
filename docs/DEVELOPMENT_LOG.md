@@ -1,3 +1,15 @@
+## Edition 154 — locally verified; publication pending
+
+2026-11-17. Java target eyeoverthink/Fraynix-Agent-Workspace; isolated J:/Codex-Work/fraynix-workspace-edition154. No subagents. One heavy check at a time. Edition153 CI passed before implementation.
+
+The explicit Java comparison preserves supported original tracking and retains every confirmed 153 return. On the exposed camera recording it scores 34/42 correct visible/partial observations, versus 31/42 with 153; 8 remain withheld. There are 0 wrong overlaps, 0/30 hidden outputs and 0 matches to the labelled red object. All six new generated cases pass their declared outcome gates. Warm reopening takes 0.151 seconds median, with full byte checks; cold or forced verification still reconstructs. Defaults remain unchanged.
+
+35 selected Java checks and 164 desktop checks passed, with no failures or skipped cases. Six new generated app comparisons and one exposed-camera comparison passed visible-control, forced-replay, cold-restart and source-integrity checks. Complete reference/snapshot-access evidence matches exactly. Independent geometry and separate outcome/cost gates passed. These are scoped checks, not a rerun of every historical capability. Recorded tests only.
+
+The first nine-check development suite passed, followed by 35 selected regression checks. An editing-time character-encoding issue in the desktop source was detected in the diff and corrected before freezing the method; historical text and tracker code were preserved. The method and qualification gates were committed at 11417dcb before generating reserved 154 sources. The first generated and camera application attempts passed their execution checks; no failed reserved app attempt was omitted.
+
+Read README-154.md and docs/publication154/plan154.md. User selected recorded tests only; no camera active. Preserve the unified Java world/browser/creation direction, historical tracker identities, original private projects and defaults. No automatic appearance admission or physical action authority. Cold/forced reconstruction and byte-bound warm reuse are distinct costs. Hosted CI separate from local validation.
+
 ## Edition 153 — published and fetched back
 
 2026-11-16. Release 9ec68fa5cfb7c0b660e8cc663f2ada6335d3e265; main, edition153 and readme-153 pushed atomically and fetched. Full153 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_153.json. Experimental rotated confirmation and exact arithmetic optimization shipped; defaults unchanged. User selected recorded tests; fresh physical validation remains a separate gate. The following local-study notes retain their original chronology.

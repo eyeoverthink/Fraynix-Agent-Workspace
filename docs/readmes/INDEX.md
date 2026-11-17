@@ -1,3 +1,5 @@
+[Edition 154 — preserved tracking and verified replay](../../README-154.md) | [Offline guide](154/index.html)
+
 [Edition153 — rotated confirmation and measured cost](../../README-153.md) | [Offline guide](153/index.html)
 
 [Edition152 — rotation search without return labels](../../README-152.md) | [Offline guide](152/index.html)
