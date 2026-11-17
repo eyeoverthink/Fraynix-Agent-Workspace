@@ -1,0 +1,5 @@
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict'),{auditCalibrated159}=require('../calibrated159.cjs'),{workflowSummary}=require('../workflows.cjs');
+test('failed calibrated report initialization cannot produce an outcome receipt',async()=>{let calls=0;await assert.rejects(auditCalibrated159({test:async()=>[{passed:false}]},{rowCount:1},async()=>calls++),/initialize/);assert.equal(calls,0);});
+test('failed retained canvas checks stop before reading chart claims',async()=>{let calls=0;await assert.rejects(auditCalibrated159({test:async()=>[{passed:true}],isolated:async()=>calls++},{rowCount:1,report:{id:'a',version:1}},async()=>({passed:false})),/not retained/);assert.equal(calls,0);});
+test('calibrated summary retains scope and actual completion state',()=>{const s=workflowSummary({profile159:'calibrated-recorded-action-159-v1',status:'interrupted',reason:'Source changed'});assert.match(s,/interrupted/);assert.match(s,/Source changed/);assert.match(s,/Conditional plane bounds; simulation markers only/);});

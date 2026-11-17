@@ -310,8 +310,8 @@ async function mission044(id){
  return{task,sources,evidence:g.completion044||{},child:child?Object.fromEntries(['id','status','step','stage','reason','procedure','metrics','audit','trials','repairs','counterfactual045','savedSkill','draftNumber','resumes','attempt','report','currentChild','implementation103','profile101','qualification104','qualification105','activeWorkflow105','cost105','auditHistory','graph','graphSha256','stages','diagnostics','worldBinding'].filter(k=>child[k]!==undefined).map(k=>[k,child[k]])):null,result,skill:g.savedRecipe||g.usedRecipe||g.completion044?.javaGoal?.savedSkill||g.completion044?.javaWorkflow?.savedSkill||child?.savedSkill||null,scope:'Actual retained Java task and source selections. A past result is not a new camera observation or proof of improved model weights.'};
 }
 function creationSelection(){return inputs100.binding();}
-let currentObservation158=null;
-function bindings044(){const b={scene:currentScene,dataset:currentDataset,spatial:currentSpatial,pose:currentPose,world:currentPersistentWorld,push:pushSelection(),mapping:currentMapSelection,creation:creationSelection(),knowledge:knowledgeBridge?.selected(),tabletop:tabletopBridge?.selected(),observations:observationBridge?.selection(),metric:observationBridge?.metricSelection?.(),tracking:trackingBridge?.selected(),verifiedObservation:currentObservation158};return Object.fromEntries(Object.entries(b).filter(([,v])=>v!=null));}
+let currentObservation158=null,currentCalibrated159=null;
+function bindings044(){const b={scene:currentScene,dataset:currentDataset,spatial:currentSpatial,pose:currentPose,world:currentPersistentWorld,push:pushSelection(),mapping:currentMapSelection,creation:creationSelection(),knowledge:knowledgeBridge?.selected(),tabletop:tabletopBridge?.selected(),observations:observationBridge?.selection(),metric:observationBridge?.metricSelection?.(),tracking:trackingBridge?.selected(),verifiedObservation:currentObservation158,calibratedObservation:currentCalibrated159};return Object.fromEntries(Object.entries(b).filter(([,v])=>v!=null));}
 async function startAgent(goal,model,extra={}){
  if(run||learningJob||manualBusy||pendingAgency043)throw Error('Finish or stop the current operation first');if(typeof goal!=='string'||!goal.trim()||goal.length>8000)throw Error('Enter a request up to8000characters');
  const generation=agencyLaunchGeneration043;pendingAgency043++;emit('run',{active:true,goal,model,phase:'Java is admitting and routing the request'});
@@ -644,6 +644,12 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     }
     case 'state':return {...await refresh(),currentArtifact,origin,log,run:run?{active:true,goal:run.goal}:null};
     case 'tool':if(run)throw Error('Take over before using manual tools');return execute(input.tool,input.args);
+    case 'calibrated159':{
+      if(agency043.busy()||workflowBridge.reserved())throw Error('Finish or stop current work before preparing calibrated actions');
+      if(!['preview','select'].includes(input.command))throw Error('Unknown calibrated action command');
+      const proof=await api('/api/calibrated159/preview',input.args);
+      if(input.command==='select'){currentCalibrated159=JSON.parse(JSON.stringify(proof.definition));for(const k of ['request','title','modelName','saveSkillName'])delete currentCalibrated159[k];return {selected:true,...proof};}return proof;
+    }
     case 'observation158':{
       if(agency043.busy()||workflowBridge.reserved())throw Error('Finish or stop current work before selecting observation inputs');
       if(input.command!=='select')throw Error('Unknown observation task selection');const a=input.args;

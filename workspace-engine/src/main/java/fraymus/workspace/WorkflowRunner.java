@@ -11,6 +11,7 @@ import java.util.concurrent.*;
 public final class WorkflowRunner implements AutoCloseable {
     private ObservationArtifact128 observation128;
     private ObservationTask158 observation158;
+    private CalibratedPlane159 calibrated159;
     private final ExecutorService verificationWorker158=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"java-observation-verifier158");t.setDaemon(true);return t;});
     private Future<JSONObject> verificationJob158;
     private String verificationOwner158="";
@@ -42,7 +43,7 @@ public final class WorkflowRunner implements AutoCloseable {
     private JSONObject active(){return activeRecords110().stream().filter(w->!settled(w)).findFirst().orElse(null);}
     private void change(JSONObject w,String reason) throws Exception {w.put("reason",reason).put("updatedAt",Instant.now());w.getJSONArray("history").put(new JSONObject().put("at",Instant.now()).put("reason",reason).put("step",w.getString("step")).put("status",w.getString("status")));save(w);}
     private JSONObject raw(String id){UUID.fromString(id);return resolve110(records110().stream().filter(w->w.getString("id").equals(id)).findFirst().orElseThrow(()->new IllegalArgumentException("Unknown workflow")));}
-    private JSONObject view(JSONObject w){if(Qualification105.own(w))return view105(w);var out=new JSONObject().put("workflow",true).put("procedure",ObservationTask158.own(w)?ObservationTask158.KIND:ObservationArtifact128.own(w)?ObservationArtifact128.KIND:graph(w)?SkillGraph046.KIND:dataCreation101(w)?w.getString("profile101"):PROCEDURE).put("attempt",w.getInt("resumes")+1);for(String k:List.of("id","title","request","modelName","status","step","resumes","createdAt","updatedAt","reason","history","stages","currentChild","bundle","audit","auditHistory","report","metrics","savedSkill","skill","dataBinding","graph","graphSha256","graphCodeSha256","worldBinding","graphRemainingMs","diagnostics","memo","reviewEachNode","profile101","code101","pendingSkill101","implementation103","qualification104","qualificationOwner105","qualificationCase105","profile128","sourceBinding128","forecast128","profile158","sourceVerification158","revalidations158","observation158","world158","browser158","hostPhase158"))if(w.has(k))out.put(k,w.get(k));return out;}
+    private JSONObject view(JSONObject w){if(Qualification105.own(w))return view105(w);var out=new JSONObject().put("workflow",true).put("procedure",CalibratedAction159.own(w)?CalibratedAction159.KIND:ObservationTask158.own(w)?ObservationTask158.KIND:ObservationArtifact128.own(w)?ObservationArtifact128.KIND:graph(w)?SkillGraph046.KIND:dataCreation101(w)?w.getString("profile101"):PROCEDURE).put("attempt",w.getInt("resumes")+1);for(String k:List.of("id","title","request","modelName","status","step","resumes","createdAt","updatedAt","reason","history","stages","currentChild","bundle","audit","auditHistory","report","metrics","savedSkill","skill","dataBinding","graph","graphSha256","graphCodeSha256","worldBinding","graphRemainingMs","diagnostics","memo","reviewEachNode","profile101","code101","pendingSkill101","implementation103","qualification104","qualificationOwner105","qualificationCase105","profile128","sourceBinding128","forecast128","profile158","sourceVerification158","revalidations158","observation158","world158","browser158","hostPhase158","profile159","calibration159","decision159","outcome159"))if(w.has(k))out.put(k,w.get(k));return out;}
     public synchronized JSONObject read(String id){var out=view(raw(id));for(var r:records110())if(r.getString("id").equals(id)&&r.has("archive110"))out.put("archive110",WorldFrames.copy(r.getJSONObject("archive110")));return out;}
     public synchronized JSONArray list(){var all=new JSONArray();for(var w:activeRecords110())all.put(view(w));return all;}
     private JSONObject definition(JSONObject input) throws Exception {
@@ -60,6 +61,7 @@ public final class WorkflowRunner implements AutoCloseable {
     public synchronized JSONObject start(JSONObject input) throws Exception {return start(input,null);}
     private JSONObject start(JSONObject input,JSONObject skill) throws Exception {return start(input,skill,null);}
     private JSONObject start(JSONObject input,JSONObject skill,JSONObject implementation) throws Exception {
+        if(input.has("profile159"))return start159(input,skill);
         if(input.has("profile158"))return start158(input,skill);
         if(input.has("profile128"))return start128(input,skill);
         if(input.has("qualify105"))return start105(input);
@@ -88,6 +90,7 @@ public final class WorkflowRunner implements AutoCloseable {
         if(Qualification105.own(w)){tick105(w);return;}tickSingle105(w);
     }
     private void tickSingle105(JSONObject w){
+        if(CalibratedAction159.own(w)){tick159(w);return;}
         if(ObservationTask158.own(w)){tick158(w);return;}if(ObservationArtifact128.own(w)){tick128(w);return;}if(graph(w)){tickGraph(w);return;}
         try{
             if(System.currentTimeMillis()>w.getLong("deadline"))throw new IllegalStateException("Workflow attempt exceeded1200seconds");
@@ -113,11 +116,12 @@ public final class WorkflowRunner implements AutoCloseable {
         w.put("status","completed");change(w,"All three actual stages and independent data/geometry audit verified"+(!d.getString("saveSkillName").isEmpty()?"; reusable workflow retained":""));goals.releaseWorkflow(w.getString("id"));artifacts.event("java_workflow_completed",view(w));
     }
     public synchronized JSONObject claim() throws Exception {
-        var w=active();if(w!=null&&Qualification105.own(w)){if(!w.getString("status").equals("running"))return new JSONObject();w=leaf105(w);}if(w==null||!w.getString("status").equals("running")||!w.getString("step").equals("audit"))return new JSONObject();if(ObservationTask158.own(w))return claim158(w);if(ObservationArtifact128.own(w))return claim128(w);if(graph(w))return claimGraph(w);if(dataCreation101(w))return claim101(w);try{var previous=w.optJSONObject("claim");if(previous!=null&&previous.getLong("expires")>System.currentTimeMillis())return new JSONObject();source(w);verifiedStage(w,2);var b=bundle(w);int rows=MeasurementStore.csv(b.getJSONObject("contents").getString("evidence.csv")).size()-1;
+        var w=active();if(w!=null&&Qualification105.own(w)){if(!w.getString("status").equals("running"))return new JSONObject();w=leaf105(w);}if(w==null||!w.getString("status").equals("running")||!w.getString("step").equals("audit"))return new JSONObject();if(CalibratedAction159.own(w))return claim159(w);if(ObservationTask158.own(w))return claim158(w);if(ObservationArtifact128.own(w))return claim128(w);if(graph(w))return claimGraph(w);if(dataCreation101(w))return claim101(w);try{var previous=w.optJSONObject("claim");if(previous!=null&&previous.getLong("expires")>System.currentTimeMillis())return new JSONObject();source(w);verifiedStage(w,2);var b=bundle(w);int rows=MeasurementStore.csv(b.getJSONObject("contents").getString("evidence.csv")).size()-1;
         var c=new JSONObject().put("nonce",UUID.randomUUID().toString()).put("expires",System.currentTimeMillis()+30_000).put("id",UUID.randomUUID().toString());w.put("claim",c);save(w);return new JSONObject(c.toString()).put("kind","workflow.audit").put("workflowId",w.getString("id")).put("report",w.getJSONObject("report")).put("rowCount",rows).put("responsive",w.getJSONObject("definition").optBoolean("responsive",false));}catch(Exception failure){interrupt(w,"Independent audit preflight: "+failure.getMessage());return new JSONObject();}
     }
     synchronized void hostDetached042()throws Exception{var w=active();if(w!=null&&Qualification105.own(w))w=leaf105(w);if(w!=null&&w.has("claim"))interrupt(w,"Interface ended during claimed canvas audit; explicitly Resume after inspection");}
     public synchronized JSONObject acknowledge(JSONObject input) throws Exception {
+        if(CalibratedAction159.own(raw(input.getString("workflowId"))))return acknowledge159(input);
         if(ObservationTask158.own(raw(input.getString("workflowId"))))return acknowledge158(input);
         if(ObservationArtifact128.own(raw(input.getString("workflowId"))))return acknowledge128(input);
         if(graph(raw(input.getString("workflowId"))))return acknowledgeGraph(input);
@@ -129,13 +133,14 @@ public final class WorkflowRunner implements AutoCloseable {
         }catch(Exception e){interrupt(w,e.getMessage());}return view(w);
     }
     public synchronized JSONObject resume(String id) throws Exception {
-        var w=raw(id);if(ObservationTask158.own(w))return resume158(w);if(ObservationArtifact128.own(w))return resume128(w);if(Qualification105.own(w))return resume105(w);requireChildControl105(w);if(graph(w))return resumeGraph(w);if(!w.getString("status").equals("interrupted")||w.getInt("resumes")>=3)throw new IllegalStateException("Resume only an interrupted workflow, at most3 times");source(w);for(int i=0;i<w.getInt("stageIndex");i++)verifiedStage(w,i);if(w.has("bundle"))bundle(w);var s=stage(w,w.getInt("stageIndex"));if(!s.has("goalId")&&s.has("input")){var recovered=goals.startOwned(id,s.getString("name"),s.getJSONObject("input"));s.put("goalId",recovered.getString("id"));}if(s.has("goalId")){var g=goals.read(s.getString("goalId"));if(g.getString("status").equals("interrupted"))goals.controlOwned(id,g.getString("id"),false);else if(g.getString("status").equals("cancelled"))throw new IllegalStateException("Owned stage was cancelled; start a new workflow");else if(g.getString("status").equals("completed"))goals.verifiedOwned(id,g.getString("id"));}
+        var w=raw(id);if(CalibratedAction159.own(w))return resume159(w);if(ObservationTask158.own(w))return resume158(w);if(ObservationArtifact128.own(w))return resume128(w);if(Qualification105.own(w))return resume105(w);requireChildControl105(w);if(graph(w))return resumeGraph(w);if(!w.getString("status").equals("interrupted")||w.getInt("resumes")>=3)throw new IllegalStateException("Resume only an interrupted workflow, at most3 times");source(w);for(int i=0;i<w.getInt("stageIndex");i++)verifiedStage(w,i);if(w.has("bundle"))bundle(w);var s=stage(w,w.getInt("stageIndex"));if(!s.has("goalId")&&s.has("input")){var recovered=goals.startOwned(id,s.getString("name"),s.getJSONObject("input"));s.put("goalId",recovered.getString("id"));}if(s.has("goalId")){var g=goals.read(s.getString("goalId"));if(g.getString("status").equals("interrupted"))goals.controlOwned(id,g.getString("id"),false);else if(g.getString("status").equals("cancelled"))throw new IllegalStateException("Owned stage was cancelled; start a new workflow");else if(g.getString("status").equals("completed"))goals.verifiedOwned(id,g.getString("id"));}
         w.put("status","running").put("resumes",w.getInt("resumes")+1).put("deadline",System.currentTimeMillis()+1_200_000);w.remove("claim");change(w,"Explicit resume reuses verified completed stages and the same owned child intent");return view(w);
     }
     private void recoverPointer(JSONObject w,JSONObject s){if(!s.has("goalId")){var g=goals.findOwned(w.getString("id"),(graph(w)?"graph:":"")+s.getString("name"));if(g!=null)s.put("goalId",g.getString("id"));}}
     public synchronized JSONObject cancel(String id) throws Exception {var w=raw(id);if(Qualification105.own(w))return cancel105(w);requireChildControl105(w);if(settled(w))throw new IllegalStateException("Workflow already settled");var s=stage(w,w.getInt("stageIndex"));recoverPointer(w,s);if(s.has("goalId")){var g=goals.read(s.getString("goalId"));if(Set.of("running","waiting-host","interrupted").contains(g.getString("status")))goals.controlOwned(id,g.getString("id"),true);}w.put("status","cancelled");w.remove("claim");change(w,"Stopped owned work; no workflow skill promoted");goals.releaseWorkflow(id);return view(w);}
     public synchronized JSONObject reuse(JSONObject input) throws Exception {
         goals.requireRunnable127(input.getString("name"),input.getInt("version"));
+        for(Object raw:goals.procedures()){var p=(JSONObject)raw;if(p.getString("name").equals(input.getString("name"))&&p.getInt("version")==input.getInt("version")&&p.getString("kind").equals(CalibratedAction159.KIND))return reuse159(input,p);}
         for(Object raw:goals.procedures()){var p=(JSONObject)raw;if(p.getString("name").equals(input.getString("name"))&&p.getInt("version")==input.getInt("version")&&p.getString("kind").equals(ObservationTask158.KIND))return reuse158(input,p);}
         for(Object raw:goals.procedures()){var p=(JSONObject)raw;if(p.getString("name").equals(input.getString("name"))&&p.getInt("version")==input.getInt("version")&&p.getString("kind").equals(ObservationArtifact128.KIND))return reuse128(input,p);}
         if(input.has("worldBinding"))return reuseGraph(input);
@@ -539,7 +544,8 @@ var p=new JSONObject().put("kind",SkillGraph046.KIND).put("sourceWorkflowId",w.g
             var w=raw(p.getString("sourceWorkflowId"));if(!w.getString("status").equals("completed")||!w.has("savedSkill")||!w.getJSONObject("savedSkill").getString("id").equals(p.getString("id")))throw new IllegalStateException("Original completed workflow publication is missing");
             if(w.has("skill")){var ref=w.getJSONObject("skill");var parent=goals.procedure127(ref.getString("id"));if(!parent.getString("name").equals(ref.getString("name"))||parent.getInt("version")!=ref.getInt("version"))throw new IllegalStateException("Workflow procedure ancestry changed");verifyRetained127(parent,seen);}
             JSONObject expected;
-            if(p.getString("kind").equals(ObservationTask158.KIND)){verify158(w);expected=procedure158(w).put("publication101","published");}
+            if(p.getString("kind").equals(CalibratedAction159.KIND)){verify159(w);expected=procedure159(w).put("publication101","published");}
+            else if(p.getString("kind").equals(ObservationTask158.KIND)){verify158(w);expected=procedure158(w).put("publication101","published");}
             else if(p.getString("kind").equals(ObservationArtifact128.KIND)){verify128(w);expected=procedure128(w).put("publication101","published");}
             else if(DataSummary104.supported(p.getString("kind"))){
                 if(w.has("qualificationOwner105")){var owner=raw(w.getString("qualificationOwner105"));if(!owner.getJSONObject("qualification105").getString("codeSha256").equals(Qualification105.code()))throw new IllegalStateException("Qualification implementation changed; explicitly upgrade before reactivation");checked108(owner);}
@@ -581,8 +587,9 @@ var p=new JSONObject().put("kind",SkillGraph046.KIND).put("sourceWorkflowId",w.g
             return original;
         }catch(Exception error){throw new IllegalStateException("Archived evidence unavailable; preserve files and inspect: "+error.getMessage(),error);}
     }
-    private boolean archiveFamily110(JSONObject w){return ObservationTask158.own(w)||ObservationArtifact128.own(w)||dataCreation101(w)||Qualification105.own(w);}
+    private boolean archiveFamily110(JSONObject w){return CalibratedAction159.own(w)||ObservationTask158.own(w)||ObservationArtifact128.own(w)||dataCreation101(w)||Qualification105.own(w);}
     private void verifiedArchive110(JSONObject w)throws Exception{
+        if(CalibratedAction159.own(w)){if(!w.getString("status").equals("completed")||w.has("pendingSkill101"))throw new IllegalStateException("Calibrated task is not fully published");verify159(w);if(w.has("savedSkill")){var p=goals.procedure127(w.getJSONObject("savedSkill").getString("id"));ProcedureLifecycle127.compareContract(p,procedure159(w).put("publication101","published").put("name",p.getString("name")));}return;}
         if(ObservationTask158.own(w)){if(!w.getString("status").equals("completed")||w.has("pendingSkill101"))throw new IllegalStateException("Observation task is not fully published");verify158(w);if(w.has("savedSkill")){var p=goals.procedure127(w.getJSONObject("savedSkill").getString("id"));ProcedureLifecycle127.compareContract(p,procedure158(w).put("publication101","published").put("name",p.getString("name")));}return;}
         if(ObservationArtifact128.own(w)){if(!w.getString("status").equals("completed")||w.has("pendingSkill101"))throw new IllegalStateException("Observation mission is not fully published");verify128(w);if(w.has("savedSkill")){var p=goals.procedure127(w.getJSONObject("savedSkill").getString("id"));var expected=procedure128(w).put("publication101","published").put("name",p.getString("name"));ProcedureLifecycle127.compareContract(p,expected);}return;}
         if(!archiveFamily110(w)||!w.getString("status").equals("completed")||w.has("pendingSkill101")||w.has("claim"))throw new IllegalStateException("Archive only completed, published data workflows and qualifications; preserve other history");
@@ -821,6 +828,105 @@ var p=new JSONObject().put("kind",SkillGraph046.KIND).put("sourceWorkflowId",w.g
     private void publish158(JSONObject w)throws Exception{if(!w.getString("status").equals("completed"))throw new IllegalStateException("Parent must complete before publication");verify158(w);var ref=w.getJSONObject("pendingSkill101");w.put("savedSkill",ref);change(w,"Completed observation task linked to pending procedure");goals.publishWorkflow101(procedure158(w),ref);w.remove("pendingSkill101");change(w,"Observation task procedure published after original evidence checks");}
     private JSONObject reuse158(JSONObject input,JSONObject chosen)throws Exception{
         SpatialScene.keys(input,"name","version","request","title","modelName","evidenceId","browserContract126","saveSkillName","reviewAfterWorld158");if(!input.has("evidenceId")||!input.has("browserContract126"))throw new IllegalArgumentException("Select explicit fresh observation and browser criteria");var args=WorldFrames.copy(chosen.getJSONObject("defaults"));for(String k:input.keySet())if(!Set.of("name","version").contains(k))args.put(k,input.get(k));args.put("saveSkillName",input.optString("saveSkillName",""));return start158(args,chosen);
+    }
+
+    synchronized void install159(CalibratedPlane159 service)throws Exception{
+        calibrated159=service;
+        for(var w:values())if(CalibratedAction159.own(w)&&w.getString("status").equals("completed")&&w.has("pendingSkill101"))try{publish159(w);}catch(Exception e){System.err.println("Calibrated procedure publication pending: "+e.getMessage());}
+    }
+    synchronized JSONObject preview159(JSONObject input)throws Exception{
+        if(calibrated159==null)throw new IllegalStateException("Calibrated reference service unavailable");
+        var d=CalibratedAction159.definition(input);var b=binding159(d);var now=goals.worlds().observe(b.getString("worldId"));
+        if(now.has("pending")||now.getInt("expectedRevision")!=b.getInt("expectedRevision")||!now.getString("expectedHash").equals(b.getString("expectedHash")))throw new IllegalStateException("Destination world changed");
+        var source=calibrated159.source(d.getString("registrationId"));
+        return new JSONObject().put("definition",d).put("calibration159",source).put("decision159",CalibratedAction159.decision(source,goals.worlds().source(b),d));
+    }
+    private static JSONObject binding159(JSONObject d){var b=new JSONObject();for(String k:List.of("worldId","expectedRevision","expectedHash"))b.put(k,d.get(k));return b;}
+    private JSONObject start159(JSONObject input,JSONObject skill)throws Exception{
+        if(closed||active()!=null||executableCount105()>=20||calibrated159==null)throw new IllegalStateException("Finish current work; workflow capacity20");goals.workflowCapacity();
+        var prepared=preview159(input);var d=prepared.getJSONObject("definition");String id=UUID.randomUUID().toString();var stages=new JSONArray();
+        for(String name:List.of("calibration","calibrated-world159","report","verification"))stages.put(new JSONObject().put("name",name).put("status","pending"));
+        var w=new JSONObject().put("id",id).put("profile159",CalibratedAction159.KIND).put("code159",CalibratedAction159.code()).put("definition",d)
+            .put("calibration159",prepared.getJSONObject("calibration159")).put("decision159",prepared.getJSONObject("decision159"))
+            .put("title",d.getString("title")).put("request",d.getString("request")).put("modelName",d.getString("modelName")).put("status","running").put("step","calibration").put("stageIndex",0)
+            .put("stages",stages).put("resumes",0).put("deadline",System.currentTimeMillis()+1_200_000).put("createdAt",Instant.now()).put("history",new JSONArray()).put("auditHistory",new JSONArray());
+        if(skill!=null)w.put("skill",new JSONObject().put("name",skill.getString("name")).put("version",skill.getInt("version")).put("id",skill.getString("id")));
+        goals.reserveWorkflow(id);try{change(w,"Recorded calibration, conditional bounds and destination world frozen before action");}catch(Exception e){goals.releaseWorkflow(id);throw e;}return view(w);
+    }
+    private void source159(JSONObject w,boolean current)throws Exception{
+        if(calibrated159==null||!w.getString("code159").equals(CalibratedAction159.code()))throw new IllegalStateException("Calibrated action implementation changed");
+        var d=w.getJSONObject("definition");var source=calibrated159.source(d.getString("registrationId"));
+        if(!source.similar(w.getJSONObject("calibration159")))throw new IllegalStateException("Original calibration source changed");
+        var b=binding159(d);var decision=CalibratedAction159.decision(source,goals.worlds().source(b),d);
+        if(!decision.similar(w.getJSONObject("decision159")))throw new IllegalStateException("Frozen coordinate bounds or action intent changed");
+        if(current){synchronized(goals){
+            var child=goals.findOwned(w.getString("id"),"calibrated-world159");var now=goals.worlds().observe(b.getString("worldId"));
+            if(child!=null&&child.getString("status").equals("completed")){
+                var g=goals.read(child.getString("id"));var commit=g.getJSONObject("worldCommit");
+                if(now.has("pending")||now.getInt("expectedRevision")!=commit.getInt("revision")||!now.getString("expectedHash").equals(commit.getString("hash")))throw new IllegalStateException("Destination changed after the owned action");
+            }else if(now.getInt("expectedRevision")!=b.getInt("expectedRevision")||!now.getString("expectedHash").equals(b.getString("expectedHash"))||now.has("pending")&&(child==null||!now.getJSONObject("pending").getString("goalId").equals(child.getString("id"))))throw new IllegalStateException("Destination revision or action ownership changed");
+        }}
+    }
+    private JSONObject child159(JSONObject w)throws Exception{
+        var s=stage(w,1);if(!s.has("goalId"))throw new IllegalStateException("Native child proof missing");
+        var g=goals.verifiedOwned(w.getString("id"),s.getString("goalId"));
+        if(!g.getString("workflowStage").equals("calibrated-world159")||!g.getJSONObject("workflowInput").similar(w.getJSONObject("decision159").getJSONObject("childInput")))throw new IllegalStateException("Native child intent differs from frozen calibrated action");return g;
+    }
+    private void tick159(JSONObject w){try{
+        if(System.currentTimeMillis()>w.getLong("deadline"))throw new IllegalStateException("Calibrated workflow exceeded1200seconds");source159(w,true);
+        switch(w.getString("step")){
+            case "calibration"->{stage(w,0).put("status","completed");w.put("stageIndex",1).put("step","calibrated-world159");if(w.getJSONObject("definition").optBoolean("reviewBeforeAction159"))w.put("status","interrupted");change(w,"Recorded reference and conditional regions verified; "+(w.getString("status").equals("interrupted")?"review before simulation action":"bounded native action next"));}
+            case "calibrated-world159"->{
+                var s=stage(w,1);var args=w.getJSONObject("decision159").getJSONObject("childInput");
+                if(!s.has("input")){s.put("input",WorldFrames.copy(args));change(w,"Native marker intention retained before creating child goal");return;}
+                if(!s.has("goalId")){var g=goals.startOwned(w.getString("id"),"calibrated-world159",args);s.put("goalId",g.getString("id")).put("status","running");w.put("currentChild",g);change(w,"Owned native action created; actual force/torque and rendered checks required");return;}
+                var child=goals.read(s.getString("goalId"));w.put("currentChild",child);
+                if(Set.of("failed","cancelled","interrupted").contains(child.getString("status")))throw new IllegalStateException("Owned calibrated action "+child.getString("status")+": "+child.optString("reason"));
+                if(!child.getString("status").equals("completed")){save(w);return;}
+                var result=CalibratedAction159.outcome(w.getJSONObject("decision159"),child159(w));w.put("outcome159",result);s.put("status","completed");w.put("stageIndex",2).put("step","report");change(w,"Native commit and actual marker errors checked against frozen budgets");
+            }
+            case "report"->{var a=artifacts.writeOnce("calibrated-action159:"+w.getString("id"),CalibratedReport159.build(w));if(a.getInt("version")!=1)throw new IllegalStateException("Calibrated report was externally edited");w.put("report",Creation.reference(a));stage(w,2).put("status","completed");w.put("stageIndex",3).put("step","audit");change(w,"Recorded bounds and actual outcomes rendered; independent inspection pending");}
+            case "audit"->{}
+            case "complete"->{verify159(w);String name=w.getJSONObject("definition").getString("saveSkillName");if(!name.isEmpty())w.put("pendingSkill101",goals.retainWorkflow(procedure159(w),name));w.put("status","completed").put("metrics",w.getJSONObject("outcome159"));change(w,"Calibrated simulation action and interactive report independently verified");if(w.has("pendingSkill101"))publish159(w);goals.releaseWorkflow(w.getString("id"));}
+            default->throw new IllegalStateException("Unknown calibrated stage");
+        }
+    }catch(Exception e){try{var saved=raw(w.getString("id"));if(saved.getString("status").equals("completed")){goals.releaseWorkflow(w.getString("id"));System.err.println("Calibrated publication pending: "+e.getMessage());}else interrupt(w,e.getMessage());}catch(Exception failure){System.err.println("Calibrated checkpoint: "+failure.getMessage());}}}
+    private JSONObject artifact159(JSONObject w)throws Exception{
+        var result=CalibratedAction159.outcome(w.getJSONObject("decision159"),child159(w));if(!result.similar(w.getJSONObject("outcome159")))throw new IllegalStateException("Original native outcome changed");
+        var a=artifacts.read(w.getJSONObject("report").getString("id"));if(a.getInt("version")!=1||!Creation.reference(a).similar(w.getJSONObject("report"))||!a.getJSONObject("contents").similar(CalibratedReport159.build(w).getJSONObject("files")))throw new IllegalStateException("Original calibrated report changed");return a;
+    }
+    private JSONObject verify159(JSONObject w)throws Exception{source159(w,false);var audit=CalibratedReport159.audit(w,artifact159(w),w.getJSONObject("audit").getJSONObject("observed"));if(!audit.getBoolean("passed")||!audit.similar(w.getJSONObject("audit")))throw new IllegalStateException("Original calibrated report evidence changed");return audit;}
+    private JSONObject claim159(JSONObject w)throws Exception{
+        try{var old=w.optJSONObject("claim");if(old!=null&&old.getLong("expires")>System.currentTimeMillis())return new JSONObject();source159(w,true);artifact159(w);
+            var c=new JSONObject().put("id",UUID.randomUUID().toString()).put("nonce",UUID.randomUUID().toString()).put("expires",System.currentTimeMillis()+60_000);w.put("claim",c);save(w);
+            return WorldFrames.copy(c).put("rowCount",w.getJSONObject("decision159").getJSONArray("bounds").length()).put("kind","workflow.calibrated-artifact159").put("workflowId",w.getString("id")).put("report",w.getJSONObject("report"));
+        }catch(Exception e){interrupt(w,"Calibrated report claim refused: "+e.getMessage());return new JSONObject();}
+    }
+    private JSONObject acknowledge159(JSONObject input)throws Exception{
+        SpatialScene.keys(input,"workflowId","id","nonce","result","error");var w=raw(input.getString("workflowId"));var c=w.optJSONObject("claim");
+        if(!w.getString("status").equals("running")||!w.getString("step").equals("audit")||c==null||!c.getString("id").equals(input.getString("id"))||!c.getString("nonce").equals(input.getString("nonce"))||c.getLong("expires")<System.currentTimeMillis())throw new IllegalStateException("Stale calibrated artifact claim");w.remove("claim");
+        try{source159(w,true);if(input.has("error"))throw new IllegalStateException(input.getString("error"));var audit=CalibratedReport159.audit(w,artifact159(w),input.getJSONObject("result"));w.getJSONArray("auditHistory").put(audit);if(!audit.getBoolean("passed"))throw new IllegalStateException("Independent calibrated artifact check refused: "+audit.getJSONArray("errors"));w.put("audit",audit).put("step","complete");stage(w,3).put("status","completed");change(w,"Original coordinate cells and all three rendered states independently checked");}catch(Exception e){interrupt(w,e.getMessage());}return view(w);
+    }
+    private JSONObject resume159(JSONObject w)throws Exception{
+        if(!w.getString("status").equals("interrupted")||w.getInt("resumes")>=3)throw new IllegalStateException("Resume an interrupted calibrated task at most3 times");source159(w,true);
+        var child=goals.findOwned(w.getString("id"),"calibrated-world159");if(child!=null){stage(w,1).put("goalId",child.getString("id"));if(child.getString("status").equals("interrupted"))goals.controlOwned(w.getString("id"),child.getString("id"),false);else if(child.getString("status").equals("completed"))child159(w);else if(Set.of("failed","cancelled").contains(child.getString("status")))throw new IllegalStateException("Failed native action requires a new reviewed task");}
+        if(w.has("report"))artifact159(w);if(w.has("audit"))verify159(w);w.remove("claim");w.put("status","running").put("resumes",w.getInt("resumes")+1).put("deadline",System.currentTimeMillis()+1_200_000);change(w,"Original calibration, bounds, destination and owned child reverified; same request resumed");return view(w);
+    }
+    private JSONObject procedure159(JSONObject w){
+        var d=WorldFrames.copy(w.getJSONObject("definition"));for(String k:List.of("registrationId","worldId","expectedRevision","expectedHash","markers","returnMarker","saveSkillName","reviewBeforeAction159"))d.remove(k);
+        return new JSONObject().put("kind",CalibratedAction159.KIND).put("sourceWorkflowId",w.getString("id")).put("publication101","pending").put("defaults",d)
+            .put("prerequisites",new JSONArray().put("Explicit recorded registration, destination world and marker/reference roles").put("Original source, conditional bounds and robust planned clearance pass"))
+            .put("actions",new JSONArray().put("Reconstruct calibrated reference and bounded coordinate regions").put("Run owned native marker action").put("Independently verify committed motion and rendered report"))
+            .put("successChecks",new JSONArray().put("All original evidence and native outcome checks; frozen combined error budget"))
+            .put("recovery",new JSONArray().put("Revalidate source and ownership; resume the same child without duplicate actuation"))
+            .put("codeSha256",w.getString("code159")).put("sourceBinding159",WorldFrames.hash(w.getJSONObject("calibration159"))).put("decisionSha256",WorldFrames.hash(w.getJSONObject("decision159")))
+            .put("report",w.getJSONObject("report")).put("auditSha256",WorldFrames.hash(w.getJSONObject("audit")));
+    }
+    private void publish159(JSONObject w)throws Exception{verify159(w);var ref=w.getJSONObject("pendingSkill101");w.put("savedSkill",ref);change(w,"Completed calibrated task linked to pending procedure");goals.publishWorkflow101(procedure159(w),ref);w.remove("pendingSkill101");change(w,"Calibrated procedure published after original outcome checks");}
+    private JSONObject reuse159(JSONObject input,JSONObject chosen)throws Exception{
+        SpatialScene.keys(input,"name","version","registrationId","worldId","expectedRevision","expectedHash","markers","returnMarker","pixelRadius","annotationBudgetM","maxRadiusM","maxMoveM","executionToleranceM","maxTotalErrorM","forceLimitN","torqueLimitNm","reviewBeforeAction159","request","title","modelName","saveSkillName");
+        for(String k:List.of("registrationId","worldId","expectedRevision","expectedHash","markers"))if(!input.has(k))throw new IllegalArgumentException("Explicit fresh calibrated source and destination required: "+k);
+        verifyRetained127(chosen,new HashSet<>());var args=WorldFrames.copy(chosen.getJSONObject("defaults"));for(String k:input.keySet())if(!Set.of("name","version").contains(k))args.put(k,input.get(k));args.put("saveSkillName",input.optString("saveSkillName",""));return start159(args,chosen);
     }
 
     @Override public synchronized void close(){closed=true;worker.shutdownNow();verificationWorker158.shutdownNow();}
