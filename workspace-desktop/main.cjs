@@ -431,7 +431,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     }
     case 'association134':{
       if(input.command==='export'||input.command==='audit-export'){const record=await api('/api/association134/'+(input.command==='export'?'read':'audit-read'),input.args);return nativeExports.save('association-134','json',JSON.stringify(record,null,2),{evidenceId:record.id});}
-      if(!['state','save','import','read','audit','audit-read','verified-read151','diagnose151','search152','search152-read','search152-start','search152-status','search153','search153-read','search153-start','search153-status','continuity154','continuity154-read','continuity154-start','continuity154-status','continuity155','continuity155-read','continuity155-start','continuity155-status'].includes(input.command))throw Error('Unknown association operation');return api('/api/association134/'+input.command,input.args||{});
+      if(!['state','save','import','read','audit','audit-read','verified-read151','diagnose151','search152','search152-read','search152-start','search152-status','search153','search153-read','search153-start','search153-status','continuity154','continuity154-read','continuity154-start','continuity154-status','continuity155','continuity155-read','continuity155-start','continuity155-status','continuity156','continuity156-read','continuity156-start','continuity156-status'].includes(input.command))throw Error('Unknown association operation');return api('/api/association134/'+input.command,input.args||{});
     }
     case 'contact133':{
       if(input.command==='export'){const record=await api('/api/contact133/read',input.args);return nativeExports.save('visual-support-133','json',JSON.stringify(record,null,2),{auditId:record.id});}
