@@ -1,0 +1,157 @@
+{
+  "modules": [
+    {
+      "id": "source",
+      "name": "Original proof and fresh reconstruction",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ObservationEvidence158.java",
+      "note": "docs/obsidian/166-observation-tasks.md"
+    },
+    {
+      "id": "context",
+      "name": "Uncertainty and world binding",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ObservationTask158.java",
+      "note": "docs/obsidian/166-observation-tasks.md"
+    },
+    {
+      "id": "workflow",
+      "name": "Durable stages and reusable procedures",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "note": "docs/obsidian/166-observation-tasks.md"
+    },
+    {
+      "id": "report",
+      "name": "Working artifact and independent comparator",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ObservationReport158.java",
+      "note": "docs/obsidian/166-observation-tasks.md"
+    },
+    {
+      "id": "host",
+      "name": "Real browser and report observations",
+      "source": "workspace-desktop/observation-task158.cjs",
+      "note": "docs/obsidian/166-observation-tasks.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/158/generated-selected-source.png",
+      "title": "2026-11-17 · generated / selected-source.png"
+    },
+    {
+      "path": "docs/readmes/158/generated-world-checkpoint.png",
+      "title": "2026-11-17 · generated / world-checkpoint.png"
+    },
+    {
+      "path": "docs/readmes/158/generated-completed-0.png",
+      "title": "2026-11-17 · generated / completed-0.png"
+    },
+    {
+      "path": "docs/readmes/158/generated-report-0.png",
+      "title": "2026-11-17 · generated / report-0.png"
+    },
+    {
+      "path": "docs/readmes/158/generated-chart-0.png",
+      "title": "2026-11-17 · generated / chart-0.png"
+    },
+    {
+      "path": "docs/readmes/158/generated-completed-1.png",
+      "title": "2026-11-17 · generated / completed-1.png"
+    },
+    {
+      "path": "docs/readmes/158/generated-report-1.png",
+      "title": "2026-11-17 · generated / report-1.png"
+    },
+    {
+      "path": "docs/readmes/158/generated-report-1100.png",
+      "title": "2026-11-17 · generated / report-1100.png"
+    },
+    {
+      "path": "docs/readmes/158/exposed150-completed-0.png",
+      "title": "2026-11-17 · exposed150 / completed-0.png"
+    },
+    {
+      "path": "docs/readmes/158/exposed150-report-0.png",
+      "title": "2026-11-17 · exposed150 / report-0.png"
+    },
+    {
+      "path": "docs/readmes/158/exposed150-chart-0.png",
+      "title": "2026-11-17 · exposed150 / chart-0.png"
+    },
+    {
+      "path": "docs/readmes/158/exposed150-report-1100.png",
+      "title": "2026-11-17 · exposed150 / report-1100.png"
+    },
+    {
+      "path": "docs/readmes/158/review-accepted-frame.png",
+      "title": "2026-11-17 · actual report review / accepted-frame.png"
+    },
+    {
+      "path": "docs/readmes/158/review-withheld-frame.png",
+      "title": "2026-11-17 · actual report review / withheld-frame.png"
+    },
+    {
+      "path": "docs/readmes/158/review-world-browser-provenance.png",
+      "title": "2026-11-17 · actual report review / world-browser-provenance.png"
+    }
+  ],
+  "comparison": [
+    {
+      "case": "long-cover-return",
+      "domain": "generated",
+      "accepted": 15,
+      "withheld": 15,
+      "segments": 2,
+      "physicalPlacement": "refused",
+      "elapsedMs": 76545.1868,
+      "taskId": "ac46b412-c6e6-4888-91d5-084895818d1e",
+      "workflowId": "7e79f9cc-74d6-4640-b902-fdcb922a95cd",
+      "evidenceId": "4488e030d5b95f2c5c02e520d9d0c4399884b62a7b2418c7886ea6ec56be2c62",
+      "resumes": 1,
+      "savedSkill": {
+        "name": "observation-review",
+        "id": "c980ca1a-ce08-3856-b65f-eefdee24af8e",
+        "version": 1
+      },
+      "scope": "Descriptive task span including explicit recovery and repeated checks where exercised; not a throughput comparison."
+    },
+    {
+      "case": "near-copy-only",
+      "domain": "generated",
+      "accepted": 5,
+      "withheld": 22,
+      "segments": 1,
+      "physicalPlacement": "refused",
+      "elapsedMs": 38652.215299999996,
+      "taskId": "03ab3a3c-34db-440a-9572-074ef29b0cac",
+      "workflowId": "b7e1b6d5-48db-4e50-9b7d-916963bc912d",
+      "evidenceId": "eb2280052005b2ee50504a7aea4f8dbddb713138991ec2918834a99952ac251e",
+      "resumes": 1,
+      "savedSkill": {
+        "name": "observation-review",
+        "id": "e620b15c-0ace-37a8-bf35-ee3a6d2a5594",
+        "version": 2
+      },
+      "scope": "Descriptive task span including explicit recovery and repeated checks where exercised; not a throughput comparison."
+    },
+    {
+      "case": "exposed150-camera",
+      "domain": "exposed150",
+      "accepted": 34,
+      "withheld": 38,
+      "segments": 2,
+      "physicalPlacement": "refused",
+      "elapsedMs": 158283.9322,
+      "taskId": "08243af7-968d-402f-bb07-41462f90aa79",
+      "workflowId": "7cc80455-a44a-43ba-93a0-fb90822d1ee4",
+      "evidenceId": "f7e6fd12145097cc05759fff783e82094319aa82d0f37c6de72eb6277d40d907",
+      "resumes": 0,
+      "savedSkill": {
+        "name": "observation-review",
+        "id": "c980ca1a-ce08-3856-b65f-eefdee24af8e",
+        "version": 1
+      },
+      "scope": "Descriptive task span including explicit recovery and repeated checks where exercised; not a throughput comparison."
+    }
+  ],
+  "finding": "Edition 158 completes one source-bound Java workflow across recorded observation verification, world inspection, a witnessed browser reference and an independently checked interactive artifact. Recovery and saved-procedure reuse preserve the original uncertainty. Physical placement remains refused without calibrated mapping; defaults are unchanged.",
+  "validation": "83 selected Java checks across eight classes and 168 desktop checks passed, with no failed or skipped cases. Three actual Java/Electron connected tasks passed, including forced Java interruption, same-task recovery, changed-page refusal, fresh-source procedure reuse, independent controls and geometry checks, lifecycle checks, cold verification and byte-corruption refusal. This is scoped local validation, not a rerun of every historical capability."
+}

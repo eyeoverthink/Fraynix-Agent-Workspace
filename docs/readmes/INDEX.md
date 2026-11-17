@@ -1,3 +1,5 @@
+[Edition158 — verified observation tasks](../../README-158.md) | [Offline guide](158/index.html)
+
 [Edition 157 — precomputed original verification](../../README-157.md) | [Offline guide](157/index.html)
 
 [Edition 156 — exact original verification](../../README-156.md) | [Offline guide](156/index.html)

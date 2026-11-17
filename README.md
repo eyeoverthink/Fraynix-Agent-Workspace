@@ -1,137 +1,130 @@
-# Fraynix Agent Workspace — edition 157
+# Fraynix Agent Workspace — edition 158
 
-[Published and fetched receipt](docs/PUBLICATION_157.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-157)
+**Verified observations become a durable connected task.** 2026-11-17.
 
-**Exact evidence, fewer repeated calculations.** 2026-11-17.
+[Previous: edition 157](README-157.md) · [All editions](docs/readmes/INDEX.md) · [Offline guide](docs/readmes/158/index.html) · [Verification](docs/readmes/158/verification.json)
 
-[Previous: edition 156](README-156.md) · [All editions](docs/readmes/INDEX.md) · [Offline guide](docs/readmes/157/index.html) · [Validation](docs/readmes/157/verification.json)
+Edition 158 completes one source-bound Java workflow across recorded observation verification, world inspection, a witnessed browser reference and an independently checked interactive artifact. Recovery and saved-procedure reuse preserve the original uncertainty. Physical placement remains refused without calibrated mapping; defaults are unchanged.
 
-Edition 157 reconstructs exactly the same evidence while reusing exact sampling coordinates and immutable reference calculations on fresh frame pixels. The exposed camera trace remains 34/42 correct observations, 8 withheld, 0 wrong overlaps and 0/30 hidden outputs, identical to 156. All three app comparisons reproduce exact reference evidence. 2/2 new generated cases meet their separate behavioral targets. Complete paired costs include the original verification. Defaults remain unchanged. On two alternating exposed-camera pairs, complete forced verification measured 147.26 seconds through published 156 and 135.86 seconds with precomputed terms (7.7% less time).
+![Actual verified observation report](docs/readmes/158/generated-report-0.png)
 
-![Actual continuous tracking and replay controls](docs/readmes/157/generated-long-cover-return.png)
+## Where the application is going
 
-## The application and this step
+The original goal remains one local agent workspace with a persistent Java runtime: observations inform decisions, decisions use tools, and actual results determine whether a task succeeded. The game, physics environment, browser, creation canvas, data tools, memory and reusable procedures belong to that same application. Perception is useful when a task can use its evidence without losing its limitations.
 
-Fraynix remains one local agent workspace: Java owns persistent world state, physics, observations, goals, actions and verification; the desktop supplies the browser, creation canvas and views into that runtime. The Game Lab, durable procedures, data tasks and creation tools remain part of that design. Perception supplies evidence to the agent. A proposed action still needs an outcome check, and a proposed interpretation still needs a source.
+The preceding editions concentrated on object continuity, re-entry, wrong-object rejection and the cost of reconstructing those results. Edition 158 reconnects that work to the application. One durable chat request now selects verified recorded evidence, checks its bound world, inspects an explicitly selected browser reference, creates an interactive report and verifies the actual rendered output before optionally retaining a reusable procedure.
 
-Edition 156 reduced original-verification cost by converting a decoded image to packed RGB once. It preserved the complete historical result. This edition profiles what remains and removes repeated calculations from the same original matcher. It adds an explicit comparison, with a reference path that executes the published 156 implementation. It does not change the default tracker or claim another improvement by comparing only with the much older149 path.
+This is a Java-authored procedure selected through chat. The study invokes no language model and makes no claim of new model learning. The registered path avoids unnecessary planning calls for a known task; open-ended reasoning remains a separate capability. No new external library, model download or GPU requirement is introduced. Reconstruction uses one bounded Java verification worker so status and cancellation remain responsive. The project retains its existing graphics, desktop, JSON and physics dependencies.
 
-No new dependency, model download, GPU requirement or parallel search was added. The application retains its existing desktop, graphics, JSON and physics dependencies. Tests use recorded material and generated controls. No webcam or model inference call ran for this study. A model name visible in an app screenshot does not establish that the model was invoked.
+## One request, five checked stages
 
-## What the profile identified
+> Run a verified observation task: inspect its bound world, check the selected browser reference, create an uncertainty report, and save the procedure as observation-review.
 
-One complete exposed camera audit was profiled using Java Flight Recorder against the installed156 implementation, in a separate project copy. The original project inventory was checked before and after. Across 6,606 execution samples, the original full-object matcher's sampling, full comparison, grayscale and correlation methods account for approximately 57% of leaf samples. Sampling alone accounts for about 30%. These are sampled execution proportions, not exact elapsed-time fractions. The profile includes setup and inventory work and incurs profiler overhead.
+1. **Observation.** Java first retains the durable request, then reconstructs the original experiment, verifies the recorded run, frame hashes, references, code identities and complete outcomes, then binds the task to those exact sources. It preserves accepted observations, withheld positions and separate continuous segments.
+2. **World.** Java verifies the observation's unique body binding and original world source, then checks that the current world still matches. It records the actual native simulation position separately from image coordinates. Without a calibrated mapping, physical placement is refused. Inspection and explanation are supported.
+3. **Browser.** The desktop visits the exact selected URL and independently reads the declared element and expected visible text. Its receipt is bound to the workflow, generation, effect and frozen contract. A reference page supplies browser evidence; it does not establish the physical object's identity.
+4. **Creation.** Java writes an actual HTML/JSON artifact with an observation table, accepted/withheld filters, a frame scrubber, normalized image rectangles, source provenance, world decision and witnessed browser reference. Repeated continuation uses the same artifact identity rather than creating duplicates.
+5. **Verification and memory.** The host operates the real controls and reads the rendered rows and SVG coordinates. Java compares all filtered source values, uncertainty labels, browser text, summary counts and four selected frame views against the original evidence. Only after those checks can the task complete and publish its procedure.
 
-This evidence points to repeated image sampling and scoring arithmetic. It does not justify dropping source checks. The profile's filtered execution stacks, counts and receipt are retained through the [evidence index](docs/readmes/157/original-evidence.json). The raw JFR container stays local; the published export contains execution-stack events rather than the recording's broader process metadata.
+This edition's world stage is an inspection and action-admissibility decision. It does not move a simulated body from an uncalibrated camera estimate, let alone authorize physical hardware. That boundary is part of the functional result, not an unfinished action handler.
 
-## What changed
+## Uncertainty travels with the task
 
-`StructureReplay157` keeps the original grid, scales, refinement loops, candidate order, comparison thresholds, gradients, rival checks and evaluation counts. Its precomputed path changes when repeated values are calculated:
+The task retains normalized image coordinates and a **null positional error bound**. Error calibration, metric mapping, live pose and guaranteed physical identity remain false. A tracking rectangle describes image extent; its width is not a confidence interval. Recorded frame order is not current physical time.
 
-- It calculates horizontal sampling coordinates once per candidate row layout, using the exact original arithmetic and clipping. Vertical coordinates are calculated once per row. Every sampled pixel location remains identical.
-- It calculates grayscale from each fresh source pixel once per frame. Normalization occurs before weighting, preserving the original floating-point operation order.
-- It derives grayscale, sums, squared sums and gradient terms from each immutable reference once. Reference descriptors still undergo their original integrity and range checks.
-- It uses bounded scratch arrays for sample indices, with no retained candidate scores. Every candidate's correlation, colour error, quadrant error and gradient agreement are computed against current-frame values.
+When a position is withheld, its box and segment remain null. A later accepted return begins a new segment. The browser claim, world decision, saved report and reusable procedure retain those restrictions. No interpolation silently fills a lost object into the world. A rendered frame without an accepted position shows no object rectangle.
 
-The grayscale and RGB frame arrays are discarded after the search. Together they require at most about 24.9 MB for the existing 1920×1080 image bound, plus small sample and reference arrays. The parent tracker and optical flow still receive the unchanged decoded image. Their implementation and interpolation do not change. Neither source labels nor predicted positions provide returned-object locations.
+The verifier checks these distinctions as data and as visible output. Changing the report to claim an accurate physical position causes refusal, even when the rest of the report appears plausible. A missed or wrong browser check cannot be replaced with a model's assurance that it worked.
 
-The exhaustive RGB check tests all 16,777,216 RGB colours against the original operation order using exact double bit comparisons. Other checks compare complete matches, evaluation counts and traces through encodings, image borders, fractional coordinates, movement, loss, return, wrong objects and monitor-only mode. This establishes computational equivalence within the checked implementation; it does not establish that the historical perception policy is always correct.
+![Accepted recorded position in the actual report](docs/readmes/158/review-accepted-frame.png)
 
-## Historical evidence remains historical
+The frame control displays an accepted image rectangle above. For a withheld frame, the same control deliberately displays no position:
 
-The old 149, 155 and 156 classes remain unchanged. `OriginalAudit157` uses the new exact replay only for supported original149 audits. Its reference mode calls the published 156 verifier. Other original policies retain their historical verification path.
+![Withheld frame with no invented position](docs/readmes/158/review-withheld-frame.png)
 
-An existing audit is not relabelled with a new tracker identity. Verification checks its saved checksum, completed run, original code identity, source association, frame order, reference provenance, image hashes, object bindings, complete trace and independently calculated scores. The reconstructed audit must equal the entire saved result, including negative outcomes. Surrounding 157 evidence separately binds the new implementation bytes.
+## Keeping old evidence valid without rewriting it
 
-Fresh source and code-byte snapshots still run before and after reconstruction. Changing an image while retaining its size and timestamp does not qualify for reuse. Rehashing a forged summary does not turn it into a verified outcome. Missing observation history is refused rather than silently recreated. The native world, original observation history and verified appearance bank remain unchanged by this comparison.
+An original edition157 experiment includes a fingerprint of the surrounding source store and implementation. Adding an unrelated recording, or moving into this implementation, can change that fingerprint. Treating the old fingerprint as current would erase provenance. Rejecting every historical experiment forever would also prevent useful memory.
 
-## Use the comparison
+The new revalidation service keeps the original record and ID unchanged. After restart or changed source bytes, it runs a complete current reconstruction of the original audit and compares **every field except the derived experiment ID and whole-store fingerprint**. A new immutable lineage record links both records, their original/current fingerprints and the current task implementation. Changed original images, referenced appearances, trace or outcomes still refuse.
 
-1. Open the workspace with the intended private project and its original source files available.
-2. Open **Spatial → Object identity · occlusion & recovery** and select a completed labelled comparison.
-3. Expand **Precomputed original verification · edition 157** and click **Compare precomputed verification**.
-4. Inspect correct, withheld, wrong-object and hidden-object outcomes separately. An angle is a search hypothesis, not calibrated physical orientation.
-5. Use **Verify saved result** to reopen a result with fresh source/code byte checks. An unchanged same-process result may reuse a completed calculation.
-6. Use **Replay every check** for complete reconstruction. Restarting clears process-local reuse and also requires reconstruction.
+Warm process-local reuse has an eight-entry bound and performs fresh byte checks. It does not persist trusted execution across restarts. Lineage files are themselves hash-bound and checked against each task's retained history; changing or removing them refuses continuation. Existing experiment capacity remains 64; lineage history is bounded to 128 records, and one task retains at most 16 revalidations. Limits produce explicit refusals rather than silent eviction of evidence.
 
-Progress is not completion. The comparison runs in a bounded background job and reports original-audit, search, image-read and total costs separately. An interrupted job cannot publish a completed receipt. The default remains `legacy-flow`; this panel does not admit appearances automatically, change the world or authorize physical action.
+## Recovery and reusable skills
 
-## Observed outcomes
+Add **review after world** to pause after the world decision. The request remains the same task with the same sources and stage history. A restart or explicit resume revalidates the current world and source evidence before proceeding. Stale host claims cannot acknowledge work in a later generation. A completed browser receipt remains a historical observation; reopening history does not pretend the page was freshly visited.
 
-| Source | Original correct | Nested 153 correct | Edition 157 correct | Withheld | Wrong / hidden / other | Full request s | Warm median s |
-| --- | ---: | ---: | ---: | ---: | --- | ---: | ---: |
-| long-cover-return | 5/18 | 12/18 | 15/18 | 3 | 0 / 0 of 12 / 0 | 31.90 | 0.074 |
-| near-copy-only | 5/5 | 2/5 | 5/5 | 0 | 0 / 0 of 22 / 0 | 26.98 | 0.071 |
-| exposed150-camera | 11/42 | 31/42 | 34/42 | 8 | 0 / 0 of 30 / 0 | 138.06 | 0.147 |
+The existing workflow deadline is 1,200 seconds, workflow host claims expire after 60 seconds, and an interrupted workflow can resume at most three times. Complete reconstruction runs in one Java verification worker outside the workflow lock. Admission acknowledges promptly; status and cancellation remain available. The parent chat action keeps its existing 120-second lease. A resumed request must finish a new verification stage before any subsequent action. Late results from a cancelled task or prior generation cannot attach to another request. An active task refuses a changed evidence snapshot and requests explicit resume for full reconstruction; it does not undertake a long replay inside a short-lived browser claim. Source or world changes produce an explanation and preserve the stopped task. They do not silently substitute a different input.
+
+A saved procedure retains its verified implementation and original successful workflow. Reuse requires an explicitly selected observation and browser contract; it does not inherit the previous recording or expected page text as if they were fresh. Inspection, retirement and reactivation use the existing procedure lifecycle and original-evidence checks. Retired procedures cannot run. A modified original artifact blocks evidence verification and reactivation.
+
+## Try it in the application
+
+1. Start the workspace with the intended private project and original observation files available. Keep the existing project's data separate from test copies.
+2. Open **Spatial → Object identity · occlusion & recovery → Connected observation task · edition 158**.
+3. Open a verified edition157 comparison above, or paste its full saved evidence ID. Selection is not verification; Java performs reconstruction when the task starts.
+4. Enter a reference URL, a visible element selector such as `h1`, and the exact expected visible text. Use a page you intend the agent to inspect.
+5. Click **Prepare connected chat request**, review the request, then click **Start task**. Optionally add **review after world**.
+6. Use the task history's **Resume** control after an interruption. Inspect the browser result, uncertainty statement, image-frame controls and original source rows in the completed report.
+7. Reuse the saved procedure with a different explicit source and browser contract. Its report must be calculated and independently checked again.
+
+The default tracker remains `legacy-flow`. No historical tracker class or earlier numbered documentation is changed. Physical accuracy remains unresolved; this phase makes existing evidence useful and auditable without promoting it to ground truth.
+
+## Measured application results
+
+| Source | Image estimates | Withheld frames | Segments | Physical placement | Task span s |
+| --- | ---: | ---: | ---: | --- | ---: |
+| long-cover-return | 15 | 15 | 2 | refused | 76.55 |
+| near-copy-only | 5 | 22 | 1 | refused | 38.65 |
+| exposed150-camera | 34 | 38 | 2 | refused | 158.28 |
 
 
-The complete camera trace, scores, source identities and candidate counts equal published 156. Accuracy remains 34/42, including the same 23/30 confirmed returned frames. Eight observations remain withheld: seven returned frames and one earlier partial view. Original-audit optimization adds no new acceptance or physical-accuracy claim. 11 original camera boxes remain numerically unchanged.
+83 selected Java checks across eight classes and 168 desktop checks passed, with no failed or skipped cases. Three actual Java/Electron connected tasks passed, including forced Java interruption, same-task recovery, changed-page refusal, fresh-source procedure reuse, independent controls and geometry checks, lifecycle checks, cold verification and byte-corruption refusal. This is scoped local validation, not a rerun of every historical capability.
 
-Two new generated evaluation sources use previously unused 157-pattern material: a long full occlusion followed by a translated 103° return, and a near-copy with a changed quadrant after the original disappears. A separate stationary donor source supplies the verified starting reference. Its background differs, and donor/evaluation image bytes cannot overlap. All sources and independent labels are imported before tracking. The implementation and qualification method are committed before generating the reserved inputs.
+The sources are two exposed generated recordings from edition157 and the exposed edition150 camera recording retained in157. These are fresh task executions on known material, not newly captured footage or unseen tracking evaluation. The browser page is a labelled local HTTP fixture rendered by the real browser, not an internet research claim. It establishes the application's real browser interaction and rejection behavior under a controlled reference.
 
-The Java source generator records known geometry without calling a tracker. An independent Python calculation checks the schedule and bounds using half-extents rather than Java's four-corner enumeration. These are generated controls, not fresh physical footage. The camera is the exposed edition 150 recording, reused only as regression evidence.
+The camera input's original tracking summary remains 34/42 correct visible observations, 8 withheld, zero wrong overlaps and zero accepted hidden frames out of 30. The report includes the full ordered trace, including hidden-frame withholding; its total withheld count therefore differs from the visible-only tracking summary. No new physical accuracy improvement is claimed.
 
-The original column is the actual initial tracking run. Nested 153 denotes the unchanged rotation-confirmation component; it is not a separate application run or the published 156 timing comparator. All withheld observations count against recall. Rejecting a near-copy is useful evidence, but it does not show that visually identical hidden substitutions can be resolved. The black/red lighter recording is not a strong same-colour lookalike test.
+Elapsed task costs include verification and host interaction; the interrupted cases additionally include deliberate pauses, restart and/or refusal recovery. They are descriptive end-to-end costs, not throughput benchmarks. Saving and later checking a procedure adds original-evidence work. Report repetition, final restart verification and corruption probes are recorded separately from completion time. This edition does not claim that connecting tasks makes perception faster.
 
-## Complete costs
+Development caught two checked-exception compilation errors, three test-fixture timestamp failures and a missing procedure publication registration. Those were corrected before the 81-check final Java suite passed. The initial app launch refused a build inventory made before new sources were committed; the receipt was refreshed against the installed build. The first generated app study then passed in full. Visual review clarified that selecting evidence is not verification and added frame-view captures; all168 desktop checks passed again. The study preflight correctly refused the earlier desktop inventory after that UI edit, and it was refreshed before final studies. Final generated tasks repeat the same exposed recordings under the final locked method; camera evidence is also explicitly exposed. Earlier receipts, failed preflights and original logs remain archived. No failed tracking outcome was removed or converted to a success. The first camera app attempt stopped before task admission because the Prepare click arrived during the existing evidence-panel refresh. The final UI disables Prepare while busy, the driver waits for readiness, and all168 desktop checks passed again before final camera/generated executions. Earlier successful generated studies remain exposed development evidence; they are not counted as additional independent tracking evaluations. The longer camera reconstruction then exposed an expired 120-second parent host lease before child ownership was acknowledged. Complete verification was moved into a single Java worker outside the workflow monitor, including restart/reuse ancestry checks. Admission now retains an unverified request promptly; no action is allowed until full checks pass. Host timeouts and verification gates remain unchanged. New controlled-delay tests use real reconstruction to check responsive reads/cancellation, stale completion rejection and restart before verification. The final background-verification implementation passed 83 distinct Java checks and 168 desktop checks. Both final app studies passed, covering three connected tasks, after the method was frozen. Earlier failures and superseded passes remain archived, with no additional independent tracking claim.
 
-On the exposed camera, the first complete request took **138.058 seconds**; explicit full replay **136.344 seconds**; cold restarted verification **141.971 seconds**. Three unchanged warm readings had a median of **0.147 seconds**.
-
-| Complete forced comparison | Published 156 median s | Precomputed terms median s | Pairs | Ratio | Original audit phase, 156 → 157 s |
-| --- | ---: | ---: | ---: | ---: | --- |
-| generated | 33.153 | 30.310 | 3 | 1.094 | 25.989 → 23.154 |
-| camera | 147.262 | 135.861 | 2 | 1.084 | 90.155 → 78.802 |
-
-Three alternating pairs measure the generated long-occlusion return case; two pairs measure the exposed camera. The other generated case has one complete 156/157 pair. All produce identical complete evidence and unchanged project inventories. Java 21, two active processors and a 768 MiB heap. These repeated local measurements do not guarantee a universal speed advantage. [Every timing](docs/readmes/157/qualification.json), including phase costs, remains available.
-
-Every paired measurement reconstructs the same saved 157 result through either the published 156 verifier or the new precomputed verifier. Each request starts with new verification stores and forces replay. It includes source and reference checks, original-audit reconstruction, unchanged rotation search, confirmation, independent scoring, final source snapshots and saved-result equality. Source importing, baseline-run production, store construction, process startup and screenshot capture remain separate costs. Execution order alternates. Every complete result and project inventory must match.
-
-The development probe measures only original verification. The profile measures an exposed audit with profiler overhead. Neither substitutes for complete paired measurements. Actual app first requests, forced replay and restarted requests are reported individually because their timings can differ from the command-line measurements.
-
-Warm reopening is another distinct workload. Reuse remains bounded to eight process-local results, with a four MB serialized-result bound and fresh byte checks. No persisted trust survives a restart. A quick reopened receipt is not a live-camera frame rate. Complete reconstruction remains a substantial workload, and measured local gains do not guarantee the same speed on other hardware or sources.
-
-## Verification and reproducibility
-
-57 selected Java checks and 164 desktop checks passed, with no failures or skipped cases. Two new generated app comparisons and one exposed-camera comparison passed visible-control, forced-replay, cold-restart and source-integrity checks. Complete reference/precomputed evidence matches exactly. Independent geometry and exact-evidence gates passed; harder behavioral targets and measured cost benefit are reported separately. These are scoped checks, not a rerun of every historical capability. Recorded tests only.
-
-The new checks retain refusal coverage for source and donor-image corruption, modified run traces, changed code and reference provenance, forged checksums, changed labels, missing history and cancellation. The actual Electron/Java studies exercise the visible compare/read/force controls, take three warm readings per case, restart their owned app, alter and restore a source byte, and compare original evidence namespaces and native worlds afterwards. Private camera pixels are excluded from public screenshots before capture.
-
-An exposed original-audit development probe took 90.938 seconds through the published 156 path and 80.873 seconds with exact precomputed terms, with complete audit equality and unchanged source files. This probe excludes the full rotation experiment. The 13 new checks passed before 44 selected regression checks; their distinct results cover the same final Java implementation. The method and qualification gates were committed at a10a6ce5 before rendering the reserved sources. The first generated and camera application attempts passed their execution checks; no failed reserved app attempt was omitted.
-
-With Java 21 and the existing desktop dependencies installed, run the focused checks from the repository root:
+## Tests and reproduction
 
 ```powershell
-.\gradlew.bat --no-daemon --max-workers=1 :workspace-engine:test --tests fraymus.workspace.OriginalReplay157Test --tests fraymus.workspace.ContinuityExperiment157Test
-npm --prefix workspace-desktop test
+python -X utf8 docs/publication158/validate158.py
 ```
 
-The [validation driver](docs/publication157/validate157.py) records the separate 44-check regression and installed build/helper compilation. The [study driver](docs/publication157/run-studies157.py) records sequential generation, independent labels, actual controls and paired measurements. A matching method lock and current [installed-build stamp](scripts/Study-Build095.cjs) are required. Study outputs are one-use so reruns cannot overwrite original evidence.
+The driver runs eight selected Java test classes, all desktop unit checks, builds the installed Java runtime and stamps it for actual application testing. It uses one heavy job at a time. Output paths are one-use so prior results are preserved. The method lock records the final implementation and study before evaluation.
 
-The generated controls are reproducible from published code. The camera study requires the owner's private 150 project at the recorded path; the images are not in Git. Another machine must identify its own study and private-source location. A public clone alone cannot reproduce that camera result. Run heavy checks sequentially. Hosted CI is reported separately from local checks; these checks do not rerun every historical application capability.
+The [app study](docs/publication158/study158.cjs) exercises actual visible preparation and chat controls, forced Java interruption, same-task recovery, wrong browser text, real report interaction, procedure reuse and lifecycle, cold verification, and same-size/same-time image corruption. Original source projects are inventoried before and after. Public screenshots show app/report data without private camera pixels. Tests use separate project copies and never alter the user's live world.
 
-## Architecture and continuity
+Private recorded inputs are not in Git. Reproducing the exact camera result requires the owner's recorded source project; a public clone alone is insufficient. A new machine should supply its own clearly identified source paths and record a new study. The [evidence index](docs/readmes/158/original-evidence.json) preserves original test logs, app receipts and failed development attempts. [Hosted CI](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions) is reported separately from local validation.
+
+## Architecture, files and next gates
 
 ```mermaid
 flowchart LR
-  A[Verified original images and references] --> B[Exact coordinates and reference terms]
-  A --> C[Fresh frame pixels and grayscale]
-  B --> D[Every candidate and rival check]
-  C --> D
-  D --> E[Complete original audit equality]
-  E --> F[Unchanged rotation and continuity]
-  F --> G[Independent outcomes and final byte checks]
-  G --> H[Saved evidence and measured cost]
+  A[Original recorded proof] --> B[Fresh reconstruction and lineage]
+  B --> C[Java durable goal]
+  C --> D[Bound world inspection]
+  D --> E[Browser contract and witnessed result]
+  E --> F[Interactive HTML and JSON artifact]
+  F --> G[Independent source and rendered checks]
+  G --> H[Verified procedure memory]
+  H --> C
 ```
 
 | Responsibility | Source |
 | --- | --- |
-| Exact sampling and scoring | [StructureReplay157](workspace-engine/src/main/java/fraymus/workspace/StructureReplay157.java) |
-| Complete identity replay | [IdentityReplay157](workspace-engine/src/main/java/fraymus/workspace/IdentityReplay157.java) |
-| Original audit and 156 reference | [OriginalAudit157](workspace-engine/src/main/java/fraymus/workspace/OriginalAudit157.java) |
-| Source-bound replay reuse | [ReplayEvidence157](workspace-engine/src/main/java/fraymus/workspace/ReplayEvidence157.java) |
-| Complete experiment and timing | [ContinuityExperiment157](workspace-engine/src/main/java/fraymus/workspace/ContinuityExperiment157.java) |
-| Frozen method and measurement | [Plan](docs/publication157/plan157.md), [qualification](docs/publication157/qualify157.py), [paired measurement](docs/publication157/ReplayMeasure157.java) |
+| Historical proof reconstruction and lineage | [ObservationEvidence158](workspace-engine/src/main/java/fraymus/workspace/ObservationEvidence158.java) |
+| Source binding, uncertainty and world decision | [ObservationTask158](workspace-engine/src/main/java/fraymus/workspace/ObservationTask158.java) |
+| Working artifact and independent comparator | [ObservationReport158](workspace-engine/src/main/java/fraymus/workspace/ObservationReport158.java) |
+| Durable stages, claims, recovery and procedure retention | [WorkflowRunner](workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java) |
+| Chat routing and ownership | [Domain044](workspace-engine/src/main/java/fraymus/workspace/Domain044.java) |
+| Real browser and report observations | [Desktop host](workspace-desktop/observation-task158.cjs) |
+| Complete application study | [Study](docs/publication158/study158.cjs) |
 
-The [offline guide](docs/readmes/157/index.html) includes actual captures, case and cost tables, module links and searchable source inventory without remote assets. The [Obsidian note](docs/obsidian/165-precomputed-verification.md) and [canvas](docs/obsidian/165-precomputed-verification.canvas) link this phase to the unified application. Earlier numbered READMEs and frozen evidence are preserved.
+The [offline guide](docs/readmes/158/index.html) provides screenshots, results, architecture links and searchable source inventory. The [Obsidian note](docs/obsidian/166-observation-tasks.md) and [canvas](docs/obsidian/166-observation-tasks.canvas) map the same implementation. Earlier editions and frozen assets remain intact.
 
-Next, use complete-request profiles to select any remaining worthwhile optimization, then exercise verified observations in durable world/browser/creation tasks. Those tasks must carry uncertainty, source identities and withheld observations into their decisions. This phase makes evidence cheaper to reconstruct; it does not establish better physical accuracy, semantic recognition, model training or general intelligence.
+Next: make the observation-to-task decision more useful with calibrated coordinates and conservative error bounds on an independently measured source. First verify the mapping and stale-frame handling; then test bounded world actions against unchanged native physics and independent outcomes. Separately measure the repeated reconstruction cost across longer connected tasks before adding another cache. Broader semantic interpretation, open-ended model planning and hardware action each need their own evidence and acceptance gates. Persistent memory, real execution and useful learning remain the destination; neural activity, fluent text or a completed demonstration alone do not prove general intelligence.

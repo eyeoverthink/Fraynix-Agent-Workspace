@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/166-observation-tasks.md]] | [[README-158.md]]
+
 Current: [[docs/obsidian/165-precomputed-verification.md]] | [[README-157.md]]
 
 Current: [[docs/obsidian/164-original-verification.md]] | [[README-156.md]]
