@@ -1,3 +1,7 @@
+## Edition 155 — published and fetched back
+
+2026-11-17. Release 8da574cb7ee36ca08bb3eee0a76e3f542d9d4bed; main, edition155 and readme-155 pushed atomically and fetched. Full155 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_155.json. Experimental exact-coordinate reconstruction shipped; defaults unchanged. User selected recorded tests; fresh physical validation remains a separate gate. The following local-study notes retain their original chronology.
+
 ## Edition 155 — locally verified; publication pending
 
 2026-11-17. Java target eyeoverthink/Fraynix-Agent-Workspace; isolated J:/Codex-Work/fraynix-workspace-edition155. No subagents. One heavy check at a time. Edition154 CI was still running at the initial check; preceding153 runs passed. See the publication receipt for the latest check.

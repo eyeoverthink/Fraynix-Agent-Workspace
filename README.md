@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 155
 
+[Published and fetched receipt](docs/PUBLICATION_155.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-155)
+
 **Reconstruct the evidence. Repeat fewer calculations. Keep every check.** 2026-11-17.
 
 [Previous: edition 154](README-154.md) · [All editions](docs/readmes/INDEX.md) · [Offline guide](docs/readmes/155/index.html) · [Validation](docs/readmes/155/verification.json)
