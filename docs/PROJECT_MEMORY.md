@@ -1,3 +1,7 @@
+## Edition 156 — published and fetched back
+
+2026-11-17. Release 0a6a6294515cbcac52599f87a5440a5e55bfdc38; main, edition156 and readme-156 pushed atomically and fetched. Full156 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_156.json. Experimental packed-pixel original reconstruction shipped; defaults unchanged. User selected recorded tests; fresh physical validation remains a separate gate. The following local-study notes retain their original chronology.
+
 ## Edition 156 — locally verified; publication pending
 
 2026-11-17. Java target eyeoverthink/Fraynix-Agent-Workspace; isolated J:/Codex-Work/fraynix-workspace-edition156. No subagents. One heavy check at a time. Edition 155 and 154 CI were still running at the initial check. See the publication receipt for the latest check.
