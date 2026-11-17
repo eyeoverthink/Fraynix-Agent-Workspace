@@ -1,0 +1,56 @@
+[
+  {
+    "case": "exposed041-grid0",
+    "markers": 1,
+    "maxCoordinateRadiusMm": 11.555434327948229,
+    "maxActualErrorMm": 0.18508556593324332,
+    "maxCombinedMm": 11.740519893881473,
+    "elapsedMs": 14460.3869,
+    "taskId": "fdd78e60-e23e-4a61-9985-60043ab8ae2e",
+    "workflowId": "ff112ed7-ef50-4de6-a01f-903d8eddd055",
+    "resumes": 1,
+    "savedSkill": {
+      "name": "calibrated-plane-action",
+      "id": "eaf2e355-7e97-3f74-b4cb-7907572aa96e",
+      "version": 1
+    },
+    "sourceFrameSha256": "40d5fad558c94286028e8d5a64570957be5a21ddee7b51fbebcc6b993769675f",
+    "scope": "Conditional declared bounds and actual native simulation errors; not measured physical accuracy."
+  },
+  {
+    "case": "exposed041-grid2-reuse",
+    "markers": 1,
+    "maxCoordinateRadiusMm": 14.23533514396143,
+    "maxActualErrorMm": 0.2195742559704384,
+    "maxCombinedMm": 14.454909399931868,
+    "elapsedMs": 9764.400099999999,
+    "taskId": "253a4d2a-8ffd-4ac3-bfc0-7586cd06cd9d",
+    "workflowId": "64844a34-de9e-47aa-9f6c-0df1e79905c6",
+    "resumes": 0,
+    "savedSkill": {
+      "name": "calibrated-plane-action",
+      "id": "878c58d1-7357-3c78-a321-bab14628ac9c",
+      "version": 2
+    },
+    "sourceFrameSha256": "40d5fad558c94286028e8d5a64570957be5a21ddee7b51fbebcc6b993769675f",
+    "scope": "Conditional declared bounds and actual native simulation errors; not measured physical accuracy."
+  },
+  {
+    "case": "generated-larger-plane-two-references",
+    "markers": 2,
+    "maxCoordinateRadiusMm": 22.277263153418975,
+    "maxActualErrorMm": 0.12927142206913214,
+    "maxCombinedMm": 22.323012834782578,
+    "elapsedMs": 10288.601199999997,
+    "taskId": "b039f34e-4184-477d-8996-8a2b4fc6f64d",
+    "workflowId": "4a84119a-ceab-448a-806d-4b5a06ac8cc4",
+    "resumes": 0,
+    "savedSkill": {
+      "name": "generated-plane-action",
+      "id": "085633dd-b4b9-3dfe-a95d-39f0e72c53b6",
+      "version": 1
+    },
+    "sourceFrameSha256": "14ecc15d2f07322c3a896997ab2ecf267b422dd1f6ae1a918aa68fd9944eed2e",
+    "scope": "Conditional declared bounds and actual native simulation errors; not measured physical accuracy."
+  }
+]

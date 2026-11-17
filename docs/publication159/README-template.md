@@ -12,7 +12,7 @@
 
 Fraynix remains one local agent workspace: a persistent Java runtime coordinates observations, durable goals, the simulated world, browser, creation canvas, data tools and reusable procedures. Its original game engine is an experimental environment in that system. Each addition must make a complete task possible and preserve what actually happened.
 
-Edition158 connected verified recorded observations to world inspection, browser checks and a working artifact. Edition159 adds a deliberately narrow next bridge: original measured plane coordinates can guide actual bounded simulation actions. It does not turn an unrelated tracker recording into calibrated physical authority. Open-ended chat and known Java procedures remain distinct; these trials use the registered Java procedure and make zero model-inference or weight-training claims.
+Edition 158 connected verified recorded observations to world inspection, browser checks and a working artifact. Edition 159 adds a deliberately narrow next bridge: original measured plane coordinates can guide actual bounded simulation actions. It does not turn an unrelated tracker recording into calibrated physical authority. Open-ended chat and known Java procedures remain distinct; these trials use the registered Java procedure and make zero model-inference or weight-training claims.
 
 No new dependency, model download or GPU requirement is introduced. Existing native physics, graphics, JSON and desktop dependencies remain in use. “Java-owned logic” does not mean those dependencies disappeared.
 
@@ -31,9 +31,9 @@ No new dependency, model download or GPU requirement is introduced. Existing nat
 
 ## What the coordinates mean
 
-The recorded041 reference contains four printed-grid fitting corners, three separate check intersections and two tape marks. Its visible fitted rectangle is **10 × 8 inches**, within the user's **12 × 12-inch mat**. Native placement of that plane is declared, not a measured room pose.
+The recorded 041 reference contains four printed-grid fitting corners, three separate check intersections and two tape marks. Its visible fitted rectangle is **10 × 8 inches**, within the user's **12 × 12-inch mat**. Native placement of that plane is declared, not a measured room pose.
 
-The reference's maximum independent grid discrepancy is about **0.384 mm**; its tape-length discrepancy is about **2.404 mm**. Neither number alone establishes physical tracking accuracy. Original image bytes and annotations stay pinned, including the distinction between the two041 recording sessions.
+The reference's maximum independent grid discrepancy is about **0.384 mm**; its tape-length discrepancy is about **2.404 mm**. Neither number alone establishes physical tracking accuracy. Original image bytes and annotations stay pinned, including the distinction between the two 041 recording sessions.
 
 For each selected check landmark, the region includes:
 
@@ -44,15 +44,15 @@ For each selected check landmark, the region includes:
 
 The X/Z rectangle and its radial allowance are **conditional geometric budgets**. They assume the declared input allowances bound the relevant errors; they are not empirically calibrated coverage probabilities. Unknown object height, parallax, lens effects outside the checked reference, calibration drift and live camera changes remain unresolved. Y is the declared plane; the simulated marker's height comes from its authored box geometry.
 
-No hidden or lost object position is invented. The unrelated158/157 tracker sources keep their original unknown positional accuracy. No hardware, live webcam or automatic object recognition is authorized by this procedure.
+No hidden or lost object position is invented. The unrelated 158/157 tracker sources keep their original unknown positional accuracy. No hardware, live webcam or automatic object recognition is authorized by this procedure.
 
 ## Controller compatibility and honest limits
 
-The existing verified pose controller requires at least two dynamic boxes, each at least0.2m wide. Two such boxes cannot occupy the closely spaced check locations on this mat. The UI therefore selects **one measured reference marker and one explicit return marker**. The return marker is lifted and returned to its initial authored pose by the original two-body controller; it is not a second measured reference. Its complete motion is still verified.
+The existing verified pose controller requires at least two dynamic boxes, each at least 0.2 m wide. Two such boxes cannot occupy the closely spaced check locations on this mat. The UI therefore selects **one measured reference marker and one explicit return marker**. The return marker is lifted and returned to its initial authored pose by the original two-body controller; it is not a second measured reference. Its complete motion is still verified.
 
 For larger measured planes, the typed workflow also accepts two distinct measured markers when all geometry and clearance checks pass. The generated larger-plane trial exercises that path. This release does not silently shrink native bodies, scale the mat or bypass collision checks.
 
-The default new-task limits are2pixels of localization allowance,3mm annotation allowance,15mm maximum coordinate radius,0.75m endpoint displacement,50mm execution tolerance,65mm combined allowance,6N force and0.5Nm torque. These are explicit task limits, not a claim of50mm physical accuracy. Existing tracker and controller defaults stay unchanged. The report displays the actual result, which may be substantially smaller than the allowed limit.
+The default new-task limits are 2 pixels of localization allowance, 3 mm annotation allowance, 15 mm maximum coordinate radius, 0.75 m endpoint displacement, 50 mm execution tolerance, 65 mm combined allowance, 6 N force and 0.5 Nm torque. These are explicit task limits, not a claim of 50 mm physical accuracy. Existing tracker and controller defaults stay unchanged. The report displays the actual result, which may be substantially smaller than the allowed limit.
 
 ## Measured results
 
@@ -66,7 +66,7 @@ Task span includes verification, repeated report inspection and deliberate recov
 
 ## Review it in the app
 
-Use JDK21 and the project's existing Node.js LTS setup. Run [Start-Agent-Workspace.ps1](scripts/Start-Agent-Workspace.ps1); it checks the existing Java owner, prepares the engine and verifies the desktop dependency cache before launch. `-PrepareOnly` prepares without launching; `-Offline` requires dependencies already cached. Use a separate project path when evaluating copied evidence; do not point a new build at an active older database.
+Use JDK 21 and the project's existing Node.js LTS setup. Run [Start-Agent-Workspace.ps1](scripts/Start-Agent-Workspace.ps1); it checks the existing Java owner, prepares the engine and verifies the desktop dependency cache before launch. `-PrepareOnly` prepares without launching; `-Offline` requires dependencies already cached. Use a separate project path when evaluating copied evidence; do not point a new build at an active older database.
 
 1. Open **Spatial → Measured mat alignment**.
 2. Open **Recorded plane → checked simulation action ·159** and load references/worlds.
@@ -82,7 +82,7 @@ Only recorded source metadata and numeric results appear in public screenshots. 
 
 The parent request, original calibration, conditional bounds, exact world revision and child intent are persisted before actuation. The native child uses a deterministic workflow/stage identity. Restart before action revalidates the same source. Restart after a completed native child reuses its verified result rather than moving the bodies again. Cancellation and a failed rendered report cannot publish a procedure.
 
-The workflow retains the existing20-task capacity,1200-second deadline,60-second host claims and at most three explicit resumes. Procedure inspection, retirement, reactivation and archived original verification retain their established checks. A failed endpoint budget prevents a new accepted world revision; the original failed run remains available for diagnosis.
+The workflow retains the existing 20-task capacity, 1200-second deadline, 60-second host claims and at most three explicit resumes. Procedure inspection, retirement, reactivation and archived original verification retain their established checks. A failed endpoint budget prevents a new accepted world revision; the original failed run remains available for diagnosis.
 
 ## Source, tests and evidence
 

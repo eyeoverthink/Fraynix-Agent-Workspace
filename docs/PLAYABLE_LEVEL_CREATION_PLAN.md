@@ -1,3 +1,9 @@
+## Edition159 continuity — 2026-11-17
+
+Edition159 connects an original measured plane to a durable Java request that checks coordinate allowances, executes actual bounded native motion and verifies the committed result and interactive report. Recorded sources, simulation states and unresolved physical uncertainty stay distinct. Existing defaults are unchanged.
+
+[Edition159](../README-159.md). Preserve unified Java agency, existing physics and evidence. Next: held-out calibration/coverage and single-marker control.
+
 ## Edition158 continuity — 2026-11-17
 
 Edition 158 completes one source-bound Java workflow across recorded observation verification, world inspection, a witnessed browser reference and an independently checked interactive artifact. Recovery and saved-procedure reuse preserve the original uncertainty. Physical placement remains refused without calibrated mapping; defaults are unchanged.

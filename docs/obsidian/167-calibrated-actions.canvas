@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "source",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CalibratedPlane159.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "context",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CalibratedAction159.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "workflow",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "report",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/CalibratedReport159.java",
+      "x": 1290,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "host",
+      "type": "file",
+      "file": "workspace-desktop/calibrated159.cjs",
+      "x": 1720,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "source",
+      "toNode": "context"
+    },
+    {
+      "id": "1",
+      "fromNode": "context",
+      "toNode": "workflow"
+    },
+    {
+      "id": "2",
+      "fromNode": "workflow",
+      "toNode": "report"
+    },
+    {
+      "id": "3",
+      "fromNode": "report",
+      "toNode": "host"
+    }
+  ]
+}

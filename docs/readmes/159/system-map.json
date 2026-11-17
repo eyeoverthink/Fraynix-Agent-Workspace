@@ -1,0 +1,125 @@
+{
+  "modules": [
+    {
+      "id": "source",
+      "name": "Original reference and conditional mapping",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CalibratedPlane159.java"
+    },
+    {
+      "id": "context",
+      "name": "Bounded intention and endpoint checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CalibratedAction159.java"
+    },
+    {
+      "id": "workflow",
+      "name": "Durable Java stages",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java"
+    },
+    {
+      "id": "report",
+      "name": "Actual report and comparator",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CalibratedReport159.java"
+    },
+    {
+      "id": "host",
+      "name": "Independent rendered observations",
+      "source": "workspace-desktop/calibrated159.cjs"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/159/prepared-reference.png",
+      "title": "2026-11-17 · actual app / prepared-reference.png"
+    },
+    {
+      "path": "docs/readmes/159/before-action.png",
+      "title": "2026-11-17 · actual app / before-action.png"
+    },
+    {
+      "path": "docs/readmes/159/recorded-outcome.png",
+      "title": "2026-11-17 · actual app / recorded-outcome.png"
+    },
+    {
+      "path": "docs/readmes/159/reused-outcome.png",
+      "title": "2026-11-17 · actual app / reused-outcome.png"
+    },
+    {
+      "path": "docs/readmes/159/generated-outcome.png",
+      "title": "2026-11-17 · actual app / generated-outcome.png"
+    },
+    {
+      "path": "docs/readmes/159/compact-outcome.png",
+      "title": "2026-11-17 · actual app / compact-outcome.png"
+    },
+    {
+      "path": "docs/readmes/159/review-bounds-and-outcome.png",
+      "title": "Actual report inspection / bounds-and-outcome.png"
+    },
+    {
+      "path": "docs/readmes/159/review-actual-outcome.png",
+      "title": "Actual report inspection / actual-outcome.png"
+    },
+    {
+      "path": "docs/readmes/159/review-source-and-budgets.png",
+      "title": "Actual report inspection / source-and-budgets.png"
+    }
+  ],
+  "comparison": [
+    {
+      "case": "exposed041-grid0",
+      "markers": 1,
+      "maxCoordinateRadiusMm": 11.555434327948229,
+      "maxActualErrorMm": 0.18508556593324332,
+      "maxCombinedMm": 11.740519893881473,
+      "elapsedMs": 14460.3869,
+      "taskId": "fdd78e60-e23e-4a61-9985-60043ab8ae2e",
+      "workflowId": "ff112ed7-ef50-4de6-a01f-903d8eddd055",
+      "resumes": 1,
+      "savedSkill": {
+        "name": "calibrated-plane-action",
+        "id": "eaf2e355-7e97-3f74-b4cb-7907572aa96e",
+        "version": 1
+      },
+      "sourceFrameSha256": "40d5fad558c94286028e8d5a64570957be5a21ddee7b51fbebcc6b993769675f",
+      "scope": "Conditional declared bounds and actual native simulation errors; not measured physical accuracy."
+    },
+    {
+      "case": "exposed041-grid2-reuse",
+      "markers": 1,
+      "maxCoordinateRadiusMm": 14.23533514396143,
+      "maxActualErrorMm": 0.2195742559704384,
+      "maxCombinedMm": 14.454909399931868,
+      "elapsedMs": 9764.400099999999,
+      "taskId": "253a4d2a-8ffd-4ac3-bfc0-7586cd06cd9d",
+      "workflowId": "64844a34-de9e-47aa-9f6c-0df1e79905c6",
+      "resumes": 0,
+      "savedSkill": {
+        "name": "calibrated-plane-action",
+        "id": "878c58d1-7357-3c78-a321-bab14628ac9c",
+        "version": 2
+      },
+      "sourceFrameSha256": "40d5fad558c94286028e8d5a64570957be5a21ddee7b51fbebcc6b993769675f",
+      "scope": "Conditional declared bounds and actual native simulation errors; not measured physical accuracy."
+    },
+    {
+      "case": "generated-larger-plane-two-references",
+      "markers": 2,
+      "maxCoordinateRadiusMm": 22.277263153418975,
+      "maxActualErrorMm": 0.12927142206913214,
+      "maxCombinedMm": 22.323012834782578,
+      "elapsedMs": 10288.601199999997,
+      "taskId": "b039f34e-4184-477d-8996-8a2b4fc6f64d",
+      "workflowId": "4a84119a-ceab-448a-806d-4b5a06ac8cc4",
+      "resumes": 0,
+      "savedSkill": {
+        "name": "generated-plane-action",
+        "id": "085633dd-b4b9-3dfe-a95d-39f0e72c53b6",
+        "version": 1
+      },
+      "sourceFrameSha256": "14ecc15d2f07322c3a896997ab2ecf267b422dd1f6ae1a918aa68fd9944eed2e",
+      "scope": "Conditional declared bounds and actual native simulation errors; not measured physical accuracy."
+    }
+  ],
+  "finding": "Edition159 connects an original measured plane to a durable Java request that checks coordinate allowances, executes actual bounded native motion and verifies the committed result and interactive report. Recorded sources, simulation states and unresolved physical uncertainty stay distinct. Existing defaults are unchanged.",
+  "validation": "100 selected Java checks and 171 desktop checks passed, with no failures or skips. Three actual Java/Electron tasks passed source, native-action, rendered-outcome, recovery and cold-verification checks. This is scoped validation, not a rerun of every historical capability."
+}

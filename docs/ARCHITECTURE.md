@@ -1,3 +1,15 @@
+## Edition 159 — locally verified; publication pending
+
+2026-11-17. Correct Java target: eyeoverthink/Fraynix-Agent-Workspace, J:/Codex-Work/fraynix-workspace-edition159. No subagents. One heavy check at a time. Recorded sources only; no webcam active. CI checked first; see publication receipt.
+
+Edition159 connects an original measured plane to a durable Java request that checks coordinate allowances, executes actual bounded native motion and verifies the committed result and interactive report. Recorded sources, simulation states and unresolved physical uncertainty stay distinct. Existing defaults are unchanged.
+
+100 selected Java checks and 171 desktop checks passed, with no failures or skips. Three actual Java/Electron tasks passed source, native-action, rendered-outcome, recovery and cold-verification checks. This is scoped validation, not a rerun of every historical capability.
+
+Development retained two compile failures, initial tests that refused undersized native bodies and an inconsistent perspective fixture, and a native goal/world read race corrected by reading under the existing goal lock. The first regression passed 98 Java and 171 desktop checks. A stricter native endpoint test was then added and passed: out-of-budget motion cannot advance the accepted world. Final regression passed 99 Java checks, plus one independent uncertainty-clearance test (100 total), and 171 desktop checks. All three locked app trials passed on their first attempt. Report screenshots were recaptured with the chart in view; original overview captures and receipts are retained. No new camera recording, tracker promotion, physical-accuracy certification or LLM-training claim is made.
+
+Read README-159.md and docs/publication159/plan159.md. Preserve original private projects, all001–158 frozen documentation, legacy tracker and native-controller identities. Conditional recorded grid coordinates are not live object pose or calibrated coverage probabilities. The existing20cm/two-body pose domain requires an explicit return marker for the small mat. Next: independent localization/error-coverage evaluation and a separately tested smaller single-marker action domain.
+
 ## Edition 158 — published and fetched back
 
 2026-11-17. Release ce36c99cedce6446d8e37167c8a3ae732f9b305d; main, edition158 and readme-158 pushed atomically and fetched. Full158 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_158.json. Experimental verified observation tasks shipped; defaults unchanged. User selected recorded tests; fresh physical validation remains a separate gate. The following local-study notes retain their original chronology.
