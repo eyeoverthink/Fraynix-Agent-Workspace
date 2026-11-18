@@ -16,7 +16,12 @@ note = ('The first saved-workflow compatibility attempt stopped after the origin
         'was then stopped because Git mapped about14.6GB into its working set. Git object windows '
         'are now explicitly capped at128MiB,16MiB per window, with32MiB delta cache. The same '
         'full audit was restarted, archive tests repeated, and a second full app session run under '
-        'a new lock. Both fresh sessions pass; the reported final comparison uses on-b. The final '
+        'a new lock. Both earlier fresh sessions passed. The first small clone built successfully, '
+        'but an independent exact-source check found311 originally tracked log files omitted by '
+        'ordinary git add and current ignore rules. The export now force-adds only the explicit '
+        'tracked inventory inside its new disposable directory. The first clone and refusal are '
+        'retained; a new clone is built and every selected source blob compared. The final app '
+        'session is repeated under the corrected tool lock; reported final comparison uses on-c. The final '
         'saved-workflow check passes all ten parents. No source, outcome or acceptance tolerance '
         'was relaxed.')
 for name in ['README-166.md', 'README.md']:

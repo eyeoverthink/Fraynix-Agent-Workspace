@@ -88,7 +88,10 @@ def candidate():
     git('config', 'core.autocrlf', 'false')
     git('config', 'user.name', 'Fraynix local migration rehearsal')
     git('config', 'user.email', 'rehearsal@example.invalid')
-    git('add', '.')
+    # This new directory contains only the explicit tracked export and two generated
+    # retrieval files. Preserve originally tracked logs even when today's ignore
+    # rules match them; never apply this force-add to the user's working checkout.
+    git('add', '--force', '.')
     git('-c', 'gc.auto=0', 'commit', '-m', 'Local candidate; original evidence retained separately')
     assert git('rev-list', '--count', 'HEAD').strip() == b'1'
     assert not git('remote').strip()

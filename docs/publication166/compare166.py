@@ -11,7 +11,7 @@ scope = {}
 exec(compile(ast.Module(body=[function], type_ignores=[]), '<frozen165-normalizer>', 'exec'), scope)
 normalize = scope['normalized']
 old = json.loads((root/'build/study165-on-b/result.json').read_bytes())
-new = json.loads((root/'build/study166-on-b/result.json').read_bytes())
+new = json.loads((root/'build/study166-on-c/result.json').read_bytes())
 assert old['passed'] and new['passed'] and len(new['tasks']) == 10
 rows = []
 for prior, current in zip(old['tasks'], new['tasks']):

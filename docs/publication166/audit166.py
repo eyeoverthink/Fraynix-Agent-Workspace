@@ -36,7 +36,7 @@ with history_archive.GitEvidence(root, commit) as source:
         original = evidence_archive.original(manifest, archive, row['logicalPath'])
         assert original == (root/row['logicalPath']).read_bytes(), row['logicalPath']
     assert read('docs/readmes/166/verification.json')['passed']
-    for path in ['build/study166-on-b/result.json', 'build/compatibility166/result.json',
+    for path in ['build/study166-on-c/result.json', 'build/compatibility166/result.json',
                  'build/migration166/candidate.json']:
         assert json.loads(evidence_archive.original(manifest, archive, path))['passed']
     result = {'passed': True, 'verifiedAtUtc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
