@@ -5,7 +5,7 @@ assert(/^[a-z0-9-]+$/.test(name));assert(['published','full','memo'].includes(mo
 const out=path.join(home,'build/study163-'+name),project=path.join(out,'project');
 const original='J:/Codex-Work/fraynix-workspace-edition161/build/motion-study161-c/project';
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex'),sleep=ms=>new Promise(r=>setTimeout(r,ms));
-const cases=[['camera-end','131fd959-57fa-4bba-9944-0c267402bbb4',25],['generated-short-start','085bc678-c862-4ecc-a952-ec8b0f5823df',1],['generated-reverse-end','32406607-b8c8-4451-9721-393c1ff9e12a',20],['camera-start-recovered','131fd959-57fa-4bba-9944-0c267402bbb4',1]];
+const cases=[['camera-end','131fd959-57fa-4bba-9944-0c267402bbb4',25],['generated-short-start','085bc678-c862-4ecc-a952-ec8b0f5823df',1],['generated-reverse-start','32406607-b8c8-4451-9721-393c1ff9e12a',1],['camera-start-recovered','131fd959-57fa-4bba-9944-0c267402bbb4',1]];
 async function inventory(root){const rows={};for(const dir of ['alignment-041','persistent-worlds']){async function walk(p){for(const e of await fs.readdir(p,{withFileTypes:true})){assert(!e.isSymbolicLink());const q=path.join(p,e.name);if(e.isDirectory())await walk(q);else rows[path.relative(root,q).replaceAll('\\','/')]=sha(await fs.readFile(q));}}await walk(path.join(root,dir));}return rows;}
 (async()=>{
  require(path.join(repo,'scripts/Study-Build095.cjs')).verify(repo);
