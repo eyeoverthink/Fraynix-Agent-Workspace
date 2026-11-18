@@ -331,7 +331,7 @@ async function openMissionResult(mission) {
   const {child, result} = mission;
   const relay = child?.procedure === 'relay-playtest-v1'
     ? await api('/api/game-tasks115/verify', {id: child.id}) : null;
-  if(child?.procedure==='local-ramp-experiment-v1')await api('/api/ramp-mission/verify',{id:child.id});
+  if(['local-ramp-experiment-v1','local-ramp-comparison-v1'].includes(child?.procedure))await api('/api/ramp-mission/verify',{id:child.id});
   const artifact = await api('/api/artifact/read', {id: result.id});
   if (artifact.version !== result.version) {
     throw Error('The saved result has a later revision; this task retains its original version reference');

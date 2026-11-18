@@ -124,9 +124,16 @@ final class Agency043 implements AutoCloseable {
         }
         if(domain(g)&&tool.equals(RampProcedure.SELECT_TOOL)){
             var action=domains.chooseRamp(g,args);
-            record(g,"procedure-selected",new JSONObject().put("tool",tool)
-                    .put("choice",g.getJSONObject("context044").getJSONObject("rampChoice"))
-                    .put("contractSha256",RampProcedure.hash()));
+            var context=g.getJSONObject("context044");
+            if(action==null){
+                String question=context.getString("rampQuestion");
+                record(g,"clarification-needed",new JSONObject().put("tool",tool).put("reason",question));
+                interrupt(g,question);
+                return;
+            }
+            var choice=context.getJSONObject("rampChoice");
+            record(g,"procedure-selected",new JSONObject().put("tool",tool).put("choice",choice)
+                    .put("contractSha256",RampProcedure.hash(choice.getString("procedure"))));
             host(g,action.getString("tool"),action.getJSONObject("args"),"domain",
                     new JSONObject().put("context",g.getJSONObject("context044")));
             return;

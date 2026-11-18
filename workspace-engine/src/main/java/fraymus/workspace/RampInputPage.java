@@ -81,14 +81,15 @@ final class RampInputPage {
         }
         String data = read(store.asset(id, version, "ramp-input.json"));
         String page = read(store.asset(id, version, "index.html"));
-        JSONObject verified = values(new JSONObject(data));
+        JSONObject verified = normalizeSetups(new JSONObject(data));
         Path original = store.asset(id, version, CSV_FILE);
         String csv = Files.exists(original) ? read(original) : null;
         if (!page.equals(page(verified, csv)) || csv != null && !verified.similar(parseCsv(csv))) {
             throw new IllegalStateException("Ramp input page differs from its typed source");
         }
-        JSONObject bound = new JSONObject().put("id", id).put("version", version).put("path", path).put("values", verified)
+        JSONObject bound = new JSONObject().put("id", id).put("version", version).put("path", path).put("values", first(verified))
                 .put("pageSha256", MeasurementStore.hash(page)).put("dataSha256", MeasurementStore.hash(data));
+        if (verified.has("secondValues")) bound.put("secondValues", verified.getJSONObject("secondValues"));
         if (csv != null) bound.put("csvSha256", MeasurementStore.hash(csv));
         return bound;
     }
@@ -105,31 +106,57 @@ final class RampInputPage {
     static JSONObject parseCsv(String csv) {
         if (csv.getBytes(StandardCharsets.UTF_8).length > MAX_CSV_BYTES) throw new IllegalArgumentException("Choose a CSV under 8 KiB");
         var rows = MeasurementStore.csv(csv, 1);
-        if (rows.size() != 2 || rows.get(0).size() != HEADERS.size() || rows.get(1).size() != HEADERS.size()) {
-            throw new IllegalArgumentException("Ramp CSV needs a header and exactly one data row");
+        if (rows.size() > 3 || rows.stream().anyMatch(row -> row.size() != HEADERS.size())) {
+            throw new IllegalArgumentException("Ramp CSV needs the five headers and one or two complete data rows");
         }
         var header = rows.get(0).stream().map(String::strip).toList();
         if (!new HashSet<>(header).equals(new HashSet<>(HEADERS))) {
             throw new IllegalArgumentException("CSV needs angle_deg, friction, gravity_mps2, mass_kg and duration_s exactly once");
         }
+        JSONObject result = csvRow(header, rows.get(1), 2);
+        if (rows.size() == 3) result.put("secondValues", csvRow(header, rows.get(2), 3));
+        return normalizeSetups(result);
+    }
+
+    private static JSONObject csvRow(List<String> header, List<String> row, int line) {
         var data = new JSONObject();
         for (int i = 0; i < HEADERS.size(); i++) {
-            String text = rows.get(1).get(header.indexOf(HEADERS.get(i))).strip();
+            String text = row.get(header.indexOf(HEADERS.get(i))).strip();
             try {
                 if (text.length() > 40) throw new IllegalArgumentException();
-                data.put(FIELDS.get(i), MeasurementStore.cellNumber(text, 2));
+                data.put(FIELDS.get(i), MeasurementStore.cellNumber(text, line));
             } catch (IllegalArgumentException bad) {
-                throw new IllegalArgumentException(HEADERS.get(i) + " must be a decimal value");
+                throw new IllegalArgumentException(HEADERS.get(i) + " must be a decimal value on CSV row " + line);
             }
         }
         return values(data);
     }
 
+    private static JSONObject first(JSONObject setups) {
+        JSONObject first = WorldFrames.copy(setups);
+        first.remove("secondValues");
+        return first;
+    }
+
+    private static JSONObject normalizeSetups(JSONObject setups) {
+        JSONObject first = values(first(setups));
+        if (!setups.has("secondValues")) return first;
+        JSONObject second = values(setups.getJSONObject("secondValues"));
+        if (first.getDouble("seconds") != second.getDouble("seconds")) {
+            throw new IllegalArgumentException("Use the same duration for both ramp setups");
+        }
+        return first.put("secondValues", second);
+    }
+
     private static String page(JSONObject values, String csv) {
-        String html = html(values);
+        String html = html(first(values));
         if (csv == null) return html;
-        return html.replace("</table></main>", "</table><p>Source: local CSV</p><!-- "
-                + MeasurementStore.hash(csv) + " --></main>");
+        String source = "<p>Source: local CSV</p><!-- " + MeasurementStore.hash(csv) + " -->";
+        if (!values.has("secondValues")) return html.replace("</table></main>", "</table>" + source + "</main>");
+        return html.replace("<table id=\"ramp-input\"", "<h2>First setup</h2><table id=\"ramp-input\"")
+                .replace("</table></main>", "</table><h2>Second setup</h2>"
+                        + "<table id=\"second-ramp-input\" aria-label=\"Second ramp setup\"><tbody>"
+                        + tableRows(values.getJSONObject("secondValues")) + "</tbody></table>" + source + "</main>");
     }
 
     static String path(String id, int version) { return "/artifact/" + id + "/" + version + "/index.html"; }
@@ -149,13 +176,17 @@ final class RampInputPage {
         return rows;
     }
 
-    static String html(JSONObject data) {
+    private static String tableRows(JSONObject data) {
         StringBuilder table = new StringBuilder();
         for (Object item : rows(data)) {
             var row = (JSONObject) item;
             table.append("<tr data-field=\"").append(row.getString("field")).append("\"><th scope=\"row\">")
                     .append(row.getString("label")).append("</th><td>").append(row.getString("value")).append("</td></tr>");
         }
+        return table.toString();
+    }
+
+    static String html(JSONObject data) {
         return """
                 <!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
                 <title>Ramp experiment input</title><style>
@@ -163,6 +194,6 @@ final class RampInputPage {
                 h1{line-height:1.15}table{border-collapse:collapse;width:100%%}td,th{padding:.5rem .2rem;border-bottom:1px solid #a8c5bd;text-align:left}
                 </style><main><h1>Ramp experiment input</h1><p>Local simulation settings in SI units.</p>
                 <table id="ramp-input" aria-label="Ramp experiment inputs"><tbody>%s</tbody></table></main></html>
-                """.formatted(table);
+                """.formatted(tableRows(data));
     }
 }

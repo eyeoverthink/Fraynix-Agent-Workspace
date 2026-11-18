@@ -45,10 +45,10 @@ const $=id=>document.getElementById(id),host=window.workspace;
 let state,artifact,editingFile='',libraryTab='artifacts',sourceMode=false,dirty=false,running=false,creationBusy=false,events=[];
 let sceneMode=false;
 function offlineMissionRequest(text) {
- return /^run the local ramp experiment(?: and pause after reading)?[.!]?$/i.test(text.trim()) || /^(?:playtest|verify) relay (?:ridge|switchyard) at (?:all three paces|(?:normal|steady|careful) pace)[.!]?$/i.test(text.trim());
+ return /^(?:run the local ramp experiment|compare the local ramp setups)(?: and pause after reading)?[.!]?$/i.test(text.trim()) || /^(?:playtest|verify) relay (?:ridge|switchyard) at (?:all three paces|(?:normal|steady|careful) pace)[.!]?$/i.test(text.trim());
 }
 function plannedRampRequest(text) {
- return /^plan the local ramp experiment(?: and pause after reading)?[.!]?$/i.test(text.trim());
+ return /^(?:plan the local ramp experiment(?: and pause after reading)?[.!]?|plan a local ramp task(?: and pause after reading)?:[ 	]*\S.{0,1199})$/i.test(text.trim());
 }
 function hasChatRoute() {
  return Boolean(state?.models.length) || offlineMissionRequest($('goal').value);
@@ -175,6 +175,14 @@ const rampDefaults={angleDeg:25,friction:0.08,gravityMps2:9.81,massKg:1,seconds:
 const rampFields=Object.keys(rampDefaults);
 const rampFileHelp='Required columns are angle_deg, friction, gravity_mps2, mass_kg and duration_s.';
 let rampRevision, rampCsv, rampImport=0;
+function showSecondRamp(second) {
+ const option=$('ramp-result').querySelector('option[value="compare"]');
+ option.disabled=!second;
+ if(!second)$('ramp-result').value='single';
+ $('ramp-second-facts').hidden=!second;
+ $('ramp-second-facts').textContent=second?'Second setup · '+second.angleDeg+'° · friction '+second.friction+
+  ' · '+second.gravityMps2+' m/s² · '+second.massKg+' kg · '+second.seconds+' s':'';
+}
 function showRampFields(values, readonly) {
  for(const field of rampFields){
   const input=$('ramp-'+field);
@@ -189,13 +197,17 @@ function resetRampFile(){
  $('ramp-new-form').hidden=!rampRevision?.csvSha256;
  $('ramp-input-error').textContent='';
  showRampFields(rampRevision?.values||rampDefaults,Boolean(rampRevision?.csvSha256));
+ showSecondRamp(rampRevision?.secondValues);
  $('ramp-input-save').disabled=Boolean(rampRevision?.csvSha256);
  $('ramp-use-current').disabled=!rampRevision;
 }
 function prepareRampGoal(){
- const verb=$('ramp-plan').checked?'Plan':'Run';
  const pause=$('ramp-pause').checked?' and pause after reading':'';
- $('goal').value=verb+' the local ramp experiment'+pause+'.';
+ const compare=$('ramp-result').value==='compare';
+ const plan=$('ramp-plan').checked;
+ if(compare) $('goal').value=plan?'Plan a local ramp task'+pause+': Which setup travels farther on the shared clock?'
+  :'Compare the local ramp setups'+pause+'.';
+ else $('goal').value=(plan?'Plan':'Run')+' the local ramp experiment'+pause+'.';
  $('goal').dispatchEvent(new Event('input'));
  rampDialog.close();
  $('goal').focus();
@@ -237,6 +249,7 @@ $('ramp-csv').onchange=async()=>{
   if(version!==rampImport)return;
   rampCsv=csv;
   showRampFields(parsed,true);
+  showSecondRamp(parsed.secondValues);
   $('ramp-file-note').textContent='CSV checked. Its original bytes will stay with the experiment.';
   $('ramp-new-form').hidden=false;
   $('ramp-input-save').disabled=false;

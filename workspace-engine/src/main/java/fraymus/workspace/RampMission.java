@@ -37,7 +37,7 @@ final class RampMission {
 
     private JSONObject load(String id) throws Exception {
         JSONObject task = AgentFiles042.loadChecked(path(id));
-        require(id.equals(task.getString("id")) && KIND.equals(task.getString("procedure")), "Ramp mission identity changed");
+        require(id.equals(task.getString("id")) && RampProcedure.registered(task.getString("procedure")), "Ramp mission identity changed");
         return task;
     }
 
@@ -57,6 +57,10 @@ final class RampMission {
             choice = intent.directChoice();
         }
         JSONObject admitted = RampProcedure.admit(request, choice);
+        String procedure = admitted.getString("procedure");
+        if (RampProcedure.COMPARE.equals(procedure) && !source.has("secondValues")) {
+            throw new IllegalStateException("Add a second setup with the same duration in Ramp input, then start a new comparison.");
+        }
         if (Files.exists(path(id))) {
             JSONObject prior = load(id);
             require(source.similar(prior.getJSONObject("source")) && request.equals(prior.getString("request")),
@@ -65,9 +69,9 @@ final class RampMission {
             checkSource(prior, !prior.getString("status").equals("completed"));
             return view(prior);
         }
-        var task = new JSONObject().put("id", id).put("procedure", KIND).put("source", source).put("request", request)
+        var task = new JSONObject().put("id", id).put("procedure", procedure).put("source", source).put("request", request)
                 .put("pause", admitted.getBoolean("pauseAfterReading")).put("choice", admitted)
-                .put("inputFormat", RampProcedure.Format.from(source).id).put("contractSha256", RampProcedure.hash())
+                .put("inputFormat", RampProcedure.Format.from(source).id).put("contractSha256", RampProcedure.hash(procedure))
                 .put("backendSha256", Backend.SHA).put("stages", new JSONArray());
         checkSource(task, true);
         return retain(stage(task, "waiting-host", "browser", "Reading the pinned local browser page"));
@@ -95,12 +99,25 @@ final class RampMission {
     }
 
     private static JSONObject checkObservation(JSONObject source, JSONObject observation) {
-        SpatialScene.keys(observation, "path", "rows", "visible");
+        SpatialScene.keys(observation, "path", "rows", "visible", "secondRows", "secondVisible");
+        boolean second = source.has("secondValues");
         require(observation.getBoolean("visible") && source.getString("path").equals(observation.getString("path"))
-                && RampInputPage.rows(source.getJSONObject("values")).similar(observation.getJSONArray("rows")),
+                && RampInputPage.rows(source.getJSONObject("values")).similar(observation.getJSONArray("rows"))
+                && second == observation.has("secondRows") && second == observation.has("secondVisible"),
                 "The visible browser table differs from the pinned input revision");
+        JSONObject first = readRows(observation.getJSONArray("rows"));
+        if (second) {
+            require(observation.getBoolean("secondVisible") && RampInputPage.rows(source.getJSONObject("secondValues"))
+                            .similar(observation.getJSONArray("secondRows")),
+                    "The second browser table differs from the pinned input revision");
+            first.put("secondValues", readRows(observation.getJSONArray("secondRows")));
+        }
+        return first;
+    }
+
+    private static JSONObject readRows(JSONArray rows) {
         var read = new JSONObject();
-        for (Object raw : observation.getJSONArray("rows")) {
+        for (Object raw : rows) {
             JSONObject row = (JSONObject) raw;
             read.put(row.getString("field"), Double.parseDouble(row.getString("value")));
         }
@@ -135,18 +152,18 @@ final class RampMission {
                     task.put("reviewOffered", true);
                     return retain(stage(task, "interrupted", "experiment", "Input verified. Resume to start the world experiment."));
                 }
-                task.put("original", run(source, observed, id));
+                task.put("original", trial(task, source, observed, id));
                 RampProcedure.append(task, RampProcedure.Step.RUN, task.getJSONObject("original"));
                 stage(task, "running", "replay", "Native experiment retained. Replaying in a fresh world.");
             }
             case REPLAY -> {
-                task.put("replay", run(source, observed, id));
+                task.put("replay", trial(task, source, observed, id));
                 task.put("audit", audit(task));
                 RampProcedure.append(task, RampProcedure.Step.REPLAY, task.getJSONObject("replay"));
                 stage(task, "running", "report", "Native replay matched. Building the report.");
             }
             case REPORT -> {
-                JSONObject report = store.writeOnce(KIND + ":" + id, RampMissionReport.build(task, audit(task), inputs.originalCsv(source)));
+                JSONObject report = store.writeOnce(task.getString("procedure") + ":" + id, report(task, audit(task)));
                 var ref = new JSONObject().put("id", report.getString("id")).put("version", report.getInt("version"))
                         .put("sha256", Creation.digest(report.getJSONObject("contents")));
                 task.put("report", ref);
@@ -156,6 +173,24 @@ final class RampMission {
             default -> throw new IllegalStateException("Unknown ramp experiment stage");
         }
         return retain(task);
+    }
+
+    private static boolean comparing(JSONObject task) { return RampProcedure.COMPARE.equals(task.getString("procedure")); }
+
+    private JSONObject trial(JSONObject task, JSONObject source, JSONObject observed, String id) throws Exception {
+        JSONObject first = WorldFrames.copy(observed);
+        first.remove("secondValues");
+        if (!comparing(task)) return run(source, first, id);
+        return RampComparison.run(source, first, observed.getJSONObject("secondValues"), id, this::run);
+    }
+
+    private JSONObject report(JSONObject task, JSONObject audit) throws Exception {
+        String csv = inputs.originalCsv(task.getJSONObject("source"));
+        return comparing(task) ? RampComparison.report(task, audit, csv) : RampMissionReport.build(task, audit, csv);
+    }
+
+    private static JSONArray checks(JSONObject task) {
+        return comparing(task) ? RampComparison.checks(task) : RampMissionReport.checks(task);
     }
 
     private JSONObject run(JSONObject source, JSONObject data, String id) throws Exception {
@@ -200,7 +235,11 @@ final class RampMission {
     private static int ticks(double seconds) { return (int) Math.round(seconds / BulletRamp.DT); }
 
     static JSONObject audit(JSONObject task) {
-        JSONObject a = task.getJSONObject("original"), b = task.getJSONObject("replay"), source = task.getJSONObject("source");
+        if (comparing(task)) return RampComparison.audit(task);
+        return auditTrace(task, task.getJSONObject("original"), task.getJSONObject("replay"), task.getJSONObject("source"));
+    }
+
+    static JSONObject auditTrace(JSONObject task, JSONObject a, JSONObject b, JSONObject source) {
         String sourceHash = WorldFrames.hash(source);
         require(!a.getString("sessionId").equals(b.getString("sessionId")), "Replay needs a fresh native world");
         int last = ticks(source.getJSONObject("values").getDouble("seconds"));
@@ -273,7 +312,7 @@ final class RampMission {
                 task.getJSONObject("replay"), ref));
         if (task.has("canvasReceipt")) retained.add(task.getJSONObject("canvasReceipt"));
         RampProcedure.verify(task, retained);
-        JSONObject regenerated = RampMissionReport.build(task, computed, inputs.originalCsv(task.getJSONObject("source")));
+        JSONObject regenerated = report(task, computed);
         require(artifact.getInt("version") == ref.getInt("version")
                 && Creation.digest(artifact.getJSONObject("contents")).equals(ref.getString("sha256"))
                 && artifact.getJSONObject("contents").similar(regenerated.getJSONObject("files"))
@@ -286,7 +325,7 @@ final class RampMission {
         require(task.getString("status").equals("ready-report"), "The report is not ready");
         artifact(task, true);
         return new JSONObject().put("artifact", task.getJSONObject("report"))
-                .put("steps", RampMissionReport.checks(task));
+                .put("steps", checks(task));
     }
 
     synchronized JSONObject acceptReport(String id, JSONObject receipt) throws Exception {
@@ -304,7 +343,7 @@ final class RampMission {
     private JSONObject requireCanvas(JSONObject task, boolean currentSource) throws Exception {
         JSONObject report = artifact(task, currentSource);
         JSONObject test = report.optJSONObject("test");
-        require(RampMissionReport.verifiedReceipt(task.getJSONObject("report"), test, RampMissionReport.checks(task)),
+        require(RampMissionReport.verifiedReceipt(task.getJSONObject("report"), test, checks(task)),
                 "The saved report still needs its original canvas behaviour checks");
         return test;
     }
@@ -314,7 +353,7 @@ final class RampMission {
         require(task.getString("status").equals("completed"), "The ramp mission is incomplete");
         requireCanvas(task, false);
         require(RampMissionReport.verifiedReceipt(task.getJSONObject("report"), task.getJSONObject("canvasReceipt"),
-                RampMissionReport.checks(task)), "The original tested report receipt changed");
+                checks(task)), "The original tested report receipt changed");
         return view(task);
     }
 
@@ -333,12 +372,19 @@ final class RampMission {
     private static JSONObject view(JSONObject task) {
         JSONObject brief = WorldFrames.copy(task);
         for (String key : List.of("original", "replay", "canvasReceipt")) {
-            if (brief.optJSONObject(key) != null) brief.getJSONObject(key).remove("samples");
+            JSONObject evidence = brief.optJSONObject(key);
+            if (evidence == null) continue;
+            evidence.remove("samples");
+            for (String side : List.of("first", "second")) {
+                JSONObject trial = evidence.optJSONObject(side);
+                if (trial != null) trial.remove("samples");
+            }
         }
         return brief;
     }
 
     static String summary(JSONObject audit) {
+        if (RampProcedure.COMPARE.equals(audit.getString("kind"))) return RampComparison.summary(audit);
         return String.format(Locale.ROOT, "The block travelled %.3f m in %.2f s. Fresh native replay matched %d samples.",
                 audit.getDouble("distanceM"), audit.getDouble("seconds"), audit.getInt("sampleCount"));
     }

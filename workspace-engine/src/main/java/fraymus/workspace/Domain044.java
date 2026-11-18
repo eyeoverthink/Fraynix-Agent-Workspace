@@ -83,7 +83,12 @@ final class Domain044 {
   String request=g.getString("goal");
   if(!g.getString("family044").equals(RampMission.FAMILY)||!RampProcedure.intent(request).planned()||c.has("rampChoice"))
    throw new IllegalStateException("The model cannot schedule another ramp procedure");
-  c.put("rampChoice",RampProcedure.select(request,proposal));
+  var choice=RampProcedure.select(request,proposal);
+  if(RampProcedure.CLARIFY.equals(choice.getString("procedure"))){
+   c.put("rampQuestion",RampProcedure.question(RampProcedure.intent(request),g.getJSONObject("rampSource")));
+   return null;
+  }
+  c.put("rampChoice",choice);
   return bootRamp(g);
  }
  private JSONObject bootRamp(JSONObject g)throws Exception{

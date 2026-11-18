@@ -78,7 +78,7 @@
   <p>Save these values to a local browser page, then start the experiment from chat.</p>
   <form id="ramp-input-form">
     <div class="ramp-input-file">
-      <label>Import one local CSV <input id="ramp-csv" type="file" accept=".csv,text/csv"></label>
+      <label>Import CSV with one or two setups <input id="ramp-csv" type="file" accept=".csv,text/csv"></label>
       <small id="ramp-file-note">Required columns are angle_deg, friction, gravity_mps2, mass_kg and duration_s.</small>
       <button id="ramp-new-form" type="button" class="quiet" hidden>Start a new form input</button>
     </div>
@@ -89,6 +89,9 @@
       <label>Mass (kg)<input id="ramp-massKg" type="number" min=".1" max="100" step="any" required></label>
       <label>Duration (seconds)<input id="ramp-seconds" type="number" min=".25" max="2" step="any" required></label>
     </div>
+    <p id="ramp-second-facts" hidden></p>
+    <label class="ramp-pause">Report <select id="ramp-result"><option value="single">First setup</option>
+      <option value="compare" disabled>Compare both setups</option></select></label>
     <label class="ramp-pause"><input id="ramp-pause" type="checkbox">Pause after reading the table</label>
     <p id="ramp-input-error" role="status"></p>
     <label class="ramp-pause"><input id="ramp-plan" type="checkbox">Ask the selected local model to choose the procedure</label>

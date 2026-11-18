@@ -84,7 +84,7 @@ final class RampMissionReport {
                 .put("sources", refs);
     }
 
-    private static String points(JSONArray samples, double min, double span, int ticks) {
+    static String points(JSONArray samples, double min, double span, int ticks) {
         StringBuilder out = new StringBuilder();
         for (Object raw : samples) {
             JSONObject sample = (JSONObject) raw;
@@ -110,10 +110,10 @@ final class RampMissionReport {
         return checks;
     }
 
-    private static JSONObject text(String selector, String text) {
+    static JSONObject text(String selector, String text) {
         return new JSONObject().put("selector", selector).put("expectText", text);
     }
-    private static JSONObject count(String selector, int count) {
+    static JSONObject count(String selector, int count) {
         return new JSONObject().put("selector", selector).put("expectCount", count);
     }
 

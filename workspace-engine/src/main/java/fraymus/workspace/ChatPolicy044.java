@@ -88,6 +88,15 @@ final class ChatPolicy044 {
  }
  static String prompt(JSONObject g,List<String> allowed){var c=g.getJSONObject("context044");
   if(allowed.equals(List.of(RampProcedure.SELECT_TOOL))){
+   var intent=RampProcedure.intent(g.getString("goal"));
+   if(intent.flexible()){
+    int setups=g.getJSONObject("rampSource").has("secondValues")?2:1;
+    return "Call ramp_select once with one procedure. "+RampProcedure.ID+" measures ONLY the first setup's own trajectory. "+
+           RampProcedure.COMPARE+" compares BOTH setups' trajectories on the same clock and reports the difference. "+
+           "Choose clarify if the request is undecided, asks for something else, or comparison is requested with only one setup. "+
+           "Available setups: "+setups+". Choose by the requested result, not by the number of rows alone. "+
+           "User request: "+JSONObject.quote(intent.briefing());
+   }
    return "Call the registered ramp_select function once with the procedure argument set to "+RampProcedure.ID+
           ". Java preserves the requested pause and local source revision. Return one native function call.";
   }
