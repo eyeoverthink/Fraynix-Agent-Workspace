@@ -124,6 +124,7 @@ async function main() {
     await capture('relay-mission-resume.png');
     await page.locator('#mission044-resume').click();
 
+    await eventually(async () => (await parent(id)).resumes === 1);
     result.ridge = await completion(id);
     result.ridgeElapsedMs = Date.now() - began;
     const {audit, trials} = result.ridge.checked;
