@@ -22,7 +22,7 @@ async function main() {
 
   const result = {passed: false, source: build.source, checks: [], captures: [], errors: []};
   let app, page;
-  const api = (route, args = {}) => app.evaluate((_, req) => global.workspaceTest.api(req.route, req.args), {route, args});
+  const api = (route, args = {}) => app.evaluate((_, req) => global.workspaceTest.api(req.route, req.args ?? undefined), {route, args});
   const request = (operation, command, args) => page.evaluate(req => window.workspace.request(req), {operation, command, args});
   const parent = id => api('/api/agency043/read', {id});
   const child = id => api('/api/game-tasks115/read', {id});
@@ -46,7 +46,7 @@ async function main() {
     await app.evaluate(({BrowserWindow}) => {
       BrowserWindow.getAllWindows().find(window => window.isVisible()).setSize(1540, 1020);
     });
-    assert.deepEqual((await api('/api/state')).models, []);
+    assert.deepEqual((await api('/api/state', null)).models, []);
     const network = await app.evaluate(() => global.workspaceTest.network());
     assert.equal(network.enabled, true);
     result.network = network;
