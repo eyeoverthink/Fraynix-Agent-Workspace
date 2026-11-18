@@ -1,3 +1,7 @@
+## Edition 160 — published and fetched back
+
+2026-11-17. Release d4f730926e13f12bb7ea0a4d8870f6b8d0342794; main, edition160 and readme-160 pushed atomically and fetched. Full160 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_160.json. Experimental independent recorded motion checks shipped; defaults unchanged. User selected recorded tests; fresh physical validation remains a separate gate. The following local-study notes retain their original chronology.
+
 ## Edition 160 — locally verified; publication pending
 
 2026-11-17. Correct Java target: eyeoverthink/Fraynix-Agent-Workspace, J:/Codex-Work/fraynix-workspace-edition160. No subagents. One heavy check at a time. Recorded sources only; no webcam active. CI checked first; see publication receipt.

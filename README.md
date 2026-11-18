@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 160
 
+[Published and fetched receipt](docs/PUBLICATION_160.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-160)
+
 2026-11-17 · Independent recorded-motion checks · Local Java · Defaults preserved
 
 [Previous edition 159](README-159.md) · [Offline interactive guide](docs/readmes/160/index.html) · [All editions](docs/readmes/INDEX.md) · [Development plan](docs/publication160/plan160.md)
