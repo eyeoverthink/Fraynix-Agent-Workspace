@@ -1,3 +1,5 @@
+[Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
+
 [Edition 165 — verified reuse and architecture renewal](../../README-165.md) | [Offline guide](165/index.html)
 
 [Edition164 — physics history and report costs](../../README-164.md) | [Offline guide](164/index.html)

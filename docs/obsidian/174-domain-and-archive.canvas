@@ -1,0 +1,85 @@
+{
+  "nodes": [
+    {
+      "id": "routes",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SmallObjectRoutes.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "server",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "archive",
+      "type": "file",
+      "file": "scripts/history_archive.py",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "inventory",
+      "type": "file",
+      "file": "scripts/asset_inventory.py",
+      "x": 1290,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "rehearsal",
+      "type": "file",
+      "file": "docs/publication166/migration166.py",
+      "x": 1720,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "tasks",
+      "type": "file",
+      "file": "docs/publication166/study166.cjs",
+      "x": 2150,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "routes",
+      "toNode": "server"
+    },
+    {
+      "id": "1",
+      "fromNode": "server",
+      "toNode": "archive"
+    },
+    {
+      "id": "2",
+      "fromNode": "archive",
+      "toNode": "inventory"
+    },
+    {
+      "id": "3",
+      "fromNode": "inventory",
+      "toNode": "rehearsal"
+    },
+    {
+      "id": "4",
+      "fromNode": "rehearsal",
+      "toNode": "tasks"
+    }
+  ]
+}

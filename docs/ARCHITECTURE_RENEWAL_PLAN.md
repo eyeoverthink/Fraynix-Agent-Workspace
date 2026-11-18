@@ -1,3 +1,9 @@
+## Edition 166 progress — 2026-11-18 UTC
+
+Eighteen guarded routes now have one named owner; old evidence and saved results remain verifiable. The original tracked tree contains 17,965,515,667 bytes, including 17,889,852,146 in docs/readmes. The local candidate contains 97,166,929 tracked bytes including its compressed historical catalog. Its fresh local clone has 47,007,859 bytes of Git metadata/objects and took 16.06 seconds on this machine. 52,362 prior frozen files were verified; 69 edition164 originals were restored from the archive (78,221,935 original bytes).
+
+One domain is extracted; wider consolidation remains planned. The candidate retains uncleared content and original-Git dependencies. Next: replacements, another bounded archive batch with redundant storage, then a second guarded domain. [Evidence and scope](../README-166.md).
+
 # From accumulated experiments to a maintainable local agent
 
 2026-11-17 · Measured against published edition164 (`100518181`) · Implementation begins in edition165

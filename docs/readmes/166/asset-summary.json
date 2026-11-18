@@ -1,0 +1,37 @@
+{
+  "format": "fraynix.asset-inventory/v1",
+  "sourceCommit": "671a3605d7481e7e5994b75265bc7fab8ce70578",
+  "scope": "Tracked media, delivery resource roots, levels, model recipes, vendored binaries, notices and recorded imported source; historical snapshots excluded. Hash identity does not establish permissions.",
+  "supportingRecords": [
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "b9f73fbcd652e2337e3c15722aa80e8ba26e2bc6de8ae6a533d957cc90723585"
+    },
+    {
+      "path": "licenses/MarioYoutube-LICENSE.txt",
+      "sha256": "44de34c1f1af1423b15c11e5f79b34bffb7f0eccd18a68cb4a102a1b1820064d"
+    },
+    {
+      "path": "docs/mario-import-provenance.json",
+      "sha256": "752a966559efabe3b3e06bbd221b3cfe3c290ff33dbe0140fce94b2924fad262"
+    },
+    {
+      "path": "docs/provenance/IMPORT_MANIFEST.json",
+      "sha256": "2aee98c20c08f91daddb0c4457350b7274a53df3a7ec667a08ea129e5db5119e"
+    }
+  ],
+  "counts": {
+    "import-record-present-not-a-rights-grant": 252,
+    "game-content-rights-unresolved": 39,
+    "resource-or-code-review-required": 68,
+    "vendored-binary-review-required": 2,
+    "license-notice-document": 5
+  },
+  "releaseBlockers": [
+    "No application-wide project license has been selected.",
+    "Supplied Mario-style images, sound and levels lack established redistribution rights.",
+    "The imported MIT code notice is not clearance for third-party game artwork or music.",
+    "Review all dependencies and vendored binaries, including the unidentified jbox2d version.",
+    "A clean candidate still contains these inputs; it is not a rights-cleared public product."
+  ]
+}

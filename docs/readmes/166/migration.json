@@ -1,0 +1,41 @@
+{
+  "preparation": {
+    "passed": true,
+    "sourceCommit": "671a3605d7481e7e5994b75265bc7fab8ce70578",
+    "catalogSha256": "afd3218117d431c820de6a56b3bb039ab1be4f30bcbc005219a19ea745f4a78e",
+    "compressedCatalogSha256": "c6d1d9118bab71c57040c6b1e328f8fde0801a10b62ef176f41d7b3f09aa4ce2",
+    "verifiedFrozenFiles": 52362,
+    "trackedTreeBytes": 17965515667,
+    "snapshotTreeBytes": 17889852146,
+    "restoredFromGit": {
+      "passed": true,
+      "restored": 69,
+      "bytes": 78221935,
+      "provider": "original-git"
+    },
+    "restoredFromArchive": {
+      "passed": true,
+      "restored": 69,
+      "bytes": 78221935,
+      "provider": "verified-archive"
+    },
+    "seconds": 101.20126349991187,
+    "scope": "All old frozen hashes verified. One legacy edition archived and restored. Other history still depends on original Git; no deletion or remote rewrite."
+  },
+  "candidate": {
+    "passed": true,
+    "sourceCommit": "63769d3d5df8c616732227652f73c52d24977cfb",
+    "candidateCommit": "9fdd0f5f5a85f11c3dd8f8874321d3f57f71d6d7",
+    "trackedSourceFiles": 4802,
+    "treeBytes": 97166929,
+    "cloneGitBytes": 47007859,
+    "cloneSeconds": 16.0628484999761,
+    "totalSeconds": 403.48639740003273,
+    "longestRelativePath": 115,
+    "oneCommit": true,
+    "remoteConfigured": false,
+    "sourceHeadUnchanged": true,
+    "build": "Source isolation, installed Java engine and four boundary/ownership checks passed.",
+    "scope": "Local clone using installed JDK and dependency caches; not clean-machine installation. Uncleared assets retained. Historical media needs retrieval; catalog is not backup."
+  }
+}

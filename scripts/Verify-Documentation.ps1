@@ -10,7 +10,9 @@ function Canonical-Hash([string]$Path,[bool]$Binary = $false) {
     $stream = $null
     try {
         if($Binary){
-            $stream = [IO.File]::OpenRead($Path)
+            # Keep the same SHA-256 bytes and sharing rule; buffer the small hash
+            # reads so large retained archives do not become millions of OS reads.
+            $stream = [IO.FileStream]::new($Path,[IO.FileMode]::Open,[IO.FileAccess]::Read,[IO.FileShare]::Read,65536,[IO.FileOptions]::SequentialScan)
             $digest = $sha.ComputeHash($stream)
         }else{
             [byte[]]$bytes = [Text.Encoding]::UTF8.GetBytes([IO.File]::ReadAllText($Path).Replace("`r`n","`n"))

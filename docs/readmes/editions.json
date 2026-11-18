@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 165,
+  "latest": 166,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -263292,6 +263292,135 @@
           "path": "docs/readmes/165/workflow-cost-breakdown.png",
           "kind": "binary",
           "sha256": "d00caa3ad07cfbb8e0c553e416e87189ca4755e0310c99d31e267043b652f9c0"
+        }
+      ]
+    },
+    {
+      "number": 166,
+      "date": "2026-11-18",
+      "title": "Guarded domain extraction and archive rehearsal",
+      "status": "validated-local",
+      "markdown": "README-166.md",
+      "markdownSha256": "7bac6639414be11923767e201fbfb84bca3dc6c7c7faa41e43f757ec48614876",
+      "companion": "docs/readmes/166/index.html",
+      "tag": "readme-166",
+      "sourceBaseline": "63769d3d5df8c616732227652f73c52d24977cfb",
+      "snapshotDirectory": "docs/readmes/166",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/166/asset-summary.json",
+          "kind": "text",
+          "sha256": "c8fab8a94baf0524e4e6f9a44ae05787a1bb64aff2f4cfc4dedd01155cc5b9ea"
+        },
+        {
+          "path": "docs/readmes/166/attempts.json",
+          "kind": "text",
+          "sha256": "805da6056c185f5b2cc1c0a87c8bc62d162fff3bfd38302bc30cdf39638b5003"
+        },
+        {
+          "path": "docs/readmes/166/comparison.json",
+          "kind": "text",
+          "sha256": "2ae4895efb63f2b084d9e027a787ec0aa622330d220afc42a18feb4f79bdbfb0"
+        },
+        {
+          "path": "docs/readmes/166/compatibility.json",
+          "kind": "text",
+          "sha256": "55db7ef7ba64a1c3f51de50d06c94ca6b4ded44d023e9baeb8ab5299e788d8d6"
+        },
+        {
+          "path": "docs/readmes/166/documentation-io.json",
+          "kind": "text",
+          "sha256": "c5113923058021e5b6eb15123587c31bbab724372bbb8b4c43702d20cad4be6d"
+        },
+        {
+          "path": "docs/readmes/166/evidence-publication.json",
+          "kind": "text",
+          "sha256": "b25fe7cdb0da89d705a89ef3e277431214b19d2b8111f633b46b2af22e2e233c"
+        },
+        {
+          "path": "docs/readmes/166/file-inventory.json",
+          "kind": "text",
+          "sha256": "6efe640ca103a574039e96dafaa02efac062befdb69a94f94c31d6fc08caf5ac"
+        },
+        {
+          "path": "docs/readmes/166/fresh-data-summary.png",
+          "kind": "binary",
+          "sha256": "a61cd24fe0fb3a6da58ff266f2927d22282b6ff1fc31294826129c17e5eb42ac"
+        },
+        {
+          "path": "docs/readmes/166/guide.js",
+          "kind": "text",
+          "sha256": "d7855620070b753087a2e0927c784c371379839afe52370947a9c09a963c9605"
+        },
+        {
+          "path": "docs/readmes/166/guide166-1450-viewport.png",
+          "kind": "binary",
+          "sha256": "beaf5e3ed6a78fb3c261c154c08e39178857f6d32c0a38b52df4a78d89621cbc"
+        },
+        {
+          "path": "docs/readmes/166/guide166-1450.png",
+          "kind": "binary",
+          "sha256": "bed1892a98b25a961eb63512307723e36a813162d857989469320a810f7f7608"
+        },
+        {
+          "path": "docs/readmes/166/guide166-390-viewport.png",
+          "kind": "binary",
+          "sha256": "c1ca9433dc8973a95ffcedc8eb2c152403913f50accec821670e2f6d0fbf230c"
+        },
+        {
+          "path": "docs/readmes/166/guide166-390.png",
+          "kind": "binary",
+          "sha256": "ce818a10c038c5933e7ee05b21ebeaaa5f4aeba735ef353b16980474a4237ebf"
+        },
+        {
+          "path": "docs/readmes/166/history-eight-costs.png",
+          "kind": "binary",
+          "sha256": "91f7a1f115d17a82d2db9055b58d8faaf38efaa43ea397fe5925bf20f077704f"
+        },
+        {
+          "path": "docs/readmes/166/index.html",
+          "kind": "text",
+          "sha256": "7c75ec38b71d6c610dd4b6a946da904f2cc93ea5ae8a4db83a962f60659353d6"
+        },
+        {
+          "path": "docs/readmes/166/migration.json",
+          "kind": "text",
+          "sha256": "4d8f6f14e13913be2f968fcdfaf1ba3fd829fe4f3a02b0a620b9b0fecdf0f53b"
+        },
+        {
+          "path": "docs/readmes/166/native-identity.json",
+          "kind": "text",
+          "sha256": "93949eb55d27a5e51604bb491acd0e2ccc9627edef05e1c06c79c99f33f52a31"
+        },
+        {
+          "path": "docs/readmes/166/original-evidence.json",
+          "kind": "text",
+          "sha256": "8642be6d9e92241c5cf298c2011120131caa4142fb77aab66280eab7acedeec0"
+        },
+        {
+          "path": "docs/readmes/166/system-map.json",
+          "kind": "text",
+          "sha256": "f79ab58c301dc8242b43d6f040797404215d4054d9b96c2384b03578cb28856e"
+        },
+        {
+          "path": "docs/readmes/166/verification.json",
+          "kind": "text",
+          "sha256": "cfdbaf9a5984e89643ff316d11c62a823ef6259fbb97293610786d5c31804d90"
+        },
+        {
+          "path": "docs/readmes/166/visual-review166.json",
+          "kind": "text",
+          "sha256": "897082f61e0747ba6f4b23fe4c813e28782f7771b44ecb0ce21911dac87090af"
+        },
+        {
+          "path": "docs/readmes/166/visual166.json",
+          "kind": "text",
+          "sha256": "e4e9b9e6262b7048d3f318c91ee8013c5691136a78ba659788e8bec2b9867078"
+        },
+        {
+          "path": "docs/readmes/166/workflow-cost-breakdown.png",
+          "kind": "binary",
+          "sha256": "b702d9badc275da18075ab0da47c0af3b874ecb229e41ec6da6b93b5d884170d"
         }
       ]
     }

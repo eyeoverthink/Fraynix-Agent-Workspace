@@ -1,0 +1,128 @@
+{
+  "modules": [
+    {
+      "id": "routes",
+      "name": "Recorded-object domain",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SmallObjectRoutes.java",
+      "description": "Eighteen unchanged URLs delegate to original stores and workflows after shared admission."
+    },
+    {
+      "id": "server",
+      "name": "Shared admission boundary",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+      "description": "Authentication, body limits, host ownership and busy checks remain before domain dispatch."
+    },
+    {
+      "id": "archive",
+      "name": "Historical evidence retrieval",
+      "source": "scripts/history_archive.py",
+      "description": "Pinned Git objects or a verified archive restore exact originals into new paths. No fallback masks corruption."
+    },
+    {
+      "id": "inventory",
+      "name": "Asset provenance inventory",
+      "source": "scripts/asset_inventory.py",
+      "description": "Records actual hashes and supporting origin records; does not infer redistribution rights."
+    },
+    {
+      "id": "rehearsal",
+      "name": "Local clone rehearsal",
+      "source": "docs/publication166/migration166.py",
+      "description": "A small disposable source clone builds and tests; the original repository remains intact."
+    },
+    {
+      "id": "tasks",
+      "name": "Actual durable workflow checks",
+      "source": "docs/publication166/study166.cjs",
+      "description": "Eight motions, two fresh-data reports, two interruptions and four saved procedures; original verifiers remain authoritative."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/166/fresh-data-summary.png",
+      "title": "2026-11-18 · actual app · fresh-data-summary.png"
+    },
+    {
+      "path": "docs/readmes/166/history-eight-costs.png",
+      "title": "2026-11-18 · actual app · history-eight-costs.png"
+    },
+    {
+      "path": "docs/readmes/166/workflow-cost-breakdown.png",
+      "title": "2026-11-18 · actual app · workflow-cost-breakdown.png"
+    }
+  ],
+  "comparison": [
+    {
+      "name": "motion-1-camera-end",
+      "kind": "motion",
+      "passed": true,
+      "sha256": "ef55ac39871c2212a4d2a8273f61752bd0f16851685368ed266fb79a40d7b021",
+      "totalMs": 13822.6204
+    },
+    {
+      "name": "motion-2-generated-short-start",
+      "kind": "motion",
+      "passed": true,
+      "sha256": "3ba1f9127fa2cc7a96d030663c2b2d65323d5094627a7a0c206410218a6d03f4",
+      "totalMs": 12421.535500000002
+    },
+    {
+      "name": "summary-validation",
+      "kind": "summary",
+      "passed": true,
+      "sha256": "c403e78c6c650904503a8848590b6b8799016d5f8760bc8e84bfacfde7d11b24",
+      "totalMs": 8245.159599999999
+    },
+    {
+      "name": "motion-3-generated-reverse-start",
+      "kind": "motion",
+      "passed": true,
+      "sha256": "ed0e00c14589904d80ddc89d72be3ec957abf878e01b17c4ca235e76eec0c5b2",
+      "totalMs": 13674.2425
+    },
+    {
+      "name": "motion-4-camera-start",
+      "kind": "motion",
+      "passed": true,
+      "sha256": "6945ae4817e1fea9d95bea102a5d4b49ee9f4fad4adb16afbf863551ad6689dd",
+      "totalMs": 25187.057499999995
+    },
+    {
+      "name": "motion-5-camera-end",
+      "kind": "motion",
+      "passed": true,
+      "sha256": "47ef2a67b2ead7de4dc5902bd32dbc649522fc672a10c852698a9534cb9e4d4b",
+      "totalMs": 16874.281199999998
+    },
+    {
+      "name": "motion-6-generated-short-start",
+      "kind": "motion",
+      "passed": true,
+      "sha256": "a99dbe12b8ec536455f638bf1237ba9ba779c0216700d4ada4c63ea5dcc7c938",
+      "totalMs": 17529.54400000001
+    },
+    {
+      "name": "summary-training",
+      "kind": "summary",
+      "passed": true,
+      "sha256": "ae8d002378f766ffaffb9ac4d5161cc0f848ebcc8732ffc60a118a2fa93da148",
+      "totalMs": 11602.957999999999
+    },
+    {
+      "name": "motion-7-generated-reverse-start",
+      "kind": "motion",
+      "passed": true,
+      "sha256": "7f352fe337ba81a6fabbf2087f6ddabce347ee337350e38cdb34d9e3f7e8f450",
+      "totalMs": 25773.5705
+    },
+    {
+      "name": "motion-8-camera-start",
+      "kind": "motion",
+      "passed": true,
+      "sha256": "3c7d9dc0b6989a2824c5eb756474edc736824f0bd82f175dd83910eba9844226",
+      "totalMs": 24219.93360000002
+    }
+  ],
+  "finding": "Eighteen guarded routes now have one named owner; old evidence and saved results remain verifiable. The original tracked tree contains 17,965,515,667 bytes, including 17,889,852,146 in docs/readmes. The local candidate contains 97,166,929 tracked bytes including its compressed historical catalog. Its fresh local clone has 47,007,859 bytes of Git metadata/objects and took 16.06 seconds on this machine. 52,362 prior frozen files were verified; 69 edition 164 originals were restored from the archive (78,221,935 original bytes).",
+  "validation": "95 selected Java tests, 181 desktop tests and nine archive tests passed. Three actual Chromium midpoint/pose checks passed. Four direct boundary/ownership tests also passed in the small candidate clone. Ten completed edition 165 workflows were reverified; ten new edition 166 workflows completed with eight accepted native revisions, two process interruptions and four saved procedure versions. All ten fresh source/numerical/report comparisons match edition 165 exactly."
+}

@@ -1,142 +1,86 @@
-# Fraynix Agent Workspace — edition 165
+# Fraynix Agent Workspace — edition 166
 
-[Published and fetched receipt](docs/PUBLICATION_165.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-165)
+**2026-11-18 UTC · Consolidating the integrated Java agent without losing its evidence.**
 
-2026-11-17 · Verified computation reuse · Complete workflow costs · Architecture renewal
+[Previous edition](README-165.md) · [Edition history](docs/readmes/INDEX.md) · [Offline interactive guide](docs/readmes/166/index.html) · [Architecture renewal](docs/ARCHITECTURE_RENEWAL_PLAN.md) · [Contributor continuity](README-CONTRIBUTORS.md)
 
-[Previous edition 164](README-164.md) · [Offline guide](docs/readmes/165/index.html) · [All editions](docs/readmes/INDEX.md) · [Acceptance plan](docs/publication165/plan165.md) · [Renewal roadmap](docs/ARCHITECTURE_RENEWAL_PLAN.md)
+The application connects observations, a persistent simulated world, durable chat requests, browser/canvas tools and checked artifacts. Java owns state and execution; the presentation host supplies rendering and interaction. A successful task must pass its original source and outcome checks. A model's answer is not proof that an action succeeded.
 
-Edition 165 reuses completed source/history computation behind fresh evidence checks. In two alternating local pairs it used 15.9% less time than the new full-computation control. Against two untouched published164 sessions, it used 2.5% less time on average. All 60 final workflows retained exact source, numerical and actual-report outcomes. New raw evidence is published outside Git with verified retrieval; architecture renewal is documented as explicit subsequent phases.
+This edition starts the consolidation promised in165. Eighteen existing recorded-object and small-world routes now live in **SmallObjectRoutes**, a capability-named handler with an explicit route table. The server still applies authentication, method/body limits, host admission and busy guards before delegation. Saved parent workflows retain ownership of their children. URLs and controller/tracker defaults are unchanged. This is one tested domain extraction, not a claim that the whole server or workflow runner has been decomposed.
 
-![Actual application showing checked reuse and workflow costs](docs/readmes/165/workflow-cost-breakdown.png)
+## What was verified
 
-The capture comes from the tested application. Its reuse counters describe the current process, so restarts reset them. The existing generic timeline notice about a missing linked game world is separate from the selected and verified recorded-action world; that presentation issue remains.
+95 selected Java tests, 181 desktop tests and nine archive tests passed. Three actual Chromium midpoint/pose checks passed. Four direct boundary/ownership tests also passed in the small candidate clone. Ten completed edition 165 workflows were reverified; ten new edition 166 workflows completed with eight accepted native revisions, two process interruptions and four saved procedure versions. All ten fresh source/numerical/report comparisons match edition 165 exactly.
 
-## What this application is becoming
+The fresh application session mixed eight simulated object actions with two fresh-data report workflows. Two Java interruptions resumed the same parent tasks; four procedure versions were saved. Exact numerical, uncertainty, source and actual-report contents match edition165 after only fresh identifiers are normalized. A same-size report edit with a restored timestamp is rejected. Restoring its original bytes permits verification again.
 
-Fraynix connects observations, simulated worlds, data, browser checks and creation through durable Java tasks. The useful unit is a completed, checked task: bind an input, choose a registered procedure, perform actions, inspect the actual result, recover after interruption and retain a verified procedure. The engine owns state and acceptance; the desktop presents the working surfaces together.
+Ten completed edition 165 workflows were also opened and reverified on a separate project copy. No new native child was added and the eight-revision world stayed unchanged. Original private projects were checked for byte changes. The unchanged native/controller/report and recorded-parent class identities are retained in the evidence. This is a functional compatibility check, not a performance study or new physical validation. No LLM inference was used in these deterministic, explicitly bound requests.
 
-That remains the destination. A growing list of editions is a publication history, not a good permanent module boundary. Edition 165 starts separating those responsibilities by adding capability-named Java components and changing how new evidence is published. It also measures whether removing repeated work helps complete tasks, including interruptions, report creation and skill saving.
+![Actual edition166 application — eight accepted revisions and original history checks](docs/readmes/166/history-eight-costs.png)
 
-The current review found **272 numbered Java source files among 384 engine Java files**. That count does not establish that every class is simultaneously live. Some lines exceed 8,000 characters, including generated report content; GoalRunner contains a 3,807-character line. The tracked tree contains about **17.96 GB**, with **17.89 GB in docs/readmes** and 46,064 gzip files. These are tracked-content sizes, not the compressed Git database or installer size. The longest relative evidence path is 173 characters; an ordinary Windows checkout prefix can exceed legacy path limits. There is no root project license file.
+![Actual edition166 application — fresh input, generated report and checked result](docs/readmes/166/fresh-data-summary.png)
 
-The review also found existing foundations worth preserving: `Agency043.Planner`, a typed schema validator, a catalog of **110 tools**, durable child ownership and independent outcome checks. We should consolidate and expose those foundations rather than build duplicate orchestration. See the [measured inventory](docs/readmes/165/review-inventory.json) and [full phased plan](docs/ARCHITECTURE_RENEWAL_PLAN.md).
+Screenshots show the actual Java/Electron application on 2026-11-18, with historical/generated inputs identified in the receipts. They contain no private webcam frames. The layout still has expert panels and historical labels; broader product simplification remains planned.
 
-## What changed in this edition
+## Attempt history
 
-**VerifiedComputationCache** retains up to four completed results per cache, each at most 2 MB serialized. Every access calculates a fresh evidence fingerprint before and after. A matching entry avoids repeating the completed computation. A changed fingerprint triggers the original computation; missing, linked, corrupt or changing evidence refuses the request and clears reuse. Returned results are isolated JSON values. There is no timestamp or age-based shortcut, and the cache disappears on restart.
+The first saved-workflow compatibility attempt stopped after the original verifier passed its first parent: JavaScript deep comparison distinguished returned -0 from 0 in the retained JSON receipt. The harness now compares both in the receipt's JSON representation, where serialization canonicalizes -0 to 0. The failed result, log, earlier harness and preliminary locks are retained in the external evidence. A subsequent lock-only correction excludes the lock document from its own hash inventory. The first fresh application session passed all ten tasks. The initial historical audit was then stopped because Git mapped about 14.6 GB into its working set. Git object windows are now explicitly capped at 128 MiB, 16 MiB per window, with 32 MiB delta cache. The same full audit was restarted, archive tests repeated, and a second full app session run under a new lock. Both earlier fresh sessions passed. The first small clone built successfully, but an independent exact-source check found 311 originally tracked log files omitted by ordinary git add and current ignore rules. The export now force-adds only the explicit tracked inventory inside its new disposable directory. The first clone and refusal are retained; a new clone is built and every selected source blob compared. The final app session is repeated under the corrected tool lock; reported final comparison uses on-c. The final saved-workflow check passes all ten parents. No source, outcome or acceptance tolerance was relaxed.
 
-**EvidenceFingerprint** reads original bytes and implementation containers. It checks ordinary, unlinked paths and bounded file reads. It includes the Java runtime identity. In this workflow, the witness covers the source state, calibration reference and actual code for metadata reuse; accepted-history reuse covers persisted and in-memory state, every referenced actual report and native implementation containers. The existing per-frame checks and full recording fingerprints remain separate checks.
+The initial full documentation audit was stopped after reading8.62GB through about2.13million small reads. The binary SHA-256 path now uses a64KiB sequential file buffer, retaining the same bytes, hash algorithm, text canonicalization and sharing rule. Four alternating hashes match an existing published binary; a changed copy is refused and its original remains unchanged. These short local timings are affected by caching and do not establish a general speed improvement. The complete documentation check is rerun with every frozen source and link check preserved. This maintenance-tool change does not affect the app runtime or its locked workflow trials.
 
-**VerifiedHistory** wraps the original complete accepted-history verifier. On a miss it also confirms that persisted and in-memory state agree. On a hit it still reads every current witness. The original native execution, acknowledgement, outcome verification and world acceptance remain independent calls. New actions never inherit a previous action's outcome.
+## Reversible archive rehearsal
 
-The five native/controller/store/report/verifier classes have unchanged source and byte-identical compiled classes against published edition 164. The recorded parent has a new implementation identity; older proofs are not relabelled. See [native identities](docs/readmes/165/native-identity.json).
+The original tracked tree contains 17,965,515,667 bytes, including 17,889,852,146 in docs/readmes. The local candidate contains 97,166,929 tracked bytes including its compressed historical catalog. Its fresh local clone has 47,007,859 bytes of Git metadata/objects and took 16.06 seconds on this machine. 52,362 prior frozen files were verified; 69 edition 164 originals were restored from the archive (78,221,935 original bytes).
 
-The UI shows checked source/history reuses and original computations. The normal cost heading no longer carries an edition suffix. Windows CI enables long paths before checkout. Neither change substitutes for the larger consolidation or archive migration.
+Every frozen 001–165 README and snapshot identity was checked against the immutable original Git commit. The catalog records both original byte hashes and the existing text/binary canonical hashes. Edition164 was packed, restored through the archive provider, and compared byte for byte to its Git blobs. Corrupt/missing archives cannot silently fall back to Git. Restore paths must be new and cannot escape their destination.
 
-## Complete workflows, not a cache-only benchmark
+The candidate is a **local rehearsal**, not the published repository and not a backup. It has one new local commit, no remote, and retains current165 guide assets. Earlier historical images need retrieval. Older evidence still depends on the original repository until explicitly archived. Its Java engine builds and its four boundary/ownership tests pass using this machine's installed JDK and dependency caches. This is not a clean-machine installer test. Main's existing history, snapshots and private projects were not deleted or rewritten.
 
-The fixed itinerary preserves one world through eight accepted simulated actions. It alternates a historical camera sequence with two explicitly generated recordings, interleaves the two original Delfys data files, saves four motion-procedure versions and interrupts Java before two actions. Recovery must find the same parent and child. Every data report calculates from its fresh input and is inspected in four actual browser states.
-
-Four edition 165 sessions compare reuse enabled and disabled in alternating order: on-a, off-a, off-b, on-b. Both modes run the new fresh witnesses and the same original checks. Two additional untouched edition 164 sessions bracket them. Each session uses two Java processors and a 768 MiB heap. All six use the same inputs and ten-task itinerary.
-
-Task totals include preparation, execution, requested skill saving and an additional archive verification. Interrupted tasks include restart. Read-only depth-2/4/6/8 history probes are extra work outside task totals. Whole-session totals include probes, diagnostics, startup and navigation. Cold verification is measured separately. Inclusive diagnostic spans overlap and must not be added across Java and browser clocks.
-
-| Pair | Reuse, ten tasks s | Full computation s | Time saved % |
-| --- | ---: | ---: | ---: |
-| a | 169.76 | 203.56 | +16.61 |
-| b | 169.56 | 199.98 | +15.21 |
-
-
-Against untouched published164, mean complete task time was **174.02s** per ten-task session; edition165 reuse averaged **169.66s**, or **2.5% less time**. The two same-build pairs averaged **15.9% less time**. All individual measurements are retained.
-
-| Run | Complete tasks s | Whole session s | Cold verification s |
-| --- | ---: | ---: | ---: |
-| published164 on-e | 171.92 | 193.47 | 25.72 |
-| published164 on-d | 176.12 | 198.62 | 25.51 |
-| edition165 on-a | 169.76 | 193.48 | 24.42 |
-| edition165 off-a | 203.56 | 225.23 | 28.59 |
-| edition165 off-b | 199.98 | 222.08 | 27.63 |
-| edition165 on-b | 169.56 | 191.85 | 25.83 |
-
-Timing categories below are inclusive and overlap. They explain where the implementation spends time; they do not form an additive partition of task cost.
-
-| Mode | Source checks s | History checks s | Outcome checks s |
-| --- | ---: | ---: | ---: |
-| on | 86.447 | 19.606 | 36.578 |
-| off | 134.657 | 35.239 | 36.227 |
-
-The full-computation control includes the newly added witnesses. Savings against that control alone would not establish an improvement over the old app. The separate published-build comparison is therefore reported directly. Repeated source episodes, only two pairs and a single machine limit generalization. Cold processes intentionally rebuild computation; the cache is not a durable proof store.
-
-
-The old-build category comparison shows a tradeoff: across the two ten-task sessions, source-check spans fell from **97.005s to 86.447s**, while accepted-history spans rose from **16.244s to 19.606s**. Fresh history witnesses cost more than the computation they save at these history sizes. That cost is included in the modest 2.5% complete-task improvement; this release does not make every component faster. These inclusive spans overlap. The [baseline category receipt](docs/readmes/165/baseline-diagnostics.json) is derived directly from the downloaded original archive.
-
-These are repeated, exposed local measurements, not a population latency guarantee. One historical camera episode remains one episode; generated sequences and repeated tasks do not become new physical observations. The untouched old build is the practical release comparison. The same-build full-computation mode isolates reuse under the new witnesses but is not the previously shipped app.
-
-The exact comparison retains source coordinates and uncertainty, plans, full native traces, outcomes and actual report observations. Only fresh scene/object/job identifiers and their scene hash are normalized. Data comparisons retain exact CSV inputs, mappings, calculated metrics, observed cells, summaries, SVG points and generated HTML/JavaScript. See [complete costs and exact checks](docs/readmes/165/comparison-evidence.json).
-
-## Validation and retained failures
-
-91 selected Java checks, 181 desktop checks and four archive-boundary tests passed. Three actual Chromium halfway labels and exact poses passed. Six final Java/Electron sessions completed 60 durable chat workflows: 48 simulated motions and 12 fresh data reports, with 12 abrupt interruptions and 24 saved motion-procedure versions. Exact source, numerical and actual-report outcomes match across all sessions. Original native class identities, tracker/controller defaults and acceptance tolerances remain unchanged. No model inference or new physical observation is claimed.
-
-The first sparse published164 baseline attempt (on-c) completed two native workflows and then stopped because the original Delfys validation CSV was missing from that checkout. Both original CSV blobs were restored from published164; the old implementation and installed binaries remained unchanged. The failed result and log, preliminary lock and corrected pretrial lock are retained. Final baseline runs on-e and on-d bracket the four candidate sessions. All six final sessions passed on their first attempts under the corrected lock; no unsuccessful final trial was discarded or relabelled. The 12 focused Java checks passed, followed by the 91-case selected regression pass, 181 desktop checks and actual rendering checks. No acceptance threshold was relaxed.
-
-Publication also retained a recoverable download error: the successfully uploaded draft asset initially supplied a temporary URL that returned 404 after publication. Re-reading the same published asset supplied its final URL; a fresh download then passed every archive and original-member hash. The [publication receipt](docs/readmes/165/evidence-publication.json) records that recovery. No archive bytes were replaced.
-
-Cache tests include cold and disabled behavior, eviction, result isolation, changes between witnesses, same-size/timestamp corruption, changed implementation inventory, original exception propagation, forged native traces and altered actual reports. Archive tests cover exact restoration, deduplication, corrupted archives, forged catalogs, unexpected members, duplicate names and private-image rejection.
-
-Every final app session also changes one actual report without changing its size and restores its timestamp. Both archive verification and the independent history probe must refuse it. Exact restoration must verify again. A cold launch must reverify all ten completed parents without adding a native action. The 198 original fixture files remain unchanged.
-
-![Fresh data summary in the actual app](docs/readmes/165/fresh-data-summary.png)
-
-![Eight accepted revisions and independent history costs](docs/readmes/165/history-eight-costs.png)
-
-## Smaller new publications, retrievable originals
-
-New raw evidence is in one [GitHub release archive](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/releases/tag/evidence-165). Git contains its [manifest and hashes](docs/readmes/165/original-evidence.json), small results, source inventory, screenshots and guides. Identical raw files share one content-addressed member. The actual published asset was downloaded and every member verified before release completion.
-
-The manifest binds the archive hash, size, URL and every original logical filename, byte count and SHA-256. The archive also carries its own matching catalog. Hashes do not replace the original bytes: retain downloaded archives or a second backup when long-term replay matters. A release asset can become unavailable; verification then fails rather than inventing evidence.
-
-From the repository root, download into a new local filename:
+Original logs, catalog, inventory, legacy archive and workflow receipts are available in the [hash-verified evidence archive](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/releases/download/evidence-166/evidence166.zip). [Retrieval manifest](docs/readmes/166/original-evidence.json) · [Publication/download receipt](docs/readmes/166/evidence-publication.json).
 
 ```powershell
-python scripts/evidence_archive.py download --manifest docs/readmes/165/original-evidence.json --archive build/evidence165-downloaded.zip
-python scripts/evidence_archive.py verify --manifest docs/readmes/165/original-evidence.json --archive build/evidence165-downloaded.zip
+python scripts/evidence_archive.py download --manifest docs/readmes/166/original-evidence.json --archive evidence166-local.zip
 ```
 
-The original archive includes failed attempts, raw final results, test reports, logs, method locks, build receipts, CI observations and the unmodified baseline identity. Private camera pixels, model weights, credentials and personal live projects are excluded. Public receipts can be checked as files; rerunning the private-camera reconstruction also requires the original private project. This is the first external-evidence publication; it does **not** remove the existing 17.89 GB archive or rewrite Git history. A clean small clone is a later migration milestone, not a claim of this release.
+Choose a new download path. The manifest checks the archive and every original member. The enclosed legacy164 archive has its own manifest. `scripts/history_archive.py --help` documents restoring selected catalog paths from that verified archive or the retained original repository. The catalog's expected digest is in [migration results](docs/readmes/166/migration.json). Neither a catalog nor a hash recreates missing bytes.
 
-## Run and inspect
+## Asset inventory and shipping limits
 
-Use JDK 21 and the repository's Gradle wrapper. Existing desktop dependencies are declared in `workspace-desktop/package.json`.
+The reproducible inventory covers 366 tracked delivery/media and imported-source files. 39 game-content files are explicitly marked rights-unresolved. Other entries require their own provenance review; they are not automatically marked cleared.
 
-The retained history is still large. For a current Git for Windows checkout, use `git -c core.longpaths=true clone https://github.com/eyeoverthink/Fraynix-Agent-Workspace.git`. CI now sets that option before checkout. A small, ordinary fresh clone remains an acceptance gate for the later migration, not a completed edition165 result.
+The inventory includes tracked media, delivery resources, levels, license notices, model recipes, vendored binaries and imported source records. Historical snapshot payloads are counted separately. Exact imported-file matches are distinguished from adapted bytes. A matching hash establishes identity, not redistribution permission.
 
-```powershell
-.\gradlew.bat :workspace-engine:installDist
-cd workspace-desktop
-npm ci
-npm start
+The imported engine has an MIT code notice. The supplied Mario-style images, audio and levels do not have established redistribution rights in the available notices. No application-wide license has been selected. Vendored dependencies still need a complete review, including the unidentified jbox2d version. **The small candidate is not a rights-cleared distribution.** Nothing in this edition grants rights to those assets or removes them from the user's private work.
+
+The actual screenshots retain a known presentation issue: the generic timeline can show a request to choose a persistent/linked-game world while a recorded small-world task has already verified successfully. Expert cost-table headings are also cramped. These issues are visible, not cropped away, and remain for the interface consolidation pass.
+
+## How the boundary works
+
+```mermaid
+flowchart LR
+  UI[Chat / workspace] --> HTTP[Shared authentication and admission]
+  HTTP --> Routes[SmallObjectRoutes]
+  Routes --> Parent[Existing durable workflow]
+  Parent --> Child[Owned native action]
+  Child --> Check[Original source and outcome checks]
+  Check --> World[Accepted world revision and procedure]
+  History[Original evidence bytes] --> Check
 ```
 
-Use a separate project for experiments. In Spatial, create or select a compatible single-object world, open measured alignment and the recorded-object controls, choose an existing recording and independently labelled endpoint, then prepare and send the chat request. The Java workflow verifies the recorded source, performs the bounded simulated move and checks the report. Add “review before action” to exercise interruption and resumption.
+The extraction moves routing, not authority. Unknown operations refuse. Stale revisions refuse. A direct child resume/stop/cancel/acknowledge cannot bypass its parent. The original simulation, report reconstruction and physical uncertainty are unchanged. No new numbered runtime family was added.
 
-Show workflow costs displays current-process counts and timings. Measure history & reports repeats the original checks independently and does not change accepted state. Reconstruct full recording remains available. For a controlled full-computation comparison, launch with `FRAYNIX_WORKSPACE_EVIDENCE_REUSE=off`; that disables only these new caches, not verification. The existing tracker/controller defaults, action limits and original reconstruction options remain intact.
+## Running and inspecting it
 
-These tasks use a plane-projected recorded point and an authored upright box. They do not measure mass, height, depth contact or hardware motion. Conditional geometric allowances are not calibrated confidence probabilities. Physical accuracy remains a separate unresolved validation task. This edition makes no model inference, weight training or autonomous self-improvement claim.
+Use JDK21 and the repository's Gradle wrapper. Build the Java workspace with `gradlew.bat :workspace-engine:installDist`; install the desktop's locked dependencies with `npm ci` in `workspace-desktop`, then run `npm start` there. Keep private project locations separate from test copies. The long-history checkout still needs Windows Git long-path support. The rehearsal does not make the main repository small yet.
 
-## Renewal phases and next acceptance gates
+[Validation receipt](docs/readmes/166/verification.json) · [Exact workflow comparison](docs/readmes/166/comparison.json) · [Asset summary](docs/readmes/166/asset-summary.json) · [Method lock](docs/DOMAIN_EXTRACTION_166_LOCK.json) · [Source inventory](docs/readmes/166/file-inventory.json) · [Continuity map](docs/obsidian/174-domain-and-archive.canvas)
 
-1. **Publication and distribution:** audit asset provenance, replace restricted game content with original or CC0 material, choose a project license with the owner, migrate old evidence with verified retrieval, and rehearse a clean-history cutover in a separate repository. Keep an immutable old snapshot and commit map. No force-push is part of edition 165.
-2. **Readable capability modules:** establish a behavior-preserving formatting comparison, inventory active versus replay-only implementations, extract domain handlers and a durable-task kernel, and make policy versions explicit data. Formatting can change debug metadata and identity hashes; bytecode equivalence must be measured, not assumed.
-3. **Constrained planning and distribution:** connect the existing planner interface and typed tool catalog to registered procedures, then implement and test an MCP adapter. A model chooses; original verifiers decide. Keep Ollama as the default and add optional providers only through explicit configuration and measured task tests.
-4. **Useful learning:** export verified task/plan/result triples with source and policy identities. Compare candidate planners or skills on held-out tasks, including refusals and recovery, before promotion. A successful log entry alone is not a trained model.
-5. **Product surface:** guided first run, a coherent Chat/Mission/Evidence flow with expert controls, and a signed Windows installer once signing and asset/license requirements are resolved.
+## Next complete slices
 
-**Next implementation:** audit the distributable assets and rehearse an evidence migration in a disposable clone, then extract one route domain with direct compatibility and recovery tests. Keep remaining witness costs visible while consolidating the engine; do not turn every small timing experiment into another permanent subsystem. The [renewal roadmap](docs/ARCHITECTURE_RENEWAL_PLAN.md) gives concrete acceptance gates and preserves the current app throughout.
+1. Build original replacement assets and an original playable level; verify runtime behavior, then select project licensing with the owner after the dependency inventory. Keep the originals available privately.
+2. Migrate another bounded group of historical evidence, verify download and restoration, and establish a second durable copy. Test missing-provider behavior before any separate clean-repository cutover. No destructive history rewrite is implied.
+3. Extract the next domain behind the same shared guards. Introduce a capability registry with active/replay-only states and prove old tasks still recover. Retire superseded selection paths one at a time.
+4. Consolidate procedure execution into a durable task kernel, then expose the same typed capabilities to external clients. Model planning may choose registered actions; verifiers remain the authority.
+5. Simplify everyday presentation to Chat, Mission timeline and Evidence. Keep expert controls available, and test a genuinely fresh installation before claiming a shippable installer.
 
-## Source and continuity
-
-[Source inventory](docs/readmes/165/file-inventory.json) · [Method lock](docs/EVIDENCE_REUSE_165_LOCK.json) · [Verification](docs/readmes/165/verification.json) · [Obsidian map](docs/obsidian/173-verified-evidence-reuse.canvas) · [Project memory](docs/PROJECT_MEMORY.md) · [Development log](docs/DEVELOPMENT_LOG.md)
-
-The Java target remains `eyeoverthink/Fraynix-Agent-Workspace`. The separate Chandra publication instructions do not relocate this application. Published editions 001–164 and private runtime data remain intact. Edition numbers remain useful evidence labels; the new runtime components deliberately use capability names.
+The destination remains one local integrated agent that observes, proposes, acts and checks consequences in a persistent world. This phase improves its maintainability and distribution path. It does not claim general intelligence, a new trained model, improved physical accuracy, full architecture consolidation, an MCP service or a signed installer. CI was checked first and again before publication: run44249541375 is in_progress / no final conclusion. Local validation and hosted CI status are reported separately.
