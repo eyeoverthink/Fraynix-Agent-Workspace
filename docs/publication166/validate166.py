@@ -12,4 +12,3 @@ for p in (r/'workspace-engine/build/test-results/test').glob('*.xml'):
 run(['node','docs/publication163/render163.cjs'],'render166.log');print('Actual halfway rendering passed',flush=True)
 run(['npm.cmd','test'],'desktop166-final.log',r/'workspace-desktop');print('Desktop passed',flush=True)
 run([str(r/'gradlew.bat'),'--no-daemon','--max-workers=1',':workspace-engine:installDist'],'install166.log');print('Installed',flush=True)
-
