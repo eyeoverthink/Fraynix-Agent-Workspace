@@ -74,19 +74,23 @@ final class RampProcedure {
 
     static JSONObject admit(String request, JSONObject proposal) {
         Intent intent = intent(request);
-        ToolSchema043.validate(selectionTool().getJSONObject("function").getJSONObject("parameters"), proposal);
-        if (proposal.getBoolean("pauseAfterReading") != intent.pause()) {
+        SpatialScene.keys(proposal, "procedure", "pauseAfterReading");
+        if (!ID.equals(proposal.getString("procedure"))) throw new IllegalArgumentException("Unknown local experiment procedure");
+        if (!(proposal.opt("pauseAfterReading") instanceof Boolean pause) || pause != intent.pause()) {
             throw new IllegalArgumentException("The procedure must preserve your requested pause after reading");
         }
         return intent.directChoice();
     }
 
+    static JSONObject select(String request, JSONObject proposal) {
+        ToolSchema043.validate(selectionTool().getJSONObject("function").getJSONObject("parameters"), proposal);
+        return admit(request, intent(request).directChoice());
+    }
+
     static JSONObject selectionTool() {
-        var properties = new JSONObject()
-                .put("procedure", new JSONObject().put("type", "string").put("enum", List.of(ID)))
-                .put("pauseAfterReading", new JSONObject().put("type", "boolean"));
+        var properties = new JSONObject().put("procedure", new JSONObject().put("type", "string").put("enum", List.of(ID)));
         var schema = new JSONObject().put("type", "object").put("properties", properties)
-                .put("additionalProperties", false).put("required", List.of("procedure", "pauseAfterReading"));
+                .put("additionalProperties", false).put("required", List.of("procedure"));
         var function = new JSONObject().put("name", SELECT_TOOL.replace('.', '_')).put("parameters", schema)
                 .put("description", "Select the registered local ramp experiment. Java binds its existing input revision and verifies every stage.");
         return new JSONObject().put("type", "function").put("function", function);
@@ -97,6 +101,7 @@ final class RampProcedure {
         for (Step step : Step.values()) stages.put(step.describe());
         return new JSONObject().put("id", ID).put("version", 1).put("stages", stages)
                 .put("inputs", List.of(Format.FORM.id, Format.CSV.id))
+                .put("modelSelection", selectionTool().getJSONObject("function"))
                 .put("limits", new JSONObject().put("secondsMin", MIN_SECONDS).put("secondsMax", MAX_SECONDS)
                         .put("tickHz", (int) (1 / BulletRamp.DT)).put("sampleTicks", SAMPLE_TICKS)
                         .put("replayTolerance", REPLAY_TOLERANCE));
