@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix · Offline playtest</title>
+<style>
+:root{color-scheme:dark;--paper:#0f1b24;--panel:#172832;--ink:#edf4f2;--rule:#40616a;--mint:#96eacc}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui}
+main{max-width:1120px;margin:auto;padding:clamp(16px,4vw,48px)}h1{font-size:clamp(2rem,6vw,4.3rem);line-height:1.08;margin:.3em 0}h2{margin:.1em 0 .6em}
+header>p{max-width:800px;font-size:1.12rem}a{color:var(--mint);text-underline-offset:3px}nav{display:flex;gap:12px 24px;flex-wrap:wrap}section{margin-top:23px;padding:clamp(16px,3vw,30px);background:var(--panel);border:1px solid var(--rule);border-radius:10px;min-width:0}
+label{display:inline-flex;align-items:center;flex-wrap:wrap;gap:8px;margin:4px 16px 8px 0}
+select,input{max-width:100%;font:inherit;color:inherit;background:#0f1b24;border:1px solid var(--rule);border-radius:6px;padding:6px 9px}
+.table{overflow-x:auto}table{width:100%;text-align:left;border-collapse:collapse;min-width:432px}th,td{padding:9px 12px;border-bottom:1px solid var(--rule)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}.grid section{margin-top:0}img{display:block;width:100%;border:1px solid var(--rule);border-radius:6px}figure{margin:1rem 0 0}li,output,#module-detail{overflow-wrap:anywhere}small{color:#bed1d8}
+@media(max-width:730px){.grid{grid-template-columns:minmax(0,1fr)}label{display:flex;margin-right:0}}
+</style>
+<script id="system-data" type="application/json">@@SYSTEM@@</script>
+<script id="inventory-data" type="application/json">@@INVENTORY@@</script>
+<script src="guide.js" defer></script>
+</head>
+<body>
+<main>
+<header>
+<small>FRAYNIX AGENT WORKSPACE · EDITION 171</small>
+<h1>Run locally. Verify the result.</h1>
+<p id="summary"></p>
+<nav><a href="../../../README-171.md">Read the edition</a><a href="#measurements">Measurements</a><a href="#screenshots">Screenshots</a><a href="#architecture">Architecture</a><a href="#inventory">Source inventory</a></nav>
+</header>
+<section id="measurements">
+<h2>Relay measurements</h2>
+<label>Course <select id="course"></select></label>
+<label>Pace <select id="pace"></select></label>
+<p id="verdict"></p>
+<div class="table" tabindex="0" role="region" aria-label="Rail measurements">
+<table><thead><tr><th>Pace</th><th>Rail</th><th>Entry speed</th><th>Clearance</th><th>Beacon tick</th></tr></thead><tbody id="rows"></tbody></table>
+</div>
+<small>Speeds use game units per second. Clearances use game units.</small>
+</section>
+<section id="screenshots">
+<h2>Desktop evidence</h2>
+<label>Screenshot <select id="shot"></select></label>
+<figure><a id="original" href="relay-mission-report.png"><img id="screenshot" src="relay-mission-report.png" alt="Fraynix displays the verified Relay report"></a><figcaption id="caption"></figcaption></figure>
+</section>
+<div class="grid">
+<section id="architecture">
+<h2>System map</h2>
+<label>Module <select id="module"></select></label>
+<p id="module-detail"></p>
+<a href="../../publication171/plan.md">Implementation and acceptance gates</a>
+</section>
+<section id="inventory">
+<h2>Source inventory</h2>
+<label>Find a file <input id="search" type="search"></label>
+<output id="matches"></output><ul id="files"></ul>
+</section>
+</div>
+</main>
+</body>
+</html>

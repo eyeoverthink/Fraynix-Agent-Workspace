@@ -1,3 +1,5 @@
+[Edition 171 — durable offline Relay playtesting](179-offline-playtesting.md)
+
 [Edition 170 — verified multi-rail courses](178-multi-rail.md)
 
 [Edition 169 — verified AI rail clearance](177-rail-navigation.md)

@@ -1,0 +1,323 @@
+{
+  "passed": true,
+  "source": "002752de2c64374e4f2b580f822a510ac5d0ebd2",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "workspaceJava": 9,
+    "classes": [
+      "RelayPlaytestTest",
+      "OriginalMultiRailTest",
+      "OriginalRailsTest",
+      "GameTask115Test",
+      "WorkspaceServerBoundaryTest"
+    ],
+    "desktop": 181,
+    "archiveTests": 10
+  },
+  "modelCalls": 0,
+  "courseAudits": [
+    {
+      "independentReplays": 3,
+      "crossings": 9,
+      "minimumClearance": 0.11819422,
+      "paceCount": 3,
+      "kind": "relay-playtest-v1",
+      "manifestSha256": "6a4a62b92b1a622d0f8b63a1a67ddb4765a664aff6f307aeca8de8f15e54e5de",
+      "passed": true,
+      "title": "Relay Ridge",
+      "runs": [
+        {
+          "finishTick": 432,
+          "crossings": [
+            {
+              "launchTick": 168,
+              "entryTick": 185,
+              "exitTick": 203,
+              "measuredClearance": 0.6138767,
+              "entrySpeed": 2.1,
+              "name": "First ridge rail",
+              "overlapSamples": 18,
+              "launchSpeed": 2.1,
+              "predictedClearance": 0.62702644,
+              "id": "8745eae7-945f-3b6c-bf8e-8deee8d4350c",
+              "fromX": 5.4607487
+            },
+            {
+              "launchTick": 168,
+              "entryTick": 204,
+              "exitTick": 221,
+              "measuredClearance": 0.5131377,
+              "entrySpeed": 2.1,
+              "name": "Second ridge rail",
+              "overlapSamples": 17,
+              "launchSpeed": 2.1,
+              "predictedClearance": 0.5687685,
+              "id": "90906b9d-8737-3d2f-933e-7d4db8b1bfe4",
+              "fromX": 5.4607487
+            },
+            {
+              "launchTick": 317,
+              "entryTick": 335,
+              "exitTick": 352,
+              "measuredClearance": 0.6650742,
+              "entrySpeed": 2.1,
+              "name": "Lower rail",
+              "overlapSamples": 17,
+              "launchSpeed": 2.1,
+              "predictedClearance": 0.62733257,
+              "id": "f84ae2cc-d7fc-3ae0-b231-34686255eb75",
+              "fromX": 10.581339
+            }
+          ],
+          "pace": "normal",
+          "traceSha256": "5a141872c927a26d831408fd6fdead6ffc5bab2eda1f09a3496b0182ae85d26c",
+          "pickups": [
+            {
+              "name": "Lower cell",
+              "id": "7597ac7e-cd12-37ff-b82b-a67475d385b6",
+              "tick": 56
+            },
+            {
+              "name": "Finish cell",
+              "id": "9a6a7dad-629b-36db-a0e3-e2b9dcd4d35f",
+              "tick": 382
+            }
+          ],
+          "launches": 2
+        },
+        {
+          "finishTick": 456,
+          "crossings": [
+            {
+              "launchTick": 176,
+              "entryTick": 198,
+              "exitTick": 217,
+              "measuredClearance": 0.8694062,
+              "entrySpeed": 1.9683334,
+              "name": "First ridge rail",
+              "overlapSamples": 19,
+              "launchSpeed": 1.2400007,
+              "predictedClearance": 0.88643074,
+              "id": "8745eae7-945f-3b6c-bf8e-8deee8d4350c",
+              "fromX": 5.482174
+            },
+            {
+              "launchTick": 176,
+              "entryTick": 218,
+              "exitTick": 237,
+              "measuredClearance": 0.11819422,
+              "entrySpeed": 1.9483334,
+              "name": "Second ridge rail",
+              "overlapSamples": 19,
+              "launchSpeed": 1.2400007,
+              "predictedClearance": 0.17544591,
+              "id": "90906b9d-8737-3d2f-933e-7d4db8b1bfe4",
+              "fromX": 5.482174
+            },
+            {
+              "launchTick": 345,
+              "entryTick": 369,
+              "exitTick": 387,
+              "measuredClearance": 0.88463974,
+              "entrySpeed": 1.9216667,
+              "name": "Lower rail",
+              "overlapSamples": 18,
+              "launchSpeed": 1.2116674,
+              "predictedClearance": 0.90191376,
+              "id": "f84ae2cc-d7fc-3ae0-b231-34686255eb75",
+              "fromX": 10.572622
+            }
+          ],
+          "pace": "steady",
+          "traceSha256": "e33776e2ceae022881b9fbc70f9844cd82221ed668823b0f22413fd4f49de7b7",
+          "pickups": [
+            {
+              "name": "Lower cell",
+              "id": "7597ac7e-cd12-37ff-b82b-a67475d385b6",
+              "tick": 56
+            },
+            {
+              "name": "Finish cell",
+              "id": "9a6a7dad-629b-36db-a0e3-e2b9dcd4d35f",
+              "tick": 417
+            }
+          ],
+          "launches": 2
+        },
+        {
+          "finishTick": 504,
+          "crossings": [
+            {
+              "launchTick": 195,
+              "entryTick": 213,
+              "exitTick": 234,
+              "measuredClearance": 0.66583943,
+              "entrySpeed": 1.4633337,
+              "name": "First ridge rail",
+              "overlapSamples": 21,
+              "launchSpeed": 0.8616676,
+              "predictedClearance": 0.67976415,
+              "id": "8745eae7-945f-3b6c-bf8e-8deee8d4350c",
+              "fromX": 5.727247
+            },
+            {
+              "launchTick": 195,
+              "entryTick": 236,
+              "exitTick": 256,
+              "measuredClearance": 0.11819422,
+              "entrySpeed": 1.7833334,
+              "name": "Second ridge rail",
+              "overlapSamples": 20,
+              "launchSpeed": 0.8616676,
+              "predictedClearance": 0.17544591,
+              "id": "90906b9d-8737-3d2f-933e-7d4db8b1bfe4",
+              "fromX": 5.727247
+            },
+            {
+              "launchTick": 372,
+              "entryTick": 401,
+              "exitTick": 421,
+              "measuredClearance": 0.67447555,
+              "entrySpeed": 1.8116667,
+              "name": "Lower rail",
+              "overlapSamples": 20,
+              "launchSpeed": 0.8616676,
+              "predictedClearance": 0.7247944,
+              "id": "f84ae2cc-d7fc-3ae0-b231-34686255eb75",
+              "fromX": 10.572812
+            }
+          ],
+          "pace": "careful",
+          "traceSha256": "3b0885b839c73d7ccf53a36a72c288bdaf6ba4d8ea8979c0446ad3ad37d12649",
+          "pickups": [
+            {
+              "name": "Lower cell",
+              "id": "7597ac7e-cd12-37ff-b82b-a67475d385b6",
+              "tick": 56
+            },
+            {
+              "name": "Finish cell",
+              "id": "9a6a7dad-629b-36db-a0e3-e2b9dcd4d35f",
+              "tick": 451
+            }
+          ],
+          "launches": 2
+        }
+      ]
+    },
+    {
+      "independentReplays": 1,
+      "crossings": 2,
+      "minimumClearance": 0.67600584,
+      "paceCount": 1,
+      "kind": "relay-playtest-v1",
+      "manifestSha256": "d3c453cce08cbf23eb4b17e52c3bd57064994955ce5369977ffce401734a115c",
+      "passed": true,
+      "title": "Relay Switchyard",
+      "runs": [
+        {
+          "finishTick": 504,
+          "crossings": [
+            {
+              "launchTick": 116,
+              "entryTick": 145,
+              "exitTick": 165,
+              "measuredClearance": 0.67600584,
+              "entrySpeed": 1.8149986,
+              "name": "West rail",
+              "overlapSamples": 20,
+              "launchSpeed": 0.8649995,
+              "predictedClearance": 0.6900873,
+              "id": "8f171e21-c3a8-36ec-9ce4-3a18ae743a2f",
+              "fromX": 2.4349587
+            },
+            {
+              "launchTick": 273,
+              "entryTick": 302,
+              "exitTick": 322,
+              "measuredClearance": 0.6776291,
+              "entrySpeed": 1.7516668,
+              "name": "East rail",
+              "overlapSamples": 20,
+              "launchSpeed": 0.8833343,
+              "predictedClearance": 0.72794795,
+              "id": "2bc5775c-d3a0-3e55-9cda-f2d7ff592868",
+              "fromX": 6.4439425
+            }
+          ],
+          "pace": "careful",
+          "traceSha256": "fb59d54d41ea8fd54312cc688d87ad9b7669416f365a00b3dcefa1df78c01284",
+          "pickups": [
+            {
+              "name": "Yard cell",
+              "id": "823cd2dd-7994-3a45-bf25-878bf93dc959",
+              "tick": 62
+            },
+            {
+              "name": "Signal cell",
+              "id": "29f124cc-fa81-3a03-b0ab-68e5e5764673",
+              "tick": 236
+            },
+            {
+              "name": "Return cell",
+              "id": "651f307e-4f00-36fe-8227-032a46bac071",
+              "tick": 446
+            }
+          ],
+          "launches": 2
+        }
+      ]
+    }
+  ],
+  "retainedPair": true,
+  "abruptInterruption": true,
+  "ridgeElapsedMs": 55073,
+  "changedReportRejected": true,
+  "browserOffline": true,
+  "ciFirst": {
+    "checkedAtUtc": "2026-11-18T13:04:37.789652+00:00",
+    "runs": [
+      {
+        "id": 44308803198,
+        "head_sha": "320d34fba0667d0deec821008aff1f7fccaadc1e",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44308803198",
+        "created_at": "2026-11-18T12:57:01Z",
+        "updated_at": "2026-11-18T12:57:05Z"
+      },
+      {
+        "id": 44299337463,
+        "head_sha": "20399ecafab8d1355413ec005b5dc7d1bc3b1164",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44299337463",
+        "created_at": "2026-11-18T11:57:16Z",
+        "updated_at": "2026-11-18T11:57:20Z"
+      },
+      {
+        "id": 44289743337,
+        "head_sha": "aba5b1dff44a110b351189b7bda1b1857fede585",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "failure",
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44289743337",
+        "created_at": "2026-11-18T10:54:21Z",
+        "updated_at": "2026-11-18T11:03:56Z"
+      },
+      {
+        "id": 44278566429,
+        "head_sha": "f841ed003a912b1778ff05a0def4428b5e41b6ea",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44278566429",
+        "created_at": "2026-11-18T09:43:17Z",
+        "updated_at": "2026-11-18T09:43:21Z"
+      }
+    ]
+  }
+}
