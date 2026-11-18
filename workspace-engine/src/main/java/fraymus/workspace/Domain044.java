@@ -20,6 +20,11 @@ final class Domain044 {
   if(family.equals("world")&&(bindings.optJSONObject("world",new JSONObject()).optBoolean("selectiveMemory079")||ChatPolicy044.has(g.getString("goal"),"selective memory|cost-aware|verified procedures|memory when")))c.put("selectiveMemory079",true);
   if(family.equals("construction")&&ChatPolicy044.design053(g.getString("goal")))c.put("designRequested053",true).put("designReview053",ChatPolicy044.designReview053(g.getString("goal")));
   for(var e:Map.of("knowledge","knowledgeSelection","tabletop","tabletopSelection","observations","observationSelection","metric","metricSelection","world","worldBinding").entrySet())if(bindings.has(e.getKey()))c.put(e.getValue(),bindings.get(e.getKey()));
+  if(family.equals(LocalWorkflowSelection.FAMILY)){
+   bindLocalWorkflow(g,bindings);
+   g.put("context044",c).put("nativeTrace044",new JSONArray()).put("nativeReplies044",new JSONObject());
+   return;
+  }
   if(family.equals(RampMission.FAMILY)){
    var source=Procedure044.binding(bindings,"rampInput");
    SpatialScene.keys(source,"path");
@@ -34,9 +39,60 @@ final class Domain044 {
   if(ChatPolicy044.reuse(g.getString("goal"))){var choices=new ArrayList<JSONObject>();String explicit=Requested044.match(g.getString("goal"),"\\bv(?:ersion\\s*)?(\\d+)\\b");for(Object raw:state.getJSONArray("procedures")){var p=(JSONObject)raw;if(g.getString("goal").toLowerCase(Locale.ROOT).contains(p.getString("name").toLowerCase(Locale.ROOT))&&(explicit==null||p.getInt("version")==Integer.parseInt(explicit)))choices.add(p);}var names=new HashSet<String>();choices.forEach(p->names.add(p.getString("name")));if(names.size()>1)throw new IllegalArgumentException("Choose one retained procedure name");if(!choices.isEmpty()){choices.sort(Comparator.comparingInt((JSONObject p)->p.getInt("version")).reversed());var p=choices.get(0);c.put("procedureBinding",new JSONObject().put("name",p.getString("name")).put("version",p.getInt("version")).put("kind",p.getString("kind")));String f=familyFor(p.getString("kind"));g.put("family044",f).put("requested044",Requested044.fields(g.getString("goal"),f));c.put("needsGoal",!f.equals("workflow"));}}
   g.put("context044",c).put("nativeTrace044",new JSONArray()).put("nativeReplies044",new JSONObject());
  }
+ private void bindLocalWorkflow(JSONObject g,JSONObject bindings)throws Exception{
+  var intent=LocalWorkflowSelection.intent(g.getString("goal"));
+  if(intent.direct()==null&&g.getString("model").isBlank())throw new IllegalArgumentException("Choose an installed local model for planning");
+  var input=new JSONObject().put("briefing",intent.briefing());
+  if(bindings.has("rampInput")&&(intent.direct()==null||intent.direct()==LocalWorkflowSelection.Procedure.RAMP)){
+   var source=Procedure044.binding(bindings,"rampInput");
+   SpatialScene.keys(source,"path");
+   try{g.put("rampSource",nativeApi.call(RampMission.PORT+"bind",source));}
+   catch(IllegalArgumentException|IllegalStateException ignored){ /* The visible artifact may belong to a different workflow. */ }
+  }
+  if(bindings.has("dataset")&&(intent.direct()==null||intent.direct()==LocalWorkflowSelection.Procedure.ANALYSIS)){
+   var selection=Procedure044.binding(bindings,"dataset");
+   String id=selection.getString("datasetId");
+   int version=selection.getInt("version");
+   var data=localDataset(id,version);
+   input.put("dataset",new JSONObject().put("id",id).put("version",version)
+           .put("sourceSha256",data.getString("sourceSha256")).put("mappingSha256",data.getString("mappingSha256")));
+  }
+  g.put(LocalWorkflowSelection.KEY,input);
+ }
+ private JSONObject localDataset(String id,int version)throws Exception{
+  if(version<1)throw new IllegalArgumentException("Select an exact dataset version");
+  return nativeApi.call("/api/measurement/read",new JSONObject().put("id",id).put("version",version));
+ }
+ private JSONObject bootstrapLocalWorkflow(JSONObject g)throws Exception{
+  if(!g.has("selectedLocalWorkflow"))return null;
+  var procedure=LocalWorkflowSelection.Procedure.fromId(g.getString("selectedLocalWorkflow"));
+  if(procedure==LocalWorkflowSelection.Procedure.RAMP)return bootRamp(g);
+  var input=g.getJSONObject(LocalWorkflowSelection.KEY);
+  String briefing=input.getString("briefing");
+  var args=new JSONObject().put("request",briefing)
+          .put("modelName",procedure==LocalWorkflowSelection.Procedure.ANALYSIS?"":g.getString("model"));
+  if(procedure==LocalWorkflowSelection.Procedure.CREATION){
+   args.put("title","Standalone workspace app");
+   String name=Requested044.fields(briefing,"creation").optString("saveSkillName");
+   if(!name.isEmpty())args.put("saveSkillName",name);
+   return new JSONObject().put("tool","creation.start").put("args",args);
+  }
+  var selected=input.getJSONObject("dataset");
+  String id=selected.getString("id");
+  int version=selected.getInt("version");
+  var data=localDataset(id,version);
+  for(String field:List.of("sourceSha256","mappingSha256")){
+   if(!selected.getString(field).equals(data.getString(field)))throw new IllegalStateException("The saved dataset binding changed");
+  }
+  args.put("datasetId",id).put("datasetVersion",version).put("profile101",DataSummary104.KIND)
+          .put("title","Verified motion summary");
+  merge(args,Requested044.fields(briefing,"data"));
+  return new JSONObject().put("tool","workflow.start").put("args",args);
+ }
  static String familyFor(String kind){return switch(kind){case"gripper-construction-051-v1"->"construction";case"persistent-world-arrange-v1",Procedure079.KIND->"world";case"spatial-arrange-v1"->"pose";case"spatial-push-v1"->"push";case"map-world-v1"->"map";case"procedural-space-v1"->"space";case"motion-data-report-v1"->"data";case"spatial-manipulation-v1"->"spatial";case"browser-perception-v1"->"perception";case"creation-web-v1"->"creation";case RecordedSmall162.KIND,CalibratedAction159.KIND,ObservationTask158.KIND,ObservationArtifact128.KIND,"evidence-workflow-v1","typed-skill-graph-v1",DataCreation101.KIND,DataSummary102.KIND,DataSummary104.KIND->"workflow";default->"goal";};}
  JSONObject bootstrap(JSONObject g)throws Exception{
   String f=g.getString("family044");var c=g.getJSONObject("context044");var b=g.getJSONObject("bindings044");if(c.has("ownedGoalId")||c.has("ownedWorkflowId")||c.has("ownedGameTask115"))return null;
+  if(g.has(LocalWorkflowSelection.KEY))return bootstrapLocalWorkflow(g);
   if(f.equals(RampMission.FAMILY)){
    var intent=RampProcedure.intent(g.getString("goal"));
    String missing=RampProcedure.missingSetup(intent,g.getJSONObject("rampSource"));
@@ -98,7 +154,8 @@ final class Domain044 {
   String id=g.getString("id");
   var c=g.getJSONObject("context044");
   var idOnly=new JSONObject().put("id",id);
-  var start=new JSONObject().put("id",id).put("request",g.getString("goal")).put("source",g.getJSONObject("rampSource"));
+  String request=g.has(LocalWorkflowSelection.KEY)?LocalWorkflowSelection.RAMP_COMMAND:g.getString("goal");
+  var start=new JSONObject().put("id",id).put("request",request).put("source",g.getJSONObject("rampSource"));
   if(c.has("rampChoice"))start.put("choice",c.getJSONObject("rampChoice"));
   var task=nativeApi.call(RampMission.PORT+"start",start);
   c.put("ownedRampMission",id);

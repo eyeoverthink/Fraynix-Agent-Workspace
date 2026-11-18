@@ -3,7 +3,7 @@ const {app,BrowserWindow,ipcMain,Menu,shell}=require('electron');
 const {spawn}=require('node:child_process');
 const fs=require('node:fs');const fsp=require('node:fs/promises');const path=require('node:path');const {randomBytes,randomUUID}=require('node:crypto');const readline=require('node:readline');
 const {Surface}=require('./surfaces.cjs');
-const {observeRamp, rampPath, rampRequest}=require('./ramp-mission.cjs');const {catalog,command,planTools}=require('./policy.cjs');
+const {observeRamp, rampPath, rampRequest, localWorkflowRequest}=require('./ramp-mission.cjs');const {catalog,command,planTools}=require('./policy.cjs');
 const {failureClass,performControlled,observeProgress,trainController}=require('./controller.cjs');
 const {replay,rehearse}=require('./controller-replay.cjs');
 const {NetworkPolicy}=require('./network-policy.cjs');
@@ -353,8 +353,9 @@ let currentObservation158=null,currentCalibrated159=null,currentRecorded162=null
 function bindings044(){const b={scene:currentScene,dataset:currentDataset,spatial:currentSpatial,pose:currentPose,world:currentPersistentWorld,push:pushSelection(),mapping:currentMapSelection,creation:creationSelection(),knowledge:knowledgeBridge?.selected(),tabletop:tabletopBridge?.selected(),observations:observationBridge?.selection(),metric:observationBridge?.metricSelection?.(),tracking:trackingBridge?.selected(),verifiedObservation:currentObservation158,calibratedObservation:currentCalibrated159,recordedSmall:currentRecorded162};return Object.fromEntries(Object.entries(b).filter(([,v])=>v!=null));}
 async function startAgent(goal,model,extra={}){
  if(run||learningJob||manualBusy||pendingAgency043)throw Error('Finish or stop the current operation first');if(typeof goal!=='string'||!goal.trim()||goal.length>8000)throw Error('Enter a request up to8000characters');
- const sourcePath=rampRequest(goal)?rampPath(browser.view.webContents.getURL(),origin):'';
- if(rampRequest(goal)&&!sourcePath)throw Error('Open a saved ramp input in the local browser first');
+ const requiresRamp=rampRequest(goal);
+ const sourcePath=requiresRamp||localWorkflowRequest(goal)?rampPath(browser.view.webContents.getURL(),origin):'';
+ if(requiresRamp&&!sourcePath)throw Error('Open a saved ramp input in the local browser first');
  const generation=agencyLaunchGeneration043;pendingAgency043++;emit('run',{active:true,goal,model,phase:'Java is admitting and routing the request'});
  try{await inputs100.beforeStart();const settings=await window.webContents.executeJavaScript('window.agency043View?.settings()||({visionModel:""})');if(generation!==agencyLaunchGeneration043)return{stopped:true};await updateSelfHost();if(generation!==agencyLaunchGeneration043)return{stopped:true};return await agency043.begin({goal,model,visionModel:settings.visionModel||'',artifactId:currentArtifact?.id||'',bindings:{...bindings044(),...(sourcePath?{rampInput:{path:sourcePath}}:{})},...extra});}finally{pendingAgency043--;if(!agency043.busy())emit('run',{active:false});}
 }

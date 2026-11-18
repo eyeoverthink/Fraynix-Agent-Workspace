@@ -13,6 +13,10 @@ function rampRequest(goal) {
     || /^plan a local ramp task(?: and pause after reading)?:[ 	]*\S.{0,1199}$/i.test(text);
 }
 
+function localWorkflowRequest(goal) {
+  return /^(?:plan a local workflow|run local workflow (?:ramp|analysis|creation)):[ \t]*\S.{0,1199}$/i.test(goal.trim());
+}
+
 async function observeRamp(surface, origin, path) {
   const url = origin + path;
   if (surface.kind !== 'browser' || rampPath(url, origin) !== path) throw Error('A pinned local ramp input page is required');
@@ -44,4 +48,4 @@ async function observeRamp(surface, origin, path) {
   return {path,...observation};
 }
 
-module.exports = {observeRamp, rampPath, rampRequest};
+module.exports = {observeRamp, rampPath, rampRequest, localWorkflowRequest};

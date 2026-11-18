@@ -44,8 +44,11 @@ import {exportSceneVideo} from './scene-video.js';
 const $=id=>document.getElementById(id),host=window.workspace;
 let state,artifact,editingFile='',libraryTab='artifacts',sourceMode=false,dirty=false,running=false,creationBusy=false,events=[];
 let sceneMode=false;
+function localWorkflowRequest(text) {
+ return /^(?:plan a local workflow|run local workflow (?:ramp|analysis|creation)):[ \t]*\S.{0,1199}$/i.test(text.trim());
+}
 function offlineMissionRequest(text) {
- return /^(?:run the local ramp experiment|compare the local ramp setups)(?: and pause after reading)?[.!]?$/i.test(text.trim()) || /^(?:playtest|verify) relay (?:ridge|switchyard) at (?:all three paces|(?:normal|steady|careful) pace)[.!]?$/i.test(text.trim());
+ return /^run local workflow (?:ramp|analysis):[ \t]*\S.{0,1199}$/i.test(text.trim()) || /^(?:run the local ramp experiment|compare the local ramp setups)(?: and pause after reading)?[.!]?$/i.test(text.trim()) || /^(?:playtest|verify) relay (?:ridge|switchyard) at (?:all three paces|(?:normal|steady|careful) pace)[.!]?$/i.test(text.trim());
 }
 function plannedRampRequest(text) {
  return /^(?:plan the local ramp experiment(?: and pause after reading)?[.!]?|plan a local ramp task(?: and pause after reading)?:[ 	]*\S.{0,1199})$/i.test(text.trim());
@@ -163,7 +166,7 @@ $('back').onclick=()=>safe(()=>request('back'));$('forward').onclick=()=>safe(()
 $('new-artifact').onclick=()=>safe(()=>{requireSaved();setCanvasMode('preview');return request('new');});
 $('proof').onclick=()=>safe(async()=>{requireSaved();$('proof').disabled=true;notice('Running the real browser → artifact → test → skill proof');try{await request('proof');notice('Guided proof passed: browser, runnable app, tests and skill saved');}finally{$('proof').disabled=false;}});
 $('game').onclick=()=>safe(async()=>{await brainGame.openIntegrated();notice('Original Java game runtime is integrated here; no separate editor window');});
-$('run').onclick=()=>safe(async()=>{requireSaved();const goal=$('goal').value.trim();if(!goal)return;const local=offlineMissionRequest(goal);message(goal,'user');await request('agent',{goal,model:local?'':$('model').value,planWorld099:document.querySelector('#plan-world099').checked,...(!local && !plannedRampRequest(goal) && window.browserChecks126?.contract()?{browserContract126:window.browserChecks126.contract()}:{})});});
+$('run').onclick=()=>safe(async()=>{requireSaved();const goal=$('goal').value.trim();if(!goal)return;const local=offlineMissionRequest(goal);message(goal,'user');await request('agent',{goal,model:local?'':$('model').value,planWorld099:document.querySelector('#plan-world099').checked,...(!local && !plannedRampRequest(goal) && !localWorkflowRequest(goal) && window.browserChecks126?.contract()?{browserContract126:window.browserChecks126.contract()}:{})});});
 $('goal').addEventListener('input',()=>{
  $('run').disabled=running||creationBusy||dirty||lab.dirty||!hasChatRoute()
   ||Boolean(state?.goals?.some(goal=>['running','waiting-host'].includes(goal.status)));

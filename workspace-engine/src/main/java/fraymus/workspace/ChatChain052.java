@@ -11,11 +11,14 @@ final class ChatChain052 {
         var objective=new JSONObject().put("goal", g.getString("goal"));
         if(g.has(BrowserOutcome126.KEY))objective.put(BrowserOutcome126.KEY,g.getJSONObject(BrowserOutcome126.KEY));
         if(g.has("rampSource"))objective.put("rampSource",g.getJSONObject("rampSource"));
+        if(g.has(LocalWorkflowSelection.KEY))objective.put(LocalWorkflowSelection.KEY,g.getJSONObject(LocalWorkflowSelection.KEY))
+                .put("model",g.getString("model"));
         if(g.has("planWorld099"))objective.put("planWorld099",g.getBoolean("planWorld099"));
         return WorldFrames.hash(objective);
     }
 
     static void verifyObjective(JSONObject g) {
+        LocalWorkflowSelection.verifySelection(g);
         for (Object raw : g.getJSONArray("history")) {
             var row = (JSONObject) raw;
             if (row.getString("kind").equals("queued") && row.getJSONObject("detail").has("objectiveSha256")) {
