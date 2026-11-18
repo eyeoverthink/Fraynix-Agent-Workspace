@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 162
 
+[Published and fetched receipt](docs/PUBLICATION_162.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-162)
+
 2026-11-17 · Recorded object coordinates · Conditional uncertainty · Durable Java tasks and skills
 
 [Previous edition 161](README-161.md) · [Offline interactive guide](docs/readmes/162/index.html) · [All editions](docs/readmes/INDEX.md) · [Acceptance plan](docs/publication162/plan162.md)

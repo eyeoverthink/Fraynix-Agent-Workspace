@@ -1,3 +1,7 @@
+## Edition 162 — published and fetched back
+
+2026-11-17. Release 7568beda1e877f472a564a8155ebfeeb534a8570; main, edition162 and readme-162 pushed atomically and fetched. Full162 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_162.json. Experimental recorded-object durable actions shipped; defaults unchanged. User selected recorded tests; fresh physical validation remains a separate gate. The following local-study notes retain their original chronology.
+
 ## Edition 162 — locally verified; publication pending
 
 2026-11-17. Java target: eyeoverthink/Fraynix-Agent-Workspace, J:/Codex-Work/fraynix-workspace-edition162. No subagents; one heavy check at a time. User chose existing recordings and left new physical validation pending. CI checked first and separately.
