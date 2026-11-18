@@ -70,7 +70,7 @@ final class RecordedReplay163 {
             var trace=trial.getJSONArray("trace");if(trace.length()>300)throw new IllegalStateException("Original frame limit exceeded");
             for(int i=0;i<trace.length();i++)addFrame(leaves,trial.getString("id"),i+1,trace.getJSONObject(i).getJSONObject("frame"));
             var origins=new LinkedHashSet<Path>();for(Class<?> type:List.of(RecordedReplay163.class,JSONObject.class))origins.add(Path.of(type.getProtectionDomain().getCodeSource().getLocation().toURI()));
-            int n=0;for(Path origin:origins){String prefix="code"+(n++);ReplayEvidence157.unlinkedRealPath(origin);if(Files.isDirectory(origin)){try(var stream=Files.walk(origin)){for(Path p:stream.filter(x->x.toString().endsWith(".class")).toList()){regular(p);leaves.put(prefix+"/"+origin.relativize(p).toString().replace('\\','/'),p);}}}else{regular(origin);leaves.put(prefix,origin);}}
+            int n=0;for(Path origin:origins){String prefix="code"+(n++);ReplayEvidence157.unlinkedRealPath(origin);if(Files.isDirectory(origin)){try(var stream=Files.walk(origin)){for(Path p:stream.toList()){ReplayEvidence157.unlinkedRealPath(p);if(Files.isDirectory(p,LinkOption.NOFOLLOW_LINKS))continue;regular(p);if(!p.toString().endsWith(".class"))continue;leaves.put(prefix+"/"+origin.relativize(p).toString().replace('\\','/'),p);}}}else{regular(origin);leaves.put(prefix,origin);}}
             if(leaves.size()>8192)throw new IllegalStateException("Recorded implementation inventory limit exceeded");
             long bytes=0;byte[] buffer=new byte[65536];
             for(var leaf:leaves.entrySet()){

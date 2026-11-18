@@ -11,6 +11,7 @@ async function inventory(root){const rows={};for(const dir of ['alignment-041','
  require(path.join(repo,'scripts/Study-Build095.cjs')).verify(repo);
  const method=await fs.readFile(path.join(home,'docs/publication163/study163.cjs'));
  const result={passed:false,mode,name,startedAt:new Date().toISOString(),source:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:repo,encoding:'utf8'}).trim(),methodSha256:sha(method),tasks:[],captures:[],checks:[],errors:[],scope:'One exposed historical camera recording and two existing labelled generated sequences, one growing simulated world, retained procedures, actual canvas checks. No new physical episodes or model inference.'};
+ if(mode!=='published'){const lockBytes=await fs.readFile(path.join(home,'docs/RECORDED_REPLAY_163_LOCK.json')),lock=JSON.parse(lockBytes);for(const[n,h]of Object.entries(lock.sourceHashes))assert.equal(sha((await fs.readFile(path.join(home,n),'utf8')).replaceAll('\r\n','\n')),h,n);result.methodLockSha256=sha(lockBytes);}
  await fs.mkdir(out);await fs.mkdir(project);const originals=await inventory(original);for(const dir of ['alignment-041','persistent-worlds'])await fs.cp(path.join(original,dir),path.join(project,dir),{recursive:true,errorOnExist:true,force:false});
  const save=()=>fs.writeFile(path.join(out,'result.json'),JSON.stringify(result,null,2));
  let app,page;process.chdir(repo);const {launch}=require(path.join(repo,'workspace-desktop/test/calibration-integration.cjs'));
