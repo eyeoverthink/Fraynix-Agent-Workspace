@@ -53,8 +53,13 @@ receipt['assetId'] = asset['id']
 receipt_path.write_text(json.dumps(receipt, indent=2) + '\n', encoding='utf8')
 published = request(base + '/releases/' + str(release['id']), 'PATCH', {'draft': False})
 assert not published['draft'] and published['tag_name'] == 'evidence-165'
+# A draft upload may return an untagged temporary download URL. Read it again after publication.
+asset = request(base + '/releases/assets/' + str(asset['id']))
+assert asset['state'] == 'uploaded' and asset['size'] == manifest['archive']['bytes']
+manifest['archive']['url'] = asset['browser_download_url']
 manifest_path.write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf8')
-receipt.update({'draft': False, 'url': asset['browser_download_url'],
-                'download': archive_api.download(manifest, r/'build/downloaded-evidence165.zip')})
+receipt.update({'draft': False, 'url': asset['browser_download_url']})
+receipt_path.write_text(json.dumps(receipt, indent=2) + '\n', encoding='utf8')
+receipt['download'] = archive_api.download(manifest, r/'build/downloaded-evidence165.zip')
 receipt_path.write_text(json.dumps(receipt, indent=2) + '\n', encoding='utf8')
 print(json.dumps(receipt))

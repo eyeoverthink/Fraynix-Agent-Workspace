@@ -1,3 +1,5 @@
+[Edition 165 — verified reuse and architecture renewal](../../README-165.md) | [Offline guide](165/index.html)
+
 [Edition164 — physics history and report costs](../../README-164.md) | [Offline guide](164/index.html)
 
 [Edition163 — verified workflow costs](../../README-163.md) | [Offline guide](163/index.html)

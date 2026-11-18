@@ -44,6 +44,8 @@ Task totals include preparation, execution, requested skill saving and an additi
 
 {{MEASURED}}
 
+The old-build category comparison shows a tradeoff: across the two ten-task sessions, source-check spans fell from **97.005s to 86.447s**, while accepted-history spans rose from **16.244s to 19.606s**. Fresh history witnesses cost more than the computation they save at these history sizes. That cost is included in the modest 2.5% complete-task improvement; this release does not make every component faster. These inclusive spans overlap. The [baseline category receipt](docs/readmes/165/baseline-diagnostics.json) is derived directly from the downloaded original archive.
+
 These are repeated, exposed local measurements, not a population latency guarantee. One historical camera episode remains one episode; generated sequences and repeated tasks do not become new physical observations. The untouched old build is the practical release comparison. The same-build full-computation mode isolates reuse under the new witnesses but is not the previously shipped app.
 
 The exact comparison retains source coordinates and uncertainty, plans, full native traces, outcomes and actual report observations. Only fresh scene/object/job identifiers and their scene hash are normalized. Data comparisons retain exact CSV inputs, mappings, calculated metrics, observed cells, summaries, SVG points and generated HTML/JavaScript. See [complete costs and exact checks](docs/readmes/165/comparison-evidence.json).
@@ -53,6 +55,8 @@ The exact comparison retains source coordinates and uncertainty, plans, full nat
 {{VALIDATION}}
 
 {{ATTEMPTS}}
+
+Publication also retained a recoverable download error: the successfully uploaded draft asset initially supplied a temporary URL that returned 404 after publication. Re-reading the same published asset supplied its final URL; a fresh download then passed every archive and original-member hash. The [publication receipt](docs/readmes/165/evidence-publication.json) records that recovery. No archive bytes were replaced.
 
 Cache tests include cold and disabled behavior, eviction, result isolation, changes between witnesses, same-size/timestamp corruption, changed implementation inventory, original exception propagation, forged native traces and altered actual reports. Archive tests cover exact restoration, deduplication, corrupted archives, forged catalogs, unexpected members, duplicate names and private-image rejection.
 

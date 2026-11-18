@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/173-verified-evidence-reuse.md]] | [[README-165.md]]
+
 Current: [[docs/obsidian/172-history-report-costs.md]] | [[README-164.md]]
 
 Current: [[docs/obsidian/171-recorded-workflow-costs.md]] | [[README-163.md]]

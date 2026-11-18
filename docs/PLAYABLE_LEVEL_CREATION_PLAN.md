@@ -1,3 +1,9 @@
+## Edition 165 continuity — 2026-11-17
+
+Edition 165 reuses completed source/history computation behind fresh evidence checks. In two alternating local pairs it used 15.9% less time than the new full-computation control. Against two untouched published164 sessions, it used 2.5% less time on average. All 60 final workflows retained exact source, numerical and actual-report outcomes. New raw evidence is published outside Git with verified retrieval; architecture renewal is documented as explicit subsequent phases.
+
+[Edition 165](../README-165.md) · [Architecture renewal](ARCHITECTURE_RENEWAL_PLAN.md). Preserve one integrated Java agent and every source/outcome check. Physical validation remains pending.
+
 ## Edition164 continuity — 2026-11-17
 
 Edition 164 measures complete mixed workflows across eight accepted simulated-world revisions and two fresh data reports per session. Forty durable requests complete across four sessions, including eight abrupt interruptions, sixteen saved motion-procedure versions and cold verification. Timing is diagnostic; original native/controller/report/verifier source and compiled bytes match edition 163.

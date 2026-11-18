@@ -42,6 +42,7 @@ for c in study['captures']:
     shots.append({'path': 'docs/readmes/165/'+c['name'], 'title': '2026-11-17 · actual app / '+c['name']})
 for source, name in [('build/native-identity165.json', 'native-identity.json'), ('build/review165-inventory.json', 'review-inventory.json'), ('build/comparison165.json', 'comparison-evidence.json')]: write(out/name, read(source))
 write(out/'comparison.json', comp['costRows'])
+assert (out/'baseline-diagnostics.json').exists(), 'Run baseline_diagnostics165.py before documentation'
 write(out/'verification.json', {'passed': True, 'java': count, 'desktop': 181, 'archiveTests': 4, 'completedChatWorkflows': 60, 'sessions': 6, 'historyDepth': 8, 'checks': study['checks'], 'exactComparison': True, 'scope': validation, 'physicalAccuracyPromoted': False, 'modelCalls': 0, 'defaultTracker': 'legacy-flow', 'originalSourceFilesUnchanged': study['originalFilesUnchanged'], 'externalEvidenceVerified': upload['download']})
 modules = [{'id': k, 'name': n, 'source': f} for k, n, f in [
     ('context', 'Bounded verified computation reuse', 'workspace-engine/src/main/java/fraymus/workspace/VerifiedComputationCache.java'),

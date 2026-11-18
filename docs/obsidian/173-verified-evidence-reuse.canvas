@@ -1,0 +1,99 @@
+{
+  "nodes": [
+    {
+      "id": "context",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/VerifiedComputationCache.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "witness",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/EvidenceFingerprint.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "history",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/VerifiedHistory.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "workflow",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "x": 1290,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "measurement",
+      "type": "file",
+      "file": "docs/publication165/study165.cjs",
+      "x": 1720,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "archive",
+      "type": "file",
+      "file": "scripts/evidence_archive.py",
+      "x": 2150,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "roadmap",
+      "type": "file",
+      "file": "docs/ARCHITECTURE_RENEWAL_PLAN.md",
+      "x": 2580,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "context",
+      "toNode": "witness"
+    },
+    {
+      "id": "1",
+      "fromNode": "witness",
+      "toNode": "history"
+    },
+    {
+      "id": "2",
+      "fromNode": "history",
+      "toNode": "workflow"
+    },
+    {
+      "id": "3",
+      "fromNode": "workflow",
+      "toNode": "measurement"
+    },
+    {
+      "id": "4",
+      "fromNode": "measurement",
+      "toNode": "archive"
+    },
+    {
+      "id": "5",
+      "fromNode": "archive",
+      "toNode": "roadmap"
+    }
+  ]
+}
