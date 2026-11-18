@@ -23,7 +23,7 @@ jobs:
           java-version: '21'
       - uses: gradle/actions/setup-gradle@v4
       - name: Verify external evidence archive boundaries
-        run: python scripts/test_evidence_archive.py
+        run: python -m unittest discover -s scripts -p 'test_*archive.py' -v
       - name: Provision software OpenGL for native tests
         shell: pwsh
         run: |
