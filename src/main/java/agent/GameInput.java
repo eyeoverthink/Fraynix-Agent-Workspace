@@ -79,16 +79,22 @@ public final class GameInput {
         start(scene,targetX,guarded?"landing116":"legacy115");
     }
     public static void start(Scene scene, float targetX, String policy) {
+        start(scene, targetX, policy, RailNavigation.Pace.NORMAL);
+    }
+    public static void start(Scene scene, float targetX, String policy, RailNavigation.Pace pace) {
         if(!java.util.Set.of("legacy115","landing116","safe117","risk118","recover119","opportunity120","revisit121","observe121","contact122","contact123-no-wait","contact123-no-return","contact123-direct").contains(policy))throw new IllegalArgumentException("Unknown game policy");
         policyName=policy;contactForecast=PickupStrategy123.POLICIES.contains(policy);enemyChecks122=enemyOverrides122=enemyNanos122=0;enemyDecision122=null;observedOpportunity=contactForecast||policy.equals("revisit121")||policy.equals("observe121");opportunityAware=java.util.Set.of("opportunity120","revisit121","observe121","contact122","contact123-no-wait","contact123-no-return","contact123-direct").contains(policy);opportunity=new PickupOpportunity120(!policy.equals("opportunity120"),PickupStrategy123.returns(policy),PickupStrategy123.waits(policy));opportunityChecks=opportunityNanos=0;contactAware=policy.equals("recover119")||opportunityAware;contactRecovery=new ContactRecovery119(contactForecast);contactChecks=contactNanos=contactOverrides=0;pickupDeferrals=0;riskAware=policy.equals("risk118")||contactAware;safeCollection=policy.equals("safe117")||riskAware;pickupRiskChecks=pickupRiskNanos=0;pickupSkips=0;pickupDecisions.clear();fallingWaitTicks=0;pursuit=null;
         boolean guarded=!policy.equals("legacy115");
         landingGuard=guarded;landingChecks=landingOverrides=landingNanos=0;landingDecision=null;edgeUntil=edgeCrossings=0;edgeLeftGround=false;
         GameObject player=scene.getGameObjectWith(PlayerController.class);
         if (player==null || !Float.isFinite(targetX)) throw new IllegalArgumentException("A live player and finite target are required");
-        if(automatic) stop("Previous AI segment ended for a new target");
         var course = content.RelayGardenResources.course();
+        if (pace != RailNavigation.Pace.NORMAL && (course == null || !course.hasPaceOptions())) {
+            throw new IllegalArgumentException("Rail approach pace is only available on the new courses");
+        }
+        if(automatic) stop("Previous AI segment ended for a new target");
         railNavigation = course != null && course.hasSignals() && player.getComponent(CourseProgress.class) != null
-                ? new RailNavigation(scene) : null;
+                ? new RailNavigation(scene, pace, course.hasPaceOptions()) : null;
         episode=UUID.randomUUID(); actor=player.getPersistentId(); sequence=0;
         controls.reset(episode,actor); automatic=true; startX=maxX=player.transform.position.x; goalX=targetX;
         current=previous=ActorControls.Input.NONE; jumpUntil=0; lastJump=-100; stalledTicks=0;

@@ -4,6 +4,7 @@ import com.sun.net.httpserver.*;
 import fraymus.neural.ControlledRuntime;
 import jade.Window;
 import components.PlayerController;
+import agent.RailNavigation.Pace;
 import java.util.*;
 import java.util.concurrent.*;
 import java.nio.*;
@@ -22,6 +23,7 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
     private final String session=UUID.randomUUID().toString(),token=System.getenv("FRAYNIX_GAME_TOKEN");
     private volatile Frame last;
     private HttpServer server;private boolean continuous,closing,aiBounded;private long sequence;private String boundedPolicy;
+    private Pace boundedPace;
     private record Request(JsonObject args,CompletableFuture<Map<String,Object>> result){}
     private record Frame(Map<String,Object> state,byte[] png,long captureNs){}
     public EmbeddedGameRuntime() throws IOException {
@@ -55,6 +57,7 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
         if (course != null) {
             value.put("contentId", course.id());
             if (course.hasSignals()) value.put("courseTitle", course.title());
+            if (course.hasPaceOptions()) value.put("railPaceAvailable", true);
             value.put("contentPaths", util.AssetPool.loadedContentPaths());
         }
         value.put("visibleWindow",org.lwjgl.glfw.GLFW.glfwGetWindowAttrib(Window.get().nativeWindow(),org.lwjgl.glfw.GLFW.GLFW_VISIBLE)!=0);value.put("editorInitialized",Window.getImguiLayer()!=null);value.put("continuous",continuous);
@@ -79,21 +82,58 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
         finally{agent.GameInput.externalOff();}
         return observe();
     }
+    private static Pace railPace(JsonObject args) {
+        if (!args.has("railPace")) return Pace.NORMAL;
+        var course = content.RelayGardenResources.course();
+        if (course == null || !course.hasPaceOptions()) {
+            throw new IllegalArgumentException("Rail approach pace is only available on the new courses");
+        }
+        return Pace.parse(args.get("railPace").getAsString());
+    }
+
     public void frame(){
         check();String parent=System.getenv("FRAYNIX_GAME_PARENT_PID");if(parent!=null&&!ProcessHandle.of(Long.parseLong(parent)).map(ProcessHandle::isAlive).orElse(false))closing=true;
         Request pending=requests.poll();Object outcome=null;Exception failure=null;boolean spatialRead=false,overview=false;
         if(pending!=null)try{
             var args=pending.args;String action=args.get("action").getAsString();
             var allowed=new HashSet<>(Set.of("action"));if(action.equals("step"))allowed.addAll(Set.of("ticks","horizontal","jump"));if(action.equals("ai")||action.equals("ai-step"))allowed.add("targetX");if(action.equals("ai-step"))allowed.add("ticks");if(action.equals("ai-step"))allowed.add("policy");
+            if (action.equals("ai") || action.equals("ai-step")) allowed.add("railPace");
             if(!allowed.containsAll(args.keySet()))throw new IllegalArgumentException("Unsupported game command field");
             switch(action){
                 case "spatial"->spatialRead=true;
                 case "overview"->{if(continuous)throw new IllegalStateException("Pause before capturing a reference overview");overview=true;}
                 case "step"->step(args.get("ticks").getAsInt(),args.has("horizontal")?args.get("horizontal").getAsFloat():0,args.has("jump")&&args.get("jump").getAsBoolean());
-                case "ai-step"->{int ticks=args.get("ticks").getAsInt();float target=args.get("targetX").getAsFloat();if(ticks<1||ticks>120||!Float.isFinite(target)||Math.abs(target)>200)throw new IllegalArgumentException("Bounded AI input required");continuous=false;String policy=args.has("policy")?args.get("policy").getAsString():"contact122";if(!Set.of("legacy115","landing116","safe117","risk118","recover119","opportunity120","revisit121","observe121","contact122","contact123-no-wait","contact123-no-return","contact123-direct").contains(policy))throw new IllegalArgumentException("Unknown game policy");if(aiBounded&&!policy.equals(boundedPolicy))throw new IllegalArgumentException("Start a fresh trial to compare policies");if(!aiBounded){agent.GameInput.start(Window.getScene(),target,policy);boundedPolicy=policy;aiBounded=true;}for(int i=0;i<ticks;i++)Window.get().stepEmbedded();}
+                case "ai-step" -> {
+                    int ticks = args.get("ticks").getAsInt();
+                    float target = args.get("targetX").getAsFloat();
+                    if (ticks < 1 || ticks > 120 || !Float.isFinite(target) || Math.abs(target) > 200) {
+                        throw new IllegalArgumentException("Bounded AI input required");
+                    }
+                    String policy = args.has("policy") ? args.get("policy").getAsString() : "contact122";
+                    Pace pace = railPace(args);
+                    if (aiBounded && (!policy.equals(boundedPolicy) || pace != boundedPace)) {
+                        throw new IllegalArgumentException("Start a fresh trial to compare policies or rail paces");
+                    }
+                    if (!aiBounded) {
+                        agent.GameInput.start(Window.getScene(), target, policy, pace);
+                        boundedPolicy = policy;
+                        boundedPace = pace;
+                        aiBounded = true;
+                    }
+                    continuous = false;
+                    for (int i = 0; i < ticks; i++) Window.get().stepEmbedded();
+                }
                 case "play"->continuous=true;
                 case "pause"->{continuous=false;aiBounded=false;agent.GameInput.stop("Embedded pause");agent.GameInput.externalOff();}
-                case "ai"->{float target=args.get("targetX").getAsFloat();if(!Float.isFinite(target)||Math.abs(target)>200)throw new IllegalArgumentException("Invalid game target");agent.GameInput.start(Window.getScene(),target);continuous=true;}
+                case "ai" -> {
+                    float target = args.get("targetX").getAsFloat();
+                    if (!Float.isFinite(target) || Math.abs(target) > 200) {
+                        throw new IllegalArgumentException("Invalid game target");
+                    }
+                    agent.GameInput.start(Window.getScene(), target, "contact122", railPace(args));
+                    aiBounded = false;
+                    continuous = true;
+                }
                 case "reset"->{continuous=false;aiBounded=false;agent.GameInput.stop("Embedded reset");agent.GameInput.externalOff();Window.changeScene(new scenes.LevelSceneInitializer());}
                 case "close"->{continuous=false;closing=true;}
                 default->throw new IllegalArgumentException("Unknown game action");

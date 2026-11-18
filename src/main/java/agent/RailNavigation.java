@@ -23,7 +23,29 @@ public final class RailNavigation {
     private static final int RAIL_LIMIT = 32;
     private static final int ATTEMPT_LIMIT = 64;
     private static final float START_DISTANCE = .65f;
+    private static final float PACING_DISTANCE = 1.75f;
+
+    public enum Pace {
+        NORMAL("normal", Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY),
+        STEADY("steady", 1.25f, 1.95f),
+        CAREFUL("careful", .90f, 1.80f);
+
+        private final String id;
+        private final float speed;
+        private final float flightSpeed;
+        Pace(String id, float speed, float flightSpeed) {
+            this.id = id;
+            this.speed = speed;
+            this.flightSpeed = flightSpeed;
+        }
+        public static Pace parse(String id) {
+            for (Pace pace : values()) if (pace.id.equals(id)) return pace;
+            throw new IllegalArgumentException("Unknown rail approach pace");
+        }
+    }
     private static final float CLEARANCE = .035f;
+    // Forecast and solver can disagree during a descending crossing.
+    private static final float GROUP_FORECAST_RESERVE = .10f;
     private static final float DT = Scene.FIXED_STEP;
 
     record Bounds(float left, float right, float bottom, float top) {
@@ -41,7 +63,22 @@ public final class RailNavigation {
     record Plan(float clearance, int landAfter, float landX) {}
     public record Input(float horizontal, boolean jump, String reason) {}
     private record Crossing(String id, String name, long launchTick, long entryTick, long exitTick,
-                            float fromX, float measuredClearance, float predictedClearance, int overlapSamples) {}
+                            float fromX, float launchSpeed, float entrySpeed,
+                            float measuredClearance, float predictedClearance, int overlapSamples) {}
+    private record Flight(float[] clearances, int landAfter, float landX) {}
+    private static final class CrossingSamples {
+        final Rail rail;
+        final float predictedClearance;
+        long entryTick;
+        int count;
+        float entrySpeed;
+        float minClearance = Float.POSITIVE_INFINITY;
+
+        CrossingSamples(Rail rail, float predictedClearance) {
+            this.rail = rail;
+            this.predictedClearance = predictedClearance;
+        }
+    }
     @FunctionalInterface interface Surface {
         float top(float x, float fromY, float toY);
     }
@@ -49,17 +86,21 @@ public final class RailNavigation {
     private final Scene scene;
     private final List<Rail> rails;
     private final List<Crossing> crossings = new ArrayList<>();
+    private final List<CrossingSamples> active = new ArrayList<>();
+    private final Pace pace;
+    private final boolean groupRails;
     private Rail nearest;
-    private Rail active;
     private Plan checkedPlan;
     private float direction;
-    private long launchTick, entryTick;
-    private float launchX, minClearance;
-    private int overlapSamples, forecasts, refused, launches, rejectedMeasurements;
+    private long launchTick;
+    private float launchX, launchSpeed;
+    private int forecasts, refused, launches, rejectedMeasurements;
     private String state = "Watching for rails";
 
-    public RailNavigation(Scene scene) {
+    public RailNavigation(Scene scene, Pace pace, boolean groupRails) {
         this.scene = scene;
+        this.pace = pace;
+        this.groupRails = groupRails;
         List<Rail> found = new ArrayList<>();
         for (GameObject object : scene.getGameObjects()) {
             CourseContact contact = object.getComponent(CourseContact.class);
@@ -81,14 +122,15 @@ public final class RailNavigation {
         if (body == null || rails.isEmpty()) return null;
         Bounds pose = bounds(body, false);
         if (pose == null) return null;
-        if (active != null) {
-            measure(pose, tick - 1);
-            if (active != null && tick - launchTick < FORECAST_TICKS) {
-                return new Input(direction, tick - launchTick < HOLD_TICKS, "Clearing " + active.name());
+        if (!active.isEmpty()) {
+            measure(pose, tick - 1, Math.abs(body.getLinearVelocity().x));
+            if (!active.isEmpty() && tick - launchTick < FORECAST_TICKS) {
+                float horizontal = flightInput(body.getLinearVelocity().x, direction, pace.flightSpeed);
+                return new Input(horizontal, tick - launchTick < HOLD_TICKS, state);
             }
-            if (active != null) {
-                active = null;
-                rejectedMeasurements++;
+            if (!active.isEmpty()) {
+                rejectedMeasurements += active.size();
+                active.clear();
                 state = "Rail crossing exceeded its observation window";
             }
         }
@@ -105,13 +147,16 @@ public final class RailNavigation {
         if (nearest == null || !control.onGround || launches >= ATTEMPT_LIMIT) return null;
 
         float distance = pose.ahead(nearest.bounds(), travel);
-        if (distance > START_DISTANCE) return null;
-        Motor motor = new Motor(control.walkSpeed, control.terminalVelocity.x, control.terminalVelocity.y,
-                control.jumpImpulse, control.jumpBoost, scene.physics().getGravity().y * .7f);
         float x = body.getPosition().x;
         float y = body.getPosition().y;
         float vx = body.getLinearVelocity().x;
         float vy = body.getLinearVelocity().y;
+        if (distance <= PACING_DISTANCE && vx * travel > pace.speed) {
+            return new Input(0, false, "Settling to the selected rail approach pace");
+        }
+        if (distance > START_DISTANCE) return null;
+        Motor motor = new Motor(control.walkSpeed, control.terminalVelocity.x, control.terminalVelocity.y,
+                control.jumpImpulse, control.jumpBoost, scene.physics().getGravity().y * .7f);
         Bounds relative = pose.shift(-x, -y);
         Surface floor = (px, top, bottom) -> {
             var hit = scene.physics().raycastSolid(player, new Vector2f(px, top), new Vector2f(px, bottom));
@@ -120,81 +165,138 @@ public final class RailNavigation {
         var headroom = scene.physics().raycastSolid(player, new Vector2f(x, pose.top() + .02f),
                 new Vector2f(x, pose.top() + .7f));
         forecasts++;
-        Plan candidate = headroom.hit ? null
-                : forecast(x, y, vx, vy, travel, relative, nearest.bounds(), motor, floor);
-        if (candidate == null) {
+        List<Rail> candidates = nearbyRails(pose, travel);
+        Flight flight = headroom.hit ? null : forecastFlight(x, y, vx, vy, travel, relative,
+                candidates.stream().map(Rail::bounds).toList(), motor, floor,
+                pace.flightSpeed, control.slowDownForce, groupRails);
+        if (flight == null) {
             refused++;
             state = "No supported jump over " + nearest.name();
-            // Continue approaching only while there is enough room to brake.
             float stoppingDistance = vx * vx / (2 * control.slowDownForce / DT);
             return distance <= stoppingDistance + .09f ? new Input(0, false, state) : null;
         }
-        checkedPlan = candidate;
-        active = nearest;
+        if (crossings.size() + candidates.size() > ATTEMPT_LIMIT) {
+            state = "Rail evidence limit reached";
+            return new Input(0, false, state);
+        }
+        for (int i = 0; i < candidates.size(); i++) {
+            if (Float.isFinite(flight.clearances()[i])) {
+                active.add(new CrossingSamples(candidates.get(i), flight.clearances()[i]));
+            }
+        }
+        checkedPlan = new Plan(flight.clearances()[0], flight.landAfter(), flight.landX());
         direction = travel;
         launchTick = tick;
         launchX = x;
-        entryTick = 0;
-        overlapSamples = 0;
-        minClearance = Float.MAX_VALUE;
+        launchSpeed = Math.abs(vx);
         launches++;
-        state = "Jumping over " + active.name();
+        state = active.size() == 1 ? "Jumping over " + nearest.name() : "Jumping over " + active.size() + " rails";
         return new Input(travel, true, state);
     }
 
-    private void measure(Bounds actor, long tick) {
-        Bounds rail = active.bounds();
-        if (actor.overlapsX(rail)) {
-            if (overlapSamples == 0) entryTick = tick;
-            overlapSamples++;
-            minClearance = Math.min(minClearance, actor.bottom() - rail.top());
+    private List<Rail> nearbyRails(Bounds pose, float travel) {
+        if (!groupRails) return List.of(nearest);
+        List<Rail> candidates = new ArrayList<>();
+        candidates.add(nearest);
+        for (Rail rail : rails) {
+            float distance = pose.ahead(rail.bounds(), travel);
+            if (rail != nearest && distance >= 0 && distance <= 3.5f) candidates.add(rail);
         }
-        if (!actor.beyond(rail, direction)) return;
-        if (overlapSamples > 0 && minClearance > 0) {
-            crossings.add(new Crossing(active.id(), active.name(), launchTick, entryTick, tick, launchX,
-                    minClearance, checkedPlan.clearance(), overlapSamples));
-            state = "Cleared " + active.name();
-        } else {
-            rejectedMeasurements++;
-            state = "Rail clearance could not be verified";
+        return candidates;
+    }
+
+    private void measure(Bounds actor, long tick, float speed) {
+        String cleared = null;
+        boolean rejected = false;
+        var iterator = active.iterator();
+        while (iterator.hasNext()) {
+            CrossingSamples sample = iterator.next();
+            Bounds rail = sample.rail.bounds();
+            if (actor.overlapsX(rail)) {
+                if (sample.count == 0) {
+                    sample.entryTick = tick;
+                    sample.entrySpeed = speed;
+                }
+                sample.count++;
+                sample.minClearance = Math.min(sample.minClearance, actor.bottom() - rail.top());
+            }
+            if (!actor.beyond(rail, direction)) continue;
+            float minimum = groupRails ? CLEARANCE : 0;
+            if (sample.count > 0 && sample.minClearance > minimum) {
+                crossings.add(new Crossing(sample.rail.id(), sample.rail.name(), launchTick,
+                        sample.entryTick, tick, launchX, launchSpeed, sample.entrySpeed,
+                        sample.minClearance, sample.predictedClearance, sample.count));
+                cleared = sample.rail.name();
+            } else {
+                rejectedMeasurements++;
+                rejected = true;
+            }
+            iterator.remove();
         }
-        active = null;
+        if (active.isEmpty()) {
+            state = rejected ? "Rail clearance could not be verified" : "Cleared " + cleared;
+        }
     }
 
     static Plan forecast(float x, float y, float vx, float vy, float direction,
                          Bounds actor, Bounds rail, Motor motor, Surface floor) {
-        int overlaps = 0;
-        float clearance = Float.MAX_VALUE;
+        Flight flight = forecastFlight(x, y, vx, vy, direction, actor, List.of(rail), motor, floor,
+                Float.POSITIVE_INFINITY, 0, false);
+        return flight == null ? null : new Plan(flight.clearances()[0], flight.landAfter(), flight.landX());
+    }
+
+    private static Flight forecastFlight(float x, float y, float vx, float vy, float direction,
+                                         Bounds actor, List<Bounds> rails, Motor motor, Surface floor,
+                                         float speed, float brake, boolean groupRails) {
+        float minimum = groupRails ? CLEARANCE + GROUP_FORECAST_RESERVE : CLEARANCE;
+        float[] clearances = new float[rails.size()];
+        java.util.Arrays.fill(clearances, Float.POSITIVE_INFINITY);
         for (int tick = 0; tick < FORECAST_TICKS; tick++) {
             float nextX = x + vx * DT;
             float nextY = y + vy * DT;
             Bounds before = actor.shift(x, y);
             Bounds after = actor.shift(nextX, nextY);
-            if (after.overlapsX(rail)) {
-                overlaps++;
-                clearance = Math.min(clearance, after.bottom() - rail.top());
-                if (clearance < CLEARANCE) return null;
+            for (int i = 0; i < rails.size(); i++) {
+                Bounds rail = rails.get(i);
+                if (!after.overlapsX(rail)) continue;
+                clearances[i] = Math.min(clearances[i], after.bottom() - rail.top());
+                if (clearances[i] < minimum) return null;
             }
             if (tick >= HOLD_TICKS && vy <= 0) {
-                float a = floor.top(after.left(), before.bottom()+.035f, after.bottom()-.02f);
-                float b = floor.top(nextX, before.bottom()+.035f, after.bottom()-.02f);
-                float c = floor.top(after.right(), before.bottom()+.035f, after.bottom()-.02f);
+                float top = before.bottom() + .035f;
+                float bottom = after.bottom() - .02f;
+                float a = floor.top(after.left(), top, bottom);
+                float b = floor.top(nextX, top, bottom);
+                float c = floor.top(after.right(), top, bottom);
                 if (Float.isFinite(a) || Float.isFinite(b) || Float.isFinite(c)) {
                     boolean supported = Float.isFinite(a) && Float.isFinite(b) && Float.isFinite(c)
-                            && Math.max(a, Math.max(b,c))-Math.min(a, Math.min(b,c)) < .04f;
-                    return supported && overlaps > 0 && after.beyond(rail, direction)
-                            ? new Plan(clearance, tick + 1, nextX) : null;
+                            && Math.max(a, Math.max(b, c)) - Math.min(a, Math.min(b, c)) < .04f;
+                    if (!supported || !Float.isFinite(clearances[0])) return null;
+                    for (int i = 0; i < rails.size(); i++) {
+                        Bounds rail = rails.get(i);
+                        if (Float.isFinite(clearances[i]) && !after.beyond(rail, direction)) return null;
+                        if (groupRails && !Float.isFinite(clearances[i]) && after.ahead(rail, direction) < .25f
+                                && rail.top() > after.bottom()) return null;
+                    }
+                    return new Flight(clearances, tick + 1, nextX);
                 }
             }
             x = nextX;
             y = nextY;
-            vx = clamp(vx + direction * motor.acceleration() * DT, motor.maxX());
+            // The next controller input observes the pre-step velocity, then applies acceleration or drag.
+            float horizontal = flightInput(vx, direction, speed);
+            vx = horizontal == 0 ? Math.copySign(Math.max(0, Math.abs(vx) - brake), vx)
+                    : clamp(vx + horizontal * motor.acceleration() * DT, motor.maxX());
             if (tick == 0) vy = motor.impulse();
             else if (tick < HOLD_TICKS) vy = (HOLD_TICKS - tick) / 2.2f * motor.boost();
             else vy = (tick == HOLD_TICKS ? vy * .35f : vy) + motor.gravity() * DT;
             vy = clamp(vy, motor.maxY());
         }
         return null;
+    }
+
+    private static float flightInput(float vx, float direction, float speed) {
+        return vx * direction > speed ? 0 : direction;
     }
 
     private static float clamp(float value, float max) {
@@ -220,6 +322,7 @@ public final class RailNavigation {
         var result = new LinkedHashMap<String, Object>();
         result.put("rails", rails);
         result.put("state", state);
+        result.put("pace", pace.id);
         result.put("forecasts", forecasts);
         result.put("refusedForecasts", refused);
         result.put("launches", launches);

@@ -29,7 +29,7 @@ export class BrainGame {
   });
   $('brain-close').onclick=()=>{$('brain-dialog').close();this.layout();};$('brain-dialog').addEventListener('close',this.layout);
   $('game-tab').onclick=safe(()=>this.openIntegrated());
-  for(const id of ['left','right','jump','step','play','pause','ai','reset'])$('game-'+id).onclick=safe(async()=>{const args=id==='left'||id==='right'||id==='jump'||id==='step'?{action:'step',ticks:this.lastFrame?.state.courseProgress && ['left','right'].includes(id) ? Number(this.courseStride.value) : 30,horizontal:id==='left'?-1:id==='right'?1:0,jump:id==='jump'}:id==='ai'?{action:'ai',targetX:Number($('game-target').value)}:{action:id};this.show(await this.call('gameRuntime','command',args));});
+  for(const id of ['left','right','jump','step','play','pause','ai','reset'])$('game-'+id).onclick=safe(async()=>{const args=id==='left'||id==='right'||id==='jump'||id==='step'?{action:'step',ticks:this.lastFrame?.state.courseProgress && ['left','right'].includes(id) ? Number(this.courseStride.value) : 30,horizontal:id==='left'?-1:id==='right'?1:0,jump:id==='jump'}:id==='ai'?this.aiInput():{action:id};this.show(await this.call('gameRuntime','command',args));});
   $('game-close').onclick=safe(async()=>{await this.call('gameRuntime','close');this.running=false;this.watching=false;this.courseControls.hidden=true;this.showMovementLabels(false);$('game-status').textContent='Runtime closed. Reopen with Start game.';});
   $('game-open').onclick=safe(async()=>this.show(await this.call('gameRuntime','open')));
   const relayButton = document.createElement('button');
@@ -45,7 +45,9 @@ export class BrainGame {
   const choices = document.createElement('select');
   choices.id = 'game-course-choice';
   choices.setAttribute('aria-label', 'Choose an original course');
-  choices.replaceChildren(new Option('Relay Circuit', 'relay-circuit-v1'), new Option('Relay Terraces', 'relay-terraces-v1'));
+  choices.replaceChildren(
+   new Option('Relay Circuit', 'relay-circuit-v1'), new Option('Relay Terraces', 'relay-terraces-v1'),
+   new Option('Relay Switchyard', 'relay-switchyard-v1'), new Option('Relay Ridge', 'relay-ridge-v1'));
   const playCourse = document.createElement('button');
   playCourse.id = 'game-play-course';
   playCourse.textContent = 'Play course';
@@ -66,6 +68,13 @@ export class BrainGame {
   this.courseStride.replaceChildren(new Option('Standard movement', '30'), new Option('Fine movement', '6'));
   this.courseStride.onchange = () => this.showMovementLabels(Boolean(this.lastFrame?.state.courseProgress));
   this.courseControls.append(this.courseStride);
+  this.railPace = document.createElement('select');
+  this.railPace.id = 'game-rail-pace';
+  this.railPace.hidden = true;
+  this.railPace.setAttribute('aria-label', 'AI rail approach pace');
+  this.railPace.replaceChildren(new Option('Normal approach', 'normal'),
+   new Option('Steady approach', 'steady'), new Option('Careful approach', 'careful'));
+  this.courseControls.append(this.railPace);
   this.courseStatus = document.createElement('span');
   this.courseStatus.id = 'game-course-progress';
   this.courseStatus.setAttribute('role', 'status');
@@ -198,6 +207,11 @@ export class BrainGame {
    teach.disabled=recall.disabled||!this.skillMemoryChoices?.length;
   }
  }
+ aiInput() {
+  const args = {action: 'ai', targetX: Number($('game-target').value)};
+  if (this.lastFrame?.state.railPaceAvailable) args.railPace = this.railPace.value;
+  return args;
+ }
  showMovementLabels(hasCourse) {
   const ticks = hasCourse ? this.courseStride.value : 30;
   $('game-left').textContent = '← ' + ticks + ' ticks';
@@ -207,6 +221,8 @@ export class BrainGame {
   const course = frame.state.courseProgress;
   if (this.courseControls) {
    this.courseControls.hidden = !course;
+   this.railPace.hidden = !frame.state.railPaceAvailable;
+   if (this.lastFrame?.state.contentId !== frame.state.contentId) this.railPace.value = 'normal';
    this.showMovementLabels(Boolean(course));
    if (course) {
     let outcome = '';
@@ -214,9 +230,11 @@ export class BrainGame {
     else if (frame.state.player.won) outcome = ' · Beacon reached';
     else if (frame.state.player.dead) outcome = ' · Attempt ended';
     const rail = frame.state.railNavigation;
+    const verifiedRails = rail && frame.state.railPaceAvailable
+     ? ' · Rails ' + rail.crossings.length + '/' + rail.rails.length : '';
     const navigation = rail ? ' · AI ' + rail.state.charAt(0).toLowerCase() + rail.state.slice(1) : '';
     this.courseStatus.textContent = frame.state.courseTitle + ' · Cells ' + course.pickups.length
-      + '/' + course.totalPickups + outcome + navigation;
+      + '/' + course.totalPickups + outcome + verifiedRails + navigation;
    }
   }
   this.running=true;$('game-frame').hidden=false;$('game-frame').src='data:image/png;base64,'+frame.pngBase64;const s=frame.state,p=s.player;this.lastFrame=frame;$('game-status').textContent=`Original Java renderer · tick ${s.tick} · ${s.objects} objects\nPlayer X ${p.x.toFixed(3)} / Y ${p.y.toFixed(3)} · ${p.dead?'dead':p.won?'goal reached':p.onGround?'on ground':'airborne'}\nCapture ${Number(frame.captureMs).toFixed(1)} ms · bridge ${Number(frame.bridgeMs).toFixed(1)} ms · hidden runtime · no editor panels${s.controller?.pickupSkips?'\nSkipped '+s.controller.pickupSkips+' optional pickup(s): '+s.controller.pickupDecisions.filter(d=>d.action!=='deferred for fresh observation').at(-1)?.reason:''}${s.controller?.pickupDeferrals?'\nDeferred '+s.controller.pickupDeferrals+' pickup checks for fresh observation':''}${(s.controller?.opportunity120?.waitStarts||s.controller?.opportunity120?.revisitStarts)?'\nPickup '+s.controller.opportunity120.phase.toLowerCase()+' · waited '+(s.controller.opportunity120.waitTicks/60).toFixed(2)+' s · '+s.controller.opportunity120.waitClears+' confirmed clear · '+s.controller.opportunity120.waitAborts+' aborted · '+s.controller.opportunity120.revisitStarts+' return attempts':''}${s.controller?.opportunity120?.motion121?'\nObserved enemy reversals: '+s.controller.opportunity120.motion121.reversals+' · uncertain forecasts refused: '+s.controller.opportunity120.motion121.forecastRefusals:''}${s.controller?.enemyLanding122?'\nContact forecast: '+s.controller.enemyLanding122.overrides+' corrections · supported-edge escapes: '+s.controller.enemyLanding122.edgeStarts:''}${s.controller?.contactRecovery119?.attempts?'\nContact recovery '+s.controller.contactRecovery119.phase.toLowerCase()+' · '+s.controller.contactRecovery119.attempts+'/3 attempts':''}`;}

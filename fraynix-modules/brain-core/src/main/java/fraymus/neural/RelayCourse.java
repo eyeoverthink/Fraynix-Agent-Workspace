@@ -9,7 +9,9 @@ import java.util.Set;
 public enum RelayCourse {
     GARDEN("relay-garden-v1", "", "Relay Garden"),
     CIRCUIT("relay-circuit-v1", "circuit", "Relay Circuit"),
-    TERRACES("relay-terraces-v1", "terraces", "Relay Terraces");
+    TERRACES("relay-terraces-v1", "terraces", "Relay Terraces"),
+    SWITCHYARD("relay-switchyard-v1", "switchyard", "Relay Switchyard"),
+    RIDGE("relay-ridge-v1", "ridge", "Relay Ridge");
 
     public static final String ASSETS = "assets/original/relay-garden/";
     public static final String OBJECTS = ASSETS + "courses/signals.png";
@@ -26,6 +28,7 @@ public enum RelayCourse {
     public String id() { return id; }
     public String title() { return title; }
     public boolean hasSignals() { return this != GARDEN; }
+    public boolean hasPaceOptions() { return this == SWITCHYARD || this == RIDGE; }
     public String manifest() { return root() + "manifest.json"; }
     public String level() { return root() + "level.json"; }
 

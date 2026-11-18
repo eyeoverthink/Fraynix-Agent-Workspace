@@ -14,7 +14,8 @@ public class RelayCourseGeneratorTest {
         Path temp = Files.createTempDirectory("relay-courses").resolve("generated");
         RelayCourseGenerator.generate(temp);
         var ids = new HashSet<String>();
-        for (RelayCourse course : List.of(RelayCourse.CIRCUIT, RelayCourse.TERRACES)) {
+        for (RelayCourse course : RelayCourse.values()) {
+            if (!course.hasSignals()) continue;
             for (String file : List.of(course.manifest(), course.level(), RelayCourse.OBJECTS)) {
                 Path relative = Path.of(RelayCourse.ASSETS + "courses").relativize(Path.of(file));
                 assertArrayEquals(file, Files.readAllBytes(Path.of(file)), Files.readAllBytes(temp.resolve(relative)));

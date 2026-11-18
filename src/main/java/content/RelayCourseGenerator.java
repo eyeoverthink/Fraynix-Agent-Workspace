@@ -16,7 +16,7 @@ import javax.imageio.ImageIO;
 
 import static content.RelayGardenGenerator.*;
 
-/** Builds two original layouts from tile coordinates and draws their contact markers. */
+/** Builds original layouts from tile coordinates and draws their contact markers. */
 public final class RelayCourseGenerator {
     private record Deck(int first, int end, int height) {}
     private record Signal(String name, double x, double floor, boolean hazard) {}
@@ -36,6 +36,22 @@ public final class RelayCourseGenerator {
                             new Signal("High rail", 8.875, 1, true),
                             new Signal("Return cell", 11.625, .5, false)),
                     13.625, .625);
+            case SWITCHYARD -> new Layout(List.of(new Deck(0, 40, 2), new Deck(42, 59, 2)),
+                    List.of(new Signal("Yard cell", 1.875, .5, false),
+                            new Signal("West rail", 3.375, .5, true),
+                            new Signal("Signal cell", 6.125, .5, false),
+                            new Signal("East rail", 7.375, .5, true),
+                            new Signal("Return cell", 12.125, .5, false)),
+                    13.75, .625);
+            case RIDGE -> new Layout(List.of(new Deck(0, 12, 2), new Deck(12, 36, 3),
+                    new Deck(36, 60, 2)),
+                    List.of(new Signal("Lower cell", 1.875, .5, false),
+                            new Signal("Ridge cell", 4.375, .75, false),
+                            new Signal("First ridge rail", 6.375, .75, true),
+                            new Signal("Second ridge rail", 7, .75, true),
+                            new Signal("Lower rail", 11.5, .5, true),
+                            new Signal("Finish cell", 13, .5, false)),
+                    14.125, .625);
             case GARDEN -> throw new IllegalArgumentException("Use the existing Garden generator");
         };
     }
@@ -49,7 +65,8 @@ public final class RelayCourseGenerator {
         if (Files.exists(out)) throw new IllegalArgumentException("Generation requires a new directory");
         Files.createDirectories(out);
         drawSignals(out.resolve("signals.png"));
-        for (RelayCourse course : List.of(RelayCourse.CIRCUIT, RelayCourse.TERRACES)) {
+        for (RelayCourse course : RelayCourse.values()) {
+            if (!course.hasSignals()) continue;
             Layout layout = layout(course);
             Path manifestFile = relative(out, course.manifest());
             Files.createDirectories(manifestFile.getParent());
