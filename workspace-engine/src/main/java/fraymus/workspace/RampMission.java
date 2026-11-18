@@ -6,6 +6,8 @@ import org.json.JSONObject;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.security.MessageDigest;
+import java.util.HexFormat;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
@@ -23,6 +25,7 @@ final class RampMission {
             "^run the local ramp experiment( and pause after reading)?[.!]?$", Pattern.CASE_INSENSITIVE);
     private static final int SAMPLE_TICKS = 12;
     private static final double REPLAY_TOLERANCE = .0001;
+    private static final class Backend { static final String SHA = backendHash(); }
     private final Path root;
     private final Path nativeRoot;
     private final WorkspaceStore store;
@@ -69,7 +72,7 @@ final class RampMission {
                     "Ramp experiment history is full");
         }
         var task = new JSONObject().put("id", id).put("procedure", KIND).put("source", source).put("request", request)
-                .put("pause", match.group(1) != null).put("stages", new JSONArray());
+                .put("pause", match.group(1) != null).put("backendSha256", Backend.SHA).put("stages", new JSONArray());
         checkSource(task, true);
         return retain(stage(task, "waiting-host", "browser", "Reading the pinned local browser page"));
     }
@@ -95,11 +98,17 @@ final class RampMission {
         return retain(stage(task, "running", "experiment", "Local table checked against the pinned revision"));
     }
 
-    private static void checkObservation(JSONObject source, JSONObject observation) {
+    private static JSONObject checkObservation(JSONObject source, JSONObject observation) {
         SpatialScene.keys(observation, "path", "rows", "visible");
         require(observation.getBoolean("visible") && source.getString("path").equals(observation.getString("path"))
                 && RampInputPage.rows(source.getJSONObject("values")).similar(observation.getJSONArray("rows")),
                 "The visible browser table differs from the pinned input revision");
+        var read = new JSONObject();
+        for (Object raw : observation.getJSONArray("rows")) {
+            JSONObject row = (JSONObject) raw;
+            read.put(row.getString("field"), Double.parseDouble(row.getString("value")));
+        }
+        return RampInputPage.values(read);
     }
 
     synchronized JSONObject resume(String id) throws Exception {
@@ -122,19 +131,20 @@ final class RampMission {
         JSONObject task = load(id);
         if (!task.getString("status").equals("running")) return view(task);
         JSONObject source = checkSource(task, true);
-        checkObservation(source, task.getJSONObject("observation"));
+        JSONObject observed = checkObservation(source, task.getJSONObject("observation"));
+        require(Backend.SHA.equals(task.getString("backendSha256")), "The installed physics backend changed");
         switch (task.getString("stage")) {
             case "experiment" -> {
                 if (task.getBoolean("pause") && !task.optBoolean("reviewOffered")) {
                     task.put("reviewOffered", true);
                     return retain(stage(task, "interrupted", "experiment", "Input verified. Resume to start the world experiment."));
                 }
-                task.put("original", run(source, id));
+                task.put("original", run(source, observed, id));
                 note(task, "experiment", task.getJSONObject("original"));
                 stage(task, "running", "replay", "Native experiment retained. Replaying in a fresh world.");
             }
             case "replay" -> {
-                task.put("replay", run(source, id));
+                task.put("replay", run(source, observed, id));
                 task.put("audit", audit(task));
                 note(task, "replay", task.getJSONObject("replay"));
                 stage(task, "running", "report", "Native replay matched. Building the report.");
@@ -151,8 +161,7 @@ final class RampMission {
         return retain(task);
     }
 
-    private JSONObject run(JSONObject source, String id) throws Exception {
-        JSONObject data = source.getJSONObject("values");
+    private JSONObject run(JSONObject source, JSONObject data, String id) throws Exception {
         var ids = new JSONObject();
         for (String name : List.of("ramp", "block", "ground")) {
             ids.put(name, UUID.nameUUIDFromBytes((id + ":" + name).getBytes(StandardCharsets.UTF_8)).toString());
@@ -166,8 +175,29 @@ final class RampMission {
                 if (world.tick() % SAMPLE_TICKS == 0 || world.tick() == last) samples.put(world.sample());
             }
         }
-        return new JSONObject().put("sessionId", UUID.randomUUID().toString()).put("sourceSha256", WorldFrames.hash(source))
-                .put("backend", BulletRamp.BACKEND).put("samples", samples);
+        // Make both independent runs use the same persisted numeric representation before comparison.
+        return WorldFrames.copy(new JSONObject().put("sessionId", UUID.randomUUID().toString())
+                .put("sourceSha256", WorldFrames.hash(source)).put("backend", BulletRamp.BACKEND)
+                .put("backendSha256", Backend.SHA).put("samples", samples));
+    }
+
+    private static String backendHash() {
+        try {
+            var hash = MessageDigest.getInstance("SHA-256");
+            Path minie = Path.of(com.jme3.bullet.PhysicsSpace.class.getProtectionDomain().getCodeSource().getLocation().toURI());
+            try (var in = new java.security.DigestInputStream(Files.newInputStream(minie), hash)) {
+                in.transferTo(java.io.OutputStream.nullOutputStream());
+            }
+            for (Class<?> type : List.of(BulletRamp.class, RampDefinition.class)) {
+                try (var in = type.getResourceAsStream(type.getSimpleName() + ".class")) {
+                    if (in == null) throw new IllegalStateException("Missing physics implementation identity");
+                    hash.update(in.readAllBytes());
+                }
+            }
+            return HexFormat.of().formatHex(hash.digest());
+        } catch (Exception e) {
+            throw new IllegalStateException("Could not establish the actual physics backend identity", e);
+        }
     }
 
     private static int ticks(double seconds) { return (int) Math.round(seconds / BulletRamp.DT); }
@@ -183,7 +213,8 @@ final class RampMission {
         require(!a.getString("sessionId").equals(b.getString("sessionId")), "Replay needs a fresh native world");
         int last = ticks(source.getJSONObject("values").getDouble("seconds"));
         for (JSONObject run : List.of(a, b)) {
-            require(sourceHash.equals(run.getString("sourceSha256")) && BulletRamp.BACKEND.equals(run.getString("backend")),
+            require(sourceHash.equals(run.getString("sourceSha256")) && BulletRamp.BACKEND.equals(run.getString("backend"))
+                            && task.getString("backendSha256").equals(run.getString("backendSha256")),
                     "Native trial belongs to another source or engine");
             verifySamples(run.getJSONArray("samples"), last);
         }
@@ -212,6 +243,7 @@ final class RampMission {
         JSONObject end = before.getJSONObject(before.length() - 1);
         return new JSONObject().put("kind", KIND).put("passed", true).put("sourceSha256", sourceHash)
                 .put("observationSha256", WorldFrames.hash(task.getJSONObject("observation"))).put("ticks", last)
+                .put("backendSha256", task.getString("backendSha256"))
                 .put("sampleCount", before.length()).put("tolerance", REPLAY_TOLERANCE)
                 .put("maxPositionErrorM", maxPosition).put("maxVelocityErrorMps", maxSpeed)
                 .put("distanceM", end.getDouble("distanceM")).put("seconds", last * BulletRamp.DT)
