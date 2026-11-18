@@ -9,7 +9,7 @@ const {verify}=require('../../scripts/Study-Build095.cjs');
 
 const output=path.resolve('build',process.argv[2]||'ramp174');
 const project=path.join(output,'project');
-const modelName=process.env.FRAYNIX_TEST_RAMP_MODEL||'llama3.2:latest';
+const modelName=process.env.FRAYNIX_TEST_RAMP_MODEL||'gpt-oss:20b';
 const single='local-ramp-experiment-v1', pair='local-ramp-comparison-v1';
 const header='angle_deg,friction,gravity_mps2,mass_kg,duration_s\r\n';
 const first='38,0.04,9.81,1.2,0.85\r\n',second='18,0.31,9.81,1.2,0.85\r\n';
