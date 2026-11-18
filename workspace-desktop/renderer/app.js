@@ -8,6 +8,7 @@ import {Agency043Panel} from './agency043.js';
 import {Agent042Panel} from './agent042.js';
 import {Small161Panel} from './small161.js';
 import {Accuracy160Panel} from './accuracy160.js';
+import {Recorded162Panel} from './recorded162.js';
 import {Calibrated159Panel} from './calibrated159.js';
 import {Alignment041Panel} from './alignment041.js';
 import {SharedSpatial040} from './spatial-runtime040.js';
@@ -90,6 +91,7 @@ window.tabletopView=new TabletopPanel({call:(command,args={})=>request('tabletop
 window.knowledgeView=new KnowledgePanel({call:(command,args={})=>request('knowledge',{command,args}),tabletop:window.tabletopView,notice,activate:mode=>{window.alignment041?.close();window.sharedSpatial040?.close();setCanvasMode(mode);}});
 window.sharedSpatial040=new SharedSpatial040({call:(command,args={})=>request('runtime040',{command,args}),spatial,persistent:persistentPanel,tabletop:window.tabletopView,notice,activate:mode=>{window.alignment041?.close();window.sharedSpatial040?.close();setCanvasMode(mode);}});
 window.alignment041=new Alignment041Panel({call:(command,args={})=>request('alignment041',{command,args}),runtime:(command,args={})=>request('runtime040',{command,args}),spatial,media:window.tabletopView,notice,activate:setCanvasMode});
+window.recorded162View=new Recorded162Panel({call:(command,args={})=>request('recorded162',{command,args}),small:(command,args={})=>request('small161',{command,args}),alignment:(command,args={})=>request('alignment041',{command,args}),notice});
 window.calibrated159View=new Calibrated159Panel({call:(command,args={})=>request('calibrated159',{command,args}),world:(command,args={})=>request('persistentWorld',{command,args}),alignment:(command,args={})=>request('alignment041',{command,args}),notice});
 window.accuracy160View=new Accuracy160Panel({call:(command,args={})=>request('accuracy160',{command,args}),alignment:(command,args={})=>request('alignment041',{command,args}),notice,activate:setCanvasMode,spatial});
 window.small161View=new Small161Panel({call:(command,args={})=>request('small161',{command,args}),notice,activate:setCanvasMode,spatial});
