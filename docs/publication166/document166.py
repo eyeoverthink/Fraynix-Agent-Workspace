@@ -20,7 +20,7 @@ prepare = read('build/migration166/preparation.json')
 candidate = read('build/migration166/candidate.json')
 assets = read('build/migration166/assets.json')
 upload = read('build/evidence166-upload.json')
-study = read('build/study166-on-a/result.json')
+study = read('build/study166-on-b/result.json')
 for value in [checks, comparison, compatibility, prepare, candidate, study]: assert value['passed']
 assert upload['download']['passed'] and not upload['draft']
 assert checks['java'] == 95
@@ -73,7 +73,7 @@ write(out/'verification.json', {'passed': True, 'java': 95, 'desktop': 181, 'arc
     'externalEvidenceVerified': upload['download'], 'ci': ci})
 shots = []
 for capture in study['captures']:
-    source = root/'build/study166-on-a'/capture['name']
+    source = root/'build/study166-on-b'/capture['name']
     assert sha(source.read_bytes()) == capture['sha256']
     shutil.copy2(source, out/capture['name'])
     shots.append({'path': 'docs/readmes/166/'+capture['name'],

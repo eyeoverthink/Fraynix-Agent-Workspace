@@ -48,7 +48,8 @@ class GitEvidence:
                 raise ValueError('Only ordinary tracked files are supported: ' + name)
             self.files[name] = {'blob': oid, 'bytes': int(size), 'mode': mode}
         self.process = subprocess.Popen(
-            ['git', 'cat-file', '--batch'], cwd=self.repository,
+            ['git', '-c', 'core.packedGitLimit=128m', '-c', 'core.packedGitWindowSize=16m',
+             '-c', 'core.deltaBaseCacheLimit=32m', 'cat-file', '--batch'], cwd=self.repository,
             stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
     def read(self, name):
