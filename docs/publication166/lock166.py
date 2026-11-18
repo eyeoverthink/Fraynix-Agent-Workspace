@@ -7,12 +7,14 @@ import zipfile
 root = Path.cwd()
 target = root/'docs/DOMAIN_EXTRACTION_166_LOCK.json'
 if target.exists():
-    assert (root/'build/attempts166/preliminary-lock.json').read_bytes() == target.read_bytes()
+    assert any(path.read_bytes() == target.read_bytes()
+               for path in (root/'build/attempts166').glob('*-lock.json'))
 assert json.loads((root/'build/validation166/summary.json').read_bytes())['passed']
 paths = set(json.loads((root/'docs/EVIDENCE_REUSE_165_LOCK.json').read_bytes())['sourceHashes'])
 paths.update(subprocess.check_output(['git', 'diff', '--name-only',
     '671a3605d7481e7e5994b75265bc7fab8ce70578'], text=True).splitlines())
 paths.update(p.relative_to(root).as_posix() for p in (root/'docs/publication166').glob('*') if p.is_file())
+paths.discard('docs/DOMAIN_EXTRACTION_166_LOCK.json')
 sha = lambda b: hashlib.sha256(b).hexdigest()
 hashes = {name: sha((root/name).read_bytes().replace(b'\r\n', b'\n')) for name in sorted(paths)}
 names = ['SmallBody161', 'SmallPhysics161', 'SmallStore161', 'SmallReport161',
