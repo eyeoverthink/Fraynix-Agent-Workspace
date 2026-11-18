@@ -65,6 +65,13 @@ tasks.register('runFactoryDemo', JavaExec) {
     mainClass = 'fraymus.factory.kernel.FactoryDemo'
     args = [layout.buildDirectory.dir('factory-demo').get().asFile.absolutePath]
 }
+
+tasks.register('generateRelayGarden', JavaExec) {
+    dependsOn classes
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'content.RelayGardenGenerator'
+    args = [providers.gradleProperty('relayOutput').getOrElse('assets/original/relay-garden')]
+}
 tasks.register('verifySourceIsolation') {
     group = 'verification'
     description = 'Rejects module/source roots outside this repository.'

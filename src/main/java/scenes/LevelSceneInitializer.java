@@ -20,8 +20,6 @@ public class LevelSceneInitializer extends SceneInitializer {
 
     @Override
     public void init(Scene scene) {
-        Spritesheet sprites = AssetPool.getSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png");
-
         GameObject cameraObject = scene.createGameObject("GameCamera");
         cameraObject.setNoSerialize();
         cameraObject.addComponent(new GameCamera(scene.camera()));
@@ -30,6 +28,10 @@ public class LevelSceneInitializer extends SceneInitializer {
 
     @Override
     public void loadResources(Scene scene) {
+        if (content.RelayGardenResources.enabled()) {
+            content.RelayGardenResources.load(scene);
+            return;
+        }
         AssetPool.getShader("assets/shaders/default.glsl");
 
         AssetPool.addSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png",

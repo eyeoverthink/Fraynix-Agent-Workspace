@@ -32,6 +32,16 @@ export class BrainGame {
   for(const id of ['left','right','jump','step','play','pause','ai','reset'])$('game-'+id).onclick=safe(async()=>{const args=id==='left'||id==='right'||id==='jump'||id==='step'?{action:'step',ticks:30,horizontal:id==='left'?-1:id==='right'?1:0,jump:id==='jump'}:id==='ai'?{action:'ai',targetX:Number($('game-target').value)}:{action:id};this.show(await this.call('gameRuntime','command',args));});
   $('game-close').onclick=safe(async()=>{await this.call('gameRuntime','close');this.running=false;this.watching=false;$('game-status').textContent='Runtime closed. Reopen with Start game.';});
   $('game-open').onclick=safe(async()=>this.show(await this.call('gameRuntime','open')));
+  const relayButton = document.createElement('button');
+  relayButton.id = 'game-relay'; relayButton.textContent = 'Play Relay Garden';
+  relayButton.title = 'Original robot, artwork, sound cues and a new two-gap course';
+  $('game-open').after(relayButton);
+  relayButton.onclick = safe(async () => {
+   this.requireSaved(); this.watching = true;
+   const frame = await this.call('gameRuntime', 'open-relay');
+   this.show(frame); $('game-target').value = frame.content.finishX;
+   this.notice('Relay Garden: reach the beacon. Use the movement buttons, Jump or AI play. Reset starts the checked level again.');
+  });
   for(const kind of ['pulse','gpu-check','train','feedback-train'])$('brain-'+kind).onclick=safe(async()=>{const job=await this.call('brain','start',{kind,autoPromote:$('brain-auto').checked});this.jobId=job.id;await this.refresh();});
   this.lab.feedbackProgress=value=>this.feedback(value);
   $('brain-feedback-rollback').onclick=safe(async()=>{await this.call('brain','feedback-rollback',{expectedVersion:this.feedbackVersion});await this.refresh();});

@@ -4,6 +4,7 @@ from pathlib import Path
 import subprocess
 import tempfile
 import unittest
+import os
 
 import evidence_archive as archive
 import history_archive as history
@@ -96,6 +97,31 @@ class HistoryArchiveTest(unittest.TestCase):
             self.assertEqual(history.catalog(source), self.catalog)
             history.restore(self.catalog, self.names, self.root/'original', git=source)
         self.assertEqual((self.root/'original/README-001.md').read_bytes(), b'# Original\r\n')
+
+    def test_linked_parent_is_pinned_but_destination_link_is_refused(self):
+        physical = self.root / 'physical'
+        physical.mkdir()
+        alias = self.root / 'alias'
+        if os.name == 'nt':
+            subprocess.run(['powershell', '-NoProfile', '-Command',
+                            'New-Item -ItemType Junction -Path $env:ARCHIVE_TEST_ALIAS -Target $env:ARCHIVE_TEST_TARGET | Out-Null'],
+                           env=dict(os.environ, ARCHIVE_TEST_ALIAS=str(alias),
+                                    ARCHIVE_TEST_TARGET=str(physical)), check=True, capture_output=True)
+        else:
+            alias.symlink_to(physical, target_is_directory=True)
+        try:
+            result = history.restore(self.catalog, self.names, alias/'restored',
+                                     archive=self.zip, manifest=self.manifest)
+            self.assertTrue(result['passed'])
+            self.assertEqual((physical/'restored/README-001.md').read_bytes(), b'# Original\r\n')
+            with self.assertRaises(ValueError):
+                history.restore(self.catalog, self.names, alias,
+                                archive=self.zip, manifest=self.manifest)
+        finally:
+            if os.name == 'nt':
+                os.rmdir(alias)  # Remove only the junction, never its target tree.
+            else:
+                alias.unlink()
 
 
 if __name__ == '__main__':

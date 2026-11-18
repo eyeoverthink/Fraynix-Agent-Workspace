@@ -53,7 +53,13 @@ public class AssetPool {
     }
 
     private static final Map<String, jade.Sound> sounds = new HashMap<>();
-    public static void addSound(String path, boolean loops) { sounds.computeIfAbsent(path, key -> new jade.Sound(key, loops)); }
+    public static void addSound(String path, boolean loops) { sounds.computeIfAbsent(path, key -> new jade.Sound(content.RelayGardenResources.soundPath(key), loops)); }
+    public static java.util.List<String> loadedContentPaths() {
+        var paths = new java.util.TreeSet<String>();
+        textures.values().forEach(texture -> paths.add(texture.getFilepath()));
+        sounds.values().forEach(sound -> paths.add(sound.getFilepath()));
+        return java.util.List.copyOf(paths);
+    }
     public static jade.Sound getSound(String path) {
         jade.Sound sound = sounds.get(path);
         if (sound == null) throw new IllegalArgumentException("Unregistered sound: " + path);

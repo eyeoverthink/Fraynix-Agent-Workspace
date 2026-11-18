@@ -29,12 +29,24 @@ public final class EmbeddedGameClient implements AutoCloseable {
     synchronized JSONObject openLevel(Path level,String id,String sha) throws Exception {
         close();levelId=id;return start(project.resolve("candidates").resolve(id).resolve(UUID.randomUUID().toString()),level,sha);
     }
+    public synchronized JSONObject openRelay() throws Exception {
+        JSONObject pack = new GameContentPack(repo).verify();
+        close(); levelId = GameContentPack.ID;
+        return start(project.resolve("original-content").resolve(UUID.randomUUID().toString()),
+            repo.resolve(pack.getString("level")), pack.getJSONObject("files").getString(pack.getString("level")))
+            .put("content", pack);
+    }
     private JSONObject start(Path runtimeProject,Path level,String sha) throws Exception {
         activeProject=runtimeProject;
         Path lib=repo.resolve("build/install/Fraynix-Studio/lib");if(!Files.isDirectory(lib))throw new IllegalStateException("Build the preserved game runtime first");
         Files.createDirectories(runtimeProject);token=UUID.randomUUID().toString()+UUID.randomUUID();
         var command=new ArrayList<String>(List.of(Path.of(System.getProperty("java.home"),"bin","java.exe").toString(),"--enable-native-access=ALL-UNNAMED","-XX:ActiveProcessorCount=4","-Xmx512m","-Dfraynix.embedded=true","-Dfraynix.studio.workspace="+runtimeProject));
         if(level!=null){command.add("-Dfraynix.level="+level.toAbsolutePath());command.add("-Dfraynix.level.sha256="+sha);}
+        if (GameContentPack.ID.equals(levelId)) {
+            JSONObject pack = new GameContentPack(repo).verify();
+            command.add("-Dfraynix.content=" + GameContentPack.ID);
+            command.add("-Dfraynix.content.sha256=" + pack.getString("manifestSha256"));
+        }
         command.addAll(List.of("-cp",lib.toString()+File.separator+"*","Main","--mario"));var builder=new ProcessBuilder(command);
         builder.directory(repo.resolve("build/install/Fraynix-Studio").toFile());builder.environment().put("FRAYNIX_GAME_TOKEN",token);builder.environment().put("FRAYNIX_GAME_PARENT_PID",String.valueOf(ProcessHandle.current().pid()));builder.redirectError(runtimeProject.resolve("runtime-errors.log").toFile());
         process=builder.start();var ready=new CompletableFuture<String>();var owned=process;
@@ -50,7 +62,15 @@ public final class EmbeddedGameClient implements AutoCloseable {
     }
     public synchronized JSONObject frame() throws Exception {long t=System.nanoTime();var result=request("/frame",null);result.put("bridgeMs",(System.nanoTime()-t)/1e6).put("pid",process.pid()).put("levelId",levelId==null?"original":levelId);return result;}
     public synchronized JSONObject spatial() throws Exception {return request("/command",new JSONObject().put("action","spatial"));}
-    public synchronized JSONObject command(JSONObject input) throws Exception {if(levelId!=null&&"reset".equals(input.optString("action")))levels.verify(levelId);var result=request("/command",input);if(input.optString("action").equals("overview"))return result.put("levelId",levelId==null?"original":levelId);return frame();}
+    public synchronized JSONObject command(JSONObject input) throws Exception {
+        if (levelId != null && "reset".equals(input.optString("action"))) {
+            if (GameContentPack.ID.equals(levelId)) new GameContentPack(repo).verify();
+            else levels.verify(levelId);
+        }
+        var result=request("/command",input);
+        if(input.optString("action").equals("overview"))return result.put("levelId",levelId==null?"original":levelId);
+        return frame();
+    }
     public synchronized JSONObject status(){return new JSONObject().put("running",process!=null&&process.isAlive()).put("project",activeProject.toString()).put("levelId",levelId==null?"original":levelId);}
     public synchronized void close(){
         if(process!=null){try{if(process.isAlive()&&origin!=null)request("/command",new JSONObject().put("action","close"));if(!process.waitFor(4,TimeUnit.SECONDS))process.destroy();}catch(Exception error){process.destroy();}finally{process=null;origin=null;}}

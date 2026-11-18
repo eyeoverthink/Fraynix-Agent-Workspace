@@ -18,6 +18,10 @@ public class Sound {
     public Sound(String filepath, boolean loops) {
         this.filepath = filepath;
         if (!AudioSystem.available()) return;
+        if (filepath.endsWith(".wav")) {
+            loadPcmWave(filepath, loops);
+            return;
+        }
 
         // Allocate space to store the return information from stb
         stackPush();
@@ -68,6 +72,23 @@ public class Sound {
         if (sourceId == 0) return;
         alDeleteSources(sourceId);
         alDeleteBuffers(bufferId);
+    }
+
+    private void loadPcmWave(String path, boolean loops) {
+        try (var stream = javax.sound.sampled.AudioSystem.getAudioInputStream(new java.io.File(path))) {
+            var format = stream.getFormat();
+            if (format.getEncoding() != javax.sound.sampled.AudioFormat.Encoding.PCM_SIGNED
+                    || format.getSampleSizeInBits() != 16 || format.isBigEndian()
+                    || format.getChannels() != 1 || format.getSampleRate() != 22050)
+                throw new IllegalArgumentException("Original cues require mono 16-bit 22050Hz PCM");
+            byte[] bytes = stream.readNBytes(220501);
+            if (bytes.length > 220500 || bytes.length % 2 != 0) throw new IllegalArgumentException("Oversized or invalid cue");
+            java.nio.ByteBuffer samples = org.lwjgl.BufferUtils.createByteBuffer(bytes.length);
+            samples.put(bytes).flip();
+            bufferId = alGenBuffers(); alBufferData(bufferId, AL_FORMAT_MONO16, samples, 22050);
+            sourceId = alGenSources(); alSourcei(sourceId, AL_BUFFER, bufferId);
+            alSourcei(sourceId, AL_LOOPING, loops ? 1 : 0); alSourcef(sourceId, AL_GAIN, .3f);
+        } catch (Exception error) { throw new IllegalStateException("Cannot load original cue: " + path, error); }
     }
 
     public void play() {

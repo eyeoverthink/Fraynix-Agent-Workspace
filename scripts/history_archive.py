@@ -127,8 +127,12 @@ def restore(value, names, destination, *, git=None, archive=None, manifest=None)
     if destination.exists() or destination.is_symlink():
         raise ValueError('Restore requires a new destination')
     parent = destination.parent.resolve(strict=True)
-    if parent != destination.parent.absolute():
-        raise ValueError('Linked restore parents are not supported')
+    # Windows runners may expose TEMP through a junction or short-name alias.
+    # Pin its physical parent once, then perform every write through that path.
+    # Never follow a link at the requested destination itself.
+    destination = parent / destination.name
+    if destination.exists() or destination.is_symlink():
+        raise ValueError('Restore requires a new destination')
     if (git is None) == (archive is None):
         raise ValueError('Select exactly one evidence provider')
     if git and git.commit != value['sourceCommit']:

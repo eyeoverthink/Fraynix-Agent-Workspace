@@ -10,7 +10,7 @@ public class ComponentDeserializer implements JsonSerializer<Component>,
 
     // Stable external schemas will replace these compatibility payloads progressively.
     private static final java.util.Set<String> ALLOWED = java.util.Set.of(
-        "jade.Transform", "components.SpriteRenderer", "components.NonPickable", "components.FontRenderer",
+        "jade.Transform", "components.SpriteRenderer", "components.NonPickable", "components.FontRenderer", "components.FallBoundary",
         "components.GridLines", "components.MouseControls", "components.EditorCamera", "components.Gizmo",
         "components.GizmoSystem", "components.ScaleGizmo", "components.TranslateGizmo",
         "physics2d.components.Rigidbody2D", "physics2d.components.Box2DCollider", "physics2d.components.CircleCollider", "physics2d.components.PillboxCollider",
