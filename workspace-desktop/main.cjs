@@ -18,6 +18,7 @@ const {bodyReport}=require('./body-result.cjs');
 const {createGoals}=require('./goals.cjs');
 const {createCreation}=require('./creation.cjs');
 const {createWorkflows}=require('./workflows.cjs');
+const {auditAccuracy160}=require('./accuracy160.cjs');
 const {BrowserPerception}=require('./browser-perception.cjs');
 const {createTracking}=require('./tracking.cjs');
 const {createObservations}=require('./observations.cjs');
@@ -644,6 +645,16 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     }
     case 'state':return {...await refresh(),currentArtifact,origin,log,run:run?{active:true,goal:run.goal}:null};
     case 'tool':if(run)throw Error('Take over before using manual tools');return execute(input.tool,input.args);
+    case 'accuracy160':{
+      const args=input.args||{};
+      if(['start','resume','report'].includes(input.command)&&(agency043.busy()||workflowBridge.reserved()))throw Error('Finish or stop current work before evaluating recorded motion');
+      if(input.command==='report'){
+        const effect=await api('/api/accuracy160/prepare',args),a=await api('/api/artifact/read',{id:effect.report.id});
+        if(a.version!==effect.report.version)throw Error('Original accuracy artifact changed');emit('view','preview');await openArtifact(a);
+        const observed=await auditAccuracy160(canvas,effect,value=>api('/api/artifact/test',value));return api('/api/accuracy160/acknowledge',{id:effect.id,resultSha256:effect.resultSha256,observed});
+      }
+      if(!['state','start','read','resume','stop','verify'].includes(input.command))throw Error('Unknown recorded accuracy operation');return api('/api/accuracy160/'+input.command,args);
+    }
     case 'calibrated159':{
       if(agency043.busy()||workflowBridge.reserved())throw Error('Finish or stop current work before preparing calibrated actions');
       if(!['preview','select'].includes(input.command))throw Error('Unknown calibrated action command');

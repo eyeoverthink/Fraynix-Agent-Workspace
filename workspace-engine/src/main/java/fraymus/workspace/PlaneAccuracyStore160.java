@@ -1,0 +1,50 @@
+package fraymus.workspace;
+
+import org.json.*;
+import java.nio.*;
+import java.nio.file.*;
+import java.nio.channels.*;
+import java.time.*;
+import java.util.*;
+import java.util.concurrent.*;
+
+/** Bounded, restartable evaluation jobs. A measurement failure is a valid report outcome. */
+final class PlaneAccuracyStore160 implements AutoCloseable {
+    private final Path root;private final PlaneReplay160 replay;private final WorkspaceStore artifacts;
+    private final ExecutorService worker=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"plane-accuracy160");t.setDaemon(true);return t;});
+    private boolean closed;
+    PlaneAccuracyStore160(Path project,Alignment041Store alignment,WorldLedger worlds,WorkspaceStore artifacts)throws Exception{
+        root=project.resolve("plane-accuracy160");this.artifacts=artifacts;replay=new PlaneReplay160(project,alignment,worlds);Files.createDirectories(root);
+        try(var files=Files.list(root)){for(var p:files.filter(x->x.getFileName().toString().endsWith(".json")).toList()){var j=read(p.getFileName().toString().replace(".json",""));if(j.getString("status").equals("running")){j.put("status","interrupted").put("reason","Process ended; resume reconstructs the same frozen originals");save(j);}}}
+    }
+    private void save(JSONObject j)throws Exception{var p=root.resolve(j.getString("id")+".json");var tmp=root.resolve(j.getString("id")+".pending");var bytes=new JSONObject().put("payload",j).put("sha256",WorldFrames.hash(j)).toString().getBytes(java.nio.charset.StandardCharsets.UTF_8);if(bytes.length>2_000_000)throw new IllegalStateException("Accuracy evidence budget exceeded");try(var out=FileChannel.open(tmp,StandardOpenOption.CREATE,StandardOpenOption.TRUNCATE_EXISTING,StandardOpenOption.WRITE)){var b=ByteBuffer.wrap(bytes);while(b.hasRemaining())out.write(b);out.force(true);}Files.move(tmp,p,StandardCopyOption.REPLACE_EXISTING,StandardCopyOption.ATOMIC_MOVE);}
+    synchronized JSONObject read(String id)throws Exception{UUID.fromString(id);var p=root.resolve(id+".json");ReplayEvidence157.unlinkedRealPath(p);if(Files.size(p)>2_000_000)throw new IllegalStateException("Accuracy record too large");var e=new JSONObject(Files.readString(p));var j=e.getJSONObject("payload");if(!WorldFrames.hash(j).equals(e.getString("sha256"))||!id.equals(j.getString("id")))throw new IllegalStateException("Accuracy evidence checksum changed");return WorldFrames.copy(j);}
+    synchronized JSONObject state()throws Exception{var jobs=new JSONArray();try(var files=Files.list(root)){for(var p:files.filter(x->x.getFileName().toString().endsWith(".json")).sorted().toList()){var j=read(p.getFileName().toString().replace(".json",""));for(String k:List.of("results","audit","bindings"))j.remove(k);jobs.put(j);}}return new JSONObject().put("jobs",jobs).put("scope",PlaneAccuracy160.LIMIT);}
+    synchronized JSONObject start(JSONObject input)throws Exception{
+        SpatialScene.keys(input,"trialIds","options");if(closed)throw new IllegalStateException("Evaluator closed");var ids=input.getJSONArray("trialIds");if(ids.length()<1||ids.length()>4)throw new IllegalArgumentException("Choose one to four distinct movement episodes");var state=state().getJSONArray("jobs");if(state.length()>=16)throw new IllegalStateException("Retained accuracy-job capacity reached; originals preserved");idle();
+        var seen=new HashSet<String>();var episodes=new HashSet<String>();var bindings=new JSONArray();for(Object raw:ids){String id=(String)raw;if(!seen.add(id))throw new IllegalArgumentException("A repeated trial is not another independent episode");var binding=replay.binding(id);if(!episodes.add(binding.getString("episodeFingerprint")))throw new IllegalArgumentException("Duplicate original footage is not another independent episode");bindings.put(binding);}
+        var j=new JSONObject().put("id",UUID.randomUUID().toString()).put("bindings",bindings).put("options",PlaneAccuracy160.options(input.optJSONObject("options",new JSONObject()))).put("engine",PlaneReplay160.identity()).put("createdAt",Instant.now()).put("status","running").put("generation",1).put("resumes",0).put("phase","reconstructing").put("completedTrials",0);save(j);schedule(j);return j;
+    }
+    private void idle()throws Exception{for(Object raw:state().getJSONArray("jobs"))if(((JSONObject)raw).getString("status").equals("running"))throw new IllegalStateException("Finish or stop the current accuracy job first");}
+    synchronized JSONObject resume(String id)throws Exception{idle();var j=read(id);if(!Set.of("interrupted","failed").contains(j.getString("status"))||j.getInt("resumes")>=3)throw new IllegalStateException("Only interrupted/failed jobs can resume, at most three times");engine(j);j.put("status","running").put("generation",j.getInt("generation")+1).put("resumes",j.getInt("resumes")+1).put("phase","reconstructing").remove("reason");save(j);schedule(j);return j;}
+    synchronized JSONObject stop(String id)throws Exception{var j=read(id);if(j.getString("status").equals("running")){j.put("status","interrupted").put("generation",j.getInt("generation")+1).put("reason","Stopped; frozen sources and progress retained");save(j);}return j;}
+    private static void engine(JSONObject j){if(!PlaneReplay160.identity().equals(j.getString("engine")))throw new IllegalStateException("Accuracy evaluator changed; retain the old result and start a new linked evaluation");}
+    private void schedule(JSONObject frozen){var j=WorldFrames.copy(frozen);worker.submit(()->{
+        long started=System.nanoTime();int generation=j.getInt("generation");String id=j.getString("id");
+        Runnable checkpoint=()->{try{synchronized(this){var now=read(id);if(closed||Thread.currentThread().isInterrupted()||!now.getString("status").equals("running")||now.getInt("generation")!=generation)throw new IllegalStateException("Accuracy job stopped or superseded");}if((System.nanoTime()-started)>240_000_000_000L)throw new IllegalStateException("Bounded reconstruction deadline reached");}catch(Exception e){throw new IllegalStateException(e.getMessage(),e);}};
+        try{var results=reconstruct(j,checkpoint);checkpoint.run();synchronized(this){checkpoint.run();var now=read(id);now.put("results",results).put("resultSha256",WorldFrames.hash(new JSONObject().put("rows",results))).put("completedTrials",results.length()).put("elapsedMs",(System.nanoTime()-started)/1e6).put("phase","report-check");var a=artifacts.writeOnce("plane-accuracy160:"+id,PlaneAccuracyReport160.build(now));if(a.getInt("version")!=1)throw new IllegalStateException("Original report was edited");now.put("report",Creation.reference(a)).put("status","awaiting-report");save(now);}}
+        catch(Exception e){try{synchronized(this){var now=read(id);if(now.getString("status").equals("running")&&now.getInt("generation")==generation){now.put("status","failed").put("reason",e.getMessage());save(now);}}}catch(Exception ignored){/* Original files remain the authority if persistence itself failed. */}}
+    });}
+    private JSONArray reconstruct(JSONObject j,Runnable checkpoint)throws Exception{engine(j);var results=new JSONArray();for(Object raw:j.getJSONArray("bindings")){checkpoint.run();results.put(PlaneAccuracy160.evaluate(replay.replay((JSONObject)raw,checkpoint),j.getJSONObject("options")));}return results;}
+    private JSONObject verifiedInputs(String id)throws Exception{
+        var j=read(id);if(!Set.of("completed","awaiting-report").contains(j.getString("status")))throw new IllegalStateException("Finish reconstruction before inspecting the report");long started=System.nanoTime();var actual=reconstruct(j,()->{if(System.nanoTime()-started>240_000_000_000L)throw new IllegalStateException("Verification deadline reached");});if(!actual.similar(j.getJSONArray("results"))||!WorldFrames.hash(new JSONObject().put("rows",actual)).equals(j.getString("resultSha256")))throw new IllegalStateException("Reconstructed measurement outcome differs");
+        var a=artifacts.read(j.getJSONObject("report").getString("id"));if(!Creation.reference(a).similar(j.getJSONObject("report"))||a.getInt("version")!=1||!a.getJSONObject("contents").similar(PlaneAccuracyReport160.build(j).getJSONObject("files")))throw new IllegalStateException("Original report artifact changed");if(!read(id).similar(j))throw new IllegalStateException("Accuracy job changed during verification");return j;
+    }
+    JSONObject prepare(String id)throws Exception{var j=verifiedInputs(id);return new JSONObject().put("id",id).put("resultSha256",j.getString("resultSha256")).put("report",j.getJSONObject("report")).put("rowCount",PlaneAccuracyReport160.data(j).getJSONArray("rows").length());}
+    JSONObject acknowledge(JSONObject input)throws Exception{
+        SpatialScene.keys(input,"id","resultSha256","observed");var j=verifiedInputs(input.getString("id"));if(!input.getString("resultSha256").equals(j.getString("resultSha256")))throw new IllegalStateException("Rendered result belongs to another evaluation");var audit=PlaneAccuracyReport160.audit(j,input.getJSONObject("observed"));
+        synchronized(this){if(!read(j.getString("id")).similar(j))throw new IllegalStateException("Job changed before report acknowledgement");if(j.getString("status").equals("completed")){if(!j.getJSONObject("audit").similar(audit))throw new IllegalStateException("Original rendered proof changed");return j;}j.put("audit",audit).put("status","completed").put("phase","complete").put("completedAt",Instant.now());save(j);return j;}
+    }
+    JSONObject verify(String id)throws Exception{var j=verifiedInputs(id);if(!j.getString("status").equals("completed"))throw new IllegalStateException("Rendered report has not been independently checked");PlaneAccuracyReport160.audit(j,j.getJSONObject("audit").getJSONObject("observed"));return new JSONObject().put("passed",true).put("id",id).put("resultSha256",j.getString("resultSha256")).put("measurementPromotion",false);}
+    @Override public synchronized void close(){closed=true;worker.shutdownNow();}
+}

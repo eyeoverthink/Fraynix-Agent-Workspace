@@ -1,0 +1,36 @@
+package fraymus.workspace;
+
+import org.json.*;
+import java.util.*;
+
+final class PlaneAccuracyReport160 {
+    static String num(double x){return String.format(Locale.ROOT,"%.6f",x);}
+    static JSONObject data(JSONObject job){
+        var rows=new JSONArray();var cells=new JSONArray();double maximum=.001;var results=job.getJSONArray("results");
+        for(Object raw:results){var trial=(JSONObject)raw;for(Object r:trial.getJSONArray("rows")){var row=(JSONObject)r;var cell=new JSONArray().put(trial.getString("trialId").substring(0,8)).put(Integer.toString(row.getInt("pair"))).put(row.getBoolean("usable")?"measured":"withheld");
+            if(row.getBoolean("usable")){for(String k:List.of("errorM","radiusM"))cell.put(num(row.getDouble(k)));cell.put(row.getBoolean("containsReference")?"yes":"no").put(row.getBoolean("containsReferenceRegion")?"yes":"no");maximum=Math.max(maximum,Math.max(row.getDouble("errorM"),row.getDouble("radiusM")));}else for(int i=0;i<4;i++)cell.put("unknown");
+            cells.put(cell);rows.put(new JSONObject().put("usable",row.getBoolean("usable")).put("errorM",row.optDouble("errorM",0)).put("radiusM",row.optDouble("radiusM",0)));
+        }}
+        int passed=0;for(Object raw:results)if(((JSONObject)raw).getBoolean("measurementGatesPassed"))passed++;
+        return new JSONObject().put("rows",rows).put("cells",cells).put("scaleM",maximum*1.15).put("limits",PlaneAccuracy160.LIMIT).put("summary",results.length()+" distinct trial(s); "+passed+" passed the declared measurement gates. Repeated frames do not add independent episodes.").put("source","Fresh reconstruction of original frames and independent endpoint labels. Evaluation "+job.getString("id")+"; frozen input "+WorldFrames.hash(new JSONObject().put("rows",job.getJSONArray("bindings")))+".").put("results",results).put("options",job.getJSONObject("options"));
+    }
+    static JSONObject build(JSONObject job){
+        var d=data(job);String html="""
+        <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Independent motion checks · 160</title><style>
+        :root{font:16px system-ui;color:#e6f3ef;background:#091c22;color-scheme:dark}body{margin:24px}h1{font-size:clamp(26px,4vw,42px)}p{line-height:1.6;overflow-wrap:anywhere}section{border:1px solid #45636a;border-radius:12px;padding:20px;margin:20px 0;background:#142e35}#limits{border-color:#c8a34b}select{padding:10px;background:#183b43;color:#fff;border:1px solid #7faca9}svg{width:100%;display:block;background:#08171d;margin-top:16px}table{border-collapse:collapse;width:100%;min-width:650px}td,th{padding:10px;border-bottom:1px solid #416066;text-align:left}.scroll{overflow:auto}pre{white-space:pre-wrap;overflow-wrap:anywhere}small{color:#a8ceca}
+        </style></head><body><small>FRAYNIX / EDITION 160 / INDEPENDENT DISPLACEMENT CHECKS</small><h1>Measure the error.<br>Keep the uncertainty.</h1><section id="limits"></section><section><h2>What the recorded trial supports</h2><p id="summary"></p><p id="source"></p></section><section><h2>Paired displacement error and bound radius</h2><p>Every fixed start/end pair remains in the table. Missing measurements have no plotted bar. Gold shows error against the tape displacement; teal shows the conditional radius. These are metres, not probabilities.</p><label>Show <select id="mode"><option value="all">Error and bounds</option><option value="error">Displacement error</option><option value="bound">Conditional radius</option></select></label><svg id="plot" viewBox="0 0 800 340" aria-label="Error and radius in metres"></svg><p id="scale"></p></section><section><h2>All fixed pairs</h2><div class="scroll"><table><thead><tr><th>Trial</th><th>Pair</th><th>Observation</th><th>Error m</th><th>Radius m</th><th>Reference contained</th><th>Reference region contained</th></tr></thead><tbody id="rows"></tbody></table></div></section><section><h2>Retained calculation and source identities</h2><details><summary>Inspect original numeric evidence</summary><pre id="evidence"></pre></details></section><script id="data" type="application/json">DATA160</script><script>
+        const d=JSON.parse(document.querySelector('#data').textContent),$=s=>document.querySelector(s);for(const k of ['limits','summary','source'])$('#'+k).textContent=d[k];$('#scale').textContent='Chart height: '+d.scaleM.toFixed(6)+' metres. Pair order is fixed; no favourable windows selected.';$('#evidence').textContent=JSON.stringify(d,null,2);
+        for(const row of d.cells){const tr=document.createElement('tr');for(const value of row){const td=document.createElement('td');td.textContent=value;tr.append(td)}$('#rows').append(tr)}
+        function draw(){$('#plot').replaceChildren();const width=720/d.rows.length;d.rows.forEach((r,i)=>{if(!r.usable)return;for(const k of ['error','bound']){if($('#mode').value!=='all'&&$('#mode').value!==k)continue;const value=k==='error'?r.errorM:r.radiusM,h=280*value/d.scaleM,e=document.createElementNS('http://www.w3.org/2000/svg','rect');for(const[a,v]of Object.entries({x:40+i*width+(k==='error'?0:width*.45),y:300-h,width:width*.35,height:h}))e.setAttribute(a,Math.fround(v));e.dataset.kind=k;e.style.fill=k==='error'?'#ffcc79':'#81dec2';$('#plot').append(e)}})}$('#mode').onchange=draw;draw();</script></body></html>
+        """.replace("DATA160",d.toString().replace("</","<\\/"));
+        return new JSONObject().put("title","Independent recorded motion checks · 160").put("entrypoint","index.html").put("files",new JSONObject().put("index.html",html).put("accuracy.json",d.toString(2)));
+    }
+    static JSONObject audit(JSONObject job,JSONObject observed){
+        var d=data(job);if(!observed.getJSONArray("rows").similar(d.getJSONArray("cells")))throw new IllegalStateException("Actual accuracy table differs");for(String k:List.of("limits","summary","source"))if(!d.getString(k).equals(observed.getString(k)))throw new IllegalStateException("Actual uncertainty/source label differs");
+        var states=observed.getJSONArray("states");if(states.length()!=3)throw new IllegalStateException("Exercise all accuracy chart modes");int modeIndex=0;
+        for(String mode:List.of("all","error","bound")){var state=states.getJSONObject(modeIndex++);if(!mode.equals(state.getString("mode"))||!state.getBoolean("visible"))throw new IllegalStateException("Accuracy chart mode is not visible");var bars=new JSONArray();var rows=d.getJSONArray("rows");double width=720./rows.length();
+            for(int i=0;i<rows.length();i++){var row=rows.getJSONObject(i);if(!row.getBoolean("usable"))continue;for(String k:List.of("error","bound")){if(!mode.equals("all")&&!mode.equals(k))continue;double h=280*row.getDouble(k.equals("error")?"errorM":"radiusM")/d.getDouble("scaleM");bars.put(new JSONObject().put("kind",k).put("x",(double)(float)(40+i*width+(k.equals("error")?0:width*.45))).put("y",(double)(float)(300-h)).put("width",(double)(float)(width*.35)).put("height",(double)(float)h));}}
+            if(!bars.similar(state.getJSONArray("bars")))throw new IllegalStateException("Actual accuracy chart geometry differs");
+        }return new JSONObject().put("passed",true).put("observed",WorldFrames.copy(observed));
+    }
+}

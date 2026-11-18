@@ -1,0 +1,3 @@
+const {test}=require('node:test'),assert=require('node:assert/strict'),{auditAccuracy160}=require('../accuracy160.cjs');
+test('failed accuracy report initialization yields no rendered claim',async()=>{let called=0;await assert.rejects(auditAccuracy160({test:async()=>[{passed:false}]},{rowCount:8},async()=>called++),/initialize/);assert.equal(called,0)});
+test('failed retained accuracy checks stop before chart inspection',async()=>{let called=0;await assert.rejects(auditAccuracy160({test:async()=>[{passed:true}],isolated:async()=>called++},{rowCount:8,report:{id:'a',version:1}},async()=>({passed:false})),/not retained/);assert.equal(called,0)});

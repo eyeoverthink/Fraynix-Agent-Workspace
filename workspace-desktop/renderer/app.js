@@ -6,6 +6,7 @@ import {Construction051} from './construction051.js';
 import {Workshop050} from './workshop050.js';
 import {Agency043Panel} from './agency043.js';
 import {Agent042Panel} from './agent042.js';
+import {Accuracy160Panel} from './accuracy160.js';
 import {Calibrated159Panel} from './calibrated159.js';
 import {Alignment041Panel} from './alignment041.js';
 import {SharedSpatial040} from './spatial-runtime040.js';
@@ -89,6 +90,7 @@ window.knowledgeView=new KnowledgePanel({call:(command,args={})=>request('knowle
 window.sharedSpatial040=new SharedSpatial040({call:(command,args={})=>request('runtime040',{command,args}),spatial,persistent:persistentPanel,tabletop:window.tabletopView,notice,activate:mode=>{window.alignment041?.close();window.sharedSpatial040?.close();setCanvasMode(mode);}});
 window.alignment041=new Alignment041Panel({call:(command,args={})=>request('alignment041',{command,args}),runtime:(command,args={})=>request('runtime040',{command,args}),spatial,media:window.tabletopView,notice,activate:setCanvasMode});
 window.calibrated159View=new Calibrated159Panel({call:(command,args={})=>request('calibrated159',{command,args}),world:(command,args={})=>request('persistentWorld',{command,args}),alignment:(command,args={})=>request('alignment041',{command,args}),notice});
+window.accuracy160View=new Accuracy160Panel({call:(command,args={})=>request('accuracy160',{command,args}),alignment:(command,args={})=>request('alignment041',{command,args}),notice,activate:setCanvasMode,spatial});
 const perceptionPanel=new PerceptionPanel({call:(command,args={})=>request('perception',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g)});
 const trackingPanel=new TrackingPanel({call:(command,args={})=>request('tracking',{command,args}),notice,requireSaved,openPerception:()=>perceptionPanel.open()});
 const creationPanel=new CreationPanel({layout:updateLayout,call:(command,args,model)=>request('creation',{command,args,model}),getState:()=>state,getArtifact:()=>artifact,getModel:()=>$('model').value,requireSaved,notice,onGoal:g=>goalsPanel.accept(g)});
