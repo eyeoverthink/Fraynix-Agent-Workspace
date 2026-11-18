@@ -1,0 +1,228 @@
+{
+  "passed": true,
+  "source": "3d9457b4f5e8ed22d3c425847cb9c0dd91c4e13a",
+  "model": "gpt-oss:20b",
+  "pairedTimings": [
+    {
+      "id": "ramp",
+      "title": "Paired ramps",
+      "request": "Compare the two prepared ramp configurations on the same clock.",
+      "directMs": 2320,
+      "modelMs": 82522,
+      "selectionMs": 79939.4247,
+      "result": "Every retained sample matched. The signed distance difference was +0.896 m.",
+      "quickArtifact": {
+        "sha256": "ade2b90be26f1a05ec9ad5d19dbac7b4fe618cdc1236e3e867ec7d2d21e1dbbc",
+        "id": "79b8d8b6-cae9-39a2-a947-01a46ec15e85",
+        "version": 1
+      },
+      "planArtifact": {
+        "sha256": "a13c7d3ef9b47786c1295550d5f114f82945fa5d971dc7d7de2f90c50b1f2968",
+        "id": "f2e465bf-9a8e-3b31-8ecc-e378e48a6dbe",
+        "version": 1
+      }
+    },
+    {
+      "id": "analysis",
+      "title": "Motion summary",
+      "request": "Analyse my selected motion recording for total travel. Gap limit .12 seconds and speed limit .6 m/s.",
+      "directMs": 5123,
+      "modelMs": 63518,
+      "selectionMs": 58250.173,
+      "result": "Both paths checked the same original rows and reported 0.200 m of travel.",
+      "quickArtifact": {
+        "sha256": "21ddb54244e432eaacb53c38c056a8dab7b410e0695c7cb817749ad104137eb8",
+        "id": "9fcff1f8-b34b-35ce-9879-df069f471c17",
+        "version": 1
+      },
+      "planArtifact": {
+        "sha256": "ffee7e68740a4b718ce65a87d9f042838522272732217a8435dc7602cb604987",
+        "id": "79499c17-987e-353e-8070-c512d1e7f351",
+        "version": 1
+      }
+    }
+  ],
+  "clarifications": [
+    {
+      "id": "compound",
+      "title": "Compound request · offline",
+      "request": "Compare both saved ramp setups and summarize the selected motion dataset.",
+      "reason": "Choose one workflow in your request, or select a local model for a suggestion. Which result do you want: compare both ramp setups, summarize the selected motion data, or build a standalone local web app?",
+      "modelCalls": 0,
+      "elapsedMs": 549
+    },
+    {
+      "id": "ambiguous",
+      "title": "Undecided request · with model",
+      "request": "I have a motion file and two ramp setups and might want a standalone app. I have not decided what result I want.",
+      "reason": "Which result do you want: compare both ramp setups, summarize the selected motion data, or build a standalone local web app?",
+      "modelCalls": 1,
+      "elapsedMs": 50072
+    },
+    {
+      "id": "missing",
+      "title": "Recognized request with missing data",
+      "request": "Analyse my selected motion recording for total travel. Gap limit .12 seconds and speed limit .6 m/s.",
+      "reason": "Select a motion dataset, then start a new analysis.",
+      "modelCalls": 0,
+      "elapsedMs": 280
+    }
+  ],
+  "recovery": {
+    "modelCallsBefore": 1,
+    "modelCallsAfter": 1,
+    "alternateSource": "0438d2cda97b6309aac982402fc347f95b6373b5e41efd9a60ca739992b6aa7a",
+    "sourceKept": "394acfc498b3c2a37bfb9d3e0859dc8a21025b7c0dceb04b908d1de191343cb9",
+    "didVerify": true
+  },
+  "effort": {
+    "dispatchForKnown": 1,
+    "confirmForSuggestion": 1,
+    "includesNavigation": false,
+    "humanTimeMeasured": false
+  },
+  "verifiedTasks": 6,
+  "declinedWithoutChild": true,
+  "standalone": {
+    "checks": 9,
+    "contentRequests": 2,
+    "elapsedMs": 177273,
+    "selectionCalls": 0
+  },
+  "offlineClarifications": 5,
+  "priorReport": {
+    "passed": true,
+    "source": "3d9457b4f5e8ed22d3c425847cb9c0dd91c4e13a",
+    "priorSource": "9e5d0ea664af5fd607681d13b86c0178986fd76e",
+    "originalMission": "934b9c18-c894-4e86-a366-0d649d35696c",
+    "unchangedReport": {
+      "sha256": "ea38237cae2568ea488f49ac63c641152e4bb436b5e7a538233c37a499417819",
+      "id": "28bc4e79-ff5b-37b4-ac41-2b02669cb17e",
+      "version": 1
+    },
+    "unchangedAudit": {
+      "observationSha256": "61633504ff5899d5fe4ab3277472dfe7f2c1a6871243634dd2f9115a88cc58d3",
+      "sourceSha256": "e9cb022615301415f1699fcb0989c44cb2f88e8d891c0f4e67c341409399ddc5",
+      "seconds": 0.8291666666666666,
+      "distanceDifferenceM": -1.4022922577517285,
+      "setups": {
+        "first": {
+          "ticks": 199,
+          "kind": "local-ramp-experiment-v1",
+          "distanceM": 1.6381809141202348,
+          "replaySha256": "6cb8813a5c4a638b32a6e8b536027c9e83fc19cc01fd84d10e3cdfc36e30635e",
+          "backendSha256": "3e4bebf2a4a2dd873726bff6378ba236aff2e6b6e6e5f73749816d8e9e010be5",
+          "observationSha256": "61633504ff5899d5fe4ab3277472dfe7f2c1a6871243634dd2f9115a88cc58d3",
+          "sampleCount": 18,
+          "sourceSha256": "257ab76f5e9680314ef2a093a7044b675d12734a8cb8168289f32568a8a40383",
+          "seconds": 0.8291666666666666,
+          "passed": true,
+          "maxPositionErrorM": 0,
+          "maxVelocityErrorMps": 0,
+          "tolerance": 0.0001,
+          "originalSha256": "af16b0d0118d7f61cbe45cffa2927b4cb29ece5c5a3632a07851876ed042c9c5"
+        },
+        "second": {
+          "ticks": 199,
+          "kind": "local-ramp-experiment-v1",
+          "distanceM": 0.23588865636850642,
+          "replaySha256": "44a4e3a4c34d3afcca9336f14c1a0733c7bb0868d0755ee7c73c6f2802c9453b",
+          "backendSha256": "3e4bebf2a4a2dd873726bff6378ba236aff2e6b6e6e5f73749816d8e9e010be5",
+          "observationSha256": "61633504ff5899d5fe4ab3277472dfe7f2c1a6871243634dd2f9115a88cc58d3",
+          "sampleCount": 18,
+          "sourceSha256": "98d83510e12f93db2943432be74e13ac376c5dc4cdde0ec8e6174c35c2d1f9e0",
+          "seconds": 0.8291666666666666,
+          "passed": true,
+          "maxPositionErrorM": 0,
+          "maxVelocityErrorMps": 0,
+          "tolerance": 0.0001,
+          "originalSha256": "d13a062e3b6bfe9b21aecc46af57c0760f336aac59e814af5f9da6a267e35be0"
+        }
+      },
+      "ticks": 199,
+      "samplesPerSetup": 18,
+      "kind": "local-ramp-comparison-v1",
+      "farther": "first",
+      "passed": true,
+      "replaySha256": "3d148561b8968a41bb718de8380e76c31f6035f5d8aba4a6f4f02e8429c9e4a7",
+      "originalSha256": "62084cdf09240c28fdfc1e42130601173b38ccf2d69ad4485ea91f604c328a10"
+    },
+    "archivedProof": {
+      "evidenceSha256": "33b968e5406c38487453e2e2ca8d558d885f9a9e70809c07e71f19bf0e38f310",
+      "report": {
+        "sha256": "ea38237cae2568ea488f49ac63c641152e4bb436b5e7a538233c37a499417819",
+        "id": "28bc4e79-ff5b-37b4-ac41-2b02669cb17e",
+        "version": 1
+      },
+      "id": "934b9c18-c894-4e86-a366-0d649d35696c"
+    }
+  },
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "workspaceJava": 86,
+    "classes": [
+      "LocalWorkflowSelectionTest",
+      "RampComparisonTest",
+      "RampProcedureTest",
+      "RampMissionTest",
+      "Agency043Test",
+      "Domain044Test",
+      "ChatArchive112Test",
+      "DataSummary104Test",
+      "CreationTest",
+      "CreationPlanner044Test",
+      "CreationRetry102Test",
+      "WorkflowTest",
+      "MeasurementStoreTest",
+      "WorkspaceServerBoundaryTest"
+    ],
+    "desktop": 181,
+    "archiveTests": 10
+  },
+  "ciFirst": {
+    "checkedAtUtc": "2026-11-18T21:44:11.645857+00:00",
+    "runs": [
+      {
+        "id": 44404009154,
+        "head_sha": "e1040566e7118c1fc691b41c050f6c5c7c18c059",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44404009154",
+        "created_at": "2026-11-18T21:41:09Z",
+        "updated_at": "2026-11-18T21:41:13Z"
+      },
+      {
+        "id": 44391113507,
+        "head_sha": "d2a77dfa55a0216f225c244397f447f5000c542d",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44391113507",
+        "created_at": "2026-11-18T20:26:51Z",
+        "updated_at": "2026-11-18T20:26:55Z"
+      },
+      {
+        "id": 44355714563,
+        "head_sha": "d3b207c3ea6b0bbaa758441de23c194d62b1177c",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44355714563",
+        "created_at": "2026-11-18T17:10:48Z",
+        "updated_at": "2026-11-18T17:10:52Z"
+      },
+      {
+        "id": 44350412744,
+        "head_sha": "19ab85caa1f9c68a2f13d9635c9ebfaa6f404056",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44350412744",
+        "created_at": "2026-11-18T16:42:55Z",
+        "updated_at": "2026-11-18T20:46:24Z"
+      }
+    ]
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "summary": "Quick routing finished the matched ramp and analysis jobs in 2.32 s and 5.12 s with zero selection calls. On the same inputs Plan took 82.52 s and 63.52 s. An uncertain suggestion waited for confirmation and kept its original inputs across restart.",
+  "pairs": [
+    {
+      "id": "ramp",
+      "title": "Paired ramps",
+      "request": "Compare the two prepared ramp configurations on the same clock.",
+      "directMs": 2320,
+      "modelMs": 82522,
+      "selectionMs": 79939.4247,
+      "result": "Every retained sample matched. The signed distance difference was +0.896 m.",
+      "quickArtifact": {
+        "sha256": "ade2b90be26f1a05ec9ad5d19dbac7b4fe618cdc1236e3e867ec7d2d21e1dbbc",
+        "id": "79b8d8b6-cae9-39a2-a947-01a46ec15e85",
+        "version": 1
+      },
+      "planArtifact": {
+        "sha256": "a13c7d3ef9b47786c1295550d5f114f82945fa5d971dc7d7de2f90c50b1f2968",
+        "id": "f2e465bf-9a8e-3b31-8ecc-e378e48a6dbe",
+        "version": 1
+      }
+    },
+    {
+      "id": "analysis",
+      "title": "Motion summary",
+      "request": "Analyse my selected motion recording for total travel. Gap limit .12 seconds and speed limit .6 m/s.",
+      "directMs": 5123,
+      "modelMs": 63518,
+      "selectionMs": 58250.173,
+      "result": "Both paths checked the same original rows and reported 0.200 m of travel.",
+      "quickArtifact": {
+        "sha256": "21ddb54244e432eaacb53c38c056a8dab7b410e0695c7cb817749ad104137eb8",
+        "id": "9fcff1f8-b34b-35ce-9879-df069f471c17",
+        "version": 1
+      },
+      "planArtifact": {
+        "sha256": "ffee7e68740a4b718ce65a87d9f042838522272732217a8435dc7602cb604987",
+        "id": "79499c17-987e-353e-8070-c512d1e7f351",
+        "version": 1
+      }
+    }
+  ],
+  "probes": [
+    {
+      "id": "compound",
+      "title": "Compound request · offline",
+      "request": "Compare both saved ramp setups and summarize the selected motion dataset.",
+      "reason": "Choose one workflow in your request, or select a local model for a suggestion. Which result do you want: compare both ramp setups, summarize the selected motion data, or build a standalone local web app?",
+      "modelCalls": 0,
+      "elapsedMs": 549
+    },
+    {
+      "id": "ambiguous",
+      "title": "Undecided request · with model",
+      "request": "I have a motion file and two ramp setups and might want a standalone app. I have not decided what result I want.",
+      "reason": "Which result do you want: compare both ramp setups, summarize the selected motion data, or build a standalone local web app?",
+      "modelCalls": 1,
+      "elapsedMs": 50072
+    },
+    {
+      "id": "missing",
+      "title": "Recognized request with missing data",
+      "request": "Analyse my selected motion recording for total travel. Gap limit .12 seconds and speed limit .6 m/s.",
+      "reason": "Select a motion dataset, then start a new analysis.",
+      "modelCalls": 0,
+      "elapsedMs": 280
+    }
+  ],
+  "modules": [
+    {
+      "id": "selector",
+      "title": "Quick workflow matching",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/QuickWorkflowRouting.java",
+      "description": "Matches complete briefings with a versioned set of forms. Other wording goes to review or clarification.",
+      "note": "docs/obsidian/184-quick-workflow-routing.md"
+    },
+    {
+      "id": "admission",
+      "title": "Sealed source selection",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java",
+      "description": "Freezes input identities before choosing a workflow and checks them again before running.",
+      "note": "docs/obsidian/184-quick-workflow-routing.md"
+    },
+    {
+      "id": "durability",
+      "title": "Confirmation and task journal",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Agency043.java",
+      "description": "Records model proposals and waits for explicit confirmation before scheduling the worker.",
+      "note": "docs/obsidian/184-quick-workflow-routing.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "id": "quick-ramp.png",
+      "path": "docs/readmes/176/quick-ramp.png",
+      "title": "Quick routing with a verified paired ramp report"
+    },
+    {
+      "id": "quick-analysis.png",
+      "path": "docs/readmes/176/quick-analysis.png",
+      "title": "Quick analysis with the original rows and quality flags"
+    },
+    {
+      "id": "quick-creation.png",
+      "path": "docs/readmes/176/quick-creation.png",
+      "title": "A newly generated tally after real control checks"
+    },
+    {
+      "id": "review-pending.png",
+      "path": "docs/readmes/176/review-pending.png",
+      "title": "Suggested analysis waiting for explicit confirmation"
+    },
+    {
+      "id": "review-confirmed.png",
+      "path": "docs/readmes/176/review-confirmed.png",
+      "title": "Confirmed analysis after restart with its original dataset"
+    },
+    {
+      "id": "compound-clarification.png",
+      "path": "docs/readmes/176/compound-clarification.png",
+      "title": "Offline compound request asks for one result"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/176/verification.json"
+    }
+  ]
+}

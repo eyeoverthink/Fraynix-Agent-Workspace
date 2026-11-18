@@ -1,5 +1,5 @@
 # Fraynix Agent Workspace
 
-[Edition 175 — local selection across physics, data and creation](README-175.md) · [Previous edition](README-174.md) · [Offline guide](docs/readmes/175/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 176 — quick routing and durable confirmation](README-176.md) · [Previous edition](README-175.md) · [Offline guide](docs/readmes/176/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Both routes produced verified results in five paired trials. gpt-oss:20b chose the correct procedure in every pair. Model selection alone took 51.50 s to 55.38 s on this CPU-only setup. The named command was faster in all four physics and analysis pairs.
+Quick routing finished the matched ramp and analysis jobs in 2.32 s and 5.12 s with zero selection calls. On the same inputs Plan took 82.52 s and 63.52 s. An uncertain suggestion waited for confirmation and kept its original inputs across restart.

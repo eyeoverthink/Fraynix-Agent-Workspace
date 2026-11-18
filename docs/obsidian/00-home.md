@@ -1,3 +1,5 @@
+[Edition 176 — quick workflow routing](184-quick-workflow-routing.md)
+
 [Edition 175 — local workflow selection](183-local-workflow-selection.md)
 
 [Edition 174 — verified local procedure routing](182-local-ramp-routing.md)
