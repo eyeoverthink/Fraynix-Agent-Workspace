@@ -1,7 +1,7 @@
 # Fraynix Agent Workspace
 
-[Edition 169 — verified AI rail clearance](README-169.md) · [Previous edition](README-168.md) · [Offline trajectory explorer](docs/readmes/169/index.html) · [Full history](docs/readmes/INDEX.md).
+[Edition 170 — two multi-rail courses at three measured paces](README-170.md) · [Previous edition](README-169.md) · [Offline trajectory explorer](docs/readmes/170/index.html) · [Full history](docs/readmes/INDEX.md).
 
-The visible AI completed Relay Circuit with 2/2 cells and 0.666 game units of minimum measured clearance. The visible AI completed Relay Terraces with 2/3 cells and 0.665 game units of minimum measured clearance.
+Switchyard and Ridge reached their beacons at all three paces. Each of the native and visible app trial sets verified 15 crossings. The lowest visible measured clearance was 0.118 game units.
 
-125 root Java tests, 21 selected workspace Java tests, 181 desktop tests and 10 archive-verification tests passed. The workspace selection includes original courses, legacy reference reconstruction, durable level tasks and server boundaries.
+125 root Java tests, 22 selected workspace Java tests, 181 desktop tests and 10 archive tests passed. The workspace selection covers both trial sets, previous courses, reference reconstruction, durable level tasks and route boundaries.

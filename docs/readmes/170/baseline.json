@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "existingRailWitnessesMatched": true,
+  "beginningCommit": "20399ecafab8d1355413ec005b5dc7d1bc3b1164",
+  "courses": [
+    {
+      "id": "relay-circuit-v1",
+      "previousWitness": {
+        "launchTick": 102,
+        "entryTick": 120,
+        "exitTick": 137,
+        "measuredClearance": 0.6657082,
+        "name": "Live rail",
+        "overlapSamples": 17,
+        "predictedClearance": 0.67963326,
+        "id": "faef6ece-fae1-3ac4-99e9-5b8f67bf10dc",
+        "fromX": 3.1936302
+      },
+      "currentWitness": {
+        "launchTick": 102,
+        "entryTick": 120,
+        "exitTick": 137,
+        "measuredClearance": 0.6657082,
+        "entrySpeed": 2.1,
+        "name": "Live rail",
+        "overlapSamples": 17,
+        "launchSpeed": 2.1,
+        "predictedClearance": 0.67963326,
+        "id": "faef6ece-fae1-3ac4-99e9-5b8f67bf10dc",
+        "fromX": 3.1936302
+      },
+      "finishTick": 372
+    },
+    {
+      "id": "relay-terraces-v1",
+      "previousWitness": {
+        "launchTick": 240,
+        "entryTick": 258,
+        "exitTick": 275,
+        "measuredClearance": 0.66467786,
+        "name": "High rail",
+        "overlapSamples": 17,
+        "predictedClearance": 0.67860246,
+        "id": "d2812d01-dda0-35c1-9908-d73d9206e2ea",
+        "fromX": 7.9358892
+      },
+      "currentWitness": {
+        "launchTick": 240,
+        "entryTick": 258,
+        "exitTick": 275,
+        "measuredClearance": 0.66467786,
+        "entrySpeed": 2.1,
+        "name": "High rail",
+        "overlapSamples": 17,
+        "launchSpeed": 2.1,
+        "predictedClearance": 0.67860246,
+        "id": "d2812d01-dda0-35c1-9908-d73d9206e2ea",
+        "fromX": 7.9358892
+      },
+      "finishTick": 402
+    }
+  ]
+}
