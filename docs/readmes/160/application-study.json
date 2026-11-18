@@ -1,0 +1,2462 @@
+{
+  "passed": true,
+  "startedAt": "2026-11-18T00:36:33.130Z",
+  "source": "5bb5041d3713364e279f1b377c9ca62302e69be2",
+  "methodLockSha256": "32a5e16a9019d28ab8d7f096258401d63aae8434a9a8b46067ef0f8d82e4d69c",
+  "jobs": [
+    {
+      "name": "exposed-four-inch-camera",
+      "trialId": "131fd959-57fa-4bba-9944-0c267402bbb4",
+      "startedAt": "2026-11-18T00:36:36.336Z",
+      "start": 4780.079,
+      "id": "8b6d72ad-302e-409c-9160-4b9c7d8ddf39",
+      "beforeCrash": {
+        "generation": 1,
+        "phase": "reconstructing",
+        "createdAt": "2026-11-18T00:36:36.431022500Z",
+        "engine": "690b2fba7dfe27700e6c2045c60018a31d762d7c1738df4e117bedcec322830e",
+        "bindings": [
+          {
+            "episodeFingerprint": "47f8fe6df4a61f6d526a6e2e9b058809fd5d3bd704baf559cb3de926b1968cf3",
+            "trialId": "131fd959-57fa-4bba-9944-0c267402bbb4",
+            "registrationId": "58d5a958-c6fe-41f5-9b59-4e5f81338709",
+            "trialSha256": "c464e4a3b6846eba5fe4c35cfa7bfb6effcf7541e2f3cc45dae31a95bfa5f7f8",
+            "registrationSha256": "70002f2aa634de23a94fd6cc10e612ad8ed526a1fed9781d6241778fe6872c1b"
+          }
+        ],
+        "options": {
+          "maxRadiusM": 0.04,
+          "maxErrorM": 0.01,
+          "pixelRadius": 2,
+          "annotationBudgetM": 0.003,
+          "referenceBudgetM": 0.003
+        },
+        "completedTrials": 0,
+        "id": "8b6d72ad-302e-409c-9160-4b9c7d8ddf39",
+        "resumes": 0,
+        "status": "running"
+      },
+      "job": {
+        "generation": 2,
+        "phase": "complete",
+        "completedAt": "2026-11-18T00:36:48.652619900Z",
+        "bindings": [
+          {
+            "episodeFingerprint": "47f8fe6df4a61f6d526a6e2e9b058809fd5d3bd704baf559cb3de926b1968cf3",
+            "trialId": "131fd959-57fa-4bba-9944-0c267402bbb4",
+            "registrationId": "58d5a958-c6fe-41f5-9b59-4e5f81338709",
+            "trialSha256": "c464e4a3b6846eba5fe4c35cfa7bfb6effcf7541e2f3cc45dae31a95bfa5f7f8",
+            "registrationSha256": "70002f2aa634de23a94fd6cc10e612ad8ed526a1fed9781d6241778fe6872c1b"
+          }
+        ],
+        "resumes": 1,
+        "createdAt": "2026-11-18T00:36:36.431022500Z",
+        "resultSha256": "d51176c62989ca15637262f57ebc8d90f5a212a2ed17ae641a36c1cf3f6170bf",
+        "engine": "690b2fba7dfe27700e6c2045c60018a31d762d7c1738df4e117bedcec322830e",
+        "audit": {
+          "passed": true,
+          "observed": {
+            "summary": "1 distinct trial(s); 1 passed the declared measurement gates. Repeated frames do not add independent episodes.",
+            "source": "Fresh reconstruction of original frames and independent endpoint labels. Evaluation 8b6d72ad-302e-409c-9160-4b9c7d8ddf39; frozen input 3517158d837ef1ed82926bc209f56de1db71ed956c266f447e87e66af2370c3a.",
+            "rows": [
+              [
+                "131fd959",
+                "1",
+                "measured",
+                "0.006334",
+                "0.025895",
+                "yes",
+                "yes"
+              ],
+              [
+                "131fd959",
+                "2",
+                "measured",
+                "0.006334",
+                "0.025895",
+                "yes",
+                "yes"
+              ],
+              [
+                "131fd959",
+                "3",
+                "measured",
+                "0.006334",
+                "0.025895",
+                "yes",
+                "yes"
+              ],
+              [
+                "131fd959",
+                "4",
+                "measured",
+                "0.006334",
+                "0.025895",
+                "yes",
+                "yes"
+              ],
+              [
+                "131fd959",
+                "5",
+                "measured",
+                "0.006334",
+                "0.025895",
+                "yes",
+                "yes"
+              ],
+              [
+                "131fd959",
+                "6",
+                "measured",
+                "0.006334",
+                "0.025895",
+                "yes",
+                "yes"
+              ],
+              [
+                "131fd959",
+                "7",
+                "measured",
+                "0.006334",
+                "0.025895",
+                "yes",
+                "yes"
+              ],
+              [
+                "131fd959",
+                "8",
+                "measured",
+                "0.006673",
+                "0.025894",
+                "yes",
+                "yes"
+              ]
+            ],
+            "limits": "One trial is one episode. Paired frames are correlated. Conditional geometric allowances are not calibrated probabilities. Unknown target height, parallax and mark alignment remain limitations. No live pose or action authority.",
+            "states": [
+              {
+                "mode": "all",
+                "visible": true,
+                "bars": [
+                  {
+                    "kind": "error",
+                    "x": 40,
+                    "width": 31.5,
+                    "y": 240.44207763671875,
+                    "height": 59.557926177978516
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 80.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "error",
+                    "x": 130,
+                    "width": 31.5,
+                    "y": 240.44207763671875,
+                    "height": 59.557926177978516
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 170.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "error",
+                    "x": 220,
+                    "width": 31.5,
+                    "y": 240.44207763671875,
+                    "height": 59.557926177978516
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 260.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "error",
+                    "x": 310,
+                    "width": 31.5,
+                    "y": 240.44207763671875,
+                    "height": 59.557926177978516
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 350.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "error",
+                    "x": 400,
+                    "width": 31.5,
+                    "y": 240.44207763671875,
+                    "height": 59.557926177978516
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 440.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "error",
+                    "x": 490,
+                    "width": 31.5,
+                    "y": 240.44207763671875,
+                    "height": 59.557926177978516
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 530.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "error",
+                    "x": 580,
+                    "width": 31.5,
+                    "y": 240.44207763671875,
+                    "height": 59.557926177978516
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 620.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "error",
+                    "x": 670,
+                    "width": 31.5,
+                    "y": 237.2613525390625,
+                    "height": 62.73863983154297
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 710.5,
+                    "width": 31.5,
+                    "y": 56.53786087036133,
+                    "height": 243.46214294433594
+                  }
+                ]
+              },
+              {
+                "mode": "error",
+                "visible": true,
+                "bars": [
+                  {
+                    "kind": "error",
+                    "x": 40,
+                    "width": 31.5,
+                    "y": 240.44207763671875,
+                    "height": 59.557926177978516
+                  },
+                  {
+                    "kind": "error",
+                    "x": 130,
+                    "width": 31.5,
+                    "y": 240.44207763671875,
+                    "height": 59.557926177978516
+                  },
+                  {
+                    "kind": "error",
+                    "x": 220,
+                    "width": 31.5,
+                    "y": 240.44207763671875,
+                    "height": 59.557926177978516
+                  },
+                  {
+                    "kind": "error",
+                    "x": 310,
+                    "width": 31.5,
+                    "y": 240.44207763671875,
+                    "height": 59.557926177978516
+                  },
+                  {
+                    "kind": "error",
+                    "x": 400,
+                    "width": 31.5,
+                    "y": 240.44207763671875,
+                    "height": 59.557926177978516
+                  },
+                  {
+                    "kind": "error",
+                    "x": 490,
+                    "width": 31.5,
+                    "y": 240.44207763671875,
+                    "height": 59.557926177978516
+                  },
+                  {
+                    "kind": "error",
+                    "x": 580,
+                    "width": 31.5,
+                    "y": 240.44207763671875,
+                    "height": 59.557926177978516
+                  },
+                  {
+                    "kind": "error",
+                    "x": 670,
+                    "width": 31.5,
+                    "y": 237.2613525390625,
+                    "height": 62.73863983154297
+                  }
+                ]
+              },
+              {
+                "mode": "bound",
+                "visible": true,
+                "bars": [
+                  {
+                    "kind": "bound",
+                    "x": 80.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 170.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 260.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 350.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 440.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 530.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 620.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 710.5,
+                    "width": 31.5,
+                    "y": 56.53786087036133,
+                    "height": 243.46214294433594
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": {
+          "maxRadiusM": 0.04,
+          "maxErrorM": 0.01,
+          "pixelRadius": 2,
+          "annotationBudgetM": 0.003,
+          "referenceBudgetM": 0.003
+        },
+        "report": {
+          "sha256": "9450a4c8c5b0a7143d1805e50a19723ba4fc160f8c5ade1feb395972266f260a",
+          "id": "ab7d7423-d556-3b5c-8b13-f93d4365be40",
+          "version": 1
+        },
+        "completedTrials": 1,
+        "id": "8b6d72ad-302e-409c-9160-4b9c7d8ddf39",
+        "results": [
+          {
+            "maxRadiusM": 0.0258953573939728,
+            "trialId": "131fd959-57fa-4bba-9944-0c267402bbb4",
+            "referenceRegionCovered": 8,
+            "originalEvaluation": {
+              "qualification": "User-declared physical marks and independent inspection of original fixed-window frames. Source phase boundaries are manual; no timed cue, prediction-derived truth, calibrated probability or native actuation.",
+              "createdAt": "2026-11-02T04:42:12.014163800Z",
+              "codeSha256": "bafb71da01ec0ecaa916d8d5f1179b61386f7cfc87c25df2bfd7f89b5f4ae30b",
+              "references": {
+                "frames": [
+                  {
+                    "visible": true,
+                    "imageSha256": "22879f9ca943c081ee63416c6a15de78cc18449cd5ba7fe16474fdcac4e8aa4e",
+                    "atDeclaredMark": true,
+                    "ordinal": 1
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "32cb5600f57183772319038cbdafebc2a0b45fa3e2f223422db8ec676e4a6e1b",
+                    "atDeclaredMark": true,
+                    "ordinal": 2
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "11ca51069754445716e46e4654e1bceec770017303d9e56cf19c4682103d5075",
+                    "atDeclaredMark": true,
+                    "ordinal": 3
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "63f2ea434a08036a01926b6d2afed38ebc5ad8de65430fe19ddac6c805d44e86",
+                    "atDeclaredMark": true,
+                    "ordinal": 4
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "25ff809cbe13c15586fafcbcb9d069809998edcf688d6ba7ee3a3d14ed12fb4f",
+                    "atDeclaredMark": true,
+                    "ordinal": 5
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "8109b7183aedbe1611ed0064a48f75eabad9d7adff6f9144d2e3bd1da92065f5",
+                    "atDeclaredMark": true,
+                    "ordinal": 6
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "f73d5753872fd8835a725b0207dd22e5f88f6be6c794c9bed2f4d33b39af90d1",
+                    "atDeclaredMark": true,
+                    "ordinal": 7
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "f586af8bf804b9b2e4b56f3b7d1b5ec2334e27616148b65da8462ddf365d27b5",
+                    "atDeclaredMark": true,
+                    "ordinal": 8
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "cfdccc83865bb7d38b93c6ac8b67cc138868933d1eefb37ac82a7b20906567be",
+                    "atDeclaredMark": true,
+                    "ordinal": 18
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "6ab7d58dd8fd090f47828f1453070b8b076049bf80dd92640397530610a32a75",
+                    "atDeclaredMark": true,
+                    "ordinal": 19
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "a892cce768e30e1ed1abde1e5d791e799f5c872d6aaeeb76e4ad7f641a8edba0",
+                    "atDeclaredMark": true,
+                    "ordinal": 20
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "ddbda699373f70211e4441168abd3199ca6c711e94932372e938bbe306edd88a",
+                    "atDeclaredMark": true,
+                    "ordinal": 21
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "29c62c113a0d6a3a0e17a2e792467e28114af11268d134f962388fc3ec82e61a",
+                    "atDeclaredMark": true,
+                    "ordinal": 22
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "3bc672fc0269cc4cf520e89b453e2d59eb83813426b1bb300caaa1716edbfb63",
+                    "atDeclaredMark": true,
+                    "ordinal": 23
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "784d22e17c33bf5f4556fe9a458fafccf704e5fba7e748eeb87d556868511959",
+                    "atDeclaredMark": true,
+                    "ordinal": 24
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "fb4674bbcb10365817e4125e30e60c726eb33d8722aa23625db46d47780267e7",
+                    "atDeclaredMark": true,
+                    "ordinal": 25
+                  }
+                ],
+                "source": "Independent visual review of every unannotated fixed-window source: original start1..8 uncovered/hand-away at4inch, end18..25 uncovered/hand-away same metal end at8inch. User confirms completed4to8inch movement. Hash-bound original labels, no predictions used as truth; physical annotation/parallax budget still applies.",
+                "confirmed": true
+              },
+              "registrationId": "58d5a958-c6fe-41f5-9b59-4e5f81338709",
+              "runId": "131fd959-57fa-4bba-9944-0c267402bbb4",
+              "passed": true,
+              "metrics": {
+                "vectorErrorM": 0.006376571053779892,
+                "fixedSamples": 16,
+                "expectedDeltaM": [
+                  0.0008406046182417641,
+                  -0.10159652249893097
+                ],
+                "referenceFailures": 0,
+                "toleranceM": 0.01,
+                "firstMeanM": [
+                  0.15849456826252672,
+                  0.1469623324896916
+                ],
+                "lastMeanM": [
+                  0.16080814659258014,
+                  0.03916169789891255
+                ],
+                "actualDeltaM": [
+                  0.002313578330053412,
+                  -0.10780063459077904
+                ]
+              },
+              "version": "manual-physical-windows-041-v1",
+              "status": "evaluated"
+            },
+            "probabilityCalibrated": false,
+            "expectedDeltaXZ": [
+              0.0008406046182417556,
+              0.10159652249893097
+            ],
+            "independentEpisodes": 1,
+            "pairedSamples": 8,
+            "frameHashes": [
+              "445ac1c0043aac023df14fc78513022f6ec62440d45e439cdc4ac365568e2a2b",
+              "22879f9ca943c081ee63416c6a15de78cc18449cd5ba7fe16474fdcac4e8aa4e",
+              "32cb5600f57183772319038cbdafebc2a0b45fa3e2f223422db8ec676e4a6e1b",
+              "11ca51069754445716e46e4654e1bceec770017303d9e56cf19c4682103d5075",
+              "63f2ea434a08036a01926b6d2afed38ebc5ad8de65430fe19ddac6c805d44e86",
+              "25ff809cbe13c15586fafcbcb9d069809998edcf688d6ba7ee3a3d14ed12fb4f",
+              "8109b7183aedbe1611ed0064a48f75eabad9d7adff6f9144d2e3bd1da92065f5",
+              "f73d5753872fd8835a725b0207dd22e5f88f6be6c794c9bed2f4d33b39af90d1",
+              "f586af8bf804b9b2e4b56f3b7d1b5ec2334e27616148b65da8462ddf365d27b5",
+              "8ff3c3910e94836c3d2fdae23e5e18761c36fca6725852b65c7d074c86eccd02",
+              "dfacea81a1cfc0ffe7e6f8e3543f162b1b6e991f2bdf5a5d64c5df129529e617",
+              "4f97552dc6f0b497fc7a38c4737f8d63a9c2b5f4ffb1553a1c9a4e48eca11286",
+              "b74a355dba5d2015d2449754fdac28dae1c962fecbddc7f72c4ce90a342ccaa0",
+              "d8670cef198800770d95d0ef9ef2d7c6bcc64798e9e60052dde678bcd359f309",
+              "b2389ee922a6aa1f40d08a2ed025166615912e6851baff1f18dc8a65478fdc6e",
+              "1a181be336b5f4649e554f0ae3d5b7fb87976ce0bc9617ed80c264b9ceb7d7f3",
+              "3c1cd29fdcaf9f7732090e1742901681bdda71e6bc814663c6cc7628259db952",
+              "3fe2782bb3b04bfefe0317110a76c2df59e4d1dec31c4e0e01812572540d945c",
+              "cfdccc83865bb7d38b93c6ac8b67cc138868933d1eefb37ac82a7b20906567be",
+              "6ab7d58dd8fd090f47828f1453070b8b076049bf80dd92640397530610a32a75",
+              "a892cce768e30e1ed1abde1e5d791e799f5c872d6aaeeb76e4ad7f641a8edba0",
+              "ddbda699373f70211e4441168abd3199ca6c711e94932372e938bbe306edd88a",
+              "29c62c113a0d6a3a0e17a2e792467e28114af11268d134f962388fc3ec82e61a",
+              "3bc672fc0269cc4cf520e89b453e2d59eb83813426b1bb300caaa1716edbfb63",
+              "784d22e17c33bf5f4556fe9a458fafccf704e5fba7e748eeb87d556868511959",
+              "fb4674bbcb10365817e4125e30e60c726eb33d8722aa23625db46d47780267e7"
+            ],
+            "rows": [
+              {
+                "errorM": 0.0063343387753161005,
+                "usable": true,
+                "startOrdinal": 1,
+                "radiusM": 0.0258953573939728,
+                "containsReferenceRegion": true,
+                "containsReference": true,
+                "maximumXZ": [
+                  0.020539001687805813,
+                  0.12615300807475915
+                ],
+                "endOrdinal": 18,
+                "deltaXZ": [
+                  0.0023136337844593124,
+                  0.10775720694109692
+                ],
+                "pair": 1,
+                "minimumXZ": [
+                  -0.01591036900402909,
+                  0.0893617651665508
+                ]
+              },
+              {
+                "errorM": 0.0063343387753161005,
+                "usable": true,
+                "startOrdinal": 2,
+                "radiusM": 0.0258953573939728,
+                "containsReferenceRegion": true,
+                "containsReference": true,
+                "maximumXZ": [
+                  0.020539001687805813,
+                  0.12615300807475915
+                ],
+                "endOrdinal": 19,
+                "deltaXZ": [
+                  0.0023136337844593124,
+                  0.10775720694109692
+                ],
+                "pair": 2,
+                "minimumXZ": [
+                  -0.01591036900402909,
+                  0.0893617651665508
+                ]
+              },
+              {
+                "errorM": 0.0063343387753161005,
+                "usable": true,
+                "startOrdinal": 3,
+                "radiusM": 0.0258953573939728,
+                "containsReferenceRegion": true,
+                "containsReference": true,
+                "maximumXZ": [
+                  0.020539001687805813,
+                  0.12615300807475915
+                ],
+                "endOrdinal": 20,
+                "deltaXZ": [
+                  0.0023136337844593124,
+                  0.10775720694109692
+                ],
+                "pair": 3,
+                "minimumXZ": [
+                  -0.01591036900402909,
+                  0.0893617651665508
+                ]
+              },
+              {
+                "errorM": 0.0063343387753161005,
+                "usable": true,
+                "startOrdinal": 4,
+                "radiusM": 0.0258953573939728,
+                "containsReferenceRegion": true,
+                "containsReference": true,
+                "maximumXZ": [
+                  0.020539001687805813,
+                  0.12615300807475915
+                ],
+                "endOrdinal": 21,
+                "deltaXZ": [
+                  0.0023136337844593124,
+                  0.10775720694109692
+                ],
+                "pair": 4,
+                "minimumXZ": [
+                  -0.01591036900402909,
+                  0.0893617651665508
+                ]
+              },
+              {
+                "errorM": 0.0063343387753161265,
+                "usable": true,
+                "startOrdinal": 5,
+                "radiusM": 0.02589535739397278,
+                "containsReferenceRegion": true,
+                "containsReference": true,
+                "maximumXZ": [
+                  0.020539001687805897,
+                  0.12615300807475915
+                ],
+                "endOrdinal": 22,
+                "deltaXZ": [
+                  0.0023136337844594235,
+                  0.10775720694109692
+                ],
+                "pair": 5,
+                "minimumXZ": [
+                  -0.01591036900402898,
+                  0.0893617651665508
+                ]
+              },
+              {
+                "errorM": 0.0063343387753161265,
+                "usable": true,
+                "startOrdinal": 6,
+                "radiusM": 0.02589535739397278,
+                "containsReferenceRegion": true,
+                "containsReference": true,
+                "maximumXZ": [
+                  0.020539001687805897,
+                  0.12615300807475915
+                ],
+                "endOrdinal": 23,
+                "deltaXZ": [
+                  0.0023136337844594235,
+                  0.10775720694109692
+                ],
+                "pair": 6,
+                "minimumXZ": [
+                  -0.01591036900402898,
+                  0.0893617651665508
+                ]
+              },
+              {
+                "errorM": 0.0063343387753161525,
+                "usable": true,
+                "startOrdinal": 7,
+                "radiusM": 0.02589535739397274,
+                "containsReferenceRegion": true,
+                "containsReference": true,
+                "maximumXZ": [
+                  0.020539001687805952,
+                  0.12615300807475915
+                ],
+                "endOrdinal": 24,
+                "deltaXZ": [
+                  0.0023136337844595345,
+                  0.10775720694109692
+                ],
+                "pair": 7,
+                "minimumXZ": [
+                  -0.015910369004028868,
+                  0.0893617651665508
+                ]
+              },
+              {
+                "errorM": 0.006672626706366603,
+                "usable": true,
+                "startOrdinal": 8,
+                "radiusM": 0.025893642933720477,
+                "containsReferenceRegion": true,
+                "containsReference": true,
+                "maximumXZ": [
+                  0.02053747941470932,
+                  0.12649908450851727
+                ],
+                "endOrdinal": 25,
+                "deltaXZ": [
+                  0.0023131901492115803,
+                  0.10810462813855416
+                ],
+                "pair": 8,
+                "minimumXZ": [
+                  -0.01590973469055254,
+                  0.08971053222752937
+                ]
+              }
+            ],
+            "aggregate": {
+              "errorM": 0.006376571053779918,
+              "usable": true,
+              "radiusM": 0.02589514308637267,
+              "containsReferenceRegion": true,
+              "containsReference": true,
+              "maximumXZ": [
+                0.02053881140366879,
+                0.12619626762897893
+              ],
+              "deltaXZ": [
+                0.0023135783300534014,
+                0.10780063459077907
+              ],
+              "minimumXZ": [
+                -0.015910289714844466,
+                0.08940536104917311
+              ]
+            },
+            "measurementGatesPassed": true,
+            "exactNumericalReplay": true,
+            "maxErrorM": 0.006672626706366603,
+            "usablePairs": 8,
+            "recordedEngine": "bafb71da01ec0ecaa916d8d5f1179b61386f7cfc87c25df2bfd7f89b5f4ae30b",
+            "actionAuthorized": false,
+            "scope": "One trial is one episode. Paired frames are correlated. Conditional geometric allowances are not calibrated probabilities. Unknown target height, parallax and mark alignment remain limitations. No live pose or action authority.",
+            "registrationId": "58d5a958-c6fe-41f5-9b59-4e5f81338709",
+            "nominalCovered": 8,
+            "currentObserverEngine": "be0aaeac78d4290d890abe441b22aec23f2a20c3524631efe0460ac933698d78",
+            "referenceSource": "Independent visual review of every unannotated fixed-window source: original start1..8 uncovered/hand-away at4inch, end18..25 uncovered/hand-away same metal end at8inch. User confirms completed4to8inch movement. Hash-bound original labels, no predictions used as truth; physical annotation/parallax budget still applies.",
+            "reconstructionEngine": "690b2fba7dfe27700e6c2045c60018a31d762d7c1738df4e117bedcec322830e"
+          }
+        ],
+        "status": "completed",
+        "elapsedMs": 3143.4847
+      },
+      "verified": {
+        "resultSha256": "d51176c62989ca15637262f57ebc8d90f5a212a2ed17ae641a36c1cf3f6170bf",
+        "measurementPromotion": false,
+        "passed": true,
+        "id": "8b6d72ad-302e-409c-9160-4b9c7d8ddf39"
+      },
+      "elapsedMs": 15264.2355
+    },
+    {
+      "name": "generated-reverse",
+      "trialId": "4ad50936-fbba-48cc-bfa2-cedf798d331d",
+      "startedAt": "2026-11-18T00:36:57.069Z",
+      "start": 25512.2538,
+      "id": "6c21d3e5-bb01-4666-926d-a3ff6da5fc48",
+      "generated": {
+        "id": "4ad50936-fbba-48cc-bfa2-cedf798d331d",
+        "world": {
+          "worldId": "bb1c4c6c-338b-4a39-bf95-cdd7c6ac3959",
+          "expectedHash": "bb08b06f15086e12575674daf74a6e1aa5f629617b0352650a467921aa0709e4",
+          "expectedRevision": 0,
+          "title": "Generated160 numeric reference world",
+          "requiresUpgrade051": false,
+          "frame": {
+            "elapsedTicks": 0,
+            "bodies": [
+              {
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "ec175c24-b0cd-3b9a-a3f9-4cda02d3491a",
+                "position": [
+                  -2,
+                  0.3,
+                  -1.5
+                ],
+                "velocity": [
+                  0,
+                  0,
+                  0
+                ],
+                "angularVelocity": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "4f32282c-e126-3e37-b859-1a181759c4e5",
+                "position": [
+                  2,
+                  0.25,
+                  1.5
+                ],
+                "velocity": [
+                  0,
+                  0,
+                  0
+                ],
+                "angularVelocity": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "ae485b1c-d6f9-39e8-a1e2-2c93235ef9ef",
+                "position": [
+                  3,
+                  0.25,
+                  2.7
+                ],
+                "velocity": [
+                  0,
+                  0,
+                  0
+                ],
+                "angularVelocity": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "format": "fraynix.world-frame-035-v1",
+            "originalScene": {
+              "importedAt": "2026-11-18T00:36:52.756715100Z",
+              "objects": [
+                {
+                  "sourceId": "floor",
+                  "bodyType": "static",
+                  "size": [
+                    12,
+                    0.5,
+                    12
+                  ],
+                  "restitution": 0,
+                  "rotation": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "id": "21040bf4-0539-3842-9795-bf28c3ce791a",
+                  "label": "floor",
+                  "position": [
+                    0,
+                    -0.25,
+                    0
+                  ],
+                  "massKg": 0,
+                  "friction": 0.5
+                },
+                {
+                  "sourceId": "A",
+                  "bodyType": "dynamic",
+                  "size": [
+                    0.8,
+                    0.6,
+                    0.45
+                  ],
+                  "restitution": 0,
+                  "rotation": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "id": "ec175c24-b0cd-3b9a-a3f9-4cda02d3491a",
+                  "label": "A",
+                  "position": [
+                    -2,
+                    0.3,
+                    -1.5
+                  ],
+                  "massKg": 1,
+                  "friction": 0.45
+                },
+                {
+                  "sourceId": "B",
+                  "bodyType": "dynamic",
+                  "size": [
+                    0.7,
+                    0.5,
+                    0.5
+                  ],
+                  "restitution": 0,
+                  "rotation": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "id": "4f32282c-e126-3e37-b859-1a181759c4e5",
+                  "label": "B",
+                  "position": [
+                    2,
+                    0.25,
+                    1.5
+                  ],
+                  "massKg": 1.2,
+                  "friction": 0.45
+                },
+                {
+                  "sourceId": "bystander",
+                  "bodyType": "dynamic",
+                  "size": [
+                    0.5,
+                    0.5,
+                    0.6
+                  ],
+                  "restitution": 0,
+                  "rotation": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "id": "ae485b1c-d6f9-39e8-a1e2-2c93235ef9ef",
+                  "label": "bystander",
+                  "position": [
+                    3,
+                    0.25,
+                    2.7
+                  ],
+                  "massKg": 1,
+                  "friction": 0.6
+                },
+                {
+                  "sourceId": "obstacle",
+                  "bodyType": "static",
+                  "size": [
+                    0.8,
+                    1.2,
+                    0.8
+                  ],
+                  "restitution": 0,
+                  "rotation": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "id": "3b090b64-7d5c-3f84-9cab-8a8262e6f65f",
+                  "label": "obstacle",
+                  "position": [
+                    0,
+                    0.6,
+                    0
+                  ],
+                  "massKg": 0,
+                  "friction": 0.5
+                }
+              ],
+              "format": "fraynix.spatial-scene",
+              "sourceText": "{\"format\":\"fraynix.spatial-scene\",\"version\":1,\"title\":\"Labelled035 development two-body-chain\",\"units\":\"m\",\"frame\":\"right-handed-y-up\",\"source\":{\"kind\":\"synthetic\",\"physicalProperties\":\"declared\",\"note\":\"Declared synthetic sequential-world test; not a real room or learned policy.\"},\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"knownLengthM\":1,\"toleranceM\":0,\"basis\":\"declared-test\"},\"gravityMps2\":9.81,\"objects\":[{\"sourceId\":\"floor\",\"label\":\"floor\",\"shape\":\"box\",\"position\":[0,-0.25,0],\"size\":[12,0.5,12],\"massKg\":0,\"friction\":0.5,\"restitution\":0,\"rotation\":[0,0,0,1]},{\"sourceId\":\"A\",\"label\":\"A\",\"shape\":\"box\",\"position\":[-2,0.3,-1.5],\"size\":[0.8,0.6,0.45],\"massKg\":1,\"friction\":0.45,\"restitution\":0,\"rotation\":[0,0,0,1]},{\"sourceId\":\"B\",\"label\":\"B\",\"shape\":\"box\",\"position\":[2,0.25,1.5],\"size\":[0.7,0.5,0.5],\"massKg\":1.2,\"friction\":0.45,\"restitution\":0,\"rotation\":[0,0,0,1]},{\"sourceId\":\"bystander\",\"label\":\"bystander\",\"shape\":\"box\",\"position\":[3,0.25,2.7],\"size\":[0.5,0.5,0.6],\"massKg\":1,\"friction\":0.6,\"restitution\":0,\"rotation\":[0,0,0,1]},{\"sourceId\":\"obstacle\",\"label\":\"obstacle\",\"shape\":\"box\",\"position\":[0,0.6,0],\"size\":[0.8,1.2,0.8],\"massKg\":0,\"friction\":0.5,\"restitution\":0,\"rotation\":[0,0,0,1]}]}",
+              "units": "m",
+              "source": {
+                "note": "Declared synthetic sequential-world test; not a real room or learned policy.",
+                "kind": "synthetic",
+                "physicalProperties": "declared"
+              },
+              "title": "Labelled035 development two-body-chain",
+              "version": 1,
+              "gravityMps2": 9.81,
+              "sourceUnits": "m",
+              "sourceSha256": "7f77efe6744c96683a1f4d20d47b1258d1e5200bf0b0d7c5c3e44e675a4b4b85",
+              "id": "1045bd6c-2cfb-45d5-bdb1-5dbd21707fd7",
+              "scaleCheck": {
+                "independentlyCalibrated": false,
+                "toleranceM": 0,
+                "knownLengthM": 1,
+                "passed": true,
+                "basis": "declared-test",
+                "convertedLengthM": 1
+              },
+              "frame": "right-handed-y-up"
+            }
+          },
+          "status": "verified"
+        },
+        "sourceKind": "generated",
+        "cameraShiftPixels": 0,
+        "distanceM": 0.049687499999999996
+      },
+      "job": {
+        "generation": 1,
+        "phase": "complete",
+        "completedAt": "2026-11-18T00:37:02.988758Z",
+        "bindings": [
+          {
+            "episodeFingerprint": "e814cd37c1a6f62a0687a5daf03c386d79da8f188644ad3cc90db2a57a9cff63",
+            "trialId": "4ad50936-fbba-48cc-bfa2-cedf798d331d",
+            "registrationId": "8006c7d2-1d20-45d4-96f5-5548dc100ddf",
+            "trialSha256": "6ff0e428dd7f1521c819db626e2ee10003e636c71d423122d1e24605a9e6999e",
+            "registrationSha256": "aaa3aabfc0730a3603b07ce5894acd2c6c7a1951bde223bb666e13e9bc6ef124"
+          }
+        ],
+        "resumes": 0,
+        "createdAt": "2026-11-18T00:36:57.209371Z",
+        "resultSha256": "dfb654b164d808117d13025ac4d478d83bf5be1e77925876bbbc6c03aa3e1650",
+        "engine": "690b2fba7dfe27700e6c2045c60018a31d762d7c1738df4e117bedcec322830e",
+        "audit": {
+          "passed": true,
+          "observed": {
+            "summary": "1 distinct trial(s); 1 passed the declared measurement gates. Repeated frames do not add independent episodes.",
+            "source": "Fresh reconstruction of original frames and independent endpoint labels. Evaluation 6c21d3e5-bb01-4666-926d-a3ff6da5fc48; frozen input 01d10087dea07c969dfb05cb186b69d010035198cd1ff75fd03db86df80aea14.",
+            "rows": [
+              [
+                "4ad50936",
+                "1",
+                "measured",
+                "0.000000",
+                "0.021319",
+                "yes",
+                "yes"
+              ],
+              [
+                "4ad50936",
+                "2",
+                "measured",
+                "0.000000",
+                "0.021319",
+                "yes",
+                "yes"
+              ],
+              [
+                "4ad50936",
+                "3",
+                "measured",
+                "0.000000",
+                "0.021319",
+                "yes",
+                "yes"
+              ],
+              [
+                "4ad50936",
+                "4",
+                "measured",
+                "0.000000",
+                "0.021319",
+                "yes",
+                "yes"
+              ],
+              [
+                "4ad50936",
+                "5",
+                "measured",
+                "0.000000",
+                "0.021319",
+                "yes",
+                "yes"
+              ],
+              [
+                "4ad50936",
+                "6",
+                "measured",
+                "0.000000",
+                "0.021319",
+                "yes",
+                "yes"
+              ],
+              [
+                "4ad50936",
+                "7",
+                "measured",
+                "0.000000",
+                "0.021319",
+                "yes",
+                "yes"
+              ],
+              [
+                "4ad50936",
+                "8",
+                "measured",
+                "0.000000",
+                "0.021319",
+                "yes",
+                "yes"
+              ]
+            ],
+            "limits": "One trial is one episode. Paired frames are correlated. Conditional geometric allowances are not calibrated probabilities. Unknown target height, parallax and mark alignment remain limitations. No live pose or action authority.",
+            "states": [
+              {
+                "mode": "all",
+                "visible": true,
+                "bars": [
+                  {
+                    "kind": "error",
+                    "x": 40,
+                    "width": 31.5,
+                    "y": 300,
+                    "height": 1.0291957173655386e-12
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 80.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "error",
+                    "x": 130,
+                    "width": 31.5,
+                    "y": 300,
+                    "height": 1.0291957173655386e-12
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 170.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "error",
+                    "x": 220,
+                    "width": 31.5,
+                    "y": 300,
+                    "height": 1.0291957173655386e-12
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 260.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "error",
+                    "x": 310,
+                    "width": 31.5,
+                    "y": 300,
+                    "height": 1.0291957173655386e-12
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 350.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "error",
+                    "x": 400,
+                    "width": 31.5,
+                    "y": 300,
+                    "height": 1.0291957173655386e-12
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 440.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "error",
+                    "x": 490,
+                    "width": 31.5,
+                    "y": 300,
+                    "height": 1.0291957173655386e-12
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 530.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "error",
+                    "x": 580,
+                    "width": 31.5,
+                    "y": 300,
+                    "height": 1.0291957173655386e-12
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 620.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "error",
+                    "x": 670,
+                    "width": 31.5,
+                    "y": 300,
+                    "height": 1.0291957173655386e-12
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 710.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  }
+                ]
+              },
+              {
+                "mode": "error",
+                "visible": true,
+                "bars": [
+                  {
+                    "kind": "error",
+                    "x": 40,
+                    "width": 31.5,
+                    "y": 300,
+                    "height": 1.0291957173655386e-12
+                  },
+                  {
+                    "kind": "error",
+                    "x": 130,
+                    "width": 31.5,
+                    "y": 300,
+                    "height": 1.0291957173655386e-12
+                  },
+                  {
+                    "kind": "error",
+                    "x": 220,
+                    "width": 31.5,
+                    "y": 300,
+                    "height": 1.0291957173655386e-12
+                  },
+                  {
+                    "kind": "error",
+                    "x": 310,
+                    "width": 31.5,
+                    "y": 300,
+                    "height": 1.0291957173655386e-12
+                  },
+                  {
+                    "kind": "error",
+                    "x": 400,
+                    "width": 31.5,
+                    "y": 300,
+                    "height": 1.0291957173655386e-12
+                  },
+                  {
+                    "kind": "error",
+                    "x": 490,
+                    "width": 31.5,
+                    "y": 300,
+                    "height": 1.0291957173655386e-12
+                  },
+                  {
+                    "kind": "error",
+                    "x": 580,
+                    "width": 31.5,
+                    "y": 300,
+                    "height": 1.0291957173655386e-12
+                  },
+                  {
+                    "kind": "error",
+                    "x": 670,
+                    "width": 31.5,
+                    "y": 300,
+                    "height": 1.0291957173655386e-12
+                  }
+                ]
+              },
+              {
+                "mode": "bound",
+                "visible": true,
+                "bars": [
+                  {
+                    "kind": "bound",
+                    "x": 80.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 170.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 260.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 350.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 440.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 530.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 620.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  },
+                  {
+                    "kind": "bound",
+                    "x": 710.5,
+                    "width": 31.5,
+                    "y": 56.5217399597168,
+                    "height": 243.47825622558594
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "options": {
+          "maxRadiusM": 0.04,
+          "maxErrorM": 0.01,
+          "pixelRadius": 2,
+          "annotationBudgetM": 0.003,
+          "referenceBudgetM": 0.003
+        },
+        "report": {
+          "sha256": "a5336a8655dca6f2f3f070bc8a2b0e4a4b9e64cf44e179429ca32b3214c49f67",
+          "id": "8ff4d7c1-17ef-3dc0-bef3-3c612ffabd7e",
+          "version": 1
+        },
+        "completedTrials": 1,
+        "id": "6c21d3e5-bb01-4666-926d-a3ff6da5fc48",
+        "results": [
+          {
+            "maxRadiusM": 0.021318757536112103,
+            "trialId": "4ad50936-fbba-48cc-bfa2-cedf798d331d",
+            "referenceRegionCovered": 8,
+            "originalEvaluation": {
+              "qualification": "User-declared physical marks and independent inspection of original fixed-window frames. Source phase boundaries are manual; no timed cue, prediction-derived truth, calibrated probability or native actuation.",
+              "createdAt": "2026-11-18T00:36:56.771671100Z",
+              "codeSha256": "be0aaeac78d4290d890abe441b22aec23f2a20c3524631efe0460ac933698d78",
+              "references": {
+                "frames": [
+                  {
+                    "visible": true,
+                    "imageSha256": "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+                    "atDeclaredMark": true,
+                    "ordinal": 1
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+                    "atDeclaredMark": true,
+                    "ordinal": 2
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+                    "atDeclaredMark": true,
+                    "ordinal": 3
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+                    "atDeclaredMark": true,
+                    "ordinal": 4
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+                    "atDeclaredMark": true,
+                    "ordinal": 5
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+                    "atDeclaredMark": true,
+                    "ordinal": 6
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+                    "atDeclaredMark": true,
+                    "ordinal": 7
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+                    "atDeclaredMark": true,
+                    "ordinal": 8
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "ad565b3ea846e6c9ef14f15e372aea9e284c490ddd78c70342d0b3230078fd65",
+                    "atDeclaredMark": true,
+                    "ordinal": 13
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "ad565b3ea846e6c9ef14f15e372aea9e284c490ddd78c70342d0b3230078fd65",
+                    "atDeclaredMark": true,
+                    "ordinal": 14
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "ad565b3ea846e6c9ef14f15e372aea9e284c490ddd78c70342d0b3230078fd65",
+                    "atDeclaredMark": true,
+                    "ordinal": 15
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "ad565b3ea846e6c9ef14f15e372aea9e284c490ddd78c70342d0b3230078fd65",
+                    "atDeclaredMark": true,
+                    "ordinal": 16
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "ad565b3ea846e6c9ef14f15e372aea9e284c490ddd78c70342d0b3230078fd65",
+                    "atDeclaredMark": true,
+                    "ordinal": 17
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "ad565b3ea846e6c9ef14f15e372aea9e284c490ddd78c70342d0b3230078fd65",
+                    "atDeclaredMark": true,
+                    "ordinal": 18
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "ad565b3ea846e6c9ef14f15e372aea9e284c490ddd78c70342d0b3230078fd65",
+                    "atDeclaredMark": true,
+                    "ordinal": 19
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "ad565b3ea846e6c9ef14f15e372aea9e284c490ddd78c70342d0b3230078fd65",
+                    "atDeclaredMark": true,
+                    "ordinal": 20
+                  }
+                ],
+                "source": "Independent renderer construction: true displacement uses integer drawn target centres. Camera shift, when declared, translates the full image after movement; the physical endpoint remains the same. Not real camera footage.",
+                "confirmed": true
+              },
+              "registrationId": "8006c7d2-1d20-45d4-96f5-5548dc100ddf",
+              "runId": "4ad50936-fbba-48cc-bfa2-cedf798d331d",
+              "passed": true,
+              "metrics": {
+                "vectorErrorM": 0.00042838578401024896,
+                "fixedSamples": 16,
+                "expectedDeltaM": [
+                  -0.049687499999999996,
+                  0
+                ],
+                "referenceFailures": 0,
+                "toleranceM": 0.01,
+                "firstMeanM": [
+                  0.17625,
+                  0.17375000000000002
+                ],
+                "lastMeanM": [
+                  0.12613411421598975,
+                  0.17375000000000004
+                ],
+                "actualDeltaM": [
+                  -0.050115885784010245,
+                  2.7755575615628914e-17
+                ]
+              },
+              "version": "manual-physical-windows-041-v1",
+              "status": "evaluated"
+            },
+            "probabilityCalibrated": false,
+            "expectedDeltaXZ": [
+              -0.049687499999999996,
+              6.703983433202035e-18
+            ],
+            "independentEpisodes": 1,
+            "pairedSamples": 8,
+            "frameHashes": [
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "c985a9842dcd6c5d2ea81611651b1dac0484439ec7324ef5da0bd04bccf2113e",
+              "4d1c3db25a58332ffa246a0f70c31ff88a1c314f8bf71aea3418dc31fc2b8b1a",
+              "a02eb415772732398da41a8454e54c433b2eb7198a0e2818fc27997b37eeb5d4",
+              "ad565b3ea846e6c9ef14f15e372aea9e284c490ddd78c70342d0b3230078fd65",
+              "ad565b3ea846e6c9ef14f15e372aea9e284c490ddd78c70342d0b3230078fd65",
+              "ad565b3ea846e6c9ef14f15e372aea9e284c490ddd78c70342d0b3230078fd65",
+              "ad565b3ea846e6c9ef14f15e372aea9e284c490ddd78c70342d0b3230078fd65",
+              "ad565b3ea846e6c9ef14f15e372aea9e284c490ddd78c70342d0b3230078fd65",
+              "ad565b3ea846e6c9ef14f15e372aea9e284c490ddd78c70342d0b3230078fd65",
+              "ad565b3ea846e6c9ef14f15e372aea9e284c490ddd78c70342d0b3230078fd65",
+              "ad565b3ea846e6c9ef14f15e372aea9e284c490ddd78c70342d0b3230078fd65",
+              "ad565b3ea846e6c9ef14f15e372aea9e284c490ddd78c70342d0b3230078fd65"
+            ],
+            "rows": [
+              {
+                "errorM": 9.011553145620302e-17,
+                "usable": true,
+                "startOrdinal": 1,
+                "radiusM": 0.021318757536112103,
+                "containsReferenceRegion": true,
+                "containsReference": true,
+                "maximumXZ": [
+                  -0.035250823916583324,
+                  0.01568667608341673
+                ],
+                "endOrdinal": 13,
+                "deltaXZ": [
+                  -0.04968750000000008,
+                  -2.7755575615628914e-17
+                ],
+                "pair": 1,
+                "minimumXZ": [
+                  -0.0641241760834168,
+                  -0.01568667608341673
+                ]
+              },
+              {
+                "errorM": 9.011553145620302e-17,
+                "usable": true,
+                "startOrdinal": 2,
+                "radiusM": 0.021318757536112103,
+                "containsReferenceRegion": true,
+                "containsReference": true,
+                "maximumXZ": [
+                  -0.035250823916583324,
+                  0.01568667608341673
+                ],
+                "endOrdinal": 14,
+                "deltaXZ": [
+                  -0.04968750000000008,
+                  -2.7755575615628914e-17
+                ],
+                "pair": 2,
+                "minimumXZ": [
+                  -0.0641241760834168,
+                  -0.01568667608341673
+                ]
+              },
+              {
+                "errorM": 9.011553145620302e-17,
+                "usable": true,
+                "startOrdinal": 3,
+                "radiusM": 0.021318757536112103,
+                "containsReferenceRegion": true,
+                "containsReference": true,
+                "maximumXZ": [
+                  -0.035250823916583324,
+                  0.01568667608341673
+                ],
+                "endOrdinal": 15,
+                "deltaXZ": [
+                  -0.04968750000000008,
+                  -2.7755575615628914e-17
+                ],
+                "pair": 3,
+                "minimumXZ": [
+                  -0.0641241760834168,
+                  -0.01568667608341673
+                ]
+              },
+              {
+                "errorM": 9.011553145620302e-17,
+                "usable": true,
+                "startOrdinal": 4,
+                "radiusM": 0.021318757536112103,
+                "containsReferenceRegion": true,
+                "containsReference": true,
+                "maximumXZ": [
+                  -0.035250823916583324,
+                  0.01568667608341673
+                ],
+                "endOrdinal": 16,
+                "deltaXZ": [
+                  -0.04968750000000008,
+                  -2.7755575615628914e-17
+                ],
+                "pair": 4,
+                "minimumXZ": [
+                  -0.0641241760834168,
+                  -0.01568667608341673
+                ]
+              },
+              {
+                "errorM": 9.011553145620302e-17,
+                "usable": true,
+                "startOrdinal": 5,
+                "radiusM": 0.021318757536112103,
+                "containsReferenceRegion": true,
+                "containsReference": true,
+                "maximumXZ": [
+                  -0.035250823916583324,
+                  0.01568667608341673
+                ],
+                "endOrdinal": 17,
+                "deltaXZ": [
+                  -0.04968750000000008,
+                  -2.7755575615628914e-17
+                ],
+                "pair": 5,
+                "minimumXZ": [
+                  -0.0641241760834168,
+                  -0.01568667608341673
+                ]
+              },
+              {
+                "errorM": 9.011553145620302e-17,
+                "usable": true,
+                "startOrdinal": 6,
+                "radiusM": 0.021318757536112103,
+                "containsReferenceRegion": true,
+                "containsReference": true,
+                "maximumXZ": [
+                  -0.035250823916583324,
+                  0.01568667608341673
+                ],
+                "endOrdinal": 18,
+                "deltaXZ": [
+                  -0.04968750000000008,
+                  -2.7755575615628914e-17
+                ],
+                "pair": 6,
+                "minimumXZ": [
+                  -0.0641241760834168,
+                  -0.01568667608341673
+                ]
+              },
+              {
+                "errorM": 9.011553145620302e-17,
+                "usable": true,
+                "startOrdinal": 7,
+                "radiusM": 0.021318757536112103,
+                "containsReferenceRegion": true,
+                "containsReference": true,
+                "maximumXZ": [
+                  -0.035250823916583324,
+                  0.01568667608341673
+                ],
+                "endOrdinal": 19,
+                "deltaXZ": [
+                  -0.04968750000000008,
+                  -2.7755575615628914e-17
+                ],
+                "pair": 7,
+                "minimumXZ": [
+                  -0.0641241760834168,
+                  -0.01568667608341673
+                ]
+              },
+              {
+                "errorM": 9.011553145620302e-17,
+                "usable": true,
+                "startOrdinal": 8,
+                "radiusM": 0.021318757536112103,
+                "containsReferenceRegion": true,
+                "containsReference": true,
+                "maximumXZ": [
+                  -0.035250823916583324,
+                  0.01568667608341673
+                ],
+                "endOrdinal": 20,
+                "deltaXZ": [
+                  -0.04968750000000008,
+                  -2.7755575615628914e-17
+                ],
+                "pair": 8,
+                "minimumXZ": [
+                  -0.0641241760834168,
+                  -0.01568667608341673
+                ]
+              }
+            ],
+            "aggregate": {
+              "errorM": 9.011553145620302e-17,
+              "usable": true,
+              "radiusM": 0.021318757536112103,
+              "containsReferenceRegion": true,
+              "containsReference": true,
+              "maximumXZ": [
+                -0.035250823916583324,
+                0.01568667608341673
+              ],
+              "deltaXZ": [
+                -0.04968750000000008,
+                -2.7755575615628914e-17
+              ],
+              "minimumXZ": [
+                -0.0641241760834168,
+                -0.01568667608341673
+              ]
+            },
+            "measurementGatesPassed": true,
+            "exactNumericalReplay": true,
+            "maxErrorM": 9.011553145620302e-17,
+            "usablePairs": 8,
+            "recordedEngine": "be0aaeac78d4290d890abe441b22aec23f2a20c3524631efe0460ac933698d78",
+            "actionAuthorized": false,
+            "scope": "One trial is one episode. Paired frames are correlated. Conditional geometric allowances are not calibrated probabilities. Unknown target height, parallax and mark alignment remain limitations. No live pose or action authority.",
+            "registrationId": "8006c7d2-1d20-45d4-96f5-5548dc100ddf",
+            "nominalCovered": 8,
+            "currentObserverEngine": "be0aaeac78d4290d890abe441b22aec23f2a20c3524631efe0460ac933698d78",
+            "referenceSource": "Independent renderer construction: true displacement uses integer drawn target centres. Camera shift, when declared, translates the full image after movement; the physical endpoint remains the same. Not real camera footage.",
+            "reconstructionEngine": "690b2fba7dfe27700e6c2045c60018a31d762d7c1738df4e117bedcec322830e"
+          }
+        ],
+        "status": "completed",
+        "elapsedMs": 1737.4949
+      },
+      "verified": {
+        "resultSha256": "dfb654b164d808117d13025ac4d478d83bf5be1e77925876bbbc6c03aa3e1650",
+        "measurementPromotion": false,
+        "passed": true,
+        "id": "6c21d3e5-bb01-4666-926d-a3ff6da5fc48"
+      },
+      "elapsedMs": 7732.575700000001
+    },
+    {
+      "name": "generated-camera-shift",
+      "trialId": "900ec9ed-aa6c-4a2e-a615-4ebd002f4ebc",
+      "startedAt": "2026-11-18T00:37:09.668Z",
+      "start": 38111.1608,
+      "id": "fcdea961-62d0-44e4-b07a-aca2853a9176",
+      "generated": {
+        "id": "900ec9ed-aa6c-4a2e-a615-4ebd002f4ebc",
+        "world": {
+          "worldId": "ec601ed5-adca-474f-8f60-71eb6d6f1cf3",
+          "expectedHash": "1645b6d6bb448e96032149d2a557ee24f7ff8ff5d54e4455cb56f5fbe4541c01",
+          "expectedRevision": 0,
+          "title": "Generated160 numeric reference world",
+          "requiresUpgrade051": false,
+          "frame": {
+            "elapsedTicks": 0,
+            "bodies": [
+              {
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "61d35c0f-a2d1-33b3-8908-966832854bdc",
+                "position": [
+                  -2,
+                  0.3,
+                  -1.5
+                ],
+                "velocity": [
+                  0,
+                  0,
+                  0
+                ],
+                "angularVelocity": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "d2e332f1-b112-3020-89d3-d4fca99f54b4",
+                "position": [
+                  2,
+                  0.25,
+                  1.5
+                ],
+                "velocity": [
+                  0,
+                  0,
+                  0
+                ],
+                "angularVelocity": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "id": "9851eeec-37dd-3164-acbd-802fc8441ee4",
+                "position": [
+                  3,
+                  0.25,
+                  2.7
+                ],
+                "velocity": [
+                  0,
+                  0,
+                  0
+                ],
+                "angularVelocity": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "format": "fraynix.world-frame-035-v1",
+            "originalScene": {
+              "importedAt": "2026-11-18T00:37:05.189758800Z",
+              "objects": [
+                {
+                  "sourceId": "floor",
+                  "bodyType": "static",
+                  "size": [
+                    12,
+                    0.5,
+                    12
+                  ],
+                  "restitution": 0,
+                  "rotation": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "id": "8b161b2f-3e2e-3438-84ce-7d1d27058632",
+                  "label": "floor",
+                  "position": [
+                    0,
+                    -0.25,
+                    0
+                  ],
+                  "massKg": 0,
+                  "friction": 0.5
+                },
+                {
+                  "sourceId": "A",
+                  "bodyType": "dynamic",
+                  "size": [
+                    0.8,
+                    0.6,
+                    0.45
+                  ],
+                  "restitution": 0,
+                  "rotation": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "id": "61d35c0f-a2d1-33b3-8908-966832854bdc",
+                  "label": "A",
+                  "position": [
+                    -2,
+                    0.3,
+                    -1.5
+                  ],
+                  "massKg": 1,
+                  "friction": 0.45
+                },
+                {
+                  "sourceId": "B",
+                  "bodyType": "dynamic",
+                  "size": [
+                    0.7,
+                    0.5,
+                    0.5
+                  ],
+                  "restitution": 0,
+                  "rotation": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "id": "d2e332f1-b112-3020-89d3-d4fca99f54b4",
+                  "label": "B",
+                  "position": [
+                    2,
+                    0.25,
+                    1.5
+                  ],
+                  "massKg": 1.2,
+                  "friction": 0.45
+                },
+                {
+                  "sourceId": "bystander",
+                  "bodyType": "dynamic",
+                  "size": [
+                    0.5,
+                    0.5,
+                    0.6
+                  ],
+                  "restitution": 0,
+                  "rotation": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "id": "9851eeec-37dd-3164-acbd-802fc8441ee4",
+                  "label": "bystander",
+                  "position": [
+                    3,
+                    0.25,
+                    2.7
+                  ],
+                  "massKg": 1,
+                  "friction": 0.6
+                },
+                {
+                  "sourceId": "obstacle",
+                  "bodyType": "static",
+                  "size": [
+                    0.8,
+                    1.2,
+                    0.8
+                  ],
+                  "restitution": 0,
+                  "rotation": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  "id": "679ce244-5be7-3e01-9b65-7efd0f7c58e0",
+                  "label": "obstacle",
+                  "position": [
+                    0,
+                    0.6,
+                    0
+                  ],
+                  "massKg": 0,
+                  "friction": 0.5
+                }
+              ],
+              "format": "fraynix.spatial-scene",
+              "sourceText": "{\"format\":\"fraynix.spatial-scene\",\"version\":1,\"title\":\"Labelled035 development two-body-chain\",\"units\":\"m\",\"frame\":\"right-handed-y-up\",\"source\":{\"kind\":\"synthetic\",\"physicalProperties\":\"declared\",\"note\":\"Declared synthetic sequential-world test; not a real room or learned policy.\"},\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"knownLengthM\":1,\"toleranceM\":0,\"basis\":\"declared-test\"},\"gravityMps2\":9.81,\"objects\":[{\"sourceId\":\"floor\",\"label\":\"floor\",\"shape\":\"box\",\"position\":[0,-0.25,0],\"size\":[12,0.5,12],\"massKg\":0,\"friction\":0.5,\"restitution\":0,\"rotation\":[0,0,0,1]},{\"sourceId\":\"A\",\"label\":\"A\",\"shape\":\"box\",\"position\":[-2,0.3,-1.5],\"size\":[0.8,0.6,0.45],\"massKg\":1,\"friction\":0.45,\"restitution\":0,\"rotation\":[0,0,0,1]},{\"sourceId\":\"B\",\"label\":\"B\",\"shape\":\"box\",\"position\":[2,0.25,1.5],\"size\":[0.7,0.5,0.5],\"massKg\":1.2,\"friction\":0.45,\"restitution\":0,\"rotation\":[0,0,0,1]},{\"sourceId\":\"bystander\",\"label\":\"bystander\",\"shape\":\"box\",\"position\":[3,0.25,2.7],\"size\":[0.5,0.5,0.6],\"massKg\":1,\"friction\":0.6,\"restitution\":0,\"rotation\":[0,0,0,1]},{\"sourceId\":\"obstacle\",\"label\":\"obstacle\",\"shape\":\"box\",\"position\":[0,0.6,0],\"size\":[0.8,1.2,0.8],\"massKg\":0,\"friction\":0.5,\"restitution\":0,\"rotation\":[0,0,0,1]}]}",
+              "units": "m",
+              "source": {
+                "note": "Declared synthetic sequential-world test; not a real room or learned policy.",
+                "kind": "synthetic",
+                "physicalProperties": "declared"
+              },
+              "title": "Labelled035 development two-body-chain",
+              "version": 1,
+              "gravityMps2": 9.81,
+              "sourceUnits": "m",
+              "sourceSha256": "7f77efe6744c96683a1f4d20d47b1258d1e5200bf0b0d7c5c3e44e675a4b4b85",
+              "id": "8a3343d2-44d8-443b-921a-56be3ca8260c",
+              "scaleCheck": {
+                "independentlyCalibrated": false,
+                "toleranceM": 0,
+                "knownLengthM": 1,
+                "passed": true,
+                "basis": "declared-test",
+                "convertedLengthM": 1
+              },
+              "frame": "right-handed-y-up"
+            }
+          },
+          "status": "verified"
+        },
+        "sourceKind": "generated",
+        "cameraShiftPixels": 6,
+        "distanceM": 0.049687499999999996
+      },
+      "job": {
+        "generation": 1,
+        "phase": "complete",
+        "completedAt": "2026-11-18T00:37:15.679957600Z",
+        "bindings": [
+          {
+            "episodeFingerprint": "7d39f43861fd7752145b24dae030e9700253bc3e5a1546d0e62c86f462f5cd39",
+            "trialId": "900ec9ed-aa6c-4a2e-a615-4ebd002f4ebc",
+            "registrationId": "187ecb57-2987-4ab6-8f89-1cdf1ace3610",
+            "trialSha256": "7b71f500d9d3792e4ee45339f2cfbd797c23c57f44b220d1d0a1da73f0b53024",
+            "registrationSha256": "886760fea883a2ecc3774fcb0b4a7c9077951deeda4bd387dac3c79e683178b5"
+          }
+        ],
+        "resumes": 0,
+        "createdAt": "2026-11-18T00:37:09.766548700Z",
+        "resultSha256": "d2befaae317309aff19905a94836ae18c52b7ee1b206fbd8166bc919311b8d85",
+        "engine": "690b2fba7dfe27700e6c2045c60018a31d762d7c1738df4e117bedcec322830e",
+        "audit": {
+          "passed": true,
+          "observed": {
+            "summary": "1 distinct trial(s); 0 passed the declared measurement gates. Repeated frames do not add independent episodes.",
+            "source": "Fresh reconstruction of original frames and independent endpoint labels. Evaluation fcdea961-62d0-44e4-b07a-aca2853a9176; frozen input d553d23452a16e58744b33c3a1e708a599cdcdc64992aa6227ae530507696ea5.",
+            "rows": [
+              [
+                "900ec9ed",
+                "1",
+                "withheld",
+                "unknown",
+                "unknown",
+                "unknown",
+                "unknown"
+              ],
+              [
+                "900ec9ed",
+                "2",
+                "withheld",
+                "unknown",
+                "unknown",
+                "unknown",
+                "unknown"
+              ],
+              [
+                "900ec9ed",
+                "3",
+                "withheld",
+                "unknown",
+                "unknown",
+                "unknown",
+                "unknown"
+              ],
+              [
+                "900ec9ed",
+                "4",
+                "withheld",
+                "unknown",
+                "unknown",
+                "unknown",
+                "unknown"
+              ],
+              [
+                "900ec9ed",
+                "5",
+                "withheld",
+                "unknown",
+                "unknown",
+                "unknown",
+                "unknown"
+              ],
+              [
+                "900ec9ed",
+                "6",
+                "withheld",
+                "unknown",
+                "unknown",
+                "unknown",
+                "unknown"
+              ],
+              [
+                "900ec9ed",
+                "7",
+                "withheld",
+                "unknown",
+                "unknown",
+                "unknown",
+                "unknown"
+              ],
+              [
+                "900ec9ed",
+                "8",
+                "withheld",
+                "unknown",
+                "unknown",
+                "unknown",
+                "unknown"
+              ]
+            ],
+            "limits": "One trial is one episode. Paired frames are correlated. Conditional geometric allowances are not calibrated probabilities. Unknown target height, parallax and mark alignment remain limitations. No live pose or action authority.",
+            "states": [
+              {
+                "mode": "all",
+                "visible": true,
+                "bars": []
+              },
+              {
+                "mode": "error",
+                "visible": true,
+                "bars": []
+              },
+              {
+                "mode": "bound",
+                "visible": true,
+                "bars": []
+              }
+            ]
+          }
+        },
+        "options": {
+          "maxRadiusM": 0.04,
+          "maxErrorM": 0.01,
+          "pixelRadius": 2,
+          "annotationBudgetM": 0.003,
+          "referenceBudgetM": 0.003
+        },
+        "report": {
+          "sha256": "5f6e7c6cd9793da609a94497cba303b1105ad6d691b5cb2822559b42ae270be9",
+          "id": "e4e2ae76-fce8-3c98-8d48-d44ea77d7833",
+          "version": 1
+        },
+        "completedTrials": 1,
+        "id": "fcdea961-62d0-44e4-b07a-aca2853a9176",
+        "results": [
+          {
+            "maxRadiusM": null,
+            "trialId": "900ec9ed-aa6c-4a2e-a615-4ebd002f4ebc",
+            "referenceRegionCovered": 0,
+            "originalEvaluation": {
+              "qualification": "User-declared physical marks and independent inspection of original fixed-window frames. Source phase boundaries are manual; no timed cue, prediction-derived truth, calibrated probability or native actuation.",
+              "createdAt": "2026-11-18T00:37:09.333051100Z",
+              "codeSha256": "be0aaeac78d4290d890abe441b22aec23f2a20c3524631efe0460ac933698d78",
+              "references": {
+                "frames": [
+                  {
+                    "visible": true,
+                    "imageSha256": "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+                    "atDeclaredMark": true,
+                    "ordinal": 1
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+                    "atDeclaredMark": true,
+                    "ordinal": 2
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+                    "atDeclaredMark": true,
+                    "ordinal": 3
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+                    "atDeclaredMark": true,
+                    "ordinal": 4
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+                    "atDeclaredMark": true,
+                    "ordinal": 5
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+                    "atDeclaredMark": true,
+                    "ordinal": 6
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+                    "atDeclaredMark": true,
+                    "ordinal": 7
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+                    "atDeclaredMark": true,
+                    "ordinal": 8
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "af5244c4a12cd4b17ad479056a9552f1daef02245a50ac34d847ea1cb6f780b2",
+                    "atDeclaredMark": true,
+                    "ordinal": 13
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "af5244c4a12cd4b17ad479056a9552f1daef02245a50ac34d847ea1cb6f780b2",
+                    "atDeclaredMark": true,
+                    "ordinal": 14
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "af5244c4a12cd4b17ad479056a9552f1daef02245a50ac34d847ea1cb6f780b2",
+                    "atDeclaredMark": true,
+                    "ordinal": 15
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "af5244c4a12cd4b17ad479056a9552f1daef02245a50ac34d847ea1cb6f780b2",
+                    "atDeclaredMark": true,
+                    "ordinal": 16
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "af5244c4a12cd4b17ad479056a9552f1daef02245a50ac34d847ea1cb6f780b2",
+                    "atDeclaredMark": true,
+                    "ordinal": 17
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "af5244c4a12cd4b17ad479056a9552f1daef02245a50ac34d847ea1cb6f780b2",
+                    "atDeclaredMark": true,
+                    "ordinal": 18
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "af5244c4a12cd4b17ad479056a9552f1daef02245a50ac34d847ea1cb6f780b2",
+                    "atDeclaredMark": true,
+                    "ordinal": 19
+                  },
+                  {
+                    "visible": true,
+                    "imageSha256": "af5244c4a12cd4b17ad479056a9552f1daef02245a50ac34d847ea1cb6f780b2",
+                    "atDeclaredMark": true,
+                    "ordinal": 20
+                  }
+                ],
+                "source": "Independent renderer construction: true displacement uses integer drawn target centres. Camera shift, when declared, translates the full image after movement; the physical endpoint remains the same. Not real camera footage.",
+                "confirmed": true
+              },
+              "registrationId": "187ecb57-2987-4ab6-8f89-1cdf1ace3610",
+              "runId": "900ec9ed-aa6c-4a2e-a615-4ebd002f4ebc",
+              "passed": false,
+              "metrics": {
+                "fixedSamples": 16,
+                "failure": "Fixed endpoint/start window includes an unmeasured sample",
+                "referenceFailures": 8
+              },
+              "version": "manual-physical-windows-041-v1",
+              "status": "evaluated"
+            },
+            "probabilityCalibrated": false,
+            "expectedDeltaXZ": [
+              -0.049687499999999996,
+              6.703983433202035e-18
+            ],
+            "independentEpisodes": 1,
+            "pairedSamples": 8,
+            "frameHashes": [
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "8a0415ba03dea91e839661159ce5285fa263bb32b6654232518f7ec8d53d3791",
+              "c985a9842dcd6c5d2ea81611651b1dac0484439ec7324ef5da0bd04bccf2113e",
+              "4d1c3db25a58332ffa246a0f70c31ff88a1c314f8bf71aea3418dc31fc2b8b1a",
+              "a02eb415772732398da41a8454e54c433b2eb7198a0e2818fc27997b37eeb5d4",
+              "af5244c4a12cd4b17ad479056a9552f1daef02245a50ac34d847ea1cb6f780b2",
+              "af5244c4a12cd4b17ad479056a9552f1daef02245a50ac34d847ea1cb6f780b2",
+              "af5244c4a12cd4b17ad479056a9552f1daef02245a50ac34d847ea1cb6f780b2",
+              "af5244c4a12cd4b17ad479056a9552f1daef02245a50ac34d847ea1cb6f780b2",
+              "af5244c4a12cd4b17ad479056a9552f1daef02245a50ac34d847ea1cb6f780b2",
+              "af5244c4a12cd4b17ad479056a9552f1daef02245a50ac34d847ea1cb6f780b2",
+              "af5244c4a12cd4b17ad479056a9552f1daef02245a50ac34d847ea1cb6f780b2",
+              "af5244c4a12cd4b17ad479056a9552f1daef02245a50ac34d847ea1cb6f780b2",
+              "af5244c4a12cd4b17ad479056a9552f1daef02245a50ac34d847ea1cb6f780b2"
+            ],
+            "rows": [
+              {
+                "usable": false,
+                "reason": "Unmeasured target or invalid camera reference; pair retained in denominator",
+                "startOrdinal": 1,
+                "endOrdinal": 13,
+                "pair": 1
+              },
+              {
+                "usable": false,
+                "reason": "Unmeasured target or invalid camera reference; pair retained in denominator",
+                "startOrdinal": 2,
+                "endOrdinal": 14,
+                "pair": 2
+              },
+              {
+                "usable": false,
+                "reason": "Unmeasured target or invalid camera reference; pair retained in denominator",
+                "startOrdinal": 3,
+                "endOrdinal": 15,
+                "pair": 3
+              },
+              {
+                "usable": false,
+                "reason": "Unmeasured target or invalid camera reference; pair retained in denominator",
+                "startOrdinal": 4,
+                "endOrdinal": 16,
+                "pair": 4
+              },
+              {
+                "usable": false,
+                "reason": "Unmeasured target or invalid camera reference; pair retained in denominator",
+                "startOrdinal": 5,
+                "endOrdinal": 17,
+                "pair": 5
+              },
+              {
+                "usable": false,
+                "reason": "Unmeasured target or invalid camera reference; pair retained in denominator",
+                "startOrdinal": 6,
+                "endOrdinal": 18,
+                "pair": 6
+              },
+              {
+                "usable": false,
+                "reason": "Unmeasured target or invalid camera reference; pair retained in denominator",
+                "startOrdinal": 7,
+                "endOrdinal": 19,
+                "pair": 7
+              },
+              {
+                "usable": false,
+                "reason": "Unmeasured target or invalid camera reference; pair retained in denominator",
+                "startOrdinal": 8,
+                "endOrdinal": 20,
+                "pair": 8
+              }
+            ],
+            "aggregate": {
+              "usable": false
+            },
+            "measurementGatesPassed": false,
+            "exactNumericalReplay": true,
+            "maxErrorM": null,
+            "usablePairs": 0,
+            "recordedEngine": "be0aaeac78d4290d890abe441b22aec23f2a20c3524631efe0460ac933698d78",
+            "actionAuthorized": false,
+            "scope": "One trial is one episode. Paired frames are correlated. Conditional geometric allowances are not calibrated probabilities. Unknown target height, parallax and mark alignment remain limitations. No live pose or action authority.",
+            "registrationId": "187ecb57-2987-4ab6-8f89-1cdf1ace3610",
+            "nominalCovered": 0,
+            "currentObserverEngine": "be0aaeac78d4290d890abe441b22aec23f2a20c3524631efe0460ac933698d78",
+            "referenceSource": "Independent renderer construction: true displacement uses integer drawn target centres. Camera shift, when declared, translates the full image after movement; the physical endpoint remains the same. Not real camera footage.",
+            "reconstructionEngine": "690b2fba7dfe27700e6c2045c60018a31d762d7c1738df4e117bedcec322830e"
+          }
+        ],
+        "status": "completed",
+        "elapsedMs": 1766.0933
+      },
+      "verified": {
+        "resultSha256": "d2befaae317309aff19905a94836ae18c52b7ee1b206fbd8166bc919311b8d85",
+        "measurementPromotion": false,
+        "passed": true,
+        "id": "fcdea961-62d0-44e4-b07a-aca2853a9176"
+      },
+      "elapsedMs": 7866.2764000000025
+    }
+  ],
+  "captures": [
+    {
+      "name": "recorded-inputs.png",
+      "sha256": "4e093414e9f84cad5bac06d1de6c1fed5fa855fc6b0ccf06782aa8ef5c9b7c92",
+      "privatePixelsExcluded": true
+    },
+    {
+      "name": "recovered-evaluation.png",
+      "sha256": "6a5b075bb8bbb2672e2a6a9ff930e328cbde9116c9f294d00b1b25687aa6047d",
+      "privatePixelsExcluded": true
+    },
+    {
+      "name": "camera-error-and-bounds.png",
+      "sha256": "86d62814c98d886ecb7f0fc1253c75cc4ab2a4b03f7ac26c893da59d35c71968",
+      "privatePixelsExcluded": true
+    },
+    {
+      "name": "camera-scope.png",
+      "sha256": "3a474c2ce648403bf8189c7fd47bd5ff499fbefae6e3b66bc5d66c1958634879",
+      "privatePixelsExcluded": true
+    },
+    {
+      "name": "camera-pairs.png",
+      "sha256": "27baf14ce9f8f64bf5b73ebff0a7243f504007410f0cff2d6400cc24a9985974",
+      "privatePixelsExcluded": true
+    },
+    {
+      "name": "generated-reverse.png",
+      "sha256": "88c420069dc54d2783b3c983cdebe1346b6d5fab5d0a32a4c879c3d7001318a7",
+      "privatePixelsExcluded": true
+    },
+    {
+      "name": "camera-change-refused.png",
+      "sha256": "b90985149b52c4a07f2fa3189b6c90d47dd4f37ad96c7ee84dce107e52301146",
+      "privatePixelsExcluded": true
+    },
+    {
+      "name": "compact-controls.png",
+      "sha256": "206576c817fdcba9d7d90b772d7d76bbb0060733d03f12126cc268869a8c05a4",
+      "privatePixelsExcluded": true
+    }
+  ],
+  "checks": [
+    "Actual Java process interruption and same-job source-bound recovery; historical camera episode reported separately from generated cases.",
+    "Reserved reverse motion passes; shifted reference retains all eight pairs as unmeasured and fails measurement gates while the truthful report verifies.",
+    "Changing an original transition frame refuses a completed result; restoring exact bytes restores verification.",
+    "Cold restart independently reconstructs all three complete results; no changes to observer or action defaults."
+  ],
+  "errors": [],
+  "scope": "One exposed historical camera episode plus labelled generated reverse-motion and shifted-camera sequences. Each job replays originals and verifies the actual Chromium report. No fresh webcam recording, calibrated probability, native action, training or model-inference claim.",
+  "originalFilesUnchanged": 1868
+}

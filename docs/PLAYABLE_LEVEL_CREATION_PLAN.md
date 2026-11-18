@@ -1,3 +1,9 @@
+## Edition160 continuity — 2026-11-17
+
+Edition160 adds independent recorded-motion evaluation to the Java workspace. It freshly reconstructs every original frame, compares measured displacement with separately labelled tape endpoints, carries conditional error bounds, and independently checks a working rendered report. It preserves tracker and action defaults.
+
+[Edition160](../README-160.md). Preserve unified Java agency, existing physics and evidence. Next: held-out physical displacement/coverage and single-marker control.
+
 ## Edition159 continuity — 2026-11-17
 
 Edition159 connects an original measured plane to a durable Java request that checks coordinate allowances, executes actual bounded native motion and verifies the committed result and interactive report. Recorded sources, simulation states and unresolved physical uncertainty stay distinct. Existing defaults are unchanged.

@@ -1,127 +1,127 @@
-# Fraynix Agent Workspace — edition 159
+# Fraynix Agent Workspace — edition 160
 
-[Published and fetched receipt](docs/PUBLICATION_159.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-159)
+2026-11-17 · Independent recorded-motion checks · Local Java · Defaults preserved
 
-2026-11-17 · Local Java orchestration · Recorded calibrated actions · Defaults preserved
+[Previous edition 159](README-159.md) · [Offline interactive guide](docs/readmes/160/index.html) · [All editions](docs/readmes/INDEX.md) · [Development plan](docs/publication160/plan160.md)
 
-[Previous edition 158](README-158.md) · [Offline interactive guide](docs/readmes/159/index.html) · [All editions](docs/readmes/INDEX.md) · [Development plan](docs/publication159/plan159.md)
+Edition160 adds independent recorded-motion evaluation to the Java workspace. It freshly reconstructs every original frame, compares measured displacement with separately labelled tape endpoints, carries conditional error bounds, and independently checks a working rendered report. It preserves tracker and action defaults.
 
-Edition159 connects an original measured plane to a durable Java request that checks coordinate allowances, executes actual bounded native motion and verifies the committed result and interactive report. Recorded sources, simulation states and unresolved physical uncertainty stay distinct. Existing defaults are unchanged.
-
-![Actual calibrated action report](docs/readmes/159/review-bounds-and-outcome.png)
+![Actual recorded displacement report](docs/readmes/160/camera-error-and-bounds.png)
 
 ## The application and its direction
 
-Fraynix remains one local agent workspace: a persistent Java runtime coordinates observations, durable goals, the simulated world, browser, creation canvas, data tools and reusable procedures. Its original game engine is an experimental environment in that system. Each addition must make a complete task possible and preserve what actually happened.
+Fraynix remains one local agent workspace. Java coordinates persistent tasks, observations, memory, skills and outcome checks; the desktop presents the browser, creation canvas, spatial world and Game Lab. Its physics runtime lets the system propose experiments, observe actual simulated outcomes and retain verified procedures. The destination is an integrated agent that observes, reasons, creates, acts and learns from measured results.
 
-Edition 158 connected verified recorded observations to world inspection, browser checks and a working artifact. Edition 159 adds a deliberately narrow next bridge: original measured plane coordinates can guide actual bounded simulation actions. It does not turn an unrelated tracker recording into calibrated physical authority. Open-ended chat and known Java procedures remain distinct; these trials use the registered Java procedure and make zero model-inference or weight-training claims.
+Edition 158 connected verified recorded observations to world inspection, browser checks and working artifacts. Edition 159 connected measured plane coordinates to bounded simulation actions and saved procedures. Edition 160 checks the measurement side of that bridge: how far the tracked object actually moved relative to independently labelled tape marks, and whether the declared geometric allowance contains that displacement.
 
-No new dependency, model download or GPU requirement is introduced. Existing native physics, graphics, JSON and desktop dependencies remain in use. “Java-owned logic” does not mean those dependencies disappeared.
+This release adds a working Java evaluation view and durable report jobs. It does not add a chat route, run model training or promote a new tracker. Existing chat/world/browser/creation workflows remain available; the new measurement evidence is the prerequisite for later action selection. No new dependency, GPU requirement or model download is introduced. Existing desktop, JSON, graphics and native physics dependencies remain in use.
 
-## A complete request
+## What now works
 
-> Run a calibrated world action using the selected recorded landmarks; verify the actual outcome and save the procedure as calibrated-plane-action.
+1. Select a completed recorded movement episode with independent endpoint labels.
+2. Freeze the trial, original calibration, labels and exact-frame fingerprint. Copied footage under a different ID cannot count as another episode within the job.
+3. Reopen every source image and metadata record, check their bytes, ordering, timestamps and dimensions, and reconstruct the original tracker, reference guard and motion filter from the original seed.
+4. Compare the reconstructed observations with the original numeric observations. Only wall-clock processing duration is excluded. A different compiled observer identity is explicitly retained as a new linked reconstruction; the historical proof is not relabelled.
+5. Project the localization region into world X/Z metres. Compare every fixed start/end pair and the complete-window mean with the separately labelled tape displacement.
+6. Persist results and create real HTML/JSON files. The desktop exercises all three chart modes and reads actual table cells, source labels, uncertainty labels and SVG coordinates. Java independently checks them against the retained calculation.
+7. Reopen or cold-restart the job and recheck every original source, exact artifact and outcome. A failed measurement gate can yield a completed, truthful report; it cannot become a successful physical measurement claim.
 
-1. Select the original measured registration, a separate destination world, an actual marker and a withheld printed-grid landmark.
-2. Java rereads the source image and metadata, checks hashes, reconstructs the homography and similarity fit, and verifies the historical world binding.
-3. It projects a declared image-localization rectangle into metres and adds explicitly retained error allowances. A rectangle outside the measured image polygon or across a projective horizon is refused.
-4. It checks current world revision, movement limit, error budget, native route and uncertainty-expanded clearance before starting an owned child goal.
-5. The existing native controller applies bounded forces and torques. Every body, contact/pose trace, original wrench ledger, release and actual rendered native report remains subject to the original checks.
-6. The requested endpoint and combined-error budgets must pass **before the accepted world advances**. A failed simulation or budget check retains evidence; it cannot publish a successful procedure.
-7. Java creates an HTML/JSON report. The desktop operates all three chart modes and reads actual table cells, source/uncertainty labels and SVG coordinates; Java independently compares them with the original calculation and committed result.
-8. Completion can retain a reusable procedure. Reuse requires explicit source, world revision and marker selections and reconstructs the original procedure ancestry.
+## The independent reference and error calculation
 
-## What the coordinates mean
+The original 041 episode records the black lighter moving from the tape's **4-inch mark to its 8-inch mark**. The user confirmed the motion and the fixed start/end frames were independently inspected for visibility and mark placement. All eight starting frames and all eight ending frames remain in the calculation; there is no favourable-window selection. These eight paired observations are **one correlated episode**, not eight independent physical trials.
 
-The recorded 041 reference contains four printed-grid fitting corners, three separate check intersections and two tape marks. Its visible fitted rectangle is **10 × 8 inches**, within the user's **12 × 12-inch mat**. Native placement of that plane is declared, not a measured room pose.
+The original calibration fits a **10 × 8-inch visible rectangle within the 12 × 12-inch cutting mat**, with separate check intersections and tape marks. Native placement of the plane is declared. The tape supplies the displacement length; the plane fit supplies orientation, not a replacement measured length.
 
-The reference's maximum independent grid discrepancy is about **0.384 mm**; its tape-length discrepancy is about **2.404 mm**. Neither number alone establishes physical tracking accuracy. Original image bytes and annotations stay pinned, including the distinction between the two 041 recording sessions.
+For each accepted raw tracked point, Java projects the four corners of an explicit pixel allowance through the original homography. It adds the original annotation allowance, maximum independent grid residual, independent tape-length discrepancy and original relative-scale allowance. Regions outside the measured polygon or across a projective horizon are refused. Each displacement interval is the end interval minus the start interval. The reference itself has a separately declared displacement allowance.
 
-For each selected check landmark, the region includes:
+The report retains:
 
-- The extrema of the projected pixel rectangle.
-- A declared annotation allowance, never below the original value.
-- The maximum independent grid discrepancy and the independent tape discrepancy.
-- The original relative-scale allowance applied at the projected distance.
+- Nominal tape displacement containment and containment of its entire declared reference region.
+- Actual displacement error and the radius of the conditional rectangle.
+- Eight fixed paired rows, the complete-window mean and explicit missing measurements.
+- Separate original observer, current observer and reconstruction identities.
+- Original labels, evaluations and frame hashes.
 
-The X/Z rectangle and its radial allowance are **conditional geometric budgets**. They assume the declared input allowances bound the relevant errors; they are not empirically calibrated coverage probabilities. Unknown object height, parallax, lens effects outside the checked reference, calibration drift and live camera changes remain unresolved. Y is the declared plane; the simulated marker's height comes from its authored box geometry.
+Default evaluation allowances are **2 pixels**, **3 mm annotation**, **3 mm displacement-reference**, **10 mm maximum error**, and **40 mm maximum radius**. These new evaluation settings do not change tracker or native-controller defaults. They cannot shrink the original calibration's annotation allowance. Repeated frames do not earn a square-root-of-sample-count reduction. All-missing errors and radii remain **unknown**, never zero.
 
-No hidden or lost object position is invented. The unrelated 158/157 tracker sources keep their original unknown positional accuracy. No hardware, live webcam or automatic object recognition is authorized by this procedure.
+The intervals are conditional geometric allowances, **not calibrated coverage probabilities**. Unknown target height, parallax, lens distortion outside the checked region, calibration changes and exact mark placement remain limitations. Passing one historical episode does not prove general physical accuracy or authorize hardware motion.
 
-## Controller compatibility and honest limits
+## Actual results
 
-The existing verified pose controller requires at least two dynamic boxes, each at least 0.2 m wide. Two such boxes cannot occupy the closely spaced check locations on this mat. The UI therefore selects **one measured reference marker and one explicit return marker**. The return marker is lifted and returned to its initial authored pose by the original two-body controller; it is not a second measured reference. Its complete motion is still verified.
-
-For larger measured planes, the typed workflow also accepts two distinct measured markers when all geometry and clearance checks pass. The generated larger-plane trial exercises that path. This release does not silently shrink native bodies, scale the mat or bypass collision checks.
-
-The default new-task limits are 2 pixels of localization allowance, 3 mm annotation allowance, 15 mm maximum coordinate radius, 0.75 m endpoint displacement, 50 mm execution tolerance, 65 mm combined allowance, 6 N force and 0.5 Nm torque. These are explicit task limits, not a claim of 50 mm physical accuracy. Existing tracker and controller defaults stay unchanged. The report displays the actual result, which may be substantially smaller than the allowed limit.
-
-## Measured results
-
-| Task | Measured markers | Coordinate radius mm | Actual simulation error mm | Combined mm | Task span s |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| exposed041-grid0 | 1 | 11.555 | 0.185 | 11.741 | 14.46 |
-| exposed041-grid2-reuse | 1 | 14.235 | 0.220 | 14.455 | 9.76 |
-| generated-larger-plane-two-references | 2 | 22.277 | 0.129 | 22.323 | 10.29 |
+| Case | Usable / fixed pairs | Reference regions contained | Max error mm | Max radius mm | Measurement gates | Job span s |
+| --- | ---: | ---: | ---: | ---: | --- | ---: |
+| exposed-four-inch-camera | 8/8 | 8/8 | 6.673 | 25.895 | passed | 15.26 |
+| generated-reverse | 8/8 | 8/8 | 0.000 | 21.319 | passed | 7.73 |
+| generated-camera-shift | 0/8 | 0/8 | unknown | unknown | failed | 7.87 |
 
 
-100 selected Java checks and 171 desktop checks passed, with no failures or skips. Three actual Java/Electron tasks passed source, native-action, rendered-outcome, recovery and cold-verification checks. This is scoped validation, not a rerun of every historical capability.
+32 selected Java checks and 173 desktop checks passed, with no failures or skips. Three actual Java/Electron evaluation jobs passed source, recovery, rendered-outcome and cold-verification checks. Measurement qualification is reported separately. This is scoped validation, not a rerun of every historical capability.
 
-Task span includes verification, repeated report inspection and deliberate recovery where used; it is not a throughput benchmark. The camera reference is exposed historical evidence. The larger generated plane is labelled synthetic. These are new workflow executions, not new footage or an accuracy promotion.
+The camera row is one exposed historical recording. The reverse-motion and changed-camera rows are separately labelled generated image sequences, not fresh camera footage. Their reference motion comes from integer drawing coordinates rather than tracker predictions. Every sequence is replayed through the real observer. The changed-camera case deliberately violates the old reference and must withhold measurements; a verified report of that refusal is the correct result.
 
-Development retained two compile failures, initial tests that refused undersized native bodies and an inconsistent perspective fixture, and a native goal/world read race corrected by reading under the existing goal lock. The first regression passed 98 Java and 171 desktop checks. A stricter native endpoint test was then added and passed: out-of-budget motion cannot advance the accepted world. Final regression passed 99 Java checks, plus one independent uncertainty-clearance test (100 total), and 171 desktop checks. All three locked app trials passed on their first attempt. Report screenshots were recaptured with the chart in view; original overview captures and receipts are retained. No new camera recording, tracker promotion, physical-accuracy certification or LLM-training claim is made.
+Job span includes complete source checks, actual report inspection, repeated verification and deliberate restart where used. It is an end-to-end execution span, not a throughput benchmark or a controlled speed comparison. Reconstruction timing is also retained in the [comparison data](docs/readmes/160/comparison.json).
+
+Development checks caught three hash API type errors, an artifact read/write shape mismatch and a missing expected version in the artifact-edit test. App attempt A then refused an original report whose equivalent scientific-notation number changed text after persistence. Canonical numeric serialization fixed the underlying problem without weakening exact comparison. Attempt B passed all workflows, but visual review found a stale UNTESTED badge. The host now refreshes it after acknowledgement, and final attempt C asserts the displayed status and passes all three jobs. Original logs, method revisions and attempts remain retained; no measurement threshold was tuned to these outcomes. All 1,868 original private source files remained unchanged.
+
+![All eight fixed camera pairs](docs/readmes/160/camera-pairs.png)
 
 ## Review it in the app
 
-Use JDK 21 and the project's existing Node.js LTS setup. Run [Start-Agent-Workspace.ps1](scripts/Start-Agent-Workspace.ps1); it checks the existing Java owner, prepares the engine and verifies the desktop dependency cache before launch. `-PrepareOnly` prepares without launching; `-Offline` requires dependencies already cached. Use a separate project path when evaluating copied evidence; do not point a new build at an active older database.
+Use JDK 21 and the project's established Node.js setup. [Start-Agent-Workspace.ps1](scripts/Start-Agent-Workspace.ps1) prepares the Java engine and verifies the desktop dependency cache. `-PrepareOnly` prepares without launching; `-Offline` requires already-cached dependencies. Use an isolated project for copied evaluation evidence; do not start a new build against an active older database.
 
-1. Open **Spatial → Measured mat alignment**.
-2. Open **Recorded plane → checked simulation action ·159** and load references/worlds.
-3. Select the original registration, destination world, reference marker, recorded check and return marker. A fresh world can be imported through the existing spatial-scene tools.
-4. Inspect **Conditional error and movement budgets**, then **Check bounds and route**. Preview performs no action.
-5. Click **Prepare chat request**, review it and send it. Add **“review before action”** to stop at the verified pre-action checkpoint.
-6. Resume through task history. A changed source, different world head, foreign child or stale host claim is refused.
-7. Review the completed artifact, switch between **bounds**, **actual outcome** and **both**, and inspect the retained procedure in Skills.
+1. Open **Spatial → Independent motion checks**.
+2. Click **Load recorded trials**. Select one to four completed movement trials with independent labels. A new empty project has no such trials; it does not invent examples.
+3. Inspect **Declared evaluation limits**, then click **Evaluate original footage**.
+4. Select the retained evaluation. An interrupted job offers **Resume reconstruction**; resuming reconstructs the same frozen sources.
+5. Click **Open and verify report**. Inspect the error/radius chart, switch all three modes and read the full fixed-pair table.
+6. Return to the panel and use **Recheck original evidence** after completion. This reruns the checks rather than trusting a cached success label.
 
-Only recorded source metadata and numeric results appear in public screenshots. Original camera pixels remain private. The exact exposed-camera trial requires the owner's original source directory; a public clone alone cannot reproduce those private bytes.
+![Actual refusal after the camera reference changes](docs/readmes/160/camera-change-refused.png)
 
-## Persistence and failure handling
+![Recorded evaluation after interruption](docs/readmes/160/recovered-evaluation.png)
 
-The parent request, original calibration, conditional bounds, exact world revision and child intent are persisted before actuation. The native child uses a deterministic workflow/stage identity. Restart before action revalidates the same source. Restart after a completed native child reuses its verified result rather than moving the bodies again. Cancellation and a failed rendered report cannot publish a procedure.
+The report is a local versioned artifact with `index.html` and `accuracy.json`, visible in the creation canvas. Its scope is explicit even when measurement gates pass. The UI does not activate the webcam or move any object.
 
-The workflow retains the existing 20-task capacity, 1200-second deadline, 60-second host claims and at most three explicit resumes. Procedure inspection, retirement, reactivation and archived original verification retain their established checks. A failed endpoint budget prevents a new accepted world revision; the original failed run remains available for diagnosis.
+## Persistence, limits and refusal
 
-## Source, tests and evidence
+Jobs use one reconstruction worker, at most 16 retained evaluations, one to four distinct episodes per job, a 240-second bound per reconstruction/verification, and at most three explicit resumes. Source bindings are saved before execution. Stop and generation checks prevent superseded work from publishing. Original records use checksummed atomic writes; a restart marks running work interrupted.
 
-- [Java mapping and conditional bounds](workspace-engine/src/main/java/fraymus/workspace/CalibratedPlane159.java)
-- [Action admission and endpoint checks](workspace-engine/src/main/java/fraymus/workspace/CalibratedAction159.java)
-- [Durable workflow](workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java)
-- [Actual report and independent comparator](workspace-engine/src/main/java/fraymus/workspace/CalibratedReport159.java)
-- [Desktop chart observations](workspace-desktop/calibrated159.cjs)
-- [Application study](docs/publication159/study159.cjs)
-- [Validation receipt](docs/readmes/159/verification.json), [original logs and failed attempts](docs/readmes/159/original-evidence.json), [source inventory](docs/readmes/159/file-inventory.json)
+Completion requires independent rendered-report acknowledgement. Source changes, altered labels, image corruption, changed observations, artifact edits and differing evaluator identities are refused. The app trial alters an original transition frame in its private copy: the completed report must fail verification, then verify again only after the exact original bytes are restored. Originals in the user's source directory remain untouched.
 
-Run the selected Java and desktop regression/build sequence with `python -X utf8 docs/publication159/validate159.py`. Output paths deliberately refuse overwriting earlier receipts. The application study is locked before execution and uses a separate private project copy. Hosted [GitHub CI](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions) is reported separately from local results.
+A report can be complete while measurement gates fail. This distinction prevents “the workflow ran” from being confused with “the camera is accurate.” Current-position authority, object identity after occlusion, ground contact and hardware actuation remain separate requirements.
+
+## Tests, evidence and reproducibility
+
+- [Original sequence reconstruction](workspace-engine/src/main/java/fraymus/workspace/PlaneReplay160.java)
+- [Independent displacement and bounds](workspace-engine/src/main/java/fraymus/workspace/PlaneAccuracy160.java)
+- [Durable evaluation store](workspace-engine/src/main/java/fraymus/workspace/PlaneAccuracyStore160.java)
+- [Report and independent comparator](workspace-engine/src/main/java/fraymus/workspace/PlaneAccuracyReport160.java)
+- [Actual desktop chart observations](workspace-desktop/accuracy160.cjs)
+- [Regression checks](workspace-engine/src/test/java/fraymus/workspace/PlaneAccuracy160Test.java)
+- [Locked application study](docs/publication160/study160.cjs), [method lock](docs/PLANE_ACCURACY_160_LOCK.json)
+- [Validation receipt](docs/readmes/160/verification.json), [original logs and attempts](docs/readmes/160/original-evidence.json), [source inventory](docs/readmes/160/file-inventory.json)
+
+Run the focused sequence with `python -X utf8 docs/publication160/validate160.py`. Its output paths deliberately refuse overwriting retained receipts. The application study creates a separate project copy and refuses reuse of an attempt directory. Original private camera images are excluded from Git; the owner's exposed-camera trial requires those originals. Generated test definitions and all source code are public. Screenshots show actual app controls and numeric evidence, not private camera pixels.
+
+Hosted [GitHub CI](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions) is checked first and again before publication, and reported separately from local checks. At the pre-publication check, the latest hosted runs were still in progress; local success is not a claim of green hosted CI. Historical numbered READMEs and snapshots remain frozen; current source and originals are inventoried and verified from fetched Git blobs.
 
 ```mermaid
 flowchart LR
-  A[Recorded image + independent landmarks] --> B[Java calibrated regions]
-  B --> C[Source + world + clearance gates]
-  C --> D[Owned native force/torque action]
-  D --> E[Original checks + endpoint budget]
-  E --> F[Accepted world revision]
-  F --> G[Interactive report + independent UI audit]
-  G --> H[Verified reusable procedure]
+  A[Original frames and independent tape labels] --> B[Exact Java reconstruction]
+  B --> C[Conditional coordinate and displacement regions]
+  C --> D[All fixed pairs and complete-window mean]
+  D --> E[Persisted result and HTML/JSON artifact]
+  E --> F[Actual rendered cells and chart controls]
+  F --> G[Independent Java outcome check]
+  G --> H[Completed report with explicit measurement qualification]
 ```
 
-## Next
+## Next phases
 
-1. Measure actual localization errors on separate, independently labelled planar footage and assess coverage on held-out sequences.
-2. Detect camera/reference changes before transferring a calibration across frames; preserve unknown height and contact explicitly.
-3. Add a separately tested single-marker/smaller-object native action path, retaining existing engine identities and historical evidence.
-4. Connect moving-object estimates to short, reversible simulation actions only when identity, current calibration and remaining correction authority justify them.
-5. Measure complete task cost and compare simple control against recalled procedures. Retain a learned improvement only after new outcome evaluations earn it.
+1. Test separately labelled physical episodes spanning new directions, distances and viewpoints. Keep episode-level coverage separate from correlated frame counts; do not tune and claim validation on the same footage.
+2. Recover from camera/reference changes through a new measured calibration and new source binding, preserving the refused old result.
+3. Add a separately tested smaller, single-marker native control path. Edition 159 still uses its inherited two-body controller and explicit return marker; do not silently change that engine identity.
+4. Admit moving-object observations to short, reversible simulation actions only when current calibration, identity and remaining correction authority justify them.
+5. Measure full task cost and compare remembered procedures against simple control. Retain improvements only when independent task outcomes earn them.
 
-The destination stays one persistent, local Java agent system that can observe, propose, act, create, verify and remember—while keeping observations, assumptions, predictions and actual outcomes distinct.
-
-Publication audit caught Git line-ending normalization of the method lock. The original Windows bytes and their study hash remain in the evidence archive. The corrected audit checks that exact raw hash and separately compares its normalized text with the committed Git blob. No experimental input, result or check was relabelled; the failed release log is retained.
+The direction remains a unified persistent Java agent with observations, memory, experiments, tools and verifiable outcomes. This release strengthens the measurement evidence that future decisions can rely on.

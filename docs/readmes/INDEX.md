@@ -1,3 +1,5 @@
+[Edition160 — independent recorded motion checks](../../README-160.md) | [Offline guide](160/index.html)
+
 [Edition159 — calibrated recorded actions](../../README-159.md) | [Offline guide](159/index.html)
 
 [Edition158 — verified observation tasks](../../README-158.md) | [Offline guide](158/index.html)

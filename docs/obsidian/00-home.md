@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/168-independent-motion-checks.md]] | [[README-160.md]]
+
 Current: [[docs/obsidian/167-calibrated-actions.md]] | [[README-159.md]]
 
 Current: [[docs/obsidian/166-observation-tasks.md]] | [[README-158.md]]

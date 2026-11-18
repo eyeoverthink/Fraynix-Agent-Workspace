@@ -1,0 +1,115 @@
+{
+  "modules": [
+    {
+      "id": "source",
+      "name": "Original sequence reconstruction",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PlaneReplay160.java"
+    },
+    {
+      "id": "context",
+      "name": "Independent displacement and conditional bounds",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PlaneAccuracy160.java"
+    },
+    {
+      "id": "workflow",
+      "name": "Durable evaluation jobs",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PlaneAccuracyStore160.java"
+    },
+    {
+      "id": "report",
+      "name": "Actual report and comparator",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PlaneAccuracyReport160.java"
+    },
+    {
+      "id": "host",
+      "name": "Independent rendered observations",
+      "source": "workspace-desktop/accuracy160.cjs"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/160/recorded-inputs.png",
+      "title": "2026-11-17 · actual app / recorded-inputs.png"
+    },
+    {
+      "path": "docs/readmes/160/recovered-evaluation.png",
+      "title": "2026-11-17 · actual app / recovered-evaluation.png"
+    },
+    {
+      "path": "docs/readmes/160/camera-error-and-bounds.png",
+      "title": "2026-11-17 · actual app / camera-error-and-bounds.png"
+    },
+    {
+      "path": "docs/readmes/160/camera-scope.png",
+      "title": "2026-11-17 · actual app / camera-scope.png"
+    },
+    {
+      "path": "docs/readmes/160/camera-pairs.png",
+      "title": "2026-11-17 · actual app / camera-pairs.png"
+    },
+    {
+      "path": "docs/readmes/160/generated-reverse.png",
+      "title": "2026-11-17 · actual app / generated-reverse.png"
+    },
+    {
+      "path": "docs/readmes/160/camera-change-refused.png",
+      "title": "2026-11-17 · actual app / camera-change-refused.png"
+    },
+    {
+      "path": "docs/readmes/160/compact-controls.png",
+      "title": "2026-11-17 · actual app / compact-controls.png"
+    }
+  ],
+  "comparison": [
+    {
+      "case": "exposed-four-inch-camera",
+      "independentEpisodes": 1,
+      "usablePairs": 8,
+      "referenceRegionCovered": 8,
+      "pairedSamples": 8,
+      "maxErrorMm": 6.672626706366604,
+      "maxRadiusMm": 25.895357393972798,
+      "measurementGatesPassed": true,
+      "elapsedMs": 15264.2355,
+      "reconstructionMs": 3143.4847,
+      "jobId": "8b6d72ad-302e-409c-9160-4b9c7d8ddf39",
+      "trialId": "131fd959-57fa-4bba-9944-0c267402bbb4",
+      "resumes": 1,
+      "scope": "Exposed historical camera episode or labelled generated episode. Conditional displacement bounds; not coverage probabilities or physical-action authority."
+    },
+    {
+      "case": "generated-reverse",
+      "independentEpisodes": 1,
+      "usablePairs": 8,
+      "referenceRegionCovered": 8,
+      "pairedSamples": 8,
+      "maxErrorMm": 9.011553145620302e-14,
+      "maxRadiusMm": 21.318757536112102,
+      "measurementGatesPassed": true,
+      "elapsedMs": 7732.575700000001,
+      "reconstructionMs": 1737.4949,
+      "jobId": "6c21d3e5-bb01-4666-926d-a3ff6da5fc48",
+      "trialId": "4ad50936-fbba-48cc-bfa2-cedf798d331d",
+      "resumes": 0,
+      "scope": "Exposed historical camera episode or labelled generated episode. Conditional displacement bounds; not coverage probabilities or physical-action authority."
+    },
+    {
+      "case": "generated-camera-shift",
+      "independentEpisodes": 1,
+      "usablePairs": 0,
+      "referenceRegionCovered": 0,
+      "pairedSamples": 8,
+      "maxErrorMm": null,
+      "maxRadiusMm": null,
+      "measurementGatesPassed": false,
+      "elapsedMs": 7866.2764000000025,
+      "reconstructionMs": 1766.0933,
+      "jobId": "fcdea961-62d0-44e4-b07a-aca2853a9176",
+      "trialId": "900ec9ed-aa6c-4a2e-a615-4ebd002f4ebc",
+      "resumes": 0,
+      "scope": "Exposed historical camera episode or labelled generated episode. Conditional displacement bounds; not coverage probabilities or physical-action authority."
+    }
+  ],
+  "finding": "Edition160 adds independent recorded-motion evaluation to the Java workspace. It freshly reconstructs every original frame, compares measured displacement with separately labelled tape endpoints, carries conditional error bounds, and independently checks a working rendered report. It preserves tracker and action defaults.",
+  "validation": "32 selected Java checks and 173 desktop checks passed, with no failures or skips. Three actual Java/Electron evaluation jobs passed source, recovery, rendered-outcome and cold-verification checks. Measurement qualification is reported separately. This is scoped validation, not a rerun of every historical capability."
+}

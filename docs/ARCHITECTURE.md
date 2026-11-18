@@ -1,3 +1,15 @@
+## Edition 160 — locally verified; publication pending
+
+2026-11-17. Correct Java target: eyeoverthink/Fraynix-Agent-Workspace, J:/Codex-Work/fraynix-workspace-edition160. No subagents. One heavy check at a time. Recorded sources only; no webcam active. CI checked first; see publication receipt.
+
+Edition160 adds independent recorded-motion evaluation to the Java workspace. It freshly reconstructs every original frame, compares measured displacement with separately labelled tape endpoints, carries conditional error bounds, and independently checks a working rendered report. It preserves tracker and action defaults.
+
+32 selected Java checks and 173 desktop checks passed, with no failures or skips. Three actual Java/Electron evaluation jobs passed source, recovery, rendered-outcome and cold-verification checks. Measurement qualification is reported separately. This is scoped validation, not a rerun of every historical capability.
+
+Development checks caught three hash API type errors, an artifact read/write shape mismatch and a missing expected version in the artifact-edit test. App attempt A then refused an original report whose equivalent scientific-notation number changed text after persistence. Canonical numeric serialization fixed the underlying problem without weakening exact comparison. Attempt B passed all workflows, but visual review found a stale UNTESTED badge. The host now refreshes it after acknowledgement, and final attempt C asserts the displayed status and passes all three jobs. Original logs, method revisions and attempts remain retained; no measurement threshold was tuned to these outcomes. All 1,868 original private source files remained unchanged.
+
+Read README-160.md and docs/publication160/plan160.md. Preserve original private projects, all001–159 frozen documentation, legacy tracker and native-controller identities. Conditional recorded grid coordinates are not live object pose or calibrated coverage probabilities. The completed evaluator reports measurement failure honestly. Eight pairs remain one episode; all-missing metrics are unknown. Next: held-out physical displacement episodes and a separately tested smaller single-marker action domain. No new chat route or model training in160.
+
 ## Edition 159 — published and fetched back
 
 2026-11-17. Release 22d98d0919049b4b9ba3cbf1ca99cfae146acb2d; main, edition159 and readme-159 pushed atomically and fetched. Full159 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_159.json. Experimental calibrated recorded actions shipped; defaults unchanged. User selected recorded tests; fresh physical validation remains a separate gate. The following local-study notes retain their original chronology.
