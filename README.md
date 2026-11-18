@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace
 
+[Published and fetched receipt](docs/PUBLICATION_167.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-167)
+
 Current: [Edition 167 — original playable content and verified archives](README-167.md). [Previous edition](README-166.md) · [Interactive offline guide](docs/readmes/167/index.html) · [Full history](docs/readmes/INDEX.md).
 
 122 root-engine Java tests, 18 selected workspace Java tests, 181 desktop tests and 10 archive tests passed, without failures or skips. This is the full root-engine suite plus scoped integrated-game/server regressions, not a rerun of every historical workspace capability.
