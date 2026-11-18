@@ -96,6 +96,7 @@ async function main() {
       assert.equal(current.player.won, true, course.title + ' finish contact');
       assert.deepEqual(current.courseProgress.pickups.map(event => event.name), course.names);
       assert.match(await status().textContent(), /goal reached/);
+      assert.match(await controls().textContent(), /Beacon reached/);
       assert.match(await controls().textContent(), new RegExp('Cells ' + course.names.length + '/' + course.names.length));
       await capture(course.id.replace('-v1', '-finish.png'));
       current = await reset();
