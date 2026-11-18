@@ -64,13 +64,15 @@ public class RampComparisonTest {
         String pair = "Plan a local ramp task and pause after reading: Compare both inputs.";
         var second = new JSONObject().put("procedure", RampProcedure.COMPARE);
         var single = new JSONObject().put("procedure", RampProcedure.ID);
-        assertTrue(RampProcedure.select(pair, second).getBoolean("pauseAfterReading"));
-        assertThrows(IllegalArgumentException.class, () -> RampProcedure.select(pair, single));
+        assertThrows(IllegalArgumentException.class, () -> RampProcedure.select(pair, second, false));
+        assertTrue(RampProcedure.missingSetup(RampProcedure.intent(pair), new JSONObject()).contains("second setup"));
+        assertTrue(RampProcedure.select(pair, second, true).getBoolean("pauseAfterReading"));
+        assertThrows(IllegalArgumentException.class, () -> RampProcedure.select(pair, single, true));
         String first = "Plan a local ramp task: Give me the first setup's trajectory.";
-        assertEquals(RampProcedure.ID, RampProcedure.select(first, single).getString("procedure"));
-        assertThrows(IllegalArgumentException.class, () -> RampProcedure.select(first, second));
-        assertEquals(RampProcedure.CLARIFY, RampProcedure.select(pair, new JSONObject().put("procedure", RampProcedure.CLARIFY))
+        assertEquals(RampProcedure.ID, RampProcedure.select(first, single, true).getString("procedure"));
+        assertThrows(IllegalArgumentException.class, () -> RampProcedure.select(first, second, true));
+        assertEquals(RampProcedure.CLARIFY, RampProcedure.select(pair, new JSONObject().put("procedure", RampProcedure.CLARIFY), false)
                 .getString("procedure"));
-        assertThrows(IllegalArgumentException.class, () -> RampProcedure.select("Plan the local ramp experiment.", second));
+        assertThrows(IllegalArgumentException.class, () -> RampProcedure.select("Plan the local ramp experiment.", second, true));
     }
 }

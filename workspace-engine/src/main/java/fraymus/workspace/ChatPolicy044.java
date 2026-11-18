@@ -92,7 +92,7 @@ final class ChatPolicy044 {
    if(intent.flexible()){
     int setups=g.getJSONObject("rampSource").has("secondValues")?2:1;
     return "Call ramp_select once with one procedure. "+RampProcedure.ID+" measures ONLY the first setup's own trajectory. "+
-           RampProcedure.COMPARE+" compares BOTH setups' trajectories on the same clock and reports the difference. "+
+           (setups==2?RampProcedure.COMPARE+" compares BOTH setups' trajectories on the same clock and reports the difference. ":"A paired comparison needs another setup. ")+
            "Choose clarify if the request is undecided, asks for something else, or comparison is requested with only one setup. "+
            "Available setups: "+setups+". Choose by the requested result, not by the number of rows alone. "+
            "User request: "+JSONObject.quote(intent.briefing());

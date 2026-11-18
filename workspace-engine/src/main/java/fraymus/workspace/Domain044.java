@@ -38,7 +38,10 @@ final class Domain044 {
  JSONObject bootstrap(JSONObject g)throws Exception{
   String f=g.getString("family044");var c=g.getJSONObject("context044");var b=g.getJSONObject("bindings044");if(c.has("ownedGoalId")||c.has("ownedWorkflowId")||c.has("ownedGameTask115"))return null;
   if(f.equals(RampMission.FAMILY)){
-   if(RampProcedure.intent(g.getString("goal")).planned()&&!c.has("rampChoice"))return null;
+   var intent=RampProcedure.intent(g.getString("goal"));
+   String missing=RampProcedure.missingSetup(intent,g.getJSONObject("rampSource"));
+   if(!missing.isEmpty())throw new IllegalStateException(missing);
+   if(intent.planned()&&!c.has("rampChoice"))return null;
    return bootRamp(g);
   }
   if(f.equals("gamelevel")){var task=nativeApi.call("/api/game-tasks115/start",new JSONObject().put("id",g.getString("id")).put("request",g.getString("goal")));if(task.getString("status").equals("interrupted")&&g.optInt("resumes")>0)nativeApi.call("/api/game-tasks115/resume",new JSONObject().put("id",task.getString("id")));c.put("ownedGameTask115",task.getString("id"));g.put("wait044",new JSONObject().put("route","/api/game-tasks115/advance").put("id",task.getString("id")));return null;}
@@ -83,7 +86,7 @@ final class Domain044 {
   String request=g.getString("goal");
   if(!g.getString("family044").equals(RampMission.FAMILY)||!RampProcedure.intent(request).planned()||c.has("rampChoice"))
    throw new IllegalStateException("The model cannot schedule another ramp procedure");
-  var choice=RampProcedure.select(request,proposal);
+  var choice=RampProcedure.select(request,proposal,g.getJSONObject("rampSource").has("secondValues"));
   if(RampProcedure.CLARIFY.equals(choice.getString("procedure"))){
    c.put("rampQuestion",RampProcedure.question(RampProcedure.intent(request),g.getJSONObject("rampSource")));
    return null;

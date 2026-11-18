@@ -111,9 +111,9 @@ final class RampProcedure {
         return intent.choice(procedure);
     }
 
-    static JSONObject select(String request, JSONObject proposal) {
+    static JSONObject select(String request, JSONObject proposal, boolean paired) {
         Intent intent = intent(request);
-        ToolSchema043.validate(selectionTool(intent.flexible()).getJSONObject("function").getJSONObject("parameters"), proposal);
+        ToolSchema043.validate(selectionTool(intent.flexible(), paired).getJSONObject("function").getJSONObject("parameters"), proposal);
         String selected = proposal.getString("procedure");
         if (CLARIFY.equals(selected)) return intent.choice(selected);
         if (intent.flexible()) {
@@ -125,9 +125,17 @@ final class RampProcedure {
         return admit(request, intent.choice(selected));
     }
 
+    static String missingSetup(Intent intent, JSONObject source) {
+        if (!source.has("secondValues") && (COMPARE.equals(intent.explicit()) || COMPARE.equals(signal(intent.briefing())))) {
+            return "Add a second setup with the same duration in Ramp input, then start a new comparison.";
+        }
+        return "";
+    }
+
     static String question(Intent intent, JSONObject source) {
         if (source.has("secondValues")) return "Do you want the first setup's trajectory or a comparison of both setups?";
-        if (COMPARE.equals(signal(intent.briefing()))) return "Add a second setup with the same duration in Ramp input, then start a new comparison.";
+        String missing = missingSetup(intent, source);
+        if (!missing.isEmpty()) return missing;
         return "Should I run the current setup, or will you add a second setup for comparison?";
     }
 
@@ -137,9 +145,9 @@ final class RampProcedure {
         return "";
     }
 
-    static JSONObject selectionTool() { return selectionTool(false); }
-    static JSONObject selectionTool(boolean flexible) {
-        List<String> options = flexible ? List.of(ID, COMPARE, CLARIFY) : List.of(ID);
+    static JSONObject selectionTool() { return selectionTool(false, false); }
+    static JSONObject selectionTool(boolean flexible, boolean paired) {
+        List<String> options = !flexible ? List.of(ID) : paired ? List.of(ID, COMPARE, CLARIFY) : List.of(ID, CLARIFY);
         var properties = new JSONObject().put("procedure", new JSONObject().put("type", "string").put("enum", options));
         var schema = new JSONObject().put("type", "object").put("properties", properties)
                 .put("additionalProperties", false).put("required", List.of("procedure"));
@@ -166,7 +174,7 @@ final class RampProcedure {
         return catalog().put("id", COMPARE).put("inputs", List.of(Format.PAIRED_CSV.id))
                 .put("requiredSetups", 2).put("clock", "same duration")
                 .put("result", "two independently replayed trajectories and signed distance difference")
-                .put("modelSelection", selectionTool(true).getJSONObject("function"));
+                .put("modelSelection", selectionTool(true, true).getJSONObject("function"));
     }
 
     static JSONObject registry() {

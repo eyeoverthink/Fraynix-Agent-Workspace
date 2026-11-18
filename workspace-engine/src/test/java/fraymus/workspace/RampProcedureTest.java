@@ -47,9 +47,9 @@ public class RampProcedureTest {
         var direct = RampProcedure.intent("Run the local ramp experiment and pause after reading.").directChoice();
         String request = "Plan the local ramp experiment and pause after reading.";
         var model = new JSONObject().put("procedure", RampProcedure.ID);
-        assertTrue(direct.similar(RampProcedure.select(request, model)));
+        assertTrue(direct.similar(RampProcedure.select(request, model, true)));
         assertThrows(IllegalArgumentException.class, () -> RampProcedure.select(request,
-                WorldFrames.copy(model).put("pauseAfterReading", false)));
+                WorldFrames.copy(model).put("pauseAfterReading", false), true));
         assertThrows(IllegalArgumentException.class, () -> RampProcedure.admit(request,
                 WorldFrames.copy(direct).put("pauseAfterReading", false)));
         assertThrows(IllegalArgumentException.class, () -> RampProcedure.admit(request,

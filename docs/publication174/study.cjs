@@ -18,12 +18,12 @@ const hash=value=>createHash('sha256').update(value).digest('hex');
 const nap=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 // Evaluation wording belongs to the study only. The model gets its tool descriptions and each request.
 const heldOut=[
- {text:'Show the path and final distance of the first setup.',wanted:single},
- {text:'Give me the downhill trajectory for setup A on its own.',wanted:single},
- {text:'Which setup travels farther over the saved duration?',wanted:pair},
- {text:'How much more or less ground does one row cover relative to the other?',wanted:pair},
- {text:'I have these ramp settings, but I have not decided what result I want.',wanted:'clarify'},
- {text:'I need a comparison of both setups over their shared time.',wanted:'clarify',missing:true}
+ {text:'Plot the first ramp configuration and give its final distance.',wanted:single},
+ {text:'Report how setup A moves downhill. I only need that one trajectory.',wanted:single},
+ {text:'Use the shared duration to tell me which setup goes farther.',wanted:pair},
+ {text:'Tell me how the saved slopes stack up against one another in downhill travel.',wanted:pair},
+ {text:'I have prepared ramp settings but I am still undecided about the output.',wanted:'clarify'},
+ {text:'Can you compare both setups over the recorded duration?',wanted:'clarify',missing:true}
 ];
 
 async function main(){
@@ -178,13 +178,15 @@ async function main(){
    const run=await submit('Plan a local ramp task: '+spec.text);
    const task=await terminal(run);
    const offered=task.history.find(row=>row.kind==='proposal')?.detail?.arguments?.procedure;
-   const row={...spec,offered,task,elapsedMs:Date.now()-run.began};
+   const selected=spec.missing&&!offered?'clarify':offered;
+   const row={...spec,offered,selected,by:spec.missing?'java':'model',task,elapsedMs:Date.now()-run.began};
    result.cases.push(row);
    await save();
-   assert.equal(task.timing052.modelCalls,1);
+   assert.equal(task.timing052.modelCalls,spec.missing?0:1);
    if(spec.wanted==='clarify'){
     assert.equal(task.status,'interrupted',task.reason);
     await assert.rejects(child(run.id));
+    assert.match(task.reason,spec.missing?/add a second setup/i:/do you want the first setup/i);
     row.refusedBeforePhysics=true;
     await showMission(run.id);
     if(spec.missing)await capture('paired-ramp-missing-input.png');
@@ -197,7 +199,7 @@ async function main(){
      assert.deepEqual(row.completed.evidence.original.samples,result.reversed.evidence.original.first.samples);
     }
    }
-   assert.equal(offered,spec.wanted,JSON.stringify({request:spec.text,offered,reason:task.reason}));
+   assert.equal(selected,spec.wanted,JSON.stringify({request:spec.text,offered,reason:task.reason}));
    await save();
   }
   const modelCompare=result.cases.find(row=>row.wanted===pair).completed;
