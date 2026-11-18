@@ -1,3 +1,7 @@
+## Edition 164 — published and fetched back
+
+2026-11-17. Release b9158a1945be6187e55631038465ce26fe6be6cc; main, edition164 and readme-164 pushed atomically and fetched. Full164 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_164.json. Bounded timing and read-only history inspection shipped; original native class bytes, tracker and controller defaults unchanged. User selected recorded tests; fresh physical validation remains a separate gate. The following local-study notes retain their original chronology.
+
 ## Edition 164 — locally verified; publication pending
 
 2026-11-17. Java target: eyeoverthink/Fraynix-Agent-Workspace, J:/Codex-Work/fraynix-workspace-edition164. No subagents; one heavy check at a time. Existing recordings only; new physical validation remains pending. CI checked first and separately.

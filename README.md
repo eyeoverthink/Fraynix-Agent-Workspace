@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 164
 
+[Published and fetched receipt](docs/PUBLICATION_164.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-164)
+
 2026-11-17 · Physics history · Report costs · Longer mixed workflows
 
 [Previous edition 163](README-163.md) · [Offline interactive guide](docs/readmes/164/index.html) · [All editions](docs/readmes/INDEX.md) · [Frozen measurement plan](docs/publication164/plan164.md)
