@@ -1,3 +1,5 @@
+[Edition 177 — reviewed ramp-to-analysis chain](185-ramp-trace-chain.md)
+
 [Edition 176 — quick workflow routing](184-quick-workflow-routing.md)
 
 [Edition 175 — local workflow selection](183-local-workflow-selection.md)

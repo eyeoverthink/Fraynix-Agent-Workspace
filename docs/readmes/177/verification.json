@@ -1,0 +1,335 @@
+{
+  "passed": true,
+  "source": "61df5a4b419238761990a7257e53288e842217d5",
+  "verifiedTasks": 2,
+  "recovery": {
+    "modelCalls": 0,
+    "report": {
+      "sha256": "7f7a59c33d604954fc517890f4e49b1281d01a8c3f9887395f39d86add6487a3",
+      "id": "67e7a369-5463-3f4f-b016-bb7ca44a6c59",
+      "version": 1
+    },
+    "traceSha256": "1a3ba59f57ac367384ad479dbb40406550f57e835e71067f2206545b65e91433",
+    "independentlyArchived": true
+  },
+  "trials": [
+    {
+      "id": "recovered",
+      "title": "Stopped and resumed after the comparison",
+      "rows": [
+        [
+          0,
+          1.306879695844928e-07
+        ],
+        [
+          0.05,
+          0.00693238526766963
+        ],
+        [
+          0.1,
+          0.026446652901407432
+        ],
+        [
+          0.15,
+          0.05862536730974123
+        ],
+        [
+          0.2,
+          0.10346586639936689
+        ],
+        [
+          0.25,
+          0.16096619351170066
+        ],
+        [
+          0.3,
+          0.23112701234610916
+        ],
+        [
+          0.35,
+          0.31395482254351836
+        ],
+        [
+          0.4,
+          0.40943283063110547
+        ],
+        [
+          0.45,
+          0.5175732433504281
+        ],
+        [
+          0.5,
+          0.6383261673262369
+        ],
+        [
+          0.55,
+          0.77174823867794
+        ],
+        [
+          0.6,
+          0.9178331348326091
+        ],
+        [
+          0.65,
+          1.0765751118312035
+        ],
+        [
+          0.7,
+          1.2479584819655374
+        ],
+        [
+          0.75,
+          1.432000459291515
+        ],
+        [
+          0.8,
+          1.6286982471938372
+        ]
+      ],
+      "winner": "second",
+      "traceSha256": "1a3ba59f57ac367384ad479dbb40406550f57e835e71067f2206545b65e91433",
+      "travelM": 1.6286981165058676,
+      "comparison": {
+        "sha256": "eaadc50ebc1a345a91924d7dbf8f5df9accbd0b25d764e4a09f58d1ff92a21c8",
+        "id": "51ed0857-204f-3b6d-a0ae-79ec32029321",
+        "version": 1
+      },
+      "report": {
+        "sha256": "7f7a59c33d604954fc517890f4e49b1281d01a8c3f9887395f39d86add6487a3",
+        "id": "67e7a369-5463-3f4f-b016-bb7ca44a6c59",
+        "version": 1
+      },
+      "firstM": 0.39461850011561606,
+      "secondM": 1.6286982471938372,
+      "detail": "The second setup supplied all 17 original samples. The summary independently measured 1.629 m of travel."
+    },
+    {
+      "id": "automatic",
+      "title": "Single confirmation with reversed input rows",
+      "rows": [
+        [
+          0,
+          1.306879695844928e-07
+        ],
+        [
+          0.05,
+          0.00693238526766963
+        ],
+        [
+          0.1,
+          0.026446652901407432
+        ],
+        [
+          0.15,
+          0.05862536730974123
+        ],
+        [
+          0.2,
+          0.10346586639936689
+        ],
+        [
+          0.25,
+          0.16096619351170066
+        ],
+        [
+          0.3,
+          0.23112701234610916
+        ],
+        [
+          0.35,
+          0.31395482254351836
+        ],
+        [
+          0.4,
+          0.40943283063110547
+        ],
+        [
+          0.45,
+          0.5175732433504281
+        ],
+        [
+          0.5,
+          0.6383261673262369
+        ],
+        [
+          0.55,
+          0.77174823867794
+        ],
+        [
+          0.6,
+          0.9178331348326091
+        ],
+        [
+          0.65,
+          1.0765751118312035
+        ],
+        [
+          0.7,
+          1.2479584819655374
+        ],
+        [
+          0.75,
+          1.432000459291515
+        ],
+        [
+          0.8,
+          1.6286982471938372
+        ]
+      ],
+      "winner": "first",
+      "traceSha256": "1a3ba59f57ac367384ad479dbb40406550f57e835e71067f2206545b65e91433",
+      "travelM": 1.6286981165058676,
+      "comparison": {
+        "sha256": "45df4ea0fb4540e48e32fa57109daa11c8f7b22f9209cb096a1f3f3796807130",
+        "id": "2f978626-7e9a-3b5d-a580-55d30b9eaa91",
+        "version": 1
+      },
+      "report": {
+        "sha256": "1774acd0afc248937b6046b2c5dc36accf436db9499903309d73c68bb66558f0",
+        "id": "7a0a31d3-52e6-3701-8fdd-d7a4c88678a4",
+        "version": 1
+      },
+      "firstM": 1.6286982471938372,
+      "secondM": 0.39461850011561606,
+      "detail": "The first setup supplied all 17 original samples. The summary independently measured 1.629 m of travel."
+    }
+  ],
+  "changedComparisonRefused": true,
+  "tieRefused": true,
+  "priorReport": {
+    "passed": true,
+    "source": "61df5a4b419238761990a7257e53288e842217d5",
+    "priorSource": "3d9457b4f5e8ed22d3c425847cb9c0dd91c4e13a",
+    "originalMission": "6075c9a5-13f9-4206-8d54-46e900a06bde",
+    "unchangedReport": {
+      "sha256": "ade2b90be26f1a05ec9ad5d19dbac7b4fe618cdc1236e3e867ec7d2d21e1dbbc",
+      "id": "79b8d8b6-cae9-39a2-a947-01a46ec15e85",
+      "version": 1
+    },
+    "unchangedAudit": {
+      "observationSha256": "d6e2798be3376974a478f990cbf49968466284de20071d76dd1afaaa0c9ea231",
+      "sourceSha256": "03dde121ece376b3b33ad1dfefad9f0c548e12710a155f37517a6525891a6613",
+      "seconds": 0.75,
+      "distanceDifferenceM": 0.8959539188855309,
+      "setups": {
+        "first": {
+          "ticks": 180,
+          "kind": "local-ramp-experiment-v1",
+          "distanceM": 0.47128765919305493,
+          "replaySha256": "dfabbca01b2866a720876a9b6af28f59667b970f66407b7b8d445ec3d11b687a",
+          "backendSha256": "3e4bebf2a4a2dd873726bff6378ba236aff2e6b6e6e5f73749816d8e9e010be5",
+          "observationSha256": "d6e2798be3376974a478f990cbf49968466284de20071d76dd1afaaa0c9ea231",
+          "sampleCount": 16,
+          "sourceSha256": "7a5d2603b1c04c52c8f209936209fdeb171ad1f98d0928e9c6caf81ec6890702",
+          "seconds": 0.75,
+          "passed": true,
+          "maxPositionErrorM": 0,
+          "maxVelocityErrorMps": 0,
+          "tolerance": 0.0001,
+          "originalSha256": "7f5bccff323512fc6eaf46a531b57e0369f3d4fce1b9e5725e3ea34c09c7cdd0"
+        },
+        "second": {
+          "ticks": 180,
+          "kind": "local-ramp-experiment-v1",
+          "distanceM": 1.3672415780785858,
+          "replaySha256": "066f73ad80f49741bd0ad34ec4395a3290186ac25821e18d8c5b20e4da9f2fe8",
+          "backendSha256": "3e4bebf2a4a2dd873726bff6378ba236aff2e6b6e6e5f73749816d8e9e010be5",
+          "observationSha256": "d6e2798be3376974a478f990cbf49968466284de20071d76dd1afaaa0c9ea231",
+          "sampleCount": 16,
+          "sourceSha256": "ab2883fbadf8726fe2e7af99b6c03bb127238c713ae64e302292ce2dee4783d8",
+          "seconds": 0.75,
+          "passed": true,
+          "maxPositionErrorM": 0,
+          "maxVelocityErrorMps": 0,
+          "tolerance": 0.0001,
+          "originalSha256": "2ee7d9ab22a3cfcc9e31686ba1fcd544e9d7555d2b3a48ecd395dddbcbf97473"
+        }
+      },
+      "ticks": 180,
+      "samplesPerSetup": 16,
+      "kind": "local-ramp-comparison-v1",
+      "farther": "second",
+      "passed": true,
+      "replaySha256": "7431ff6936daecaba09908b7ea5ac438efa979954231436eddb4d7fb83ba63e2",
+      "originalSha256": "2a8738a1a56c3890e067ac5c17a29b41ce9bb456b1a052f48855ae327a2cf4a4"
+    },
+    "archivedProof": {
+      "evidenceSha256": "01c270a085adc0dc9b9bded28da0531ffe9dfb1e7743eb22c818225dfacf8e51",
+      "report": {
+        "sha256": "ade2b90be26f1a05ec9ad5d19dbac7b4fe618cdc1236e3e867ec7d2d21e1dbbc",
+        "id": "79b8d8b6-cae9-39a2-a947-01a46ec15e85",
+        "version": 1
+      },
+      "id": "6075c9a5-13f9-4206-8d54-46e900a06bde"
+    }
+  },
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "workspaceJava": 88,
+    "classes": [
+      "RampTraceChainTest",
+      "LocalWorkflowSelectionTest",
+      "RampComparisonTest",
+      "RampProcedureTest",
+      "RampMissionTest",
+      "Agency043Test",
+      "Domain044Test",
+      "ChatArchive112Test",
+      "DataSummary104Test",
+      "CreationTest",
+      "CreationPlanner044Test",
+      "CreationRetry102Test",
+      "WorkflowTest",
+      "MeasurementStoreTest",
+      "WorkspaceServerBoundaryTest"
+    ],
+    "desktop": 181,
+    "archiveTests": 10
+  },
+  "ciFirst": {
+    "checkedAtUtc": "2026-11-18T22:37:43.567689+00:00",
+    "runs": [
+      {
+        "id": 44410843219,
+        "head_sha": "98c7af42ffddd543539f7e86dba8cf7389c9e0da",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44410843219",
+        "created_at": "2026-11-18T22:21:49Z",
+        "updated_at": "2026-11-18T22:21:54Z"
+      },
+      {
+        "id": 44404009154,
+        "head_sha": "e1040566e7118c1fc691b41c050f6c5c7c18c059",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44404009154",
+        "created_at": "2026-11-18T21:41:09Z",
+        "updated_at": "2026-11-18T21:41:13Z"
+      },
+      {
+        "id": 44391113507,
+        "head_sha": "d2a77dfa55a0216f225c244397f447f5000c542d",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44391113507",
+        "created_at": "2026-11-18T20:26:51Z",
+        "updated_at": "2026-11-18T20:26:55Z"
+      },
+      {
+        "id": 44355714563,
+        "head_sha": "d3b207c3ea6b0bbaa758441de23c194d62b1177c",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44355714563",
+        "created_at": "2026-11-18T17:10:48Z",
+        "updated_at": "2026-11-18T17:10:52Z"
+      }
+    ]
+  }
+}

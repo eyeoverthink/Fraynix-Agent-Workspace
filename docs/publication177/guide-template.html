@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix · Verified workflow handoff</title>
+<style>
+:root{color-scheme:dark;--page:#101b24;--panel:#152f35;--ink:#eff7f5;--muted:#c1d4da;--line:#426168;--mint:#98e6c2}
+*{box-sizing:border-box}body{margin:0;background:var(--page);color:var(--ink);font:16px/1.55 system-ui}
+main{max-width:1050px;margin:auto;padding:clamp(16px,4vw,44px)}h1{font-size:clamp(2.1rem,5vw,4rem);line-height:1.06;margin:.25em 0}h2{margin:0 0 .7em}
+header p{max-width:760px;font-size:1.1rem}small,figcaption{color:var(--muted)}a{color:var(--mint);text-underline-offset:4px}
+nav{display:flex;flex-wrap:wrap;gap:8px 22px}section{margin-top:24px;padding:clamp(16px,3vw,28px);border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+label{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 8px}select,input{max-width:100%;padding:6px 10px;border:1px solid var(--line);border-radius:5px;font:inherit;color:inherit;background:var(--page)}
+input[type=range]{width:min(300px,100%);accent-color:var(--mint)}
+canvas{width:100%;height:auto;display:block;background:#10232e;border-radius:6px;margin:1rem 0}
+figure{margin:1rem 0 0}img{display:block;width:100%;border:1px solid var(--line);border-radius:6px}
+li,#module-detail{overflow-wrap:anywhere}
+</style>
+<script id="system-data" type="application/json">@@SYSTEM@@</script>
+<script id="inventory-data" type="application/json">@@INVENTORY@@</script>
+<script src="guide.js" defer></script>
+</head>
+<body>
+<main>
+<header>
+<small>FRAYNIX AGENT WORKSPACE · EDITION 177</small>
+<h1>From a verified comparison to a verified summary</h1>
+<p id="intro"></p>
+<nav><a href="../../../README-177.md">Read the edition</a><a href="#trace">Simulated trace</a><a href="#decisions">Refusal checks</a><a href="#screenshots">Screenshots</a><a href="#architecture">Architecture</a></nav>
+</header>
+<section id="trace">
+<h2>What the summary received</h2>
+<label>Trial <select id="trial"></select></label>
+<label>Sample <input id="sample" type="range" min="0" value="0"></label>
+<canvas id="plot" width="740" height="220" aria-label="Verified simulated displacement by elapsed time"></canvas>
+<p id="trace-detail"></p><output id="sample-result"></output>
+</section>
+<section id="decisions">
+<h2>What blocked the handoff</h2>
+<label>Refusal <select id="probe"></select></label>
+<p id="probe-result"></p>
+</section>
+<section id="screenshots">
+<h2>Desktop evidence</h2>
+<label>Screenshot <select id="shot"></select></label>
+<figure><a id="original" href="chain-summary.png"><img id="screenshot" src="chain-summary.png" alt="The verified motion summary in Fraynix Mission"></a><figcaption id="caption"></figcaption></figure>
+</section>
+<section id="architecture">
+<h2>System map</h2>
+<label>Module <select id="module"></select></label>
+<p id="module-detail"></p>
+<a href="../../publication177/plan.md">Implementation and acceptance</a>
+</section>
+<section id="inventory">
+<h2>Source inventory</h2>
+<label>Find a file <input id="search" type="search"></label>
+<output id="matches"></output><ul id="files"></ul>
+</section>
+</main>
+</body>
+</html>
