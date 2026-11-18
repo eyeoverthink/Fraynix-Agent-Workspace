@@ -1,5 +1,5 @@
 # Fraynix Agent Workspace
 
-[Edition 172 — local browser to verified world experiment](README-172.md) · [Previous edition](README-171.md) · [Interactive guide](docs/readmes/172/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 173 — a registered local experiment with CSV input](README-173.md) · [Previous edition](README-172.md) · [Offline companion](docs/readmes/173/index.html) · [Full history](docs/readmes/INDEX.md)
 
-The block travelled 1.724 m and 4.239 m under the two browser input revisions. The report checks passed in Chromium. Both missions completed with zero model calls.
+A form and an imported CSV used the same registered Java procedure. On the same CSV revision, direct execution and llama3.2:latest produced identical native samples and measured 2.083 m of travel. A crash before canvas verification preserved both physics runs and the saved report.

@@ -1,0 +1,303 @@
+{
+  "passed": true,
+  "source": "4030a764bff115d9f170162636e254d5a4005585",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "workspaceJava": 56,
+    "classes": [
+      "RampProcedureTest",
+      "RampMissionTest",
+      "RelayPlaytestTest",
+      "Agency043Test",
+      "ChatArchive112Test",
+      "BrowserOutcome126Test",
+      "SceneStoreTest",
+      "MeasurementStoreTest",
+      "WorkspaceServerBoundaryTest"
+    ],
+    "desktop": 181,
+    "archiveTests": 10
+  },
+  "catalog": {
+    "sha256": "710e56f6bf0e11b4b40d8c2ac6769f6ed207052eb3998718884b594cd0788639",
+    "inputs": [
+      "form-v1",
+      "csv-v1"
+    ],
+    "modelSelection": {
+      "name": "ramp_select",
+      "description": "Select the registered local ramp experiment. Java binds its existing input revision and verifies every stage.",
+      "parameters": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "procedure": {
+            "type": "string",
+            "enum": [
+              "local-ramp-experiment-v1"
+            ]
+          }
+        },
+        "required": [
+          "procedure"
+        ]
+      }
+    },
+    "stages": [
+      {
+        "output": "BROWSER_ROWS",
+        "owner": "chromium",
+        "input": "SOURCE_REVISION",
+        "id": "browser"
+      },
+      {
+        "output": "NATIVE_TRACE",
+        "owner": "java",
+        "input": "BROWSER_ROWS",
+        "id": "experiment"
+      },
+      {
+        "output": "REPLAY_COMPARISON",
+        "owner": "java",
+        "input": "NATIVE_TRACE",
+        "id": "replay"
+      },
+      {
+        "output": "REPORT_REVISION",
+        "owner": "java",
+        "input": "REPLAY_COMPARISON",
+        "id": "artifact"
+      },
+      {
+        "output": "CANVAS_RECEIPT",
+        "owner": "chromium",
+        "input": "REPORT_REVISION",
+        "id": "canvas"
+      }
+    ],
+    "id": "local-ramp-experiment-v1",
+    "version": 1,
+    "limits": {
+      "secondsMin": 0.25,
+      "secondsMax": 2,
+      "tickHz": 240,
+      "replayTolerance": 0.0001,
+      "sampleTicks": 12
+    }
+  },
+  "directModelCalls": 0,
+  "plannedModelCalls": 1,
+  "model": "llama3.2:latest",
+  "nativeSamplesIdentical": true,
+  "experiments": [
+    {
+      "route": "form",
+      "source": {
+        "pageSha256": "ad6dfdd5b157f9f17eef1a699e77f1ce660e7482b7c83254797b47cbba00e42b",
+        "path": "/artifact/acfac79f-10b0-4e2b-8f6e-e50afa050800/1/index.html",
+        "values": {
+          "angleDeg": 25,
+          "seconds": 0.67,
+          "massKg": 1,
+          "friction": 0.08,
+          "gravityMps2": 9.81
+        },
+        "dataSha256": "e38edb0ef179e2fde19459d3d2ab80fcd8a45a09a19619439c15e6002aab0bbe",
+        "id": "acfac79f-10b0-4e2b-8f6e-e50afa050800",
+        "version": 1
+      },
+      "audit": {
+        "ticks": 161,
+        "kind": "local-ramp-experiment-v1",
+        "distanceM": 0.7776977470231272,
+        "replaySha256": "186806e2389cca7e58b9993edadd30460cfa38bf1c2eef79de727e27acfb8c2c",
+        "backendSha256": "3e4bebf2a4a2dd873726bff6378ba236aff2e6b6e6e5f73749816d8e9e010be5",
+        "observationSha256": "7b48f2d6732784ea2947984cf49904b4c34c7b4544242fdf4296aa263a6a4a82",
+        "sampleCount": 15,
+        "sourceSha256": "a32bf075d844afb7e2b9706c27fd017ce891c1a6a48cf2999cc10bab2a879e73",
+        "seconds": 0.6708333333333333,
+        "passed": true,
+        "maxPositionErrorM": 0,
+        "maxVelocityErrorMps": 0,
+        "tolerance": 0.0001,
+        "originalSha256": "251799e188fee91af72ecd9e895b4ca50c19f53b34570bf59e14238236436c26"
+      },
+      "report": {
+        "sha256": "af05723a438659da520c5f3caf8e5c83cd47229aba52f5bcc6b6ea4757ddb0ad",
+        "id": "b51cca51-c9c7-3af5-9a68-6a93a259dd11",
+        "version": 1
+      },
+      "elapsedMs": 2185,
+      "modelCalls": 0,
+      "canvasChecks": 9
+    },
+    {
+      "route": "direct",
+      "source": {
+        "pageSha256": "62a8ee278f905c7e0e4aa2fc0484dcb6a0223fad9faa3443c2a27dadc7903fa1",
+        "path": "/artifact/acfac79f-10b0-4e2b-8f6e-e50afa050800/2/index.html",
+        "values": {
+          "angleDeg": 35,
+          "seconds": 0.83,
+          "massKg": 1.45,
+          "friction": 0.025,
+          "gravityMps2": 10.9
+        },
+        "dataSha256": "b9d6fde01e9adee3d1501b5b91050e13ec536e8a351a3e5035a54802dd9a9e20",
+        "id": "acfac79f-10b0-4e2b-8f6e-e50afa050800",
+        "csvSha256": "d6e565f02a9df5d9edfb8c8b2b7694c50ee884fc858c41eecc736ac860e81d38",
+        "version": 2
+      },
+      "audit": {
+        "ticks": 199,
+        "kind": "local-ramp-experiment-v1",
+        "distanceM": 2.0825516724662467,
+        "replaySha256": "ddf25383dce3cd94b455e376fcceb8ad020c4e5ad1d866f3b5a284f861c21c45",
+        "backendSha256": "3e4bebf2a4a2dd873726bff6378ba236aff2e6b6e6e5f73749816d8e9e010be5",
+        "observationSha256": "6eef79cef5a185a81490deb5f58d51fd09d38438252df67539134f2bbced1770",
+        "sampleCount": 18,
+        "sourceSha256": "cd84b5aff12d136067e70d237f3e7fc31685bcaba56c892e5437304a52fb9817",
+        "seconds": 0.8291666666666666,
+        "passed": true,
+        "maxPositionErrorM": 0,
+        "maxVelocityErrorMps": 0,
+        "tolerance": 0.0001,
+        "originalSha256": "8fe11d2d129a67e68bd4374e5f11379512c3d87cb4cbc545c1404d2307546ebf"
+      },
+      "report": {
+        "sha256": "30780d23b6653fb19b9221efe97c8b769ffff665b7cbc6509beebf51ce2befdd",
+        "id": "28b6e884-44e9-3167-bf99-d6a2790b3f65",
+        "version": 1
+      },
+      "elapsedMs": 2411,
+      "modelCalls": 0,
+      "canvasChecks": 10
+    },
+    {
+      "route": "planned",
+      "source": {
+        "pageSha256": "62a8ee278f905c7e0e4aa2fc0484dcb6a0223fad9faa3443c2a27dadc7903fa1",
+        "path": "/artifact/acfac79f-10b0-4e2b-8f6e-e50afa050800/2/index.html",
+        "values": {
+          "angleDeg": 35,
+          "seconds": 0.83,
+          "massKg": 1.45,
+          "friction": 0.025,
+          "gravityMps2": 10.9
+        },
+        "dataSha256": "b9d6fde01e9adee3d1501b5b91050e13ec536e8a351a3e5035a54802dd9a9e20",
+        "id": "acfac79f-10b0-4e2b-8f6e-e50afa050800",
+        "csvSha256": "d6e565f02a9df5d9edfb8c8b2b7694c50ee884fc858c41eecc736ac860e81d38",
+        "version": 2
+      },
+      "audit": {
+        "ticks": 199,
+        "kind": "local-ramp-experiment-v1",
+        "distanceM": 2.0825516724662467,
+        "replaySha256": "fa643537c8700b76b2a3e3fa939c528292178188a16a3549e7c6291681519833",
+        "backendSha256": "3e4bebf2a4a2dd873726bff6378ba236aff2e6b6e6e5f73749816d8e9e010be5",
+        "observationSha256": "6eef79cef5a185a81490deb5f58d51fd09d38438252df67539134f2bbced1770",
+        "sampleCount": 18,
+        "sourceSha256": "cd84b5aff12d136067e70d237f3e7fc31685bcaba56c892e5437304a52fb9817",
+        "seconds": 0.8291666666666666,
+        "passed": true,
+        "maxPositionErrorM": 0,
+        "maxVelocityErrorMps": 0,
+        "tolerance": 0.0001,
+        "originalSha256": "d42497c5c4b6cc9ea3e54ae200780c164a999d3bf004d65a45ca41ac0e264b46"
+      },
+      "report": {
+        "sha256": "648b0824580085734545bf5fc81e81454576a9e0cf89a32064bd64e3d2aa2776",
+        "id": "e411b4ff-307a-3ac3-93e9-302f86cf851d",
+        "version": 1
+      },
+      "elapsedMs": 21287,
+      "modelCalls": 1,
+      "canvasChecks": 10
+    }
+  ],
+  "recoveredOriginalStages": true,
+  "priorArchive": {
+    "passed": true,
+    "source": "4030a764bff115d9f170162636e254d5a4005585",
+    "priorSource": "50c3bf6787242d35f329f0d904713ccfa6f150bc",
+    "originalMission": "bf73b127-6ec6-48aa-b3d8-df3233add26f",
+    "unchangedReport": {
+      "sha256": "709ee09163544edbeb588f8da5dc481819055af6d1f0d7e0803e6f34196e74ca",
+      "id": "2c93e8b3-d65b-37e0-89ea-cf126cffb455",
+      "version": 1
+    },
+    "unchangedAudit": {
+      "ticks": 240,
+      "kind": "local-ramp-experiment-v1",
+      "distanceM": 1.7238507535481475,
+      "replaySha256": "c810906ad841073db30e965830d29bc296e6a6a0023d00b975f076a0055508b1",
+      "backendSha256": "3e4bebf2a4a2dd873726bff6378ba236aff2e6b6e6e5f73749816d8e9e010be5",
+      "observationSha256": "48cf8bf99b3d7e50d74a830f01877ab4b1b6032d926e97c5c2a1e9d15d533fa5",
+      "sampleCount": 21,
+      "sourceSha256": "a176ffb809bdf43f8468972fe11fd19418dee77ecf5d74f9df456232b669aaeb",
+      "seconds": 1,
+      "passed": true,
+      "maxPositionErrorM": 0,
+      "maxVelocityErrorMps": 0,
+      "tolerance": 0.0001,
+      "originalSha256": "24799f3207c7ca572d6dfcc9b3186a67aeb0d1c418f4acc8daa6273d7fbdc3f2"
+    },
+    "archivedProof": {
+      "evidenceSha256": "093ef9dbbe21f7b148c6ea31d2690f4e0a029a347c4f33b9c42eeb179a556797",
+      "report": {
+        "sha256": "709ee09163544edbeb588f8da5dc481819055af6d1f0d7e0803e6f34196e74ca",
+        "id": "2c93e8b3-d65b-37e0-89ea-cf126cffb455",
+        "version": 1
+      },
+      "id": "bf73b127-6ec6-48aa-b3d8-df3233add26f"
+    }
+  },
+  "firstModelRefusal": "args.pauseAfterReading must be boolean",
+  "ciFirst": {
+    "checkedAtUtc": "2026-11-18T16:50:57.452097+00:00",
+    "runs": [
+      {
+        "id": 44350412744,
+        "head_sha": "19ab85caa1f9c68a2f13d9635c9ebfaa6f404056",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44350412744",
+        "created_at": "2026-11-18T16:42:55Z",
+        "updated_at": "2026-11-18T16:42:59Z"
+      },
+      {
+        "id": 44314310470,
+        "head_sha": "57972d3eb8ee82153af8d1a3c340069dab8220e8",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44314310470",
+        "created_at": "2026-11-18T13:29:59Z",
+        "updated_at": "2026-11-18T13:30:03Z"
+      },
+      {
+        "id": 44308803198,
+        "head_sha": "320d34fba0667d0deec821008aff1f7fccaadc1e",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44308803198",
+        "created_at": "2026-11-18T12:57:01Z",
+        "updated_at": "2026-11-18T12:57:05Z"
+      },
+      {
+        "id": 44299337463,
+        "head_sha": "20399ecafab8d1355413ec005b5dc7d1bc3b1164",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44299337463",
+        "created_at": "2026-11-18T11:57:16Z",
+        "updated_at": "2026-11-18T16:36:02Z"
+      }
+    ]
+  }
+}

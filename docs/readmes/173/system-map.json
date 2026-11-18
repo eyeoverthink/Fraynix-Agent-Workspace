@@ -1,0 +1,388 @@
+{
+  "summary": "A form and an imported CSV used the same registered Java procedure. On the same CSV revision, direct execution and llama3.2:latest produced identical native samples and measured 2.083 m of travel. A crash before canvas verification preserved both physics runs and the saved report.",
+  "runs": [
+    {
+      "id": "form",
+      "title": "Form input",
+      "duration": 0.6708333333333333,
+      "clock": "2.19 s to verified report · 0 model calls",
+      "description": "25° slope · friction 0.08 · 1 kg · gravity 9.81 m/s²",
+      "points": [
+        {
+          "seconds": 0,
+          "original": 1.6155032294565553e-07,
+          "replay": 1.6155032294565553e-07,
+          "contacts": 0
+        },
+        {
+          "seconds": 0.05,
+          "original": 0.004738858806431371,
+          "replay": 0.004738858806431371,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.1,
+          "original": 0.01796940919174897,
+          "replay": 0.01796940919174897,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.15,
+          "original": 0.03979300116060156,
+          "replay": 0.03979300116060156,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.2,
+          "original": 0.07021528545139244,
+          "replay": 0.07021528545139244,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.25,
+          "original": 0.10920120967955858,
+          "replay": 0.10920120967955858,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.3,
+          "original": 0.15678420649014188,
+          "replay": 0.15678420649014188,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.35,
+          "original": 0.2129544607738985,
+          "replay": 0.2129544607738985,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.4,
+          "original": 0.2777125042884819,
+          "replay": 0.2777125042884819,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.45,
+          "original": 0.35105943957628366,
+          "replay": 0.35105943957628366,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.5,
+          "original": 0.43298474969860684,
+          "replay": 0.43298474969860684,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.55,
+          "original": 0.5235005958002306,
+          "replay": 0.5235005958002306,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.6,
+          "original": 0.6225995955735261,
+          "replay": 0.6225995955735261,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.65,
+          "original": 0.7303002796188962,
+          "replay": 0.7303002796188962,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.6708333333333333,
+          "original": 0.7776977470231272,
+          "replay": 0.7776977470231272,
+          "contacts": 1
+        }
+      ]
+    },
+    {
+      "id": "direct",
+      "title": "CSV · direct",
+      "duration": 0.8291666666666666,
+      "clock": "2.41 s to verified report · 0 model calls",
+      "description": "35° slope · friction 0.025 · 1.45 kg · gravity 10.9 m/s²",
+      "points": [
+        {
+          "seconds": 0,
+          "original": 1.306879695844928e-07,
+          "replay": 1.306879695844928e-07,
+          "contacts": 0
+        },
+        {
+          "seconds": 0.05,
+          "original": 0.00819181300544532,
+          "replay": 0.00819181300544532,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.1,
+          "original": 0.03142571436826953,
+          "replay": 0.03142571436826953,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.15,
+          "original": 0.06973290958573587,
+          "replay": 0.06973290958573587,
+          "contacts": 0
+        },
+        {
+          "seconds": 0.2,
+          "original": 0.12311335449054442,
+          "replay": 0.12311335449054442,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.25,
+          "original": 0.19156379095308318,
+          "replay": 0.19156379095308318,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.3,
+          "original": 0.27508936366654313,
+          "replay": 0.27508936366654313,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.35,
+          "original": 0.37368621968097754,
+          "replay": 0.37368621968097754,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.4,
+          "original": 0.48734589946733453,
+          "replay": 0.48734589946733453,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.45,
+          "original": 0.6160690432161693,
+          "replay": 0.6160690432161693,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.5,
+          "original": 0.7598561201364302,
+          "replay": 0.7598561201364302,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.55,
+          "original": 0.9187143365262637,
+          "replay": 0.9187143365262637,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.6,
+          "original": 1.092636740546364,
+          "replay": 1.092636740546364,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.65,
+          "original": 1.2816250631679755,
+          "replay": 1.2816250631679755,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.7,
+          "original": 1.4856792658983398,
+          "replay": 1.4856792658983398,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.75,
+          "original": 1.704801843490547,
+          "replay": 1.704801843490547,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.8,
+          "original": 1.9389855471004482,
+          "replay": 1.9389855471004482,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.8291666666666666,
+          "original": 2.0825516724662467,
+          "replay": 2.0825516724662467,
+          "contacts": 1
+        }
+      ]
+    },
+    {
+      "id": "planned",
+      "title": "CSV · model selected",
+      "duration": 0.8291666666666666,
+      "clock": "21.29 s to verified report · 1 model call",
+      "description": "35° slope · friction 0.025 · 1.45 kg · gravity 10.9 m/s²",
+      "points": [
+        {
+          "seconds": 0,
+          "original": 1.306879695844928e-07,
+          "replay": 1.306879695844928e-07,
+          "contacts": 0
+        },
+        {
+          "seconds": 0.05,
+          "original": 0.00819181300544532,
+          "replay": 0.00819181300544532,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.1,
+          "original": 0.03142571436826953,
+          "replay": 0.03142571436826953,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.15,
+          "original": 0.06973290958573587,
+          "replay": 0.06973290958573587,
+          "contacts": 0
+        },
+        {
+          "seconds": 0.2,
+          "original": 0.12311335449054442,
+          "replay": 0.12311335449054442,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.25,
+          "original": 0.19156379095308318,
+          "replay": 0.19156379095308318,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.3,
+          "original": 0.27508936366654313,
+          "replay": 0.27508936366654313,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.35,
+          "original": 0.37368621968097754,
+          "replay": 0.37368621968097754,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.4,
+          "original": 0.48734589946733453,
+          "replay": 0.48734589946733453,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.45,
+          "original": 0.6160690432161693,
+          "replay": 0.6160690432161693,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.5,
+          "original": 0.7598561201364302,
+          "replay": 0.7598561201364302,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.55,
+          "original": 0.9187143365262637,
+          "replay": 0.9187143365262637,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.6,
+          "original": 1.092636740546364,
+          "replay": 1.092636740546364,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.65,
+          "original": 1.2816250631679755,
+          "replay": 1.2816250631679755,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.7,
+          "original": 1.4856792658983398,
+          "replay": 1.4856792658983398,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.75,
+          "original": 1.704801843490547,
+          "replay": 1.704801843490547,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.8,
+          "original": 1.9389855471004482,
+          "replay": 1.9389855471004482,
+          "contacts": 1
+        },
+        {
+          "seconds": 0.8291666666666666,
+          "original": 2.0825516724662467,
+          "replay": 2.0825516724662467,
+          "contacts": 1
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "catalog",
+      "title": "Registered admission and stages",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RampProcedure.java",
+      "description": "Declares the typed stage and source contracts and validates optional model selection.",
+      "note": "docs/obsidian/181-registered-local-experiment.md"
+    },
+    {
+      "id": "input",
+      "title": "Form and CSV source",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RampInputPage.java",
+      "description": "Validates decimal inputs and binds both the actual browser page and original CSV bytes.",
+      "note": "docs/obsidian/181-registered-local-experiment.md"
+    },
+    {
+      "id": "runtime",
+      "title": "Durable Java execution",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RampMission.java",
+      "description": "Runs both native worlds and reconstructs the five retained stage receipts.",
+      "note": "docs/obsidian/181-registered-local-experiment.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "ramp-csv-verified.png",
+      "path": "docs/readmes/173/ramp-csv-verified.png",
+      "title": "Review the checked CSV report"
+    },
+    {
+      "file": "ramp-csv-import.png",
+      "path": "docs/readmes/173/ramp-csv-import.png",
+      "title": "Check the imported CSV and registered stages"
+    },
+    {
+      "file": "ramp-csv-checkpoint.png",
+      "path": "docs/readmes/173/ramp-csv-checkpoint.png",
+      "title": "Preserve the report checkpoint"
+    },
+    {
+      "file": "ramp-planner-verified.png",
+      "path": "docs/readmes/173/ramp-planner-verified.png",
+      "title": "Verify the model-selected experiment"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/173/verification.json"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+[Edition 173 — registered local experiment and CSV input](181-registered-local-experiment.md)
+
 [Edition 172 — browser-to-world experiment](180-browser-world-experiment.md)
 
 [Edition 171 — durable offline Relay playtesting](179-offline-playtesting.md)

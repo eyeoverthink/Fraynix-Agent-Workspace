@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 173 — registered local experiment and CSV input](../../README-173.md) · [Guide](173/index.html)
+
 [Edition 172 — local browser to verified world experiment](../../README-172.md) · [Guide](172/index.html)
 
 [Edition 171 — durable offline Relay playtest](../../README-171.md) · [Guide](171/index.html)
