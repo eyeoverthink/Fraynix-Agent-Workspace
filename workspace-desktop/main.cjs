@@ -312,6 +312,26 @@ async function mission044(id){
  const result=g.report044?.artifact||g.completion044?.javaGoal?.report||g.completion044?.javaWorkflow?.report||g.report||g.artifact||child?.report||null;
  return{task,sources,evidence:g.completion044||{},child:child?Object.fromEntries(['id','status','step','stage','reason','procedure','metrics','audit','trials','repairs','counterfactual045','savedSkill','draftNumber','resumes','attempt','report','currentChild','implementation103','profile101','qualification104','qualification105','activeWorkflow105','cost105','auditHistory','graph','graphSha256','stages','diagnostics','worldBinding'].filter(k=>child[k]!==undefined).map(k=>[k,child[k]])):null,result,skill:g.savedRecipe||g.usedRecipe||g.completion044?.javaGoal?.savedSkill||g.completion044?.javaWorkflow?.savedSkill||child?.savedSkill||null,scope:'Actual retained Java task and source selections. A past result is not a new camera observation or proof of improved model weights.'};
 }
+async function openMissionResult(mission) {
+  const {child, result} = mission;
+  const relay = child?.procedure === 'relay-playtest-v1'
+    ? await api('/api/game-tasks115/verify', {id: child.id}) : null;
+  const artifact = await api('/api/artifact/read', {id: result.id});
+  if (artifact.version !== result.version) {
+    throw Error('The saved result has a later revision; this task retains its original version reference');
+  }
+  const opened = await openArtifact(artifact);
+  emit('view', 'preview');
+  if (relay) {
+    const receipt = await execute('canvas.test', {steps: [
+      {selector: 'h1', expectText: relay.audit.title},
+      {selector: 'tbody tr', expectCount: relay.audit.crossings},
+      {selector: 'a[href="playtest.json"]', expectCount: 1}
+    ]});
+    if (!receipt.passed) throw Error('The Relay report failed its display checks');
+  }
+  return opened;
+}
 function creationSelection(){return inputs100.binding();}
 let currentObservation158=null,currentCalibrated159=null,currentRecorded162=null;
 function bindings044(){const b={scene:currentScene,dataset:currentDataset,spatial:currentSpatial,pose:currentPose,world:currentPersistentWorld,push:pushSelection(),mapping:currentMapSelection,creation:creationSelection(),knowledge:knowledgeBridge?.selected(),tabletop:tabletopBridge?.selected(),observations:observationBridge?.selection(),metric:observationBridge?.metricSelection?.(),tracking:trackingBridge?.selected(),verifiedObservation:currentObservation158,calibratedObservation:currentCalibrated159,recordedSmall:currentRecorded162};return Object.fromEntries(Object.entries(b).filter(([,v])=>v!=null));}
@@ -393,7 +413,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     }
     case 'procedureLifecycle127':{if(!['catalog','read','change'].includes(input.command))throw Error('Unknown procedure lifecycle operation');const result=await api('/api/procedures127/'+input.command,input.args||{});if(input.command==='change')await refresh();return result;}
     case 'history113':{if(input.command!=='open')throw Error('Unknown history operation');return openHistoryResult(input.args,{api,openArtifact,showPreview:()=>emit('view','preview')});}
-    case 'agency043':{if(input.command==='mission')return mission044(input.args.id);if(input.command==='mission-open'){const m=await mission044(input.args.id);if(!m.result)throw Error('This task has no saved canvas result');if(m.child?.procedure==='relay-playtest-v1')await api('/api/game-tasks115/verify',{id:m.child.id});const a=await api('/api/artifact/read',{id:m.result.id});if(a.version!==m.result.version)throw Error('The saved result has a later revision; this task retains its original version reference');const opened=await openArtifact(a);emit('view','preview');return opened;}if(input.command==='start'){if(run||learningJob||manualBusy)throw Error('Finish the current operation first');return agency043.begin({...input.args,artifactId:currentArtifact?.id||''});}if(input.command==='report')return agency043.report(input.args.id);if(!['state','read','models','image','control','history','archive','verify'].includes(input.command))throw Error('Unknown Java task operation');const value=await api('/api/agency043/'+input.command,input.args||{});if(['control','archive'].includes(input.command))await agency043.poll();return value;}
+    case 'agency043':{if(input.command==='mission')return mission044(input.args.id);if(input.command==='mission-open'){const m=await mission044(input.args.id);if(!m.result)throw Error('This task has no saved canvas result');return openMissionResult(m);}if(input.command==='start'){if(run||learningJob||manualBusy)throw Error('Finish the current operation first');return agency043.begin({...input.args,artifactId:currentArtifact?.id||''});}if(input.command==='report')return agency043.report(input.args.id);if(!['state','read','models','image','control','history','archive','verify'].includes(input.command))throw Error('Unknown Java task operation');const value=await api('/api/agency043/'+input.command,input.args||{});if(['control','archive'].includes(input.command))await agency043.poll();return value;}
     case 'agent042':{if(input.command==='state')return api('/api/agent042/state',{});if(input.command==='control')return api('/api/agent042/control',input.args);if(input.command==='report')return execute('agent.report',{});if(input.command==='stop'){if(!runtimeConnection042)throw Error('This test session owns an ephemeral Java process');const stopped=await runtimeConnection042.stop();setTimeout(()=>app.quit(),100);return stopped;}throw Error('Unknown continuing agent operation');}
     case 'workflow':{if(['history','archive','verify-archive','read','child-history','archive-children','verify-child','child-read'].includes(input.command)){const result=await api('/api/workflows/'+input.command,input.args||{});if(['archive','archive-children'].includes(input.command))await refresh();return result;}if(input.command==='catalog')return api('/api/workflows/catalog',{});if(input.command==='start')return startWorkflowAgent(input.args.request,input.args.modelName,input.args);throw Error('Unknown workflow operation');}
     case 'creation':{if(input.command==='preview')return (await inputs100.resolve(input.args)).preview;if(input.command==='start')return startCreationAgent(input.args.request,input.model,{definition:input.args.definition,source:input.args.source});throw Error('Unknown creation operation');}

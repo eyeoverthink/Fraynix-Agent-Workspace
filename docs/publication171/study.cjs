@@ -139,6 +139,9 @@ async function main() {
     )).then(text => String(text).includes('9 rail crossings')).catch(() => false));
     const report = await api('/api/artifact/read', {id: result.ridge.checked.report.id});
     assert.deepEqual(JSON.parse(report.contents['playtest.json']), audit);
+    assert.equal(report.test.passed, true);
+    assert.equal(report.test.checks.length, 3);
+    await page.waitForFunction(() => document.querySelector('#test-badge').textContent === 'TESTS PASSED');
     assert.equal(await app.evaluate(() => global.workspaceTest.canvasRead(
       "document.querySelectorAll('tbody tr').length"
     )), 9);
