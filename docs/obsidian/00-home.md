@@ -1,3 +1,5 @@
+[Edition 175 — local workflow selection](183-local-workflow-selection.md)
+
 [Edition 174 — verified local procedure routing](182-local-ramp-routing.md)
 
 [Edition 173 — registered local experiment and CSV input](181-registered-local-experiment.md)

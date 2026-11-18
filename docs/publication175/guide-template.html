@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix · Cost of local workflow selection</title>
+<style>
+:root{color-scheme:dark;--page:#101b24;--panel:#152f35;--ink:#eff7f5;--muted:#c1d4da;--line:#426168;--mint:#98e6c2;--gold:#f9c681}
+*{box-sizing:border-box}body{margin:0;background:var(--page);color:var(--ink);font:16px/1.55 system-ui}
+main{max-width:1050px;margin:auto;padding:clamp(16px,4vw,44px)}h1{font-size:clamp(2.1rem,5vw,4rem);line-height:1.06;margin:.25em 0}h2{margin:0 0 .7em}
+header p{max-width:760px;font-size:1.1rem}small,figcaption{color:var(--muted)}a{color:var(--mint);text-underline-offset:4px}
+nav{display:flex;flex-wrap:wrap;gap:8px 22px}section{margin-top:24px;padding:clamp(16px,3vw,28px);border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+label{display:flex;flex-wrap:wrap;gap:8px;align-items:center}select,input{max-width:100%;padding:6px 10px;border:1px solid var(--line);border-radius:5px;font:inherit;color:inherit;background:var(--page)}
+.bench{display:grid;grid-template-columns:minmax(110px,1fr) minmax(110px,5fr);gap:10px 14px;align-items:center;margin:1rem 0}
+.track{display:flex;height:18px;background:#101c25;border-radius:8px;overflow:hidden}.execution{background:var(--mint)}.selection{background:var(--gold)}
+.key{font-size:.94rem;color:var(--muted)}.mint{color:var(--mint)}.gold{color:var(--gold)}
+figure{margin:1rem 0 0}img{display:block;width:100%;border:1px solid var(--line);border-radius:6px}
+li,#module-detail{overflow-wrap:anywhere}
+</style>
+<script id="system-data" type="application/json">@@SYSTEM@@</script>
+<script id="inventory-data" type="application/json">@@INVENTORY@@</script>
+<script src="guide.js" defer></script>
+</head>
+<body>
+<main>
+<header>
+<small>FRAYNIX AGENT WORKSPACE · EDITION 175</small>
+<h1>What does model selection cost?</h1>
+<p id="intro"></p>
+<nav><a href="../../../README-175.md">Read the edition</a><a href="#measurements">Timings</a><a href="#decisions">Decisions</a><a href="#screenshots">Screenshots</a><a href="#architecture">Architecture</a><a href="#inventory">Source files</a></nav>
+</header>
+<section id="measurements">
+<h2>Time to a checked result</h2>
+<label>Paired case <select id="pair"></select></label>
+<p id="pair-goal"></p>
+<div class="bench" role="img" aria-label="Relative direct and model-routed task times">
+<span id="direct-label"></span><div class="track"><span id="direct-bar" class="execution"></span></div>
+<span id="model-label"></span><div class="track"><span id="model-bar" class="selection"></span><span id="rest-bar" class="execution"></span></div>
+</div>
+<p class="key"><span class="gold">■ Model selection</span> · <span class="mint">■ All other task time</span></p>
+<output id="pair-result"></output>
+</section>
+<section id="decisions">
+<h2>Requests requiring clarification</h2>
+<label>Probe <select id="probe"></select></label>
+<p id="probe-goal"></p><output id="probe-result"></output>
+</section>
+<section id="screenshots">
+<h2>Desktop evidence</h2>
+<label>Screenshot <select id="shot"></select></label>
+<figure><a id="original" href="routing-ramp-a.png"><img id="screenshot" src="routing-ramp-a.png" alt="Verified workflow in the Fraynix desktop"></a><figcaption id="caption"></figcaption></figure>
+</section>
+<section id="architecture">
+<h2>System map</h2>
+<label>Module <select id="module"></select></label>
+<p id="module-detail"></p>
+<a href="../../publication175/plan.md">Implementation and acceptance</a>
+</section>
+<section id="inventory">
+<h2>Source inventory</h2>
+<label>Find a file <input id="search" type="search"></label>
+<output id="matches"></output><ul id="files"></ul>
+</section>
+</main>
+</body>
+</html>

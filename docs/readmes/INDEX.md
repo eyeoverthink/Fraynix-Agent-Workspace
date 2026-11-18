@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 175 — local workflow selection costs](../../README-175.md) · [Guide](175/index.html)
+
 [Edition 174 — verified local procedure routing](../../README-174.md) · [Guide](174/index.html)
 
 [Edition 173 — registered local experiment and CSV input](../../README-173.md) · [Guide](173/index.html)

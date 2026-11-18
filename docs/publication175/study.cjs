@@ -77,7 +77,7 @@ async function main() {
     page.on('pageerror', error => result.errors.push(error.message));
     await app.evaluate(({ BrowserWindow }) => BrowserWindow.getAllWindows().find(window => window.isVisible()).setSize(1550, 1040));
     assert((await app.evaluate(() => global.workspaceTest.network())).enabled);
-    if (!models) assert.deepEqual((await api('/api/state')).models, []);
+    if (!models) assert.deepEqual((await app.evaluate(() => global.workspaceTest.api('/api/state'))).models, []);
     else {
       await page.waitForFunction(name => [...document.querySelector('#model').options].some(option => option.value === name), model, { timeout: 65000 });
       await page.locator('#model').selectOption(model);
