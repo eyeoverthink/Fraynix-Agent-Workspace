@@ -1,6 +1,6 @@
 from pathlib import Path
 import subprocess,os,json,shutil,xml.etree.ElementTree as E
-r=Path.cwd();env=os.environ.copy();env['JAVA_HOME']='C:/Program Files/Eclipse Adoptium/jdk-21.0.10.7-hotspot';env['PATH']=env['JAVA_HOME']+'/bin;'+env['PATH'];classes=['RecordedSmall162Test','SmallBody161Test','PlaneAccuracy160Test','Alignment041Test','PlaneCalibrationTest','Calibrated159Test','CalibratedClearance159Test','WorldPhysicsTest']
+r=Path.cwd();env=os.environ.copy();env['JAVA_HOME']='C:/Program Files/Eclipse Adoptium/jdk-21.0.10.7-hotspot';env['PATH']=env['JAVA_HOME']+'/bin;'+env['PATH'];classes=['Domain044Test','RecordedSmall162Test','SmallBody161Test','PlaneAccuracy160Test','Alignment041Test','PlaneCalibrationTest','Calibrated159Test','CalibratedClearance159Test','WorldPhysicsTest']
 args=[str(r/'gradlew.bat'),'--no-daemon','--max-workers=1',':workspace-engine:test']
 for c in classes:args+=['--tests','fraymus.workspace.'+c]
 def run(args,n,cwd=r):
