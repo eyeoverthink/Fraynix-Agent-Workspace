@@ -1,0 +1,314 @@
+{
+  "finding": "Original playable content and another restored historical batch.",
+  "validation": "122 root-engine Java tests, 18 selected workspace Java tests, 181 desktop tests and 10 archive tests passed, without failures or skips. This is the full root-engine suite plus scoped integrated-game/server regressions, not a rerun of every historical workspace capability.",
+  "modules": [
+    {
+      "id": "content",
+      "name": "Original content",
+      "source": "src/main/java/content/RelayGardenGenerator.java",
+      "description": "Owned pixels, tones and serialized layout; no old art or level read."
+    },
+    {
+      "id": "runtime",
+      "name": "Checked launch",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GameContentPack.java",
+      "description": "Source and installed content hashes verified before an explicit launch or reset."
+    },
+    {
+      "id": "archive",
+      "name": "Original evidence restoration",
+      "source": "scripts/history_archive.py",
+      "description": "Canonical physical parent, new destination and original hashes; one provider, no silent fallback."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/167/relay-garden-start.png",
+      "title": "2026-11-18 · Actual app · relay-garden-start.png"
+    },
+    {
+      "path": "docs/readmes/167/relay-garden-jump.png",
+      "title": "2026-11-18 · Actual app · relay-garden-jump.png"
+    },
+    {
+      "path": "docs/readmes/167/relay-garden-finish.png",
+      "title": "2026-11-18 · Actual app · relay-garden-finish.png"
+    },
+    {
+      "path": "docs/readmes/167/relay-garden-compact.png",
+      "title": "2026-11-18 · Actual app · relay-garden-compact.png"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Native gap-aware run",
+      "kind": "game",
+      "result": "Finish contact",
+      "evidence": "Actual controller inputs"
+    },
+    {
+      "name": "No-jump run",
+      "kind": "game",
+      "result": "Loss as intended",
+      "evidence": "Observed fall and death state"
+    },
+    {
+      "name": "Actual app and restart",
+      "kind": "game",
+      "result": "Passed",
+      "evidence": "Visible controls and original identity"
+    },
+    {
+      "name": "Historical batch",
+      "kind": "archive",
+      "result": "76 / 76 restored",
+      "evidence": "Downloaded bytes versus Git"
+    },
+    {
+      "name": "Missing or corrupt provider",
+      "kind": "archive",
+      "result": "Refused",
+      "evidence": "No fallback or output directory"
+    }
+  ],
+  "trace": [
+    {
+      "tick": 12,
+      "x": 0.9093108,
+      "y": 0.6296564,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 24,
+      "x": 1.0163172,
+      "y": 0.6343577,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 36,
+      "x": 1.200348,
+      "y": 0.6343577,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 48,
+      "x": 1.4584682,
+      "y": 0.6363003,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 60,
+      "x": 1.7922189,
+      "y": 0.6363003,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 72,
+      "x": 2.1938527,
+      "y": 0.6363003,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 84,
+      "x": 2.6075537,
+      "y": 0.6363003,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 96,
+      "x": 3.0212548,
+      "y": 0.6363003,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 108,
+      "x": 3.4349558,
+      "y": 0.6363003,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 120,
+      "x": 3.848657,
+      "y": 0.6363003,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 132,
+      "x": 4.2623563,
+      "y": 1.0926834,
+      "onGround": false,
+      "won": false
+    },
+    {
+      "tick": 144,
+      "x": 4.6760545,
+      "y": 1.7033831,
+      "onGround": false,
+      "won": false
+    },
+    {
+      "tick": 156,
+      "x": 5.0897527,
+      "y": 1.8953087,
+      "onGround": false,
+      "won": false
+    },
+    {
+      "tick": 168,
+      "x": 5.503451,
+      "y": 1.6623414,
+      "onGround": false,
+      "won": false
+    },
+    {
+      "tick": 180,
+      "x": 5.917149,
+      "y": 1.1557379,
+      "onGround": false,
+      "won": false
+    },
+    {
+      "tick": 192,
+      "x": 6.3240395,
+      "y": 0.6295,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 204,
+      "x": 6.7373824,
+      "y": 0.63097125,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 216,
+      "x": 7.149546,
+      "y": 0.63471663,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 228,
+      "x": 7.5626755,
+      "y": 0.6364029,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 240,
+      "x": 7.9763737,
+      "y": 1.0418944,
+      "onGround": false,
+      "won": false
+    },
+    {
+      "tick": 252,
+      "x": 8.390078,
+      "y": 1.6525941,
+      "onGround": false,
+      "won": false
+    },
+    {
+      "tick": 264,
+      "x": 8.8037815,
+      "y": 1.902376,
+      "onGround": false,
+      "won": false
+    },
+    {
+      "tick": 276,
+      "x": 9.217485,
+      "y": 1.692392,
+      "onGround": false,
+      "won": false
+    },
+    {
+      "tick": 288,
+      "x": 9.631189,
+      "y": 1.2067322,
+      "onGround": false,
+      "won": false
+    },
+    {
+      "tick": 300,
+      "x": 10.038115,
+      "y": 0.629375,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 312,
+      "x": 10.4513,
+      "y": 0.631402,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 324,
+      "x": 10.863225,
+      "y": 0.6355771,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 336,
+      "x": 11.276929,
+      "y": 0.6355771,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 348,
+      "x": 11.690633,
+      "y": 0.6355771,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 360,
+      "x": 12.104337,
+      "y": 0.6355771,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 372,
+      "x": 12.518041,
+      "y": 0.6355771,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 384,
+      "x": 12.931745,
+      "y": 0.6355771,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 396,
+      "x": 13.3454485,
+      "y": 0.6355771,
+      "onGround": true,
+      "won": false
+    },
+    {
+      "tick": 408,
+      "x": 13.791664,
+      "y": 0.6355771,
+      "onGround": true,
+      "won": true
+    }
+  ]
+}

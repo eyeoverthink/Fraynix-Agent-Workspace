@@ -1,3 +1,7 @@
+## Edition 167 progress — 2026-11-18
+
+Relay Garden adds an explicit original-content course, actual player/controller playtests, reset and loss handling through existing Java physics. Sixty compiled control/physics classes remain identical to edition166. The next76 frozen files (edition163) were archived, downloaded, restored and compared to original Git bytes; a second local-volume copy was verified. Initial CI archive-parent rejection is corrected with an actual junction regression. Legacy content, defaults and all frozen history remain. Full inherited-content replacement, licensing, complete archival cutover and further capability consolidation remain pending. [Evidence and scope](../README-167.md).
+
 ## Edition 166 progress — 2026-11-18 UTC
 
 Eighteen guarded routes now have one named owner; old evidence and saved results remain verifiable. The original tracked tree contains 17,965,515,667 bytes, including 17,889,852,146 in docs/readmes. The local candidate contains 97,166,929 tracked bytes including its compressed historical catalog. Its fresh local clone has 47,007,859 bytes of Git metadata/objects and took 16.06 seconds on this machine. 52,362 prior frozen files were verified; 69 edition164 originals were restored from the archive (78,221,935 original bytes).

@@ -15,7 +15,7 @@ desktop_count=int(re.search(r'tests (\d+)',desktop)[1])
 archive_log=(r/'build/archive167-tests.log').read_text();assert 'OK' in archive_log
 archive_count=int(re.search(r'Ran (\d+) tests',archive_log)[1])
 validation=f"{tests['rootJava']} root-engine Java tests, {tests['workspaceJava']} selected workspace Java tests, {desktop_count} desktop tests and {archive_count} archive tests passed, without failures or skips. This is the full root-engine suite plus scoped integrated-game/server regressions, not a rerun of every historical workspace capability."
-play=f"The final actual-app run reached the finish in {app['final']['tick']} simulation ticks through the unchanged contact122 controller. Manual input moved the robot, reset restored its initial position, and a full app restart retained its original identity. The native no-jump trial failed as intended below the deck."
+play=f"The final actual-app run reached the finish in {app['final']['tick']} simulation ticks through bounded steps of the unchanged contact122 controller. A separate run using the visible AI play button had confirmed finish contact at tick {app['visibleAiPlay']['tick']}. Manual input moved the robot, reset restored its initial position, and a full app restart retained its original identity. The native no-jump trial failed as intended below the deck."
 identity=f"The compiled identities of {len(identities['classes'])} existing agent/controller, physics, player, camera and state-machine classes match the preserved edition 166 candidate exactly. New content and the explicit fall-boundary component are separate additions."
 archive_text=f"Edition 163 contributes **{batch['originalFiles']} original files**, totaling **{batch['originalBytes']:,} bytes**, packed into **{batch['archive']['bytes']:,} bytes**. Every downloaded original was compared to its retained Git blob."
 ci_text=("At the prepublication check, the latest hosted run remained the failed edition 166 run "
@@ -29,7 +29,7 @@ for src,dest in [('build/evidence167-manifest.json','original-evidence.json'),('
  ('build/archive167/result.json','archive.json'),('build/archive167/downloaded-result.json','archive-download.json'),
  ('build/controller-identity167.json','controller-identity.json'),('build/app-visual167.json','app-visual.json')]:shutil.copy2(r/src,out/dest)
 verification={'passed':True,'rootJava':tests['rootJava'],'workspaceJava':tests['workspaceJava'],'desktop':desktop_count,'archiveTests':archive_count,
- 'actualApp':{'ticksToFinish':app['final']['tick'],'defaultPolicy':app['final']['controller']['policy'],'manualMovement':True,'reset':True,'coldRestart':True},
+ 'actualApp':{'ticksToFinish':app['final']['tick'],'visibleAiPlay':app['visibleAiPlay']['player']['won'],'visibleAiObservedFinishTick':app['visibleAiPlay']['tick'],'defaultPolicy':app['final']['controller']['policy'],'manualMovement':True,'reset':True,'coldRestart':True},
  'actualNative':{'finishContact':native['finish']['player']['won'],'noJumpFailed':native['noJump']['player']['dead']},
  'unchangedCompiledClasses':len(identities['classes']),'historicalBatch':batch['originalFiles'],'physicalAccuracyPromoted':False,'modelCalls':0,'ciFirst':read('build/ci167-first.json')}
 write(out/'verification.json',verification)

@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "readme",
+      "type": "file",
+      "file": "README-167.md",
+      "x": 0,
+      "y": 0,
+      "width": 480,
+      "height": 320
+    },
+    {
+      "id": "logic",
+      "type": "file",
+      "file": "src/main/java/content/RelayGardenGenerator.java",
+      "x": 540,
+      "y": 0,
+      "width": 460,
+      "height": 320
+    },
+    {
+      "id": "archive",
+      "type": "file",
+      "file": "scripts/history_archive.py",
+      "x": 540,
+      "y": 380,
+      "width": 460,
+      "height": 260
+    }
+  ],
+  "edges": [
+    {
+      "id": "a",
+      "fromNode": "readme",
+      "fromSide": "right",
+      "toNode": "logic",
+      "toSide": "left"
+    },
+    {
+      "id": "b",
+      "fromNode": "readme",
+      "fromSide": "bottom",
+      "toNode": "archive",
+      "toSide": "left"
+    }
+  ]
+}
