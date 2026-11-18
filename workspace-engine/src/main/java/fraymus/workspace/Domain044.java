@@ -23,7 +23,10 @@ final class Domain044 {
   if(family.equals(RampMission.FAMILY)){
    var source=Procedure044.binding(bindings,"rampInput");
    SpatialScene.keys(source,"path");
+   var intent=RampProcedure.intent(g.getString("goal"));
+   if(intent.planned()&&g.getString("model").isBlank())throw new IllegalArgumentException("Choose an installed local model for planning");
    g.put("rampSource",nativeApi.call(RampMission.PORT+"bind",source));
+   if(!intent.planned())c.put("rampChoice",RampProcedure.admit(g.getString("goal"),intent.directChoice()));
    g.put("context044",c).put("nativeTrace044",new JSONArray()).put("nativeReplies044",new JSONObject());
    return;
   }
@@ -34,7 +37,10 @@ final class Domain044 {
  static String familyFor(String kind){return switch(kind){case"gripper-construction-051-v1"->"construction";case"persistent-world-arrange-v1",Procedure079.KIND->"world";case"spatial-arrange-v1"->"pose";case"spatial-push-v1"->"push";case"map-world-v1"->"map";case"procedural-space-v1"->"space";case"motion-data-report-v1"->"data";case"spatial-manipulation-v1"->"spatial";case"browser-perception-v1"->"perception";case"creation-web-v1"->"creation";case RecordedSmall162.KIND,CalibratedAction159.KIND,ObservationTask158.KIND,ObservationArtifact128.KIND,"evidence-workflow-v1","typed-skill-graph-v1",DataCreation101.KIND,DataSummary102.KIND,DataSummary104.KIND->"workflow";default->"goal";};}
  JSONObject bootstrap(JSONObject g)throws Exception{
   String f=g.getString("family044");var c=g.getJSONObject("context044");var b=g.getJSONObject("bindings044");if(c.has("ownedGoalId")||c.has("ownedWorkflowId")||c.has("ownedGameTask115"))return null;
-  if(f.equals(RampMission.FAMILY))return bootRamp(g);
+  if(f.equals(RampMission.FAMILY)){
+   if(RampProcedure.intent(g.getString("goal")).planned()&&!c.has("rampChoice"))return null;
+   return bootRamp(g);
+  }
   if(f.equals("gamelevel")){var task=nativeApi.call("/api/game-tasks115/start",new JSONObject().put("id",g.getString("id")).put("request",g.getString("goal")));if(task.getString("status").equals("interrupted")&&g.optInt("resumes")>0)nativeApi.call("/api/game-tasks115/resume",new JSONObject().put("id",task.getString("id")));c.put("ownedGameTask115",task.getString("id"));g.put("wait044",new JSONObject().put("route","/api/game-tasks115/advance").put("id",task.getString("id")));return null;}
   if(f.equals("rehearsal"))return new JSONObject().put("tool","experiment.rehearse").put("args",WorldFrames.copy(g.getJSONObject("requested044")));
   if(f.equals("world")&&(c.optBoolean("selectiveMemory079")||c.optJSONObject("procedureBinding",new JSONObject()).optString("kind").equals(Procedure079.KIND))){if(!b.has("world"))throw new IllegalArgumentException("Select the current world and target poses first");if(ChatPolicy044.has(g.getString("goal"),"review before|inspect before|do not (move|execute|actuate)|don.t (move|execute|actuate)"))throw new IllegalArgumentException("This request asks for review only. Use the alternative-plan review control; no procedure executed.");if(g.optBoolean("planWorld099"))return null;var a=c.has("procedureBinding")?merge(new JSONObject(),c.getJSONObject("procedureBinding"),false):new JSONObject().put("selectiveMemory079",true);merge(a,g.getJSONObject("requested044"));return new JSONObject().put("tool",c.has("procedureBinding")?"procedure.run":"world.arrange").put("args",a);}
@@ -72,18 +78,27 @@ final class Domain044 {
  }
  static JSONObject merge(JSONObject a,JSONObject b){return merge(a,b,true);}
  static JSONObject merge(JSONObject a,JSONObject b,boolean all){for(String k:b.keySet())if(all||Set.of("name","version").contains(k))a.put(k,b.get(k));return a;}
+ JSONObject chooseRamp(JSONObject g,JSONObject proposal)throws Exception{
+  var c=g.getJSONObject("context044");
+  String request=g.getString("goal");
+  if(!g.getString("family044").equals(RampMission.FAMILY)||!RampProcedure.intent(request).planned()||c.has("rampChoice"))
+   throw new IllegalStateException("The model cannot schedule another ramp procedure");
+  c.put("rampChoice",RampProcedure.admit(request,proposal));
+  return bootRamp(g);
+ }
  private JSONObject bootRamp(JSONObject g)throws Exception{
   String id=g.getString("id");
   var c=g.getJSONObject("context044");
   var idOnly=new JSONObject().put("id",id);
-  var task=nativeApi.call(RampMission.PORT+"start",new JSONObject().put("id",id)
-          .put("request",g.getString("goal")).put("source",g.getJSONObject("rampSource")));
+  var start=new JSONObject().put("id",id).put("request",g.getString("goal")).put("source",g.getJSONObject("rampSource"));
+  if(c.has("rampChoice"))start.put("choice",c.getJSONObject("rampChoice"));
+  var task=nativeApi.call(RampMission.PORT+"start",start);
   c.put("ownedRampMission",id);
   String status=task.getString("status");
   if(status.equals("interrupted")&&g.getInt("resumes")>0)
    status=nativeApi.call(RampMission.PORT+"resume",idOnly).getString("status");
   switch(status){
-   case "waiting-host": return new JSONObject().put("tool",RampMission.READ_TOOL)
+   case "waiting-host": return new JSONObject().put("tool",RampProcedure.Step.OBSERVE.surfaceTool)
            .put("args",new JSONObject().put("path",g.getJSONObject("rampSource").getString("path")));
    case "running": waitRamp(g,id);
                   break;
@@ -103,7 +118,7 @@ final class Domain044 {
   var c=g.getJSONObject("context044");
   if(!g.getString("family044").equals(RampMission.FAMILY)||!c.optBoolean("rampReady")||c.optBoolean("rampVerified"))return null;
   var args=nativeApi.call(RampMission.PORT+"report-check",new JSONObject().put("id",g.getString("id")));
-  return new JSONObject().put("tool",RampMission.CHECK_TOOL).put("args",args);
+  return new JSONObject().put("tool",RampProcedure.Step.CHECK.surfaceTool).put("args",args);
  }
  JSONObject prepare(JSONObject g,String tool,JSONObject args)throws Exception{
   var a=WorldFrames.copy(args);var c=g.getJSONObject("context044");
@@ -137,17 +152,13 @@ final class Domain044 {
   if(g.getString("family044").equals(RampMission.FAMILY)){
    String id=g.getString("id");
    var c=g.getJSONObject("context044");
-   switch(tool){
-    case RampMission.READ_TOOL -> {
-     nativeApi.call(RampMission.PORT+"observe",new JSONObject().put("id",id).put("observation",result));
-     waitRamp(g,id);
-    }
-    case RampMission.CHECK_TOOL -> {
-     nativeApi.call(RampMission.PORT+"accept-report",new JSONObject().put("id",id).put("receipt",result));
-     c.put("rampVerified",true);
-    }
-    default -> throw new IllegalStateException("Unexpected local ramp action");
-   }
+   if(tool.equals(RampProcedure.Step.OBSERVE.surfaceTool)){
+    nativeApi.call(RampMission.PORT+"observe",new JSONObject().put("id",id).put("observation",result));
+    waitRamp(g,id);
+   }else if(tool.equals(RampProcedure.Step.CHECK.surfaceTool)){
+    nativeApi.call(RampMission.PORT+"accept-report",new JSONObject().put("id",id).put("receipt",result));
+    c.put("rampVerified",true);
+   }else throw new IllegalStateException("Unexpected local ramp action");
    return;
   }
   if(g.getJSONArray("nativeTrace044").isEmpty()&&!tool.equals("perception.select"))throw new IllegalStateException("A domain action needs actual Java/native source receipts");

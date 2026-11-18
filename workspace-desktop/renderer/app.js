@@ -47,6 +47,9 @@ let sceneMode=false;
 function offlineMissionRequest(text) {
  return /^run the local ramp experiment(?: and pause after reading)?[.!]?$/i.test(text.trim()) || /^(?:playtest|verify) relay (?:ridge|switchyard) at (?:all three paces|(?:normal|steady|careful) pace)[.!]?$/i.test(text.trim());
 }
+function plannedRampRequest(text) {
+ return /^plan the local ramp experiment(?: and pause after reading)?[.!]?$/i.test(text.trim());
+}
 function hasChatRoute() {
  return Boolean(state?.models.length) || offlineMissionRequest($('goal').value);
 }
@@ -160,7 +163,7 @@ $('back').onclick=()=>safe(()=>request('back'));$('forward').onclick=()=>safe(()
 $('new-artifact').onclick=()=>safe(()=>{requireSaved();setCanvasMode('preview');return request('new');});
 $('proof').onclick=()=>safe(async()=>{requireSaved();$('proof').disabled=true;notice('Running the real browser → artifact → test → skill proof');try{await request('proof');notice('Guided proof passed: browser, runnable app, tests and skill saved');}finally{$('proof').disabled=false;}});
 $('game').onclick=()=>safe(async()=>{await brainGame.openIntegrated();notice('Original Java game runtime is integrated here; no separate editor window');});
-$('run').onclick=()=>safe(async()=>{requireSaved();const goal=$('goal').value.trim();if(!goal)return;const local=offlineMissionRequest(goal);message(goal,'user');await request('agent',{goal,model:local?'':$('model').value,planWorld099:document.querySelector('#plan-world099').checked,...(!local && window.browserChecks126?.contract()?{browserContract126:window.browserChecks126.contract()}:{})});});
+$('run').onclick=()=>safe(async()=>{requireSaved();const goal=$('goal').value.trim();if(!goal)return;const local=offlineMissionRequest(goal);message(goal,'user');await request('agent',{goal,model:local?'':$('model').value,planWorld099:document.querySelector('#plan-world099').checked,...(!local && !plannedRampRequest(goal) && window.browserChecks126?.contract()?{browserContract126:window.browserChecks126.contract()}:{})});});
 $('goal').addEventListener('input',()=>{
  $('run').disabled=running||creationBusy||dirty||lab.dirty||!hasChatRoute()
   ||Boolean(state?.goals?.some(goal=>['running','waiting-host'].includes(goal.status)));
@@ -169,28 +172,89 @@ $('goal').addEventListener('keydown',e=>{if(e.ctrlKey&&e.key==='Enter')$('run').
 $('stop').onclick=()=>safe(()=>request('stop'));
 const rampDialog=$('ramp-input-dialog');
 const rampDefaults={angleDeg:25,friction:0.08,gravityMps2:9.81,massKg:1,seconds:1};
-let rampRevision;
+const rampFields=Object.keys(rampDefaults);
+const rampFileHelp='Required columns are angle_deg, friction, gravity_mps2, mass_kg and duration_s.';
+let rampRevision, rampCsv, rampImport=0;
+function showRampFields(values, readonly) {
+ for(const field of rampFields){
+  const input=$('ramp-'+field);
+  input.value=values[field];input.readOnly=readonly;
+ }
+}
+function resetRampFile(){
+ rampImport++;
+ rampCsv=null;
+ $('ramp-csv').value='';
+ $('ramp-file-note').textContent=rampRevision?.csvSha256?'Saved CSV revision. Import a replacement or use this page.':rampFileHelp;
+ $('ramp-new-form').hidden=!rampRevision?.csvSha256;
+ $('ramp-input-error').textContent='';
+ showRampFields(rampRevision?.values||rampDefaults,Boolean(rampRevision?.csvSha256));
+ $('ramp-input-save').disabled=Boolean(rampRevision?.csvSha256);
+ $('ramp-use-current').disabled=!rampRevision;
+}
+function prepareRampGoal(){
+ const verb=$('ramp-plan').checked?'Plan':'Run';
+ const pause=$('ramp-pause').checked?' and pause after reading':'';
+ $('goal').value=verb+' the local ramp experiment'+pause+'.';
+ $('goal').dispatchEvent(new Event('input'));
+ rampDialog.close();
+ $('goal').focus();
+}
 $('ramp-input-open').onclick=()=>safe(async()=>{
  requireSaved();
  rampRevision=await request('rampInput',{command:'read'});
- for(const [field,value] of Object.entries(rampRevision?.values||rampDefaults))$('ramp-'+field).value=value;
- $('ramp-input-error').textContent='';
+ resetRampFile();
+ $('ramp-plan').disabled=!state?.models.length;
+ if($('ramp-plan').disabled)$('ramp-plan').checked=false;
  rampDialog.showModal();
  updateLayout();
 });
 $('ramp-input-close').onclick=()=>rampDialog.close();
-rampDialog.addEventListener('close',updateLayout);
+$('ramp-use-current').onclick=prepareRampGoal;
+$('ramp-new-form').onclick=()=>{rampRevision=null;resetRampFile();};
+rampDialog.addEventListener('close',()=>{rampImport++;updateLayout();});
+$('ramp-catalog').addEventListener('toggle',()=>safe(async()=>{
+ if(!$('ramp-catalog').open)return;
+ const {stages}=await request('rampInput',{command:'catalog'});
+ const labels={browser:'Read the browser table',experiment:'Run native physics',replay:'Compare a fresh replay',
+  artifact:'Build the report',canvas:'Check the report in Chromium'};
+ $('ramp-catalog-steps').replaceChildren(...stages.map(stage=>{
+  const row=document.createElement('li');row.textContent=labels[stage.id];return row;
+ }));
+ updateLayout();
+}));
+$('ramp-csv').onchange=async()=>{
+ const file=$('ramp-csv').files[0];
+ if(!file){resetRampFile();return;}
+ const version=++rampImport;
+ rampCsv=null;
+ $('ramp-input-error').textContent='';
+ $('ramp-input-save').disabled=true;
+ try{
+  if(file.size>8192)throw Error('Choose a CSV under 8 KiB');
+  const csv=new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(await file.arrayBuffer());
+  const parsed=await request('rampInput',{command:'preview-csv',args:{csv}});
+  if(version!==rampImport)return;
+  rampCsv=csv;
+  showRampFields(parsed,true);
+  $('ramp-file-note').textContent='CSV checked. Its original bytes will stay with the experiment.';
+  $('ramp-new-form').hidden=false;
+  $('ramp-input-save').disabled=false;
+ }catch(error){
+  if(version!==rampImport)return;
+  $('ramp-input-error').textContent=error.message;
+  $('ramp-new-form').hidden=false;
+ }
+};
 $('ramp-input-form').onsubmit=async event=>{
  event.preventDefault();
  const save=$('ramp-input-save');
  save.disabled=true;
  try{
-  const values=Object.fromEntries(Object.keys(rampDefaults).map(field=>[field,$('ramp-'+field).valueAsNumber]));
-  await request('rampInput',{command:'save',args:{values,...(rampRevision?{id:rampRevision.id,expectedVersion:rampRevision.version}:{})}});
-  $('goal').value=$('ramp-pause').checked?'Run the local ramp experiment and pause after reading.':'Run the local ramp experiment.';
-  $('goal').dispatchEvent(new Event('input'));
-  rampDialog.close();
-  $('goal').focus();
+  const values=Object.fromEntries(rampFields.map(field=>[field,$('ramp-'+field).valueAsNumber]));
+  const data=rampCsv===null?{values}:{csv:rampCsv};
+  rampRevision=await request('rampInput',{command:'save',args:{...data,...(rampRevision?{id:rampRevision.id,expectedVersion:rampRevision.version}:{})}});
+  prepareRampGoal();
  }catch(error){$('ramp-input-error').textContent=error.message;}
  finally{save.disabled=false;}
 };

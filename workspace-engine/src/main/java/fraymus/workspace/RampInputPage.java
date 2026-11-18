@@ -6,7 +6,9 @@ import org.json.JSONObject;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.Locale;
+import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
+import java.util.HashSet;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
@@ -16,6 +18,9 @@ final class RampInputPage {
     private static final List<String> LABELS = List.of("Angle (deg)", "Friction", "Gravity (m/s²)", "Mass (kg)", "Duration (s)");
     private static final Pattern REVISION = Pattern.compile(
             "^/artifact/([a-f0-9-]{36})/([1-9][0-9]{0,8})/index\\.html$");
+    private static final String CSV_FILE = "ramp-source.csv";
+    private static final int MAX_CSV_BYTES = 8192;
+    private static final List<String> HEADERS = List.of("angle_deg", "friction", "gravity_mps2", "mass_kg", "duration_s");
     private final WorkspaceStore store;
 
     RampInputPage(WorkspaceStore store) { this.store = store; }
@@ -35,7 +40,7 @@ final class RampInputPage {
             normalized.put(field, value.doubleValue());
         }
         definition(normalized);
-        RampDefinition.range(normalized.getDouble("seconds"), .25, 2, "duration");
+        RampDefinition.range(normalized.getDouble("seconds"), RampProcedure.MIN_SECONDS, RampProcedure.MAX_SECONDS, "duration");
         return normalized;
     }
 
@@ -46,14 +51,20 @@ final class RampInputPage {
     }
 
     JSONObject save(JSONObject args) throws Exception {
-        SpatialScene.keys(args, "values", "id", "expectedVersion");
-        JSONObject data = values(args.getJSONObject("values"));
-        var files = new JSONObject().put("ramp-input.json", data.toString(2)).put("index.html", html(data));
+        SpatialScene.keys(args, "values", "csv", "id", "expectedVersion");
+        if (args.has("values") == args.has("csv")) throw new IllegalArgumentException("Choose form values or one CSV file");
+        String csv = args.has("csv") ? args.getString("csv") : null;
+        JSONObject data = csv == null ? values(args.getJSONObject("values")) : parseCsv(csv);
+        var files = new JSONObject().put("ramp-input.json", data.toString(2)).put("index.html", page(data, csv));
+        if (csv != null) files.put(CSV_FILE, csv);
         var write = new JSONObject().put("title", "Ramp experiment input").put("files", files);
         if (args.has("id") || args.has("expectedVersion")) {
             String id = canonicalId(args.getString("id"));
             int version = args.getInt("expectedVersion");
-            bind(path(id, version), true);
+            var previous = bind(path(id, version), true);
+            if (previous.has("csvSha256") && csv == null) {
+                throw new IllegalArgumentException("Start a new form input to keep the original CSV evidence");
+            }
             write.put("id", id).put("expectedVersion", version);
         }
         JSONObject artifact = store.write(write);
@@ -72,9 +83,54 @@ final class RampInputPage {
         String data = read(store.asset(id, version, "ramp-input.json"));
         String page = read(store.asset(id, version, "index.html"));
         JSONObject verified = values(new JSONObject(data));
-        if (!page.equals(html(verified))) throw new IllegalStateException("Ramp input HTML and its typed inputs differ");
-        return new JSONObject().put("id", id).put("version", version).put("path", path).put("values", verified)
+        Path original = store.asset(id, version, CSV_FILE);
+        String csv = Files.exists(original) ? read(original) : null;
+        if (!page.equals(page(verified, csv)) || csv != null && !verified.similar(parseCsv(csv))) {
+            throw new IllegalStateException("Ramp input page differs from its typed source");
+        }
+        JSONObject bound = new JSONObject().put("id", id).put("version", version).put("path", path).put("values", verified)
                 .put("pageSha256", MeasurementStore.hash(page)).put("dataSha256", MeasurementStore.hash(data));
+        if (csv != null) bound.put("csvSha256", MeasurementStore.hash(csv));
+        return bound;
+    }
+
+    String originalCsv(JSONObject source) throws Exception {
+        if (!source.has("csvSha256")) return null;
+        String csv = read(store.asset(source.getString("id"), source.getInt("version"), CSV_FILE));
+        if (!source.getString("csvSha256").equals(MeasurementStore.hash(csv))) {
+            throw new IllegalStateException("Original ramp CSV bytes changed");
+        }
+        return csv;
+    }
+
+    static JSONObject parseCsv(String csv) {
+        if (csv.getBytes(StandardCharsets.UTF_8).length > MAX_CSV_BYTES) throw new IllegalArgumentException("Choose a CSV under 8 KiB");
+        var rows = MeasurementStore.csv(csv);
+        if (rows.size() != 2 || rows.get(0).size() != HEADERS.size() || rows.get(1).size() != HEADERS.size()) {
+            throw new IllegalArgumentException("Ramp CSV needs a header and exactly one data row");
+        }
+        var header = rows.get(0).stream().map(String::strip).toList();
+        if (!new HashSet<>(header).equals(new HashSet<>(HEADERS))) {
+            throw new IllegalArgumentException("CSV needs angle_deg, friction, gravity_mps2, mass_kg and duration_s exactly once");
+        }
+        var data = new JSONObject();
+        for (int i = 0; i < HEADERS.size(); i++) {
+            String text = rows.get(1).get(header.indexOf(HEADERS.get(i))).strip();
+            try {
+                if (text.length() > 40) throw new NumberFormatException();
+                data.put(FIELDS.get(i), new BigDecimal(text));
+            } catch (NumberFormatException bad) {
+                throw new IllegalArgumentException(HEADERS.get(i) + " must be a decimal value");
+            }
+        }
+        return values(data);
+    }
+
+    private static String page(JSONObject values, String csv) {
+        String html = html(values);
+        if (csv == null) return html;
+        return html.replace("</table></main>", "</table><p>Source: local CSV</p><!-- "
+                + MeasurementStore.hash(csv) + " --></main>");
     }
 
     static String path(String id, int version) { return "/artifact/" + id + "/" + version + "/index.html"; }

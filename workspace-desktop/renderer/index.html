@@ -77,6 +77,11 @@
   <div class="panel-head"><h2 id="ramp-input-heading">Local ramp experiment</h2><button id="ramp-input-close" type="button">Close</button></div>
   <p>Save these values to a local browser page, then start the experiment from chat.</p>
   <form id="ramp-input-form">
+    <div class="ramp-input-file">
+      <label>Import one local CSV <input id="ramp-csv" type="file" accept=".csv,text/csv"></label>
+      <small id="ramp-file-note">Required columns are angle_deg, friction, gravity_mps2, mass_kg and duration_s.</small>
+      <button id="ramp-new-form" type="button" class="quiet" hidden>Start a new form input</button>
+    </div>
     <div class="ramp-input-fields">
       <label>Angle (degrees)<input id="ramp-angleDeg" type="number" min="0" max="45" step="any" required></label>
       <label>Friction<input id="ramp-friction" type="number" min="0" max="1" step="any" required></label>
@@ -86,7 +91,12 @@
     </div>
     <label class="ramp-pause"><input id="ramp-pause" type="checkbox">Pause after reading the table</label>
     <p id="ramp-input-error" role="status"></p>
-    <button id="ramp-input-save" type="submit" class="primary">Save page and prepare chat</button>
+    <label class="ramp-pause"><input id="ramp-plan" type="checkbox">Ask the selected local model to choose the procedure</label>
+    <div class="ramp-form-buttons">
+      <button id="ramp-input-save" type="submit" class="primary">Save page and prepare chat</button>
+      <button id="ramp-use-current" type="button" disabled>Use saved page</button>
+    </div>
+    <details id="ramp-catalog"><summary>Procedure stages</summary><ol id="ramp-catalog-steps"></ol></details>
   </form>
 </dialog>
 <dialog id="inspection"><div class="panel-head"><h2>Live browser observation</h2><button id="close-inspection">Close</button></div><pre id="observation"></pre></dialog>

@@ -8,7 +8,7 @@ function rampPath(value, origin) {
 }
 
 function rampRequest(goal) {
-  return /^run the local ramp experiment(?: and pause after reading)?[.!]?$/i.test(goal.trim());
+  return /^(?:run|plan) the local ramp experiment(?: and pause after reading)?[.!]?$/i.test(goal.trim());
 }
 
 async function observeRamp(surface, origin, path) {

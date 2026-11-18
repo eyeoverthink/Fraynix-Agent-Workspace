@@ -3,6 +3,7 @@ package fraymus.workspace;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -10,7 +11,7 @@ import java.util.Locale;
 final class RampMissionReport {
     private RampMissionReport() {}
 
-    static JSONObject build(JSONObject task, JSONObject audit) {
+    static JSONObject build(JSONObject task, JSONObject audit, String sourceCsv) {
         JSONObject source = task.getJSONObject("source"), original = task.getJSONObject("original"), replay = task.getJSONObject("replay");
         JSONArray a = original.getJSONArray("samples"), b = replay.getJSONArray("samples");
         StringBuilder csv = new StringBuilder("tick,time_s,distance_m,replay_distance_m,contacts\n"), rows = new StringBuilder();
@@ -65,13 +66,22 @@ final class RampMissionReport {
                 </script></html>
                 """.formatted(label, description, inputs, points(a, low, extent, audit.getInt("ticks")),
                 points(b, low, extent, audit.getInt("ticks")), audit.getDouble("seconds"), rows);
+        if (sourceCsv != null) {
+            html = html.replace("Download evidence</a></p>", "Download evidence</a> · "
+                    + "<a href=\"input.csv\" download>Download original inputs</a></p>");
+        }
         var evidence = new JSONObject().put("source", source).put("observation", task.getJSONObject("observation"))
                 .put("audit", audit).put("original", original).put("replay", replay);
         var files = new JSONObject().put("index.html", html).put("samples.csv", csv.toString().replace("\r\n", "\n"))
                 .put("experiment.json", evidence.toString(2));
+        var refs = new ArrayList<>(List.of("artifact:" + source.getString("id") + ":v" + source.getInt("version"),
+                "ramp-page:" + source.getString("pageSha256"), "ramp-replay:" + audit.getString("replaySha256")));
+        if (sourceCsv != null) {
+            files.put("input.csv", sourceCsv);
+            refs.add("ramp-csv:" + source.getString("csvSha256"));
+        }
         return new JSONObject().put("title", "Verified ramp experiment · v" + source.getInt("version")).put("files", files)
-                .put("sources", List.of("artifact:" + source.getString("id") + ":v" + source.getInt("version"),
-                        "ramp-page:" + source.getString("pageSha256"), "ramp-replay:" + audit.getString("replaySha256")));
+                .put("sources", refs);
     }
 
     private static String points(JSONArray samples, double min, double span, int ticks) {
@@ -86,7 +96,7 @@ final class RampMissionReport {
     }
 
     static JSONArray checks(JSONObject task) {
-        return new JSONArray()
+        var checks = new JSONArray()
                 .put(text("#revision", "Input revision " + task.getJSONObject("source").getInt("version")))
                 .put(text("#result", RampMission.summary(task.getJSONObject("audit"))))
                 .put(count("tbody tr", task.getJSONObject("audit").getInt("sampleCount")))
@@ -96,6 +106,8 @@ final class RampMissionReport {
                 .put(count("#replay-line[visibility='visible']", 1))
                 .put(text("#replay-toggle", "Show replay").put("action", "click"))
                 .put(count("#replay-line[visibility='hidden']", 1));
+        if (task.getJSONObject("source").has("csvSha256")) checks.put(count("a[href='input.csv']", 1));
+        return checks;
     }
 
     private static JSONObject text(String selector, String text) {

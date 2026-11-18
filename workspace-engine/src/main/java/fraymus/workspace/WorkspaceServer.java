@@ -621,6 +621,8 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/brain/feedback-kick" -> result=scenes.feedbackKick(input);
                     case "/api/brain/feedback-cancel" -> result=scenes.feedbackCancel(input.getString("runId"));
                     case "/api/brain/feedback-rollback" -> result=brain.rollbackFeedback(input.getInt("expectedVersion"));
+                    case "/api/ramp-mission/catalog" -> {SpatialScene.keys(input);result=RampProcedure.catalog().put("sha256",RampProcedure.hash());}
+                    case "/api/ramp-mission/preview-csv" -> {SpatialScene.keys(input,"csv");result=RampInputPage.parseCsv(input.getString("csv"));}
                     case "/api/ramp-mission/source" -> result=rampMission.inputs.save(input);
                     case "/api/ramp-mission/bind" -> {SpatialScene.keys(input,"path");result=rampMission.inputs.bind(input.getString("path"),true);}
                     case "/api/ramp-mission/read" -> {SpatialScene.keys(input,"id");result=rampMission.read(input.getString("id"));}

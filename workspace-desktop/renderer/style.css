@@ -14,3 +14,10 @@
 #ramp-input-error { color: #ffc68e; }
 #ramp-input-error:empty { display: none; }
 #ramp-input-save { margin-top: 12px; }
+.ramp-input-file { display: grid; gap: 4px; margin-bottom: 16px; }
+.ramp-input-file label { display: grid; gap: 5px; }
+.ramp-input-file input { max-width: 100%; }
+.ramp-input-file small { overflow-wrap: anywhere; }
+.ramp-form-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.ramp-form-buttons #ramp-input-save { margin-top: 0; }
+#ramp-catalog { margin-top: 12px; }

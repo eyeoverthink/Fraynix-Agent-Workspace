@@ -11,20 +11,12 @@ import java.util.HexFormat;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /** Durable browser-to-physics experiment. Work is checkpointed after each independently checked stage. */
 final class RampMission {
-    static final String KIND = "local-ramp-experiment-v1";
+    static final String KIND = RampProcedure.ID;
     static final String FAMILY = "ramp-mission";
-    static final String READ_TOOL = "localRamp.read";
-    static final String CHECK_TOOL = "localRamp.check";
     static final String PORT = "/api/ramp-mission/";
-    private static final Pattern REQUEST = Pattern.compile(
-            "^run the local ramp experiment( and pause after reading)?[.!]?$", Pattern.CASE_INSENSITIVE);
-    private static final int SAMPLE_TICKS = 12;
-    private static final double REPLAY_TOLERANCE = .0001;
     private static final class Backend { static final String SHA = backendHash(); }
     private final Path root;
     private final Path nativeRoot;
@@ -39,7 +31,7 @@ final class RampMission {
         inputs = new RampInputPage(store);
     }
 
-    static boolean requested(String goal) { return REQUEST.matcher(goal.strip()).matches(); }
+    static boolean requested(String goal) { return RampProcedure.requested(goal); }
 
     private Path path(String id) { return root.resolve(RampInputPage.canonicalId(id) + ".json"); }
 
@@ -55,20 +47,28 @@ final class RampMission {
     }
 
     synchronized JSONObject start(JSONObject args) throws Exception {
-        SpatialScene.keys(args, "id", "request", "source");
+        SpatialScene.keys(args, "id", "request", "source", "choice");
         String id = args.getString("id"), request = args.getString("request");
         JSONObject source = args.getJSONObject("source");
-        Matcher match = REQUEST.matcher(request.strip());
-        if (!match.matches()) throw new IllegalArgumentException("Choose the local ramp experiment");
+        var intent = RampProcedure.intent(request);
+        JSONObject choice = args.optJSONObject("choice");
+        if (choice == null) {
+            if (intent.planned()) throw new IllegalStateException("Select the registered experiment before starting");
+            choice = intent.directChoice();
+        }
+        JSONObject admitted = RampProcedure.admit(request, choice);
         if (Files.exists(path(id))) {
             JSONObject prior = load(id);
             require(source.similar(prior.getJSONObject("source")) && request.equals(prior.getString("request")),
                     "Ramp mission binding changed");
+            require(!prior.has("choice") || admitted.similar(prior.getJSONObject("choice")), "Procedure admission changed");
             checkSource(prior, !prior.getString("status").equals("completed"));
             return view(prior);
         }
         var task = new JSONObject().put("id", id).put("procedure", KIND).put("source", source).put("request", request)
-                .put("pause", match.group(1) != null).put("backendSha256", Backend.SHA).put("stages", new JSONArray());
+                .put("pause", admitted.getBoolean("pauseAfterReading")).put("choice", admitted)
+                .put("inputFormat", RampProcedure.Format.from(source).id).put("contractSha256", RampProcedure.hash())
+                .put("backendSha256", Backend.SHA).put("stages", new JSONArray());
         checkSource(task, true);
         return retain(stage(task, "waiting-host", "browser", "Reading the pinned local browser page"));
     }
@@ -88,9 +88,9 @@ final class RampMission {
         JSONObject task = load(id);
         JSONObject source = checkSource(task, true);
         checkObservation(source, observation);
-        require(task.getString("stage").equals("browser"), "The browser receipt is already retained");
+        require(task.getString("status").equals("waiting-host"), "The browser receipt is already retained");
+        RampProcedure.append(task, RampProcedure.Step.OBSERVE, observation);
         task.put("observation", observation);
-        note(task, "browser", observation);
         return retain(stage(task, "running", "experiment", "Local table checked against the pinned revision"));
     }
 
@@ -129,28 +129,28 @@ final class RampMission {
         JSONObject source = checkSource(task, true);
         JSONObject observed = checkObservation(source, task.getJSONObject("observation"));
         require(Backend.SHA.equals(task.getString("backendSha256")), "The installed physics backend changed");
-        switch (task.getString("stage")) {
-            case "experiment" -> {
+        switch (RampProcedure.next(task)) {
+            case RUN -> {
                 if (task.getBoolean("pause") && !task.optBoolean("reviewOffered")) {
                     task.put("reviewOffered", true);
                     return retain(stage(task, "interrupted", "experiment", "Input verified. Resume to start the world experiment."));
                 }
                 task.put("original", run(source, observed, id));
-                note(task, "experiment", task.getJSONObject("original"));
+                RampProcedure.append(task, RampProcedure.Step.RUN, task.getJSONObject("original"));
                 stage(task, "running", "replay", "Native experiment retained. Replaying in a fresh world.");
             }
-            case "replay" -> {
+            case REPLAY -> {
                 task.put("replay", run(source, observed, id));
                 task.put("audit", audit(task));
-                note(task, "replay", task.getJSONObject("replay"));
+                RampProcedure.append(task, RampProcedure.Step.REPLAY, task.getJSONObject("replay"));
                 stage(task, "running", "report", "Native replay matched. Building the report.");
             }
-            case "report" -> {
-                JSONObject report = store.writeOnce(KIND + ":" + id, RampMissionReport.build(task, audit(task)));
+            case REPORT -> {
+                JSONObject report = store.writeOnce(KIND + ":" + id, RampMissionReport.build(task, audit(task), inputs.originalCsv(source)));
                 var ref = new JSONObject().put("id", report.getString("id")).put("version", report.getInt("version"))
                         .put("sha256", Creation.digest(report.getJSONObject("contents")));
                 task.put("report", ref);
-                note(task, "artifact", ref);
+                RampProcedure.append(task, RampProcedure.Step.REPORT, ref);
                 stage(task, "ready-report", "report", "Checking the actual report in the creation canvas");
             }
             default -> throw new IllegalStateException("Unknown ramp experiment stage");
@@ -169,7 +169,7 @@ final class RampMission {
             samples.put(world.sample());
             while (world.tick() < last) {
                 world.step();
-                if (world.tick() % SAMPLE_TICKS == 0 || world.tick() == last) samples.put(world.sample());
+                if (world.tick() % RampProcedure.SAMPLE_TICKS == 0 || world.tick() == last) samples.put(world.sample());
             }
         }
         // Make both independent runs use the same persisted numeric representation before comparison.
@@ -199,11 +199,6 @@ final class RampMission {
 
     private static int ticks(double seconds) { return (int) Math.round(seconds / BulletRamp.DT); }
 
-    private static void note(JSONObject task, String name, JSONObject record) {
-        task.getJSONArray("stages").put(new JSONObject().put("name", name).put("status", "verified")
-                .put("sha256", WorldFrames.hash(record)));
-    }
-
     static JSONObject audit(JSONObject task) {
         JSONObject a = task.getJSONObject("original"), b = task.getJSONObject("replay"), source = task.getJSONObject("source");
         String sourceHash = WorldFrames.hash(source);
@@ -230,18 +225,18 @@ final class RampMission {
             double dot = 0;
             for (int axis = 0; axis < 4; axis++) dot += first.getJSONArray("rotation").getDouble(axis)
                     * replay.getJSONArray("rotation").getDouble(axis);
-            require(Math.abs(1 - Math.abs(dot)) <= REPLAY_TOLERANCE
-                    && Math.abs(first.getDouble("distanceM") - replay.getDouble("distanceM")) <= REPLAY_TOLERANCE,
+            require(Math.abs(1 - Math.abs(dot)) <= RampProcedure.REPLAY_TOLERANCE
+                    && Math.abs(first.getDouble("distanceM") - replay.getDouble("distanceM")) <= RampProcedure.REPLAY_TOLERANCE,
                     "Native replay rotation or downhill travel differs");
             maxPosition = Math.max(maxPosition, Math.sqrt(spatial));
             maxSpeed = Math.max(maxSpeed, Math.sqrt(velocity));
         }
-        require(maxPosition <= REPLAY_TOLERANCE && maxSpeed <= REPLAY_TOLERANCE, "Native replay differed beyond tolerance");
+        require(maxPosition <= RampProcedure.REPLAY_TOLERANCE && maxSpeed <= RampProcedure.REPLAY_TOLERANCE, "Native replay differed beyond tolerance");
         JSONObject end = before.getJSONObject(before.length() - 1);
         return new JSONObject().put("kind", KIND).put("passed", true).put("sourceSha256", sourceHash)
                 .put("observationSha256", WorldFrames.hash(task.getJSONObject("observation"))).put("ticks", last)
                 .put("backendSha256", task.getString("backendSha256"))
-                .put("sampleCount", before.length()).put("tolerance", REPLAY_TOLERANCE)
+                .put("sampleCount", before.length()).put("tolerance", RampProcedure.REPLAY_TOLERANCE)
                 .put("maxPositionErrorM", maxPosition).put("maxVelocityErrorMps", maxSpeed)
                 .put("distanceM", end.getDouble("distanceM")).put("seconds", last * BulletRamp.DT)
                 .put("originalSha256", WorldFrames.hash(a)).put("replaySha256", WorldFrames.hash(b));
@@ -252,11 +247,11 @@ final class RampMission {
     }
 
     private static void verifySamples(JSONArray samples, int last) {
-        int count = 1 + (last + SAMPLE_TICKS - 1) / SAMPLE_TICKS;
+        int count = 1 + (last + RampProcedure.SAMPLE_TICKS - 1) / RampProcedure.SAMPLE_TICKS;
         require(samples.length() == count, "Native trial sample count changed");
         for (int i = 0; i < count; i++) {
             JSONObject sample = samples.getJSONObject(i);
-            int tick = Math.min(i * SAMPLE_TICKS, last);
+            int tick = Math.min(i * RampProcedure.SAMPLE_TICKS, last);
             require(sample.getInt("tick") == tick && sample.getDouble("timeS") == tick * BulletRamp.DT
                     && sample.getInt("contacts") >= 0, "Native sample cadence or contact count changed");
             for (String key : List.of("position", "velocity", "rotation")) {
@@ -274,7 +269,11 @@ final class RampMission {
         JSONObject computed = audit(task);
         require(computed.similar(task.getJSONObject("audit")), "The original ramp experiment proof changed");
         JSONObject ref = task.getJSONObject("report"), artifact = store.read(ref.getString("id"));
-        JSONObject regenerated = RampMissionReport.build(task, computed);
+        var retained = new java.util.ArrayList<>(List.of(task.getJSONObject("observation"), task.getJSONObject("original"),
+                task.getJSONObject("replay"), ref));
+        if (task.has("canvasReceipt")) retained.add(task.getJSONObject("canvasReceipt"));
+        RampProcedure.verify(task, retained);
+        JSONObject regenerated = RampMissionReport.build(task, computed, inputs.originalCsv(task.getJSONObject("source")));
         require(artifact.getInt("version") == ref.getInt("version")
                 && Creation.digest(artifact.getJSONObject("contents")).equals(ref.getString("sha256"))
                 && artifact.getJSONObject("contents").similar(regenerated.getJSONObject("files"))
@@ -298,7 +297,7 @@ final class RampMission {
         JSONObject stored = requireCanvas(task, true);
         require(stored.similar(receipt), "The returned canvas checks differ from the stored run");
         task.put("canvasReceipt", stored);
-        note(task, "canvas", stored);
+        RampProcedure.append(task, RampProcedure.Step.CHECK, stored);
         return retain(stage(task, "completed", "verified", summary(task.getJSONObject("audit"))));
     }
 

@@ -122,6 +122,15 @@ final class Agency043 implements AutoCloseable {
             if(g.has(BrowserOutcome126.KEY)){host(g,"browser.observe",new JSONObject(),"browser-check126",new JSONObject().put(BrowserOutcome126.KEY,g.getJSONObject(BrowserOutcome126.KEY)).put("contractSha256",WorldFrames.hash(g.getJSONObject(BrowserOutcome126.KEY))));return;}
             complete(g,args.getString("summary"));return;
         }
+        if(domain(g)&&tool.equals(RampProcedure.SELECT_TOOL)){
+            var action=domains.chooseRamp(g,args);
+            record(g,"procedure-selected",new JSONObject().put("tool",tool)
+                    .put("choice",g.getJSONObject("context044").getJSONObject("rampChoice"))
+                    .put("contractSha256",RampProcedure.hash()));
+            host(g,action.getString("tool"),action.getJSONObject("args"),"domain",
+                    new JSONObject().put("context",g.getJSONObject("context044")));
+            return;
+        }
         if(domain(g)){args=domains.prepare(g,tool,args);g.put("nativeTrace044",new JSONArray()).put("nativeReplies044",new JSONObject());host(g,tool,args,"domain",new JSONObject().put("context",g.getJSONObject("context044")));return;}
         if(tool.equals("canvas.write")||tool.equals("skill.run")){
             g.put("nativeIntent",new JSONObject().put("effectId",effectId).put("command",command));save();JSONObject a;
