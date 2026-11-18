@@ -44,11 +44,11 @@ import {exportSceneVideo} from './scene-video.js';
 const $=id=>document.getElementById(id),host=window.workspace;
 let state,artifact,editingFile='',libraryTab='artifacts',sourceMode=false,dirty=false,running=false,creationBusy=false,events=[];
 let sceneMode=false;
-function offlineRelayRequest(text) {
- return /^(?:playtest|verify) relay (?:ridge|switchyard) at (?:all three paces|(?:normal|steady|careful) pace)[.!]?$/i.test(text.trim());
+function offlineMissionRequest(text) {
+ return /^run the local ramp experiment(?: and pause after reading)?[.!]?$/i.test(text.trim()) || /^(?:playtest|verify) relay (?:ridge|switchyard) at (?:all three paces|(?:normal|steady|careful) pace)[.!]?$/i.test(text.trim());
 }
 function hasChatRoute() {
- return Boolean(state?.models.length) || offlineRelayRequest($('goal').value);
+ return Boolean(state?.models.length) || offlineMissionRequest($('goal').value);
 }
 const lab=new SceneLab({call:(command,args)=>request('scene',{command,args}),notice,activate:()=>setCanvasMode('scene'),dirtyChanged:()=>{if(state)$('run').disabled=running||creationBusy||dirty||lab.dirty||!hasChatRoute();}});
 const measurements=new MeasurementPanel({call:(command,args)=>request('measurement',{command,args}),scene:()=>lab.scene,requireSaved,notice,preview:()=>setCanvasMode('preview')});
@@ -160,13 +160,40 @@ $('back').onclick=()=>safe(()=>request('back'));$('forward').onclick=()=>safe(()
 $('new-artifact').onclick=()=>safe(()=>{requireSaved();setCanvasMode('preview');return request('new');});
 $('proof').onclick=()=>safe(async()=>{requireSaved();$('proof').disabled=true;notice('Running the real browser → artifact → test → skill proof');try{await request('proof');notice('Guided proof passed: browser, runnable app, tests and skill saved');}finally{$('proof').disabled=false;}});
 $('game').onclick=()=>safe(async()=>{await brainGame.openIntegrated();notice('Original Java game runtime is integrated here; no separate editor window');});
-$('run').onclick=()=>safe(async()=>{requireSaved();const goal=$('goal').value.trim();if(!goal)return;const local=offlineRelayRequest(goal);message(goal,'user');await request('agent',{goal,model:local?'':$('model').value,planWorld099:document.querySelector('#plan-world099').checked,...(!local && window.browserChecks126?.contract()?{browserContract126:window.browserChecks126.contract()}:{})});});
+$('run').onclick=()=>safe(async()=>{requireSaved();const goal=$('goal').value.trim();if(!goal)return;const local=offlineMissionRequest(goal);message(goal,'user');await request('agent',{goal,model:local?'':$('model').value,planWorld099:document.querySelector('#plan-world099').checked,...(!local && window.browserChecks126?.contract()?{browserContract126:window.browserChecks126.contract()}:{})});});
 $('goal').addEventListener('input',()=>{
  $('run').disabled=running||creationBusy||dirty||lab.dirty||!hasChatRoute()
   ||Boolean(state?.goals?.some(goal=>['running','waiting-host'].includes(goal.status)));
 });
 $('goal').addEventListener('keydown',e=>{if(e.ctrlKey&&e.key==='Enter')$('run').click();});
 $('stop').onclick=()=>safe(()=>request('stop'));
+const rampDialog=$('ramp-input-dialog');
+const rampDefaults={angleDeg:25,friction:0.08,gravityMps2:9.81,massKg:1,seconds:1};
+let rampRevision;
+$('ramp-input-open').onclick=()=>safe(async()=>{
+ requireSaved();
+ rampRevision=await request('rampInput',{command:'read'});
+ for(const [field,value] of Object.entries(rampRevision?.values||rampDefaults))$('ramp-'+field).value=value;
+ $('ramp-input-error').textContent='';
+ rampDialog.showModal();
+ updateLayout();
+});
+$('ramp-input-close').onclick=()=>rampDialog.close();
+rampDialog.addEventListener('close',updateLayout);
+$('ramp-input-form').onsubmit=async event=>{
+ event.preventDefault();
+ const save=$('ramp-input-save');
+ save.disabled=true;
+ try{
+  const values=Object.fromEntries(Object.keys(rampDefaults).map(field=>[field,$('ramp-'+field).valueAsNumber]));
+  await request('rampInput',{command:'save',args:{values,...(rampRevision?{id:rampRevision.id,expectedVersion:rampRevision.version}:{})}});
+  $('goal').value=$('ramp-pause').checked?'Run the local ramp experiment and pause after reading.':'Run the local ramp experiment.';
+  $('goal').dispatchEvent(new Event('input'));
+  rampDialog.close();
+  $('goal').focus();
+ }catch(error){$('ramp-input-error').textContent=error.message;}
+ finally{save.disabled=false;}
+};
 $('observe-browser').onclick=()=>safe(async()=>{const result=await request('tool',{tool:'browser.observe',args:{}});$('observation').textContent=JSON.stringify(result,null,2);$('inspection').showModal();updateLayout();});
 $('close-inspection').onclick=()=>{$('inspection').close();updateLayout();};$('inspection').addEventListener('close',updateLayout);
 for(const tab of ['artifacts','skills','learning','scenes'])$(tab+'-tab').onclick=()=>{libraryTab=tab;for(const name of ['artifacts','skills','learning','scenes'])$(name+'-tab').classList.toggle('selected',name===tab);renderLibrary();};
@@ -203,7 +230,7 @@ host.onEvent(({type,value})=>{
   else if(type==='answer')message(value);
   else if(type==='error')notice(value);
   else if(type==='surface'){if(value.kind==='browser'){if(document.activeElement!==$('address'))$('address').value=value.url;$('browser-title').textContent=value.title||value.url;}}
-  else if(type==='run'){running=value.active;$('stop').disabled=!running;$('run').disabled=running||creationBusy||dirty||lab.dirty||!hasChatRoute();$('goal').disabled=running;$('run-state').textContent=running?(value.phase||(value.turn?'Planning step '+value.turn+' / 16':'Starting task')):'Ready when you are';for(const id of ['new-artifact','navigate','back','forward','proof','test-canvas','save-source','source-file','revert-source','observe-browser','learning-proof','learning-evaluate','learning-rollback'])$(id).disabled=running;$('learning-rollback').disabled=running||(state?.learning?.activePolicy.version||1)===1;$('source').readOnly=running;$('test-canvas').disabled=running||!artifact?.test?.steps?.length;$('save-skill').disabled=running||!artifact?.test?.passed;renderLibrary();}
+  else if(type==='run'){running=value.active;$('stop').disabled=!running;$('run').disabled=running||creationBusy||dirty||lab.dirty||!hasChatRoute();$('goal').disabled=running;$('run-state').textContent=running?(value.phase||(value.turn?'Planning step '+value.turn+' / 16':'Starting task')):'Ready when you are';for(const id of ['new-artifact','navigate','back','forward','proof','test-canvas','save-source','source-file','revert-source','observe-browser','ramp-input-open','learning-proof','learning-evaluate','learning-rollback'])$(id).disabled=running;$('learning-rollback').disabled=running||(state?.learning?.activePolicy.version||1)===1;$('source').readOnly=running;$('test-canvas').disabled=running||!artifact?.test?.steps?.length;$('save-skill').disabled=running||!artifact?.test?.passed;renderLibrary();}
   if(type==='run')$('creation-open').disabled=value.active||creationBusy;
   if(type==='run'){spatial.agentBusy=value.active;spatial.controls();}
   if(type==='perceptionFrame')perceptionPanel.accept(value).catch(e=>notice(e.message));

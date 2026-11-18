@@ -4,3 +4,13 @@
 
 #scene-lab{display:flex;flex:1;flex-direction:column;min-height:0;overflow:auto;background:#101f2a}#scene-lab[hidden]{display:none}.scene-heading{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;gap:10px}.scene-heading strong{font-size:14px}.scene-heading span{display:block;color:var(--muted);font-size:10px;margin-top:4px}.scene-parameters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px 10px;padding:0 14px 10px}.scene-parameters label{font-size:10px;color:var(--muted)}.scene-parameters input{display:block;width:100%;padding:6px 8px;font-size:12px;margin-top:4px}.scene-actions{display:flex;flex-wrap:wrap;gap:5px;padding:0 14px 10px}.scene-actions button,.scene-history button,.scene-heading button{font-size:11px;padding:7px 9px}#scene-stage{flex:1;min-height:210px;position:relative;overflow:hidden;cursor:grab;touch-action:none;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}#scene-stage canvas{display:block;width:100%;height:100%}.scene-readouts{display:flex;flex-wrap:wrap;justify-content:space-between;gap:7px;padding:8px 14px;color:var(--teal);font:11px ui-monospace,monospace}#scene-chart{height:64px;width:100%;flex-shrink:0}#scene-selection{font-size:10px;overflow-wrap:anywhere;padding:7px 14px}.scene-history{display:flex;align-items:center;gap:7px;padding:8px 14px 12px;flex-wrap:wrap}.scene-history select{max-width:230px;font-size:11px;min-width:100px}#scene-evaluation{font-size:10px;color:var(--muted);flex-basis:100%;line-height:1.5}#scene-evaluation[data-passed=true]{color:var(--teal)}.scene-active .agent-intro{display:none}.scene-active .canvas-toolbar{padding-bottom:0}.scene-active .canvas-toolbar>div:last-child{display:none}
 #scene-settings summary{padding:8px 14px;font-size:11px;cursor:pointer;color:var(--teal)}#scene-parameter-summary{float:right;color:var(--muted);font-size:10px}.scene-active #scene-stage{min-height:260px}
+
+.ramp-input-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px; }
+#ramp-input-dialog { width: min(540px, calc(100vw - 32px)); }
+.ramp-input-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 12px; }
+.ramp-input-fields label { display: grid; gap: 4px; }
+.ramp-input-fields input { width: 100%; min-width: 0; }
+.ramp-pause { display: flex; align-items: center; gap: 8px; margin-top: 16px; }
+#ramp-input-error { color: #ffc68e; }
+#ramp-input-error:empty { display: none; }
+#ramp-input-save { margin-top: 12px; }

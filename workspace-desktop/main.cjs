@@ -2,7 +2,8 @@
 const {app,BrowserWindow,ipcMain,Menu,shell}=require('electron');
 const {spawn}=require('node:child_process');
 const fs=require('node:fs');const fsp=require('node:fs/promises');const path=require('node:path');const {randomBytes,randomUUID}=require('node:crypto');const readline=require('node:readline');
-const {Surface}=require('./surfaces.cjs');const {catalog,command,planTools}=require('./policy.cjs');
+const {Surface}=require('./surfaces.cjs');
+const {observeRamp, rampPath, rampRequest}=require('./ramp-mission.cjs');const {catalog,command,planTools}=require('./policy.cjs');
 const {failureClass,performControlled,observeProgress,trainController}=require('./controller.cjs');
 const {replay,rehearse}=require('./controller-replay.cjs');
 const {NetworkPolicy}=require('./network-policy.cjs');
@@ -214,6 +215,19 @@ async function executeRaw(tool,args={}){
       if(run)run.sceneEvidence=result;emit('experiment',await api('/api/scene/snapshot',{}));break;
     }
     case 'experiment.reset':result=await api('/api/experiment/control',{action:'reset'});if(run)run.sceneEvidence=null;emit('experiment',result);break;
+    case 'localRamp.read':
+      if(!agencyScope043.getStore()) throw Error('Start this experiment in chat');
+      result=await observeRamp(browser,origin,args.path);
+      break;
+    case 'localRamp.check': {
+      if(!agencyScope043.getStore()) throw Error('The report check needs its Java mission');
+      const report=await api('/api/artifact/read',{id:args.artifact.id});
+      if(report.version!==args.artifact.version)throw Error('The saved ramp report revision changed');
+      await openArtifact(report);
+      emit('view','preview');
+      result=await execute('canvas.test',{steps:args.steps});
+      break;
+    }
     case 'browser.navigate':result=await browser.navigate(args.url);break;
     case 'browser.observe':result=await browser.observe();break;
     case 'browser.click':result=await browser.act(args,'click');break;
@@ -308,7 +322,8 @@ async function mission044(id){
  task.frames=g.frames?.length||0;task.history=(g.history||[]).slice(-12).map(r=>({kind:r.kind,at:r.at,sha256:r.sha256,tool:r.detail?.tool,reason:r.detail?.reason,verified:r.detail?.verified}));
  const sources=Object.entries(g.bindings044||{}).map(([kind,b])=>({kind,...(Array.isArray(b)?{ids:b}:{...Object.fromEntries(['id','datasetId','sceneId','worldId','objectId','pusherId','mapId','referenceId','sourceArtifactId','sourceVersion','sourceFile','version','expectedVersion','expectedRevision','expectedHash','sourceSha256','title','sourceKind'].filter(k=>b?.[k]!==undefined).map(k=>[k,b[k]]))})}));
  if(g.initialArtifact)sources.push({kind:'initial artifact',...g.initialArtifact});
- let child=null;if(c.ownedGoalId)child=await api('/api/goals/read',{id:c.ownedGoalId});else if(c.ownedWorkflowId)child=await api('/api/workflows/read',{id:c.ownedWorkflowId});else if(c.ownedGameTask115)child=await api('/api/game-tasks115/read',{id:c.ownedGameTask115});
+ if(g.rampSource)sources.push({kind:'local ramp input',id:g.rampSource.id,version:g.rampSource.version});
+ let child=null;if(c.ownedRampMission)child=await api('/api/ramp-mission/read',{id:c.ownedRampMission});else if(c.ownedGoalId)child=await api('/api/goals/read',{id:c.ownedGoalId});else if(c.ownedWorkflowId)child=await api('/api/workflows/read',{id:c.ownedWorkflowId});else if(c.ownedGameTask115)child=await api('/api/game-tasks115/read',{id:c.ownedGameTask115});
  const result=g.report044?.artifact||g.completion044?.javaGoal?.report||g.completion044?.javaWorkflow?.report||g.report||g.artifact||child?.report||null;
  return{task,sources,evidence:g.completion044||{},child:child?Object.fromEntries(['id','status','step','stage','reason','procedure','metrics','audit','trials','repairs','counterfactual045','savedSkill','draftNumber','resumes','attempt','report','currentChild','implementation103','profile101','qualification104','qualification105','activeWorkflow105','cost105','auditHistory','graph','graphSha256','stages','diagnostics','worldBinding'].filter(k=>child[k]!==undefined).map(k=>[k,child[k]])):null,result,skill:g.savedRecipe||g.usedRecipe||g.completion044?.javaGoal?.savedSkill||g.completion044?.javaWorkflow?.savedSkill||child?.savedSkill||null,scope:'Actual retained Java task and source selections. A past result is not a new camera observation or proof of improved model weights.'};
 }
@@ -316,6 +331,7 @@ async function openMissionResult(mission) {
   const {child, result} = mission;
   const relay = child?.procedure === 'relay-playtest-v1'
     ? await api('/api/game-tasks115/verify', {id: child.id}) : null;
+  if(child?.procedure==='local-ramp-experiment-v1')await api('/api/ramp-mission/verify',{id:child.id});
   const artifact = await api('/api/artifact/read', {id: result.id});
   if (artifact.version !== result.version) {
     throw Error('The saved result has a later revision; this task retains its original version reference');
@@ -337,8 +353,10 @@ let currentObservation158=null,currentCalibrated159=null,currentRecorded162=null
 function bindings044(){const b={scene:currentScene,dataset:currentDataset,spatial:currentSpatial,pose:currentPose,world:currentPersistentWorld,push:pushSelection(),mapping:currentMapSelection,creation:creationSelection(),knowledge:knowledgeBridge?.selected(),tabletop:tabletopBridge?.selected(),observations:observationBridge?.selection(),metric:observationBridge?.metricSelection?.(),tracking:trackingBridge?.selected(),verifiedObservation:currentObservation158,calibratedObservation:currentCalibrated159,recordedSmall:currentRecorded162};return Object.fromEntries(Object.entries(b).filter(([,v])=>v!=null));}
 async function startAgent(goal,model,extra={}){
  if(run||learningJob||manualBusy||pendingAgency043)throw Error('Finish or stop the current operation first');if(typeof goal!=='string'||!goal.trim()||goal.length>8000)throw Error('Enter a request up to8000characters');
+ const sourcePath=rampRequest(goal)?rampPath(browser.view.webContents.getURL(),origin):'';
+ if(rampRequest(goal)&&!sourcePath)throw Error('Open a saved ramp input in the local browser first');
  const generation=agencyLaunchGeneration043;pendingAgency043++;emit('run',{active:true,goal,model,phase:'Java is admitting and routing the request'});
- try{await inputs100.beforeStart();const settings=await window.webContents.executeJavaScript('window.agency043View?.settings()||({visionModel:""})');if(generation!==agencyLaunchGeneration043)return{stopped:true};await updateSelfHost();if(generation!==agencyLaunchGeneration043)return{stopped:true};return await agency043.begin({goal,model,visionModel:settings.visionModel||'',artifactId:currentArtifact?.id||'',bindings:bindings044(),...extra});}finally{pendingAgency043--;if(!agency043.busy())emit('run',{active:false});}
+ try{await inputs100.beforeStart();const settings=await window.webContents.executeJavaScript('window.agency043View?.settings()||({visionModel:""})');if(generation!==agencyLaunchGeneration043)return{stopped:true};await updateSelfHost();if(generation!==agencyLaunchGeneration043)return{stopped:true};return await agency043.begin({goal,model,visionModel:settings.visionModel||'',artifactId:currentArtifact?.id||'',bindings:{...bindings044(),...(sourcePath?{rampInput:{path:sourcePath}}:{})},...extra});}finally{pendingAgency043--;if(!agency043.busy())emit('run',{active:false});}
 }
 function startCreationAgent(goal,model,options={}){return startAgent(goal,model,{family:'creation',options});}
 function startWorkflowAgent(goal,model,options={}){return startAgent(goal,model,{family:'workflow',options});}
@@ -395,7 +413,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     while(manualBusy&&!learningJob&&Date.now()<deadline)await new Promise(r=>setTimeout(r,100));
   }
   if((['brain','gameRuntime','memory'].includes(input.operation))&&!['state','read','frame','context','cancel'].includes(input.command)&&(run||learningJob||manualBusy))throw Error('Wait for the current operation, or take over from the agent first');
-  const manual=(input.operation==='history113')||(input.operation==='inputs100'&&input.command!=='state')||(input.operation==='agency043'&&['report','mission-open','archive','verify'].includes(input.command))||(input.operation==='agent042'&&['report','stop'].includes(input.command))||(input.operation==='alignment041'&&!['state','trial','capture','view','image','frame','stop','finish'].includes(input.command))||(input.operation==='runtime040'&&!['state','read','view','raster','summary'].includes(input.command))||(input.operation==='knowledge'&&['bind','report','open-source'].includes(input.command))||(input.operation==='tabletop'&&!['state','read','image','understanding','frame','stop'].includes(input.command))||(input.operation==='metrics'&&!['state','view'].includes(input.command))||(input.operation==='observations'&&!['state','read','frame','native'].includes(input.command))||(input.operation==='persistentWorld'&&!['list','read','observe','visibility','run','suite','counter-start','counter-status','rehearsal-goals','rehearsal-start','rehearsal-list','rehearsal-read','rehearsal-replay'].includes(input.command))||(input.operation==='pose'&&!['snapshot','run','observe'].includes(input.command))||(input.operation==='poseStudy'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='contactStudy'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='forceLearning'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='tracking'&&!['state','read','dataset','frame'].includes(input.command))||(input.operation==='perception'&&!['catalog','state','models','read','frame-preview'].includes(input.command))||(input.operation==='maps'&&!['select','snapshot','reference','read','list','dungeons','example','reference-cases','reference-example','inspect-image','run'].includes(input.command))||(input.operation==='spatial'&&!['snapshot','read','list','example','observe','run'].includes(input.command))||(input.operation==='data'&&!['list','inspect'].includes(input.command))||(input.operation==='javaGoal'&&!['goal.read','procedures.list'].includes(input.command))||(input.operation==='body'&&input.command!=='cancel')||input.operation==='transfer'||['tool','new','sourceSave','proof','back','forward','learningProof','learningEvaluate','learningRollback'].includes(input.operation)||(input.operation==='scene'&&!['snapshot','read','runs'].includes(input.command))||(input.operation==='measurement'&&!['read','list','comparison'].includes(input.command))||(input.operation==='calibration'&&!['read','list'].includes(input.command))||(input.operation==='observer'&&!['observe','history'].includes(input.command));
+  const manual=(input.operation==='history113')||(input.operation==='inputs100'&&input.command!=='state')||(input.operation==='agency043'&&['report','mission-open','archive','verify'].includes(input.command))||(input.operation==='agent042'&&['report','stop'].includes(input.command))||(input.operation==='alignment041'&&!['state','trial','capture','view','image','frame','stop','finish'].includes(input.command))||(input.operation==='runtime040'&&!['state','read','view','raster','summary'].includes(input.command))||(input.operation==='knowledge'&&['bind','report','open-source'].includes(input.command))||(input.operation==='tabletop'&&!['state','read','image','understanding','frame','stop'].includes(input.command))||(input.operation==='metrics'&&!['state','view'].includes(input.command))||(input.operation==='observations'&&!['state','read','frame','native'].includes(input.command))||(input.operation==='persistentWorld'&&!['list','read','observe','visibility','run','suite','counter-start','counter-status','rehearsal-goals','rehearsal-start','rehearsal-list','rehearsal-read','rehearsal-replay'].includes(input.command))||(input.operation==='pose'&&!['snapshot','run','observe'].includes(input.command))||(input.operation==='poseStudy'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='contactStudy'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='forceLearning'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='tracking'&&!['state','read','dataset','frame'].includes(input.command))||(input.operation==='perception'&&!['catalog','state','models','read','frame-preview'].includes(input.command))||(input.operation==='maps'&&!['select','snapshot','reference','read','list','dungeons','example','reference-cases','reference-example','inspect-image','run'].includes(input.command))||(input.operation==='spatial'&&!['snapshot','read','list','example','observe','run'].includes(input.command))||(input.operation==='data'&&!['list','inspect'].includes(input.command))||(input.operation==='javaGoal'&&!['goal.read','procedures.list'].includes(input.command))||(input.operation==='body'&&input.command!=='cancel')||input.operation==='transfer'||input.operation==='rampInput'||['tool','new','sourceSave','proof','back','forward','learningProof','learningEvaluate','learningRollback'].includes(input.operation)||(input.operation==='scene'&&!['snapshot','read','runs'].includes(input.command))||(input.operation==='measurement'&&!['read','list','comparison'].includes(input.command))||(input.operation==='calibration'&&!['read','list'].includes(input.command))||(input.operation==='observer'&&!['observe','history'].includes(input.command));
   if(manual&&workflowBridge?.reserved()&&!(input.operation==='javaGoal'&&['workflow.cancel','workflow.resume'].includes(input.command)))throw Error('Resume or Stop the evidence workflow before changing its workspace');
   if(manual&&goalBridge?.latest()?.procedure==='creation-web-v1'&&['running','waiting-host'].includes(goalBridge.latest().status)&&!(input.operation==='javaGoal'&&input.command==='goal.cancel'))throw Error('The creation goal owns the canvas; stop it before editing or starting another operation');
   if(manual&&(run||learningJob||manualBusy||pendingAgency043||agency043?.busy()))throw Error('Wait for the current operation, or take over from the agent first');
@@ -666,6 +684,23 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(!['snapshot','read','runs','record'].includes(input.command))activity('scene',input.command,{id:result.id,status:result.status,evaluation:result.evaluation});return result;
     }
     case 'state':return {...await refresh(),currentArtifact,origin,log,run:run?{active:true,goal:run.goal}:null};
+    case 'rampInput': {
+      const path=rampPath(browser.view.webContents.getURL(),origin);
+      if(input.command==='read') {
+        if(!path)return null;
+        return api('/api/ramp-mission/bind',{path}).catch(error=>{
+          if(error.message.includes('Choose an actual local ramp input page'))return null;
+          throw error;
+        });
+      }
+      if(input.command==='save') {
+        const source=await api('/api/ramp-mission/source',input.args);
+        await browser.navigate(origin+source.path);
+        await refresh();
+        return source;
+      }
+      throw Error('Unknown ramp input operation');
+    }
     case 'tool':if(run)throw Error('Take over before using manual tools');return execute(input.tool,input.args);
     case 'small161':{
       const args=input.args||{};

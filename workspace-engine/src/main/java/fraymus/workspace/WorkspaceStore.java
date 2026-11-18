@@ -55,6 +55,7 @@ public final class WorkspaceStore implements AutoCloseable {
             .put("files",new JSONArray(values.get("files"))).put("sources",new JSONArray(values.get("sources"))).put("created",values.get("created"));
     }
     private EntityRecord require(String id) {UUID uuid=UUID.fromString(id);return world.snapshot().entities().stream().filter(e->e.id().equals(uuid)).findFirst().orElseThrow(()->new IllegalArgumentException("Unknown artifact"));}
+    synchronized int version(String id) {return describe(require(id)).getInt("version");}
     public synchronized JSONObject read(String id) throws IOException {
         JSONObject result=describe(require(id));var files=new JSONObject();
         for(Object name:result.getJSONArray("files"))files.put(name.toString(),Files.readString(asset(id,result.getInt("version"),name.toString()),StandardCharsets.UTF_8));

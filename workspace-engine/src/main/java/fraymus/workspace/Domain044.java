@@ -10,7 +10,7 @@ final class Domain044 {
  static final Set<String> CONTEXT_KEYS=Set.of("observerEvidence","ownedObserverId","ownedBodyRunId","bodyGrab","bodyMove","bodyRelease","observerCapture","observerMoved","observerInspected","transferEvidence","calibrationEvidence","calibrationReportId","sceneEvidence","comparisonEvidence","comparisonReport","agent042Facts","agent042Audit","agent042Report","alignmentFacts","alignmentHash","alignmentReport","runtimeFacts","runtimeHash","runtimeView","runtimeReport","selfFacts","objectFacts","researchJobId","ownedResearchId","researchJob","knowledgeReport","tabletopFacts","tabletopProbe","tabletopReport","observationSelection","metricSelection","observationRunId","observationEvidence","observationReport","trackingJobId","trackingEvidence","trackingRollback","trackingReport","ownedGoalId","goalEvidence","ownedWorkflowId","workflowEvidence","proceduralExport","worldBinding");
  JSONObject inspect(String route,JSONObject args)throws Exception{return nativeApi.call(route,args);}
  void initialize(JSONObject g,JSONObject bindings,JSONObject options)throws Exception{
-  SpatialScene.keys(bindings,"scene","dataset","spatial","pose","world","push","mapping","creation","knowledge","tabletop","observations","metric","tracking","perception","verifiedObservation","calibratedObservation","recordedSmall");if(bindings.toString().length()>42000)throw new IllegalArgumentException("Selected-source context exceeds42K");
+  SpatialScene.keys(bindings,"scene","dataset","spatial","pose","world","push","mapping","creation","knowledge","tabletop","observations","metric","tracking","perception","verifiedObservation","calibratedObservation","recordedSmall","rampInput");if(bindings.toString().length()>42000)throw new IllegalArgumentException("Selected-source context exceeds42K");
   for(String key:new ArrayList<>(bindings.keySet()))if(bindings.isNull(key))bindings.remove(key);
   var a=nativeApi.call("/api/alignment041/state",new JSONObject());String family=g.optString("explicitFamily044",ChatPolicy044.route(g.getString("goal"),bindings,!a.optString("selectedRegistrationId").isBlank()));
   if(!Set.of("creation","workflow").contains(family)&&g.has("explicitFamily044"))throw new IllegalArgumentException("Explicit start only accepts creation or workflow");
@@ -20,6 +20,13 @@ final class Domain044 {
   if(family.equals("world")&&(bindings.optJSONObject("world",new JSONObject()).optBoolean("selectiveMemory079")||ChatPolicy044.has(g.getString("goal"),"selective memory|cost-aware|verified procedures|memory when")))c.put("selectiveMemory079",true);
   if(family.equals("construction")&&ChatPolicy044.design053(g.getString("goal")))c.put("designRequested053",true).put("designReview053",ChatPolicy044.designReview053(g.getString("goal")));
   for(var e:Map.of("knowledge","knowledgeSelection","tabletop","tabletopSelection","observations","observationSelection","metric","metricSelection","world","worldBinding").entrySet())if(bindings.has(e.getKey()))c.put(e.getValue(),bindings.get(e.getKey()));
+  if(family.equals(RampMission.FAMILY)){
+   var source=Procedure044.binding(bindings,"rampInput");
+   SpatialScene.keys(source,"path");
+   g.put("rampSource",nativeApi.call(RampMission.PORT+"bind",source));
+   g.put("context044",c).put("nativeTrace044",new JSONArray()).put("nativeReplies044",new JSONObject());
+   return;
+  }
   var state=nativeApi.call("/api/state",new JSONObject());c.put("available044",new JSONObject().put("scenes",state.getJSONArray("scenes")).put("datasets",state.getJSONArray("datasets")).put("procedures",state.getJSONArray("procedures")));
   if(ChatPolicy044.reuse(g.getString("goal"))){var choices=new ArrayList<JSONObject>();String explicit=Requested044.match(g.getString("goal"),"\\bv(?:ersion\\s*)?(\\d+)\\b");for(Object raw:state.getJSONArray("procedures")){var p=(JSONObject)raw;if(g.getString("goal").toLowerCase(Locale.ROOT).contains(p.getString("name").toLowerCase(Locale.ROOT))&&(explicit==null||p.getInt("version")==Integer.parseInt(explicit)))choices.add(p);}var names=new HashSet<String>();choices.forEach(p->names.add(p.getString("name")));if(names.size()>1)throw new IllegalArgumentException("Choose one retained procedure name");if(!choices.isEmpty()){choices.sort(Comparator.comparingInt((JSONObject p)->p.getInt("version")).reversed());var p=choices.get(0);c.put("procedureBinding",new JSONObject().put("name",p.getString("name")).put("version",p.getInt("version")).put("kind",p.getString("kind")));String f=familyFor(p.getString("kind"));g.put("family044",f).put("requested044",Requested044.fields(g.getString("goal"),f));c.put("needsGoal",!f.equals("workflow"));}}
   g.put("context044",c).put("nativeTrace044",new JSONArray()).put("nativeReplies044",new JSONObject());
@@ -27,6 +34,7 @@ final class Domain044 {
  static String familyFor(String kind){return switch(kind){case"gripper-construction-051-v1"->"construction";case"persistent-world-arrange-v1",Procedure079.KIND->"world";case"spatial-arrange-v1"->"pose";case"spatial-push-v1"->"push";case"map-world-v1"->"map";case"procedural-space-v1"->"space";case"motion-data-report-v1"->"data";case"spatial-manipulation-v1"->"spatial";case"browser-perception-v1"->"perception";case"creation-web-v1"->"creation";case RecordedSmall162.KIND,CalibratedAction159.KIND,ObservationTask158.KIND,ObservationArtifact128.KIND,"evidence-workflow-v1","typed-skill-graph-v1",DataCreation101.KIND,DataSummary102.KIND,DataSummary104.KIND->"workflow";default->"goal";};}
  JSONObject bootstrap(JSONObject g)throws Exception{
   String f=g.getString("family044");var c=g.getJSONObject("context044");var b=g.getJSONObject("bindings044");if(c.has("ownedGoalId")||c.has("ownedWorkflowId")||c.has("ownedGameTask115"))return null;
+  if(f.equals(RampMission.FAMILY))return bootRamp(g);
   if(f.equals("gamelevel")){var task=nativeApi.call("/api/game-tasks115/start",new JSONObject().put("id",g.getString("id")).put("request",g.getString("goal")));if(task.getString("status").equals("interrupted")&&g.optInt("resumes")>0)nativeApi.call("/api/game-tasks115/resume",new JSONObject().put("id",task.getString("id")));c.put("ownedGameTask115",task.getString("id"));g.put("wait044",new JSONObject().put("route","/api/game-tasks115/advance").put("id",task.getString("id")));return null;}
   if(f.equals("rehearsal"))return new JSONObject().put("tool","experiment.rehearse").put("args",WorldFrames.copy(g.getJSONObject("requested044")));
   if(f.equals("world")&&(c.optBoolean("selectiveMemory079")||c.optJSONObject("procedureBinding",new JSONObject()).optString("kind").equals(Procedure079.KIND))){if(!b.has("world"))throw new IllegalArgumentException("Select the current world and target poses first");if(ChatPolicy044.has(g.getString("goal"),"review before|inspect before|do not (move|execute|actuate)|don.t (move|execute|actuate)"))throw new IllegalArgumentException("This request asks for review only. Use the alternative-plan review control; no procedure executed.");if(g.optBoolean("planWorld099"))return null;var a=c.has("procedureBinding")?merge(new JSONObject(),c.getJSONObject("procedureBinding"),false):new JSONObject().put("selectiveMemory079",true);merge(a,g.getJSONObject("requested044"));return new JSONObject().put("tool",c.has("procedureBinding")?"procedure.run":"world.arrange").put("args",a);}
@@ -64,6 +72,39 @@ final class Domain044 {
  }
  static JSONObject merge(JSONObject a,JSONObject b){return merge(a,b,true);}
  static JSONObject merge(JSONObject a,JSONObject b,boolean all){for(String k:b.keySet())if(all||Set.of("name","version").contains(k))a.put(k,b.get(k));return a;}
+ private JSONObject bootRamp(JSONObject g)throws Exception{
+  String id=g.getString("id");
+  var c=g.getJSONObject("context044");
+  var idOnly=new JSONObject().put("id",id);
+  var task=nativeApi.call(RampMission.PORT+"start",new JSONObject().put("id",id)
+          .put("request",g.getString("goal")).put("source",g.getJSONObject("rampSource")));
+  c.put("ownedRampMission",id);
+  String status=task.getString("status");
+  if(status.equals("interrupted")&&g.getInt("resumes")>0)
+   status=nativeApi.call(RampMission.PORT+"resume",idOnly).getString("status");
+  switch(status){
+   case "waiting-host": return new JSONObject().put("tool",RampMission.READ_TOOL)
+           .put("args",new JSONObject().put("path",g.getJSONObject("rampSource").getString("path")));
+   case "running": waitRamp(g,id);
+                  break;
+   case "ready-report": c.put("rampReady",true);
+                        break;
+   case "completed": nativeApi.call(RampMission.PORT+"verify",idOnly);
+                     c.put("rampVerified",true);
+                     break;
+   default: throw new IllegalStateException(task.getString("reason"));
+  }
+  return null;
+ }
+ private static void waitRamp(JSONObject g,String id){
+  g.put("wait044",new JSONObject().put("route",RampMission.PORT+"advance").put("id",id));
+ }
+ JSONObject nextSurface(JSONObject g)throws Exception{
+  var c=g.getJSONObject("context044");
+  if(!g.getString("family044").equals(RampMission.FAMILY)||!c.optBoolean("rampReady")||c.optBoolean("rampVerified"))return null;
+  var args=nativeApi.call(RampMission.PORT+"report-check",new JSONObject().put("id",g.getString("id")));
+  return new JSONObject().put("tool",RampMission.CHECK_TOOL).put("args",args);
+ }
  JSONObject prepare(JSONObject g,String tool,JSONObject args)throws Exception{
   var a=WorldFrames.copy(args);var c=g.getJSONObject("context044");
   if(Set.of("construction.start","procedure.run").contains(tool)&&c.optBoolean("designRequested053"))a.put("design053",true).put("reviewCounterfactual045",c.optBoolean("designReview053"));
@@ -93,6 +134,22 @@ final class Domain044 {
  }
  static JSONObject compact(JSONObject value){if(value.optString("schema").equals("persistent-java-agent-042-v1")||value.toString().length()<50000)return WorldFrames.copy(value);var out=new JSONObject();for(String k:List.of("id","status","reason","procedure","version","sceneId","sceneVersion","title","metrics","report","savedSkill","worldBinding","worldCommit","taskCost080","procedure079","nativeBinding","evaluation","application","activeWorldModel","activeProfile","generation","selectedId","source","snapshotHash","observer","receipt","observationId","worldSha256","action","runId","gripId","count","sourceKind"))if(value.has(k))out.put(k,value.get(k));return out.put("largeSourceRetainedInJavaStore",true);}
  void accept(JSONObject g,String tool,JSONObject result,JSONObject observedContext)throws Exception{
+  if(g.getString("family044").equals(RampMission.FAMILY)){
+   String id=g.getString("id");
+   var c=g.getJSONObject("context044");
+   switch(tool){
+    case RampMission.READ_TOOL -> {
+     nativeApi.call(RampMission.PORT+"observe",new JSONObject().put("id",id).put("observation",result));
+     waitRamp(g,id);
+    }
+    case RampMission.CHECK_TOOL -> {
+     nativeApi.call(RampMission.PORT+"accept-report",new JSONObject().put("id",id).put("receipt",result));
+     c.put("rampVerified",true);
+    }
+    default -> throw new IllegalStateException("Unexpected local ramp action");
+   }
+   return;
+  }
   if(g.getJSONArray("nativeTrace044").isEmpty()&&!tool.equals("perception.select"))throw new IllegalStateException("A domain action needs actual Java/native source receipts");
   var c=g.getJSONObject("context044");
   var nativeReplies=g.getJSONObject("nativeReplies044");
@@ -128,7 +185,16 @@ final class Domain044 {
   if(tool.equals("calibration.start"))g.put("wait044",new JSONObject().put("route","/api/calibration/read").put("id",c.getJSONObject("calibrationEvidence").getString("id")));
  }
  boolean waitNative(JSONObject g)throws Exception{
-  if(!g.has("wait044"))return false;var w=g.getJSONObject("wait044");var actual=nativeApi.call(w.getString("route"),new JSONObject().put("id",w.getString("id")));String status=actual.getString("status");if(Set.of("running","waiting-host","queued").contains(status)){g.put("reason",actual.optString("reason","Java child task is running"));return true;}
+  if(!g.has("wait044"))return false;var w=g.getJSONObject("wait044");var actual=nativeApi.call(w.getString("route"),new JSONObject().put("id",w.getString("id")));String status=actual.getString("status");
+  if(w.getString("route").equals(RampMission.PORT+"advance")){
+   g.put("reason",actual.getString("reason"));
+   if(status.equals("running"))return true;
+   if(!status.equals("ready-report"))throw new IllegalStateException(actual.getString("reason"));
+   g.getJSONObject("context044").put("rampReady",true);
+   g.remove("wait044");
+   return false;
+  }
+  if(Set.of("running","waiting-host","queued").contains(status)){g.put("reason",actual.optString("reason","Java child task is running"));return true;}
   if(!status.equals("completed"))throw new IllegalStateException("Owned native task "+status+": "+actual.optString("reason"));var c=g.getJSONObject("context044");if(w.getString("route").equals("/api/goals/read")){c.put("nativeComplete044",compact(actual)).put("goalEvidence",compact(actual));}else c.put(w.getString("route").equals("/api/game-tasks115/advance")?"gameEvidence115":w.getString("route").equals("/api/workflows/read")?"workflowEvidence":"calibrationEvidence",compact(actual));g.remove("wait044");return false;
  }
  void verifyReport(JSONObject g)throws Exception{
@@ -136,6 +202,8 @@ final class Domain044 {
  }
  JSONObject finish(JSONObject g)throws Exception{
   var c=g.getJSONObject("context044");if(!ChatPolicy044.allowed(g).contains("finish"))throw new IllegalStateException("Java completion stage has not been reached");var meta=new JSONObject();
+  if(c.has("ownedRampMission"))meta.put("rampMission",
+          nativeApi.call(RampMission.PORT+"verify",new JSONObject().put("id",c.getString("ownedRampMission"))));
   if(c.has("ownedGameTask115"))meta.put("javaGameTask115",nativeApi.call("/api/game-tasks115/verify",new JSONObject().put("id",c.getString("ownedGameTask115"))));
   if(c.has("ownedGoalId")){var child=nativeApi.call("/api/goals/read",new JSONObject().put("id",c.getString("ownedGoalId")));if(!child.getString("status").equals("completed"))throw new IllegalStateException("Native goal has no completed verified outcome");c.put("goalEvidence",compact(child));meta.put("javaGoal",child);}
   if(c.has("ownedWorkflowId")){var w=nativeApi.call("/api/workflows/read",new JSONObject().put("id",c.getString("ownedWorkflowId")));if(!w.getString("status").equals("completed")||!w.getJSONObject("audit").getBoolean("passed"))throw new IllegalStateException("Workflow's actual independent audit is incomplete");if(RecordedSmall162.own(w)||CalibratedAction159.own(w)||ObservationTask158.own(w)||ObservationArtifact128.own(w))nativeApi.call("/api/workflows/verify-archive",new JSONObject().put("id",w.getString("id")));meta.put("javaWorkflow",w);}
@@ -160,15 +228,18 @@ final class Domain044 {
   if(w.has("pendingSkill101"))text+="Execution verified; skill publication is pending. Restart to retry publication.";else if(w.has("savedSkill"))text+="Saved "+w.getJSONObject("savedSkill").getString("name")+" v"+w.getJSONObject("savedSkill").getInt("version")+" for reuse.";return text;
  }
  String summary(JSONObject g,JSONObject meta){
+  if(meta.has("rampMission"))return RampMission.summary(meta.getJSONObject("rampMission").getJSONObject("audit"));
   if(meta.has("javaGameTask115")){
    var audit=meta.getJSONObject("javaGameTask115").getJSONObject("audit");
    return RelayPlaytest.KIND.equals(audit.optString("kind"))?RelayPlaytest.summary(audit):GameSummary118.describe(audit);
   }return meta.has("javaWorkflow")?workflowSummary046(meta.getJSONObject("javaWorkflow")):ChatChain052.summary(g,meta);}
- void cancel(JSONObject g)throws Exception{var c=g.getJSONObject("context044");if(c.has("ownedGameTask115"))nativeApi.call("/api/game-tasks115/cancel",new JSONObject().put("id",c.getString("ownedGameTask115")));for(var e:Map.of("ownedGoalId","/api/goals/cancel","ownedWorkflowId","/api/workflows/cancel","trackingJobId","/api/tracking/cancel","observationRunId","/api/observations/stop","ownedResearchId","/api/knowledge/cancel").entrySet())if(c.has(e.getKey()))try{nativeApi.call(e.getValue(),new JSONObject().put("id",c.getString(e.getKey())));}catch(Exception error){g.put("cancelNote044",error.getMessage());}if(c.has("calibrationEvidence"))try{nativeApi.call("/api/calibration/cancel",new JSONObject().put("id",c.getJSONObject("calibrationEvidence").getString("id")));}catch(Exception error){g.put("cancelNote044",error.getMessage());}if(c.has("ownedBodyRunId"))nativeApi.call("/api/body/cancel",new JSONObject().put("id",c.getString("ownedObserverId")).put("runId",c.getString("ownedBodyRunId")));}
+ void cancel(JSONObject g)throws Exception{var c=g.getJSONObject("context044");
+  if(c.has("ownedRampMission"))nativeApi.call(RampMission.PORT+"cancel",new JSONObject().put("id",c.getString("ownedRampMission")));if(c.has("ownedGameTask115"))nativeApi.call("/api/game-tasks115/cancel",new JSONObject().put("id",c.getString("ownedGameTask115")));for(var e:Map.of("ownedGoalId","/api/goals/cancel","ownedWorkflowId","/api/workflows/cancel","trackingJobId","/api/tracking/cancel","observationRunId","/api/observations/stop","ownedResearchId","/api/knowledge/cancel").entrySet())if(c.has(e.getKey()))try{nativeApi.call(e.getValue(),new JSONObject().put("id",c.getString(e.getKey())));}catch(Exception error){g.put("cancelNote044",error.getMessage());}if(c.has("calibrationEvidence"))try{nativeApi.call("/api/calibration/cancel",new JSONObject().put("id",c.getJSONObject("calibrationEvidence").getString("id")));}catch(Exception error){g.put("cancelNote044",error.getMessage());}if(c.has("ownedBodyRunId"))nativeApi.call("/api/body/cancel",new JSONObject().put("id",c.getString("ownedObserverId")).put("runId",c.getString("ownedBodyRunId")));}
  void interrupt(JSONObject g)throws Exception{var c=g.getJSONObject("context044");if(c.has("ownedGameTask115"))nativeApi.call("/api/game-tasks115/interrupt",new JSONObject().put("id",c.getString("ownedGameTask115")));if(c.has("ownedBodyRunId")&&!c.has("bodyRelease"))nativeApi.call("/api/body/cancel",new JSONObject().put("id",c.getString("ownedObserverId")).put("runId",c.getString("ownedBodyRunId")));release(g);}
  void release(JSONObject g)throws Exception{var c=g.getJSONObject("context044");for(var e:Map.of("runtimeHash","/api/runtime040/release","alignmentHash","/api/alignment041/release").entrySet())if(c.has(e.getKey()))nativeApi.call(e.getValue(),new JSONObject().put("snapshotHash",c.getString(e.getKey())));}
  void resume(JSONObject g)throws Exception{
   var c=g.getJSONObject("context044");
+  if(g.getString("family044").equals(RampMission.FAMILY)){g.remove("wait044");return;}
   if(c.has("ownedGameTask115")){var task=nativeApi.call("/api/game-tasks115/read",new JSONObject().put("id",c.getString("ownedGameTask115")));if(task.getString("status").equals("interrupted"))nativeApi.call("/api/game-tasks115/resume",new JSONObject().put("id",task.getString("id")));g.put("wait044",new JSONObject().put("route","/api/game-tasks115/advance").put("id",task.getString("id")));return;}
   if(c.has("ownedGoalId")){var child=nativeApi.call("/api/goals/read",new JSONObject().put("id",c.getString("ownedGoalId")));if(child.getString("status").equals("interrupted"))nativeApi.call("/api/goals/resume",new JSONObject().put("id",child.getString("id")));g.put("wait044",new JSONObject().put("route","/api/goals/read").put("id",child.getString("id")));}
   else if(c.has("ownedWorkflowId")){var w=nativeApi.call("/api/workflows/read",new JSONObject().put("id",c.getString("ownedWorkflowId")));if(w.getString("status").equals("interrupted"))nativeApi.call("/api/workflows/resume",new JSONObject().put("id",w.getString("id")));g.put("wait044",new JSONObject().put("route","/api/workflows/read").put("id",w.getString("id")));}

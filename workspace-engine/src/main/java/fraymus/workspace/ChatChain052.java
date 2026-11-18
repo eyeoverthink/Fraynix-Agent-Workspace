@@ -10,6 +10,7 @@ final class ChatChain052 {
     static String objectiveHash(JSONObject g) {
         var objective=new JSONObject().put("goal", g.getString("goal"));
         if(g.has(BrowserOutcome126.KEY))objective.put(BrowserOutcome126.KEY,g.getJSONObject(BrowserOutcome126.KEY));
+        if(g.has("rampSource"))objective.put("rampSource",g.getJSONObject("rampSource"));
         if(g.has("planWorld099"))objective.put("planWorld099",g.getBoolean("planWorld099"));
         return WorldFrames.hash(objective);
     }

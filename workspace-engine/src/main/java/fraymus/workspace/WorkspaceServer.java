@@ -17,6 +17,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private Agency043 agency;
     private GameCosts125 gameTasks115;
     private RelayPlaytest relayPlaytest;
+    private RampMission rampMission;
     private final boolean modelFree = "1".equals(System.getenv("FRAYNIX_WORKSPACE_NO_MODELS"));
     private GameReference115 gameReferences115;
     private CreationPlanner044 creation044;
@@ -82,6 +83,7 @@ public final class WorkspaceServer implements AutoCloseable {
         this.token=token;this.persistentHost=persistentHost;store=new WorkspaceStore(project);learning=new LearningStore(project);
         try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);memory074=new MemoryStudy074(project,goals::memoryBundle074);memory075=new MemoryStudy075(project,goals::memoryBundle074);procedures076=new ProcedureStudy076(project);procedures077=new ProcedureStudy077(project);procedures078=new ProcedureStudy078(project);observations=new WorldObservationStore(project,goals.worlds());metrics=new MetricObservationStore(project,observations,goals.worlds());physicalAudit130=new PhysicalAudit130(project,metrics);labels132=new ObservationLabels132(project,observations,metrics);contact133=new ContactAudit133(project,observations,labels132);association134=new AssociationAudit134(project,observations);appearances135=new VerifiedAppearances135(project,association134);tabletop=new TabletopStore(project,goals.worlds(),metrics);knowledge=new KnowledgeStore(project,tabletop);selfModel=new SelfModel(knowledge);workflows=new WorkflowRunner(project,goals,measurements,scenes,store);workflows.install128(new ObservationArtifact128(project,observations,metrics,goals.worlds()));game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);gameReferences115=new GameReference115(Path.of(System.getProperty("user.dir")),project);gameTasks115=new GameCosts125(Path.of(System.getProperty("user.dir")),project,game);
             relayPlaytest = new RelayPlaytest(Path.of(System.getProperty("user.dir")), project, store);
+            rampMission = new RampMission(project, store);
             runtime040=new SpatialRuntime040(project,goals.worlds(),goals.worldNative(),tabletop,knowledge,game);alignment041=new Alignment041Store(project,goals.worlds());workflows.install159(new CalibratedPlane159(project,alignment041,goals.worlds()));accuracy160=new PlaneAccuracyStore160(project,alignment041,goals.worlds(),store);small161=new SmallStore161(project,store);workflows.install162(new RecordedSmall162(project,alignment041,goals.worlds(),small161));smallObjectRoutes=new SmallObjectRoutes(small161,spatial,workflows);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         try{agentRuntime=new AgentRuntime042(project,brain,this::agentFacts042,this::detachHost042,persistentHost);agency=new Agency043(project,store,learning,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();},(kind,evidence)->agentRuntime.record043(kind,evidence),this::sharedBusy043,true);agency.install044(new Domain044(this::call044,store));agency.installArchive112(task->{var bound=task.getJSONObject("completion044").getJSONObject("javaWorkflow");String id=task.getJSONObject("context044").getString("ownedWorkflowId");if(!id.equals(bound.getString("id")))throw new IllegalStateException("Original chat/workflow owner changed");var proof=workflows.verifyArchive110(id);var current=workflows.read(id);for(String k:List.of("status","audit","report","savedSkill","dataBinding"))if(bound.has(k)&&(!current.has(k)||!new JSONObject().put("v",bound.get(k)).similar(new JSONObject().put("v",current.get(k)))))throw new IllegalStateException("Original chat workflow completion changed: "+k);proof.remove("verificationNanos");return proof;});creation044=new CreationPlanner044(project,goals,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();});}catch(Exception e){close();throw new IOException("Java agent state needs attention; originals retained",e);}
         costs087=new CalibrationCosts087(project,goals);
@@ -619,6 +621,10 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/brain/feedback-kick" -> result=scenes.feedbackKick(input);
                     case "/api/brain/feedback-cancel" -> result=scenes.feedbackCancel(input.getString("runId"));
                     case "/api/brain/feedback-rollback" -> result=brain.rollbackFeedback(input.getInt("expectedVersion"));
+                    case "/api/ramp-mission/source" -> result=rampMission.inputs.save(input);
+                    case "/api/ramp-mission/bind" -> {SpatialScene.keys(input,"path");result=rampMission.inputs.bind(input.getString("path"),true);}
+                    case "/api/ramp-mission/read" -> {SpatialScene.keys(input,"id");result=rampMission.read(input.getString("id"));}
+                    case "/api/ramp-mission/verify" -> {SpatialScene.keys(input,"id");result=rampMission.verify(input.getString("id"));}
                     case "/api/game-tasks115/read" -> {SpatialScene.keys(input,"id");result=playtestPort("read",input);}
                     case "/api/game-tasks115/list" -> {SpatialScene.keys(input);result=gameTasks115.list();}
                     case "/api/game-tasks115/verify" -> {SpatialScene.keys(input,"id");result=playtestPort("verify",input);}
@@ -747,6 +753,20 @@ public final class WorkspaceServer implements AutoCloseable {
 
     /** Registered in-process Java ports; no interface lease, HTTP hop or model-selected URL. */
     private JSONObject call044(String route,JSONObject args)throws Exception{
+        if(route.startsWith(RampMission.PORT)){
+            return switch(route.substring(RampMission.PORT.length())){
+                case "bind" -> rampMission.inputs.bind(args.getString("path"),true);
+                case "start" -> rampMission.start(args);
+                case "observe" -> rampMission.observe(args.getString("id"),args.getJSONObject("observation"));
+                case "advance" -> rampMission.advance(args.getString("id"));
+                case "report-check" -> rampMission.reportCheck(args.getString("id"));
+                case "accept-report" -> rampMission.acceptReport(args.getString("id"),args.getJSONObject("receipt"));
+                case "resume" -> rampMission.resume(args.getString("id"));
+                case "cancel" -> rampMission.cancel(args.getString("id"));
+                case "verify" -> rampMission.verify(args.getString("id"));
+                default -> throw new IllegalArgumentException("Unknown ramp mission step");
+            };
+        }
         return switch(route){
             case "/api/game-tasks115/start", "/api/game-tasks115/advance", "/api/game-tasks115/read",
                  "/api/game-tasks115/verify", "/api/game-tasks115/resume", "/api/game-tasks115/cancel",
@@ -811,7 +831,7 @@ public final class WorkspaceServer implements AutoCloseable {
     // This grants no capture-start, annotation, evaluation or physical-action authority.
     private static boolean continuingCamera044(String route,JSONObject input){return Set.of("/api/alignment041/frame","/api/tabletop/frame").contains(route)||route.equals("/api/alignment041/capture")&&!input.optBoolean("pin");}
     static boolean passive043(String route){if(route.equals("/api/game/frame"))return true;if(Set.of("/api/knowledge/claim","/api/goals/claim","/api/workflows/claim","/api/world/suite","/api/pose-study/suite","/api/push-learning/suite","/api/contact-study/suite").contains(route))return true;String last=route.substring(route.lastIndexOf('/')+1);return route.startsWith("/api/self/")||route.startsWith("/api/agent042/")||route.equals("/api/event")||Set.of("read","state","list","snapshot","catalog","models","summary","view","image","history","observe","context").contains(last);}
-    private JSONObject visionModels043(){var out=new JSONArray();try{var tags=LocalModelAdmission.request("http://127.0.0.1:11434/api/tags",null).getJSONArray("models");for(Object raw:tags){var tag=(JSONObject)raw;if(tag.optLong("size")>12_000_000_000L)continue;var show=LocalModelAdmission.request("http://127.0.0.1:11434/api/show",new JSONObject().put("model",tag.getString("name")));var caps=show.optJSONArray("capabilities",new JSONArray()).toList();if(caps.contains("completion")&&caps.contains("vision"))out.put(new JSONObject().put("name",tag.getString("name")).put("bytes",tag.getLong("size")));}return new JSONObject().put("models",out);}catch(Exception e){return new JSONObject().put("models",out).put("reason","Local vision metadata unavailable; pixel comparisons remain available");}}
+    private JSONObject visionModels043(){var out=new JSONArray();if(modelFree)return new JSONObject().put("models",out).put("reason","Model services are disabled for this launch");try{var tags=LocalModelAdmission.request("http://127.0.0.1:11434/api/tags",null).getJSONArray("models");for(Object raw:tags){var tag=(JSONObject)raw;if(tag.optLong("size")>12_000_000_000L)continue;var show=LocalModelAdmission.request("http://127.0.0.1:11434/api/show",new JSONObject().put("model",tag.getString("name")));var caps=show.optJSONArray("capabilities",new JSONArray()).toList();if(caps.contains("completion")&&caps.contains("vision"))out.put(new JSONObject().put("name",tag.getString("name")).put("bytes",tag.getLong("size")));}return new JSONObject().put("models",out);}catch(Exception e){return new JSONObject().put("models",out).put("reason","Local vision metadata unavailable; pixel comparisons remain available");}}
     JSONObject agent042(){return agentRuntime.state();}
     private boolean workflowsIdle042()throws Exception{for(Object raw:workflows.list())if(Set.of("running","waiting-host","queued").contains(((JSONObject)raw).getString("status")))return false;return true;}
     private JSONObject agentFacts042(){
