@@ -651,7 +651,8 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='report'){
         const effect=await api('/api/accuracy160/prepare',args),a=await api('/api/artifact/read',{id:effect.report.id});
         if(a.version!==effect.report.version)throw Error('Original accuracy artifact changed');emit('view','preview');await openArtifact(a);
-        const observed=await auditAccuracy160(canvas,effect,value=>api('/api/artifact/test',value));return api('/api/accuracy160/acknowledge',{id:effect.id,resultSha256:effect.resultSha256,observed});
+        const observed=await auditAccuracy160(canvas,effect,value=>api('/api/artifact/test',value));const completed=await api('/api/accuracy160/acknowledge',{id:effect.id,resultSha256:effect.resultSha256,observed});
+        const checked=await api('/api/artifact/read',{id:effect.report.id});if(currentArtifact?.id===checked.id&&currentArtifact?.version===checked.version){currentArtifact=checked;emit('artifact',checked);}return completed;
       }
       if(!['state','start','read','resume','stop','verify'].includes(input.command))throw Error('Unknown recorded accuracy operation');return api('/api/accuracy160/'+input.command,args);
     }
