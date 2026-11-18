@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 161
 
+[Published and fetched receipt](docs/PUBLICATION_161.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-161)
+
 2026-11-17 · Small-object control · Independent motion evidence · Java-owned execution
 
 [Previous edition 160](README-160.md) · [Offline interactive guide](docs/readmes/161/index.html) · [All editions](docs/readmes/INDEX.md) · [Implementation and qualification plan](docs/publication161/plan161.md) · [Blender assessment](docs/publication161/blender161.md)

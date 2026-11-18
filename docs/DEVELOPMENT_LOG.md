@@ -1,3 +1,7 @@
+## Edition 161 — published and fetched back
+
+2026-11-17. Release 13608ef0e22abb4b2c2c17748ea4bece7b2adeab; main, edition161 and readme-161 pushed atomically and fetched. Full161 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_161.json. Experimental verified small-object motion shipped; defaults unchanged. User selected recorded tests; fresh physical validation remains a separate gate. The following local-study notes retain their original chronology.
+
 ## Edition 161 — locally verified; publication pending
 
 2026-11-17. Java target: eyeoverthink/Fraynix-Agent-Workspace, J:/Codex-Work/fraynix-workspace-edition161. No subagents; one heavy check at a time. User chose existing recordings and left new physical validation pending. CI checked first and separately.
