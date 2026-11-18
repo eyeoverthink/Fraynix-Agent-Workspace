@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 /** The registered contract shared by the direct command and Java's local-model adapter. */
 final class RampProcedure {
     static final String ID = "local-ramp-experiment-v1";
-    static final String SELECT_TOOL = "localRamp.select";
+    static final String SELECT_TOOL = "ramp.select";
     static final double MIN_SECONDS = .25;
     static final double MAX_SECONDS = 2;
     static final int SAMPLE_TICKS = 12;
