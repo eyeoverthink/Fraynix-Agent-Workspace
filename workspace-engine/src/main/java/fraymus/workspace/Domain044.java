@@ -70,7 +70,7 @@ final class Domain044 {
   var input=g.getJSONObject(LocalWorkflowSelection.KEY);
   String briefing=input.getString("briefing");
   var args=new JSONObject().put("request",briefing)
-          .put("modelName",procedure==LocalWorkflowSelection.Procedure.ANALYSIS?"":g.getString("model"));
+          .put("modelName",procedure==LocalWorkflowSelection.Procedure.ANALYSIS?"java-owned-summary":g.getString("model"));
   if(procedure==LocalWorkflowSelection.Procedure.CREATION){
    args.put("title","Standalone workspace app");
    String name=Requested044.fields(briefing,"creation").optString("saveSkillName");
