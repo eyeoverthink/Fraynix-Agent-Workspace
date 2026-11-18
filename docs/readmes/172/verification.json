@@ -1,0 +1,202 @@
+{
+  "passed": true,
+  "source": "50c3bf6787242d35f329f0d904713ccfa6f150bc",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "workspaceJava": 45,
+    "classes": [
+      "RampMissionTest",
+      "RelayPlaytestTest",
+      "Agency043Test",
+      "ChatArchive112Test",
+      "BrowserOutcome126Test",
+      "SceneStoreTest",
+      "WorkspaceServerBoundaryTest"
+    ],
+    "desktop": 181,
+    "archiveTests": 10
+  },
+  "modelCalls": 0,
+  "experiments": [
+    {
+      "source": {
+        "pageSha256": "abe759f141094d4249e9ff35daaa0c3c6deb4acf26fa563f07c4a78b0cb72070",
+        "path": "/artifact/6d52e428-2647-4138-a65e-3d8e0e03cac9/1/index.html",
+        "values": {
+          "angleDeg": 25,
+          "seconds": 1,
+          "massKg": 1,
+          "friction": 0.08,
+          "gravityMps2": 9.81
+        },
+        "dataSha256": "f82799d9a7ac29d84b95e19c841b430e370d144d39dfb27cefc956a0470600ba",
+        "id": "6d52e428-2647-4138-a65e-3d8e0e03cac9",
+        "version": 1
+      },
+      "audit": {
+        "ticks": 240,
+        "kind": "local-ramp-experiment-v1",
+        "distanceM": 1.7238507535481475,
+        "replaySha256": "c810906ad841073db30e965830d29bc296e6a6a0023d00b975f076a0055508b1",
+        "backendSha256": "3e4bebf2a4a2dd873726bff6378ba236aff2e6b6e6e5f73749816d8e9e010be5",
+        "observationSha256": "48cf8bf99b3d7e50d74a830f01877ab4b1b6032d926e97c5c2a1e9d15d533fa5",
+        "sampleCount": 21,
+        "sourceSha256": "a176ffb809bdf43f8468972fe11fd19418dee77ecf5d74f9df456232b669aaeb",
+        "seconds": 1,
+        "passed": true,
+        "maxPositionErrorM": 0,
+        "maxVelocityErrorMps": 0,
+        "tolerance": 0.0001,
+        "originalSha256": "24799f3207c7ca572d6dfcc9b3186a67aeb0d1c418f4acc8daa6273d7fbdc3f2"
+      },
+      "report": {
+        "sha256": "709ee09163544edbeb588f8da5dc481819055af6d1f0d7e0803e6f34196e74ca",
+        "id": "2c93e8b3-d65b-37e0-89ea-cf126cffb455",
+        "version": 1
+      },
+      "canvasChecks": 9,
+      "stages": [
+        {
+          "sha256": "48cf8bf99b3d7e50d74a830f01877ab4b1b6032d926e97c5c2a1e9d15d533fa5",
+          "name": "browser",
+          "status": "verified"
+        },
+        {
+          "sha256": "24799f3207c7ca572d6dfcc9b3186a67aeb0d1c418f4acc8daa6273d7fbdc3f2",
+          "name": "experiment",
+          "status": "verified"
+        },
+        {
+          "sha256": "c810906ad841073db30e965830d29bc296e6a6a0023d00b975f076a0055508b1",
+          "name": "replay",
+          "status": "verified"
+        },
+        {
+          "sha256": "4a904f93e5fe77c70e434ae653f573db3b7d7f36fce1393379c171119d03c5d4",
+          "name": "artifact",
+          "status": "verified"
+        },
+        {
+          "sha256": "852673968b9e29965b9c20ed5c62d8ea6f3a84cb923d94dd7177b8e37eaf41e9",
+          "name": "canvas",
+          "status": "verified"
+        }
+      ]
+    },
+    {
+      "source": {
+        "pageSha256": "147c247ba539e7b0cacda5481c696ac6a17ed6ac683e665d2ec7b372a536a263",
+        "path": "/artifact/6d52e428-2647-4138-a65e-3d8e0e03cac9/2/index.html",
+        "values": {
+          "angleDeg": 39,
+          "seconds": 1.2,
+          "massKg": 1,
+          "friction": 0.04,
+          "gravityMps2": 9.81
+        },
+        "dataSha256": "75b57919027adb9847162978c458c1910407895b0c77c1acc6daa095fdaed565",
+        "id": "6d52e428-2647-4138-a65e-3d8e0e03cac9",
+        "version": 2
+      },
+      "audit": {
+        "ticks": 288,
+        "kind": "local-ramp-experiment-v1",
+        "distanceM": 4.239193725094508,
+        "replaySha256": "923df8658adb8bbb3eb9332263173d3007674d398e7ccaec08e649da402cb2c4",
+        "backendSha256": "3e4bebf2a4a2dd873726bff6378ba236aff2e6b6e6e5f73749816d8e9e010be5",
+        "observationSha256": "b7d8c71b89f85f86841a23729495233345d20e51db3d5f10db546341944b6f49",
+        "sampleCount": 25,
+        "sourceSha256": "63737742becb75df82c18a93990dd950cfa9d14afb7bf0db4d06b0b7127236d8",
+        "seconds": 1.2,
+        "passed": true,
+        "maxPositionErrorM": 0,
+        "maxVelocityErrorMps": 0,
+        "tolerance": 0.0001,
+        "originalSha256": "58dce7a2b75923bd568fbea98171c31ad03d8d17d4d6317bdda1eb9a23486b87"
+      },
+      "report": {
+        "sha256": "342bb5319865819760f3706a5c8e0a2fd00050e859e6e2612e56c8bb4eab784d",
+        "id": "0e8c6e99-3d1f-3e74-a896-46b17fc8796a",
+        "version": 1
+      },
+      "canvasChecks": 9,
+      "stages": [
+        {
+          "sha256": "b7d8c71b89f85f86841a23729495233345d20e51db3d5f10db546341944b6f49",
+          "name": "browser",
+          "status": "verified"
+        },
+        {
+          "sha256": "58dce7a2b75923bd568fbea98171c31ad03d8d17d4d6317bdda1eb9a23486b87",
+          "name": "experiment",
+          "status": "verified"
+        },
+        {
+          "sha256": "923df8658adb8bbb3eb9332263173d3007674d398e7ccaec08e649da402cb2c4",
+          "name": "replay",
+          "status": "verified"
+        },
+        {
+          "sha256": "cce578fb9acd370f32ef3732152e925232f8202c12d570d5162e2963a577d8cb",
+          "name": "artifact",
+          "status": "verified"
+        },
+        {
+          "sha256": "49ce6774921f0980d8d9b33ef728cc540139212bc8b90f7b1c2c5dea3cfe07df",
+          "name": "canvas",
+          "status": "verified"
+        }
+      ]
+    }
+  ],
+  "processStops": 2,
+  "archiveVerified": true,
+  "domRefusal": "Surface capture/execution failed: The visible browser table differs from the pinned input revision",
+  "revisionRefusal": "Ramp input revision changed. Open the current source and start a new mission.",
+  "ciFirst": {
+    "checkedAtUtc": "2026-11-18T16:17:44.015725+00:00",
+    "runs": [
+      {
+        "id": 44314310470,
+        "head_sha": "57972d3eb8ee82153af8d1a3c340069dab8220e8",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44314310470",
+        "created_at": "2026-11-18T13:29:59Z",
+        "updated_at": "2026-11-18T13:30:03Z"
+      },
+      {
+        "id": 44308803198,
+        "head_sha": "320d34fba0667d0deec821008aff1f7fccaadc1e",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44308803198",
+        "created_at": "2026-11-18T12:57:01Z",
+        "updated_at": "2026-11-18T12:57:05Z"
+      },
+      {
+        "id": 44299337463,
+        "head_sha": "20399ecafab8d1355413ec005b5dc7d1bc3b1164",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44299337463",
+        "created_at": "2026-11-18T11:57:16Z",
+        "updated_at": "2026-11-18T11:57:20Z"
+      },
+      {
+        "id": 44289743337,
+        "head_sha": "aba5b1dff44a110b351189b7bda1b1857fede585",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "failure",
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44289743337",
+        "created_at": "2026-11-18T10:54:21Z",
+        "updated_at": "2026-11-18T11:03:56Z"
+      }
+    ]
+  }
+}

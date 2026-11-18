@@ -1,3 +1,5 @@
+[Edition 172 — browser-to-world experiment](180-browser-world-experiment.md)
+
 [Edition 171 — durable offline Relay playtesting](179-offline-playtesting.md)
 
 [Edition 170 — verified multi-rail courses](178-multi-rail.md)

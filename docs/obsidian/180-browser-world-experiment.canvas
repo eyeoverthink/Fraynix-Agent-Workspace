@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "0",
+      "type": "file",
+      "file": "README-172.md",
+      "x": 0,
+      "y": 0,
+      "width": 500,
+      "height": 390
+    },
+    {
+      "id": "1",
+      "type": "file",
+      "file": "workspace-desktop/ramp-mission.cjs",
+      "x": 550,
+      "y": 0,
+      "width": 500,
+      "height": 390
+    },
+    {
+      "id": "2",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/RampMission.java",
+      "x": 1100,
+      "y": 0,
+      "width": 500,
+      "height": 390
+    },
+    {
+      "id": "3",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/RampMissionReport.java",
+      "x": 0,
+      "y": 430,
+      "width": 500,
+      "height": 390
+    },
+    {
+      "id": "4",
+      "type": "file",
+      "file": "docs/readmes/172/verification.json",
+      "x": 550,
+      "y": 430,
+      "width": 500,
+      "height": 390
+    },
+    {
+      "id": "5",
+      "type": "file",
+      "file": "docs/publication172/plan.md",
+      "x": 1100,
+      "y": 430,
+      "width": 500,
+      "height": 390
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge0",
+      "fromNode": "0",
+      "fromSide": "right",
+      "toNode": "1",
+      "toSide": "left"
+    },
+    {
+      "id": "edge1",
+      "fromNode": "1",
+      "fromSide": "right",
+      "toNode": "2",
+      "toSide": "left"
+    },
+    {
+      "id": "edge2",
+      "fromNode": "2",
+      "fromSide": "right",
+      "toNode": "3",
+      "toSide": "left"
+    },
+    {
+      "id": "edge3",
+      "fromNode": "3",
+      "fromSide": "right",
+      "toNode": "4",
+      "toSide": "left"
+    },
+    {
+      "id": "edge4",
+      "fromNode": "4",
+      "fromSide": "right",
+      "toNode": "5",
+      "toSide": "left"
+    }
+  ]
+}
