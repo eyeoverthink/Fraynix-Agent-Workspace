@@ -23,6 +23,7 @@ final class ChatArchive112 {
     static boolean eligible(JSONObject g){
         if(!g.optString("status").equals("completed")||g.has("claim")||g.has("nativeIntent")||!g.has("finishedAt")||!g.has("episodeId"))return false;
         String family=g.optString("family044","workbench");
+        if(family.equals(RampTraceChain.FAMILY))return g.optString("outcome").equals("verified");
         var w=g.optJSONObject("completion044",new JSONObject()).optJSONObject("javaWorkflow",new JSONObject());
         return family.equals("workbench")||family.equals(RampMission.FAMILY)&&g.optString("outcome").equals("verified")||family.equals("workflow")&&(DataSummary104.supported(w.optString("profile101"))||w.has("qualification105"));
     }
@@ -68,7 +69,20 @@ final class ChatArchive112 {
             if(!m.getString("id").equals(id)||!m.getString("taskId").equals(g.getString("id"))||b.length!=m.getInt("bytes")||!PerceptionStore.hash(b).equals(m.getString("sha256")))throw new IllegalStateException("Original chat screen evidence changed");
             frames.put(new JSONObject().put("id",id).put("metadataSha256",WorldFrames.hash(m)).put("pixelsSha256",m.getString("sha256")));
         }proof.put("frames",frames);
-        if(g.optString("family044").equals("workflow")){
+        if(g.optString("family044").equals(RampTraceChain.FAMILY)){
+            if(ramps==null||workflows==null)throw new IllegalStateException("Both chain verifiers are required");
+            var comparison=ramps.check(WorldFrames.copy(g));
+            var summary=workflows.check(WorldFrames.copy(g));
+            var completion=g.getJSONObject("completion044");
+            var handoff=g.getJSONObject("context044").getJSONObject(RampTraceChain.HANDOFF);
+            var original=completion.getJSONObject("rampMission");
+            var linked=RampTraceChain.derive(g.getString("id"),original,store.read(original.getJSONObject("report").getString("id")),g.getJSONObject("rampSource"));
+            RampTraceChain.requireLinked(linked,completion.getJSONObject("javaWorkflow"));
+            if(!linked.similar(handoff)||!handoff.similar(completion.getJSONObject(RampTraceChain.HANDOFF))
+                    ||!summary.similar(completion.getJSONObject("chainSummaryReceipt")))
+                throw new IllegalStateException("Original chain handoff or summary receipt changed");
+            proof.put("ramp",comparison).put("workflow",summary).put("handoffSha256",WorldFrames.hash(handoff));
+        }else if(g.optString("family044").equals("workflow")){
             if(workflows==null)throw new IllegalStateException("Native workflow verifier unavailable");proof.put("workflow",workflows.check(WorldFrames.copy(g)));
         }else if(g.optString("family044").equals(RampMission.FAMILY)){
             if(ramps==null)throw new IllegalStateException("Local ramp verifier unavailable");

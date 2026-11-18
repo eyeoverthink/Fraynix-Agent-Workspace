@@ -91,10 +91,11 @@
     </div>
     <p id="ramp-second-facts" hidden></p>
     <label class="ramp-pause">Report <select id="ramp-result"><option value="single">First setup</option>
-      <option value="compare" disabled>Compare both setups</option></select></label>
-    <label class="ramp-pause"><input id="ramp-pause" type="checkbox">Pause after reading the table</label>
+      <option value="compare" disabled>Compare both setups</option>
+      <option value="chain" disabled>Compare, then summarize the farther setup</option></select></label>
+    <label class="ramp-pause"><input id="ramp-pause" type="checkbox"><span id="ramp-pause-label">Pause after reading the table</span></label>
     <p id="ramp-input-error" role="status"></p>
-    <label class="ramp-pause"><input id="ramp-plan" type="checkbox">Ask the selected local model to choose the procedure</label>
+    <label id="ramp-plan-label" class="ramp-pause"><input id="ramp-plan" type="checkbox">Ask the selected local model to choose the procedure</label>
     <div class="ramp-form-buttons">
       <button id="ramp-input-save" type="submit" class="primary">Save page and prepare chat</button>
       <button id="ramp-use-current" type="button" disabled>Use saved page</button>

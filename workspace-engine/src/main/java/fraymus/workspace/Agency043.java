@@ -46,7 +46,12 @@ final class Agency043 implements AutoCloseable {
         SpatialScene.keys(input,"sourceSha256","tools");if(!input.getString("sourceSha256").matches("[a-f0-9]{64}"))throw new IllegalArgumentException("Trusted catalog hash required");var defs=input.getJSONArray("tools");var names=new HashSet<String>();for(Object raw:defs){var f=((JSONObject)raw).getJSONObject("function");String name=f.getString("name").replace('_','.');if(!Tools044.names().contains(name)||!names.add(name)||!f.getJSONObject("parameters").getString("type").equals("object"))throw new IllegalArgumentException("Unsupported Java workbench definition");}if((!names.equals(TOOLS)&&!names.equals(Tools044.names()))||defs.toString().length()>180000)throw new IllegalArgumentException("Complete bounded workbench tool definitions required");if(busy()&&data.has("sourceSha256")&&!data.getString("sourceSha256").equals(input.getString("sourceSha256")))throw new IllegalStateException("Catalog changed during a Java task");data.put("tools",new JSONArray(defs.toString())).put("sourceSha256",input.getString("sourceSha256"));save();return new JSONObject().put("registered",names.size());
     }
     private JSONObject active(){for(Object raw:data.getJSONArray("tasks"))if(LIVE.contains(((JSONObject)raw).getString("status")))return (JSONObject)raw;return null;}
-    synchronized String resumeWorkflow101(String id){var g=task(id);return domain(g)&&g.getString("status").equals("interrupted")?g.getJSONObject("context044").optString("ownedWorkflowId"):"";}
+    synchronized String resumeWorkflow101(String id)throws Exception {
+        var g=task(id);
+        if(!domain(g)||!g.getString("status").equals("interrupted"))return "";
+        String owner=g.getJSONObject("context044").optString("ownedWorkflowId");
+        return owner.isEmpty()?domains.chainWorkflowIfPresent(g):owner;
+    }
     synchronized boolean busy(){return active()!=null;}
     private JSONObject task(String id){UUID.fromString(id);for(Object raw:data.getJSONArray("tasks"))if(((JSONObject)raw).getString("id").equals(id))return (JSONObject)raw;for(Object raw:ChatArchive112.refs(data))if(((JSONObject)raw).getString("id").equals(id))throw new IllegalStateException("Archived chat is read-only; start a separate request");throw new IllegalArgumentException("Unknown Java task");}
     private JSONObject original112(String id){UUID.fromString(id);for(Object raw:ChatArchive112.refs(data)){var ref=(JSONObject)raw;if(ref.getString("id").equals(id))return archive112.resolve(ref);}return task(id);}
@@ -54,7 +59,7 @@ final class Agency043 implements AutoCloseable {
     private JSONObject artifact(JSONObject g)throws Exception{var r=g.getJSONObject("artifact");var a=store.read(r.getString("id"));if(a.getInt("version")!=r.getInt("version")||!WorldFrames.hash(a.getJSONObject("contents")).equals(r.getString("sha256")))throw new IllegalStateException("Task artifact changed outside its owned revision");return a;}
     synchronized JSONObject start(JSONObject in)throws Exception{
         SpatialScene.keys(in,"goal","model","visionModel","artifactId","recipeName","mode","focus","bindings","family","options","planWorld099",BrowserOutcome126.KEY);if(in.has("planWorld099")&&!(in.get("planWorld099") instanceof Boolean))throw new IllegalArgumentException("planWorld099 must be boolean");String goal=in.getString("goal");if(goal.isBlank()||goal.length()>8000)throw new IllegalArgumentException("Goal needs1..8000 characters");if(data.getJSONArray("tools").isEmpty())throw new IllegalStateException("Register the trusted workbench tools first");if(sharedBusy.getAsBoolean())throw new IllegalStateException("Finish the existing physics/workflow task first");if(data.getJSONArray("tasks").length()>=24)throw new IllegalStateException("Task history budget24 reached");long queued=data.getJSONArray("tasks").toList().stream().filter(x->LIVE.contains(String.valueOf(((Map<?,?>)x).get("status")))).count();if(queued>=4)throw new IllegalStateException("Java queue budget4 reached");
-        boolean registered = LocalWorkflowSelection.intent(goal) != null;
+        boolean registered = LocalWorkflowSelection.intent(goal) != null || RampTraceChain.proposed(goal);
         String mode=in.optString("mode","workbench"),recipeName=in.optString("recipeName","");if(!Set.of("workbench","inspect","recipe").contains(mode))throw new IllegalArgumentException("Unknown task mode");
         if(!registered&&!in.has(BrowserOutcome126.KEY)&&mode.equals("workbench")&&goal.toLowerCase(Locale.ROOT).matches(".*\\b(look at|inspect|describe|see)\\b.*\\b(screen|workspace|interface|canvas|page)\\b.*")&&!goal.toLowerCase(Locale.ROOT).matches(".*\\b(build|create|make|save|run|reuse|edit|change)\\b.*")){mode="inspect";if(!in.has("focus"))in.put("focus",goal.toLowerCase(Locale.ROOT).contains("canvas")?"canvas":goal.toLowerCase(Locale.ROOT).matches(".*\\b(browser|page)\\b.*")?"browser":"workspace");}
         if(!registered&&!in.has(BrowserOutcome126.KEY)&&mode.equals("workbench")&&goal.toLowerCase(Locale.ROOT).matches(".*\\b(run|reuse)\\b.*\\b(skill|recipe|routine)\\b.*")&&!goal.toLowerCase(Locale.ROOT).matches(".*\\b(edit|change|modify|adapt)\\b.*"))for(Object raw:store.skills()){String name=((JSONObject)raw).getString("name");if(goal.contains(name)){if(!recipeName.isEmpty()&&!recipeName.equals(name))throw new IllegalArgumentException("Choose one saved recipe");recipeName=name;mode="recipe";}}
@@ -73,6 +78,7 @@ final class Agency043 implements AutoCloseable {
     private void begin(JSONObject g)throws Exception{String episode=UUID.randomUUID().toString();learning.begin(new JSONObject().put("id",episode).put("taskKind",g.has(BrowserOutcome126.KEY)?"browser-task":domain(g)?"experiment-task":"artifact-task").put("goal",g.getString("goal")).put("model",Set.of("workbench","domain").contains(g.getString("mode"))?g.getString("model"):"java-owned-"+g.getString("mode")));g.put("episodeId",episode).put("attemptStartedAt",Instant.now().toString()).put("status","ready");g.remove("claim");if(domain(g)){g.getJSONObject("context044").put("id",episode).put("episodeStarted",false);if(g.optBoolean("resumeDomain044")){g.remove("resumeDomain044");domains.resume(g);}bootstrapDomain(g);return;}if(g.has("nativeIntent")){var intent=g.getJSONObject("nativeIntent");g.put("reconciling",true);dispatch(g,intent.getJSONObject("command"),intent.getString("effectId"));g.remove("reconciling");g.remove("nativeIntent");return;}if(g.getString("mode").equals("recipe")&&g.optBoolean("created")){var a=artifact(g);host(g,"canvas.test",new JSONObject().put("steps",a.has("test")?a.getJSONObject("test").getJSONArray("steps"):store.skill(g.getJSONObject("recipeBinding").getString("name")).getJSONArray("tests")),"reverify",new JSONObject().put("artifact",ref(a)));return;}if(g.getString("mode").equals("recipe")){dispatch(g,new JSONObject().put("tool","skill.run").put("args",new JSONObject().put("name",g.getJSONObject("recipeBinding").getString("name"))),UUID.randomUUID().toString());}else host(g,g.getString("mode").equals("inspect")?(g.getString("focus").equals("canvas")?"canvas.observe":"browser.observe"):"browser.observe",new JSONObject(),"tool",g.getString("mode").equals("inspect")?new JSONObject().put("captureFocus",g.getString("focus")):new JSONObject());}
     void tick(){JSONObject snapshot=null;String id=null;try{synchronized(this){if(closed)return;var g=active();if(g==null)return;id=g.getString("id");ChatChain052.verifyObjective(g);if(g.getString("status").equals("queued")){begin(g);save();return;}if(g.getString("status").equals("waiting-host")){if(g.has("claim")&&!validClaim(g))interrupt(g,"Host action lease expired; inspect and explicitly Resume");return;}if(g.getString("status").equals("waiting-native")){if(domains.waitNative(g)){save();return;}g.put("status","ready");if(Set.of("creation","workflow").contains(g.getString("family044"))||g.getJSONObject("context044").optBoolean("counterfactualRequested045")){complete(g,"Java retained the actual native task and verified its finished artifact/audit.");save();return;}}
             if(!g.getString("status").equals("ready"))return;
+            if(g.has(RampTraceChain.KEY)&&advanceChain(g))return;
             if(domain(g)){
                 var effect=domains.nextSurface(g);
                 if(effect!=null){
@@ -146,6 +152,10 @@ final class Agency043 implements AutoCloseable {
         interrupt(task, question);
     }
     private void bootstrapDomain(JSONObject g)throws Exception {
+        if(g.has(RampTraceChain.KEY)&&!g.optBoolean(RampTraceChain.APPROVED)){
+            interrupt(g,RampTraceChain.REVIEW_REASON);
+            return;
+        }
         if (g.optString("family044").equals(LocalWorkflowSelection.FAMILY)) {
             var intent = LocalWorkflowSelection.intent(g.getString("goal"));
             if (intent.direct() != null && !selectLocalWorkflow(g, intent.direct().id, "direct")) return;
@@ -163,6 +173,22 @@ final class Agency043 implements AutoCloseable {
         if(first!=null)host(g,first.getString("tool"),first.getJSONObject("args"),"domain",
                 new JSONObject().put("context",g.getJSONObject("context044")));
         else g.put("status",g.has("wait044")?"waiting-native":"ready");
+    }
+    private boolean advanceChain(JSONObject task)throws Exception {
+        var context=task.getJSONObject("context044");
+        if(!context.optBoolean("rampVerified")||context.has("ownedWorkflowId"))return false;
+        if(!context.has(RampTraceChain.HANDOFF)){
+            var handoff=domains.verifiedChainHandoff(task);
+            context.put(RampTraceChain.HANDOFF,handoff);
+            record(task,"chain-handoff-verified",handoff);
+            if(task.getJSONObject(RampTraceChain.KEY).getBoolean("pauseAfterComparison"))
+                interrupt(task,"Comparison verified. Resume to analyze the farther setup's original simulated trace.");
+            return true;
+        }
+        domains.startChainSummary(task);
+        task.put("status","waiting-native").put("reason","The verified comparison is linked to its motion summary");
+        save();
+        return true;
     }
     private void host(JSONObject g,String tool,JSONObject args,String kind,JSONObject extra)throws Exception{if(tool.startsWith("canvas.")&&g.optBoolean("created"))extra.put("artifact",g.getJSONObject("artifact"));if(g.getJSONArray("history").length()>96)throw new IllegalStateException("Task effect budget reached");var effect=new JSONObject().put("id",UUID.randomUUID().toString()).put("tool",tool).put("args",WorldFrames.copy(args)).put("kind",kind).put("extra",extra).put("generation",g.getInt("generation"));g.put("effect",effect).put("status","waiting-host").put("reason","Waiting for actual surface: "+tool);g.remove("claim");save();}
     private void dispatch(JSONObject g,JSONObject command,String effectId)throws Exception{
@@ -290,7 +316,7 @@ final class Agency043 implements AutoCloseable {
         if(g.has(BrowserOutcome126.KEY))learning.endBrowser126(g);else learning.end(new JSONObject().put("id",g.getString("episodeId")).put("status",verified?"verified":"completed-unverified"));if(domain(g))domains.release(g);g.put("status","completed").put("outcome",verified?"verified":"completed-unverified").put("summary",summary).put("reason","Java completion gates passed").put("finishedAt",Instant.now().toString());record(g,"completed",new JSONObject().put("verified",verified));store.event("agent_completed",Domain044.merge(new JSONObject(),g.optJSONObject("completion044",new JSONObject())).put("goal",g.getString("goal")).put("model",g.getString("model")).put("summary",summary).put("episodeId",g.getString("episodeId")).put("javaTask",view(g)));save();
     }
     private void recent(JSONObject g,String tool,JSONObject result){var list=g.getJSONArray("recent");list.put(new JSONObject().put("tool",tool).put("result",ChatChain052.recentObservation(result)));while(list.length()>4)list.remove(0);}
-    private void repair(JSONObject g,String reason)throws Exception{g.remove("nativeIntent");g.put("failures",g.getInt("failures")+1);recent(g,"repair",new JSONObject().put("error",reason));record(g,"repair",new JSONObject().put("reason",reason));if(g.optString("family044").equals(RampMission.FAMILY)||g.has(LocalWorkflowSelection.KEY)){interrupt(g,reason);return;}if(g.getInt("failures")>=4){interrupt(g,"Repair budget reached: "+reason);return;}g.put("status","ready").put("reason",reason);}
+    private void repair(JSONObject g,String reason)throws Exception{g.remove("nativeIntent");g.put("failures",g.getInt("failures")+1);recent(g,"repair",new JSONObject().put("error",reason));record(g,"repair",new JSONObject().put("reason",reason));if(g.optString("family044").equals(RampMission.FAMILY)||g.has(LocalWorkflowSelection.KEY)||g.has(RampTraceChain.KEY)){interrupt(g,reason);return;}if(g.getInt("failures")>=4){interrupt(g,"Repair budget reached: "+reason);return;}g.put("status","ready").put("reason",reason);}
     private void record(JSONObject g,String kind,JSONObject detail)throws Exception{var history=g.getJSONArray("history");var row=new JSONObject().put("kind",kind).put("at",Instant.now().toString()).put("detail",WorldFrames.copy(detail)).put("parent",history.isEmpty()?"GENESIS":history.getJSONObject(history.length()-1).getString("sha256"));row.put("sha256",WorldFrames.hash(row));history.put(row);save();witness.record("task043-"+kind,new JSONObject().put("taskId",g.getString("id")).put("historySha256",row.getString("sha256")).put("status",g.getString("status")));}
     static void verifyHistory(JSONObject g){ChatChain052.verifyObjective(g);String prior="GENESIS";for(Object raw:g.getJSONArray("history")){var row=WorldFrames.copy((JSONObject)raw);String hash=row.getString("sha256");row.remove("sha256");if(!prior.equals(row.getString("parent"))||!WorldFrames.hash(row).equals(hash))throw new IllegalStateException("Java task history chain differs; original retained");prior=hash;}}
     private void interrupt(JSONObject g,String reason)throws Exception{if(!LIVE.contains(g.getString("status")))return;if(g.has("requestId"))cancelRequest.accept(g.getString("requestId"));vision.cancel();if(g.has("claim"))claims.remove(g.getJSONObject("claim").getString("nonce"));g.remove("claim");g.put("status","interrupted").put("reason",reason);if(domain(g))try{domains.interrupt(g);}catch(Exception releaseError){g.put("releaseNote044",releaseError.getMessage());}if(g.has("episodeId"))learning.interruptEpisode043(g.getString("episodeId"),reason);record(g,"interrupted",new JSONObject().put("reason",reason));save();}
@@ -316,7 +342,18 @@ final class Agency043 implements AutoCloseable {
                         .put("generation",g.getInt("generation")+1);
                 retainLocalWorkflow(g, procedure, "confirmed");
             }
+            case "confirm-chain" -> {
+                if (!g.has(RampTraceChain.KEY)||g.optBoolean(RampTraceChain.APPROVED)
+                        || !g.getString("status").equals("interrupted")||busy()||resumeBusy.getAsBoolean())
+                    throw new IllegalStateException("Confirm one reviewed chain while the workspace is idle");
+                verifyHistory(g);
+                g.put(RampTraceChain.APPROVED,true).put("status","queued").put("reason","Two-step chain confirmed, queued in Java")
+                        .put("generation",g.getInt("generation")+1);
+                record(g,"chain-confirmed",g.getJSONObject(RampTraceChain.KEY));
+            }
             case "resume" -> {
+                if (g.has(RampTraceChain.KEY)&&!g.optBoolean(RampTraceChain.APPROVED))
+                    throw new IllegalStateException("Confirm the reviewed chain from Mission first");
                 if (awaitingReview) throw new IllegalStateException("Confirm the suggested workflow from Mission first");
                 if (g.has("localWorkflowQuestion")) throw new IllegalStateException(g.getString("localWorkflowQuestion"));
                 if (g.has("refusal106")) throw new IllegalStateException("Request refused: "+g.getJSONObject("refusal106").getString("reason")+". Review the original evidence and start a separate request.");

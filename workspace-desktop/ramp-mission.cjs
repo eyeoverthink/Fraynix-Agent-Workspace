@@ -9,7 +9,7 @@ function rampPath(value, origin) {
 
 function rampRequest(goal) {
   const text=goal.trim();
-  return /^(?:(?:run|plan) the local ramp experiment|compare the local ramp setups)(?: and pause after reading)?[.!]?$/i.test(text)
+  return /^review a local chain:/i.test(text) || /^(?:(?:run|plan) the local ramp experiment|compare the local ramp setups)(?: and pause after reading)?[.!]?$/i.test(text)
     || /^plan a local ramp task(?: and pause after reading)?:[ 	]*\S.{0,1199}$/i.test(text);
 }
 

@@ -62,13 +62,31 @@ public final class WorkflowRunner implements AutoCloseable {
     public synchronized JSONObject start(JSONObject input) throws Exception {return start(input,null);}
     private JSONObject start(JSONObject input,JSONObject skill) throws Exception {return start(input,skill,null);}
     private JSONObject start(JSONObject input,JSONObject skill,JSONObject implementation) throws Exception {
+        return start(input,skill,implementation,null);
+    }
+    synchronized JSONObject findOwnedSummary(String id) {
+        for (var row : records110()) if (row.getString("id").equals(id)) return read(id);
+        return new JSONObject();
+    }
+    synchronized JSONObject startOwnedSummary(String id, JSONObject input) throws Exception {
+        UUID.fromString(id);
+        if (!DataSummary104.own(input)) throw new IllegalArgumentException("Expected the registered motion summary");
+        var existing = findOwnedSummary(id);
+        if (!existing.isEmpty()) {
+            if (!raw(id).getJSONObject("definition").similar(definition(input)))
+                throw new IllegalStateException("The saved motion summary has different inputs");
+            return existing;
+        }
+        return start(input,null,null,id);
+    }
+    private JSONObject start(JSONObject input,JSONObject skill,JSONObject implementation,String fixedId) throws Exception {
         if(input.has("profile162"))return start162(input,skill);
         if(input.has("profile159"))return start159(input,skill);
         if(input.has("profile158"))return start158(input,skill);
         if(input.has("profile128"))return start128(input,skill);
         if(input.has("qualify105"))return start105(input);
         if(input.has("graph"))return startGraph(input,skill);
-        if(closed||active()!=null&&!active().getString("id").equals(qualificationParent105)||executableCount105()>=20)throw new IllegalStateException("Finish/resume/stop the current workflow; history limit20");goals.workflowCapacity();var def=definition(input);String id=qualificationParent105.isEmpty()?UUID.randomUUID().toString():qualificationChildId105;var stages=new JSONArray();for(String stage:def.has("profile101")?DataCreation101.STAGES:STAGES)stages.put(new JSONObject().put("name",stage).put("status","pending"));
+        if(closed||active()!=null&&!active().getString("id").equals(qualificationParent105)||executableCount105()>=20)throw new IllegalStateException("Finish/resume/stop the current workflow; history limit20");goals.workflowCapacity();var def=definition(input);String id=fixedId!=null?fixedId:qualificationParent105.isEmpty()?UUID.randomUUID().toString():qualificationChildId105;var stages=new JSONArray();for(String stage:def.has("profile101")?DataCreation101.STAGES:STAGES)stages.put(new JSONObject().put("name",stage).put("status","pending"));
         var w=new JSONObject().put("id",id).put("definition",def).put("title",def.getString("title")).put("request",def.getString("request")).put("modelName",def.getString("modelName")).put("dataBinding",MotionData.binding(measurements.read(def.getString("datasetId"),def.getInt("datasetVersion")))).put("status","running").put("step","data").put("stages",stages).put("stageIndex",0).put("resumes",0).put("deadline",System.currentTimeMillis()+1_200_000).put("createdAt",Instant.now()).put("history",new JSONArray()).put("auditHistory",new JSONArray());if(skill!=null)w.put("skill",new JSONObject().put("name",skill.getString("name")).put("version",skill.getInt("version")).put("id",skill.getString("id")));
         if(!qualificationParent105.isEmpty()){w.put("qualificationOwner105",qualificationParent105);if(qualificationCase105!=null)w.put("qualificationCase105",WorldFrames.copy(qualificationCase105));}
         if(def.has("profile101"))w.put("profile101",def.getString("profile101")).put("code101",DataSummary104.code(def.getString("profile101")));

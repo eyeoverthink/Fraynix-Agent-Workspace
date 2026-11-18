@@ -11,6 +11,7 @@ final class ChatPolicy044 {
  static boolean design053(String s){return !webCreation(s)&&has(s,"\\b(compare|design|evaluate)\\b")&&has(s,"\\b(assembly|bridge|construction)\\b");}
  static boolean designReview053(String s){return has(s,"\\b(review|inspect) before\\b|\\b(do not|don['’]t|never)\\s+(move|execute|actuate|run|build|assemble)\\b")||!has(s,"\\b(execute|executing|run|reuse|move|actuate|build|assemble)\\b");}
  static String route(String s,JSONObject b,boolean measured){
+  if(RampTraceChain.proposed(s))return RampTraceChain.FAMILY;
   if(LocalWorkflowSelection.intent(s)!=null)return LocalWorkflowSelection.FAMILY;
   if(RecordedSmall162.requested(s)||CalibratedAction159.requested(s)||ObservationTask158.requested(s)||ObservationArtifact128.requested(s))return "workflow";
   if(RampMission.requested(s))return RampMission.FAMILY;
@@ -70,6 +71,7 @@ final class ChatPolicy044 {
    case "transfer"->c.has("transferEvidence")?List.of("finish"):List.of("scene.read","scene.export","scene.clone","scene.import","run.export","run.csv","run.video");
    case "calibration"->!c.has("calibrationEvidence")?List.of("scene.read","dataset.read","calibration.start"):!c.getJSONObject("calibrationEvidence").optString("status").equals("completed")?List.of("calibration.read"):apply(goal)&&c.getJSONObject("calibrationEvidence").getJSONObject("evaluation").getBoolean("accepted")&&!c.getJSONObject("calibrationEvidence").optJSONObject("application",new JSONObject()).has("applyReceipt")?List.of("calibration.apply"):!c.has("calibrationReportId")?List.of("calibration.report"):List.of("finish");
    case "scene"->{var a=new ArrayList<>(List.of("scene.create","scene.read","scene.update","experiment.run","experiment.reset"));if(has(goal,"\\b(measurements?|observations?|dataset|csv|residual|comparison)\\b"))a.addAll(List.of("dataset.import","dataset.read","experiment.compare","comparison.report"));if(c.has("sceneEvidence"))a.add("finish");yield a;}
+   case RampTraceChain.FAMILY -> c.has("workflowEvidence") ? List.of("finish") : List.of();
    case RampMission.FAMILY -> c.optBoolean("rampVerified") ? List.of("finish") :
        !task.has(LocalWorkflowSelection.KEY)&&RampProcedure.intent(goal).planned()&&!c.has("rampChoice") ? List.of(RampProcedure.SELECT_TOOL) : List.of();
    case "gamelevel"->c.has("gameEvidence115")?List.of("finish"):List.of();

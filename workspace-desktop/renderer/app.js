@@ -51,7 +51,7 @@ function quickWorkflowRequest(text) {
  return /^route a local workflow:[ \t]*\S.{0,1199}$/i.test(text.trim());
 }
 function offlineMissionRequest(text) {
- return /^run local workflow (?:ramp|analysis):[ \t]*\S.{0,1199}$/i.test(text.trim()) || /^(?:run the local ramp experiment|compare the local ramp setups)(?: and pause after reading)?[.!]?$/i.test(text.trim()) || /^(?:playtest|verify) relay (?:ridge|switchyard) at (?:all three paces|(?:normal|steady|careful) pace)[.!]?$/i.test(text.trim());
+ return /^review a local chain:/i.test(text.trim()) || /^run local workflow (?:ramp|analysis):[ \t]*\S.{0,1199}$/i.test(text.trim()) || /^(?:run the local ramp experiment|compare the local ramp setups)(?: and pause after reading)?[.!]?$/i.test(text.trim()) || /^(?:playtest|verify) relay (?:ridge|switchyard) at (?:all three paces|(?:normal|steady|careful) pace)[.!]?$/i.test(text.trim());
 }
 function plannedRampRequest(text) {
  return /^(?:plan the local ramp experiment(?: and pause after reading)?[.!]?|plan a local ramp task(?: and pause after reading)?:[ 	]*\S.{0,1199})$/i.test(text.trim());
@@ -182,9 +182,9 @@ const rampFields=Object.keys(rampDefaults);
 const rampFileHelp='Required columns are angle_deg, friction, gravity_mps2, mass_kg and duration_s.';
 let rampRevision, rampCsv, rampImport=0;
 function showSecondRamp(second) {
- const option=$('ramp-result').querySelector('option[value="compare"]');
- option.disabled=!second;
+ for(const value of ['compare','chain'])$('ramp-result').querySelector('option[value="'+value+'"]').disabled=!second;
  if(!second)$('ramp-result').value='single';
+ updateRampResultOptions();
  $('ramp-second-facts').hidden=!second;
  $('ramp-second-facts').textContent=second?'Second setup · '+second.angleDeg+'° · friction '+second.friction+
   ' · '+second.gravityMps2+' m/s² · '+second.massKg+' kg · '+second.seconds+' s':'';
@@ -207,11 +207,18 @@ function resetRampFile(){
  $('ramp-input-save').disabled=Boolean(rampRevision?.csvSha256);
  $('ramp-use-current').disabled=!rampRevision;
 }
+function updateRampResultOptions(){
+ const chain=$('ramp-result').value==='chain';
+ $('ramp-plan-label').hidden=chain;
+ $('ramp-pause-label').textContent=chain?'Pause after the verified comparison':'Pause after reading the table';
+}
+$('ramp-result').onchange=updateRampResultOptions;
 function prepareRampGoal(){
  const pause=$('ramp-pause').checked?' and pause after reading':'';
  const compare=$('ramp-result').value==='compare';
  const plan=$('ramp-plan').checked;
- if(compare) $('goal').value=plan?'Plan a local ramp task'+pause+': Which setup travels farther on the shared clock?'
+ if($('ramp-result').value==='chain') $('goal').value="Review a local chain: Compare both ramp setups, then analyze the farther setup's motion."+($('ramp-pause').checked?' Pause after comparison.':'');
+ else if(compare) $('goal').value=plan?'Plan a local ramp task'+pause+': Which setup travels farther on the shared clock?'
   :'Compare the local ramp setups'+pause+'.';
  else $('goal').value=(plan?'Plan':'Run')+' the local ramp experiment'+pause+'.';
  $('goal').dispatchEvent(new Event('input'));

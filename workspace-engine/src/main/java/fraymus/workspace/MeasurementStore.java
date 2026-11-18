@@ -113,6 +113,14 @@ public final class MeasurementStore {
         return new JSONObject().put("columns", rows.get(0).stream().map(String::strip).toList()).put("dataRows", rows.size() - 1);
     }
     public synchronized JSONObject importCsv(JSONObject input) throws Exception {
+        return importCsv(input, null);
+    }
+    synchronized JSONObject importSimulationOnce(String id, JSONObject input) throws Exception {
+        if (input.has("id") || !input.getString("sourceKind").equals("synthetic"))
+            throw new IllegalArgumentException("Expected a new simulated dataset");
+        return importCsv(input, UUID.fromString(id).toString());
+    }
+    private JSONObject importCsv(JSONObject input, String fixedId) throws Exception {
         fields(input, "id", "expectedVersion", "title", "filename", "csv", "sourceKind", "sourceNote", "mapping", "missingPolicy", "uncertaintyM");
         String title = text(input, "title", 120), filename = text(input, "filename", 160), source = input.getString("csv");
         if (filename.contains("/") || filename.contains("\\") || filename.contains("\n") || filename.contains("\r")) throw new IllegalArgumentException("Use a source filename, not a path");
@@ -151,7 +159,7 @@ public final class MeasurementStore {
         if (input.has("uncertaintyM") && (uncertainty < 0 || uncertainty > 1e6)) throw new IllegalArgumentException("uncertaintyM must be nonnegative");
         JSONObject prior = input.has("id") ? require(input.getString("id"), "workspace.measurement.dataset") : null;
         if (prior != null && integer(input, "expectedVersion") != prior.getInt("version")) throw new ConcurrentModificationException("Dataset changed; read the current version before importing");
-        String id = prior == null ? UUID.randomUUID().toString() : prior.getString("id"); int version = prior == null ? 1 : prior.getInt("version") + 1;
+        String id = fixedId != null ? fixedId : prior == null ? UUID.randomUUID().toString() : prior.getString("id"); int version = prior == null ? 1 : prior.getInt("version") + 1;
         String sourceHash = hash(source), versionId = UUID.randomUUID().toString();
         var identity = new JSONArray(List.of(sourceHash, timeColumn, distanceColumn, timeUnit, distanceUnit, offset, origin, direction, missing));
         var value = new JSONObject().put("id", versionId).put("schemaVersion", 1).put("datasetId", id).put("version", version).put("title", title)
@@ -160,6 +168,12 @@ public final class MeasurementStore {
             .put("uncertaintyM", uncertainty < 0 ? JSONObject.NULL : uncertainty).put("frame", "signed downhill displacement from release, metres; elapsed simulation seconds")
             .put("columns", headers).put("rows", normalized).put("createdAt", Instant.now());
         var head = new JSONObject().put("id", id).put("title", title).put("version", version).put("currentVersionId", versionId).put("sourceKind", kind).put("rowCount", normalized.length()).put("sourceSha256", sourceHash);
+        if (fixedId != null && find(id) != null) {
+            var actual = read(id, 0);
+            if (!value.put("id", actual.getString("id")).put("createdAt", actual.get("createdAt")).similar(actual))
+                throw new IllegalStateException("The original simulated dataset was changed");
+            return actual;
+        }
         commit(record("workspace.measurement.version", value), record("workspace.measurement.dataset", head));
         return value;
     }
