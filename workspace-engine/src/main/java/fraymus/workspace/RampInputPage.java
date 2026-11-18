@@ -6,7 +6,6 @@ import org.json.JSONObject;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.UUID;
@@ -105,7 +104,7 @@ final class RampInputPage {
 
     static JSONObject parseCsv(String csv) {
         if (csv.getBytes(StandardCharsets.UTF_8).length > MAX_CSV_BYTES) throw new IllegalArgumentException("Choose a CSV under 8 KiB");
-        var rows = MeasurementStore.csv(csv);
+        var rows = MeasurementStore.csv(csv, 1);
         if (rows.size() != 2 || rows.get(0).size() != HEADERS.size() || rows.get(1).size() != HEADERS.size()) {
             throw new IllegalArgumentException("Ramp CSV needs a header and exactly one data row");
         }
@@ -117,9 +116,9 @@ final class RampInputPage {
         for (int i = 0; i < HEADERS.size(); i++) {
             String text = rows.get(1).get(header.indexOf(HEADERS.get(i))).strip();
             try {
-                if (text.length() > 40) throw new NumberFormatException();
-                data.put(FIELDS.get(i), new BigDecimal(text));
-            } catch (NumberFormatException bad) {
+                if (text.length() > 40) throw new IllegalArgumentException();
+                data.put(FIELDS.get(i), MeasurementStore.cellNumber(text, 2));
+            } catch (IllegalArgumentException bad) {
                 throw new IllegalArgumentException(HEADERS.get(i) + " must be a decimal value");
             }
         }

@@ -68,7 +68,8 @@ public final class MeasurementStore {
         catch (Exception e) { throw new IllegalStateException(e); }
     }
     /** Bounded CSV, including quoted commas, newlines and escaped quotes; never executes cells. */
-    static List<List<String>> csv(String source) {
+    static List<List<String>> csv(String source) {return csv(source,2);}
+    static List<List<String>> csv(String source,int minimumDataRows) {
         if (!StandardCharsets.UTF_8.newEncoder().canEncode(source) || source.getBytes(StandardCharsets.UTF_8).length > 262144 || source.indexOf('\0') >= 0) throw new IllegalArgumentException("CSV must be valid UTF-8, at most 256 KiB, without NUL");
         if (source.startsWith("\uFEFF")) source = source.substring(1);
         var rows = new ArrayList<List<String>>(); var row = new ArrayList<String>(); var cell = new StringBuilder();
@@ -97,7 +98,7 @@ public final class MeasurementStore {
         }
         if (quoted) throw new IllegalArgumentException("Unclosed CSV quote");
         if (cell.length() != 0 || !row.isEmpty() || closed) { row.add(cell.toString()); rows.add(List.copyOf(row)); }
-        if (rows.size() < 3 || rows.size() > 2049 || rows.stream().anyMatch(r -> r.size() > 32)) throw new IllegalArgumentException("CSV needs a header and 2..2048 data rows, at most 32 columns");
+        if (rows.size() <= minimumDataRows || rows.size() > 2049 || rows.stream().anyMatch(r -> r.size() > 32)) throw new IllegalArgumentException("CSV needs a header and " + minimumDataRows + "..2048 data rows, at most 32 columns");
         return rows;
     }
     static double cellNumber(String raw, int row) {
