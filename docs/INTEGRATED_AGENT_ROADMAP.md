@@ -1,3 +1,9 @@
+## Edition164 continuity — 2026-11-17
+
+Edition 164 measures complete mixed workflows across eight accepted simulated-world revisions and two fresh data reports per session. Forty durable requests complete across four sessions, including eight abrupt interruptions, sixteen saved motion-procedure versions and cold verification. Timing is diagnostic; original native/controller/report/verifier source and compiled bytes match edition 163.
+
+[Edition164](../README-164.md). Keep one integrated Java agent and original source/outcome checks. Next: reduce measured repeated source/history work and compare complete costs; new physical accuracy separately pending.
+
 ## Edition163 continuity — 2026-11-17
 
 Edition163 measures complete recorded-object workflows over three existing recordings and four accepted world revisions. Exact, process-local recording reuse reduced measured task cost across the two comparison pairs; source, numerical native trace and actual report evidence match exactly. Mean paired change: 61.9% less task time. This is a small exposed local study, not a general speed guarantee.

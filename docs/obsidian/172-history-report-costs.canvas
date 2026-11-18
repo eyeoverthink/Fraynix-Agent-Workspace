@@ -1,0 +1,99 @@
+{
+  "nodes": [
+    {
+      "id": "context",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorkflowCost164.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "history",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/HistoryCosts164.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "workflow",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "report",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SmallReport161.java",
+      "x": 1290,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "browser",
+      "type": "file",
+      "file": "workspace-desktop/report-cost164.cjs",
+      "x": 1720,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "measurement",
+      "type": "file",
+      "file": "docs/publication164/study164.cjs",
+      "x": 2150,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "comparison",
+      "type": "file",
+      "file": "docs/publication164/compare164.py",
+      "x": 2580,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "context",
+      "toNode": "history"
+    },
+    {
+      "id": "1",
+      "fromNode": "history",
+      "toNode": "workflow"
+    },
+    {
+      "id": "2",
+      "fromNode": "workflow",
+      "toNode": "report"
+    },
+    {
+      "id": "3",
+      "fromNode": "report",
+      "toNode": "browser"
+    },
+    {
+      "id": "4",
+      "fromNode": "browser",
+      "toNode": "measurement"
+    },
+    {
+      "id": "5",
+      "fromNode": "measurement",
+      "toNode": "comparison"
+    }
+  ]
+}

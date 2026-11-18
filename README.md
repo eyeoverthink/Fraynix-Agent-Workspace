@@ -1,148 +1,213 @@
-# Fraynix Agent Workspace — edition 163
+# Fraynix Agent Workspace — edition 164
 
-[Published and fetched receipt](docs/PUBLICATION_163.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-163)
+2026-11-17 · Physics history · Report costs · Longer mixed workflows
 
-2026-11-17 · Complete workflow costs · Verified recording reuse · Growing world histories
+[Previous edition 163](README-163.md) · [Offline interactive guide](docs/readmes/164/index.html) · [All editions](docs/readmes/INDEX.md) · [Frozen measurement plan](docs/publication164/plan164.md)
 
-[Previous edition 162](README-162.md) · [Offline guide](docs/readmes/163/index.html) · [All editions](docs/readmes/INDEX.md) · [Acceptance plan and amendments](docs/publication163/plan163.md)
+Edition 164 measures complete mixed workflows across eight accepted simulated-world revisions and two fresh data reports per session. Forty durable requests complete across four sessions, including eight abrupt interruptions, sixteen saved motion-procedure versions and cold verification. Timing is diagnostic; original native/controller/report/verifier source and compiled bytes match edition 163.
 
-Edition163 measures complete recorded-object workflows over three existing recordings and four accepted world revisions. Exact, process-local recording reuse reduced measured task cost across the two comparison pairs; source, numerical native trace and actual report evidence match exactly. Mean paired change: 61.9% less task time. This is a small exposed local study, not a general speed guarantee.
+![Actual workflow cost breakdown](docs/readmes/164/workflow-cost-breakdown.png)
 
-![Actual recording verification costs](docs/readmes/163/verification-costs.png)
+The screenshot shows the actual app and its current-process timing display. An existing generic timeline notice asks for a linked game world; the recorded-action destination is selected and verified separately. It does not represent a failed recorded-action outcome. The notice remains a presentation issue.
 
-The spatial screenshot retains an existing generic panel notice about an unlinked world. The recorded-action destination is selected separately and verified by the task receipts; the notice is not a failed recorded-action outcome.
+## The application and this phase
 
-## Where this fits in the application
+Fraynix connects observation, simulation, browser and creation surfaces through durable Java tasks. A request can bind an input, execute a procedure, inspect an actual result, recover after interruption and retain a verified way to repeat useful work. Java owns task state and acceptance. The desktop presents the browser, world and creation surfaces together.
 
-Fraynix connects observation, simulation, browser and creation surfaces through durable Java tasks and verified procedures. The purpose is an agent that completes useful work, checks what happened and retains a way to repeat it with fresh inputs. The physics runtime supplies consequences that can be measured. The browser and canvas supply working surfaces. Java owns task state, source bindings, recovery and acceptance.
+Edition 162 connected recorded coordinates and conditional uncertainty to a smaller controller and durable chat requests. Edition 163 reduced repeated reconstruction of unchanged recordings while preserving fresh evidence checks. Edition 164 measures the remaining costs as **one world grows through eight accepted actions**, interleaved with **two fresh data-to-report workflows**.
 
-Edition 162 connected recorded object coordinates and conditional uncertainty to the smaller controller, durable chat and saved skills. Edition 163 asks whether that connection remains practical as sources change and the accepted world history grows. A faster isolated tracker is not enough if source reconstruction, restart, history replay, report checking and skill publication dominate the whole request.
+This is a measurement and inspection release. It does not promote a new tracker, physics controller, learning policy or physical-accuracy claim. The five native controller, physics, store, verifier and report classes have both unchanged source and byte-identical locally compiled classes compared with edition 163 ([identity receipt](docs/readmes/164/native-identity.json)). The changed recorded-parent implementation receives its own identity; earlier proofs are not relabelled.
 
-This edition measures those complete requests. It reduces repeated recording reconstruction through a bounded memory of already verified computation. It also fixes a genuine display incompatibility exposed by the longer history. The numerical controller, movement limits, physics integration and outcome thresholds are unchanged. The report change has a new implementation identity; historical proofs are not relabelled as current evidence.
+## What was added
 
-## What is implemented
+**Bounded Java operation timing.** Eight fixed categories wrap existing calls: recorded-source checks, accepted-history verification, native-job verification, outcome verification, acceptance, report creation, report source checks and report audit. Each wrapper preserves the original result or exception. Counters and the latest 128 events stay in the process; they reset after restart. They cannot authorize an action or substitute for evidence. These Java spans cover the recorded-motion route. The interleaved data workflows have complete-task timings and shared browser spans; not every data-analysis operation has its own timer.
 
-The recorded-object route can reuse a completed reconstruction only within the current Java process and only after fresh evidence checks. Four entries are retained, each at most 2 MB. Restart discards this memory. Neither a saved skill nor a persisted successful task is a cache entry.
+**Actual browser-operation timing.** The desktop measures existing report navigation, rendered-result reads and browser checks with the same inputs, receiver and returned values. Nested asynchronous operations use the union of child intervals so overlapping children do not produce a negative exclusive time. Detached child work is identified separately. Timing can be disabled without skipping the original operation.
 
-Every access checks the original trial and independent labels, registration checksum, image and metadata bytes, recalculated calibration, historical world binding and defining code containers. It reads the evidence before and after obtaining the result. File size and timestamps cannot establish a match. A missing source is refused before older store accessors can initialize an empty replacement. Linked paths are refused. Changed inputs trigger a full reconstruction or an explicit refusal. Any failure clears the retained entries.
+**Read-only history breakdown.** The new control accepts a selected world, exact revision and hash. It requires an idle, unreserved world and at most eight accepted entries. The original complete history verifier runs before and after. Between those checks, the probe independently repeats each native run, compares its full result, rebuilds and compares the report source, and audits its saved observations. It then verifies persisted and in-memory world state remained unchanged. There is a bounded checkpoint budget of 120 seconds; synchronous original checks may finish before the following budget checkpoint. The existing twelve-job world limit is unchanged.
 
-The first use executes the original `PlaneReplay160` reconstruction. A later exact match may return an isolated copy of that completed result. The returned JSON cannot change the retained value. A changed code inventory, explicit full reconstruction, cold start or eviction causes original computation again. The original tracker, reference guard, filter and independent displacement evaluation remain in force.
+The probe is deliberately extra work. Saved observations are rechecked against the original report; this does **not** count as a new browser observation, a new accepted revision or new camera evidence. Actual workflow acceptance still obtains and checks the rendered report in the browser.
 
-This reuse has a deliberately narrow boundary. Java still rechecks measurement gates, chooses a labelled accepted endpoint, computes its uncertainty region, checks the current world and route, executes actual native motion, replays native results and history, inspects both rendered reports, checks endpoint error and verifies retained-procedure ancestry. No physics result, accepted-world revision or browser observation is inferred from the recording cache.
+## Complete mixed-workflow study
 
-## What the longer baseline revealed
+The fixed order is timing on A, timing off A, timing off B, timing on B. All four sessions use the same locked build, two Java processors and a 768 MiB Java heap. Edition 163's verified recording reuse remains enabled in both modes. Only the new diagnostic timing is toggled.
 
-The published edition162 baseline was retained unchanged. Its first itinerary correctly refused a third move shorter than the controller's 20 mm minimum. The comparison itinerary was corrected to use the farther labelled endpoint before final comparisons; the movement threshold was not relaxed.
+Every fresh project executes this itinerary:
 
-The next baseline completed three moves, then refused a report after the deliberate restart. The final sample time was 4.675 seconds. Java formatted that label as **4.68**, while Chromium's `toFixed(2)` displayed **4.67**. The actual DOM diagnosis established this difference. The numeric pose was not evidence of a stale artifact, and the refusal was not bypassed.
+1. Move using the historical camera end point; save motion procedure v1.
+2. Reuse v1 with the generated short recording's start point. Analyze the original Delfys validation data and create a fresh, verified Java summary report.
+3. Reuse v1 with the generated reverse recording's start point; save v2.
+4. Reuse v2 with the camera start point. Pause before action, abruptly stop Java, restart and resume the same durable request.
+5. Move using the camera end point; save v3.
+6. Reuse v3 with the short recording's start point. Analyze the original Delfys training data and create another fresh verified summary.
+7. Reuse v3 with the reverse recording's start point; interrupt Java before action and recover the same request again.
+8. Reuse v3 with the camera start point; save v4.
 
-The report now carries canonical Java-formatted sample labels. The independent verifier still reconstructs expected labels from the numeric rows and compares the actual displayed text, selected pose, path, axes, source and native outcome. Halfway-time rendering fixtures exercise 1.005, 2.675 and 4.675 in actual Chromium. Altered labels and poses remain refused.
+Each session has ten completed parents, eight native motion children, eight accepted world revisions and four saved motion-procedure versions. Each data workflow has two completed child stages, exact original/normalized source handoff, four independently observed interactive report states and fresh calculated summaries. The data report does not change the physics world. Summary qualification and retention remain a separate gate; these runs do not save unqualified summary procedures.
 
-The failed published baseline is reported as a failed complete workflow, not used as a successful speed comparison. The final full-replay and reuse runs both use the same corrected implementation, isolating the cost of reuse from the display correction.
+Read-only probes run after history depths 2, 4, 6 and 8. They are **outside ordinary task timings**. Task totals include preparation, execution, report checks, requested skill saving and an additional original archive verification. The two interrupted task totals include restart. Whole-session time includes startup, probes, diagnostic calls and UI navigation; cold verification is separately measured. Fixture copying and post-study corruption tests are outside those totals.
 
-## Complete workflow measurements
+### Timing on versus off
 
-The fixed itinerary has four successive actions in one authored world:
-
-1. Move to the camera recording's labelled end point and save procedure v1.
-2. Reuse v1 with the generated shorter-forward recording's start point; save v2.
-3. Reuse v2 with the generated longer-reverse recording's start point; save v3.
-4. Reuse v3 with the camera recording's start point, pause before action, abruptly end Java, restart, resume the same task and save v4.
-
-The world reaches four accepted revisions with exactly four native children. Each reuse gets a fresh source, frame and world binding. Each completed task also receives a separate archive verification. Source uncertainty and authored geometry remain explicit throughout.
-
-Two pairs run in alternating order: full A, reuse A, reuse B, full B. All runs use the same sources, two Java processors and a 768 MiB Java heap. The sources are **one exposed historical camera episode and two existing labelled generated sequences**. Repetition is not additional physical evidence.
-
-| Pair | Full replay, four tasks s | Verified reuse, four tasks s | Saved % |
+| Pair | Timing on, ten tasks s | Timing off, ten tasks s | Difference % |
 | --- | ---: | ---: | ---: |
-| a | 175.21 | 66.30 | 62.2 |
-| b | 179.44 | 68.83 | 61.6 |
+| a | 170.85 | 168.50 | +1.40 |
+| b | 166.68 | 169.11 | -1.43 |
 
 
-| Run | Source/task | Revision | Preparation s | Execution s | Archive check s | Complete task s |
+These are two small, exposed local pairs. Differences include scheduling, warm-up and storage noise as well as instrumentation. They are not an isolated timer-overhead estimate or a population speed guarantee; a negative difference is not evidence that timing makes the controller faster.
+
+Across all four sessions, mean original full-history verification grew from **0.165s at two entries to 0.653s at eight** (3.95×). At eight entries, the separate repeated native runs averaged **0.133s**, and report rebuilding/source/saved-observation audit averaged **0.025s**. These separately repeated measurements identify work; they do not partition the original verifier's time.
+
+| Repeated source task | Early mean complete task s | Later mean complete task s |
+| --- | ---: | ---: |
+| Camera end: history1 →5 | 13.29 | 17.94 |
+| Generated short start: history2 →6 | 12.89 | 17.85 |
+
+These repeated endpoints have growing history and different retained procedure ancestry. They show complete-task growth, not an isolated causal estimate of history length.
+
+Diagnostic totals below cover the **twenty timed tasks in the two timing-enabled sessions**, joined across process restarts. Read-only probes and their separately collected counters are outside these task intervals. Counts include repeated required checks, not distinct new observations.
+
+| Domain / operation | Calls | Including children s | Excluding children s |
+| --- | ---: | ---: | ---: |
+| browser / canvas.test | 56 | 5.049 | 4.750 |
+| browser / canvas.navigate | 56 | 2.029 | 1.889 |
+| browser / canvas.isolated | 672 | 0.632 | 0.632 |
+| java / SOURCE | 196 | 95.116 | 95.116 |
+| java / NATIVE_OUTCOME | 80 | 35.225 | 35.225 |
+| java / HISTORY | 52 | 15.904 | 15.904 |
+| java / NATIVE_JOB | 128 | 9.971 | 9.971 |
+| java / NATIVE_ACCEPT | 16 | 5.909 | 5.909 |
+| java / REPORT_WRITE | 16 | 3.298 | 3.298 |
+| java / REPORT_AUDIT | 96 | 2.439 | 2.439 |
+| java / REPORT_SOURCE | 112 | 0.405 | 0.405 |
+
+The next optimization should be selected from these measured repeated operations and evaluated using the whole request. Diagnostic wrappers are not permission to skip an original check.
+
+
+### Every complete task
+
+| Run | Task | History | Preparation s | Execution s | Archive check s | Complete task s |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| full-a | camera-end | 1 | 4.22 | 34.15 | 3.53 | 41.98 |
-| full-a | generated-short-start | 2 | 3.35 | 27.62 | 2.50 | 33.55 |
-| full-a | generated-reverse-start | 3 | 3.31 | 30.78 | 2.60 | 36.73 |
-| full-a | camera-start-recovered | 4 | 4.41 | 54.73 | 3.75 | 62.95 |
-| memo-a | camera-end | 1 | 3.92 | 8.15 | 0.64 | 12.74 |
-| memo-a | generated-short-start | 2 | 3.10 | 9.31 | 0.69 | 13.15 |
-| memo-a | generated-reverse-start | 3 | 3.11 | 10.77 | 0.78 | 14.71 |
-| memo-a | camera-start-recovered | 4 | 1.43 | 23.26 | 0.92 | 25.70 |
-| memo-b | camera-end | 1 | 4.08 | 8.09 | 0.64 | 12.84 |
-| memo-b | generated-short-start | 2 | 3.20 | 10.01 | 0.70 | 13.95 |
-| memo-b | generated-reverse-start | 3 | 3.14 | 10.25 | 0.77 | 14.26 |
-| memo-b | camera-start-recovered | 4 | 1.38 | 25.44 | 0.88 | 27.78 |
-| full-b | camera-end | 1 | 4.28 | 33.92 | 3.50 | 41.75 |
-| full-b | generated-short-start | 2 | 3.16 | 28.86 | 2.47 | 34.52 |
-| full-b | generated-reverse-start | 3 | 3.32 | 31.02 | 2.57 | 36.95 |
-| full-b | camera-start-recovered | 4 | 4.33 | 58.13 | 3.61 | 66.22 |
+| on-a | motion-1-camera-end | 1 | 4.26 | 8.94 | 0.72 | 13.92 |
+| on-a | motion-2-generated-short-start | 2 | 4.13 | 9.19 | 0.70 | 14.03 |
+| on-a | summary-validation | 2 | 0.24 | 8.66 | 0.05 | 8.95 |
+| on-a | motion-3-generated-reverse-start | 3 | 3.28 | 10.47 | 0.79 | 14.55 |
+| on-a | motion-4-camera-start | 4 | 1.48 | 23.17 | 0.87 | 25.52 |
+| on-a | motion-5-camera-end | 5 | 1.42 | 15.30 | 0.98 | 17.70 |
+| on-a | motion-6-generated-short-start | 6 | 3.27 | 13.49 | 1.05 | 17.82 |
+| on-a | summary-training | 6 | 0.16 | 10.03 | 0.09 | 10.28 |
+| on-a | motion-7-generated-reverse-start | 7 | 1.70 | 21.74 | 1.08 | 24.52 |
+| on-a | motion-8-camera-start | 8 | 4.74 | 17.57 | 1.25 | 23.56 |
+| off-a | motion-1-camera-end | 1 | 3.93 | 7.70 | 0.64 | 12.26 |
+| off-a | motion-2-generated-short-start | 2 | 3.20 | 8.36 | 0.71 | 12.27 |
+| off-a | summary-validation | 2 | 0.10 | 7.47 | 0.06 | 7.62 |
+| off-a | motion-3-generated-reverse-start | 3 | 3.41 | 10.74 | 0.83 | 14.98 |
+| off-a | motion-4-camera-start | 4 | 1.41 | 22.28 | 0.88 | 24.57 |
+| off-a | motion-5-camera-end | 5 | 1.51 | 15.96 | 1.00 | 18.47 |
+| off-a | motion-6-generated-short-start | 6 | 3.35 | 14.11 | 1.01 | 18.48 |
+| off-a | summary-training | 6 | 0.10 | 10.39 | 0.06 | 10.55 |
+| off-a | motion-7-generated-reverse-start | 7 | 1.65 | 22.33 | 1.09 | 25.06 |
+| off-a | motion-8-camera-start | 8 | 5.04 | 17.98 | 1.21 | 24.23 |
+| off-b | motion-1-camera-end | 1 | 4.00 | 8.94 | 0.63 | 13.57 |
+| off-b | motion-2-generated-short-start | 2 | 3.25 | 9.17 | 0.70 | 13.12 |
+| off-b | summary-validation | 2 | 0.12 | 7.77 | 0.07 | 7.96 |
+| off-b | motion-3-generated-reverse-start | 3 | 3.12 | 10.85 | 0.77 | 14.74 |
+| off-b | motion-4-camera-start | 4 | 1.51 | 23.48 | 0.88 | 25.87 |
+| off-b | motion-5-camera-end | 5 | 1.47 | 15.21 | 0.97 | 17.65 |
+| off-b | motion-6-generated-short-start | 6 | 3.31 | 13.54 | 1.01 | 17.86 |
+| off-b | summary-training | 6 | 0.23 | 10.26 | 0.06 | 10.55 |
+| off-b | motion-7-generated-reverse-start | 7 | 1.62 | 20.80 | 1.10 | 23.52 |
+| off-b | motion-8-camera-start | 8 | 5.01 | 18.07 | 1.19 | 24.27 |
+| on-b | motion-1-camera-end | 1 | 3.93 | 8.83 | 0.63 | 13.39 |
+| on-b | motion-2-generated-short-start | 2 | 3.08 | 8.34 | 0.74 | 12.16 |
+| on-b | summary-validation | 2 | 0.10 | 8.72 | 0.05 | 8.86 |
+| on-b | motion-3-generated-reverse-start | 3 | 3.08 | 10.59 | 0.78 | 14.45 |
+| on-b | motion-4-camera-start | 4 | 1.32 | 21.50 | 0.89 | 23.71 |
+| on-b | motion-5-camera-end | 5 | 1.62 | 15.34 | 0.98 | 17.94 |
+| on-b | motion-6-generated-short-start | 6 | 3.15 | 13.07 | 1.02 | 17.24 |
+| on-b | summary-training | 6 | 0.27 | 10.13 | 0.05 | 10.46 |
+| on-b | motion-7-generated-reverse-start | 7 | 1.78 | 22.17 | 1.12 | 25.06 |
+| on-b | motion-8-camera-start | 8 | 5.10 | 17.07 | 1.23 | 23.40 |
 
 
-Task totals include preparation, durable execution, report checks, retained-skill publication and an additional original archive verification. Task4 includes the deliberate restart. Startup and complete four-task session time are also retained. Fixture copying and post-study corruption/visual tests are excluded; cold verification is measured separately. These are small local measurements, not a statistical guarantee for other machines or workloads.
+### Independent history breakdown
 
-The comparison checks exact reconstructed sources, coordinate regions, plans, all native samples and integration records, forces, contacts, verification metrics, outcomes and observed report values. Only newly generated scene/object/job IDs and their state hash receive fixed aliases for comparison. No numerical simulated result is discarded to obtain equality. [Detailed comparison](docs/readmes/163/comparison-evidence.json).
+| Run | History | Original check s | Extra native replay s | Extra saved-report audit s | Whole probe s |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| on-a | 2 | 0.161 | 0.034 | 0.007 | 1.435 |
+| on-a | 4 | 0.330 | 0.065 | 0.014 | 2.623 |
+| on-a | 6 | 0.499 | 0.098 | 0.027 | 2.891 |
+| on-a | 8 | 0.657 | 0.135 | 0.025 | 4.160 |
+| off-a | 2 | 0.160 | 0.051 | 0.007 | 1.498 |
+| off-a | 4 | 0.315 | 0.068 | 0.013 | 2.289 |
+| off-a | 6 | 0.510 | 0.101 | 0.020 | 3.228 |
+| off-a | 8 | 0.668 | 0.131 | 0.025 | 3.932 |
+| off-b | 2 | 0.162 | 0.035 | 0.007 | 1.828 |
+| off-b | 4 | 0.337 | 0.067 | 0.013 | 2.292 |
+| off-b | 6 | 0.495 | 0.098 | 0.020 | 3.044 |
+| off-b | 8 | 0.662 | 0.129 | 0.024 | 3.912 |
+| on-b | 2 | 0.177 | 0.035 | 0.007 | 1.595 |
+| on-b | 4 | 0.354 | 0.065 | 0.013 | 2.460 |
+| on-b | 6 | 0.507 | 0.100 | 0.019 | 3.010 |
+| on-b | 8 | 0.674 | 0.136 | 0.025 | 4.088 |
 
-## Verification and retained attempts
 
-71 selected Java checks and 177 desktop checks passed without failures or skips. Three halfway-time labels and exact poses passed actual Chromium checks. Four final Java/Electron sessions completed sixteen durable chat workflows, four accepted revisions per session, retained skills, forced original reconstruction, abrupt restart, source-corruption refusal and cold verification. One camera episode and two generated recordings remain three distinct source sequences; repetition does not add physical evidence. New physical validation remains pending.
+The original-check column is one full verification before the probe; a second full verification also runs after it. Extra native replay and saved-report audit repeat component work independently. Whole probe time includes UI/request overhead, state checking and both original verifications. Do not subtract these columns to claim an unmeasured subsystem cost.
 
-Published162 baseline attempt A completed two tasks, then correctly refused a requested move below the unchanged 20 mm minimum. The itinerary was changed to the farther independently labelled endpoint before all final comparisons. Baseline attempt B completed three tasks, then refused the recovered fourth report: actual Chromium showed 4.67 seconds for 4.675, while Java expected 4.68. Original failed attempts and the actual DOM diagnosis remain retained. Canonical report labels corrected this cross-runtime formatting issue; exact numerical and rendered-outcome checks were not relaxed. Neither failed baseline is treated as a successful complete-workflow speed comparator.
+Java inclusive spans contain nested Java work. Browser and Java spans can overlap, and whole-task measurements include work outside either set of spans. Exclusive spans remove measured children only; they are not CPU utilization. The comparison joins each process epoch separately across restarts. The display shows the current process, not lifetime history.
 
-Eight focused Java checks passed, followed by 71 selected Java checks, 177 desktop checks and actual Chromium halfway-label checks. A final code-inventory review tightened rejection of linked code directories; the full 71/177/rendering checks passed again before the method was frozen. The initial and final logs and XML remain separate. Four final actual-app studies then passed on their first attempts: full A, reuse A, reuse B, full B. All sixteen complete workflows, forced reconstructions, source-corruption refusals, restarts and cold verifications passed. Every normalized source, plan, native numerical trace, outcome and actual report observation matched exactly. No failed final app attempt is omitted.
+## Exact outcome comparison and refusals
 
-All 198 files in the two original fixture directories remained byte-for-byte unchanged. The three existing recordings comprise one exposed camera episode and two explicitly generated sequences; repeated tasks do not add independent physical episodes. No new webcam capture, model inference, physical-accuracy promotion or hardware action occurred. Three actual application screenshots were inspected; the existing generic spatial-panel missing-world notice is documented separately from the verified selected destination. Runtime/controller defaults and all acceptance tolerances remain unchanged; the report correction has a new implementation identity and historical proofs are not relabelled.
+The four runs compare reconstructed sources and uncertainty, plans, every native sample and integration record, forces, contacts, outcomes and actual observed motion-report values. Only fresh scene/object/job identifiers and the scene-state hash receive fixed aliases. No numerical motion result is dropped to make comparisons agree.
 
-Unit checks cover warm/cold/forced reconstruction, mutable-result isolation, bounded eviction, changed code inventory, missing state, source corruption with the same size and timestamp, metadata and label changes, changed tracker results, calibration damage, historical-world damage and a mutation between snapshots. Actual app runs separately exercise the visible chat composer, source controls, native controller, both reports, saved versions, abrupt interruption, recovery, corruption refusal and cold verification.
+Data comparisons include exact original CSV, source digest and column mapping, verified metrics, all four observed summaries, SVG-point checks and generated HTML/JavaScript bytes. Fresh artifact identities remain individually checked by the original workflow; they are not treated as content that should have the same identifier across projects. [Full comparison evidence](docs/readmes/164/comparison-evidence.json).
 
-The new cost panel reports recording-verification counters for the current Java process. They reset after restart and are separate from durable evidence. Its byte count covers explicit frame/code reads performed by the reuse layer, not all application I/O. Source-check and reconstruction durations are not whole-task benchmarks. Complete timings come from the outer workflow study.
+After each session, changing report bytes while preserving file size and timestamp must cause both archive verification and the probe to refuse. Restoring the exact original bytes must verify. Cold startup must verify all ten completed parents without creating another native action. The 198 original fixture files must remain unchanged.
 
-These explicitly prepared requests made zero model calls. This is Java procedural execution through chat, not a claim of model inference, LLM training, autonomous physical recognition or general reasoning improvement. Local checks and hosted CI status are recorded separately.
+86 selected Java checks and 181 desktop checks passed without failures or skips. Three halfway-time labels and exact poses passed actual Chromium checks. Four final Java/Electron sessions completed forty durable workflows: 32 motions and 8 fresh data reports. Each session preserved one world through 8 accepted revisions, 4 saved motion-procedure versions, 2 abrupt restarts, changed-report refusal and cold verification. One historical camera episode, two generated recordings and two original Delfys data files are distinct inputs. No new physical measurement or model inference is claimed; new physical validation remains pending.
 
-## Using it
+Two development failures were retained. The first compilation rejected a lambda that captured a reassigned job; an unchanged final local reference fixed the capture. The first focused probe run then rejected valid persisted state because in-memory timestamp objects were compared directly with parsed JSON text. Comparing the same persisted JSON representation fixed this diagnostic mismatch; no original verifier, numeric tolerance or acceptance threshold changed. The corrected six focused Java checks and four host timing checks passed, followed by the full selected regression suite. All four final actual-app sessions used the pretrial locked method; no failed trial was removed or relabelled.
 
-Open **Spatial → measured alignment → Recorded object → durable small-object task · 163**. Load the recordings and small worlds, select a labelled endpoint and destination, inspect the allowances, then prepare and send the chat request. Existing tracker and controller choices remain unchanged.
+Focused checks cover nested and concurrent timing, unchanged values and exceptions, disabled timing with no clock reads, bounded retention, result isolation, stale revision, a pending world, changed disk state, forged native traces, altered report source and the eight-entry diagnostic limit. The actual-app study uses the visible chat composer, controls, real Java execution and browser-rendered reports. Local checks and hosted CI status are separate records.
 
-> Run a recorded small-object action using the selected recorded object coordinates; verify the result and save the procedure as recorded-small-object.
+Hosted CI was checked before implementation and again before publication. The latest edition 163 runs were still in progress at both checks; no hosted-green claim is made. The archived CI receipts preserve those observations.
 
-For reuse, select fresh inputs and request the retained name/version. Add “review before action” to pause before the simulated move. Resume the same task after an interruption. A new task is not a substitute for verifying an existing accepted revision.
+## Using the new controls
 
-**Show verification cost** displays current-process counts and source timing. **Reconstruct full recording** forces original computation and target checks without executing a move. For a controlled comparison, starting Java with `FRAYNIX_WORKSPACE_RECORDED_REPLAY=full` disables reconstruction reuse. Removing that setting restores the bounded verified reuse path. Both modes retain all source and outcome conditions.
+Open **Spatial → measured alignment → Recorded object → durable small-object task · 164**. Choose a completed recording, independently labelled endpoint and compatible world, review the allowances, prepare the request and send it through chat. “Review before action” pauses before simulation; resume the same request after interruption.
 
-The recorded point still represents the tracked image centre projected onto a measured plane. The box's geometry, height and mass remain authored. Conditional allowances are not calibrated confidence probabilities. This workflow does not move hardware or establish live lighter pose. Fresh physical validation remains pending by the user's choice.
+**Show workflow costs** displays counts, inclusive/exclusive time and refusals in the current Java and desktop processes. **Measure history & reports** runs the read-only breakdown for the selected world. **Show verification cost** and **Reconstruct full recording** remain available from edition 163.
 
-## Implementation and evidence map
+For an instrumentation comparison, start the app with `FRAYNIX_WORKSPACE_COSTS164=off`; leaving it unset enables diagnostics. This setting disables timers only. Source checks, verification, physical action limits, report checks and outcome acceptance still execute. Diagnostic counters are not persisted as evidence. Study receipts separately retain the measured timings.
 
-```mermaid
-flowchart LR
-  Inputs[Original frames, labels, calibration and world] --> Before[Fresh source and code checks]
-  Before --> Match{Completed result matches?}
-  Match -->|No or force| Replay[Original full reconstruction]
-  Match -->|Yes| Copy[Isolated verified result]
-  Replay --> After[Fresh source and code checks again]
-  Copy --> After
-  After --> Gates[Measurement, uncertainty and current world gates]
-  Gates --> Native[Native motion and full history replay]
-  Native --> Canvas[Actual reports and outcome checks]
-  Canvas --> Commit[One accepted revision and retained skill]
-```
+![Actual eight-entry history measurement](docs/readmes/164/history-eight-costs.png)
+
+![Fresh data summary produced and verified by the app](docs/readmes/164/fresh-data-summary.png)
+
+## What the evidence does and does not establish
+
+The inputs include **one exposed historical camera episode, two existing generated sequences and two original data files** ([dataset provenance](docs/datasets/delfys75-013/README.md)). Repeating them is useful for cost and recovery checks but creates no additional independent physical evidence. The recorded point is a tracked image centre projected onto a measured plane. Box geometry, height and mass remain authored; conditional allowances are not calibrated probabilities. Nothing here moves hardware or establishes a current lighter pose.
+
+Prepared procedural requests make **zero model calls**. This demonstrates integrated Java-owned execution through chat, recovery and checks, not new language-model intelligence or weight training. Fresh physical validation remains pending at the user's request.
+
+## Source and evidence map
 
 | Component | Responsibility |
 | --- | --- |
-| [RecordedReplay163.java](workspace-engine/src/main/java/fraymus/workspace/RecordedReplay163.java) | Bounded exact reconstruction reuse, fresh source/code checks and process counters |
-| [RecordedSmall162.java](workspace-engine/src/main/java/fraymus/workspace/RecordedSmall162.java) | Existing source-to-controller contract, uncertainty and endpoint gates |
-| [WorkflowRunner.java](workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java) | Durable ownership, original outcome verification, retained skills and cost access |
-| [SmallReport161.java](workspace-engine/src/main/java/fraymus/workspace/SmallReport161.java) | Consistent visible labels; unchanged exact observation comparator |
-| [recorded162.js](workspace-desktop/renderer/recorded162.js) | Integrated source selection, full reconstruction control and cost display |
-| [study163.cjs](docs/publication163/study163.cjs) | Actual app comparison with growing history and restart |
-| [compare163.py](docs/publication163/compare163.py) | Exact numerical/observed comparisons and complete cost calculations |
+| [WorkflowCost164.java](workspace-engine/src/main/java/fraymus/workspace/WorkflowCost164.java) | Bounded operation timing, isolated status and process identity |
+| [HistoryCosts164.java](workspace-engine/src/main/java/fraymus/workspace/HistoryCosts164.java) | Read-only full-history checks and exact repeated native/report breakdown |
+| [RecordedSmall162.java](workspace-engine/src/main/java/fraymus/workspace/RecordedSmall162.java) | Original source-to-controller contract with measured verification calls |
+| [WorkflowRunner.java](workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java) | Durable execution, report checks and diagnostic access |
+| [report-cost164.cjs](workspace-desktop/report-cost164.cjs) | Actual browser-operation timing, including overlapping child calls |
+| [recorded162.js](workspace-desktop/renderer/recorded162.js) | Integrated history and cost controls |
+| [study164.cjs](docs/publication164/study164.cjs) | Ten-task actual-app session with two interruptions and read-only probes |
+| [compare164.py](docs/publication164/compare164.py) | Exact result comparisons and complete measured costs |
 
-[Original evidence index](docs/readmes/163/original-evidence.json) · [Validation](docs/readmes/163/verification.json) · [Obsidian map](docs/obsidian/171-recorded-workflow-costs.canvas) · [Full source inventory](docs/readmes/163/file-inventory.json). All previous numbered editions and snapshots remain frozen.
+[Original evidence index](docs/readmes/164/original-evidence.json) · [Validation](docs/readmes/164/verification.json) · [Frozen method](docs/WORKFLOW_COST_164_LOCK.json) · [Obsidian map](docs/obsidian/172-history-report-costs.canvas) · [Source inventory](docs/readmes/164/file-inventory.json). Numbered editions and snapshots 001–163 remain unchanged.
 
 ## Next gates
 
-Measure what remains expensive: native-history replay, report opening, retained-procedure ancestry and restart. Extend the complete-task comparison toward longer mixed sequences, more source episodes and tighter resource allowances before selecting another optimization. Any reuse must remain tied to current source bytes, implementation and independently checked outcomes.
+Source/bounds checks consumed 95.12 seconds across the twenty timing-enabled tasks, the largest measured Java category. Use these measurements to target repeated source and history verification work. Establish an exact source-and-implementation-bound reuse boundary, exercise mutations before and after access, then compare complete mixed workflows with reuse enabled and disabled. Continue to run every required source and outcome check; a faster component is useful only if the full request improves.
 
-Physical accuracy is a separate frontier. New independently labelled motion, different placements and heights, contact-point calibration and occlusion tests are still required before stronger physical claims. Faster verification does not supply that missing evidence.
-
-The application direction remains one connected local agent: observe, propose, act, inspect, recover and retain useful procedures. This phase improves the practical cost of that loop while keeping the reasons for accepting a result inspectable.
+The application direction remains one connected local agent: observe, propose, act, inspect, recover and retain useful procedures. Real-world accuracy is a separate workstream requiring fresh independently labelled motion, calibrated contact and height, and occlusion tests. This edition improves our ability to measure the cost of the connected loop without claiming that missing evidence.

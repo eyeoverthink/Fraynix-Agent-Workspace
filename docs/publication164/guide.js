@@ -1,0 +1,11 @@
+const data=JSON.parse(document.querySelector('#system-data').textContent),files=JSON.parse(document.querySelector('#inventory-data').textContent),$=id=>document.getElementById(id);
+$('finding').textContent=data.finding;$('validation').textContent=data.validation;
+for(const s of data.screenshots)$('shot').add(new Option(s.title,s.path));
+function shot(){const s=data.screenshots.find(x=>x.path===$('shot').value);$('screenshot').src='../../../'+s.path;$('shot-caption').textContent=s.title;}$('shot').onchange=shot;shot();
+for(const name of [...new Set(data.comparison.map(r=>r.case))])$('case').add(new Option(name,name));
+function table(){$('rows').replaceChildren();for(const row of data.comparison){if($('case').value!=='all'&&row.case!==$('case').value)continue;const tr=document.createElement('tr');for(const value of [row.run,row.case,row.historyDepth,(row.prepareMs/1000).toFixed(2),(row.executeMs/1000).toFixed(2),(row.archiveMs/1000).toFixed(2),(row.totalMs/1000).toFixed(2)]){const td=document.createElement('td');td.textContent=value;tr.append(td);}$('rows').append(tr);}}$('case').onchange=table;table();
+for(const m of data.modules)$('module').add(new Option(m.name,m.id));
+function module(){const m=data.modules.find(x=>x.id===$('module').value);$('module-detail').replaceChildren();const a=document.createElement('a');a.href='../../../'+m.source;a.textContent=m.source;$('module-detail').append(a);}$('module').onchange=module;module();
+function inventory(){const q=$('search').value.toLowerCase(),matches=files.filter(f=>f.path.toLowerCase().includes(q));$('file-count').textContent=matches.length+' source files';$('files').replaceChildren();for(const f of matches.slice(0,80)){const li=document.createElement('li'),a=document.createElement('a');a.href='../../../'+f.path;a.textContent=f.path;li.append(a);$('files').append(li);}}$('search').oninput=inventory;inventory();
+
+for(const p of data.probes){const tr=document.createElement("tr");for(const value of [p.run,p.revision,(p.beforeOriginalCheckMs/1000).toFixed(3),(p.nativeReplayMs/1000).toFixed(3),(p.reportSourceAuditMs/1000).toFixed(3),(p.wholeProbeMs/1000).toFixed(3)]){const td=document.createElement("td");td.textContent=value;tr.append(td);}$("probes").append(tr);}
