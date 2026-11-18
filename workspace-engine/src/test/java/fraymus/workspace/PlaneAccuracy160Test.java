@@ -50,5 +50,12 @@ public class PlaneAccuracy160Test {
     @Test public void copiedFootageUnderDifferentIdsDoesNotIncreaseEpisodeCount()throws Exception{try(var f=new Alignment041Test.Fixture()){
         var first=movement(f);var second=movement(f);try(var store=new PlaneAccuracyStore160(f.root,f.store,f.ledger,new WorkspaceStore(f.root))){assertThrows(IllegalArgumentException.class,()->store.start(input(first).put("trialIds",new JSONArray().put(first.getString("id")).put(second.getString("id")))));assertEquals(0,store.state().getJSONArray("jobs").length());}
     }}
+    @Test public void reportBytesAreStableAcrossNumericPersistence()throws Exception{try(var f=new Alignment041Test.Fixture()){
+        var t=movement(f);var o=PlaneAccuracy160.options(new JSONObject());var result=PlaneAccuracy160.evaluate(reconstructed(f,t),o);
+        result.getJSONArray("expectedDeltaXZ").put(0,8.406046182417556E-4);
+        var j=new JSONObject().put("id",UUID.randomUUID().toString()).put("options",o).put("bindings",new JSONArray().put(new PlaneReplay160(f.root,f.store,f.ledger).binding(t.getString("id")))).put("results",new JSONArray().put(result));
+        var first=PlaneAccuracyReport160.build(j);assertTrue(first.similar(PlaneAccuracyReport160.build(WorldFrames.copy(j))));
+        var artifacts=new WorkspaceStore(f.root);var a=artifacts.writeOnce("stable160",first);assertEquals(a.getString("id"),artifacts.writeOnce("stable160",PlaneAccuracyReport160.build(WorldFrames.copy(j))).getString("id"));
+    }}
     @Test public void nonfiniteAndUnknownBudgetInputsAreRefused(){assertThrows(Exception.class,()->PlaneAccuracy160.options(new JSONObject().put("pixelRadius","NaN")));assertThrows(Exception.class,()->PlaneAccuracy160.options(new JSONObject().put("maxRadiusM",0)));assertThrows(Exception.class,()->PlaneAccuracy160.options(new JSONObject().put("trustPredictions",true)));}
 }
