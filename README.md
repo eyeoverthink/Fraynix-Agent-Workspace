@@ -1,156 +1,136 @@
-# Fraynix Agent Workspace — edition 161
+# Fraynix Agent Workspace — edition 162
 
-[Published and fetched receipt](docs/PUBLICATION_161.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-161)
+2026-11-17 · Recorded object coordinates · Conditional uncertainty · Durable Java tasks and skills
 
-2026-11-17 · Small-object control · Independent motion evidence · Java-owned execution
+[Previous edition 161](README-161.md) · [Offline interactive guide](docs/readmes/162/index.html) · [All editions](docs/readmes/INDEX.md) · [Acceptance plan](docs/publication162/plan162.md)
 
-[Previous edition 160](README-160.md) · [Offline interactive guide](docs/readmes/161/index.html) · [All editions](docs/readmes/INDEX.md) · [Implementation and qualification plan](docs/publication161/plan161.md) · [Blender assessment](docs/publication161/blender161.md)
+Edition162 connects reconstructed recorded-object coordinates and conditional uncertainty to the unchanged small-object controller, through durable Java chat requests and evidence-backed reusable procedures. Defaults remain unchanged.
 
-Edition161 adds a real single-object Java control path with bounded native forces, persistent accepted revisions and independent replay/report checks. Existing recorded-motion evidence is re-evaluated against separate endpoint labels. Tracker and older controller defaults remain unchanged.
+![Actual recorded coordinates and conditional bounds](docs/readmes/162/source-and-bounds.png)
 
-![Actual small-object replay inside the workspace](docs/readmes/161/small-small-replay.png)
+## The application and its direction
 
-## Where the application is going
+Fraynix is a local workspace in which an agent can observe, propose work, execute registered actions, inspect actual outcomes and retain verified procedures. Java owns task state and computation. The desktop supplies the browser, creation canvas, chat, Game Lab and spatial interfaces. These are connected working surfaces within one application. The long-term purpose is useful agency: a request should lead to a checked result that survives interruption and remains explainable afterward.
 
-Fraynix is one local workspace for an agent that observes, plans, creates, acts and checks what actually happened. Java owns durable computation and accepted state. The desktop hosts the browser, creation canvas, spatial views, chat and Game Lab. Physics provides an executable environment for proposals and experiments; memory preserves verified procedures and their evidence. The objective remains an integrated agent, with useful capabilities judged by outcomes rather than by its description of itself.
+The game and physics runtime is part of that purpose. It supplies a place to test proposals against an explicit state, integrate motion, record failures and compare predicted and actual outcomes. The runtime is useful precisely because actions have consequences that can be checked. A fluent answer alone cannot establish that an object moved or that a generated artifact works. Recorded observations add a separate source of evidence, with their own limitations.
 
-The recent sequence makes the observation-to-action bridge more explicit. Edition 158 used verified recorded observations in connected world, browser and creation tasks. Edition 159 mapped measured image-plane coordinates to bounded simulation actions. Edition 160 evaluated recorded displacement against separately labelled tape marks. Edition 161 adds a smaller action domain that can operate on one object, without inheriting the old two-body/20 cm constraints or weakening that older controller.
+Edition 158 connected recorded observations to world, browser and creation work. Edition 159 introduced calibrated plane references for the older native controller. Edition 160 evaluated displacement using independently supplied endpoint labels. Edition 161 added a single-object controller for a smaller authored domain. Edition 162 connects the last two pieces to the existing Java workflow supervisor, durable chat and saved-procedure registry. It is an integration milestone, not a claim that the remaining perception or physical-accuracy questions have been solved.
 
-The new small-object operation is an explicit experimental control inside Spatial. Existing chat and saved-procedure workflows remain available. This edition does not silently route camera observations or free-form chat into the new controller. That later integration needs verified small-object position, geometry, contact and uncertainty. A simulation proxy is not a measurement of the lighter, and a correctly verified native move is not proof of physical precision.
+## What changed
 
-## What works in this edition
+One explicitly prepared chat request now performs a complete sequence:
 
-1. Create a clearly labelled 5 cm, 40 g test block in the existing app, or select a compatible imported JSON scene.
-2. Keep its authored starting scene separate from the accepted evolving scene. One world can retain successive verified moves.
-3. Request a target X/Z position in metres. Java validates the current revision, dimensions, mass, force reserve, floor bounds, obstacles and declared coordinate allowance before starting.
-4. Execute lift, translation, lowering and release through actual native force and torque. Full integration ticks, contacts, work and pose histories are retained. The controller does not teleport the body or overwrite its velocity after initialization.
-5. Stop or interrupt an unaccepted attempt and resume from the same unchanged accepted starting state. An interrupted attempt cannot advance the world. This bounded recovery repeats provisional computation; it does not claim an identical continuation of hidden native solver caches.
-6. Open a real HTML/JSON report in the creation canvas. The host exercises the replay slider and reads actual path geometry and displayed results. Java checks those observations against the original trace and an independently rerun native experiment.
-7. Advance the accepted world only after all required checks pass. A later task rechecks the complete accepted ancestry. Changed source state, plans, reports or stale revisions refuse completion.
+1. Reconstruct the original recorded movement, including every stored image, frame metadata, calibration, tracker output, reference guard and filter result.
+2. Re-evaluate its displacement against the separate fixed start/end labels. The existing measurement gates must pass.
+3. Select an independently labelled, accepted endpoint frame. A predicted point, hidden target or transition without an independent endpoint label cannot become the target.
+4. Project that recorded object centre onto the measured plane. Carry the full conditional coordinate region and its enclosing radius into the existing small-object controller.
+5. Validate the authored destination, accepted revision, route clearance and the combined coordinate/execution allowance.
+6. Persist a workflow-owned native child and its world reservation together. Execute actual bounded simulated forces, lift, translation, lowering, release and settling.
+7. Independently replay the original native motion and inspect both the original native report and the new source-bound report in the actual canvas.
+8. Check the actual endpoint against the frozen combined allowance before accepting one world revision. Save the requested procedure only after the workflow evidence is complete.
 
-The existing recorded-motion evaluator remains available alongside this path. Its original frames, calibration, labels and observation reconstruction are rechecked. Private camera images remain outside Git; published captures show reports and controls.
+The small-object physics algorithms, numerical integration and original acceptance checks remain unchanged. No external service, new model, camera capture or hardware controller is activated by this workflow. Existing tracker and controller defaults remain intact. Users select this experimental path explicitly.
 
-## The small-body domain
+## Try it in the app
 
-| Property | Declared limit |
+First create or select a compatible small world under **Spatial → Single-object motion**. The labelled example supplies an upright 5 cm, 40 g box on a flat floor. Imported scenes must satisfy the same domain checks. Importing a photograph does not infer a mass, collider or object height.
+
+Open the measured-alignment area and expand **Recorded object → durable small-object task · 162**. Load existing movement recordings and small worlds. Choose the recorded trial, one of its independently labelled endpoint frames and the destination world. The input panel expresses allowances in millimetres; Java retains the numerical contract in metres.
+
+Use **Check recorded target** to inspect the original frame hash, projected X/Z region, coordinate radius and route. This performs verification but does not move the simulated box. **Prepare chat request** selects those explicit inputs and fills the chat composer. Sending the prepared request starts the durable workflow:
+
+> Run a recorded small-object action using the selected recorded object coordinates; verify the result and save the procedure as recorded-small-object.
+
+Add “review before action” to pause after the source check. The existing Mission view exposes the retained task, its stages and Resume/Stop controls. After a restart, explicitly resume the same request. For another task, choose fresh source and destination bindings, then ask:
+
+> Reuse recorded-small-object v1 for the selected recorded small-object action.
+
+The Skills interface retains the same inspection, retirement and reactivation mechanism used by other verified procedures. Reactivation rechecks the original evidence. Reuse is not permission to reuse an old location or stale world revision.
+
+## What these coordinates mean
+
+The selected point is the tracked image centre projected onto the calibrated mat plane. The destination is an **authored simulation proxy**. Its height, box dimensions and mass come from the scene. They do not come from a physical measurement of the lighter. Object thickness, parallax, camera calibration residuals and mark alignment remain relevant physical limitations.
+
+The radius includes the pixel-localization rectangle projected through the plane transform, the original annotation allowance, independent grid residual, tape discrepancy and distance-dependent scale allowance. The radius is not divided by the number of correlated frames. It is not presented as a statistically calibrated confidence interval. A passed displacement evaluation establishes the stated result for that episode; it does not prove absolute object pose accuracy or performance on new footage.
+
+Before action, the selected coordinate radius plus the requested execution allowance must fit the declared total. The route includes that coordinate expansion. Before acceptance, the actual simulated planar endpoint error plus the coordinate radius must also fit the total. An honest result therefore carries two distinct facts: the simulation endpoint was checked, and its relation to the physical source remains conditional on the recorded-plane assumptions.
+
+| Boundary | Current contract |
 | --- | --- |
-| Dynamic bodies | Exactly one upright box |
-| Side lengths | 5–15 cm on each axis |
-| Mass | 20–200 g |
-| Environment | Flat floor at Y = 0, with static box obstacles |
-| Horizontal move | 2–40 cm per request |
-| Lift ceiling | 60 cm |
-| Force / torque | Bounded by the frozen request; insufficient lift reserve is refused |
-| Collision margin | Smaller of 2 mm and 2% of the smallest side |
-| Endpoint acceptance | At most 4 mm error and 1 degree orientation error |
-| Settled acceptance | At most 0.02 m/s and 0.05 rad/s, with actual floor contact |
-| Coordinate allowance | Explicit 0–30 mm route expansion; not a measured probability |
-| Work limits | Eight worlds, twelve retained jobs, three resumes per job |
+| Observation | Completed recorded movement with original frames and independently labelled endpoints |
+| Measurement gate | Eight usable paired samples; all eight reference regions contained; existing error and width limits |
+| Selected target | One visible, labelled, accepted measured endpoint; no prediction substituted |
+| Destination | One authored upright 5–15 cm box, 20–200 g, on a flat floor |
+| Movement | Existing 2–40 cm horizontal move, bounded lift and obstacle clearance |
+| Coordinate radius | At most 30 mm; source-derived, never silently reduced |
+| Execution allowance | At most 4 mm; a stricter requested limit is enforced |
+| Combined allowance | At most 34 mm; checked before action and against actual outcome |
+| Recovery | Same durable parent and child; provisional computation may repeat, accepted movement does not |
+| Work limits | Existing 20-workflow, 32-procedure and small-world/job capacities remain in force |
+| Physical authority | None; no live camera pose or hardware movement |
 
-The app still uses its existing Bullet integration through Java. No new physics framework, Blender installation or model download is required. Java owns the new planning, persistence, verification and report generation; native physics remains an existing dependency. “Ground up” describes the owned application logic, not an assertion that the JVM, desktop, JSON or physics libraries no longer exist.
+## Measured application results
 
-## Actual native results
-
-| Native case | Accepted outcome | Error mm | Native ticks | Job span s |
-| --- | --- | ---: | ---: | ---: |
-| 5cm-40g-forward | completed | 0.022 | 1206 | 4.37 |
-| same-world-reverse | completed | 0.021 | 1335 | 2.34 |
-| 10cm-160g-over-obstacle | completed | 0.085 | 1812 | 2.43 |
-| changed-report-refused | expected refusal; world unchanged | 0.011 | 1283 | 1.67 |
+| Complete workflow | Endpoint error mm | Coordinate radius mm | Combined bound mm | Task span s |
+| --- | ---: | ---: | ---: | ---: |
+| exposed041-end-after-restart | 0.010 | 12.505 | 12.515 | 38.10 |
+| exposed041-start-skill-reuse | 0.017 | 13.391 | 13.408 | 35.92 |
 
 
-These values compare simulated body positions with declared simulation targets. Small numerical endpoint errors are not real-camera accuracy figures. The obstacle case tests a fixed overhead corridor; it does not establish arbitrary obstacle navigation or grasp planning. The changed-report case is an intentional refusal, not a successful motion acceptance.
+These rows are complete application task spans, including source checks, native execution, report inspection and skill publication. The interruption case also includes the deliberate restart and review. They are not controller-only timing benchmarks. Reusing the same exposed recording at different endpoints does not create another independent physical episode. Different box geometry is an authored simulation change.
 
-The first task is interrupted after native execution and before report acknowledgement. A cold process reopens the same pending result, independently reruns it, checks the rendered artifact and only then accepts revision 1. The second task begins from the actual accepted first outcome and produces revision 2. Verification after another cold restart reconstructs the chain again. Force, work and per-tick pose checks remain in force throughout.
+63 selected Java checks and 177 desktop checks passed, with no failures or skips. Two actual Java/Electron chat workflows passed source, native action, rendered-report, recovery and cold-verification checks. Both use one exposed historical camera episode at different independently labelled endpoints; they are not two independent physical trials. Fresh physical validation remains pending.
 
-## Independent motion labels and the physical limitation
+The application study uses the visible chat composer, Java workflow engine, real native integration, actual rendered controls and cold verification. The new Java unit tests use clearly labelled software host receipts for targeted refusal and recovery checks; those fixtures are not claimed as browser evidence. Local test results and hosted CI status are reported separately. The published evidence records the source and method used for each attempt.
 
-| Motion source | Usable pairs | Reference regions contained | Max error mm | Max radius mm | Measurement gates |
-| --- | ---: | ---: | ---: | ---: | --- |
-| exposed-four-inch-camera | 8/8 | 8/8 | 6.673 | 25.895 | measurement gates passed |
-| generated-shorter-forward | 8/8 | 8/8 | 3.160 | 20.890 | measurement gates passed |
-| generated-longer-reverse | 8/8 | 8/8 | 0.000 | 21.599 | measurement gates passed |
+These prepared requests use registered Java routing and made zero model calls. The selected model shown in the app is not evidence of model inference in this study. General language planning remains separate from this explicitly bound workflow.
 
+Development retained an initial test failure caused by omitted workflow inspection fields. After correction, native source, budget, idempotent ownership and recovery tests passed. Review added a direct saved-skill binding path and registered the new desktop tests. The first actual app attempt refused chat admission because the new recorded-source field was absent from the Java input allowlist; no task or native move was admitted. The boundary was corrected and an explicit chat-initialization test was added. Original logs, XML, method locks and failed app attempt remain retained. No physical, uncertainty, native or report acceptance threshold was weakened. The corrected application attempt B passed both complete workflows, recovery, source refusals, procedure lifecycle and cold verification. Visual inspection then found a stale UNTESTED badge; the desktop now refreshes the exact saved test receipt. The final app study also asserts the displayed TESTS PASSED status and captures the numeric source region clearly. Java implementation bytes and all acceptance gates remain unchanged after the 63-case final Java run. All177 desktop checks passed after the badge correction. Repeated runs use exposed footage and do not count as additional independent physical episodes. Final attempt C passed both complete workflows and every refusal, lifecycle, restart and rendered-status check. All 1,868 original private files remained byte-for-byte unchanged. Actual task spans were 38.10 and 35.92 seconds. Screenshots retain an existing generic spatial-panel missing-world notice; it is separate from the successful recorded-small workflow receipts.
 
-The physical source is the **existing, exposed four-inch lighter movement**, with independently labelled start and end tape positions. Its eight fixed start/end pairs are one correlated episode. They are not eight independent trials, and re-running the source does not make it new footage. The original cutting mat is 12 × 12 inches; the existing calibration uses the marked visible 10 × 8-inch rectangle with independent check points.
+## Persistence, recovery and evidence
 
-The two new generated sequences vary movement length and direction. Their endpoint labels come from integer target geometry used to construct the images, separately from the tracker. This checks the measurement machinery under controlled conditions. It does not replace real footage, parallax assessment or independent instrument measurements.
+The workflow stores its source identity, selected frame, region, destination state and plan before action. The child task records its parent identifier and source digest in the same atomic checkpoint as the small-world reservation. If a process ends between child creation and the parent recording its next stage, recovery finds that existing child rather than creating another one.
 
-The user explicitly selected existing recordings and left new physical validation pending. No webcam was started. Error allowances remain conditional geometric bounds, not calibrated confidence probabilities. Target height, perspective effects and exact physical mark alignment remain unresolved. Existing defaults and all earlier failed/promoted evidence remain unchanged.
+The native run is provisional until independent checks pass. The original native report remains a separate artifact. The source-bound report adds recorded coordinates, region limits and budgets while preserving the actual motion replay. The host opens and checks both artifacts. Java reconstructs the native result, checks visible report observations and applies the source/error contract before accepting the new state.
 
-## Using it
+A crash after the world accepts a result but before the parent finishes cannot justify another movement. The child remains completed; replay verifies its history and the parent continues verification and publication. Cancellation preserves already accepted history. An altered source or report is refused rather than relabelled as fresh evidence. Old implementation-bound proofs remain historical: changing an implementation identity does not make an earlier result a proof of the new implementation.
 
-1. Start the normal workspace with its existing launcher and your own project. Use a separate project for experiments; do not silently share a live project's database with another checkout.
-2. Open **Spatial → Single-object motion**.
-3. Choose **Create labelled 5 cm test scene**, or select a suitable existing import and choose **Use this import**. Unsupported geometry is refused with a reason.
-4. Enter the target X and Z in metres and the declared coordinate allowance. Choose **Check route** before **Run bounded move**.
-5. Inspect the retained attempt. **Stop**, **Resume** and **Cancel** apply only in their allowed states; completed history is immutable.
-6. Choose **Inspect report & accept verified result**. This opens the actual replay and runs the source, native and rendered-outcome checks. A failed check leaves the accepted head unchanged.
-7. Scrub the recorded motion. Inspect the numeric evidence when needed. **Recheck originals** reconstructs the completed evidence and world ancestry.
-8. For recorded data, open **Independent motion checks**. Select existing completed, independently labelled movement trials, evaluate, then inspect the actual report. New empty projects contain no private camera recordings.
+Saved skills are procedures with prerequisites, actions, success checks and recovery, backed by a completed source workflow. They retain policy and evidence, not hidden authority over future sources. Fresh trial, frame, destination revision and hash are mandatory. The original source workflow and any retained ancestry are checked before reuse or reactivation. This is durable procedural memory; no LLM weight training is claimed.
 
-## Architecture
+## Implementation map
 
 ```mermaid
 flowchart LR
-  Import[Declared imported scene] --> Authored[Immutable authored source]
-  Authored --> Head[Accepted small-world revision]
-  Head --> Plan[Java validates route and authority]
-  Plan --> Trial[Provisional native force experiment]
-  Trial --> Trace[Full tick and contact evidence]
-  Trace --> Replay[Fresh native replay and algebra checks]
-  Replay --> Report[Working report and actual controls]
-  Report --> Witness[Independent rendered observations]
-  Witness --> Gate{Every check passes?}
-  Gate -->|yes| Head
-  Gate -->|no| Retain[Retain refusal; preserve prior head]
-  Recorded[Recorded frames and independent labels] --> Measurement[Displacement and conditional bounds]
-  Measurement --> Pending[Future verified small-object binding]
+  Frames[Original frames and independent labels] --> Source[Java source reconstruction]
+  Source --> Region[Recorded plane point and conditional region]
+  Region --> Parent[Durable Java workflow]
+  Parent --> Child[Stable small-body child]
+  Child --> Native[Unchanged native controller]
+  Native --> Reports[Original and source-bound reports]
+  Reports --> Checks[Fresh replay and actual canvas checks]
+  Checks --> World[One accepted world revision]
+  World --> Skill[Verified retained procedure]
+  Skill --> Fresh[Fresh source and destination selection]
+  Fresh --> Parent
 ```
 
-```text
-workspace-engine/src/main/java/fraymus/workspace/
-  SmallBody161.java       domain, route and accepted-state constraints
-  SmallPhysics161.java    actual bounded native integration
-  SmallVerify161.java     every-tick motion, wrench and contact checks
-  SmallStore161.java      durable attempts, replay and world revisions
-  SmallReport161.java     working report and independent comparator
-workspace-desktop/
-  small161.cjs            actual Chromium outcome observations
-  renderer/small161.js    controls inside the existing Spatial view
-docs/publication161/
-  plan161.md             fixed scope and qualification gates
-  blender161.md          source-backed assessment and later phases
-```
+| Component | Responsibility |
+| --- | --- |
+| [RecordedSmall162.java](workspace-engine/src/main/java/fraymus/workspace/RecordedSmall162.java) | Source reconstruction, bounds, stable child ownership and endpoint contract |
+| [WorkflowRunner.java](workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java) | Durable stages, leases, recovery, original evidence and skill publication |
+| [RecordedReport162.java](workspace-engine/src/main/java/fraymus/workspace/RecordedReport162.java) | Source-bound interactive artifact and independent observation comparator |
+| [Domain044.java](workspace-engine/src/main/java/fraymus/workspace/Domain044.java) | Registered Java chat routing and completion evidence |
+| [recorded162.js](workspace-desktop/renderer/recorded162.js) | Explicit source, endpoint, destination and budget selection |
+| [workflows.cjs](workspace-desktop/workflows.cjs) | Actual browser/canvas inspection for the Java-owned workflow |
 
-The new state lives in its own experimental domain so older physics identities and procedures remain valid on their original terms. This is not a second standalone application. Its views, reports, imported scenes and storage use the existing workspace. State updates are checked and written atomically; a failed write rolls memory back to the durable original. A saved checksum mismatch refuses loading. These integrity checks are not a defense against an attacker who controls all local code and evidence files.
+The [offline guide](docs/readmes/162/index.html) includes real screenshots, result filtering, module links and the complete source inventory. [Original evidence](docs/readmes/162/original-evidence.json) links retained checks and attempts. The [Obsidian map](docs/obsidian/170-recorded-object-workflows.canvas) places the source, controller, reports and memory in one navigable view. Historical numbered READMEs and their frozen snapshots remain intact.
 
-## Would Blender help?
+## Next steps and acceptance gates
 
-Yes, primarily as an **optional external authoring, rendering and synthetic-data tool**. Its separation of authored and evaluated state is also a useful architectural reference. The edition 161 implementation uses our existing Java code; no Blender source is copied. [Blender dependency-graph documentation](https://docs.blender.org/api/current/bpy.types.Depsgraph.html)
+The next useful improvement is to measure the complete cost of this connection across more source episodes and longer accepted-world histories. Repeated reconstruction is deliberate verification work; reducing it requires byte-bound reuse that preserves every source and outcome check. A cache hit alone is not evidence that a current source is valid.
 
-An important limit: Blender's rigid-body implementation also uses Bullet. Cross-checking the same declared setup there can reveal exchange or configuration mistakes, but agreement is not independent real-world validation. [Official Blender rigid-body source](https://github.com/blender/blender/blob/main/source/blender/blenkernel/intern/rigidbody.cc)
+Fresh independently labelled physical motion remains pending by the user's choice. When available, it should test new placements, directions, heights and occlusions, with references kept separate from tracker outputs. Absolute contact-point calibration and object geometry require their own evidence before these coordinates can support stronger physical claims.
 
-Free/open source does not mean license-free. Before copying or distributing Blender-derived implementation, examine the applicable licenses; translating code into Java does not remove its obligations. Blender's software license is distinct from artwork created with it. [Blender license explanation](https://www.blender.org/about/license/)
+For the connected application, the next phase should preserve the same authority structure while extending requests: observe a specific object, choose an appropriate action, produce a useful artifact, and compare expected with actual results. A planner may choose among registered procedures; it must not invent a passing verifier or erase a failed attempt. The useful direction is a more capable unified agent with retained, inspectable results, rather than a larger collection of disconnected demonstrations.
 
-The [full assessment](docs/publication161/blender161.md) records the inspected source blobs and a phased exchange proposal. No Blender import/export capability, embedded window, renderer or new dependency is claimed in this release.
-
-## Validation, development and publication
-
-41 selected Java checks and 175 desktop checks passed, with no failures or skips. Actual Java/Electron studies cover three accepted native moves, a deliberately refused altered report, and three completed motion evaluations. Abrupt interruption, cold reconstruction, source corruption and rendered controls are checked. This is scoped validation, not a rerun of every historical feature. Fresh physical validation remains pending.
-
-Initial native and durable checks passed; regression checks then added actual floor-contact acceptance, checksum refusal and failed-write rollback. The final selected suite passed 41 Java and 175 desktop checks. Initial application attempt A passed native and motion workflows. Visual review then replaced raw replay numbers with labelled time/position/speed and axis units, and scoped retained attempts to the selected world; application attempt B passed the small-body study. The method-lock helper was corrected to inventory every new source relative to the published baseline rather than only the latest commit. This changed no runtime behavior or acceptance threshold. Final attempt C passed both complete application studies under that complete source lock. Earlier locks, receipts, logs and attempts remain archived. Repeated camera/generated evaluations are exposed repetitions, not additional independent physical episodes. All 1,868 private original source files remained unchanged. New physical validation remains pending by the user's choice.
-
-The qualification method and gates were committed before the application trials. All retained attempts remain available with source and evidence hashes. The app tests use actual Java execution and Chromium controls; unit receipt fixtures are clearly distinguished from the application witness. There are no live-model calls or training claims in this edition. The selected regression scope does not revalidate every historical application feature.
-
-See [verification summary](docs/readmes/161/verification.json), [application evidence](docs/readmes/161/application-study.json), [motion study](docs/readmes/161/motion-study.json), [original receipt index](docs/readmes/161/original-evidence.json), [source inventory](docs/readmes/161/file-inventory.json) and [Obsidian map](docs/obsidian/169-small-object-motion.canvas). Hosted CI is recorded separately from local checks; an in-progress run is not reported as passed.
-
-## Next phases and acceptance gates
-
-1. **New physical labels:** obtain separately measured displacement, full occlusion and return episodes when the user is ready. Freeze labels and thresholds before evaluation, preserve every missing/wrong result, and test repeatability across changed conditions.
-2. **Small-object observation binding:** identify the actual controlled point and its height/contact assumptions, retain calibration/source identity, and propagate the full coordinate region into the bounded single-object plan. Refuse stale, ambiguous or oversized uncertainty.
-3. **Durable chat and reusable procedure:** connect that qualified binding to one explicit chat request using the existing goal/skill ownership model. Require successful outcomes and fresh-source revalidation before saving a reusable procedure. Do not treat this manual experiment as already qualified automatic agency.
-4. **Optional Blender exchange:** first round-trip stable IDs, metres, axes, transforms and declared physics metadata on simple scenes. Then add controlled rendered variations and replay video exports. Keep the Java runtime authoritative and keep rendered appearance distinct from measured physics.
-5. **Measured improvement:** compare success and complete task cost against the simpler existing route. Promote defaults only after reserved cases justify it. Retain rollback and the original evidence.
-
-The immediate value is concrete: the agent platform has a smaller, independently checked action domain and another set of motion-evaluation evidence, while its physical uncertainty stays visible. The wider goal remains an integrated system that can form an idea, test it in its environment, inspect the result, retain what works and explain the limits honestly.
+The current result is a real source-to-simulation workflow with durable chat and procedural memory. Its physical interpretation remains bounded and explicit. Progress means improving useful completion, recovery, accuracy and cost under independently checked conditions.

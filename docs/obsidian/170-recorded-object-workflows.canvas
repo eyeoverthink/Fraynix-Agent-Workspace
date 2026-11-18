@@ -1,0 +1,99 @@
+{
+  "nodes": [
+    {
+      "id": "context",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/RecordedSmall162.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "workflow",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "physics",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SmallPhysics161.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "state",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SmallStore161.java",
+      "x": 1290,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "report",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/RecordedReport162.java",
+      "x": 1720,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "host",
+      "type": "file",
+      "file": "workspace-desktop/workflows.cjs",
+      "x": 2150,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "selection",
+      "type": "file",
+      "file": "workspace-desktop/renderer/recorded162.js",
+      "x": 2580,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "context",
+      "toNode": "workflow"
+    },
+    {
+      "id": "1",
+      "fromNode": "workflow",
+      "toNode": "physics"
+    },
+    {
+      "id": "2",
+      "fromNode": "physics",
+      "toNode": "state"
+    },
+    {
+      "id": "3",
+      "fromNode": "state",
+      "toNode": "report"
+    },
+    {
+      "id": "4",
+      "fromNode": "report",
+      "toNode": "host"
+    },
+    {
+      "id": "5",
+      "fromNode": "host",
+      "toNode": "selection"
+    }
+  ]
+}

@@ -1,3 +1,9 @@
+## Edition162 continuity — 2026-11-17
+
+Edition162 connects reconstructed recorded-object coordinates and conditional uncertainty to the unchanged small-object controller, through durable Java chat requests and evidence-backed reusable procedures. Defaults remain unchanged.
+
+[Edition162](../README-162.md). Keep unified Java agency and source/outcome checks. Next: complete source-to-action cost measurements and separately labelled new physical evidence.
+
 ## Edition161 continuity — 2026-11-17
 
 Edition161 adds a real single-object Java control path with bounded native forces, persistent accepted revisions and independent replay/report checks. Existing recorded-motion evidence is re-evaluated against separate endpoint labels. Tracker and older controller defaults remain unchanged.

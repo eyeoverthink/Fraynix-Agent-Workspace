@@ -6,7 +6,7 @@ def canon(p,binary=False):
 assert subprocess.run(['git','show-ref','--quiet','--verify','refs/tags/readme-162']).returncode==1
 prior=json.loads(subprocess.check_output(['git','show','3c18de98:docs/readmes/editions.json']));current=json.loads((r/'docs/readmes/editions.json').read_bytes());assert current==prior or current['editions'][:-1]==prior['editions']
 assert json.loads((r/'docs/readmes/162/verification.json').read_bytes())['passed']
-entry={'number':162,'date':'2026-11-17','title':'Verified small-object motion','status':'validated-local','markdown':'README-162.md','markdownSha256':sha(canon(r/'README-162.md')),'companion':'docs/readmes/162/index.html','tag':'readme-162','sourceBaseline':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'snapshotDirectory':'docs/readmes/162','snapshotFiles':[]}
+entry={'number':162,'date':'2026-11-17','title':'Recorded coordinates to durable actions','status':'validated-local','markdown':'README-162.md','markdownSha256':sha(canon(r/'README-162.md')),'companion':'docs/readmes/162/index.html','tag':'readme-162','sourceBaseline':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'snapshotDirectory':'docs/readmes/162','snapshotFiles':[]}
 for p in sorted((r/'docs/readmes/162').rglob('*')):
  if not p.is_file():continue
  binary=p.suffix in ['.png','.gz'];entry['snapshotFiles'].append({'path':p.relative_to(r).as_posix(),'kind':'binary' if binary else 'text','sha256':sha(canon(p,binary))})

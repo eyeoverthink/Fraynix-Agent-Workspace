@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/170-recorded-object-workflows.md]] | [[README-162.md]]
+
 Current: [[docs/obsidian/169-small-object-motion.md]] | [[README-161.md]]
 
 Current: [[docs/obsidian/168-independent-motion-checks.md]] | [[README-160.md]]

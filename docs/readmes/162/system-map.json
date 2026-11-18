@@ -1,0 +1,91 @@
+{
+  "modules": [
+    {
+      "id": "context",
+      "name": "Recorded source and bounds",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RecordedSmall162.java"
+    },
+    {
+      "id": "workflow",
+      "name": "Java durable stages",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java"
+    },
+    {
+      "id": "physics",
+      "name": "Existing small-object controller",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SmallPhysics161.java"
+    },
+    {
+      "id": "state",
+      "name": "Original atomic small-world store",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SmallStore161.java"
+    },
+    {
+      "id": "report",
+      "name": "Source-bound report verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RecordedReport162.java"
+    },
+    {
+      "id": "host",
+      "name": "Actual canvas observations",
+      "source": "workspace-desktop/workflows.cjs"
+    },
+    {
+      "id": "selection",
+      "name": "Explicit app inputs",
+      "source": "workspace-desktop/renderer/recorded162.js"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/162/prepared-coordinates.png",
+      "title": "2026-11-17 · actual app / prepared-coordinates.png"
+    },
+    {
+      "path": "docs/readmes/162/before-action.png",
+      "title": "2026-11-17 · actual app / before-action.png"
+    },
+    {
+      "path": "docs/readmes/162/source-and-bounds.png",
+      "title": "2026-11-17 · actual app / source-and-bounds.png"
+    },
+    {
+      "path": "docs/readmes/162/actual-motion.png",
+      "title": "2026-11-17 · actual app / actual-motion.png"
+    },
+    {
+      "path": "docs/readmes/162/reused-procedure.png",
+      "title": "2026-11-17 · actual app / reused-procedure.png"
+    },
+    {
+      "path": "docs/readmes/162/compact-report.png",
+      "title": "2026-11-17 · actual app / compact-report.png"
+    }
+  ],
+  "comparison": [
+    {
+      "case": "exposed041-end-after-restart",
+      "kind": "recorded-plane simulation proxy",
+      "errorMm": 0.009822020564482191,
+      "radiusMm": 12.505133486780363,
+      "combinedMm": 12.514955507344844,
+      "status": "completed",
+      "elapsedMs": 38101.141,
+      "workflowId": "5a2c9570-5cda-4a89-8e7e-4296acaa97b2",
+      "childId": "35677408-49d5-4181-9cf8-02cd4ce36d95"
+    },
+    {
+      "case": "exposed041-start-skill-reuse",
+      "kind": "recorded-plane simulation proxy",
+      "errorMm": 0.017358753811139792,
+      "radiusMm": 13.390547250387836,
+      "combinedMm": 13.407906004198978,
+      "status": "completed",
+      "elapsedMs": 35923.701100000006,
+      "workflowId": "6a0395b7-141d-4814-a49a-efe1cf85a09e",
+      "childId": "83601935-3347-4974-9006-ddf8c30f9c76"
+    }
+  ],
+  "finding": "Edition162 connects reconstructed recorded-object coordinates and conditional uncertainty to the unchanged small-object controller, through durable Java chat requests and evidence-backed reusable procedures. Defaults remain unchanged.",
+  "validation": "63 selected Java checks and 177 desktop checks passed, with no failures or skips. Two actual Java/Electron chat workflows passed source, native action, rendered-report, recovery and cold-verification checks. Both use one exposed historical camera episode at different independently labelled endpoints; they are not two independent physical trials. Fresh physical validation remains pending."
+}

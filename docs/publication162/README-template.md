@@ -79,6 +79,8 @@ These rows are complete application task spans, including source checks, native 
 
 The application study uses the visible chat composer, Java workflow engine, real native integration, actual rendered controls and cold verification. The new Java unit tests use clearly labelled software host receipts for targeted refusal and recovery checks; those fixtures are not claimed as browser evidence. Local test results and hosted CI status are reported separately. The published evidence records the source and method used for each attempt.
 
+These prepared requests use registered Java routing and made zero model calls. The selected model shown in the app is not evidence of model inference in this study. General language planning remains separate from this explicitly bound workflow.
+
 {{ATTEMPTS}}
 
 ## Persistence, recovery and evidence
