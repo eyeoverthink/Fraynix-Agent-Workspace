@@ -111,7 +111,7 @@ async function main() {
     await page.locator('#run').click();
     let task;
     try {
-      task = await until(async () => (await api('/api/agency043/state')).tasks.find(row => !previous.has(row.id) && row.goal === text), label);
+      task = await until(async () => (await api('/api/agency043/state', {})).tasks.find(row => !previous.has(row.id) && row.goal === text), label);
     } catch (error) {
       throw Error(error.message + '\n' + (await page.locator('#messages').innerText()).slice(-800));
     }
