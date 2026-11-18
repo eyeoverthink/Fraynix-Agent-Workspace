@@ -45,6 +45,7 @@ async function main() {
   const api = (route, args = {}) => app.evaluate((_, input) => global.workspaceTest.api(input.route, input.args), { route, args });
   const request = (operation, command, args) => page.evaluate(input => window.workspace.request(input), { operation, command, args });
   const readTask = id => api('/api/agency043/read', { id });
+  const waitForHost = () => until(async () => !(await app.evaluate(() => global.workspaceTest.agency043.busy())), 'idle desktop host');
 
   async function until(fn, label, timeout = 45000) {
     const deadline = Date.now() + timeout;
@@ -218,6 +219,7 @@ async function main() {
     assert.deepEqual(row.selection, { procedure: row.expected, by: mode });
     assert.equal(row.task.status, 'completed', row.task.reason);
     assert.equal(row.task.outcome, 'verified');
+    await waitForHost();
     row.evidence = spec.kind === 'ramp' ? await checkRamp(row.task, source)
       : spec.kind === 'analysis' ? await checkData(row.task, source) : await checkCreation(row.task);
     row.verified = true;
@@ -240,6 +242,7 @@ async function main() {
     assert.match(task.reason, reason);
     assert(!task.effect && !task.selectedLocalWorkflow && !task.context044.ownedGoalId && !task.context044.ownedWorkflowId);
     await assert.rejects(() => api('/api/ramp-mission/read', { id: task.id }));
+    await waitForHost();
     await viewMission(task.id);
     assert(await page.locator('#mission044-resume').isDisabled());
     return task;
