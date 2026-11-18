@@ -1,5 +1,6 @@
 package fraymus.workspace;
 import org.json.*;
+import fraymus.neural.RelayCourse;
 import java.nio.file.*;
 import java.net.*;
 import java.net.http.*;
@@ -24,28 +25,32 @@ public final class EmbeddedGameClient implements AutoCloseable {
     }
     public synchronized JSONObject open() throws Exception {
         if(process!=null&&process.isAlive()&&levelId==null)return frame();
-        close();levelId=null;return start(project,null,null);
+        close();levelId=null;return start(project,null,null,null);
     }
     synchronized JSONObject openLevel(Path level,String id,String sha) throws Exception {
-        close();levelId=id;return start(project.resolve("candidates").resolve(id).resolve(UUID.randomUUID().toString()),level,sha);
+        close();levelId=id;return start(project.resolve("candidates").resolve(id).resolve(UUID.randomUUID().toString()),level,sha,null);
     }
-    public synchronized JSONObject openRelay() throws Exception {
-        JSONObject pack = new GameContentPack(repo).verify();
-        close(); levelId = GameContentPack.ID;
+    public synchronized JSONObject openRelay() throws Exception { return openCourse(RelayCourse.GARDEN); }
+
+    public synchronized JSONObject openCourse(RelayCourse course) throws Exception {
+        JSONObject pack = new GameContentPack(repo).verify(course);
+        close();
+        levelId = course.id();
         return start(project.resolve("original-content").resolve(UUID.randomUUID().toString()),
-            repo.resolve(pack.getString("level")), pack.getJSONObject("files").getString(pack.getString("level")))
+            repo.resolve(course.level()), pack.getJSONObject("files").getString(course.level()), pack)
             .put("content", pack);
     }
-    private JSONObject start(Path runtimeProject,Path level,String sha) throws Exception {
+    private String originalManifestSha;
+    private JSONObject start(Path runtimeProject,Path level,String sha,JSONObject pack) throws Exception {
+        originalManifestSha = pack == null ? null : pack.getString("manifestSha256");
         activeProject=runtimeProject;
         Path lib=repo.resolve("build/install/Fraynix-Studio/lib");if(!Files.isDirectory(lib))throw new IllegalStateException("Build the preserved game runtime first");
         Files.createDirectories(runtimeProject);token=UUID.randomUUID().toString()+UUID.randomUUID();
         var command=new ArrayList<String>(List.of(Path.of(System.getProperty("java.home"),"bin","java.exe").toString(),"--enable-native-access=ALL-UNNAMED","-XX:ActiveProcessorCount=4","-Xmx512m","-Dfraynix.embedded=true","-Dfraynix.studio.workspace="+runtimeProject));
         if(level!=null){command.add("-Dfraynix.level="+level.toAbsolutePath());command.add("-Dfraynix.level.sha256="+sha);}
-        if (GameContentPack.ID.equals(levelId)) {
-            JSONObject pack = new GameContentPack(repo).verify();
-            command.add("-Dfraynix.content=" + GameContentPack.ID);
-            command.add("-Dfraynix.content.sha256=" + pack.getString("manifestSha256"));
+        if (pack != null) {
+            command.add("-Dfraynix.content=" + levelId);
+            command.add("-Dfraynix.content.sha256=" + originalManifestSha);
         }
         command.addAll(List.of("-cp",lib.toString()+File.separator+"*","Main","--mario"));var builder=new ProcessBuilder(command);
         builder.directory(repo.resolve("build/install/Fraynix-Studio").toFile());builder.environment().put("FRAYNIX_GAME_TOKEN",token);builder.environment().put("FRAYNIX_GAME_PARENT_PID",String.valueOf(ProcessHandle.current().pid()));builder.redirectError(runtimeProject.resolve("runtime-errors.log").toFile());
@@ -64,8 +69,15 @@ public final class EmbeddedGameClient implements AutoCloseable {
     public synchronized JSONObject spatial() throws Exception {return request("/command",new JSONObject().put("action","spatial"));}
     public synchronized JSONObject command(JSONObject input) throws Exception {
         if (levelId != null && "reset".equals(input.optString("action"))) {
-            if (GameContentPack.ID.equals(levelId)) new GameContentPack(repo).verify();
-            else levels.verify(levelId);
+            RelayCourse course = RelayCourse.find(levelId);
+            if (originalManifestSha == null || course == null) {
+                levels.verify(levelId);
+            } else {
+                JSONObject pack = new GameContentPack(repo).verify(course);
+                if (!originalManifestSha.equals(pack.getString("manifestSha256"))) {
+                    throw new IllegalStateException("Original course changed while open. Reopen it explicitly.");
+                }
+            }
         }
         var result=request("/command",input);
         if(input.optString("action").equals("overview"))return result.put("levelId",levelId==null?"original":levelId);

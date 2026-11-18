@@ -29,8 +29,8 @@ export class BrainGame {
   });
   $('brain-close').onclick=()=>{$('brain-dialog').close();this.layout();};$('brain-dialog').addEventListener('close',this.layout);
   $('game-tab').onclick=safe(()=>this.openIntegrated());
-  for(const id of ['left','right','jump','step','play','pause','ai','reset'])$('game-'+id).onclick=safe(async()=>{const args=id==='left'||id==='right'||id==='jump'||id==='step'?{action:'step',ticks:30,horizontal:id==='left'?-1:id==='right'?1:0,jump:id==='jump'}:id==='ai'?{action:'ai',targetX:Number($('game-target').value)}:{action:id};this.show(await this.call('gameRuntime','command',args));});
-  $('game-close').onclick=safe(async()=>{await this.call('gameRuntime','close');this.running=false;this.watching=false;$('game-status').textContent='Runtime closed. Reopen with Start game.';});
+  for(const id of ['left','right','jump','step','play','pause','ai','reset'])$('game-'+id).onclick=safe(async()=>{const args=id==='left'||id==='right'||id==='jump'||id==='step'?{action:'step',ticks:this.lastFrame?.state.courseProgress && ['left','right'].includes(id) ? Number(this.courseStride.value) : 30,horizontal:id==='left'?-1:id==='right'?1:0,jump:id==='jump'}:id==='ai'?{action:'ai',targetX:Number($('game-target').value)}:{action:id};this.show(await this.call('gameRuntime','command',args));});
+  $('game-close').onclick=safe(async()=>{await this.call('gameRuntime','close');this.running=false;this.watching=false;this.courseControls.hidden=true;this.showMovementLabels(false);$('game-status').textContent='Runtime closed. Reopen with Start game.';});
   $('game-open').onclick=safe(async()=>this.show(await this.call('gameRuntime','open')));
   const relayButton = document.createElement('button');
   relayButton.id = 'game-relay'; relayButton.textContent = 'Play Relay Garden';
@@ -42,6 +42,42 @@ export class BrainGame {
    this.show(frame); $('game-target').value = frame.content.finishX + 1;
    this.notice('Relay Garden: reach the beacon. Use the movement buttons, Jump or AI play. Reset starts the checked level again.');
   });
+  const choices = document.createElement('select');
+  choices.id = 'game-course-choice';
+  choices.setAttribute('aria-label', 'Choose an original course');
+  choices.replaceChildren(new Option('Relay Circuit', 'relay-circuit-v1'), new Option('Relay Terraces', 'relay-terraces-v1'));
+  const playCourse = document.createElement('button');
+  playCourse.id = 'game-play-course';
+  playCourse.textContent = 'Play course';
+  relayButton.after(choices, playCourse);
+  playCourse.onclick = safe(async () => {
+   this.requireSaved();
+   this.watching = true;
+   const frame = await this.call('gameRuntime', 'open-course', {id: choices.value});
+   this.show(frame);
+   $('game-target').value = frame.content.finishX + 1;
+   this.notice('Collect optional cells, clear the live rail and reach the beacon.');
+  });
+  this.courseControls = document.createElement('div');
+  this.courseControls.className = 'runtime-controls';
+  this.courseControls.hidden = true;
+  this.courseStride = document.createElement('select');
+  this.courseStride.setAttribute('aria-label', 'Movement step size');
+  this.courseStride.replaceChildren(new Option('Standard movement', '30'), new Option('Fine movement', '6'));
+  this.courseStride.onchange = () => this.showMovementLabels(Boolean(this.lastFrame?.state.courseProgress));
+  this.courseControls.append(this.courseStride);
+  this.courseStatus = document.createElement('span');
+  this.courseStatus.id = 'game-course-progress';
+  this.courseStatus.setAttribute('role', 'status');
+  for (const [label, horizontal] of [['Jump left', -1], ['Jump right', 1]]) {
+   const button = document.createElement('button');
+   button.textContent = label;
+   button.onclick = safe(async () => this.show(await this.call('gameRuntime', 'command',
+    {action: 'step', ticks: 28, horizontal, jump: true})));
+   this.courseControls.append(button);
+  }
+  this.courseControls.append(this.courseStatus);
+  $('game-frame').before(this.courseControls);
   for(const kind of ['pulse','gpu-check','train','feedback-train'])$('brain-'+kind).onclick=safe(async()=>{const job=await this.call('brain','start',{kind,autoPromote:$('brain-auto').checked});this.jobId=job.id;await this.refresh();});
   this.lab.feedbackProgress=value=>this.feedback(value);
   $('brain-feedback-rollback').onclick=safe(async()=>{await this.call('brain','feedback-rollback',{expectedVersion:this.feedbackVersion});await this.refresh();});
@@ -162,7 +198,23 @@ export class BrainGame {
    teach.disabled=recall.disabled||!this.skillMemoryChoices?.length;
   }
  }
- show(frame){this.running=true;$('game-frame').hidden=false;$('game-frame').src='data:image/png;base64,'+frame.pngBase64;const s=frame.state,p=s.player;this.lastFrame=frame;$('game-status').textContent=`Original Java renderer · tick ${s.tick} · ${s.objects} objects\nPlayer X ${p.x.toFixed(3)} / Y ${p.y.toFixed(3)} · ${p.dead?'dead':p.won?'goal reached':p.onGround?'on ground':'airborne'}\nCapture ${Number(frame.captureMs).toFixed(1)} ms · bridge ${Number(frame.bridgeMs).toFixed(1)} ms · hidden runtime · no editor panels${s.controller?.pickupSkips?'\nSkipped '+s.controller.pickupSkips+' optional pickup(s): '+s.controller.pickupDecisions.filter(d=>d.action!=='deferred for fresh observation').at(-1)?.reason:''}${s.controller?.pickupDeferrals?'\nDeferred '+s.controller.pickupDeferrals+' pickup checks for fresh observation':''}${(s.controller?.opportunity120?.waitStarts||s.controller?.opportunity120?.revisitStarts)?'\nPickup '+s.controller.opportunity120.phase.toLowerCase()+' · waited '+(s.controller.opportunity120.waitTicks/60).toFixed(2)+' s · '+s.controller.opportunity120.waitClears+' confirmed clear · '+s.controller.opportunity120.waitAborts+' aborted · '+s.controller.opportunity120.revisitStarts+' return attempts':''}${s.controller?.opportunity120?.motion121?'\nObserved enemy reversals: '+s.controller.opportunity120.motion121.reversals+' · uncertain forecasts refused: '+s.controller.opportunity120.motion121.forecastRefusals:''}${s.controller?.enemyLanding122?'\nContact forecast: '+s.controller.enemyLanding122.overrides+' corrections · supported-edge escapes: '+s.controller.enemyLanding122.edgeStarts:''}${s.controller?.contactRecovery119?.attempts?'\nContact recovery '+s.controller.contactRecovery119.phase.toLowerCase()+' · '+s.controller.contactRecovery119.attempts+'/3 attempts':''}`;}
+ showMovementLabels(hasCourse) {
+  const ticks = hasCourse ? this.courseStride.value : 30;
+  $('game-left').textContent = '← ' + ticks + ' ticks';
+  $('game-right').textContent = ticks + ' ticks →';
+ }
+ show(frame){
+  const course = frame.state.courseProgress;
+  if (this.courseControls) {
+   this.courseControls.hidden = !course;
+   this.showMovementLabels(Boolean(course));
+   if (course) {
+    const failure = course.hazard ? ' · Hit ' + course.hazard.name : '';
+    this.courseStatus.textContent = frame.state.courseTitle + ' · Cells ' + course.pickups.length
+      + '/' + course.totalPickups + failure;
+   }
+  }
+  this.running=true;$('game-frame').hidden=false;$('game-frame').src='data:image/png;base64,'+frame.pngBase64;const s=frame.state,p=s.player;this.lastFrame=frame;$('game-status').textContent=`Original Java renderer · tick ${s.tick} · ${s.objects} objects\nPlayer X ${p.x.toFixed(3)} / Y ${p.y.toFixed(3)} · ${p.dead?'dead':p.won?'goal reached':p.onGround?'on ground':'airborne'}\nCapture ${Number(frame.captureMs).toFixed(1)} ms · bridge ${Number(frame.bridgeMs).toFixed(1)} ms · hidden runtime · no editor panels${s.controller?.pickupSkips?'\nSkipped '+s.controller.pickupSkips+' optional pickup(s): '+s.controller.pickupDecisions.filter(d=>d.action!=='deferred for fresh observation').at(-1)?.reason:''}${s.controller?.pickupDeferrals?'\nDeferred '+s.controller.pickupDeferrals+' pickup checks for fresh observation':''}${(s.controller?.opportunity120?.waitStarts||s.controller?.opportunity120?.revisitStarts)?'\nPickup '+s.controller.opportunity120.phase.toLowerCase()+' · waited '+(s.controller.opportunity120.waitTicks/60).toFixed(2)+' s · '+s.controller.opportunity120.waitClears+' confirmed clear · '+s.controller.opportunity120.waitAborts+' aborted · '+s.controller.opportunity120.revisitStarts+' return attempts':''}${s.controller?.opportunity120?.motion121?'\nObserved enemy reversals: '+s.controller.opportunity120.motion121.reversals+' · uncertain forecasts refused: '+s.controller.opportunity120.motion121.forecastRefusals:''}${s.controller?.enemyLanding122?'\nContact forecast: '+s.controller.enemyLanding122.overrides+' corrections · supported-edge escapes: '+s.controller.enemyLanding122.edgeStarts:''}${s.controller?.contactRecovery119?.attempts?'\nContact recovery '+s.controller.contactRecovery119.phase.toLowerCase()+' · '+s.controller.contactRecovery119.attempts+'/3 attempts':''}`;}
  async refresh(){const s=await this.call('brain','state');this.cortex061.refresh(s);this.residual062.refresh(s);this.stopping063.refresh(s);this.contact064.refresh(s);this.decision065.refresh(s);this.recovery066.refresh(s);this.temporal067.refresh(s);this.calibration068.refresh(s);this.later069.refresh(s);this.adaptive070.refresh(s);this.uncertain071.refresh(s);this.useful072.refresh(s);this.busy=s.busy;this.version=s.activePolicy.version;this.feedbackVersion=s.activeFeedback.version;$('brain-feedback-rollback').disabled=s.busy||this.feedbackVersion<2;$('brain-feedback-run').disabled=s.busy;const latest=s.jobs.at(-1);if(latest)this.jobId=latest.id;
   $('brain-state').textContent=`Java coordinator · policy v${this.version} (${s.activePolicy.kind}) · feedback v${this.feedbackVersion} (${s.activeFeedback.kind}) · ${s.journalEntries} journal entries · shared cortex ${s.cortex.ready?s.cortex.neurons+' neurons / '+s.cortex.synapses+' synapses / tick '+s.cortex.ticks:'ready to load on pulse'}`;
   for(const kind of ['pulse','gpu-check','train','feedback-train'])$('brain-'+kind).disabled=s.busy;$('brain-cancel').disabled=!s.busy;$('brain-rollback').disabled=s.busy||this.version<2;$('brain-run').disabled=s.busy;

@@ -1,6 +1,7 @@
 package content;
 
 import com.google.gson.*;
+import fraymus.neural.RelayCourse;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
@@ -13,10 +14,8 @@ import javax.sound.sampled.*;
 
 /** Original authored geometry, pixels and tones. Never reads another level or image. */
 public final class RelayGardenGenerator {
-    public static final String ROOT = "assets/original/relay-garden/";
-    public static final String[] CUES = {"main-theme-overworld", "flagpole", "break_block", "bump",
-        "coin", "gameover", "jump-small", "mario_die", "pipe", "powerup", "powerup_appears",
-        "stage_clear", "stomp", "kick", "invincible"};
+    public static final String ROOT = RelayCourse.ASSETS;
+    public static final String[] CUES = RelayCourse.CUES.toArray(String[]::new);
     private static final Gson JSON = new GsonBuilder().setPrettyPrinting().create();
 
     public static void main(String[] args) throws Exception {
@@ -116,20 +115,35 @@ public final class RelayGardenGenerator {
 
     public static JsonArray level() {
         JsonArray result = new JsonArray();
+        backdrop(result);
+        for (int x = 0; x < 60; x++) if (!(x >= 18 && x < 20) && !(x >= 33 && x < 35)) {
+            for (int y = 0; y < 2; y++) deck(result, "Garden deck " + x + "/" + y, x, y, y);
+        }
+        for (int x : new int[]{2, 24, 44, 57}) planter(result, x, .625);
+        robot(result);
+        beacon(result, 13.625, .625);
+        return result;
+    }
+
+    static void backdrop(JsonArray result) {
         JsonObject sky = entity(result, "Distant garden", 10.0, 3.0, 24, 9, -10);
         component(sky, "components.SpriteRenderer", object("sprite", object("texture", object(
             "filepath", ROOT + "sky.png", "width", 1024, "height", 512))));
-        for (int x = 0; x < 60; x++) if (!(x >= 18 && x < 20) && !(x >= 33 && x < 35)) {
-            for (int y = 0; y < 2; y++) {
-                JsonObject tile = entity(result, "Garden deck " + x + "/" + y, x * .25 + .125, y * .25 + .125, .25, .25, 0);
-                component(tile, "components.SpriteRenderer", object("sprite", sprite(8 + y)));
-                component(tile, "components.Ground", object()); box(tile, .25, .25, false);
-            }
-        }
-        for (int x : new int[]{2, 24, 44, 57}) {
-            JsonObject plant = entity(result, "Planter " + x, x * .25 + .125, .625, .25, .25, -1);
-            component(plant, "components.SpriteRenderer", object("sprite", sprite(10)));
-        }
+    }
+
+    static void deck(JsonArray result, String name, int x, int y, int tileIndex) {
+        JsonObject tile = entity(result, name, x * .25 + .125, y * .25 + .125, .25, .25, 0);
+        component(tile, "components.SpriteRenderer", object("sprite", sprite(8 + tileIndex)));
+        component(tile, "components.Ground", object());
+        box(tile, .25, .25, false);
+    }
+
+    static void planter(JsonArray result, int x, double y) {
+        JsonObject plant = entity(result, "Planter " + x, x * .25 + .125, y, .25, .25, -1);
+        component(plant, "components.SpriteRenderer", object("sprite", sprite(10)));
+    }
+
+    static JsonObject robot(JsonArray result) {
         JsonObject player = entity(result, "Relay robot", .875, .625, .25, .25, 2);
         component(player, "components.SpriteRenderer", object("sprite", sprite(0)));
         JsonArray states = new JsonArray(), transitions = new JsonArray();
@@ -149,15 +163,18 @@ public final class RelayGardenGenerator {
             "friction", .8, "fixedRotation", true, "continuousCollision", false));
         component(player, "components.PlayerController", object());
         component(player, "components.FallBoundary", object("minimumY", -.75));
+        return player;
+    }
+
+    static void beacon(JsonArray result, double x, double y) {
         for (int i = 0; i < 6; i++) {
-            JsonObject beacon = entity(result, "Finish beacon " + i, 13.625, .625 + i * .25, .25, .25, 1);
+            JsonObject beacon = entity(result, "Finish beacon " + i, x, y + i * .25, .25, .25, 1);
             component(beacon, "components.SpriteRenderer", object("sprite", sprite(11)));
             component(beacon, "components.Flagpole", object("isTop", i == 5)); box(beacon, .25, .25, true);
         }
-        return result;
     }
 
-    private static JsonObject entity(JsonArray all, String name, double x, double y, double w, double h, int z) {
+    static JsonObject entity(JsonArray all, String name, double x, double y, double w, double h, int z) {
         int id = all.size();
         JsonObject entity = object("uid", id, "persistentId", identity("object" + id), "name", name,
             "doSerialization", true, "isDead", false, "components", new JsonArray());
@@ -165,11 +182,11 @@ public final class RelayGardenGenerator {
             "scale", object("x", w, "y", h), "rotation", 0, "zIndex", z));
         all.add(entity); return entity;
     }
-    private static void box(JsonObject entity, double w, double h, boolean sensor) {
+    static void box(JsonObject entity, double w, double h, boolean sensor) {
         component(entity, "physics2d.components.Rigidbody2D", object("bodyType", "Static", "gravityScale", 0, "isSensor", sensor));
         component(entity, "physics2d.components.Box2DCollider", object("halfSize", object("x", w, "y", h)));
     }
-    private static void component(JsonObject entity, String type, JsonObject properties) {
+    static void component(JsonObject entity, String type, JsonObject properties) {
         JsonArray components = entity.getAsJsonArray("components");
         int id = entity.get("uid").getAsInt() * 16 + components.size();
         properties.addProperty("uid", id); properties.addProperty("persistentId", identity("component" + id));
@@ -180,8 +197,8 @@ public final class RelayGardenGenerator {
         return object("width", 32, "height", 32, "texture", object("filepath", ROOT + "atlas.png", "width", 256, "height", 64),
             "texCoords", array(object("x", r, "y", top), object("x", r, "y", bottom), object("x", l, "y", bottom), object("x", l, "y", top)));
     }
-    private static JsonArray array(JsonElement... values) { JsonArray a = new JsonArray(); for (var v : values) a.add(v); return a; }
-    private static JsonObject object(Object... fields) {
+    static JsonArray array(JsonElement... values) { JsonArray a = new JsonArray(); for (var v : values) a.add(v); return a; }
+    static JsonObject object(Object... fields) {
         JsonObject o = new JsonObject();
         for (int i = 0; i < fields.length; i += 2) o.add((String) fields[i], JSON.toJsonTree(fields[i + 1]));
         return o;

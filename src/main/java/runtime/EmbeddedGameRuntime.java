@@ -51,13 +51,20 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
     public Map<String,Object> observe(){
         check();var scene=Window.getScene();var value=new LinkedHashMap<String,Object>();
         value.put("sessionId",session);value.put("tick",scene.tick());value.put("frameSequence",sequence);value.put("objects",scene.getGameObjects().size());value.put("units","legacy game units; XY plane; render layer is not physical Z");
-        if (content.RelayGardenResources.enabled()) {
-            value.put("contentId", "relay-garden-v1");
+        var course = content.RelayGardenResources.course();
+        if (course != null) {
+            value.put("contentId", course.id());
+            if (course.hasSignals()) value.put("courseTitle", course.title());
             value.put("contentPaths", util.AssetPool.loadedContentPaths());
         }
         value.put("visibleWindow",org.lwjgl.glfw.GLFW.glfwGetWindowAttrib(Window.get().nativeWindow(),org.lwjgl.glfw.GLFW.GLFW_VISIBLE)!=0);value.put("editorInitialized",Window.getImguiLayer()!=null);value.put("continuous",continuous);
         var player=scene.getGameObjectWith(PlayerController.class);
         if(player!=null){var controller=player.getComponent(PlayerController.class);value.put("player",Map.of("id",player.getPersistentId().toString(),"x",player.transform.position.x,"y",player.transform.position.y,"small",controller.isSmall(),"dead",controller.isDead(),"won",controller.hasWon(),"onGround",controller.onGround,"vx",player.getComponent(physics2d.components.Rigidbody2D.class).getVelocity().x,"vy",player.getComponent(physics2d.components.Rigidbody2D.class).getVelocity().y));}
+        if (course != null && course.hasSignals() && player != null) {
+            var progress = player.getComponent(components.CourseProgress.class);
+            if (progress == null) throw new IllegalStateException("Missing original course progress");
+            value.put("courseProgress", progress.observe());
+        }
         if(player!=null)value.put("contact117",agent.GameContact117.observe(player));
         value.put("threats118",agent.GameThreat118.observe(scene));value.put("controller",agent.GameInput.observation116());value.put("renderer",Map.of("vendor",glGetString(GL_VENDOR),"name",glGetString(GL_RENDERER),"version",glGetString(GL_VERSION)));
         value.put("neural",Map.of("sharedCore",true,"ready",nervous.BrainRuntime.core()!=null,"ticks",nervous.BrainRuntime.core()==null?0:nervous.BrainRuntime.core().ticks()));

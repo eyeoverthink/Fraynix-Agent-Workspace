@@ -72,6 +72,12 @@ tasks.register('generateRelayGarden', JavaExec) {
     mainClass = 'content.RelayGardenGenerator'
     args = [providers.gradleProperty('relayOutput').getOrElse('assets/original/relay-garden')]
 }
+tasks.register('generateRelayCourses', JavaExec) {
+    dependsOn classes
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'content.RelayCourseGenerator'
+    args = [providers.gradleProperty('relayCoursesOutput').getOrElse('assets/original/relay-garden/courses')]
+}
 tasks.register('verifySourceIsolation') {
     group = 'verification'
     description = 'Rejects module/source roots outside this repository.'
