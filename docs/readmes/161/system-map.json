@@ -1,0 +1,177 @@
+{
+  "modules": [
+    {
+      "id": "context",
+      "name": "Small-body domain and route",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SmallBody161.java"
+    },
+    {
+      "id": "physics",
+      "name": "Bounded native forces",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SmallPhysics161.java"
+    },
+    {
+      "id": "verify",
+      "name": "Full tick and contact verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SmallVerify161.java"
+    },
+    {
+      "id": "state",
+      "name": "Durable world and attempt state",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SmallStore161.java"
+    },
+    {
+      "id": "report",
+      "name": "Actual report comparator",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SmallReport161.java"
+    },
+    {
+      "id": "host",
+      "name": "Independent rendered observations",
+      "source": "workspace-desktop/small161.cjs"
+    },
+    {
+      "id": "measurement",
+      "name": "Separately labelled recorded motion",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PlaneAccuracy160.java"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/161/small-small-controls.png",
+      "title": "2026-11-17 · actual app / small / small-controls.png"
+    },
+    {
+      "path": "docs/readmes/161/small-small-replay.png",
+      "title": "2026-11-17 · actual app / small / small-replay.png"
+    },
+    {
+      "path": "docs/readmes/161/small-small-result.png",
+      "title": "2026-11-17 · actual app / small / small-result.png"
+    },
+    {
+      "path": "docs/readmes/161/small-obstacle-result.png",
+      "title": "2026-11-17 · actual app / small / obstacle-result.png"
+    },
+    {
+      "path": "docs/readmes/161/small-accepted-history.png",
+      "title": "2026-11-17 · actual app / small / accepted-history.png"
+    },
+    {
+      "path": "docs/readmes/161/small-compact-small-controls.png",
+      "title": "2026-11-17 · actual app / small / compact-small-controls.png"
+    },
+    {
+      "path": "docs/readmes/161/motion-recorded-inputs.png",
+      "title": "2026-11-17 · actual app / motion / recorded-inputs.png"
+    },
+    {
+      "path": "docs/readmes/161/motion-recovered-evaluation.png",
+      "title": "2026-11-17 · actual app / motion / recovered-evaluation.png"
+    },
+    {
+      "path": "docs/readmes/161/motion-camera-error-and-bounds.png",
+      "title": "2026-11-17 · actual app / motion / camera-error-and-bounds.png"
+    },
+    {
+      "path": "docs/readmes/161/motion-camera-scope.png",
+      "title": "2026-11-17 · actual app / motion / camera-scope.png"
+    },
+    {
+      "path": "docs/readmes/161/motion-camera-pairs.png",
+      "title": "2026-11-17 · actual app / motion / camera-pairs.png"
+    },
+    {
+      "path": "docs/readmes/161/motion-shorter-forward-result.png",
+      "title": "2026-11-17 · actual app / motion / shorter-forward-result.png"
+    },
+    {
+      "path": "docs/readmes/161/motion-longer-reverse-result.png",
+      "title": "2026-11-17 · actual app / motion / longer-reverse-result.png"
+    },
+    {
+      "path": "docs/readmes/161/motion-compact-controls.png",
+      "title": "2026-11-17 · actual app / motion / compact-controls.png"
+    }
+  ],
+  "comparison": [
+    {
+      "case": "5cm-40g-forward",
+      "kind": "declared native simulation",
+      "errorMm": 0.021549877116633784,
+      "status": "completed",
+      "nativeTicks": 1206,
+      "elapsedMs": 4373.333500000001,
+      "worldRevision": 1,
+      "jobId": "fa9f3af7-39c9-4990-908e-a1b6563ef72e"
+    },
+    {
+      "case": "same-world-reverse",
+      "kind": "declared native simulation",
+      "errorMm": 0.021402929461583505,
+      "status": "completed",
+      "nativeTicks": 1335,
+      "elapsedMs": 2340.4956999999995,
+      "worldRevision": 2,
+      "jobId": "8b3afa64-249c-42bd-a00b-754180affa0c"
+    },
+    {
+      "case": "10cm-160g-over-obstacle",
+      "kind": "declared native simulation",
+      "errorMm": 0.0848457712103829,
+      "status": "completed",
+      "nativeTicks": 1812,
+      "elapsedMs": 2427.8171,
+      "worldRevision": 1,
+      "jobId": "569dd38c-e93e-432c-89d2-408eed79c1c7"
+    },
+    {
+      "case": "changed-report-refused",
+      "kind": "declared native simulation",
+      "errorMm": 0.010575188460082364,
+      "status": "expected refusal; world unchanged",
+      "nativeTicks": 1283,
+      "elapsedMs": 1670.3326000000015,
+      "worldRevision": null,
+      "jobId": "5d861b0d-023e-4bd3-b64c-6f110ba8c19b"
+    },
+    {
+      "case": "exposed-four-inch-camera",
+      "kind": "exposed physical recording",
+      "errorMm": 6.672626706366604,
+      "status": "measurement gates passed",
+      "radiusMm": 25.895357393972798,
+      "usablePairs": 8,
+      "referenceRegionCovered": 8,
+      "elapsedMs": 15439.264100000002,
+      "jobId": "2a49115b-134b-47b3-ae09-a24fae98c589",
+      "independentEpisodes": 1
+    },
+    {
+      "case": "generated-shorter-forward",
+      "kind": "labelled generated footage",
+      "errorMm": 3.1599606900245036,
+      "status": "measurement gates passed",
+      "radiusMm": 20.890030924328865,
+      "usablePairs": 8,
+      "referenceRegionCovered": 8,
+      "elapsedMs": 7889.937999999998,
+      "jobId": "de6fdbf0-4bb5-4821-bc18-09812485fc7a",
+      "independentEpisodes": 1
+    },
+    {
+      "case": "generated-longer-reverse",
+      "kind": "labelled generated footage",
+      "errorMm": 4.03372428198994e-14,
+      "status": "measurement gates passed",
+      "radiusMm": 21.59917346965124,
+      "usablePairs": 8,
+      "referenceRegionCovered": 8,
+      "elapsedMs": 7881.092700000001,
+      "jobId": "a4b75218-685e-46c7-b1fa-a460ea84ab2e",
+      "independentEpisodes": 1
+    }
+  ],
+  "finding": "Edition161 adds a real single-object Java control path with bounded native forces, persistent accepted revisions and independent replay/report checks. Existing recorded-motion evidence is re-evaluated against separate endpoint labels. Tracker and older controller defaults remain unchanged.",
+  "validation": "41 selected Java checks and 175 desktop checks passed, with no failures or skips. Actual Java/Electron studies cover three accepted native moves, a deliberately refused altered report, and three completed motion evaluations. Abrupt interruption, cold reconstruction, source corruption and rendered controls are checked. This is scoped validation, not a rerun of every historical feature. Fresh physical validation remains pending."
+}

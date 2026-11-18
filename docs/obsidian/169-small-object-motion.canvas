@@ -1,0 +1,99 @@
+{
+  "nodes": [
+    {
+      "id": "context",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SmallBody161.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "physics",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SmallPhysics161.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "verify",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SmallVerify161.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "state",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SmallStore161.java",
+      "x": 1290,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "report",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SmallReport161.java",
+      "x": 1720,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "host",
+      "type": "file",
+      "file": "workspace-desktop/small161.cjs",
+      "x": 2150,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "measurement",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/PlaneAccuracy160.java",
+      "x": 2580,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "context",
+      "toNode": "physics"
+    },
+    {
+      "id": "1",
+      "fromNode": "physics",
+      "toNode": "verify"
+    },
+    {
+      "id": "2",
+      "fromNode": "verify",
+      "toNode": "state"
+    },
+    {
+      "id": "3",
+      "fromNode": "state",
+      "toNode": "report"
+    },
+    {
+      "id": "4",
+      "fromNode": "report",
+      "toNode": "host"
+    },
+    {
+      "id": "5",
+      "fromNode": "host",
+      "toNode": "measurement"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+[Edition161 — verified small-object motion](../../README-161.md) | [Offline guide](161/index.html)
+
 [Edition160 — independent recorded motion checks](../../README-160.md) | [Offline guide](160/index.html)
 
 [Edition159 — calibrated recorded actions](../../README-159.md) | [Offline guide](159/index.html)

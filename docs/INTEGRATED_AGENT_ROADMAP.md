@@ -1,3 +1,9 @@
+## Edition161 continuity — 2026-11-17
+
+Edition161 adds a real single-object Java control path with bounded native forces, persistent accepted revisions and independent replay/report checks. Existing recorded-motion evidence is re-evaluated against separate endpoint labels. Tracker and older controller defaults remain unchanged.
+
+[Edition161](../README-161.md). Keep unified Java agency and source/outcome checks. Next: physical labels, small-object observation binding and chat/skills; optional Blender exchange remains planned.
+
 ## Edition160 continuity — 2026-11-17
 
 Edition160 adds independent recorded-motion evaluation to the Java workspace. It freshly reconstructs every original frame, compares measured displacement with separately labelled tape endpoints, carries conditional error bounds, and independently checks a working rendered report. It preserves tracker and action defaults.

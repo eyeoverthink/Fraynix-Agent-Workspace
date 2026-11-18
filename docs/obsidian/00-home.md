@@ -1,3 +1,5 @@
+Current: [[docs/obsidian/169-small-object-motion.md]] | [[README-161.md]]
+
 Current: [[docs/obsidian/168-independent-motion-checks.md]] | [[README-160.md]]
 
 Current: [[docs/obsidian/167-calibrated-actions.md]] | [[README-159.md]]
