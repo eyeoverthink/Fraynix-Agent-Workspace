@@ -62,9 +62,9 @@ async function main(){
   const url=origin+source.path;
   await page.locator('#address').fill(url);
   await page.locator('#navigate').click();
-  await until(()=>app.evaluate((_,target)=>{
+  await until(()=>app.evaluate(({webContents},target)=>{
    const {browser}=global.workspaceTest.surfaces();
-   return require('electron').webContents.fromId(browser).getURL()===target;
+   return webContents.fromId(browser).getURL()===target;
   },url),'local input page navigation');
  }
  async function submit(){
@@ -153,6 +153,8 @@ async function main(){
   },'checkpoint immediately before real canvas verification');
   result.beforeStop=await child(recovering.id);
   assert.equal(result.beforeStop.status,'ready-report');
+  await page.evaluate(()=>window.agency043View.mission.refresh());
+  await page.waitForFunction(()=>document.querySelector('#mission044-facts').textContent.includes('Saved report'));
   await capture('ramp-csv-checkpoint.png');
   assert(await app.evaluate(()=>global.workspaceTest.crashEngine()));
   await nap(220);
@@ -168,9 +170,9 @@ async function main(){
   assert.deepEqual(result.recovered.mission.stages.slice(0,4),result.beforeStop.stages);
   assert.equal(result.recovered.mission.replay.sessionId,result.beforeStop.replay.sessionId);
   await page.waitForFunction(()=>document.querySelector('#test-badge').textContent==='TESTS PASSED');
+  await openSource(source);
   await capture('ramp-csv-verified.png');
 
-  await openSource(source);
   await openInput();
   await page.locator('#ramp-pause').uncheck();
   await page.locator('#ramp-use-current').click();
