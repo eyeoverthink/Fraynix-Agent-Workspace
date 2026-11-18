@@ -58,6 +58,18 @@ async function main() {
     throw Error('Timed out waiting for ' + label);
   }
 
+  function manualRequest(operation, command, args) {
+    return until(async () => {
+      try {
+        return await request(operation, command, args);
+      } catch (error) {
+        if (!/Wait for the current operation|Resume or Stop the evidence workflow|creation goal owns the canvas/.test(error.message))
+          throw error;
+        return null;
+      }
+    }, operation + ' ' + command + ' after desktop ownership is released');
+  }
+
   async function open({ models = true } = {}) {
     if (models) delete process.env.FRAYNIX_WORKSPACE_NO_MODELS;
     else process.env.FRAYNIX_WORKSPACE_NO_MODELS = '1';
@@ -127,7 +139,7 @@ async function main() {
   async function importData(spec) {
     const csv = spec.dataset
       ? await fs.readFile(path.join('docs/datasets/delfys75-013', spec.dataset + '.csv'), 'utf8') : spec.csv;
-    const selected = await request('data', 'import', {
+    const selected = await manualRequest('data', 'import', {
       title: spec.dataset ? 'Delfys validation recording' : 'Labelled synthetic reversal',
       filename: spec.id + '.csv', csv, sourceKind: spec.dataset ? 'measured' : 'synthetic',
       sourceNote: spec.dataset ? 'Unchanged repository recording for descriptive analysis.' : 'Authored sample to test reversals and thresholds.',
@@ -195,7 +207,7 @@ async function main() {
     assert.equal(native.procedure, routes.creation);
     const artifact = await api('/api/artifact/read', { id: native.report.id });
     assert.equal(artifact.test.passed, true);
-    await request('agency043', 'mission-open', { id: task.id });
+    await manualRequest('agency043', 'mission-open', { id: task.id });
     const tally = value => ({ selector: '#tally', expectText: String(value) });
     const click = id => ({ selector: '#' + id, action: 'click' });
     const steps = [tally(0), click('add-three'), tally(3), click('add-three'), tally(6), click('reset'),
@@ -231,7 +243,7 @@ async function main() {
       : spec.kind === 'analysis' ? await checkData(row.task, source) : await checkCreation(row.task);
     row.verified = true;
     if (mode === 'model') {
-      await request('agency043', 'mission-open', { id: row.task.id });
+      await manualRequest('agency043', 'mission-open', { id: row.task.id });
       await capture('routing-' + spec.id + '.png', row.task.id);
     }
     await save();
@@ -267,7 +279,7 @@ async function main() {
     await probe('missing model', 'Plan a local workflow: Find accumulated travel and suspicious velocity intervals in the selected motion CSV.',
       routes.analysis, /select a motion dataset/i, 1);
     for (const spec of pairs) {
-      const source = spec.kind === 'ramp' ? await request('rampInput', 'save', { csv: spec.csv })
+      const source = spec.kind === 'ramp' ? await manualRequest('rampInput', 'save', { csv: spec.csv })
         : spec.kind === 'analysis' ? await importData(spec) : null;
       const order = spec.modelFirst ? ['model', 'direct'] : ['direct', 'model'];
       const observations = [];
