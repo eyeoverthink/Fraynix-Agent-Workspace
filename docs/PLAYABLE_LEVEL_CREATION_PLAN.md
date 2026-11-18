@@ -1,3 +1,9 @@
+## Edition163 continuity — 2026-11-17
+
+Edition163 measures complete recorded-object workflows over three existing recordings and four accepted world revisions. Exact, process-local recording reuse reduced measured task cost across the two comparison pairs; source, numerical native trace and actual report evidence match exactly. Mean paired change: 61.9% less task time. This is a small exposed local study, not a general speed guarantee.
+
+[Edition163](../README-163.md). Keep one integrated Java agent and original source/outcome checks. Next: measure remaining complete history and report costs; new physical accuracy separately pending.
+
 ## Edition162 continuity — 2026-11-17
 
 Edition162 connects reconstructed recorded-object coordinates and conditional uncertainty to the unchanged small-object controller, through durable Java chat requests and evidence-backed reusable procedures. Defaults remain unchanged.

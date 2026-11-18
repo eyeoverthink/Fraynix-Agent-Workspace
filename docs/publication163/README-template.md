@@ -8,6 +8,8 @@
 
 {{HERO}}
 
+The spatial screenshot retains an existing generic panel notice about an unlinked world. The recorded-action destination is selected separately and verified by the task receipts; the notice is not a failed recorded-action outcome.
+
 ## Where this fits in the application
 
 Fraynix connects observation, simulation, browser and creation surfaces through durable Java tasks and verified procedures. The purpose is an agent that completes useful work, checks what happened and retains a way to repeat it with fresh inputs. The physics runtime supplies consequences that can be measured. The browser and canvas supply working surfaces. Java owns task state, source bindings, recovery and acceptance.

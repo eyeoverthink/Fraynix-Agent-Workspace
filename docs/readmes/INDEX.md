@@ -1,3 +1,5 @@
+[Edition163 — verified workflow costs](../../README-163.md) | [Offline guide](163/index.html)
+
 [Edition162 — recorded coordinates to durable actions](../../README-162.md) | [Offline guide](162/index.html)
 
 [Edition161 — verified small-object motion](../../README-161.md) | [Offline guide](161/index.html)

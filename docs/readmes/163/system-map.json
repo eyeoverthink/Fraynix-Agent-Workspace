@@ -1,0 +1,244 @@
+{
+  "modules": [
+    {
+      "id": "context",
+      "name": "Fresh source and bounded reuse",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RecordedReplay163.java"
+    },
+    {
+      "id": "workflow",
+      "name": "Durable Java stages",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java"
+    },
+    {
+      "id": "physics",
+      "name": "Original numerical controller",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SmallPhysics161.java"
+    },
+    {
+      "id": "report",
+      "name": "Canonical visible labels and exact checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SmallReport161.java"
+    },
+    {
+      "id": "measurement",
+      "name": "Complete actual workflow study",
+      "source": "docs/publication163/study163.cjs"
+    },
+    {
+      "id": "comparison",
+      "name": "Exact results and paired costs",
+      "source": "docs/publication163/compare163.py"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/163/source-and-bounds.png",
+      "title": "2026-11-17 · actual app / source-and-bounds.png"
+    },
+    {
+      "path": "docs/readmes/163/history-four-motion.png",
+      "title": "2026-11-17 · actual app / history-four-motion.png"
+    },
+    {
+      "path": "docs/readmes/163/verification-costs.png",
+      "title": "2026-11-17 · actual app / verification-costs.png"
+    }
+  ],
+  "comparison": [
+    {
+      "run": "full-a",
+      "mode": "full",
+      "case": "camera-end",
+      "revision": 1,
+      "prepareMs": 4216.0545999999995,
+      "executeMs": 34153.257300000005,
+      "archiveMs": 3526.2077999999965,
+      "totalMs": 41976.4367,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "full-a",
+      "mode": "full",
+      "case": "generated-short-start",
+      "revision": 2,
+      "prepareMs": 3349.2672999999995,
+      "executeMs": 27620.430200000003,
+      "archiveMs": 2500.513399999996,
+      "totalMs": 33547.6882,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "full-a",
+      "mode": "full",
+      "case": "generated-reverse-start",
+      "revision": 3,
+      "prepareMs": 3308.7742,
+      "executeMs": 30782.752900000007,
+      "archiveMs": 2595.8487999999925,
+      "totalMs": 36733.0012,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "full-a",
+      "mode": "full",
+      "case": "camera-start-recovered",
+      "revision": 4,
+      "prepareMs": 4408.979200000002,
+      "executeMs": 54730.9311,
+      "archiveMs": 3751.551999999996,
+      "totalMs": 62953.0506,
+      "restartMs": 4284.073499999999,
+      "status": "completed"
+    },
+    {
+      "run": "memo-a",
+      "mode": "memo",
+      "case": "camera-end",
+      "revision": 1,
+      "prepareMs": 3921.4125000000004,
+      "executeMs": 8150.733699999999,
+      "archiveMs": 642.1291000000019,
+      "totalMs": 12743.278,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "memo-a",
+      "mode": "memo",
+      "case": "generated-short-start",
+      "revision": 2,
+      "prepareMs": 3097.9750999999997,
+      "executeMs": 9307.1319,
+      "archiveMs": 691.5744999999988,
+      "totalMs": 13150.864099999999,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "memo-a",
+      "mode": "memo",
+      "case": "generated-reverse-start",
+      "revision": 3,
+      "prepareMs": 3114.5128000000004,
+      "executeMs": 10773.044999999998,
+      "archiveMs": 778.6074000000008,
+      "totalMs": 14709.1341,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "memo-a",
+      "mode": "memo",
+      "case": "camera-start-recovered",
+      "revision": 4,
+      "prepareMs": 1431.264900000002,
+      "executeMs": 23263.915199999996,
+      "archiveMs": 915.9656999999861,
+      "totalMs": 25695.912000000004,
+      "restartMs": 5025.054600000003,
+      "status": "completed"
+    },
+    {
+      "run": "memo-b",
+      "mode": "memo",
+      "case": "camera-end",
+      "revision": 1,
+      "prepareMs": 4082.3166999999994,
+      "executeMs": 8092.916900000002,
+      "archiveMs": 639.7854000000007,
+      "totalMs": 12839.732399999999,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "memo-b",
+      "mode": "memo",
+      "case": "generated-short-start",
+      "revision": 2,
+      "prepareMs": 3197.533800000001,
+      "executeMs": 10006.167100000002,
+      "archiveMs": 700.7713999999978,
+      "totalMs": 13949.169300000001,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "memo-b",
+      "mode": "memo",
+      "case": "generated-reverse-start",
+      "revision": 3,
+      "prepareMs": 3141.570599999999,
+      "executeMs": 10246.301200000002,
+      "archiveMs": 767.8880999999965,
+      "totalMs": 14261.6587,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "memo-b",
+      "mode": "memo",
+      "case": "camera-start-recovered",
+      "revision": 4,
+      "prepareMs": 1375.9421999999977,
+      "executeMs": 25441.9934,
+      "archiveMs": 884.5383000000002,
+      "totalMs": 27781.636300000006,
+      "restartMs": 5738.4493,
+      "status": "completed"
+    },
+    {
+      "run": "full-b",
+      "mode": "full",
+      "case": "camera-end",
+      "revision": 1,
+      "prepareMs": 4279.014899999999,
+      "executeMs": 33922.97319999999,
+      "archiveMs": 3499.516499999998,
+      "totalMs": 41751.8037,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "full-b",
+      "mode": "full",
+      "case": "generated-short-start",
+      "revision": 2,
+      "prepareMs": 3157.3479000000007,
+      "executeMs": 28856.273,
+      "archiveMs": 2472.9784000000072,
+      "totalMs": 34518.899399999995,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "full-b",
+      "mode": "full",
+      "case": "generated-reverse-start",
+      "revision": 3,
+      "prepareMs": 3323.358300000007,
+      "executeMs": 31017.952099999995,
+      "archiveMs": 2568.4149000000034,
+      "totalMs": 36950.808000000005,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "full-b",
+      "mode": "full",
+      "case": "camera-start-recovered",
+      "revision": 4,
+      "prepareMs": 4327.882900000011,
+      "executeMs": 58132.6933,
+      "archiveMs": 3607.7272999999986,
+      "totalMs": 66222.3362,
+      "restartMs": 6634.529699999985,
+      "status": "completed"
+    }
+  ],
+  "finding": "Edition163 measures complete recorded-object workflows over three existing recordings and four accepted world revisions. Exact, process-local recording reuse reduced measured task cost across the two comparison pairs; source, numerical native trace and actual report evidence match exactly. Mean paired change: 61.9% less task time. This is a small exposed local study, not a general speed guarantee.",
+  "validation": "71 selected Java checks and 177 desktop checks passed without failures or skips. Three halfway-time labels and exact poses passed actual Chromium checks. Four final Java/Electron sessions completed sixteen durable chat workflows, four accepted revisions per session, retained skills, forced original reconstruction, abrupt restart, source-corruption refusal and cold verification. One camera episode and two generated recordings remain three distinct source sequences; repetition does not add physical evidence. New physical validation remains pending."
+}

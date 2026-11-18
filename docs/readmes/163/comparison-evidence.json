@@ -1,0 +1,443 @@
+{
+  "passed": true,
+  "runs": [
+    "full-a",
+    "memo-a",
+    "memo-b",
+    "full-b"
+  ],
+  "completedWorkflows": 16,
+  "recordings": 3,
+  "physicalEpisodes": 1,
+  "generatedSequences": 2,
+  "historyDepth": 4,
+  "sourcePlanNativeAndActualReportEquality": [
+    {
+      "run": "full-a",
+      "index": 0,
+      "sha256": "ca46e05490e39d6c038d2b1371e770b910f7037381deeec83e0166207f26dcdf"
+    },
+    {
+      "run": "full-a",
+      "index": 1,
+      "sha256": "cdcc45a6fd44c0d98e865c95ffaafccfdaddd0626b9fbb6ed5fc30d1b8fd37ff"
+    },
+    {
+      "run": "full-a",
+      "index": 2,
+      "sha256": "4f541fbb5033e24c5520ba573438f8fa4b099b8fc9840526601851bafadb11c3"
+    },
+    {
+      "run": "full-a",
+      "index": 3,
+      "sha256": "4d91f8103f645849b048416c77b54c3742baa87bed49d0feb68ed07cf404fdcc"
+    },
+    {
+      "run": "memo-a",
+      "index": 0,
+      "sha256": "ca46e05490e39d6c038d2b1371e770b910f7037381deeec83e0166207f26dcdf"
+    },
+    {
+      "run": "memo-a",
+      "index": 1,
+      "sha256": "cdcc45a6fd44c0d98e865c95ffaafccfdaddd0626b9fbb6ed5fc30d1b8fd37ff"
+    },
+    {
+      "run": "memo-a",
+      "index": 2,
+      "sha256": "4f541fbb5033e24c5520ba573438f8fa4b099b8fc9840526601851bafadb11c3"
+    },
+    {
+      "run": "memo-a",
+      "index": 3,
+      "sha256": "4d91f8103f645849b048416c77b54c3742baa87bed49d0feb68ed07cf404fdcc"
+    },
+    {
+      "run": "memo-b",
+      "index": 0,
+      "sha256": "ca46e05490e39d6c038d2b1371e770b910f7037381deeec83e0166207f26dcdf"
+    },
+    {
+      "run": "memo-b",
+      "index": 1,
+      "sha256": "cdcc45a6fd44c0d98e865c95ffaafccfdaddd0626b9fbb6ed5fc30d1b8fd37ff"
+    },
+    {
+      "run": "memo-b",
+      "index": 2,
+      "sha256": "4f541fbb5033e24c5520ba573438f8fa4b099b8fc9840526601851bafadb11c3"
+    },
+    {
+      "run": "memo-b",
+      "index": 3,
+      "sha256": "4d91f8103f645849b048416c77b54c3742baa87bed49d0feb68ed07cf404fdcc"
+    },
+    {
+      "run": "full-b",
+      "index": 0,
+      "sha256": "ca46e05490e39d6c038d2b1371e770b910f7037381deeec83e0166207f26dcdf"
+    },
+    {
+      "run": "full-b",
+      "index": 1,
+      "sha256": "cdcc45a6fd44c0d98e865c95ffaafccfdaddd0626b9fbb6ed5fc30d1b8fd37ff"
+    },
+    {
+      "run": "full-b",
+      "index": 2,
+      "sha256": "4f541fbb5033e24c5520ba573438f8fa4b099b8fc9840526601851bafadb11c3"
+    },
+    {
+      "run": "full-b",
+      "index": 3,
+      "sha256": "4d91f8103f645849b048416c77b54c3742baa87bed49d0feb68ed07cf404fdcc"
+    }
+  ],
+  "identityNormalization": "Only freshly generated scene/object/job IDs and their scene-state hash are replaced with fixed aliases. All numerical source, uncertainty, native state, integration samples, forces, contacts, verification metrics and actual DOM observations compare exactly. No number or timing in the simulated trace is discarded.",
+  "pairs": [
+    {
+      "pair": "a",
+      "fullMs": 175210.1767,
+      "memoMs": 66299.1882,
+      "savedMs": 108910.9885,
+      "savedPercent": 62.160195572703856
+    },
+    {
+      "pair": "b",
+      "fullMs": 179443.8473,
+      "memoMs": 68832.1967,
+      "savedMs": 110611.6506,
+      "savedPercent": 61.64137264348544
+    }
+  ],
+  "meanSavedPercent": 61.90078410809465,
+  "costRows": [
+    {
+      "run": "full-a",
+      "mode": "full",
+      "case": "camera-end",
+      "revision": 1,
+      "prepareMs": 4216.0545999999995,
+      "executeMs": 34153.257300000005,
+      "archiveMs": 3526.2077999999965,
+      "totalMs": 41976.4367,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "full-a",
+      "mode": "full",
+      "case": "generated-short-start",
+      "revision": 2,
+      "prepareMs": 3349.2672999999995,
+      "executeMs": 27620.430200000003,
+      "archiveMs": 2500.513399999996,
+      "totalMs": 33547.6882,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "full-a",
+      "mode": "full",
+      "case": "generated-reverse-start",
+      "revision": 3,
+      "prepareMs": 3308.7742,
+      "executeMs": 30782.752900000007,
+      "archiveMs": 2595.8487999999925,
+      "totalMs": 36733.0012,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "full-a",
+      "mode": "full",
+      "case": "camera-start-recovered",
+      "revision": 4,
+      "prepareMs": 4408.979200000002,
+      "executeMs": 54730.9311,
+      "archiveMs": 3751.551999999996,
+      "totalMs": 62953.0506,
+      "restartMs": 4284.073499999999,
+      "status": "completed"
+    },
+    {
+      "run": "memo-a",
+      "mode": "memo",
+      "case": "camera-end",
+      "revision": 1,
+      "prepareMs": 3921.4125000000004,
+      "executeMs": 8150.733699999999,
+      "archiveMs": 642.1291000000019,
+      "totalMs": 12743.278,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "memo-a",
+      "mode": "memo",
+      "case": "generated-short-start",
+      "revision": 2,
+      "prepareMs": 3097.9750999999997,
+      "executeMs": 9307.1319,
+      "archiveMs": 691.5744999999988,
+      "totalMs": 13150.864099999999,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "memo-a",
+      "mode": "memo",
+      "case": "generated-reverse-start",
+      "revision": 3,
+      "prepareMs": 3114.5128000000004,
+      "executeMs": 10773.044999999998,
+      "archiveMs": 778.6074000000008,
+      "totalMs": 14709.1341,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "memo-a",
+      "mode": "memo",
+      "case": "camera-start-recovered",
+      "revision": 4,
+      "prepareMs": 1431.264900000002,
+      "executeMs": 23263.915199999996,
+      "archiveMs": 915.9656999999861,
+      "totalMs": 25695.912000000004,
+      "restartMs": 5025.054600000003,
+      "status": "completed"
+    },
+    {
+      "run": "memo-b",
+      "mode": "memo",
+      "case": "camera-end",
+      "revision": 1,
+      "prepareMs": 4082.3166999999994,
+      "executeMs": 8092.916900000002,
+      "archiveMs": 639.7854000000007,
+      "totalMs": 12839.732399999999,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "memo-b",
+      "mode": "memo",
+      "case": "generated-short-start",
+      "revision": 2,
+      "prepareMs": 3197.533800000001,
+      "executeMs": 10006.167100000002,
+      "archiveMs": 700.7713999999978,
+      "totalMs": 13949.169300000001,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "memo-b",
+      "mode": "memo",
+      "case": "generated-reverse-start",
+      "revision": 3,
+      "prepareMs": 3141.570599999999,
+      "executeMs": 10246.301200000002,
+      "archiveMs": 767.8880999999965,
+      "totalMs": 14261.6587,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "memo-b",
+      "mode": "memo",
+      "case": "camera-start-recovered",
+      "revision": 4,
+      "prepareMs": 1375.9421999999977,
+      "executeMs": 25441.9934,
+      "archiveMs": 884.5383000000002,
+      "totalMs": 27781.636300000006,
+      "restartMs": 5738.4493,
+      "status": "completed"
+    },
+    {
+      "run": "full-b",
+      "mode": "full",
+      "case": "camera-end",
+      "revision": 1,
+      "prepareMs": 4279.014899999999,
+      "executeMs": 33922.97319999999,
+      "archiveMs": 3499.516499999998,
+      "totalMs": 41751.8037,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "full-b",
+      "mode": "full",
+      "case": "generated-short-start",
+      "revision": 2,
+      "prepareMs": 3157.3479000000007,
+      "executeMs": 28856.273,
+      "archiveMs": 2472.9784000000072,
+      "totalMs": 34518.899399999995,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "full-b",
+      "mode": "full",
+      "case": "generated-reverse-start",
+      "revision": 3,
+      "prepareMs": 3323.358300000007,
+      "executeMs": 31017.952099999995,
+      "archiveMs": 2568.4149000000034,
+      "totalMs": 36950.808000000005,
+      "restartMs": 0,
+      "status": "completed"
+    },
+    {
+      "run": "full-b",
+      "mode": "full",
+      "case": "camera-start-recovered",
+      "revision": 4,
+      "prepareMs": 4327.882900000011,
+      "executeMs": 58132.6933,
+      "archiveMs": 3607.7272999999986,
+      "totalMs": 66222.3362,
+      "restartMs": 6634.529699999985,
+      "status": "completed"
+    }
+  ],
+  "sessions": [
+    {
+      "run": "full-a",
+      "startupMs": 4651.3289,
+      "totalSessionMs": 181761.4048,
+      "coldVerificationMs": 16956.880399999995,
+      "diagnostics": {
+        "checkedFrameAndCodeBytes": 160131798,
+        "failures": 0,
+        "last": {
+          "checkedFrameAndCodeBytes": 17792422,
+          "trialId": "131fd959-57fa-4bba-9944-0c267402bbb4",
+          "forced": false,
+          "totalMs": 3016.2124,
+          "checkedFrameAndCodeFiles": 220,
+          "fingerprint": "b04e28b65951b40b2c10d3bb0ac52de05803ac1ce5d138666b6e5f7a0506b3af",
+          "passed": true,
+          "reused": false
+        },
+        "reconstructionMs": 25044.6578,
+        "checkedFrameAndCodeFiles": 1980,
+        "totalMs": 27620.151,
+        "evictions": 0,
+        "capacity": 4,
+        "mode": "full-replay",
+        "sourceCheckMs": 2563.8761,
+        "entries": 0,
+        "calls": 9,
+        "scope": "Process-local recording reconstruction only. Every use rereads original image, metadata, labels, calibration, historical-world and code evidence before and after. Cold or changed evidence reconstructs. Native and outcome checks are never memoized here.",
+        "maxEntryBytes": 2000000,
+        "reused": 0,
+        "fullReplays": 9
+      }
+    },
+    {
+      "run": "memo-a",
+      "startupMs": 3681.5829000000003,
+      "totalSessionMs": 72000.2371,
+      "coldVerificationMs": 15132.2696,
+      "diagnostics": {
+        "checkedFrameAndCodeBytes": 160131798,
+        "failures": 0,
+        "last": {
+          "checkedFrameAndCodeBytes": 17792422,
+          "trialId": "131fd959-57fa-4bba-9944-0c267402bbb4",
+          "forced": false,
+          "totalMs": 312.6586,
+          "checkedFrameAndCodeFiles": 220,
+          "fingerprint": "b04e28b65951b40b2c10d3bb0ac52de05803ac1ce5d138666b6e5f7a0506b3af",
+          "passed": true,
+          "reused": true
+        },
+        "reconstructionMs": 2949.0638,
+        "checkedFrameAndCodeFiles": 1980,
+        "totalMs": 5694.0117,
+        "evictions": 0,
+        "capacity": 4,
+        "mode": "verified-memo",
+        "sourceCheckMs": 2720.3204,
+        "entries": 1,
+        "calls": 9,
+        "scope": "Process-local recording reconstruction only. Every use rereads original image, metadata, labels, calibration, historical-world and code evidence before and after. Cold or changed evidence reconstructs. Native and outcome checks are never memoized here.",
+        "maxEntryBytes": 2000000,
+        "reused": 8,
+        "fullReplays": 1
+      }
+    },
+    {
+      "run": "memo-b",
+      "startupMs": 3512.5875000000005,
+      "totalSessionMs": 74479.8232,
+      "coldVerificationMs": 16061.353599999988,
+      "diagnostics": {
+        "checkedFrameAndCodeBytes": 160131798,
+        "failures": 0,
+        "last": {
+          "checkedFrameAndCodeBytes": 17792422,
+          "trialId": "131fd959-57fa-4bba-9944-0c267402bbb4",
+          "forced": false,
+          "totalMs": 279.6569,
+          "checkedFrameAndCodeFiles": 220,
+          "fingerprint": "b04e28b65951b40b2c10d3bb0ac52de05803ac1ce5d138666b6e5f7a0506b3af",
+          "passed": true,
+          "reused": true
+        },
+        "reconstructionMs": 2945.0265,
+        "checkedFrameAndCodeFiles": 1980,
+        "totalMs": 5859.2462,
+        "evictions": 0,
+        "capacity": 4,
+        "mode": "verified-memo",
+        "sourceCheckMs": 2889.6695,
+        "entries": 1,
+        "calls": 9,
+        "scope": "Process-local recording reconstruction only. Every use rereads original image, metadata, labels, calibration, historical-world and code evidence before and after. Cold or changed evidence reconstructs. Native and outcome checks are never memoized here.",
+        "maxEntryBytes": 2000000,
+        "reused": 8,
+        "fullReplays": 1
+      }
+    },
+    {
+      "run": "full-b",
+      "startupMs": 4620.8952,
+      "totalSessionMs": 185815.95560000002,
+      "coldVerificationMs": 16904.4902,
+      "diagnostics": {
+        "checkedFrameAndCodeBytes": 160131798,
+        "failures": 0,
+        "last": {
+          "checkedFrameAndCodeBytes": 17792422,
+          "trialId": "131fd959-57fa-4bba-9944-0c267402bbb4",
+          "forced": false,
+          "totalMs": 3014.4941,
+          "checkedFrameAndCodeFiles": 220,
+          "fingerprint": "b04e28b65951b40b2c10d3bb0ac52de05803ac1ce5d138666b6e5f7a0506b3af",
+          "passed": true,
+          "reused": false
+        },
+        "reconstructionMs": 25313.0984,
+        "checkedFrameAndCodeFiles": 1980,
+        "totalMs": 27907.2076,
+        "evictions": 0,
+        "capacity": 4,
+        "mode": "full-replay",
+        "sourceCheckMs": 2582.1989,
+        "entries": 0,
+        "calls": 9,
+        "scope": "Process-local recording reconstruction only. Every use rereads original image, metadata, labels, calibration, historical-world and code evidence before and after. Cold or changed evidence reconstructs. Native and outcome checks are never memoized here.",
+        "maxEntryBytes": 2000000,
+        "reused": 0,
+        "fullReplays": 9
+      }
+    }
+  ],
+  "scope": "Two alternating pairs on the same corrected implementation and existing sources. Whole tasks include preparation, durable execution/skill saving and an additional original archive verification; deliberate restart is included in task4. Copying fixtures and post-study refusal/visual checks are excluded; cold verification reported separately. Small exposed study, not a population speed estimate."
+}

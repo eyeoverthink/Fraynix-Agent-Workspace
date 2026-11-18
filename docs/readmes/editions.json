@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 162,
+  "latest": 163,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -262428,6 +262428,395 @@
         },
         {
           "path": "docs/readmes/162/visual162.json",
+          "kind": "text",
+          "sha256": "ff11ad20f6a48c4c5b6e4d501262ddaa650602968e0c3a5e171b17c16d4173bf"
+        }
+      ]
+    },
+    {
+      "number": 163,
+      "date": "2026-11-17",
+      "title": "Verified workflow cost reduction",
+      "status": "validated-local",
+      "markdown": "README-163.md",
+      "markdownSha256": "38d337d6b95385ffe7519b5aebdeebf5347595372bb46d5f7bdf59297ba76a01",
+      "companion": "docs/readmes/163/index.html",
+      "tag": "readme-163",
+      "sourceBaseline": "61a6a6e5b04ca0e24a3de27a0fe7309097385fff",
+      "snapshotDirectory": "docs/readmes/163",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/163/comparison-evidence.json",
+          "kind": "text",
+          "sha256": "c36b4fa5a1a722a9badb3eec755bc8045901ae12a0e588b2951926ffe5ac289b"
+        },
+        {
+          "path": "docs/readmes/163/comparison.json",
+          "kind": "text",
+          "sha256": "478693e9f165acf1e928f209c8f1349743f01cd6877511b33a0c651a28c62477"
+        },
+        {
+          "path": "docs/readmes/163/file-inventory.json",
+          "kind": "text",
+          "sha256": "8bb9acaf7fb4fffcd0478db377ab1d164aaa5a1995ad484a98dc2fb46c512e1a"
+        },
+        {
+          "path": "docs/readmes/163/full-a-study.json",
+          "kind": "text",
+          "sha256": "19e1fcae0ddc6a95c3e109d3d6e98b599695c890ec9a8f7cbbbc948d4c120a61"
+        },
+        {
+          "path": "docs/readmes/163/full-b-study.json",
+          "kind": "text",
+          "sha256": "5f1729b48a1aa56dc73550565c54845ea03df82d5fe5ac37ac3ff5690ef6f4f0"
+        },
+        {
+          "path": "docs/readmes/163/guide.js",
+          "kind": "text",
+          "sha256": "b4ebd22afe6b2008e8d0b1f3556d4c16d87024bc2039431ee40a55bd6f76d2da"
+        },
+        {
+          "path": "docs/readmes/163/guide163-1450-viewport.png",
+          "kind": "binary",
+          "sha256": "b22d9f57b763fffbc7eac7bf9ea0403d66890bce739e4bf2b3d76cb4b51cada2"
+        },
+        {
+          "path": "docs/readmes/163/guide163-1450.png",
+          "kind": "binary",
+          "sha256": "af4e7ab55179f2d99b5adad6459632db419a952b8a08f9191f04f4dec22f9234"
+        },
+        {
+          "path": "docs/readmes/163/guide163-390-viewport.png",
+          "kind": "binary",
+          "sha256": "495af0666899399c1562907bb4bc526a09bef6e1267faec2fabe28bf1d49c45e"
+        },
+        {
+          "path": "docs/readmes/163/guide163-390.png",
+          "kind": "binary",
+          "sha256": "5c0c3abe9d660c4795e8bdeeb8d0e212c3d4b481fc405654de3c5b302b21fdc1"
+        },
+        {
+          "path": "docs/readmes/163/history-four-motion.png",
+          "kind": "binary",
+          "sha256": "6d562dabda08d501c0bcde6e7e1915270573e8bb88577074ae85eefdec519dd3"
+        },
+        {
+          "path": "docs/readmes/163/index.html",
+          "kind": "text",
+          "sha256": "d4ead66ef56a74cc6d8cef1325d2822e83b858839ac1e80618ed7afda8cdf145"
+        },
+        {
+          "path": "docs/readmes/163/memo-a-study.json",
+          "kind": "text",
+          "sha256": "99e3536939a4d135462636e6c4f665116af2d6113c15127583f59796df0aa643"
+        },
+        {
+          "path": "docs/readmes/163/memo-b-study.json",
+          "kind": "text",
+          "sha256": "9264d2353f07cd10bcfcc9748afb6fcd417d07b20a5c8e138be258ea919a1f21"
+        },
+        {
+          "path": "docs/readmes/163/original-evidence.json",
+          "kind": "text",
+          "sha256": "a385eed56e1395fdef5b7e104fa352e372191a0a1cc5bb6a6d1fbe22b57ce94e"
+        },
+        {
+          "path": "docs/readmes/163/originals/031a671c0d2bfafc8212309a2989849432e326a80beffb9aed12a00af07991fe.gz",
+          "kind": "binary",
+          "sha256": "aa2006e69fc0d4047fe32407f102feb2d19f40076eed7bd1bb1ed3f9f00a2f60"
+        },
+        {
+          "path": "docs/readmes/163/originals/042abc86ba9599d5abe288bfa364491b866d4fef9752549724eb39192c44e27f.gz",
+          "kind": "binary",
+          "sha256": "19f9efab1932dd23167238260cbf5d5fe6cc10dc2c14dbbbed9fb6acdf591140"
+        },
+        {
+          "path": "docs/readmes/163/originals/04b70a0c9ed27c7f107c13364b753cd872567179830ebe94e001697e1f4de8cb.gz",
+          "kind": "binary",
+          "sha256": "3a1d9c62eeec783c68f1a642a12722af80fcc78be97cec6a72a9a654c355f581"
+        },
+        {
+          "path": "docs/readmes/163/originals/0691913fe2c3189ccb7dfbbb9cc3ab0f3f086cd11cd6149c37e852afbad7bf8a.gz",
+          "kind": "binary",
+          "sha256": "af88e8b2bbb357b8cc5e3d597fd1b4a4551cfc0dded30cfe950098f23bf202c0"
+        },
+        {
+          "path": "docs/readmes/163/originals/0b367498afacec9cbb37f31fa193ef182f65bc39f175ca1bc9116d60869a65d0.gz",
+          "kind": "binary",
+          "sha256": "3cfb04317d8be181714cbc3f7cfe1dec305ac7eea941e2e2b9b96ac7ec02f812"
+        },
+        {
+          "path": "docs/readmes/163/originals/1148cb5130f3cc7bdfb26cfac121ab60962893415b99b0a034a5206f81b00a1e.gz",
+          "kind": "binary",
+          "sha256": "1be8c820130ddf5ba1b5dfb9a7e64a26cb66e5980d1c75274d2af7cdebfd09f2"
+        },
+        {
+          "path": "docs/readmes/163/originals/193b59fd6398d866d16b075ed25655f94901b53e115460fa5251a76aba8439a0.gz",
+          "kind": "binary",
+          "sha256": "304542b8b99ee89f42c2ad7ec92dc8783032352bde7682f492c5fd172a766314"
+        },
+        {
+          "path": "docs/readmes/163/originals/1a6d2ee7422d2d95acbdcd7b70fccc874b1e13407b2a3cd9ff0b836ae9e09579.gz",
+          "kind": "binary",
+          "sha256": "de5804780dfc6d3f60d3c055f60365037a06b61a8d1b14a5bb631d8fe81f97e0"
+        },
+        {
+          "path": "docs/readmes/163/originals/3242cf04e20dd4a033808f8f5497b5f626886ae5cce36d314e2f6b2a2683ac58.gz",
+          "kind": "binary",
+          "sha256": "8a30e2d2247fae3494ca01c0d691bc719459747ef97f178ad130060836fa3e34"
+        },
+        {
+          "path": "docs/readmes/163/originals/37c55f0378fb4947096adcaf2601e114a21bda6aab5bc3f7b9cfd47031ad3d5c.gz",
+          "kind": "binary",
+          "sha256": "72bc96942f80b109ca814c564fc88748ab98b6d6e975880517be755a6eb54cc5"
+        },
+        {
+          "path": "docs/readmes/163/originals/3e8535dfe960a642ca3a9460e5f5940a2d4fe1d9c20b1281f8e11ef12d9b2341.gz",
+          "kind": "binary",
+          "sha256": "1931103938f69e673c5615b86777ea36d9b73fdd87710bdad431a578d16a59f9"
+        },
+        {
+          "path": "docs/readmes/163/originals/4621e323dd8b496350366dcb285622fc82f8fc8979910918874ef2c25361483a.gz",
+          "kind": "binary",
+          "sha256": "53c4eb13069b7dbc359a2e1c6d7b8b0eab002edcac5f437f20d99405d91d496a"
+        },
+        {
+          "path": "docs/readmes/163/originals/48f8c05e11fc24691237508e28de3de97f18a55fb766db7ba46be56fa38610cd.gz",
+          "kind": "binary",
+          "sha256": "88f51d97ede5d22e068ab01389e9d2028c52fef09961115a01b63bc41d6edb9d"
+        },
+        {
+          "path": "docs/readmes/163/originals/4aab8d80ade9fc5552bfe1e11078ab50c415bb23f6a8a8339f509c451758d639.gz",
+          "kind": "binary",
+          "sha256": "bacd8f7111a15257eefc4ad35142b03b6ee1db91cfa157ba787edd55d8b8870f"
+        },
+        {
+          "path": "docs/readmes/163/originals/56bfe5d070ee63ad668204817b93285d1e559ea876d8354c92d6e435dc87e88c.gz",
+          "kind": "binary",
+          "sha256": "9f9d437cb474ff1af005cbe241571735932abc4ac9dc1548ed5276b602c85b60"
+        },
+        {
+          "path": "docs/readmes/163/originals/59787e08081a71b74b5eb6be90a61f2bb26182ecfc6fa0c276d2a5a2f48e7946.gz",
+          "kind": "binary",
+          "sha256": "ef09143259d9aa80c4b6f8b446c8ece6eaa32d7221025401537ec975297eaf25"
+        },
+        {
+          "path": "docs/readmes/163/originals/622efee8ac8c634a7361ff3a2a34d7679b2ee8611008f7dc7f570d4c22e77441.gz",
+          "kind": "binary",
+          "sha256": "2c335ea012bcf179d821d061e7949459575b610b5e0d9c44500a0006e480267a"
+        },
+        {
+          "path": "docs/readmes/163/originals/640e544742df59ed8572106e83424255b5000568988e004d1ee2f2d876a2b33a.gz",
+          "kind": "binary",
+          "sha256": "3a8650e93ca29c9f5df8adacd5e3e8358c8289c1c5a98a0d36cecb507b2684a6"
+        },
+        {
+          "path": "docs/readmes/163/originals/66f8605c66425672aa52a87643f86a0b8c65b3a25a8cd4b46f198193e0d42c62.gz",
+          "kind": "binary",
+          "sha256": "5d4628436690fdbac806d3ae3dd4ba9901e8af8cb37cec1ab3f6b63f741247d2"
+        },
+        {
+          "path": "docs/readmes/163/originals/6d13d8bb74ebefe9f157fdc7fbeb83747db2d3d0b05c3135b954e469de24b9c4.gz",
+          "kind": "binary",
+          "sha256": "f01676548fca4ac1b33f78ccae7bee9d2b0f1f9d0b168f197ab2a87d4de71859"
+        },
+        {
+          "path": "docs/readmes/163/originals/71146858f85730da6fe354409b0fcbbe49d2e5974e260fc5f3270d7914c1a62f.gz",
+          "kind": "binary",
+          "sha256": "50bed9c85786e499111339387f96f522abf04e01638d3a7d5ef1167ab3e667fd"
+        },
+        {
+          "path": "docs/readmes/163/originals/726da6bf633f3b78998470480c6c61e89dadae28f10475ff6fa8a75b7bbd9bf7.gz",
+          "kind": "binary",
+          "sha256": "dec8f8dc146ef127e57cb29bcaf9c14285bf37c18d91d69c3f3ea75238df233a"
+        },
+        {
+          "path": "docs/readmes/163/originals/7920adb8b3710c99fddd8989c07e29d87022435e7e842b734c33b65f23b7c860.gz",
+          "kind": "binary",
+          "sha256": "143300438703dd15957719647cf088eecff457d62ba8522726b4e4cb0ea4e55d"
+        },
+        {
+          "path": "docs/readmes/163/originals/819425d80c072a5cc164fa2ed50c59f0b1b8d9ea149a1b832951a22be5daf288.gz",
+          "kind": "binary",
+          "sha256": "c603b44bfe9c5951571f1846ec69dbc3fdeb4ea43a21d5d668709448b8628f33"
+        },
+        {
+          "path": "docs/readmes/163/originals/81998e3b4f09504b60b6bf4a752f4b15cec47e5c7015797bf4a57eafabe33daf.gz",
+          "kind": "binary",
+          "sha256": "0be9c23871bfded50a60ff1907c6da00358c9bb242e000f5ab330de71ecd6e96"
+        },
+        {
+          "path": "docs/readmes/163/originals/81e4d599ac3dc840796bfff338c3b4c41f17ead84a4fad3cbc9f3b61c9de2d51.gz",
+          "kind": "binary",
+          "sha256": "b9ffe344a1f81510b3a7e96a53bba89b3c935819eb6ce5547d44cc10378c176e"
+        },
+        {
+          "path": "docs/readmes/163/originals/847983771c7ee02971a5fc582ddee843eb4ab9c44c7924a1b80ec238285c95dc.gz",
+          "kind": "binary",
+          "sha256": "bad4b89190b6fdcb988fdc0c7dd6d72b5586ca110342f725400313375a524cd6"
+        },
+        {
+          "path": "docs/readmes/163/originals/91ec1023d121ccbcf245e6a8dbf558ee59c6896247209ed33175e663ab139606.gz",
+          "kind": "binary",
+          "sha256": "0fd538b2ec5942b0840e8020431c02f77601f5969acf07299c462cf25749b818"
+        },
+        {
+          "path": "docs/readmes/163/originals/927357becab874ef6a93655c1ae0e5f59d4ce5252f125c4deab3080e302b51a9.gz",
+          "kind": "binary",
+          "sha256": "063b1394f86061b1e714571802d24903730944bc9c4f84ee025fa6892a96fd87"
+        },
+        {
+          "path": "docs/readmes/163/originals/9e5e253c969e8e811cce0a320f2ce8fbc5b388d41eea80802163290e929e13e1.gz",
+          "kind": "binary",
+          "sha256": "b1e4f63eb84272f0e00b620284d321cc404ec87b2bc3d78ae41270719a36fba2"
+        },
+        {
+          "path": "docs/readmes/163/originals/a231701c4ff8f25a58c46533a6b38773263eacb5c9dbbe0ca88c125215d059bb.gz",
+          "kind": "binary",
+          "sha256": "a88e70feab77a068337369f8997381c3433b848c39e49eb3a13fa1416e3755ab"
+        },
+        {
+          "path": "docs/readmes/163/originals/a39e17f415d01b5f4213011d6508907f0cb9a55bf7b719254f8856e17a4d94be.gz",
+          "kind": "binary",
+          "sha256": "4e22f4f155d42ee6ad1a17840c50ed98f9c80b1afac60d6a73a533ead6006b57"
+        },
+        {
+          "path": "docs/readmes/163/originals/a51793ce0ed7805ef324018f19f70f6334f6aecfb3d8c5f5af7757ce212c0996.gz",
+          "kind": "binary",
+          "sha256": "91c7843cf1aa5b296937f2fe948187036a2fb7aa8d53ee7e34ade2fccd22fe40"
+        },
+        {
+          "path": "docs/readmes/163/originals/a78d1f78e6eb48aa2afb06584068e974e3b26fa8cf8f88fe79046270349a7d19.gz",
+          "kind": "binary",
+          "sha256": "ff2888b4d040f3216694dfacc9829e4193dc7367dd7d941701920ae31c722f82"
+        },
+        {
+          "path": "docs/readmes/163/originals/a8c95b6a17af8b79bcabee50514b47ae842e1645bea8519d87006f2f131de4e6.gz",
+          "kind": "binary",
+          "sha256": "675375489cf0e110ce477e52287883889f7b1cdcea1f52e39994c05679c88486"
+        },
+        {
+          "path": "docs/readmes/163/originals/a92ebb4e76b300d38fa89c9cb4daf47da1f0f70b4c163a573603e967d0d61478.gz",
+          "kind": "binary",
+          "sha256": "39aefb6de68b1a71650e79a6b95b0a0b9edfe04bb79268e9ea3bf97c40e709da"
+        },
+        {
+          "path": "docs/readmes/163/originals/b7010a6bb8b80e004d9c8da0825d92afec8291d72320cc264d83a170b5d31d08.gz",
+          "kind": "binary",
+          "sha256": "75918612fa8df6540e5aafe1e0340a44ee7959550986b8a28ffe25b6bb466260"
+        },
+        {
+          "path": "docs/readmes/163/originals/b9801b1ddaa206df1a888b51eac3ad996458e027dfd83b7992837811cee9f993.gz",
+          "kind": "binary",
+          "sha256": "37ee0e0ea44a758d87dabe85363f787da55ae0fa943e84af14bc5c6120dfc5f7"
+        },
+        {
+          "path": "docs/readmes/163/originals/bbd7590a4c4a221625956511088d526de3ee9bcd838cd63476a1c319202b345b.gz",
+          "kind": "binary",
+          "sha256": "2a28e00f501a0f5ff2ebfc100864fe7fb7d1f615ee82ca9f3e70939499c82932"
+        },
+        {
+          "path": "docs/readmes/163/originals/bd6cd66d4eed5c330331d941fec28f984d28c84187f6a6ba173dfb583f1662bf.gz",
+          "kind": "binary",
+          "sha256": "4cbe8d69094c3ceab858efd967628815240c46b56e8ff1399a1767bd508cef52"
+        },
+        {
+          "path": "docs/readmes/163/originals/bfe29081ae5e24ba7ebe4139b71be3457592872c175d969a27a745f0b730f6ae.gz",
+          "kind": "binary",
+          "sha256": "b1643783cb8975f68e5c387efd8010412181b2652af3f4298678c5fa9ddd48ac"
+        },
+        {
+          "path": "docs/readmes/163/originals/caaff2db30401ca728c5612e914d5cd65aeda7f538c0095db67dc39bb441d1c4.gz",
+          "kind": "binary",
+          "sha256": "3e7dd28ef6ab25ddb0b7b6f678b54980327050cf671fe3ed4a45692548f73e09"
+        },
+        {
+          "path": "docs/readmes/163/originals/cb1a5538741482787500820ca67adc49adf9d7d958190584e44a54c163903d78.gz",
+          "kind": "binary",
+          "sha256": "0b3fec2e4df4f948d57e335f01d93304cf8eb1a98e2630f320206f7d49903eb5"
+        },
+        {
+          "path": "docs/readmes/163/originals/cfd1eec99a15eae05fa83ea196a4ef98525c2ded6a7f9ef7641f66ac6a6ac982.gz",
+          "kind": "binary",
+          "sha256": "6f069c1572b65ca17ccc5b726f4b7f81266f377d48ff62d33d28108b7ec9f497"
+        },
+        {
+          "path": "docs/readmes/163/originals/cfddaaad73bea1b7751c3f3b99695439a586097fbc00bf8d25a87bcb080d77aa.gz",
+          "kind": "binary",
+          "sha256": "192a66df3efd672d8c30a59a3893df8589adb421e164526ed4ee1087b6191b15"
+        },
+        {
+          "path": "docs/readmes/163/originals/d18084312abeb69f9d27dff5e1c15afbd529ae63af2a72c82dea7d2b37421f9b.gz",
+          "kind": "binary",
+          "sha256": "667fbe55355de098b2abe20f6b1d0dca963fedf943ac1b013cd69222c2739264"
+        },
+        {
+          "path": "docs/readmes/163/originals/d33f0d7c6ec35d3926da42433e897ed01c2e8a53d1d82dcf50f5effb64e88333.gz",
+          "kind": "binary",
+          "sha256": "e1acabdf7289b9291a476cbb36de737df2cf1112e62ac05130e575ae5942e57c"
+        },
+        {
+          "path": "docs/readmes/163/originals/d6b8e2ee5465a647123bffbb0529ae81452532a3911c48e5f80a0ee0888f2fee.gz",
+          "kind": "binary",
+          "sha256": "eb4b657643d461018e0f304c7fb84f9b0a355ad04fde136f8287a0c74989ab67"
+        },
+        {
+          "path": "docs/readmes/163/originals/dc5fb09295fc29fd656fd25d434e791e02d81c6373ddc1b5d8d5d724085a9fc0.gz",
+          "kind": "binary",
+          "sha256": "2ddc2c867cf1a23ee863e75151b1dad676fcc3a86a97fb66088c1f9540b1f8e8"
+        },
+        {
+          "path": "docs/readmes/163/originals/eeccf7ea139c99f3bfa660b1cd5561a1327250fd271b3d66f0e7dfce1a19e8fa.gz",
+          "kind": "binary",
+          "sha256": "2236960ddd10997eadcd050ee2257328b26fbd26a7da6b526a57ea2ebcda2ca3"
+        },
+        {
+          "path": "docs/readmes/163/originals/f26d89f105e25524a4786be27f12484c31be689da563b69475fdb23a614ff531.gz",
+          "kind": "binary",
+          "sha256": "5f4a6e1ad062c0c459a52596ae6a41292fee9f7adc5620d29710231ebb6bbe81"
+        },
+        {
+          "path": "docs/readmes/163/originals/f314ae02829f06335fa67f413766a1fb220dcbeb3dff80a3c5e5319f6f8b0a74.gz",
+          "kind": "binary",
+          "sha256": "542d18393b3be8c732eaaa5bc561c563a4b0e1e84bd2800f0272df7298c6e9e5"
+        },
+        {
+          "path": "docs/readmes/163/originals/f8041596a2556d2565da0320099f1fc571d79122a4f19861df9ecd6db2cc04a9.gz",
+          "kind": "binary",
+          "sha256": "e500c01b0e6370b63ae773db5a98d1289758670658676d066eb61522207cf0b0"
+        },
+        {
+          "path": "docs/readmes/163/originals/ff11ad20f6a48c4c5b6e4d501262ddaa650602968e0c3a5e171b17c16d4173bf.gz",
+          "kind": "binary",
+          "sha256": "2afa0bf9c394d64f977d5fc04a21d5947b3d9b8f4998e67258585f9dbd97c5cc"
+        },
+        {
+          "path": "docs/readmes/163/source-and-bounds.png",
+          "kind": "binary",
+          "sha256": "f4add3e0d06a71c58481b7230647ecfb33e13be37fbf45e88a33417b76d008a3"
+        },
+        {
+          "path": "docs/readmes/163/system-map.json",
+          "kind": "text",
+          "sha256": "49b61e39fb0e93825bb5d665e98fee50b833388396ed7a027c6f32c16d4085ac"
+        },
+        {
+          "path": "docs/readmes/163/verification-costs.png",
+          "kind": "binary",
+          "sha256": "cda8bb6837b2fd2335222138560b01bd4d07dea40c2fe8049236ebeaaae12999"
+        },
+        {
+          "path": "docs/readmes/163/verification.json",
+          "kind": "text",
+          "sha256": "c2e4afa25676f56b5a9fc3bdd47a3b015802ad8325d936841792be3d14dab70e"
+        },
+        {
+          "path": "docs/readmes/163/visual-review163.json",
+          "kind": "text",
+          "sha256": "b7010a6bb8b80e004d9c8da0825d92afec8291d72320cc264d83a170b5d31d08"
+        },
+        {
+          "path": "docs/readmes/163/visual163.json",
           "kind": "text",
           "sha256": "ff11ad20f6a48c4c5b6e4d501262ddaa650602968e0c3a5e171b17c16d4173bf"
         }

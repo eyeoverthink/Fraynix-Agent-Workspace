@@ -1,0 +1,85 @@
+{
+  "nodes": [
+    {
+      "id": "context",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/RecordedReplay163.java",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "workflow",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java",
+      "x": 430,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "physics",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SmallPhysics161.java",
+      "x": 860,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "report",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/SmallReport161.java",
+      "x": 1290,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "measurement",
+      "type": "file",
+      "file": "docs/publication163/study163.cjs",
+      "x": 1720,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    },
+    {
+      "id": "comparison",
+      "type": "file",
+      "file": "docs/publication163/compare163.py",
+      "x": 2150,
+      "y": 0,
+      "width": 390,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "context",
+      "toNode": "workflow"
+    },
+    {
+      "id": "1",
+      "fromNode": "workflow",
+      "toNode": "physics"
+    },
+    {
+      "id": "2",
+      "fromNode": "physics",
+      "toNode": "report"
+    },
+    {
+      "id": "3",
+      "fromNode": "report",
+      "toNode": "measurement"
+    },
+    {
+      "id": "4",
+      "fromNode": "measurement",
+      "toNode": "comparison"
+    }
+  ]
+}
