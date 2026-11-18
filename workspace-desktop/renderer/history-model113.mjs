@@ -11,6 +11,6 @@ export function related(kind,record){
  if(kind==='workflow')for(const s of record.stages||[]){add('workflow',s.workflowId,s.name||'Workflow stage');add('child',s.goalId,s.name||s.stage||'Child step');}
  if(kind==='child')add('workflow',record.workflowId,'Owning workflow');return links;
 }
-export function reportOf(kind,record){return kind==='chat'?record.completion044?.javaWorkflow?.report:record.report;}
+export function reportOf(kind,record){return kind==='chat'?(record.completion044?.javaWorkflow?.report||record.completion044?.rampMission?.report):record.report;}
 export function outcome(record){if(record.outcome==='completed-unverified')return'Completed without verified task success';if(record.outcome==='verified')return'Original outcome: verified';if(record.status==='completed')return'Completed — stored outcome; use a fresh recheck for current evidence';if(record.refusal106)return'Refused — original reason retained';return String(record.status||'Unknown').replaceAll('-',' ');}
 export class SelectionEpoch{constructor(){this.value=0;}next(){return ++this.value;}current(value){return this.value===value;}}

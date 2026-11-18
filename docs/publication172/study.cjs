@@ -130,9 +130,29 @@ async function main() {
     await start();
     assert.deepEqual(await child(one.id),record.beforeStop);
     await mission(one.id);
+    // Leave the real Java work running yet keep the report's host effect unclaimed.
+    await app.evaluate(()=>global.workspaceTest.agency043.stop());
     await page.locator('#mission044-resume').click();
-    await until(async()=>(await parent(one.id)).resumes===1,'explicit resume admitted');
+    await until(async()=>{
+      const state=await parent(one.id);
+      return state.resumes===1 && state.status==='waiting-host' && state.effect?.tool==='localRamp.check';
+    },'native replay retained before the canvas checks');
+    record.beforeReportStop=await child(one.id);
+    assert.equal(record.beforeReportStop.status,'ready-report');
+    assert.deepEqual(record.beforeReportStop.stages.map(x=>x.name),['browser','experiment','replay','artifact']);
+    assert(await app.evaluate(()=>global.workspaceTest.crashEngine()));
+    await wait(200);
+    await app.close().catch(()=>{});
+    app=null;
+    await start();
+    assert.deepEqual(await child(one.id),record.beforeReportStop);
+    await mission(one.id);
+    await page.locator('#mission044-resume').click();
+    await until(async()=>(await parent(one.id)).resumes===2,'second explicit resume admitted');
     record.one=await completed(one.id);
+    assert.deepEqual(record.one.verified.stages.slice(0,4),record.beforeReportStop.stages);
+    assert.equal(record.one.verified.original.sessionId,record.beforeReportStop.original.sessionId);
+    assert.equal(record.one.verified.replay.sessionId,record.beforeReportStop.replay.sessionId);
     assert.deepEqual(record.one.verified.stages[0],record.beforeStop.stages[0]);
     await page.waitForFunction(()=>document.querySelector('#test-badge').textContent==='TESTS PASSED');
     assert.equal(await canvas("document.querySelector('#revision').textContent"),'Input revision 1');
@@ -188,6 +208,14 @@ async function main() {
     assert.equal(opened.id,record.one.verified.report.id);
     assert.equal(await canvas("document.querySelector('#revision').textContent"),'Input revision 1');
     await capture('ramp-reopened.png');
+    const history=await api('/api/agency043/history',{});
+    assert(history.records.find(row=>row.id===one.id).eligible);
+    const archived=await api('/api/agency043/archive',{ids:[one.id],planSha256:history.planSha256});
+    assert.deepEqual(archived.archivedNow,[one.id]);
+    record.archived=await api('/api/agency043/verify',{id:one.id});
+    assert.equal(record.archived.passed,true);
+    const archiveResult=await request('history113','open',{id:one.id,kind:'chat'});
+    assert.equal(archiveResult.artifact.id,opened.id);
     assert.deepEqual(record.errors,[]);
     verify(process.cwd());
     record.passed=true;

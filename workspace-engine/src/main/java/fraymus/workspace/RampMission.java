@@ -67,10 +67,6 @@ final class RampMission {
             checkSource(prior, !prior.getString("status").equals("completed"));
             return view(prior);
         }
-        try (var files = Files.list(root)) {
-            require(files.filter(file -> file.getFileName().toString().endsWith(".json")).limit(64).count() < 64,
-                    "Ramp experiment history is full");
-        }
         var task = new JSONObject().put("id", id).put("procedure", KIND).put("source", source).put("request", request)
                 .put("pause", match.group(1) != null).put("backendSha256", Backend.SHA).put("stages", new JSONArray());
         checkSource(task, true);
@@ -151,7 +147,8 @@ final class RampMission {
             }
             case "report" -> {
                 JSONObject report = store.writeOnce(KIND + ":" + id, RampMissionReport.build(task, audit(task)));
-                var ref = new JSONObject().put("id", report.getString("id")).put("version", report.getInt("version"));
+                var ref = new JSONObject().put("id", report.getString("id")).put("version", report.getInt("version"))
+                        .put("sha256", Creation.digest(report.getJSONObject("contents")));
                 task.put("report", ref);
                 note(task, "artifact", ref);
                 stage(task, "ready-report", "report", "Checking the actual report in the creation canvas");
@@ -279,6 +276,7 @@ final class RampMission {
         JSONObject ref = task.getJSONObject("report"), artifact = store.read(ref.getString("id"));
         JSONObject regenerated = RampMissionReport.build(task, computed);
         require(artifact.getInt("version") == ref.getInt("version")
+                && Creation.digest(artifact.getJSONObject("contents")).equals(ref.getString("sha256"))
                 && artifact.getJSONObject("contents").similar(regenerated.getJSONObject("files"))
                 && artifact.getJSONArray("sources").similar(regenerated.getJSONArray("sources")), "Saved ramp report changed");
         return artifact;
@@ -319,6 +317,16 @@ final class RampMission {
         require(RampMissionReport.verifiedReceipt(task.getJSONObject("report"), task.getJSONObject("canvasReceipt"),
                 RampMissionReport.checks(task)), "The original tested report receipt changed");
         return view(task);
+    }
+
+    synchronized JSONObject historyEvidence(JSONObject parent) throws Exception {
+        String id = parent.getString("id");
+        require(id.equals(parent.getJSONObject("context044").getString("ownedRampMission")), "Original ramp mission ownership changed");
+        JSONObject actual = verify(id);
+        require(actual.similar(parent.getJSONObject("completion044").getJSONObject("rampMission")),
+                "Original chat ramp completion changed");
+        return new JSONObject().put("id", id).put("evidenceSha256", WorldFrames.hash(actual))
+                .put("report", actual.getJSONObject("report"));
     }
 
     synchronized JSONObject read(String id) throws Exception { return view(load(id)); }

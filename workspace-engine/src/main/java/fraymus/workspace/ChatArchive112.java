@@ -11,19 +11,20 @@ import java.util.*;
 final class ChatArchive112 {
     static final String KEY="archives112",SCHEMA="chat-task-archive-112-v1";
     static final int MAX_RECORDS=512,MAX_BYTES=128*1024*1024,MAX_SNAPSHOT=4_000_000;
-    interface WorkflowEvidence { JSONObject check(JSONObject task)throws Exception; }
+    interface OriginalEvidence { JSONObject check(JSONObject task)throws Exception; }
     private final Path project,directory;
     private final WorkspaceStore store;
     private final LearningStore learning;
-    private WorkflowEvidence workflows;
+    private OriginalEvidence workflows, ramps;
     ChatArchive112(Path project,WorkspaceStore store,LearningStore learning){this.project=project;this.directory=project.resolve("agency-043/archive112");this.store=store;this.learning=learning;}
-    void workflows(WorkflowEvidence value){workflows=value;}
+    void workflows(OriginalEvidence value){workflows=value;}
+    void ramps(OriginalEvidence value){ramps=value;}
     static JSONArray refs(JSONObject data){return data.optJSONArray(KEY,new JSONArray());}
     static boolean eligible(JSONObject g){
         if(!g.optString("status").equals("completed")||g.has("claim")||g.has("nativeIntent")||!g.has("finishedAt")||!g.has("episodeId"))return false;
         String family=g.optString("family044","workbench");
         var w=g.optJSONObject("completion044",new JSONObject()).optJSONObject("javaWorkflow",new JSONObject());
-        return family.equals("workbench")||family.equals("workflow")&&(DataSummary104.supported(w.optString("profile101"))||w.has("qualification105"));
+        return family.equals("workbench")||family.equals(RampMission.FAMILY)&&g.optString("outcome").equals("verified")||family.equals("workflow")&&(DataSummary104.supported(w.optString("profile101"))||w.has("qualification105"));
     }
     private Path directory(){if(Files.isSymbolicLink(directory.getParent())||Files.isSymbolicLink(directory))throw new IllegalStateException("Chat archive paths must not be linked");return directory;}
     private static void closed(JSONObject g){
@@ -69,6 +70,9 @@ final class ChatArchive112 {
         }proof.put("frames",frames);
         if(g.optString("family044").equals("workflow")){
             if(workflows==null)throw new IllegalStateException("Native workflow verifier unavailable");proof.put("workflow",workflows.check(WorldFrames.copy(g)));
+        }else if(g.optString("family044").equals(RampMission.FAMILY)){
+            if(ramps==null)throw new IllegalStateException("Local ramp verifier unavailable");
+            proof.put("ramp",ramps.check(WorldFrames.copy(g)));
         }else if(outcome.equals("verified")&&g.has(BrowserOutcome126.KEY)){
             proof.put("browserOutcome126",BrowserOutcome126.evidence(g));
         }else if(outcome.equals("verified")){
