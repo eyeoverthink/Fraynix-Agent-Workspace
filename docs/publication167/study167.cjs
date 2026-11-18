@@ -7,7 +7,7 @@ const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
  require('../../scripts/Study-Build095.cjs').verify(root);
  const lock=JSON.parse(await fs.readFile('docs/ORIGINAL_CONTENT_167_LOCK.json'));
  for(const[n,h]of Object.entries(lock.sourceHashes)){
-  const bytes=await fs.readFile(n),canonical=/\.(png|wav)$/.test(n)?bytes:Buffer.from(bytes.toString('utf8').replaceAll('\r\n','\n'));
+  const bytes=await fs.readFile(n),canonical=lock.binaryPaths.includes(n)?bytes:Buffer.from(bytes.toString('utf8').replaceAll('\r\n','\n'));
   assert.equal(sha(canonical),h,n);
  }
  await fs.mkdir(out);const project=path.join(out,'project');await fs.mkdir(project);
