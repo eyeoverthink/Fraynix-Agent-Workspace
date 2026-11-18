@@ -18,6 +18,7 @@ const {bodyReport}=require('./body-result.cjs');
 const {createGoals}=require('./goals.cjs');
 const {createCreation}=require('./creation.cjs');
 const {createWorkflows}=require('./workflows.cjs');
+const reportCosts164=require('./report-cost164.cjs').createReportCosts164();
 const {auditSmall161}=require('./small161.cjs');
 const {auditAccuracy160}=require('./accuracy160.cjs');
 const {BrowserPerception}=require('./browser-perception.cjs');
@@ -669,8 +670,10 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(!['state','start','read','resume','stop','verify'].includes(input.command))throw Error('Unknown recorded accuracy operation');return api('/api/accuracy160/'+input.command,args);
     }
     case 'recorded162':{
+      if(input.command==='cost164')return {java:await api('/api/cost164/status',{}),browser:reportCosts164.status(),recording:await api('/api/recorded163/status',{})};
       if(input.command==='cost')return api('/api/recorded163/status',{});
       if(agency043.busy()||workflowBridge.reserved())throw Error('Finish or stop current work before preparing recorded actions');
+      if(input.command==='history164')return api('/api/cost164/history',input.args);
       if(input.command==='full')return api('/api/recorded163/preview-full',input.args);
       if(!['preview','select'].includes(input.command))throw Error('Unknown recorded action command');
       const proof=await api('/api/recorded162/preview',input.args);
@@ -710,7 +713,7 @@ else app.whenReady().then(async()=>{
   try{
     verifyRendererSources(path.join(__dirname,'renderer'));await engineStart();Menu.setApplicationMenu(null);
     window=new BrowserWindow({width:1600,height:1040,minWidth:1100,minHeight:760,title:'Fraynix Agent Workspace',backgroundColor:'#10191c',webPreferences:{preload:path.join(__dirname,'preload.cjs'),nodeIntegration:false,contextIsolation:true,sandbox:true}});
-    browser=new Surface('browser',window,(type,value)=>emit(type,value),{networkPolicy});canvas=new Surface('canvas',window,(type,value)=>emit(type,value),{networkPolicy});perceptionBridge=new BrowserPerception({browser,api,emit});trackingBridge=createTracking({api,openArtifact,execute,origin,activity,emit});observationBridge=createObservations({api,openArtifact,execute,activity,emit});tabletopBridge=createTabletop({api,openArtifact,execute,emit});researchWorker=new ResearchWorker({api,networkPolicy,activity,emit,withAuthority:(a,fn)=>a?agencyScope043.run(a,fn):fn()});knowledgeBridge=createKnowledge({api,execute,openArtifact,emit,activity,worker:researchWorker});runtime040=createRuntime040({api,execute,openArtifact,emit});alignment041=createAlignment041({api,execute,openArtifact,emit});window.on('close',()=>researchWorker.stop());
+    browser=new Surface('browser',window,(type,value)=>emit(type,value),{networkPolicy});canvas=new Surface('canvas',window,(type,value)=>emit(type,value),{networkPolicy});reportCosts164.attach(canvas);perceptionBridge=new BrowserPerception({browser,api,emit});trackingBridge=createTracking({api,openArtifact,execute,origin,activity,emit});observationBridge=createObservations({api,openArtifact,execute,activity,emit});tabletopBridge=createTabletop({api,openArtifact,execute,emit});researchWorker=new ResearchWorker({api,networkPolicy,activity,emit,withAuthority:(a,fn)=>a?agencyScope043.run(a,fn):fn()});knowledgeBridge=createKnowledge({api,execute,openArtifact,emit,activity,worker:researchWorker});runtime040=createRuntime040({api,execute,openArtifact,emit});alignment041=createAlignment041({api,execute,openArtifact,emit});window.on('close',()=>researchWorker.stop());
     // Only the trusted application top frame may request video. Other surfaces remain denied.
     const trustedMedia=(contents,permission,details={})=>contents===window.webContents&&permission==='media'&&details.isMainFrame!==false&&contents.getURL()===require('node:url').pathToFileURL(path.join(__dirname,'renderer','index.html')).href&&(!details.mediaTypes||details.mediaTypes.length===1&&details.mediaTypes[0]==='video')&&(!details.mediaType||details.mediaType==='video');
     window.webContents.session.setPermissionRequestHandler((contents,permission,callback,details)=>callback(trustedMedia(contents,permission,details)));
