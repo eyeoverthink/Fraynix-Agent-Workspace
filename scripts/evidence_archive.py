@@ -1,10 +1,16 @@
 """Pack, retrieve and verify original evidence without adding raw copies to Git."""
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import argparse, hashlib, json, re, urllib.request, zipfile
 
 
 def digest(data):
     return hashlib.sha256(data).hexdigest()
+
+
+def logical_name(name):
+    assert isinstance(name, str) and name and '\\' not in name and ':' not in name
+    assert not PurePosixPath(name).is_absolute() and '..' not in PurePosixPath(name).parts
+    assert str(PurePosixPath(name)) == name, 'Noncanonical evidence name'
 
 
 def inspect_public(value):
@@ -27,7 +33,7 @@ def pack(inputs, archive, manifest):
     rows, objects = [], {}
     for item in inputs:
         logical, source = item['logicalPath'], Path(item['source'])
-        assert not logical.startswith('/') and '..' not in Path(logical).parts
+        logical_name(logical)
         raw = source.read_bytes()
         if source.suffix == '.json':
             inspect_public(json.loads(raw))
@@ -56,6 +62,11 @@ def pack(inputs, archive, manifest):
 
 
 def verify(manifest, archive):
+    assert manifest['format'] == 'fraynix.evidence-archive/v1'
+    names = [row['logicalPath'] for row in manifest['files']]
+    assert len(names) == len(set(names)), 'Duplicate logical names'
+    for name in names:
+        logical_name(name)
     raw = Path(archive).read_bytes()
     assert len(raw) == manifest['archive']['bytes'] and digest(raw) == manifest['archive']['sha256']
     with zipfile.ZipFile(archive) as source:

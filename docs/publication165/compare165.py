@@ -50,7 +50,7 @@ result={'passed':True,'runs':names,'workflows':40,'motionWorkflows':32,'summaryW
 (r/'build/comparison165.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8');print(json.dumps({'passed':True,'workflows':40,'pairs':pairs}))
 
 baselineRoot=Path('J:/Codex-Work/fraynix-baseline-164')
-baselines={n:json.loads((baselineRoot/f'build/study164-{n}/result.json').read_bytes()) for n in ['on-c','on-d']}
+baselines={n:json.loads((baselineRoot/f'build/study164-{n}/result.json').read_bytes()) for n in ['on-e','on-d']}
 for n,b in baselines.items():
  assert b['passed'] and len(b['tasks'])==10
  for i,t in enumerate(b['tasks']):assert normalized(t)==normalized(runs['on-a']['tasks'][i]),(n,i,'Published164 outcome differs')
