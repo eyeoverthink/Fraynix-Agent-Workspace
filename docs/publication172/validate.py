@@ -9,10 +9,10 @@ import xml.etree.ElementTree as element_tree
 root = Path.cwd()
 env = dict(os.environ, JAVA_HOME='C:/Program Files/Eclipse Adoptium/jdk-21.0.10.7-hotspot')
 env['PATH'] = env['JAVA_HOME'] + '/bin;' + env['PATH']
-out = root / 'build/validation172'
+out = root / 'build/validation172-final'
 out.mkdir(exist_ok=True)
-classes = ['RelayPlaytestTest', 'OriginalMultiRailTest', 'OriginalRailsTest',
-           'GameTask115Test', 'WorkspaceServerBoundaryTest']
+classes = ['RampMissionTest', 'RelayPlaytestTest', 'Agency043Test', 'ChatArchive112Test',
+           'BrowserOutcome126Test', 'SceneStoreTest', 'WorkspaceServerBoundaryTest']
 gradle = [str(root / 'gradlew.bat'), '--offline', '--max-workers=1']
 
 def run(args, name, cwd=root):
