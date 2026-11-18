@@ -46,12 +46,14 @@ async function inventory(directory) {
       const verified = await api('/api/workflows/verify-archive', { id: task.workflow.id });
       assert(verified.passed);
       const workflow = await api('/api/workflows/read', { id: task.workflow.id });
-      assert.deepEqual(workflow, task.workflow);
+      // The retained receipt is JSON: JSON serialization canonicalizes -0 to 0.
+      // Compare in that same representation; do not relax source or outcome checks.
+      assert.deepEqual(JSON.parse(JSON.stringify(workflow)), task.workflow);
       result.checks.push({ id: task.workflow.id, kind: task.kind, passed: true });
     }
     assert.equal((await api('/api/small161/state', {})).jobs.length, 8);
     const world = await api('/api/small161/world', { id: old.finalWorld.id });
-    assert.deepEqual(world, old.finalWorld);
+    assert.deepEqual(JSON.parse(JSON.stringify(world)), old.finalWorld);
     result.verificationMs = performance.now() - start;
     result.worldUnchanged = true;
     result.originalFilesChecked = Object.keys(before).length;

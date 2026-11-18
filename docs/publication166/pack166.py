@@ -11,6 +11,7 @@ names = {path.relative_to(root).as_posix() for path in (root/'build').glob('*166
 names.update(path.relative_to(root).as_posix() for path in (root/'build/validation166').rglob('*.xml'))
 names.update(path.relative_to(root).as_posix() for path in (root/'build').glob('study166*/result.json'))
 names.update(path.relative_to(root).as_posix() for path in (root/'build').glob('compatibility166*/result.json'))
+names.update(path.relative_to(root).as_posix() for path in (root/'build/attempts166').glob('*') if path.is_file())
 names.update(['build/validation166/summary.json', 'build/comparison166.json',
               'build/native-identity166.json', 'build/render163.json', 'build/study095-build.json',
               'docs/DOMAIN_EXTRACTION_166_LOCK.json', 'build/ci166-start.json',

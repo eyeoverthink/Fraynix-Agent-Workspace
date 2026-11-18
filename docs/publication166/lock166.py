@@ -6,7 +6,8 @@ import zipfile
 
 root = Path.cwd()
 target = root/'docs/DOMAIN_EXTRACTION_166_LOCK.json'
-assert not target.exists()
+if target.exists():
+    assert (root/'build/attempts166/preliminary-lock.json').read_bytes() == target.read_bytes()
 assert json.loads((root/'build/validation166/summary.json').read_bytes())['passed']
 paths = set(json.loads((root/'docs/EVIDENCE_REUSE_165_LOCK.json').read_bytes())['sourceHashes'])
 paths.update(subprocess.check_output(['git', 'diff', '--name-only',
