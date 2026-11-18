@@ -1,3 +1,7 @@
+## Edition 165 — published and fetched back
+
+2026-11-17. Release 9af72f9dc11dfaea307e08c3c0bcc246922c0957; main, edition165 and readme-165 pushed atomically and fetched. Full165 source/evidence inventory and all historical frozen hashes verified from fetched Git blobs. See docs/PUBLICATION_165.json. Verified source/history reuse and retrievable external evidence shipped; original native class bytes, tracker and controller defaults unchanged. User selected recorded tests; fresh physical validation remains a separate gate. The following local-study notes retain their original chronology.
+
 ## Edition 165 — locally verified; publication pending
 
 2026-11-17. Java target: eyeoverthink/Fraynix-Agent-Workspace. Reused J:/Codex-Work/fraynix-workspace-edition164 on branch edition165; no second full archive copy. No subagents; one heavy check at a time. Existing recordings only; new physical validation remains pending. CI checked first and separately.

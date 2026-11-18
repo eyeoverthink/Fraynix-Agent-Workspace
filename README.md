@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 165
 
+[Published and fetched receipt](docs/PUBLICATION_165.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-165)
+
 2026-11-17 · Verified computation reuse · Complete workflow costs · Architecture renewal
 
 [Previous edition 164](README-164.md) · [Offline guide](docs/readmes/165/index.html) · [All editions](docs/readmes/INDEX.md) · [Acceptance plan](docs/publication165/plan165.md) · [Renewal roadmap](docs/ARCHITECTURE_RENEWAL_PLAN.md)
