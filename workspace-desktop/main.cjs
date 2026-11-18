@@ -669,7 +669,9 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(!['state','start','read','resume','stop','verify'].includes(input.command))throw Error('Unknown recorded accuracy operation');return api('/api/accuracy160/'+input.command,args);
     }
     case 'recorded162':{
+      if(input.command==='cost')return api('/api/recorded163/status',{});
       if(agency043.busy()||workflowBridge.reserved())throw Error('Finish or stop current work before preparing recorded actions');
+      if(input.command==='full')return api('/api/recorded163/preview-full',input.args);
       if(!['preview','select'].includes(input.command))throw Error('Unknown recorded action command');
       const proof=await api('/api/recorded162/preview',input.args);
       if(input.command==='select'){currentRecorded162=JSON.parse(JSON.stringify(proof.definition));for(const k of ['request','title','modelName','saveSkillName'])delete currentRecorded162[k];return {selected:true,...proof};}return proof;

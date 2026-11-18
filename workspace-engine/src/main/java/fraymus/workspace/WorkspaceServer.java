@@ -231,6 +231,8 @@ public final class WorkspaceServer implements AutoCloseable {
                 }
                 if((memory074.busy()||memory075.busy()||procedures076.busy()||procedures077.busy()||procedures078.busy())&&!passive043(route))throw new IllegalStateException("The serial memory comparison owns compute; Stop it before other mutations");
                 if((observations.busy()||tabletop.busy()||alignment041.busy())&&Set.of("/api/workflows/start","/api/workflows/reuse","/api/world/start","/api/rehearsal073/start","/api/world/restore","/api/goals/start","/api/procedures/run","/api/observations/start","/api/observations/resume","/api/tabletop/start").contains(route))throw new IllegalStateException("The observation run owns this world binding; Stop it before native actions");
+                if(route.equals("/api/recorded163/status")){SpatialScene.keys(input);send(exchange,200,workflows.recordedCosts163());return;}
+                if(route.equals("/api/recorded163/preview-full")){send(exchange,200,workflows.previewFull163(input));return;}
                 if(route.equals("/api/recorded162/preview")){send(exchange,200,workflows.preview162(input));return;}
                 if(route.startsWith("/api/small161/")){
                     if(input.has("id")&&Set.of("/api/small161/resume","/api/small161/stop","/api/small161/cancel","/api/small161/acknowledge").contains(route)&&small161.read(input.getString("id")).has("owner162"))throw new IllegalStateException("This child belongs to a recorded workflow; use its parent controls");
