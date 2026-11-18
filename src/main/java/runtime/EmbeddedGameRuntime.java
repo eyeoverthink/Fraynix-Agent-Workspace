@@ -64,6 +64,8 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
             var progress = player.getComponent(components.CourseProgress.class);
             if (progress == null) throw new IllegalStateException("Missing original course progress");
             value.put("courseProgress", progress.observe());
+            var rail = agent.GameInput.railObservation(scene);
+            if (rail != null) value.put("railNavigation", rail);
         }
         if(player!=null)value.put("contact117",agent.GameContact117.observe(player));
         value.put("threats118",agent.GameThreat118.observe(scene));value.put("controller",agent.GameInput.observation116());value.put("renderer",Map.of("vendor",glGetString(GL_VENDOR),"name",glGetString(GL_RENDERER),"version",glGetString(GL_VERSION)));

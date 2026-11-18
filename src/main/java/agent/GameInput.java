@@ -39,6 +39,7 @@ public final class GameInput {
     private static String status="Human control";
     private static long stalledTicks;
     private static MotorRecovery recovery=new MotorRecovery();
+    private static RailNavigation railNavigation;
     private static PowerupPlanner planner=new PowerupPlanner();
     private static PowerupPlanner.Goal goal;
     private static PlayMemory memory=new PlayMemory(null);
@@ -85,6 +86,9 @@ public final class GameInput {
         GameObject player=scene.getGameObjectWith(PlayerController.class);
         if (player==null || !Float.isFinite(targetX)) throw new IllegalArgumentException("A live player and finite target are required");
         if(automatic) stop("Previous AI segment ended for a new target");
+        var course = content.RelayGardenResources.course();
+        railNavigation = course != null && course.hasSignals() && player.getComponent(CourseProgress.class) != null
+                ? new RailNavigation(scene) : null;
         episode=UUID.randomUUID(); actor=player.getPersistentId(); sequence=0;
         controls.reset(episode,actor); automatic=true; startX=maxX=player.transform.position.x; goalX=targetX;
         current=previous=ActorControls.Input.NONE; jumpUntil=0; lastJump=-100; stalledTicks=0;
@@ -251,10 +255,24 @@ public final class GameInput {
         boolean jump=!landingCorrection&&(decision.jump()||objectiveJump||tick<jumpUntil);
         if(contactDecision!=null&&contactDecision.override()){horizontal=contactDecision.horizontal();jump=contactDecision.jump();jumpUntil=0;edgeUntil=0;recovery=new MotorRecovery();contactOverrides++;status="AI contact recovery | "+contactDecision.reason();}
         if(opportunityAware&&opportunity.holding()&&(contactDecision==null||!contactDecision.override())){horizontal=0;jump=false;jumpUntil=0;edgeUntil=0;status="AI waiting for fresh safe pickup observation";}
+        if (railNavigation != null && railNavigation.owns(scene)) {
+            var rail = railNavigation.choose(player, controller, goalX, horizontal, tick);
+            if (rail != null) {
+                horizontal = rail.horizontal();
+                jump = rail.jump();
+                jumpUntil = 0;
+                lastJump = tick;
+                status += " | " + rail.reason();
+            }
+        }
         ActorControls.Input input=new ActorControls.Input(horizontal,0,jump,tick%30==0);
         controls.accept(new ActorControls.Lease(episode,actor,sequence++,tick,tick+1,input),tick);
         current=controls.at(tick);
     }
+    public static java.util.Map<String, Object> railObservation(Scene scene) {
+        return railNavigation != null && railNavigation.owns(scene) ? railNavigation.observation() : null;
+    }
+
     public static java.util.Map<String,Object> observation116() {
         var result=new java.util.LinkedHashMap<String,Object>();result.put("policy",policyName);result.put("automatic",automatic);result.put("status",status);result.put("horizontal",current.horizontal());result.put("jump",current.jump());result.put("goal",goal==null?"none":goal.kind().name());result.put("pickups",pickups);result.put("damage",damage);result.put("edgeCrossings",edgeCrossings);result.put("landingChecks",landingChecks);result.put("landingOverrides",landingOverrides);result.put("landingNanos",landingNanos);result.put("fallingWaitTicks",fallingWaitTicks);result.put("pickupSkips",pickupSkips);result.put("pickupRiskChecks",pickupRiskChecks);result.put("pickupRiskNanos",pickupRiskNanos);result.put("pickupDecisions",new java.util.ArrayList<>(pickupDecisions));
         if(contactAware){result.put("contactRecovery119",contactRecovery.observation());result.put("contactChecks",contactChecks);result.put("contactNanos",contactNanos);result.put("contactOverrides",contactOverrides);result.put("pickupDeferrals",pickupDeferrals);}

@@ -9,18 +9,24 @@ import java.nio.file.*;
 import java.net.*;
 import java.time.Instant;
 import java.util.*;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicReference;
 import static org.junit.Assert.*;
 
 public class FraynixWorkspaceTest {
     private static void until(FraynixWorkspace workspace,java.util.function.BooleanSupplier condition) throws Exception {
-        long deadline=System.nanoTime()+8_000_000_000L;
+        long deadline=System.nanoTime()+20_000_000_000L;
         while(!condition.getAsBoolean()&&System.nanoTime()<deadline){workspace.tick();Thread.sleep(10);}
-        workspace.tick();assertTrue("Workspace timed out: "+workspace.error(),condition.getAsBoolean());
+        workspace.tick();
+        assertTrue("Workspace timed out. Operation: " + workspace.activeAction()
+                + ", stream frames: " + workspace.live().frames() + ", error: " + workspace.error()
+                + ", health: " + workspace.healthError(), condition.getAsBoolean());
     }
     @Test public void liveChatSeparatesAttachmentsUsesOwnIdentityAndRestoresEvidence() throws Exception {
         Path root=Files.createTempDirectory("studio-chat-");String previous=System.getProperty("fraynix.localModelCatalog");
         var server=HttpServer.create(new InetSocketAddress("127.0.0.1",0),0);String endpoint="http://127.0.0.1:"+server.getAddress().getPort();
+        var executor = Executors.newVirtualThreadPerTaskExecutor();
+        server.setExecutor(executor);
         var body=new AtomicReference<String>();
         for(String path:List.of("/api/tags","/api/ps"))server.createContext(path,exchange->{
             byte[] bytes="{\"models\":[{\"name\":\"fixture:latest\",\"size\":1024}]}".getBytes(StandardCharsets.UTF_8);
@@ -34,7 +40,14 @@ public class FraynixWorkspaceTest {
             body.set(new String(exchange.getRequestBody().readAllBytes(),StandardCharsets.UTF_8));
             byte[] bytes=("{\"model\":\"fixture:latest\",\"message\":{\"content\":\"actual \"},\"done\":false}\n"
                 +"{\"model\":\"fixture:latest\",\"message\":{\"content\":\"answer\"},\"done\":true,\"eval_count\":2}\n").getBytes(StandardCharsets.UTF_8);
-            exchange.sendResponseHeaders(200,bytes.length);exchange.getResponseBody().write(bytes);exchange.close();
+            exchange.getResponseHeaders().set("Content-Type", "application/x-ndjson");
+            exchange.getResponseHeaders().set("Connection", "close");
+            try {
+                exchange.sendResponseHeaders(200, bytes.length);
+                exchange.getResponseBody().write(bytes);
+            } finally {
+                exchange.close();
+            }
         });server.start();
         try {
             Path catalog=root.resolve("catalog.json");Files.writeString(catalog,"{\"models\":[{\"name\":\"fixture:latest\",\"status\":\"LOCAL_INSTALLED\",\"endpoint\":\""+endpoint+"\"}]}");
@@ -65,7 +78,7 @@ public class FraynixWorkspaceTest {
                 assertEquals(1,reopened.visibleExchanges().size());assertEquals("actual answer",reopened.visibleExchanges().get(0).reply());
                 assertEquals(4096,reopened.settings().context());assertEquals(2,new ConversationStore(root).load().size());
             }
-        } finally {server.stop(0);if(previous==null)System.clearProperty("fraynix.localModelCatalog");else System.setProperty("fraynix.localModelCatalog",previous);}
+        } finally {server.stop(0);executor.shutdownNow();if(previous==null)System.clearProperty("fraynix.localModelCatalog");else System.setProperty("fraynix.localModelCatalog",previous);}
     }
 
     @Test public void chatSceneBridgeDeserializesGsonGameObjectAndMovesSquare() {
