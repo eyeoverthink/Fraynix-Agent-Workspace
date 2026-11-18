@@ -114,28 +114,6 @@ modules = [
 system = {'finding':'The AI cleared both rails and reached both beacons.',
           'validation':validation,'courses':chart,'checks':checks,'screenshots':shots,'modules':modules}
 write(out/'system-map.json', system)
-paths = {row['path'] for row in read('docs/readmes/168/file-inventory.json')}
-paths.update(subprocess.check_output(['git','diff','--name-only','aba5b1dff','HEAD'],text=True).splitlines())
-paths.update(p.relative_to(root).as_posix() for p in source_dir.iterdir() if p.is_file())
-paths.add('docs/RAIL_NAVIGATION_169_LOCK.json')
-rows = []
-for name in sorted(paths):
-    raw = (root/name).read_bytes()
-    kind = 'binary'
-    if Path(name).suffix not in {'.png','.wav','.gz','.bin','.jpg','.zip'}:
-        try:
-            raw = raw.decode('utf-8-sig').replace(chr(13)+chr(10),chr(10)).encode()
-            kind = 'utf8-lf'
-        except UnicodeDecodeError:
-            pass
-    rows.append({'path':name,'bytes':len(raw),'sha256':sha(raw),'hashKind':kind})
-write(out/'file-inventory.json',rows)
-html = (source_dir/'guide-template.html').read_text(encoding='utf8')
-for marker, data in [('SYSTEM',system),('INVENTORY',rows)]:
-    html = html.replace('@@'+marker+'@@',json.dumps(data).replace('</','<\\/'))
-(out/'index.html').write_text(html,encoding='utf8')
-shutil.copy2(source_dir/'guide.js',out/'guide.js')
-
 progress = ' '.join(f"The visible AI completed {item['title']} with {item['cells']} cells "
                     f"and {item['crossing']['measuredClearance']:.3f} game units of minimum measured clearance."
                     for item in outcomes)
@@ -170,4 +148,26 @@ edges = [{'id':name,'fromNode':'edition','fromSide':'right','toNode':name,'toSid
          for name in ['rail','receipts']]
 write(root/'docs/obsidian/177-rail-navigation.canvas',{'nodes':nodes,'edges':edges})
 prepend('docs/obsidian/00-home.md','[Edition 169 — verified AI rail clearance](177-rail-navigation.md)\n\n')
+paths = {row['path'] for row in read('docs/readmes/168/file-inventory.json')}
+paths.update(subprocess.check_output(['git','diff','--name-only','aba5b1dff',app['source']],text=True).splitlines())
+paths.update(p.relative_to(root).as_posix() for p in source_dir.iterdir() if p.is_file())
+paths.add('docs/RAIL_NAVIGATION_169_LOCK.json')
+rows = []
+for name in sorted(paths):
+    raw = (root/name).read_bytes()
+    kind = 'binary'
+    if Path(name).suffix not in {'.png','.wav','.gz','.bin','.jpg','.zip'}:
+        try:
+            raw = raw.decode('utf-8-sig').replace(chr(13)+chr(10),chr(10)).encode()
+            kind = 'utf8-lf'
+        except UnicodeDecodeError:
+            pass
+    rows.append({'path':name,'bytes':len(raw),'sha256':sha(raw),'hashKind':kind})
+write(out/'file-inventory.json',rows)
+html = (source_dir/'guide-template.html').read_text(encoding='utf8')
+for marker, data in [('SYSTEM',system),('INVENTORY',rows)]:
+    html = html.replace('@@'+marker+'@@',json.dumps(data).replace('</','<\\/'))
+(out/'index.html').write_text(html,encoding='utf8')
+shutil.copy2(source_dir/'guide.js',out/'guide.js')
+
 print(json.dumps({'passed':True,'inventory':len(rows),'screenshots':len(shots),'outcomes':outcomes}))
