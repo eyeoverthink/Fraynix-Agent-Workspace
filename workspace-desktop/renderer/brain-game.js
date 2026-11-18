@@ -75,6 +75,20 @@ export class BrainGame {
   this.railPace.replaceChildren(new Option('Normal approach', 'normal'),
    new Option('Steady approach', 'steady'), new Option('Careful approach', 'careful'));
   this.courseControls.append(this.railPace);
+  this.prepareRelay = document.createElement('button');
+  this.prepareRelay.id = 'game-relay-playtest';
+  this.prepareRelay.textContent = 'Prepare offline playtest';
+  this.prepareRelay.hidden = true;
+  this.prepareRelay.onclick = () => {
+   const state = this.lastFrame?.state;
+   if (!state?.railPaceAvailable) return;
+   const goal = $('goal');
+   goal.value = 'Playtest ' + state.courseTitle + ' at all three paces.';
+   goal.dispatchEvent(new Event('input'));
+   goal.focus();
+   this.notice('Start task to run the local playtest and save its verified report.');
+  };
+  this.courseControls.append(this.prepareRelay);
   this.courseStatus = document.createElement('span');
   this.courseStatus.id = 'game-course-progress';
   this.courseStatus.setAttribute('role', 'status');
@@ -222,6 +236,7 @@ export class BrainGame {
   if (this.courseControls) {
    this.courseControls.hidden = !course;
    this.railPace.hidden = !frame.state.railPaceAvailable;
+   this.prepareRelay.hidden = !frame.state.railPaceAvailable;
    if (this.lastFrame?.state.contentId !== frame.state.contentId) this.railPace.value = 'normal';
    this.showMovementLabels(Boolean(course));
    if (course) {

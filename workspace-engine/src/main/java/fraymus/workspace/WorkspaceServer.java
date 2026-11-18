@@ -16,6 +16,8 @@ public final class WorkspaceServer implements AutoCloseable {
     private AgentRuntime042 agentRuntime;
     private Agency043 agency;
     private GameCosts125 gameTasks115;
+    private RelayPlaytest relayPlaytest;
+    private final boolean modelFree = "1".equals(System.getenv("FRAYNIX_WORKSPACE_NO_MODELS"));
     private GameReference115 gameReferences115;
     private CreationPlanner044 creation044;
     private final Set<String> durableRequests043=ConcurrentHashMap.newKeySet();
@@ -78,7 +80,9 @@ public final class WorkspaceServer implements AutoCloseable {
     WorkspaceServer(Path project,String token,boolean persistentHost) throws IOException {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;this.persistentHost=persistentHost;store=new WorkspaceStore(project);learning=new LearningStore(project);
-        try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);memory074=new MemoryStudy074(project,goals::memoryBundle074);memory075=new MemoryStudy075(project,goals::memoryBundle074);procedures076=new ProcedureStudy076(project);procedures077=new ProcedureStudy077(project);procedures078=new ProcedureStudy078(project);observations=new WorldObservationStore(project,goals.worlds());metrics=new MetricObservationStore(project,observations,goals.worlds());physicalAudit130=new PhysicalAudit130(project,metrics);labels132=new ObservationLabels132(project,observations,metrics);contact133=new ContactAudit133(project,observations,labels132);association134=new AssociationAudit134(project,observations);appearances135=new VerifiedAppearances135(project,association134);tabletop=new TabletopStore(project,goals.worlds(),metrics);knowledge=new KnowledgeStore(project,tabletop);selfModel=new SelfModel(knowledge);workflows=new WorkflowRunner(project,goals,measurements,scenes,store);workflows.install128(new ObservationArtifact128(project,observations,metrics,goals.worlds()));game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);gameReferences115=new GameReference115(Path.of(System.getProperty("user.dir")),project);gameTasks115=new GameCosts125(Path.of(System.getProperty("user.dir")),project,game);runtime040=new SpatialRuntime040(project,goals.worlds(),goals.worldNative(),tabletop,knowledge,game);alignment041=new Alignment041Store(project,goals.worlds());workflows.install159(new CalibratedPlane159(project,alignment041,goals.worlds()));accuracy160=new PlaneAccuracyStore160(project,alignment041,goals.worlds(),store);small161=new SmallStore161(project,store);workflows.install162(new RecordedSmall162(project,alignment041,goals.worlds(),small161));smallObjectRoutes=new SmallObjectRoutes(small161,spatial,workflows);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
+        try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);memory074=new MemoryStudy074(project,goals::memoryBundle074);memory075=new MemoryStudy075(project,goals::memoryBundle074);procedures076=new ProcedureStudy076(project);procedures077=new ProcedureStudy077(project);procedures078=new ProcedureStudy078(project);observations=new WorldObservationStore(project,goals.worlds());metrics=new MetricObservationStore(project,observations,goals.worlds());physicalAudit130=new PhysicalAudit130(project,metrics);labels132=new ObservationLabels132(project,observations,metrics);contact133=new ContactAudit133(project,observations,labels132);association134=new AssociationAudit134(project,observations);appearances135=new VerifiedAppearances135(project,association134);tabletop=new TabletopStore(project,goals.worlds(),metrics);knowledge=new KnowledgeStore(project,tabletop);selfModel=new SelfModel(knowledge);workflows=new WorkflowRunner(project,goals,measurements,scenes,store);workflows.install128(new ObservationArtifact128(project,observations,metrics,goals.worlds()));game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);gameReferences115=new GameReference115(Path.of(System.getProperty("user.dir")),project);gameTasks115=new GameCosts125(Path.of(System.getProperty("user.dir")),project,game);
+            relayPlaytest = new RelayPlaytest(Path.of(System.getProperty("user.dir")), project, store);
+            runtime040=new SpatialRuntime040(project,goals.worlds(),goals.worldNative(),tabletop,knowledge,game);alignment041=new Alignment041Store(project,goals.worlds());workflows.install159(new CalibratedPlane159(project,alignment041,goals.worlds()));accuracy160=new PlaneAccuracyStore160(project,alignment041,goals.worlds(),store);small161=new SmallStore161(project,store);workflows.install162(new RecordedSmall162(project,alignment041,goals.worlds(),small161));smallObjectRoutes=new SmallObjectRoutes(small161,spatial,workflows);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         try{agentRuntime=new AgentRuntime042(project,brain,this::agentFacts042,this::detachHost042,persistentHost);agency=new Agency043(project,store,learning,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();},(kind,evidence)->agentRuntime.record043(kind,evidence),this::sharedBusy043,true);agency.install044(new Domain044(this::call044,store));agency.installArchive112(task->{var bound=task.getJSONObject("completion044").getJSONObject("javaWorkflow");String id=task.getJSONObject("context044").getString("ownedWorkflowId");if(!id.equals(bound.getString("id")))throw new IllegalStateException("Original chat/workflow owner changed");var proof=workflows.verifyArchive110(id);var current=workflows.read(id);for(String k:List.of("status","audit","report","savedSkill","dataBinding"))if(bound.has(k)&&(!current.has(k)||!new JSONObject().put("v",bound.get(k)).similar(new JSONObject().put("v",current.get(k)))))throw new IllegalStateException("Original chat workflow completion changed: "+k);proof.remove("verificationNanos");return proof;});creation044=new CreationPlanner044(project,goals,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();});}catch(Exception e){close();throw new IOException("Java agent state needs attention; originals retained",e);}
         costs087=new CalibrationCosts087(project,goals);
         replay151=new ReplayEvidence151(project,association134);
@@ -92,9 +96,10 @@ public final class WorkspaceServer implements AutoCloseable {
         try{workflows.install158(new ObservationTask158(project,continuity157,association134,observations,goals.worlds()));}catch(Exception e){throw new IOException("Observation task service could not start",e);}
         skillMemory=new SkillMemory048(project,goals);
         evidence049=new EvidenceStore049(project);
-        scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
+        if (modelFree) catalog = new FactoryModelService.Snapshot(java.time.Instant.EPOCH, List.of(), List.of(), "");
+        else scanner.scheduleWithFixedDelay(()->{try{catalog=models.observe();}catch(Exception e){System.err.println("Model discovery: "+e.getMessage());}},0,45,TimeUnit.SECONDS);
     }
-    private JSONObject visionModels(){var out=new JSONArray();try{var tags=LocalModelAdmission.request("http://127.0.0.1:11434/api/tags",null);for(Object raw:tags.getJSONArray("models")){var tag=(JSONObject)raw;try{var show=LocalModelAdmission.request("http://127.0.0.1:11434/api/show",new JSONObject().put("model",tag.getString("name")));if(show.getJSONArray("capabilities").toList().contains("vision"))out.put(new JSONObject().put("name",tag.getString("name")).put("bytes",tag.getLong("size")));}catch(Exception unavailable){/* Unavailable metadata is not an eligible detector. */}}return new JSONObject().put("models",out).put("available",!out.isEmpty());}catch(Exception unavailable){return new JSONObject().put("models",out).put("available",false).put("reason","Local vision metadata unavailable; DOM and taught appearance remain usable offline");}}
+    private JSONObject visionModels(){var out=new JSONArray();if(modelFree)return new JSONObject().put("models",out).put("available",false).put("reason","Model services are disabled for this launch");try{var tags=LocalModelAdmission.request("http://127.0.0.1:11434/api/tags",null);for(Object raw:tags.getJSONArray("models")){var tag=(JSONObject)raw;try{var show=LocalModelAdmission.request("http://127.0.0.1:11434/api/show",new JSONObject().put("model",tag.getString("name")));if(show.getJSONArray("capabilities").toList().contains("vision"))out.put(new JSONObject().put("name",tag.getString("name")).put("bytes",tag.getLong("size")));}catch(Exception unavailable){/* Unavailable metadata is not an eligible detector. */}}return new JSONObject().put("models",out).put("available",!out.isEmpty());}catch(Exception unavailable){return new JSONObject().put("models",out).put("available",false).put("reason","Local vision metadata unavailable; DOM and taught appearance remain usable offline");}}
     private JSONObject state() throws IOException {
         var available=new JSONArray();var snapshot=catalog;
         if(snapshot!=null)for(var model:snapshot.models())if(model.available()&&model.capabilities().contains("tools"))available.put(new JSONObject().put("name",model.name()).put("endpoint",model.endpoint()).put("bytes",model.bytes()).put("capabilities",model.capabilities()));
@@ -614,9 +619,9 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/brain/feedback-kick" -> result=scenes.feedbackKick(input);
                     case "/api/brain/feedback-cancel" -> result=scenes.feedbackCancel(input.getString("runId"));
                     case "/api/brain/feedback-rollback" -> result=brain.rollbackFeedback(input.getInt("expectedVersion"));
-                    case "/api/game-tasks115/read" -> {SpatialScene.keys(input,"id");result=gameTasks115.read(input.getString("id"));}
+                    case "/api/game-tasks115/read" -> {SpatialScene.keys(input,"id");result=playtestPort("read",input);}
                     case "/api/game-tasks115/list" -> {SpatialScene.keys(input);result=gameTasks115.list();}
-                    case "/api/game-tasks115/verify" -> {SpatialScene.keys(input,"id");result=gameTasks115.verify(input.getString("id"));}
+                    case "/api/game-tasks115/verify" -> {SpatialScene.keys(input,"id");result=playtestPort("verify",input);}
                     case "/api/game-tasks115/review" -> {SpatialScene.keys(input,"id");result=gameTasks115.review(input.getString("id"));}
                     case "/api/game-tasks115/review-latest" -> {SpatialScene.keys(input,"id");result=gameTasks115.latestReview(input.getString("id"));}
                     case "/api/game-tasks115/review-verify" -> {SpatialScene.keys(input,"id");result=gameTasks115.verifyReview(input.getString("id"));}
@@ -719,14 +724,33 @@ public final class WorkspaceServer implements AutoCloseable {
         server.createContext("/welcome",exchange->{byte[] bytes=WELCOME.getBytes(StandardCharsets.UTF_8);exchange.getResponseHeaders().set("Content-Type","text/html; charset=utf-8");exchange.sendResponseHeaders(200,bytes.length);try(var out=exchange.getResponseBody()){out.write(bytes);}});
         server.start();Runtime.getRuntime().addShutdownHook(new Thread(this::close));return server;
     }
+    private JSONObject playtestPort(String action, JSONObject args) throws Exception {
+        if (action.equals("start")) {
+            return RelayPlaytest.requested(args.getString("request")) ? relayPlaytest.start(args) : gameTasks115.start(args);
+        }
+        String id = args.getString("id");
+        if (relayPlaytest.owns(id)) {
+            return switch (action) {
+                case "advance" -> relayPlaytest.advance(id);
+                case "read" -> relayPlaytest.read(id);
+                case "verify" -> relayPlaytest.verify(id);
+                default -> relayPlaytest.control(id, action);
+            };
+        }
+        return switch (action) {
+            case "advance" -> gameTasks115.advance(id);
+            case "read" -> gameTasks115.read(id);
+            case "verify" -> gameTasks115.verify(id);
+            default -> gameTasks115.control(id, action);
+        };
+    }
+
     /** Registered in-process Java ports; no interface lease, HTTP hop or model-selected URL. */
     private JSONObject call044(String route,JSONObject args)throws Exception{
         return switch(route){
-            case "/api/game-tasks115/start"->gameTasks115.start(args);
-            case "/api/game-tasks115/advance"->gameTasks115.advance(args.getString("id"));
-            case "/api/game-tasks115/read"->gameTasks115.read(args.getString("id"));
-            case "/api/game-tasks115/verify"->gameTasks115.verify(args.getString("id"));
-            case "/api/game-tasks115/resume", "/api/game-tasks115/cancel", "/api/game-tasks115/interrupt"->gameTasks115.control(args.getString("id"),route.substring(route.lastIndexOf('/')+1));
+            case "/api/game-tasks115/start", "/api/game-tasks115/advance", "/api/game-tasks115/read",
+                 "/api/game-tasks115/verify", "/api/game-tasks115/resume", "/api/game-tasks115/cancel",
+                 "/api/game-tasks115/interrupt" -> playtestPort(route.substring(route.lastIndexOf('/') + 1), args);
             case "/api/state"->state();
             case "/api/calibrated159/preview"->workflows.preview159(args);
                         case "/api/alignment041/state"->alignment041.state();
@@ -801,7 +825,7 @@ public final class WorkspaceServer implements AutoCloseable {
         requests.forEach((id,control)->{if(!durableRequests043.contains(id))control.cancel();});camera042.clear();game.close();selfModel.detach();
         try{if(agency!=null)agency.hostDetached();knowledge.hostDetached044();goals.hostDetached042(creation044==null?Set.of():creation044.retained());workflows.hostDetached042();learning.hostDetached042(agency==null?Set.of():agency.retainedEpisodes());for(Object raw:alignment041.state().getJSONArray("trials")){var t=(JSONObject)raw;if(t.optString("status").equals("running"))alignment041.finish(t.getString("id"),true);}for(Object raw:tabletop.state().getJSONArray("runs")){var t=(JSONObject)raw;if(t.optString("status").equals("running"))tabletop.stop(t.getString("id"));}}catch(Exception e){throw new IllegalStateException("Host detach needs attention",e);}
     }
-    @Override public synchronized void close(){if(closed)return;closed=true;if(small161!=null)small161.close();if(accuracy160!=null)accuracy160.close();if(rotation152!=null)rotation152.close();if(rotation153!=null)rotation153.close();if(continuity154!=null)continuity154.close();if(continuity155!=null)continuity155.close();if(continuity156!=null)continuity156.close();if(continuity157!=null)continuity157.close();requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();if(creation044!=null)creation044.close();if(agency!=null)agency.close();if(agentRuntime!=null)agentRuntime.close();if(gameTasks115!=null)gameTasks115.close();procedures078.close();procedures077.close();procedures076.close();memory075.close();memory074.close();observations.close();game.close();workflows.close();goals.close();perception.close();brain.close();if(agentRuntime!=null)try{agentRuntime.checkpoint();}catch(Exception e){System.err.println("Final shared cortex checkpoint needs attention: "+e.getMessage());}calibrations.close();scenes.close();if(httpServer!=null)httpServer.stop(0);try{store.close();}catch(IOException ignored){}}
+    @Override public synchronized void close(){if(closed)return;closed=true;if(small161!=null)small161.close();if(accuracy160!=null)accuracy160.close();if(rotation152!=null)rotation152.close();if(rotation153!=null)rotation153.close();if(continuity154!=null)continuity154.close();if(continuity155!=null)continuity155.close();if(continuity156!=null)continuity156.close();if(continuity157!=null)continuity157.close();requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();if(creation044!=null)creation044.close();if(agency!=null)agency.close();if(agentRuntime!=null)agentRuntime.close();if(gameTasks115!=null)gameTasks115.close();if(relayPlaytest!=null)relayPlaytest.close();procedures078.close();procedures077.close();procedures076.close();memory075.close();memory074.close();observations.close();game.close();workflows.close();goals.close();perception.close();brain.close();if(agentRuntime!=null)try{agentRuntime.checkpoint();}catch(Exception e){System.err.println("Final shared cortex checkpoint needs attention: "+e.getMessage());}calibrations.close();scenes.close();if(httpServer!=null)httpServer.stop(0);try{store.close();}catch(IOException ignored){}}
     private JSONObject plan(JSONObject input)throws Exception{return plan(input,false);}
     private JSONObject plan(JSONObject input,boolean javaOwned) throws Exception {
         if(catalog==null)throw new IllegalStateException("Local models are still being discovered");
