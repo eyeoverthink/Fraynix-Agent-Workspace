@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "edition",
+      "type": "file",
+      "file": "README-168.md",
+      "x": 0,
+      "y": 0,
+      "width": 480,
+      "height": 400
+    },
+    {
+      "id": "contact",
+      "type": "file",
+      "file": "src/main/java/components/CourseContact.java",
+      "x": 520,
+      "y": 0,
+      "width": 460,
+      "height": 380
+    },
+    {
+      "id": "archive",
+      "type": "file",
+      "file": "docs/readmes/168/archive-download.json",
+      "x": 520,
+      "y": 420,
+      "width": 460,
+      "height": 280
+    }
+  ],
+  "edges": [
+    {
+      "id": "contact",
+      "fromNode": "edition",
+      "fromSide": "right",
+      "toNode": "contact",
+      "toSide": "left"
+    },
+    {
+      "id": "archive",
+      "fromNode": "edition",
+      "fromSide": "right",
+      "toNode": "archive",
+      "toSide": "left"
+    }
+  ]
+}

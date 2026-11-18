@@ -1,3 +1,7 @@
+## Edition 168 — two original courses and archived evidence
+
+2026-11-18. 123 root Java tests, 20 selected workspace Java tests, 181 desktop tests and 10 archive tests passed. The workspace selection covers Game Lab, reference import, durable level tasks and route boundaries. Relay Circuit finished in 374 ticks with 2 cells. Existing AI outcome was hit live rail. Relay Terraces finished in 402 ticks with 3 cells. Existing AI outcome was hit high rail. The native loss, reset and restart checks passed. We restored 74 edition 162 files from a downloaded archive and compared them with Git. The previous 19 original assets and 60 compiled control classes match exactly. Next, expose typed rail and pickup observations for a measured AI comparison. Read README-168.md and docs/publication168/plan.md. Keep the Java workspace separate from private review data.
+
 ## Edition 167 progress — 2026-11-18
 
 Relay Garden adds an explicit original-content course, actual player/controller playtests, reset and loss handling through existing Java physics. Sixty compiled control/physics classes remain identical to edition166. The next76 frozen files (edition163) were archived, downloaded, restored and compared to original Git bytes; a second local-volume copy was verified. Initial CI archive-parent rejection is corrected with an actual junction regression. Legacy content, defaults and all frozen history remain. Full inherited-content replacement, licensing, complete archival cutover and further capability consolidation remain pending. [Evidence and scope](../README-167.md).

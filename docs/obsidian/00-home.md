@@ -1,3 +1,5 @@
+[Edition 168 — Relay Circuit and Terraces](176-original-courses.md)
+
 [Edition 167 — original content and archive verification](175-original-content.md)
 
 Current: [[docs/obsidian/174-domain-and-archive.md]] | [[README-166.md]]
