@@ -50,6 +50,8 @@ The first new junction test had an incorrect PowerShell argument invocation; it 
 
 @@CI@@
 
+The first complete app run also passed, but screenshot inspection exposed the end of the decorative background near the finish. The authored backdrop was extended, the full root-engine suite and the two content-specific native checks repeated, and a new actual-app run captured. The explicit course target now sits beyond its beacon so the visible AI-play action traverses the contact sensor. The final app run checks that button as well as bounded controller steps. The earlier successful run and source lock are retained. Lock preparation also caught binary test fixtures and an incorrect historical JAR filename; both tooling errors were corrected before the final trial.
+
 ## Next verified archive batch
 
 @@ARCHIVE@@

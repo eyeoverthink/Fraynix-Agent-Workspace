@@ -116,7 +116,7 @@ public final class RelayGardenGenerator {
 
     public static JsonArray level() {
         JsonArray result = new JsonArray();
-        JsonObject sky = entity(result, "Distant garden", 7.5, 3.0, 18, 9, -10);
+        JsonObject sky = entity(result, "Distant garden", 10.0, 3.0, 24, 9, -10);
         component(sky, "components.SpriteRenderer", object("sprite", object("texture", object(
             "filepath", ROOT + "sky.png", "width", 1024, "height", 512))));
         for (int x = 0; x < 60; x++) if (!(x >= 18 && x < 20) && !(x >= 33 && x < 35)) {

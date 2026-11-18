@@ -39,7 +39,7 @@ export class BrainGame {
   relayButton.onclick = safe(async () => {
    this.requireSaved(); this.watching = true;
    const frame = await this.call('gameRuntime', 'open-relay');
-   this.show(frame); $('game-target').value = frame.content.finishX;
+   this.show(frame); $('game-target').value = frame.content.finishX + 1;
    this.notice('Relay Garden: reach the beacon. Use the movement buttons, Jump or AI play. Reset starts the checked level again.');
   });
   for(const kind of ['pulse','gpu-check','train','feedback-train'])$('brain-'+kind).onclick=safe(async()=>{const job=await this.call('brain','start',{kind,autoPromote:$('brain-auto').checked});this.jobId=job.id;await this.refresh();});
