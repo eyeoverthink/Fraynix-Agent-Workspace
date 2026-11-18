@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 163
 
+[Published and fetched receipt](docs/PUBLICATION_163.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-163)
+
 2026-11-17 · Complete workflow costs · Verified recording reuse · Growing world histories
 
 [Previous edition 162](README-162.md) · [Offline guide](docs/readmes/163/index.html) · [All editions](docs/readmes/INDEX.md) · [Acceptance plan and amendments](docs/publication163/plan163.md)
