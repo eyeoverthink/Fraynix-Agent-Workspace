@@ -939,7 +939,7 @@ var p=new JSONObject().put("kind",SkillGraph046.KIND).put("sourceWorkflowId",w.g
 
     synchronized void install162(RecordedSmall162 service)throws Exception{recorded162=service;for(var w:values())if(RecordedSmall162.own(w)&&w.getString("status").equals("completed")&&w.has("pendingSkill101"))try{publish162(w);}catch(Exception e){System.err.println("Recorded skill publication pending: "+e.getMessage());}}
     synchronized JSONObject preview162(JSONObject in)throws Exception{if(recorded162==null)throw new IllegalStateException("Recorded object service unavailable");return recorded162.preview(in);}
-    synchronized JSONObject workflowCosts164(){return recorded162.costs164.status();}
+    synchronized JSONObject workflowCosts164(){return recorded162.costs164.status().put("historyReuse",recorded162.history.status());}
     synchronized JSONObject historyCosts164(JSONObject input)throws Exception{if(closed||active()!=null)throw new IllegalStateException("Finish current workflow before measuring history");return HistoryCosts164.measure(recorded162.small,input);}
     synchronized JSONObject recordedCosts163(){return recorded162.evidence163.status();}
     synchronized JSONObject previewFull163(JSONObject in)throws Exception{return recorded162.preview(in,true);}

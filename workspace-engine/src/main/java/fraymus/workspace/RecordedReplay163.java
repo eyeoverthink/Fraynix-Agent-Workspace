@@ -12,6 +12,7 @@ final class RecordedReplay163 {
     static final int CAPACITY=4, MAX_ENTRY=2_000_000;
     static final long MAX_BYTES=128_000_000;
     private final Path project;
+    private final VerifiedComputationCache metadata = new VerifiedComputationCache();
     private final Alignment041Store alignment;
     private final CalibratedPlane159 planes;
     private final PlaneReplay160 replay;
@@ -48,19 +49,20 @@ final class RecordedReplay163 {
             }
             last=new JSONObject().put("passed",true).put("trialId",id).put("reused",hit).put("forced",force).put("fingerprint",after.fingerprint);
             return result;
-        }catch(Exception e){entries.clear();failures++;last=new JSONObject().put("passed",false).put("trialId",id).put("reason",String.valueOf(e.getMessage()));throw e;}
+        }catch(Exception e){entries.clear();metadata.clear();failures++;last=new JSONObject().put("passed",false).put("trialId",id).put("reason",String.valueOf(e.getMessage()));throw e;}
         finally{long elapsed=System.nanoTime()-begin;totalNs+=elapsed;last.put("totalMs",elapsed/1e6).put("checkedFrameAndCodeBytes",readBytes-byteStart).put("checkedFrameAndCodeFiles",readFiles-fileStart);}
     }
 
-    synchronized JSONObject status(){return new JSONObject().put("mode",enabled?"verified-memo":"full-replay").put("calls",calls).put("reused",hits).put("fullReplays",replays).put("failures",failures).put("evictions",evictions).put("checkedFrameAndCodeBytes",readBytes).put("checkedFrameAndCodeFiles",readFiles).put("sourceCheckMs",hashNs/1e6).put("reconstructionMs",replayNs/1e6).put("totalMs",totalNs/1e6).put("entries",entries.size()).put("capacity",CAPACITY).put("maxEntryBytes",MAX_ENTRY).put("last",WorldFrames.copy(last)).put("scope","Process-local recording reconstruction only. Every use rereads original image, metadata, labels, calibration, historical-world and code evidence before and after. Cold or changed evidence reconstructs. Native and outcome checks are never memoized here.");}
+    synchronized JSONObject status(){return new JSONObject().put("mode",enabled?"verified-memo":"full-replay").put("sourceReuse",metadata.status()).put("calls",calls).put("reused",hits).put("fullReplays",replays).put("failures",failures).put("evictions",evictions).put("checkedFrameAndCodeBytes",readBytes).put("checkedFrameAndCodeFiles",readFiles).put("sourceCheckMs",hashNs/1e6).put("reconstructionMs",replayNs/1e6).put("totalMs",totalNs/1e6).put("entries",entries.size()).put("capacity",CAPACITY).put("maxEntryBytes",MAX_ENTRY).put("last",WorldFrames.copy(last)).put("scope","Process-local recording reconstruction only. Every use rereads original image, metadata, labels, calibration, historical-world and code evidence before and after. Cold or changed evidence reconstructs. Native and outcome checks are never memoized here.");}
 
     private Snapshot snapshot(JSONObject frozen)throws Exception {
         long begin=System.nanoTime();
         try {
             // Older stores initialize missing state. Refuse before calling either accessor.
             for(String state:List.of("alignment-041/state.json","persistent-worlds/state.json"))regular(project.resolve(state));
-            var binding=replay.binding(frozen.getString("trialId"));if(!binding.similar(frozen))throw new IllegalStateException("Frozen trial or independent labels changed");
-            var trial=alignment.trial(frozen.getString("trialId"));var source=planes.source(trial.getString("registrationId"));
+            var checked=metadata(frozen);
+            var binding=checked.getJSONObject("binding");
+            var trial=checked.getJSONObject("trial");var source=checked.getJSONObject("source");
             var hash=MessageDigest.getInstance("SHA-256");
             hash.update(WorldFrames.hash(new JSONObject().put("binding",binding).put("trial",trial).put("source",source)).getBytes(StandardCharsets.UTF_8));
             hash.update((System.getProperty("java.runtime.version")+"\n"+System.getProperty("java.vm.name")).getBytes(StandardCharsets.UTF_8));
@@ -79,9 +81,29 @@ final class RecordedReplay163 {
                 try(var in=Files.newInputStream(p)){int len;while((len=in.read(buffer))!=-1){count+=len;bytes+=len;readBytes+=len;if(bytes>MAX_BYTES)throw new IllegalStateException("Recorded source byte limit exceeded");hash.update(buffer,0,len);}}
                 readFiles++;if(count!=size)throw new IllegalStateException("Recorded source size changed during verification");
             }
-            if(!replay.binding(frozen.getString("trialId")).similar(frozen))throw new IllegalStateException("Recorded source changed during byte read");
+            if(!metadata(frozen).getJSONObject("binding").similar(frozen))throw new IllegalStateException("Recorded source changed during byte read");
             return new Snapshot(HexFormat.of().formatHex(hash.digest()),bytes,leaves.size());
         }finally{hashNs+=System.nanoTime()-begin;}
+    }
+
+
+    private JSONObject metadata(JSONObject frozen) throws Exception {
+        String registration = frozen.getString("registrationId");
+        UUID.fromString(registration);
+        return metadata.read(WorldFrames.hash(frozen), () -> new EvidenceFingerprint()
+                .file(project.resolve("alignment-041/state.json"), 32_000_000)
+                .file(project.resolve("persistent-worlds/state.json"), 16_000_000)
+                .file(project.resolve("alignment-041/frames").resolve(registration).resolve("0.image"), 1_000_000)
+                .file(project.resolve("alignment-041/frames").resolve(registration).resolve("0.meta.json"), 20_000)
+                .code(RecordedReplay163.class, JSONObject.class).finish(), () -> {
+            var binding = replay.binding(frozen.getString("trialId"));
+            if (!binding.similar(frozen)) {
+                throw new IllegalStateException("Frozen trial or independent labels changed");
+            }
+            var trial = alignment.trial(frozen.getString("trialId"));
+            var source = planes.source(trial.getString("registrationId"));
+            return new JSONObject().put("binding", binding).put("trial", trial).put("source", source);
+        });
     }
 
     private void addFrame(Map<String,Path> leaves,String id,int ordinal,JSONObject ref)throws Exception{
