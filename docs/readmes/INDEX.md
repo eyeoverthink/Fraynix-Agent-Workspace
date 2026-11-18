@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 169 — verified AI rail clearance](../../README-169.md) · [Guide](169/index.html)
+
 [Edition 168 — Relay Circuit and Terraces](../../README-168.md) · [Guide](168/index.html)
 
 [Edition 167 — original playable content and archive verification](../../README-167.md) · [Guide](167/index.html)

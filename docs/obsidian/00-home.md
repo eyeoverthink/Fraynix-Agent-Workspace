@@ -1,3 +1,5 @@
+[Edition 169 — verified AI rail clearance](177-rail-navigation.md)
+
 [Edition 168 — Relay Circuit and Terraces](176-original-courses.md)
 
 [Edition 167 — original content and archive verification](175-original-content.md)

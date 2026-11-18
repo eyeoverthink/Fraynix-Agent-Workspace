@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "edition",
+      "type": "file",
+      "file": "README-169.md",
+      "x": 0,
+      "y": 0,
+      "width": 480,
+      "height": 400
+    },
+    {
+      "id": "rail",
+      "type": "file",
+      "file": "src/main/java/agent/RailNavigation.java",
+      "x": 520,
+      "y": 0,
+      "width": 460,
+      "height": 380
+    },
+    {
+      "id": "receipts",
+      "type": "file",
+      "file": "docs/readmes/169/verification.json",
+      "x": 520,
+      "y": 420,
+      "width": 460,
+      "height": 280
+    }
+  ],
+  "edges": [
+    {
+      "id": "rail",
+      "fromNode": "edition",
+      "fromSide": "right",
+      "toNode": "rail",
+      "toSide": "left"
+    },
+    {
+      "id": "receipts",
+      "fromNode": "edition",
+      "fromSide": "right",
+      "toNode": "receipts",
+      "toSide": "left"
+    }
+  ]
+}

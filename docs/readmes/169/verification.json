@@ -1,0 +1,117 @@
+{
+  "passed": true,
+  "source": "14460f9f7652cf47b1b0259188f7f3479920fa19",
+  "rootJava": 125,
+  "workspaceJava": 21,
+  "desktop": 181,
+  "archiveTests": 10,
+  "courses": [
+    {
+      "title": "Relay Circuit",
+      "id": "relay-circuit-v1",
+      "baselineContactTick": 121,
+      "boundedFinishObservedTick": 372,
+      "visibleFinishObservedTick": 373,
+      "cells": "2/2",
+      "crossing": {
+        "launchTick": 102,
+        "entryTick": 120,
+        "exitTick": 137,
+        "measuredClearance": 0.6657082,
+        "name": "Live rail",
+        "overlapSamples": 17,
+        "predictedClearance": 0.67963326,
+        "id": "faef6ece-fae1-3ac4-99e9-5b8f67bf10dc",
+        "fromX": 3.1936302
+      },
+      "boundedCrossing": {
+        "launchTick": 102,
+        "entryTick": 120,
+        "exitTick": 137,
+        "measuredClearance": 0.6657082,
+        "name": "Live rail",
+        "overlapSamples": 17,
+        "predictedClearance": 0.67963326,
+        "id": "faef6ece-fae1-3ac4-99e9-5b8f67bf10dc",
+        "fromX": 3.1936302
+      }
+    },
+    {
+      "title": "Relay Terraces",
+      "id": "relay-terraces-v1",
+      "baselineContactTick": 259,
+      "boundedFinishObservedTick": 402,
+      "visibleFinishObservedTick": 400,
+      "cells": "2/3",
+      "crossing": {
+        "launchTick": 240,
+        "entryTick": 258,
+        "exitTick": 275,
+        "measuredClearance": 0.66467786,
+        "name": "High rail",
+        "overlapSamples": 17,
+        "predictedClearance": 0.67860246,
+        "id": "d2812d01-dda0-35c1-9908-d73d9206e2ea",
+        "fromX": 7.9358892
+      },
+      "boundedCrossing": {
+        "launchTick": 240,
+        "entryTick": 258,
+        "exitTick": 275,
+        "measuredClearance": 0.66467786,
+        "name": "High rail",
+        "overlapSamples": 17,
+        "predictedClearance": 0.67860246,
+        "id": "d2812d01-dda0-35c1-9908-d73d9206e2ea",
+        "fromX": 7.9358892
+      }
+    }
+  ],
+  "ciFirst": {
+    "checkedAtUtc": "2026-11-18T11:28:05.553434+00:00",
+    "runs": [
+      {
+        "id": 44289743337,
+        "head_sha": "aba5b1dff44a110b351189b7bda1b1857fede585",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "failure",
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44289743337",
+        "created_at": "2026-11-18T10:54:21Z",
+        "updated_at": "2026-11-18T11:03:56Z"
+      },
+      {
+        "id": 44278566429,
+        "head_sha": "f841ed003a912b1778ff05a0def4428b5e41b6ea",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44278566429",
+        "created_at": "2026-11-18T09:43:17Z",
+        "updated_at": "2026-11-18T09:43:21Z"
+      },
+      {
+        "id": 44278309112,
+        "head_sha": "4f5194438b6438a5ee50bec51ef0323c3be778c5",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44278309112",
+        "created_at": "2026-11-18T09:41:37Z",
+        "updated_at": "2026-11-18T09:41:41Z"
+      },
+      {
+        "id": 44271487309,
+        "head_sha": "ded3c91febc277d217a311801b2f08835a193c3e",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "failure",
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44271487309",
+        "created_at": "2026-11-18T08:57:41Z",
+        "updated_at": "2026-11-18T09:03:19Z"
+      }
+    ]
+  },
+  "coldRestart": true,
+  "legacyDefaults": true
+}
