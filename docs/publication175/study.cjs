@@ -8,6 +8,7 @@ const { launch } = require('../../workspace-desktop/test/calibration-integration
 const { verify } = require('../../scripts/Study-Build095.cjs');
 
 const output = path.resolve('build', process.argv[2] || 'routing175');
+const smokeOnly = process.argv.includes('--direct-smoke');
 const project = path.join(output, 'project');
 const model = process.env.FRAYNIX_TEST_WORKFLOW_MODEL || 'gpt-oss:20b';
 const routes = {
@@ -98,8 +99,14 @@ async function main() {
     await until(() => page.locator('#run').isEnabled(), 'enabled chat request');
     const began = performance.now();
     await page.locator('#run').click();
-    const task = await until(async () => (await api('/api/agency043/state')).tasks.find(row =>
-      !previous.has(row.id) && row.goal === text), 'chat admission');
+    let task;
+    try {
+      task = await until(async () => (await api('/api/agency043/state')).tasks.find(row =>
+        !previous.has(row.id) && row.goal === text), 'chat admission');
+    } catch (error) {
+      const chat = await page.locator('#messages').innerText();
+      throw Error(error.message + '\n' + chat.slice(-900), { cause: error });
+    }
     return { id: task.id, began };
   }
 
@@ -250,6 +257,11 @@ async function main() {
 
   try {
     await open();
+    if (smokeOnly) {
+      for (const spec of pairs.filter(row => row.kind === 'analysis')) await attempt(spec, 'direct', await importData(spec));
+      result.passed = true;
+      return;
+    }
     await probe('missing direct', 'Run local workflow analysis: Summarize the selected motion recording.',
       routes.analysis, /select a motion dataset/i, 0);
     await probe('missing model', 'Plan a local workflow: Find accumulated travel and suspicious velocity intervals in the selected motion CSV.',

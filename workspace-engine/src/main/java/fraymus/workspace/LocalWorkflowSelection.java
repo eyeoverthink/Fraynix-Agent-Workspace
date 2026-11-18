@@ -5,7 +5,6 @@ import org.json.JSONObject;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 import java.util.regex.Pattern;
 
 /** The local model may name one procedure. Source identity, inputs and execution stay with Java. */
@@ -54,7 +53,9 @@ final class LocalWorkflowSelection {
         var match = REQUEST.matcher(text.strip());
         if (!match.matches()) return null;
         String command = match.group(1);
-        return new Intent(command == null ? null : Procedure.valueOf(command.toUpperCase(Locale.ROOT)), match.group(2));
+        var direct = command == null ? null : Arrays.stream(Procedure.values())
+                .filter(procedure -> procedure.command.equalsIgnoreCase(command)).findFirst().orElseThrow();
+        return new Intent(direct, match.group(2));
     }
 
     static List<String> choices() {

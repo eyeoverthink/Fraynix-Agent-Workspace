@@ -774,6 +774,7 @@ public final class WorkspaceServer implements AutoCloseable {
                  "/api/game-tasks115/verify", "/api/game-tasks115/resume", "/api/game-tasks115/cancel",
                  "/api/game-tasks115/interrupt" -> playtestPort(route.substring(route.lastIndexOf('/') + 1), args);
             case "/api/state"->state();
+            case "/api/measurement/read"->measurements.read(args.getString("id"),args.getInt("version"));
             case "/api/calibrated159/preview"->workflows.preview159(args);
                         case "/api/alignment041/state"->alignment041.state();
             case "/api/goals/read"->costs087.read(args.getString("id"));
