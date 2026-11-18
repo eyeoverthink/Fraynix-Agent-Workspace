@@ -1,6 +1,6 @@
 {
   "edition": 161,
-  "baseline": "014206e5fcb18d3dfb8a9a5afe26e9c2342f4da5",
+  "baseline": "578d31e6f571faf09c6b4a33be6502a47d9f3e87",
   "scope": "Locked before app trials. New explicit small-body domain; all old defaults retained. Actual native motion and independent report verification. Existing exposed physical episode plus two new generated endpoint-labelled motion sequences; fresh physical validation remains pending.",
   "sourceHashes": {
     ".gitattributes": "f1536a67da5969b17dd2f332911e308dd166a6e15d3d0063e5fa4b356762a9fe",
@@ -62,7 +62,7 @@
     "docs/publication161/lock161.py": "98a6a3f58dd0e4640f997571acbd13781262eed42b6f7d07fc0c3a9e75966480",
     "docs/publication161/motion161.cjs": "0d3eca2891342ed50a08d8976c0000312cdf59900b85d0c2e45e72ca03f3f9f3",
     "docs/publication161/plan161.md": "067a1f8f5c17af1e9c58d838852a96f20bacf85fc849ed26a079d505fbec8f3e",
-    "docs/publication161/study161.cjs": "d9a9cea0225172bfd1e578043f46273e1568303181f3c33295c779a75b456ddc",
+    "docs/publication161/study161.cjs": "4a6cf8d08094b5eaf93d27908e42c408817ccadfbb4a8cfe8f376afc888aeb00",
     "docs/publication161/validate161.py": "b44b124d563fbc9c69b7ccb431dca5a3645221f85ce9db4ff7dbb7a0cd3281a6",
     "workspace-desktop/accuracy160.cjs": "e7e3db011c996269805e926d9d9e4352332a87b5adca0715428784aab66905fa",
     "workspace-desktop/calibrated159.cjs": "425e70409485b77124af044ad087462494718eb76e2f481d8583eee83cb38fe9",
@@ -74,12 +74,11 @@
     "workspace-desktop/renderer/app.js": "0daf38d0e4e6667b77e95f8c929aa3f1f0f6d0e54f15bc641cc9becb4f11554c",
     "workspace-desktop/renderer/association134-panel.js": "c60997943b605a408135d97d08ef3db0f64b956070b4bb5bef5fb9771a1bc135",
     "workspace-desktop/renderer/calibrated159.js": "234ef547e3ff14b79fab78f436ded3f8298f89473d1e58723f0e680bce1c0ec8",
-    "workspace-desktop/renderer/small161.js": "a97aceb41e2b649939d7ea804792f8a25e5a521ec85f7cc1914de91f344673a6",
-    "workspace-desktop/small161.cjs": "e6c136624e68ff793023188f0011de8b04432b65534f91da23e555d42a4dfcdc",
+    "workspace-desktop/renderer/small161.js": "dda850fc2d46e30fa4dceca79c7f38ba528fca7df0690a1c36485aa9ddc5c792",
+    "workspace-desktop/small161.cjs": "425b568befa10b061f71d84f5b9ab170a6ee437a74d328ee5d09ac1a4a31fc82",
     "workspace-desktop/test/accuracy160.test.cjs": "085191e912f78b9838e3b5564410ea18a4715706c51a71f3b456fa1685cc5c7d",
     "workspace-desktop/test/calibrated159.test.cjs": "8d591345459f1e88e97fcd32d5ef1ac19efc7747ab58762b77c693eb914141cc",
     "workspace-desktop/test/observation-task158.test.cjs": "17e21c84ac3c9f4479b8f5c3f3ad936326af7a3cfdc8006ed582393d9d850cdf",
-    "workspace-desktop/test/small161.test.cjs": "72fc94dca31197c6be08a66e00981ad241ff179c0270be9bee53ce2b07cb1d92",
     "workspace-desktop/workflows.cjs": "9b2303989e32bbc60493559f63bb48978a6d2c38a32552d2da0d8edd89a826b1",
     "workspace-engine/src/main/java/fraymus/workspace/CalibratedAction159.java": "690432f37b530d6f4909ee17fbfbb44f0e6a96998367f9185d77fa538ec911cd",
     "workspace-engine/src/main/java/fraymus/workspace/CalibratedPlane159.java": "461c908e6c236be488ad788ecb1ee76eebfecd0662ced274c305570c49185173",
@@ -117,16 +116,11 @@
     "workspace-engine/src/main/java/fraymus/workspace/RotationSearch152.java": "b6b40b3dfb9b9807748f4d9652ab23db80a3e557c1d4de12c566e1947a83e22e",
     "workspace-engine/src/main/java/fraymus/workspace/RotationSearch153.java": "a22a2c4de8a2053ae7820b9c775a7874c2dc4ed79813cd26c32cac41b15f8e95",
     "workspace-engine/src/main/java/fraymus/workspace/RotationSearch155.java": "57cd70fa03917b8872da1868442f5f81353d6ee2618c13bde31e0b360f15f74b",
-    "workspace-engine/src/main/java/fraymus/workspace/SmallBody161.java": "16972848302fa1294dcc6c375537d95caa62d815aecec66be3e87175e615d0ca",
-    "workspace-engine/src/main/java/fraymus/workspace/SmallPhysics161.java": "a0ea2102a66a7120d82167315ab2ec7a831ef8b1c02206e6d9a7f042604c21e9",
-    "workspace-engine/src/main/java/fraymus/workspace/SmallReport161.java": "6b48d68c0f154e4be0b952bb6a556c43695e20acffcc40b220a0ec3ed7247075",
-    "workspace-engine/src/main/java/fraymus/workspace/SmallStore161.java": "30065192782e16ef9d8641ab7997c98877d40e966472589d3eee23f51ea39d87",
-    "workspace-engine/src/main/java/fraymus/workspace/SmallVerify161.java": "4ac6282452db0f5aa2ac44cb4b065ce39ce86b33c8a73bdb3e39af3ba8bc1731",
+    "workspace-engine/src/main/java/fraymus/workspace/SmallReport161.java": "41ba0a97d670b17545747ca843b601b434b9c58bdf54f288b451356fcc163206",
     "workspace-engine/src/main/java/fraymus/workspace/StructureReplay156.java": "ce89f5e8f5579017dc2471d8ee0a4fedd28da845a805ebd8c5792edb668febe4",
     "workspace-engine/src/main/java/fraymus/workspace/StructureReplay157.java": "abec8971ab9f0f4b7e540111ada8cfe4c18657551eeed7c269bec9be9eaa4d09",
     "workspace-engine/src/main/java/fraymus/workspace/WorkflowRunner.java": "c7bdd081d9110750de26e2d9ecd44cc2b3037ef4ad12898093291c48622f5446",
     "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java": "11a1e4adddea9a665ba43b4a494983af3ccda966aa272acff1c9f9876391723d",
-    "workspace-engine/src/main/resources/small-body161.json": "c4fc4d2362089243bc40d63aade5775e6d2ddb3e423367e971fcd83ca1222f96",
     "workspace-engine/src/test/java/fraymus/workspace/Calibrated159Test.java": "25ffcf5551434ea8977bdbe67684318c419cd3b4e5ab125e53791236c73d4d7e",
     "workspace-engine/src/test/java/fraymus/workspace/CalibratedClearance159Test.java": "5f8d0184b86c1da6c938dcc9747ce052099e8d512a585e3603fdc4dd7248abca",
     "workspace-engine/src/test/java/fraymus/workspace/ContinuityExperiment154Test.java": "ec661e7647bedc79e14d92afb9ba2dce55e600936abcca3c2c2443ee1cd3e591",
@@ -145,6 +139,6 @@
     "workspace-engine/src/test/java/fraymus/workspace/RotationSearch152Test.java": "0f228bb4092f51100058aeef71de5352d2703784d25bfecc080b9192a20e6ccf",
     "workspace-engine/src/test/java/fraymus/workspace/RotationSearch153Test.java": "b87e260083beb41e3c61f8553049d0ec0781e41465cecf069f819332f18f8d5b",
     "workspace-engine/src/test/java/fraymus/workspace/RotationSearch155Test.java": "cf1c7d273c273e91843aa2b0661d9dc25e0eb09c0c1c577b99d01f2db2d9eef7",
-    "workspace-engine/src/test/java/fraymus/workspace/SmallBody161Test.java": "fd8c68179f7a573a9316a274641ebd3e04f5409f366a7c1f4a33f0fa0938787e"
+    "workspace-engine/src/test/java/fraymus/workspace/SmallBody161Test.java": "876bc3adcbf081ae4391872f62eaea5ac50beea8e519652b0b892a80105d2393"
   }
 }
