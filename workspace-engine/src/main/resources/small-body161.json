@@ -1,0 +1,78 @@
+{
+  "format": "fraynix.spatial-scene",
+  "version": 1,
+  "title": "Labelled161 \u2022 5 cm test block",
+  "units": "m",
+  "frame": "right-handed-y-up",
+  "source": {
+    "kind": "synthetic",
+    "physicalProperties": "declared",
+    "note": "Declared 5 cm / 40 g generated test object, not a camera reconstruction."
+  },
+  "scaleReference": {
+    "a": [
+      0,
+      0,
+      0
+    ],
+    "b": [
+      1,
+      0,
+      0
+    ],
+    "knownLengthM": 1,
+    "toleranceM": 0,
+    "basis": "declared-test"
+  },
+  "gravityMps2": 9.81,
+  "objects": [
+    {
+      "sourceId": "floor",
+      "label": "floor",
+      "shape": "box",
+      "position": [
+        0,
+        -0.05,
+        0
+      ],
+      "size": [
+        2,
+        0.1,
+        2
+      ],
+      "massKg": 0,
+      "friction": 0.5,
+      "restitution": 0,
+      "rotation": [
+        0,
+        0.0,
+        0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "A",
+      "label": "A",
+      "shape": "box",
+      "position": [
+        0,
+        0.025,
+        0
+      ],
+      "size": [
+        0.05,
+        0.05,
+        0.05
+      ],
+      "massKg": 0.04,
+      "friction": 0.45,
+      "restitution": 0,
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+const {test}=require('node:test'),assert=require('node:assert/strict'),{auditSmall161}=require('../small161.cjs');
+test('failed small-body initialization cannot supply a rendered witness',async()=>{let calls=0;await assert.rejects(auditSmall161({test:async()=>[{passed:false}]},{samples:12},async()=>calls++),/initialize/);assert.equal(calls,0)});
+test('unretained small-body checks stop before reading the replay',async()=>{let calls=0;await assert.rejects(auditSmall161({test:async()=>[{passed:true}],isolated:async()=>calls++},{samples:12,report:{id:'a',version:1}},async()=>({passed:false})),/not retained/);assert.equal(calls,0)});

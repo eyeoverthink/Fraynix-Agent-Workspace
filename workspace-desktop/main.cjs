@@ -18,6 +18,7 @@ const {bodyReport}=require('./body-result.cjs');
 const {createGoals}=require('./goals.cjs');
 const {createCreation}=require('./creation.cjs');
 const {createWorkflows}=require('./workflows.cjs');
+const {auditSmall161}=require('./small161.cjs');
 const {auditAccuracy160}=require('./accuracy160.cjs');
 const {BrowserPerception}=require('./browser-perception.cjs');
 const {createTracking}=require('./tracking.cjs');
@@ -645,6 +646,17 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     }
     case 'state':return {...await refresh(),currentArtifact,origin,log,run:run?{active:true,goal:run.goal}:null};
     case 'tool':if(run)throw Error('Take over before using manual tools');return execute(input.tool,input.args);
+    case 'small161':{
+      const args=input.args||{};
+      if(['create','example','start','resume','report'].includes(input.command)&&(agency043.busy()||workflowBridge.reserved()))throw Error('Finish or stop current work before a small-body experiment');
+      if(input.command==='report'){
+        const effect=await api('/api/small161/prepare',args),a=await api('/api/artifact/read',{id:effect.report.id});
+        if(a.version!==effect.report.version)throw Error('Original small-body report changed');emit('view','preview');await openArtifact(a);
+        const observed=await auditSmall161(canvas,effect,value=>api('/api/artifact/test',value));const completed=await api('/api/small161/acknowledge',{id:effect.id,observed});
+        const checked=await api('/api/artifact/read',{id:effect.report.id});if(currentArtifact?.id===checked.id&&currentArtifact?.version===checked.version){currentArtifact=checked;emit('artifact',checked);}return completed;
+      }
+      if(!['state','example','create','world','read','preview','start','resume','stop','cancel','verify'].includes(input.command))throw Error('Unknown small-body operation');return api('/api/small161/'+input.command,args);
+    }
     case 'accuracy160':{
       const args=input.args||{};
       if(['start','resume','report'].includes(input.command)&&(agency043.busy()||workflowBridge.reserved()))throw Error('Finish or stop current work before evaluating recorded motion');
