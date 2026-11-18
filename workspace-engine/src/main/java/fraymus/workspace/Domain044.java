@@ -41,15 +41,24 @@ final class Domain044 {
  }
  private void bindLocalWorkflow(JSONObject g,JSONObject bindings)throws Exception{
   var intent=LocalWorkflowSelection.intent(g.getString("goal"));
-  if(intent.direct()==null&&g.getString("model").isBlank())throw new IllegalArgumentException("Choose an installed local model for planning");
+  if(!intent.quick()&&intent.direct()==null&&g.getString("model").isBlank())throw new IllegalArgumentException("Choose an installed local model for planning");
   var input=new JSONObject().put("briefing",intent.briefing());
-  if(bindings.has("rampInput")&&(intent.direct()==null||intent.direct()==LocalWorkflowSelection.Procedure.RAMP)){
+  var selected=intent.direct();
+  if(intent.quick()){
+   input.put("routingPolicy",QuickWorkflowRouting.POLICY);
+   var recognized=QuickWorkflowRouting.match(intent.briefing());
+   if(recognized!=null){
+    selected=recognized.procedure();
+    input.put("quickProcedure",selected.id).put("quickRule",recognized.rule());
+   }
+  }
+  if(bindings.has("rampInput")&&(selected==null||selected==LocalWorkflowSelection.Procedure.RAMP)){
    var source=Procedure044.binding(bindings,"rampInput");
    SpatialScene.keys(source,"path");
    try{g.put("rampSource",nativeApi.call(RampMission.PORT+"bind",source));}
    catch(IllegalArgumentException|IllegalStateException ignored){ /* The visible artifact may belong to a different workflow. */ }
   }
-  if(bindings.has("dataset")&&(intent.direct()==null||intent.direct()==LocalWorkflowSelection.Procedure.ANALYSIS)){
+  if(bindings.has("dataset")&&(selected==null||selected==LocalWorkflowSelection.Procedure.ANALYSIS)){
    var selection=Procedure044.binding(bindings,"dataset");
    String id=selection.getString("datasetId");
    int version=selection.getInt("version");

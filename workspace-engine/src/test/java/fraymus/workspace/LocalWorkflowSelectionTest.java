@@ -8,6 +8,49 @@ import static org.junit.Assert.*;
 
 public class LocalWorkflowSelectionTest {
     @Test
+    public void quickRoutingMatchesTheWholeBriefingAndPreservesSuppliedThresholds() {
+        var ramp = LocalWorkflowSelection.intent("Route a local workflow: Compare the two prepared inclines on the same clock.");
+        assertTrue(ramp.quick());
+        assertEquals(LocalWorkflowSelection.Procedure.RAMP, QuickWorkflowRouting.match(ramp.briefing()).procedure());
+        String briefing = "Analyse my selected motion recording for travel. Gap limit .12 seconds and speed limit 0.6 m/s.";
+        assertEquals(LocalWorkflowSelection.Procedure.ANALYSIS, QuickWorkflowRouting.match(briefing).procedure());
+        var fields = Requested044.fields(briefing, "data");
+        assertEquals(0.12, fields.getDouble("maxGapS"), 0);
+        assertEquals(0.6, fields.getDouble("speedLimitMps"), 0);
+        assertEquals(LocalWorkflowSelection.Procedure.CREATION,
+                QuickWorkflowRouting.match("Build a standalone offline web app for a tally that adds 2 and resets to 0 with controls #total, #add-two and #reset.").procedure());
+        assertFalse(LocalWorkflowSelection.intent("Plan a local workflow: Summarize the selected motion CSV.").quick());
+        for (String uncovered : new String[]{
+                "\"Compare both saved ramp setups.\"",
+                "Do not compare both saved ramp setups.",
+                "Compare both saved ramp setups and summarize the selected motion dataset.",
+                "If possible, compare both saved ramp setups.",
+                "Summarize the selected motion CSV. Gap limit .12 seconds and speed limit 0.6 m/s. Send it by email.",
+                "Build a standalone offline web app for a tally that adds 2 and resets to 0, then compare both ramps.",
+                "I have selected ramp and motion inputs. What should I do?"
+        }) assertNull(uncovered, QuickWorkflowRouting.match(uncovered));
+    }
+
+    @Test
+    public void pickedReviewCannotBeSubstitutedOrRecordedTwice() {
+        String id = DataSummary104.KIND;
+        var task = new JSONObject().put("goal", "Route a local workflow: Find the distance in my recording.")
+                .put("family044", LocalWorkflowSelection.FAMILY).put(QuickWorkflowRouting.REVIEW, id)
+                .put(LocalWorkflowSelection.KEY, new JSONObject().put("routingPolicy", QuickWorkflowRouting.POLICY))
+                .put("history", new JSONArray().put(new JSONObject().put("kind", "local-workflow-review")
+                        .put("detail", new JSONObject().put("procedure", id))));
+        LocalWorkflowSelection.verifySelection(task);
+        assertThrows(IllegalStateException.class, () -> LocalWorkflowSelection.verifySelection(WorldFrames.copy(task)
+                .put(QuickWorkflowRouting.REVIEW, RampProcedure.COMPARE)));
+        task.put("selectedLocalWorkflow", id).put("family044", LocalWorkflowSelection.Procedure.ANALYSIS.family);
+        task.getJSONArray("history").put(new JSONObject().put("kind", "local-workflow-selected")
+                .put("detail", new JSONObject().put("procedure", id).put("by", "confirmed")));
+        LocalWorkflowSelection.verifySelection(task);
+        task.getJSONArray("history").getJSONObject(1).getJSONObject("detail").put("by", "model");
+        assertThrows(IllegalStateException.class, () -> LocalWorkflowSelection.verifySelection(task));
+    }
+
+    @Test
     public void selectorHasNoAuthorityOverInputsOrOutcome() {
         var schema = Tools044.definition(LocalWorkflowSelection.TOOL).getJSONObject("function").getJSONObject("parameters");
         assertEquals(4, schema.getJSONObject("properties").getJSONObject("procedure").getJSONArray("enum").length());

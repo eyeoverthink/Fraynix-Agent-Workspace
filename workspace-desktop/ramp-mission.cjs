@@ -14,7 +14,7 @@ function rampRequest(goal) {
 }
 
 function localWorkflowRequest(goal) {
-  return /^(?:plan a local workflow|run local workflow (?:ramp|analysis|creation)):[ \t]*\S.{0,1199}$/i.test(goal.trim());
+  return /^(?:(?:plan|route) a local workflow|run local workflow (?:ramp|analysis|creation)):[ \t]*\S.{0,1199}$/i.test(goal.trim());
 }
 
 async function observeRamp(surface, origin, path) {

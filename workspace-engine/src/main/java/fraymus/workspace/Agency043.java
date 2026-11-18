@@ -122,20 +122,42 @@ final class Agency043 implements AutoCloseable {
             var procedure = LocalWorkflowSelection.Procedure.fromId(id);
             question = LocalWorkflowSelection.missing(task, procedure);
             if (question.isEmpty()) {
-                task.put("selectedLocalWorkflow", id).put("family044", procedure.family);
-                record(task, "local-workflow-selected", new JSONObject().put("procedure", id).put("by", by));
+                if (by.equals("model") && LocalWorkflowSelection.intent(task.getString("goal")).quick()) {
+                    String reason = "Review the suggested workflow in Mission. Confirm to run it on the saved inputs.";
+                    task.put(QuickWorkflowRouting.REVIEW, id);
+                    record(task, "local-workflow-review", new JSONObject().put("procedure", id).put("reason", reason));
+                    interrupt(task, reason);
+                    return false;
+                }
+                retainLocalWorkflow(task, procedure, by);
                 return true;
             }
         }
+        clarifyLocalWorkflow(task, id, question);
+        return false;
+    }
+    private void retainLocalWorkflow(JSONObject task, LocalWorkflowSelection.Procedure procedure, String by)throws Exception {
+        task.put("selectedLocalWorkflow", procedure.id).put("family044", procedure.family);
+        record(task, "local-workflow-selected", new JSONObject().put("procedure", procedure.id).put("by", by));
+    }
+    private void clarifyLocalWorkflow(JSONObject task, String id, String question)throws Exception {
         task.put("localWorkflowQuestion", question);
         record(task, "clarification-needed", new JSONObject().put("reason", question).put("procedure", id));
         interrupt(task, question);
-        return false;
     }
     private void bootstrapDomain(JSONObject g)throws Exception {
         if (g.optString("family044").equals(LocalWorkflowSelection.FAMILY)) {
-            var direct = LocalWorkflowSelection.intent(g.getString("goal")).direct();
-            if (direct != null && !selectLocalWorkflow(g, direct.id, "direct")) return;
+            var intent = LocalWorkflowSelection.intent(g.getString("goal"));
+            if (intent.direct() != null && !selectLocalWorkflow(g, intent.direct().id, "direct")) return;
+            if (intent.quick()) {
+                String recognized = g.getJSONObject(LocalWorkflowSelection.KEY).optString("quickProcedure");
+                if (!recognized.isEmpty()) {
+                    if (!selectLocalWorkflow(g, recognized, "quick")) return;
+                } else if (g.getString("model").isBlank()) {
+                    clarifyLocalWorkflow(g, LocalWorkflowSelection.CLARIFY, QuickWorkflowRouting.NO_MODEL);
+                    return;
+                }
+            }
         }
         var first = domains.bootstrap(g);
         if(first!=null)host(g,first.getString("tool"),first.getJSONObject("args"),"domain",
@@ -273,7 +295,44 @@ final class Agency043 implements AutoCloseable {
     static void verifyHistory(JSONObject g){ChatChain052.verifyObjective(g);String prior="GENESIS";for(Object raw:g.getJSONArray("history")){var row=WorldFrames.copy((JSONObject)raw);String hash=row.getString("sha256");row.remove("sha256");if(!prior.equals(row.getString("parent"))||!WorldFrames.hash(row).equals(hash))throw new IllegalStateException("Java task history chain differs; original retained");prior=hash;}}
     private void interrupt(JSONObject g,String reason)throws Exception{if(!LIVE.contains(g.getString("status")))return;if(g.has("requestId"))cancelRequest.accept(g.getString("requestId"));vision.cancel();if(g.has("claim"))claims.remove(g.getJSONObject("claim").getString("nonce"));g.remove("claim");g.put("status","interrupted").put("reason",reason);if(domain(g))try{domains.interrupt(g);}catch(Exception releaseError){g.put("releaseNote044",releaseError.getMessage());}if(g.has("episodeId"))learning.interruptEpisode043(g.getString("episodeId"),reason);record(g,"interrupted",new JSONObject().put("reason",reason));save();}
     synchronized JSONObject control(String id,String action)throws Exception{return control(id,action,sharedBusy);}
-    synchronized JSONObject control(String id,String action,BooleanSupplier resumeBusy)throws Exception{var g=task(id);if(action.equals("cancel")){if(domain(g)&&(LIVE.contains(g.getString("status"))||g.getString("status").equals("interrupted")))domains.cancel(g);if(LIVE.contains(g.getString("status"))){interrupt(g,"Stopped by you");}g.put("status","cancelled");record(g,"cancelled",new JSONObject());}else if(action.equals("resume")){if(g.has("localWorkflowQuestion"))throw new IllegalStateException(g.getString("localWorkflowQuestion"));if(g.has("refusal106"))throw new IllegalStateException("Request refused: "+g.getJSONObject("refusal106").getString("reason")+". Review the original evidence and start a separate request.");if(!g.getString("status").equals("interrupted")||busy()||g.getInt("resumes")>=3||resumeBusy.getAsBoolean())throw new IllegalStateException("Resume an interrupted task while the workspace is idle, at most3 times");if(domain(g))g.put("resumeDomain044",true);if(g.optBoolean("created"))artifact(g);g.remove(BrowserOutcome126.PROOF);g.remove("observation");g.remove("browserFingerprint");g.remove("repeatedReads");g.put("resumeReverify",g.optBoolean("created")).put("status","queued").put("generation",g.getInt("generation")+1).put("resumes",g.getInt("resumes")+1).put("failures",0);g.remove("effect");g.remove("claim");}else throw new IllegalArgumentException("Unknown Java task control");save();return view(g);}
+    synchronized JSONObject control(String id,String action,BooleanSupplier resumeBusy)throws Exception {
+        var g = task(id);
+        boolean awaitingReview = g.has(QuickWorkflowRouting.REVIEW) && !g.has("selectedLocalWorkflow");
+        switch (action) {
+            case "cancel" -> {
+                if (domain(g) && (LIVE.contains(g.getString("status")) || g.getString("status").equals("interrupted"))) domains.cancel(g);
+                if (LIVE.contains(g.getString("status"))) interrupt(g,"Stopped by you");
+                g.put("status","cancelled");
+                record(g,"cancelled",new JSONObject());
+            }
+            case "confirm-workflow" -> {
+                if (!awaitingReview || !g.getString("status").equals("interrupted") || busy() || resumeBusy.getAsBoolean())
+                    throw new IllegalStateException("Confirm one proposed workflow while the workspace is idle");
+                verifyHistory(g);
+                var procedure = LocalWorkflowSelection.Procedure.fromId(g.getString(QuickWorkflowRouting.REVIEW));
+                String missing = LocalWorkflowSelection.missing(g, procedure);
+                if (!missing.isEmpty()) throw new IllegalStateException(missing);
+                g.put("status","queued").put("reason","Workflow confirmed, queued in Java")
+                        .put("generation",g.getInt("generation")+1);
+                retainLocalWorkflow(g, procedure, "confirmed");
+            }
+            case "resume" -> {
+                if (awaitingReview) throw new IllegalStateException("Confirm the suggested workflow from Mission first");
+                if (g.has("localWorkflowQuestion")) throw new IllegalStateException(g.getString("localWorkflowQuestion"));
+                if (g.has("refusal106")) throw new IllegalStateException("Request refused: "+g.getJSONObject("refusal106").getString("reason")+". Review the original evidence and start a separate request.");
+                if (!g.getString("status").equals("interrupted") || busy() || g.getInt("resumes")>=3 || resumeBusy.getAsBoolean())
+                    throw new IllegalStateException("Resume an interrupted task while the workspace is idle, at most3 times");
+                if (domain(g)) g.put("resumeDomain044",true);
+                if (g.optBoolean("created")) artifact(g);
+                for (String key : List.of(BrowserOutcome126.PROOF,"observation","browserFingerprint","repeatedReads","effect","claim")) g.remove(key);
+                g.put("resumeReverify",g.optBoolean("created")).put("status","queued").put("generation",g.getInt("generation")+1)
+                        .put("resumes",g.getInt("resumes")+1).put("failures",0);
+            }
+            default -> throw new IllegalArgumentException("Unknown Java task control");
+        }
+        save();
+        return view(g);
+    }
     synchronized void detach(String session)throws Exception{var g=active();if(g!=null&&g.has("claim")&&g.getJSONObject("claim").getString("sessionId").equals(session))interrupt(g,"Interface ended during a claimed surface action; inspect and explicitly Resume");}
     synchronized Set<String> retainedEpisodes(){var ids=new HashSet<String>();for(Object raw:data.getJSONArray("tasks")){var g=(JSONObject)raw;if(LIVE.contains(g.getString("status"))&&g.has("episodeId"))ids.add(g.getString("episodeId"));}return ids;}
     synchronized JSONObject abort(JSONObject in)throws Exception{var refused=refusedReceipt106(in);if(refused!=null)return refused;var g=require(in);interrupt(g,"Surface capture/execution failed: "+in.optString("error","Unknown host failure"));return view(g);}

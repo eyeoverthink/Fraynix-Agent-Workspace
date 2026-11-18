@@ -16,7 +16,7 @@ final class LocalWorkflowSelection {
     static final String RAMP_COMMAND = "Compare the local ramp setups.";
     static final String QUESTION = "Which result do you want: compare both ramp setups, summarize the selected motion data, or build a standalone local web app?";
     private static final Pattern REQUEST = Pattern.compile(
-            "^(?:plan a local workflow|run local workflow (ramp|analysis|creation)):[ \\t]*(\\S.{0,1199})$",
+            "^(?:(plan|route) a local workflow|run local workflow (ramp|analysis|creation)):[ \\t]*(\\S.{0,1199})$",
             Pattern.CASE_INSENSITIVE);
 
     enum Procedure {
@@ -45,17 +45,17 @@ final class LocalWorkflowSelection {
         }
     }
 
-    record Intent(Procedure direct, String briefing) {}
+    record Intent(Procedure direct, String briefing, boolean quick) {}
 
     private LocalWorkflowSelection() {}
 
     static Intent intent(String text) {
         var match = REQUEST.matcher(text.strip());
         if (!match.matches()) return null;
-        String command = match.group(1);
+        String command = match.group(2);
         var direct = command == null ? null : Arrays.stream(Procedure.values())
                 .filter(procedure -> procedure.command.equalsIgnoreCase(command)).findFirst().orElseThrow();
-        return new Intent(direct, match.group(2));
+        return new Intent(direct, match.group(3), "route".equalsIgnoreCase(match.group(1)));
     }
 
     static List<String> choices() {
@@ -99,21 +99,39 @@ final class LocalWorkflowSelection {
 
     static void verifySelection(JSONObject task) {
         if (!task.has(KEY)) return;
+        var input = task.getJSONObject(KEY);
         var selection = task.optString("selectedLocalWorkflow");
-        JSONObject event = null;
+        JSONObject event = null, proposed = null;
         for (Object item : task.getJSONArray("history")) {
             var row = (JSONObject) item;
+            if (row.getString("kind").equals("local-workflow-review")) {
+                if (proposed != null || event != null) throw new IllegalStateException("Multiple or out-of-order workflow reviews");
+                proposed = row.getJSONObject("detail");
+            }
             if (!row.getString("kind").equals("local-workflow-selected")) continue;
             if (event != null) throw new IllegalStateException("Multiple saved workflow selections");
             event = row.getJSONObject("detail");
         }
+        var intent = intent(task.getString("goal"));
+        var review = task.optString(QuickWorkflowRouting.REVIEW);
+        if (review.isEmpty() != (proposed == null) || proposed != null && (!intent.quick()
+                || !review.equals(proposed.getString("procedure")) || input.has("quickProcedure"))) {
+            throw new IllegalStateException("The proposed workflow review changed");
+        }
         if (selection.isEmpty() && event == null && FAMILY.equals(task.optString("family044"))) return;
         var procedure = Procedure.fromId(selection);
-        var expected = intent(task.getString("goal")).direct();
+        var expected = intent.direct();
         if (event == null || !procedure.family.equals(task.optString("family044"))
                 || (expected != null && expected != procedure)
                 || !event.getString("procedure").equals(selection)) {
             throw new IllegalStateException("The saved local workflow selection changed");
+        }
+        if (intent.quick()) {
+            String expectedOrigin = proposed == null ? "quick" : "confirmed";
+            String expectedProcedure = proposed == null ? input.getString("quickProcedure") : review;
+            if (!expectedOrigin.equals(event.getString("by")) || !expectedProcedure.equals(selection)) {
+                throw new IllegalStateException("The saved workflow confirmation changed");
+            }
         }
     }
 }

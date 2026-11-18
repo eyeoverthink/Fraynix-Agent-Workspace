@@ -323,11 +323,15 @@ async function mission044(id){
   task.localWorkflow=true;
   task.workflowSelection=g.history.find(row=>row.kind==='local-workflow-selected')?.detail;
   if(g.localWorkflowQuestion)task.localWorkflowQuestion=g.localWorkflowQuestion;
+  if(g.localWorkflowReview&&!g.selectedLocalWorkflow)task.localWorkflowReview=g.localWorkflowReview;
  }
  task.frames=g.frames?.length||0;task.history=(g.history||[]).slice(-12).map(r=>({kind:r.kind,at:r.at,sha256:r.sha256,tool:r.detail?.tool,reason:r.detail?.reason,verified:r.detail?.verified}));
- const sources=Object.entries(g.bindings044||{}).map(([kind,b])=>({kind,...(Array.isArray(b)?{ids:b}:{...Object.fromEntries(['id','datasetId','sceneId','worldId','objectId','pusherId','mapId','referenceId','sourceArtifactId','sourceVersion','sourceFile','version','expectedVersion','expectedRevision','expectedHash','sourceSha256','title','sourceKind'].filter(k=>b?.[k]!==undefined).map(k=>[k,b[k]]))})}));
- if(g.initialArtifact)sources.push({kind:'initial artifact',...g.initialArtifact});
- if(g.rampSource)sources.push({kind:g.rampSource.csvSha256?'local ramp CSV':'local ramp input',id:g.rampSource.id,version:g.rampSource.version});
+ const reviewRoute=g.selectedLocalWorkflow||g.localWorkflowReview||g.localWorkflow?.quickProcedure;
+ const quickScope=Boolean(g.localWorkflow?.routingPolicy);
+ const shownBindings=quickScope?(reviewRoute==='input-summary-workflow-104-v1'&&g.localWorkflow.dataset?{dataset:g.bindings044.dataset}:{}):(g.bindings044||{});
+ const sources=Object.entries(shownBindings).map(([kind,b])=>({kind,...(Array.isArray(b)?{ids:b}:{...Object.fromEntries(['id','datasetId','sceneId','worldId','objectId','pusherId','mapId','referenceId','sourceArtifactId','sourceVersion','sourceFile','version','expectedVersion','expectedRevision','expectedHash','sourceSha256','title','sourceKind'].filter(k=>b?.[k]!==undefined).map(k=>[k,b[k]]))})}));
+ if(g.initialArtifact&&!quickScope)sources.push({kind:'initial artifact',...g.initialArtifact});
+ if(g.rampSource&&(!quickScope||reviewRoute==='local-ramp-comparison-v1'))sources.push({kind:g.rampSource.csvSha256?'local ramp CSV':'local ramp input',id:g.rampSource.id,version:g.rampSource.version});
  let child=null;if(c.ownedRampMission)child=await api('/api/ramp-mission/read',{id:c.ownedRampMission});else if(c.ownedGoalId)child=await api('/api/goals/read',{id:c.ownedGoalId});else if(c.ownedWorkflowId)child=await api('/api/workflows/read',{id:c.ownedWorkflowId});else if(c.ownedGameTask115)child=await api('/api/game-tasks115/read',{id:c.ownedGameTask115});
  const result=g.report044?.artifact||g.completion044?.javaGoal?.report||g.completion044?.javaWorkflow?.report||g.report||g.artifact||child?.report||null;
  return{task,sources,evidence:g.completion044||{},child:child?Object.fromEntries(['id','status','step','stage','reason','procedure','metrics','audit','trials','repairs','counterfactual045','savedSkill','draftNumber','resumes','attempt','report','currentChild','implementation103','profile101','qualification104','qualification105','activeWorkflow105','cost105','auditHistory','graph','graphSha256','stages','diagnostics','worldBinding','inputFormat'].filter(k=>child[k]!==undefined).map(k=>[k,child[k]])):null,result,skill:g.savedRecipe||g.usedRecipe||g.completion044?.javaGoal?.savedSkill||g.completion044?.javaWorkflow?.savedSkill||child?.savedSkill||null,scope:'Actual retained Java task and source selections. A past result is not a new camera observation or proof of improved model weights.'};
