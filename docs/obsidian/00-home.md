@@ -1,3 +1,5 @@
+[Edition 174 — verified local procedure routing](182-local-ramp-routing.md)
+
 [Edition 173 — registered local experiment and CSV input](181-registered-local-experiment.md)
 
 [Edition 172 — browser-to-world experiment](180-browser-world-experiment.md)

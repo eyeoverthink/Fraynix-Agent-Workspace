@@ -1,5 +1,5 @@
 # Fraynix Agent Workspace
 
-[Edition 173 — a registered local experiment with CSV input](README-173.md) · [Previous edition](README-172.md) · [Offline companion](docs/readmes/173/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 174 — two verified local ramp procedures](README-174.md) · [Previous edition](README-173.md) · [Offline guide](docs/readmes/174/index.html) · [Full history](docs/readmes/INDEX.md)
 
-A form and an imported CSV used the same registered Java procedure. On the same CSV revision, direct execution and llama3.2:latest produced identical native samples and measured 2.083 m of travel. A crash before canvas verification preserved both physics runs and the saved report.
+gpt-oss:20b selected both procedures and asked for clarification on five fresh requests. Java asked for a missing setup on the sixth without calling the model. The paired report compared 0.056 m and 2.080 m on the same clock, with 18 matched replay samples per setup. The direct route finished with zero model calls.

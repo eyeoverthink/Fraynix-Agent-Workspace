@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 173,
+  "latest": 174,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -264109,6 +264109,80 @@
           "path": "docs/readmes/173/verification.json",
           "kind": "text",
           "sha256": "ef2a21fa9182907fd201d44a7bcc78756badb8840605aa759ee4f98c1c153d40"
+        }
+      ]
+    },
+    {
+      "number": 174,
+      "date": "2026-11-18",
+      "title": "Local model routing between two verified ramp procedures",
+      "status": "validated-local",
+      "markdown": "README-174.md",
+      "markdownSha256": "8af423e6400beda13abce8838805ba56db732c41f3ce98fa48d110ed8d8831eb",
+      "companion": "docs/readmes/174/index.html",
+      "tag": "readme-174",
+      "sourceBaseline": "3db7c1bf36dd448d4fae338d6dd29ae07cd5417d",
+      "snapshotDirectory": "docs/readmes/174",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/174/evidence-publication.json",
+          "kind": "text",
+          "sha256": "7989996709f69a2669f7db59d3f5abf606e132ec341b4d3503eb594ec3b4074f"
+        },
+        {
+          "path": "docs/readmes/174/file-inventory.json",
+          "kind": "text",
+          "sha256": "f7450259d7fb1a830b6a495b20e9f5fa6459044e093a2ce7838764dd341e7a12"
+        },
+        {
+          "path": "docs/readmes/174/guide.js",
+          "kind": "text",
+          "sha256": "3cd3d814df66704cbce214e1433cf7aa3cc258a0aaa0afae357b3302fbf7651e"
+        },
+        {
+          "path": "docs/readmes/174/index.html",
+          "kind": "text",
+          "sha256": "dddd3321a141e2794741389afd94bd766f9dbddc2da72fe3f4285c431369db05"
+        },
+        {
+          "path": "docs/readmes/174/original-evidence.json",
+          "kind": "text",
+          "sha256": "76d0ae3f34d19c494daf86f34679b9d4e86b1770295d5bcae7775e5042c57e53"
+        },
+        {
+          "path": "docs/readmes/174/paired-ramp-checkpoint.png",
+          "kind": "binary",
+          "sha256": "8a68075753f682327e0b5fbd54b0cf25a74295c5b02f34f3010e6b6038374c28"
+        },
+        {
+          "path": "docs/readmes/174/paired-ramp-input.png",
+          "kind": "binary",
+          "sha256": "ef3fa17067742790500530aed6670c881cda2c90f073af4aa4f062967c7ccf0f"
+        },
+        {
+          "path": "docs/readmes/174/paired-ramp-missing-input.png",
+          "kind": "binary",
+          "sha256": "b63c010a6501f7bda359ec627b904f2cb2ad6ef8ce204b8ca313e1b92899d738"
+        },
+        {
+          "path": "docs/readmes/174/paired-ramp-model-routing.png",
+          "kind": "binary",
+          "sha256": "fbb2277f7628c944a21c6a11f3fe879d2676edd27a57fe41d258efa81545a4b7"
+        },
+        {
+          "path": "docs/readmes/174/paired-ramp-verified.png",
+          "kind": "binary",
+          "sha256": "66fe1ce8661046d107dfad2b3a55d9e7356115cfe8cfcb5278daa9d839667efb"
+        },
+        {
+          "path": "docs/readmes/174/system-map.json",
+          "kind": "text",
+          "sha256": "2ce7d9b83c5882010dd0b05fa2bdba5c17e99dc514c74cb2a47ba40948886787"
+        },
+        {
+          "path": "docs/readmes/174/verification.json",
+          "kind": "text",
+          "sha256": "d97098d0ada43e3a845b84eeab45ef2be779d0df56ef0b1acff223f29ac58e2c"
         }
       ]
     }

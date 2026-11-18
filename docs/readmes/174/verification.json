@@ -1,0 +1,611 @@
+{
+  "passed": true,
+  "source": "3db7c1bf36dd448d4fae338d6dd29ae07cd5417d",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "workspaceJava": 59,
+    "classes": [
+      "RampComparisonTest",
+      "RampProcedureTest",
+      "RampMissionTest",
+      "RelayPlaytestTest",
+      "Agency043Test",
+      "ChatArchive112Test",
+      "BrowserOutcome126Test",
+      "SceneStoreTest",
+      "MeasurementStoreTest",
+      "WorkspaceServerBoundaryTest"
+    ],
+    "desktop": 181,
+    "archiveTests": 10
+  },
+  "registry": {
+    "sha256": "710e56f6bf0e11b4b40d8c2ac6769f6ed207052eb3998718884b594cd0788639",
+    "inputs": [
+      "form-v1",
+      "csv-v1"
+    ],
+    "modelSelection": {
+      "name": "ramp_select",
+      "description": "Select the registered local ramp experiment. Java binds its existing input revision and verifies every stage.",
+      "parameters": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "procedure": {
+            "type": "string",
+            "enum": [
+              "local-ramp-experiment-v1"
+            ]
+          }
+        },
+        "required": [
+          "procedure"
+        ]
+      }
+    },
+    "procedures": [
+      {
+        "sha256": "710e56f6bf0e11b4b40d8c2ac6769f6ed207052eb3998718884b594cd0788639",
+        "inputs": [
+          "form-v1",
+          "csv-v1"
+        ],
+        "modelSelection": {
+          "name": "ramp_select",
+          "description": "Select the registered local ramp experiment. Java binds its existing input revision and verifies every stage.",
+          "parameters": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "procedure": {
+                "type": "string",
+                "enum": [
+                  "local-ramp-experiment-v1"
+                ]
+              }
+            },
+            "required": [
+              "procedure"
+            ]
+          }
+        },
+        "stages": [
+          {
+            "output": "BROWSER_ROWS",
+            "owner": "chromium",
+            "input": "SOURCE_REVISION",
+            "id": "browser"
+          },
+          {
+            "output": "NATIVE_TRACE",
+            "owner": "java",
+            "input": "BROWSER_ROWS",
+            "id": "experiment"
+          },
+          {
+            "output": "REPLAY_COMPARISON",
+            "owner": "java",
+            "input": "NATIVE_TRACE",
+            "id": "replay"
+          },
+          {
+            "output": "REPORT_REVISION",
+            "owner": "java",
+            "input": "REPLAY_COMPARISON",
+            "id": "artifact"
+          },
+          {
+            "output": "CANVAS_RECEIPT",
+            "owner": "chromium",
+            "input": "REPORT_REVISION",
+            "id": "canvas"
+          }
+        ],
+        "id": "local-ramp-experiment-v1",
+        "version": 1,
+        "limits": {
+          "secondsMin": 0.25,
+          "secondsMax": 2,
+          "tickHz": 240,
+          "replayTolerance": 0.0001,
+          "sampleTicks": 12
+        }
+      },
+      {
+        "result": "two independently replayed trajectories and signed distance difference",
+        "sha256": "f898cf5ccd0286e4db04732260e1456e4da31e828c236527764d48284f23a008",
+        "inputs": [
+          "paired-csv-v1"
+        ],
+        "modelSelection": {
+          "name": "ramp_select",
+          "description": "Select the requested local ramp procedure or ask for clarification.",
+          "parameters": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "procedure": {
+                "type": "string",
+                "enum": [
+                  "local-ramp-experiment-v1",
+                  "local-ramp-comparison-v1",
+                  "clarify"
+                ]
+              }
+            },
+            "required": [
+              "procedure"
+            ]
+          }
+        },
+        "stages": [
+          {
+            "output": "BROWSER_ROWS",
+            "owner": "chromium",
+            "input": "SOURCE_REVISION",
+            "id": "browser"
+          },
+          {
+            "output": "NATIVE_TRACE",
+            "owner": "java",
+            "input": "BROWSER_ROWS",
+            "id": "experiment"
+          },
+          {
+            "output": "REPLAY_COMPARISON",
+            "owner": "java",
+            "input": "NATIVE_TRACE",
+            "id": "replay"
+          },
+          {
+            "output": "REPORT_REVISION",
+            "owner": "java",
+            "input": "REPLAY_COMPARISON",
+            "id": "artifact"
+          },
+          {
+            "output": "CANVAS_RECEIPT",
+            "owner": "chromium",
+            "input": "REPORT_REVISION",
+            "id": "canvas"
+          }
+        ],
+        "id": "local-ramp-comparison-v1",
+        "clock": "same duration",
+        "version": 1,
+        "limits": {
+          "secondsMin": 0.25,
+          "secondsMax": 2,
+          "tickHz": 240,
+          "replayTolerance": 0.0001,
+          "sampleTicks": 12
+        },
+        "requiredSetups": 2
+      }
+    ],
+    "stages": [
+      {
+        "output": "BROWSER_ROWS",
+        "owner": "chromium",
+        "input": "SOURCE_REVISION",
+        "id": "browser"
+      },
+      {
+        "output": "NATIVE_TRACE",
+        "owner": "java",
+        "input": "BROWSER_ROWS",
+        "id": "experiment"
+      },
+      {
+        "output": "REPLAY_COMPARISON",
+        "owner": "java",
+        "input": "NATIVE_TRACE",
+        "id": "replay"
+      },
+      {
+        "output": "REPORT_REVISION",
+        "owner": "java",
+        "input": "REPLAY_COMPARISON",
+        "id": "artifact"
+      },
+      {
+        "output": "CANVAS_RECEIPT",
+        "owner": "chromium",
+        "input": "REPORT_REVISION",
+        "id": "canvas"
+      }
+    ],
+    "id": "local-ramp-experiment-v1",
+    "version": 1,
+    "limits": {
+      "secondsMin": 0.25,
+      "secondsMax": 2,
+      "tickHz": 240,
+      "replayTolerance": 0.0001,
+      "sampleTicks": 12
+    }
+  },
+  "correctRoutes": 6,
+  "correctModelRoutes": 5,
+  "model": "gpt-oss:20b",
+  "routes": [
+    {
+      "id": "route-1",
+      "title": "Request 1 · First setup",
+      "request": "Plot the first ramp configuration and give its final distance.",
+      "expected": "First setup",
+      "selected": "First setup",
+      "by": "model",
+      "elapsedMs": 54933,
+      "outcome": "verified result",
+      "reason": "Java completion gates passed",
+      "modelCalls": 1
+    },
+    {
+      "id": "route-2",
+      "title": "Request 2 · First setup",
+      "request": "Report how setup A moves downhill. I only need that one trajectory.",
+      "expected": "First setup",
+      "selected": "First setup",
+      "by": "model",
+      "elapsedMs": 53373,
+      "outcome": "verified result",
+      "reason": "Java completion gates passed",
+      "modelCalls": 1
+    },
+    {
+      "id": "route-3",
+      "title": "Request 3 · Compare both",
+      "request": "Use the shared duration to tell me which setup goes farther.",
+      "expected": "Compare both",
+      "selected": "Compare both",
+      "by": "model",
+      "elapsedMs": 53454,
+      "outcome": "verified result",
+      "reason": "Java completion gates passed",
+      "modelCalls": 1
+    },
+    {
+      "id": "route-4",
+      "title": "Request 4 · Compare both",
+      "request": "Tell me how the saved slopes stack up against one another in downhill travel.",
+      "expected": "Compare both",
+      "selected": "Compare both",
+      "by": "model",
+      "elapsedMs": 55221,
+      "outcome": "verified result",
+      "reason": "Java completion gates passed",
+      "modelCalls": 1
+    },
+    {
+      "id": "route-5",
+      "title": "Request 5 · Clarification",
+      "request": "I have prepared ramp settings but I am still undecided about the output.",
+      "expected": "Clarification",
+      "selected": "Clarification",
+      "by": "model",
+      "elapsedMs": 53125,
+      "outcome": "no physics started",
+      "reason": "Do you want the first setup's trajectory or a comparison of both setups?",
+      "modelCalls": 1
+    },
+    {
+      "id": "route-6",
+      "title": "Request 6 · Clarification",
+      "request": "Can you compare both setups over the recorded duration?",
+      "expected": "Clarification",
+      "selected": "Clarification",
+      "by": "java",
+      "elapsedMs": 416,
+      "outcome": "no physics started",
+      "reason": "Add a second setup with the same duration in Ramp input, then start a new comparison.",
+      "modelCalls": 0
+    }
+  ],
+  "experiments": [
+    {
+      "route": "direct",
+      "source": {
+        "pageSha256": "129a3e6b431cd647cde64473edb20a584d0ad1447a9034e79ea2df53adddd693",
+        "path": "/artifact/40710769-b6a7-4cf5-ab44-b759c8dc5982/1/index.html",
+        "secondValues": {
+          "angleDeg": 18,
+          "seconds": 0.85,
+          "massKg": 1.2,
+          "friction": 0.31,
+          "gravityMps2": 9.81
+        },
+        "values": {
+          "angleDeg": 38,
+          "seconds": 0.85,
+          "massKg": 1.2,
+          "friction": 0.04,
+          "gravityMps2": 9.81
+        },
+        "dataSha256": "50d76a5fcd9cf2b164480a31fe6ded4beb5b617a5ecc2a7bd13378a57e0bd023",
+        "id": "40710769-b6a7-4cf5-ab44-b759c8dc5982",
+        "csvSha256": "603e50cb8e9fedf8e8e290eb47af8330a9ff79f8e2d469a663760b82b54d3bc7",
+        "version": 1
+      },
+      "audit": {
+        "observationSha256": "ac9c678d3a1af335d36a61128814f32ef90034dd151a5760e81fae064df94d85",
+        "sourceSha256": "1e25e6fb031e98d7691369b0269bfa65d8faadf4a1851b39d98ea9d6d6d2b877",
+        "seconds": 0.85,
+        "distanceDifferenceM": -2.023872864227441,
+        "setups": {
+          "first": {
+            "ticks": 204,
+            "kind": "local-ramp-experiment-v1",
+            "distanceM": 2.079974782018083,
+            "replaySha256": "76c60923047b7508d4bc509020abe01dd6216195145c0b674928bed2e5e0f3b0",
+            "backendSha256": "3e4bebf2a4a2dd873726bff6378ba236aff2e6b6e6e5f73749816d8e9e010be5",
+            "observationSha256": "ac9c678d3a1af335d36a61128814f32ef90034dd151a5760e81fae064df94d85",
+            "sampleCount": 18,
+            "sourceSha256": "bad18a2c649161b1667b8bfafb052cb131a720352c7bb619abf7d5b2cabda00e",
+            "seconds": 0.85,
+            "passed": true,
+            "maxPositionErrorM": 0,
+            "maxVelocityErrorMps": 0,
+            "tolerance": 0.0001,
+            "originalSha256": "3966982b1a94919d54778a97286d56b3a7d214bdf97762a864c29700ed32167a"
+          },
+          "second": {
+            "ticks": 204,
+            "kind": "local-ramp-experiment-v1",
+            "distanceM": 0.05610191779064216,
+            "replaySha256": "f3ff65f772170bafe3caf5132cb36d7ecccbf07e8f4660f7b24bea740c0b278a",
+            "backendSha256": "3e4bebf2a4a2dd873726bff6378ba236aff2e6b6e6e5f73749816d8e9e010be5",
+            "observationSha256": "ac9c678d3a1af335d36a61128814f32ef90034dd151a5760e81fae064df94d85",
+            "sampleCount": 18,
+            "sourceSha256": "f68f0f901e963846ecd003d85fb09f3629c3542b529f4172067c8c60cc00d739",
+            "seconds": 0.85,
+            "passed": true,
+            "maxPositionErrorM": 0,
+            "maxVelocityErrorMps": 0,
+            "tolerance": 0.0001,
+            "originalSha256": "6e1741e343aed25b670956b8ff2066ff713f110aff09bf057298a2df64065460"
+          }
+        },
+        "ticks": 204,
+        "samplesPerSetup": 18,
+        "kind": "local-ramp-comparison-v1",
+        "farther": "first",
+        "passed": true,
+        "replaySha256": "9ab4e8daa78b8421e24173d403b575a100947f245209ef5c4f2de3e4b2b6de0b",
+        "originalSha256": "c8f3ce74caa5e927bc4820cc5f9957c91ba00b8bbec0c4602ce7ece57161ca2c"
+      },
+      "report": {
+        "sha256": "2d91105e6dc26d61cee9166c35a9e689c5f78b3e89e62d592c3a72b2fd1bf08a",
+        "id": "716b1d40-fbb8-3742-a8b7-49e90c9ac831",
+        "version": 1
+      },
+      "elapsedMs": 2591,
+      "canvasChecks": 9
+    },
+    {
+      "route": "reversed",
+      "source": {
+        "pageSha256": "5d9a2cd4960d1cc5669040898e75189f27a07e4890b43fd51fa4336a84c71321",
+        "path": "/artifact/40710769-b6a7-4cf5-ab44-b759c8dc5982/2/index.html",
+        "secondValues": {
+          "angleDeg": 38,
+          "seconds": 0.85,
+          "massKg": 1.2,
+          "friction": 0.04,
+          "gravityMps2": 9.81
+        },
+        "values": {
+          "angleDeg": 18,
+          "seconds": 0.85,
+          "massKg": 1.2,
+          "friction": 0.31,
+          "gravityMps2": 9.81
+        },
+        "dataSha256": "a61c4f7a49953ef92842b494f6f95da997eae846df84f0db160a22900da0e034",
+        "id": "40710769-b6a7-4cf5-ab44-b759c8dc5982",
+        "csvSha256": "707dc6decd3bbeaae3fa0a3d6a32e34af386f511bb7650ec6fa6bea24d5cb33d",
+        "version": 2
+      },
+      "audit": {
+        "observationSha256": "1119509c0a87305d0c006add3cf09f04e048efaaeb03d94c51597fbe6ca7c3f8",
+        "sourceSha256": "bdb9f81611d64e989f7cc5fc6bca0f698e222c976e83dbecf6d465c6c4d0ec5c",
+        "seconds": 0.85,
+        "distanceDifferenceM": 2.023872864227441,
+        "setups": {
+          "first": {
+            "ticks": 204,
+            "kind": "local-ramp-experiment-v1",
+            "distanceM": 0.05610191779064216,
+            "replaySha256": "ad075f4ce048b48e5da8e4b3b884b3976ca1d8f7d2205563b384fb737e2fe0c4",
+            "backendSha256": "3e4bebf2a4a2dd873726bff6378ba236aff2e6b6e6e5f73749816d8e9e010be5",
+            "observationSha256": "1119509c0a87305d0c006add3cf09f04e048efaaeb03d94c51597fbe6ca7c3f8",
+            "sampleCount": 18,
+            "sourceSha256": "d53d3931ed4cc5cf074e92a4a588667a22a5e9d07eb6c7ee367ebdb5a0249299",
+            "seconds": 0.85,
+            "passed": true,
+            "maxPositionErrorM": 0,
+            "maxVelocityErrorMps": 0,
+            "tolerance": 0.0001,
+            "originalSha256": "9ba94738b1d08f5e7fcbac8dd87527acc8a5e090ec1090254bfb736bf01cec94"
+          },
+          "second": {
+            "ticks": 204,
+            "kind": "local-ramp-experiment-v1",
+            "distanceM": 2.079974782018083,
+            "replaySha256": "47be959186d3c87fcd322bd0e8ef64b3ab4e425b76f596b802de6c79bd47130b",
+            "backendSha256": "3e4bebf2a4a2dd873726bff6378ba236aff2e6b6e6e5f73749816d8e9e010be5",
+            "observationSha256": "1119509c0a87305d0c006add3cf09f04e048efaaeb03d94c51597fbe6ca7c3f8",
+            "sampleCount": 18,
+            "sourceSha256": "d7ed0d9075a7f7daa0e08aae055ad13c154c24b1f9112de9802d4941691c09d2",
+            "seconds": 0.85,
+            "passed": true,
+            "maxPositionErrorM": 0,
+            "maxVelocityErrorMps": 0,
+            "tolerance": 0.0001,
+            "originalSha256": "77ae3d77e938f3fafb23fa13d7a53f17271abd39900e640275080a01a4d6a119"
+          }
+        },
+        "ticks": 204,
+        "samplesPerSetup": 18,
+        "kind": "local-ramp-comparison-v1",
+        "farther": "second",
+        "passed": true,
+        "replaySha256": "5c7ffa001e0782624ba25f965771ce876974916cfe100a06a4d8e754560d4ee5",
+        "originalSha256": "6abd6337c66ffe884299869cd3c60f5c4ea2e4bf12994647fc5554503089efe9"
+      },
+      "report": {
+        "sha256": "ceb5355bcd005edda65197b758f29a886b57a2b07d96daf1796ced48bd6e5fae",
+        "id": "ad13ec6e-64cd-374b-b87a-a95c8ed82bf8",
+        "version": 1
+      },
+      "elapsedMs": 2168,
+      "canvasChecks": 9
+    }
+  ],
+  "recoveredOriginalStages": true,
+  "priorArchive": {
+    "passed": true,
+    "source": "3db7c1bf36dd448d4fae338d6dd29ae07cd5417d",
+    "priorSource": "4030a764bff115d9f170162636e254d5a4005585",
+    "originalMission": "99d5829f-7874-4c09-8de9-faff8940c149",
+    "unchangedReport": {
+      "sha256": "30780d23b6653fb19b9221efe97c8b769ffff665b7cbc6509beebf51ce2befdd",
+      "id": "28b6e884-44e9-3167-bf99-d6a2790b3f65",
+      "version": 1
+    },
+    "unchangedAudit": {
+      "ticks": 199,
+      "kind": "local-ramp-experiment-v1",
+      "distanceM": 2.0825516724662467,
+      "replaySha256": "ddf25383dce3cd94b455e376fcceb8ad020c4e5ad1d866f3b5a284f861c21c45",
+      "backendSha256": "3e4bebf2a4a2dd873726bff6378ba236aff2e6b6e6e5f73749816d8e9e010be5",
+      "observationSha256": "6eef79cef5a185a81490deb5f58d51fd09d38438252df67539134f2bbced1770",
+      "sampleCount": 18,
+      "sourceSha256": "cd84b5aff12d136067e70d237f3e7fc31685bcaba56c892e5437304a52fb9817",
+      "seconds": 0.8291666666666666,
+      "passed": true,
+      "maxPositionErrorM": 0,
+      "maxVelocityErrorMps": 0,
+      "tolerance": 0.0001,
+      "originalSha256": "8fe11d2d129a67e68bd4374e5f11379512c3d87cb4cbc545c1404d2307546ebf"
+    },
+    "archivedProof": {
+      "evidenceSha256": "7f0c02bd9554e4bf02c6b3abbde862d2cfa3dccadd49491990b580eb4c010ea9",
+      "report": {
+        "sha256": "30780d23b6653fb19b9221efe97c8b769ffff665b7cbc6509beebf51ce2befdd",
+        "id": "28b6e884-44e9-3167-bf99-d6a2790b3f65",
+        "version": 1
+      },
+      "id": "99d5829f-7874-4c09-8de9-faff8940c149"
+    }
+  },
+  "plannedResumeWithModelsDisabled": {
+    "passed": true,
+    "source": "3db7c1bf36dd448d4fae338d6dd29ae07cd5417d",
+    "model": "gpt-oss:20b",
+    "modelCallsBefore": 1,
+    "modelCallsAfter": 1,
+    "browserReceipt": {
+      "sha256": "be54b33095e0846f58ab39eb2c5c2e523f4cc1570cb2af496d78ab97533e35bb",
+      "name": "browser",
+      "status": "verified"
+    },
+    "outcome": {
+      "observationSha256": "be54b33095e0846f58ab39eb2c5c2e523f4cc1570cb2af496d78ab97533e35bb",
+      "sourceSha256": "7adf989e568f334ec05fc0b1fd765f49fb515139b38a11e5086957400a76a14a",
+      "seconds": 0.7083333333333334,
+      "distanceDifferenceM": 0.24262465216524254,
+      "setups": {
+        "first": {
+          "ticks": 170,
+          "kind": "local-ramp-experiment-v1",
+          "distanceM": 0.9474269454511975,
+          "replaySha256": "33b037dca2a866da2f2dfa2f3eedc7a5fa73fcfb5d26e6a161d0a6c7b72a813d",
+          "backendSha256": "3e4bebf2a4a2dd873726bff6378ba236aff2e6b6e6e5f73749816d8e9e010be5",
+          "observationSha256": "be54b33095e0846f58ab39eb2c5c2e523f4cc1570cb2af496d78ab97533e35bb",
+          "sampleCount": 16,
+          "sourceSha256": "278bbe0ef24a3b3aae628a094a84474fb5a5e4f4c31a4b90ee7f293eee3fed7a",
+          "seconds": 0.7083333333333334,
+          "passed": true,
+          "maxPositionErrorM": 0,
+          "maxVelocityErrorMps": 0,
+          "tolerance": 0.0001,
+          "originalSha256": "9b2f31478b5b01dd39c6337961a8b7896ef9aace7710626d55850db88577601b"
+        },
+        "second": {
+          "ticks": 170,
+          "kind": "local-ramp-experiment-v1",
+          "distanceM": 1.19005159761644,
+          "replaySha256": "900ed68ec9694e077d2cf5f13a85f13e3968c0f59c830292529d8611ab88b6de",
+          "backendSha256": "3e4bebf2a4a2dd873726bff6378ba236aff2e6b6e6e5f73749816d8e9e010be5",
+          "observationSha256": "be54b33095e0846f58ab39eb2c5c2e523f4cc1570cb2af496d78ab97533e35bb",
+          "sampleCount": 16,
+          "sourceSha256": "4b3ebb30eab49052b4c11572cb986ee1fc709e3b5b1c6d8fdf153dd9f7d9656f",
+          "seconds": 0.7083333333333334,
+          "passed": true,
+          "maxPositionErrorM": 0,
+          "maxVelocityErrorMps": 0,
+          "tolerance": 0.0001,
+          "originalSha256": "bf9f13705c0728ce9491d99e1ab0d81ab9f2343283acfe2a31ec0e7d5b1e7f3e"
+        }
+      },
+      "ticks": 170,
+      "samplesPerSetup": 16,
+      "kind": "local-ramp-comparison-v1",
+      "farther": "second",
+      "passed": true,
+      "replaySha256": "b0559638359390b96c99c93824668e65da3cde2fa2548c273afbfd397bca1aa2",
+      "originalSha256": "b0cfbbc8e2347e664d8cbfc8bdba6d340d7a8f6b146304bd7ff986e27ab517e8"
+    }
+  },
+  "initialLlamaWrongChoiceBlocked": true,
+  "initialGptCorrectRoutes": 5,
+  "initialGptWrongChoiceBlocked": true,
+  "ciFirst": {
+    "checkedAtUtc": "2026-11-18T19:42:09.595719+00:00",
+    "runs": [
+      {
+        "id": 44355714563,
+        "head_sha": "d3b207c3ea6b0bbaa758441de23c194d62b1177c",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44355714563",
+        "created_at": "2026-11-18T17:10:48Z",
+        "updated_at": "2026-11-18T17:10:52Z"
+      },
+      {
+        "id": 44350412744,
+        "head_sha": "19ab85caa1f9c68a2f13d9635c9ebfaa6f404056",
+        "event": "push",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44350412744",
+        "created_at": "2026-11-18T16:42:55Z",
+        "updated_at": "2026-11-18T16:42:59Z"
+      },
+      {
+        "id": 44314310470,
+        "head_sha": "57972d3eb8ee82153af8d1a3c340069dab8220e8",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44314310470",
+        "created_at": "2026-11-18T13:29:59Z",
+        "updated_at": "2026-11-18T19:05:41Z"
+      },
+      {
+        "id": 44308803198,
+        "head_sha": "320d34fba0667d0deec821008aff1f7fccaadc1e",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44308803198",
+        "created_at": "2026-11-18T12:57:01Z",
+        "updated_at": "2026-11-18T18:50:18Z"
+      }
+    ]
+  }
+}

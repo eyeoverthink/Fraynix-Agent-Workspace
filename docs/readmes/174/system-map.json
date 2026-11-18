@@ -1,0 +1,332 @@
+{
+  "summary": "gpt-oss:20b selected both procedures and asked for clarification on five fresh requests. Java asked for a missing setup on the sixth without calling the model. The paired report compared 0.056 m and 2.080 m on the same clock, with 18 matched replay samples per setup. The direct route finished with zero model calls.",
+  "runs": [
+    {
+      "id": "direct",
+      "title": "First setup travels farther",
+      "duration": 0.85,
+      "clock": "2.59 s to a verified report · zero model calls",
+      "description": "First setup 38° · second setup 18°",
+      "points": [
+        {
+          "seconds": 0,
+          "original": -3.849686208088928e-08,
+          "replay": -1.4590959093343233e-07
+        },
+        {
+          "seconds": 0.05,
+          "original": 0.00780212189627094,
+          "replay": 0.0007410686999589757
+        },
+        {
+          "seconds": 0.1,
+          "original": 0.029885588888426344,
+          "replay": 0.0015629497368722018
+        },
+        {
+          "seconds": 0.15,
+          "original": 0.06629779256400821,
+          "replay": 0.002761055199289176
+        },
+        {
+          "seconds": 0.2,
+          "original": 0.1170379110976158,
+          "replay": 0.004309179540863043
+        },
+        {
+          "seconds": 0.25,
+          "original": 0.18210006965687237,
+          "replay": 0.006205254127232615
+        },
+        {
+          "seconds": 0.3,
+          "original": 0.26149003716610236,
+          "replay": 0.00844929040512811
+        },
+        {
+          "seconds": 0.35,
+          "original": 0.3552083304460585,
+          "replay": 0.011041430001969853
+        },
+        {
+          "seconds": 0.4,
+          "original": 0.4632475257014231,
+          "replay": 0.013981599242365127
+        },
+        {
+          "seconds": 0.45,
+          "original": 0.5856050780579001,
+          "replay": 0.017269577100135783
+        },
+        {
+          "seconds": 0.5,
+          "original": 0.7222727884890427,
+          "replay": 0.020905811351003226
+        },
+        {
+          "seconds": 0.55,
+          "original": 0.8732619766017508,
+          "replay": 0.02488970114509551
+        },
+        {
+          "seconds": 0.6,
+          "original": 1.038573993226216,
+          "replay": 0.02922184733228458
+        },
+        {
+          "seconds": 0.65,
+          "original": 1.2182152646399893,
+          "replay": 0.03391261524948312
+        },
+        {
+          "seconds": 0.7,
+          "original": 1.412176556247425,
+          "replay": 0.038930517615529084
+        },
+        {
+          "seconds": 0.75,
+          "original": 1.6204631207946603,
+          "replay": 0.04430579495327343
+        },
+        {
+          "seconds": 0.8,
+          "original": 1.8430591152080804,
+          "replay": 0.05002991808725629
+        },
+        {
+          "seconds": 0.85,
+          "original": 2.079974782018083,
+          "replay": 0.05610191779064216
+        }
+      ]
+    },
+    {
+      "id": "reversed",
+      "title": "Reversed order",
+      "duration": 0.85,
+      "clock": "2.17 s to a verified report · zero model calls",
+      "description": "First setup 18° · second setup 38°",
+      "points": [
+        {
+          "seconds": 0,
+          "original": -1.4590959093343233e-07,
+          "replay": -3.849686208088928e-08
+        },
+        {
+          "seconds": 0.05,
+          "original": 0.0007410686999589757,
+          "replay": 0.00780212189627094
+        },
+        {
+          "seconds": 0.1,
+          "original": 0.0015629497368722018,
+          "replay": 0.029885588888426344
+        },
+        {
+          "seconds": 0.15,
+          "original": 0.002761055199289176,
+          "replay": 0.06629779256400821
+        },
+        {
+          "seconds": 0.2,
+          "original": 0.004309179540863043,
+          "replay": 0.1170379110976158
+        },
+        {
+          "seconds": 0.25,
+          "original": 0.006205254127232615,
+          "replay": 0.18210006965687237
+        },
+        {
+          "seconds": 0.3,
+          "original": 0.00844929040512811,
+          "replay": 0.26149003716610236
+        },
+        {
+          "seconds": 0.35,
+          "original": 0.011041430001969853,
+          "replay": 0.3552083304460585
+        },
+        {
+          "seconds": 0.4,
+          "original": 0.013981599242365127,
+          "replay": 0.4632475257014231
+        },
+        {
+          "seconds": 0.45,
+          "original": 0.017269577100135783,
+          "replay": 0.5856050780579001
+        },
+        {
+          "seconds": 0.5,
+          "original": 0.020905811351003226,
+          "replay": 0.7222727884890427
+        },
+        {
+          "seconds": 0.55,
+          "original": 0.02488970114509551,
+          "replay": 0.8732619766017508
+        },
+        {
+          "seconds": 0.6,
+          "original": 0.02922184733228458,
+          "replay": 1.038573993226216
+        },
+        {
+          "seconds": 0.65,
+          "original": 0.03391261524948312,
+          "replay": 1.2182152646399893
+        },
+        {
+          "seconds": 0.7,
+          "original": 0.038930517615529084,
+          "replay": 1.412176556247425
+        },
+        {
+          "seconds": 0.75,
+          "original": 0.04430579495327343,
+          "replay": 1.6204631207946603
+        },
+        {
+          "seconds": 0.8,
+          "original": 0.05002991808725629,
+          "replay": 1.8430591152080804
+        },
+        {
+          "seconds": 0.85,
+          "original": 0.05610191779064216,
+          "replay": 2.079974782018083
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-1",
+      "title": "Request 1 · First setup",
+      "request": "Plot the first ramp configuration and give its final distance.",
+      "expected": "First setup",
+      "selected": "First setup",
+      "by": "model",
+      "elapsedMs": 54933,
+      "outcome": "verified result",
+      "reason": "Java completion gates passed",
+      "modelCalls": 1
+    },
+    {
+      "id": "route-2",
+      "title": "Request 2 · First setup",
+      "request": "Report how setup A moves downhill. I only need that one trajectory.",
+      "expected": "First setup",
+      "selected": "First setup",
+      "by": "model",
+      "elapsedMs": 53373,
+      "outcome": "verified result",
+      "reason": "Java completion gates passed",
+      "modelCalls": 1
+    },
+    {
+      "id": "route-3",
+      "title": "Request 3 · Compare both",
+      "request": "Use the shared duration to tell me which setup goes farther.",
+      "expected": "Compare both",
+      "selected": "Compare both",
+      "by": "model",
+      "elapsedMs": 53454,
+      "outcome": "verified result",
+      "reason": "Java completion gates passed",
+      "modelCalls": 1
+    },
+    {
+      "id": "route-4",
+      "title": "Request 4 · Compare both",
+      "request": "Tell me how the saved slopes stack up against one another in downhill travel.",
+      "expected": "Compare both",
+      "selected": "Compare both",
+      "by": "model",
+      "elapsedMs": 55221,
+      "outcome": "verified result",
+      "reason": "Java completion gates passed",
+      "modelCalls": 1
+    },
+    {
+      "id": "route-5",
+      "title": "Request 5 · Clarification",
+      "request": "I have prepared ramp settings but I am still undecided about the output.",
+      "expected": "Clarification",
+      "selected": "Clarification",
+      "by": "model",
+      "elapsedMs": 53125,
+      "outcome": "no physics started",
+      "reason": "Do you want the first setup's trajectory or a comparison of both setups?",
+      "modelCalls": 1
+    },
+    {
+      "id": "route-6",
+      "title": "Request 6 · Clarification",
+      "request": "Can you compare both setups over the recorded duration?",
+      "expected": "Clarification",
+      "selected": "Clarification",
+      "by": "java",
+      "elapsedMs": 416,
+      "outcome": "no physics started",
+      "reason": "Add a second setup with the same duration in Ramp input, then start a new comparison.",
+      "modelCalls": 0
+    }
+  ],
+  "modules": [
+    {
+      "id": "catalog",
+      "title": "Local procedure registry",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RampProcedure.java",
+      "description": "Offers the two registered outcomes and checks the local model choice against the request and source.",
+      "note": "docs/obsidian/182-local-ramp-routing.md"
+    },
+    {
+      "id": "comparison",
+      "title": "Paired simulation and tolerance checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RampComparison.java",
+      "description": "Verifies both independent replays on a common clock and renders the measured comparison.",
+      "note": "docs/obsidian/182-local-ramp-routing.md"
+    },
+    {
+      "id": "runtime",
+      "title": "Durable Java task",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RampMission.java",
+      "description": "Binds the source, resumes from confirmed stage receipts and independently recomputes reports.",
+      "note": "docs/obsidian/182-local-ramp-routing.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "paired-ramp-verified.png",
+      "path": "docs/readmes/174/paired-ramp-verified.png",
+      "title": "Review the verified paired report"
+    },
+    {
+      "file": "paired-ramp-input.png",
+      "path": "docs/readmes/174/paired-ramp-input.png",
+      "title": "Import the paired configurations"
+    },
+    {
+      "file": "paired-ramp-checkpoint.png",
+      "path": "docs/readmes/174/paired-ramp-checkpoint.png",
+      "title": "Retain the comparison checkpoint"
+    },
+    {
+      "file": "paired-ramp-missing-input.png",
+      "path": "docs/readmes/174/paired-ramp-missing-input.png",
+      "title": "Ask for the missing setup"
+    },
+    {
+      "file": "paired-ramp-model-routing.png",
+      "path": "docs/readmes/174/paired-ramp-model-routing.png",
+      "title": "Inspect the model-selected comparison"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/174/verification.json"
+    }
+  ]
+}
