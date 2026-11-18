@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace — edition 166
 
+[Published and fetched receipt](docs/PUBLICATION_166.json) · [Release tag](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/tree/readme-166)
+
 **2026-11-18 UTC · Consolidating the integrated Java agent without losing its evidence.**
 
 [Previous edition](README-165.md) · [Edition history](docs/readmes/INDEX.md) · [Offline interactive guide](docs/readmes/166/index.html) · [Architecture renewal](docs/ARCHITECTURE_RENEWAL_PLAN.md) · [Contributor continuity](README-CONTRIBUTORS.md)

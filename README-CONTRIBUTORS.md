@@ -1,3 +1,7 @@
+## Edition 166 — published and fetched back
+
+2026-11-18 UTC. Release 3041d25956080d18035643aaa809f4965c93c394; main, edition166 and readme-166 pushed atomically and fetched. All source inventory and historical frozen hashes verified from fetched Git objects. See docs/PUBLICATION_166.json. Eighteen routes extracted; ten old workflows and ten fresh requests verified. Small local clone built/tested; original history retained. Asset rights and full archival migration remain pending. No new physical accuracy or model training claimed.
+
 ## Edition 166 — locally verified; publication pending
 
 The initial full documentation audit was stopped after reading8.62GB through about2.13million small reads. The binary SHA-256 path now uses a64KiB sequential file buffer, retaining the same bytes, hash algorithm, text canonicalization and sharing rule. Four alternating hashes match an existing published binary; a changed copy is refused and its original remains unchanged. These short local timings are affected by caching and do not establish a general speed improvement. The complete documentation check is rerun with every frozen source and link check preserved. This maintenance-tool change does not affect the app runtime or its locked workflow trials.
