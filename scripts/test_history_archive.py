@@ -1,4 +1,5 @@
 import json
+import gzip
 from pathlib import Path
 import subprocess
 import tempfile
@@ -65,6 +66,9 @@ class HistoryArchiveTest(unittest.TestCase):
         path.write_text(json.dumps(self.catalog))
         checksum = history.digest(path.read_bytes())
         self.assertEqual(history.load_catalog(path, checksum), self.catalog)
+        compressed = self.root/'catalog.json.gz'
+        compressed.write_bytes(gzip.compress(path.read_bytes(), mtime=0))
+        self.assertEqual(history.load_catalog(compressed, history.digest(compressed.read_bytes())), self.catalog)
         path.write_text(path.read_text()+' ')
         with self.assertRaises(ValueError):
             history.load_catalog(path, checksum)

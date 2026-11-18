@@ -5,6 +5,7 @@ The catalog itself must be pinned by a separately retained SHA-256 digest.
 """
 from pathlib import Path
 import argparse
+import gzip
 import hashlib
 import json
 import re
@@ -107,7 +108,7 @@ def load_catalog(path, expected_sha256):
     raw = Path(path).read_bytes()
     if digest(raw) != expected_sha256:
         raise ValueError('Untrusted catalog digest')
-    value = json.loads(raw)
+    value = json.loads(gzip.decompress(raw) if Path(path).suffix == '.gz' else raw)
     if value['format'] != 'fraynix.history-catalog/v1':
         raise ValueError('Unknown catalog format')
     names = set()

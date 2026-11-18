@@ -1,6 +1,7 @@
 """One reversible, local-only archive and small-checkout rehearsal."""
 from pathlib import Path
 import json
+import gzip
 import os
 import shutil
 import subprocess
@@ -28,6 +29,7 @@ def prepare():
     with history.GitEvidence(ROOT, BASE) as source:
         value = history.catalog(source)
         write(OUT/'catalog.json', value)
+        (OUT/'catalog.json.gz').write_bytes(gzip.compress((OUT/'catalog.json').read_bytes(), mtime=0))
         write(OUT/'assets.json', asset_inventory.inventory(source))
         names = [row['path'] for row in value['files'] if row['edition'] == 164]
         restored = history.restore(value, names, OUT/'original164', git=source)
@@ -42,6 +44,7 @@ def prepare():
                              if name.startswith('docs/readmes/'))
         write(OUT/'preparation.json', {'passed': True, 'sourceCommit': BASE,
               'catalogSha256': history.digest((OUT/'catalog.json').read_bytes()),
+              'compressedCatalogSha256': history.digest((OUT/'catalog.json.gz').read_bytes()),
               'verifiedFrozenFiles': len(value['files']), 'trackedTreeBytes': tree_bytes,
               'snapshotTreeBytes': snapshot_bytes, 'restoredFromGit': restored,
               'restoredFromArchive': back, 'seconds': time.perf_counter()-start,
@@ -68,11 +71,11 @@ def candidate():
             target.write_bytes(source.read(name))
             kept.append({'path': name, 'bytes': row['bytes'], 'blob': row['blob']})
     # The catalog is evidence outside Git in the main repository, included here for rehearsal.
-    shutil.copy2(OUT/'catalog.json', clean/'history-catalog.json')
+    shutil.copy2(OUT/'catalog.json.gz', clean/'history-catalog.json.gz')
     prep = json.loads((OUT/'preparation.json').read_bytes())
     note = ('# Local migration rehearsal\n\nNot a distribution or rights-cleared release. '
             'Older evidence payloads are omitted from this candidate only. Original history remains '
-            'in Fraynix-Agent-Workspace at '+BASE+'. The catalog SHA-256 is '+prep['catalogSha256']+
+            'in Fraynix-Agent-Workspace at '+BASE+'. The compressed catalog SHA-256 is '+prep['compressedCatalogSha256']+
             '. Use scripts/history_archive.py with this pinned catalog and either the original '
             'repository or a verified archive to restore requested paths into a NEW directory. '
             'Do not discard original history. Historical README image links are not offline until '
@@ -93,7 +96,7 @@ def candidate():
     git('clone', '--no-local', str(clean), str(clone), cwd=OUT)
     clone_seconds = time.perf_counter()-start
     clone_bytes = sum(p.stat().st_size for p in (clone/'.git').rglob('*') if p.is_file())
-    tree_bytes = sum(row['bytes'] for row in kept) + (clean/'history-catalog.json').stat().st_size + len(note.encode())
+    tree_bytes = sum(row['bytes'] for row in kept) + (clean/'history-catalog.json.gz').stat().st_size + len(note.encode())
     write(OUT/'candidate-files.json', kept)
     env = dict(os.environ, JAVA_HOME='C:/Program Files/Eclipse Adoptium/jdk-21.0.10.7-hotspot')
     command = [str(clone/'gradlew.bat'), '--no-daemon', '--max-workers=1',
