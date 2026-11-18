@@ -52,8 +52,11 @@ async function main() {
   async function open(course) {
     await page.locator('#game-course-choice').selectOption(course.id);
     await page.locator('#game-play-course').click();
-    await page.waitForFunction(title =>
-      document.querySelector('#game-course-progress')?.textContent.startsWith(title), course.title);
+    await page.waitForFunction(title => {
+      const progress = document.querySelector('#game-course-progress');
+      return progress && !progress.parentElement.hidden && progress.textContent.startsWith(title)
+        && document.querySelector('#game-status').textContent.includes('tick 0 ·');
+    }, course.title);
     const state = await frame();
     assert.equal(state.contentId, course.id);
     assert.equal(state.railNavigation, undefined);
@@ -103,7 +106,6 @@ async function main() {
         // Reopen the course to give each pace an independent starting process and memory.
         if (record.runs.length) {
           await page.locator('#game-close').click();
-          await page.waitForFunction(() => document.querySelector('#game-status').textContent.includes('Runtime closed'));
           await page.waitForFunction(() => document.querySelector('#game-course-progress').parentElement.hidden);
         }
         const initial = await open(course);
@@ -140,14 +142,16 @@ async function main() {
     await waitTick(0);
     assert.equal((await frame()).railNavigation, undefined);
     const targetX = Number(await page.locator('#game-target').inputValue());
-    let current;
+    let current, inPair = false;
     for (let attempt = 0; attempt < 135; attempt++) {
       current = await command({action: 'ai-step', ticks: 2, targetX, railPace: 'careful'});
       const nav = current.railNavigation;
       const first = nav.rails[0].bounds;
-      if (nav.state === 'Jumping over 2 rails' && current.player.x >= first.left && current.player.x <= first.right) break;
+      inPair = nav.state === 'Jumping over 2 rails' && current.player.x >= first.left
+        && current.player.x <= first.right && current.player.y > first.top + .15;
+      if (inPair) break;
     }
-    assert.equal(current.railNavigation.state, 'Jumping over 2 rails');
+    assert(inPair, 'Capture the real paired flight above the first fixture');
     await waitTick(current.tick);
     assert.match(await status().textContent(), /AI jumping over 2 rails/);
     result.pairedCapture = compact(current);
