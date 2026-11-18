@@ -104,7 +104,7 @@ async function main() {
 
   async function submit(label, briefing, mode = 'Route') {
     const text = mode + ' a local workflow: ' + briefing;
-    const previous = new Set((await api('/api/agency043/state')).tasks.map(task => task.id));
+    const previous = new Set((await api('/api/agency043/state', {})).tasks.map(task => task.id));
     await page.locator('#goal').fill(text);
     await until(() => page.locator('#run').isEnabled(), 'available Chat dispatch');
     const started = performance.now();
