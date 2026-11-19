@@ -10,6 +10,7 @@ import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.util.Base64;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 /** Local review, exact source binding and verified export for the request workbench. */
@@ -27,6 +28,8 @@ final class RequestWorkbench {
     JSONObject suggest(JSONObject input, Planner planner) throws Exception {
         SpatialScene.keys(input, "request", "model", "useModel");
         String text = RequestLanguage.request(input);
+        var dataChoice = dataChoice(text);
+        if (dataChoice != null) return retain(text, dataChoice);
         var chain = FrayChain.fromRequest(text);
         if (chain != null) return retainChain(text, chain);
         String key = RequestLanguage.key(text);
@@ -43,8 +46,18 @@ final class RequestWorkbench {
     }
 
     synchronized JSONObject chat(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "request");
+        SpatialScene.keys(input, "request", "teacherId");
         String text = RequestLanguage.request(input);
+        var teach = FrayDataTool.TEACH.matcher(text);
+        try {
+            if (teach.matches())
+                return new JSONObject().put("matched", true).put("lesson",
+                        saveDataLesson(teach.group(1).toLowerCase(Locale.ROOT), input.optString("teacherId")));
+            var dataChoice = dataChoice(text);
+            if (dataChoice != null) return new JSONObject().put("matched", true).put("task", retain(text, dataChoice));
+        } catch (IllegalArgumentException | IllegalStateException refused) {
+            return new JSONObject().put("matched", true).put("refusal", refused.getMessage());
+        }
         FrayChain chain;
         try {
             chain = FrayChain.fromRequest(text);
@@ -61,6 +74,99 @@ final class RequestWorkbench {
         return new JSONObject().put("matched", true).put("task", retain(text, choice));
     }
 
+    private synchronized JSONObject dataChoice(String text) throws Exception {
+        var build = FrayDataTool.BUILD.matcher(text);
+        var use = FrayDataTool.USE.matcher(text);
+        JSONObject lesson = use.matches() ? checkedDataLesson(use.group(1).toLowerCase(Locale.ROOT)) : null;
+        if (lesson == null && !build.matches()) return null;
+        String column = lesson != null ? lesson.getString("column")
+                : build.group(1).toLowerCase(Locale.ROOT).startsWith("celsius") ? "celsius" : "inches";
+        var choice = RequestLanguage.view(RequestLanguage.Intent.FRAY_DATA, "java")
+                .put("column", column);
+        if (lesson != null) choice.put("lesson", lesson);
+        return choice;
+    }
+
+    private static FrayDataTool dataTool(JSONObject task) {
+        return new FrayDataTool(task.getJSONObject("choice").getString("column"));
+    }
+
+    private record ReviewedData(FrayDataTool tool, FrayDataTool.Input input, JSONObject lesson) {}
+
+    private JSONObject dataLesson(JSONObject task) throws Exception {
+        var pinned = task.getJSONObject("choice").optJSONObject("lesson");
+        if (pinned == null) return null;
+        var current = checkedDataLesson(pinned.getString("name"));
+        if (!pinned.similar(current) || !current.getString("column").equals(dataTool(task).column))
+            throw new IllegalStateException("The reviewed teaching lesson changed");
+        return current;
+    }
+
+    private ReviewedData reviewedData(JSONObject task, JSONObject source) throws Exception {
+        byte[] bytes = decode(source.getString("base64"));
+        if (bytes.length != source.getInt("size") || !PerceptionStore.hash(bytes).equals(source.getString("sha256")))
+            throw new IllegalStateException("The attached CSV changed");
+        var lesson = dataLesson(task);
+        var tool = dataTool(task);
+        var data = tool.input(bytes);
+        if (lesson != null && data.numericValues().stream().allMatch(lesson.getJSONArray("exampleValues").toList()::contains))
+            throw new IllegalArgumentException("Attach a fresh CSV containing a measurement absent from the teaching example");
+        return new ReviewedData(tool, data, lesson);
+    }
+
+    private JSONObject teacherProof(JSONObject teacher, String name) throws Exception {
+        if (intent(teacher) != RequestLanguage.Intent.FRAY_DATA || !"verified".equals(teacher.getString("status"))
+                || teacher.getJSONObject("choice").has("lesson"))
+            throw new IllegalStateException("Teach from a verified original CSV tool");
+        var verified = proof(teacher);
+        var tool = dataTool(teacher);
+        var source = teacher.getJSONObject("source");
+        var values = reviewedData(teacher, source).input().numericValues();
+        return new JSONObject().put("name", name).put("column", tool.column).put("programSha256", tool.programHash())
+                .put("teacherId", teacher.getString("id")).put("teacherArtifact", verified.getJSONObject("artifact"))
+                .put("teacherSourceSha256", source.getString("sha256")).put("exampleValues", values);
+    }
+
+    private JSONObject checkedDataLesson(String name) throws Exception {
+        var lesson = dataLessonBank().optJSONObject(name);
+        if (lesson == null) throw new IllegalArgumentException("No data-to-tool lesson named " + name);
+        var teacher = load(new JSONObject().put("id", lesson.getString("teacherId")));
+        if (!lesson.similar(teacherProof(teacher, name))) throw new IllegalStateException("The original teaching evidence changed");
+        return lesson;
+    }
+
+    private JSONObject dataLessonBank() throws Exception {
+        ensureDirectory();
+        var file = directory.resolve("data-tool-lessons.json");
+        if (!Files.exists(file, LinkOption.NOFOLLOW_LINKS)) return new JSONObject();
+        if (!Files.isRegularFile(file, LinkOption.NOFOLLOW_LINKS)) throw new IllegalStateException("Data-tool lessons are unavailable");
+        return AgentFiles042.loadChecked(file);
+    }
+
+    private JSONObject saveDataLesson(String name, String teacherId) throws Exception {
+        if (teacherId.isBlank()) throw new IllegalStateException("Build and verify an original CSV tool first");
+        var original = teacherProof(load(new JSONObject().put("id", teacherId)), name);
+        var lessons = dataLessonBank();
+        if (lessons.has(name)) {
+            if (!original.similar(lessons.getJSONObject(name)))
+                throw new IllegalStateException("That lesson name is already used. Choose a new name.");
+            return original;
+        }
+        if (lessons.length() >= 64) throw new IllegalStateException("This project already has 64 data-tool lessons");
+        AgentFiles042.saveChecked(directory.resolve("data-tool-lessons.json"), lessons.put(name, original));
+        return original;
+    }
+
+    synchronized byte[] dataPreview(String path) throws Exception {
+        var parts = path.substring(FrayDataTool.PREVIEW.length()).split("/", -1);
+        if (parts.length != 3 || !parts[1].matches("[a-f0-9]{64}") || !parts[2].equals("index.html")) return null;
+        var task = load(new JSONObject().put("id", parts[0]));
+        if (intent(task) != RequestLanguage.Intent.FRAY_DATA || task.has("report")) return null;
+        var data = reviewedData(task, task.getJSONObject("source"));
+        String html = data.tool().html(data.input());
+        return MeasurementStore.hash(html).equals(parts[1]) ? html.getBytes(StandardCharsets.UTF_8) : null;
+    }
+
     private synchronized JSONObject retainChain(String text, FrayChain chain) throws Exception {
         var choice = RequestLanguage.view(RequestLanguage.Intent.FRAY_CHAIN, "java")
                 .put("label", chain.title()).put("chain", chain.definition());
@@ -74,7 +180,8 @@ final class RequestWorkbench {
         if (!task.getString("status").equals("review")) throw new IllegalStateException("Start a new review to change a verified action");
         var intent = RequestLanguage.Intent.read(input.getString("action"));
         if (intent == RequestLanguage.Intent.CLARIFY || intent == RequestLanguage.Intent.FRAY_CHAIN
-                || intent(task) == RequestLanguage.Intent.FRAY_CHAIN)
+                || intent == RequestLanguage.Intent.FRAY_DATA || intent(task) == RequestLanguage.Intent.FRAY_CHAIN
+                || intent(task) == RequestLanguage.Intent.FRAY_DATA)
             throw new IllegalArgumentException("Start a new request to change this action");
         if (!intent(task).equals(intent)) {
             task.remove("source");
@@ -99,7 +206,7 @@ final class RequestWorkbench {
     synchronized JSONObject attach(JSONObject input) throws Exception {
         SpatialScene.keys(input, "id", "name", "base64");
         var task = load(input);
-        if (!task.getString("status").equals("review") || !intent(task).needsFile())
+        if (!task.getString("status").equals("review") || !intent(task).needsFile() || task.has("frayChecks"))
             throw new IllegalStateException("Choose a file for an outstanding file review");
         String name = input.getString("name").strip();
         if (name.isEmpty() || name.length() > 180 || name.indexOf('/') >= 0 || name.indexOf('\\') >= 0
@@ -108,6 +215,8 @@ final class RequestWorkbench {
         byte[] data = decode(encoded);
         var source = new JSONObject().put("name", name).put("base64", encoded)
                 .put("size", data.length).put("sha256", PerceptionStore.hash(data));
+        if (intent(task) == RequestLanguage.Intent.FRAY_DATA)
+            reviewedData(task, source);
         task.put("source", source);
         save(task);
         return view(task);
@@ -171,6 +280,8 @@ final class RequestWorkbench {
         SpatialScene.keys(input, "id", "reviewSha256");
         var task = load(input);
         requireReview(input, task);
+        if (intent(task) == RequestLanguage.Intent.FRAY_DATA)
+            throw new IllegalStateException("Use the data-tool browser checks");
         if (!intent(task).needsFile() || !task.has("source")) throw new IllegalStateException("Select a source file");
         if (task.has("report")) return proof(task).put("task", view(task));
 
@@ -185,6 +296,15 @@ final class RequestWorkbench {
     synchronized JSONObject prepareFray(JSONObject input) throws Exception {
         SpatialScene.keys(input, "id", "reviewSha256");
         var task = load(input);
+        if (intent(task) == RequestLanguage.Intent.FRAY_DATA) {
+            requireReview(input, task);
+            if (task.has("report")) return proof(task).put("task", view(task));
+            var data = reviewedData(task, task.getJSONObject("source"));
+            String hash = MeasurementStore.hash(data.tool().html(data.input()));
+            if (task.has("frayChecks")) return new JSONObject().put("dataCommitReady", true).put("htmlSha256", hash);
+            return new JSONObject().put("preview", FrayDataTool.PREVIEW + task.getString("id") + "/" + hash + "/index.html")
+                    .put("htmlSha256", hash).put("steps", data.tool().browserSteps(data.input()));
+        }
         if (intent(task) == RequestLanguage.Intent.FRAY_CHAIN) {
             var chain = requireChain(input, task);
             if (task.has("report")) return proof(task).put("task", view(task));
@@ -202,6 +322,7 @@ final class RequestWorkbench {
     synchronized JSONObject finishFray(JSONObject input) throws Exception {
         SpatialScene.keys(input, "id", "reviewSha256", "htmlSha256", "checks");
         var task = load(input);
+        if (intent(task) == RequestLanguage.Intent.FRAY_DATA) return finishDataTool(input, task);
         var conversion = requireFray(input, task);
         if (!conversion.htmlSha256.equals(input.getString("htmlSha256")))
             throw new IllegalStateException("The reviewed browser program changed");
@@ -216,6 +337,39 @@ final class RequestWorkbench {
                 .put("summary", "Browser results matched the Fray reference. Open or export the offline tool.");
         save(task);
         return proof(task).put("task", view(task));
+    }
+
+    private JSONObject finishDataTool(JSONObject input, JSONObject task) throws Exception {
+        requireReview(input, task);
+        var data = reviewedData(task, task.getJSONObject("source"));
+        if (!MeasurementStore.hash(data.tool().html(data.input())).equals(input.getString("htmlSha256")))
+            throw new IllegalStateException("The reviewed data-tool preview changed");
+        if (task.has("report")) return proof(task).put("task", view(task));
+        var retained = task.optJSONArray("frayChecks");
+        var received = input.optJSONArray("checks");
+        if (retained != null && received != null && !retained.similar(received))
+            throw new IllegalStateException("The retained data-tool browser checks changed");
+        var checks = retained != null ? retained : received;
+        if (checks == null) throw new IllegalStateException("Run the actual data-tool browser checks first");
+        var expected = data.tool().artifact(data.input(), sourceView(task), data.lesson(), checks);
+        if (retained == null) {
+            task.put("frayChecks", checks).put("fraySaveSha256", WorldFrames.hash(expected));
+            save(task);
+        }
+        if (!WorldFrames.hash(expected).equals(task.optString("fraySaveSha256")))
+            throw new IllegalStateException("The staged data-tool output changed");
+        var artifact = store.writeOnce("request-workbench:" + task.getString("id"), expected);
+        var ref = artifactRef(artifact, expected);
+        store.recordTestOnce(dataTest(task, ref, data));
+        task.put("report", ref).put("status", "verified").put("summary",
+                "Built an offline tool. Java matched all " + data.input().values().size() + " CSV rows and the fresh browser tests.");
+        save(task);
+        return proof(task).put("task", view(task));
+    }
+
+    private static JSONObject dataTest(JSONObject task, JSONObject ref, ReviewedData data) {
+        return new JSONObject().put("id", ref.getString("id")).put("version", ref.getInt("version"))
+                .put("steps", data.tool().browserSteps(data.input())).put("checks", task.getJSONArray("frayChecks"));
     }
 
     synchronized JSONObject advanceChain(JSONObject input) throws Exception {
@@ -344,6 +498,8 @@ final class RequestWorkbench {
     synchronized JSONObject learn(JSONObject input) throws Exception {
         SpatialScene.keys(input, "id");
         var task = load(input);
+        if (intent(task) == RequestLanguage.Intent.FRAY_DATA)
+            throw new IllegalStateException("Use a named data-to-tool lesson from Chat");
         proof(task);
         String key = memoryKey(task.getString("request"), task.getJSONObject("choice"));
         if (key.isBlank()) throw new IllegalArgumentException("Use words for a remembered phrase");
@@ -390,6 +546,11 @@ final class RequestWorkbench {
             var first = task.getJSONArray("frayFirstChecks");
             expected = chain.artifact(first, task.getJSONArray("frayChecks"));
             receipt = chainTest(task, ref, chain, chain.verifiedIntermediate(first));
+            name = "index.html";
+        } else if (intent(task) == RequestLanguage.Intent.FRAY_DATA) {
+            var data = reviewedData(task, task.getJSONObject("source"));
+            expected = data.tool().artifact(data.input(), sourceView(task), data.lesson(), task.getJSONArray("frayChecks"));
+            receipt = dataTest(task, ref, data);
             name = "index.html";
         } else if (conversion != null) {
             expected = conversion.artifact(task.getJSONArray("frayChecks"));
@@ -488,7 +649,10 @@ final class RequestWorkbench {
     private static JSONObject view(JSONObject task) {
         var visible = WorldFrames.copy(task);
         visible.remove("fraySaveSha256");
-        if (visible.remove("frayChecks") != null && pendingChain(task)) visible.put("savePending", true);
+        if (visible.remove("frayChecks") != null) {
+            if (pendingChain(task)) visible.put("savePending", true);
+            if (intent(task) == RequestLanguage.Intent.FRAY_DATA && !task.has("report")) visible.put("dataSavePending", true);
+        }
         if (visible.remove("frayFirstChecks") instanceof JSONArray first) {
             var chain = FrayChain.fromDefinition(task.getJSONObject("choice").getJSONObject("chain"));
             visible.put("firstVerified", true).put("intermediate", chain.verifiedIntermediate(first).json());

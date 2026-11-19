@@ -787,6 +787,26 @@ public final class WorkspaceServer implements AutoCloseable {
                 send(exchange,200,result);
             } catch(Exception error) {try{if(admission106)agency.refuseAdmission106(exchange.getRequestHeaders().getFirst("X-Fraynix-Task"),exchange.getRequestHeaders().getFirst("X-Fraynix-Effect"),exchange.getRequestURI().getPath(),exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"),error);send(exchange,400,new JSONObject().put("error",String.valueOf(error.getMessage())));}catch(Exception ignored){exchange.close();}}
         });
+        server.createContext(FrayDataTool.PREVIEW, exchange -> {
+            byte[] html = null;
+            if ("GET".equals(exchange.getRequestMethod())) {
+                try {
+                    html = requestWorkbench.dataPreview(exchange.getRequestURI().getPath());
+                } catch (Exception ignored) {
+                    // A stale or invalid preview has no readable HTML.
+                }
+            }
+            if (html == null) {
+                send(exchange, 404, new JSONObject().put("error", "Unknown data-tool preview"));
+                return;
+            }
+            exchange.getResponseHeaders().set("Content-Type", "text/html; charset=utf-8");
+            exchange.getResponseHeaders().set("X-Content-Type-Options", "nosniff");
+            exchange.getResponseHeaders().set("Cache-Control", "no-store");
+            exchange.getResponseHeaders().set("Referrer-Policy", "no-referrer");
+            exchange.sendResponseHeaders(200, html.length);
+            try (var out = exchange.getResponseBody()) { out.write(html); }
+        });
         server.createContext(FrayChain.PREVIEW, exchange -> {
             var chain = FrayChain.previewAt(exchange.getRequestURI().getPath());
             if (!exchange.getRequestMethod().equals("GET") || chain == null) {

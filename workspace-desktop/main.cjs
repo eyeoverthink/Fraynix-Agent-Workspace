@@ -491,6 +491,8 @@ ipcMain.handle('workspace:request',async(event,input)=>{
             activity('request-recovery','Finished interrupted Fray artifact save',{
               reviewId:confirmation.id,saveMs:Math.round(performance.now()-saveStarted)
             });
+          }else if(prepared.dataCommitReady){
+            proof=await api('/api/requests/fray-finish',{...confirmation,htmlSha256:prepared.htmlSha256});
           }else if(prepared.preview){
             const previous=canvas.view.webContents.getURL();
             try{

@@ -1,8 +1,11 @@
 const $ = id => document.getElementById(id);
+const DATA_TOOL = 'build-data-tool';
+const LAST_TEACHER = 'fraynix-verified-data-tool';
 
 // This is a UI hint. The Java Workbench decides whether the chat request matches.
 export function mayRequestFrayTool(value) {
     if (value.length > 1200) return false;
+    if (/^(?:(?:teach|use) data-to-tool lesson\b|build a data-to-tool converter from\b)/i.test(value.trim())) return true;
     const text = value.normalize('NFKC').toLowerCase().replace(/[^a-z0-9]+/g, ' ');
     return (/^(?:please )?convert\b.*\bthen\b/.test(text)
             && /\b(?:celsius|centigrade|fahrenheit|rankine|c|f|r|inch|inches|in|mm|cm)\b/.test(text))
@@ -10,7 +13,7 @@ export function mayRequestFrayTool(value) {
         || /\b(?:celsius|centigrade|c) (?:to|into) (?:fahrenheit|f)\b/.test(text);
 }
 
-const isFray = action => ['build-inch-converter', 'build-temperature-converter', 'build-length-chain'].includes(action);
+const isFray = action => ['build-inch-converter', 'build-temperature-converter', 'build-length-chain', DATA_TOOL].includes(action);
 
 export class RequestWorkbenchPanel {
     constructor({request, getModel, requireSaved, layout, openCreation, announce}) {
@@ -84,7 +87,7 @@ export class RequestWorkbenchPanel {
         $('requests-confirm').onclick = () => this.run(async () => {
             this.requireSaved();
             const {id, reviewSha256} = this.task;
-            if (this.task.choice.needsFile) {
+            if (this.task.choice.needsFile && this.task.choice.action !== DATA_TOOL) {
                 const result = await this.call('execute', {id, reviewSha256});
                 this.show(result.task);
                 this.dialog.close();
@@ -104,10 +107,10 @@ export class RequestWorkbenchPanel {
                     }
                     this.announce(result.summary);
                 } catch (error) {
-                    if (this.task.choice.chain) {
+                    if (this.task.choice.chain || this.task.choice.action === DATA_TOOL) {
                         // An I/O error may arrive after both browser stages were saved.
                         const retained = await this.call('read', {id}).catch(() => null);
-                        if (retained?.savePending) this.show(retained);
+                        if (retained?.savePending || retained?.dataSavePending) this.show(retained);
                     }
                     if (!this.dialog.open) this.dialog.showModal();
                     this.layout();
@@ -132,18 +135,35 @@ export class RequestWorkbenchPanel {
             await this.call('learn', {id:this.task.id});
             $('requests-status').textContent = 'Phrase remembered in this project. Future runs still need review.';
         });
+        $('requests-teach-data').onclick = () => {
+            this.dialog.close();
+            const goal = $('goal');
+            goal.value = 'Teach data-to-tool lesson ';
+            goal.dispatchEvent(new Event('input'));
+            goal.focus();
+            this.announce('Add a lesson name, then send the teaching request in Chat.');
+        };
         this.render();
     }
 
     async offerFromChat(request) {
-        const result = await this.call('chat', {request});
+        const teaching = /^teach data-to-tool lesson\b/i.test(request);
+        const teacherId = teaching ? localStorage.getItem(LAST_TEACHER) : null;
+        const result = await this.call('chat', {request,...(teacherId ? {teacherId} : {})});
         if (!result.matched) return false;
         if (result.refusal) {
             this.announce(result.refusal);
             return true;
         }
+        if (result.lesson) {
+            this.announce('Saved lesson ' + result.lesson.name + '. Send “Use data-to-tool lesson ' + result.lesson.name
+                + '” and attach a fresh CSV with the ' + result.lesson.column + ' column.');
+            return true;
+        }
         this.show(result.task);
-        this.announce(result.task.choice.chain
+        this.announce(result.task.choice.action === DATA_TOOL
+            ? 'Attach CSV data in the Workbench. Java will check every browser result before saving.'
+            : result.task.choice.chain
             ? 'Review both conversions in the Workbench. I will verify the first result before starting the second.'
             : 'Review the converter in the Workbench. I will test it in the browser before saving it.');
         if (!this.dialog.open) this.dialog.showModal();
@@ -172,11 +192,15 @@ export class RequestWorkbenchPanel {
         if (this.task?.id !== task.id || !task.source || task.status !== 'review') $('requests-file').value = '';
         this.task = task;
         localStorage.setItem('fraynix-request-review', task.id);
+        if (task.status === 'verified' && task.choice.action === DATA_TOOL && !task.choice.lesson)
+            localStorage.setItem(LAST_TEACHER, task.id);
         $('requests-text').value = task.request;
         $('requests-action').value = '';
         $('requests-pause-chain').checked = false;
         const handoff = task.intermediate;
-        $('requests-status').textContent = task.summary || (task.savePending
+        $('requests-status').textContent = task.summary || (task.dataSavePending
+            ? 'Browser tests are verified. Finish saving the tool.'
+            : task.savePending
             ? 'Both conversions are verified. Finish saving the checked artifact.'
             : handoff ? 'Verified ' + handoff.value + ' ' + handoff.unit + '. Resume the second conversion when ready.'
                 : task.choice.description);
@@ -188,6 +212,7 @@ export class RequestWorkbenchPanel {
         const file = task?.choice.needsFile;
         const pending = task?.status === 'review';
         const chain = task?.choice.chain;
+        const data = task?.choice.action === DATA_TOOL;
         const finished = task?.status === 'verified';
         $('requests-suggest').disabled = this.busy;
         $('requests-recover-chain').disabled = this.busy;
@@ -196,27 +221,33 @@ export class RequestWorkbenchPanel {
         $('requests-pause-label').hidden = !chain || !pending || Boolean(task.firstVerified);
         $('requests-pause-chain').disabled = this.busy;
         $('requests-reopen').disabled = this.busy || !localStorage.getItem('fraynix-request-review');
-        $('requests-file').disabled = this.busy || !pending;
+        $('requests-file').disabled = this.busy || !pending || Boolean(task?.dataSavePending);
+        $('requests-file').accept = data ? '.csv,text/csv' : '';
         $('requests-action').disabled = this.busy || !pending;
-        $('requests-action-label').hidden = !pending || Boolean(chain);
+        $('requests-action-label').hidden = !pending || Boolean(chain) || data;
         $('requests-attachment').hidden = !file || !pending;
         $('requests-choice').textContent = task
-            ? task.choice.label + ' · ' + ({java:'local rule', model:'local model', remembered:'remembered wording', user:'your choice'})[task.choice.by] : '';
+            ? task.choice.label + ' · ' + (task.choice.lesson ? 'Lesson ' + task.choice.lesson.name
+                : ({java:'local rule', model:'local model', remembered:'remembered wording', user:'your choice'})[task.choice.by]) : '';
         $('requests-source').textContent = task?.source
             ? task.source.name + ' \u00b7 ' + task.source.size + ' bytes \u00b7 SHA-256 ' + task.source.sha256
             : chain ? chain.input.value + ' ' + chain.input.unit + ' \u00b7 ' + chain.first + ' \u2192 ' + chain.second
                 + (task.savePending ? ' \u00b7 Both steps verified'
-                    : task.firstVerified ? ' \u00b7 First step verified' : '') : '';
+                : task.firstVerified ? ' \u00b7 First step verified' : '')
+            : data ? 'CSV header: ' + task.choice.column + (task.choice.lesson ? ' · Lesson ' + task.choice.lesson.name : '') : '';
         $('requests-confirm').hidden = !pending || task.choice.action === 'clarify';
         const fray = isFray(task?.choice.action);
         $('requests-confirm').textContent = chain
             ? (task.savePending ? 'Finish verified save' : task.firstVerified ? 'Resume verified handoff' : 'Verify both conversions')
-            : fray ? 'Build and verify in browser'
+            : task?.dataSavePending ? 'Finish verified save' : fray ? 'Build and verify in browser'
             : file ? 'Confirm and verify' : 'Review in Creation Canvas';
         $('requests-confirm').disabled = this.busy || (file && !task?.source);
         for (const id of ['requests-result','requests-export','requests-learn']) {
             $(id).hidden = !finished;
             $(id).disabled = this.busy;
         }
+        $('requests-learn').hidden = !finished || data;
+        $('requests-teach-data').hidden = !finished || !data || Boolean(task?.choice.lesson);
+        $('requests-teach-data').disabled = this.busy;
     }
 }
