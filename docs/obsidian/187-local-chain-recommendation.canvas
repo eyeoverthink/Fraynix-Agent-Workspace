@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "0",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ChainRecommendation.java",
+      "x": 0,
+      "y": 0,
+      "width": 350,
+      "height": 240
+    },
+    {
+      "id": "1",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/Agency043.java",
+      "x": 380,
+      "y": 0,
+      "width": 350,
+      "height": 240
+    },
+    {
+      "id": "2",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ReviewedChain.java",
+      "x": 760,
+      "y": 0,
+      "width": 350,
+      "height": 240
+    },
+    {
+      "id": "3",
+      "type": "file",
+      "file": "README-179.md",
+      "x": 1140,
+      "y": 0,
+      "width": 350,
+      "height": 240
+    }
+  ],
+  "edges": [
+    {
+      "id": "step-1",
+      "fromNode": "0",
+      "fromSide": "right",
+      "toNode": "1",
+      "toSide": "left"
+    },
+    {
+      "id": "step-2",
+      "fromNode": "1",
+      "fromSide": "right",
+      "toNode": "2",
+      "toSide": "left"
+    },
+    {
+      "id": "step-3",
+      "fromNode": "2",
+      "fromSide": "right",
+      "toNode": "3",
+      "toSide": "left"
+    }
+  ]
+}

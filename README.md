@@ -1,5 +1,5 @@
 # Fraynix Agent Workspace
 
-[Edition 178 — verified Relay playtest and clearance dashboard](README-178.md) · [Previous edition](README-177.md) · [Offline walkthrough](docs/readmes/178/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 179 — recommendations for reviewed workflows](README-179.md) · [Previous edition](README-178.md) · [Offline walkthrough](docs/readmes/179/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Fraynix replays a Relay course at three paces, then builds a filterable clearance dashboard from the verified game measurements. One Mission review authorizes both steps. This is the second registered offline chain alongside the ramp-to-motion workflow.
+Fraynix can recommend a reviewed Ramp or Relay workflow from ordinary language. gpt-oss:20b matched 8 of 8 predeclared choices. Java required approval before either chain ran and independently checked the original native and rendered results.

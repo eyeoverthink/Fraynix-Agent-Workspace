@@ -1,0 +1,52 @@
+{
+  "summary": "Fraynix can recommend a reviewed Ramp or Relay workflow from ordinary language. gpt-oss:20b matched 8 of 8 predeclared choices. Java required approval before either chain ran and independently checked the original native and rendered results.",
+  "modules": [
+    {
+      "title": "Typed model recommendation",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ChainRecommendation.java",
+      "note": "docs/obsidian/187-local-chain-recommendation.md"
+    },
+    {
+      "title": "Review, approval and restart",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Agency043.java",
+      "note": "docs/obsidian/187-local-chain-recommendation.md"
+    },
+    {
+      "title": "Java handoff verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ReviewedChain.java",
+      "note": "docs/obsidian/187-local-chain-recommendation.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/179/ramp-review.png",
+      "title": "Ramp recommendation before approval"
+    },
+    {
+      "path": "docs/readmes/179/ramp-verified.png",
+      "title": "Verified Ramp motion summary from the pinned source"
+    },
+    {
+      "path": "docs/readmes/179/relay-review.png",
+      "title": "Relay recommendation while a paired ramp page is also open"
+    },
+    {
+      "path": "docs/readmes/179/relay-verified.png",
+      "title": "Verified Relay dashboard after restart with discovery disabled"
+    },
+    {
+      "path": "docs/readmes/179/ambiguous.png",
+      "title": "Java asks which workflow the user wants"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/179/verification.json",
+      "title": "Verification and case text"
+    },
+    {
+      "path": "docs/readmes/179/original-evidence.json",
+      "title": "Evidence manifest"
+    }
+  ]
+}

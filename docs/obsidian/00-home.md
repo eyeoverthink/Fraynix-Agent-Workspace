@@ -1,3 +1,5 @@
+[Edition 179 — local Ramp and Relay recommendations](187-local-chain-recommendation.md)
+
 [Edition 178 — Relay playtest and clearance dashboard](186-relay-clearance-chain.md)
 
 [Edition 177 — reviewed ramp-to-analysis chain](185-ramp-trace-chain.md)

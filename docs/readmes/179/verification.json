@@ -1,0 +1,159 @@
+{
+  "passed": true,
+  "source": "8a08ff6bb9e97d3fdf32733b70a5f93aeed0091b",
+  "model": "gpt-oss:20b",
+  "trials": [
+    {
+      "id": "ramp",
+      "request": "Set both slopes going for the same time. Which block gets farther? I want the winning block’s motion broken down.",
+      "expected": "ramp",
+      "suggested": "ramp",
+      "matched": true,
+      "detail": "Review the local model’s two-step recommendation in Mission before confirming.",
+      "engineDecision": "confirmed and verified",
+      "modelMillis": 51009.1851,
+      "verified": true
+    },
+    {
+      "id": "ridge",
+      "request": "Take our robot around Relay Ridge at each pace. Recheck the run and give me a dashboard of how much room it had over the rails.",
+      "expected": "relay",
+      "suggested": "relay",
+      "matched": true,
+      "detail": "Review the local model’s two-step recommendation in Mission before confirming.",
+      "engineDecision": "confirmed and verified",
+      "modelMillis": 49811.9778,
+      "verified": true
+    },
+    {
+      "id": "ambiguous",
+      "request": "I’m deciding between seeing which incline wins and checking the robot’s clearance on Relay Switchyard. I haven’t picked one yet.",
+      "expected": "clarify",
+      "suggested": "clarify",
+      "matched": true,
+      "detail": "Choose one outcome: compare two ramp setups and summarize their motion, or playtest one Relay course and create a clearance dashboard.",
+      "engineDecision": "clarified without execution",
+      "modelMillis": 68781.3887,
+      "verified": false
+    },
+    {
+      "id": "switchyard",
+      "request": "On Relay Switchyard, try all the driving speeds and show the height margin over each rail. Repeat the runs to make sure the measurements hold.",
+      "expected": "relay",
+      "suggested": "relay",
+      "matched": true,
+      "detail": "Review the local model’s two-step recommendation in Mission before confirming.",
+      "engineDecision": "declined without execution",
+      "modelMillis": 49706.6421,
+      "verified": false
+    },
+    {
+      "id": "missing-ramp",
+      "request": "Find out which of my two inclines lets its block travel farther, then give me a motion breakdown for that one.",
+      "expected": "ramp",
+      "suggested": "ramp",
+      "matched": true,
+      "detail": "Ramp needs a saved input page with two setups. Open one in the live browser and submit a new recommendation.",
+      "engineDecision": "clarified without execution",
+      "modelMillis": 50470.6691,
+      "verified": false
+    },
+    {
+      "id": "out-of-menu",
+      "request": "Use my existing spreadsheet of shop orders and make an inventory tally. There is no game run or simulation to do.",
+      "expected": "clarify",
+      "suggested": "clarify",
+      "matched": true,
+      "detail": "Choose one outcome: compare two ramp setups and summarize their motion, or playtest one Relay course and create a clearance dashboard.",
+      "engineDecision": "clarified without execution",
+      "modelMillis": 48676.4402,
+      "verified": false
+    },
+    {
+      "id": "missing-course",
+      "request": "Have the robot play the Relay course at each pace, rerun it to check and show me clearances. I haven’t picked which circuit.",
+      "expected": "relay",
+      "suggested": "relay",
+      "matched": true,
+      "detail": "Name one course, Relay Ridge or Relay Switchyard, then submit a new recommendation.",
+      "engineDecision": "clarified without execution",
+      "modelMillis": 49460.7815,
+      "verified": false
+    },
+    {
+      "id": "revised-ramp",
+      "request": "Put the two prepared downhill configurations on one clock, then turn the longer slide’s samples into a motion summary.",
+      "expected": "ramp",
+      "suggested": "ramp",
+      "matched": true,
+      "detail": "Ramp input revision changed. Open the current source and start a new mission.",
+      "engineDecision": "revised source refused",
+      "modelMillis": 50494.1098,
+      "verified": false
+    }
+  ],
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "workspaceJava": 92,
+    "classes": [
+      "ChainRecommendationTest",
+      "RelayPlaytestTest",
+      "RampTraceChainTest",
+      "LocalWorkflowSelectionTest",
+      "RampComparisonTest",
+      "RampProcedureTest",
+      "RampMissionTest",
+      "Agency043Test",
+      "Domain044Test",
+      "ChatArchive112Test",
+      "DataSummary104Test",
+      "CreationTest",
+      "CreationPlanner044Test",
+      "CreationRetry102Test",
+      "WorkflowTest",
+      "MeasurementStoreTest",
+      "WorkspaceServerBoundaryTest"
+    ],
+    "desktop": 181,
+    "archiveTests": 10
+  },
+  "matched": 8,
+  "noWorkBeforeApproval": true,
+  "verifiedCompletions": 2,
+  "providerCalls": 8,
+  "history": {
+    "passed": true,
+    "source": "8a08ff6bb9e97d3fdf32733b70a5f93aeed0091b",
+    "opened": [
+      {
+        "id": "03beae32-8645-47e8-a9ad-98de69fded5d",
+        "report": "e71fc164-16f4-31e3-a81b-9c6126f61c2b",
+        "archived": true
+      },
+      {
+        "id": "fb286883-f216-481f-9e2f-68ca93dd0ab3",
+        "report": "f56e3935-589f-365e-a956-2a0f7b582b98",
+        "archived": true
+      }
+    ],
+    "revisedRampHadNoChild": true
+  },
+  "priorRelayChain": {
+    "passed": true,
+    "source": "8a08ff6bb9e97d3fdf32733b70a5f93aeed0091b",
+    "priorSource": "38abe83612f07c82f227d9522165d20a6283b5ee",
+    "id": "191c04a0-8b5b-4e84-b8a3-013d25bc9dee",
+    "report": "5c2bd5bb-106f-3bfe-afc5-85d3efe5edb1",
+    "proof": {
+      "handoffSha256": "5a2dcda5807a253a6d8667fb6b7fa60133a4e73f18a040ab650f19403100f846",
+      "artifact": {
+        "sha256": "9080a0978504ce0a34fc1081f12d503fb8c5013aa3c6a785c68e112947fd5b41",
+        "id": "5c2bd5bb-106f-3bfe-afc5-85d3efe5edb1",
+        "version": 1
+      },
+      "receiptSha256": "36205fe196ec20f73edf205fc1754b8068a74138e43127f38056ce85e4cb4f85",
+      "playtestSha256": "d297117fd64ba2a5bb4b1990246674d07c0e7b3bbc9e2b4d7eaabdbc0ff53fc9"
+    }
+  }
+}
