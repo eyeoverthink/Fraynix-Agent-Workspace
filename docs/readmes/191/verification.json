@@ -1,0 +1,190 @@
+{
+  "passed": true,
+  "blenderSha256": "4f1a12fd12c10a48890217fa56917b3ed2af7e7932e5d24c91917c1ace95253d",
+  "audit": {
+    "parent": {
+      "blendSha256": "4f1a12fd12c10a48890217fa56917b3ed2af7e7932e5d24c91917c1ace95253d",
+      "manifestSha256": "544865789d8a2a807f394eb8a0f655d20548a9462d421f218d20fda28d5f8f9c",
+      "id": "5fd26a15-51bb-4507-9851-1e8c611347ac",
+      "levelSha256": "8da7ac1dbcffd36d69f932098b3cc7a0bfae2ee924f0c4202edc78f147a7f24f",
+      "snapshotSha256": "1b18c34f9486a03b37c602bd82426854beb067035b85ec2db8737a3714303c4c"
+    },
+    "candidate": {
+      "blendSha256": "4f1a12fd12c10a48890217fa56917b3ed2af7e7932e5d24c91917c1ace95253d",
+      "manifestSha256": "544865789d8a2a807f394eb8a0f655d20548a9462d421f218d20fda28d5f8f9c",
+      "id": "5f6de6e9-be28-324f-9d10-8436666a28b3",
+      "levelSha256": "42d9ca2eb1bc1070c83f8e08f4ce8254f97d1314d0ec3a4d510455466e46dedb",
+      "snapshotSha256": "1b18c34f9486a03b37c602bd82426854beb067035b85ec2db8737a3714303c4c"
+    },
+    "kind": "blender-gap-repair-v1",
+    "diagnosis": {
+      "lastTick": 1728,
+      "gapEndX": 6,
+      "originalSpan": 2.5,
+      "kind": "stationary-before-missing-support",
+      "supportY": 0.375,
+      "edits": [
+        {
+          "sourceId": "049a8daa-5d4a-3628-8810-d43d5f647d89",
+          "from": [
+            3.625,
+            1.875
+          ],
+          "to": [
+            3.625,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "75af63cf-00b3-3fe6-8097-245b088c6719",
+          "from": [
+            3.875,
+            1.875
+          ],
+          "to": [
+            3.875,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "089206d2-095e-356b-8f0a-03ef5cbf2b17",
+          "from": [
+            4.125,
+            1.875
+          ],
+          "to": [
+            4.125,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "3ed70823-4bfb-3cb3-8326-a5a4a54ab13d",
+          "from": [
+            4.375,
+            1.875
+          ],
+          "to": [
+            4.375,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "17470fed-e2e4-3f0e-8b83-71a2e00f2480",
+          "from": [
+            5.125,
+            1.875
+          ],
+          "to": [
+            5.125,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "24c82da0-0250-3c9c-bb6b-ad5069dc6c0e",
+          "from": [
+            5.375,
+            1.875
+          ],
+          "to": [
+            5.375,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "14f47213-60f0-3d33-b283-1d463561ed4b",
+          "from": [
+            5.625,
+            1.875
+          ],
+          "to": [
+            5.625,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "751a459b-f912-39e1-9466-40a9012c005d",
+          "from": [
+            5.875,
+            1.875
+          ],
+          "to": [
+            5.875,
+            0.375
+          ]
+        }
+      ],
+      "x": 3.3822625,
+      "y": 0.62999916,
+      "stillSamples": 8,
+      "gapStartX": 3.5,
+      "remainingSpan": 0.5,
+      "budget": 8
+    },
+    "failureSha256": "835eff0c33d010750cb543e38ae28bb5cff2081dd97ab7707f177e8f0fcc5335",
+    "passed": true,
+    "title": "Verified Blender gap repair",
+    "playtest": {
+      "candidate": {
+        "blendSha256": "4f1a12fd12c10a48890217fa56917b3ed2af7e7932e5d24c91917c1ace95253d",
+        "manifestSha256": "544865789d8a2a807f394eb8a0f655d20548a9462d421f218d20fda28d5f8f9c",
+        "id": "5f6de6e9-be28-324f-9d10-8436666a28b3",
+        "levelSha256": "42d9ca2eb1bc1070c83f8e08f4ce8254f97d1314d0ec3a4d510455466e46dedb",
+        "snapshotSha256": "1b18c34f9486a03b37c602bd82426854beb067035b85ec2db8737a3714303c4c"
+      },
+      "controller": {
+        "ticks": 24,
+        "targetX": 14.625,
+        "action": "ai-step",
+        "policy": "contact122"
+      },
+      "trials": 2,
+      "ticks": 456,
+      "traceSha256": "7cbb45633f9e85e79caa79cd9a3f751e305e8399f4370e60d59339e0a32d1d73",
+      "passed": true,
+      "attemptId": "1b176ef0-2771-48ac-a19b-0dcdfdb53f5d"
+    }
+  },
+  "report": {
+    "id": "5f6de6e9-be28-324f-9d10-8436666a28b3",
+    "version": 1
+  },
+  "automatic": {
+    "id": "2d22d74a-a7c6-4bf0-a065-3b334db259e9",
+    "candidateId": "d8b14a6d-701e-31b9-b933-7c2709bd7f25",
+    "resumes": 0
+  },
+  "recovery": {
+    "id": "4a1ab98a-6217-4a13-9df9-01882a10c72c",
+    "candidateId": "5f6de6e9-be28-324f-9d10-8436666a28b3",
+    "resumes": 1,
+    "taskRetained": true
+  },
+  "checks": {
+    "sourceScreenshotTamperRefused": true,
+    "browserReceiptTamperRefused": true,
+    "parentBytesPreserved": true,
+    "browserChecks": 3
+  },
+  "screenshots": [
+    {
+      "name": "mission-paused-after-repair.png",
+      "sha256": "4f224a5b2638d2c0acbd3f8e8757c47685085d7a6c7629b0912d7968eb98214e"
+    },
+    {
+      "name": "mission-native-repair-verified.png",
+      "sha256": "39321dd2f1029d003093a322df08dca9c48061bb92442430097f62313086a140"
+    },
+    {
+      "name": "blender-repair-evidence.png",
+      "sha256": "eb9a9550c864ad75dd31eafb053240ec2ce8d72c7594ea31b4ba305c2d08735b"
+    }
+  ],
+  "source": "508f238bf43e5ac74cd6ecedcc5aefeba6e29a5b",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 53,
+    "desktop": 181,
+    "archive": 10
+  }
+}

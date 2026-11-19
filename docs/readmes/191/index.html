@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 191 · Diagnose, repair and verify a Blender level in one Chat request</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Diagnose, repair and verify a Blender level in one Chat request</h1><p>One durable Chat request runs the original Blender level, diagnoses the failed movement, repairs a separate candidate and saves two verified native playtests.</p>
+<nav><a href="../../../README-191.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../190/index.html">Edition 190</a><a href="#system">System files</a></nav>
+<figure><img src="mission-paused-after-repair.png" alt="The same Chat request retains its diagnosis and repaired candidate before restart"><figcaption>The same Chat request retains its diagnosis and repaired candidate before restart</figcaption></figure>
+<figure><img src="mission-native-repair-verified.png" alt="Mission shows the checked native result"><figcaption>Mission shows the checked native result</figcaption></figure>
+<figure><img src="blender-repair-evidence.png" alt="The actual browser-checked repair report and evidence link"><figcaption>The actual browser-checked repair report and evidence link</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "One durable Chat request runs the original Blender level, diagnoses the failed movement, repairs a separate candidate and saves two verified native playtests.", "modules": [{"title": "Gap repair", "source": "workspace-engine/src/main/java/fraymus/workspace/BlenderGapRepair.java", "note": "docs/obsidian/199-chat-blender-repair.md"}, {"title": "Java Chat scheduling", "source": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java", "note": "docs/obsidian/199-chat-blender-repair.md"}, {"title": "Native evidence", "source": "workspace-engine/src/main/java/fraymus/workspace/BlenderGamePlaytests.java", "note": "docs/obsidian/199-chat-blender-repair.md"}, {"title": "Game Lab controls", "source": "workspace-desktop/renderer/brain-game.js", "note": "docs/obsidian/199-chat-blender-repair.md"}], "screenshots": [{"path": "docs/readmes/191/mission-paused-after-repair.png", "title": "The same Chat request retains its diagnosis and repaired candidate before restart"}, {"path": "docs/readmes/191/mission-native-repair-verified.png", "title": "Mission shows the checked native result"}, {"path": "docs/readmes/191/blender-repair-evidence.png", "title": "The actual browser-checked repair report and evidence link"}], "evidence": [{"path": "docs/readmes/191/verification.json", "title": "Verification record"}, {"path": "docs/readmes/191/repair-evidence.json", "title": "Native failure and verified repaired trials"}, {"path": "docs/readmes/191/wide-gap-course.blend", "title": "Wide-gap Blender sample"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/199-chat-blender-repair.canvas", "bytes": 1513, "sha256": "07da2b84def9a21d4c35a5be3a9ee743b92360e39977503de0c4fa5b6768d77b", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/199-chat-blender-repair.md", "bytes": 364, "sha256": "58855930a59a10bfb3aed7c9ba51a8563deebb45f636883d770469020c35b48d", "hashKind": "utf8-lf"}, {"path": "docs/publication191/document.py", "bytes": 11240, "sha256": "286a341c37e81d56b0f2a346c0299ea671a600412bb332b2fb34e4dc1060ee23", "hashKind": "utf8-lf"}, {"path": "docs/publication191/plan.md", "bytes": 2298, "sha256": "22e54a53e2931787c26fa47783c1a3fe7b4a6d1432ad45bb0fb9c9e87b6f235a", "hashKind": "utf8-lf"}, {"path": "docs/publication191/validate-desktop.cjs", "bytes": 10207, "sha256": "1a7c97f9f07630e93cf1c32fcb210fae68423c9935ce36a8ac6dc1998d044f76", "hashKind": "utf8-lf"}, {"path": "docs/publication191/validate-guide.cjs", "bytes": 1714, "sha256": "28e435f1ed65d5d8575331c1a348b6fed005b70085e35a7ec072635a5ca175ea", "hashKind": "utf8-lf"}, {"path": "docs/publication191/validate.py", "bytes": 2029, "sha256": "9eac75f785f9af86bfefc391c7851c2ec637a9b09c5de18afe747ee045662896", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 109145, "sha256": "237e4b36ec5825716e48dc0bf62929f8d8444b1d7b42d741630de72962cdbee4", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/agency043.js", "bytes": 21899, "sha256": "3c810b6fe03f1b2f20a1f8cc468b1eaf3e9a6aa3479a56ddc9a73ecd44142d7c", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/app.js", "bytes": 41201, "sha256": "18f58f56d4bbc015b4e8876f6ffca0c7737a86434661301fd9f8f69fd7f5d327", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/brain-game.js", "bytes": 43809, "sha256": "b519917516887d9a6c5b7c220243d73e599af6708aba84f2f682f9b5b959a22c", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/Agency043.java", "bytes": 73745, "sha256": "98f1d4063fb6e9d7e457d534d0c85dac5ef27503852172ad58ae1924ca020fa0", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/BlenderGameCandidates.java", "bytes": 11719, "sha256": "2341f18bac47e99735aa9a8f9e3998f734bfd93e2052c30c99bfecb8c2cd8d1f", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/BlenderGamePlaytests.java", "bytes": 14530, "sha256": "43270e047874e0bd40cac1c940939ceef763e0a6d1ff8f3ba42deffbe9f54fb1", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/BlenderGapRepair.java", "bytes": 21208, "sha256": "3d145f1ec79baff678a5098bee4e542506b2be41ab763ba430aa9caad493bc39", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ChatPolicy044.java", "bytes": 18233, "sha256": "e5ef6ad9b010d5b9f9f63a0f4fabf18a29a2162d1d69b022b12274e63ad0997c", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java", "bytes": 65818, "sha256": "39fd01583375c2608a3deebc484b4fb261c97461222f8b48a9cdd3a63446073f", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 131428, "sha256": "04f28a374bd05dd089dfb25ee92abcc594cb016090ccb2237b6c1542df5e9859", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

@@ -1,3 +1,7 @@
+## Edition 191 — Diagnose, repair and verify a Blender level in one Chat request
+
+2026-11-19. One durable Chat request runs the original Blender level, diagnoses the failed movement, repairs a separate candidate and saves two verified native playtests. 125 root Java tests, 53 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. The wider-gap fixture stalled at tick 1728. An eight-tile repair narrowed 2.50 to 0.50 game units. Two fresh trials reached the beacon at tick 456. The same Chat task resumed after restart and the automatic request passed. Java refused modified source and browser evidence. See README-191.md and docs/publication191/plan.md.
+
 ## Edition 190 — Turn a Blender edit into a verified playable Game Lab candidate
 
 2026-11-19. Move original Relay ground tiles in Blender, import a separate Game Lab candidate, and verify its playability with two fresh Java AI runs. 125 root Java tests, 25 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. Relay Garden's edited candidate achieved two matching wins at tick 408. A sixteen-tile challenge failed at tick 1728 and its trace was retained. Source, candidate, engine and image checks gate evidence export. Successful evidence rechecked after restart. See README-190.md and docs/publication190/plan.md.

@@ -1,3 +1,5 @@
+[Edition 191 — Durable Blender repair from Chat](199-chat-blender-repair.md)
+
 [Edition 190 — Playable Blender edits](198-blender-playtest.md)
 
 [Edition 189 — Blender exchange and Game Lab layouts](197-blender-game-layout.md)

@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 191 — durable Blender repair from Chat](../../README-191.md) · [Walkthrough](191/index.html)
+
 [Edition 190 — playable Blender edits](../../README-190.md) · [Walkthrough](190/index.html)
 
 [Edition 189 — Blender exchange and Game Lab layouts](../../README-189.md) · [Walkthrough](189/index.html)

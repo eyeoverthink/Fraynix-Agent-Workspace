@@ -1,5 +1,5 @@
 # Fraynix Agent Workspace
 
-[Edition 190 — playable Blender edits](README-190.md) · [Previous edition](README-189.md) · [Offline walkthrough](docs/readmes/190/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 191 — durable Blender repair from Chat](README-191.md) · [Previous edition](README-190.md) · [Offline walkthrough](docs/readmes/191/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Move original Relay ground tiles in Blender, import a separate Game Lab candidate, and verify its playability with two fresh Java AI runs.
+One durable Chat request runs the original Blender level, diagnoses the failed movement, repairs a separate candidate and saves two verified native playtests.

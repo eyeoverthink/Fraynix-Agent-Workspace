@@ -1,0 +1,53 @@
+{
+  "summary": "One durable Chat request runs the original Blender level, diagnoses the failed movement, repairs a separate candidate and saves two verified native playtests.",
+  "modules": [
+    {
+      "title": "Gap repair",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BlenderGapRepair.java",
+      "note": "docs/obsidian/199-chat-blender-repair.md"
+    },
+    {
+      "title": "Java Chat scheduling",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java",
+      "note": "docs/obsidian/199-chat-blender-repair.md"
+    },
+    {
+      "title": "Native evidence",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BlenderGamePlaytests.java",
+      "note": "docs/obsidian/199-chat-blender-repair.md"
+    },
+    {
+      "title": "Game Lab controls",
+      "source": "workspace-desktop/renderer/brain-game.js",
+      "note": "docs/obsidian/199-chat-blender-repair.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/191/mission-paused-after-repair.png",
+      "title": "The same Chat request retains its diagnosis and repaired candidate before restart"
+    },
+    {
+      "path": "docs/readmes/191/mission-native-repair-verified.png",
+      "title": "Mission shows the checked native result"
+    },
+    {
+      "path": "docs/readmes/191/blender-repair-evidence.png",
+      "title": "The actual browser-checked repair report and evidence link"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/191/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/191/repair-evidence.json",
+      "title": "Native failure and verified repaired trials"
+    },
+    {
+      "path": "docs/readmes/191/wide-gap-course.blend",
+      "title": "Wide-gap Blender sample"
+    }
+  ]
+}

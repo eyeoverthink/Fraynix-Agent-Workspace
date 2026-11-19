@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 190,
+  "latest": 191,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -265157,6 +265157,65 @@
           "path": "docs/readmes/190/verification.json",
           "kind": "text",
           "sha256": "dfedda1940e1901755e77a9d905595c96d4733ce617195e35fc0b808c4d5e254"
+        }
+      ]
+    },
+    {
+      "number": 191,
+      "date": "2026-11-19",
+      "title": "Diagnose, repair and verify a Blender level in one Chat request",
+      "status": "validated-local",
+      "markdown": "README-191.md",
+      "markdownSha256": "85364bf424ea6e597c4d3b538b292a5ff97abb313922105f4f18767b18ea6993",
+      "companion": "docs/readmes/191/index.html",
+      "tag": "readme-191",
+      "sourceBaseline": "508f238bf43e5ac74cd6ecedcc5aefeba6e29a5b",
+      "snapshotDirectory": "docs/readmes/191",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/191/blender-repair-evidence.png",
+          "kind": "binary",
+          "sha256": "eb9a9550c864ad75dd31eafb053240ec2ce8d72c7594ea31b4ba305c2d08735b"
+        },
+        {
+          "path": "docs/readmes/191/file-inventory.json",
+          "kind": "text",
+          "sha256": "7ea107b8e705c13a34828dbbc7fbbfd5b4cacf400a2680a283890d740aa9306c"
+        },
+        {
+          "path": "docs/readmes/191/index.html",
+          "kind": "text",
+          "sha256": "c0f3060947a3eed535a28dc0e0124a8cf0fd11fd68d57631a08ae995bc987562"
+        },
+        {
+          "path": "docs/readmes/191/mission-native-repair-verified.png",
+          "kind": "binary",
+          "sha256": "39321dd2f1029d003093a322df08dca9c48061bb92442430097f62313086a140"
+        },
+        {
+          "path": "docs/readmes/191/mission-paused-after-repair.png",
+          "kind": "binary",
+          "sha256": "4f224a5b2638d2c0acbd3f8e8757c47685085d7a6c7629b0912d7968eb98214e"
+        },
+        {
+          "path": "docs/readmes/191/repair-evidence.json",
+          "kind": "text",
+          "sha256": "1926335737be244833237cbc23ea493af9a03f2845ad113aaf7b8d7e68b51b63"
+        },
+        {
+          "path": "docs/readmes/191/system-map.json",
+          "kind": "text",
+          "sha256": "8da4ff598fe03b1225b3a6d0cafcd89935d5fa720db53fd04e713adea4b909e8"
+        },
+        {
+          "path": "docs/readmes/191/verification.json",
+          "kind": "text",
+          "sha256": "72491c049651378141a5aa9170b69b4c5ee0a2455b4443e74b7546779a2df951"
+        },
+        {
+          "path": "docs/readmes/191/wide-gap-course.blend",
+          "kind": "binary",
+          "sha256": "4f1a12fd12c10a48890217fa56917b3ed2af7e7932e5d24c91917c1ace95253d"
         }
       ]
     }
