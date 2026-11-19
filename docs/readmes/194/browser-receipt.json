@@ -1,0 +1,326 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "probe_c,Zone,id\n37.1234,\"R&D, α\",f-1\n-17.7777,\"Two\nlines\",f-2\n0,West,f-3\n-999999.9999,<note> & draft,f-4\n1000000,,f-5\n+0002.0001,North,f-6"
+      },
+      "expected": {
+        "selector": "#source",
+        "expectValue": "probe_c,Zone,id\n37.1234,\"R&D, α\",f-1\n-17.7777,\"Two\nlines\",f-2\n0,West,f-3\n-999999.9999,<note> & draft,f-4\n1000000,,f-5\n+0002.0001,North,f-6"
+      },
+      "index": 0,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "probe_c,Zone,id,fahrenheit\n37.1234,\"R&D, α\",f-1,98.82212\n-17.7777,\"Two\nlines\",f-2,0.00014\n0,West,f-3,32\n-999999.9999,<note> & draft,f-4,-1799967.99982\n1000000,,f-5,1800032\n+0002.0001,North,f-6,35.60018",
+        "value": null
+      },
+      "expected": {
+        "expectText": "probe_c,Zone,id,fahrenheit\n37.1234,\"R&D, α\",f-1,98.82212\n-17.7777,\"Two\nlines\",f-2,0.00014\n0,West,f-3,32\n-999999.9999,<note> & draft,f-4,-1799967.99982\n1000000,,f-5,1800032\n+0002.0001,North,f-6,35.60018",
+        "selector": "#result"
+      },
+      "index": 1,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "sample,probe_c\n\" Unseen, \"\"batch\"\"\nα \",-19.8251\n\" Unseen, \"\"batch\"\"\nα \",+0.0001\n\" Unseen, \"\"batch\"\"\nα \",-1000000\n\" Unseen, \"\"batch\"\"\nα \",246.875"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "sample,probe_c\n\" Unseen, \"\"batch\"\"\nα \",-19.8251\n\" Unseen, \"\"batch\"\"\nα \",+0.0001\n\" Unseen, \"\"batch\"\"\nα \",-1000000\n\" Unseen, \"\"batch\"\"\nα \",246.875",
+        "value": "sample,probe_c\n\" Unseen, \"\"batch\"\"\nα \",-19.8251\n\" Unseen, \"\"batch\"\"\nα \",+0.0001\n\" Unseen, \"\"batch\"\"\nα \",-1000000\n\" Unseen, \"\"batch\"\"\nα \",246.875"
+      },
+      "index": 2,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "sample,probe_c,fahrenheit\n\" Unseen, \"\"batch\"\"\nα \",-19.8251,-3.68518\n\" Unseen, \"\"batch\"\"\nα \",+0.0001,32.00018\n\" Unseen, \"\"batch\"\"\nα \",-1000000,-1799968\n\" Unseen, \"\"batch\"\"\nα \",246.875,476.375",
+        "value": null
+      },
+      "expected": {
+        "expectText": "sample,probe_c,fahrenheit\n\" Unseen, \"\"batch\"\"\nα \",-19.8251,-3.68518\n\" Unseen, \"\"batch\"\"\nα \",+0.0001,32.00018\n\" Unseen, \"\"batch\"\"\nα \",-1000000,-1799968\n\" Unseen, \"\"batch\"\"\nα \",246.875,476.375",
+        "selector": "#result"
+      },
+      "index": 3,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "sample\n1"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "sample\n1",
+        "value": "sample\n1"
+      },
+      "index": 4,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "selector": "#result"
+      },
+      "index": 5,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "probe_c,probe_c\n1,2"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "probe_c,probe_c\n1,2",
+        "value": "probe_c,probe_c\n1,2"
+      },
+      "index": 6,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "selector": "#result"
+      },
+      "index": 7,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "probe_c,sample\n1"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "probe_c,sample\n1",
+        "value": "probe_c,sample\n1"
+      },
+      "index": 8,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "selector": "#result"
+      },
+      "index": 9,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "probe_c,fahrenheit\n1,2"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "probe_c,fahrenheit\n1,2",
+        "value": "probe_c,fahrenheit\n1,2"
+      },
+      "index": 10,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "selector": "#result"
+      },
+      "index": 11,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "probe_c\n1e3"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "probe_c\n1e3",
+        "value": "probe_c\n1e3"
+      },
+      "index": 12,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "selector": "#result"
+      },
+      "index": 13,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "probe_c,Zone,id\n37.1234,\"R&D, α\",f-1\n-17.7777,\"Two\nlines\",f-2\n0,West,f-3\n-999999.9999,<note> & draft,f-4\n1000000,,f-5\n+0002.0001,North,f-6"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "probe_c,Zone,id\n37.1234,\"R&D, α\",f-1\n-17.7777,\"Two\nlines\",f-2\n0,West,f-3\n-999999.9999,<note> & draft,f-4\n1000000,,f-5\n+0002.0001,North,f-6",
+        "value": "probe_c,Zone,id\n37.1234,\"R&D, α\",f-1\n-17.7777,\"Two\nlines\",f-2\n0,West,f-3\n-999999.9999,<note> & draft,f-4\n1000000,,f-5\n+0002.0001,North,f-6"
+      },
+      "index": 14,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "probe_c,Zone,id,fahrenheit\n37.1234,\"R&D, α\",f-1,98.82212\n-17.7777,\"Two\nlines\",f-2,0.00014\n0,West,f-3,32\n-999999.9999,<note> & draft,f-4,-1799967.99982\n1000000,,f-5,1800032\n+0002.0001,North,f-6,35.60018",
+        "value": null
+      },
+      "expected": {
+        "expectText": "probe_c,Zone,id,fahrenheit\n37.1234,\"R&D, α\",f-1,98.82212\n-17.7777,\"Two\nlines\",f-2,0.00014\n0,West,f-3,32\n-999999.9999,<note> & draft,f-4,-1799967.99982\n1000000,,f-5,1800032\n+0002.0001,North,f-6,35.60018",
+        "selector": "#result"
+      },
+      "index": 15,
+      "selector": "#result",
+      "passed": true
+    }
+  ],
+  "at": "2026-11-19T14:36:54.346368500Z",
+  "id": "bbb7442b-0850-32ac-b9a8-2c4087d68aea",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "selector": "#source",
+      "expectValue": "probe_c,Zone,id\n37.1234,\"R&D, α\",f-1\n-17.7777,\"Two\nlines\",f-2\n0,West,f-3\n-999999.9999,<note> & draft,f-4\n1000000,,f-5\n+0002.0001,North,f-6"
+    },
+    {
+      "expectText": "probe_c,Zone,id,fahrenheit\n37.1234,\"R&D, α\",f-1,98.82212\n-17.7777,\"Two\nlines\",f-2,0.00014\n0,West,f-3,32\n-999999.9999,<note> & draft,f-4,-1799967.99982\n1000000,,f-5,1800032\n+0002.0001,North,f-6,35.60018",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "sample,probe_c\n\" Unseen, \"\"batch\"\"\nα \",-19.8251\n\" Unseen, \"\"batch\"\"\nα \",+0.0001\n\" Unseen, \"\"batch\"\"\nα \",-1000000\n\" Unseen, \"\"batch\"\"\nα \",246.875",
+      "value": "sample,probe_c\n\" Unseen, \"\"batch\"\"\nα \",-19.8251\n\" Unseen, \"\"batch\"\"\nα \",+0.0001\n\" Unseen, \"\"batch\"\"\nα \",-1000000\n\" Unseen, \"\"batch\"\"\nα \",246.875"
+    },
+    {
+      "expectText": "sample,probe_c,fahrenheit\n\" Unseen, \"\"batch\"\"\nα \",-19.8251,-3.68518\n\" Unseen, \"\"batch\"\"\nα \",+0.0001,32.00018\n\" Unseen, \"\"batch\"\"\nα \",-1000000,-1799968\n\" Unseen, \"\"batch\"\"\nα \",246.875,476.375",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "sample\n1",
+      "value": "sample\n1"
+    },
+    {
+      "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "probe_c,probe_c\n1,2",
+      "value": "probe_c,probe_c\n1,2"
+    },
+    {
+      "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "probe_c,sample\n1",
+      "value": "probe_c,sample\n1"
+    },
+    {
+      "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "probe_c,fahrenheit\n1,2",
+      "value": "probe_c,fahrenheit\n1,2"
+    },
+    {
+      "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "probe_c\n1e3",
+      "value": "probe_c\n1e3"
+    },
+    {
+      "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "probe_c,Zone,id\n37.1234,\"R&D, α\",f-1\n-17.7777,\"Two\nlines\",f-2\n0,West,f-3\n-999999.9999,<note> & draft,f-4\n1000000,,f-5\n+0002.0001,North,f-6",
+      "value": "probe_c,Zone,id\n37.1234,\"R&D, α\",f-1\n-17.7777,\"Two\nlines\",f-2\n0,West,f-3\n-999999.9999,<note> & draft,f-4\n1000000,,f-5\n+0002.0001,North,f-6"
+    },
+    {
+      "expectText": "probe_c,Zone,id,fahrenheit\n37.1234,\"R&D, α\",f-1,98.82212\n-17.7777,\"Two\nlines\",f-2,0.00014\n0,West,f-3,32\n-999999.9999,<note> & draft,f-4,-1799967.99982\n1000000,,f-5,1800032\n+0002.0001,North,f-6,35.60018",
+      "selector": "#result"
+    }
+  ]
+}

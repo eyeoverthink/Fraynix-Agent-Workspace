@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 194 · Teach a converter to find a named CSV column</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Teach a converter to find a named CSV column</h1><p>Choose a named measurement column in Chat and teach a conversion from its verified result. Reuse the lesson on reordered CSV and append the checked result without losing the other cells.</p>
+<nav><a href="../../../README-194.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../193/index.html">Edition 193</a><a href="#system">System files</a></nav>
+<figure><img src="chat-teaches-named-column.png" alt="Chat saves a lesson for the probe_c column"><figcaption>Chat saves a lesson for the probe_c column</figcaption></figure>
+<figure><img src="review-reordered-table.png" alt="Workbench shows the selected header for the reordered file"><figcaption>Workbench shows the selected header for the reordered file</figcaption></figure>
+<figure><img src="reordered-table-verified.png" alt="Canvas preserves the existing cells and displays the appended result"><figcaption>Canvas preserves the existing cells and displays the appended result</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Choose a named measurement column in Chat and teach a conversion from its verified result. Reuse the lesson on reordered CSV and append the checked result without losing the other cells.", "modules": [{"title": "Named column parser", "source": "workspace-engine/src/main/java/fraymus/workspace/FrayTableInput.java", "note": "docs/obsidian/202-named-column-lessons.md"}, {"title": "CSV tool verifier", "source": "workspace-engine/src/main/java/fraymus/workspace/FrayDataTool.java", "note": "docs/obsidian/202-named-column-lessons.md"}, {"title": "Teaching and recovery", "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "note": "docs/obsidian/202-named-column-lessons.md"}, {"title": "Workbench controls", "source": "workspace-desktop/renderer/request-workbench.js", "note": "docs/obsidian/202-named-column-lessons.md"}], "screenshots": [{"path": "docs/readmes/194/chat-teaches-named-column.png", "title": "Chat saves a lesson for the probe_c column"}, {"path": "docs/readmes/194/review-reordered-table.png", "title": "Workbench shows the selected header for the reordered file"}, {"path": "docs/readmes/194/reordered-table-verified.png", "title": "Canvas preserves the existing cells and displays the appended result"}], "evidence": [{"path": "docs/readmes/194/verification.json", "title": "Verification record"}, {"path": "docs/readmes/194/browser-receipt.json", "title": "Original Chromium receipt"}, {"path": "docs/readmes/194/offline-table-tool.html", "title": "Runnable offline tool"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/202-named-column-lessons.canvas", "bytes": 1517, "sha256": "97103d168321657737d36870485194b64ad266c4133e25deb567291f110ed121", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/202-named-column-lessons.md", "bytes": 600, "sha256": "d644ee4e6a0ac2174aa23bec685013519960a49b72a6419439de7874df237799", "hashKind": "utf8-lf"}, {"path": "docs/publication194/document.py", "bytes": 12066, "sha256": "b725fed9cd99f730f7a15ac749ee172b6a18f90a3a52cf32593c0a5ea9eadd1f", "hashKind": "utf8-lf"}, {"path": "docs/publication194/plan.md", "bytes": 2697, "sha256": "958569830a401f3a32b61b61fca91d2471f818709d2acff5bfa70fc14084d3f5", "hashKind": "utf8-lf"}, {"path": "docs/publication194/validate-desktop.cjs", "bytes": 13050, "sha256": "bc02dcb02b71a0e0957008a88c147c55ed359e46f661c56c810a88af9e81ca91", "hashKind": "utf8-lf"}, {"path": "docs/publication194/validate-guide.cjs", "bytes": 1719, "sha256": "a76fbda8e04c8b3101af8178e89873d708364cc603e2a1e28e739806e9565498", "hashKind": "utf8-lf"}, {"path": "docs/publication194/validate.py", "bytes": 2079, "sha256": "dd2dbcd90a453a017a77c94c4f7478024c924fe4986341c18d45dd38464a8cd8", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/request-workbench.js", "bytes": 13720, "sha256": "f34c0f1a7621413abe2a698bdb4fa649dd303292222b03568533cadf71b05cc9", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/FrayDataTool.java", "bytes": 10414, "sha256": "7ece03be65a8924042d4d1149b6ddce4072458a591d22fafda94857756df2414", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/FrayTableInput.java", "bytes": 2543, "sha256": "3b7047f4591893080b389ac38babc56434b7939a81a2a4dad59f256fa629452f", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "bytes": 39086, "sha256": "1ae328618bf365b1315d4365de5bed3d0a7fd3aed82bae1791e455790692bfae", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/resources/workbench/data-table-tool.html", "bytes": 5515, "sha256": "ae2accbfad94d9b8de706e489048e9ba49afbed2bf3b1b0087299958b69ee013", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

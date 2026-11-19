@@ -1,3 +1,7 @@
+## Edition 194 — Teach a converter to find a named CSV column
+
+2026-11-19. Choose a named measurement column in Chat and teach a conversion from its verified result. Reuse the lesson on reordered CSV and append the checked result without losing the other cells. The temperature lesson converted 6 fresh rows when the measurement column moved from third to first. Java checked the full output table and the browser passed 16 checks. A separate eight-column inches tool converted 24 rows. 125 root Java tests, 62 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed locally. The three measured builds took 1453, 1552 and 1453 ms. Two edition 193 results reverified. See README-194.md and docs/publication194/plan.md.
+
 ## Edition 193 — Teach Fraynix to build a checked tool from data
 
 2026-11-19. Teach a named CSV conversion lesson in Chat, attach fresh rows and build an offline browser tool. Java verifies the generated tool with both the input data and unseen measurements. After restart, the temperature lesson generated a new tool from 5 fresh CSV rows. Chromium matched Java on every row and 4 additional measurements. A separate 24-row inches tool passed the same gate. 125 root Java tests, 62 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed locally. The lesson, pending review, interrupted artifact save and completed proof passed restart checks. See README-193.md and docs/publication193/plan.md.

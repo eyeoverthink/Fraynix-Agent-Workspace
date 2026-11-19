@@ -1,5 +1,5 @@
 # Fraynix Agent Workspace
 
-[Edition 193 — Teach and reuse a CSV-to-tool lesson](README-193.md) · [Previous edition](README-192.md) · [Offline walkthrough](docs/readmes/193/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 194 — Named-column CSV lessons](README-194.md) · [Previous edition](README-193.md) · [Offline walkthrough](docs/readmes/194/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Teach a named CSV conversion lesson in Chat, attach fresh rows and build an offline browser tool. Java verifies the generated tool with both the input data and unseen measurements.
+Choose a named measurement column in Chat and teach a conversion from its verified result. Reuse the lesson on reordered CSV and append the checked result without losing the other cells.

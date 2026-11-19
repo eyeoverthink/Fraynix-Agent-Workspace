@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 194 — Named-column CSV lessons](../../README-194.md) · [Walkthrough](194/index.html)
+
 [Edition 193 — Teach and reuse a CSV-to-tool lesson](../../README-193.md) · [Walkthrough](193/index.html)
 
 [Edition 192 — Teach and reuse a verified Blender repair](../../README-192.md) · [Walkthrough](192/index.html)

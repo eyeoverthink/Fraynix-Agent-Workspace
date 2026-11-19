@@ -1,0 +1,53 @@
+{
+  "summary": "Choose a named measurement column in Chat and teach a conversion from its verified result. Reuse the lesson on reordered CSV and append the checked result without losing the other cells.",
+  "modules": [
+    {
+      "title": "Named column parser",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FrayTableInput.java",
+      "note": "docs/obsidian/202-named-column-lessons.md"
+    },
+    {
+      "title": "CSV tool verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FrayDataTool.java",
+      "note": "docs/obsidian/202-named-column-lessons.md"
+    },
+    {
+      "title": "Teaching and recovery",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java",
+      "note": "docs/obsidian/202-named-column-lessons.md"
+    },
+    {
+      "title": "Workbench controls",
+      "source": "workspace-desktop/renderer/request-workbench.js",
+      "note": "docs/obsidian/202-named-column-lessons.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/194/chat-teaches-named-column.png",
+      "title": "Chat saves a lesson for the probe_c column"
+    },
+    {
+      "path": "docs/readmes/194/review-reordered-table.png",
+      "title": "Workbench shows the selected header for the reordered file"
+    },
+    {
+      "path": "docs/readmes/194/reordered-table-verified.png",
+      "title": "Canvas preserves the existing cells and displays the appended result"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/194/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/194/browser-receipt.json",
+      "title": "Original Chromium receipt"
+    },
+    {
+      "path": "docs/readmes/194/offline-table-tool.html",
+      "title": "Runnable offline tool"
+    }
+  ]
+}

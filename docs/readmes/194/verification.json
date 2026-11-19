@@ -1,0 +1,271 @@
+{
+  "passed": true,
+  "teacherId": "afcd6ee3-e03c-4974-929f-8ae56df8ba91",
+  "learnerId": "eb10aba1-7e01-429d-b8e2-67fd5ca22f4f",
+  "teacher": {
+    "sourceSha256": "962b5c69addb4c2ff1f2648fc2b62978f9eed1465fd57be87841b2a4781d09ea",
+    "htmlSha256": "cbd031372cfec4f4aaf8527f50b4e2f6fa0d6de90e57bfbb4df44759fdb10fdc",
+    "compilerCommit": "d93947154a1f21dcfd8dfcc97f27439fed6e3275",
+    "cases": [
+      {
+        "input": "id,Zone,probe_c\ne-2,North,0\ne-4,\"South, aisle \"\"B\"\"\",20\ne-6,East,-40\n",
+        "java": "id,Zone,probe_c,fahrenheit\ne-2,North,0,32\ne-4,\"South, aisle \"\"B\"\"\",20,68\ne-6,East,-40,-40",
+        "browser": "id,Zone,probe_c,fahrenheit\ne-2,North,0,32\ne-4,\"South, aisle \"\"B\"\"\",20,68\ne-6,East,-40,-40"
+      },
+      {
+        "input": "sample,probe_c\n\" Unseen, \"\"batch\"\"\nα \",-19.8251\n\" Unseen, \"\"batch\"\"\nα \",+0.0001\n\" Unseen, \"\"batch\"\"\nα \",1000000\n\" Unseen, \"\"batch\"\"\nα \",-1000000\n\" Unseen, \"\"batch\"\"\nα \",246.875",
+        "java": "sample,probe_c,fahrenheit\n\" Unseen, \"\"batch\"\"\nα \",-19.8251,-3.68518\n\" Unseen, \"\"batch\"\"\nα \",+0.0001,32.00018\n\" Unseen, \"\"batch\"\"\nα \",1000000,1800032\n\" Unseen, \"\"batch\"\"\nα \",-1000000,-1799968\n\" Unseen, \"\"batch\"\"\nα \",246.875,476.375",
+        "browser": "sample,probe_c,fahrenheit\n\" Unseen, \"\"batch\"\"\nα \",-19.8251,-3.68518\n\" Unseen, \"\"batch\"\"\nα \",+0.0001,32.00018\n\" Unseen, \"\"batch\"\"\nα \",1000000,1800032\n\" Unseen, \"\"batch\"\"\nα \",-1000000,-1799968\n\" Unseen, \"\"batch\"\"\nα \",246.875,476.375"
+      },
+      {
+        "input": "sample\n1",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "probe_c,probe_c\n1,2",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "probe_c,sample\n1",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "probe_c,fahrenheit\n1,2",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "probe_c\n1e3",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "id,Zone,probe_c\ne-2,North,0\ne-4,\"South, aisle \"\"B\"\"\",20\ne-6,East,-40\n",
+        "java": "id,Zone,probe_c,fahrenheit\ne-2,North,0,32\ne-4,\"South, aisle \"\"B\"\"\",20,68\ne-6,East,-40,-40",
+        "browser": "id,Zone,probe_c,fahrenheit\ne-2,North,0,32\ne-4,\"South, aisle \"\"B\"\"\",20,68\ne-6,East,-40,-40"
+      }
+    ],
+    "outputColumn": "fahrenheit",
+    "frayBytecodeHex": "4652415901000300010000001040220000000000004014000000000000404000000000000063656c7369757300020000010000120100011301000210ff",
+    "fraySource": "celsius * 9 / 5 + 32",
+    "passed": true,
+    "tableColumn": "probe_c",
+    "inputColumn": "celsius",
+    "inputHeaders": [
+      "id",
+      "Zone",
+      "probe_c"
+    ],
+    "inputCount": 3
+  },
+  "fresh": {
+    "cases": [
+      {
+        "input": "probe_c,Zone,id\n37.1234,\"R&D, α\",f-1\n-17.7777,\"Two\nlines\",f-2\n0,West,f-3\n-999999.9999,<note> & draft,f-4\n1000000,,f-5\n+0002.0001,North,f-6",
+        "java": "probe_c,Zone,id,fahrenheit\n37.1234,\"R&D, α\",f-1,98.82212\n-17.7777,\"Two\nlines\",f-2,0.00014\n0,West,f-3,32\n-999999.9999,<note> & draft,f-4,-1799967.99982\n1000000,,f-5,1800032\n+0002.0001,North,f-6,35.60018",
+        "browser": "probe_c,Zone,id,fahrenheit\n37.1234,\"R&D, α\",f-1,98.82212\n-17.7777,\"Two\nlines\",f-2,0.00014\n0,West,f-3,32\n-999999.9999,<note> & draft,f-4,-1799967.99982\n1000000,,f-5,1800032\n+0002.0001,North,f-6,35.60018"
+      },
+      {
+        "input": "sample,probe_c\n\" Unseen, \"\"batch\"\"\nα \",-19.8251\n\" Unseen, \"\"batch\"\"\nα \",+0.0001\n\" Unseen, \"\"batch\"\"\nα \",-1000000\n\" Unseen, \"\"batch\"\"\nα \",246.875",
+        "java": "sample,probe_c,fahrenheit\n\" Unseen, \"\"batch\"\"\nα \",-19.8251,-3.68518\n\" Unseen, \"\"batch\"\"\nα \",+0.0001,32.00018\n\" Unseen, \"\"batch\"\"\nα \",-1000000,-1799968\n\" Unseen, \"\"batch\"\"\nα \",246.875,476.375",
+        "browser": "sample,probe_c,fahrenheit\n\" Unseen, \"\"batch\"\"\nα \",-19.8251,-3.68518\n\" Unseen, \"\"batch\"\"\nα \",+0.0001,32.00018\n\" Unseen, \"\"batch\"\"\nα \",-1000000,-1799968\n\" Unseen, \"\"batch\"\"\nα \",246.875,476.375"
+      },
+      {
+        "input": "sample\n1",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "probe_c,probe_c\n1,2",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "probe_c,sample\n1",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "probe_c,fahrenheit\n1,2",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "probe_c\n1e3",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "probe_c,Zone,id\n37.1234,\"R&D, α\",f-1\n-17.7777,\"Two\nlines\",f-2\n0,West,f-3\n-999999.9999,<note> & draft,f-4\n1000000,,f-5\n+0002.0001,North,f-6",
+        "java": "probe_c,Zone,id,fahrenheit\n37.1234,\"R&D, α\",f-1,98.82212\n-17.7777,\"Two\nlines\",f-2,0.00014\n0,West,f-3,32\n-999999.9999,<note> & draft,f-4,-1799967.99982\n1000000,,f-5,1800032\n+0002.0001,North,f-6,35.60018",
+        "browser": "probe_c,Zone,id,fahrenheit\n37.1234,\"R&D, α\",f-1,98.82212\n-17.7777,\"Two\nlines\",f-2,0.00014\n0,West,f-3,32\n-999999.9999,<note> & draft,f-4,-1799967.99982\n1000000,,f-5,1800032\n+0002.0001,North,f-6,35.60018"
+      }
+    ],
+    "lesson": {
+      "teacherId": "afcd6ee3-e03c-4974-929f-8ae56df8ba91",
+      "programSha256": "b64b1fa5c987075c2191ea7174adb3c0f940ad010aa3ed7c73532e177f65ebbb",
+      "teacherSourceSha256": "962b5c69addb4c2ff1f2648fc2b62978f9eed1465fd57be87841b2a4781d09ea",
+      "name": "probe-batch",
+      "column": "celsius",
+      "teacherArtifact": {
+        "sha256": "ac5ae9ae31a14f7dc570a69ae4209e4ede828943a688ad9852d208f041dca935",
+        "id": "97de9b7c-6672-3d78-8ab4-fbd94230b480",
+        "version": 1
+      },
+      "tableColumn": "probe_c",
+      "exampleValues": [
+        "0",
+        "20",
+        "-40"
+      ]
+    },
+    "fraySource": "celsius * 9 / 5 + 32",
+    "inputColumn": "celsius",
+    "inputHeaders": [
+      "probe_c",
+      "Zone",
+      "id"
+    ],
+    "sourceSha256": "9b520a54ce8549820528b60faf68d6941f1aa71772fdb3f292b62aced2425dac",
+    "htmlSha256": "4b6e8c12ba7d5488cbb46ed23abce7796801205d92dde7f4b6253ca3aaf6bc6f",
+    "compilerCommit": "d93947154a1f21dcfd8dfcc97f27439fed6e3275",
+    "outputColumn": "fahrenheit",
+    "frayBytecodeHex": "4652415901000300010000001040220000000000004014000000000000404000000000000063656c7369757300020000010000120100011301000210ff",
+    "passed": true,
+    "tableColumn": "probe_c",
+    "inputCount": 6
+  },
+  "length": {
+    "sourceSha256": "05b20b38405f3f1286ca83272142e03d9ee5d38c6530825580c51547a5eed529",
+    "htmlSha256": "aaa18cd9046e8c2e493dd4cab3fd6311b1715b0fe4837ec736dee6c14dae18d5",
+    "compilerCommit": "d93947154a1f21dcfd8dfcc97f27439fed6e3275",
+    "cases": [
+      {
+        "input": "id,lot,x,y,len_in,source,tag,site\n0,L,0,0,0,S,T,A\n1,L,0,0,1,S,T,A\n2,L,0,0,2,S,T,A\n3,L,0,0,3,S,T,A\n4,L,0,0,4,S,T,A\n5,L,0,0,5,S,T,A\n6,L,0,0,6,S,T,A\n7,L,0,0,7,S,T,A\n8,L,0,0,8,S,T,A\n9,L,0,0,9,S,T,A\n10,L,0,0,10,S,T,A\n11,L,0,0,11,S,T,A\n12,L,0,0,12,S,T,A\n13,L,0,0,13,S,T,A\n14,L,0,0,14,S,T,A\n15,L,0,0,15,S,T,A\n16,L,0,0,16,S,T,A\n17,L,0,0,17,S,T,A\n18,L,0,0,18,S,T,A\n19,L,0,0,19,S,T,A\n20,L,0,0,20,S,T,A\n21,L,0,0,21,S,T,A\n22,L,0,0,22,S,T,A\n23,L,0,0,23,S,T,A",
+        "java": "id,lot,x,y,len_in,source,tag,site,millimetres\n0,L,0,0,0,S,T,A,0\n1,L,0,0,1,S,T,A,25.4\n2,L,0,0,2,S,T,A,50.8\n3,L,0,0,3,S,T,A,76.2\n4,L,0,0,4,S,T,A,101.6\n5,L,0,0,5,S,T,A,127\n6,L,0,0,6,S,T,A,152.4\n7,L,0,0,7,S,T,A,177.8\n8,L,0,0,8,S,T,A,203.2\n9,L,0,0,9,S,T,A,228.6\n10,L,0,0,10,S,T,A,254\n11,L,0,0,11,S,T,A,279.4\n12,L,0,0,12,S,T,A,304.8\n13,L,0,0,13,S,T,A,330.2\n14,L,0,0,14,S,T,A,355.6\n15,L,0,0,15,S,T,A,381\n16,L,0,0,16,S,T,A,406.4\n17,L,0,0,17,S,T,A,431.8\n18,L,0,0,18,S,T,A,457.2\n19,L,0,0,19,S,T,A,482.6\n20,L,0,0,20,S,T,A,508\n21,L,0,0,21,S,T,A,533.4\n22,L,0,0,22,S,T,A,558.8\n23,L,0,0,23,S,T,A,584.2",
+        "browser": "id,lot,x,y,len_in,source,tag,site,millimetres\n0,L,0,0,0,S,T,A,0\n1,L,0,0,1,S,T,A,25.4\n2,L,0,0,2,S,T,A,50.8\n3,L,0,0,3,S,T,A,76.2\n4,L,0,0,4,S,T,A,101.6\n5,L,0,0,5,S,T,A,127\n6,L,0,0,6,S,T,A,152.4\n7,L,0,0,7,S,T,A,177.8\n8,L,0,0,8,S,T,A,203.2\n9,L,0,0,9,S,T,A,228.6\n10,L,0,0,10,S,T,A,254\n11,L,0,0,11,S,T,A,279.4\n12,L,0,0,12,S,T,A,304.8\n13,L,0,0,13,S,T,A,330.2\n14,L,0,0,14,S,T,A,355.6\n15,L,0,0,15,S,T,A,381\n16,L,0,0,16,S,T,A,406.4\n17,L,0,0,17,S,T,A,431.8\n18,L,0,0,18,S,T,A,457.2\n19,L,0,0,19,S,T,A,482.6\n20,L,0,0,20,S,T,A,508\n21,L,0,0,21,S,T,A,533.4\n22,L,0,0,22,S,T,A,558.8\n23,L,0,0,23,S,T,A,584.2"
+      },
+      {
+        "input": "sample,len_in\n\" Unseen, \"\"batch\"\"\nα \",-19.8251\n\" Unseen, \"\"batch\"\"\nα \",+0.0001\n\" Unseen, \"\"batch\"\"\nα \",1000000\n\" Unseen, \"\"batch\"\"\nα \",-1000000\n\" Unseen, \"\"batch\"\"\nα \",246.875",
+        "java": "sample,len_in,millimetres\n\" Unseen, \"\"batch\"\"\nα \",-19.8251,-503.55754\n\" Unseen, \"\"batch\"\"\nα \",+0.0001,0.00254\n\" Unseen, \"\"batch\"\"\nα \",1000000,25400000\n\" Unseen, \"\"batch\"\"\nα \",-1000000,-25400000\n\" Unseen, \"\"batch\"\"\nα \",246.875,6270.625",
+        "browser": "sample,len_in,millimetres\n\" Unseen, \"\"batch\"\"\nα \",-19.8251,-503.55754\n\" Unseen, \"\"batch\"\"\nα \",+0.0001,0.00254\n\" Unseen, \"\"batch\"\"\nα \",1000000,25400000\n\" Unseen, \"\"batch\"\"\nα \",-1000000,-25400000\n\" Unseen, \"\"batch\"\"\nα \",246.875,6270.625"
+      },
+      {
+        "input": "sample\n1",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "len_in,len_in\n1,2",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "len_in,sample\n1",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "len_in,millimetres\n1,2",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "len_in\n1e3",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "id,lot,x,y,len_in,source,tag,site\n0,L,0,0,0,S,T,A\n1,L,0,0,1,S,T,A\n2,L,0,0,2,S,T,A\n3,L,0,0,3,S,T,A\n4,L,0,0,4,S,T,A\n5,L,0,0,5,S,T,A\n6,L,0,0,6,S,T,A\n7,L,0,0,7,S,T,A\n8,L,0,0,8,S,T,A\n9,L,0,0,9,S,T,A\n10,L,0,0,10,S,T,A\n11,L,0,0,11,S,T,A\n12,L,0,0,12,S,T,A\n13,L,0,0,13,S,T,A\n14,L,0,0,14,S,T,A\n15,L,0,0,15,S,T,A\n16,L,0,0,16,S,T,A\n17,L,0,0,17,S,T,A\n18,L,0,0,18,S,T,A\n19,L,0,0,19,S,T,A\n20,L,0,0,20,S,T,A\n21,L,0,0,21,S,T,A\n22,L,0,0,22,S,T,A\n23,L,0,0,23,S,T,A",
+        "java": "id,lot,x,y,len_in,source,tag,site,millimetres\n0,L,0,0,0,S,T,A,0\n1,L,0,0,1,S,T,A,25.4\n2,L,0,0,2,S,T,A,50.8\n3,L,0,0,3,S,T,A,76.2\n4,L,0,0,4,S,T,A,101.6\n5,L,0,0,5,S,T,A,127\n6,L,0,0,6,S,T,A,152.4\n7,L,0,0,7,S,T,A,177.8\n8,L,0,0,8,S,T,A,203.2\n9,L,0,0,9,S,T,A,228.6\n10,L,0,0,10,S,T,A,254\n11,L,0,0,11,S,T,A,279.4\n12,L,0,0,12,S,T,A,304.8\n13,L,0,0,13,S,T,A,330.2\n14,L,0,0,14,S,T,A,355.6\n15,L,0,0,15,S,T,A,381\n16,L,0,0,16,S,T,A,406.4\n17,L,0,0,17,S,T,A,431.8\n18,L,0,0,18,S,T,A,457.2\n19,L,0,0,19,S,T,A,482.6\n20,L,0,0,20,S,T,A,508\n21,L,0,0,21,S,T,A,533.4\n22,L,0,0,22,S,T,A,558.8\n23,L,0,0,23,S,T,A,584.2",
+        "browser": "id,lot,x,y,len_in,source,tag,site,millimetres\n0,L,0,0,0,S,T,A,0\n1,L,0,0,1,S,T,A,25.4\n2,L,0,0,2,S,T,A,50.8\n3,L,0,0,3,S,T,A,76.2\n4,L,0,0,4,S,T,A,101.6\n5,L,0,0,5,S,T,A,127\n6,L,0,0,6,S,T,A,152.4\n7,L,0,0,7,S,T,A,177.8\n8,L,0,0,8,S,T,A,203.2\n9,L,0,0,9,S,T,A,228.6\n10,L,0,0,10,S,T,A,254\n11,L,0,0,11,S,T,A,279.4\n12,L,0,0,12,S,T,A,304.8\n13,L,0,0,13,S,T,A,330.2\n14,L,0,0,14,S,T,A,355.6\n15,L,0,0,15,S,T,A,381\n16,L,0,0,16,S,T,A,406.4\n17,L,0,0,17,S,T,A,431.8\n18,L,0,0,18,S,T,A,457.2\n19,L,0,0,19,S,T,A,482.6\n20,L,0,0,20,S,T,A,508\n21,L,0,0,21,S,T,A,533.4\n22,L,0,0,22,S,T,A,558.8\n23,L,0,0,23,S,T,A,584.2"
+      }
+    ],
+    "outputColumn": "millimetres",
+    "frayBytecodeHex": "465241590100010001000000084039666666666666696e636865730002000001000012ff",
+    "fraySource": "inches * 25.4",
+    "passed": true,
+    "tableColumn": "len_in",
+    "inputColumn": "inches",
+    "inputHeaders": [
+      "id",
+      "lot",
+      "x",
+      "y",
+      "len_in",
+      "source",
+      "tag",
+      "site"
+    ],
+    "inputCount": 24
+  },
+  "offline": {
+    "protocol": "file:",
+    "result": "id,probe_c,fahrenheit\n\"R-3, fresh\",-7.5,18.5"
+  },
+  "legacy": [
+    {
+      "id": "03e209d2-1698-40d8-a8b8-309a70c89e02",
+      "sha256": "26b24c5857989a33fb9716c12e1b0d97303d3fc217533facf3b5f293c130aeea"
+    },
+    {
+      "id": "1c2892ee-cc1e-408c-b27c-29dc8f499f38",
+      "sha256": "5a1b4c576f1d120aeba9715af71371e44429af7bb3bd0b542d25b4147144691e"
+    }
+  ],
+  "timing": {
+    "teacher": {
+      "rows": 3,
+      "columns": 3,
+      "attachMs": 39,
+      "buildVerifyMs": 1453
+    },
+    "reordered": {
+      "rows": 6,
+      "columns": 3,
+      "attachMs": 71,
+      "buildVerifyMs": 1552
+    },
+    "boundary": {
+      "rows": 24,
+      "columns": 8,
+      "attachMs": 76,
+      "buildVerifyMs": 1453
+    },
+    "restartVerifyMs": 30
+  },
+  "checks": {
+    "restartCount": 3,
+    "missingColumnRefused": true,
+    "duplicateHeadersRefused": true,
+    "raggedRowsRefused": true,
+    "outputCollisionRefused": true,
+    "repeatedTeachingValuesRefused": true,
+    "preservedUnrelatedCells": true
+  },
+  "screenshots": [
+    {
+      "name": "chat-teaches-named-column.png",
+      "sha256": "f99252b25438b4c929c992ca4c4dafa6ea08641156d32954796f11b4fe3655f2"
+    },
+    {
+      "name": "review-reordered-table.png",
+      "sha256": "5191a6f767a1fd2364e432e34dab32d4aed91043c003db810f38abae4ef93ecd"
+    },
+    {
+      "name": "reordered-table-verified.png",
+      "sha256": "272aa1bc9abacb13e711870aba3c7358d9cfe7eb50bfd7e439f7de70cb65a378"
+    }
+  ],
+  "source": "71005465a040499a041ca86a7b10637290d7ab41",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 62,
+    "desktop": 181,
+    "archive": 10
+  }
+}
