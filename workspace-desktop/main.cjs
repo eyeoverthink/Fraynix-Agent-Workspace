@@ -482,7 +482,13 @@ ipcMain.handle('workspace:request',async(event,input)=>{
           if(typeof pauseAfterFirst!=='boolean')throw Error('Choose whether to pause after the first conversion');
           const prepared=await api('/api/requests/fray-prepare',confirmation);
           proof=prepared;
-          if(prepared.preview){
+          if(prepared.commitReady){
+            const saveStarted=performance.now();
+            proof=await api('/api/requests/fray-chain-resume-save',confirmation);
+            activity('request-recovery','Finished interrupted Fray artifact save',{
+              reviewId:confirmation.id,saveMs:Math.round(performance.now()-saveStarted)
+            });
+          }else if(prepared.preview){
             const previous=canvas.view.webContents.getURL();
             try{
               const rebuildStarted=performance.now();

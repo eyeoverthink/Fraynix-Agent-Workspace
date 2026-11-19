@@ -56,7 +56,8 @@ export class RequestWorkbenchPanel {
             for (const chain of chains) {
                 const {input, intermediate} = chain;
                 const label = chain.title + ' / ' + input.value + ' ' + input.unit + ' / verified '
-                    + intermediate.value + ' ' + intermediate.unit + ' / ' + chain.id.slice(0, 8);
+                    + intermediate.value + ' ' + intermediate.unit
+                    + (chain.savePending ? ' / ready to save' : '') + ' / ' + chain.id.slice(0, 8);
                 select.add(new Option(label, chain.id));
             }
             select.value = '';
@@ -170,9 +171,10 @@ export class RequestWorkbenchPanel {
         $('requests-action').value = '';
         $('requests-pause-chain').checked = false;
         const handoff = task.intermediate;
-        $('requests-status').textContent = task.summary || (handoff
-            ? 'Verified ' + handoff.value + ' ' + handoff.unit + '. Resume the second conversion when ready.'
-            : task.choice.description);
+        $('requests-status').textContent = task.summary || (task.savePending
+            ? 'Both conversions are verified. Finish saving the checked artifact.'
+            : handoff ? 'Verified ' + handoff.value + ' ' + handoff.unit + '. Resume the second conversion when ready.'
+                : task.choice.description);
         this.render();
     }
 
@@ -202,7 +204,7 @@ export class RequestWorkbenchPanel {
         $('requests-confirm').hidden = !pending || task.choice.action === 'clarify';
         const fray = isFray(task?.choice.action);
         $('requests-confirm').textContent = chain
-            ? (task.firstVerified ? 'Resume verified handoff' : 'Verify both conversions')
+            ? (task.savePending ? 'Finish verified save' : task.firstVerified ? 'Resume verified handoff' : 'Verify both conversions')
             : fray ? 'Build and verify in browser'
             : file ? 'Confirm and verify' : 'Review in Creation Canvas';
         $('requests-confirm').disabled = this.busy || (file && !task?.source);

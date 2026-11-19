@@ -149,7 +149,8 @@ final class RequestWorkbench {
                 var choice = row.getJSONObject("choice");
                 chains.put(new JSONObject().put("id", row.getString("id")).put("title", choice.getString("label"))
                         .put("input", choice.getJSONObject("chain").getJSONObject("input"))
-                        .put("intermediate", row.getJSONObject("intermediate")));
+                        .put("intermediate", row.getJSONObject("intermediate"))
+                        .put("savePending", row.optBoolean("savePending")));
             }
         }
         return new JSONObject().put("chains", chains);
@@ -186,6 +187,7 @@ final class RequestWorkbench {
         if (intent(task) == RequestLanguage.Intent.FRAY_CHAIN) {
             var chain = requireChain(input, task);
             if (task.has("report")) return proof(task).put("task", view(task));
+            if (task.has("frayChecks")) return new JSONObject().put("commitReady", true);
             return new JSONObject().put("preview", chain.previewPath()).put("chain", true)
                     .put("htmlSha256", chain.htmlSha256).put("steps", chain.firstSteps())
                     .put("resuming", pendingChain(task));
@@ -245,13 +247,38 @@ final class RequestWorkbench {
             throw new IllegalStateException("The verified handoff requires " + intermediate.text());
         if (task.has("report")) return proof(task).put("task", view(task));
         var second = input.getJSONArray("checks");
+        if (task.has("frayChecks") && !task.getJSONArray("frayChecks").similar(second))
+            throw new IllegalStateException("The retained second-stage evidence changed");
         var expected = chain.artifact(first, second);
+        if (!task.has("frayChecks")) {
+            task.put("frayChecks", second).put("fraySaveSha256", WorldFrames.hash(expected));
+            save(task);
+        }
+        return commitChain(task, chain, intermediate, expected);
+    }
+
+    synchronized JSONObject resumeChainSave(JSONObject input) throws Exception {
+        SpatialScene.keys(input, "id", "reviewSha256");
+        var task = load(input);
+        var chain = requireChain(input, task);
+        if (task.has("report")) return proof(task).put("task", view(task));
+        if (!pendingChain(task) || !task.has("frayChecks"))
+            throw new IllegalStateException("Both stages must be verified before resuming a save");
+        var first = task.getJSONArray("frayFirstChecks");
+        var expected = chain.artifact(first, task.getJSONArray("frayChecks"));
+        return commitChain(task, chain, chain.verifiedIntermediate(first), expected);
+    }
+
+    private JSONObject commitChain(JSONObject task, FrayChain chain, FrayChain.Quantity intermediate,
+                                   JSONObject expected) throws Exception {
+        if (!WorldFrames.hash(expected).equals(task.optString("fraySaveSha256")))
+            throw new IllegalStateException("The staged artifact or its verified browser source changed");
         var artifact = store.writeOnce("request-workbench:" + task.getString("id"), expected);
         var ref = artifactRef(artifact, expected);
-        store.recordTest(new JSONObject().put("id", ref.getString("id")).put("version", ref.getInt("version"))
+        store.recordTestOnce(new JSONObject().put("id", ref.getString("id")).put("version", ref.getInt("version"))
                 .put("steps", FrayChain.join(chain.firstSteps(), chain.secondSteps(intermediate), false))
-                .put("checks", FrayChain.join(first, second, true)));
-        task.put("report", ref).put("status", "verified").put("frayChecks", second)
+                .put("checks", FrayChain.join(task.getJSONArray("frayFirstChecks"), task.getJSONArray("frayChecks"), true)));
+        task.put("report", ref).put("status", "verified")
                 .put("summary", "Both Fray steps passed. The second used the verified " + intermediate.text() + ".");
         save(task);
         return proof(task).put("task", view(task));
@@ -432,7 +459,8 @@ final class RequestWorkbench {
 
     private static JSONObject view(JSONObject task) {
         var visible = WorldFrames.copy(task);
-        visible.remove("frayChecks");
+        visible.remove("fraySaveSha256");
+        if (visible.remove("frayChecks") != null && pendingChain(task)) visible.put("savePending", true);
         if (visible.remove("frayFirstChecks") instanceof JSONArray first) {
             var chain = FrayChain.fromDefinition(task.getJSONObject("choice").getJSONObject("chain"));
             visible.put("firstVerified", true).put("intermediate", chain.verifiedIntermediate(first).json());

@@ -171,6 +171,46 @@ public class FrayChainTest {
         }
     }
 
+    @Test public void resumesAfterArtifactAndReceiptWereWrittenWithoutDuplicatingEither() throws Exception {
+        var project = Files.createTempDirectory("fray-interrupted-artifact-");
+        JSONObject input;
+        JSONObject receipt;
+        String artifactId;
+        try (var store = new WorkspaceStore(project)) {
+            var wb = new RequestWorkbench(project, store);
+            var binding = staged(wb, PROMPT);
+            String reviewId = binding.getString("id");
+            input = new JSONObject().put("id", reviewId).put("reviewSha256", binding.getString("reviewSha256"));
+            assertThrows(IllegalStateException.class, () -> wb.resumeChainSave(input));
+            var taskPath = project.resolve("request-workbench").resolve(reviewId + ".task.json");
+            var task = AgentFiles042.loadChecked(taskPath);
+            var chain = FrayChain.fromDefinition(task.getJSONObject("choice").getJSONObject("chain"));
+            var first = task.getJSONArray("frayFirstChecks");
+            var secondSteps = chain.secondSteps(chain.verifiedIntermediate(first));
+            var second = observations(secondSteps);
+            var expected = chain.artifact(first, second);
+            // A persisted queue entry and the real artifact store reproduce the point before review finalization.
+            AgentFiles042.saveChecked(taskPath, task.put("frayChecks", second).put("fraySaveSha256", "different"));
+            assertThrows(IllegalStateException.class, () -> wb.resumeChainSave(input));
+            assertEquals(0, store.artifacts().length());
+            AgentFiles042.saveChecked(taskPath, task.put("fraySaveSha256", WorldFrames.hash(expected)));
+            var artifact = store.writeOnce("request-workbench:" + reviewId, expected);
+            artifactId = artifact.getString("id");
+            receipt = store.recordTest(new JSONObject().put("id", artifactId).put("version", 1)
+                    .put("steps", FrayChain.join(chain.firstSteps(), secondSteps, false))
+                    .put("checks", FrayChain.join(first, second, true)));
+        }
+        try (var store = new WorkspaceStore(project)) {
+            var wb = new RequestWorkbench(project, store);
+            assertTrue(wb.prepareFray(input).getBoolean("commitReady"));
+            var saved = wb.resumeChainSave(input);
+            assertEquals(artifactId, saved.getJSONObject("artifact").getString("id"));
+            assertEquals(1, store.artifacts().length());
+            assertTrue(receipt.similar(store.read(artifactId).getJSONObject("test")));
+            assertTrue(saved.getJSONObject("artifact").similar(wb.resumeChainSave(input).getJSONObject("artifact")));
+        }
+    }
+
     private static JSONObject staged(RequestWorkbench workbench, String request) throws Exception {
         var task = workbench.chat(new JSONObject().put("request", request)).getJSONObject("task");
         var binding = new JSONObject().put("id", task.getString("id")).put("reviewSha256", task.getString("reviewSha256"));

@@ -137,6 +137,19 @@ public final class WorkspaceStore implements AutoCloseable {
         }
         if(before.getInt("version")!=expected)throw new ConcurrentModificationException("Creation revision source was changed");return write(args);
     }
+    synchronized JSONObject recordTestOnce(JSONObject args) throws IOException {
+        var artifact = read(args.getString("id"));
+        if (artifact.getInt("version") != args.getInt("version"))
+            throw new IllegalArgumentException("Test refers to an older artifact version");
+        var prior = artifact.optJSONObject("test");
+        if (prior == null) return recordTest(args);
+        var retained = new JSONObject(prior.toString());
+        if (!(retained.remove("at") instanceof String at) || at.isBlank()
+                || !Boolean.TRUE.equals(retained.remove("passed")) || !retained.similar(args))
+            throw new IllegalStateException("The original artifact test receipt changed");
+        return prior;
+    }
+
     public synchronized JSONObject recordTest(JSONObject args) throws IOException {
         JSONObject artifact=read(args.getString("id"));if(artifact.getInt("version")!=args.getInt("version"))throw new IllegalArgumentException("Test refers to an older artifact version");
         JSONObject proof=new JSONObject(args.toString()).put("at",Instant.now().toString());
