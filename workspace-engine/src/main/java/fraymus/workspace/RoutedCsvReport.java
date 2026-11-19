@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 /** Restores source order from verified batches, with independent exact-decimal checks. */
 final class RoutedCsvReport {
-    private static final List<String> FIELDS = List.of("source_row", "classification", "lesson", "input_column",
+    static final List<String> FIELDS = List.of("source_row", "classification", "lesson", "input_column",
             "input_value", "input_unit", "output_value", "output_unit");
 
     private RoutedCsvReport() {}

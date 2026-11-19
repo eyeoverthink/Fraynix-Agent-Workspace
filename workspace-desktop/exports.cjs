@@ -1,5 +1,7 @@
 'use strict';
 const fs=require('node:fs/promises'),path=require('node:path'),{randomUUID,createHash}=require('node:crypto');
+const {createReadStream}=require('node:fs');
+const {createInterface}=require('node:readline');
 class NativeExports {
  constructor(project){this.directory=path.join(project,'exports');this.latest=null;}
  async save(kind,extension,bytes,source){
@@ -9,6 +11,31 @@ class NativeExports {
   await fs.writeFile(temporary,data,{flag:'wx'});await fs.rename(temporary,target);
   await fs.writeFile(target+'.receipt.json',JSON.stringify(receipt,null,2)+'\n',{flag:'wx'});
   await fs.appendFile(path.join(this.directory,'manifest.jsonl'),JSON.stringify(receipt)+'\n');this.latest=receipt;return receipt;
+ }
+ async routedCsv(exportId){
+  if(!exportId){
+   const manifest=path.join(this.directory,'manifest.jsonl');
+   const stat=await fs.lstat(manifest).catch(error=>{if(error.code==='ENOENT')return null;throw error;});
+   if(!stat?.isFile())throw Error('Export a verified routing CSV first');
+   for await(const line of createInterface({input:createReadStream(manifest),crlfDelay:Infinity})){
+    if(!line.trim())continue;
+    const entry=JSON.parse(line);
+    if(entry.kind==='verified-routed-results')exportId=entry.id;
+   }
+  }
+  if(!exportId)throw Error('Export a verified routing CSV first');
+  if(!/^[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$/.test(exportId))throw Error('The routing export ID changed');
+  const file=path.join(this.directory,exportId+'.csv');
+  const receiptFile=file+'.receipt.json';
+  const [receiptInfo,csvInfo]=await Promise.all([fs.lstat(receiptFile),fs.lstat(file)]);
+  if(!receiptInfo.isFile()||receiptInfo.size>64000||!csvInfo.isFile()||csvInfo.size>12000)
+   throw Error('The routed CSV or its export receipt is unavailable');
+  const [receiptText,bytes]=await Promise.all([fs.readFile(receiptFile,'utf8'),fs.readFile(file)]);
+  const receipt=JSON.parse(receiptText);
+  const sha256=createHash('sha256').update(bytes).digest('hex');
+  if(receipt.id!==exportId||receipt.kind!=='verified-routed-results'||receipt.bytes!==bytes.length||receipt.sha256!==sha256)
+   throw Error('The routed CSV bytes do not match the original export receipt');
+  return {exportId,sha256,source:receipt.source,base64:bytes.toString('base64')};
  }
  async payloadStudy(value,source){
   const old=value.format==='fraynix.payload-study-057-v1'&&value.original?.format==='fraynix.payload-native-gzip-v1';const redesign=((value.format==='fraynix.payload-redesign-058-v1'&&value.originals?.manifest?.edition===58)||(value.format==='fraynix.payload-redesign-059-v1'&&value.originals?.manifest?.edition===59)||(value.format==='fraynix.payload-redesign-060-v1'&&value.originals?.manifest?.edition===60))&&value.originals?.manifest?.format==='fraynix.payload-attempt-manifest-057-v1'&&Array.isArray(value.originals.records)&&value.originals.records.length>0;if(!old&&!redesign)throw Error('Invalid payload study transport');

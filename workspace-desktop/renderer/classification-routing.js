@@ -3,6 +3,8 @@ const PROJECT_PLAN = 'fraynix-classification-routing-plan';
 const SOURCE = 'fraynix-verified-classification';
 
 export const isRoutingRequest = text => /^(?:Route the last verified classification|Resume classification routing)[.!]?$/i.test(text.trim());
+export const isRoutedDashboardRequest = text =>
+    /^(?:Build a dashboard from the (?:last )?verified routed CSV|Recheck the routed CSV dashboard)[.!]?$/i.test(text.trim());
 
 export class ClassificationRoutingPanel {
     constructor({call, layout, announce}) {
@@ -50,6 +52,14 @@ export class ClassificationRoutingPanel {
     }
 
     async fromChat(text) {
+        if (isRoutedDashboardRequest(text)) {
+            try {
+                const result = await this.call('routing-dashboard',{verifyOnly:/^recheck/i.test(text.trim())});
+                this.announce('Dashboard verified against Java. '+result.browserChecks
+                    +(result.rechecked?' fresh browser checks passed.':' browser checks passed.'));
+            } catch (error) { this.announce(error.message); }
+            return;
+        }
         const resume = /^resume/i.test(text);
         const saved = localStorage.getItem(resume ? PROJECT_PLAN : SOURCE);
         if (!saved) {

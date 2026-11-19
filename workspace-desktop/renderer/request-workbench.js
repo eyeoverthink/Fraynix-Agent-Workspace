@@ -1,4 +1,4 @@
-import {ClassificationRoutingPanel,isRoutingRequest} from './classification-routing.js';
+import {ClassificationRoutingPanel,isRoutedDashboardRequest,isRoutingRequest} from './classification-routing.js';
 
 const $ = id => document.getElementById(id);
 const DATA_TOOL = 'build-data-tool';
@@ -7,7 +7,7 @@ const LAST_TEACHER = 'fraynix-verified-data-tool';
 // This is a UI hint. The Java Workbench decides whether the chat request matches.
 export function mayRequestFrayTool(value) {
     if (value.length > 1200) return false;
-    if (isRoutingRequest(value)) return true;
+    if (isRoutingRequest(value)||isRoutedDashboardRequest(value)) return true;
     if (/^(?:(?:teach|use) data-to-tool lesson\b|build a data-to-tool (?:converter from|classifier using column)\b)/i.test(value.trim())) return true;
     const text = value.normalize('NFKC').toLowerCase().replace(/[^a-z0-9]+/g, ' ');
     return (/^(?:please )?convert\b.*\bthen\b/.test(text)
@@ -144,7 +144,7 @@ export class RequestWorkbenchPanel {
     }
 
     async offerFromChat(request) {
-        if (isRoutingRequest(request)) {
+        if (isRoutingRequest(request)||isRoutedDashboardRequest(request)) {
             await this.routing.fromChat(request);
             return true;
         }

@@ -506,6 +506,49 @@ async function runClassificationPlan({id,decisionSha256,pauseAfterNext=false}) {
   throw Error('Routing plan exceeded the procedure limit');
 }
 
+async function openRoutedDashboard({verifyOnly=false}) {
+  if(typeof verifyOnly!=='boolean')throw Error('Choose whether to build or recheck the dashboard');
+  const file=await nativeExports.routedCsv();
+  let result=await api('/api/requests/routing-dashboard-prepare',{file,verifyOnly});
+  if(verifyOnly){
+    await showRoutedDashboard(result);
+    const checks=await canvas.test(result.steps);
+    const current=await nativeExports.routedCsv(file.exportId);
+    return api('/api/requests/routing-dashboard-finish',{id:result.id,file:current,htmlSha256:result.htmlSha256,checks});
+  }
+  if(!result.artifact){
+    const previous=canvas.view.webContents.getURL();
+    try{
+      const confirmation={id:result.id,htmlSha256:result.htmlSha256};
+      if(result.preview){
+        const url=origin+result.preview;
+        const response=await fetch(url,{redirect:'error'});
+        if(!response.ok||createHash('sha256').update(Buffer.from(await response.arrayBuffer())).digest('hex')!==result.htmlSha256)
+          throw Error('The reviewed dashboard preview changed');
+        emit('view','preview');
+        await canvas.navigate(url);
+        confirmation.checks=await canvas.test(result.steps);
+      }
+      confirmation.file=await nativeExports.routedCsv(file.exportId);
+      result=await api('/api/requests/routing-dashboard-finish',confirmation);
+    }catch(error){
+      await canvas.navigate(previous.startsWith(origin+'/')?previous:origin+'/welcome').catch(()=>{});
+      throw error;
+    }
+  }
+  await showRoutedDashboard(result);
+  return result;
+}
+
+async function showRoutedDashboard(result) {
+  const artifact=await api('/api/artifact/read',{id:result.artifact.id});
+  if(artifact.version!==result.artifact.version)throw Error('The verified dashboard revision changed');
+  if(createHash('sha256').update(artifact.contents['index.html'],'utf8').digest('hex')!==result.htmlSha256)
+    throw Error('The verified dashboard HTML changed');
+  await openArtifact(artifact);
+  emit('view','preview');
+}
+
 ipcMain.handle('workspace:request',async(event,input)=>{
   validSender(event);
   // A view switch may still be finishing when the user submits the prepared chat.
@@ -544,6 +587,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     case 'requestWorkbench': {
       const {command,args}=input;
       if(command==='run-routing')return runClassificationPlan(args);
+      if(command==='routing-dashboard')return openRoutedDashboard(args);
       if(command==='export-routing'){
         const {csv,sha256,...source}=await api('/api/requests/routing-export',{id:args.id});
         const bytes=Buffer.from(csv,'utf8');
