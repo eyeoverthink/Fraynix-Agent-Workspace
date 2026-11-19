@@ -510,7 +510,8 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         if(file.version!==proof.artifact.version)throw Error('The verified output changed');
         if(command==='export'){
           const [name,ext]=proof.output.split('.');
-          return nativeExports.save(ext==='html'?'inches-to-millimetres':name,ext,file.contents[proof.output],{source:args.id,sha256:proof.artifact.sha256});
+          const exportKind=ext==='html'?file.title.toLowerCase().replace(/[^a-z0-9]+/g,'-'):name;
+          return nativeExports.save(exportKind,ext,file.contents[proof.output],{source:args.id,sha256:proof.artifact.sha256});
         }
         emit('view','preview');
         return openArtifact(file);

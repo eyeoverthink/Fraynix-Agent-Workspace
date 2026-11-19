@@ -734,12 +734,12 @@ public final class WorkspaceServer implements AutoCloseable {
             } catch(Exception error) {try{if(admission106)agency.refuseAdmission106(exchange.getRequestHeaders().getFirst("X-Fraynix-Task"),exchange.getRequestHeaders().getFirst("X-Fraynix-Effect"),exchange.getRequestURI().getPath(),exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"),error);send(exchange,400,new JSONObject().put("error",String.valueOf(error.getMessage())));}catch(Exception ignored){exchange.close();}}
         });
         server.createContext(FrayConversion.PREVIEW, exchange -> {
-            if (!exchange.getRequestMethod().equals("GET")
-                    || !exchange.getRequestURI().getPath().equals(FrayConversion.previewPath())) {
+            var conversion = FrayConversion.previewAt(exchange.getRequestURI().getPath());
+            if (!exchange.getRequestMethod().equals("GET") || conversion == null) {
                 send(exchange, 404, new JSONObject().put("error", "Unknown converter preview"));
                 return;
             }
-            byte[] html = FrayConversion.preview();
+            byte[] html = conversion.preview();
             exchange.getResponseHeaders().set("Content-Type", "text/html; charset=utf-8");
             exchange.getResponseHeaders().set("X-Content-Type-Options", "nosniff");
             exchange.getResponseHeaders().set("Cache-Control", "no-store");

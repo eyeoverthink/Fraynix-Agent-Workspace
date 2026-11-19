@@ -41,12 +41,12 @@ final class RequestWorkbench {
     synchronized JSONObject chat(JSONObject input) throws Exception {
         SpatialScene.keys(input, "request");
         String text = RequestLanguage.request(input);
-        if (RequestLanguage.direct(text) != RequestLanguage.Intent.FRAY_INCH)
-            return new JSONObject().put("matched", false);
+        var direct = RequestLanguage.direct(text);
+        if (direct == null || direct.fray() == null) return new JSONObject().put("matched", false);
         var known = knownPhrase(RequestLanguage.key(text));
-        var choice = RequestLanguage.view(RequestLanguage.Intent.FRAY_INCH,
-                known != null && known.getString("action").equals(RequestLanguage.Intent.FRAY_INCH.id)
-                        ? "remembered" : "java");
+        if (known != null && !known.getString("action").equals(direct.id))
+            return new JSONObject().put("matched", false);
+        var choice = RequestLanguage.view(direct, known == null ? "java" : "remembered");
         return new JSONObject().put("matched", true).put("task", retain(text, choice));
     }
 
@@ -123,35 +123,36 @@ final class RequestWorkbench {
     synchronized JSONObject prepareFray(JSONObject input) throws Exception {
         SpatialScene.keys(input, "id", "reviewSha256");
         var task = load(input);
-        requireFray(input, task);
+        var conversion = requireFray(input, task);
         if (task.has("report")) return proof(task).put("task", view(task));
-        return new JSONObject().put("preview", FrayConversion.previewPath())
-                .put("htmlSha256", FrayConversion.HTML_SHA256).put("steps", FrayConversion.steps());
+        return new JSONObject().put("preview", conversion.previewPath())
+                .put("htmlSha256", conversion.htmlSha256).put("steps", conversion.steps());
     }
 
     synchronized JSONObject finishFray(JSONObject input) throws Exception {
         SpatialScene.keys(input, "id", "reviewSha256", "htmlSha256", "checks");
         var task = load(input);
-        requireFray(input, task);
-        if (!FrayConversion.HTML_SHA256.equals(input.getString("htmlSha256")))
+        var conversion = requireFray(input, task);
+        if (!conversion.htmlSha256.equals(input.getString("htmlSha256")))
             throw new IllegalStateException("The reviewed browser program changed");
         if (task.has("report")) return proof(task).put("task", view(task));
         var checks = input.getJSONArray("checks");
-        var expected = FrayConversion.artifact(checks);
+        var expected = conversion.artifact(checks);
         var artifact = store.writeOnce("request-workbench:" + task.getString("id"), expected);
         var ref = artifactRef(artifact, expected);
         store.recordTest(new JSONObject().put("id", ref.getString("id")).put("version", ref.getInt("version"))
-                .put("steps", FrayConversion.steps()).put("checks", checks));
+                .put("steps", conversion.steps()).put("checks", checks));
         task.put("report", ref).put("status", "verified").put("frayChecks", checks)
                 .put("summary", "Browser results matched the Fray reference. Open or export the offline tool.");
         save(task);
         return proof(task).put("task", view(task));
     }
 
-    private static void requireFray(JSONObject input, JSONObject task) {
+    private static FrayConversion requireFray(JSONObject input, JSONObject task) {
         requireReview(input, task);
-        if (intent(task) != RequestLanguage.Intent.FRAY_INCH)
-            throw new IllegalStateException("Review the inches-to-millimetres tool first");
+        var conversion = intent(task).fray();
+        if (conversion == null) throw new IllegalStateException("Review a Fray browser converter first");
+        return conversion;
     }
 
     private static void requireReview(JSONObject input, JSONObject task) {
@@ -204,8 +205,9 @@ final class RequestWorkbench {
         var ref = task.getJSONObject("report");
         JSONObject expected;
         String name;
-        if (intent(task) == RequestLanguage.Intent.FRAY_INCH) {
-            expected = FrayConversion.artifact(task.getJSONArray("frayChecks"));
+        var conversion = intent(task).fray();
+        if (conversion != null) {
+            expected = conversion.artifact(task.getJSONArray("frayChecks"));
             name = "index.html";
         } else {
             var output = converted(task);

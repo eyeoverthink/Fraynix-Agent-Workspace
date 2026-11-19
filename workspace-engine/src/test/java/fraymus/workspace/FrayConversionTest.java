@@ -20,14 +20,14 @@ public class FrayConversionTest {
     }
 
     @Test public void computesFrayResultsForDecimalsAndBounds() {
-        assertEquals("304.8 mm", FrayConversion.expected("12"));
-        assertEquals("3.175 mm", FrayConversion.expected("0.125"));
-        assertEquals("-63.5 mm", FrayConversion.expected("-2.5"));
-        assertEquals("25399999.99746 mm", FrayConversion.expected("999999.9999"));
-        assertEquals("0 mm", FrayConversion.expected("-0.0000"));
-        assertEquals("Enter a decimal within the stated range.", FrayConversion.expected("1000000.0001"));
-        assertEquals("Enter a decimal within the stated range.", FrayConversion.expected("1e3"));
-        assertEquals("Enter a measurement.", FrayConversion.expected(" "));
+        assertEquals("304.8 mm", FrayConversion.INCH.expected("12"));
+        assertEquals("3.175 mm", FrayConversion.INCH.expected("0.125"));
+        assertEquals("-63.5 mm", FrayConversion.INCH.expected("-2.5"));
+        assertEquals("25399999.99746 mm", FrayConversion.INCH.expected("999999.9999"));
+        assertEquals("0 mm", FrayConversion.INCH.expected("-0.0000"));
+        assertEquals("Enter a decimal within the stated range.", FrayConversion.INCH.expected("1000000.0001"));
+        assertEquals("Enter a decimal within the stated range.", FrayConversion.INCH.expected("1e3"));
+        assertEquals("Enter a measurement.", FrayConversion.INCH.expected(" "));
     }
 
     @Test public void requiresApprovalAndIndependentBrowserEvidenceAndRejectsChangedOutput() throws Exception {
@@ -45,7 +45,7 @@ public class FrayConversionTest {
             assertThrows(IllegalStateException.class, () -> workbench.prepareFray(
                     new JSONObject(ref.toString()).put("reviewSha256", "different")));
             var prepared = workbench.prepareFray(approved);
-            assertEquals(FrayConversion.previewPath(), prepared.getString("preview"));
+            assertEquals(FrayConversion.INCH.previewPath(), prepared.getString("preview"));
             var steps = prepared.getJSONArray("steps");
             var complete = sampleBrowserContract(steps);
             var proof = new JSONObject(approved.toString()).put("htmlSha256", prepared.getString("htmlSha256"));
@@ -72,6 +72,57 @@ public class FrayConversionTest {
             assertEquals("review", recalled.getString("status"));
             Files.writeString(store.asset(artifactId, 1, "index.html"), "Changed original HTML");
             assertThrows(IllegalStateException.class, () -> workbench.verify(ref));
+        }
+    }
+
+    @Test public void temperatureChatRejectsOtherDirectionsAndOneOffQuestions() {
+        assertEquals(RequestLanguage.Intent.FRAY_CELSIUS,
+                RequestLanguage.direct("Build a Celsius-to-Fahrenheit browser tool."));
+        assertEquals(RequestLanguage.Intent.FRAY_CELSIUS,
+                RequestLanguage.direct("Build me a browser tool to convert °C to °F."));
+        assertNull(RequestLanguage.direct("Build a Fahrenheit to Celsius browser tool."));
+        assertNull(RequestLanguage.direct("Convert 37 Celsius to Fahrenheit."));
+        assertNull(RequestLanguage.direct("Do not build a Celsius to Fahrenheit browser tool."));
+    }
+
+    @Test public void evaluatesTemperatureWithOffsetAndFullInputValidation() {
+        var converter = FrayConversion.CELSIUS;
+        assertEquals("212 \u00b0F", converter.expected("100"));
+        assertEquals("-40 \u00b0F", converter.expected("-40"));
+        assertEquals("-459.67 \u00b0F", converter.expected("-273.15"));
+        assertEquals("-0.00004 \u00b0F", converter.expected("-17.7778"));
+        assertEquals("0.00014 \u00b0F", converter.expected("-17.7777"));
+        assertEquals("32.09 \u00b0F", converter.expected(".05"));
+        assertEquals("1800031.99982 \u00b0F", converter.expected("+999999.9999"));
+        assertEquals("Enter a decimal within the stated range.", converter.expected("1000000.0001"));
+        assertEquals("Enter a decimal within the stated range.", converter.expected("1,5"));
+        assertEquals("Enter a measurement.", converter.expected(" "));
+    }
+
+    @Test public void cannotSaveOneConvertersEvidenceForAnother() throws Exception {
+        var project = Files.createTempDirectory("fray-temperature-");
+        try (var store = new WorkspaceStore(project)) {
+            var wb = new RequestWorkbench(project, store);
+            var review = wb.chat(new JSONObject().put("request", "Build a Celsius to Fahrenheit browser tool"))
+                    .getJSONObject("task");
+            var confirmation = new JSONObject().put("id", review.getString("id"))
+                    .put("reviewSha256", review.getString("reviewSha256"));
+            var prepared = wb.prepareFray(confirmation);
+            assertEquals(FrayConversion.CELSIUS.previewPath(), prepared.getString("preview"));
+            assertNotEquals(FrayConversion.INCH.htmlSha256, FrayConversion.CELSIUS.htmlSha256);
+            assertNull(FrayConversion.previewAt("/request-preview/unknown/index.html"));
+            assertEquals(FrayConversion.INCH, FrayConversion.previewAt(FrayConversion.INCH.previewPath()));
+            var admission = new JSONObject(confirmation.toString()).put("htmlSha256", FrayConversion.INCH.htmlSha256)
+                    .put("checks", sampleBrowserContract(FrayConversion.INCH.steps()));
+            assertThrows(IllegalStateException.class, () -> wb.finishFray(admission));
+            admission.put("htmlSha256", prepared.getString("htmlSha256"));
+            assertThrows(IllegalStateException.class, () -> wb.finishFray(admission));
+            assertEquals("review", wb.read(new JSONObject().put("id", review.getString("id"))).getString("status"));
+            var verified = wb.finishFray(admission.put("checks", sampleBrowserContract(prepared.getJSONArray("steps"))));
+            assertTrue(verified.getBoolean("passed"));
+            var artifact = store.read(verified.getJSONObject("artifact").getString("id"));
+            assertEquals("Celsius to Fahrenheit", artifact.getString("title"));
+            assertEquals("celsius * 9 / 5 + 32\n", artifact.getJSONObject("contents").getString("fray-source.txt"));
         }
     }
 

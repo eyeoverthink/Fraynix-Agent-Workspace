@@ -1,10 +1,14 @@
 const $ = id => document.getElementById(id);
 
 // This is a UI hint. The Java Workbench decides whether the chat request matches.
-export function mayRequestInchTool(value) {
-    const text = value.normalize('NFKC').toLowerCase();
-    return text.length <= 1200 && /\b(?:inch|inches)\b/.test(text) && /\b(?:mm|millimet(?:er|re)s?)\b/.test(text);
+export function mayRequestFrayTool(value) {
+    if (value.length > 1200) return false;
+    const text = value.normalize('NFKC').toLowerCase().replace(/[^a-z0-9]+/g, ' ');
+    return (/\b(?:inch|inches)\b/.test(text) && /\b(?:mm|millimet(?:er|re)s?)\b/.test(text))
+        || /\b(?:celsius|centigrade|c) (?:to|into) (?:fahrenheit|f)\b/.test(text);
 }
+
+const isFray = action => ['build-inch-converter', 'build-temperature-converter'].includes(action);
 
 export class RequestWorkbenchPanel {
     constructor({request, getModel, requireSaved, layout, openCreation, announce}) {
@@ -53,7 +57,7 @@ export class RequestWorkbenchPanel {
                 const result = await this.call('execute', {id, reviewSha256});
                 this.show(result.task);
                 this.dialog.close();
-            } else if (this.task.choice.action === 'build-inch-converter') {
+            } else if (isFray(this.task.choice.action)) {
                 this.dialog.close();
                 this.layout();
                 try {
@@ -133,7 +137,7 @@ export class RequestWorkbenchPanel {
         $('requests-source').textContent = task?.source
             ? task.source.name + ' · ' + task.source.size + ' bytes · SHA-256 ' + task.source.sha256 : '';
         $('requests-confirm').hidden = !pending || task.choice.action === 'clarify';
-        const fray = task?.choice.action === 'build-inch-converter';
+        const fray = isFray(task?.choice.action);
         $('requests-confirm').textContent = fray ? 'Build and verify in browser'
             : file ? 'Confirm and verify' : 'Review in Creation Canvas';
         $('requests-confirm').disabled = this.busy || (file && !task?.source);

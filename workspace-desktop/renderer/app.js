@@ -39,7 +39,7 @@ import {MeasurementPanel} from './measurement-panel.js';
 import {CalibrationPanel} from './calibration-panel.js';
 import {ObserverPanel} from './observer-panel.js';
 import {BodyPanel} from './body-panel.js';
-import {RequestWorkbenchPanel,mayRequestInchTool} from './request-workbench.js';
+import {RequestWorkbenchPanel,mayRequestFrayTool} from './request-workbench.js';
 import {SceneFiles} from './scene-files.js';
 import {exportSceneVideo} from './scene-video.js';
 const $=id=>document.getElementById(id),host=window.workspace;
@@ -59,7 +59,7 @@ function plannedRampRequest(text) {
 }
 function hasChatRoute() {
  const text=$('goal').value;
- return Boolean(state?.models.length) || offlineMissionRequest(text) || quickWorkflowRequest(text) || mayRequestInchTool(text);
+ return Boolean(state?.models.length) || offlineMissionRequest(text) || quickWorkflowRequest(text) || mayRequestFrayTool(text);
 }
 function updateChainRecommendation() {
  const goal=$('goal').value.trim();
@@ -208,8 +208,8 @@ $('run').onclick=()=>safe(async()=>{
  const goal=$('goal').value.trim();
  if(!goal)return;
  message(goal,'user');
- if(mayRequestInchTool(goal)&&await requestsPanel.offerFromChat(goal)){
-   message('Review the inches-to-millimetres tool in the Workbench. I will test it in the browser before saving it.');
+ if(mayRequestFrayTool(goal)&&await requestsPanel.offerFromChat(goal)){
+   message('Review the converter in the Workbench. I will test it in the browser before saving it.');
    return;
  }
  const local=offlineMissionRequest(goal);

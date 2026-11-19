@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Celsius to Fahrenheit</title>
+<style>
+:root { color-scheme: dark; font: 16px/1.5 system-ui, sans-serif; color: #e8f1f5; background: #101923; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: clamp(16px, 6vw, 64px); }
+main { max-width: 36rem; margin: 0 auto; }
+h1 { font-size: clamp(2rem, 7vw, 3.25rem); line-height: 1.08; margin: 0 0 12px; letter-spacing: -.045em; }
+p { margin-top: 0; color: #b1c4cf; }
+label { display: block; font-weight: 650; margin-bottom: 8px; }
+input { width: 100%; padding: 12px 14px; border-radius: 8px; border: 1px solid #627b90; background: #172735;
+        color: #eef8fa; font: inherit; font-size: 1.25rem; }
+input:focus-visible { outline: 2px solid #9be4d3; outline-offset: 3px; }
+input[aria-invalid="true"] { border-color: #ffb2a8; }
+small { display: block; color: #b1c4cf; margin: 8px 0 24px; }
+.result { background: #192d38; border: 1px solid #365568; border-radius: 12px; padding: 16px 20px; }
+.result span { display: block; color: #bdd5e1; }
+output { display: block; overflow-wrap: anywhere; color: #ffd7ac; font-size: clamp(1.35rem, 5vw, 2.15rem);
+         font-weight: 700; font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Celsius to Fahrenheit</h1>
+  <p>&deg;F = &deg;C &times; 9/5 + 32</p>
+  <label for="celsius">Celsius (&deg;C)</label>
+  <input id="celsius" type="text" inputmode="decimal" maxlength="40" autocomplete="off"
+         spellcheck="false" aria-describedby="range" value="20">
+  <small id="range">Use a decimal point and up to four decimal places. Range &minus;1,000,000 to 1,000,000 &deg;C.</small>
+  <div class="result"><span>Fahrenheit</span> <output id="result" for="celsius" aria-live="polite"></output></div>
+</main>
+<script>
+'use strict';
+const input = document.querySelector('#celsius');
+const result = document.querySelector('#result');
+
+function update() {
+  const text = input.value.trim();
+  const value = /^([+-]?)([0-9]{0,7})(?:\.([0-9]{1,4}))?$/.exec(text);
+  let message = text ? 'Enter a decimal within the stated range.' : 'Enter a measurement.';
+  let valid = false;
+  if (value && (value[2] || value[3])) {
+    const scaled = BigInt(value[2] + (value[3] || '').padEnd(4, '0'));
+    if (scaled <= 10000000000n) {
+      const signed = value[1] === '-' ? -scaled : scaled;
+      // Celsius has four decimal places. Fahrenheit has five after applying 9/5.
+      const fahrenheit = signed * 18n + 3200000n;
+      const magnitude = fahrenheit < 0n ? -fahrenheit : fahrenheit;
+      const whole = magnitude / 100000n;
+      const fraction = (magnitude % 100000n).toString().padStart(5, '0').replace(/0+$/, '');
+      const sign = fahrenheit < 0n ? '-' : '';
+      message = sign + whole + (fraction ? '.' + fraction : '') + ' \u00b0F';
+      valid = true;
+    }
+  }
+  input.setAttribute('aria-invalid', String(Boolean(text) && !valid));
+  result.textContent = message;
+}
+input.addEventListener('input', update);
+update();
+</script>
+</body>
+</html>
