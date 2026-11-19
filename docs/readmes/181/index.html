@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 181 · Verified Fray browser tool</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>A verified Fray browser tool from chat</h1><p>Ask for an inches-to-millimetres browser tool in Chat. Fraynix offers a review, then checks the offline HTML tool in Chromium against the Java reference from the existing Fray compiler.</p>
+<nav><a href="../../../README-181.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../180/index.html">Edition 180</a><a href="#system">System files</a></nav>
+<figure><img src="chat-review.png" alt="The real Chat request awaiting approval"><figcaption>The real Chat request awaiting approval</figcaption></figure>
+<figure><img src="browser-converter.png" alt="The verified converter showing 12 inches as 304.8 mm"><figcaption>The verified converter showing 12 inches as 304.8 mm</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Ask for an inches-to-millimetres browser tool in Chat. Fraynix offers a review, then checks the offline HTML tool in Chromium against the Java reference from the existing Fray compiler.", "modules": [{"title": "Reviewed language routing", "source": "workspace-engine/src/main/java/fraymus/workspace/RequestLanguage.java", "note": "docs/obsidian/189-fray-browser-tool.md"}, {"title": "Fray reference and independent checks", "source": "workspace-engine/src/main/java/fraymus/workspace/FrayConversion.java", "note": "docs/obsidian/189-fray-browser-tool.md"}, {"title": "Durable Workbench approval and proof", "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "note": "docs/obsidian/189-fray-browser-tool.md"}, {"title": "Offline browser converter", "source": "workspace-engine/src/main/resources/workbench/inch-converter.html", "note": "docs/obsidian/189-fray-browser-tool.md"}], "screenshots": [{"path": "docs/readmes/181/chat-review.png", "title": "The real Chat request awaiting approval"}, {"path": "docs/readmes/181/browser-converter.png", "title": "The verified converter showing 12 inches as 304.8 mm"}], "evidence": [{"path": "docs/readmes/181/verification.json", "title": "Verification record"}, {"path": "docs/readmes/181/browser-receipt.json", "title": "Original Chromium receipt"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/189-fray-browser-tool.canvas", "bytes": 1538, "sha256": "2e68106794c1af5efd02cfecab4c2cf9e5953568aabbf52d7fed1da68bc8df25", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/189-fray-browser-tool.md", "bytes": 364, "sha256": "6afbe3559f362aa4ee2136714148d71a092165459a7a051f4da181cebe6870c0", "hashKind": "utf8-lf"}, {"path": "docs/publication181/document.py", "bytes": 13281, "sha256": "7c8b81c15514a2b0ef3ff072008a6d7f38c668e1dab9b06c7afcbf60118d8a83", "hashKind": "utf8-lf"}, {"path": "docs/publication181/plan.md", "bytes": 1940, "sha256": "7a824c478e16a4c84b3442fc1e14e056fa8a95e70b7c0c3a3aec7361733cfa8a", "hashKind": "utf8-lf"}, {"path": "docs/publication181/validate-desktop.cjs", "bytes": 7081, "sha256": "f7c1e4859885b71394f52be1a4c239542fc50860168ba8ce288890fc3d58df33", "hashKind": "utf8-lf"}, {"path": "docs/publication181/validate-guide.cjs", "bytes": 1732, "sha256": "4da89ccc3cfd0031d4fadf25d7c574cb31612c959170dc9035995ee62e67b77d", "hashKind": "utf8-lf"}, {"path": "docs/publication181/validate.py", "bytes": 2095, "sha256": "b5961afac577a61e49ae32fd891b0d33f8a6fcee3210104c62ccd40c1215cee0", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 105189, "sha256": "32a53d40e6487039d9a6fc3f510f86d8e89d7689b6ac83957cd52ec496ce9572", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/app.js", "bytes": 41177, "sha256": "e0e8ca60836124c1d5bd95d93a71e469a4144642b85b47cede6da815f3e7f195", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/index.html", "bytes": 32791, "sha256": "0cbcafd386b4d46c60386047813d48b8b864f0715fd928aba7eff56042d68f6e", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/request-workbench.js", "bytes": 6821, "sha256": "11d5bb4d199a0dff05231334a49d5baeee5e6555c853b9c560b37be9f5f14bfe", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/FrayConversion.java", "bytes": 6436, "sha256": "6753cb940b4e43faa975af49487dc3353930f3c8f46f68937e10539edb29b9f1", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RequestLanguage.java", "bytes": 7010, "sha256": "d482acac5f4224931b1c2fc3574f5e2da491436ff2fa1df37ba014cb89d25269", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "bytes": 17239, "sha256": "fd1d17f0475c128eec2b32886a2efa7beff91d70dd5ed61fa77fde4ffc3520e3", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 126761, "sha256": "9a1d5a48dbe7e5beea7670c8289cb74fe21218294ff787ba5bdc641953347b13", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/resources/workbench/inch-converter.html", "bytes": 2971, "sha256": "4f9fdb3a39a7736eae2c1cb757bc332c3cc443bab5932a54ea4e5f6fbad47acb", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/FrayConversionTest.java", "bytes": 5471, "sha256": "9a51567defe9137585806b94f8ee6cfd7d711a1d1442227eb1bfc1312694ccd5", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

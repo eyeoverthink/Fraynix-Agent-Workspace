@@ -1,0 +1,45 @@
+{
+  "summary": "Ask for an inches-to-millimetres browser tool in Chat. Fraynix offers a review, then checks the offline HTML tool in Chromium against the Java reference from the existing Fray compiler.",
+  "modules": [
+    {
+      "title": "Reviewed language routing",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RequestLanguage.java",
+      "note": "docs/obsidian/189-fray-browser-tool.md"
+    },
+    {
+      "title": "Fray reference and independent checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FrayConversion.java",
+      "note": "docs/obsidian/189-fray-browser-tool.md"
+    },
+    {
+      "title": "Durable Workbench approval and proof",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java",
+      "note": "docs/obsidian/189-fray-browser-tool.md"
+    },
+    {
+      "title": "Offline browser converter",
+      "source": "workspace-engine/src/main/resources/workbench/inch-converter.html",
+      "note": "docs/obsidian/189-fray-browser-tool.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/181/chat-review.png",
+      "title": "The real Chat request awaiting approval"
+    },
+    {
+      "path": "docs/readmes/181/browser-converter.png",
+      "title": "The verified converter showing 12 inches as 304.8 mm"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/181/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/181/browser-receipt.json",
+      "title": "Original Chromium receipt"
+    }
+  ]
+}

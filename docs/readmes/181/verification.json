@@ -1,0 +1,113 @@
+{
+  "request": "Make me a little converter for inches to millimetres and give me a browser version.",
+  "captures": [
+    {
+      "name": "chat-review.png",
+      "sha256": "d8162f3963a7762a576fa92514416cffed12e3cf2559e7661e48f83ef2df51c8"
+    },
+    {
+      "name": "browser-converter.png",
+      "sha256": "49f1a213389d751e10b48fbbc1ef2866de00fb29b4ced92fcec1a0cf88de2b21"
+    }
+  ],
+  "passed": true,
+  "reviewId": "446491ee-fff4-469d-817c-7d933d534723",
+  "verified": {
+    "artifact": {
+      "sha256": "44bb0000c18bc4858a96409d0e269faef764d76558fd1125de7834a198309791",
+      "id": "ed5c536c-cdce-372c-aafb-600378979601",
+      "version": 1
+    },
+    "output": "index.html",
+    "summary": "Browser results matched the Fray reference. Open or export the offline tool.",
+    "passed": true
+  },
+  "proof": {
+    "compilerCommit": "d93947154a1f21dcfd8dfcc97f27439fed6e3275",
+    "htmlSha256": "4f9fdb3a39a7736eae2c1cb757bc332c3cc443bab5932a54ea4e5f6fbad47acb",
+    "frayBytecodeHex": "465241590100010001000000084039666666666666696e636865730002000001000012ff",
+    "browserCases": [
+      {
+        "input": "1",
+        "java": "25.4 mm",
+        "browser": "25.4 mm"
+      },
+      {
+        "input": "0",
+        "java": "0 mm",
+        "browser": "0 mm"
+      },
+      {
+        "input": "-2.5",
+        "java": "-63.5 mm",
+        "browser": "-63.5 mm"
+      },
+      {
+        "input": "0.125",
+        "java": "3.175 mm",
+        "browser": "3.175 mm"
+      },
+      {
+        "input": "1.2345",
+        "java": "31.3563 mm",
+        "browser": "31.3563 mm"
+      },
+      {
+        "input": "999999.9999",
+        "java": "25399999.99746 mm",
+        "browser": "25399999.99746 mm"
+      },
+      {
+        "input": "1000000",
+        "java": "25400000 mm",
+        "browser": "25400000 mm"
+      },
+      {
+        "input": "-1000000",
+        "java": "-25400000 mm",
+        "browser": "-25400000 mm"
+      },
+      {
+        "input": "+0002.0001",
+        "java": "50.80254 mm",
+        "browser": "50.80254 mm"
+      },
+      {
+        "input": "1e3",
+        "java": "Enter a decimal within the stated range.",
+        "browser": "Enter a decimal within the stated range."
+      },
+      {
+        "input": "1000000.0001",
+        "java": "Enter a decimal within the stated range.",
+        "browser": "Enter a decimal within the stated range."
+      },
+      {
+        "input": " ",
+        "java": "Enter a measurement.",
+        "browser": "Enter a measurement."
+      }
+    ],
+    "fraySource": "inches * 25.4",
+    "passed": true
+  },
+  "originalBrowserSteps": 23,
+  "liveInput": {
+    "inches": "12",
+    "millimetres": "304.8"
+  },
+  "exportedFile": {
+    "protocol": "file:",
+    "result": "9.525 mm"
+  },
+  "reopened": true,
+  "remembered": true,
+  "source": "2f1829feb0229593d66d250e52545e21e73d72d9",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 38,
+    "desktop": 181,
+    "archive": 10
+  }
+}

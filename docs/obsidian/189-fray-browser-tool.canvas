@@ -1,0 +1,79 @@
+{
+  "nodes": [
+    {
+      "id": "0",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/RequestLanguage.java",
+      "x": 0,
+      "y": 0,
+      "width": 345,
+      "height": 240
+    },
+    {
+      "id": "1",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/FrayConversion.java",
+      "x": 370,
+      "y": 0,
+      "width": 345,
+      "height": 240
+    },
+    {
+      "id": "2",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java",
+      "x": 740,
+      "y": 0,
+      "width": 345,
+      "height": 240
+    },
+    {
+      "id": "3",
+      "type": "file",
+      "file": "workspace-engine/src/main/resources/workbench/inch-converter.html",
+      "x": 1110,
+      "y": 0,
+      "width": 345,
+      "height": 240
+    },
+    {
+      "id": "4",
+      "type": "file",
+      "file": "README-181.md",
+      "x": 1480,
+      "y": 0,
+      "width": 345,
+      "height": 240
+    }
+  ],
+  "edges": [
+    {
+      "id": "step-1",
+      "fromNode": "0",
+      "fromSide": "right",
+      "toNode": "1",
+      "toSide": "left"
+    },
+    {
+      "id": "step-2",
+      "fromNode": "1",
+      "fromSide": "right",
+      "toNode": "2",
+      "toSide": "left"
+    },
+    {
+      "id": "step-3",
+      "fromNode": "2",
+      "fromSide": "right",
+      "toNode": "3",
+      "toSide": "left"
+    },
+    {
+      "id": "step-4",
+      "fromNode": "3",
+      "fromSide": "right",
+      "toNode": "4",
+      "toSide": "left"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+[Edition 181 — a verified Fray browser tool from chat](189-fray-browser-tool.md)
+
 [Edition 180 — teachable requests and verified conversion](188-request-workbench.md)
 
 [Edition 179 — local Ramp and Relay recommendations](187-local-chain-recommendation.md)

@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 181 — a verified Fray browser tool from chat](../../README-181.md) · [Walkthrough](181/index.html)
+
 [Edition 180 — teachable requests and verified conversion](../../README-180.md) · [Walkthrough](180/index.html)
 
 [Edition 179 — local Ramp and Relay recommendations](../../README-179.md) · [Walkthrough](179/index.html)

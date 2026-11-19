@@ -1,0 +1,468 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "25.4 mm",
+        "value": "25.4 mm"
+      },
+      "expected": {
+        "expectText": "25.4 mm",
+        "selector": "#result"
+      },
+      "index": 0,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "0"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#inches",
+        "expectValue": "0",
+        "value": "0"
+      },
+      "index": 1,
+      "selector": "#inches",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "0 mm",
+        "value": "0 mm"
+      },
+      "expected": {
+        "expectText": "0 mm",
+        "selector": "#result"
+      },
+      "index": 2,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "-2.5"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#inches",
+        "expectValue": "-2.5",
+        "value": "-2.5"
+      },
+      "index": 3,
+      "selector": "#inches",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "-63.5 mm",
+        "value": "-63.5 mm"
+      },
+      "expected": {
+        "expectText": "-63.5 mm",
+        "selector": "#result"
+      },
+      "index": 4,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "0.125"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#inches",
+        "expectValue": "0.125",
+        "value": "0.125"
+      },
+      "index": 5,
+      "selector": "#inches",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "3.175 mm",
+        "value": "3.175 mm"
+      },
+      "expected": {
+        "expectText": "3.175 mm",
+        "selector": "#result"
+      },
+      "index": 6,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "1.2345"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#inches",
+        "expectValue": "1.2345",
+        "value": "1.2345"
+      },
+      "index": 7,
+      "selector": "#inches",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "31.3563 mm",
+        "value": "31.3563 mm"
+      },
+      "expected": {
+        "expectText": "31.3563 mm",
+        "selector": "#result"
+      },
+      "index": 8,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "999999.9999"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#inches",
+        "expectValue": "999999.9999",
+        "value": "999999.9999"
+      },
+      "index": 9,
+      "selector": "#inches",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "25399999.99746 mm",
+        "value": "25399999.99746 mm"
+      },
+      "expected": {
+        "expectText": "25399999.99746 mm",
+        "selector": "#result"
+      },
+      "index": 10,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "1000000"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#inches",
+        "expectValue": "1000000",
+        "value": "1000000"
+      },
+      "index": 11,
+      "selector": "#inches",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "25400000 mm",
+        "value": "25400000 mm"
+      },
+      "expected": {
+        "expectText": "25400000 mm",
+        "selector": "#result"
+      },
+      "index": 12,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "-1000000"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#inches",
+        "expectValue": "-1000000",
+        "value": "-1000000"
+      },
+      "index": 13,
+      "selector": "#inches",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "-25400000 mm",
+        "value": "-25400000 mm"
+      },
+      "expected": {
+        "expectText": "-25400000 mm",
+        "selector": "#result"
+      },
+      "index": 14,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "+0002.0001"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#inches",
+        "expectValue": "+0002.0001",
+        "value": "+0002.0001"
+      },
+      "index": 15,
+      "selector": "#inches",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "50.80254 mm",
+        "value": "50.80254 mm"
+      },
+      "expected": {
+        "expectText": "50.80254 mm",
+        "selector": "#result"
+      },
+      "index": 16,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "1e3"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#inches",
+        "expectValue": "1e3",
+        "value": "1e3"
+      },
+      "index": 17,
+      "selector": "#inches",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Enter a decimal within the stated range.",
+        "value": "Enter a decimal within the stated range."
+      },
+      "expected": {
+        "expectText": "Enter a decimal within the stated range.",
+        "selector": "#result"
+      },
+      "index": 18,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "1000000.0001"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#inches",
+        "expectValue": "1000000.0001",
+        "value": "1000000.0001"
+      },
+      "index": 19,
+      "selector": "#inches",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Enter a decimal within the stated range.",
+        "value": "Enter a decimal within the stated range."
+      },
+      "expected": {
+        "expectText": "Enter a decimal within the stated range.",
+        "selector": "#result"
+      },
+      "index": 20,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": " "
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#inches",
+        "expectValue": " ",
+        "value": " "
+      },
+      "index": 21,
+      "selector": "#inches",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Enter a measurement.",
+        "value": "Enter a measurement."
+      },
+      "expected": {
+        "expectText": "Enter a measurement.",
+        "selector": "#result"
+      },
+      "index": 22,
+      "selector": "#result",
+      "passed": true
+    }
+  ],
+  "at": "2026-11-19T09:02:12.877378600Z",
+  "id": "ed5c536c-cdce-372c-aafb-600378979601",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "expectText": "25.4 mm",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#inches",
+      "expectValue": "0",
+      "value": "0"
+    },
+    {
+      "expectText": "0 mm",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#inches",
+      "expectValue": "-2.5",
+      "value": "-2.5"
+    },
+    {
+      "expectText": "-63.5 mm",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#inches",
+      "expectValue": "0.125",
+      "value": "0.125"
+    },
+    {
+      "expectText": "3.175 mm",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#inches",
+      "expectValue": "1.2345",
+      "value": "1.2345"
+    },
+    {
+      "expectText": "31.3563 mm",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#inches",
+      "expectValue": "999999.9999",
+      "value": "999999.9999"
+    },
+    {
+      "expectText": "25399999.99746 mm",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#inches",
+      "expectValue": "1000000",
+      "value": "1000000"
+    },
+    {
+      "expectText": "25400000 mm",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#inches",
+      "expectValue": "-1000000",
+      "value": "-1000000"
+    },
+    {
+      "expectText": "-25400000 mm",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#inches",
+      "expectValue": "+0002.0001",
+      "value": "+0002.0001"
+    },
+    {
+      "expectText": "50.80254 mm",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#inches",
+      "expectValue": "1e3",
+      "value": "1e3"
+    },
+    {
+      "expectText": "Enter a decimal within the stated range.",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#inches",
+      "expectValue": "1000000.0001",
+      "value": "1000000.0001"
+    },
+    {
+      "expectText": "Enter a decimal within the stated range.",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#inches",
+      "expectValue": " ",
+      "value": " "
+    },
+    {
+      "expectText": "Enter a measurement.",
+      "selector": "#result"
+    }
+  ]
+}
