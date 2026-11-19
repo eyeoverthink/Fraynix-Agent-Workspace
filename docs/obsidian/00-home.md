@@ -1,3 +1,5 @@
+[Edition 196 — Reviewed classification routing](204-classification-routing.md)
+
 [Edition 195 — Verified CSV range lessons](203-verified-range-lessons.md)
 
 [Edition 194 — Named-column CSV lessons](202-named-column-lessons.md)

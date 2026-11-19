@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 196 · Route verified classifications to approved procedures</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Route verified classifications to approved procedures</h1><p>Attach a mapping from classification labels to verified conversion lessons. Review the reason and exact input for each choice, then approve the plan.</p>
+<nav><a href="../../../README-196.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../195/index.html">Edition 195</a><a href="#system">System files</a></nav>
+<figure><img src="routing-preview-and-reasons.png" alt="The plan previews the classification, range and exact input for each row"><figcaption>The plan previews the classification, range and exact input for each row</figcaption></figure>
+<figure><img src="routing-one-result-saved.png" alt="The first conversion is verified while the other is pending"><figcaption>The first conversion is verified while the other is pending</figcaption></figure>
+<figure><img src="routing-resumed-and-verified.png" alt="Both verified artifacts are available after desktop restart"><figcaption>Both verified artifacts are available after desktop restart</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Attach a mapping from classification labels to verified conversion lessons. Review the reason and exact input for each choice, then approve the plan.", "modules": [{"title": "Classification routing plan", "source": "workspace-engine/src/main/java/fraymus/workspace/ClassifiedProcedurePlan.java", "note": "docs/obsidian/204-classification-routing.md"}, {"title": "Verified child procedures", "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "note": "docs/obsidian/204-classification-routing.md"}, {"title": "Routing preview and approval", "source": "workspace-desktop/renderer/classification-routing.js", "note": "docs/obsidian/204-classification-routing.md"}], "screenshots": [{"path": "docs/readmes/196/routing-preview-and-reasons.png", "title": "The plan previews the classification, range and exact input for each row"}, {"path": "docs/readmes/196/routing-one-result-saved.png", "title": "The first conversion is verified while the other is pending"}, {"path": "docs/readmes/196/routing-resumed-and-verified.png", "title": "Both verified artifacts are available after desktop restart"}], "evidence": [{"path": "docs/readmes/196/verification.json", "title": "Verification record"}, {"path": "docs/readmes/196/routing-evidence.json", "title": "Approved routing and verified child results"}, {"path": "docs/readmes/196/example-mapping.csv", "title": "Example mapping"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/204-classification-routing.canvas", "bytes": 1195, "sha256": "7ffbafe02e3af32120ab0ccae24fdd19660fdf682ed566c6ae588177fbb10290", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/204-classification-routing.md", "bytes": 497, "sha256": "2aa6ad92b5a147d3926a84962aa8a22a39334206872021b7149032a52394b24d", "hashKind": "utf8-lf"}, {"path": "docs/publication196/document.py", "bytes": 11138, "sha256": "2827708b04a031c9dc6c8b2833dd47725511c72798c30cc211b30e5a74d7318a", "hashKind": "utf8-lf"}, {"path": "docs/publication196/plan.md", "bytes": 2445, "sha256": "69144cdf751dc167ac87af748d91653fdebb32d73c258ec4b090ac04c4e9d29e", "hashKind": "utf8-lf"}, {"path": "docs/publication196/validate-desktop.cjs", "bytes": 15267, "sha256": "a87bfbf51bdb7382325d57417d242c6f11ce401bac2ce06465b035999169b310", "hashKind": "utf8-lf"}, {"path": "docs/publication196/validate-guide.cjs", "bytes": 1745, "sha256": "2929ea5b5b04b45df394e2eb6289b97b72f2dfdfb2bbe3a3ce2bca4ccc2c5e08", "hashKind": "utf8-lf"}, {"path": "docs/publication196/validate.py", "bytes": 2079, "sha256": "de01d6672c2e0d537d19585287543fcc036154456b270cd5e1fc31b3d68f79dd", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 110273, "sha256": "a646161d8e0b9b62a2e4ece1b2d343e90b21206505858e748565d259e12b9eea", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/classification-routing.js", "bytes": 5719, "sha256": "1c345313f547ac07f473ab32246edfad56a19835703bcf32618b141b636fa9c7", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/index.html", "bytes": 34626, "sha256": "8d71d8702df2f4cf62b0fec413947e0ef0524bfba175bb9251a3607ad24596f0", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/request-workbench.css", "bytes": 1403, "sha256": "7860188104db60c8eb067bd67fe0c42409b2cdf76009070cfb4b4eb7c337fff3", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/request-workbench.js", "bytes": 15226, "sha256": "5255fa3bccaa1667a5d859f9bbdfb743ef5268281a47dccd7fa97467ec31d893", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ClassifiedProcedurePlan.java", "bytes": 11674, "sha256": "61d329b4f86c678890e0f196a4fabff0dd5a14f3ce0e08c7f428e3afd4ac8d00", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/FrayRangeRules.java", "bytes": 4126, "sha256": "6c10cbdb6e39c53331c6f85da09cef0e138184759d0a446ac347c9c144afd4af", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "bytes": 46999, "sha256": "d4602201e0dbbdcf1984b390c2da9f9eaa37f6d07c5f4d98e0594860c55395f8", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 134553, "sha256": "f19e404fb9a9d86519cd5303a449ac77b47fc0391bccb0653a2f3166add1c7e9", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

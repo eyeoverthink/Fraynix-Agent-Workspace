@@ -1,0 +1,80 @@
+{
+  "mappingSha256": "035d0c141699338dde019114a32e4958d2276abf29c046a63382da721a538e84",
+  "id": "e648215f-9755-454d-8548-94d89e557bdc",
+  "source": {
+    "artifact": {
+      "sha256": "eb51205d161ad60ef7d6a38c280351f7944d9ec02da56a650261ceea05e8556c",
+      "id": "530bf5e3-ad0a-3177-b9e3-9ad87e20d208",
+      "version": 1
+    },
+    "sourceSha256": "c8bcf121acb448e2f0eb7bb80f6f854ba3afe82b98d4185458394048d8d172d1",
+    "reviewId": "bb1429eb-a927-484e-ae34-6f8f42c23bde",
+    "rulesSha256": "30cb192744e3a4529ee3ddd9ef4134145253e47830a178fc462e3333e7805bad"
+  },
+  "rows": [
+    {
+      "unit": "celsius",
+      "min": "0",
+      "max": "10",
+      "lesson": "temperature-check",
+      "reading": "4",
+      "row": 2,
+      "label": "temperature",
+      "inputColumn": "probe_c",
+      "value": "37.25",
+      "measurement": "reading"
+    },
+    {
+      "unit": "inches",
+      "min": "10",
+      "max": "20",
+      "lesson": "length-check",
+      "reading": "12",
+      "row": 3,
+      "label": "length",
+      "inputColumn": "distance_in",
+      "value": "2.5",
+      "measurement": "reading"
+    },
+    {
+      "unit": "celsius",
+      "min": "0",
+      "max": "10",
+      "lesson": "temperature-check",
+      "reading": "9.9999",
+      "row": 4,
+      "label": "temperature",
+      "inputColumn": "probe_c",
+      "value": "-40",
+      "measurement": "reading"
+    }
+  ],
+  "steps": [
+    {
+      "result": {
+        "artifact": {
+          "sha256": "9c218cd55c1a51f0dc321d318fff5d33141e44b36da0201f2029bc38d6e6f8c0",
+          "id": "ddaf7d44-fe7d-3157-a4b7-b69f703f4ce9",
+          "version": 1
+        },
+        "result": "probe_c,fahrenheit\n37.25,99.05\n-40,-40",
+        "childId": "35d2a887-2695-37f8-8e82-9cd306f073b8"
+      },
+      "name": "temperature-check"
+    },
+    {
+      "result": {
+        "artifact": {
+          "sha256": "0e966a3bedf79cb299f621a168f9d342aba792a4a6c505f959183b664e0cbea1",
+          "id": "7b6e7597-cd28-379b-9560-b727f96196df",
+          "version": 1
+        },
+        "result": "distance_in,millimetres\n2.5,63.5",
+        "childId": "f69b4d97-7871-3647-b57b-79e40c02b128"
+      },
+      "name": "length-check"
+    }
+  ],
+  "status": "verified",
+  "decisionSha256": "265f35c9fa0b028886ad34ce731afc50bc286c63c59e2bfcdce7d21abe1f7f06"
+}

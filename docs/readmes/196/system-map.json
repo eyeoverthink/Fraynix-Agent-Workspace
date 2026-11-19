@@ -1,0 +1,48 @@
+{
+  "summary": "Attach a mapping from classification labels to verified conversion lessons. Review the reason and exact input for each choice, then approve the plan.",
+  "modules": [
+    {
+      "title": "Classification routing plan",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ClassifiedProcedurePlan.java",
+      "note": "docs/obsidian/204-classification-routing.md"
+    },
+    {
+      "title": "Verified child procedures",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java",
+      "note": "docs/obsidian/204-classification-routing.md"
+    },
+    {
+      "title": "Routing preview and approval",
+      "source": "workspace-desktop/renderer/classification-routing.js",
+      "note": "docs/obsidian/204-classification-routing.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/196/routing-preview-and-reasons.png",
+      "title": "The plan previews the classification, range and exact input for each row"
+    },
+    {
+      "path": "docs/readmes/196/routing-one-result-saved.png",
+      "title": "The first conversion is verified while the other is pending"
+    },
+    {
+      "path": "docs/readmes/196/routing-resumed-and-verified.png",
+      "title": "Both verified artifacts are available after desktop restart"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/196/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/196/routing-evidence.json",
+      "title": "Approved routing and verified child results"
+    },
+    {
+      "path": "docs/readmes/196/example-mapping.csv",
+      "title": "Example mapping"
+    }
+  ]
+}

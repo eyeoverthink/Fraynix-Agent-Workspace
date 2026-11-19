@@ -1,5 +1,5 @@
 # Fraynix Agent Workspace
 
-[Edition 195 — Verified CSV range lessons](README-195.md) · [Previous edition](README-194.md) · [Offline walkthrough](docs/readmes/195/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 196 — Reviewed classification routing](README-196.md) · [Previous edition](README-195.md) · [Offline walkthrough](docs/readmes/196/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Teach a classifier from explicit CSV ranges, then reuse the checked rules on new measurements. Java checks every browser result, including unseen values and exact range boundaries.
+Attach a mapping from classification labels to verified conversion lessons. Review the reason and exact input for each choice, then approve the plan.

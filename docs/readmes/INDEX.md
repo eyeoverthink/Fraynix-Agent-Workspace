@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 196 — Reviewed classification routing](../../README-196.md) · [Walkthrough](196/index.html)
+
 [Edition 195 — Verified CSV range lessons](../../README-195.md) · [Walkthrough](195/index.html)
 
 [Edition 194 — Named-column CSV lessons](../../README-194.md) · [Walkthrough](194/index.html)

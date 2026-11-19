@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 195,
+  "latest": 196,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -265456,6 +265456,65 @@
         {
           "path": "docs/readmes/195/verification.json",
           "sha256": "b41441920631b2a7c4c13271bec67dabc0f4046cd6a230588f1c236689dfeff1",
+          "kind": "text"
+        }
+      ]
+    },
+    {
+      "number": 196,
+      "date": "2026-11-19",
+      "title": "Route verified classifications to approved procedures",
+      "status": "validated-local",
+      "markdown": "README-196.md",
+      "markdownSha256": "e63457c5994841320ac0d4f4f3c6a2040f4154cafb89cf7971739a2bc4a45bf8",
+      "companion": "docs/readmes/196/index.html",
+      "tag": "readme-196",
+      "sourceBaseline": "419adbd96666bfa786061c3ffa0d936f2a661f57",
+      "snapshotDirectory": "docs/readmes/196",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/196/example-mapping.csv",
+          "sha256": "663e4d974e655c0fcf0ef8a1989a7be9ba72a1499f85f1a0c5f995b6086256d9",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/196/file-inventory.json",
+          "sha256": "5da5aa1677e704322dd08743d3e25ac3608e4ae19d3136ba81bfbdc9cbc26ba2",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/196/index.html",
+          "sha256": "5ec5685df7402b4701c98c72e5251577e2e0ae5b463eda803fdac866187c3d24",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/196/routing-evidence.json",
+          "sha256": "8fc4cc94d2bde6d0355fcee129ba346289909367a770d20bcfd4541ed85f8ebf",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/196/routing-one-result-saved.png",
+          "sha256": "2ed0ea62749b4c9d04d47d0fe6efbc5f9dfce7a9ba7d37b3c09a9da6c5442bf4",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/196/routing-preview-and-reasons.png",
+          "sha256": "f5cf848d062cd83273be9336f594d149f78586c3fd08a48dc9e64d16070c34b5",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/196/routing-resumed-and-verified.png",
+          "sha256": "e7ae6875c2fb919b611840ea51ac39283b41d68feb8b702788a5728879fb8a0b",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/196/system-map.json",
+          "sha256": "6782adbd867930917f0afe155c0919652b4db113ce5bf7aca74dfc8407c7c403",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/196/verification.json",
+          "sha256": "6ac379226f5809f5ca787a8e13ae913351ce2ef276357f281ab52d3ff9247734",
           "kind": "text"
         }
       ]

@@ -1,3 +1,7 @@
+## Edition 196 — Route verified classifications to approved procedures
+
+2026-11-19. Attach a mapping from classification labels to verified conversion lessons. Review the reason and exact input for each choice, then approve the plan. Three classified rows led to two confirmed conversion batches. After two restarts, Java finished the same plan with both original browser receipts. 125 root Java tests, 62 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed locally. Missing mappings and stale approvals created no child work. Two edition 195 artifacts reverified. See README-196.md and docs/publication196/plan.md.
+
 ## Edition 195 — Teach a checked classifier from rules in a CSV
 
 2026-11-19. Teach a classifier from explicit CSV ranges, then reuse the checked rules on new measurements. Java checks every browser result, including unseen values and exact range boundaries. The saved lesson classified 7 fresh rows using four ranges. Java compared the full output and the browser passed 20 checks, including both sides of shared boundaries and the first gap. 125 root Java tests, 62 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed locally. The teaching source, pending review and completed proof survived restart. Two edition 194 results reverified. See README-195.md and docs/publication195/plan.md.
