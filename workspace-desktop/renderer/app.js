@@ -39,6 +39,7 @@ import {MeasurementPanel} from './measurement-panel.js';
 import {CalibrationPanel} from './calibration-panel.js';
 import {ObserverPanel} from './observer-panel.js';
 import {BodyPanel} from './body-panel.js';
+import {RequestWorkbenchPanel} from './request-workbench.js';
 import {SceneFiles} from './scene-files.js';
 import {exportSceneVideo} from './scene-video.js';
 const $=id=>document.getElementById(id),host=window.workspace;
@@ -119,6 +120,9 @@ window.small161View=new Small161Panel({call:(command,args={})=>request('small161
 const perceptionPanel=new PerceptionPanel({call:(command,args={})=>request('perception',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g)});
 const trackingPanel=new TrackingPanel({call:(command,args={})=>request('tracking',{command,args}),notice,requireSaved,openPerception:()=>perceptionPanel.open()});
 const creationPanel=new CreationPanel({layout:updateLayout,call:(command,args,model)=>request('creation',{command,args,model}),getState:()=>state,getArtifact:()=>artifact,getModel:()=>$('model').value,requireSaved,notice,onGoal:g=>goalsPanel.accept(g)});
+new RequestWorkbenchPanel({request,getModel:()=>$('model').value,requireSaved,layout:updateLayout,
+ openCreation:brief=>creationPanel.open(null,brief)});
+
 const workflowPanel=new WorkflowPanel({layout:updateLayout,call:(command,args)=>request('workflow',{command,args}),getState:()=>state,getModel:()=>$('model').value,requireSaved,notice,onGoal:w=>goalsPanel.accept(w),openFirstSkill:()=>persistentPanel.showFirstSkill()});
 const proceduralPanel=new ProceduralPanel({layout:updateLayout,call:(command,args)=>request('javaGoal',{command,args}),requireSaved,notice,onGoal:g=>goalsPanel.accept(g)});
 const mapPanel=new MapPanel({controlCall:args=>host.request({operation:'maps',command:'control',args}),call:(command,args={})=>request('maps',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g),requireSaved});
