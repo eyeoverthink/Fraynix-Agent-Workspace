@@ -4,7 +4,9 @@ const $ = id => document.getElementById(id);
 export function mayRequestFrayTool(value) {
     if (value.length > 1200) return false;
     const text = value.normalize('NFKC').toLowerCase().replace(/[^a-z0-9]+/g, ' ');
-    return (/\b(?:inch|inches)\b/.test(text) && /\b(?:mm|millimet(?:er|re)s?)\b/.test(text))
+    return (/^(?:please )?convert\b.*\bthen\b/.test(text)
+            && /\b(?:celsius|centigrade|fahrenheit|rankine|c|f|r|inch|inches|in|mm|cm)\b/.test(text))
+        || (/\b(?:inch|inches)\b/.test(text) && /\b(?:mm|millimet(?:er|re)s?)\b/.test(text))
         || /\b(?:celsius|centigrade|c) (?:to|into) (?:fahrenheit|f)\b/.test(text);
 }
 
@@ -37,6 +39,14 @@ export class RequestWorkbenchPanel {
             const id = localStorage.getItem('fraynix-request-review');
             if (id) this.show(await this.call('read', {id}));
         });
+        $('requests-recover-chain').onclick = () => this.run(async () => {
+            const result = await this.call('recover-chain', {});
+            if (!result.task) {
+                $('requests-status').textContent = 'No interrupted conversion has a saved handoff.';
+                return;
+            }
+            this.show(result.task);
+        });
         $('requests-file').onchange = () => this.run(async () => {
             const file = $('requests-file').files[0];
             if (!file || !this.task) return;
@@ -61,8 +71,16 @@ export class RequestWorkbenchPanel {
                 this.dialog.close();
                 this.layout();
                 try {
-                    const result = await this.call('build-fray', {id, reviewSha256});
+                    const pauseAfterFirst = Boolean(this.task.choice.chain && !this.task.firstVerified
+                        && $('requests-pause-chain').checked);
+                    const result = await this.call('build-fray', {id, reviewSha256, pauseAfterFirst});
                     this.show(result.task);
+                    if (result.paused) {
+                        if (!this.dialog.open) this.dialog.showModal();
+                        this.layout();
+                        this.announce($('requests-status').textContent);
+                        return;
+                    }
                     this.announce(result.summary);
                 } catch (error) {
                     this.dialog.showModal();
@@ -124,7 +142,11 @@ export class RequestWorkbenchPanel {
         localStorage.setItem('fraynix-request-review', task.id);
         $('requests-text').value = task.request;
         $('requests-action').value = '';
-        $('requests-status').textContent = task.summary || task.choice.description;
+        $('requests-pause-chain').checked = false;
+        const handoff = task.intermediate;
+        $('requests-status').textContent = task.summary || (handoff
+            ? 'Verified ' + handoff.value + ' ' + handoff.unit + '. Resume the second conversion when ready.'
+            : task.choice.description);
         this.render();
     }
 
@@ -135,6 +157,9 @@ export class RequestWorkbenchPanel {
         const chain = task?.choice.chain;
         const finished = task?.status === 'verified';
         $('requests-suggest').disabled = this.busy;
+        $('requests-recover-chain').disabled = this.busy;
+        $('requests-pause-label').hidden = !chain || !pending || Boolean(task.firstVerified);
+        $('requests-pause-chain').disabled = this.busy;
         $('requests-reopen').disabled = this.busy || !localStorage.getItem('fraynix-request-review');
         $('requests-file').disabled = this.busy || !pending;
         $('requests-action').disabled = this.busy || !pending;
@@ -148,7 +173,9 @@ export class RequestWorkbenchPanel {
                 + (task.firstVerified ? ' \u00b7 First step verified' : '') : '';
         $('requests-confirm').hidden = !pending || task.choice.action === 'clarify';
         const fray = isFray(task?.choice.action);
-        $('requests-confirm').textContent = chain ? 'Verify both conversions' : fray ? 'Build and verify in browser'
+        $('requests-confirm').textContent = chain
+            ? (task.firstVerified ? 'Resume verified handoff' : 'Verify both conversions')
+            : fray ? 'Build and verify in browser'
             : file ? 'Confirm and verify' : 'Review in Creation Canvas';
         $('requests-confirm').disabled = this.busy || (file && !task?.source);
         for (const id of ['requests-result','requests-export','requests-learn']) {

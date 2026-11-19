@@ -23,7 +23,7 @@
     margin: .8rem 0;
 }
 
-.request-workbench label.request-model-option {
+.request-workbench label.request-model-option:not([hidden]) {
     display: flex;
     align-items: center;
     gap: .55rem;

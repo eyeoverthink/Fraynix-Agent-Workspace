@@ -61,7 +61,8 @@ final class RequestWorkbench {
     }
 
     private synchronized JSONObject retainChain(String text, FrayChain chain) throws Exception {
-        var choice = RequestLanguage.view(RequestLanguage.Intent.FRAY_CHAIN, "java").put("chain", chain.definition());
+        var choice = RequestLanguage.view(RequestLanguage.Intent.FRAY_CHAIN, "java")
+                .put("label", chain.title()).put("chain", chain.definition());
         if (knownPhrase(memoryKey(text, choice)) != null) choice.put("by", "remembered");
         return retain(text, choice);
     }
@@ -116,6 +117,25 @@ final class RequestWorkbench {
         var task = load(input);
         if (task.has("report")) proof(task);
         return view(task);
+    }
+
+    synchronized JSONObject recoverChain(JSONObject input) throws Exception {
+        SpatialScene.keys(input);
+        ensureDirectory();
+        try (var files = Files.list(directory)) {
+            var reviews = files.filter(file -> file.getFileName().toString().endsWith(".task.json"))
+                    .filter(file -> Files.isRegularFile(file, LinkOption.NOFOLLOW_LINKS))
+                    .sorted(java.util.Comparator.comparingLong((Path file) -> file.toFile().lastModified())
+                            .reversed().thenComparing(Path::toString)).toList();
+            for (var file : reviews) {
+                String name = file.getFileName().toString();
+                var task = load(new JSONObject().put("id", name.substring(0, name.length() - ".task.json".length())));
+                if ("review".equals(task.getString("status")) && task.has("frayFirstChecks")
+                        && intent(task) == RequestLanguage.Intent.FRAY_CHAIN)
+                    return new JSONObject().put("task", view(task));
+            }
+        }
+        return new JSONObject();
     }
 
     synchronized JSONObject verify(JSONObject input) throws Exception {
@@ -390,7 +410,10 @@ final class RequestWorkbench {
     private static JSONObject view(JSONObject task) {
         var visible = WorldFrames.copy(task);
         visible.remove("frayChecks");
-        if (visible.remove("frayFirstChecks") != null) visible.put("firstVerified", true);
+        if (visible.remove("frayFirstChecks") instanceof JSONArray first) {
+            var chain = FrayChain.fromDefinition(task.getJSONObject("choice").getJSONObject("chain"));
+            visible.put("firstVerified", true).put("intermediate", chain.verifiedIntermediate(first).json());
+        }
         if (task.has("source")) visible.put("source", sourceView(task));
         return visible.put("reviewSha256", reviewSha(task));
     }

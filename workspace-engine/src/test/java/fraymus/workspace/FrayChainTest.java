@@ -80,6 +80,60 @@ public class FrayChainTest {
         }
     }
 
+    @Test public void temperatureAliasesResolveToTheSameTypedPlan() {
+        var expected = FrayChain.fromRequest("Convert -17.7778 Celsius to Fahrenheit, then Fahrenheit to Rankine.");
+        for (String alias : new String[]{
+                "Convert -17.7778\u2103 to \u2109, then \u00b0F to degrees Rankine.",
+                "Please convert -17.7778 centigrade to degrees Fahrenheit, then deg F to deg R."}) {
+            var parsed = FrayChain.fromRequest(alias);
+            assertTrue(expected.definition().similar(parsed.definition()));
+            assertEquals(expected.htmlSha256, parsed.htmlSha256);
+        }
+        assertEquals("c-f-r-v1", expected.definition().getString("id"));
+        assertEquals("-0.00004 \u00b0F", expected.firstSteps().getJSONObject(3).getString("expectText"));
+        assertThrows(IllegalArgumentException.class, () -> FrayChain.fromRequest(
+                "Convert -273.1501 C to F, then F to R."));
+        for (String second : new String[]{"mm to cm", "kelvins to R", "C to F"}) {
+            var error = assertThrows(IllegalArgumentException.class, () -> FrayChain.fromRequest(
+                    "Convert 0 C to F, then " + second + "."));
+            assertTrue(error.getMessage().contains("Cannot hand off"));
+        }
+    }
+
+    @Test public void findsAStagedTemperatureHandoffAndKeepsItsOriginalReceipt() throws Exception {
+        var project = Files.createTempDirectory("fray-temperature-recovery-");
+        JSONObject binding;
+        JSONArray original;
+        try (var store = new WorkspaceStore(project)) {
+            var wb = new RequestWorkbench(project, store);
+            var task = wb.chat(new JSONObject().put("request",
+                    "Convert -17.7778 C to F, then F to R.")).getJSONObject("task");
+            assertFalse(wb.recoverChain(new JSONObject()).has("task"));
+            binding = new JSONObject().put("id", task.getString("id")).put("reviewSha256", task.getString("reviewSha256"));
+            var render = wb.prepareFray(binding);
+            binding.put("htmlSha256", render.getString("htmlSha256"));
+            original = observations(render.getJSONArray("steps"));
+            wb.advanceChain(copy(binding).put("checks", original));
+        }
+        try (var store = new WorkspaceStore(project)) {
+            var wb = new RequestWorkbench(project, store);
+            var recovered = wb.recoverChain(new JSONObject()).getJSONObject("task");
+            assertEquals(binding.getString("id"), recovered.getString("id"));
+            assertTrue(recovered.getBoolean("firstVerified"));
+            assertEquals("-0.00004", recovered.getJSONObject("intermediate").getString("value"));
+            var changed = new JSONArray(original.toString());
+            changed.getJSONObject(2).getJSONObject("actual").put("text", "Different button label");
+            assertThrows(IllegalStateException.class, () -> wb.advanceChain(copy(binding).put("checks", changed)));
+            var next = wb.advanceChain(copy(binding).put("checks", original));
+            var steps = next.getJSONArray("steps");
+            assertEquals("459.66996 \u00b0R", steps.getJSONObject(4).getString("expectText"));
+            var result = wb.finishChain(copy(binding).put("handoff", next.getJSONObject("handoff"))
+                    .put("checks", observations(steps)));
+            assertTrue(result.getBoolean("passed"));
+            assertFalse(wb.recoverChain(new JSONObject()).has("task"));
+        }
+    }
+
     private static JSONObject copy(JSONObject value) { return new JSONObject(value.toString()); }
 
     // Boundary fixture. The publication test drives the same ordered steps in Chromium.
