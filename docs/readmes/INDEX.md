@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 182 — a verified Fray temperature converter](../../README-182.md) · [Walkthrough](182/index.html)
+
 [Edition 181 — a verified Fray browser tool from chat](../../README-181.md) · [Walkthrough](181/index.html)
 
 [Edition 180 — teachable requests and verified conversion](../../README-180.md) · [Walkthrough](180/index.html)

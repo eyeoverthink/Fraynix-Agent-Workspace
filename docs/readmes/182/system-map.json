@@ -1,0 +1,50 @@
+{
+  "summary": "Ask for a Celsius-to-Fahrenheit browser tool in Chat. The Workbench checks the offline tool in Chromium against the original Fray program running in Java.",
+  "modules": [
+    {
+      "title": "Reviewed language routing",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RequestLanguage.java",
+      "note": "docs/obsidian/190-fray-temperature-tool.md"
+    },
+    {
+      "title": "Durable approval and evidence",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java",
+      "note": "docs/obsidian/190-fray-temperature-tool.md"
+    },
+    {
+      "title": "Fray bytecode arithmetic",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FrayFormula.java",
+      "note": "docs/obsidian/190-fray-temperature-tool.md"
+    },
+    {
+      "title": "Recipe and browser checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FrayConversion.java",
+      "note": "docs/obsidian/190-fray-temperature-tool.md"
+    },
+    {
+      "title": "Offline temperature calculator",
+      "source": "workspace-engine/src/main/resources/workbench/temperature-converter.html",
+      "note": "docs/obsidian/190-fray-temperature-tool.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/182/chat-review.png",
+      "title": "The Celsius-to-Fahrenheit Chat request awaiting approval"
+    },
+    {
+      "path": "docs/readmes/182/browser-converter.png",
+      "title": "The verified converter displays 37.25 Celsius as 99.05 Fahrenheit"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/182/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/182/browser-receipt.json",
+      "title": "Original Chromium receipt"
+    }
+  ]
+}

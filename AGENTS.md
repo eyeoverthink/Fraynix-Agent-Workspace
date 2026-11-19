@@ -1,3 +1,7 @@
+## Edition 182 — A verified Fray temperature converter
+
+2026-11-19. Ask for a Celsius-to-Fahrenheit browser tool in Chat. The Workbench checks the offline tool in Chromium against the original Fray program running in Java. 125 root Java tests, 41 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. Chromium passed 23 checks across 12 cases and eight additional inputs. Java refused a mismatched recipe hash or browser trace. The original Edition 181 proof matched before and after restart. The exported HTML ran directly from disk. See README-182.md and docs/publication182/plan.md. Next, qualify composition with checked intermediate results.
+
 ## Edition 181 — A verified Fray browser tool from chat
 
 2026-11-19. Ask for an inches-to-millimetres browser tool in Chat. Fraynix offers a review, then checks the offline HTML tool in Chromium against the Java reference from the existing Fray compiler. 125 root Java tests, 38 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. Chromium passed 23 checks across 12 scenarios. The original artifact reopened after restart, the exported HTML ran from disk and the recalled wording still required review. The source attachment uses the existing single-extension artifact rule. Next, qualify a second Fray program with a different instruction sequence. See README-181.md and docs/publication181/plan.md.

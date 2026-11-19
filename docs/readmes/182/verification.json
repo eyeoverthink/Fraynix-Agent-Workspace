@@ -1,0 +1,164 @@
+{
+  "request": "Build me a browser tool to convert Celsius to Fahrenheit.",
+  "captures": [
+    {
+      "name": "chat-review.png",
+      "sha256": "48ed74df14dcb54d2fd29fd6c1990e44603e803e7462efb6b2a80dea378f121c"
+    },
+    {
+      "name": "browser-converter.png",
+      "sha256": "a45e8b90c3c5ede8ec922b9a9c59edea1d92623609a7fdc9f3bdffb5f023c6f2"
+    }
+  ],
+  "passed": true,
+  "reviewId": "4cbbbb85-baac-42e4-b234-a6f278b8b3ef",
+  "verified": {
+    "artifact": {
+      "sha256": "7cc67fa04e3daf5989d9eaf884fa7838ea88388bf4cabd3c48c78d9d5c6ad69b",
+      "id": "431f71e5-9d4b-346f-b485-e371f9b42e52",
+      "version": 1
+    },
+    "output": "index.html",
+    "summary": "Browser results matched the Fray reference. Open or export the offline tool.",
+    "passed": true
+  },
+  "proof": {
+    "compilerCommit": "d93947154a1f21dcfd8dfcc97f27439fed6e3275",
+    "htmlSha256": "d9ddc0eae3ff7834f09ee4558430891561c014132c9769fcbcb5f2463c0bba35",
+    "frayBytecodeHex": "4652415901000300010000001040220000000000004014000000000000404000000000000063656c7369757300020000010000120100011301000210ff",
+    "browserCases": [
+      {
+        "input": "20",
+        "java": "68 °F",
+        "browser": "68 °F"
+      },
+      {
+        "input": "0",
+        "java": "32 °F",
+        "browser": "32 °F"
+      },
+      {
+        "input": "100",
+        "java": "212 °F",
+        "browser": "212 °F"
+      },
+      {
+        "input": "-40",
+        "java": "-40 °F",
+        "browser": "-40 °F"
+      },
+      {
+        "input": "-273.15",
+        "java": "-459.67 °F",
+        "browser": "-459.67 °F"
+      },
+      {
+        "input": "37.25",
+        "java": "99.05 °F",
+        "browser": "99.05 °F"
+      },
+      {
+        "input": "-17.7778",
+        "java": "-0.00004 °F",
+        "browser": "-0.00004 °F"
+      },
+      {
+        "input": ".05",
+        "java": "32.09 °F",
+        "browser": "32.09 °F"
+      },
+      {
+        "input": "+999999.9999",
+        "java": "1800031.99982 °F",
+        "browser": "1800031.99982 °F"
+      },
+      {
+        "input": "1000000.0001",
+        "java": "Enter a decimal within the stated range.",
+        "browser": "Enter a decimal within the stated range."
+      },
+      {
+        "input": "1,5",
+        "java": "Enter a decimal within the stated range.",
+        "browser": "Enter a decimal within the stated range."
+      },
+      {
+        "input": " ",
+        "java": "Enter a measurement.",
+        "browser": "Enter a measurement."
+      }
+    ],
+    "fraySource": "celsius * 9 / 5 + 32",
+    "passed": true
+  },
+  "originalBrowserSteps": 23,
+  "liveInput": {
+    "celsius": "37.25",
+    "fahrenheit": "99.05"
+  },
+  "exportedFile": {
+    "protocol": "file:",
+    "result": "53.825 °F"
+  },
+  "reopened": true,
+  "remembered": true,
+  "prior": {
+    "reviewId": "446491ee-fff4-469d-817c-7d933d534723",
+    "artifact": {
+      "sha256": "44bb0000c18bc4858a96409d0e269faef764d76558fd1125de7834a198309791",
+      "id": "ed5c536c-cdce-372c-aafb-600378979601",
+      "version": 1
+    },
+    "matched": true
+  },
+  "holdouts": [
+    {
+      "input": "12.125",
+      "expected": "53.825 °F",
+      "observed": "53.825 °F"
+    },
+    {
+      "input": "-17.7777",
+      "expected": "0.00014 °F",
+      "observed": "0.00014 °F"
+    },
+    {
+      "input": "-11.125",
+      "expected": "11.975 °F",
+      "observed": "11.975 °F"
+    },
+    {
+      "input": "41.7",
+      "expected": "107.06 °F",
+      "observed": "107.06 °F"
+    },
+    {
+      "input": "-1000000",
+      "expected": "-1799968 °F",
+      "observed": "-1799968 °F"
+    },
+    {
+      "input": "1000000",
+      "expected": "1800032 °F",
+      "observed": "1800032 °F"
+    },
+    {
+      "input": "1e3",
+      "expected": "Enter a decimal within the stated range.",
+      "observed": "Enter a decimal within the stated range."
+    },
+    {
+      "input": "+",
+      "expected": "Enter a decimal within the stated range.",
+      "observed": "Enter a decimal within the stated range."
+    }
+  ],
+  "source": "d6e987cc9573cc10080361d1909791add6e28786",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 41,
+    "desktop": 181,
+    "archive": 10
+  }
+}
