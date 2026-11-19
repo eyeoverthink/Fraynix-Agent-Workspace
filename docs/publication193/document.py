@@ -49,7 +49,7 @@ def publish(live):
     app = json.loads(read(live / "result.json"))
     tests = json.loads(read("build/edition193-regression/summary.json"))
     assert app["passed"] and tests["passed"] and all(app["checks"].values())
-    assert app["checks"]["restartCount"] == 3
+    assert app["checks"]["restartCount"] == 4
     assert app["fresh"]["lesson"]["teacherId"] == app["teacherId"]
     assert all(evidence["passed"] and all(case["java"] == case["browser"] for case in evidence["cases"])
                for evidence in (app["original"], app["fresh"], app["length"]))
@@ -102,7 +102,7 @@ def publish(live):
 
 ## What passed
 
-{result} The published desktop run restarted after teaching, after attaching fresh input and after verification. The completed HTML also ran from a local file and converted two new values.
+{result} The desktop run included four restarts. One followed a real artifact-write failure. Fraynix finished the save from the original browser checks after storage was restored. The completed HTML also ran from a local file and converted two new values.
 
 Java rejected an unverified teacher, a teaching attempt from a reuse result, the wrong column, out-of-range input and a copy of the teaching values with new formatting and row order. It also refused a browser receipt borrowed from the teacher and detected modifications to both receipts and the lesson checkpoint.
 
@@ -126,7 +126,7 @@ This edition supports single-column CSV batch tools for Celsius to Fahrenheit or
         write("docs/readmes/INDEX.md", index[:start] + f"[Edition 193 — {LINK_TITLE}](../../README-193.md)"
               + " · [Walkthrough](193/index.html)\n\n" + index[start:])
     record = (f"## Edition 193 — {TITLE}\n\n{DATE}. {SUMMARY} {result} {counts} "
-              "The lesson, the pending review and the completed proof passed restart checks. "
+              "The lesson, pending review, interrupted artifact save and completed proof passed restart checks. "
               "See README-193.md and docs/publication193/plan.md.\n\n")
     for name in ("AGENTS.md", "README-CONTRIBUTORS.md", "docs/PROJECT_MEMORY.md", "docs/DEVELOPMENT_LOG.md",
                  "docs/ARCHITECTURE.md", "docs/INTEGRATED_AGENT_ROADMAP.md"):

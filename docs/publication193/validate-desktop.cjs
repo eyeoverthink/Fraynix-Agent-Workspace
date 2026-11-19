@@ -14,6 +14,13 @@ const example = 'celsius\r\n0\r\n20\r\n-40\r\n36.625\r\n';
 const fresh = 'celsius\n+0000000.0000\n-17.7777\n37.1234\n-999999.9999\n1000000\n';
 const expectedFresh = '32 °F\n0.00014 °F\n98.82212 °F\n-1799967.99982 °F\n1800032 °F';
 
+function artifactId(reviewId) {
+    const digest = createHash('md5').update('request-workbench:'+reviewId).digest();
+    digest[6] = (digest[6] & 0x0f) | 0x30;
+    digest[8] = (digest[8] & 0x3f) | 0x80;
+    return digest.toString('hex').replace(/^(........)(....)(....)(....)(............)$/,'$1-$2-$3-$4-$5');
+}
+
 async function main() {
     const output = path.resolve(process.argv[2] || 'build/edition193-live');
     const project = path.join(output, 'project');
@@ -144,7 +151,31 @@ async function main() {
         await assert.rejects(api('/api/requests/fray-finish',{...confirm,
             htmlSha256:prepared.htmlSha256,checks:original.receipt.checks}),/Browser check|Browser input|Browser result/);
         await assert.rejects(verify(learnerId));
+        const expectedArtifactId = artifactId(learnerId);
+        const blocked = path.join(project,'artifacts',expectedArtifactId);
+        let stagedChecks;
+        await fs.writeFile(blocked,'Test fixture blocking the new artifact directory',{flag:'wx'});
+        try {
+            await page.locator('#requests-confirm').click();
+            await page.locator('#requests-confirm').waitFor({state:'visible',...flags});
+            await page.waitForFunction(()=>document.querySelector('#requests-confirm').textContent==='Finish verified save',{},flags);
+            assert((await review(learnerId)).dataSavePending);
+            assert((await api('/api/requests/fray-prepare',confirm)).dataCommitReady);
+            await assert.rejects(verify(learnerId));
+            await assert.rejects(api('/api/artifact/read',{id:expectedArtifactId}),/Unknown artifact/);
+            const staged = JSON.parse(await fs.readFile(path.join(project,'request-workbench',learnerId+'.task.json')));
+            stagedChecks = staged.data.frayChecks;
+            assert.equal(stagedChecks.length,10);
+        } finally {
+            await fs.unlink(blocked);
+        }
+        await restart();
+        assert((await api('/api/requests/fray-prepare',confirm)).dataCommitReady);
+        await openReview();
+        await page.getByRole('button',{name:'Finish verified save'}).waitFor({state:'visible',...flags});
         const learned = await build(learnerId,'CSV · Celsius to Fahrenheit',expectedFresh);
+        assert.equal(learned.proof.artifact.id,expectedArtifactId);
+        assert.deepEqual(learned.receipt.checks,stagedChecks);
         assert.equal(learned.evidence.inputCount,5);
         assert.deepEqual(learned.evidence.lesson,pending.choice.lesson);
         assert.notEqual(learned.proof.artifact.id,original.proof.artifact.id);
@@ -197,10 +228,11 @@ async function main() {
         assert.deepEqual(pageErrors,[]);
 
         const result = {passed:true,teacherId,learnerId,original:original.evidence,fresh:learned.evidence,
-            length:length.evidence,offline,checks:{restartCount:3,wrongUnitRefused:true,nonFreshRefused:true,
+            length:length.evidence,offline,checks:{restartCount:4,wrongUnitRefused:true,nonFreshRefused:true,
                 outOfRangeRefused:true,unverifiedTeacherRefused:true,circularTeacherRefused:true,
                 swappedBrowserReceiptRefused:true,teacherReceiptTamperRefused:true,newReceiptTamperRefused:true,
-                lessonTamperRefused:true,sourceReviewRetained:true,completedProofRetained:true},screenshots};
+                lessonTamperRefused:true,sourceReviewRetained:true,artifactWriteRecovered:true,
+                sameBrowserReceiptAfterRecovery:true,completedProofRetained:true},screenshots};
         await fs.writeFile(path.join(output,'result.json'),JSON.stringify(result,null,2)+'\n');
         await fs.writeFile(path.join(output,'fresh-browser-receipt.json'),JSON.stringify(learned.receipt,null,2)+'\n');
         await fs.writeFile(path.join(output,'offline-converter.html'),learned.html);
