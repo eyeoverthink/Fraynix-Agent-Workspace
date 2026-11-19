@@ -1,3 +1,5 @@
+[Edition 186 — Recover an artifact save](194-fray-artifact-save.md)
+
 [Edition 185 — Choose a saved Fray handoff](193-fray-pending-recovery.md)
 
 [Edition 184 — Fray handoff recovery](192-fray-handoff-recovery.md)

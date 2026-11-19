@@ -1,5 +1,5 @@
 # Fraynix Agent Workspace
 
-[Edition 185 — choose among interrupted Fray chains](README-185.md) · [Previous edition](README-184.md) · [Offline walkthrough](docs/readmes/185/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 186 — recover an interrupted artifact save](README-186.md) · [Previous edition](README-185.md) · [Offline walkthrough](docs/readmes/186/index.html) · [Full history](docs/readmes/INDEX.md)
 
-The Workbench lists saved Fray handoffs by input and verified value. Choose which chain to resume when several are pending after a desktop restart.
+Fraynix can finish saving a Fray artifact after the desktop stops during the write. Java restores the exact review and verifies both retained browser receipts before publishing the result.

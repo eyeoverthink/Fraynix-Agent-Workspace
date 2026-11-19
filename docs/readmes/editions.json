@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 185,
+  "latest": 186,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -264877,6 +264877,60 @@
           "path": "docs/readmes/185/verification.json",
           "kind": "text",
           "sha256": "55ef6a08a3b0750cde5fd7e8da12ba4566389b33b7debc4f073c05ab0a33916e"
+        }
+      ]
+    },
+    {
+      "number": 186,
+      "date": "2026-11-19",
+      "title": "Recover an interrupted verified artifact save",
+      "status": "validated-local",
+      "markdown": "README-186.md",
+      "markdownSha256": "6e5d36c55f0cad8474c1c5e43a015a5c59e98c99ffee5d577110583f49594907",
+      "companion": "docs/readmes/186/index.html",
+      "tag": "readme-186",
+      "sourceBaseline": "03f470478c8dbf5a48f199de64670c780aa4724f",
+      "snapshotDirectory": "docs/readmes/186",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/186/browser-receipt.json",
+          "kind": "text",
+          "sha256": "5656708ad7afcf882342f6e22e7d32a2c04efdcd82f71bfc774ca1c1563edc2f"
+        },
+        {
+          "path": "docs/readmes/186/file-inventory.json",
+          "kind": "text",
+          "sha256": "851cb907d55873e2f96f7045b779c1e8ebdef216f909cef990683e1c3454ae75"
+        },
+        {
+          "path": "docs/readmes/186/index.html",
+          "kind": "text",
+          "sha256": "f3249b937fec8822d728ef2bfd7cac8aa6f67c1d63d12618366be354abf821cc"
+        },
+        {
+          "path": "docs/readmes/186/interrupted-save.png",
+          "kind": "binary",
+          "sha256": "a0311b44da450552d150196ae8bffc9d413fbc176d1d3ad116e336a9ba5997e0"
+        },
+        {
+          "path": "docs/readmes/186/large-chooser.png",
+          "kind": "binary",
+          "sha256": "24efa115b38768108d412f3b1f9c4482110fe9eee5b8429136de4e895158aa76"
+        },
+        {
+          "path": "docs/readmes/186/recovered-artifact.png",
+          "kind": "binary",
+          "sha256": "f31676e3bde262adcf15d9f5a70b0f9882b1d24eb48c8a247b7936d598130f95"
+        },
+        {
+          "path": "docs/readmes/186/system-map.json",
+          "kind": "text",
+          "sha256": "6b0767b588da6f07762afe42395b1b550119c5cba3303e04a9ccdbc249890471"
+        },
+        {
+          "path": "docs/readmes/186/verification.json",
+          "kind": "text",
+          "sha256": "92a64bc9c8b06f94899fd389102287671890c945ca7bbb942a038332a2c347c6"
         }
       ]
     }

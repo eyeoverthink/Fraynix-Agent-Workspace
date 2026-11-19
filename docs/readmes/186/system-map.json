@@ -1,0 +1,44 @@
+{
+  "summary": "Fraynix can finish saving a Fray artifact after the desktop stops during the write. Java restores the exact review and verifies both retained browser receipts before publishing the result.",
+  "modules": [
+    {
+      "title": "Artifact save recovery",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceStore.java",
+      "note": "docs/obsidian/194-fray-artifact-save.md"
+    },
+    {
+      "title": "Durable review checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java",
+      "note": "docs/obsidian/194-fray-artifact-save.md"
+    },
+    {
+      "title": "Workbench recovery",
+      "source": "workspace-desktop/renderer/request-workbench.js",
+      "note": "docs/obsidian/194-fray-artifact-save.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/186/large-chooser.png",
+      "title": "The real Workbench lists 60 verified pending chains"
+    },
+    {
+      "path": "docs/readmes/186/interrupted-save.png",
+      "title": "The same review is ready to finish its interrupted artifact save"
+    },
+    {
+      "path": "docs/readmes/186/recovered-artifact.png",
+      "title": "The recovered artifact opens with both stages verified"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/186/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/186/browser-receipt.json",
+      "title": "Original Chromium receipt"
+    }
+  ]
+}

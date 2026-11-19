@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 186 · Recover an interrupted verified artifact save</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Recover an interrupted verified artifact save</h1><p>Fraynix can finish saving a Fray artifact after the desktop stops during the write. Java restores the exact review and verifies both retained browser receipts before publishing the result.</p>
+<nav><a href="../../../README-186.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../185/index.html">Edition 185</a><a href="#system">System files</a></nav>
+<figure><img src="large-chooser.png" alt="The real Workbench lists 60 verified pending chains"><figcaption>The real Workbench lists 60 verified pending chains</figcaption></figure>
+<figure><img src="interrupted-save.png" alt="The same review is ready to finish its interrupted artifact save"><figcaption>The same review is ready to finish its interrupted artifact save</figcaption></figure>
+<figure><img src="recovered-artifact.png" alt="The recovered artifact opens with both stages verified"><figcaption>The recovered artifact opens with both stages verified</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Fraynix can finish saving a Fray artifact after the desktop stops during the write. Java restores the exact review and verifies both retained browser receipts before publishing the result.", "modules": [{"title": "Artifact save recovery", "source": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceStore.java", "note": "docs/obsidian/194-fray-artifact-save.md"}, {"title": "Durable review checks", "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "note": "docs/obsidian/194-fray-artifact-save.md"}, {"title": "Workbench recovery", "source": "workspace-desktop/renderer/request-workbench.js", "note": "docs/obsidian/194-fray-artifact-save.md"}], "screenshots": [{"path": "docs/readmes/186/large-chooser.png", "title": "The real Workbench lists 60 verified pending chains"}, {"path": "docs/readmes/186/interrupted-save.png", "title": "The same review is ready to finish its interrupted artifact save"}, {"path": "docs/readmes/186/recovered-artifact.png", "title": "The recovered artifact opens with both stages verified"}], "evidence": [{"path": "docs/readmes/186/verification.json", "title": "Verification record"}, {"path": "docs/readmes/186/browser-receipt.json", "title": "Original Chromium receipt"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/194-fray-artifact-save.canvas", "bytes": 1181, "sha256": "f0e30bd696f00af3d844dcecddd2ce68974284aac293613bcc41c23d5a68f37f", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/194-fray-artifact-save.md", "bytes": 375, "sha256": "3f5a3b56d9e21c9edaf3956fb32829ef4e214dbe81dac3cfc1ba34d358dc257c", "hashKind": "utf8-lf"}, {"path": "docs/publication186/CheckpointLease.java", "bytes": 578, "sha256": "cf94a4a71cd1de637f0d4ce7faba29e101fa468501810c49e70cdf8f75d547c7", "hashKind": "utf8-lf"}, {"path": "docs/publication186/document.py", "bytes": 11033, "sha256": "7f9c6f5efda91b3e163858e7561201e8b5e10df69d3035cc09c51aed6e205a21", "hashKind": "utf8-lf"}, {"path": "docs/publication186/plan.md", "bytes": 1412, "sha256": "e7b756d639c4a695bae5dbcebe51f3585ee03a3dcac44d75ba484345e0e40104", "hashKind": "utf8-lf"}, {"path": "docs/publication186/validate-desktop.cjs", "bytes": 12395, "sha256": "07040d37302f77aa021fed29930c1300729219f57b96018636fc34d95cc5e441", "hashKind": "utf8-lf"}, {"path": "docs/publication186/validate-guide.cjs", "bytes": 1722, "sha256": "ac54f04ba693c8799adb30c92fff40df3cfad3ca6d88ca0d3ff687a32bec11fb", "hashKind": "utf8-lf"}, {"path": "docs/publication186/validate.py", "bytes": 2112, "sha256": "de605660a7106cf673076a6b9d3b04830fdcd674c5084fabdb14661662792299", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 106847, "sha256": "b1ecc89b85bbdfdf62822e64e3bf37cdb25b9114d1bc0f30cee19140964582ea", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/request-workbench.js", "bytes": 10882, "sha256": "4ca98dfd3c6ce408bed65c4f000974e8059018509e46fa8d307bbb44180a9021", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "bytes": 26887, "sha256": "5c2f71fc226f14e1334b829475d326b00403d9ce9098e6d72f41bb5d461a2ca4", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 128569, "sha256": "0495865d55c937793a6c13358a13c19fc89e2b919e6f7d0da65558e135c891d5", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceStore.java", "bytes": 21386, "sha256": "d799b9b92abf0bd11ec364fab60c7f0e01999392a091216fc599cd67bbdcc3ee", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/FrayChainTest.java", "bytes": 14935, "sha256": "8e762cd54171a31a9c36d71d635428bbbdb8682961c45ccce28994274eb168fd", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

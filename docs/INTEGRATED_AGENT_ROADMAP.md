@@ -1,3 +1,7 @@
+## Edition 186 — Recover an interrupted verified artifact save
+
+2026-11-19. Fraynix can finish saving a Fray artifact after the desktop stops during the write. Java restores the exact review and verifies both retained browser receipts before publishing the result. 125 root Java tests, 47 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. A forced stop during the checkpoint boundary left both browser receipts available. Restart recovered one artifact under the same ID without replaying the preview. The chooser was measured at 3, 24, and 60 real paused chains. See README-186.md and docs/publication186/plan.md.
+
 ## Edition 185 — Choose among interrupted Fray chains
 
 2026-11-19. The Workbench lists saved Fray handoffs by input and verified value. Choose which chain to resume when several are pending after a desktop restart. 125 root Java tests, 46 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. Three first-stage receipts survived a forced restart. The selected middle review finished first, and siblings stayed byte-identical until chosen. Wrong-unit and wrong-value handoffs were rejected. The report retains per-chain rebuild and completion timings. Actions credits were unavailable, so validation ran locally. See README-185.md and docs/publication185/plan.md.

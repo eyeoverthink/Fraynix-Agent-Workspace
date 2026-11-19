@@ -1,0 +1,270 @@
+{
+  "captures": [
+    {
+      "name": "large-chooser.png",
+      "sha256": "24efa115b38768108d412f3b1f9c4482110fe9eee5b8429136de4e895158aa76"
+    },
+    {
+      "name": "interrupted-save.png",
+      "sha256": "a0311b44da450552d150196ae8bffc9d413fbc176d1d3ad116e336a9ba5997e0"
+    },
+    {
+      "name": "recovered-artifact.png",
+      "sha256": "f31676e3bde262adcf15d9f5a70b0f9882b1d24eb48c8a247b7936d598130f95"
+    }
+  ],
+  "chooser": [
+    {
+      "pending": 3,
+      "samples": [
+        69,
+        34,
+        36,
+        35,
+        102,
+        52,
+        52
+      ],
+      "medianMs": 52,
+      "maxMs": 102
+    },
+    {
+      "pending": 24,
+      "samples": [
+        73,
+        37,
+        33,
+        46,
+        88,
+        33,
+        68
+      ],
+      "medianMs": 46,
+      "maxMs": 88
+    },
+    {
+      "pending": 60,
+      "samples": [
+        122,
+        264,
+        53,
+        31,
+        49,
+        50,
+        76
+      ],
+      "medianMs": 53,
+      "maxMs": 264
+    }
+  ],
+  "passed": true,
+  "reviewId": "b711c0a4-7c80-48c0-af1f-dd724ef9bec9",
+  "verified": {
+    "artifact": {
+      "sha256": "188b3f2297406899315cff2d382ca8acf149cccdb870887147052d5cfac7cb8a",
+      "id": "8d7a28cf-8ea6-3ec8-a533-47fabadd2389",
+      "version": 1
+    },
+    "output": "index.html",
+    "summary": "Both Fray steps passed. The second used the verified 46.0375 mm.",
+    "passed": true
+  },
+  "proof": {
+    "secondBytecode": "4652415901000100010000000840240000000000006d696c6c696d65747265730002000001000013ff",
+    "result": "4.60375 cm",
+    "chain": {
+      "input": {
+        "unit": "in",
+        "value": "1.8125"
+      },
+      "id": "inch-mm-cm-v1",
+      "first": "in to mm",
+      "second": "mm to cm"
+    },
+    "htmlSha256": "32487f8342d13a6e93cdc18de946be6d05fa14086f4d0fdb918b193b6138fad1",
+    "compilerCommit": "d93947154a1f21dcfd8dfcc97f27439fed6e3275",
+    "firstChecks": [
+      {
+        "actual": {
+          "count": 1,
+          "text": "",
+          "value": "1.8125"
+        },
+        "expected": {
+          "selector": "#inches",
+          "expectValue": "1.8125"
+        },
+        "index": 0,
+        "selector": "#inches",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Convert to centimetres",
+          "value": ""
+        },
+        "expected": {
+          "expectCount": 1,
+          "selector": "#to-cm:disabled"
+        },
+        "index": 1,
+        "selector": "#to-cm:disabled",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Convert to millimetres",
+          "value": ""
+        },
+        "expected": {
+          "action": "click",
+          "selector": "#to-mm"
+        },
+        "index": 2,
+        "selector": "#to-mm",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "46.0375 mm",
+          "value": "46.0375 mm"
+        },
+        "expected": {
+          "expectText": "46.0375 mm",
+          "selector": "#millimetres"
+        },
+        "index": 3,
+        "selector": "#millimetres",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Waiting for conversion.",
+          "value": "Waiting for conversion."
+        },
+        "expected": {
+          "expectText": "Waiting for conversion.",
+          "selector": "#centimetres"
+        },
+        "index": 4,
+        "selector": "#centimetres",
+        "passed": true
+      }
+    ],
+    "secondChecks": [
+      {
+        "actual": {
+          "count": 1,
+          "text": "46.0375 mm",
+          "value": "46.0375 mm"
+        },
+        "expected": {
+          "expectText": "46.0375 mm",
+          "selector": "#millimetres"
+        },
+        "index": 0,
+        "selector": "#millimetres",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Waiting for conversion.",
+          "value": "Waiting for conversion."
+        },
+        "expected": {
+          "expectText": "Waiting for conversion.",
+          "selector": "#centimetres"
+        },
+        "index": 1,
+        "selector": "#centimetres",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Convert to centimetres",
+          "value": ""
+        },
+        "expected": {
+          "action": "click",
+          "selector": "#to-cm"
+        },
+        "index": 2,
+        "selector": "#to-cm",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "46.0375 mm",
+          "value": null
+        },
+        "expected": {
+          "expectText": "46.0375 mm",
+          "selector": "#handoff"
+        },
+        "index": 3,
+        "selector": "#handoff",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "4.60375 cm",
+          "value": "4.60375 cm"
+        },
+        "expected": {
+          "expectText": "4.60375 cm",
+          "selector": "#centimetres"
+        },
+        "index": 4,
+        "selector": "#centimetres",
+        "passed": true
+      }
+    ],
+    "intermediate": {
+      "unit": "mm",
+      "value": "46.0375"
+    },
+    "passed": true,
+    "firstBytecode": "465241590100010001000000084039666666666666696e636865730002000001000012ff"
+  },
+  "priorEditions": [
+    181,
+    182,
+    183,
+    184,
+    185
+  ],
+  "interruption": {
+    "forced": true,
+    "registeredBeforeRestart": false,
+    "retainedChecks": [
+      5,
+      5
+    ],
+    "incompleteFiles": [
+      "fray-source.txt",
+      "index.html",
+      "verification.json"
+    ],
+    "orphanPreserved": true,
+    "previewReplayed": false,
+    "artifactsAdded": 1,
+    "pendingAfterSave": 59,
+    "siblingUnchanged": true
+  },
+  "source": "03f470478c8dbf5a48f199de64670c780aa4724f",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 47,
+    "desktop": 181,
+    "archive": 10
+  }
+}
