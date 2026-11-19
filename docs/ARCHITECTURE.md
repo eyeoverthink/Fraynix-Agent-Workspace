@@ -1,3 +1,7 @@
+## Edition 183 — A verified two-step Fray conversion
+
+2026-11-19. One Chat request converts inches to millimetres and then centimetres. Java verifies the intermediate value and its unit before the browser starts the second step. 125 root Java tests, 43 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. Chromium passed 10 checks. Two wrong unit handoffs were refused before review, and six extra inputs showed both results. The chain and both earlier converter proofs reopened after restart. The first-stage receipt survived a Java recovery test. See README-183.md and docs/publication183/plan.md.
+
 ## Edition 182 — A verified Fray temperature converter
 
 2026-11-19. Ask for a Celsius-to-Fahrenheit browser tool in Chat. The Workbench checks the offline tool in Chromium against the original Fray program running in Java. 125 root Java tests, 41 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. Chromium passed 23 checks across 12 cases and eight additional inputs. Java refused a mismatched recipe hash or browser trace. The original Edition 181 proof matched before and after restart. The exported HTML ran directly from disk. See README-182.md and docs/publication182/plan.md. Next, qualify composition with checked intermediate results.

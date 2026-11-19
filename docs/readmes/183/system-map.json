@@ -1,0 +1,49 @@
+{
+  "summary": "One Chat request converts inches to millimetres and then centimetres. Java verifies the intermediate value and its unit before the browser starts the second step.",
+  "modules": [
+    {
+      "title": "Fray chain and handoff",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FrayChain.java",
+      "note": "docs/obsidian/191-fray-length-chain.md"
+    },
+    {
+      "title": "Durable stage verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java",
+      "note": "docs/obsidian/191-fray-length-chain.md"
+    },
+    {
+      "title": "Fray arithmetic",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FrayFormula.java",
+      "note": "docs/obsidian/191-fray-length-chain.md"
+    },
+    {
+      "title": "Offline chain",
+      "source": "workspace-engine/src/main/resources/workbench/length-chain.html",
+      "note": "docs/obsidian/191-fray-length-chain.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/183/rejected-handoffs.png",
+      "title": "Chat refuses incompatible input units"
+    },
+    {
+      "path": "docs/readmes/183/chat-review.png",
+      "title": "Both Fray stages in the approval review"
+    },
+    {
+      "path": "docs/readmes/183/verified-chain.png",
+      "title": "The chain shows 313.57824 mm and 31.357824 cm"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/183/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/183/browser-receipt.json",
+      "title": "Original Chromium receipt"
+    }
+  ]
+}

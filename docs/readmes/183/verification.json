@@ -1,0 +1,255 @@
+{
+  "request": "Convert 12.3456 inches to millimetres, then millimetres to centimetres.",
+  "captures": [
+    {
+      "name": "rejected-handoffs.png",
+      "sha256": "682787e4fd3b60b8f5fe732fa7f7676128c846da722b2a0b595317c41f80ac54"
+    },
+    {
+      "name": "chat-review.png",
+      "sha256": "3bfba0781f90ddd5442f8fc2bc7a261516fe80851e1a8c5f2de798471b4d5502"
+    },
+    {
+      "name": "verified-chain.png",
+      "sha256": "7e357eade84d890eee581df9a457da47f796f2857e925f3a638d4534e5df6814"
+    }
+  ],
+  "refusals": [
+    {
+      "request": "Convert 12.3456 inches to millimetres, then Celsius to Fahrenheit.",
+      "reason": "Cannot hand off mm to a step that expects °C."
+    },
+    {
+      "request": "Convert 12.3456 inches to millimetres, then inches to millimetres.",
+      "reason": "Cannot hand off mm to a step that expects in."
+    }
+  ],
+  "holdouts": [
+    {
+      "input": "0",
+      "millimetres": "0 mm",
+      "centimetres": "0 cm"
+    },
+    {
+      "input": "-3.25",
+      "millimetres": "-82.55 mm",
+      "centimetres": "-8.255 cm"
+    },
+    {
+      "input": "0.0001",
+      "millimetres": "0.00254 mm",
+      "centimetres": "0.000254 cm"
+    },
+    {
+      "input": "-0.0001",
+      "millimetres": "-0.00254 mm",
+      "centimetres": "-0.000254 cm"
+    },
+    {
+      "input": "999999.9999",
+      "millimetres": "25399999.99746 mm",
+      "centimetres": "2539999.999746 cm"
+    },
+    {
+      "input": "-1000000",
+      "millimetres": "-25400000 mm",
+      "centimetres": "-2540000 cm"
+    }
+  ],
+  "priorEditions": [
+    181,
+    182
+  ],
+  "staleInputRefused": true,
+  "passed": true,
+  "proof": {
+    "secondBytecode": "4652415901000100010000000840240000000000006d696c6c696d65747265730002000001000013ff",
+    "result": "31.357824 cm",
+    "chain": {
+      "input": {
+        "unit": "in",
+        "value": "12.3456"
+      },
+      "id": "inch-mm-cm-v1",
+      "first": "in to mm",
+      "second": "mm to cm"
+    },
+    "htmlSha256": "adb41c7d14a850270c984cef6a8ead5138954c16a3f83f7f46833a23c51176b0",
+    "compilerCommit": "d93947154a1f21dcfd8dfcc97f27439fed6e3275",
+    "firstChecks": [
+      {
+        "actual": {
+          "count": 1,
+          "text": "",
+          "value": "12.3456"
+        },
+        "expected": {
+          "selector": "#inches",
+          "expectValue": "12.3456"
+        },
+        "index": 0,
+        "selector": "#inches",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Convert to centimetres",
+          "value": ""
+        },
+        "expected": {
+          "expectCount": 1,
+          "selector": "#to-cm:disabled"
+        },
+        "index": 1,
+        "selector": "#to-cm:disabled",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Convert to millimetres",
+          "value": ""
+        },
+        "expected": {
+          "action": "click",
+          "selector": "#to-mm"
+        },
+        "index": 2,
+        "selector": "#to-mm",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "313.57824 mm",
+          "value": "313.57824 mm"
+        },
+        "expected": {
+          "expectText": "313.57824 mm",
+          "selector": "#millimetres"
+        },
+        "index": 3,
+        "selector": "#millimetres",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Waiting for conversion.",
+          "value": "Waiting for conversion."
+        },
+        "expected": {
+          "expectText": "Waiting for conversion.",
+          "selector": "#centimetres"
+        },
+        "index": 4,
+        "selector": "#centimetres",
+        "passed": true
+      }
+    ],
+    "secondChecks": [
+      {
+        "actual": {
+          "count": 1,
+          "text": "313.57824 mm",
+          "value": "313.57824 mm"
+        },
+        "expected": {
+          "expectText": "313.57824 mm",
+          "selector": "#millimetres"
+        },
+        "index": 0,
+        "selector": "#millimetres",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Waiting for conversion.",
+          "value": "Waiting for conversion."
+        },
+        "expected": {
+          "expectText": "Waiting for conversion.",
+          "selector": "#centimetres"
+        },
+        "index": 1,
+        "selector": "#centimetres",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Convert to centimetres",
+          "value": ""
+        },
+        "expected": {
+          "action": "click",
+          "selector": "#to-cm"
+        },
+        "index": 2,
+        "selector": "#to-cm",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "313.57824 mm",
+          "value": null
+        },
+        "expected": {
+          "expectText": "313.57824 mm",
+          "selector": "#handoff"
+        },
+        "index": 3,
+        "selector": "#handoff",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "31.357824 cm",
+          "value": "31.357824 cm"
+        },
+        "expected": {
+          "expectText": "31.357824 cm",
+          "selector": "#centimetres"
+        },
+        "index": 4,
+        "selector": "#centimetres",
+        "passed": true
+      }
+    ],
+    "intermediate": {
+      "unit": "mm",
+      "value": "313.57824"
+    },
+    "passed": true,
+    "firstBytecode": "465241590100010001000000084039666666666666696e636865730002000001000012ff"
+  },
+  "verified": {
+    "artifact": {
+      "sha256": "d44acd008360fc3a9c71504907c44ab8ddc9b5df7e1807b1cfb8364c48f942f2",
+      "id": "b3fa1631-2c4c-3d85-b1af-a9541e99c62c",
+      "version": 1
+    },
+    "output": "index.html",
+    "summary": "Both Fray steps passed. The second used the verified 313.57824 mm.",
+    "passed": true
+  },
+  "reviewId": "456d11df-3673-4e0c-8988-e22d7fbe4d54",
+  "reopened": true,
+  "remembered": true,
+  "exportedFile": {
+    "protocol": "file:",
+    "result": "18.0975 cm"
+  },
+  "source": "f98f36f61f7ec5d4409703e0ca2af8875787ebfd",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 43,
+    "desktop": 181,
+    "archive": 10
+  }
+}

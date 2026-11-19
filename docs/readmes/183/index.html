@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 183 · A verified two-step Fray conversion</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>A verified two-step Fray conversion</h1><p>One Chat request converts inches to millimetres and then centimetres. Java verifies the intermediate value and its unit before the browser starts the second step.</p>
+<nav><a href="../../../README-183.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../182/index.html">Edition 182</a><a href="#system">System files</a></nav>
+<figure><img src="rejected-handoffs.png" alt="Chat refuses incompatible input units"><figcaption>Chat refuses incompatible input units</figcaption></figure>
+<figure><img src="chat-review.png" alt="Both Fray stages in the approval review"><figcaption>Both Fray stages in the approval review</figcaption></figure>
+<figure><img src="verified-chain.png" alt="The chain shows 313.57824 mm and 31.357824 cm"><figcaption>The chain shows 313.57824 mm and 31.357824 cm</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "One Chat request converts inches to millimetres and then centimetres. Java verifies the intermediate value and its unit before the browser starts the second step.", "modules": [{"title": "Fray chain and handoff", "source": "workspace-engine/src/main/java/fraymus/workspace/FrayChain.java", "note": "docs/obsidian/191-fray-length-chain.md"}, {"title": "Durable stage verification", "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "note": "docs/obsidian/191-fray-length-chain.md"}, {"title": "Fray arithmetic", "source": "workspace-engine/src/main/java/fraymus/workspace/FrayFormula.java", "note": "docs/obsidian/191-fray-length-chain.md"}, {"title": "Offline chain", "source": "workspace-engine/src/main/resources/workbench/length-chain.html", "note": "docs/obsidian/191-fray-length-chain.md"}], "screenshots": [{"path": "docs/readmes/183/rejected-handoffs.png", "title": "Chat refuses incompatible input units"}, {"path": "docs/readmes/183/chat-review.png", "title": "Both Fray stages in the approval review"}, {"path": "docs/readmes/183/verified-chain.png", "title": "The chain shows 313.57824 mm and 31.357824 cm"}], "evidence": [{"path": "docs/readmes/183/verification.json", "title": "Verification record"}, {"path": "docs/readmes/183/browser-receipt.json", "title": "Original Chromium receipt"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/191-fray-length-chain.canvas", "bytes": 1527, "sha256": "1c1ea8d94a2f5ba34c69a76b980ecc9290eb9f26b73103abf2ee1b23a31c10f8", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/191-fray-length-chain.md", "bytes": 338, "sha256": "32a85de0666c5abe32f894b8e416fd0c5f0470983e703482f2dee3372986b989", "hashKind": "utf8-lf"}, {"path": "docs/publication183/document.py", "bytes": 10754, "sha256": "df31eb4686555cd361777cfcf5d8a5d40f92ced351809598d1eb6e30d2cf54ce", "hashKind": "utf8-lf"}, {"path": "docs/publication183/plan.md", "bytes": 1704, "sha256": "60e322bad4b9a619500a5cb5a6e61e8a2de8d900cccdad62b4f24437da6c9107", "hashKind": "utf8-lf"}, {"path": "docs/publication183/validate-desktop.cjs", "bytes": 9787, "sha256": "487963c41d9da728b3e56393eda210d9d45d341084deb7c56bdc4cafcdbeb406", "hashKind": "utf8-lf"}, {"path": "docs/publication183/validate-guide.cjs", "bytes": 1715, "sha256": "f3711eae6f0a044270fa55890f198340eab0ef3c4b300b804b881cc39e328a73", "hashKind": "utf8-lf"}, {"path": "docs/publication183/validate.py", "bytes": 2112, "sha256": "06275b9fe6407702055be6ea1d49983a4ab5bc8d25232da75b2217cd8cc7b2ec", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 105633, "sha256": "492026b74025d778c831e6c3ee724f536839ea970f8230ff81091eb2721fea11", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/app.js", "bytes": 41050, "sha256": "0a116d8d110e5e4a4fe62407f367d0ec25f69bf51da3d5397ebeec11efb032ec", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/request-workbench.js", "bytes": 7714, "sha256": "3064d43eff323730d022d3747edd481bf2dc72f9f84f3846957cc47481206d74", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/FrayChain.java", "bytes": 8424, "sha256": "63f3efeb00f5029c289133cb61b5fb615139a7ad75836c50fff0881359880630", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/FrayConversion.java", "bytes": 7000, "sha256": "002c351f3a29723c32f58122b2359f0a4cc4e61de1387140bfe342e25d689945", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RequestLanguage.java", "bytes": 8160, "sha256": "5a0640d3853a2fae7c58cf26c8f301f2ac98486fc06d10f4b651679a378a9312", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "bytes": 22539, "sha256": "ecc885ba8427f1fad3ef6bea5c76b748c38b16ba819efd20c19d5dcb71751cac", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 128007, "sha256": "e003020d83b4ea791a76f0be40b39510ab8f42801eaa028356dc8a6970e3a6bb", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/resources/workbench/length-chain.html", "bytes": 4509, "sha256": "e6c1ca1a5282b2b8234e0e8a26da38407e5935d95a82bb5cdcac44ad91a58c3b", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/FrayChainTest.java", "bytes": 5751, "sha256": "51c981fd7064bf6296284e1a61c0adfe96b5a6912e1194bf0d224bb790072488", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

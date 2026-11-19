@@ -1,3 +1,5 @@
+[Edition 183 — two-step Fray conversion](191-fray-length-chain.md)
+
 [Edition 182 — Fray temperature converter](190-fray-temperature-tool.md)
 
 [Edition 181 — a verified Fray browser tool from chat](189-fray-browser-tool.md)
