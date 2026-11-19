@@ -1,3 +1,5 @@
+[Edition 188 — Recover the final review write](196-fray-review-write.md)
+
 [Edition 187 — Recover failed disk writes](195-fray-write-failures.md)
 
 [Edition 186 — Recover an artifact save](194-fray-artifact-save.md)

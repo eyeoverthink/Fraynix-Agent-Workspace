@@ -1,3 +1,7 @@
+## Edition 188 — Recover the final review write and recheck its stored receipt
+
+2026-11-19. Fraynix can finish a Fray review after storage rejects the final write, even when the artifact and its browser receipt were already saved. Completed chain verification checks the current receipt on disk. 125 root Java tests, 49 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. At 125 verified pending chains and 128 reviews, Windows sharing denied the final review replacement. Restart reused the existing artifact and original receipt. An altered or missing completed receipt was refused. All 127 other reviews were byte-identical. See README-188.md and docs/publication188/plan.md.
+
 ## Edition 187 — Recover failed disk writes with a near-capacity Fray bank
 
 2026-11-19. The Workbench can retry a verified Fray save after project storage rejects an artifact or browser receipt write. Java uses the original review, evidence and artifact ID to finish the save. 125 root Java tests, 48 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. Tested real artifact-directory and browser-receipt write errors at 125 verified pending chains and 128 total reviews. Restart and same-session recovery kept the original browser checks and artifact IDs. All 126 unaffected reviews were byte-identical. See README-187.md and docs/publication187/plan.md.

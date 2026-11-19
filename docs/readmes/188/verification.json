@@ -1,0 +1,62 @@
+{
+  "captures": [
+    {
+      "name": "final-review-write-blocked.png",
+      "sha256": "ae178908f47156a7327c5b74e3c5b08c0fdac9d0a37d42ab97cb3fdc4fa3c770"
+    },
+    {
+      "name": "ready-after-restart.png",
+      "sha256": "53f648a577be9c60a557484fc499cd99681cad04141e2487d39fb84c2fafaaee"
+    },
+    {
+      "name": "verified-artifact.png",
+      "sha256": "3f1874d7fa61f7c806aa7beb131875ea70c235ae50d11e388b89d3ff9fd6a13d"
+    }
+  ],
+  "priorEdition187Proofs": 2,
+  "copiedVerifiedReviews": 123,
+  "reviewFilesAtCapacity": 128,
+  "pendingBefore": 125,
+  "pendingAfter": 124,
+  "unchangedReviews": 127,
+  "recovery": {
+    "restarted": true,
+    "finalReviewBlocked": true,
+    "receiptAlreadySaved": true,
+    "retainedChecks": [
+      5,
+      5
+    ],
+    "addedArtifacts": 1,
+    "originalReceiptSha256": "46e813070d7a4395a1c145f7dfb00392af8e458adc9e02bc098494102b2762a8",
+    "receiptBytesPreserved": true,
+    "previewReplayed": false,
+    "id": "130a6474-ce2c-4c88-b29f-88cb58171611",
+    "verified": {
+      "artifact": {
+        "sha256": "e02cb4b9c8127902263b42c7fba46726ea490aebcc66e2d4ee11bf790dac13f6",
+        "id": "7b0f1385-4d4a-3b29-9537-93d7c9c8b027",
+        "version": 1
+      },
+      "output": "index.html",
+      "summary": "Both Fray steps passed. The second used the verified 357.1875 mm.",
+      "passed": true
+    },
+    "result": "35.71875 cm"
+  },
+  "refusals": {
+    "changedReceiptDuringRecovery": true,
+    "changedReceiptAfterCompletion": true,
+    "missingReceiptAfterCompletion": true,
+    "restoredProofMatches": true
+  },
+  "passed": true,
+  "source": "9cab6e137d9d653900dba220c7002ddd0f25c34a",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 49,
+    "desktop": 181,
+    "archive": 10
+  }
+}

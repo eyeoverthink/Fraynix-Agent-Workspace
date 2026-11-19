@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 188 · Recover the final review write and recheck its stored receipt</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Recover the final review write and recheck its stored receipt</h1><p>Fraynix can finish a Fray review after storage rejects the final write, even when the artifact and its browser receipt were already saved. Completed chain verification checks the current receipt on disk.</p>
+<nav><a href="../../../README-188.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../187/index.html">Edition 187</a><a href="#system">System files</a></nav>
+<figure><img src="final-review-write-blocked.png" alt="Windows rejected the final review write"><figcaption>Windows rejected the final review write</figcaption></figure>
+<figure><img src="ready-after-restart.png" alt="The same verified review is ready to finish after restart"><figcaption>The same verified review is ready to finish after restart</figcaption></figure>
+<figure><img src="verified-artifact.png" alt="The recovered artifact opens with its browser checks passed"><figcaption>The recovered artifact opens with its browser checks passed</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Fraynix can finish a Fray review after storage rejects the final write, even when the artifact and its browser receipt were already saved. Completed chain verification checks the current receipt on disk.", "modules": [{"title": "Final review recovery", "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "note": "docs/obsidian/196-fray-review-write.md"}, {"title": "Stored receipt verification", "source": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceStore.java", "note": "docs/obsidian/196-fray-review-write.md"}, {"title": "Workbench recovery", "source": "workspace-desktop/renderer/request-workbench.js", "note": "docs/obsidian/196-fray-review-write.md"}], "screenshots": [{"path": "docs/readmes/188/final-review-write-blocked.png", "title": "Windows rejected the final review write"}, {"path": "docs/readmes/188/ready-after-restart.png", "title": "The same verified review is ready to finish after restart"}, {"path": "docs/readmes/188/verified-artifact.png", "title": "The recovered artifact opens with its browser checks passed"}], "evidence": [{"path": "docs/readmes/188/verification.json", "title": "Verification record"}, {"path": "docs/readmes/188/browser-receipt.json", "title": "Original Chromium receipt"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/196-fray-review-write.canvas", "bytes": 1181, "sha256": "4aec435e54a93b7bd704493f71ce01baa8b5986e5c48bd15511071e731e78472", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/196-fray-review-write.md", "bytes": 405, "sha256": "080a1c6429e422f80418116977d8544b8d624eee538dfc91e80e7e25dd7fbd77", "hashKind": "utf8-lf"}, {"path": "docs/publication188/ReviewWriteLease.java", "bytes": 596, "sha256": "b6873f53e26fd540fcfa54867eb80c4d866d10096ff041790e9d7449fc51de82", "hashKind": "utf8-lf"}, {"path": "docs/publication188/document.py", "bytes": 10520, "sha256": "b67465073c9d61c49263cebe462078a0da20423680cd432b5078a3a40ff01129", "hashKind": "utf8-lf"}, {"path": "docs/publication188/plan.md", "bytes": 1915, "sha256": "11a3496dfa2ca360ef3cccf6bd1a7bc828b6f1ff87c9947d9421bc0dcd9cf3f9", "hashKind": "utf8-lf"}, {"path": "docs/publication188/validate-desktop.cjs", "bytes": 16706, "sha256": "503d69e05016186fd2cd789a9720621d58ce23baea0591955429114d3550d417", "hashKind": "utf8-lf"}, {"path": "docs/publication188/validate-guide.cjs", "bytes": 1724, "sha256": "8f9a363b8314c5bf65f5d7de3ba539ee39856cb8346b4692f9979dbeaeb0341a", "hashKind": "utf8-lf"}, {"path": "docs/publication188/validate.py", "bytes": 2112, "sha256": "a0b71876a2c327b430b64ba9cb339b0d5cd0830ec75b117b471008e6eda4719d", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/request-workbench.js", "bytes": 11299, "sha256": "846234993a7a7b876ccc3d319a3b72aa1d99ea7731dcdd452cdc6282b2ed0810", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "bytes": 28083, "sha256": "f47725800e7fe8732fbda0cca63841129016535093346446cf26ed06afde63c7", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceStore.java", "bytes": 22392, "sha256": "e0eb9b7c6eecc60b6378872e988d8bc0a304e4b39f8e1ad8778a220f7b6de124", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/FrayChainTest.java", "bytes": 19758, "sha256": "a2beafd15b17bd7d57bbd15c1c790af7bed396044a60b70eaaee35cadf84df7c", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>
