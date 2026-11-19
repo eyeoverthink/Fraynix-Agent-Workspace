@@ -28,8 +28,9 @@ enum FrayConversion {
                     "1000000.0001", "1,5", " "));
 
     static final String PREVIEW = "/request-preview/";
-    private static final String COMPILER = "d93947154a1f21dcfd8dfcc97f27439fed6e3275";
-    private final String title, inputId, defaultInput, unit, source, bytecodeHex, html;
+    static final String COMPILER = "d93947154a1f21dcfd8dfcc97f27439fed6e3275";
+    private final String title, inputId, defaultInput, unit, html;
+    final String source, bytecodeHex;
     final String htmlSha256;
     private final Pattern decimal;
     private final List<String> inputs;
@@ -85,23 +86,29 @@ enum FrayConversion {
         String input = defaultInput;
         for (int i = 0; i < plan.length(); i++) {
             var step = plan.getJSONObject(i);
-            var check = checks.getJSONObject(i);
-            var actual = check.getJSONObject("actual");
-            if (check.getInt("index") != i || !step.getString("selector").equals(check.getString("selector"))
-                    || !step.similar(check.getJSONObject("expected")) || actual.getInt("count") != 1
-                    || !check.getBoolean("passed"))
-                throw new IllegalStateException("Browser check " + (i + 1) + " failed");
+            var actual = verifyStep(step, checks.getJSONObject(i), i);
             if (step.has("expectValue")) {
                 input = step.getString("expectValue");
-                if (!input.equals(actual.getString("value"))) throw new IllegalStateException("Browser input differed");
             } else {
                 String observed = actual.getString("text").trim();
                 String expected = step.getString("expectText");
-                if (!expected.equals(observed)) throw new IllegalStateException("Browser result differed from Fray");
                 cases.put(new JSONObject().put("input", input).put("java", expected).put("browser", observed));
             }
         }
         return cases;
+    }
+
+    static JSONObject verifyStep(JSONObject step, JSONObject check, int index) {
+        var actual = check.optJSONObject("actual");
+        if (!check.optBoolean("passed") || actual == null || check.getInt("index") != index
+                || !step.getString("selector").equals(check.getString("selector"))
+                || !step.similar(check.getJSONObject("expected")) || actual.getInt("count") != step.optInt("expectCount", 1))
+            throw new IllegalStateException("Browser check " + (index + 1) + " failed");
+        if (step.has("expectValue") && !step.getString("expectValue").equals(actual.getString("value")))
+            throw new IllegalStateException("Browser input differed");
+        if (step.has("expectText") && !step.getString("expectText").equals(actual.getString("text").trim()))
+            throw new IllegalStateException("Browser result differed from Fray");
+        return actual;
     }
 
     JSONObject artifact(JSONArray checks) {
@@ -115,7 +122,7 @@ enum FrayConversion {
                         .put("verification.json", evidence.toString(2) + "\n"));
     }
 
-    private String programHash() {
+    String programHash() {
         try {
             return PerceptionStore.hash(HexFormat.of().parseHex(bytecodeHex));
         } catch (Exception e) {
@@ -130,7 +137,7 @@ enum FrayConversion {
         return Arrays.stream(values()).filter(recipe -> recipe.previewPath().equals(path)).findFirst().orElse(null);
     }
 
-    private static String loadHtml(String resource) {
+    static String loadHtml(String resource) {
         try (var in = FrayConversion.class.getResourceAsStream("/workbench/" + resource)) {
             if (in == null) throw new IllegalStateException("The browser converter resource is missing");
             return new String(in.readAllBytes(), StandardCharsets.UTF_8).replace("\r\n", "\n");

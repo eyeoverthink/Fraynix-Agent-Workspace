@@ -208,10 +208,7 @@ $('run').onclick=()=>safe(async()=>{
  const goal=$('goal').value.trim();
  if(!goal)return;
  message(goal,'user');
- if(mayRequestFrayTool(goal)&&await requestsPanel.offerFromChat(goal)){
-   message('Review the converter in the Workbench. I will test it in the browser before saving it.');
-   return;
- }
+ if(mayRequestFrayTool(goal)&&await requestsPanel.offerFromChat(goal))return;
  const local=offlineMissionRequest(goal);
  const selectedModel=state?.models.some(m=>m.name===$('model').value)?$('model').value:'';
  if(!selectedModel&&!local&&!quickWorkflowRequest(goal))throw Error('Select a local model or choose a supported action in the Request workbench');

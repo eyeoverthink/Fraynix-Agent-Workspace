@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Inches to centimetres in two steps</title>
+<style>
+:root { color-scheme:dark; font:16px/1.5 system-ui,sans-serif; background:#101923; color:#e8f1f5; }
+* { box-sizing:border-box; }
+body { margin:0; padding:clamp(16px,4vw,42px); }
+main { max-width:42rem; margin:auto; }
+h1 { font-size:clamp(1.75rem,6vw,2.85rem); line-height:1.1; letter-spacing:-.035em; margin:0 0 12px; }
+p { color:#b7ccd6; margin:0 0 1rem; }
+label { display:block; font-weight:650; margin-bottom:.35rem; }
+input,button { font:inherit; border-radius:7px; }
+input { width:100%; border:1px solid #617c90; color:#edf8f9; background:#192936; padding:9px 12px; }
+input[aria-invalid=true] { border-color:#ffb2a8; }
+button { background:#9ae1d1; color:#12352f; padding:8px 12px; border:0; font-weight:650; cursor:pointer; }
+button:disabled { opacity:.42; cursor:default; }
+:focus-visible { outline:2px solid #a2f2de; outline-offset:3px; }
+small { color:#b7ccd6; display:block; margin:.45rem 0 1rem; }
+.steps { display:grid; gap:10px; }
+section { padding:12px 15px; border:1px solid #3c5b6b; background:#192d38; border-radius:10px; }
+h2 { font-size:1rem; margin:0 0 .4rem; }
+output { display:block; font-weight:700; color:#aff6e3; overflow-wrap:anywhere; font-size:1.15rem; margin:.4rem 0 0; }
+#handoff { margin:.4rem 0 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Inches to centimetres</h1>
+  <p>Convert to millimetres first, then pass that result to the second step.</p>
+  <label for="inches">Inches</label>
+  <input id="inches" type="text" inputmode="decimal" maxlength="40" autocomplete="off"
+         spellcheck="false" aria-describedby="range" value="{{initialInches}}">
+  <small id="range">Enter a signed number up to 1,000,000 inches with up to four decimal places.</small>
+  <div class="steps">
+    <section>
+      <h2>1. Inches to millimetres</h2>
+      <button id="to-mm" type="button">Convert to millimetres</button>
+      <output id="millimetres" for="inches" aria-live="polite">Waiting for conversion.</output>
+    </section>
+    <section>
+      <h2>2. Millimetres to centimetres</h2>
+      <button id="to-cm" type="button" disabled>Convert to centimetres</button>
+      <p id="handoff" aria-live="polite" hidden></p>
+      <output id="centimetres" for="inches" aria-live="polite">Waiting for conversion.</output>
+    </section>
+  </div>
+</main>
+<script>
+'use strict';
+const field = document.querySelector('#inches');
+const millimetres = document.querySelector('#millimetres');
+const centimetres = document.querySelector('#centimetres');
+const handoff = document.querySelector('#handoff');
+const next = document.querySelector('#to-cm');
+let intermediate = null;
+
+function format(scaled, places) {
+  const magnitude = scaled < 0n ? -scaled : scaled;
+  const divisor = 10n ** BigInt(places);
+  const part = (magnitude % divisor).toString().padStart(places,'0').replace(/0+$/,'');
+  return (scaled < 0n ? '-' : '') + magnitude / divisor + (part ? '.' + part : '');
+}
+
+function reset() {
+  intermediate = null;
+  next.disabled = true;
+  field.removeAttribute('aria-invalid');
+  handoff.hidden = true;
+  handoff.textContent = '';
+  millimetres.textContent = 'Waiting for conversion.';
+  centimetres.textContent = 'Waiting for conversion.';
+}
+
+field.addEventListener('input',reset);
+document.querySelector('#to-mm').addEventListener('click',() => {
+  reset();
+  const value = /^([+-]?)([0-9]{1,7})(?:\.([0-9]{1,4}))?$/.exec(field.value.trim());
+  const scaled = value ? BigInt(value[2] + (value[3] || '').padEnd(4,'0')) : null;
+  if (scaled === null || scaled > 10000000000n) {
+    field.setAttribute('aria-invalid','true');
+    millimetres.textContent = 'Enter a decimal within the stated range.';
+    return;
+  }
+  intermediate = {scaled:(value[1] === '-' ? -scaled : scaled) * 254n, unit:'mm'};
+  millimetres.textContent = format(intermediate.scaled,5) + ' mm';
+  next.disabled = false;
+});
+
+next.addEventListener('click',() => {
+  if (intermediate?.unit !== 'mm') return;
+  handoff.textContent = format(intermediate.scaled,5) + ' mm';
+  handoff.hidden = false;
+  // Dividing the millimetres by ten adds one decimal place to the same integer.
+  centimetres.textContent = format(intermediate.scaled,6) + ' cm';
+});
+</script>
+</body>
+</html>

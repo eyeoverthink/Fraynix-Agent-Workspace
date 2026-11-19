@@ -1,5 +1,6 @@
 package fraymus.workspace;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.nio.charset.StandardCharsets;
@@ -25,6 +26,8 @@ final class RequestWorkbench {
     JSONObject suggest(JSONObject input, Planner planner) throws Exception {
         SpatialScene.keys(input, "request", "model", "useModel");
         String text = RequestLanguage.request(input);
+        var chain = FrayChain.fromRequest(text);
+        if (chain != null) return retainChain(text, chain);
         String key = RequestLanguage.key(text);
         String model = input.optString("model");
         var known = knownPhrase(key);
@@ -41,6 +44,13 @@ final class RequestWorkbench {
     synchronized JSONObject chat(JSONObject input) throws Exception {
         SpatialScene.keys(input, "request");
         String text = RequestLanguage.request(input);
+        FrayChain chain;
+        try {
+            chain = FrayChain.fromRequest(text);
+        } catch (IllegalArgumentException invalid) {
+            return new JSONObject().put("matched", true).put("refusal", invalid.getMessage());
+        }
+        if (chain != null) return new JSONObject().put("matched", true).put("task", retainChain(text, chain));
         var direct = RequestLanguage.direct(text);
         if (direct == null || direct.fray() == null) return new JSONObject().put("matched", false);
         var known = knownPhrase(RequestLanguage.key(text));
@@ -50,12 +60,20 @@ final class RequestWorkbench {
         return new JSONObject().put("matched", true).put("task", retain(text, choice));
     }
 
+    private synchronized JSONObject retainChain(String text, FrayChain chain) throws Exception {
+        var choice = RequestLanguage.view(RequestLanguage.Intent.FRAY_CHAIN, "java").put("chain", chain.definition());
+        if (knownPhrase(memoryKey(text, choice)) != null) choice.put("by", "remembered");
+        return retain(text, choice);
+    }
+
     synchronized JSONObject choose(JSONObject input) throws Exception {
         SpatialScene.keys(input, "id", "action");
         var task = load(input);
         if (!task.getString("status").equals("review")) throw new IllegalStateException("Start a new review to change a verified action");
         var intent = RequestLanguage.Intent.read(input.getString("action"));
-        if (intent == RequestLanguage.Intent.CLARIFY) throw new IllegalArgumentException("Choose a supported action");
+        if (intent == RequestLanguage.Intent.CLARIFY || intent == RequestLanguage.Intent.FRAY_CHAIN
+                || intent(task) == RequestLanguage.Intent.FRAY_CHAIN)
+            throw new IllegalArgumentException("Start a new request to change this action");
         if (!intent(task).equals(intent)) {
             task.remove("source");
             task.put("choice", RequestLanguage.view(intent, "user"));
@@ -123,6 +141,12 @@ final class RequestWorkbench {
     synchronized JSONObject prepareFray(JSONObject input) throws Exception {
         SpatialScene.keys(input, "id", "reviewSha256");
         var task = load(input);
+        if (intent(task) == RequestLanguage.Intent.FRAY_CHAIN) {
+            var chain = requireChain(input, task);
+            if (task.has("report")) return proof(task).put("task", view(task));
+            return new JSONObject().put("preview", chain.previewPath()).put("chain", true)
+                    .put("htmlSha256", chain.htmlSha256).put("steps", chain.firstSteps());
+        }
         var conversion = requireFray(input, task);
         if (task.has("report")) return proof(task).put("task", view(task));
         return new JSONObject().put("preview", conversion.previewPath())
@@ -146,6 +170,60 @@ final class RequestWorkbench {
                 .put("summary", "Browser results matched the Fray reference. Open or export the offline tool.");
         save(task);
         return proof(task).put("task", view(task));
+    }
+
+    synchronized JSONObject advanceChain(JSONObject input) throws Exception {
+        SpatialScene.keys(input, "id", "reviewSha256", "htmlSha256", "checks");
+        var task = load(input);
+        var chain = requireChain(input, task);
+        requireChainHtml(input, chain);
+        if (task.has("report")) throw new IllegalStateException("The chain is already verified");
+        var checks = input.getJSONArray("checks");
+        var intermediate = chain.verifiedIntermediate(checks);
+        if (task.has("frayFirstChecks")) {
+            if (!task.getJSONArray("frayFirstChecks").similar(checks))
+                throw new IllegalStateException("The rebuilt first-stage evidence changed");
+        } else {
+            task.put("frayFirstChecks", checks);
+            save(task);
+        }
+        return new JSONObject().put("handoff", intermediate.json()).put("steps", chain.secondSteps(intermediate));
+    }
+
+    synchronized JSONObject finishChain(JSONObject input) throws Exception {
+        SpatialScene.keys(input, "id", "reviewSha256", "htmlSha256", "handoff", "checks");
+        var task = load(input);
+        var chain = requireChain(input, task);
+        requireChainHtml(input, chain);
+        if (!task.has("frayFirstChecks")) throw new IllegalStateException("Verify the first Fray step before continuing");
+        var first = task.getJSONArray("frayFirstChecks");
+        var intermediate = chain.verifiedIntermediate(first);
+        if (!intermediate.json().similar(input.getJSONObject("handoff")))
+            throw new IllegalStateException("The verified handoff requires " + intermediate.text());
+        if (task.has("report")) return proof(task).put("task", view(task));
+        var second = input.getJSONArray("checks");
+        var expected = chain.artifact(first, second);
+        var artifact = store.writeOnce("request-workbench:" + task.getString("id"), expected);
+        var ref = artifactRef(artifact, expected);
+        store.recordTest(new JSONObject().put("id", ref.getString("id")).put("version", ref.getInt("version"))
+                .put("steps", FrayChain.join(chain.firstSteps(), chain.secondSteps(intermediate), false))
+                .put("checks", FrayChain.join(first, second, true)));
+        task.put("report", ref).put("status", "verified").put("frayChecks", second)
+                .put("summary", "Both Fray steps passed. The second used the verified " + intermediate.text() + ".");
+        save(task);
+        return proof(task).put("task", view(task));
+    }
+
+    private static FrayChain requireChain(JSONObject input, JSONObject task) {
+        requireReview(input, task);
+        if (intent(task) != RequestLanguage.Intent.FRAY_CHAIN)
+            throw new IllegalStateException("Review a two-step Fray conversion first");
+        return FrayChain.fromDefinition(task.getJSONObject("choice").getJSONObject("chain"));
+    }
+
+    private static void requireChainHtml(JSONObject input, FrayChain chain) {
+        if (!chain.htmlSha256.equals(input.getString("htmlSha256")))
+            throw new IllegalStateException("The reviewed browser program changed");
     }
 
     private static FrayConversion requireFray(JSONObject input, JSONObject task) {
@@ -173,13 +251,19 @@ final class RequestWorkbench {
         SpatialScene.keys(input, "id");
         var task = load(input);
         proof(task);
-        String key = RequestLanguage.key(task.getString("request"));
+        String key = memoryKey(task.getString("request"), task.getJSONObject("choice"));
         if (key.isBlank()) throw new IllegalArgumentException("Use words for a remembered phrase");
         var bank = phrases();
         if (bank.length() >= 128 && !bank.has(key)) throw new IllegalStateException("Phrase memory has reached 128 entries");
         bank.put(key, new JSONObject().put("action", intent(task).id).put("verifiedReview", task.getString("id")));
         AgentFiles042.saveChecked(directory.resolve("phrases.json"), bank);
         return new JSONObject().put("remembered", true).put("request", task.getString("request"));
+    }
+
+    private static String memoryKey(String text, JSONObject choice) {
+        String key = RequestLanguage.key(text);
+        var chain = choice.optJSONObject("chain");
+        return chain == null ? key : "fray:" + chain.getJSONObject("input").getString("value") + ":" + key;
     }
 
     private synchronized JSONObject phrases() throws Exception {
@@ -195,7 +279,7 @@ final class RequestWorkbench {
         if (known == null) return null;
         var original = load(new JSONObject().put("id", known.getString("verifiedReview")));
         if (!intent(original).id.equals(known.getString("action"))
-                || !RequestLanguage.key(original.getString("request")).equals(key))
+                || !memoryKey(original.getString("request"), original.getJSONObject("choice")).equals(key))
             throw new IllegalStateException("Remembered wording differs from its verified review");
         proof(original);
         return known;
@@ -206,7 +290,11 @@ final class RequestWorkbench {
         JSONObject expected;
         String name;
         var conversion = intent(task).fray();
-        if (conversion != null) {
+        if (intent(task) == RequestLanguage.Intent.FRAY_CHAIN) {
+            var chain = FrayChain.fromDefinition(task.getJSONObject("choice").getJSONObject("chain"));
+            expected = chain.artifact(task.getJSONArray("frayFirstChecks"), task.getJSONArray("frayChecks"));
+            name = "index.html";
+        } else if (conversion != null) {
             expected = conversion.artifact(task.getJSONArray("frayChecks"));
             name = "index.html";
         } else {
@@ -302,6 +390,7 @@ final class RequestWorkbench {
     private static JSONObject view(JSONObject task) {
         var visible = WorldFrames.copy(task);
         visible.remove("frayChecks");
+        if (visible.remove("frayFirstChecks") != null) visible.put("firstVerified", true);
         if (task.has("source")) visible.put("source", sourceView(task));
         return visible.put("reviewSha256", reviewSha(task));
     }

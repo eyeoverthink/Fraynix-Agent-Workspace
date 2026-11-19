@@ -491,7 +491,14 @@ ipcMain.handle('workspace:request',async(event,input)=>{
               emit('view','preview');
               await canvas.navigate(url);
               const checks=await canvas.test(prepared.steps);
-              proof=await api('/api/requests/fray-finish',{...args,htmlSha256:prepared.htmlSha256,checks});
+              const bound={...args,htmlSha256:prepared.htmlSha256};
+              if(prepared.chain){
+                const next=await api('/api/requests/fray-chain-advance',{...bound,checks});
+                const result=await canvas.test(next.steps);
+                proof=await api('/api/requests/fray-chain-finish',{...bound,handoff:next.handoff,checks:result});
+              }else{
+                proof=await api('/api/requests/fray-finish',{...bound,checks});
+              }
             }catch(error){
               await canvas.navigate(previous.startsWith(origin+'/')?previous:origin+'/welcome').catch(()=>{});
               throw error;

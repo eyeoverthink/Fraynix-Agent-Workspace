@@ -8,7 +8,7 @@ export function mayRequestFrayTool(value) {
         || /\b(?:celsius|centigrade|c) (?:to|into) (?:fahrenheit|f)\b/.test(text);
 }
 
-const isFray = action => ['build-inch-converter', 'build-temperature-converter'].includes(action);
+const isFray = action => ['build-inch-converter', 'build-temperature-converter', 'build-length-chain'].includes(action);
 
 export class RequestWorkbenchPanel {
     constructor({request, getModel, requireSaved, layout, openCreation, announce}) {
@@ -94,7 +94,14 @@ export class RequestWorkbenchPanel {
     async offerFromChat(request) {
         const result = await this.call('chat', {request});
         if (!result.matched) return false;
+        if (result.refusal) {
+            this.announce(result.refusal);
+            return true;
+        }
         this.show(result.task);
+        this.announce(result.task.choice.chain
+            ? 'Review both conversions in the Workbench. I will verify the first result before starting the second.'
+            : 'Review the converter in the Workbench. I will test it in the browser before saving it.');
         if (!this.dialog.open) this.dialog.showModal();
         this.layout();
         return true;
@@ -125,20 +132,23 @@ export class RequestWorkbenchPanel {
         const task = this.task;
         const file = task?.choice.needsFile;
         const pending = task?.status === 'review';
+        const chain = task?.choice.chain;
         const finished = task?.status === 'verified';
         $('requests-suggest').disabled = this.busy;
         $('requests-reopen').disabled = this.busy || !localStorage.getItem('fraynix-request-review');
         $('requests-file').disabled = this.busy || !pending;
         $('requests-action').disabled = this.busy || !pending;
-        $('requests-action-label').hidden = !pending;
+        $('requests-action-label').hidden = !pending || Boolean(chain);
         $('requests-attachment').hidden = !file || !pending;
         $('requests-choice').textContent = task
             ? task.choice.label + ' · ' + ({java:'local rule', model:'local model', remembered:'remembered wording', user:'your choice'})[task.choice.by] : '';
         $('requests-source').textContent = task?.source
-            ? task.source.name + ' · ' + task.source.size + ' bytes · SHA-256 ' + task.source.sha256 : '';
+            ? task.source.name + ' \u00b7 ' + task.source.size + ' bytes \u00b7 SHA-256 ' + task.source.sha256
+            : chain ? chain.input.value + ' ' + chain.input.unit + ' \u00b7 ' + chain.first + ' \u2192 ' + chain.second
+                + (task.firstVerified ? ' \u00b7 First step verified' : '') : '';
         $('requests-confirm').hidden = !pending || task.choice.action === 'clarify';
         const fray = isFray(task?.choice.action);
-        $('requests-confirm').textContent = fray ? 'Build and verify in browser'
+        $('requests-confirm').textContent = chain ? 'Verify both conversions' : fray ? 'Build and verify in browser'
             : file ? 'Confirm and verify' : 'Review in Creation Canvas';
         $('requests-confirm').disabled = this.busy || (file && !task?.source);
         for (const id of ['requests-result','requests-export','requests-learn']) {
