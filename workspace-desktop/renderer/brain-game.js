@@ -52,6 +52,19 @@ export class BrainGame {
   playCourse.id = 'game-play-course';
   playCourse.textContent = 'Play course';
   relayButton.after(choices, playCourse);
+  const exportLayout = document.createElement('button');
+  exportLayout.id = 'game-export-blender';
+  exportLayout.textContent = 'Export Blender layout';
+  playCourse.after(exportLayout);
+  exportLayout.onclick = safe(async () => {
+   exportLayout.disabled = true;
+   try {
+    const result = await this.call('gameRuntime', 'export-blender');
+    if (result) this.notice('Saved the Game Lab layout at tick ' + result.tick + ' with ' + result.quads + ' visible quads.');
+   } finally {
+    exportLayout.disabled = false;
+   }
+  });
   playCourse.onclick = safe(async () => {
    this.requireSaved();
    this.watching = true;

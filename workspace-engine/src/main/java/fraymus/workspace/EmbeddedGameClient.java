@@ -67,6 +67,17 @@ public final class EmbeddedGameClient implements AutoCloseable {
     }
     public synchronized JSONObject frame() throws Exception {long t=System.nanoTime();var result=request("/frame",null);result.put("bridgeMs",(System.nanoTime()-t)/1e6).put("pid",process.pid()).put("levelId",levelId==null?"original":levelId);return result;}
     public synchronized JSONObject spatial() throws Exception {return request("/command",new JSONObject().put("action","spatial"));}
+    public synchronized JSONObject exportLayout() throws Exception {
+        var frame = WorldFrames.copy(SpatialRuntime040.gameFrame(spatial()));
+        var source = frame.getJSONObject("source");
+        if (source.getBoolean("continuous")) throw new IllegalStateException("Pause the game before exporting its layout");
+        source.put("levelId", levelId == null ? "original" : levelId);
+        frame.put("snapshotHash", WorldFrames.hash(frame));
+        var packageData = SpatialRuntime040.exported(frame);
+        var verified = SpatialRuntime040.verifyExport(packageData);
+        return verified.put("text", packageData.toString()).put("tick", source.getLong("tick"));
+    }
+
     public synchronized JSONObject command(JSONObject input) throws Exception {
         if (levelId != null && "reset".equals(input.optString("action"))) {
             RelayCourse course = RelayCourse.find(levelId);

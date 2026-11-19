@@ -644,6 +644,15 @@ public final class WorkspaceServer implements AutoCloseable {
                         if (course == null || !course.hasSignals()) throw new IllegalArgumentException("Unknown original course");
                         result = game.openCourse(course);
                     }
+                    case "/api/game/export-layout" -> {SpatialScene.keys(input);result=game.exportLayout();}
+                    case "/api/game/verify-layout" -> {
+                        SpatialScene.keys(input,"text");
+                        var snapshot = new JSONObject(input.getString("text"));
+                        var source = snapshot.getJSONObject("frame").getJSONObject("source");
+                        if (!"game".equals(source.getString("kind")) || source.getBoolean("continuous"))
+                            throw new IllegalArgumentException("A paused Game Lab snapshot is required");
+                        result=SpatialRuntime040.verifyExport(snapshot);
+                    }
                     case "/api/game/frame" -> result=game.frame();
                     case "/api/game/command" -> result=game.command(input);
                     case "/api/game/state" -> result=game.status();

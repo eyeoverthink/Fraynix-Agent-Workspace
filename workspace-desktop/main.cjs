@@ -1,8 +1,9 @@
 'use strict';
-const {app,BrowserWindow,ipcMain,Menu,shell}=require('electron');
+const {app,BrowserWindow,dialog,ipcMain,Menu,shell}=require('electron');
 const {spawn}=require('node:child_process');
 const fs=require('node:fs');const fsp=require('node:fs/promises');const path=require('node:path');const {createHash,randomBytes,randomUUID}=require('node:crypto');const readline=require('node:readline');
 const {Surface}=require('./surfaces.cjs');
+const {exportBlend,importBlend}=require('./blender-exchange.cjs');
 const {observeRamp, rampPath, rampRequest, localWorkflowRequest}=require('./ramp-mission.cjs');const {catalog,command,planTools}=require('./policy.cjs');
 const {failureClass,performControlled,observeProgress,trainController}=require('./controller.cjs');
 const {replay,rehearse}=require('./controller-replay.cjs');
@@ -713,6 +714,21 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(!['example','reference-cases','reference-example','dungeons','inspect-image','import-image','reference','list','read','run','snapshot','manual','control','stop','pause','resume','from-procedural','import-package'].includes(input.command))throw Error('Unknown map operation');return api('/api/maps/'+input.command,input.args||{});
     }
     case 'spatial':{
+      if(input.command==='import-blender'){
+        const picked=await dialog.showOpenDialog(window,{properties:['openFile'],filters:[{name:'Blender scene',extensions:['blend']}]});
+        if(picked.canceled)return null;
+        const converted=await importBlend(picked.filePaths[0]);
+        const scene=await api('/api/spatial/import',{text:converted.text});
+        currentSpatial=null;
+        await refresh();
+        return scene;
+      }
+      if(input.command==='export-blender'){
+        const scene=await api('/api/spatial/read',{id:input.args.id});
+        const picked=await dialog.showSaveDialog(window,{defaultPath:'fraynix-scene.blend',
+          filters:[{name:'Blender scene',extensions:['blend']}]});
+        return picked.canceled?null:exportBlend(scene.sourceText,picked.filePath);
+      }
       if(input.command==='start')return goalBridge.execute('spatial.start',input.args||{});
       if(input.command==='select'){const s=await api('/api/spatial/read',{id:input.args.sceneId});const o=s.objects.find(o=>o.id===input.args.objectId);if(!o)throw Error('Select an actual spatial object');currentSpatial=o.massKg>0?{sceneId:s.id,objectId:o.id}:null;currentPushPusher=currentSpatial?s.objects.find(b=>b.massKg>0&&b.id!==o.id)?.id||null:null;return currentSpatial;}
       if(input.command==='export'){const kind=input.args.kind;let bytes;if(kind==='scene'){const s=await api('/api/spatial/read',{id:input.args.id});bytes=s.sourceText;}else if(kind==='run')bytes=JSON.stringify(await api('/api/spatial/run',{id:input.args.id}),null,2)+'\n';else throw Error('Choose scene or run export');return nativeExports.save('spatial-'+kind,'json',bytes,{id:input.args.id,kind});}
@@ -759,7 +775,17 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     }
     case 'brain':{if(!['useful-trace','uncertain-trace','later-trace','adaptive-trace','calibration-trace','recovery-trace','temporal-trace','decision-plan','decision-trace','contact-predict','contact-trace','stopping-predict','stopping-trace','residual-predict','outcome-predict','state','start','read','cancel','rollback','run','feedback-start','feedback-kick','feedback-cancel','feedback-rollback','world-prepare','world-preview','world-kick','world-cancel','world-rollback'].includes(input.command))throw Error('Unknown brain command');const value=await api('/api/brain/'+input.command,input.args||{});if(['run','feedback-start','feedback-kick','feedback-cancel','world-prepare','world-kick','world-cancel'].includes(input.command)){emit('experiment',await api('/api/scene/snapshot',{}));activity('brain',{'run':'Java controller completed a native impulse run','feedback-start':'Live feedback run started','feedback-kick':'Native disturbance applied','feedback-cancel':'Feedback run cancelled','world-prepare':'World-model run prepared without physical actuation','world-kick':'Native world disturbance applied','world-cancel':'World-model run cancelled'}[input.command],{runId:value.id||input.args?.runId,tick:value.tick,deltaVelocityMps:value.deltaVelocityMps,controller:value.controller,goalEvaluation:value.goalEvaluation});}return value;}
     case 'gameTasks115':{if(!['read','list','verify','review','review-latest','review-verify'].includes(input.command))throw Error('Unknown level task read');return api('/api/game-tasks115/'+input.command,input.args||{});}
-    case 'gameRuntime':{if(!['open','open-relay','open-course','frame','command','state','close','analyze-levels','levels','create-level','open-level','import-reference'].includes(input.command))throw Error('Unknown game command');return api('/api/game/'+input.command,input.args||{});}
+    case 'gameRuntime':{
+      if(input.command==='export-blender'){
+        const picked=await dialog.showSaveDialog(window,{defaultPath:'fraynix-game-layout.blend',
+          filters:[{name:'Blender scene',extensions:['blend']}]});
+        if(picked.canceled)return null;
+        const result=await api('/api/game/export-layout',{});
+        const saved=await exportBlend(result.text,picked.filePath,'export-game');
+        const quads=JSON.parse(result.text).frame.entities.filter(entity=>entity.shape==='quad').length;
+        return {...saved,snapshotHash:result.snapshotHash,tick:result.tick,quads};
+      }
+      if(!['open','open-relay','open-course','frame','command','state','close','analyze-levels','levels','create-level','open-level','import-reference'].includes(input.command))throw Error('Unknown game command');return api('/api/game/'+input.command,input.args||{});}
     case 'memory':{if(!['remember','context'].includes(input.command))throw Error('Unknown memory command');return api('/api/memory/'+input.command,input.args||{});}
     case 'body':{if(!['grab','move','release','cancel'].includes(input.command))throw Error('Unknown body command');return execute('body.'+input.command,input.args||{});}
     case 'transfer':{
