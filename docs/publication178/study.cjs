@@ -46,7 +46,7 @@ async function main() {
     ({app,page}=await launch(project));
     page.on('pageerror',error=>result.errors.push(error.message));
     assert((await app.evaluate(()=>global.workspaceTest.network())).enabled);
-    assert.deepEqual((await api('/api/state')).models,[]);
+    assert.deepEqual((await app.evaluate(()=>global.workspaceTest.api('/api/state'))).models,[]);
     await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows().find(w=>w.isVisible()).setSize(1480,1020));
   }
   async function close() {
