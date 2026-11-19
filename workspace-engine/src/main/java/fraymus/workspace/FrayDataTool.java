@@ -15,8 +15,10 @@ import java.util.regex.Pattern;
 final class FrayDataTool {
     static final String PREVIEW = "/data-tool-preview/";
     static final String NAME = "[a-z0-9][a-z0-9-]{0,39}";
+    static final String COLUMN = "[A-Za-z][A-Za-z0-9_-]{0,39}";
     static final Pattern BUILD = Pattern.compile(
-            "Build a data-to-tool converter from (Celsius to Fahrenheit|inches to (?:millimetres|millimeters))[.!]?",
+            "Build a data-to-tool converter from (Celsius to Fahrenheit|inches to (?:millimetres|millimeters))"
+                    + "(?: using column (" + COLUMN + "))?[.!]?",
             Pattern.CASE_INSENSITIVE);
     static final Pattern TEACH = Pattern.compile("Teach data-to-tool lesson (" + NAME + ")[.!]?", Pattern.CASE_INSENSITIVE);
     static final Pattern USE = Pattern.compile("Use data-to-tool lesson (" + NAME + ")[.!]?", Pattern.CASE_INSENSITIVE);
@@ -24,25 +26,33 @@ final class FrayDataTool {
     private static final String INVALID = "Use the indicated header and 1–24 rows of plain decimals within range.";
     private static final List<String> HOLDOUTS = List.of("-19.8251", "+0.0001", "1000000", "-1000000", "246.875");
     private static final String TEMPLATE = FrayConversion.loadHtml("data-tool.html");
+    private static final String TABLE_TEMPLATE = FrayConversion.loadHtml("data-table-tool.html");
 
-    record Input(String text, List<String> values) {
+    record Input(String text, List<String> values, FrayTableInput table) {
         List<String> numericValues() {
             return values.stream().map(s -> new BigDecimal(s).stripTrailingZeros().toPlainString()).toList();
         }
     }
 
     final String column;
+    final String tableColumn;
     private final String title;
+    private final String outputColumn;
     private final FrayConversion conversion;
 
-    FrayDataTool(String column) {
+    FrayDataTool(String column, String tableColumn) {
         this.column = column;
+        this.tableColumn = tableColumn;
         conversion = switch (column) {
             case "celsius" -> FrayConversion.CELSIUS;
             case "inches" -> FrayConversion.INCH;
             default -> throw new IllegalArgumentException("Unsupported data-to-tool input column");
         };
-        title = column.equals("celsius") ? "CSV · Celsius to Fahrenheit" : "CSV · Inches to millimetres";
+        outputColumn = column.equals("celsius") ? "fahrenheit" : "millimetres";
+        if (tableColumn != null && (!tableColumn.matches(COLUMN) || tableColumn.equals(outputColumn)))
+            throw new IllegalArgumentException("Choose a valid input column distinct from " + outputColumn);
+        title = (tableColumn == null ? "CSV · " : "CSV table · ")
+                + (column.equals("celsius") ? "Celsius to Fahrenheit" : "Inches to millimetres");
     }
 
     String programHash() { return conversion.programHash(); }
@@ -55,23 +65,39 @@ final class FrayDataTool {
     }
 
     private Input parse(String text) {
+        if (tableColumn != null) {
+            var table = FrayTableInput.read(text, tableColumn, outputColumn);
+            var values = new ArrayList<String>();
+            for (var row : table.rows().subList(1, table.rows().size()))
+                values.add(measurement(row.get(table.measurementIndex()), values.size() + 2));
+            return new Input(text, List.copyOf(values), table);
+        }
         String body = text.endsWith("\n") ? text.substring(0, text.length() - 1) : text;
         String[] rows = body.split("\n", -1);
         if (!rows[0].equals(column))
             throw new IllegalArgumentException("The CSV must have one column named " + column);
         if (rows.length < 2 || rows.length > 25) throw new IllegalArgumentException(INVALID);
         var values = new ArrayList<String>();
-        for (int i = 1; i < rows.length; i++) {
-            String value = rows[i].replaceAll("^[ \\t]+|[ \\t]+$", "");
-            if (!VALUE.matcher(value).matches() || Math.abs(Double.parseDouble(value)) > 1_000_000)
-                throw new IllegalArgumentException(INVALID + " Check row " + (i + 1) + ".");
-            values.add(value);
+        for (int i = 1; i < rows.length; i++) values.add(measurement(rows[i], i + 1));
+        return new Input(column + "\n" + String.join("\n", values), List.copyOf(values), null);
+    }
+
+    private String measurement(String raw, int row) {
+        String value = raw.replaceAll("^[ \\t]+|[ \\t]+$", "");
+        if (!VALUE.matcher(value).matches() || Math.abs(Double.parseDouble(value)) > 1_000_000) {
+            String error = tableColumn == null ? INVALID : "Use plain decimals within range in " + tableColumn + ".";
+            throw new IllegalArgumentException(error + " Check row " + row + ".");
         }
-        return new Input(column + "\n" + String.join("\n", values), List.copyOf(values));
+        return value;
     }
 
     String html(Input input) {
-        // Input contains only the registered header, decimal tokens and line breaks.
+        if (tableColumn != null) {
+            String escaped = input.text().replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;");
+            return TABLE_TEMPLATE.replace("@TITLE@", title).replace("@COLUMN@", tableColumn)
+                    .replace("@OUTPUT@", outputColumn).replace("@PROGRAM@", column).replace("@DATA@", escaped);
+        }
+        // The legacy input contains only the registered header, decimal tokens and line breaks.
         return TEMPLATE.replace("@TITLE@", title).replace("@COLUMN@", column).replace("@DATA@", input.text());
     }
 
@@ -83,15 +109,37 @@ final class FrayDataTool {
             String value = "712." + suffix;
             if (!unseen.contains(new BigDecimal(value).stripTrailingZeros().toPlainString())) held.add(value);
         }
-        var holdout = parse(column + "\n" + String.join("\n", held));
+        var holdout = tableColumn == null ? parse(column + "\n" + String.join("\n", held))
+                : tableHoldout(held, input.table().measurementIndex());
         var steps = new JSONArray()
                 .put(new JSONObject().put("selector", "#source").put("expectValue", input.text()))
                 .put(outputStep(result(input)));
         fill(steps, holdout.text(), result(holdout));
-        fill(steps, (column.equals("celsius") ? "inches" : "celsius") + "\n1", INVALID);
-        fill(steps, column + "\n1e3", INVALID);
+        if (tableColumn == null) {
+            fill(steps, (column.equals("celsius") ? "inches" : "celsius") + "\n1", INVALID);
+            fill(steps, column + "\n1e3", INVALID);
+        } else {
+            String other = unrelatedHeader();
+            fill(steps, other + "\n1", FrayTableInput.INVALID);
+            fill(steps, tableColumn + "," + tableColumn + "\n1,2", FrayTableInput.INVALID);
+            fill(steps, tableColumn + "," + other + "\n1", FrayTableInput.INVALID);
+            fill(steps, tableColumn + "," + outputColumn + "\n1,2", FrayTableInput.INVALID);
+            fill(steps, tableColumn + "\n1e3", FrayTableInput.INVALID);
+        }
         fill(steps, input.text(), result(input));
         return steps;
+    }
+
+    private Input tableHoldout(List<String> held, int originalIndex) {
+        boolean first = originalIndex == 1;
+        var text = new StringBuilder(first ? tableColumn + "," + unrelatedHeader() : unrelatedHeader() + "," + tableColumn);
+        String label = "\" Unseen, \"\"batch\"\"\nα \"";
+        for (String value : held) text.append('\n').append(first ? value + "," + label : label + "," + value);
+        return parse(text.toString());
+    }
+
+    private String unrelatedHeader() {
+        return tableColumn.equals("sample") ? "identifier" : "sample";
     }
 
     private static void fill(JSONArray steps, String text, String expected) {
@@ -104,7 +152,10 @@ final class FrayDataTool {
     }
 
     private String result(Input input) {
-        return String.join("\n", input.values().stream().map(conversion::expected).toList());
+        var values = input.values().stream().map(conversion::expected).toList();
+        if (input.table() == null) return String.join("\n", values);
+        return input.table().withResults(outputColumn,
+                values.stream().map(value -> value.substring(0, value.lastIndexOf(' '))).toList());
     }
 
     JSONObject artifact(Input input, JSONObject source, JSONObject lesson, JSONArray checks) {
@@ -125,6 +176,8 @@ final class FrayDataTool {
                 .put("compilerCommit", FrayConversion.COMPILER).put("cases", cases);
         var sources = new JSONArray().put("csv:sha256:" + source.getString("sha256"))
                 .put("fray-bytecode:sha256:" + programHash());
+        if (input.table() != null) evidence.put("tableColumn", tableColumn).put("outputColumn", outputColumn)
+                .put("inputHeaders", input.table().rows().getFirst());
         if (lesson != null) {
             evidence.put("lesson", lesson);
             sources.put("fray-data-tool-lesson:sha256:" + WorldFrames.hash(lesson));

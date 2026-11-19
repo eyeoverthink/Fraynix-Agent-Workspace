@@ -157,7 +157,7 @@ export class RequestWorkbenchPanel {
         }
         if (result.lesson) {
             this.announce('Saved lesson ' + result.lesson.name + '. Send “Use data-to-tool lesson ' + result.lesson.name
-                + '” and attach a fresh CSV with the ' + result.lesson.column + ' column.');
+                + '” and attach a fresh CSV with the ' + (result.lesson.tableColumn || result.lesson.column) + ' column.');
             return true;
         }
         this.show(result.task);
@@ -230,11 +230,13 @@ export class RequestWorkbenchPanel {
             ? task.choice.label + ' · ' + (task.choice.lesson ? 'Lesson ' + task.choice.lesson.name
                 : ({java:'local rule', model:'local model', remembered:'remembered wording', user:'your choice'})[task.choice.by]) : '';
         $('requests-source').textContent = task?.source
-            ? task.source.name + ' \u00b7 ' + task.source.size + ' bytes \u00b7 SHA-256 ' + task.source.sha256
+            ? (task.choice.tableColumn ? 'Measurement column: ' + task.choice.tableColumn + ' · ' : '')
+                + task.source.name + ' \u00b7 ' + task.source.size + ' bytes \u00b7 SHA-256 ' + task.source.sha256
             : chain ? chain.input.value + ' ' + chain.input.unit + ' \u00b7 ' + chain.first + ' \u2192 ' + chain.second
                 + (task.savePending ? ' \u00b7 Both steps verified'
                 : task.firstVerified ? ' \u00b7 First step verified' : '')
-            : data ? 'CSV header: ' + task.choice.column + (task.choice.lesson ? ' · Lesson ' + task.choice.lesson.name : '') : '';
+            : data ? (task.choice.tableColumn ? 'Measurement column: ' + task.choice.tableColumn
+                : 'CSV header: ' + task.choice.column) + (task.choice.lesson ? ' · Lesson ' + task.choice.lesson.name : '') : '';
         $('requests-confirm').hidden = !pending || task.choice.action === 'clarify';
         const fray = isFray(task?.choice.action);
         $('requests-confirm').textContent = chain

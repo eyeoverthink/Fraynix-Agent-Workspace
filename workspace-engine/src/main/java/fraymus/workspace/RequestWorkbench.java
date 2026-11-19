@@ -81,14 +81,19 @@ final class RequestWorkbench {
         if (lesson == null && !build.matches()) return null;
         String column = lesson != null ? lesson.getString("column")
                 : build.group(1).toLowerCase(Locale.ROOT).startsWith("celsius") ? "celsius" : "inches";
+        String tableColumn = lesson != null ? lesson.optString("tableColumn", null) : build.group(2);
+        new FrayDataTool(column, tableColumn);
         var choice = RequestLanguage.view(RequestLanguage.Intent.FRAY_DATA, "java")
                 .put("column", column);
+        if (tableColumn != null) choice.put("tableColumn", tableColumn).put("description",
+                "Attach a CSV with the " + tableColumn + " column. Java checks the appended values and the original cells.");
         if (lesson != null) choice.put("lesson", lesson);
         return choice;
     }
 
     private static FrayDataTool dataTool(JSONObject task) {
-        return new FrayDataTool(task.getJSONObject("choice").getString("column"));
+        var choice = task.getJSONObject("choice");
+        return new FrayDataTool(choice.getString("column"), choice.optString("tableColumn", null));
     }
 
     private record ReviewedData(FrayDataTool tool, FrayDataTool.Input input, JSONObject lesson) {}
@@ -97,7 +102,9 @@ final class RequestWorkbench {
         var pinned = task.getJSONObject("choice").optJSONObject("lesson");
         if (pinned == null) return null;
         var current = checkedDataLesson(pinned.getString("name"));
-        if (!pinned.similar(current) || !current.getString("column").equals(dataTool(task).column))
+        var choice = task.getJSONObject("choice");
+        if (!pinned.similar(current) || !current.getString("column").equals(choice.getString("column"))
+                || !current.optString("tableColumn").equals(choice.optString("tableColumn")))
             throw new IllegalStateException("The reviewed teaching lesson changed");
         return current;
     }
@@ -122,9 +129,11 @@ final class RequestWorkbench {
         var tool = dataTool(teacher);
         var source = teacher.getJSONObject("source");
         var values = reviewedData(teacher, source).input().numericValues();
-        return new JSONObject().put("name", name).put("column", tool.column).put("programSha256", tool.programHash())
+        var result = new JSONObject().put("name", name).put("column", tool.column).put("programSha256", tool.programHash())
                 .put("teacherId", teacher.getString("id")).put("teacherArtifact", verified.getJSONObject("artifact"))
                 .put("teacherSourceSha256", source.getString("sha256")).put("exampleValues", values);
+        if (tool.tableColumn != null) result.put("tableColumn", tool.tableColumn);
+        return result;
     }
 
     private JSONObject checkedDataLesson(String name) throws Exception {
