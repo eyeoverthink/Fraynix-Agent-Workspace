@@ -712,6 +712,7 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/requests/chat" -> result=requestWorkbench.chat(input);
                     case "/api/requests/fray-prepare" -> result=requestWorkbench.prepareFray(input);
                     case "/api/requests/recover-chain" -> result=requestWorkbench.recoverChain(input);
+                    case "/api/requests/pending-chains" -> result=requestWorkbench.pendingChains(input);
                     case "/api/requests/fray-chain-advance", "/api/requests/fray-chain-finish" -> {
                         if(agency.busy()||sharedBusy043())throw new IllegalStateException("Finish the current workspace task before saving another result");
                         result=route.endsWith("advance")?requestWorkbench.advanceChain(input):requestWorkbench.finishChain(input);

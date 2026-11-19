@@ -83,6 +83,10 @@
   <div class="runtime-controls"><button id="requests-suggest" class="primary">Interpret request</button>
    <button id="requests-reopen">Reopen last review</button>
    <button id="requests-recover-chain">Resume interrupted chain</button></div>
+  <div id="requests-pending" hidden>
+   <label>Interrupted chains <select id="requests-pending-chain"></select></label>
+   <button id="requests-load-chain" type="button">Open selected chain</button>
+  </div>
   <h3 id="requests-choice"></h3>
   <p id="requests-status" role="status">Describe a conversion, file inspection, tool or app.</p>
   <label id="requests-action-label" hidden>Choose the intended action

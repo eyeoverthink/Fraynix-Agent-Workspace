@@ -28,6 +28,7 @@ export class RequestWorkbenchPanel {
         $('requests-close').onclick = () => this.dialog.close();
         $('requests-suggest').onclick = () => this.run(async () => {
             this.task = null;
+            $('requests-pending').hidden = true;
             this.render();
             $('requests-status').textContent = 'Reviewing your request…';
             const request = $('requests-text').value.trim();
@@ -40,12 +41,31 @@ export class RequestWorkbenchPanel {
             if (id) this.show(await this.call('read', {id}));
         });
         $('requests-recover-chain').onclick = () => this.run(async () => {
-            const result = await this.call('recover-chain', {});
-            if (!result.task) {
-                $('requests-status').textContent = 'No interrupted conversion has a saved handoff.';
+            const {chains} = await this.call('pending-chains', {});
+            if (chains.length === 1) {
+                await this.openPendingChain(chains[0].id);
                 return;
             }
-            this.show(result.task);
+            this.task = null;
+            $('requests-status').textContent = chains.length
+                ? 'Choose which of ' + chains.length + ' verified handoffs to resume.'
+                : 'No interrupted conversion has a saved handoff.';
+            const select = $('requests-pending-chain');
+            select.size = Math.min(chains.length + 1, 5);
+            select.replaceChildren(new Option('Select a chain', ''));
+            for (const chain of chains) {
+                const {input, intermediate} = chain;
+                const label = chain.title + ' / ' + input.value + ' ' + input.unit + ' / verified '
+                    + intermediate.value + ' ' + intermediate.unit + ' / ' + chain.id.slice(0, 8);
+                select.add(new Option(label, chain.id));
+            }
+            select.value = '';
+            $('requests-pending').hidden = chains.length === 0;
+        });
+        $('requests-pending-chain').onchange = () => this.render();
+        $('requests-load-chain').onclick = () => this.run(async () => {
+            const id = $('requests-pending-chain').value;
+            if (id) await this.openPendingChain(id);
         });
         $('requests-file').onchange = () => this.run(async () => {
             const file = $('requests-file').files[0];
@@ -136,7 +156,13 @@ export class RequestWorkbenchPanel {
         finally { this.busy = false; this.render(); }
     }
 
+    async openPendingChain(id) {
+        const {task} = await this.call('recover-chain', {id});
+        this.show(task);
+    }
+
     show(task) {
+        $('requests-pending').hidden = true;
         if (this.task?.id !== task.id || !task.source || task.status !== 'review') $('requests-file').value = '';
         this.task = task;
         localStorage.setItem('fraynix-request-review', task.id);
@@ -158,6 +184,8 @@ export class RequestWorkbenchPanel {
         const finished = task?.status === 'verified';
         $('requests-suggest').disabled = this.busy;
         $('requests-recover-chain').disabled = this.busy;
+        $('requests-pending-chain').disabled = this.busy;
+        $('requests-load-chain').disabled = this.busy || !$('requests-pending-chain').value;
         $('requests-pause-label').hidden = !chain || !pending || Boolean(task.firstVerified);
         $('requests-pause-chain').disabled = this.busy;
         $('requests-reopen').disabled = this.busy || !localStorage.getItem('fraynix-request-review');

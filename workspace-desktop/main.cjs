@@ -485,6 +485,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
           if(prepared.preview){
             const previous=canvas.view.webContents.getURL();
             try{
+              const rebuildStarted=performance.now();
               const url=origin+prepared.preview;
               const response=await fetch(url,{redirect:'error'});
               if(!response.ok||createHash('sha256')
@@ -500,8 +501,15 @@ ipcMain.handle('workspace:request',async(event,input)=>{
                   const task=await api('/api/requests/read',{id:confirmation.id});
                   return {paused:true,task};
                 }
+                const secondStarted=performance.now();
                 const result=await canvas.test(next.steps);
                 proof=await api('/api/requests/fray-chain-finish',{...bound,handoff:next.handoff,checks:result});
+                if(prepared.resuming){
+                  activity('request-recovery','Recovered Fray handoff verified',{
+                    reviewId:confirmation.id,rebuildMs:Math.round(secondStarted-rebuildStarted),
+                    secondStepMs:Math.round(performance.now()-secondStarted)
+                  });
+                }
               }else{
                 proof=await api('/api/requests/fray-finish',{...bound,checks});
               }
@@ -529,7 +537,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         emit('view','preview');
         return openArtifact(file);
       }
-      if(!['chat','suggest','attach','choose','read','brief','learn','recover-chain'].includes(command))throw Error('Unknown request workbench action');
+      if(!['chat','suggest','attach','choose','read','brief','learn','recover-chain','pending-chains'].includes(command))throw Error('Unknown request workbench action');
       return api('/api/requests/'+command,args);
     }
     case 'creation':{if(input.command==='preview')return (await inputs100.resolve(input.args)).preview;if(input.command==='start')return startCreationAgent(input.args.request,input.model,{definition:input.args.definition,source:input.args.source});throw Error('Unknown creation operation');}

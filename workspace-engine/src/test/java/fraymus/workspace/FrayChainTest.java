@@ -134,6 +134,52 @@ public class FrayChainTest {
         }
     }
 
+    @Test public void listsOnlyStagedChainsAndRecoversAnExplicitReview() throws Exception {
+        var project = Files.createTempDirectory("fray-pending-chains-");
+        String temperatureId;
+        JSONObject lengthBinding;
+        JSONObject lengthNext;
+        try (var store = new WorkspaceStore(project)) {
+            var wb = new RequestWorkbench(project, store);
+            var temperature = staged(wb, "Convert 37.25 C to F, then F to R.");
+            temperatureId = temperature.getString("id");
+            lengthBinding = staged(wb, PROMPT);
+            var render = wb.prepareFray(new JSONObject().put("id", lengthBinding.getString("id"))
+                    .put("reviewSha256", lengthBinding.getString("reviewSha256")));
+            assertTrue(render.getBoolean("resuming"));
+            lengthNext = wb.advanceChain(copy(lengthBinding).put("checks", observations(render.getJSONArray("steps"))));
+            wb.chat(new JSONObject().put("request", "Convert -40 C to F, then F to R."));
+            assertFalse(wb.recoverChain(new JSONObject()).has("task"));
+        }
+        try (var store = new WorkspaceStore(project)) {
+            var wb = new RequestWorkbench(project, store);
+            var rows = wb.pendingChains(new JSONObject()).getJSONArray("chains");
+            assertEquals(2, rows.length());
+            var lengthId = lengthBinding.getString("id");
+            assertEquals(java.util.Set.of(temperatureId, lengthId), java.util.Set.of(
+                    rows.getJSONObject(0).getString("id"), rows.getJSONObject(1).getString("id")));
+            var chosen = new JSONObject().put("id", lengthId);
+            var selected = wb.recoverChain(chosen).getJSONObject("task");
+            assertEquals(lengthId, selected.getString("id"));
+            assertEquals("313.57824", selected.getJSONObject("intermediate").getString("value"));
+            wb.finishChain(copy(lengthBinding).put("handoff", lengthNext.getJSONObject("handoff"))
+                    .put("checks", observations(lengthNext.getJSONArray("steps"))));
+            assertThrows(IllegalStateException.class, () -> wb.recoverChain(chosen));
+            assertEquals(temperatureId, wb.pendingChains(new JSONObject()).getJSONArray("chains")
+                    .getJSONObject(0).getString("id"));
+            assertEquals(temperatureId, wb.recoverChain(new JSONObject()).getJSONObject("task").getString("id"));
+        }
+    }
+
+    private static JSONObject staged(RequestWorkbench workbench, String request) throws Exception {
+        var task = workbench.chat(new JSONObject().put("request", request)).getJSONObject("task");
+        var binding = new JSONObject().put("id", task.getString("id")).put("reviewSha256", task.getString("reviewSha256"));
+        var render = workbench.prepareFray(binding);
+        binding.put("htmlSha256", render.getString("htmlSha256"));
+        workbench.advanceChain(copy(binding).put("checks", observations(render.getJSONArray("steps"))));
+        return binding;
+    }
+
     private static JSONObject copy(JSONObject value) { return new JSONObject(value.toString()); }
 
     // Boundary fixture. The publication test drives the same ordered steps in Chromium.

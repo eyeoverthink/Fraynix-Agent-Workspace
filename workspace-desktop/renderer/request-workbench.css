@@ -35,6 +35,11 @@
     resize: vertical;
 }
 
+#requests-pending-chain {
+    width: 100%;
+    min-width: 0;
+}
+
 #requests-source,
 #requests-status {
     overflow-wrap: anywhere;

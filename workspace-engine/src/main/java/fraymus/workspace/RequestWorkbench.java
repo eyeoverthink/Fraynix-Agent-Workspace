@@ -120,8 +120,22 @@ final class RequestWorkbench {
     }
 
     synchronized JSONObject recoverChain(JSONObject input) throws Exception {
+        SpatialScene.keys(input, "id");
+        if (input.has("id")) {
+            var task = load(input);
+            if (!pendingChain(task)) throw new IllegalStateException("That chain no longer has an interrupted handoff");
+            return new JSONObject().put("task", view(task));
+        }
+        var chains = pendingChains(new JSONObject()).getJSONArray("chains");
+        if (chains.length() == 1)
+            return recoverChain(new JSONObject().put("id", chains.getJSONObject(0).getString("id")));
+        return chains.isEmpty() ? new JSONObject() : new JSONObject().put("chains", chains);
+    }
+
+    synchronized JSONObject pendingChains(JSONObject input) throws Exception {
         SpatialScene.keys(input);
         ensureDirectory();
+        var chains = new JSONArray();
         try (var files = Files.list(directory)) {
             var reviews = files.filter(file -> file.getFileName().toString().endsWith(".task.json"))
                     .filter(file -> Files.isRegularFile(file, LinkOption.NOFOLLOW_LINKS))
@@ -130,12 +144,20 @@ final class RequestWorkbench {
             for (var file : reviews) {
                 String name = file.getFileName().toString();
                 var task = load(new JSONObject().put("id", name.substring(0, name.length() - ".task.json".length())));
-                if ("review".equals(task.getString("status")) && task.has("frayFirstChecks")
-                        && intent(task) == RequestLanguage.Intent.FRAY_CHAIN)
-                    return new JSONObject().put("task", view(task));
+                if (!pendingChain(task)) continue;
+                var row = view(task);
+                var choice = row.getJSONObject("choice");
+                chains.put(new JSONObject().put("id", row.getString("id")).put("title", choice.getString("label"))
+                        .put("input", choice.getJSONObject("chain").getJSONObject("input"))
+                        .put("intermediate", row.getJSONObject("intermediate")));
             }
         }
-        return new JSONObject();
+        return new JSONObject().put("chains", chains);
+    }
+
+    private static boolean pendingChain(JSONObject task) {
+        return "review".equals(task.getString("status")) && task.has("frayFirstChecks")
+                && intent(task) == RequestLanguage.Intent.FRAY_CHAIN;
     }
 
     synchronized JSONObject verify(JSONObject input) throws Exception {
@@ -165,7 +187,8 @@ final class RequestWorkbench {
             var chain = requireChain(input, task);
             if (task.has("report")) return proof(task).put("task", view(task));
             return new JSONObject().put("preview", chain.previewPath()).put("chain", true)
-                    .put("htmlSha256", chain.htmlSha256).put("steps", chain.firstSteps());
+                    .put("htmlSha256", chain.htmlSha256).put("steps", chain.firstSteps())
+                    .put("resuming", pendingChain(task));
         }
         var conversion = requireFray(input, task);
         if (task.has("report")) return proof(task).put("task", view(task));
