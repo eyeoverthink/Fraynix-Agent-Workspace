@@ -87,35 +87,9 @@ final class RampTraceChain {
         }
     }
 
-    static void verifyJournal(JSONObject task) {
-        if (!task.has(KEY)) return;
+    static void verifyPlan(JSONObject task) {
         var plan = task.getJSONObject(KEY);
         if (!FAMILY.equals(task.getString("family044")) || !plan.similar(plan(task.getString("goal"))))
             throw new IllegalStateException("The reviewed chain plan changed");
-        int approvals = 0;
-        JSONObject witnessed = null;
-        for (Object raw : task.getJSONArray("history")) {
-            var event = (JSONObject) raw;
-            switch (event.getString("kind")) {
-                case "chain-confirmed" -> {
-                    if (!plan.similar(event.getJSONObject("detail"))) throw new IllegalStateException("The chain approval changed");
-                    approvals++;
-                }
-                case "chain-handoff-verified" -> {
-                    if (approvals != 1 || witnessed != null) throw new IllegalStateException("Comparison handoff is out of order");
-                    witnessed = event.getJSONObject("detail");
-                }
-                default -> { }
-            }
-        }
-        var context = task.getJSONObject("context044");
-        var handoff = context.optJSONObject(HANDOFF);
-        if (approvals != (task.optBoolean(APPROVED) ? 1 : 0)
-                || (handoff == null ? witnessed != null : !handoff.similar(witnessed))
-                || (context.has("ownedRampMission") && approvals != 1)
-                || (context.has("ownedWorkflowId") && (handoff == null ||
-                    !context.getString("ownedWorkflowId").equals(workflowId(task.getString("id")))))) {
-            throw new IllegalStateException("The saved chain approval or handoff changed");
-        }
     }
 }

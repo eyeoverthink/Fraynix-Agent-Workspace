@@ -42,6 +42,7 @@ final class Agency043 implements AutoCloseable {
     private void persist112(JSONObject value)throws Exception{if(value.toString().length()>3_800_000)throw new IllegalStateException("Task history budget reached; retain/archive before more work");AgentFiles042.saveChecked(file,value);}
     synchronized void installArchive112(ChatArchive112.OriginalEvidence verifier){archive112.workflows(verifier);}
     synchronized void installRampArchive(ChatArchive112.OriginalEvidence verifier){archive112.ramps(verifier);}
+    synchronized void installRelayArchive(ChatArchive112.OriginalEvidence verifier){archive112.relay(verifier);}
     synchronized JSONObject register(JSONObject input)throws Exception{
         SpatialScene.keys(input,"sourceSha256","tools");if(!input.getString("sourceSha256").matches("[a-f0-9]{64}"))throw new IllegalArgumentException("Trusted catalog hash required");var defs=input.getJSONArray("tools");var names=new HashSet<String>();for(Object raw:defs){var f=((JSONObject)raw).getJSONObject("function");String name=f.getString("name").replace('_','.');if(!Tools044.names().contains(name)||!names.add(name)||!f.getJSONObject("parameters").getString("type").equals("object"))throw new IllegalArgumentException("Unsupported Java workbench definition");}if((!names.equals(TOOLS)&&!names.equals(Tools044.names()))||defs.toString().length()>180000)throw new IllegalArgumentException("Complete bounded workbench tool definitions required");if(busy()&&data.has("sourceSha256")&&!data.getString("sourceSha256").equals(input.getString("sourceSha256")))throw new IllegalStateException("Catalog changed during a Java task");data.put("tools",new JSONArray(defs.toString())).put("sourceSha256",input.getString("sourceSha256"));save();return new JSONObject().put("registered",names.size());
     }
@@ -78,7 +79,7 @@ final class Agency043 implements AutoCloseable {
     private void begin(JSONObject g)throws Exception{String episode=UUID.randomUUID().toString();learning.begin(new JSONObject().put("id",episode).put("taskKind",g.has(BrowserOutcome126.KEY)?"browser-task":domain(g)?"experiment-task":"artifact-task").put("goal",g.getString("goal")).put("model",Set.of("workbench","domain").contains(g.getString("mode"))?g.getString("model"):"java-owned-"+g.getString("mode")));g.put("episodeId",episode).put("attemptStartedAt",Instant.now().toString()).put("status","ready");g.remove("claim");if(domain(g)){g.getJSONObject("context044").put("id",episode).put("episodeStarted",false);if(g.optBoolean("resumeDomain044")){g.remove("resumeDomain044");domains.resume(g);}bootstrapDomain(g);return;}if(g.has("nativeIntent")){var intent=g.getJSONObject("nativeIntent");g.put("reconciling",true);dispatch(g,intent.getJSONObject("command"),intent.getString("effectId"));g.remove("reconciling");g.remove("nativeIntent");return;}if(g.getString("mode").equals("recipe")&&g.optBoolean("created")){var a=artifact(g);host(g,"canvas.test",new JSONObject().put("steps",a.has("test")?a.getJSONObject("test").getJSONArray("steps"):store.skill(g.getJSONObject("recipeBinding").getString("name")).getJSONArray("tests")),"reverify",new JSONObject().put("artifact",ref(a)));return;}if(g.getString("mode").equals("recipe")){dispatch(g,new JSONObject().put("tool","skill.run").put("args",new JSONObject().put("name",g.getJSONObject("recipeBinding").getString("name"))),UUID.randomUUID().toString());}else host(g,g.getString("mode").equals("inspect")?(g.getString("focus").equals("canvas")?"canvas.observe":"browser.observe"):"browser.observe",new JSONObject(),"tool",g.getString("mode").equals("inspect")?new JSONObject().put("captureFocus",g.getString("focus")):new JSONObject());}
     void tick(){JSONObject snapshot=null;String id=null;try{synchronized(this){if(closed)return;var g=active();if(g==null)return;id=g.getString("id");ChatChain052.verifyObjective(g);if(g.getString("status").equals("queued")){begin(g);save();return;}if(g.getString("status").equals("waiting-host")){if(g.has("claim")&&!validClaim(g))interrupt(g,"Host action lease expired; inspect and explicitly Resume");return;}if(g.getString("status").equals("waiting-native")){if(domains.waitNative(g)){save();return;}g.put("status","ready");if(Set.of("creation","workflow").contains(g.getString("family044"))||g.getJSONObject("context044").optBoolean("counterfactualRequested045")){complete(g,"Java retained the actual native task and verified its finished artifact/audit.");save();return;}}
             if(!g.getString("status").equals("ready"))return;
-            if(g.has(RampTraceChain.KEY)&&advanceChain(g))return;
+            if(ReviewedChain.of(g)!=null&&advanceChain(g))return;
             if(domain(g)){
                 var effect=domains.nextSurface(g);
                 if(effect!=null){
@@ -152,8 +153,10 @@ final class Agency043 implements AutoCloseable {
         interrupt(task, question);
     }
     private void bootstrapDomain(JSONObject g)throws Exception {
-        if(g.has(RampTraceChain.KEY)&&!g.optBoolean(RampTraceChain.APPROVED)){
-            interrupt(g,RampTraceChain.REVIEW_REASON);
+        var chain=ReviewedChain.of(g);
+        if(chain!=null&&!g.optBoolean(chain.approval)){
+            interrupt(g,chain==ReviewedChain.RAMP?RampTraceChain.REVIEW_REASON:
+                    "Review the original course and the two steps in Mission, then confirm to start the playtest.");
             return;
         }
         if (g.optString("family044").equals(LocalWorkflowSelection.FAMILY)) {
@@ -175,18 +178,27 @@ final class Agency043 implements AutoCloseable {
         else g.put("status",g.has("wait044")?"waiting-native":"ready");
     }
     private boolean advanceChain(JSONObject task)throws Exception {
+        var chain=ReviewedChain.of(task);
         var context=task.getJSONObject("context044");
-        if(!context.optBoolean("rampVerified")||context.has("ownedWorkflowId"))return false;
-        if(!context.has(RampTraceChain.HANDOFF)){
+        boolean ramp=chain==ReviewedChain.RAMP;
+        boolean upstreamReady=ramp?context.optBoolean("rampVerified"):context.has("gameEvidence115");
+        if(!upstreamReady||context.has(chain.downstream))return false;
+        if(!context.has(ReviewedChain.HANDOFF)){
             var handoff=domains.verifiedChainHandoff(task);
-            context.put(RampTraceChain.HANDOFF,handoff);
+            context.put(ReviewedChain.HANDOFF,handoff);
             record(task,"chain-handoff-verified",handoff);
-            if(task.getJSONObject(RampTraceChain.KEY).getBoolean("pauseAfterComparison"))
-                interrupt(task,"Comparison verified. Resume to analyze the farther setup's original simulated trace.");
+            if(task.getJSONObject(chain.key).getBoolean(ramp?"pauseAfterComparison":"pauseAfterPlaytest"))
+                interrupt(task,ramp?"Comparison verified. Resume to analyze the farther setup's original simulated trace.":
+                        "Playtest verified. Resume to build the dashboard from its original replayed crossings.");
             return true;
         }
-        domains.startChainSummary(task);
-        task.put("status","waiting-native").put("reason","The verified comparison is linked to its motion summary");
+        if(ramp){
+            domains.startChainSummary(task);
+            task.put("status","waiting-native").put("reason","The verified comparison is linked to its motion summary");
+        }else{
+            domains.startRelayDashboard(task);
+            task.put("reason","The verified playtest is linked to its clearance dashboard");
+        }
         save();
         return true;
     }
@@ -300,7 +312,7 @@ final class Agency043 implements AutoCloseable {
         SpatialScene.keys(in,"taskId","effectId","nonce","sessionId","context","result","error");String tool=g.getJSONObject("effect").getString("tool");String error=in.optString("error","");
         if(error.isEmpty())domains.accept(g,tool,in.optJSONObject("result",new JSONObject()),in.getJSONObject("context"));
         claims.remove(g.getJSONObject("claim").getString("nonce"));g.remove("claim");g.remove("effect");
-        if(!error.isEmpty())repair(g,error);else{recent(g,tool,in.optJSONObject("result",new JSONObject()));record(g,"surface-action",new JSONObject().put("tool",tool).put("kind","java-domain-action").put("nativeReceipts",g.getJSONArray("nativeTrace044")));g.put("status",g.has("wait044")?"waiting-native":"ready").put("reason","Java is checking the actual native outcome");}save();return view(g);
+        if(!error.isEmpty())repair(g,error);else{recent(g,tool,in.optJSONObject("result",new JSONObject()));var detail=new JSONObject().put("tool",tool).put("kind","java-domain-action").put("nativeReceipts",g.getJSONArray("nativeTrace044"));if(tool.equals(RelayClearanceChain.CHECK))detail.put("resultSha256",WorldFrames.hash(in.getJSONObject("result")));record(g,"surface-action",detail);g.put("status",g.has("wait044")?"waiting-native":"ready").put("reason","Java is checking the actual native outcome");}save();return view(g);
     }
     private void describeAndAdvance(JSONObject snapshot){try{String id=snapshot.getString("lastFrameId");var m=visual.metadata(id);var caption=vision.describe(snapshot.getString("visionModel"),snapshot.optString("visionDigest",null),visual.thumbnail(id,960),m.getString("sha256"));synchronized(this){var g=task(snapshot.getString("id"));if(!g.getString("status").equals("vision")||g.getInt("generation")!=snapshot.getInt("generation"))return;g.put("visionDigest",caption.getJSONObject("model").getString("digest")).put("caption",caption);g.getJSONObject("visualEvidence").put("caption",caption);record(g,"visual-description",new JSONObject().put("imageSha256",caption.getString("imageSha256")).put("model",caption.getJSONObject("model")).put("compute",caption.getJSONObject("compute")).put("durationMs",caption.getDouble("durationMs")));advance(g);save();}}catch(Exception e){synchronized(this){try{var g=task(snapshot.getString("id"));if(g.getInt("generation")==snapshot.getInt("generation")){g.put("visualModelError",e.getMessage());interrupt(g,"Local visual observation failed: "+e.getMessage());}}catch(Exception failed){System.err.println(failed.getMessage());}}}}
     private void advance(JSONObject g)throws Exception{
@@ -312,11 +324,11 @@ final class Agency043 implements AutoCloseable {
         if(g.optString("afterKind").equals("open")&&g.getBoolean("counterContract")){host(g,"canvas.test",new JSONObject().put("steps",counterChecks()),"tool",new JSONObject());return;}g.put("status","ready").put("reason","Java is checking the next stage");
     }
     private void complete(JSONObject g,String summary)throws Exception{
-        boolean verified=false;if(g.has(BrowserOutcome126.KEY)){BrowserOutcome126.evidence(g);verified=true;}else if(domain(g)){var meta=domains.finish(g);summary=domains.summary(g,meta);JSONObject report=null;if(g.has("report044"))report=g.getJSONObject("report044").getJSONObject("artifact");else if(meta.has("javaGoal"))report=meta.getJSONObject("javaGoal").optJSONObject("report");else if(meta.has("javaWorkflow"))report=meta.getJSONObject("javaWorkflow").optJSONObject("report");else if(meta.has("rampMission"))report=meta.getJSONObject("rampMission").getJSONObject("report");if(report!=null){var a=store.read(report.getString("id"));if(a.getInt("version")!=report.getInt("version")||!a.optJSONObject("test",new JSONObject()).optBoolean("passed"))throw new IllegalStateException("Current Java report receipt is missing or changed");learning.step(new JSONObject().put("id",g.getString("episodeId")).put("step",new JSONObject().put("tool","canvas.test").put("ok",true).put("failure","none").put("artifactId",a.getString("id")).put("artifactVersion",a.getInt("version")).put("testPassed",true)));verified=true;}}else if(g.getString("mode").equals("inspect")){if(!g.has("report")||!g.optString("afterKind").equals("report"))throw new IllegalStateException("Open and verify the actual visual report first");verified=true;}else if(g.optBoolean("created")){var a=artifact(g);if(!a.optJSONObject("test",new JSONObject()).optBoolean("passed"))throw new IllegalStateException("Current artifact needs actual passing tests");if(g.getBoolean("needsRecipe")&&!g.optBoolean("saved")&&!g.getString("mode").equals("recipe"))throw new IllegalStateException("Save the requested real recipe first");g.put("visualRoutine",visual.learn(g.getString("id"),g.getString("lastFrameId"),a,g.optJSONObject("savedRecipe",g.optJSONObject("usedRecipe")),g.optJSONArray("verificationFrames",new JSONArray())));verified=true;}else if(g.getBoolean("needsArtifact"))throw new IllegalStateException("Create the requested real artifact first");
+        boolean verified=false;if(g.has(BrowserOutcome126.KEY)){BrowserOutcome126.evidence(g);verified=true;}else if(domain(g)){var meta=domains.finish(g);summary=domains.summary(g,meta);JSONObject report=null;if(g.has("report044"))report=g.getJSONObject("report044").getJSONObject("artifact");else if(meta.has("javaGoal"))report=meta.getJSONObject("javaGoal").optJSONObject("report");else if(meta.has(RelayClearanceChain.REPORT))report=meta.getJSONObject(RelayClearanceChain.REPORT);else if(meta.has("javaWorkflow"))report=meta.getJSONObject("javaWorkflow").optJSONObject("report");else if(meta.has("rampMission"))report=meta.getJSONObject("rampMission").getJSONObject("report");if(report!=null){var a=store.read(report.getString("id"));if(a.getInt("version")!=report.getInt("version")||!a.optJSONObject("test",new JSONObject()).optBoolean("passed"))throw new IllegalStateException("Current Java report receipt is missing or changed");learning.step(new JSONObject().put("id",g.getString("episodeId")).put("step",new JSONObject().put("tool","canvas.test").put("ok",true).put("failure","none").put("artifactId",a.getString("id")).put("artifactVersion",a.getInt("version")).put("testPassed",true)));verified=true;}}else if(g.getString("mode").equals("inspect")){if(!g.has("report")||!g.optString("afterKind").equals("report"))throw new IllegalStateException("Open and verify the actual visual report first");verified=true;}else if(g.optBoolean("created")){var a=artifact(g);if(!a.optJSONObject("test",new JSONObject()).optBoolean("passed"))throw new IllegalStateException("Current artifact needs actual passing tests");if(g.getBoolean("needsRecipe")&&!g.optBoolean("saved")&&!g.getString("mode").equals("recipe"))throw new IllegalStateException("Save the requested real recipe first");g.put("visualRoutine",visual.learn(g.getString("id"),g.getString("lastFrameId"),a,g.optJSONObject("savedRecipe",g.optJSONObject("usedRecipe")),g.optJSONArray("verificationFrames",new JSONArray())));verified=true;}else if(g.getBoolean("needsArtifact"))throw new IllegalStateException("Create the requested real artifact first");
         if(g.has(BrowserOutcome126.KEY))learning.endBrowser126(g);else learning.end(new JSONObject().put("id",g.getString("episodeId")).put("status",verified?"verified":"completed-unverified"));if(domain(g))domains.release(g);g.put("status","completed").put("outcome",verified?"verified":"completed-unverified").put("summary",summary).put("reason","Java completion gates passed").put("finishedAt",Instant.now().toString());record(g,"completed",new JSONObject().put("verified",verified));store.event("agent_completed",Domain044.merge(new JSONObject(),g.optJSONObject("completion044",new JSONObject())).put("goal",g.getString("goal")).put("model",g.getString("model")).put("summary",summary).put("episodeId",g.getString("episodeId")).put("javaTask",view(g)));save();
     }
     private void recent(JSONObject g,String tool,JSONObject result){var list=g.getJSONArray("recent");list.put(new JSONObject().put("tool",tool).put("result",ChatChain052.recentObservation(result)));while(list.length()>4)list.remove(0);}
-    private void repair(JSONObject g,String reason)throws Exception{g.remove("nativeIntent");g.put("failures",g.getInt("failures")+1);recent(g,"repair",new JSONObject().put("error",reason));record(g,"repair",new JSONObject().put("reason",reason));if(g.optString("family044").equals(RampMission.FAMILY)||g.has(LocalWorkflowSelection.KEY)||g.has(RampTraceChain.KEY)){interrupt(g,reason);return;}if(g.getInt("failures")>=4){interrupt(g,"Repair budget reached: "+reason);return;}g.put("status","ready").put("reason",reason);}
+    private void repair(JSONObject g,String reason)throws Exception{g.remove("nativeIntent");g.put("failures",g.getInt("failures")+1);recent(g,"repair",new JSONObject().put("error",reason));record(g,"repair",new JSONObject().put("reason",reason));if(g.optString("family044").equals(RampMission.FAMILY)||g.has(LocalWorkflowSelection.KEY)||ReviewedChain.of(g)!=null){interrupt(g,reason);return;}if(g.getInt("failures")>=4){interrupt(g,"Repair budget reached: "+reason);return;}g.put("status","ready").put("reason",reason);}
     private void record(JSONObject g,String kind,JSONObject detail)throws Exception{var history=g.getJSONArray("history");var row=new JSONObject().put("kind",kind).put("at",Instant.now().toString()).put("detail",WorldFrames.copy(detail)).put("parent",history.isEmpty()?"GENESIS":history.getJSONObject(history.length()-1).getString("sha256"));row.put("sha256",WorldFrames.hash(row));history.put(row);save();witness.record("task043-"+kind,new JSONObject().put("taskId",g.getString("id")).put("historySha256",row.getString("sha256")).put("status",g.getString("status")));}
     static void verifyHistory(JSONObject g){ChatChain052.verifyObjective(g);String prior="GENESIS";for(Object raw:g.getJSONArray("history")){var row=WorldFrames.copy((JSONObject)raw);String hash=row.getString("sha256");row.remove("sha256");if(!prior.equals(row.getString("parent"))||!WorldFrames.hash(row).equals(hash))throw new IllegalStateException("Java task history chain differs; original retained");prior=hash;}}
     private void interrupt(JSONObject g,String reason)throws Exception{if(!LIVE.contains(g.getString("status")))return;if(g.has("requestId"))cancelRequest.accept(g.getString("requestId"));vision.cancel();if(g.has("claim"))claims.remove(g.getJSONObject("claim").getString("nonce"));g.remove("claim");g.put("status","interrupted").put("reason",reason);if(domain(g))try{domains.interrupt(g);}catch(Exception releaseError){g.put("releaseNote044",releaseError.getMessage());}if(g.has("episodeId"))learning.interruptEpisode043(g.getString("episodeId"),reason);record(g,"interrupted",new JSONObject().put("reason",reason));save();}
@@ -343,16 +355,18 @@ final class Agency043 implements AutoCloseable {
                 retainLocalWorkflow(g, procedure, "confirmed");
             }
             case "confirm-chain" -> {
-                if (!g.has(RampTraceChain.KEY)||g.optBoolean(RampTraceChain.APPROVED)
+                var chain=ReviewedChain.of(g);
+                if (chain==null||g.optBoolean(chain.approval)
                         || !g.getString("status").equals("interrupted")||busy()||resumeBusy.getAsBoolean())
                     throw new IllegalStateException("Confirm one reviewed chain while the workspace is idle");
                 verifyHistory(g);
-                g.put(RampTraceChain.APPROVED,true).put("status","queued").put("reason","Two-step chain confirmed, queued in Java")
+                g.put(chain.approval,true).put("status","queued").put("reason","Two-step chain confirmed, queued in Java")
                         .put("generation",g.getInt("generation")+1);
-                record(g,"chain-confirmed",g.getJSONObject(RampTraceChain.KEY));
+                record(g,"chain-confirmed",g.getJSONObject(chain.key));
             }
             case "resume" -> {
-                if (g.has(RampTraceChain.KEY)&&!g.optBoolean(RampTraceChain.APPROVED))
+                var chain=ReviewedChain.of(g);
+                if (chain!=null&&!g.optBoolean(chain.approval))
                     throw new IllegalStateException("Confirm the reviewed chain from Mission first");
                 if (awaitingReview) throw new IllegalStateException("Confirm the suggested workflow from Mission first");
                 if (g.has("localWorkflowQuestion")) throw new IllegalStateException(g.getString("localWorkflowQuestion"));

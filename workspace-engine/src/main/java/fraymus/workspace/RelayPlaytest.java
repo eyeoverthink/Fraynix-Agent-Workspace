@@ -64,7 +64,7 @@ final class RelayPlaytest implements AutoCloseable {
     private void save(JSONObject task) throws Exception { AgentFiles042.saveChecked(path(task.getString("id")), task); }
 
     synchronized JSONObject start(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "id", "request");
+        SpatialScene.keys(input, "id", "request", "expectedSource");
         String id = input.getString("id");
         String text = input.getString("request");
         var match = REQUEST.matcher(text.strip());
@@ -72,22 +72,38 @@ final class RelayPlaytest implements AutoCloseable {
         if (owns(id)) {
             JSONObject prior = load(id);
             require(text.equals(prior.getString("request")), "Mission ID has a different request");
+            if (input.has("expectedSource")) {
+                checkSource(prior);
+                require(input.getJSONObject("expectedSource").similar(prior.getJSONObject("source")), "The reviewed Relay source changed");
+            }
             return view(prior);
         }
         try (var files = Files.list(root)) {
             require(files.filter(p -> p.getFileName().toString().endsWith(".json")).count() < 24,
                     "Relay playtest history is full (24)");
         }
-        RelayCourse course = match.group(1).equalsIgnoreCase("ridge") ? RelayCourse.RIDGE : RelayCourse.SWITCHYARD;
+        RelayCourse course = courseFor(match.group(1));
         String pace = match.group(2).toLowerCase(Locale.ROOT);
         List<String> paces = pace.equals("all three paces") ? PACES : List.of(pace.split(" ")[0]);
         JSONObject source = binding(course);
+        if (input.has("expectedSource"))
+            require(input.getJSONObject("expectedSource").similar(source), "The reviewed Relay source changed");
         JSONObject task = new JSONObject().put("id", id).put("request", text).put("procedure", KIND)
                 .put("course", course.id()).put("title", course.title()).put("paces", paces)
                 .put("source", source).put("status", "running").put("stage", "prepare")
                 .put("trials", new JSONArray()).put("reason", "Checking the original course and installed engine");
         save(task);
         return view(task);
+    }
+
+    synchronized JSONObject bind(String request) throws Exception {
+        var match = REQUEST.matcher(request.strip());
+        if (!match.matches()) throw new IllegalArgumentException("Choose a Relay course and pace");
+        return binding(courseFor(match.group(1)));
+    }
+
+    private static RelayCourse courseFor(String name) {
+        return name.equalsIgnoreCase("ridge") ? RelayCourse.RIDGE : RelayCourse.SWITCHYARD;
     }
 
     private JSONObject binding(RelayCourse course) throws Exception {

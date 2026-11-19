@@ -15,15 +15,16 @@ final class ChatArchive112 {
     private final Path project,directory;
     private final WorkspaceStore store;
     private final LearningStore learning;
-    private OriginalEvidence workflows, ramps;
+    private OriginalEvidence workflows, ramps, relay;
     ChatArchive112(Path project,WorkspaceStore store,LearningStore learning){this.project=project;this.directory=project.resolve("agency-043/archive112");this.store=store;this.learning=learning;}
     void workflows(OriginalEvidence value){workflows=value;}
     void ramps(OriginalEvidence value){ramps=value;}
+    void relay(OriginalEvidence value){relay=value;}
     static JSONArray refs(JSONObject data){return data.optJSONArray(KEY,new JSONArray());}
     static boolean eligible(JSONObject g){
         if(!g.optString("status").equals("completed")||g.has("claim")||g.has("nativeIntent")||!g.has("finishedAt")||!g.has("episodeId"))return false;
         String family=g.optString("family044","workbench");
-        if(family.equals(RampTraceChain.FAMILY))return g.optString("outcome").equals("verified");
+        if(ReviewedChain.of(g)!=null)return g.optString("outcome").equals("verified");
         var w=g.optJSONObject("completion044",new JSONObject()).optJSONObject("javaWorkflow",new JSONObject());
         return family.equals("workbench")||family.equals(RampMission.FAMILY)&&g.optString("outcome").equals("verified")||family.equals("workflow")&&(DataSummary104.supported(w.optString("profile101"))||w.has("qualification105"));
     }
@@ -69,7 +70,10 @@ final class ChatArchive112 {
             if(!m.getString("id").equals(id)||!m.getString("taskId").equals(g.getString("id"))||b.length!=m.getInt("bytes")||!PerceptionStore.hash(b).equals(m.getString("sha256")))throw new IllegalStateException("Original chat screen evidence changed");
             frames.put(new JSONObject().put("id",id).put("metadataSha256",WorldFrames.hash(m)).put("pixelsSha256",m.getString("sha256")));
         }proof.put("frames",frames);
-        if(g.optString("family044").equals(RampTraceChain.FAMILY)){
+        if(g.optString("family044").equals(RelayClearanceChain.FAMILY)){
+            if(relay==null)throw new IllegalStateException("Relay chain verifier unavailable");
+            proof.put("relay",relay.check(WorldFrames.copy(g)));
+        }else if(g.optString("family044").equals(RampTraceChain.FAMILY)){
             if(ramps==null||workflows==null)throw new IllegalStateException("Both chain verifiers are required");
             var comparison=ramps.check(WorldFrames.copy(g));
             var summary=workflows.check(WorldFrames.copy(g));

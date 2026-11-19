@@ -168,6 +168,21 @@ $('address').addEventListener('keydown',e=>{if(e.key==='Enter')$('navigate').cli
 $('back').onclick=()=>safe(()=>request('back'));$('forward').onclick=()=>safe(()=>request('forward'));
 $('new-artifact').onclick=()=>safe(()=>{requireSaved();setCanvasMode('preview');return request('new');});
 $('proof').onclick=()=>safe(async()=>{requireSaved();$('proof').disabled=true;notice('Running the real browser → artifact → test → skill proof');try{await request('proof');notice('Guided proof passed: browser, runnable app, tests and skill saved');}finally{$('proof').disabled=false;}});
+const relayReview=$('relay-review-dialog');
+$('relay-review-open').onclick=()=>safe(async()=>{
+ requireSaved();
+ relayReview.showModal();
+ updateLayout();
+});
+relayReview.addEventListener('close',()=>updateLayout());
+$('relay-review-prepare').onclick=()=>{
+ const course=$('relay-review-course').value;
+ const pause=$('relay-review-pause').checked?' Pause after playtest.':'';
+ $('goal').value='Review a local chain: Playtest Relay '+course+', then build a clearance dashboard.'+pause;
+ $('goal').dispatchEvent(new Event('input'));
+ relayReview.close();
+ $('goal').focus();
+};
 $('game').onclick=()=>safe(async()=>{await brainGame.openIntegrated();notice('Original Java game runtime is integrated here; no separate editor window');});
 $('run').onclick=()=>safe(async()=>{requireSaved();const goal=$('goal').value.trim();if(!goal)return;const local=offlineMissionRequest(goal);const selectedModel=state?.models.some(m=>m.name===$('model').value)?$('model').value:'';message(goal,'user');await request('agent',{goal,model:local?'':quickWorkflowRequest(goal)?selectedModel:$('model').value,planWorld099:document.querySelector('#plan-world099').checked,...(!local && !plannedRampRequest(goal) && !localWorkflowRequest(goal) && window.browserChecks126?.contract()?{browserContract126:window.browserChecks126.contract()}:{})});});
 $('goal').addEventListener('input',()=>{
@@ -320,7 +335,7 @@ host.onEvent(({type,value})=>{
   else if(type==='answer')message(value);
   else if(type==='error')notice(value);
   else if(type==='surface'){if(value.kind==='browser'){if(document.activeElement!==$('address'))$('address').value=value.url;$('browser-title').textContent=value.title||value.url;}}
-  else if(type==='run'){running=value.active;$('stop').disabled=!running;$('run').disabled=running||creationBusy||dirty||lab.dirty||!hasChatRoute();$('goal').disabled=running;$('run-state').textContent=running?(value.phase||(value.turn?'Planning step '+value.turn+' / 16':'Starting task')):'Ready when you are';for(const id of ['new-artifact','navigate','back','forward','proof','test-canvas','save-source','source-file','revert-source','observe-browser','ramp-input-open','learning-proof','learning-evaluate','learning-rollback'])$(id).disabled=running;$('learning-rollback').disabled=running||(state?.learning?.activePolicy.version||1)===1;$('source').readOnly=running;$('test-canvas').disabled=running||!artifact?.test?.steps?.length;$('save-skill').disabled=running||!artifact?.test?.passed;renderLibrary();}
+  else if(type==='run'){running=value.active;$('stop').disabled=!running;$('run').disabled=running||creationBusy||dirty||lab.dirty||!hasChatRoute();$('goal').disabled=running;$('run-state').textContent=running?(value.phase||(value.turn?'Planning step '+value.turn+' / 16':'Starting task')):'Ready when you are';for(const id of ['new-artifact','navigate','back','forward','proof','test-canvas','save-source','source-file','revert-source','observe-browser','ramp-input-open','relay-review-open','learning-proof','learning-evaluate','learning-rollback'])$(id).disabled=running;$('learning-rollback').disabled=running||(state?.learning?.activePolicy.version||1)===1;$('source').readOnly=running;$('test-canvas').disabled=running||!artifact?.test?.steps?.length;$('save-skill').disabled=running||!artifact?.test?.passed;renderLibrary();}
   if(type==='run')$('creation-open').disabled=value.active||creationBusy;
   if(type==='run'){spatial.agentBusy=value.active;spatial.controls();}
   if(type==='perceptionFrame')perceptionPanel.accept(value).catch(e=>notice(e.message));

@@ -25,6 +25,13 @@ final class Domain044 {
    g.put("context044",c).put("nativeTrace044",new JSONArray()).put("nativeReplies044",new JSONObject());
    return;
   }
+  if(family.equals(RelayClearanceChain.FAMILY)){
+   var plan=RelayClearanceChain.plan(g.getString("goal"));
+   g.put(RelayClearanceChain.PLAN,plan).put("relaySource",nativeApi.call("/internal/relay/bind",
+           new JSONObject().put("request",plan.getString("request"))));
+   g.put("context044",c).put("nativeTrace044",new JSONArray()).put("nativeReplies044",new JSONObject());
+   return;
+  }
   if(family.equals(RampMission.FAMILY)||family.equals(RampTraceChain.FAMILY)){
    if(family.equals(RampTraceChain.FAMILY))g.put(RampTraceChain.KEY,RampTraceChain.plan(g.getString("goal")));
    var source=Procedure044.binding(bindings,"rampInput");
@@ -108,6 +115,15 @@ final class Domain044 {
   String f=g.getString("family044");var c=g.getJSONObject("context044");var b=g.getJSONObject("bindings044");if(c.has("ownedGoalId")||c.has("ownedWorkflowId")||c.has("ownedGameTask115"))return null;
   if(g.has(LocalWorkflowSelection.KEY))return bootstrapLocalWorkflow(g);
   if(g.has(RampTraceChain.KEY))return c.has(RampTraceChain.HANDOFF)?null:bootRamp(g);
+  if(g.has(RelayClearanceChain.PLAN)){
+   String id=g.getString("id");
+   nativeApi.call("/api/game-tasks115/start",new JSONObject().put("id",id)
+           .put("request",g.getJSONObject(RelayClearanceChain.PLAN).getString("request"))
+           .put("expectedSource",g.getJSONObject("relaySource")));
+   c.put("ownedGameTask115",id);
+   g.put("wait044",new JSONObject().put("route","/api/game-tasks115/advance").put("id",id));
+   return null;
+  }
   if(f.equals(RampMission.FAMILY)){
    var intent=RampProcedure.intent(g.getString("goal"));
    String missing=RampProcedure.missingSetup(intent,g.getJSONObject("rampSource"));
@@ -196,20 +212,58 @@ final class Domain044 {
  }
  JSONObject nextSurface(JSONObject g)throws Exception{
   var c=g.getJSONObject("context044");
+  if(g.has(RelayClearanceChain.PLAN)&&c.has(RelayClearanceChain.REPORT)&&!c.has(RelayClearanceChain.RECEIPT)){
+   var handoff=recheckChainHandoff(g);
+   return new JSONObject().put("tool",RelayClearanceChain.CHECK).put("args",new JSONObject()
+           .put("artifact",c.getJSONObject(RelayClearanceChain.REPORT)).put("steps",RelayClearanceChain.checks(handoff)));
+  }
   if(!(g.getString("family044").equals(RampMission.FAMILY)||g.has(RampTraceChain.KEY))||!c.optBoolean("rampReady")||c.optBoolean("rampVerified"))return null;
   var args=nativeApi.call(RampMission.PORT+"report-check",new JSONObject().put("id",g.getString("id")));
   return new JSONObject().put("tool",RampProcedure.Step.CHECK.surfaceTool).put("args",args);
  }
  JSONObject verifiedChainHandoff(JSONObject task)throws Exception{
   String id=task.getString("id");
+  if(task.has(RelayClearanceChain.PLAN)){
+   var run=nativeApi.call("/api/game-tasks115/verify",new JSONObject().put("id",id));
+   return relayHandoff(task,run);
+  }
   var comparison=nativeApi.call(RampMission.PORT+"verify",new JSONObject().put("id",id));
   return RampTraceChain.derive(id,comparison,store.read(comparison.getJSONObject("report").getString("id")),
           task.getJSONObject("rampSource"));
  }
+ private JSONObject relayHandoff(JSONObject task,JSONObject run)throws Exception{
+  return RelayClearanceChain.handoff(task,run,store.read(run.getJSONObject("report").getString("id")));
+ }
  private JSONObject recheckChainHandoff(JSONObject task)throws Exception{
   var original=task.getJSONObject("context044").getJSONObject(RampTraceChain.HANDOFF);
-  if(!verifiedChainHandoff(task).similar(original))throw new IllegalStateException("The original comparison handoff changed");
+  if(!verifiedChainHandoff(task).similar(original))throw new IllegalStateException("The original verified handoff changed");
   return original;
+ }
+ void startRelayDashboard(JSONObject task)throws Exception{
+  var handoff=recheckChainHandoff(task);
+  var artifact=store.writeOnce(RelayClearanceChain.reportKey(task.getString("id")),RelayClearanceChain.dashboard(handoff));
+  task.getJSONObject("context044").put(RelayClearanceChain.REPORT,RelayClearanceChain.ref(handoff,artifact));
+ }
+
+ private JSONObject relayProof(JSONObject task,JSONObject handoff)throws Exception{
+  var c=task.getJSONObject("context044");
+  var ref=c.getJSONObject(RelayClearanceChain.REPORT);
+  var receipt=c.getJSONObject(RelayClearanceChain.RECEIPT);
+  var artifact=store.read(ref.getString("id"));
+  if(!handoff.similar(c.getJSONObject(ReviewedChain.HANDOFF))||!ref.similar(RelayClearanceChain.ref(handoff,artifact)))
+   throw new IllegalStateException("The Relay report and dashboard no longer share the original handoff");
+  RelayClearanceChain.checkReceipt(handoff,artifact,receipt);
+  RelayClearanceChain.checkReceipt(handoff,artifact,artifact.optJSONObject("test"));
+  return new JSONObject().put("playtestSha256",handoff.getString("playtestSha256"))
+          .put("handoffSha256",WorldFrames.hash(handoff)).put("artifact",ref)
+          .put("receiptSha256",WorldFrames.hash(receipt));
+ }
+
+ JSONObject relayArchive(JSONObject task)throws Exception{
+  var proof=relayProof(task,verifiedChainHandoff(task));
+  if(!proof.similar(task.getJSONObject("completion044").getJSONObject("relayProof")))
+   throw new IllegalStateException("The original Relay completion changed");
+  return proof;
  }
  String chainWorkflowIfPresent(JSONObject task)throws Exception{
   if(!task.has(RampTraceChain.KEY)||!task.getJSONObject("context044").has(RampTraceChain.HANDOFF))return "";
@@ -262,6 +316,17 @@ final class Domain044 {
  }
  static JSONObject compact(JSONObject value){if(value.optString("schema").equals("persistent-java-agent-042-v1")||value.toString().length()<50000)return WorldFrames.copy(value);var out=new JSONObject();for(String k:List.of("id","status","reason","procedure","version","sceneId","sceneVersion","title","metrics","report","savedSkill","worldBinding","worldCommit","taskCost080","procedure079","nativeBinding","evaluation","application","activeWorldModel","activeProfile","generation","selectedId","source","snapshotHash","observer","receipt","observationId","worldSha256","action","runId","gripId","count","sourceKind"))if(value.has(k))out.put(k,value.get(k));return out.put("largeSourceRetainedInJavaStore",true);}
  void accept(JSONObject g,String tool,JSONObject result,JSONObject observedContext)throws Exception{
+  if(g.has(RelayClearanceChain.PLAN)){
+   if(!RelayClearanceChain.CHECK.equals(tool))throw new IllegalStateException("Unexpected Relay chain action");
+   var c=g.getJSONObject("context044");
+   var handoff=recheckChainHandoff(g);
+   var artifact=store.read(c.getJSONObject(RelayClearanceChain.REPORT).getString("id"));
+   var stored=artifact.getJSONObject("test");
+   if(!stored.similar(result))throw new IllegalStateException("The returned dashboard checks differ from the stored run");
+   RelayClearanceChain.checkReceipt(handoff,artifact,stored);
+   c.put(RelayClearanceChain.RECEIPT,stored);
+   return;
+  }
   if(g.getString("family044").equals(RampMission.FAMILY)||g.has(RampTraceChain.KEY)){
    String id=g.getString("id");
    var c=g.getJSONObject("context044");
@@ -342,6 +407,11 @@ final class Domain044 {
    receipt.remove("verificationNanos");
    meta.put(RampTraceChain.HANDOFF,handoff).put("chainSummaryReceipt",receipt);
   }
+  if(g.has(RelayClearanceChain.PLAN)){
+   var handoff=relayHandoff(g,meta.getJSONObject("javaGameTask115"));
+   var proof=relayProof(g,handoff);
+   meta.put("relayProof",proof).put(RelayClearanceChain.REPORT,proof.getJSONObject("artifact"));
+  }
   if(g.has("report044"))verifyReport(g);
   for(String k:List.of("agent042Facts","agent042Report","alignmentFacts","alignmentReport","runtimeFacts","runtimeView","runtimeReport","tabletopProbe","tabletopReport","selfFacts","objectFacts","knowledgeReport","observationReport","observationRunId","trackingEvidence","trackingReport","observerCapture","calibrationEvidence","comparisonEvidence"))if(c.has(k))meta.put(k,c.get(k));
   if(c.has("researchJobId")){var j=nativeApi.call("/api/knowledge/job",new JSONObject().put("id",c.getString("researchJobId")));if(!j.getString("status").equals("completed"))throw new IllegalStateException("Research has no completed source receipts");meta.put("researchJob",j);}
@@ -363,6 +433,7 @@ final class Domain044 {
   if(w.has("pendingSkill101"))text+="Execution verified; skill publication is pending. Restart to retry publication.";else if(w.has("savedSkill"))text+="Saved "+w.getJSONObject("savedSkill").getString("name")+" v"+w.getJSONObject("savedSkill").getInt("version")+" for reuse.";return text;
  }
  String summary(JSONObject g,JSONObject meta){
+  if(meta.has("relayProof"))return "Verified the Relay playtest at all three paces and built its replay-linked clearance dashboard.";
   if(meta.has(RampTraceChain.HANDOFF))return "Verified the ramp comparison first, then analyzed the "+meta.getJSONObject(RampTraceChain.HANDOFF).getString("winner")+
           " setup's simulated trace in a separate checked motion summary.";
   if(meta.has("rampMission"))return RampMission.summary(meta.getJSONObject("rampMission").getJSONObject("audit"));
@@ -384,6 +455,10 @@ final class Domain044 {
   if(g.has(RampTraceChain.KEY)){
    g.remove("wait044");
    if(c.has("ownedWorkflowId"))startChainSummary(g);
+   return;
+  }
+  if(g.has(RelayClearanceChain.PLAN)&&c.has(ReviewedChain.HANDOFF)){
+   g.remove("wait044");
    return;
   }
   if(c.has("ownedGameTask115")){var task=nativeApi.call("/api/game-tasks115/read",new JSONObject().put("id",c.getString("ownedGameTask115")));if(task.getString("status").equals("interrupted"))nativeApi.call("/api/game-tasks115/resume",new JSONObject().put("id",task.getString("id")));g.put("wait044",new JSONObject().put("route","/api/game-tasks115/advance").put("id",task.getString("id")));return;}

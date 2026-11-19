@@ -12,6 +12,8 @@ final class ChatChain052 {
         if(g.has(BrowserOutcome126.KEY))objective.put(BrowserOutcome126.KEY,g.getJSONObject(BrowserOutcome126.KEY));
         if(g.has("rampSource"))objective.put("rampSource",g.getJSONObject("rampSource"));
         if(g.has(RampTraceChain.KEY))objective.put(RampTraceChain.KEY,g.getJSONObject(RampTraceChain.KEY));
+        if(g.has(RelayClearanceChain.PLAN))objective.put(RelayClearanceChain.PLAN,g.getJSONObject(RelayClearanceChain.PLAN))
+                .put("relaySource",g.getJSONObject("relaySource"));
         if(g.has(LocalWorkflowSelection.KEY))objective.put(LocalWorkflowSelection.KEY,g.getJSONObject(LocalWorkflowSelection.KEY))
                 .put("model",g.getString("model"));
         if(g.has("planWorld099"))objective.put("planWorld099",g.getBoolean("planWorld099"));
@@ -20,7 +22,7 @@ final class ChatChain052 {
 
     static void verifyObjective(JSONObject g) {
         LocalWorkflowSelection.verifySelection(g);
-        RampTraceChain.verifyJournal(g);
+        ReviewedChain.verifyJournal(g);
         for (Object raw : g.getJSONArray("history")) {
             var row = (JSONObject) raw;
             if (row.getString("kind").equals("queued") && row.getJSONObject("detail").has("objectiveSha256")) {

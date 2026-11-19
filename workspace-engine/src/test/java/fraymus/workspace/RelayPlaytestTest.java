@@ -19,6 +19,12 @@ public class RelayPlaytestTest {
         JSONObject request = new JSONObject().put("id", id).put("request", "Playtest Relay Ridge at all three paces.");
         JSONObject before = null;
         try (var store = new WorkspaceStore(project); var runner = new RelayPlaytest(repo, project, store)) {
+            var approvedSource = runner.bind(request.getString("request"));
+            var changedSource = WorldFrames.copy(approvedSource).put("manifestSha256", "changed");
+            assertThrows(IllegalStateException.class, () -> runner.start(
+                    WorldFrames.copy(request).put("expectedSource", changedSource)));
+            assertFalse(runner.owns(id));
+            request.put("expectedSource", approvedSource);
             assertEquals("running", runner.start(request).getString("status"));
             assertThrows(IllegalStateException.class, () -> runner.verify(id));
             for (int i = 0; i < 150; i++) {
