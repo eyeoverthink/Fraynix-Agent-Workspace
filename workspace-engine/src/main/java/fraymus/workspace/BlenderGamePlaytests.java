@@ -27,6 +27,7 @@ final class BlenderGamePlaytests implements AutoCloseable {
     });
     private volatile String active;
     private volatile boolean closed;
+    private volatile boolean stopped;
 
     BlenderGamePlaytests(Path repo, Path project, BlenderGameCandidates candidates) {
         this.candidates = candidates;
@@ -49,6 +50,7 @@ final class BlenderGamePlaytests implements AutoCloseable {
                 .put("engine", engine()).put("status", "running");
         attempts.put(attempt);
         task.put("status", "running").put("message", "Preparing the first isolated AI playtest.");
+        stopped = false;
         active = id;
         try {
             save(candidate, task);
@@ -56,9 +58,27 @@ final class BlenderGamePlaytests implements AutoCloseable {
             active = null;
             throw error;
         }
-        var initial = view(task);
+        var initial = view(task).put("started", true);
         worker.execute(() -> run(candidate, task, attempt));
         return initial;
+    }
+
+    synchronized void stop(String id) {
+        if (id.equals(active)) stopped = true;
+    }
+
+    JSONObject failure(String id) throws Exception {
+        var candidate = candidates.read(id);
+        var task = load(candidate);
+        require("failed".equals(task.getString("status")), "A completed failed playtest is required");
+        var attempts = task.getJSONArray("attempts");
+        var attempt = attempts.getJSONObject(attempts.length() - 1);
+        var trials = attempt.getJSONArray("trials");
+        require("failed".equals(attempt.getString("status")) && trials.length() >= 1 && trials.length() <= 2
+                && engine().similar(attempt.getJSONObject("engine")), "The original failed run or engine changed");
+        for (int index = 0; index < trials.length(); index++)
+            checkTrial(candidate, attempt, index, index != trials.length() - 1);
+        return new JSONObject().put("candidate", candidate.binding()).put("attempt", attempt);
     }
 
     JSONObject state(String id) throws Exception {
@@ -123,6 +143,7 @@ final class BlenderGamePlaytests implements AutoCloseable {
                     return;
                 }
             }
+            if (stopped || closed) throw new InterruptedException("Playtest interrupted");
             var checked = candidates.read(candidate.info().getString("id"));
             var proof = audit(checked, attempt);
             attempt.put("status", "passed");
@@ -154,7 +175,7 @@ final class BlenderGamePlaytests implements AutoCloseable {
         attempt.getJSONArray("trials").put(trial);
         double target = candidate.info().getDouble("finishX") + 1;
         for (int chunk = 1; chunk <= MAX_CHUNKS; chunk++) {
-            if (closed) throw new InterruptedException("Playtest interrupted");
+            if (closed || stopped) throw new InterruptedException("Playtest interrupted");
             frame = game.command(action(target));
             state = frame.getJSONObject("state");
             require(session.equals(state.getString("sessionId")) && frame.getString("levelId").equals(candidate.info().getString("id"))
@@ -198,22 +219,8 @@ final class BlenderGamePlaytests implements AutoCloseable {
         var sessions = new HashSet<String>();
         for (int i = 0; i < trials.length(); i++) {
             var trial = trials.getJSONObject(i);
-            require(sessions.add(trial.getString("session")) && trial.getString("status").equals("won"), "Actual distinct wins required");
-            var trace = trial.getJSONArray("trace");
-            require(trace.length() >= 2 && trace.length() <= MAX_CHUNKS + 1, "Invalid native trace length");
-            String id = trace.getJSONObject(0).getJSONObject("player").getString("id");
-            for (int j = 0; j < trace.length(); j++) {
-                var sample = trace.getJSONObject(j);
-                var player = sample.getJSONObject("player");
-                require(sample.getInt("tick") == j * CHUNK_TICKS && id.equals(player.getString("id"))
-                        && !player.getBoolean("dead") && player.getBoolean("won") == (j == trace.length() - 1),
-                        "Native trace continuity or beacon contact changed");
-                SpatialScene.number(player, "x", -200, 200);
-                SpatialScene.number(player, "y", -200, 200);
-            }
-            String job = UUID.fromString(attempt.getString("id")).toString();
-            Path image = candidate.directory().resolve(job + "-trial-" + (i + 1) + ".png");
-            require(GameLevels114.hash(image).equals(trial.getString("imageSha256")), "Original finish screenshot changed");
+            require(sessions.add(trial.getString("session")), "Distinct game sessions required");
+            checkTrial(candidate, attempt, i, true);
         }
         var first = trials.getJSONObject(0).getJSONArray("trace");
         require(first.similar(trials.getJSONObject(1).getJSONArray("trace")), "Fresh playtest motion differs");
@@ -221,6 +228,31 @@ final class BlenderGamePlaytests implements AutoCloseable {
                 .put("candidate", candidate.binding()).put("controller", action(candidate.info().getDouble("finishX") + 1))
                 .put("trials", trials.length()).put("ticks", first.getJSONObject(first.length() - 1).getInt("tick"))
                 .put("traceSha256", WorldFrames.hash(new JSONObject().put("trace", first)));
+    }
+
+    private static void checkTrial(BlenderGameCandidates.Candidate candidate, JSONObject attempt, int i, boolean won)
+            throws Exception {
+        var trial = attempt.getJSONArray("trials").getJSONObject(i);
+        UUID.fromString(trial.getString("session"));
+        require(trial.getString("status").equals(won ? "won" : "failed"), "Unexpected native trial status");
+        var trace = trial.getJSONArray("trace");
+        require(trace.length() >= 2 && trace.length() <= MAX_CHUNKS + 1, "Invalid native trace length");
+        String id = trace.getJSONObject(0).getJSONObject("player").getString("id");
+        for (int j = 0; j < trace.length(); j++) {
+            var sample = trace.getJSONObject(j);
+            var player = sample.getJSONObject("player");
+            boolean last = j == trace.length() - 1;
+            require(sample.getInt("tick") == j * CHUNK_TICKS && id.equals(player.getString("id"))
+                    && (last && !won || !player.getBoolean("dead")) && player.getBoolean("won") == (last && won),
+                    "Native trace continuity or beacon contact changed");
+            if (last && !won) require(player.getBoolean("dead") || j == MAX_CHUNKS,
+                    "Failed trial lacks death or an exhausted input budget");
+            SpatialScene.number(player, "x", -200, 200);
+            SpatialScene.number(player, "y", -200, 200);
+        }
+        String job = UUID.fromString(attempt.getString("id")).toString();
+        Path image = candidate.directory().resolve(job + "-trial-" + (i + 1) + ".png");
+        require(GameLevels114.hash(image).equals(trial.getString("imageSha256")), "Original finish screenshot changed");
     }
 
     private static void require(boolean condition, String message) {

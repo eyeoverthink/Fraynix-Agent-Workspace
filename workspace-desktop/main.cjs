@@ -220,6 +220,7 @@ async function executeRaw(tool,args={}){
       if(!agencyScope043.getStore()) throw Error('Start this experiment in chat');
       result=await observeRamp(browser,origin,args.path);
       break;
+    case 'blenderRepair.check':
     case 'relayDashboard.check':
     case 'localRamp.check': {
       if(!agencyScope043.getStore()) throw Error('The report check needs its Java mission');
@@ -359,12 +360,13 @@ async function mission044(id){
  else if(c.ownedGameTask115)child=await api('/api/game-tasks115/read',{id:c.ownedGameTask115});
  const result=g.report044?.artifact||g.completion044?.relayDashboard||g.completion044?.javaGoal?.report||g.completion044?.javaWorkflow?.report||g.report||g.artifact||(g.relayClearanceChain&&!chainPlaytest?null:child?.report)||null;
  const finishedRelay=task.relayClearanceChain&&g.status==='completed';
- return{task,sources,chainComparison,chainPlaytest,evidence:g.completion044||{},child:child&&!finishedRelay?Object.fromEntries(['id','status','step','stage','reason','procedure','metrics','audit','trials','repairs','counterfactual045','savedSkill','draftNumber','resumes','attempt','report','currentChild','implementation103','profile101','qualification104','qualification105','activeWorkflow105','cost105','auditHistory','graph','graphSha256','stages','diagnostics','worldBinding','inputFormat'].filter(k=>child[k]!==undefined).map(k=>[k,child[k]])):null,result,skill:g.savedRecipe||g.usedRecipe||g.completion044?.javaGoal?.savedSkill||g.completion044?.javaWorkflow?.savedSkill||child?.savedSkill||null,scope:'Actual retained Java task and source selections. A past result is not a new camera observation or proof of improved model weights.'};
+ return{task,sources,chainComparison,chainPlaytest,evidence:g.completion044||{},child:child&&!finishedRelay?Object.fromEntries(['id','status','step','stage','reason','procedure','metrics','audit','diagnosis','trials','repairs','counterfactual045','savedSkill','draftNumber','resumes','attempt','report','currentChild','implementation103','profile101','qualification104','qualification105','activeWorkflow105','cost105','auditHistory','graph','graphSha256','stages','diagnostics','worldBinding','inputFormat'].filter(k=>child[k]!==undefined).map(k=>[k,child[k]])):null,result,skill:g.savedRecipe||g.usedRecipe||g.completion044?.javaGoal?.savedSkill||g.completion044?.javaWorkflow?.savedSkill||child?.savedSkill||null,scope:'Actual retained Java task and source selections. A past result is not a new camera observation or proof of improved model weights.'};
 }
 async function openMissionResult(mission) {
   const {child, result} = mission;
   const relay = child?.procedure === 'relay-playtest-v1'
     ? await api('/api/game-tasks115/verify', {id: child.id}) : null;
+  if (child?.procedure === 'blender-gap-repair-v1') await api('/api/game-tasks115/verify', {id: child.id});
   if(['local-ramp-experiment-v1','local-ramp-comparison-v1'].includes(child?.procedure))await api('/api/ramp-mission/verify',{id:child.id});
   const artifact = await api('/api/artifact/read', {id: result.id});
   if (artifact.version !== result.version) {

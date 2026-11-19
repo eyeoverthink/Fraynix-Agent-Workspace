@@ -16,7 +16,7 @@ final class ChatPolicy044 {
   if(LocalWorkflowSelection.intent(s)!=null)return LocalWorkflowSelection.FAMILY;
   if(RecordedSmall162.requested(s)||CalibratedAction159.requested(s)||ObservationTask158.requested(s)||ObservationArtifact128.requested(s))return "workflow";
   if(RampMission.requested(s))return RampMission.FAMILY;
-  if(RelayPlaytest.requested(s)||GameTask115.requested(s))return "gamelevel";
+  if(BlenderGapRepair.requested(s)||RelayPlaytest.requested(s)||GameTask115.requested(s))return "gamelevel";
   if(Qualification105.requested(s)||DataCreation101.requested(s)||DataSummary102.requested(s))return "workflow";
   if(!webCreation(s)&&has(s,"(?i)rehearse (?:a |the |verified )?experiment"))return "rehearsal";
   if(!webCreation(s)&&has(s,"(?i)fraynixgpt|fraynix gpt|cortex outcome|physics residual|residual learning|stopping study|stopping traces|stopping uncertainty|contact study|contact impulses|pooled uncertainty|useful observation|observation value|remaining ability to correct|remaining correction|uncertainty study|uncertainty estimates|risky skip|skipping a look|calibrated residual|observation uncertainty|adaptive observation|observation timing|observation schedule|sensing effort|later observation|later recovery|second correction|recovery calibration|calibrated recovery|unfamiliar disturbances|temporal contact|temporal recovery|pre-push|recovery value|bounded recovery|recovery study|replanning costs|decision value|decision study|target window|uncertainty policy"))return "agent";

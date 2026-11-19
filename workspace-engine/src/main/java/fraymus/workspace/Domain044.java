@@ -234,6 +234,12 @@ final class Domain044 {
  }
  JSONObject nextSurface(JSONObject g)throws Exception{
   var c=g.getJSONObject("context044");
+  var game=c.optJSONObject("gameEvidence115");
+  if(game!=null&&BlenderGapRepair.KIND.equals(game.optString("procedure"))&&!c.has(BlenderGapRepair.DISPLAY)){
+   var checked=nativeApi.call("/api/game-tasks115/verify",new JSONObject().put("id",game.getString("id")));
+   return new JSONObject().put("tool",BlenderGapRepair.CHECK).put("args",new JSONObject()
+           .put("artifact",checked.getJSONObject("report")).put("steps",BlenderGapRepair.displayChecks(checked)));
+  }
   if(g.has(RelayClearanceChain.PLAN)&&c.has(RelayClearanceChain.REPORT)&&!c.has(RelayClearanceChain.RECEIPT)){
    var handoff=recheckChainHandoff(g);
    return new JSONObject().put("tool",RelayClearanceChain.CHECK).put("args",new JSONObject()
@@ -338,6 +344,15 @@ final class Domain044 {
  }
  static JSONObject compact(JSONObject value){if(value.optString("schema").equals("persistent-java-agent-042-v1")||value.toString().length()<50000)return WorldFrames.copy(value);var out=new JSONObject();for(String k:List.of("id","status","reason","procedure","version","sceneId","sceneVersion","title","metrics","report","savedSkill","worldBinding","worldCommit","taskCost080","procedure079","nativeBinding","evaluation","application","activeWorldModel","activeProfile","generation","selectedId","source","snapshotHash","observer","receipt","observationId","worldSha256","action","runId","gripId","count","sourceKind"))if(value.has(k))out.put(k,value.get(k));return out.put("largeSourceRetainedInJavaStore",true);}
  void accept(JSONObject g,String tool,JSONObject result,JSONObject observedContext)throws Exception{
+  if(BlenderGapRepair.CHECK.equals(tool)){
+   var c=g.getJSONObject("context044");
+   var game=c.getJSONObject("gameEvidence115");
+   if(!BlenderGapRepair.KIND.equals(game.getString("procedure")))throw new IllegalStateException("No owned Blender repair");
+   var receipt=nativeApi.call("/internal/blender-repair/accept-display",new JSONObject()
+           .put("id",game.getString("id")).put("receipt",result));
+   c.put(BlenderGapRepair.DISPLAY,WorldFrames.hash(receipt));
+   return;
+  }
   if(g.has(RelayClearanceChain.PLAN)){
    if(!RelayClearanceChain.CHECK.equals(tool))throw new IllegalStateException("Unexpected Relay chain action");
    var c=g.getJSONObject("context044");
@@ -415,7 +430,13 @@ final class Domain044 {
   var c=g.getJSONObject("context044");if(!ChatPolicy044.allowed(g).contains("finish"))throw new IllegalStateException("Java completion stage has not been reached");var meta=new JSONObject();
   if(c.has("ownedRampMission"))meta.put("rampMission",
           nativeApi.call(RampMission.PORT+"verify",new JSONObject().put("id",c.getString("ownedRampMission"))));
-  if(c.has("ownedGameTask115"))meta.put("javaGameTask115",nativeApi.call("/api/game-tasks115/verify",new JSONObject().put("id",c.getString("ownedGameTask115"))));
+  if(c.has("ownedGameTask115")){
+   var game=nativeApi.call("/api/game-tasks115/verify",new JSONObject().put("id",c.getString("ownedGameTask115")));
+   if(BlenderGapRepair.KIND.equals(game.optString("procedure"))
+           &&(!game.has("display")||!WorldFrames.hash(game.getJSONObject("display")).equals(c.optString(BlenderGapRepair.DISPLAY))))
+    throw new IllegalStateException("The Blender report display receipt is missing or changed");
+   meta.put("javaGameTask115",game);
+  }
   if(c.has("ownedGoalId")){var child=nativeApi.call("/api/goals/read",new JSONObject().put("id",c.getString("ownedGoalId")));if(!child.getString("status").equals("completed"))throw new IllegalStateException("Native goal has no completed verified outcome");c.put("goalEvidence",compact(child));meta.put("javaGoal",child);}
   if(c.has("ownedWorkflowId")){var w=nativeApi.call("/api/workflows/read",new JSONObject().put("id",c.getString("ownedWorkflowId")));if(!w.getString("status").equals("completed")||!w.getJSONObject("audit").getBoolean("passed"))throw new IllegalStateException("Workflow's actual independent audit is incomplete");if(RecordedSmall162.own(w)||CalibratedAction159.own(w)||ObservationTask158.own(w)||ObservationArtifact128.own(w))nativeApi.call("/api/workflows/verify-archive",new JSONObject().put("id",w.getString("id")));meta.put("javaWorkflow",w);}
   if(g.has(RampTraceChain.KEY)){
@@ -461,6 +482,7 @@ final class Domain044 {
   if(meta.has("rampMission"))return RampMission.summary(meta.getJSONObject("rampMission").getJSONObject("audit"));
   if(meta.has("javaGameTask115")){
    var audit=meta.getJSONObject("javaGameTask115").getJSONObject("audit");
+   if(BlenderGapRepair.KIND.equals(audit.optString("kind")))return BlenderGapRepair.summary(audit);
    return RelayPlaytest.KIND.equals(audit.optString("kind"))?RelayPlaytest.summary(audit):GameSummary118.describe(audit);
   }return meta.has("javaWorkflow")?workflowSummary046(meta.getJSONObject("javaWorkflow")):ChatChain052.summary(g,meta);}
  void cancel(JSONObject g)throws Exception{var c=g.getJSONObject("context044");

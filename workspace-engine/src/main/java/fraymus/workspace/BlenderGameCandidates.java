@@ -44,12 +44,21 @@ final class BlenderGameCandidates {
     private record Cell(int x, int y) {}
 
     synchronized JSONObject retain(JSONObject input) throws Exception {
+        SpatialScene.keys(input, "snapshot", "moves", "blendSha256");
+        return retain(UUID.randomUUID().toString(), input);
+    }
+
+    synchronized JSONObject retain(String id, JSONObject input) throws Exception {
+        if (Files.exists(directory(id))) {
+            var existing = read(id);
+            if (!input(existing).similar(input)) throw new IllegalStateException("The existing candidate has different inputs");
+            return existing.info();
+        }
         try (var folders = Files.list(root)) {
             if (folders.filter(Files::isDirectory).filter(p -> !p.getFileName().toString().startsWith("."))
                     .count() >= 32) throw new IllegalStateException("Blender candidate history is full (32)");
         }
         var build = compile(input);
-        String id = UUID.randomUUID().toString();
         Path staging = Files.createTempDirectory(root, ".pending-");
         var info = build.info().put("id", id);
         Path level = staging.resolve("level.json");
@@ -76,6 +85,10 @@ final class BlenderGameCandidates {
         return list;
     }
 
+    JSONObject input(Candidate candidate) throws Exception {
+        return AgentFiles042.loadChecked(candidate.directory().resolve("source.json")).getJSONObject("input");
+    }
+
     Candidate read(String id) throws Exception {
         Path folder = directory(id);
         var input = AgentFiles042.loadChecked(folder.resolve("source.json"));
@@ -94,7 +107,7 @@ final class BlenderGameCandidates {
     }
 
     private Build compile(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "snapshot", "moves", "blendSha256");
+        SpatialScene.keys(input, "snapshot", "moves", "blendSha256", "repair");
         String snapshot = input.getString("snapshot");
         String blendHash = input.getString("blendSha256");
         if (snapshot.length() > 1_800_000 || !blendHash.matches("[0-9a-f]{64}"))
@@ -174,6 +187,14 @@ final class BlenderGameCandidates {
         var info = new JSONObject().put("courseId", course.id()).put("title", course.title() + " · Blender candidate")
                 .put("manifestSha256", pack.getString("manifestSha256")).put("finishX", finish)
                 .put("snapshotSha256", verified.getString("snapshotHash")).put("blendSha256", blendHash).put("moves", lineage);
+        if (input.has("repair")) {
+            var repair = input.getJSONObject("repair");
+            SpatialScene.keys(repair, "parentId", "planSha256");
+            directory(repair.getString("parentId"));
+            if (!repair.getString("planSha256").matches("[0-9a-f]{64}"))
+                throw new IllegalArgumentException("Invalid repair plan hash");
+            info.put("repair", repair).put("title", course.title() + " · repaired Blender candidate");
+        }
         return new Build(course, pack, level, info);
     }
 

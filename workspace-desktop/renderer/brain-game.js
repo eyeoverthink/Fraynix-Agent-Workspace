@@ -136,6 +136,7 @@ export class BrainGame {
    <div class="runtime-controls"><button id="game-blender-import">Import Blender candidate</button>
    <select id="game-blender-choice" aria-label="Blender level candidate"></select>
    <button id="game-blender-open">Open candidate</button><button id="game-blender-start">Run AI playtest</button>
+   <button id="game-blender-repair">Prepare repair request</button>
    <button id="game-blender-verify">Recheck evidence</button><button id="game-blender-evidence">Export evidence</button></div>
    <p id="game-blender-status" role="status"></p>`;
   $('game-view').prepend(box);
@@ -148,6 +149,8 @@ export class BrainGame {
    choice.disabled=busy;
    $('game-blender-open').disabled=busy||!valid();
    $('game-blender-start').disabled=busy||!valid()||!['ready','interrupted'].includes(trial?.status);
+   $('game-blender-repair').disabled=busy||!valid()||choice.selectedOptions[0]?.dataset.repaired==='yes'
+    ||!['ready','failed','interrupted'].includes(trial?.status);
    for(const action of ['verify','evidence'])$('game-blender-'+action).disabled=busy||!valid()||trial?.status!=='passed';
   };
   const refresh=async()=>{
@@ -163,6 +166,7 @@ export class BrainGame {
    choice.replaceChildren(...result.candidates.map(row=>{
     const option=new Option(row.error?'Needs attention · '+row.id.slice(0,8):row.title+' · '+row.id.slice(0,8),row.id);
     option.dataset.checked=row.error?'no':'yes';
+    option.dataset.repaired=row.repair?'yes':'no';
     return option;
    }));
    if(result.candidates.some(row=>row.id===id))choice.value=id;
@@ -194,6 +198,13 @@ export class BrainGame {
    trial=await call('start',{id:choice.value});
    status.textContent=trial.message;
   });
+  $('game-blender-repair').onclick=()=>{
+   const goal=$('goal');
+   goal.value='Diagnose and repair Blender candidate '+choice.value+', then playtest and save the evidence.';
+   goal.dispatchEvent(new Event('input'));
+   goal.focus();
+   this.notice('Repair request prepared. Start task to diagnose, repair and playtest once.');
+  };
   $('game-blender-verify').onclick=act(async()=>{
    const audit=await call('verify',{id:choice.value});
    status.textContent='Checked '+audit.proof.trials+' wins at tick '+audit.proof.ticks+' and the saved source.';

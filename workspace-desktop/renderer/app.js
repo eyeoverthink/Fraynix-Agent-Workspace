@@ -52,7 +52,8 @@ function quickWorkflowRequest(text) {
  return /^route a local workflow:[ \t]*\S.{0,1199}$/i.test(text.trim());
 }
 function offlineMissionRequest(text) {
- return /^review a local chain:/i.test(text.trim()) || /^run local workflow (?:ramp|analysis):[ \t]*\S.{0,1199}$/i.test(text.trim()) || /^(?:run the local ramp experiment|compare the local ramp setups)(?: and pause after reading)?[.!]?$/i.test(text.trim()) || /^(?:playtest|verify) relay (?:ridge|switchyard) at (?:all three paces|(?:normal|steady|careful) pace)[.!]?$/i.test(text.trim());
+ return /^Diagnose and repair Blender candidate [0-9a-f-]{36}, then playtest and save the evidence[.!]?(?: Pause after repair[.!]?)?$/i.test(text.trim()) ||
+  /^review a local chain:/i.test(text.trim()) || /^run local workflow (?:ramp|analysis):[ \t]*\S.{0,1199}$/i.test(text.trim()) || /^(?:run the local ramp experiment|compare the local ramp setups)(?: and pause after reading)?[.!]?$/i.test(text.trim()) || /^(?:playtest|verify) relay (?:ridge|switchyard) at (?:all three paces|(?:normal|steady|careful) pace)[.!]?$/i.test(text.trim());
 }
 function plannedRampRequest(text) {
  return /^(?:plan the local ramp experiment(?: and pause after reading)?[.!]?|plan a local ramp task(?: and pause after reading)?:[ 	]*\S.{0,1199})$/i.test(text.trim());

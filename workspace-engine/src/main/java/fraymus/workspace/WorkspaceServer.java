@@ -19,6 +19,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private RelayPlaytest relayPlaytest;
     private BlenderGameCandidates blenderCandidates;
     private BlenderGamePlaytests blenderPlaytests;
+    private BlenderGapRepair blenderRepairs;
     private RampMission rampMission;
     private final boolean modelFree = "1".equals(System.getenv("FRAYNIX_WORKSPACE_NO_MODELS"));
     private GameReference115 gameReferences115;
@@ -89,6 +90,7 @@ public final class WorkspaceServer implements AutoCloseable {
             Path repo = Path.of(System.getProperty("user.dir"));
             blenderCandidates = new BlenderGameCandidates(repo, project);
             blenderPlaytests = new BlenderGamePlaytests(repo, project, blenderCandidates);
+            blenderRepairs = new BlenderGapRepair(project, blenderCandidates, blenderPlaytests, store);
             rampMission = new RampMission(project, store);
             runtime040=new SpatialRuntime040(project,goals.worlds(),goals.worldNative(),tabletop,knowledge,game);alignment041=new Alignment041Store(project,goals.worlds());workflows.install159(new CalibratedPlane159(project,alignment041,goals.worlds()));accuracy160=new PlaneAccuracyStore160(project,alignment041,goals.worlds(),store);small161=new SmallStore161(project,store);workflows.install162(new RecordedSmall162(project,alignment041,goals.worlds(),small161));smallObjectRoutes=new SmallObjectRoutes(small161,spatial,workflows);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         try{agentRuntime=new AgentRuntime042(project,brain,this::agentFacts042,this::detachHost042,persistentHost);agency=new Agency043(project,store,learning,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();},(kind,evidence)->agentRuntime.record043(kind,evidence),this::sharedBusy043,true);var domain=new Domain044(this::call044,store);agency.install044(domain);agency.installRelayArchive(domain::relayArchive);agency.installArchive112(task->{var bound=task.getJSONObject("completion044").getJSONObject("javaWorkflow");String id=task.getJSONObject("context044").getString("ownedWorkflowId");if(!id.equals(bound.getString("id")))throw new IllegalStateException("Original chat/workflow owner changed");var proof=workflows.verifyArchive110(id);var current=workflows.read(id);for(String k:List.of("status","audit","report","savedSkill","dataBinding"))if(bound.has(k)&&(!current.has(k)||!new JSONObject().put("v",bound.get(k)).similar(new JSONObject().put("v",current.get(k)))))throw new IllegalStateException("Original chat workflow completion changed: "+k);proof.remove("verificationNanos");return proof;});agency.installRampArchive(rampMission::historyEvidence);creation044=new CreationPlanner044(project,goals,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();});}catch(Exception e){close();throw new IOException("Java agent state needs attention; originals retained",e);}
@@ -818,9 +820,18 @@ public final class WorkspaceServer implements AutoCloseable {
     }
     private JSONObject playtestPort(String action, JSONObject args) throws Exception {
         if (action.equals("start")) {
+            if (BlenderGapRepair.requested(args.getString("request"))) return blenderRepairs.start(args);
             return RelayPlaytest.requested(args.getString("request")) ? relayPlaytest.start(args) : gameTasks115.start(args);
         }
         String id = args.getString("id");
+        if (blenderRepairs.owns(id)) {
+            return switch (action) {
+                case "advance" -> blenderRepairs.advance(id);
+                case "read" -> blenderRepairs.read(id);
+                case "verify" -> blenderRepairs.verify(id);
+                default -> blenderRepairs.control(id, action);
+            };
+        }
         if (relayPlaytest.owns(id)) {
             return switch (action) {
                 case "advance" -> relayPlaytest.advance(id);
@@ -855,6 +866,8 @@ public final class WorkspaceServer implements AutoCloseable {
         }
         return switch(route){
             case "/internal/relay/bind" -> relayPlaytest.bind(args.getString("request"));
+            case "/internal/blender-repair/accept-display" ->
+                blenderRepairs.acceptDisplay(args.getString("id"), args.getJSONObject("receipt"));
             case "/api/game-tasks115/start", "/api/game-tasks115/advance", "/api/game-tasks115/read",
                  "/api/game-tasks115/verify", "/api/game-tasks115/resume", "/api/game-tasks115/cancel",
                  "/api/game-tasks115/interrupt" -> playtestPort(route.substring(route.lastIndexOf('/') + 1), args);
