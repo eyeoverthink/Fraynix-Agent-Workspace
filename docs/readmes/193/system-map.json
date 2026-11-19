@@ -1,0 +1,48 @@
+{
+  "summary": "Teach a named CSV conversion lesson in Chat, attach fresh rows and build an offline browser tool. Java verifies the generated tool with both the input data and unseen measurements.",
+  "modules": [
+    {
+      "title": "CSV tool verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FrayDataTool.java",
+      "note": "docs/obsidian/201-verified-data-tool-lessons.md"
+    },
+    {
+      "title": "Teaching and recovery",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java",
+      "note": "docs/obsidian/201-verified-data-tool-lessons.md"
+    },
+    {
+      "title": "Workbench controls",
+      "source": "workspace-desktop/renderer/request-workbench.js",
+      "note": "docs/obsidian/201-verified-data-tool-lessons.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/193/chat-teaches-batch-tool.png",
+      "title": "Chat saves the named lesson from a verified CSV tool"
+    },
+    {
+      "path": "docs/readmes/193/fresh-csv-reviewed.png",
+      "title": "Workbench reviews a different CSV under the saved lesson"
+    },
+    {
+      "path": "docs/readmes/193/fresh-batch-verified.png",
+      "title": "Canvas shows the new verified tool and its results"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/193/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/193/fresh-browser-receipt.json",
+      "title": "Original Chromium receipt"
+    },
+    {
+      "path": "docs/readmes/193/offline-converter.html",
+      "title": "Runnable offline tool"
+    }
+  ]
+}

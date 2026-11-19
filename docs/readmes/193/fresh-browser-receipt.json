@@ -1,0 +1,206 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "celsius\n+0000000.0000\n-17.7777\n37.1234\n-999999.9999\n1000000"
+      },
+      "expected": {
+        "selector": "#source",
+        "expectValue": "celsius\n+0000000.0000\n-17.7777\n37.1234\n-999999.9999\n1000000"
+      },
+      "index": 0,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "32 °F\n0.00014 °F\n98.82212 °F\n-1799967.99982 °F\n1800032 °F",
+        "value": null
+      },
+      "expected": {
+        "expectText": "32 °F\n0.00014 °F\n98.82212 °F\n-1799967.99982 °F\n1800032 °F",
+        "selector": "#result"
+      },
+      "index": 1,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "celsius\n-19.8251\n+0.0001\n-1000000\n246.875"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "celsius\n-19.8251\n+0.0001\n-1000000\n246.875",
+        "value": "celsius\n-19.8251\n+0.0001\n-1000000\n246.875"
+      },
+      "index": 2,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "-3.68518 °F\n32.00018 °F\n-1799968 °F\n476.375 °F",
+        "value": null
+      },
+      "expected": {
+        "expectText": "-3.68518 °F\n32.00018 °F\n-1799968 °F\n476.375 °F",
+        "selector": "#result"
+      },
+      "index": 3,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "inches\n1"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "inches\n1",
+        "value": "inches\n1"
+      },
+      "index": 4,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Use the indicated header and 1–24 rows of plain decimals within range.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Use the indicated header and 1–24 rows of plain decimals within range.",
+        "selector": "#result"
+      },
+      "index": 5,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "celsius\n1e3"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "celsius\n1e3",
+        "value": "celsius\n1e3"
+      },
+      "index": 6,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Use the indicated header and 1–24 rows of plain decimals within range.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Use the indicated header and 1–24 rows of plain decimals within range.",
+        "selector": "#result"
+      },
+      "index": 7,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "celsius\n+0000000.0000\n-17.7777\n37.1234\n-999999.9999\n1000000"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "celsius\n+0000000.0000\n-17.7777\n37.1234\n-999999.9999\n1000000",
+        "value": "celsius\n+0000000.0000\n-17.7777\n37.1234\n-999999.9999\n1000000"
+      },
+      "index": 8,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "32 °F\n0.00014 °F\n98.82212 °F\n-1799967.99982 °F\n1800032 °F",
+        "value": null
+      },
+      "expected": {
+        "expectText": "32 °F\n0.00014 °F\n98.82212 °F\n-1799967.99982 °F\n1800032 °F",
+        "selector": "#result"
+      },
+      "index": 9,
+      "selector": "#result",
+      "passed": true
+    }
+  ],
+  "at": "2026-11-19T13:46:12.127243400Z",
+  "id": "6fcdc3a4-74e2-3edc-ba1a-b2329ded6472",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "selector": "#source",
+      "expectValue": "celsius\n+0000000.0000\n-17.7777\n37.1234\n-999999.9999\n1000000"
+    },
+    {
+      "expectText": "32 °F\n0.00014 °F\n98.82212 °F\n-1799967.99982 °F\n1800032 °F",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "celsius\n-19.8251\n+0.0001\n-1000000\n246.875",
+      "value": "celsius\n-19.8251\n+0.0001\n-1000000\n246.875"
+    },
+    {
+      "expectText": "-3.68518 °F\n32.00018 °F\n-1799968 °F\n476.375 °F",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "inches\n1",
+      "value": "inches\n1"
+    },
+    {
+      "expectText": "Use the indicated header and 1–24 rows of plain decimals within range.",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "celsius\n1e3",
+      "value": "celsius\n1e3"
+    },
+    {
+      "expectText": "Use the indicated header and 1–24 rows of plain decimals within range.",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "celsius\n+0000000.0000\n-17.7777\n37.1234\n-999999.9999\n1000000",
+      "value": "celsius\n+0000000.0000\n-17.7777\n37.1234\n-999999.9999\n1000000"
+    },
+    {
+      "expectText": "32 °F\n0.00014 °F\n98.82212 °F\n-1799967.99982 °F\n1800032 °F",
+      "selector": "#result"
+    }
+  ]
+}

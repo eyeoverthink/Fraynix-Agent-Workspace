@@ -1,0 +1,176 @@
+{
+  "passed": true,
+  "teacherId": "03e209d2-1698-40d8-a8b8-309a70c89e02",
+  "learnerId": "1c2892ee-cc1e-408c-b27c-29dc8f499f38",
+  "original": {
+    "sourceSha256": "7c4e2e8bf30c61351b08f26663a917fb8cf3dc43747359981759b27331a5d6b9",
+    "htmlSha256": "17c32748eeb95740e2332cb928e7d7b3a8cc4962ab4c74e80f8b8b15eeab5823",
+    "compilerCommit": "d93947154a1f21dcfd8dfcc97f27439fed6e3275",
+    "cases": [
+      {
+        "input": "celsius\n0\n20\n-40\n36.625",
+        "java": "32 °F\n68 °F\n-40 °F\n97.925 °F",
+        "browser": "32 °F\n68 °F\n-40 °F\n97.925 °F"
+      },
+      {
+        "input": "celsius\n-19.8251\n+0.0001\n1000000\n-1000000\n246.875",
+        "java": "-3.68518 °F\n32.00018 °F\n1800032 °F\n-1799968 °F\n476.375 °F",
+        "browser": "-3.68518 °F\n32.00018 °F\n1800032 °F\n-1799968 °F\n476.375 °F"
+      },
+      {
+        "input": "inches\n1",
+        "java": "Use the indicated header and 1–24 rows of plain decimals within range.",
+        "browser": "Use the indicated header and 1–24 rows of plain decimals within range."
+      },
+      {
+        "input": "celsius\n1e3",
+        "java": "Use the indicated header and 1–24 rows of plain decimals within range.",
+        "browser": "Use the indicated header and 1–24 rows of plain decimals within range."
+      },
+      {
+        "input": "celsius\n0\n20\n-40\n36.625",
+        "java": "32 °F\n68 °F\n-40 °F\n97.925 °F",
+        "browser": "32 °F\n68 °F\n-40 °F\n97.925 °F"
+      }
+    ],
+    "frayBytecodeHex": "4652415901000300010000001040220000000000004014000000000000404000000000000063656c7369757300020000010000120100011301000210ff",
+    "fraySource": "celsius * 9 / 5 + 32",
+    "passed": true,
+    "inputColumn": "celsius",
+    "inputCount": 4
+  },
+  "fresh": {
+    "sourceSha256": "c0e70cc855281529a7ca4aec7b47ccc7f29e788da5f90b6974464c1c3a10955e",
+    "htmlSha256": "3d969a38b34fcf126d5d86fbba259723032b853c02f984903d3e85f43002a630",
+    "compilerCommit": "d93947154a1f21dcfd8dfcc97f27439fed6e3275",
+    "cases": [
+      {
+        "input": "celsius\n+0000000.0000\n-17.7777\n37.1234\n-999999.9999\n1000000",
+        "java": "32 °F\n0.00014 °F\n98.82212 °F\n-1799967.99982 °F\n1800032 °F",
+        "browser": "32 °F\n0.00014 °F\n98.82212 °F\n-1799967.99982 °F\n1800032 °F"
+      },
+      {
+        "input": "celsius\n-19.8251\n+0.0001\n-1000000\n246.875",
+        "java": "-3.68518 °F\n32.00018 °F\n-1799968 °F\n476.375 °F",
+        "browser": "-3.68518 °F\n32.00018 °F\n-1799968 °F\n476.375 °F"
+      },
+      {
+        "input": "inches\n1",
+        "java": "Use the indicated header and 1–24 rows of plain decimals within range.",
+        "browser": "Use the indicated header and 1–24 rows of plain decimals within range."
+      },
+      {
+        "input": "celsius\n1e3",
+        "java": "Use the indicated header and 1–24 rows of plain decimals within range.",
+        "browser": "Use the indicated header and 1–24 rows of plain decimals within range."
+      },
+      {
+        "input": "celsius\n+0000000.0000\n-17.7777\n37.1234\n-999999.9999\n1000000",
+        "java": "32 °F\n0.00014 °F\n98.82212 °F\n-1799967.99982 °F\n1800032 °F",
+        "browser": "32 °F\n0.00014 °F\n98.82212 °F\n-1799967.99982 °F\n1800032 °F"
+      }
+    ],
+    "frayBytecodeHex": "4652415901000300010000001040220000000000004014000000000000404000000000000063656c7369757300020000010000120100011301000210ff",
+    "lesson": {
+      "teacherId": "03e209d2-1698-40d8-a8b8-309a70c89e02",
+      "programSha256": "b64b1fa5c987075c2191ea7174adb3c0f940ad010aa3ed7c73532e177f65ebbb",
+      "teacherSourceSha256": "7c4e2e8bf30c61351b08f26663a917fb8cf3dc43747359981759b27331a5d6b9",
+      "name": "temperature-batch",
+      "column": "celsius",
+      "teacherArtifact": {
+        "sha256": "26b24c5857989a33fb9716c12e1b0d97303d3fc217533facf3b5f293c130aeea",
+        "id": "d37b7c31-8a9a-3f6d-9145-da3a78836942",
+        "version": 1
+      },
+      "exampleValues": [
+        "0",
+        "20",
+        "-40",
+        "36.625"
+      ]
+    },
+    "fraySource": "celsius * 9 / 5 + 32",
+    "passed": true,
+    "inputColumn": "celsius",
+    "inputCount": 5
+  },
+  "length": {
+    "sourceSha256": "a42145b877e67327788bd74175d78db196ed503e015da3e753ebfc50bee8fd11",
+    "htmlSha256": "ae3d74e0721741e3ae27aac53d4ad1e531c8a53d6c2db788922cce2d2e3fcad4",
+    "compilerCommit": "d93947154a1f21dcfd8dfcc97f27439fed6e3275",
+    "cases": [
+      {
+        "input": "inches\n-19.8251\n0.0001\n1000000\n-1000000\n246.875\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19",
+        "java": "-503.55754 mm\n0.00254 mm\n25400000 mm\n-25400000 mm\n6270.625 mm\n25.4 mm\n50.8 mm\n76.2 mm\n101.6 mm\n127 mm\n152.4 mm\n177.8 mm\n203.2 mm\n228.6 mm\n254 mm\n279.4 mm\n304.8 mm\n330.2 mm\n355.6 mm\n381 mm\n406.4 mm\n431.8 mm\n457.2 mm\n482.6 mm",
+        "browser": "-503.55754 mm\n0.00254 mm\n25400000 mm\n-25400000 mm\n6270.625 mm\n25.4 mm\n50.8 mm\n76.2 mm\n101.6 mm\n127 mm\n152.4 mm\n177.8 mm\n203.2 mm\n228.6 mm\n254 mm\n279.4 mm\n304.8 mm\n330.2 mm\n355.6 mm\n381 mm\n406.4 mm\n431.8 mm\n457.2 mm\n482.6 mm"
+      },
+      {
+        "input": "inches\n712.1001\n712.1002\n712.1003",
+        "java": "18087.34254 mm\n18087.34508 mm\n18087.34762 mm",
+        "browser": "18087.34254 mm\n18087.34508 mm\n18087.34762 mm"
+      },
+      {
+        "input": "celsius\n1",
+        "java": "Use the indicated header and 1–24 rows of plain decimals within range.",
+        "browser": "Use the indicated header and 1–24 rows of plain decimals within range."
+      },
+      {
+        "input": "inches\n1e3",
+        "java": "Use the indicated header and 1–24 rows of plain decimals within range.",
+        "browser": "Use the indicated header and 1–24 rows of plain decimals within range."
+      },
+      {
+        "input": "inches\n-19.8251\n0.0001\n1000000\n-1000000\n246.875\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19",
+        "java": "-503.55754 mm\n0.00254 mm\n25400000 mm\n-25400000 mm\n6270.625 mm\n25.4 mm\n50.8 mm\n76.2 mm\n101.6 mm\n127 mm\n152.4 mm\n177.8 mm\n203.2 mm\n228.6 mm\n254 mm\n279.4 mm\n304.8 mm\n330.2 mm\n355.6 mm\n381 mm\n406.4 mm\n431.8 mm\n457.2 mm\n482.6 mm",
+        "browser": "-503.55754 mm\n0.00254 mm\n25400000 mm\n-25400000 mm\n6270.625 mm\n25.4 mm\n50.8 mm\n76.2 mm\n101.6 mm\n127 mm\n152.4 mm\n177.8 mm\n203.2 mm\n228.6 mm\n254 mm\n279.4 mm\n304.8 mm\n330.2 mm\n355.6 mm\n381 mm\n406.4 mm\n431.8 mm\n457.2 mm\n482.6 mm"
+      }
+    ],
+    "frayBytecodeHex": "465241590100010001000000084039666666666666696e636865730002000001000012ff",
+    "fraySource": "inches * 25.4",
+    "passed": true,
+    "inputColumn": "inches",
+    "inputCount": 24
+  },
+  "offline": {
+    "protocol": "file:",
+    "result": "18.5 °F\n113.225 °F"
+  },
+  "checks": {
+    "restartCount": 4,
+    "wrongUnitRefused": true,
+    "nonFreshRefused": true,
+    "outOfRangeRefused": true,
+    "unverifiedTeacherRefused": true,
+    "circularTeacherRefused": true,
+    "swappedBrowserReceiptRefused": true,
+    "teacherReceiptTamperRefused": true,
+    "newReceiptTamperRefused": true,
+    "lessonTamperRefused": true,
+    "sourceReviewRetained": true,
+    "artifactWriteRecovered": true,
+    "sameBrowserReceiptAfterRecovery": true,
+    "completedProofRetained": true
+  },
+  "screenshots": [
+    {
+      "name": "chat-teaches-batch-tool.png",
+      "sha256": "58140d8c9f790d9158bc623cd2fd9a72ba68ac9aa8136b5213dbd6c85aedb909"
+    },
+    {
+      "name": "fresh-csv-reviewed.png",
+      "sha256": "5b82b7f08e618d902230c45cc475a0f08509c5fcce3ece9b7c4349434fc75680"
+    },
+    {
+      "name": "fresh-batch-verified.png",
+      "sha256": "9dd4ad26fe638269a3d590532c5d73775f602d9296f3d1b8a84d094ff1646f67"
+    }
+  ],
+  "source": "8be76bac7e3eff0fbb15cb64e3693f51fad40b27",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 62,
+    "desktop": 181,
+    "archive": 10
+  }
+}

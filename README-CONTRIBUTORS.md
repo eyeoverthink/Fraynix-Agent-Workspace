@@ -1,3 +1,7 @@
+## Edition 193 — Teach Fraynix to build a checked tool from data
+
+2026-11-19. Teach a named CSV conversion lesson in Chat, attach fresh rows and build an offline browser tool. Java verifies the generated tool with both the input data and unseen measurements. After restart, the temperature lesson generated a new tool from 5 fresh CSV rows. Chromium matched Java on every row and 4 additional measurements. A separate 24-row inches tool passed the same gate. 125 root Java tests, 62 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed locally. The lesson, pending review, interrupted artifact save and completed proof passed restart checks. See README-193.md and docs/publication193/plan.md.
+
 ## Edition 192 — Teach Fraynix from a checked repair
 
 2026-11-19. Save a verified Blender repair as a named lesson. Apply it to different terrain through Chat and require fresh playtests before accepting the result. The teaching run repaired 8 ground tiles across a 2.50-unit gap. After restart, the new level stalled on a 2.00-unit gap. Java moved 6 tiles, leaving at most 0.50 units unsupported in that span. Two new native runs reached the beacon at tick 456. The saved report passed four Chromium checks. 125 root Java tests, 53 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed locally. See README-192.md and docs/publication192/plan.md.

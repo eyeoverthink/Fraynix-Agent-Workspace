@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>CSV · Celsius to Fahrenheit</title>
+<style>
+:root { color-scheme: dark; background: #101e27; color: #e5f2ee; font: 16px/1.55 system-ui, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: clamp(16px, 4vw, 48px); }
+main { max-width: 54rem; margin-inline: auto; }
+h1 { margin: 0 0 8px; font-size: clamp(1.6rem, 5vw, 2.8rem); line-height: 1.1; }
+p { color: #b1c7cd; margin-bottom: 26px; }
+.columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+label, .label { display: block; font-weight: 650; margin-bottom: 7px; }
+textarea, pre { width: 100%; margin: 0; min-height: 12rem; background: #192e37; color: #d8f7eb;
+  border: 1px solid #426477; border-radius: 9px; font: 1rem/1.6 ui-monospace, monospace; padding: 12px; }
+textarea { resize: vertical; }
+textarea:focus-visible { outline: 2px solid #9be4d3; outline-offset: 2px; }
+textarea[aria-invalid="true"] { border-color: #ffae9e; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+@media (max-width: 520px) { .columns { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>CSV · Celsius to Fahrenheit</h1>
+  <p id="rules">Paste up to 24 measurements below the <code>celsius</code> header. Use one plain decimal per line,
+    up to four decimal places, from −1,000,000 to 1,000,000.</p>
+  <div class="columns">
+    <div><label for="source">CSV measurements</label>
+      <textarea id="source" aria-describedby="rules" spellcheck="false" maxlength="2048">celsius
++0000000.0000
+-17.7777
+37.1234
+-999999.9999
+1000000</textarea></div>
+    <div><span class="label">Converted values</span><pre id="result" aria-live="polite"></pre></div>
+  </div>
+</main>
+<script>
+'use strict';
+const input = document.getElementById('source');
+const result = document.getElementById('result');
+const column = 'celsius';
+const invalid = 'Use the indicated header and 1–24 rows of plain decimals within range.';
+
+function convert(text) {
+    const parts = /^([+-]?)([0-9]{1,7})(?:\.([0-9]{1,4}))?$/.exec(text.replace(/^[ \t]+|[ \t]+$/g, ''));
+    if (!parts) return null;
+    const magnitude = BigInt(parts[2] + (parts[3] || '').padEnd(4, '0'));
+    if (magnitude > 10000000000n) return null;
+    const value = parts[1] === '-' ? -magnitude : magnitude;
+    const temperature = column === 'celsius';
+    const scaled = temperature ? value * 18n + 3200000n : value * 254n;
+    const unsigned = scaled < 0n ? -scaled : scaled;
+    const fraction = (unsigned % 100000n).toString().padStart(5, '0').replace(/0+$/, '');
+    return (scaled < 0n ? '-' : '') + (unsigned / 100000n)
+        + (fraction ? '.' + fraction : '') + (temperature ? ' °F' : ' mm');
+}
+
+function update() {
+    const text = input.value.replace(/^\ufeff/, '');
+    const rows = (text.endsWith('\n') ? text.slice(0, -1) : text).split('\n');
+    const header = rows.shift();
+    const values = rows.map(convert);
+    const valid = header === column && rows.length > 0 && rows.length <= 24
+        && input.value.length <= 2048 && values.every(value => value !== null);
+    result.textContent = valid ? values.join('\n') : invalid;
+    input.setAttribute('aria-invalid', String(!valid));
+}
+input.addEventListener('input', update);
+update();
+</script>
+</body>
+</html>

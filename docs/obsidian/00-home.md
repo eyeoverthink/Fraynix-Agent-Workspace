@@ -1,3 +1,5 @@
+[Edition 193 — Teach and reuse a CSV-to-tool lesson](201-verified-data-tool-lessons.md)
+
 [Edition 192 — Teach and reuse a verified Blender repair](200-verified-blender-lessons.md)
 
 [Edition 191 — Durable Blender repair from Chat](199-chat-blender-repair.md)
