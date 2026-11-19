@@ -17,7 +17,7 @@ async function main() {
         assert(await page.locator('body').evaluate(() => document.documentElement.scrollWidth <= window.innerWidth));
         await page.locator('#modules').selectOption({label:'Fray chain and handoff'});
         assert.match(await page.locator('#module-link').getAttribute('href'),/FrayChain\.java$/);
-        await page.locator('#filter').fill('length-chain');
+        await page.locator('#filter').fill('length-chain.html');
         assert.equal(await page.locator('#files li').count(),1);
         await page.locator('a[href="#system"]').click();
         assert(page.url().endsWith('#system'));
