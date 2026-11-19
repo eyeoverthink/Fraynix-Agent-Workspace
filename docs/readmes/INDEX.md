@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 187 — recover failed disk writes](../../README-187.md) · [Walkthrough](187/index.html)
+
 [Edition 186 — recover an interrupted artifact save](../../README-186.md) · [Walkthrough](186/index.html)
 
 [Edition 185 — choose among interrupted Fray chains](../../README-185.md) · [Walkthrough](185/index.html)

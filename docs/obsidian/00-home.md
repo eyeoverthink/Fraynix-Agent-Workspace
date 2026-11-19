@@ -1,3 +1,5 @@
+[Edition 187 — Recover failed disk writes](195-fray-write-failures.md)
+
 [Edition 186 — Recover an artifact save](194-fray-artifact-save.md)
 
 [Edition 185 — Choose a saved Fray handoff](193-fray-pending-recovery.md)

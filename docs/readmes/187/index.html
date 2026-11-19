@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 187 · Recover failed disk writes with a near-capacity Fray bank</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Recover failed disk writes with a near-capacity Fray bank</h1><p>The Workbench can retry a verified Fray save after project storage rejects an artifact or browser receipt write. Java uses the original review, evidence and artifact ID to finish the save.</p>
+<nav><a href="../../../README-187.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../186/index.html">Edition 186</a><a href="#system">System files</a></nav>
+<figure><img src="near-capacity-chooser.png" alt="125 verified pending chains in the Workbench"><figcaption>125 verified pending chains in the Workbench</figcaption></figure>
+<figure><img src="artifact-write-failure.png" alt="Recovery action after the artifact destination rejects a write"><figcaption>Recovery action after the artifact destination rejects a write</figcaption></figure>
+<figure><img src="receipt-write-failure.png" alt="Recovery action after the browser receipt destination rejects a write"><figcaption>Recovery action after the browser receipt destination rejects a write</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "The Workbench can retry a verified Fray save after project storage rejects an artifact or browser receipt write. Java uses the original review, evidence and artifact ID to finish the save.", "modules": [{"title": "Failed save recovery", "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "note": "docs/obsidian/195-fray-write-failures.md"}, {"title": "Durable artifact storage", "source": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceStore.java", "note": "docs/obsidian/195-fray-write-failures.md"}, {"title": "Workbench recovery", "source": "workspace-desktop/renderer/request-workbench.js", "note": "docs/obsidian/195-fray-write-failures.md"}], "screenshots": [{"path": "docs/readmes/187/near-capacity-chooser.png", "title": "125 verified pending chains in the Workbench"}, {"path": "docs/readmes/187/artifact-write-failure.png", "title": "Recovery action after the artifact destination rejects a write"}, {"path": "docs/readmes/187/receipt-write-failure.png", "title": "Recovery action after the browser receipt destination rejects a write"}], "evidence": [{"path": "docs/readmes/187/verification.json", "title": "Verification record"}, {"path": "docs/readmes/187/browser-receipt.json", "title": "Original Chromium receipt"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/195-fray-write-failures.canvas", "bytes": 1181, "sha256": "0e183bc290be9fd1c6e4e7b907c656c191e86bcc760eb0a7c4c3212776cca1d3", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/195-fray-write-failures.md", "bytes": 388, "sha256": "c274bd11eccc0895ad9b6cde77fcaf8e2945786212e742fdf480aa3d3fefb336", "hashKind": "utf8-lf"}, {"path": "docs/publication187/document.py", "bytes": 11262, "sha256": "e0490218b99f011282688ac46afd44445a09874ea2f363e2022ad5f604b31740", "hashKind": "utf8-lf"}, {"path": "docs/publication187/plan.md", "bytes": 2084, "sha256": "e99fbe5a4ab9cd3c597c3160575ff0e34f0437d4a8922565fded3005d05ee5d1", "hashKind": "utf8-lf"}, {"path": "docs/publication187/validate-desktop.cjs", "bytes": 14065, "sha256": "b84f9504d1e3d605ed6cb74ba563bc6122936cd25278cfe8990bee430337fe84", "hashKind": "utf8-lf"}, {"path": "docs/publication187/validate-guide.cjs", "bytes": 1723, "sha256": "1a30555175d2b158695a3e23fb0eb76f572ed8d30dd000c5005972bb879144c0", "hashKind": "utf8-lf"}, {"path": "docs/publication187/validate.py", "bytes": 2112, "sha256": "5d948a630554ddef0ce08e86a1a40866cf9ce70e8f33e13aa9fb3b62dc92bbf0", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/request-workbench.js", "bytes": 11228, "sha256": "92e0f6a30a32ab33c355e9a2d47888e6e368481827cbe5786fe6fff6435892a9", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "bytes": 27645, "sha256": "ec9fdef9320f1b67e95a01ed4fac04b0c0b7acdfda5c7a52d5cc2d2a7583d2d7", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/FrayChainTest.java", "bytes": 17623, "sha256": "a4ba00608ddc5e5289bdb5a9b6314ed1c813c2a7858dd9645d190fea1e47b01e", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

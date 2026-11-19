@@ -1,0 +1,44 @@
+{
+  "summary": "The Workbench can retry a verified Fray save after project storage rejects an artifact or browser receipt write. Java uses the original review, evidence and artifact ID to finish the save.",
+  "modules": [
+    {
+      "title": "Failed save recovery",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java",
+      "note": "docs/obsidian/195-fray-write-failures.md"
+    },
+    {
+      "title": "Durable artifact storage",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceStore.java",
+      "note": "docs/obsidian/195-fray-write-failures.md"
+    },
+    {
+      "title": "Workbench recovery",
+      "source": "workspace-desktop/renderer/request-workbench.js",
+      "note": "docs/obsidian/195-fray-write-failures.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/187/near-capacity-chooser.png",
+      "title": "125 verified pending chains in the Workbench"
+    },
+    {
+      "path": "docs/readmes/187/artifact-write-failure.png",
+      "title": "Recovery action after the artifact destination rejects a write"
+    },
+    {
+      "path": "docs/readmes/187/receipt-write-failure.png",
+      "title": "Recovery action after the browser receipt destination rejects a write"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/187/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/187/browser-receipt.json",
+      "title": "Original Chromium receipt"
+    }
+  ]
+}

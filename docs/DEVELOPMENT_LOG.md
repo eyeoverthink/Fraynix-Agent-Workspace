@@ -1,3 +1,7 @@
+## Edition 187 — Recover failed disk writes with a near-capacity Fray bank
+
+2026-11-19. The Workbench can retry a verified Fray save after project storage rejects an artifact or browser receipt write. Java uses the original review, evidence and artifact ID to finish the save. 125 root Java tests, 48 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. Tested real artifact-directory and browser-receipt write errors at 125 verified pending chains and 128 total reviews. Restart and same-session recovery kept the original browser checks and artifact IDs. All 126 unaffected reviews were byte-identical. See README-187.md and docs/publication187/plan.md.
+
 ## Edition 186 — Recover an interrupted verified artifact save
 
 2026-11-19. Fraynix can finish saving a Fray artifact after the desktop stops during the write. Java restores the exact review and verifies both retained browser receipts before publishing the result. 125 root Java tests, 47 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. A forced stop during the checkpoint boundary left both browser receipts available. Restart recovered one artifact under the same ID without replaying the preview. The chooser was measured at 3, 24, and 60 real paused chains. See README-186.md and docs/publication186/plan.md.

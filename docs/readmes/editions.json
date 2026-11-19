@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 186,
+  "latest": 187,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -264931,6 +264931,60 @@
           "path": "docs/readmes/186/verification.json",
           "kind": "text",
           "sha256": "92a64bc9c8b06f94899fd389102287671890c945ca7bbb942a038332a2c347c6"
+        }
+      ]
+    },
+    {
+      "number": 187,
+      "date": "2026-11-19",
+      "title": "Recover failed disk writes with a near-capacity Fray bank",
+      "status": "validated-local",
+      "markdown": "README-187.md",
+      "markdownSha256": "63ec827257ae64a01d62161e1095d69165a844f40b6559206b7c56abe8f90872",
+      "companion": "docs/readmes/187/index.html",
+      "tag": "readme-187",
+      "sourceBaseline": "ea08fdf6a3b17bf40b48da0e0d62244f70e839eb",
+      "snapshotDirectory": "docs/readmes/187",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/187/artifact-write-failure.png",
+          "kind": "binary",
+          "sha256": "8c60ac90cab6de5c38258d763408837e6ca9447722c49d1653d0ac688b57c913"
+        },
+        {
+          "path": "docs/readmes/187/browser-receipt.json",
+          "kind": "text",
+          "sha256": "7557381fd0706b5271af7d9b8f4f90d5777f26b900f8ee907ad145df67c0838b"
+        },
+        {
+          "path": "docs/readmes/187/file-inventory.json",
+          "kind": "text",
+          "sha256": "626072d14a7198c93024d0a743cac15e36d3a1a5383c14bffe0b4b5824886fc6"
+        },
+        {
+          "path": "docs/readmes/187/index.html",
+          "kind": "text",
+          "sha256": "a95ada9b2ee1c735d1c9c309787cb5858b6a2fcd2c43606ca07b244148cd026d"
+        },
+        {
+          "path": "docs/readmes/187/near-capacity-chooser.png",
+          "kind": "binary",
+          "sha256": "f205de01971a90be9c600b81abe463a12c40ce4d01c033fcd3ad925340383f01"
+        },
+        {
+          "path": "docs/readmes/187/receipt-write-failure.png",
+          "kind": "binary",
+          "sha256": "38459c190fd7bf995006b2ecf3ed7790da3f7e644c43d0389d0fdf70e83659d3"
+        },
+        {
+          "path": "docs/readmes/187/system-map.json",
+          "kind": "text",
+          "sha256": "3a310e9cd37840022f7602a1918a36408fd58ccafd04a159e3a37b83904bbd88"
+        },
+        {
+          "path": "docs/readmes/187/verification.json",
+          "kind": "text",
+          "sha256": "1aa78b2ad22c977f6aa6b28a0343ace334c21685457b67a61cc6f6f221e5a5d5"
         }
       ]
     }

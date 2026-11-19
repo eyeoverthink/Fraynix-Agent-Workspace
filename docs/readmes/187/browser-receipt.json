@@ -1,0 +1,190 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "10.6875"
+      },
+      "expected": {
+        "selector": "#inches",
+        "expectValue": "10.6875"
+      },
+      "index": 0,
+      "selector": "#inches",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Convert to centimetres",
+        "value": ""
+      },
+      "expected": {
+        "expectCount": 1,
+        "selector": "#to-cm:disabled"
+      },
+      "index": 1,
+      "selector": "#to-cm:disabled",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Convert to millimetres",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#to-mm"
+      },
+      "index": 2,
+      "selector": "#to-mm",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "271.4625 mm",
+        "value": "271.4625 mm"
+      },
+      "expected": {
+        "expectText": "271.4625 mm",
+        "selector": "#millimetres"
+      },
+      "index": 3,
+      "selector": "#millimetres",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Waiting for conversion.",
+        "value": "Waiting for conversion."
+      },
+      "expected": {
+        "expectText": "Waiting for conversion.",
+        "selector": "#centimetres"
+      },
+      "index": 4,
+      "selector": "#centimetres",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "271.4625 mm",
+        "value": "271.4625 mm"
+      },
+      "expected": {
+        "expectText": "271.4625 mm",
+        "selector": "#millimetres"
+      },
+      "index": 5,
+      "selector": "#millimetres",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Waiting for conversion.",
+        "value": "Waiting for conversion."
+      },
+      "expected": {
+        "expectText": "Waiting for conversion.",
+        "selector": "#centimetres"
+      },
+      "index": 6,
+      "selector": "#centimetres",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Convert to centimetres",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#to-cm"
+      },
+      "index": 7,
+      "selector": "#to-cm",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "271.4625 mm",
+        "value": null
+      },
+      "expected": {
+        "expectText": "271.4625 mm",
+        "selector": "#handoff"
+      },
+      "index": 8,
+      "selector": "#handoff",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "27.14625 cm",
+        "value": "27.14625 cm"
+      },
+      "expected": {
+        "expectText": "27.14625 cm",
+        "selector": "#centimetres"
+      },
+      "index": 9,
+      "selector": "#centimetres",
+      "passed": true
+    }
+  ],
+  "at": "2026-11-19T11:23:22.740670Z",
+  "id": "006e0cd7-5dfa-3743-a472-94566e5930ff",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "selector": "#inches",
+      "expectValue": "10.6875"
+    },
+    {
+      "expectCount": 1,
+      "selector": "#to-cm:disabled"
+    },
+    {
+      "action": "click",
+      "selector": "#to-mm"
+    },
+    {
+      "expectText": "271.4625 mm",
+      "selector": "#millimetres"
+    },
+    {
+      "expectText": "Waiting for conversion.",
+      "selector": "#centimetres"
+    },
+    {
+      "expectText": "271.4625 mm",
+      "selector": "#millimetres"
+    },
+    {
+      "expectText": "Waiting for conversion.",
+      "selector": "#centimetres"
+    },
+    {
+      "action": "click",
+      "selector": "#to-cm"
+    },
+    {
+      "expectText": "271.4625 mm",
+      "selector": "#handoff"
+    },
+    {
+      "expectText": "27.14625 cm",
+      "selector": "#centimetres"
+    }
+  ]
+}

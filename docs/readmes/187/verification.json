@@ -1,0 +1,91 @@
+{
+  "captures": [
+    {
+      "name": "near-capacity-chooser.png",
+      "sha256": "f205de01971a90be9c600b81abe463a12c40ce4d01c033fcd3ad925340383f01"
+    },
+    {
+      "name": "artifact-write-failure.png",
+      "sha256": "8c60ac90cab6de5c38258d763408837e6ca9447722c49d1653d0ac688b57c913"
+    },
+    {
+      "name": "receipt-write-failure.png",
+      "sha256": "38459c190fd7bf995006b2ecf3ed7790da3f7e644c43d0389d0fdf70e83659d3"
+    }
+  ],
+  "failures": [
+    {
+      "kind": "artifact-directory",
+      "registeredBeforeRetry": false,
+      "restarted": true,
+      "id": "33726f06-e5d0-42c4-b760-f9a8dd81f505",
+      "artifact": {
+        "sha256": "7bf7d6d4dc6ad4c51bfbdecef07df4555ae10fc1dadf44e763703788c930836e",
+        "id": "f8b55ad5-b0b1-3aad-8ffd-8e68b2d3ad5f",
+        "version": 1
+      },
+      "retainedChecks": [
+        5,
+        5
+      ],
+      "previewReplayed": false,
+      "result": "510.795 °R"
+    },
+    {
+      "kind": "receipt-directory",
+      "registeredBeforeRetry": true,
+      "restarted": false,
+      "id": "01bb5217-f9ef-429e-8a83-ebb7d34a2dfa",
+      "artifact": {
+        "sha256": "6db87c0c153c4c8d848e7ce613e2fe6a0d2765ca4a98a799cd3233a682afdd3c",
+        "id": "006e0cd7-5dfa-3743-a472-94566e5930ff",
+        "version": 1
+      },
+      "retainedChecks": [
+        5,
+        5
+      ],
+      "previewReplayed": false,
+      "sameRegisteredVersion": true,
+      "result": "27.14625 cm"
+    }
+  ],
+  "priorEditions": [
+    181,
+    182,
+    183,
+    184,
+    185,
+    186
+  ],
+  "copiedVerifiedReviews": 59,
+  "reviewFilesAtCapacity": 128,
+  "chooser": {
+    "pending": 125,
+    "samples": [
+      160,
+      35,
+      68,
+      62,
+      64,
+      54,
+      36
+    ],
+    "medianMs": 62,
+    "maxMs": 160
+  },
+  "completed": {
+    "added": 2,
+    "pending": 123,
+    "unchangedReviews": 126
+  },
+  "passed": true,
+  "source": "ea08fdf6a3b17bf40b48da0e0d62244f70e839eb",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 48,
+    "desktop": 181,
+    "archive": 10
+  }
+}
