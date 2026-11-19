@@ -16,6 +16,9 @@ final class FrayDataTool {
     static final String PREVIEW = "/data-tool-preview/";
     static final String NAME = "[a-z0-9][a-z0-9-]{0,39}";
     static final String COLUMN = "[A-Za-z][A-Za-z0-9_-]{0,39}";
+    static final String CLASSIFY = "range";
+    static final Pattern CLASSIFIER = Pattern.compile("Build a data-to-tool classifier using column (" + COLUMN + ")[.!]?",
+            Pattern.CASE_INSENSITIVE);
     static final Pattern BUILD = Pattern.compile(
             "Build a data-to-tool converter from (Celsius to Fahrenheit|inches to (?:millimetres|millimeters))"
                     + "(?: using column (" + COLUMN + "))?[.!]?",
@@ -27,6 +30,7 @@ final class FrayDataTool {
     private static final List<String> HOLDOUTS = List.of("-19.8251", "+0.0001", "1000000", "-1000000", "246.875");
     private static final String TEMPLATE = FrayConversion.loadHtml("data-tool.html");
     private static final String TABLE_TEMPLATE = FrayConversion.loadHtml("data-table-tool.html");
+    private static final String RANGE_TEMPLATE = FrayConversion.loadHtml("data-range-tool.html");
 
     record Input(String text, List<String> values, FrayTableInput table) {
         List<String> numericValues() {
@@ -39,37 +43,52 @@ final class FrayDataTool {
     private final String title;
     private final String outputColumn;
     private final FrayConversion conversion;
+    final FrayRangeRules rules;
+    final String rulesSha256;
 
-    FrayDataTool(String column, String tableColumn) {
+    FrayDataTool(String column, String tableColumn, FrayRangeRules rules, String rulesSha256) {
         this.column = column;
         this.tableColumn = tableColumn;
+        this.rules = rules;
+        this.rulesSha256 = rulesSha256;
         conversion = switch (column) {
             case "celsius" -> FrayConversion.CELSIUS;
             case "inches" -> FrayConversion.INCH;
+            case CLASSIFY -> null;
             default -> throw new IllegalArgumentException("Unsupported data-to-tool input column");
         };
-        outputColumn = column.equals("celsius") ? "fahrenheit" : "millimetres";
+        outputColumn = column.equals(CLASSIFY) ? "classification" : column.equals("celsius") ? "fahrenheit" : "millimetres";
+        if (column.equals(CLASSIFY) && (tableColumn == null || rules == null || rulesSha256 == null))
+            throw new IllegalArgumentException("Attach a checked range rules CSV first");
         if (tableColumn != null && (!tableColumn.matches(COLUMN) || tableColumn.equals(outputColumn)))
             throw new IllegalArgumentException("Choose a valid input column distinct from " + outputColumn);
-        title = (tableColumn == null ? "CSV · " : "CSV table · ")
+        title = rules != null ? "CSV table · Range classification" : (tableColumn == null ? "CSV · " : "CSV table · ")
                 + (column.equals("celsius") ? "Celsius to Fahrenheit" : "Inches to millimetres");
     }
 
-    String programHash() { return conversion.programHash(); }
+    String programHash() { return rules == null ? conversion.programHash()
+            : MeasurementStore.hash("range-classifier-v1\n" + tableColumn + "\n" + rules.csv()); }
 
     Input input(byte[] bytes) throws Exception {
+        return parse(csvText(bytes));
+    }
+
+    static String csvText(byte[] bytes) throws Exception {
         if (bytes.length > 2048) throw new IllegalArgumentException("Choose a CSV of up to 2 KiB");
         String text = StandardCharsets.UTF_8.newDecoder().decode(ByteBuffer.wrap(bytes)).toString();
         if (text.startsWith("\uFEFF")) text = text.substring(1);
-        return parse(text.replace("\r\n", "\n").replace('\r', '\n'));
+        return text.replace("\r\n", "\n").replace('\r', '\n');
     }
 
     private Input parse(String text) {
         if (tableColumn != null) {
             var table = FrayTableInput.read(text, tableColumn, outputColumn);
             var values = new ArrayList<String>();
-            for (var row : table.rows().subList(1, table.rows().size()))
-                values.add(measurement(row.get(table.measurementIndex()), values.size() + 2));
+            for (var row : table.rows().subList(1, table.rows().size())) {
+                String value = measurement(row.get(table.measurementIndex()), values.size() + 2);
+                if (rules != null) rules.label(value);
+                values.add(value);
+            }
             return new Input(text, List.copyOf(values), table);
         }
         String body = text.endsWith("\n") ? text.substring(0, text.length() - 1) : text;
@@ -83,17 +102,26 @@ final class FrayDataTool {
     }
 
     private String measurement(String raw, int row) {
-        String value = raw.replaceAll("^[ \\t]+|[ \\t]+$", "");
-        if (!VALUE.matcher(value).matches() || Math.abs(Double.parseDouble(value)) > 1_000_000) {
+        try {
+            return plainDecimal(raw);
+        } catch (IllegalArgumentException invalid) {
             String error = tableColumn == null ? INVALID : "Use plain decimals within range in " + tableColumn + ".";
             throw new IllegalArgumentException(error + " Check row " + row + ".");
         }
+    }
+
+    static String plainDecimal(String raw) {
+        String value = raw.replaceAll("^[ \\t]+|[ \\t]+$", "");
+        if (!VALUE.matcher(value).matches() || Math.abs(Double.parseDouble(value)) > 1_000_000)
+            throw new IllegalArgumentException("Use plain decimals from −1,000,000 to 1,000,000 with up to four places");
         return value;
     }
 
     String html(Input input) {
         if (tableColumn != null) {
             String escaped = input.text().replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;");
+            if (rules != null) return RANGE_TEMPLATE.replace("@COLUMN@", tableColumn)
+                    .replace("@RULES@", rules.browserRules().toString()).replace("@DATA@", escaped);
             return TABLE_TEMPLATE.replace("@TITLE@", title).replace("@COLUMN@", tableColumn)
                     .replace("@OUTPUT@", outputColumn).replace("@PROGRAM@", column).replace("@DATA@", escaped);
         }
@@ -101,14 +129,25 @@ final class FrayDataTool {
         return TEMPLATE.replace("@TITLE@", title).replace("@COLUMN@", column).replace("@DATA@", input.text());
     }
 
-    JSONArray browserSteps(Input input) {
-        var held = new ArrayList<>(HOLDOUTS);
+    private List<String> checkValues(Input input) {
         var unseen = new HashSet<>(input.numericValues());
+        if (rules != null) return rules.checkValues(unseen);
+        var held = new ArrayList<>(HOLDOUTS);
         held.removeIf(value -> unseen.contains(new BigDecimal(value).stripTrailingZeros().toPlainString()));
         for (int suffix = 1001; held.size() < 3; suffix++) {
             String value = "712." + suffix;
             if (!unseen.contains(new BigDecimal(value).stripTrailingZeros().toPlainString())) held.add(value);
         }
+        return held;
+    }
+
+    long unseenValidCases(Input input) {
+        var seen = new HashSet<>(input.numericValues());
+        return checkValues(input).stream().filter(value -> !seen.contains(value)).count();
+    }
+
+    JSONArray browserSteps(Input input) {
+        var held = checkValues(input);
         var holdout = tableColumn == null ? parse(column + "\n" + String.join("\n", held))
                 : tableHoldout(held, input.table().measurementIndex());
         var steps = new JSONArray()
@@ -125,6 +164,11 @@ final class FrayDataTool {
             fill(steps, tableColumn + "," + other + "\n1", FrayTableInput.INVALID);
             fill(steps, tableColumn + "," + outputColumn + "\n1,2", FrayTableInput.INVALID);
             fill(steps, tableColumn + "\n1e3", FrayTableInput.INVALID);
+            if (rules != null) {
+                fill(steps, tableColumn + "\n" + rules.uncovered(), FrayTableInput.INVALID);
+                String gap = rules.firstGap();
+                if (gap != null) fill(steps, tableColumn + "\n" + gap, FrayTableInput.INVALID);
+            }
         }
         fill(steps, input.text(), result(input));
         return steps;
@@ -152,6 +196,7 @@ final class FrayDataTool {
     }
 
     private String result(Input input) {
+        if (rules != null) return input.table().withResults(outputColumn, input.values().stream().map(rules::label).toList());
         var values = input.values().stream().map(conversion::expected).toList();
         if (input.table() == null) return String.join("\n", values);
         return input.table().withResults(outputColumn,
@@ -171,11 +216,22 @@ final class FrayDataTool {
         }
         String html = html(input);
         var evidence = new JSONObject().put("passed", true).put("inputColumn", column).put("inputCount", input.values().size())
-                .put("sourceSha256", source.getString("sha256")).put("htmlSha256", MeasurementStore.hash(html))
-                .put("fraySource", conversion.source).put("frayBytecodeHex", conversion.bytecodeHex)
-                .put("compilerCommit", FrayConversion.COMPILER).put("cases", cases);
-        var sources = new JSONArray().put("csv:sha256:" + source.getString("sha256"))
-                .put("fray-bytecode:sha256:" + programHash());
+                .put("sourceSha256", source.getString("sha256")).put("htmlSha256", MeasurementStore.hash(html));
+        var files = new JSONObject().put("index.html", html);
+        var sources = new JSONArray().put("csv:sha256:" + source.getString("sha256"));
+        if (rules == null) {
+            evidence.put("fraySource", conversion.source).put("frayBytecodeHex", conversion.bytecodeHex)
+                    .put("compilerCommit", FrayConversion.COMPILER);
+            files.put("fray-source.txt", conversion.source + "\n");
+            sources.put("fray-bytecode:sha256:" + programHash());
+        } else {
+            evidence.put("ruleKind", "range-classifier-v1").put("rulesSha256", rulesSha256)
+                    .put("ruleTable", rules.csv()).put("ruleProgramSha256", programHash())
+                    .put("unseenValidCases", unseenValidCases(input));
+            files.put("rules.csv", rules.csv() + "\n");
+            sources.put("rules-csv:sha256:" + rulesSha256).put("range-classifier:sha256:" + programHash());
+        }
+        evidence.put("cases", cases);
         if (input.table() != null) evidence.put("tableColumn", tableColumn).put("outputColumn", outputColumn)
                 .put("inputHeaders", input.table().rows().getFirst());
         if (lesson != null) {
@@ -183,8 +239,6 @@ final class FrayDataTool {
             sources.put("fray-data-tool-lesson:sha256:" + WorldFrames.hash(lesson));
         }
         return new JSONObject().put("title", title).put("sources", sources)
-                .put("files", new JSONObject().put("index.html", html)
-                        .put("fray-source.txt", conversion.source + "\n")
-                        .put("verification.json", evidence.toString(2) + "\n"));
+                .put("files", files.put("verification.json", evidence.toString(2) + "\n"));
     }
 }

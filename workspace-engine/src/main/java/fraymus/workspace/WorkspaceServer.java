@@ -771,6 +771,7 @@ public final class WorkspaceServer implements AutoCloseable {
                     }
                     case "/api/requests/suggest" -> result=requestWorkbench.suggest(input,args->plan(args,true));
                     case "/api/requests/attach" -> result=requestWorkbench.attach(input);
+                    case "/api/requests/attach-rules" -> result=requestWorkbench.attachRules(input);
                     case "/api/requests/choose" -> result=requestWorkbench.choose(input);
                     case "/api/requests/read" -> result=requestWorkbench.read(input);
                     case "/api/requests/verify" -> result=requestWorkbench.verify(input);

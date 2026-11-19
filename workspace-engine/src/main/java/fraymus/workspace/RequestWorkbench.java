@@ -76,24 +76,38 @@ final class RequestWorkbench {
 
     private synchronized JSONObject dataChoice(String text) throws Exception {
         var build = FrayDataTool.BUILD.matcher(text);
+        var classifier = FrayDataTool.CLASSIFIER.matcher(text);
         var use = FrayDataTool.USE.matcher(text);
         JSONObject lesson = use.matches() ? checkedDataLesson(use.group(1).toLowerCase(Locale.ROOT)) : null;
-        if (lesson == null && !build.matches()) return null;
-        String column = lesson != null ? lesson.getString("column")
+        boolean classification = classifier.matches();
+        if (lesson == null && !classification && !build.matches()) return null;
+        String column = lesson != null ? lesson.getString("column") : classification ? FrayDataTool.CLASSIFY
                 : build.group(1).toLowerCase(Locale.ROOT).startsWith("celsius") ? "celsius" : "inches";
-        String tableColumn = lesson != null ? lesson.optString("tableColumn", null) : build.group(2);
-        new FrayDataTool(column, tableColumn);
+        String tableColumn = lesson != null ? lesson.optString("tableColumn", null)
+                : classification ? classifier.group(1) : build.group(2);
+        boolean range = column.equals(FrayDataTool.CLASSIFY);
+        if (!range) new FrayDataTool(column, tableColumn, null, null);
+        else if ("classification".equals(tableColumn)) throw new IllegalArgumentException("Choose a column distinct from classification");
         var choice = RequestLanguage.view(RequestLanguage.Intent.FRAY_DATA, "java")
                 .put("column", column);
         if (tableColumn != null) choice.put("tableColumn", tableColumn).put("description",
                 "Attach a CSV with the " + tableColumn + " column. Java checks the appended values and the original cells.");
+        if (range) choice.put("description", "Classify the " + tableColumn + " column using checked ranges, then verify each row.");
         if (lesson != null) choice.put("lesson", lesson);
         return choice;
     }
 
-    private static FrayDataTool dataTool(JSONObject task) {
+    private static FrayDataTool dataTool(JSONObject task, JSONObject lesson) throws Exception {
         var choice = task.getJSONObject("choice");
-        return new FrayDataTool(choice.getString("column"), choice.optString("tableColumn", null));
+        String column = choice.getString("column");
+        String tableColumn = choice.optString("tableColumn", null);
+        if (!column.equals(FrayDataTool.CLASSIFY)) return new FrayDataTool(column, tableColumn, null, null);
+        if (lesson != null) return new FrayDataTool(column, tableColumn,
+                FrayRangeRules.read(lesson.getString("ruleTable")), lesson.getString("rulesSha256"));
+        var source = task.optJSONObject("rulesSource");
+        if (source == null) throw new IllegalArgumentException("Attach the range rules CSV first");
+        var rules = FrayRangeRules.read(FrayDataTool.csvText(checkedBytes(source, "The attached range rules changed")));
+        return new FrayDataTool(column, tableColumn, rules, source.getString("sha256"));
     }
 
     private record ReviewedData(FrayDataTool tool, FrayDataTool.Input input, JSONObject lesson) {}
@@ -110,15 +124,20 @@ final class RequestWorkbench {
     }
 
     private ReviewedData reviewedData(JSONObject task, JSONObject source) throws Exception {
-        byte[] bytes = decode(source.getString("base64"));
-        if (bytes.length != source.getInt("size") || !PerceptionStore.hash(bytes).equals(source.getString("sha256")))
-            throw new IllegalStateException("The attached CSV changed");
+        byte[] bytes = checkedBytes(source, "The attached CSV changed");
         var lesson = dataLesson(task);
-        var tool = dataTool(task);
+        var tool = dataTool(task, lesson);
         var data = tool.input(bytes);
         if (lesson != null && data.numericValues().stream().allMatch(lesson.getJSONArray("exampleValues").toList()::contains))
             throw new IllegalArgumentException("Attach a fresh CSV containing a measurement absent from the teaching example");
         return new ReviewedData(tool, data, lesson);
+    }
+
+    private static byte[] checkedBytes(JSONObject source, String error) throws Exception {
+        byte[] bytes = decode(source.getString("base64"));
+        if (bytes.length != source.getInt("size") || !PerceptionStore.hash(bytes).equals(source.getString("sha256")))
+            throw new IllegalStateException(error);
+        return bytes;
     }
 
     private JSONObject teacherProof(JSONObject teacher, String name) throws Exception {
@@ -126,13 +145,17 @@ final class RequestWorkbench {
                 || teacher.getJSONObject("choice").has("lesson"))
             throw new IllegalStateException("Teach from a verified original CSV tool");
         var verified = proof(teacher);
-        var tool = dataTool(teacher);
         var source = teacher.getJSONObject("source");
-        var values = reviewedData(teacher, source).input().numericValues();
+        var data = reviewedData(teacher, source);
+        var tool = data.tool();
+        var values = data.input().numericValues();
+        if (tool.rules != null && tool.unseenValidCases(data.input()) == 0)
+            throw new IllegalStateException("These rules have no unseen valid value to qualify for teaching");
         var result = new JSONObject().put("name", name).put("column", tool.column).put("programSha256", tool.programHash())
                 .put("teacherId", teacher.getString("id")).put("teacherArtifact", verified.getJSONObject("artifact"))
                 .put("teacherSourceSha256", source.getString("sha256")).put("exampleValues", values);
         if (tool.tableColumn != null) result.put("tableColumn", tool.tableColumn);
+        if (tool.rules != null) result.put("ruleTable", tool.rules.csv()).put("rulesSha256", tool.rulesSha256);
         return result;
     }
 
@@ -217,18 +240,39 @@ final class RequestWorkbench {
         var task = load(input);
         if (!task.getString("status").equals("review") || !intent(task).needsFile() || task.has("frayChecks"))
             throw new IllegalStateException("Choose a file for an outstanding file review");
-        String name = input.getString("name").strip();
-        if (name.isEmpty() || name.length() > 180 || name.indexOf('/') >= 0 || name.indexOf('\\') >= 0
-                || name.chars().anyMatch(Character::isISOControl)) throw new IllegalArgumentException("Expected a filename");
-        String encoded = input.getString("base64");
-        byte[] data = decode(encoded);
-        var source = new JSONObject().put("name", name).put("base64", encoded)
-                .put("size", data.length).put("sha256", PerceptionStore.hash(data));
+        var source = attachment(input);
         if (intent(task) == RequestLanguage.Intent.FRAY_DATA)
             reviewedData(task, source);
         task.put("source", source);
         save(task);
         return view(task);
+    }
+
+    synchronized JSONObject attachRules(JSONObject input) throws Exception {
+        SpatialScene.keys(input, "id", "name", "base64");
+        var task = load(input);
+        var choice = task.getJSONObject("choice");
+        if (!"review".equals(task.getString("status")) || intent(task) != RequestLanguage.Intent.FRAY_DATA
+                || !FrayDataTool.CLASSIFY.equals(choice.optString("column")) || choice.has("lesson") || task.has("frayChecks"))
+            throw new IllegalStateException("Only an original classifier review accepts a rules file");
+        var source = attachment(input);
+        FrayRangeRules.read(FrayDataTool.csvText(checkedBytes(source, "The attached range rules changed")));
+        var prior = task.optJSONObject("rulesSource");
+        if (prior == null || !prior.similar(source)) {
+            task.put("rulesSource", source).remove("source");
+            save(task);
+        }
+        return view(task);
+    }
+
+    private static JSONObject attachment(JSONObject input) throws Exception {
+        String name = input.getString("name").strip();
+        if (name.isEmpty() || name.length() > 180 || name.indexOf('/') >= 0 || name.indexOf('\\') >= 0
+                || name.chars().anyMatch(Character::isISOControl)) throw new IllegalArgumentException("Expected a filename");
+        String encoded = input.getString("base64");
+        byte[] data = decode(encoded);
+        return new JSONObject().put("name", name).put("base64", encoded)
+                .put("size", data.length).put("sha256", PerceptionStore.hash(data));
     }
 
     synchronized JSONObject read(JSONObject input) throws Exception {
@@ -646,13 +690,18 @@ final class RequestWorkbench {
         var binding = new JSONObject().put("id", task.getString("id")).put("request", task.getString("request"))
                 .put("choice", task.getJSONObject("choice"));
         if (task.has("source")) binding.put("source", sourceView(task));
+        if (task.has("rulesSource")) binding.put("rulesSource", attachmentView(task.getJSONObject("rulesSource")));
         return WorldFrames.hash(binding);
     }
 
     private static JSONObject sourceView(JSONObject task) {
-        var source = WorldFrames.copy(task.getJSONObject("source"));
-        source.remove("base64");
-        return source;
+        return attachmentView(task.getJSONObject("source"));
+    }
+
+    private static JSONObject attachmentView(JSONObject data) {
+        var publicView = WorldFrames.copy(data);
+        publicView.remove("base64");
+        return publicView;
     }
 
     private static JSONObject view(JSONObject task) {
@@ -667,6 +716,7 @@ final class RequestWorkbench {
             visible.put("firstVerified", true).put("intermediate", chain.verifiedIntermediate(first).json());
         }
         if (task.has("source")) visible.put("source", sourceView(task));
+        if (task.has("rulesSource")) visible.put("rulesSource", attachmentView(task.getJSONObject("rulesSource")));
         return visible.put("reviewSha256", reviewSha(task));
     }
 

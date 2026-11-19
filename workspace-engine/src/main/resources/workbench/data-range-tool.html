@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>CSV table · Range classification</title>
+<style>
+:root { color-scheme: dark; background: #12202a; color: #ecf6f3; font: 16px/1.55 system-ui, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: clamp(16px, 4vw, 48px); }
+main { max-width: 64rem; margin-inline: auto; }
+h1 { margin: 0 0 12px; font-size: clamp(1.7rem, 5vw, 2.7rem); line-height: 1.1; }
+p { color: #bdcfd4; margin: 0 0 24px; }
+code { color: #9ce8d2; }
+.columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+label, .label { display: block; font-weight: 650; margin-bottom: 7px; }
+textarea, pre { width: 100%; margin: 0; min-height: 14rem; color: #e1f8ef; background: #192e37;
+  border: 1px solid #426477; border-radius: 9px; font: .95rem/1.6 ui-monospace, monospace; padding: 12px; }
+textarea { resize: vertical; }
+details { margin: 0 0 20px; padding: 9px 14px; background: #192e37; border: 1px solid #426477; border-radius: 9px; }
+summary { cursor: pointer; color: #9ce8d2; }
+ul { margin: 6px 0; padding-left: 24px; }
+textarea:focus-visible { outline: 2px solid #9be4d3; outline-offset: 3px; }
+textarea[aria-invalid="true"] { border-color: #ffae9e; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+@media (max-width: 540px) { .columns { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>CSV table · Range classification</h1>
+  <p id="rules">Selects <code>@COLUMN@</code> by header and appends <code>classification</code>. Paste up to 24 rows with
+    up to eight unique columns. Every measurement must match a declared range.</p>
+  <details open><summary>Rules applied</summary><ul id="ranges"></ul></details>
+  <div class="columns">
+    <div><label for="source">Input CSV</label>
+      <textarea id="source" aria-describedby="rules" spellcheck="false" maxlength="2048">@DATA@</textarea></div>
+    <div><span class="label">Converted CSV</span><pre id="result" aria-live="polite"></pre></div>
+  </div>
+</main>
+<script>
+'use strict';
+const input = document.getElementById('source');
+const result = document.getElementById('result');
+const column = '@COLUMN@';
+const output = 'classification';
+const rules = @RULES@.map(([min, max, label]) => ({min: BigInt(min), max: BigInt(max), label}));
+const invalid = 'Use 1–8 unique headers, the named input column, and 1–24 valid rows.';
+
+function parse(text) {
+    const rows = [];
+    let row = [];
+    let field = '';
+    let quoted = false;
+    let closed = false;
+    for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        if (quoted) {
+            if (char !== '"') field += char;
+            else if (text[i + 1] === '"') {
+                field += '"';
+                i++;
+            } else {
+                quoted = false;
+                closed = true;
+            }
+            continue;
+        }
+        if (char === '"') {
+            if (field || closed) return null;
+            quoted = true;
+        } else if (char === ',' || char === '\n') {
+            row.push(field);
+            field = '';
+            closed = false;
+            if (char === '\n') {
+                rows.push(row);
+                row = [];
+            }
+        } else {
+            if (closed) return null;
+            field += char;
+        }
+    }
+    if (quoted) return null;
+    if (field || row.length || closed) rows.push([...row, field]);
+    return rows;
+}
+
+function convert(text) {
+    const valueText = text.replace(/^[ \t]+|[ \t]+$/g, '');
+    const parts = /^([+-]?)([0-9]{1,7})(?:\.([0-9]{1,4}))?$/.exec(valueText);
+    // JS's $ can match before a final line break. The entire original value must match.
+    if (!parts || valueText !== parts[0]) return null;
+    const magnitude = BigInt(parts[2] + (parts[3] || '').padEnd(4, '0'));
+    if (magnitude > 10000000000n) return null;
+    const value = parts[1] === '-' ? -magnitude : magnitude;
+    const match = rules.find(range => value >= range.min && value < range.max);
+    return match ? match.label : null;
+}
+
+function csv(rows) {
+    return rows.map(row => row.map(cell => /[,"\n]/.test(cell) ? '"' + cell.replaceAll('"', '""') + '"' : cell).join(',')).join('\n');
+}
+
+function invalidHeader(name) {
+    return !name || [' ', '\t'].includes(name[0]) || [' ', '\t'].includes(name.at(-1)) || name.includes('\n');
+}
+
+function appendResults(text) {
+    if (text.includes('\0') || new TextEncoder().encode(text).length > 2048) return null;
+    const normalized = text.replace(/^\ufeff/, '').replace(/\r\n?/g, '\n');
+    const rows = parse(normalized);
+    if (normalized.startsWith('\ufeff') || !rows || rows.length < 2 || rows.length > 25) return null;
+    const headers = rows.shift();
+    const index = headers.indexOf(column);
+    if (index < 0 || headers.includes(output) || headers.length > 8 || new Set(headers).size !== headers.length
+        || headers.some(invalidHeader)
+        || rows.some(row => row.length !== headers.length)) return null;
+    const values = rows.map(row => convert(row[index]));
+    if (values.some(value => value === null)) return null;
+    return csv([[...headers, output], ...rows.map((row, i) => [...row, values[i]])]);
+}
+
+function update() {
+    const converted = appendResults(input.value);
+    result.textContent = converted ?? invalid;
+    input.setAttribute('aria-invalid', String(converted === null));
+}
+function decimal(scaled) {
+    const magnitude = scaled < 0n ? -scaled : scaled;
+    const fraction = (magnitude % 10000n).toString().padStart(4, '0').replace(/0+$/, '');
+    return (scaled < 0n ? '-' : '') + (magnitude / 10000n) + (fraction ? '.' + fraction : '');
+}
+
+for (const range of rules) {
+    const row = document.createElement('li');
+    row.textContent = range.label + ' · ' + decimal(range.min) + ' ≤ ' + column + ' < ' + decimal(range.max);
+    document.getElementById('ranges').append(row);
+}
+input.addEventListener('input', update);
+update();
+</script>
+</body>
+</html>

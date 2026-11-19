@@ -5,7 +5,7 @@ const LAST_TEACHER = 'fraynix-verified-data-tool';
 // This is a UI hint. The Java Workbench decides whether the chat request matches.
 export function mayRequestFrayTool(value) {
     if (value.length > 1200) return false;
-    if (/^(?:(?:teach|use) data-to-tool lesson\b|build a data-to-tool converter from\b)/i.test(value.trim())) return true;
+    if (/^(?:(?:teach|use) data-to-tool lesson\b|build a data-to-tool (?:converter from|classifier using column)\b)/i.test(value.trim())) return true;
     const text = value.normalize('NFKC').toLowerCase().replace(/[^a-z0-9]+/g, ' ');
     return (/^(?:please )?convert\b.*\bthen\b/.test(text)
             && /\b(?:celsius|centigrade|fahrenheit|rankine|c|f|r|inch|inches|in|mm|cm)\b/.test(text))
@@ -71,15 +71,8 @@ export class RequestWorkbenchPanel {
             const id = $('requests-pending-chain').value;
             if (id) await this.openPendingChain(id);
         });
-        $('requests-file').onchange = () => this.run(async () => {
-            const file = $('requests-file').files[0];
-            if (!file || !this.task) return;
-            if (file.size > 65536) throw Error('Choose a file up to 64 KiB.');
-            const bytes = new Uint8Array(await file.arrayBuffer());
-            let characters = '';
-            for (const byte of bytes) characters += String.fromCharCode(byte);
-            this.show(await this.call('attach', {id:this.task.id, name:file.name, base64:btoa(characters)}));
-        });
+        $('requests-file').onchange = () => this.run(() => this.attach('requests-file','attach'));
+        $('requests-rules-file').onchange = () => this.run(() => this.attach('requests-rules-file','attach-rules'));
         $('requests-action').onchange = () => this.run(async () => {
             const action = $('requests-action').value;
             if (this.task && action) this.show(await this.call('choose', {id:this.task.id, action}));
@@ -173,6 +166,16 @@ export class RequestWorkbenchPanel {
 
     call(command, args) { return this.request('requestWorkbench', {command,args}); }
 
+    async attach(input, command) {
+        const file = $(input).files[0];
+        if (!file || !this.task) return;
+        if (file.size > 65536) throw Error('Choose a file up to 64 KiB.');
+        const bytes = new Uint8Array(await file.arrayBuffer());
+        let characters = '';
+        for (const byte of bytes) characters += String.fromCharCode(byte);
+        this.show(await this.call(command, {id:this.task.id, name:file.name, base64:btoa(characters)}));
+    }
+
     async run(action) {
         if (this.busy) return;
         this.busy = true;
@@ -190,6 +193,7 @@ export class RequestWorkbenchPanel {
     show(task) {
         $('requests-pending').hidden = true;
         if (this.task?.id !== task.id || !task.source || task.status !== 'review') $('requests-file').value = '';
+        if (this.task?.id !== task.id || !task.rulesSource || task.status !== 'review') $('requests-rules-file').value = '';
         this.task = task;
         localStorage.setItem('fraynix-request-review', task.id);
         if (task.status === 'verified' && task.choice.action === DATA_TOOL && !task.choice.lesson)
@@ -213,6 +217,9 @@ export class RequestWorkbenchPanel {
         const pending = task?.status === 'review';
         const chain = task?.choice.chain;
         const data = task?.choice.action === DATA_TOOL;
+        const range = data && task.choice.column === 'range';
+        const inheritedRules = range && task.choice.lesson?.rulesSha256;
+        const hasRules = Boolean(task?.rulesSource || inheritedRules);
         const finished = task?.status === 'verified';
         $('requests-suggest').disabled = this.busy;
         $('requests-recover-chain').disabled = this.busy;
@@ -221,8 +228,14 @@ export class RequestWorkbenchPanel {
         $('requests-pause-label').hidden = !chain || !pending || Boolean(task.firstVerified);
         $('requests-pause-chain').disabled = this.busy;
         $('requests-reopen').disabled = this.busy || !localStorage.getItem('fraynix-request-review');
-        $('requests-file').disabled = this.busy || !pending || Boolean(task?.dataSavePending);
+        $('requests-file').disabled = this.busy || !pending || Boolean(task?.dataSavePending) || (range && !hasRules);
         $('requests-file').accept = data ? '.csv,text/csv' : '';
+        $('requests-rules-attachment').hidden = !range || !pending || Boolean(inheritedRules);
+        $('requests-rules-file').disabled = this.busy || !pending || Boolean(task?.dataSavePending);
+        $('requests-rules-source').hidden = !range;
+        $('requests-rules-source').textContent = task?.rulesSource
+            ? 'Rules CSV · ' + task.rulesSource.name + ' · SHA-256 ' + task.rulesSource.sha256
+            : inheritedRules ? 'Using the rules verified by lesson ' + task.choice.lesson.name : 'Rules headers · min_inclusive, max_exclusive, label';
         $('requests-action').disabled = this.busy || !pending;
         $('requests-action-label').hidden = !pending || Boolean(chain) || data;
         $('requests-attachment').hidden = !file || !pending;

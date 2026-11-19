@@ -548,7 +548,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         emit('view','preview');
         return openArtifact(file);
       }
-      if(!['chat','suggest','attach','choose','read','brief','learn','recover-chain','pending-chains'].includes(command))throw Error('Unknown request workbench action');
+      if(!['chat','suggest','attach','attach-rules','choose','read','brief','learn','recover-chain','pending-chains'].includes(command))throw Error('Unknown request workbench action');
       return api('/api/requests/'+command,args);
     }
     case 'creation':{if(input.command==='preview')return (await inputs100.resolve(input.args)).preview;if(input.command==='start')return startCreationAgent(input.args.request,input.model,{definition:input.args.definition,source:input.args.source});throw Error('Unknown creation operation');}
