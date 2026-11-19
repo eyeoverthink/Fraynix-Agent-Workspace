@@ -1,7 +1,7 @@
 'use strict';
 const {app,BrowserWindow,ipcMain,Menu,shell}=require('electron');
 const {spawn}=require('node:child_process');
-const fs=require('node:fs');const fsp=require('node:fs/promises');const path=require('node:path');const {randomBytes,randomUUID}=require('node:crypto');const readline=require('node:readline');
+const fs=require('node:fs');const fsp=require('node:fs/promises');const path=require('node:path');const {createHash,randomBytes,randomUUID}=require('node:crypto');const readline=require('node:readline');
 const {Surface}=require('./surfaces.cjs');
 const {observeRamp, rampPath, rampRequest, localWorkflowRequest}=require('./ramp-mission.cjs');const {catalog,command,planTools}=require('./policy.cjs');
 const {failureClass,performControlled,observeProgress,trainController}=require('./controller.cjs');
@@ -475,8 +475,31 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     case 'workflow':{if(['history','archive','verify-archive','read','child-history','archive-children','verify-child','child-read'].includes(input.command)){const result=await api('/api/workflows/'+input.command,input.args||{});if(['archive','archive-children'].includes(input.command))await refresh();return result;}if(input.command==='catalog')return api('/api/workflows/catalog',{});if(input.command==='start')return startWorkflowAgent(input.args.request,input.args.modelName,input.args);throw Error('Unknown workflow operation');}
     case 'requestWorkbench': {
       const {command,args}=input;
-      if(command==='execute'){
-        const proof=await api('/api/requests/execute',args);
+      if(command==='execute'||command==='build-fray'){
+        let proof;
+        if(command==='build-fray'){
+          const prepared=await api('/api/requests/fray-prepare',args);
+          proof=prepared;
+          if(prepared.preview){
+            const previous=canvas.view.webContents.getURL();
+            try{
+              const url=origin+prepared.preview;
+              const response=await fetch(url,{redirect:'error'});
+              if(!response.ok||createHash('sha256')
+                .update(Buffer.from(await response.arrayBuffer())).digest('hex')!==prepared.htmlSha256)
+                throw Error('The reviewed browser program changed');
+              emit('view','preview');
+              await canvas.navigate(url);
+              const checks=await canvas.test(prepared.steps);
+              proof=await api('/api/requests/fray-finish',{...args,htmlSha256:prepared.htmlSha256,checks});
+            }catch(error){
+              await canvas.navigate(previous.startsWith(origin+'/')?previous:origin+'/welcome').catch(()=>{});
+              throw error;
+            }
+          }
+        }else{
+          proof=await api('/api/requests/execute',args);
+        }
         await openArtifact(await api('/api/artifact/read',{id:proof.artifact.id}));
         emit('view','preview');
         return proof;
@@ -487,12 +510,12 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         if(file.version!==proof.artifact.version)throw Error('The verified output changed');
         if(command==='export'){
           const [name,ext]=proof.output.split('.');
-          return nativeExports.save(name,ext,file.contents[proof.output],{source:args.id,sha256:proof.artifact.sha256});
+          return nativeExports.save(ext==='html'?'inches-to-millimetres':name,ext,file.contents[proof.output],{source:args.id,sha256:proof.artifact.sha256});
         }
         emit('view','preview');
         return openArtifact(file);
       }
-      if(!['suggest','attach','choose','read','brief','learn'].includes(command))throw Error('Unknown request workbench action');
+      if(!['chat','suggest','attach','choose','read','brief','learn'].includes(command))throw Error('Unknown request workbench action');
       return api('/api/requests/'+command,args);
     }
     case 'creation':{if(input.command==='preview')return (await inputs100.resolve(input.args)).preview;if(input.command==='start')return startCreationAgent(input.args.request,input.model,{definition:input.args.definition,source:input.args.source});throw Error('Unknown creation operation');}
@@ -839,13 +862,13 @@ else app.whenReady().then(async()=>{
     window.webContents.setWindowOpenHandler(()=>({action:'deny'}));window.webContents.on('will-navigate',e=>e.preventDefault());
     agent042=createAgent042({api,execute,openArtifact,emit});agency043=createAgency043({api,execute,openArtifact,refresh,isAdmitting:()=>pendingAgency043>0,toolNames:catalog.map(t=>t.name),withContext:async(job,fn)=>{const prior=run,previous=captureContext;run=job;captureContext=job;try{return await fn();}finally{run=prior;captureContext=previous;}},getArtifact:()=>currentArtifact,getSurface:kind=>kind==='browser'?browser:canvas,showPreview:async()=>{emit('view','preview');await new Promise(r=>setTimeout(r,80));},emit,activity,sessionId:selfHostSession,planTools,captureWorkspace:async()=>{if(await window.webContents.executeJavaScript('Boolean(window.tabletopView?.stream||window.metricView?.stream||document.querySelector("dialog[open]"))'))throw Error('Close camera/footage dialogs before capturing the app interface');emit('view','preview');await new Promise(r=>setTimeout(r,120));const png=await captureComposite(),im=require('electron').nativeImage.createFromBuffer(Buffer.from(png,'base64')),size=im.getSize();return{png,viewport:[size.width,size.height],url:window.webContents.getURL(),title:window.getTitle()};},withAuthority:(value,fn)=>agencyScope043.run(value,fn)});
     await window.loadFile(path.join(__dirname,'renderer','index.html'));
-    await api('/api/self/register',{sourceSha256:require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(__dirname,'policy.cjs'))).digest('hex'),capabilities:catalog.map(({name,description,args})=>({name,description,args}))});selfRegistered=true;const knowledgeState=await api('/api/knowledge/state',{});if(knowledgeState.selectedObjectId)await knowledgeBridge.select(knowledgeState.selectedObjectId);await updateSelfHost();researchWorker.start();const hostStateTimer044=setInterval(()=>updateSelfHost().catch(()=>{}),5000);window.on('closed',()=>clearInterval(hostStateTimer044));
+    await api('/api/self/register',{sourceSha256:createHash('sha256').update(fs.readFileSync(path.join(__dirname,'policy.cjs'))).digest('hex'),capabilities:catalog.map(({name,description,args})=>({name,description,args}))});selfRegistered=true;const knowledgeState=await api('/api/knowledge/state',{});if(knowledgeState.selectedObjectId)await knowledgeBridge.select(knowledgeState.selectedObjectId);await updateSelfHost();researchWorker.start();const hostStateTimer044=setInterval(()=>updateSelfHost().catch(()=>{}),5000);window.on('closed',()=>clearInterval(hostStateTimer044));
     await browser.navigate(origin+'/welcome');await refresh();
     const artifacts=state.artifacts;
     if(artifacts.length){try{await openArtifact(await api('/api/artifact/read',{id:artifacts[artifacts.length-1].id}));}catch(error){activity('error','Saved artifact could not open; the workspace remains available. Select another artifact or revise its source.',{reason:error.message});}}
     else await execute('canvas.write',{title:'Welcome canvas',files:{'index.html':starter}});
     workflowBridge=createWorkflows({browser,api,withAuthority:(a,fn)=>a?agencyScope043.run(a,fn):fn(),canvas,openArtifact,emit,refresh,activity,getDataset:()=>currentDataset,getScene:()=>currentScene,getGoals:()=>goalBridge,onAudit:async w=>{if(w.profile162&&w.report&&currentArtifact?.id===w.report.id&&currentArtifact?.version===w.report.version){const checked=await api("/api/artifact/read",{id:w.report.id});if(checked.version===w.report.version){currentArtifact=checked;emit("artifact",checked);}}if(captureContext?.ownedWorkflowId===w.id&&w.report)await episodeStep(captureContext,{tool:'workflow.audit',ok:!!w.audit?.passed,failure:w.audit?.passed?'none':'test-failed',elapsedMs:0,artifactId:w.report.id,artifactVersion:w.report.version});}});
-    creationBridge=createCreation({api,activity});goalBridge=createGoals({api,withAuthority:(a,fn)=>a?agencyScope043.run(a,fn):fn(),browser,canvas,openArtifact,emit,refresh,activity,getScene:()=>currentScene,getDataset:()=>currentDataset,getSpatial:()=>currentSpatial,getPose:()=>currentPose,getWorld:()=>currentPersistentWorld,getPush:pushSelection,getMapping:()=>currentMapSelection,perception:perceptionBridge,creation:creationBridge,workflow:workflowBridge,getCreationSource:()=>creationSelection(),onScene:async scene=>{currentScene=scene;emit('scene',scene);emit('view','scene');},onTest:async(effect,receipt)=>{if(captureContext?.ownedGoalId===effect.goalId||effect.workflowId&&captureContext?.ownedWorkflowId===effect.workflowId)await episodeStep(captureContext,{tool:'canvas.test',ok:true,failure:receipt.passed?'none':'test-failed',elapsedMs:0,artifactId:receipt.id,artifactVersion:receipt.version,testPassed:receipt.passed});}});goalBridge.start();workflowBridge.start();await agency043.start(require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(__dirname,'policy.cjs'))).digest('hex'));
+    creationBridge=createCreation({api,activity});goalBridge=createGoals({api,withAuthority:(a,fn)=>a?agencyScope043.run(a,fn):fn(),browser,canvas,openArtifact,emit,refresh,activity,getScene:()=>currentScene,getDataset:()=>currentDataset,getSpatial:()=>currentSpatial,getPose:()=>currentPose,getWorld:()=>currentPersistentWorld,getPush:pushSelection,getMapping:()=>currentMapSelection,perception:perceptionBridge,creation:creationBridge,workflow:workflowBridge,getCreationSource:()=>creationSelection(),onScene:async scene=>{currentScene=scene;emit('scene',scene);emit('view','scene');},onTest:async(effect,receipt)=>{if(captureContext?.ownedGoalId===effect.goalId||effect.workflowId&&captureContext?.ownedWorkflowId===effect.workflowId)await episodeStep(captureContext,{tool:'canvas.test',ok:true,failure:receipt.passed?'none':'test-failed',elapsedMs:0,artifactId:receipt.id,artifactVersion:receipt.version,testPassed:receipt.passed});}});goalBridge.start();workflowBridge.start();await agency043.start(createHash('sha256').update(fs.readFileSync(path.join(__dirname,'policy.cjs'))).digest('hex'));
     if(process.env.FRAYNIX_WORKSPACE_CAPTURE){setTimeout(async()=>{await fsp.writeFile(process.env.FRAYNIX_WORKSPACE_CAPTURE,Buffer.from(await captureComposite(),'base64'));},1600);}
     if(process.env.FRAYNIX_WORKSPACE_TEST)global.workspaceTest={surfaceClass102:Surface,sessionId043:selfHostSession,agency043,activityTrace:()=>log,crashEngine:()=>engine?.kill(),canvasChecks:steps=>canvas.test(steps),canvasRead:code=>canvas.isolated(code),execute,controlledExecute,guidedProof,api,capture:captureComposite,launchGame,stopTestGame:()=>gameProcess?.kill(),origin:()=>origin,surfaces:()=>({browser:browser.view.webContents.id,canvas:canvas.view.webContents.id}),network:()=>networkPolicy.status(),knowledge:knowledgeBridge,runtime040,alignment041,research:researchWorker,stopAgent,startAgent,learnFromEpisodes,replay,project,goals:goalBridge,workflows:workflowBridge};
   }catch(error){console.error(error);app.quit();}

@@ -38,6 +38,18 @@ final class RequestWorkbench {
         return retain(text, choice);
     }
 
+    synchronized JSONObject chat(JSONObject input) throws Exception {
+        SpatialScene.keys(input, "request");
+        String text = RequestLanguage.request(input);
+        if (RequestLanguage.direct(text) != RequestLanguage.Intent.FRAY_INCH)
+            return new JSONObject().put("matched", false);
+        var known = knownPhrase(RequestLanguage.key(text));
+        var choice = RequestLanguage.view(RequestLanguage.Intent.FRAY_INCH,
+                known != null && known.getString("action").equals(RequestLanguage.Intent.FRAY_INCH.id)
+                        ? "remembered" : "java");
+        return new JSONObject().put("matched", true).put("task", retain(text, choice));
+    }
+
     synchronized JSONObject choose(JSONObject input) throws Exception {
         SpatialScene.keys(input, "id", "action");
         var task = load(input);
@@ -96,17 +108,55 @@ final class RequestWorkbench {
     synchronized JSONObject execute(JSONObject input) throws Exception {
         SpatialScene.keys(input, "id", "reviewSha256");
         var task = load(input);
-        if (!reviewSha(task).equals(input.getString("reviewSha256")))
-            throw new IllegalStateException("The reviewed action or attached source changed. Review it again.");
+        requireReview(input, task);
         if (!intent(task).needsFile() || !task.has("source")) throw new IllegalStateException("Select a source file");
         if (task.has("report")) return proof(task).put("task", view(task));
 
         var output = converted(task);
         var artifact = store.writeOnce("request-workbench:" + task.getString("id"), files(task, output));
-        var ref = artifactRef(task, artifact, output);
+        var ref = artifactRef(artifact, files(task, output));
         task.put("report", ref).put("status", "verified").put("summary", output.note());
         save(task);
         return proof(task).put("task", view(task));
+    }
+
+    synchronized JSONObject prepareFray(JSONObject input) throws Exception {
+        SpatialScene.keys(input, "id", "reviewSha256");
+        var task = load(input);
+        requireFray(input, task);
+        if (task.has("report")) return proof(task).put("task", view(task));
+        return new JSONObject().put("preview", FrayConversion.previewPath())
+                .put("htmlSha256", FrayConversion.HTML_SHA256).put("steps", FrayConversion.steps());
+    }
+
+    synchronized JSONObject finishFray(JSONObject input) throws Exception {
+        SpatialScene.keys(input, "id", "reviewSha256", "htmlSha256", "checks");
+        var task = load(input);
+        requireFray(input, task);
+        if (!FrayConversion.HTML_SHA256.equals(input.getString("htmlSha256")))
+            throw new IllegalStateException("The reviewed browser program changed");
+        if (task.has("report")) return proof(task).put("task", view(task));
+        var checks = input.getJSONArray("checks");
+        var expected = FrayConversion.artifact(checks);
+        var artifact = store.writeOnce("request-workbench:" + task.getString("id"), expected);
+        var ref = artifactRef(artifact, expected);
+        store.recordTest(new JSONObject().put("id", ref.getString("id")).put("version", ref.getInt("version"))
+                .put("steps", FrayConversion.steps()).put("checks", checks));
+        task.put("report", ref).put("status", "verified").put("frayChecks", checks)
+                .put("summary", "Browser results matched the Fray reference. Open or export the offline tool.");
+        save(task);
+        return proof(task).put("task", view(task));
+    }
+
+    private static void requireFray(JSONObject input, JSONObject task) {
+        requireReview(input, task);
+        if (intent(task) != RequestLanguage.Intent.FRAY_INCH)
+            throw new IllegalStateException("Review the inches-to-millimetres tool first");
+    }
+
+    private static void requireReview(JSONObject input, JSONObject task) {
+        if (!reviewSha(task).equals(input.getString("reviewSha256")))
+            throw new IllegalStateException("The reviewed action or attached source changed. Review it again.");
     }
 
     synchronized JSONObject brief(JSONObject input) throws Exception {
@@ -152,15 +202,23 @@ final class RequestWorkbench {
 
     private JSONObject proof(JSONObject task) throws Exception {
         var ref = task.getJSONObject("report");
-        var output = converted(task);
-        var actual = artifactRef(task, store.read(ref.getString("id")), output);
+        JSONObject expected;
+        String name;
+        if (intent(task) == RequestLanguage.Intent.FRAY_INCH) {
+            expected = FrayConversion.artifact(task.getJSONArray("frayChecks"));
+            name = "index.html";
+        } else {
+            var output = converted(task);
+            expected = files(task, output);
+            name = output.name();
+        }
+        var actual = artifactRef(store.read(ref.getString("id")), expected);
         if (!actual.similar(ref)) throw new IllegalStateException("The checked output revision changed");
-        return new JSONObject().put("passed", true).put("artifact", actual).put("output", output.name())
-                .put("summary", output.note());
+        return new JSONObject().put("passed", true).put("artifact", actual).put("output", name)
+                .put("summary", task.getString("summary"));
     }
 
-    private static JSONObject artifactRef(JSONObject task, JSONObject artifact, FileRepresentation.Output output) throws Exception {
-        var expected = files(task, output);
+    private static JSONObject artifactRef(JSONObject artifact, JSONObject expected) throws Exception {
         var contents = artifact.getJSONObject("contents");
         if (artifact.getInt("version") != 1 || !contents.similar(expected.getJSONObject("files"))
                 || !artifact.getJSONArray("sources").similar(expected.getJSONArray("sources")))
@@ -241,6 +299,7 @@ final class RequestWorkbench {
 
     private static JSONObject view(JSONObject task) {
         var visible = WorldFrames.copy(task);
+        visible.remove("frayChecks");
         if (task.has("source")) visible.put("source", sourceView(task));
         return visible.put("reviewSha256", reviewSha(task));
     }

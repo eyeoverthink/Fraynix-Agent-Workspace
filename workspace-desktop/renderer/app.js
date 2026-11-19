@@ -39,7 +39,7 @@ import {MeasurementPanel} from './measurement-panel.js';
 import {CalibrationPanel} from './calibration-panel.js';
 import {ObserverPanel} from './observer-panel.js';
 import {BodyPanel} from './body-panel.js';
-import {RequestWorkbenchPanel} from './request-workbench.js';
+import {RequestWorkbenchPanel,mayRequestInchTool} from './request-workbench.js';
 import {SceneFiles} from './scene-files.js';
 import {exportSceneVideo} from './scene-video.js';
 const $=id=>document.getElementById(id),host=window.workspace;
@@ -58,7 +58,8 @@ function plannedRampRequest(text) {
  return /^(?:plan the local ramp experiment(?: and pause after reading)?[.!]?|plan a local ramp task(?: and pause after reading)?:[ 	]*\S.{0,1199})$/i.test(text.trim());
 }
 function hasChatRoute() {
- return Boolean(state?.models.length) || offlineMissionRequest($('goal').value) || quickWorkflowRequest($('goal').value);
+ const text=$('goal').value;
+ return Boolean(state?.models.length) || offlineMissionRequest(text) || quickWorkflowRequest(text) || mayRequestInchTool(text);
 }
 function updateChainRecommendation() {
  const goal=$('goal').value.trim();
@@ -120,8 +121,8 @@ window.small161View=new Small161Panel({call:(command,args={})=>request('small161
 const perceptionPanel=new PerceptionPanel({call:(command,args={})=>request('perception',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g)});
 const trackingPanel=new TrackingPanel({call:(command,args={})=>request('tracking',{command,args}),notice,requireSaved,openPerception:()=>perceptionPanel.open()});
 const creationPanel=new CreationPanel({layout:updateLayout,call:(command,args,model)=>request('creation',{command,args,model}),getState:()=>state,getArtifact:()=>artifact,getModel:()=>$('model').value,requireSaved,notice,onGoal:g=>goalsPanel.accept(g)});
-new RequestWorkbenchPanel({request,getModel:()=>$('model').value,requireSaved,layout:updateLayout,
- openCreation:brief=>creationPanel.open(null,brief)});
+const requestsPanel=new RequestWorkbenchPanel({request,getModel:()=>$('model').value,requireSaved,layout:updateLayout,
+ openCreation:brief=>creationPanel.open(null,brief),announce:message});
 
 const workflowPanel=new WorkflowPanel({layout:updateLayout,call:(command,args)=>request('workflow',{command,args}),getState:()=>state,getModel:()=>$('model').value,requireSaved,notice,onGoal:w=>goalsPanel.accept(w),openFirstSkill:()=>persistentPanel.showFirstSkill()});
 const proceduralPanel=new ProceduralPanel({layout:updateLayout,call:(command,args)=>request('javaGoal',{command,args}),requireSaved,notice,onGoal:g=>goalsPanel.accept(g)});
@@ -202,7 +203,22 @@ $('chain-recommend').onclick=()=>safe(async()=>{
  message(goal,'user');
  await request('agent',{goal,model,chainRecommendation:true});
 });
-$('run').onclick=()=>safe(async()=>{requireSaved();const goal=$('goal').value.trim();if(!goal)return;const local=offlineMissionRequest(goal);const selectedModel=state?.models.some(m=>m.name===$('model').value)?$('model').value:'';message(goal,'user');await request('agent',{goal,model:local?'':quickWorkflowRequest(goal)?selectedModel:$('model').value,planWorld099:document.querySelector('#plan-world099').checked,...(!local && !plannedRampRequest(goal) && !localWorkflowRequest(goal) && window.browserChecks126?.contract()?{browserContract126:window.browserChecks126.contract()}:{})});});
+$('run').onclick=()=>safe(async()=>{
+ requireSaved();
+ const goal=$('goal').value.trim();
+ if(!goal)return;
+ message(goal,'user');
+ if(mayRequestInchTool(goal)&&await requestsPanel.offerFromChat(goal)){
+   message('Review the inches-to-millimetres tool in the Workbench. I will test it in the browser before saving it.');
+   return;
+ }
+ const local=offlineMissionRequest(goal);
+ const selectedModel=state?.models.some(m=>m.name===$('model').value)?$('model').value:'';
+ if(!selectedModel&&!local&&!quickWorkflowRequest(goal))throw Error('Select a local model or choose a supported action in the Request workbench');
+ await request('agent',{goal,model:local?'':selectedModel,planWorld099:document.querySelector('#plan-world099').checked,
+   ...(!local&&!plannedRampRequest(goal)&&!localWorkflowRequest(goal)&&window.browserChecks126?.contract()
+     ?{browserContract126:window.browserChecks126.contract()}:{})});
+});
 $('goal').addEventListener('input',updateChainRecommendation);
 $('goal').addEventListener('input',()=>{
  $('run').disabled=running||creationBusy||dirty||lab.dirty||!hasChatRoute()

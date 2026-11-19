@@ -709,6 +709,12 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/host/skill" -> result=store.hostSkill(input.getString("name"),input.optJSONObject("args")==null?new JSONObject():input.getJSONObject("args"));
                     case "/api/event" -> {store.event(input.getString("kind"),input.getJSONObject("data"));result=new JSONObject().put("saved",true);}
                     case "/api/cancel" -> {var active=requests.get(input.getString("requestId"));if(active!=null)active.cancel();result=new JSONObject().put("cancelled",active!=null);}
+                    case "/api/requests/chat" -> result=requestWorkbench.chat(input);
+                    case "/api/requests/fray-prepare" -> result=requestWorkbench.prepareFray(input);
+                    case "/api/requests/fray-finish" -> {
+                        if(agency.busy()||sharedBusy043())throw new IllegalStateException("Finish the current workspace task before saving another result");
+                        result=requestWorkbench.finishFray(input);
+                    }
                     case "/api/requests/suggest" -> result=requestWorkbench.suggest(input,args->plan(args,true));
                     case "/api/requests/attach" -> result=requestWorkbench.attach(input);
                     case "/api/requests/choose" -> result=requestWorkbench.choose(input);
@@ -726,6 +732,19 @@ public final class WorkspaceServer implements AutoCloseable {
                 }
                 send(exchange,200,result);
             } catch(Exception error) {try{if(admission106)agency.refuseAdmission106(exchange.getRequestHeaders().getFirst("X-Fraynix-Task"),exchange.getRequestHeaders().getFirst("X-Fraynix-Effect"),exchange.getRequestURI().getPath(),exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"),error);send(exchange,400,new JSONObject().put("error",String.valueOf(error.getMessage())));}catch(Exception ignored){exchange.close();}}
+        });
+        server.createContext(FrayConversion.PREVIEW, exchange -> {
+            if (!exchange.getRequestMethod().equals("GET")
+                    || !exchange.getRequestURI().getPath().equals(FrayConversion.previewPath())) {
+                send(exchange, 404, new JSONObject().put("error", "Unknown converter preview"));
+                return;
+            }
+            byte[] html = FrayConversion.preview();
+            exchange.getResponseHeaders().set("Content-Type", "text/html; charset=utf-8");
+            exchange.getResponseHeaders().set("X-Content-Type-Options", "nosniff");
+            exchange.getResponseHeaders().set("Cache-Control", "no-store");
+            exchange.sendResponseHeaders(200, html.length);
+            try (var out = exchange.getResponseBody()) { out.write(html); }
         });
         server.createContext("/artifact/",exchange->{
             try {

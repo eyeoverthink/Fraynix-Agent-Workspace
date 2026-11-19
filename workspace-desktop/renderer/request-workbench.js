@@ -1,8 +1,14 @@
 const $ = id => document.getElementById(id);
 
+// This is a UI hint. The Java Workbench decides whether the chat request matches.
+export function mayRequestInchTool(value) {
+    const text = value.normalize('NFKC').toLowerCase();
+    return text.length <= 1200 && /\b(?:inch|inches)\b/.test(text) && /\b(?:mm|millimet(?:er|re)s?)\b/.test(text);
+}
+
 export class RequestWorkbenchPanel {
-    constructor({request, getModel, requireSaved, layout, openCreation}) {
-        Object.assign(this, {request, getModel, requireSaved, layout, openCreation});
+    constructor({request, getModel, requireSaved, layout, openCreation, announce}) {
+        Object.assign(this, {request, getModel, requireSaved, layout, openCreation, announce});
         this.dialog = $('requests-dialog');
         this.task = null;
         this.busy = false;
@@ -47,6 +53,18 @@ export class RequestWorkbenchPanel {
                 const result = await this.call('execute', {id, reviewSha256});
                 this.show(result.task);
                 this.dialog.close();
+            } else if (this.task.choice.action === 'build-inch-converter') {
+                this.dialog.close();
+                this.layout();
+                try {
+                    const result = await this.call('build-fray', {id, reviewSha256});
+                    this.show(result.task);
+                    this.announce(result.summary);
+                } catch (error) {
+                    this.dialog.showModal();
+                    this.layout();
+                    throw error;
+                }
             } else {
                 const brief = await this.call('brief', {id, reviewSha256});
                 this.dialog.close();
@@ -67,6 +85,15 @@ export class RequestWorkbenchPanel {
             $('requests-status').textContent = 'Phrase remembered in this project. Future runs still need review.';
         });
         this.render();
+    }
+
+    async offerFromChat(request) {
+        const result = await this.call('chat', {request});
+        if (!result.matched) return false;
+        this.show(result.task);
+        if (!this.dialog.open) this.dialog.showModal();
+        this.layout();
+        return true;
     }
 
     call(command, args) { return this.request('requestWorkbench', {command,args}); }
@@ -106,7 +133,9 @@ export class RequestWorkbenchPanel {
         $('requests-source').textContent = task?.source
             ? task.source.name + ' · ' + task.source.size + ' bytes · SHA-256 ' + task.source.sha256 : '';
         $('requests-confirm').hidden = !pending || task.choice.action === 'clarify';
-        $('requests-confirm').textContent = file ? 'Confirm and verify' : 'Review in Creation Canvas';
+        const fray = task?.choice.action === 'build-inch-converter';
+        $('requests-confirm').textContent = fray ? 'Build and verify in browser'
+            : file ? 'Confirm and verify' : 'Review in Creation Canvas';
         $('requests-confirm').disabled = this.busy || (file && !task?.source);
         for (const id of ['requests-result','requests-export','requests-learn']) {
             $(id).hidden = !finished;
