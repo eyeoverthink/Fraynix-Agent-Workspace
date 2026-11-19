@@ -176,7 +176,7 @@ final class RelayClearanceChain {
             int visible = (int) rows.stream().filter(row -> row.pace().equals(pace)).count();
             steps.put(count("button[data-filter='" + pace + "']", 1).put("action", "click"))
                     .put(count("#crossings li:not([hidden])[data-pace='" + pace + "']", visible))
-                    .put(text("#shown", visible + " crossings shown"));
+                    .put(count("#crossings li:not([hidden]):not([data-pace='" + pace + "'])", 0));
         }
         return steps.put(count("button[data-filter='all']", 1).put("action", "click"))
                 .put(count("#crossings li:not([hidden])", count));
