@@ -119,8 +119,9 @@ async function main() {
     assert(call.returned&&call.providerEvidence.eval_count>0,JSON.stringify(call));
     const plan=held.history.find(e=>e.kind==='plan')?.detail;
     assert.deepEqual(plan.allowed,['chain.recommend']);
-    assert.equal(plan.model.name,model);
+    assert.equal(plan.model.model,model);
     const selected=held.recommendedChain;
+    if(selected)assert.equal(selected.modelDigest,plan.model.digest);
     const actual=selected?.choice||'unparsed';
     const trial={fixture, id:row.id, actual, matched:actual===fixture.want, modelCall:call, plan,
       decision:selected, firstStatus:held.status, firstReason:held.reason, approvalRequired:true};
