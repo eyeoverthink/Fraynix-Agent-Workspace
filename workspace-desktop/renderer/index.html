@@ -112,6 +112,24 @@
   </div>
  </div>
 </dialog>
+<dialog id="classification-routing" aria-labelledby="routing-heading">
+ <div class="request-workbench">
+  <button id="routing-close" class="quiet">Close</button>
+  <h2 id="routing-heading">Classification routing</h2>
+  <p id="routing-source" class="source-line"></p>
+  <p id="routing-status" role="status"></p>
+  <label id="routing-map-label">Choose a mapping CSV <input id="routing-file" type="file" accept=".csv,text/csv"></label>
+  <div id="routing-choices" hidden>
+   <table><caption>Reviewed row choices</caption><thead><tr><th>CSV row</th><th>Range evidence</th><th>Label</th><th>Lesson</th><th>Conversion input</th></tr></thead>
+    <tbody id="routing-rows"></tbody></table>
+  </div>
+  <ul id="routing-results"></ul>
+  <div class="runtime-controls">
+   <label id="routing-pause-label" hidden><input id="routing-pause" type="checkbox"> Pause after the next verified procedure</label>
+   <button id="routing-run" class="primary" hidden>Confirm and run</button>
+  </div>
+ </div>
+</dialog>
 <dialog id="relay-review-dialog" aria-labelledby="relay-review-heading">
  <form method="dialog">
   <h2 id="relay-review-heading">Review a Relay mission</h2>

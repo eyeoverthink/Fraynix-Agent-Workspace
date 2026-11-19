@@ -441,6 +441,71 @@ async function captureComposite(){
   const input={shell:shell.toDataURL(),layers,sx:shell.getSize().width/size[0],sy:shell.getSize().height/size[1]};
   return window.webContents.executeJavaScript(`(async()=>{const data=${JSON.stringify(input)};const load=src=>new Promise((resolve,reject)=>{const i=new Image();i.onload=()=>resolve(i);i.onerror=reject;i.src=src});const base=await load(data.shell),c=document.createElement('canvas');c.width=base.naturalWidth;c.height=base.naturalHeight;const ctx=c.getContext('2d');ctx.drawImage(base,0,0);for(const layer of data.layers){const image=await load(layer.image),r=layer.bounds;ctx.drawImage(image,r.x*data.sx,r.y*data.sy,r.width*data.sx,r.height*data.sy);}return c.toDataURL('image/png').split(',')[1];})()`);
 }
+async function buildWorkbenchFray(args) {
+  const {pauseAfterFirst=false,...confirmation}=args;
+  if(typeof pauseAfterFirst!=='boolean')throw Error('Choose whether to pause after the first conversion');
+  const prepared=await api('/api/requests/fray-prepare',confirmation);
+  let proof=prepared;
+  if(prepared.commitReady){
+    const saveStarted=performance.now();
+    proof=await api('/api/requests/fray-chain-resume-save',confirmation);
+    activity('request-recovery','Finished interrupted Fray artifact save',{
+      reviewId:confirmation.id,saveMs:Math.round(performance.now()-saveStarted)
+    });
+  }else if(prepared.dataCommitReady){
+    proof=await api('/api/requests/fray-finish',{...confirmation,htmlSha256:prepared.htmlSha256});
+  }else if(prepared.preview){
+    const previous=canvas.view.webContents.getURL();
+    try{
+      const rebuildStarted=performance.now();
+      const url=origin+prepared.preview;
+      const response=await fetch(url,{redirect:'error'});
+      if(!response.ok||createHash('sha256')
+        .update(Buffer.from(await response.arrayBuffer())).digest('hex')!==prepared.htmlSha256)
+        throw Error('The reviewed browser program changed');
+      emit('view','preview');
+      await canvas.navigate(url);
+      const checks=await canvas.test(prepared.steps);
+      const bound={...confirmation,htmlSha256:prepared.htmlSha256};
+      if(prepared.chain){
+        const next=await api('/api/requests/fray-chain-advance',{...bound,checks});
+        if(pauseAfterFirst){
+          const task=await api('/api/requests/read',{id:confirmation.id});
+          return {paused:true,task};
+        }
+        const secondStarted=performance.now();
+        const result=await canvas.test(next.steps);
+        proof=await api('/api/requests/fray-chain-finish',{...bound,handoff:next.handoff,checks:result});
+        if(prepared.resuming){
+          activity('request-recovery','Recovered Fray handoff verified',{
+            reviewId:confirmation.id,rebuildMs:Math.round(secondStarted-rebuildStarted),
+            secondStepMs:Math.round(performance.now()-secondStarted)
+          });
+        }
+      }else{
+        proof=await api('/api/requests/fray-finish',{...bound,checks});
+      }
+    }catch(error){
+      await canvas.navigate(previous.startsWith(origin+'/')?previous:origin+'/welcome').catch(()=>{});
+      throw error;
+    }
+  }
+  return proof;
+}
+
+async function runClassificationPlan({id,decisionSha256,pauseAfterNext=false}) {
+  if(typeof pauseAfterNext!=='boolean')throw Error('Choose whether to pause after the next procedure');
+  if(decisionSha256)await api('/api/requests/routing-confirm',{id,decisionSha256});
+  for(let count=0;count<6;count++){
+    const {plan,child}=await api('/api/requests/routing-next',{id});
+    if(!child)return plan;
+    await buildWorkbenchFray({id:child.id,reviewSha256:child.reviewSha256});
+    const last=await api('/api/requests/routing-accept',{id,childId:child.id});
+    if(last.status==='verified'||pauseAfterNext)return last;
+  }
+  throw Error('Routing plan exceeded the procedure limit');
+}
+
 ipcMain.handle('workspace:request',async(event,input)=>{
   validSender(event);
   // A view switch may still be finishing when the user submits the prepared chat.
@@ -478,60 +543,17 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     case 'workflow':{if(['history','archive','verify-archive','read','child-history','archive-children','verify-child','child-read'].includes(input.command)){const result=await api('/api/workflows/'+input.command,input.args||{});if(['archive','archive-children'].includes(input.command))await refresh();return result;}if(input.command==='catalog')return api('/api/workflows/catalog',{});if(input.command==='start')return startWorkflowAgent(input.args.request,input.args.modelName,input.args);throw Error('Unknown workflow operation');}
     case 'requestWorkbench': {
       const {command,args}=input;
+      if(command==='run-routing')return runClassificationPlan(args);
+      if(command==='open-routing-result'){
+        const plan=await api('/api/requests/routing-read',{id:args.id});
+        const result=plan.steps?.find(step=>step.result?.childId===args.childId)?.result;
+        if(!result)throw Error('This routing plan has no matching verified result');
+        emit('view','preview');
+        return openArtifact(await api('/api/artifact/read',{id:result.artifact.id}));
+      }
       if(command==='execute'||command==='build-fray'){
-        let proof;
-        if(command==='build-fray'){
-          const {pauseAfterFirst=false,...confirmation}=args;
-          if(typeof pauseAfterFirst!=='boolean')throw Error('Choose whether to pause after the first conversion');
-          const prepared=await api('/api/requests/fray-prepare',confirmation);
-          proof=prepared;
-          if(prepared.commitReady){
-            const saveStarted=performance.now();
-            proof=await api('/api/requests/fray-chain-resume-save',confirmation);
-            activity('request-recovery','Finished interrupted Fray artifact save',{
-              reviewId:confirmation.id,saveMs:Math.round(performance.now()-saveStarted)
-            });
-          }else if(prepared.dataCommitReady){
-            proof=await api('/api/requests/fray-finish',{...confirmation,htmlSha256:prepared.htmlSha256});
-          }else if(prepared.preview){
-            const previous=canvas.view.webContents.getURL();
-            try{
-              const rebuildStarted=performance.now();
-              const url=origin+prepared.preview;
-              const response=await fetch(url,{redirect:'error'});
-              if(!response.ok||createHash('sha256')
-                .update(Buffer.from(await response.arrayBuffer())).digest('hex')!==prepared.htmlSha256)
-                throw Error('The reviewed browser program changed');
-              emit('view','preview');
-              await canvas.navigate(url);
-              const checks=await canvas.test(prepared.steps);
-              const bound={...confirmation,htmlSha256:prepared.htmlSha256};
-              if(prepared.chain){
-                const next=await api('/api/requests/fray-chain-advance',{...bound,checks});
-                if(pauseAfterFirst){
-                  const task=await api('/api/requests/read',{id:confirmation.id});
-                  return {paused:true,task};
-                }
-                const secondStarted=performance.now();
-                const result=await canvas.test(next.steps);
-                proof=await api('/api/requests/fray-chain-finish',{...bound,handoff:next.handoff,checks:result});
-                if(prepared.resuming){
-                  activity('request-recovery','Recovered Fray handoff verified',{
-                    reviewId:confirmation.id,rebuildMs:Math.round(secondStarted-rebuildStarted),
-                    secondStepMs:Math.round(performance.now()-secondStarted)
-                  });
-                }
-              }else{
-                proof=await api('/api/requests/fray-finish',{...bound,checks});
-              }
-            }catch(error){
-              await canvas.navigate(previous.startsWith(origin+'/')?previous:origin+'/welcome').catch(()=>{});
-              throw error;
-            }
-          }
-        }else{
-          proof=await api('/api/requests/execute',args);
-        }
+        const proof=command==='build-fray'?await buildWorkbenchFray(args):await api('/api/requests/execute',args);
+        if(proof.paused)return proof;
         await openArtifact(await api('/api/artifact/read',{id:proof.artifact.id}));
         emit('view','preview');
         return proof;
@@ -548,7 +570,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         emit('view','preview');
         return openArtifact(file);
       }
-      if(!['chat','suggest','attach','attach-rules','choose','read','brief','learn','recover-chain','pending-chains'].includes(command))throw Error('Unknown request workbench action');
+      if(!['chat','suggest','attach','attach-rules','choose','read','brief','learn','recover-chain','pending-chains','routing-start','routing-attach','routing-read'].includes(command))throw Error('Unknown request workbench action');
       return api('/api/requests/'+command,args);
     }
     case 'creation':{if(input.command==='preview')return (await inputs100.resolve(input.args)).preview;if(input.command==='start')return startCreationAgent(input.args.request,input.model,{definition:input.args.definition,source:input.args.source});throw Error('Unknown creation operation');}

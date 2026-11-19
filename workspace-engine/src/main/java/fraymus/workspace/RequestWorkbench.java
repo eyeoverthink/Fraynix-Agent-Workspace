@@ -224,15 +224,91 @@ final class RequestWorkbench {
     }
 
     private synchronized JSONObject retain(String text, JSONObject choice) throws Exception {
+        var task = newReview(UUID.randomUUID().toString(), text, choice);
+        save(task);
+        return view(task);
+    }
+
+    private JSONObject newReview(String id, String text, JSONObject choice) throws Exception {
         ensureDirectory();
         try (var files = Files.list(directory)) {
             if (files.filter(path -> path.getFileName().toString().endsWith(".task.json")).count() >= 128)
                 throw new IllegalStateException("Request workbench history has reached 128 saved reviews");
         }
-        String id = UUID.randomUUID().toString();
-        var task = new JSONObject().put("id", id).put("request", text).put("choice", choice).put("status", "review");
+        return new JSONObject().put("id", id).put("request", text).put("choice", choice).put("status", "review");
+    }
+
+    record RoutingSource(JSONObject binding, FrayDataTool.Input input, FrayRangeRules rules, String column) {}
+
+    synchronized RoutingSource routingSource(String id) throws Exception {
+        var task = load(new JSONObject().put("id", id));
+        if (!"verified".equals(task.getString("status")) || intent(task) != RequestLanguage.Intent.FRAY_DATA
+                || !FrayDataTool.CLASSIFY.equals(task.getJSONObject("choice").optString("column")))
+            throw new IllegalArgumentException("Choose a verified classifier with saved browser checks");
+        var result = proof(task);
+        var source = task.getJSONObject("source");
+        var data = reviewedData(task, source);
+        var binding = new JSONObject().put("reviewId", id).put("artifact", result.getJSONObject("artifact"))
+                .put("sourceSha256", source.getString("sha256")).put("rulesSha256", data.tool().rulesSha256);
+        return new RoutingSource(binding, data.input(), data.tool().rules, data.tool().tableColumn);
+    }
+
+    synchronized JSONObject routingLesson(String name) throws Exception {
+        var lesson = checkedDataLesson(name);
+        if (!List.of("celsius", "inches").contains(lesson.getString("column")))
+            throw new IllegalArgumentException("Route only to a verified conversion lesson, not another classifier");
+        return lesson;
+    }
+
+    static String routingHeader(JSONObject lesson) {
+        return lesson.optString("tableColumn", lesson.getString("column"));
+    }
+
+    static void checkRoutingInput(JSONObject lesson, String csv) throws Exception {
+        var tool = new FrayDataTool(lesson.getString("column"), lesson.optString("tableColumn", null), null, null);
+        var input = tool.input(csv.getBytes(StandardCharsets.UTF_8));
+        var examples = lesson.getJSONArray("exampleValues").toList();
+        if (input.numericValues().stream().allMatch(examples::contains))
+            throw new IllegalArgumentException("The routed rows for " + lesson.getString("name") + " need a fresh value");
+    }
+
+    private static JSONObject routedChoice(String parent, JSONObject lesson) {
+        var choice = RequestLanguage.view(RequestLanguage.Intent.FRAY_DATA, "java")
+                .put("column", lesson.getString("column")).put("lesson", lesson).put("routingPlan", parent);
+        if (lesson.has("tableColumn")) choice.put("tableColumn", lesson.getString("tableColumn"));
+        return choice;
+    }
+
+    private static JSONObject routedSource(String csv) throws Exception {
+        return attachment(new JSONObject().put("name", "verified-classification.csv")
+                .put("base64", Base64.getEncoder().encodeToString(csv.getBytes(StandardCharsets.UTF_8))));
+    }
+
+    private JSONObject checkedRoutedTask(String id, String parent, JSONObject lesson, String csv) throws Exception {
+        var task = load(new JSONObject().put("id", id));
+        if (!task.getJSONObject("choice").similar(routedChoice(parent, lesson)) || !task.getJSONObject("source").similar(routedSource(csv)))
+            throw new IllegalStateException("The routed procedure or its bound data changed");
+        return task;
+    }
+
+    synchronized JSONObject routeChild(String id, String parent, JSONObject lesson, String csv) throws Exception {
+        if (Files.exists(path(id), LinkOption.NOFOLLOW_LINKS)) return view(checkedRoutedTask(id, parent, lesson, csv));
+        var task = newReview(id, "Use data-to-tool lesson " + lesson.getString("name"), routedChoice(parent, lesson));
+        var source = routedSource(csv);
+        reviewedData(task, source);
+        task.put("source", source);
         save(task);
         return view(task);
+    }
+
+    synchronized JSONObject verifyRoutedChild(String id, String parent, JSONObject lesson, String csv) throws Exception {
+        var task = checkedRoutedTask(id, parent, lesson, csv);
+        if (!"verified".equals(task.getString("status"))) throw new IllegalStateException("The routed procedure still needs its browser checks");
+        var verified = proof(task);
+        var evidence = new JSONObject(store.read(verified.getJSONObject("artifact").getString("id"))
+                .getJSONObject("contents").getString("verification.json"));
+        return new JSONObject().put("artifact", verified.getJSONObject("artifact"))
+                .put("result", evidence.getJSONArray("cases").getJSONObject(0).getString("browser"));
     }
 
     synchronized JSONObject attach(JSONObject input) throws Exception {
@@ -240,6 +316,8 @@ final class RequestWorkbench {
         var task = load(input);
         if (!task.getString("status").equals("review") || !intent(task).needsFile() || task.has("frayChecks"))
             throw new IllegalStateException("Choose a file for an outstanding file review");
+        if (task.getJSONObject("choice").has("routingPlan"))
+            throw new IllegalStateException("The confirmed routing plan owns this procedure's data");
         var source = attachment(input);
         if (intent(task) == RequestLanguage.Intent.FRAY_DATA)
             reviewedData(task, source);

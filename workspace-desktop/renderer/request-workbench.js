@@ -1,3 +1,5 @@
+import {ClassificationRoutingPanel,isRoutingRequest} from './classification-routing.js';
+
 const $ = id => document.getElementById(id);
 const DATA_TOOL = 'build-data-tool';
 const LAST_TEACHER = 'fraynix-verified-data-tool';
@@ -5,6 +7,7 @@ const LAST_TEACHER = 'fraynix-verified-data-tool';
 // This is a UI hint. The Java Workbench decides whether the chat request matches.
 export function mayRequestFrayTool(value) {
     if (value.length > 1200) return false;
+    if (isRoutingRequest(value)) return true;
     if (/^(?:(?:teach|use) data-to-tool lesson\b|build a data-to-tool (?:converter from|classifier using column)\b)/i.test(value.trim())) return true;
     const text = value.normalize('NFKC').toLowerCase().replace(/[^a-z0-9]+/g, ' ');
     return (/^(?:please )?convert\b.*\bthen\b/.test(text)
@@ -18,6 +21,7 @@ const isFray = action => ['build-inch-converter', 'build-temperature-converter',
 export class RequestWorkbenchPanel {
     constructor({request, getModel, requireSaved, layout, openCreation, announce}) {
         Object.assign(this, {request, getModel, requireSaved, layout, openCreation, announce});
+        this.routing = new ClassificationRoutingPanel({call:(command,args)=>this.call(command,args),layout,announce});
         this.dialog = $('requests-dialog');
         this.task = null;
         this.busy = false;
@@ -140,6 +144,10 @@ export class RequestWorkbenchPanel {
     }
 
     async offerFromChat(request) {
+        if (isRoutingRequest(request)) {
+            await this.routing.fromChat(request);
+            return true;
+        }
         const teaching = /^teach data-to-tool lesson\b/i.test(request);
         const teacherId = teaching ? localStorage.getItem(LAST_TEACHER) : null;
         const result = await this.call('chat', {request,...(teacherId ? {teacherId} : {})});
@@ -195,6 +203,7 @@ export class RequestWorkbenchPanel {
         if (this.task?.id !== task.id || !task.source || task.status !== 'review') $('requests-file').value = '';
         if (this.task?.id !== task.id || !task.rulesSource || task.status !== 'review') $('requests-rules-file').value = '';
         this.task = task;
+        this.routing.remember(task);
         localStorage.setItem('fraynix-request-review', task.id);
         if (task.status === 'verified' && task.choice.action === DATA_TOOL && !task.choice.lesson)
             localStorage.setItem(LAST_TEACHER, task.id);

@@ -44,3 +44,19 @@
 #requests-status {
     overflow-wrap: anywhere;
 }
+
+#classification-routing {
+    width: min(900px, 94vw);
+    padding: 0;
+}
+
+#routing-close { float: right; }
+#routing-source { overflow-wrap: anywhere; }
+#routing-choices { overflow: auto; margin: 1rem 0; }
+#routing-choices table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+#routing-choices caption { text-align: left; font-weight: 650; margin-bottom: .35rem; }
+#routing-choices th, #routing-choices td { padding: .55rem .45rem; text-align: left; border-bottom: 1px solid #35535a; }
+#routing-results { padding-left: 1.25rem; }
+#routing-results li { margin: .55rem 0; }
+#routing-results button { margin-left: .6rem; }
+#routing-pause-label:not([hidden]) { display: flex; align-items: center; }

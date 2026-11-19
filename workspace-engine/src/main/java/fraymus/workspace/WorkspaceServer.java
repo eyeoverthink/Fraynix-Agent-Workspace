@@ -31,6 +31,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final CameraReceipt042 camera042=new CameraReceipt042();
     private final WorkspaceStore store;
     private final RequestWorkbench requestWorkbench;
+    private final ClassifiedProcedurePlan classificationRouting;
     private final LearningStore learning;
     private final SceneStore scenes;
     private final SpatialStore spatial;
@@ -85,6 +86,7 @@ public final class WorkspaceServer implements AutoCloseable {
     WorkspaceServer(Path project,String token,boolean persistentHost) throws IOException {
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;this.persistentHost=persistentHost;store=new WorkspaceStore(project);requestWorkbench=new RequestWorkbench(project,store);learning=new LearningStore(project);
+        classificationRouting = new ClassifiedProcedurePlan(project, requestWorkbench);
         try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);memory074=new MemoryStudy074(project,goals::memoryBundle074);memory075=new MemoryStudy075(project,goals::memoryBundle074);procedures076=new ProcedureStudy076(project);procedures077=new ProcedureStudy077(project);procedures078=new ProcedureStudy078(project);observations=new WorldObservationStore(project,goals.worlds());metrics=new MetricObservationStore(project,observations,goals.worlds());physicalAudit130=new PhysicalAudit130(project,metrics);labels132=new ObservationLabels132(project,observations,metrics);contact133=new ContactAudit133(project,observations,labels132);association134=new AssociationAudit134(project,observations);appearances135=new VerifiedAppearances135(project,association134);tabletop=new TabletopStore(project,goals.worlds(),metrics);knowledge=new KnowledgeStore(project,tabletop);selfModel=new SelfModel(knowledge);workflows=new WorkflowRunner(project,goals,measurements,scenes,store);workflows.install128(new ObservationArtifact128(project,observations,metrics,goals.worlds()));game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);gameReferences115=new GameReference115(Path.of(System.getProperty("user.dir")),project);gameTasks115=new GameCosts125(Path.of(System.getProperty("user.dir")),project,game);
             relayPlaytest = new RelayPlaytest(Path.of(System.getProperty("user.dir")), project, store);
             Path repo = Path.of(System.getProperty("user.dir"));
@@ -753,6 +755,18 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/event" -> {store.event(input.getString("kind"),input.getJSONObject("data"));result=new JSONObject().put("saved",true);}
                     case "/api/cancel" -> {var active=requests.get(input.getString("requestId"));if(active!=null)active.cancel();result=new JSONObject().put("cancelled",active!=null);}
                     case "/api/requests/chat" -> result=requestWorkbench.chat(input);
+                    case "/api/requests/routing-start" -> result=classificationRouting.start(input);
+                    case "/api/requests/routing-attach" -> result=classificationRouting.attach(input);
+                    case "/api/requests/routing-read" -> result=classificationRouting.read(input);
+                    case "/api/requests/routing-confirm", "/api/requests/routing-next", "/api/requests/routing-accept" -> {
+                        if (agency.busy() || sharedBusy043())
+                            throw new IllegalStateException("Finish the current workspace task before running a routing plan");
+                        result = switch (route) {
+                            case "/api/requests/routing-confirm" -> classificationRouting.confirm(input);
+                            case "/api/requests/routing-next" -> classificationRouting.next(input);
+                            default -> classificationRouting.accept(input);
+                        };
+                    }
                     case "/api/requests/fray-prepare" -> result=requestWorkbench.prepareFray(input);
                     case "/api/requests/recover-chain" -> result=requestWorkbench.recoverChain(input);
                     case "/api/requests/pending-chains" -> result=requestWorkbench.pendingChains(input);

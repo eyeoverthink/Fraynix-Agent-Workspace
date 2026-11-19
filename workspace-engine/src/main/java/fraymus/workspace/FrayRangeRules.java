@@ -42,9 +42,13 @@ record FrayRangeRules(List<FrayRangeRules.Range> ranges) {
     }
 
     String label(String value) {
+        return match(value).label();
+    }
+
+    Range match(String value) {
         long number = scaled(value);
         for (var range : ranges) {
-            if (number >= range.min() && number < range.max()) return range.label();
+            if (number >= range.min() && number < range.max()) return range;
         }
         throw new IllegalArgumentException("No declared range covers " + value);
     }
@@ -91,5 +95,5 @@ record FrayRangeRules(List<FrayRangeRules.Range> ranges) {
 
     private static long scaled(String value) { return new BigDecimal(value).movePointRight(4).longValueExact(); }
 
-    private static String decimal(long value) { return BigDecimal.valueOf(value, 4).stripTrailingZeros().toPlainString(); }
+    static String decimal(long value) { return BigDecimal.valueOf(value, 4).stripTrailingZeros().toPlainString(); }
 }
