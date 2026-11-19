@@ -1,0 +1,52 @@
+{
+  "summary": "Fraynix can turn everyday requests into reviewed local work, learn a confirmed phrase, convert tables in both directions, inspect original file bytes and pass creation briefs to the Canvas.",
+  "modules": [
+    {
+      "title": "Reviewable intent catalog",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RequestLanguage.java",
+      "note": "docs/obsidian/188-request-workbench.md"
+    },
+    {
+      "title": "Durable review and learned wording",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java",
+      "note": "docs/obsidian/188-request-workbench.md"
+    },
+    {
+      "title": "Exact conversion and inspection",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FileRepresentation.java",
+      "note": "docs/obsidian/188-request-workbench.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/180/request-review.png",
+      "title": "A slang command with its exact file binding"
+    },
+    {
+      "path": "docs/readmes/180/round-trip-output.png",
+      "title": "A converted JSON file with the verified source receipt"
+    },
+    {
+      "path": "docs/readmes/180/byte-inspection.png",
+      "title": "The selected file as offsets, hex, decimals and bits"
+    },
+    {
+      "path": "docs/readmes/180/remembered-language.png",
+      "title": "The taught phrase recognized after restart"
+    },
+    {
+      "path": "docs/readmes/180/created-tool.png",
+      "title": "A generated offline counter with passing browser checks"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/180/verification.json",
+      "title": "Verification and model cases"
+    },
+    {
+      "path": "docs/readmes/180/original-evidence.json",
+      "title": "Evidence manifest"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+[Edition 180 — teachable requests and verified conversion](188-request-workbench.md)
+
 [Edition 179 — local Ramp and Relay recommendations](187-local-chain-recommendation.md)
 
 [Edition 178 — Relay playtest and clearance dashboard](186-relay-clearance-chain.md)

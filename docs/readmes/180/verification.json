@@ -1,0 +1,706 @@
+{
+  "passed": true,
+  "source": "9eb3653f1c0fac3c9e5801ffcf6b2a7b4bec778e",
+  "models": [
+    {
+      "name": "gpt-oss:20b",
+      "available": true,
+      "correct": 4,
+      "total": 4,
+      "returned": 4,
+      "medianSeconds": 51.2
+    },
+    {
+      "name": "gemma4:latest",
+      "available": true,
+      "correct": 4,
+      "total": 4,
+      "returned": 4,
+      "medianSeconds": 75.36
+    }
+  ],
+  "cases": {
+    "gpt-oss:20b": {
+      "available": true,
+      "cases": [
+        {
+          "fixture": {
+            "id": "slang",
+            "action": "csv-to-json",
+            "text": "Yo, can you get these comma-separated rows into something my JSON reader can swallow? Keep the actual text."
+          },
+          "suggested": "csv-to-json",
+          "choice": {
+            "provider": {
+              "done_reason": "stop",
+              "prompt_eval_duration": "33418785000",
+              "load_duration": "8861222500",
+              "total_duration": "49967653900",
+              "prompt_eval_count": "1231",
+              "eval_count": "53",
+              "eval_duration": "7665174000"
+            },
+            "by": "model",
+            "needsFile": true,
+            "action": "csv-to-json",
+            "description": "Turn CSV cells into a JSON table without changing the text.",
+            "model": {
+              "endpoint": "http://127.0.0.1:11434",
+              "checkedAt": "2026-11-19T08:01:21.540077100Z",
+              "bytes": 13793441566,
+              "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+              "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+              "model": "gpt-oss:20b"
+            },
+            "label": "Convert CSV to JSON"
+          },
+          "ms": 50315,
+          "match": true
+        },
+        {
+          "fixture": {
+            "id": "spanish",
+            "action": "create-app",
+            "text": "Hazme una mini aplicación local para anotar tareas y marcarlas como hechas."
+          },
+          "suggested": "create-app",
+          "choice": {
+            "provider": {
+              "done_reason": "stop",
+              "prompt_eval_duration": "33243087000",
+              "load_duration": "9536828000",
+              "total_duration": "53844907000",
+              "prompt_eval_count": "1220",
+              "eval_count": "75",
+              "eval_duration": "11040432000"
+            },
+            "by": "model",
+            "needsFile": false,
+            "action": "create-app",
+            "description": "Prepare an interactive application for the existing Creation Canvas.",
+            "model": {
+              "endpoint": "http://127.0.0.1:11434",
+              "checkedAt": "2026-11-19T08:02:11.907578600Z",
+              "bytes": 13793441566,
+              "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+              "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+              "model": "gpt-oss:20b"
+            },
+            "label": "Design an app"
+          },
+          "ms": 54056,
+          "match": true
+        },
+        {
+          "fixture": {
+            "id": "french",
+            "action": "inspect-bytes",
+            "text": "Tu peux me montrer les huit premiers octets et l’empreinte du fichier ?"
+          },
+          "suggested": "inspect-bytes",
+          "choice": {
+            "provider": {
+              "done_reason": "stop",
+              "prompt_eval_duration": "33320118000",
+              "load_duration": "9589841300",
+              "total_duration": "49374631800",
+              "prompt_eval_count": "1223",
+              "eval_count": "45",
+              "eval_duration": "6442266000"
+            },
+            "by": "model",
+            "needsFile": true,
+            "action": "inspect-bytes",
+            "description": "Read a selected file's signature, checksum and byte values without opening it.",
+            "model": {
+              "endpoint": "http://127.0.0.1:11434",
+              "checkedAt": "2026-11-19T08:03:06.019979200Z",
+              "bytes": 13793441566,
+              "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+              "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+              "model": "gpt-oss:20b"
+            },
+            "label": "Inspect file bytes"
+          },
+          "ms": 49640,
+          "match": true
+        },
+        {
+          "fixture": {
+            "id": "ambiguous",
+            "action": "clarify",
+            "text": "I’m torn between converting the CSV and making a calendar widget. I haven’t chosen either one."
+          },
+          "suggested": "clarify",
+          "choice": {
+            "provider": {
+              "done_reason": "stop",
+              "prompt_eval_duration": "33622017000",
+              "load_duration": "9498197500",
+              "total_duration": "51849709600",
+              "prompt_eval_count": "1230",
+              "eval_count": "60",
+              "eval_duration": "8707750000"
+            },
+            "by": "model",
+            "needsFile": false,
+            "action": "clarify",
+            "description": "Ask for one specific supported result.",
+            "model": {
+              "endpoint": "http://127.0.0.1:11434",
+              "checkedAt": "2026-11-19T08:03:55.668421400Z",
+              "bytes": 13793441566,
+              "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+              "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+              "model": "gpt-oss:20b"
+            },
+            "label": "Clarify the request"
+          },
+          "ms": 52085,
+          "match": true
+        }
+      ]
+    },
+    "gemma4:latest": {
+      "available": true,
+      "cases": [
+        {
+          "fixture": {
+            "id": "slang",
+            "action": "csv-to-json",
+            "text": "Yo, can you get these comma-separated rows into something my JSON reader can swallow? Keep the actual text."
+          },
+          "suggested": "csv-to-json",
+          "choice": {
+            "provider": {
+              "done_reason": "stop",
+              "prompt_eval_duration": "22417489000",
+              "load_duration": "17867744500",
+              "total_duration": "75255395900",
+              "prompt_eval_count": "1349",
+              "eval_count": "279",
+              "eval_duration": "34959072000"
+            },
+            "by": "model",
+            "needsFile": true,
+            "action": "csv-to-json",
+            "description": "Turn CSV cells into a JSON table without changing the text.",
+            "model": {
+              "endpoint": "http://127.0.0.1:11434",
+              "checkedAt": "2026-11-19T08:04:47.785620400Z",
+              "bytes": 9608350718,
+              "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+              "digest": "c6eb396dbd5992bbe3f5cdb947e8bbc0ee413d7c17e2beaae69f5d569cf982eb",
+              "model": "gemma4:latest"
+            },
+            "label": "Convert CSV to JSON"
+          },
+          "ms": 75506,
+          "match": true
+        },
+        {
+          "fixture": {
+            "id": "spanish",
+            "action": "create-app",
+            "text": "Hazme una mini aplicación local para anotar tareas y marcarlas como hechas."
+          },
+          "suggested": "create-app",
+          "choice": {
+            "provider": {
+              "done_reason": "stop",
+              "prompt_eval_duration": "22192808000",
+              "load_duration": "17465824100",
+              "total_duration": "74926808200",
+              "prompt_eval_count": "1344",
+              "eval_count": "279",
+              "eval_duration": "35257196000"
+            },
+            "by": "model",
+            "needsFile": false,
+            "action": "create-app",
+            "description": "Prepare an interactive application for the existing Creation Canvas.",
+            "model": {
+              "endpoint": "http://127.0.0.1:11434",
+              "checkedAt": "2026-11-19T08:06:03.321443700Z",
+              "bytes": 9608350718,
+              "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+              "digest": "c6eb396dbd5992bbe3f5cdb947e8bbc0ee413d7c17e2beaae69f5d569cf982eb",
+              "model": "gemma4:latest"
+            },
+            "label": "Design an app"
+          },
+          "ms": 75214,
+          "match": true
+        },
+        {
+          "fixture": {
+            "id": "french",
+            "action": "inspect-bytes",
+            "text": "Tu peux me montrer les huit premiers octets et l’empreinte du fichier ?"
+          },
+          "suggested": "inspect-bytes",
+          "choice": {
+            "provider": {
+              "done_reason": "stop",
+              "prompt_eval_duration": "22406502000",
+              "load_duration": "17413776300",
+              "total_duration": "74611050700",
+              "prompt_eval_count": "1348",
+              "eval_count": "278",
+              "eval_duration": "34780201000"
+            },
+            "by": "model",
+            "needsFile": true,
+            "action": "inspect-bytes",
+            "description": "Read a selected file's signature, checksum and byte values without opening it.",
+            "model": {
+              "endpoint": "http://127.0.0.1:11434",
+              "checkedAt": "2026-11-19T08:07:18.585361700Z",
+              "bytes": 9608350718,
+              "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+              "digest": "c6eb396dbd5992bbe3f5cdb947e8bbc0ee413d7c17e2beaae69f5d569cf982eb",
+              "model": "gemma4:latest"
+            },
+            "label": "Inspect file bytes"
+          },
+          "ms": 74946,
+          "match": true
+        },
+        {
+          "fixture": {
+            "id": "ambiguous",
+            "action": "clarify",
+            "text": "I’m torn between converting the CSV and making a calendar widget. I haven’t chosen either one."
+          },
+          "suggested": "clarify",
+          "choice": {
+            "provider": {
+              "done_reason": "stop",
+              "prompt_eval_duration": "22752179000",
+              "load_duration": "17399873000",
+              "total_duration": "82311562000",
+              "prompt_eval_count": "1361",
+              "eval_count": "338",
+              "eval_duration": "42148702000"
+            },
+            "by": "model",
+            "needsFile": false,
+            "action": "clarify",
+            "description": "Ask for one specific supported result.",
+            "model": {
+              "endpoint": "http://127.0.0.1:11434",
+              "checkedAt": "2026-11-19T08:08:33.583889Z",
+              "bytes": 9608350718,
+              "scope": "Fresh local service metadata; not an independent inspection of model weights or the daemon's network behavior",
+              "digest": "c6eb396dbd5992bbe3f5cdb947e8bbc0ee413d7c17e2beaae69f5d569cf982eb",
+              "model": "gemma4:latest"
+            },
+            "label": "Clarify the request"
+          },
+          "ms": 82580,
+          "match": true
+        }
+      ]
+    }
+  },
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "workspaceJava": 95,
+    "classes": [
+      "RequestWorkbenchTest",
+      "ChainRecommendationTest",
+      "RelayPlaytestTest",
+      "RampTraceChainTest",
+      "LocalWorkflowSelectionTest",
+      "RampComparisonTest",
+      "RampProcedureTest",
+      "RampMissionTest",
+      "Agency043Test",
+      "Domain044Test",
+      "ChatArchive112Test",
+      "DataSummary104Test",
+      "CreationTest",
+      "CreationPlanner044Test",
+      "CreationRetry102Test",
+      "WorkflowTest",
+      "MeasurementStoreTest",
+      "WorkspaceServerBoundaryTest"
+    ],
+    "desktop": 181,
+    "archiveTests": 10
+  },
+  "files": {
+    "forward": {
+      "summary": "2 rows × 3 columns · string cells verified by round trip",
+      "request": "Flip this CSV into JSON",
+      "report": {
+        "sha256": "2d4a20199a5b8eb77b2455258b6f735c11c3f79ee06dc85d46791f7fc60e7ae8",
+        "id": "f495dd57-628b-3481-ac95-9c85b92f518e",
+        "version": 1
+      },
+      "reviewSha256": "57ff4a44cf9985b83d867e5db7797e4dc095418b79f57bb336066c07c1bab1df",
+      "id": "a825452b-5aef-4f35-8b5a-6c5ccf087c56",
+      "source": {
+        "size": 72,
+        "sha256": "3634b221b92756b8116117c4d391226ee50e4e86f785c390a17f9ed30e638722",
+        "name": "incoming.csv"
+      },
+      "choice": {
+        "by": "java",
+        "needsFile": true,
+        "action": "csv-to-json",
+        "description": "Turn CSV cells into a JSON table without changing the text.",
+        "label": "Convert CSV to JSON"
+      },
+      "status": "verified"
+    },
+    "reverse": {
+      "summary": "2 rows × 3 columns · string cells verified by round trip",
+      "request": "Convertis ce JSON en CSV stp",
+      "report": {
+        "sha256": "6e23c43239a7c30f162912fead7ddfdd350dbe65cf94bf0d6a0725014d85173f",
+        "id": "09f058f4-7cab-314a-973b-7fbcbf594412",
+        "version": 1
+      },
+      "reviewSha256": "6450786db47ce286275783fef2afdcd3cb4d41f097bc9b2dc0229a08d1144cdb",
+      "id": "85276e69-d05c-4c1c-a76c-f85b0151524b",
+      "source": {
+        "size": 202,
+        "sha256": "252d33c733af08b7f6735b9e3f4713ed988eb90bf437ff973a03e156390cd781",
+        "name": "portable.json"
+      },
+      "choice": {
+        "by": "java",
+        "needsFile": true,
+        "action": "json-to-csv",
+        "description": "Turn a JSON table or string-valued records into CSV.",
+        "label": "Convert JSON to CSV"
+      },
+      "status": "verified"
+    },
+    "inspected": {
+      "summary": "13 bytes · PNG signature hint · first 13 byte values",
+      "request": "Show me the bytes",
+      "report": {
+        "sha256": "167b2732a9c9265f93607bab87100509ab415f72e05d92dc1006cb303079cc94",
+        "id": "53c350f6-1a6b-3965-9053-a64198a9f1b5",
+        "version": 1
+      },
+      "reviewSha256": "56409fc5f818bf67e328cfeda60157bf36204df0fec154650e36a26f3e0f290d",
+      "id": "a89aca61-ea46-4848-a7bb-9130a6119e45",
+      "source": {
+        "size": 13,
+        "sha256": "8dae04452b75b800698b0a7348cd2b1de45cc544c3ef7835600f78ce2d8e790e",
+        "name": "signature-sample.bin"
+      },
+      "choice": {
+        "by": "java",
+        "needsFile": true,
+        "action": "inspect-bytes",
+        "description": "Read a selected file's signature, checksum and byte values without opening it.",
+        "label": "Inspect file bytes"
+      },
+      "status": "verified"
+    },
+    "cells": {
+      "columns": [
+        "Code",
+        "Name",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "00017",
+          "南",
+          "first\nsecond \"quoted\" line"
+        ],
+        [
+          "0",
+          "Café",
+          ""
+        ]
+      ]
+    },
+    "outputDigest": "121c616a03b3f0d0b08379086e892df8569e016383186e16b1e8e368b9180adb",
+    "inspection": {
+      "bytes": 13,
+      "preview": [
+        {
+          "bits": "10001001",
+          "decimal": 137,
+          "hex": "89",
+          "offset": 0
+        },
+        {
+          "bits": "01010000",
+          "decimal": 80,
+          "hex": "50",
+          "offset": 1
+        },
+        {
+          "bits": "01001110",
+          "decimal": 78,
+          "hex": "4e",
+          "offset": 2
+        },
+        {
+          "bits": "01000111",
+          "decimal": 71,
+          "hex": "47",
+          "offset": 3
+        },
+        {
+          "bits": "00001101",
+          "decimal": 13,
+          "hex": "0d",
+          "offset": 4
+        },
+        {
+          "bits": "00001010",
+          "decimal": 10,
+          "hex": "0a",
+          "offset": 5
+        },
+        {
+          "bits": "00011010",
+          "decimal": 26,
+          "hex": "1a",
+          "offset": 6
+        },
+        {
+          "bits": "00001010",
+          "decimal": 10,
+          "hex": "0a",
+          "offset": 7
+        },
+        {
+          "bits": "00000000",
+          "decimal": 0,
+          "hex": "00",
+          "offset": 8
+        },
+        {
+          "bits": "00000001",
+          "decimal": 1,
+          "hex": "01",
+          "offset": 9
+        },
+        {
+          "bits": "00000010",
+          "decimal": 2,
+          "hex": "02",
+          "offset": 10
+        },
+        {
+          "bits": "10000000",
+          "decimal": 128,
+          "hex": "80",
+          "offset": 11
+        },
+        {
+          "bits": "11111111",
+          "decimal": 255,
+          "hex": "ff",
+          "offset": 12
+        }
+      ],
+      "previewBytes": 13,
+      "sha256": "8dae04452b75b800698b0a7348cd2b1de45cc544c3ef7835600f78ce2d8e790e",
+      "signatureHint": "PNG"
+    },
+    "taught": {
+      "summary": "2 rows × 3 columns · string cells verified by round trip",
+      "request": "Make the datasauce portable",
+      "report": {
+        "sha256": "c522db746d35fdd681553901e4a95ef3768ddb88975faf523c4d0249f0063c2e",
+        "id": "af23db2b-3ac3-34b9-a384-c1a362807df0",
+        "version": 1
+      },
+      "reviewSha256": "b8b116ff4e577baab0038d8fa08bde2a9a9b78c6b150ce0b5d82c51a19e186d0",
+      "id": "f414b826-e281-4267-92af-45d6e312a311",
+      "source": {
+        "size": 72,
+        "sha256": "3634b221b92756b8116117c4d391226ee50e4e86f785c390a17f9ed30e638722",
+        "name": "taught.csv"
+      },
+      "choice": {
+        "by": "user",
+        "needsFile": true,
+        "action": "csv-to-json",
+        "description": "Turn CSV cells into a JSON table without changing the text.",
+        "label": "Convert CSV to JSON"
+      },
+      "status": "verified"
+    },
+    "learned": {
+      "request": "Make the datasauce portable!",
+      "reviewSha256": "1195869ede22fdeb05b715ea3ab99d1c9af963362b7d3bcfbe0042a1a2d3ec38",
+      "id": "fcf7ed8e-3e68-4398-9fad-3081a10a274e",
+      "choice": {
+        "by": "remembered",
+        "needsFile": true,
+        "action": "csv-to-json",
+        "description": "Turn CSV cells into a JSON table without changing the text.",
+        "label": "Convert CSV to JSON"
+      },
+      "status": "review"
+    },
+    "staleReviewRefused": true,
+    "unsupportedMappingRefused": true
+  },
+  "creation": {
+    "appBrief": {
+      "request": "Spin up an app that keeps a list of errands.",
+      "reviewSha256": "0993b580e6c84a8b24db79e9736007ddb38b227acd5617f9fb5c46aebbc4c3d8",
+      "id": "132f71cc-3515-4ad9-88b9-932df0d02284",
+      "choice": {
+        "by": "java",
+        "needsFile": false,
+        "action": "create-app",
+        "description": "Prepare an interactive application for the existing Creation Canvas.",
+        "label": "Design an app"
+      },
+      "status": "review"
+    },
+    "toolBrief": {
+      "request": "Whip up a local tool that counts boxes. Use #count starting at 0, #add to add one and #reset to return to zero. It should work offline in the canvas.",
+      "reviewSha256": "317223af47d68d876e3473c1c016863d74ec4d2deddc308993451b5c87d191dc",
+      "id": "1057e0b0-fce6-409d-8fab-25c3b1189396",
+      "choice": {
+        "by": "java",
+        "needsFile": false,
+        "action": "create-tool",
+        "description": "Prepare a local interactive utility for the existing Creation Canvas.",
+        "label": "Design a tool"
+      },
+      "status": "review"
+    },
+    "ref": {
+      "sha256": "9beb35f5b9e6ab27efddf81a80a692999a2baebb9b89160b85835ae2e6aacdbe",
+      "id": "05da7c72-1091-38ca-869a-a19ba6bfbf06",
+      "version": 1
+    },
+    "test": {
+      "checks": [
+        {
+          "actual": {
+            "count": 1,
+            "text": "0",
+            "value": null
+          },
+          "expected": {
+            "expectText": "0",
+            "selector": "#count"
+          },
+          "index": 0,
+          "selector": "#count",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "Add",
+            "value": ""
+          },
+          "expected": {
+            "action": "click",
+            "selector": "#add"
+          },
+          "index": 1,
+          "selector": "#add",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "1",
+            "value": null
+          },
+          "expected": {
+            "expectText": "1",
+            "selector": "#count"
+          },
+          "index": 2,
+          "selector": "#count",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "Reset",
+            "value": ""
+          },
+          "expected": {
+            "action": "click",
+            "selector": "#reset"
+          },
+          "index": 3,
+          "selector": "#reset",
+          "passed": true
+        },
+        {
+          "actual": {
+            "count": 1,
+            "text": "0",
+            "value": null
+          },
+          "expected": {
+            "expectText": "0",
+            "selector": "#count"
+          },
+          "index": 4,
+          "selector": "#count",
+          "passed": true
+        }
+      ],
+      "at": "2026-11-19T08:01:20.588676400Z",
+      "id": "05da7c72-1091-38ca-869a-a19ba6bfbf06",
+      "passed": true,
+      "version": 1,
+      "steps": [
+        {
+          "expectText": "0",
+          "selector": "#count"
+        },
+        {
+          "action": "click",
+          "selector": "#add"
+        },
+        {
+          "expectText": "1",
+          "selector": "#count"
+        },
+        {
+          "action": "click",
+          "selector": "#reset"
+        },
+        {
+          "expectText": "0",
+          "selector": "#count"
+        }
+      ]
+    },
+    "completed": true
+  },
+  "priorChains": {
+    "passed": true,
+    "source": "9eb3653f1c0fac3c9e5801ffcf6b2a7b4bec778e",
+    "priorSource": "8a08ff6bb9e97d3fdf32733b70a5f93aeed0091b",
+    "checks": [
+      {
+        "id": "03beae32-8645-47e8-a9ad-98de69fded5d",
+        "report": "e71fc164-16f4-31e3-a81b-9c6126f61c2b",
+        "action": "ramp"
+      },
+      {
+        "id": "fb286883-f216-481f-9e2f-68ca93dd0ab3",
+        "report": "f56e3935-589f-365e-a956-2a0f7b582b98",
+        "action": "relay"
+      }
+    ]
+  },
+  "studySource": "8850019dab072c0497ad1b58ff9c8f75b6b8e994",
+  "engineJarsMatched": true,
+  "presentationPassed": true
+}
