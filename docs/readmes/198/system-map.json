@@ -1,0 +1,48 @@
+{
+  "summary": "Turn the latest verified routed CSV into a dashboard with separate °F and mm summaries. Recheck the saved artifact against Java and a fresh browser run after restart.",
+  "modules": [
+    {
+      "title": "Dashboard statistics",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboardReport.java",
+      "note": "docs/obsidian/206-verified-routing-dashboard.md"
+    },
+    {
+      "title": "Dashboard and source proof",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java",
+      "note": "docs/obsidian/206-verified-routing-dashboard.md"
+    },
+    {
+      "title": "Offline browser dashboard",
+      "source": "workspace-engine/src/main/resources/workbench/routing-dashboard.html",
+      "note": "docs/obsidian/206-verified-routing-dashboard.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/198/dashboard-separate-units.png",
+      "title": "The recovered dashboard keeps temperature and length summaries separate"
+    },
+    {
+      "path": "docs/readmes/198/dashboard-rechecked-after-restart.png",
+      "title": "Chat confirms a fresh Java and browser check after restart"
+    },
+    {
+      "path": "docs/readmes/198/dashboard-length-filter.png",
+      "title": "The length filter shows only the two millimetre rows"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/198/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/198/dashboard-browser-receipt.json",
+      "title": "Original dashboard browser receipt"
+    },
+    {
+      "path": "docs/readmes/198/routed-results.csv",
+      "title": "Verified dashboard source CSV"
+    }
+  ]
+}

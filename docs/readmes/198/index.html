@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 198 · Build a verified routing dashboard in Chat</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Build a verified routing dashboard in Chat</h1><p>Turn the latest verified routed CSV into a dashboard with separate °F and mm summaries. Recheck the saved artifact against Java and a fresh browser run after restart.</p>
+<nav><a href="../../../README-198.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../197/index.html">Edition 197</a><a href="#system">System files</a></nav>
+<figure><img src="dashboard-separate-units.png" alt="The recovered dashboard keeps temperature and length summaries separate"><figcaption>The recovered dashboard keeps temperature and length summaries separate</figcaption></figure>
+<figure><img src="dashboard-rechecked-after-restart.png" alt="Chat confirms a fresh Java and browser check after restart"><figcaption>Chat confirms a fresh Java and browser check after restart</figcaption></figure>
+<figure><img src="dashboard-length-filter.png" alt="The length filter shows only the two millimetre rows"><figcaption>The length filter shows only the two millimetre rows</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Turn the latest verified routed CSV into a dashboard with separate \u00b0F and mm summaries. Recheck the saved artifact against Java and a fresh browser run after restart.", "modules": [{"title": "Dashboard statistics", "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboardReport.java", "note": "docs/obsidian/206-verified-routing-dashboard.md"}, {"title": "Dashboard and source proof", "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java", "note": "docs/obsidian/206-verified-routing-dashboard.md"}, {"title": "Offline browser dashboard", "source": "workspace-engine/src/main/resources/workbench/routing-dashboard.html", "note": "docs/obsidian/206-verified-routing-dashboard.md"}], "screenshots": [{"path": "docs/readmes/198/dashboard-separate-units.png", "title": "The recovered dashboard keeps temperature and length summaries separate"}, {"path": "docs/readmes/198/dashboard-rechecked-after-restart.png", "title": "Chat confirms a fresh Java and browser check after restart"}, {"path": "docs/readmes/198/dashboard-length-filter.png", "title": "The length filter shows only the two millimetre rows"}], "evidence": [{"path": "docs/readmes/198/verification.json", "title": "Verification record"}, {"path": "docs/readmes/198/dashboard-browser-receipt.json", "title": "Original dashboard browser receipt"}, {"path": "docs/readmes/198/routed-results.csv", "title": "Verified dashboard source CSV"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/206-verified-routing-dashboard.canvas", "bytes": 1208, "sha256": "0c738498f1ce422c7609ccd71ed2018ee0fe3e0d8089158510312b4af402f462", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/206-verified-routing-dashboard.md", "bytes": 481, "sha256": "199ac1d720cbd70bb134da2cc892b1f6cadfc4c1ae0d14aacb97e76bc9f70fc5", "hashKind": "utf8-lf"}, {"path": "docs/publication198/document.py", "bytes": 11354, "sha256": "f4ef2fc8ce9a842121842f89efd67a4e1b828551c6d38aa27db68b2634b73154", "hashKind": "utf8-lf"}, {"path": "docs/publication198/plan.md", "bytes": 1837, "sha256": "4edc09acf2fba892009ba5fd09d4d91cb3d4215df91bfb0acc2bee08fb45509a", "hashKind": "utf8-lf"}, {"path": "docs/publication198/validate-desktop.cjs", "bytes": 12015, "sha256": "e06e6172ef13b047c5572a41c52efd2800854b0ec7dcc9c409e642afb58b7884", "hashKind": "utf8-lf"}, {"path": "docs/publication198/validate-guide.cjs", "bytes": 1734, "sha256": "7381228e53847a1bf6586b36a2d44240fb3399cb47ca5d9691ec7bcee6bec1fa", "hashKind": "utf8-lf"}, {"path": "docs/publication198/validate.py", "bytes": 2131, "sha256": "a6a46dce11eb398d9a58d14ae63c2630ad4347bb674867344b71903f401a73e6", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/exports.cjs", "bytes": 10183, "sha256": "792088b6d1feee40170eabe744bdca632eba75101b38e90284a0d380ab507dcf", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 112758, "sha256": "b281a3689cd9b0b6cbf7c5d664f91b0d79cbc5f8a7576aacd7609e01569bffdb", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/classification-routing.js", "bytes": 6826, "sha256": "ea1325b19112e5343be0bae80a126866a53c92c69b04eac3e5c036096c577ea8", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/request-workbench.js", "bytes": 15319, "sha256": "3b41a5e3658ec19cd5d7ebc9d978727b4b2cbff3382aa3445426996c8241b826", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedCsvReport.java", "bytes": 7546, "sha256": "b73412078fd44debdda78ed431e61da2d056304001b16c976717e34dff1179ad", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java", "bytes": 8477, "sha256": "d4aa15f8481d1c3cbb0ff640ac760348eb9e1f6f210777885e5e69273c5c3d94", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboardReport.java", "bytes": 7009, "sha256": "52fc33de887302e57cdb9477c81b19b526427a9b5519245e763b124a0fec31fe", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 136320, "sha256": "5ba50acc94adccceb0f312059f498c394d69dea48c5a110efe473bbbe46cc046", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/resources/workbench/routing-dashboard.html", "bytes": 7349, "sha256": "a1a23194edf894ede7d7065873acd8847cbafa4374d3f24d03a82b817269e08c", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/RoutedDashboardReportTest.java", "bytes": 2623, "sha256": "766d6e622dff620df99ec32ace846a585695141403f635859ee12211297e5181", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

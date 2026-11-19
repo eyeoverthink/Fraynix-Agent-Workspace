@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Verified routing dashboard</title>
+<style>
+:root { color-scheme: dark; color: #eff7f3; background: #12202a; font: 16px/1.55 system-ui, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: clamp(18px, 4vw, 48px); }
+main { max-width: 64rem; margin-inline: auto; }
+h1 { margin: 0 0 8px; font-size: clamp(1.75rem, 5vw, 2.85rem); line-height: 1.12; }
+h2 { margin: 0; font-size: clamp(1.1rem, 2.2vw, 1.4rem); }
+#dashboard-count { color: #b7cdd1; margin: 0 0 24px; }
+section { margin-bottom: 26px; }
+#summaries { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+article { background: #192e37; border: 1px solid #416471; border-radius: 12px; padding: clamp(14px, 3vw, 22px); }
+article h2 { color: #a8eed8; }
+article output { display: block; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.records { background: #152932; border-radius: 12px; border: 1px solid #3b5d66; padding: clamp(14px, 3vw, 22px); }
+.filters { display: flex; flex-wrap: wrap; gap: 7px; margin: 12px 0; }
+button { font: inherit; color: #e6f5ee; background: #253e47; border: 1px solid #68828b; border-radius: 7px;
+  padding: 4px 10px; cursor: pointer; }
+button[aria-pressed="true"] { color: #142924; background: #abe9d2; border-color: #abe9d2; }
+button:focus-visible, a:focus-visible { outline: 2px solid #abe9d2; outline-offset: 2px; }
+ul { list-style: none; margin: 0; padding: 0; }
+li { overflow-wrap: anywhere; font-variant-numeric: tabular-nums; padding: .48rem 0; }
+li + li { border-top: 1px solid #37545d; }
+a { color: #abe9d2; }
+@media (max-width: 530px) { #summaries { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Verified routing dashboard</h1>
+  <p id="dashboard-count"></p>
+  <section id="summaries" aria-label="Summaries by output unit"></section>
+  <section class="records">
+    <h2>Results in source order</h2>
+    <div class="filters" id="filters" role="group" aria-label="Filter rows by output unit"></div>
+    <ul id="routed-rows" aria-live="polite"></ul>
+  </section>
+  <a href="routed-results.csv" download>Download the verified source CSV</a>
+</main>
+<script>
+'use strict';
+const encoded = 'aWQscmVhZGluZyxwcm9iZV9jLGluY2hlcyxub3RlLHJvdXRlX3NvdXJjZV9yb3cscm91dGVfMl9zb3VyY2Vfcm93LHJvdXRlXzJfY2xhc3NpZmljYXRpb24scm91dGVfMl9sZXNzb24scm91dGVfMl9pbnB1dF9jb2x1bW4scm91dGVfMl9pbnB1dF92YWx1ZSxyb3V0ZV8yX2lucHV0X3VuaXQscm91dGVfMl9vdXRwdXRfdmFsdWUscm91dGVfMl9vdXRwdXRfdW5pdApkdXAsNCwzNy4yNSwxMSwiQSwgbm9ydGgiLG9sZC10ZW1wLDIsdGVtcGVyYXR1cmUsdGVtcGVyYXR1cmUtZXhwb3J0LHByb2JlX2MsMzcuMjUswrBDLDk5LjA1LMKwRgpkdXAsMTIsOTAsMzcuMjUsc2FtZSBJRCxvbGQtbGVuZ3RoLDMsbGVuZ3RoLGxlbmd0aC1leHBvcnQsaW5jaGVzLDM3LjI1LGluLDk0Ni4xNSxtbQpkdXAsNCwzNy4yNSwxMSwiQSwgbm9ydGgiLG9sZC10ZW1wLDQsdGVtcGVyYXR1cmUsdGVtcGVyYXR1cmUtZXhwb3J0LHByb2JlX2MsMzcuMjUswrBDLDk5LjA1LMKwRgpsLTIsMTYsODgsMi41LCJGaXJzdCBsaW5lCnNlY29uZCAiInF1b3RlIiIgzrEiLG9sZC1saW5lLDUsbGVuZ3RoLGxlbmd0aC1leHBvcnQsaW5jaGVzLDIuNSxpbiw2My41LG1tCnQtMiw5Ljk5OTksLTQwLDksUGxhaW4sb2xkLXRhaWwsNix0ZW1wZXJhdHVyZSx0ZW1wZXJhdHVyZS1leHBvcnQscHJvYmVfYywtNDAswrBDLC00MCzCsEYK';
+const source = new TextDecoder('utf-8', {fatal:true}).decode(Uint8Array.from(atob(encoded), char => char.charCodeAt(0)));
+const unitNames = new Map([['°F', ['fahrenheit', 'Temperature · °F']], ['mm', ['millimetres', 'Length · mm']]]);
+const scale = 100000n;
+
+function readCsv(text) {
+    const records = [];
+    let row = [];
+    let field = '';
+    let quoted = false;
+    let closed = false;
+    for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        if (quoted) {
+            if (char !== '"') field += char;
+            else if (text[i + 1] === '"') {
+                field += '"';
+                i++;
+            } else {
+                quoted = false;
+                closed = true;
+            }
+        } else if (char === '"') {
+            if (field || closed) throw Error('Invalid CSV quote');
+            quoted = true;
+        } else if (char === ',' || char === '\n') {
+            row.push(field);
+            field = '';
+            closed = false;
+            if (char === '\n') {
+                records.push(row);
+                row = [];
+            }
+        } else {
+            if (closed) throw Error('Unexpected CSV text');
+            field += char;
+        }
+    }
+    if (quoted || row.length || field) throw Error('Incomplete verified CSV');
+    return records;
+}
+
+function decimal(text) {
+    const parts = /^(-?)([0-9]+)(?:\.([0-9]{1,5}))?$/.exec(text);
+    if (!parts || parts[0] !== text) throw Error('Invalid verified decimal');
+    const scaled = BigInt(parts[2] + (parts[3] || '').padEnd(5, '0'));
+    return parts[1] ? -scaled : scaled;
+}
+
+function format(scaled) {
+    const magnitude = scaled < 0n ? -scaled : scaled;
+    const fraction = (magnitude % scale).toString().padStart(5, '0').replace(/0+$/, '');
+    return (scaled < 0n ? '-' : '') + (magnitude / scale) + (fraction ? '.' + fraction : '');
+}
+
+function summarize(values, unit) {
+    const sum = values.reduce((total, value) => total + value, 0n);
+    const count = BigInt(values.length);
+    const magnitude = sum < 0n ? -sum : sum;
+    const rounded = magnitude / count + (2n * (magnitude % count) >= count ? 1n : 0n);
+    const mean = sum < 0n ? -rounded : rounded;
+    const min = values.reduce((a, b) => a < b ? a : b);
+    const max = values.reduce((a, b) => a > b ? a : b);
+    return values.length + (values.length === 1 ? ' row' : ' rows') + ' · Min ' + format(min) + ' ' + unit + ' · Max ' + format(max) + ' ' + unit
+        + ' · Mean ' + format(mean) + ' ' + unit;
+}
+
+const table = readCsv(source);
+const columns = table.shift();
+const offset = columns.length - 8;
+if (offset < 1 || !columns[offset].endsWith('source_row')) throw Error('Missing routing columns');
+const records = table.map((entry, i) => {
+    const [row, label, lesson, , input, inputUnit, value, unit] = entry.slice(offset);
+    if (entry.length !== columns.length || row !== String(i + 2) || !unitNames.has(unit)) throw Error('Invalid routed row');
+    return {row, label, lesson, input, inputUnit, value, unit};
+});
+const groups = [...unitNames].filter(([unit]) => records.some(record => record.unit === unit));
+document.getElementById('dashboard-count').textContent = records.length + (records.length === 1 ? ' verified row' : ' verified rows')
+    + ' · ' + groups.length + (groups.length === 1 ? ' output unit' : ' output units');
+
+function select(unit) {
+    const entries = records.filter(record => !unit || record.unit === unit).map(record => {
+        const li = document.createElement('li');
+        li.textContent = record.row + ' · ' + record.label + ' · ' + record.input + ' ' + record.inputUnit
+            + ' → ' + record.value + ' ' + record.unit + ' · ' + record.lesson;
+        return li;
+    });
+    document.getElementById('routed-rows').replaceChildren(...entries);
+    for (const button of document.querySelectorAll('#filters button'))
+        button.setAttribute('aria-pressed', String(button.dataset.unit === unit));
+}
+
+function filterButton(id, label, unit) {
+    const button = document.createElement('button');
+    button.id = 'filter-' + id;
+    button.type = 'button';
+    button.dataset.unit = unit;
+    button.textContent = label;
+    button.onclick = () => select(unit);
+    document.getElementById('filters').append(button);
+}
+
+filterButton('all', 'All units', '');
+for (const [unit, [id, name]] of groups) {
+    const article = document.createElement('article');
+    const heading = document.createElement('h2');
+    heading.textContent = name;
+    const output = document.createElement('output');
+    output.id = 'summary-' + id;
+    output.textContent = summarize(records.filter(record => record.unit === unit).map(record => decimal(record.value)), unit);
+    article.append(heading, output);
+    document.getElementById('summaries').append(article);
+    filterButton(id, unit, unit);
+}
+select('');
+</script>
+</body>
+</html>

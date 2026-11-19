@@ -1,3 +1,7 @@
+## Edition 198 — Build a verified routing dashboard in Chat
+
+2026-11-19. Turn the latest verified routed CSV into a dashboard with separate °F and mm summaries. Recheck the saved artifact against Java and a fresh browser run after restart. The dashboard kept 3 temperature rows and 2 length rows in separate summaries. Their means were 52.7 °F and 504.825 mm. 125 root Java tests, 69 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed locally. A blocked save recovered from the original checks. After the next restart, the same artifact passed 15 fresh checks. See README-198.md and docs/publication198/plan.md.
+
 ## Edition 197 — Export routed results in their original CSV row order
 
 2026-11-19. Export one CSV from a completed classification routing plan. It preserves source rows and duplicates, adds units to each result and records the verified sources. Five interleaved rows were exported in their original order. The same value, 37.25, produced 99.05 °F and 946.15 mm on the respective routes. 125 root Java tests, 66 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed locally. Partial and unaccepted outcomes were refused after restart. The final file matched the receipt and prior plans remained exportable. See README-197.md and docs/publication197/plan.md.

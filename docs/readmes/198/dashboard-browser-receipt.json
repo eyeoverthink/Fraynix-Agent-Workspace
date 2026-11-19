@@ -1,0 +1,286 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "Verified routing dashboard",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Verified routing dashboard",
+        "selector": "h1"
+      },
+      "index": 0,
+      "selector": "h1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "5 verified rows · 2 output units",
+        "value": null
+      },
+      "expected": {
+        "expectText": "5 verified rows · 2 output units",
+        "selector": "#dashboard-count"
+      },
+      "index": 1,
+      "selector": "#dashboard-count",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n3 · length · 37.25 in → 946.15 mm · length-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n5 · length · 2.5 in → 63.5 mm · length-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+        "value": null
+      },
+      "expected": {
+        "expectText": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n3 · length · 37.25 in → 946.15 mm · length-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n5 · length · 2.5 in → 63.5 mm · length-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+        "selector": "#routed-rows"
+      },
+      "index": 2,
+      "selector": "#routed-rows",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 5,
+        "text": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export",
+        "value": 0
+      },
+      "expected": {
+        "expectCount": 5,
+        "selector": "#routed-rows li"
+      },
+      "index": 3,
+      "selector": "#routed-rows li",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F",
+        "value": "3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F"
+      },
+      "expected": {
+        "expectText": "3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F",
+        "selector": "#summary-fahrenheit"
+      },
+      "index": 4,
+      "selector": "#summary-fahrenheit",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "°F",
+        "value": ""
+      },
+      "expected": {
+        "expectCount": 1,
+        "action": "click",
+        "selector": "#filter-fahrenheit"
+      },
+      "index": 5,
+      "selector": "#filter-fahrenheit",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+        "value": null
+      },
+      "expected": {
+        "expectText": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+        "selector": "#routed-rows"
+      },
+      "index": 6,
+      "selector": "#routed-rows",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 3,
+        "text": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export",
+        "value": 0
+      },
+      "expected": {
+        "expectCount": 3,
+        "selector": "#routed-rows li"
+      },
+      "index": 7,
+      "selector": "#routed-rows li",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "2 rows · Min 63.5 mm · Max 946.15 mm · Mean 504.825 mm",
+        "value": "2 rows · Min 63.5 mm · Max 946.15 mm · Mean 504.825 mm"
+      },
+      "expected": {
+        "expectText": "2 rows · Min 63.5 mm · Max 946.15 mm · Mean 504.825 mm",
+        "selector": "#summary-millimetres"
+      },
+      "index": 8,
+      "selector": "#summary-millimetres",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "mm",
+        "value": ""
+      },
+      "expected": {
+        "expectCount": 1,
+        "action": "click",
+        "selector": "#filter-millimetres"
+      },
+      "index": 9,
+      "selector": "#filter-millimetres",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "3 · length · 37.25 in → 946.15 mm · length-export\n5 · length · 2.5 in → 63.5 mm · length-export",
+        "value": null
+      },
+      "expected": {
+        "expectText": "3 · length · 37.25 in → 946.15 mm · length-export\n5 · length · 2.5 in → 63.5 mm · length-export",
+        "selector": "#routed-rows"
+      },
+      "index": 10,
+      "selector": "#routed-rows",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 2,
+        "text": "3 · length · 37.25 in → 946.15 mm · length-export",
+        "value": 0
+      },
+      "expected": {
+        "expectCount": 2,
+        "selector": "#routed-rows li"
+      },
+      "index": 11,
+      "selector": "#routed-rows li",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "All units",
+        "value": ""
+      },
+      "expected": {
+        "expectCount": 1,
+        "action": "click",
+        "selector": "#filter-all"
+      },
+      "index": 12,
+      "selector": "#filter-all",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n3 · length · 37.25 in → 946.15 mm · length-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n5 · length · 2.5 in → 63.5 mm · length-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+        "value": null
+      },
+      "expected": {
+        "expectText": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n3 · length · 37.25 in → 946.15 mm · length-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n5 · length · 2.5 in → 63.5 mm · length-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+        "selector": "#routed-rows"
+      },
+      "index": 13,
+      "selector": "#routed-rows",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Download the verified source CSV",
+        "value": null
+      },
+      "expected": {
+        "expectCount": 1,
+        "selector": "a[href=\"routed-results.csv\"]"
+      },
+      "index": 14,
+      "selector": "a[href=\"routed-results.csv\"]",
+      "passed": true
+    }
+  ],
+  "at": "2026-11-19T20:35:12.565051900Z",
+  "id": "6f925e17-6cfb-3cb4-a2e4-bc333a925152",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "expectText": "Verified routing dashboard",
+      "selector": "h1"
+    },
+    {
+      "expectText": "5 verified rows · 2 output units",
+      "selector": "#dashboard-count"
+    },
+    {
+      "expectText": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n3 · length · 37.25 in → 946.15 mm · length-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n5 · length · 2.5 in → 63.5 mm · length-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+      "selector": "#routed-rows"
+    },
+    {
+      "expectCount": 5,
+      "selector": "#routed-rows li"
+    },
+    {
+      "expectText": "3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F",
+      "selector": "#summary-fahrenheit"
+    },
+    {
+      "expectCount": 1,
+      "action": "click",
+      "selector": "#filter-fahrenheit"
+    },
+    {
+      "expectText": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+      "selector": "#routed-rows"
+    },
+    {
+      "expectCount": 3,
+      "selector": "#routed-rows li"
+    },
+    {
+      "expectText": "2 rows · Min 63.5 mm · Max 946.15 mm · Mean 504.825 mm",
+      "selector": "#summary-millimetres"
+    },
+    {
+      "expectCount": 1,
+      "action": "click",
+      "selector": "#filter-millimetres"
+    },
+    {
+      "expectText": "3 · length · 37.25 in → 946.15 mm · length-export\n5 · length · 2.5 in → 63.5 mm · length-export",
+      "selector": "#routed-rows"
+    },
+    {
+      "expectCount": 2,
+      "selector": "#routed-rows li"
+    },
+    {
+      "expectCount": 1,
+      "action": "click",
+      "selector": "#filter-all"
+    },
+    {
+      "expectText": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n3 · length · 37.25 in → 946.15 mm · length-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n5 · length · 2.5 in → 63.5 mm · length-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+      "selector": "#routed-rows"
+    },
+    {
+      "expectCount": 1,
+      "selector": "a[href=\"routed-results.csv\"]"
+    }
+  ]
+}

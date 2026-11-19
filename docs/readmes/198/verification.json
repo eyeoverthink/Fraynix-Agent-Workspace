@@ -1,0 +1,399 @@
+{
+  "passed": true,
+  "saved": {
+    "artifact": {
+      "sha256": "b921686e16451198121be90dffbf267c809da4ef1c07816252f210710c756f51",
+      "id": "6f925e17-6cfb-3cb4-a2e4-bc333a925152",
+      "version": 1
+    },
+    "htmlSha256": "dbbb4b9373e3bcfbc22c6a50ace70c18051c3ffdf9b14827f7b29a70f84dd431",
+    "browserChecks": 15,
+    "id": "88f46ed1-149f-38f7-af80-4e7658aa8443",
+    "passed": true,
+    "csvSha256": "c384a979d3eb93df62c4bea5ad6ec527342e43a060e557c492025ebecc7cc28a"
+  },
+  "evidence": {
+    "browserChecks": 15,
+    "csvSha256": "c384a979d3eb93df62c4bea5ad6ec527342e43a060e557c492025ebecc7cc28a",
+    "exportId": "260faaac-c6c5-466c-bc3f-0a9c0a39c9db",
+    "groups": [
+      {
+        "count": 3,
+        "max": "99.05",
+        "mean": "52.7",
+        "min": "-40",
+        "unit": "°F"
+      },
+      {
+        "count": 2,
+        "max": "946.15",
+        "mean": "504.825",
+        "min": "63.5",
+        "unit": "mm"
+      }
+    ],
+    "passed": true,
+    "rowOrder": [
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "source": {
+      "children": [
+        {
+          "artifact": {
+            "id": "7e2b3902-4a9c-32e3-a34d-2f7077d01a27",
+            "sha256": "43569bfc2aa982a71526c38881f55720d4d1840288efd11c26f6695053f65afc",
+            "version": 1
+          },
+          "reviewId": "f82e5758-adcb-3d29-8cec-16ef607851e0"
+        },
+        {
+          "artifact": {
+            "id": "218ec13d-22b9-3237-9ad6-763a80015f50",
+            "sha256": "0516b90b075d9cebe7463d3ac26a3d26d6ca0693fdf2e49a9bd411ace7b482f8",
+            "version": 1
+          },
+          "reviewId": "6ab8ac93-528a-3bf2-850b-7b502477cc56"
+        }
+      ],
+      "decisionSha256": "2a948eafc8ddd01d2f1f250de1a213f91192935fc37ec390edc42e3b61042d33",
+      "planId": "5073ab40-1727-4db7-902f-42f4f0635529",
+      "reportSha256": "c384a979d3eb93df62c4bea5ad6ec527342e43a060e557c492025ebecc7cc28a",
+      "rows": 5,
+      "source": {
+        "artifact": {
+          "id": "72fb21e4-841b-3b78-a379-53a2a96fb914",
+          "sha256": "0248bc9046fdcb5d33b96cc4d6ed928b63388f8e344a5d09240eb8615bb0049a",
+          "version": 1
+        },
+        "reviewId": "64e521cd-d17d-4f83-92a9-e7baf7a8e855",
+        "rulesSha256": "30cb192744e3a4529ee3ddd9ef4134145253e47830a178fc462e3333e7805bad",
+        "sourceSha256": "015f5d9a84664a161df5c6df4d2a599920b06a0ded4891ee502048adce0c0503"
+      }
+    }
+  },
+  "screenshots": [
+    {
+      "name": "dashboard-separate-units.png",
+      "sha256": "a103d3078ccafefdf61f54e706cf68846742bb6676abb6766029c92c8c43684d"
+    },
+    {
+      "name": "dashboard-rechecked-after-restart.png",
+      "sha256": "919ef3ae01a8a649ca47e55d6e65dc07070f479b0836f0a59b2f95da83a6b904"
+    },
+    {
+      "name": "dashboard-length-filter.png",
+      "sha256": "bca0f8518efb3088d2cb4a610cfe3e757c4aeb8014873aaca5781753211fcbc6"
+    }
+  ],
+  "browserReceipt": {
+    "checks": [
+      {
+        "actual": {
+          "count": 1,
+          "text": "Verified routing dashboard",
+          "value": null
+        },
+        "expected": {
+          "expectText": "Verified routing dashboard",
+          "selector": "h1"
+        },
+        "index": 0,
+        "selector": "h1",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "5 verified rows · 2 output units",
+          "value": null
+        },
+        "expected": {
+          "expectText": "5 verified rows · 2 output units",
+          "selector": "#dashboard-count"
+        },
+        "index": 1,
+        "selector": "#dashboard-count",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n3 · length · 37.25 in → 946.15 mm · length-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n5 · length · 2.5 in → 63.5 mm · length-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+          "value": null
+        },
+        "expected": {
+          "expectText": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n3 · length · 37.25 in → 946.15 mm · length-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n5 · length · 2.5 in → 63.5 mm · length-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+          "selector": "#routed-rows"
+        },
+        "index": 2,
+        "selector": "#routed-rows",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 5,
+          "text": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export",
+          "value": 0
+        },
+        "expected": {
+          "expectCount": 5,
+          "selector": "#routed-rows li"
+        },
+        "index": 3,
+        "selector": "#routed-rows li",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F",
+          "value": "3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F"
+        },
+        "expected": {
+          "expectText": "3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F",
+          "selector": "#summary-fahrenheit"
+        },
+        "index": 4,
+        "selector": "#summary-fahrenheit",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "°F",
+          "value": ""
+        },
+        "expected": {
+          "expectCount": 1,
+          "action": "click",
+          "selector": "#filter-fahrenheit"
+        },
+        "index": 5,
+        "selector": "#filter-fahrenheit",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+          "value": null
+        },
+        "expected": {
+          "expectText": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+          "selector": "#routed-rows"
+        },
+        "index": 6,
+        "selector": "#routed-rows",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 3,
+          "text": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export",
+          "value": 0
+        },
+        "expected": {
+          "expectCount": 3,
+          "selector": "#routed-rows li"
+        },
+        "index": 7,
+        "selector": "#routed-rows li",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "2 rows · Min 63.5 mm · Max 946.15 mm · Mean 504.825 mm",
+          "value": "2 rows · Min 63.5 mm · Max 946.15 mm · Mean 504.825 mm"
+        },
+        "expected": {
+          "expectText": "2 rows · Min 63.5 mm · Max 946.15 mm · Mean 504.825 mm",
+          "selector": "#summary-millimetres"
+        },
+        "index": 8,
+        "selector": "#summary-millimetres",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "mm",
+          "value": ""
+        },
+        "expected": {
+          "expectCount": 1,
+          "action": "click",
+          "selector": "#filter-millimetres"
+        },
+        "index": 9,
+        "selector": "#filter-millimetres",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "3 · length · 37.25 in → 946.15 mm · length-export\n5 · length · 2.5 in → 63.5 mm · length-export",
+          "value": null
+        },
+        "expected": {
+          "expectText": "3 · length · 37.25 in → 946.15 mm · length-export\n5 · length · 2.5 in → 63.5 mm · length-export",
+          "selector": "#routed-rows"
+        },
+        "index": 10,
+        "selector": "#routed-rows",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 2,
+          "text": "3 · length · 37.25 in → 946.15 mm · length-export",
+          "value": 0
+        },
+        "expected": {
+          "expectCount": 2,
+          "selector": "#routed-rows li"
+        },
+        "index": 11,
+        "selector": "#routed-rows li",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "All units",
+          "value": ""
+        },
+        "expected": {
+          "expectCount": 1,
+          "action": "click",
+          "selector": "#filter-all"
+        },
+        "index": 12,
+        "selector": "#filter-all",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n3 · length · 37.25 in → 946.15 mm · length-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n5 · length · 2.5 in → 63.5 mm · length-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+          "value": null
+        },
+        "expected": {
+          "expectText": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n3 · length · 37.25 in → 946.15 mm · length-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n5 · length · 2.5 in → 63.5 mm · length-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+          "selector": "#routed-rows"
+        },
+        "index": 13,
+        "selector": "#routed-rows",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Download the verified source CSV",
+          "value": null
+        },
+        "expected": {
+          "expectCount": 1,
+          "selector": "a[href=\"routed-results.csv\"]"
+        },
+        "index": 14,
+        "selector": "a[href=\"routed-results.csv\"]",
+        "passed": true
+      }
+    ],
+    "at": "2026-11-19T20:35:12.565051900Z",
+    "id": "6f925e17-6cfb-3cb4-a2e4-bc333a925152",
+    "passed": true,
+    "version": 1,
+    "steps": [
+      {
+        "expectText": "Verified routing dashboard",
+        "selector": "h1"
+      },
+      {
+        "expectText": "5 verified rows · 2 output units",
+        "selector": "#dashboard-count"
+      },
+      {
+        "expectText": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n3 · length · 37.25 in → 946.15 mm · length-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n5 · length · 2.5 in → 63.5 mm · length-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+        "selector": "#routed-rows"
+      },
+      {
+        "expectCount": 5,
+        "selector": "#routed-rows li"
+      },
+      {
+        "expectText": "3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F",
+        "selector": "#summary-fahrenheit"
+      },
+      {
+        "expectCount": 1,
+        "action": "click",
+        "selector": "#filter-fahrenheit"
+      },
+      {
+        "expectText": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+        "selector": "#routed-rows"
+      },
+      {
+        "expectCount": 3,
+        "selector": "#routed-rows li"
+      },
+      {
+        "expectText": "2 rows · Min 63.5 mm · Max 946.15 mm · Mean 504.825 mm",
+        "selector": "#summary-millimetres"
+      },
+      {
+        "expectCount": 1,
+        "action": "click",
+        "selector": "#filter-millimetres"
+      },
+      {
+        "expectText": "3 · length · 37.25 in → 946.15 mm · length-export\n5 · length · 2.5 in → 63.5 mm · length-export",
+        "selector": "#routed-rows"
+      },
+      {
+        "expectCount": 2,
+        "selector": "#routed-rows li"
+      },
+      {
+        "expectCount": 1,
+        "action": "click",
+        "selector": "#filter-all"
+      },
+      {
+        "expectText": "2 · temperature · 37.25 °C → 99.05 °F · temperature-export\n3 · length · 37.25 in → 946.15 mm · length-export\n4 · temperature · 37.25 °C → 99.05 °F · temperature-export\n5 · length · 2.5 in → 63.5 mm · length-export\n6 · temperature · -40 °C → -40 °F · temperature-export",
+        "selector": "#routed-rows"
+      },
+      {
+        "expectCount": 1,
+        "selector": "a[href=\"routed-results.csv\"]"
+      }
+    ]
+  },
+  "checks": {
+    "restartCount": 2,
+    "recoveredOriginalChecks": true,
+    "recheckedLiveBrowser": true,
+    "singleArtifact": true,
+    "standalone": true,
+    "duplicateRowsKept": true,
+    "mixedUnitSummaryRefused": true,
+    "externalCsvTamperRefused": true,
+    "dashboardReceiptTamperRefused": true,
+    "sourceChildReceiptTamperRefused": true,
+    "originalReceiptPreserved": true
+  },
+  "source": "93449a8167372697afc83abed409fc76ed7303ae",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 69,
+    "desktop": 181,
+    "archive": 10
+  }
+}
