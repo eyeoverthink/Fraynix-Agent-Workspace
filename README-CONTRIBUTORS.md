@@ -1,3 +1,7 @@
+## Edition 197 — Export routed results in their original CSV row order
+
+2026-11-19. Export one CSV from a completed classification routing plan. It preserves source rows and duplicates, adds units to each result and records the verified sources. Five interleaved rows were exported in their original order. The same value, 37.25, produced 99.05 °F and 946.15 mm on the respective routes. 125 root Java tests, 66 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed locally. Partial and unaccepted outcomes were refused after restart. The final file matched the receipt and prior plans remained exportable. See README-197.md and docs/publication197/plan.md.
+
 ## Edition 196 — Route verified classifications to approved procedures
 
 2026-11-19. Attach a mapping from classification labels to verified conversion lessons. Review the reason and exact input for each choice, then approve the plan. Three classified rows led to two confirmed conversion batches. After two restarts, Java finished the same plan with both original browser receipts. 125 root Java tests, 62 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed locally. Missing mappings and stale approvals created no child work. Two edition 195 artifacts reverified. See README-196.md and docs/publication196/plan.md.

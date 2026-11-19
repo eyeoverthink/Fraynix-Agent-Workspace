@@ -1,0 +1,48 @@
+{
+  "summary": "Export one CSV from a completed classification routing plan. It preserves source rows and duplicates, adds units to each result and records the verified sources.",
+  "modules": [
+    {
+      "title": "Routed CSV verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedCsvReport.java",
+      "note": "docs/obsidian/205-verified-routed-csv.md"
+    },
+    {
+      "title": "Verified routing state",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ClassifiedProcedurePlan.java",
+      "note": "docs/obsidian/205-verified-routed-csv.md"
+    },
+    {
+      "title": "Routing preview and approval",
+      "source": "workspace-desktop/renderer/classification-routing.js",
+      "note": "docs/obsidian/205-verified-routed-csv.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/197/partial-plan-after-restart.png",
+      "title": "After restart, the unfinished plan can resume"
+    },
+    {
+      "path": "docs/readmes/197/verified-plan-ready-to-export.png",
+      "title": "The completed plan offers a single verified CSV"
+    },
+    {
+      "path": "docs/readmes/197/verified-csv-saved.png",
+      "title": "The desktop confirms where the five verified rows were saved"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/197/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/197/export-receipt.json",
+      "title": "CSV export receipt and source proofs"
+    },
+    {
+      "path": "docs/readmes/197/verified-routed-results.csv",
+      "title": "Verified CSV with mixed units"
+    }
+  ]
+}

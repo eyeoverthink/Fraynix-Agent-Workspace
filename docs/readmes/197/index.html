@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 197 · Export routed results in their original CSV row order</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Export routed results in their original CSV row order</h1><p>Export one CSV from a completed classification routing plan. It preserves source rows and duplicates, adds units to each result and records the verified sources.</p>
+<nav><a href="../../../README-197.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../196/index.html">Edition 196</a><a href="#system">System files</a></nav>
+<figure><img src="partial-plan-after-restart.png" alt="After restart, the unfinished plan can resume"><figcaption>After restart, the unfinished plan can resume</figcaption></figure>
+<figure><img src="verified-plan-ready-to-export.png" alt="The completed plan offers a single verified CSV"><figcaption>The completed plan offers a single verified CSV</figcaption></figure>
+<figure><img src="verified-csv-saved.png" alt="The desktop confirms where the five verified rows were saved"><figcaption>The desktop confirms where the five verified rows were saved</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Export one CSV from a completed classification routing plan. It preserves source rows and duplicates, adds units to each result and records the verified sources.", "modules": [{"title": "Routed CSV verifier", "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedCsvReport.java", "note": "docs/obsidian/205-verified-routed-csv.md"}, {"title": "Verified routing state", "source": "workspace-engine/src/main/java/fraymus/workspace/ClassifiedProcedurePlan.java", "note": "docs/obsidian/205-verified-routed-csv.md"}, {"title": "Routing preview and approval", "source": "workspace-desktop/renderer/classification-routing.js", "note": "docs/obsidian/205-verified-routed-csv.md"}], "screenshots": [{"path": "docs/readmes/197/partial-plan-after-restart.png", "title": "After restart, the unfinished plan can resume"}, {"path": "docs/readmes/197/verified-plan-ready-to-export.png", "title": "The completed plan offers a single verified CSV"}, {"path": "docs/readmes/197/verified-csv-saved.png", "title": "The desktop confirms where the five verified rows were saved"}], "evidence": [{"path": "docs/readmes/197/verification.json", "title": "Verification record"}, {"path": "docs/readmes/197/export-receipt.json", "title": "CSV export receipt and source proofs"}, {"path": "docs/readmes/197/verified-routed-results.csv", "title": "Verified CSV with mixed units"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/205-verified-routed-csv.canvas", "bytes": 1194, "sha256": "067c074473bfc88d6bfcf9bb657f8e7a2704328bc38d18ea582e179791c7ff30", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/205-verified-routed-csv.md", "bytes": 501, "sha256": "48be16c6c9787f2f5d2fb56483db70f791ffcc9eadaa7be52aa7a38e1c36555f", "hashKind": "utf8-lf"}, {"path": "docs/publication197/document.py", "bytes": 10987, "sha256": "0da0be4a5da1e0ce9b54ef57c47c307238579b6d25cb350b6c591686adac172d", "hashKind": "utf8-lf"}, {"path": "docs/publication197/plan.md", "bytes": 1861, "sha256": "5b779ba3d82410980f851be65ef62d30e4d7f149cabf063e3248d9637da6f88c", "hashKind": "utf8-lf"}, {"path": "docs/publication197/validate-desktop.cjs", "bytes": 14996, "sha256": "55d9bb3dcdca0b8049594a1bdf5e68dc23060537c6bae3ea08423eba7c955548", "hashKind": "utf8-lf"}, {"path": "docs/publication197/validate-guide.cjs", "bytes": 1721, "sha256": "b0201f645ea0bb8dd3542ccc3a59985836b2f2b16da588afe50455fe2976ec5d", "hashKind": "utf8-lf"}, {"path": "docs/publication197/validate.py", "bytes": 2102, "sha256": "e0c4efb2320a831c30ad9647447eafdb8445a4ba7399eeaa0f82db1debcdb460", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 110679, "sha256": "2e553dc3935498ec060df39ac0fe1943441be8b6f380e165d889d61c5cb1a8a3", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/classification-routing.js", "bytes": 6196, "sha256": "c3de9346f038bd9c8b806e74037284173b71c9c284cf3f61dccdb637c6d8c0ac", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/index.html", "bytes": 34787, "sha256": "11baaed4ee78f2f217248c6add0baf5cd40184d1100686ad60f56648c11a28f9", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/request-workbench.css", "bytes": 1427, "sha256": "f4b9e41cc3b26973dfa77fe8425e89f131f47ad13e0ed39bad253bfc772a4ed8", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ClassifiedProcedurePlan.java", "bytes": 12917, "sha256": "a3848a0573be6480f225cbb5990c51ee37b3efb838830897ebe2745ede07fb47", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/FrayTableInput.java", "bytes": 2613, "sha256": "80ab00bda16bbb21c85e06b493ec3b72a2bb5c3bd0c8902ef555a38ca2481367", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedCsvReport.java", "bytes": 7554, "sha256": "a14394da5260998a6077cd39269a7bd10552572066f146d8240732ed5d0c9a39", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 134656, "sha256": "3653869847b453c1411c881ee17aaae4cf3d73a03e53a54db8b4c5cd52b88189", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/RoutedCsvReportTest.java", "bytes": 3644, "sha256": "8bc4f88fb9c13856b6e5be98695d33ad14b537563d418eaf19e31950ceee42cb", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>
