@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import org.junit.Test;
 
 import java.nio.file.Files;
+import java.nio.file.Path;
 
 import static org.junit.Assert.*;
 
@@ -208,6 +209,45 @@ public class FrayChainTest {
             assertEquals(1, store.artifacts().length());
             assertTrue(receipt.similar(store.read(artifactId).getJSONObject("test")));
             assertTrue(saved.getJSONObject("artifact").similar(wb.resumeChainSave(input).getJSONObject("artifact")));
+        }
+    }
+
+    @Test public void writeErrorsRetainReceiptsAndRetryAtTheSameArtifactId() throws Exception {
+        for (boolean receiptFault : new boolean[]{false, true}) {
+            var project = Files.createTempDirectory("fray-disk-fault-");
+            JSONObject review;
+            Path obstruction;
+            String id;
+            try (var store = new WorkspaceStore(project)) {
+                var wb = new RequestWorkbench(project, store);
+                var binding = staged(wb, PROMPT);
+                var reviewId = binding.getString("id");
+                id = java.util.UUID.nameUUIDFromBytes(("request-workbench:" + reviewId)
+                        .getBytes(java.nio.charset.StandardCharsets.UTF_8)).toString();
+                review = new JSONObject().put("id", reviewId).put("reviewSha256", binding.getString("reviewSha256"));
+                var preview = wb.prepareFray(review);
+                var next = wb.advanceChain(copy(binding).put("checks", observations(preview.getJSONArray("steps"))));
+                obstruction = receiptFault ? project.resolve("receipts") : project.resolve("artifacts").resolve(id);
+                Files.createDirectories(obstruction.getParent());
+                Files.writeString(obstruction, "regular file in place of a directory");
+                var error = assertThrows(java.io.IOException.class, () -> wb.finishChain(copy(binding)
+                        .put("handoff", next.getJSONObject("handoff"))
+                        .put("checks", observations(next.getJSONArray("steps")))));
+                assertTrue(error.getMessage().contains(receiptFault ? "write the browser receipt" : "write the artifact files"));
+                assertTrue(wb.prepareFray(review).getBoolean("commitReady"));
+                assertTrue(wb.read(new JSONObject().put("id", reviewId)).getBoolean("savePending"));
+                assertEquals(receiptFault ? 1 : 0, store.artifacts().length());
+                assertThrows(Exception.class, () -> wb.verify(new JSONObject().put("id", reviewId)));
+            }
+            Files.move(obstruction, project.resolve("retained-fault.txt"));
+            try (var store = new WorkspaceStore(project)) {
+                var wb = new RequestWorkbench(project, store);
+                var completed = wb.resumeChainSave(review);
+                assertEquals(id, completed.getJSONObject("artifact").getString("id"));
+                assertEquals(1, completed.getJSONObject("artifact").getInt("version"));
+                assertEquals(1, store.artifacts().length());
+                assertTrue(store.read(id).getJSONObject("test").getBoolean("passed"));
+            }
         }
     }
 

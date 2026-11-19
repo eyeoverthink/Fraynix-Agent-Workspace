@@ -104,7 +104,12 @@ export class RequestWorkbenchPanel {
                     }
                     this.announce(result.summary);
                 } catch (error) {
-                    this.dialog.showModal();
+                    if (this.task.choice.chain) {
+                        // An I/O error may arrive after both browser stages were saved.
+                        const retained = await this.call('read', {id}).catch(() => null);
+                        if (retained?.savePending) this.show(retained);
+                    }
+                    if (!this.dialog.open) this.dialog.showModal();
                     this.layout();
                     throw error;
                 }

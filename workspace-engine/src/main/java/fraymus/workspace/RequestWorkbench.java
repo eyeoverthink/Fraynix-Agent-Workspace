@@ -3,6 +3,7 @@ package fraymus.workspace;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
@@ -273,15 +274,33 @@ final class RequestWorkbench {
                                    JSONObject expected) throws Exception {
         if (!WorldFrames.hash(expected).equals(task.optString("fraySaveSha256")))
             throw new IllegalStateException("The staged artifact or its verified browser source changed");
-        var artifact = store.writeOnce("request-workbench:" + task.getString("id"), expected);
+        JSONObject artifact;
+        try {
+            artifact = store.writeOnce("request-workbench:" + task.getString("id"), expected);
+        } catch (IOException error) {
+            throw saveInterrupted("write the artifact files or register the save", error);
+        }
         var ref = artifactRef(artifact, expected);
-        store.recordTestOnce(new JSONObject().put("id", ref.getString("id")).put("version", ref.getInt("version"))
-                .put("steps", FrayChain.join(chain.firstSteps(), chain.secondSteps(intermediate), false))
-                .put("checks", FrayChain.join(task.getJSONArray("frayFirstChecks"), task.getJSONArray("frayChecks"), true)));
+        try {
+            store.recordTestOnce(new JSONObject().put("id", ref.getString("id")).put("version", ref.getInt("version"))
+                    .put("steps", FrayChain.join(chain.firstSteps(), chain.secondSteps(intermediate), false))
+                    .put("checks", FrayChain.join(task.getJSONArray("frayFirstChecks"), task.getJSONArray("frayChecks"), true)));
+        } catch (IOException error) {
+            throw saveInterrupted("write the browser receipt", error);
+        }
         task.put("report", ref).put("status", "verified")
                 .put("summary", "Both Fray steps passed. The second used the verified " + intermediate.text() + ".");
-        save(task);
+        try {
+            save(task);
+        } catch (IOException error) {
+            throw saveInterrupted("finish the review", error);
+        }
         return proof(task).put("task", view(task));
+    }
+
+    private static IOException saveInterrupted(String operation, IOException error) {
+        return new IOException("Could not " + operation
+                + ". Both verified stages are retained. After restoring project storage, finish the verified save.", error);
     }
 
     private static FrayChain requireChain(JSONObject input, JSONObject task) {
