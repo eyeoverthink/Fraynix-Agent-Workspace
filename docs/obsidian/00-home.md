@@ -1,3 +1,5 @@
+[Edition 192 — Teach and reuse a verified Blender repair](200-verified-blender-lessons.md)
+
 [Edition 191 — Durable Blender repair from Chat](199-chat-blender-repair.md)
 
 [Edition 190 — Playable Blender edits](198-blender-playtest.md)

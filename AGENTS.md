@@ -1,3 +1,7 @@
+## Edition 192 — Teach Fraynix from a checked repair
+
+2026-11-19. Save a verified Blender repair as a named lesson. Apply it to different terrain through Chat and require fresh playtests before accepting the result. The teaching run repaired 8 ground tiles across a 2.50-unit gap. After restart, the new level stalled on a 2.00-unit gap. Java moved 6 tiles, leaving at most 0.50 units unsupported in that span. Two new native runs reached the beacon at tick 456. The saved report passed four Chromium checks. 125 root Java tests, 53 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed locally. See README-192.md and docs/publication192/plan.md.
+
 ## Edition 191 — Diagnose, repair and verify a Blender level in one Chat request
 
 2026-11-19. One durable Chat request runs the original Blender level, diagnoses the failed movement, repairs a separate candidate and saves two verified native playtests. 125 root Java tests, 53 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. The wider-gap fixture stalled at tick 1728. An eight-tile repair narrowed 2.50 to 0.50 game units. Two fresh trials reached the beacon at tick 456. The same Chat task resumed after restart and the automatic request passed. Java refused modified source and browser evidence. See README-191.md and docs/publication191/plan.md.

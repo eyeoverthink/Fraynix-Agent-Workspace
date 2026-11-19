@@ -1,0 +1,48 @@
+{
+  "summary": "Save a verified Blender repair as a named lesson. Apply it to different terrain through Chat and require fresh playtests before accepting the result.",
+  "modules": [
+    {
+      "title": "Verified lesson bank",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BlenderRepairLessons.java",
+      "note": "docs/obsidian/200-verified-blender-lessons.md"
+    },
+    {
+      "title": "Fresh diagnosis and playtest",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BlenderGapRepair.java",
+      "note": "docs/obsidian/200-verified-blender-lessons.md"
+    },
+    {
+      "title": "Game Lab controls",
+      "source": "workspace-desktop/renderer/brain-game.js",
+      "note": "docs/obsidian/200-verified-blender-lessons.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/192/teach-checked-repair.png",
+      "title": "Name and save the lesson in Mission"
+    },
+    {
+      "path": "docs/readmes/192/apply-lesson-to-fresh-level.png",
+      "title": "Select the verified lesson and prepare a fresh Chat request"
+    },
+    {
+      "path": "docs/readmes/192/fresh-level-verified-report.png",
+      "title": "The new repair report passes its own browser checks"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/192/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/192/repair-evidence.json",
+      "title": "New native runs and diagnosis"
+    },
+    {
+      "path": "docs/readmes/192/narrower-gap-course.blend",
+      "title": "New Blender level"
+    }
+  ]
+}

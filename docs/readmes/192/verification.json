@@ -1,0 +1,345 @@
+{
+  "passed": true,
+  "sourceBlendSha256": "4f1a12fd12c10a48890217fa56917b3ed2af7e7932e5d24c91917c1ace95253d",
+  "freshBlendSha256": "dc33c3bfad04ba094589cffd7163b388833fed8d36991d37db510c8f1c5bd21e",
+  "lesson": {
+    "teacherTaskId": "159597b4-2e02-4820-b89d-78246f39a3b6",
+    "courseManifest": "544865789d8a2a807f394eb8a0f655d20548a9462d421f218d20fda28d5f8f9c",
+    "maxOriginalSpan": 2.5,
+    "kind": "blender-gap-repair-lesson-v1",
+    "name": "restore-ground",
+    "maxEdits": 8,
+    "teacherReport": {
+      "id": "2002699b-6012-3ec6-8821-aecb45ea4432",
+      "version": 1
+    },
+    "teacherAuditSha256": "2ef286bb9364488206bf92bf8120071166f75cd6622e512ce2517d27d783650c",
+    "diagnosis": "stationary-before-missing-support",
+    "levelSha256": "8da7ac1dbcffd36d69f932098b3cc7a0bfae2ee924f0c4202edc78f147a7f24f",
+    "maxRemainingSpan": 0.5,
+    "teacherBrowserSha256": "6a7ebeb441a45f1196bd25e24351b941b0fb89001b0aadb13a2fff2adc711233"
+  },
+  "teacherAudit": {
+    "parent": {
+      "blendSha256": "4f1a12fd12c10a48890217fa56917b3ed2af7e7932e5d24c91917c1ace95253d",
+      "manifestSha256": "544865789d8a2a807f394eb8a0f655d20548a9462d421f218d20fda28d5f8f9c",
+      "id": "062d7fb4-3bde-48e1-af61-f2f6da4739b1",
+      "levelSha256": "8da7ac1dbcffd36d69f932098b3cc7a0bfae2ee924f0c4202edc78f147a7f24f",
+      "snapshotSha256": "1b18c34f9486a03b37c602bd82426854beb067035b85ec2db8737a3714303c4c"
+    },
+    "candidate": {
+      "blendSha256": "4f1a12fd12c10a48890217fa56917b3ed2af7e7932e5d24c91917c1ace95253d",
+      "manifestSha256": "544865789d8a2a807f394eb8a0f655d20548a9462d421f218d20fda28d5f8f9c",
+      "id": "2002699b-6012-3ec6-8821-aecb45ea4432",
+      "levelSha256": "42d9ca2eb1bc1070c83f8e08f4ce8254f97d1314d0ec3a4d510455466e46dedb",
+      "snapshotSha256": "1b18c34f9486a03b37c602bd82426854beb067035b85ec2db8737a3714303c4c"
+    },
+    "kind": "blender-gap-repair-v1",
+    "diagnosis": {
+      "lastTick": 1728,
+      "gapEndX": 6,
+      "originalSpan": 2.5,
+      "kind": "stationary-before-missing-support",
+      "supportY": 0.375,
+      "edits": [
+        {
+          "sourceId": "049a8daa-5d4a-3628-8810-d43d5f647d89",
+          "from": [
+            3.625,
+            1.875
+          ],
+          "to": [
+            3.625,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "75af63cf-00b3-3fe6-8097-245b088c6719",
+          "from": [
+            3.875,
+            1.875
+          ],
+          "to": [
+            3.875,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "089206d2-095e-356b-8f0a-03ef5cbf2b17",
+          "from": [
+            4.125,
+            1.875
+          ],
+          "to": [
+            4.125,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "3ed70823-4bfb-3cb3-8326-a5a4a54ab13d",
+          "from": [
+            4.375,
+            1.875
+          ],
+          "to": [
+            4.375,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "17470fed-e2e4-3f0e-8b83-71a2e00f2480",
+          "from": [
+            5.125,
+            1.875
+          ],
+          "to": [
+            5.125,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "24c82da0-0250-3c9c-bb6b-ad5069dc6c0e",
+          "from": [
+            5.375,
+            1.875
+          ],
+          "to": [
+            5.375,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "14f47213-60f0-3d33-b283-1d463561ed4b",
+          "from": [
+            5.625,
+            1.875
+          ],
+          "to": [
+            5.625,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "751a459b-f912-39e1-9466-40a9012c005d",
+          "from": [
+            5.875,
+            1.875
+          ],
+          "to": [
+            5.875,
+            0.375
+          ]
+        }
+      ],
+      "x": 3.3822625,
+      "y": 0.62999916,
+      "stillSamples": 8,
+      "gapStartX": 3.5,
+      "remainingSpan": 0.5,
+      "budget": 8
+    },
+    "failureSha256": "414466677fb2c1fc94412c940530235d46eb58238a45c252064d0400f9b91d6a",
+    "passed": true,
+    "title": "Verified Blender gap repair",
+    "playtest": {
+      "candidate": {
+        "blendSha256": "4f1a12fd12c10a48890217fa56917b3ed2af7e7932e5d24c91917c1ace95253d",
+        "manifestSha256": "544865789d8a2a807f394eb8a0f655d20548a9462d421f218d20fda28d5f8f9c",
+        "id": "2002699b-6012-3ec6-8821-aecb45ea4432",
+        "levelSha256": "42d9ca2eb1bc1070c83f8e08f4ce8254f97d1314d0ec3a4d510455466e46dedb",
+        "snapshotSha256": "1b18c34f9486a03b37c602bd82426854beb067035b85ec2db8737a3714303c4c"
+      },
+      "controller": {
+        "ticks": 24,
+        "targetX": 14.625,
+        "action": "ai-step",
+        "policy": "contact122"
+      },
+      "trials": 2,
+      "ticks": 456,
+      "traceSha256": "7cbb45633f9e85e79caa79cd9a3f751e305e8399f4370e60d59339e0a32d1d73",
+      "passed": true,
+      "attemptId": "afbda6f7-04a3-4992-9456-4166f6f1c9c3"
+    }
+  },
+  "audit": {
+    "parent": {
+      "blendSha256": "dc33c3bfad04ba094589cffd7163b388833fed8d36991d37db510c8f1c5bd21e",
+      "manifestSha256": "544865789d8a2a807f394eb8a0f655d20548a9462d421f218d20fda28d5f8f9c",
+      "id": "48dda37f-2701-4de1-8ab4-1f8cd681c7fb",
+      "levelSha256": "3635d32f8f0dde41340b9faf7e46158a863a49b82d9781faa233304388ba76d7",
+      "snapshotSha256": "1b18c34f9486a03b37c602bd82426854beb067035b85ec2db8737a3714303c4c"
+    },
+    "candidate": {
+      "blendSha256": "dc33c3bfad04ba094589cffd7163b388833fed8d36991d37db510c8f1c5bd21e",
+      "manifestSha256": "544865789d8a2a807f394eb8a0f655d20548a9462d421f218d20fda28d5f8f9c",
+      "id": "38d56be2-dfc4-37d4-a9dd-4734de031536",
+      "levelSha256": "b539405c2567bd0805380b8deeb622e798b0490df3acacf7e84b713e20796ee6",
+      "snapshotSha256": "1b18c34f9486a03b37c602bd82426854beb067035b85ec2db8737a3714303c4c"
+    },
+    "kind": "blender-gap-repair-v1",
+    "lesson": {
+      "teacherTaskId": "159597b4-2e02-4820-b89d-78246f39a3b6",
+      "courseManifest": "544865789d8a2a807f394eb8a0f655d20548a9462d421f218d20fda28d5f8f9c",
+      "maxOriginalSpan": 2.5,
+      "kind": "blender-gap-repair-lesson-v1",
+      "name": "restore-ground",
+      "maxEdits": 8,
+      "teacherReport": {
+        "id": "2002699b-6012-3ec6-8821-aecb45ea4432",
+        "version": 1
+      },
+      "teacherAuditSha256": "2ef286bb9364488206bf92bf8120071166f75cd6622e512ce2517d27d783650c",
+      "diagnosis": "stationary-before-missing-support",
+      "levelSha256": "8da7ac1dbcffd36d69f932098b3cc7a0bfae2ee924f0c4202edc78f147a7f24f",
+      "maxRemainingSpan": 0.5,
+      "teacherBrowserSha256": "6a7ebeb441a45f1196bd25e24351b941b0fb89001b0aadb13a2fff2adc711233"
+    },
+    "diagnosis": {
+      "lastTick": 1728,
+      "gapEndX": 5.5,
+      "originalSpan": 2,
+      "kind": "stationary-before-missing-support",
+      "supportY": 0.375,
+      "edits": [
+        {
+          "sourceId": "049a8daa-5d4a-3628-8810-d43d5f647d89",
+          "from": [
+            3.625,
+            1.875
+          ],
+          "to": [
+            3.625,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "75af63cf-00b3-3fe6-8097-245b088c6719",
+          "from": [
+            3.875,
+            1.875
+          ],
+          "to": [
+            3.875,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "089206d2-095e-356b-8f0a-03ef5cbf2b17",
+          "from": [
+            4.125,
+            1.875
+          ],
+          "to": [
+            4.125,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "3ed70823-4bfb-3cb3-8326-a5a4a54ab13d",
+          "from": [
+            4.375,
+            1.875
+          ],
+          "to": [
+            4.375,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "17470fed-e2e4-3f0e-8b83-71a2e00f2480",
+          "from": [
+            5.125,
+            1.875
+          ],
+          "to": [
+            5.125,
+            0.375
+          ]
+        },
+        {
+          "sourceId": "24c82da0-0250-3c9c-bb6b-ad5069dc6c0e",
+          "from": [
+            5.375,
+            1.875
+          ],
+          "to": [
+            5.375,
+            0.375
+          ]
+        }
+      ],
+      "x": 3.3822625,
+      "y": 0.62999916,
+      "stillSamples": 8,
+      "gapStartX": 3.5,
+      "remainingSpan": 0.5,
+      "budget": 8
+    },
+    "failureSha256": "69da323df1d686403cbbe5a785703ebb9cd30a0424caa33c0638314643291902",
+    "passed": true,
+    "title": "Verified Blender gap repair",
+    "playtest": {
+      "candidate": {
+        "blendSha256": "dc33c3bfad04ba094589cffd7163b388833fed8d36991d37db510c8f1c5bd21e",
+        "manifestSha256": "544865789d8a2a807f394eb8a0f655d20548a9462d421f218d20fda28d5f8f9c",
+        "id": "38d56be2-dfc4-37d4-a9dd-4734de031536",
+        "levelSha256": "b539405c2567bd0805380b8deeb622e798b0490df3acacf7e84b713e20796ee6",
+        "snapshotSha256": "1b18c34f9486a03b37c602bd82426854beb067035b85ec2db8737a3714303c4c"
+      },
+      "controller": {
+        "ticks": 24,
+        "targetX": 14.625,
+        "action": "ai-step",
+        "policy": "contact122"
+      },
+      "trials": 2,
+      "ticks": 456,
+      "traceSha256": "7cbb45633f9e85e79caa79cd9a3f751e305e8399f4370e60d59339e0a32d1d73",
+      "passed": true,
+      "attemptId": "3537abc6-a2cb-48e9-812a-a4eec4a78ce7"
+    }
+  },
+  "teacherReport": {
+    "id": "2002699b-6012-3ec6-8821-aecb45ea4432",
+    "version": 1
+  },
+  "report": {
+    "id": "38d56be2-dfc4-37d4-a9dd-4734de031536",
+    "version": 1
+  },
+  "checks": {
+    "restartRetainedLesson": true,
+    "prematureTeachRefused": true,
+    "recursiveTeachRefused": true,
+    "teacherReceiptTamperRefused": true,
+    "lessonRecordTamperRefused": true,
+    "originalLevelRefused": true,
+    "beyondLessonLimitRefused": true,
+    "sourceBytesPreserved": true,
+    "teacherBrowserChecks": 3,
+    "freshBrowserChecks": 4
+  },
+  "screenshots": [
+    {
+      "name": "teach-checked-repair.png",
+      "sha256": "5d479dc9a557da4fda327bd07d515cb1a4241666e771be2b2cad2fe3e4e12790"
+    },
+    {
+      "name": "apply-lesson-to-fresh-level.png",
+      "sha256": "0bed1cf4c72d549d40f9c93bcb8736cadce84597b1872f670de36a211c8da8ee"
+    },
+    {
+      "name": "fresh-level-verified-report.png",
+      "sha256": "3c5f2b1e779337f541575ed7c5a225ebfabbdc5c0259aee83b3f946a85312582"
+    }
+  ],
+  "source": "e2e2a9f11b379ae73c987d2533dca2ee3afbb613",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 53,
+    "desktop": 181,
+    "archive": 10
+  }
+}
