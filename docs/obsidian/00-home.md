@@ -1,3 +1,5 @@
+[Edition 178 — Relay playtest and clearance dashboard](186-relay-clearance-chain.md)
+
 [Edition 177 — reviewed ramp-to-analysis chain](185-ramp-trace-chain.md)
 
 [Edition 176 — quick workflow routing](184-quick-workflow-routing.md)

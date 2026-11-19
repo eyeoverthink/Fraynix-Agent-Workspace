@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 178 — Relay playtest and clearance dashboard](../../README-178.md) · [Walkthrough](178/index.html)
+
 [Edition 177 — reviewed verified handoff](../../README-177.md) · [Guide](177/index.html)
 
 [Edition 176 — quick routing and durable confirmation](../../README-176.md) · [Guide](176/index.html)

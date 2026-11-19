@@ -1,0 +1,48 @@
+{
+  "summary": "Fraynix replays a Relay course at three paces, then builds a filterable clearance dashboard from the verified game measurements. One Mission review authorizes both steps. This is the second registered offline chain alongside the ramp-to-motion workflow.",
+  "modules": [
+    {
+      "title": "Durable review and approval",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ReviewedChain.java",
+      "note": "docs/obsidian/186-relay-clearance-chain.md"
+    },
+    {
+      "title": "Native course trials and replays",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RelayPlaytest.java",
+      "note": "docs/obsidian/186-relay-clearance-chain.md"
+    },
+    {
+      "title": "Typed handoff and Chromium checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RelayClearanceChain.java",
+      "note": "docs/obsidian/186-relay-clearance-chain.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/178/relay-review.png",
+      "title": "Course and both procedures awaiting confirmation"
+    },
+    {
+      "path": "docs/readmes/178/relay-first-verified.png",
+      "title": "The original playtest report at the restart checkpoint"
+    },
+    {
+      "path": "docs/readmes/178/relay-dashboard.png",
+      "title": "Interactive clearance dashboard inside the desktop"
+    },
+    {
+      "path": "docs/readmes/178/relay-refused.png",
+      "title": "The changed source stops the chain before dashboard creation"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/178/verification.json",
+      "title": "Verification summary"
+    },
+    {
+      "path": "docs/readmes/178/original-evidence.json",
+      "title": "Evidence manifest"
+    }
+  ]
+}

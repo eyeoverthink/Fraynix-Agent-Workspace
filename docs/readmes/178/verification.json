@@ -1,0 +1,88 @@
+{
+  "passed": true,
+  "source": "38abe83612f07c82f227d9522165d20a6283b5ee",
+  "trials": [
+    {
+      "course": "Relay Ridge",
+      "rows": 9,
+      "minimumGameUnits": 0.11819422,
+      "checks": 24,
+      "report": {
+        "sha256": "9080a0978504ce0a34fc1081f12d503fb8c5013aa3c6a785c68e112947fd5b41",
+        "id": "5c2bd5bb-106f-3bfe-afc5-85d3efe5edb1",
+        "version": 1
+      },
+      "replays": 3,
+      "originalReport": {
+        "id": "7791c682-4c74-324f-90b3-a564d847c648",
+        "version": 1
+      }
+    },
+    {
+      "course": "Relay Switchyard",
+      "rows": 6,
+      "minimumGameUnits": 0.6650895,
+      "checks": 21,
+      "report": {
+        "sha256": "74367371400a44685481f151371e5de764c944bb535eb60c36e18fe9da860a51",
+        "id": "0eac0232-2ae7-32f0-a174-c45a919d9244",
+        "version": 1
+      },
+      "replays": 3,
+      "originalReport": {
+        "id": "44ed6835-41a5-3dcf-9762-d14a123b5f95",
+        "version": 1
+      }
+    }
+  ],
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "workspaceJava": 90,
+    "classes": [
+      "RelayPlaytestTest",
+      "RampTraceChainTest",
+      "LocalWorkflowSelectionTest",
+      "RampComparisonTest",
+      "RampProcedureTest",
+      "RampMissionTest",
+      "Agency043Test",
+      "Domain044Test",
+      "ChatArchive112Test",
+      "DataSummary104Test",
+      "CreationTest",
+      "CreationPlanner044Test",
+      "CreationRetry102Test",
+      "WorkflowTest",
+      "MeasurementStoreTest",
+      "WorkspaceServerBoundaryTest"
+    ],
+    "desktop": 181,
+    "archiveTests": 10
+  },
+  "revisedPlaytestRefused": true,
+  "revisedDashboardRefused": true,
+  "archive": {
+    "passed": true,
+    "report": "5c2bd5bb-106f-3bfe-afc5-85d3efe5edb1",
+    "proof": {
+      "handoffSha256": "5a2dcda5807a253a6d8667fb6b7fa60133a4e73f18a040ab650f19403100f846",
+      "artifact": {
+        "sha256": "9080a0978504ce0a34fc1081f12d503fb8c5013aa3c6a785c68e112947fd5b41",
+        "id": "5c2bd5bb-106f-3bfe-afc5-85d3efe5edb1",
+        "version": 1
+      },
+      "receiptSha256": "36205fe196ec20f73edf205fc1754b8068a74138e43127f38056ce85e4cb4f85",
+      "playtestSha256": "d297117fd64ba2a5bb4b1990246674d07c0e7b3bbc9e2b4d7eaabdbc0ff53fc9"
+    }
+  },
+  "priorRampChain": {
+    "passed": true,
+    "source": "38abe83612f07c82f227d9522165d20a6283b5ee",
+    "previousSource": "61df5a4b419238761990a7257e53288e842217d5",
+    "id": "67d327fe-82ea-470d-9de5-ce3f1cefe423",
+    "artifact": "67e7a369-5463-3f4f-b016-bb7ca44a6c59",
+    "handoffSha256": "efc74ae52a4d9fa37ad0af184299424b340c28a64261ebd39748314526a4c93e"
+  },
+  "planningCalls": 0
+}
