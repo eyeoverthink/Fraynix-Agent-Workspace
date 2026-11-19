@@ -1,3 +1,7 @@
+## Edition 189 — Bring Blender scenes and Game Lab layouts into one workflow
+
+2026-11-19. Import a Blender rigid-box scene into Spatial, test it with native physics, and export an editable .blend. Export a paused Game Lab frame with named objects and its original Java snapshot. 125 root Java tests, 31 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. The Blender 5.3 round trip preserved three box source identities and the one-metre reference. A reimported scene passed native manipulation and report verification. Relay Garden exported 124 editable quads with a verified Java snapshot at tick 30. Camera or instrument validation and importing edited Game Lab levels are open. See README-189.md and docs/publication189/plan.md.
+
 ## Edition 188 — Recover the final review write and recheck its stored receipt
 
 2026-11-19. Fraynix can finish a Fray review after storage rejects the final write, even when the artifact and its browser receipt were already saved. Completed chain verification checks the current receipt on disk. 125 root Java tests, 49 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. At 125 verified pending chains and 128 reviews, Windows sharing denied the final review replacement. Restart reused the existing artifact and original receipt. An altered or missing completed receipt was refused. All 127 other reviews were byte-identical. See README-188.md and docs/publication188/plan.md.

@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 189 — Blender exchange and Game Lab layouts](../../README-189.md) · [Walkthrough](189/index.html)
+
 [Edition 188 — recover the final review write](../../README-188.md) · [Walkthrough](188/index.html)
 
 [Edition 187 — recover failed disk writes](../../README-187.md) · [Walkthrough](187/index.html)

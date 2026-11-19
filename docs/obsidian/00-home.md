@@ -1,3 +1,5 @@
+[Edition 189 — Blender exchange and Game Lab layouts](197-blender-game-layout.md)
+
 [Edition 188 — Recover the final review write](196-fray-review-write.md)
 
 [Edition 187 — Recover failed disk writes](195-fray-write-failures.md)

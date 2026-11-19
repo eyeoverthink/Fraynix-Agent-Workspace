@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "blenderVersion": "5.3.0",
+  "exchange": {
+    "sourceSha256": "a598a3584cf903b813020e7c84dbf7661a14707900ee0e7706ad392f6148df15",
+    "exportSha256": "46a7854169e885d1d982be2d513224e8ae4ca424c33dd9dd2b7a5ef46b3794b7",
+    "sceneId": "6b8b586a-5887-44de-bf3b-cd0f1a33e155",
+    "sourceIds": [
+      "crate",
+      "floor",
+      "obstacle"
+    ],
+    "roundTripToleranceM": 1e-06,
+    "scale": {
+      "independentlyCalibrated": false,
+      "toleranceM": 0.001,
+      "knownLengthM": 1,
+      "passed": true,
+      "basis": "declared-test",
+      "convertedLengthM": 1
+    },
+    "rejections": [
+      "wrong scale",
+      "unsupported sphere collider"
+    ],
+    "restart": true
+  },
+  "physics": {
+    "runId": "2b1bab06-1a01-385c-8fa8-6f477a0251bd",
+    "reportId": "ee805a68-dc37-3301-85b2-e8ce07a3ba57",
+    "browserChecks": 8,
+    "metrics": {
+      "forecastMaxErrorM": 0,
+      "grabs": 1,
+      "maxGripEndpointErrorM": 3.2641218307618527e-07,
+      "forecastRmseM": 0,
+      "samples": 254,
+      "releases": 1,
+      "route": "right",
+      "sourceKind": "synthetic",
+      "verticalErrorM": 2.9802322387695312e-08,
+      "passed": true,
+      "terminalSpeedMps": 5.358833327834765e-05,
+      "horizontalErrorM": 5.707343934668941e-05,
+      "scaleIndependentlyCalibrated": false
+    }
+  },
+  "game": {
+    "levelId": "relay-garden-v1",
+    "tick": 30,
+    "quads": 124,
+    "entities": 125,
+    "units": "legacy-game-unit",
+    "snapshotHash": "c6b2a7e23f6f3625dac908ce13071008f7b826123aab84f5326a60bb27fe4d2e"
+  },
+  "screenshots": [
+    "blender-import.png",
+    "blender-spatial-verified.png",
+    "blender-game-layout.png"
+  ],
+  "source": "97f0b573c0eefb351befdc3d52abb266a9599b32",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 31,
+    "desktop": 181,
+    "archive": 10
+  }
+}

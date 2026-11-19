@@ -1,0 +1,49 @@
+{
+  "summary": "Import a Blender rigid-box scene into Spatial, test it with native physics, and export an editable .blend. Export a paused Game Lab frame with named objects and its original Java snapshot.",
+  "modules": [
+    {
+      "title": "Blender exchange",
+      "source": "workspace-desktop/blender-exchange.py",
+      "note": "docs/obsidian/197-blender-game-layout.md"
+    },
+    {
+      "title": "Local desktop adapter",
+      "source": "workspace-desktop/blender-exchange.cjs",
+      "note": "docs/obsidian/197-blender-game-layout.md"
+    },
+    {
+      "title": "Native game layout",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/EmbeddedGameClient.java",
+      "note": "docs/obsidian/197-blender-game-layout.md"
+    },
+    {
+      "title": "Game Lab control",
+      "source": "workspace-desktop/renderer/brain-game.js",
+      "note": "docs/obsidian/197-blender-game-layout.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/189/blender-import.png",
+      "title": "Blender-authored bench and its one-metre reference in Spatial"
+    },
+    {
+      "path": "docs/readmes/189/blender-spatial-verified.png",
+      "title": "Verified native manipulation of the reimported Blender scene"
+    },
+    {
+      "path": "docs/readmes/189/blender-game-layout.png",
+      "title": "Paused Relay Garden frame saved as a Blender layout"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/189/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/189/authored-bench.blend",
+      "title": "Editable Blender bench fixture"
+    }
+  ]
+}
