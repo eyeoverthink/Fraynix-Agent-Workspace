@@ -69,8 +69,8 @@ fence=chr(96)*3
 pending = {row["name"]: row for row in app["pending"]}
 rows_list = []
 for row in app["completed"]:
-    item = pending[row["name"]]
-    start, handoff = item["input"], item["intermediate"]
+    sample = pending[row["name"]]
+    start, handoff = sample["input"], sample["intermediate"]
     rows_list.append(f"| {start['value']} {start['unit']} | {handoff['value']} {handoff['unit']} "
                      f"| {row['result']} | {row['rebuildMs']} ms | {row['secondStepMs']} ms |")
 rows = chr(10).join(rows_list)
