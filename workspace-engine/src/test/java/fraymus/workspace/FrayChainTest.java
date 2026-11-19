@@ -251,6 +251,41 @@ public class FrayChainTest {
         }
     }
 
+    @Test public void completedChainRechecksTheStoredBrowserReceiptEvenAfterCachingIt() throws Exception {
+        var project = Files.createTempDirectory("fray-stored-receipt-");
+        try (var store = new WorkspaceStore(project)) {
+            var wb = new RequestWorkbench(project, store);
+            var binding = staged(wb, PROMPT);
+            var review = new JSONObject().put("id", binding.getString("id"));
+            var preview = wb.prepareFray(new JSONObject(review.toString())
+                    .put("reviewSha256", binding.getString("reviewSha256")));
+            var next = wb.advanceChain(copy(binding).put("checks", observations(preview.getJSONArray("steps"))));
+            var completed = wb.finishChain(copy(binding).put("handoff", next.getJSONObject("handoff"))
+                    .put("checks", observations(next.getJSONArray("steps"))));
+            var id = completed.getJSONObject("artifact").getString("id");
+            var receipt = project.resolve("receipts").resolve(id + "-1.json");
+            var original = Files.readAllBytes(receipt);
+            assertTrue(wb.verify(review).getBoolean("passed"));
+            assertTrue(store.read(id).getJSONObject("test").getBoolean("passed"));
+
+            var altered = new JSONObject(Files.readString(receipt));
+            altered.getJSONArray("checks").getJSONObject(9).put("passed", false);
+            Files.writeString(receipt, altered.toString());
+            var mismatch = assertThrows(IllegalStateException.class, () -> wb.verify(review));
+            assertTrue(mismatch.getMessage().contains("receipt changed"));
+            assertThrows(IllegalStateException.class, () -> wb.read(review));
+
+            Files.delete(receipt);
+            var missing = assertThrows(IllegalStateException.class, () -> wb.verify(review));
+            assertTrue(missing.getMessage().contains("receipt is missing"));
+            assertFalse(Files.exists(receipt));
+
+            Files.write(receipt, original);
+            assertTrue(wb.verify(review).getBoolean("passed"));
+            assertArrayEquals(original, Files.readAllBytes(receipt));
+        }
+    }
+
     private static JSONObject staged(RequestWorkbench workbench, String request) throws Exception {
         var task = workbench.chat(new JSONObject().put("request", request)).getJSONObject("task");
         var binding = new JSONObject().put("id", task.getString("id")).put("reviewSha256", task.getString("reviewSha256"));

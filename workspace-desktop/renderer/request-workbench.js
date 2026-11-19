@@ -205,7 +205,8 @@ export class RequestWorkbenchPanel {
         $('requests-source').textContent = task?.source
             ? task.source.name + ' \u00b7 ' + task.source.size + ' bytes \u00b7 SHA-256 ' + task.source.sha256
             : chain ? chain.input.value + ' ' + chain.input.unit + ' \u00b7 ' + chain.first + ' \u2192 ' + chain.second
-                + (task.firstVerified ? ' \u00b7 First step verified' : '') : '';
+                + (task.savePending ? ' \u00b7 Both steps verified'
+                    : task.firstVerified ? ' \u00b7 First step verified' : '') : '';
         $('requests-confirm').hidden = !pending || task.choice.action === 'clarify';
         const fray = isFray(task?.choice.action);
         $('requests-confirm').textContent = chain

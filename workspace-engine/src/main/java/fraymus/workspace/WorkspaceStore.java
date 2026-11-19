@@ -61,7 +61,7 @@ public final class WorkspaceStore implements AutoCloseable {
         for(Object name:result.getJSONArray("files"))files.put(name.toString(),Files.readString(asset(id,result.getInt("version"),name.toString()),StandardCharsets.UTF_8));
         result.put("contents",files);
         String proofKey=id+":"+result.getInt("version");
-        if(!tests.containsKey(proofKey)) {Path proof=root.resolve("receipts").resolve(proofKey.replace(':','-')+".json");if(Files.exists(proof))tests.put(proofKey,new JSONObject(Files.readString(proof)));}
+        if(!tests.containsKey(proofKey)) {Path proof=receiptPath(id,result.getInt("version"));if(Files.exists(proof))tests.put(proofKey,new JSONObject(Files.readString(proof)));}
         if(tests.containsKey(proofKey))result.put("test",tests.get(proofKey));return result;
     }
     public static void validFile(String name) {
@@ -137,17 +137,38 @@ public final class WorkspaceStore implements AutoCloseable {
         }
         if(before.getInt("version")!=expected)throw new ConcurrentModificationException("Creation revision source was changed");return write(args);
     }
-    synchronized JSONObject recordTestOnce(JSONObject args) throws IOException {
-        var artifact = read(args.getString("id"));
-        if (artifact.getInt("version") != args.getInt("version"))
+    synchronized void recordTestOnce(JSONObject args) throws IOException {
+        if (version(args.getString("id")) != args.getInt("version"))
             throw new IllegalArgumentException("Test refers to an older artifact version");
-        var prior = artifact.optJSONObject("test");
-        if (prior == null) return recordTest(args);
-        var retained = new JSONObject(prior.toString());
+        var prior = readRecordedTest(args);
+        if (prior == null) recordTest(args);
+        else requireMatchingTest(args, prior);
+    }
+
+    synchronized void verifyRecordedTest(JSONObject args) throws IOException {
+        var prior = readRecordedTest(args);
+        if (prior == null) throw new IllegalStateException("The original artifact test receipt is missing");
+        requireMatchingTest(args, prior);
+    }
+
+    private JSONObject readRecordedTest(JSONObject args) throws IOException {
+        Path file = receiptPath(args.getString("id"), args.getInt("version"));
+        // The artifact view caches receipts. Publication and recovery need the stored evidence.
+        if (!Files.exists(file, LinkOption.NOFOLLOW_LINKS)) return null;
+        if (!Files.isRegularFile(file, LinkOption.NOFOLLOW_LINKS))
+            throw new IllegalStateException("The original artifact test receipt is unavailable");
+        return AgentFiles042.read(file, 4_000_000);
+    }
+
+    private static void requireMatchingTest(JSONObject expected, JSONObject original) {
+        var retained = new JSONObject(original.toString());
         if (!(retained.remove("at") instanceof String at) || at.isBlank()
-                || !Boolean.TRUE.equals(retained.remove("passed")) || !retained.similar(args))
+                || !Boolean.TRUE.equals(retained.remove("passed")) || !retained.similar(expected))
             throw new IllegalStateException("The original artifact test receipt changed");
-        return prior;
+    }
+
+    private Path receiptPath(String id, int version) {
+        return root.resolve("receipts").resolve(id + "-" + version + ".json");
     }
 
     public synchronized JSONObject recordTest(JSONObject args) throws IOException {
@@ -156,7 +177,7 @@ public final class WorkspaceStore implements AutoCloseable {
         if(proof.getJSONArray("checks").isEmpty())throw new IllegalArgumentException("A test needs actual assertions");
         boolean passed=proof.getJSONArray("checks").toList().stream().allMatch(x->Boolean.TRUE.equals(((Map<?,?>)x).get("passed")));
         proof.put("passed",passed);String key=artifact.getString("id")+":"+artifact.getInt("version");
-        atomic(root.resolve("receipts").resolve(key.replace(':','-')+".json"),proof.toString(2));tests.put(key,proof);event("artifact_tested",proof);return proof;
+        atomic(receiptPath(artifact.getString("id"),artifact.getInt("version")),proof.toString(2));tests.put(key,proof);event("artifact_tested",proof);return proof;
     }
     public synchronized JSONObject saveSkill(JSONObject args) throws IOException {
         JSONObject artifact=read(args.getString("id"));JSONObject proof=artifact.optJSONObject("test");

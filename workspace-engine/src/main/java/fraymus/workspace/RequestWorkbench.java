@@ -282,9 +282,7 @@ final class RequestWorkbench {
         }
         var ref = artifactRef(artifact, expected);
         try {
-            store.recordTestOnce(new JSONObject().put("id", ref.getString("id")).put("version", ref.getInt("version"))
-                    .put("steps", FrayChain.join(chain.firstSteps(), chain.secondSteps(intermediate), false))
-                    .put("checks", FrayChain.join(task.getJSONArray("frayFirstChecks"), task.getJSONArray("frayChecks"), true)));
+            store.recordTestOnce(chainTest(task, ref, chain, intermediate));
         } catch (IOException error) {
             throw saveInterrupted("write the browser receipt", error);
         }
@@ -296,6 +294,13 @@ final class RequestWorkbench {
             throw saveInterrupted("finish the review", error);
         }
         return proof(task).put("task", view(task));
+    }
+
+    private static JSONObject chainTest(JSONObject task, JSONObject ref, FrayChain chain,
+                                        FrayChain.Quantity intermediate) {
+        return new JSONObject().put("id", ref.getString("id")).put("version", ref.getInt("version"))
+                .put("steps", FrayChain.join(chain.firstSteps(), chain.secondSteps(intermediate), false))
+                .put("checks", FrayChain.join(task.getJSONArray("frayFirstChecks"), task.getJSONArray("frayChecks"), true));
     }
 
     private static IOException saveInterrupted(String operation, IOException error) {
@@ -379,9 +384,12 @@ final class RequestWorkbench {
         JSONObject expected;
         String name;
         var conversion = intent(task).fray();
+        JSONObject receipt = null;
         if (intent(task) == RequestLanguage.Intent.FRAY_CHAIN) {
             var chain = FrayChain.fromDefinition(task.getJSONObject("choice").getJSONObject("chain"));
-            expected = chain.artifact(task.getJSONArray("frayFirstChecks"), task.getJSONArray("frayChecks"));
+            var first = task.getJSONArray("frayFirstChecks");
+            expected = chain.artifact(first, task.getJSONArray("frayChecks"));
+            receipt = chainTest(task, ref, chain, chain.verifiedIntermediate(first));
             name = "index.html";
         } else if (conversion != null) {
             expected = conversion.artifact(task.getJSONArray("frayChecks"));
@@ -393,6 +401,7 @@ final class RequestWorkbench {
         }
         var actual = artifactRef(store.read(ref.getString("id")), expected);
         if (!actual.similar(ref)) throw new IllegalStateException("The checked output revision changed");
+        if (receipt != null) store.verifyRecordedTest(receipt);
         return new JSONObject().put("passed", true).put("artifact", actual).put("output", name)
                 .put("summary", task.getString("summary"));
     }
