@@ -12,7 +12,8 @@ final class Domain044 {
  void initialize(JSONObject g,JSONObject bindings,JSONObject options)throws Exception{
   SpatialScene.keys(bindings,"scene","dataset","spatial","pose","world","push","mapping","creation","knowledge","tabletop","observations","metric","tracking","perception","verifiedObservation","calibratedObservation","recordedSmall","rampInput");if(bindings.toString().length()>42000)throw new IllegalArgumentException("Selected-source context exceeds42K");
   for(String key:new ArrayList<>(bindings.keySet()))if(bindings.isNull(key))bindings.remove(key);
-  var a=nativeApi.call("/api/alignment041/state",new JSONObject());String family=g.optString("explicitFamily044",ChatPolicy044.route(g.getString("goal"),bindings,!a.optString("selectedRegistrationId").isBlank()));
+  var a=nativeApi.call("/api/alignment041/state",new JSONObject());String family=g.has(ChainRecommendation.KEY)
+          ?ChainRecommendation.FAMILY:g.optString("explicitFamily044",ChatPolicy044.route(g.getString("goal"),bindings,!a.optString("selectedRegistrationId").isBlank()));
   if(!Set.of("creation","workflow").contains(family)&&g.has("explicitFamily044"))throw new IllegalArgumentException("Explicit start only accepts creation or workflow");
   g.put("family044",family).put("bindings044",WorldFrames.copy(bindings)).put("options044",WorldFrames.copy(options)).put("requested044",Requested044.fields(g.getString("goal"),family));
   var c=new JSONObject().put("goal",g.getString("goal")).put("model",g.getString("model")).put("needsGoal",ChatPolicy044.GOALS.contains(family)).put("needsBody",family.equals("body")).put("needsObserver",family.equals("observer")).put("needsCalibration",family.equals("calibration")).put("needsTransfer",family.equals("transfer")).put("needsScene",Set.of("scene","body","observer","calibration","transfer","goal").contains(family));
@@ -20,6 +21,11 @@ final class Domain044 {
   if(family.equals("world")&&(bindings.optJSONObject("world",new JSONObject()).optBoolean("selectiveMemory079")||ChatPolicy044.has(g.getString("goal"),"selective memory|cost-aware|verified procedures|memory when")))c.put("selectiveMemory079",true);
   if(family.equals("construction")&&ChatPolicy044.design053(g.getString("goal")))c.put("designRequested053",true).put("designReview053",ChatPolicy044.designReview053(g.getString("goal")));
   for(var e:Map.of("knowledge","knowledgeSelection","tabletop","tabletopSelection","observations","observationSelection","metric","metricSelection","world","worldBinding").entrySet())if(bindings.has(e.getKey()))c.put(e.getValue(),bindings.get(e.getKey()));
+  if(family.equals(ChainRecommendation.FAMILY)){
+   bindChainRecommendation(g,bindings);
+   g.put("context044",c).put("nativeTrace044",new JSONArray()).put("nativeReplies044",new JSONObject());
+   return;
+  }
   if(family.equals(LocalWorkflowSelection.FAMILY)){
    bindLocalWorkflow(g,bindings);
    g.put("context044",c).put("nativeTrace044",new JSONArray()).put("nativeReplies044",new JSONObject());
@@ -50,6 +56,21 @@ final class Domain044 {
   var state=nativeApi.call("/api/state",new JSONObject());c.put("available044",new JSONObject().put("scenes",state.getJSONArray("scenes")).put("datasets",state.getJSONArray("datasets")).put("procedures",state.getJSONArray("procedures")));
   if(ChatPolicy044.reuse(g.getString("goal"))){var choices=new ArrayList<JSONObject>();String explicit=Requested044.match(g.getString("goal"),"\\bv(?:ersion\\s*)?(\\d+)\\b");for(Object raw:state.getJSONArray("procedures")){var p=(JSONObject)raw;if(g.getString("goal").toLowerCase(Locale.ROOT).contains(p.getString("name").toLowerCase(Locale.ROOT))&&(explicit==null||p.getInt("version")==Integer.parseInt(explicit)))choices.add(p);}var names=new HashSet<String>();choices.forEach(p->names.add(p.getString("name")));if(names.size()>1)throw new IllegalArgumentException("Choose one retained procedure name");if(!choices.isEmpty()){choices.sort(Comparator.comparingInt((JSONObject p)->p.getInt("version")).reversed());var p=choices.get(0);c.put("procedureBinding",new JSONObject().put("name",p.getString("name")).put("version",p.getInt("version")).put("kind",p.getString("kind")));String f=familyFor(p.getString("kind"));g.put("family044",f).put("requested044",Requested044.fields(g.getString("goal"),f));c.put("needsGoal",!f.equals("workflow"));}}
   g.put("context044",c).put("nativeTrace044",new JSONArray()).put("nativeReplies044",new JSONObject());
+ }
+ private void bindChainRecommendation(JSONObject g,JSONObject bindings)throws Exception{
+  if(g.getString("model").isBlank())throw new IllegalArgumentException("Select an installed local model for a chain recommendation");
+  String course=ChainRecommendation.course(g.getString("goal"));
+  g.put(ChainRecommendation.KEY,new JSONObject().put("course",course));
+  if(!course.isEmpty()){
+   var plan=RelayClearanceChain.plan(ChainRecommendation.relayGoal(course));
+   g.put("relaySource",nativeApi.call("/internal/relay/bind",new JSONObject().put("request",plan.getString("request"))));
+  }
+  if(bindings.has("rampInput")){
+   var source=Procedure044.binding(bindings,"rampInput");
+   SpatialScene.keys(source,"path");
+   try{g.put("rampSource",nativeApi.call(RampMission.PORT+"bind",source));}
+   catch(IllegalArgumentException|IllegalStateException ignored){ /* A different local artifact is not a ramp input. */ }
+  }
  }
  private void bindLocalWorkflow(JSONObject g,JSONObject bindings)throws Exception{
   var intent=LocalWorkflowSelection.intent(g.getString("goal"));
@@ -114,6 +135,7 @@ final class Domain044 {
  JSONObject bootstrap(JSONObject g)throws Exception{
   String f=g.getString("family044");var c=g.getJSONObject("context044");var b=g.getJSONObject("bindings044");if(c.has("ownedGoalId")||c.has("ownedWorkflowId")||c.has("ownedGameTask115"))return null;
   if(g.has(LocalWorkflowSelection.KEY))return bootstrapLocalWorkflow(g);
+  if(f.equals(ChainRecommendation.FAMILY))return null;
   if(g.has(RampTraceChain.KEY))return c.has(RampTraceChain.HANDOFF)?null:bootRamp(g);
   if(g.has(RelayClearanceChain.PLAN)){
    String id=g.getString("id");

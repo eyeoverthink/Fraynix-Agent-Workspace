@@ -320,6 +320,9 @@ async function learnFromEpisodes({proof=false,automatic=false}={}){
 async function mission044(id){
  const g=await api('/api/agency043/read',{id}),c=g.context044||{},task={};
  for(const k of ['id','goal','model','mode','family044','status','reason','turn','failures','resumes','generation','createdAt','finishedAt','outcome','savedRecipe','usedRecipe','summary','timing052','diagnostics052','refusal106'])if(g[k]!==undefined)task[k]=g[k];
+ if(g.chainRecommendation){
+  task.recommendedChain={model:g.model, choice:g.recommendedChain?.choice, question:g.chainRecommendationQuestion};
+ }
  if(g.localWorkflow){
   task.localWorkflow=true;
   task.workflowSelection=g.history.find(row=>row.kind==='local-workflow-selected')?.detail;
@@ -340,11 +343,11 @@ async function mission044(id){
  task.frames=g.frames?.length||0;task.history=(g.history||[]).slice(-12).map(r=>({kind:r.kind,at:r.at,sha256:r.sha256,tool:r.detail?.tool,reason:r.detail?.reason,verified:r.detail?.verified}));
  const reviewRoute=g.selectedLocalWorkflow||g.localWorkflowReview||g.localWorkflow?.quickProcedure;
  const quickScope=Boolean(g.localWorkflow?.routingPolicy);
- const reviewed=g.rampTraceChain||g.relayClearanceChain;
+ const reviewed=g.rampTraceChain||g.relayClearanceChain||g.chainRecommendation;
  const shownBindings=reviewed?{}:quickScope?(reviewRoute==='input-summary-workflow-104-v1'&&g.localWorkflow.dataset?{dataset:g.bindings044.dataset}:{}):(g.bindings044||{});
  const sources=Object.entries(shownBindings).map(([kind,b])=>({kind,...(Array.isArray(b)?{ids:b}:{...Object.fromEntries(['id','datasetId','sceneId','worldId','objectId','pusherId','mapId','referenceId','sourceArtifactId','sourceVersion','sourceFile','version','expectedVersion','expectedRevision','expectedHash','sourceSha256','title','sourceKind'].filter(k=>b?.[k]!==undefined).map(k=>[k,b[k]]))})}));
  if(g.initialArtifact&&!quickScope&&!reviewed)sources.push({kind:'initial artifact',...g.initialArtifact});
- if(g.rampSource&&(!quickScope||reviewRoute==='local-ramp-comparison-v1'))sources.push({kind:g.rampSource.csvSha256?'local ramp CSV':'local ramp input',id:g.rampSource.id,version:g.rampSource.version});
+ if(g.rampSource&&(!g.chainRecommendation||g.rampTraceChain)&&(!quickScope||reviewRoute==='local-ramp-comparison-v1'))sources.push({kind:g.rampSource.csvSha256?'local ramp CSV':'local ramp input',id:g.rampSource.id,version:g.rampSource.version});
  const chainComparison=g.rampTraceChain&&c.rampVerified&&c.ownedRampMission?c.ownedRampMission:null;
  const chainPlaytest=g.relayClearanceChain&&c.chainHandoff?c.ownedGameTask115:null;
  let child=null;
@@ -383,8 +386,8 @@ let currentObservation158=null,currentCalibrated159=null,currentRecorded162=null
 function bindings044(){const b={scene:currentScene,dataset:currentDataset,spatial:currentSpatial,pose:currentPose,world:currentPersistentWorld,push:pushSelection(),mapping:currentMapSelection,creation:creationSelection(),knowledge:knowledgeBridge?.selected(),tabletop:tabletopBridge?.selected(),observations:observationBridge?.selection(),metric:observationBridge?.metricSelection?.(),tracking:trackingBridge?.selected(),verifiedObservation:currentObservation158,calibratedObservation:currentCalibrated159,recordedSmall:currentRecorded162};return Object.fromEntries(Object.entries(b).filter(([,v])=>v!=null));}
 async function startAgent(goal,model,extra={}){
  if(run||learningJob||manualBusy||pendingAgency043)throw Error('Finish or stop the current operation first');if(typeof goal!=='string'||!goal.trim()||goal.length>8000)throw Error('Enter a request up to8000characters');
- const requiresRamp=rampRequest(goal);
- const sourcePath=requiresRamp||localWorkflowRequest(goal)?rampPath(browser.view.webContents.getURL(),origin):'';
+ const requiresRamp=!extra.chainRecommendation&&rampRequest(goal);
+ const sourcePath=requiresRamp||extra.chainRecommendation||localWorkflowRequest(goal)?rampPath(browser.view.webContents.getURL(),origin):'';
  if(requiresRamp&&!sourcePath)throw Error('Open a saved ramp input in the local browser first');
  const generation=agencyLaunchGeneration043;pendingAgency043++;emit('run',{active:true,goal,model,phase:'Java is admitting and routing the request'});
  try{await inputs100.beforeStart();const settings=await window.webContents.executeJavaScript('window.agency043View?.settings()||({visionModel:""})');if(generation!==agencyLaunchGeneration043)return{stopped:true};await updateSelfHost();if(generation!==agencyLaunchGeneration043)return{stopped:true};return await agency043.begin({goal,model,visionModel:settings.visionModel||'',artifactId:currentArtifact?.id||'',bindings:{...bindings044(),...(sourcePath?{rampInput:{path:sourcePath}}:{})},...extra});}finally{pendingAgency043--;if(!agency043.busy())emit('run',{active:false});}
@@ -784,7 +787,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(!a||Object.keys(a).some(k=>!['evidenceId','browserContract126'].includes(k))||!/^[a-f0-9]{64}$/.test(a.evidenceId)||!a.browserContract126)throw Error('Select verified evidence and browser criteria');
       currentObservation158=JSON.parse(JSON.stringify(a));return {selected:true,evidenceId:a.evidenceId};
     }
-    case 'agent':startAgent(input.goal,input.model,{...(input.planWorld099===undefined?{}:{planWorld099:input.planWorld099}),...(input.browserContract126?{browserContract126:input.browserContract126}:{})}).catch(error=>{activity('error',error.message);emit('answer',error.message);});return {started:true};
+    case 'agent':startAgent(input.goal,input.model,{...(input.chainRecommendation?{chainRecommendation:true}:{}),...(input.planWorld099===undefined?{}:{planWorld099:input.planWorld099}),...(input.browserContract126?{browserContract126:input.browserContract126}:{})}).catch(error=>{activity('error',error.message);emit('answer',error.message);});return {started:true};
     case 'stop':await stopAgent();return {stopped:true};
     case 'proof':return guidedProof();
     case 'learningProof':return learnFromEpisodes({proof:true});

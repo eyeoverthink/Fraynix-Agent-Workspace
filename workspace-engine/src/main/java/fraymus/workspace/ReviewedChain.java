@@ -26,8 +26,10 @@ enum ReviewedChain {
     static void verifyJournal(JSONObject task) {
         var type = of(task);
         if (type == null) return;
-        if (type == RAMP) RampTraceChain.verifyPlan(task);
-        else RelayClearanceChain.verifyPlan(task);
+        if (!task.has(ChainRecommendation.KEY)) {
+            if (type == RAMP) RampTraceChain.verifyPlan(task);
+            else RelayClearanceChain.verifyPlan(task);
+        }
         var plan = task.getJSONObject(type.key);
         int approvals = 0;
         JSONObject witnessed = null;

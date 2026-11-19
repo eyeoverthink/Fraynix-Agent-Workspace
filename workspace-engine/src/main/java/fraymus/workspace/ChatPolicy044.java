@@ -73,6 +73,7 @@ final class ChatPolicy044 {
    case "calibration"->!c.has("calibrationEvidence")?List.of("scene.read","dataset.read","calibration.start"):!c.getJSONObject("calibrationEvidence").optString("status").equals("completed")?List.of("calibration.read"):apply(goal)&&c.getJSONObject("calibrationEvidence").getJSONObject("evaluation").getBoolean("accepted")&&!c.getJSONObject("calibrationEvidence").optJSONObject("application",new JSONObject()).has("applyReceipt")?List.of("calibration.apply"):!c.has("calibrationReportId")?List.of("calibration.report"):List.of("finish");
    case "scene"->{var a=new ArrayList<>(List.of("scene.create","scene.read","scene.update","experiment.run","experiment.reset"));if(has(goal,"\\b(measurements?|observations?|dataset|csv|residual|comparison)\\b"))a.addAll(List.of("dataset.import","dataset.read","experiment.compare","comparison.report"));if(c.has("sceneEvidence"))a.add("finish");yield a;}
    case RampTraceChain.FAMILY -> c.has("workflowEvidence") ? List.of("finish") : List.of();
+   case ChainRecommendation.FAMILY -> List.of(ChainRecommendation.TOOL);
    case RelayClearanceChain.FAMILY -> c.has(RelayClearanceChain.RECEIPT) ? List.of("finish") : List.of();
    case RampMission.FAMILY -> c.optBoolean("rampVerified") ? List.of("finish") :
        !task.has(LocalWorkflowSelection.KEY)&&RampProcedure.intent(goal).planned()&&!c.has("rampChoice") ? List.of(RampProcedure.SELECT_TOOL) : List.of();
@@ -94,6 +95,7 @@ final class ChatPolicy044 {
  }
  static String prompt(JSONObject g,List<String> allowed){var c=g.getJSONObject("context044");
   if(allowed.equals(List.of(LocalWorkflowSelection.TOOL)))return LocalWorkflowSelection.prompt(g);
+  if(allowed.equals(List.of(ChainRecommendation.TOOL)))return ChainRecommendation.prompt(g);
   if(allowed.equals(List.of(RampProcedure.SELECT_TOOL))){
    var intent=RampProcedure.intent(g.getString("goal"));
    if(intent.flexible()){
