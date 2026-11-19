@@ -18,6 +18,7 @@ export class BrainGame {
   const safe=f=>async()=>{try{await f();}catch(e){this.notice(e.message);$('brain-status').textContent=e.message;}};
   this.addSkillMemory();
   this.addLevelBuilder();
+  this.addBlenderCandidates();
   this.cortex061=new Cortex061(call,notice);
   this.residual062=new Residual062(call,notice);
   this.stopping063=new Stopping063(call,notice);
@@ -126,6 +127,88 @@ export class BrainGame {
   $('memory-save').onclick=safe(async()=>{const receipt=await this.call('memory','remember',{text:$('memory-text').value});$('memory-result').textContent=JSON.stringify(receipt,null,2);});
   $('memory-search').onclick=safe(async()=>{$('memory-result').textContent=JSON.stringify(await this.call('memory','context',{query:$('memory-text').value,maxChars:2400}),null,2);});
   setInterval(()=>this.poll().catch(e=>this.notice(e.message)),150);
+ }
+ addBlenderCandidates(){
+  const box=document.createElement('details');
+  box.id='game-blender-candidates';
+  box.innerHTML=`<summary>Blender level candidates</summary>
+   <p>Export a paused Relay course. In Blender, move existing ground tiles on the quarter-unit grid and save a new file.</p>
+   <div class="runtime-controls"><button id="game-blender-import">Import Blender candidate</button>
+   <select id="game-blender-choice" aria-label="Blender level candidate"></select>
+   <button id="game-blender-open">Open candidate</button><button id="game-blender-start">Run AI playtest</button>
+   <button id="game-blender-verify">Recheck evidence</button><button id="game-blender-evidence">Export evidence</button></div>
+   <p id="game-blender-status" role="status"></p>`;
+  $('game-view').prepend(box);
+  const choice=$('game-blender-choice'), status=$('game-blender-status');
+  const call=(action,args={})=>this.call('gameRuntime','blender-'+action,args);
+  let busy=false, checking=false, trial=null;
+  const valid=()=>Boolean(choice.value&&choice.selectedOptions[0]?.dataset.checked==='yes');
+  const buttons=()=>{
+   $('game-blender-import').disabled=busy;
+   choice.disabled=busy;
+   $('game-blender-open').disabled=busy||!valid();
+   $('game-blender-start').disabled=busy||!valid()||!['ready','interrupted'].includes(trial?.status);
+   for(const action of ['verify','evidence'])$('game-blender-'+action).disabled=busy||!valid()||trial?.status!=='passed';
+  };
+  const refresh=async()=>{
+   const id=choice.value;
+   const selected=valid()?await call('state',{id}):null;
+   if(id!==choice.value)return;
+   trial=selected;
+   status.textContent=trial?.message||(choice.value?'This candidate needs attention.':'Import an edited Relay layout.');
+  };
+  const list=async preferred=>{
+   const id=preferred||choice.value;
+   const result=await call('list');
+   choice.replaceChildren(...result.candidates.map(row=>{
+    const option=new Option(row.error?'Needs attention · '+row.id.slice(0,8):row.title+' · '+row.id.slice(0,8),row.id);
+    option.dataset.checked=row.error?'no':'yes';
+    return option;
+   }));
+   if(result.candidates.some(row=>row.id===id))choice.value=id;
+   await refresh();
+  };
+  const act=fn=>async()=>{
+   if(busy)return;
+   busy=true;
+   buttons();
+   try{await fn();}catch(error){status.textContent=error.message;this.notice(error.message);}
+   finally{busy=false;buttons();}
+  };
+  box.ontoggle=()=>{if(box.open)void act(()=>list())();};
+  choice.onchange=act(refresh);
+  $('game-blender-import').onclick=act(async()=>{
+   this.requireSaved();
+   const imported=await call('import');
+   if(imported){await list(imported.id);status.textContent='Saved '+imported.moves.length+' ground edit(s). Ready to playtest.';}
+  });
+  $('game-blender-open').onclick=act(async()=>{
+   this.requireSaved();
+   const frame=await call('open',{id:choice.value});
+   this.watching=true;
+   this.show(frame);
+   $('game-target').value=frame.candidate.finishX+1;
+   status.textContent='Opened edited terrain at tick 0.';
+  });
+  $('game-blender-start').onclick=act(async()=>{
+   trial=await call('start',{id:choice.value});
+   status.textContent=trial.message;
+  });
+  $('game-blender-verify').onclick=act(async()=>{
+   const audit=await call('verify',{id:choice.value});
+   status.textContent='Checked '+audit.proof.trials+' wins at tick '+audit.proof.ticks+' and the saved source.';
+  });
+  $('game-blender-evidence').onclick=act(async()=>{
+   const file=await call('evidence',{id:choice.value});
+   status.textContent='Playtest evidence saved to '+file.path;
+  });
+  setInterval(async()=>{
+   if(busy||checking||!box.open||trial?.status!=='running')return;
+   checking=true;
+   try{await refresh();}catch(error){status.textContent=error.message;}
+   finally{checking=false;buttons();}
+  },750);
+  buttons();
  }
  addLevelBuilder(){
   const box=document.createElement('details');box.id='game-level-builder';

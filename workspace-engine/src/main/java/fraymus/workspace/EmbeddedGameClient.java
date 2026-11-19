@@ -41,7 +41,26 @@ public final class EmbeddedGameClient implements AutoCloseable {
             .put("content", pack);
     }
     private String originalManifestSha;
+    private RelayCourse candidateCourse;
+    private Path candidateFile;
+    private String candidateSha;
+
+    synchronized JSONObject openBlenderCandidate(Path file, String id, String hash, RelayCourse course, JSONObject pack)
+            throws Exception {
+        close();
+        levelId = id;
+        var frame = start(project.resolve("blender-candidates").resolve(id).resolve(UUID.randomUUID().toString()),
+                file, hash, pack);
+        candidateCourse = course;
+        candidateFile = file;
+        candidateSha = hash;
+        return frame;
+    }
+
     private JSONObject start(Path runtimeProject,Path level,String sha,JSONObject pack) throws Exception {
+        candidateCourse = null;
+        candidateFile = null;
+        candidateSha = null;
         originalManifestSha = pack == null ? null : pack.getString("manifestSha256");
         activeProject=runtimeProject;
         Path lib=repo.resolve("build/install/Fraynix-Studio/lib");if(!Files.isDirectory(lib))throw new IllegalStateException("Build the preserved game runtime first");
@@ -49,7 +68,7 @@ public final class EmbeddedGameClient implements AutoCloseable {
         var command=new ArrayList<String>(List.of(Path.of(System.getProperty("java.home"),"bin","java.exe").toString(),"--enable-native-access=ALL-UNNAMED","-XX:ActiveProcessorCount=4","-Xmx512m","-Dfraynix.embedded=true","-Dfraynix.studio.workspace="+runtimeProject));
         if(level!=null){command.add("-Dfraynix.level="+level.toAbsolutePath());command.add("-Dfraynix.level.sha256="+sha);}
         if (pack != null) {
-            command.add("-Dfraynix.content=" + levelId);
+            command.add("-Dfraynix.content=" + pack.getString("id"));
             command.add("-Dfraynix.content.sha256=" + originalManifestSha);
         }
         command.addAll(List.of("-cp",lib.toString()+File.separator+"*","Main","--mario"));var builder=new ProcessBuilder(command);
@@ -80,7 +99,9 @@ public final class EmbeddedGameClient implements AutoCloseable {
 
     public synchronized JSONObject command(JSONObject input) throws Exception {
         if (levelId != null && "reset".equals(input.optString("action"))) {
-            RelayCourse course = RelayCourse.find(levelId);
+            RelayCourse course = candidateCourse != null ? candidateCourse : RelayCourse.find(levelId);
+            if (candidateFile != null && !candidateSha.equals(GameLevels114.hash(candidateFile)))
+                throw new IllegalStateException("The imported candidate changed since it was opened");
             if (originalManifestSha == null || course == null) {
                 levels.verify(levelId);
             } else {

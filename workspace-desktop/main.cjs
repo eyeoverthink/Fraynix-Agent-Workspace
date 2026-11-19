@@ -3,7 +3,7 @@ const {app,BrowserWindow,dialog,ipcMain,Menu,shell}=require('electron');
 const {spawn}=require('node:child_process');
 const fs=require('node:fs');const fsp=require('node:fs/promises');const path=require('node:path');const {createHash,randomBytes,randomUUID}=require('node:crypto');const readline=require('node:readline');
 const {Surface}=require('./surfaces.cjs');
-const {exportBlend,importBlend}=require('./blender-exchange.cjs');
+const {exportBlend,importBlend,importGameLayout}=require('./blender-exchange.cjs');
 const {observeRamp, rampPath, rampRequest, localWorkflowRequest}=require('./ramp-mission.cjs');const {catalog,command,planTools}=require('./policy.cjs');
 const {failureClass,performControlled,observeProgress,trainController}=require('./controller.cjs');
 const {replay,rehearse}=require('./controller-replay.cjs');
@@ -776,6 +776,15 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     case 'brain':{if(!['useful-trace','uncertain-trace','later-trace','adaptive-trace','calibration-trace','recovery-trace','temporal-trace','decision-plan','decision-trace','contact-predict','contact-trace','stopping-predict','stopping-trace','residual-predict','outcome-predict','state','start','read','cancel','rollback','run','feedback-start','feedback-kick','feedback-cancel','feedback-rollback','world-prepare','world-preview','world-kick','world-cancel','world-rollback'].includes(input.command))throw Error('Unknown brain command');const value=await api('/api/brain/'+input.command,input.args||{});if(['run','feedback-start','feedback-kick','feedback-cancel','world-prepare','world-kick','world-cancel'].includes(input.command)){emit('experiment',await api('/api/scene/snapshot',{}));activity('brain',{'run':'Java controller completed a native impulse run','feedback-start':'Live feedback run started','feedback-kick':'Native disturbance applied','feedback-cancel':'Feedback run cancelled','world-prepare':'World-model run prepared without physical actuation','world-kick':'Native world disturbance applied','world-cancel':'World-model run cancelled'}[input.command],{runId:value.id||input.args?.runId,tick:value.tick,deltaVelocityMps:value.deltaVelocityMps,controller:value.controller,goalEvaluation:value.goalEvaluation});}return value;}
     case 'gameTasks115':{if(!['read','list','verify','review','review-latest','review-verify'].includes(input.command))throw Error('Unknown level task read');return api('/api/game-tasks115/'+input.command,input.args||{});}
     case 'gameRuntime':{
+      if(input.command==='blender-import'){
+        const picked=await dialog.showOpenDialog(window,{properties:['openFile'],filters:[{name:'Blender scene',extensions:['blend']}]});
+        if(picked.canceled)return null;
+        return api('/api/game/blender-import',await importGameLayout(picked.filePaths[0]));
+      }
+      if(input.command==='blender-evidence'){
+        const checked=await api('/api/game/blender-verify',input.args||{});
+        return nativeExports.save('blender-game-playtest','json',JSON.stringify(checked,null,2),{id:input.args.id});
+      }
       if(input.command==='export-blender'){
         const picked=await dialog.showSaveDialog(window,{defaultPath:'fraynix-game-layout.blend',
           filters:[{name:'Blender scene',extensions:['blend']}]});
@@ -785,7 +794,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         const quads=JSON.parse(result.text).frame.entities.filter(entity=>entity.shape==='quad').length;
         return {...saved,snapshotHash:result.snapshotHash,tick:result.tick,quads};
       }
-      if(!['open','open-relay','open-course','frame','command','state','close','analyze-levels','levels','create-level','open-level','import-reference'].includes(input.command))throw Error('Unknown game command');return api('/api/game/'+input.command,input.args||{});}
+      if(!['open','open-relay','open-course','frame','command','state','close','analyze-levels','levels','create-level','open-level','import-reference','blender-list','blender-open','blender-start','blender-state','blender-verify'].includes(input.command))throw Error('Unknown game command');return api('/api/game/'+input.command,input.args||{});}
     case 'memory':{if(!['remember','context'].includes(input.command))throw Error('Unknown memory command');return api('/api/memory/'+input.command,input.args||{});}
     case 'body':{if(!['grab','move','release','cancel'].includes(input.command))throw Error('Unknown body command');return execute('body.'+input.command,input.args||{});}
     case 'transfer':{

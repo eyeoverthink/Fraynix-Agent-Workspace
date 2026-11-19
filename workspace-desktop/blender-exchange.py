@@ -202,12 +202,67 @@ def write_game_layout(source, output):
     bpy.ops.wm.save_as_mainfile(filepath=str(output), compress=True)
 
 
+def read_game_layout(output):
+    scene = bpy.context.scene
+    if bpy.data.libraries or scene.unit_settings.system != "NONE":
+        raise ValueError("Use an exported local Game Lab layout in game units")
+    block = bpy.data.texts.get("Fraynix Game snapshot.json")
+    if block is None:
+        raise ValueError("Game Lab snapshot is missing")
+    original = block.as_string()
+    data = json.loads(original)["frame"]
+    if scene.get("fraynix_snapshot_sha256") != data["snapshotHash"]:
+        raise ValueError("Game Lab snapshot metadata changed")
+    if not bpy.context.scene.objects or len(bpy.context.scene.objects) > 4096:
+        raise ValueError("Unexpected layout object count")
+    expected = {entry["id"]: entry for entry in data["entities"] if entry.get("shape") == "quad"}
+    graph = bpy.context.evaluated_depsgraph_get()
+    seen = set()
+    moves = []
+    for obj in scene.objects:
+        source_id = obj.get("fraynix_source_id")
+        if obj.type != "MESH" or source_id not in expected or source_id in seen:
+            raise ValueError("Layout contains an added, duplicated or unidentified object")
+        seen.add(source_id)
+        entry = expected[source_id]
+        item = obj.evaluated_get(graph)
+        if len(item.data.vertices) != 4 or len(item.data.polygons) != 1 or len(item.data.polygons[0].vertices) != 4:
+            raise ValueError(f"{obj.name}: only existing game quads can be edited")
+        center = item.matrix_world.translation
+        location = TO_WORKSPACE @ center
+        if not all(math.isfinite(value) for value in location) or abs(location.z) > 1e-5:
+            raise ValueError(f"{obj.name}: keep the layout on the game plane")
+        width, height, _ = entry["size"]
+        x, y, z, w = entry["rotation"]
+        rotation = Quaternion((w, x, y, z))
+        corners = [rotation @ Vector((dx*width/2, dy*height/2, 0)) for dx, dy in
+                   ((-1, -1), (1, -1), (1, 1), (-1, 1))]
+        for vertex in item.data.vertices:
+            actual = TO_WORKSPACE @ (item.matrix_world @ vertex.co - center)
+            closest = min(range(len(corners)), key=lambda i: (corners[i] - actual).length)
+            if (corners[closest] - actual).length > 1e-5:
+                raise ValueError(f"{obj.name}: keep the source quad dimensions and orientation")
+            corners.pop(closest)
+        if (location - Vector(entry["position"])).length > 1e-5:
+            if "components.Ground" not in entry["components"]:
+                raise ValueError(f"{obj.name}: only existing ground tiles may move")
+            moves.append({"sourceId": source_id, "to": [round(location.x, 6), round(location.y, 6)]})
+    if seen != expected.keys():
+        raise ValueError("One or more exported Game Lab objects are missing")
+    if not 1 <= len(moves) <= 16:
+        raise ValueError("Move between one and sixteen existing ground tiles")
+    moves.sort(key=lambda item: item["sourceId"])
+    output.write_text(json.dumps({"snapshot": original, "moves": moves}, allow_nan=False), encoding="utf-8")
+
+
 def main():
     mode, source, output = sys.argv[sys.argv.index("--") + 1:]
     if mode == "import":
         read_scene(Path(output))
     elif mode == "export":
         write_scene(Path(source), Path(output))
+    elif mode == "import-game":
+        read_game_layout(Path(output))
     elif mode == "export-game":
         write_game_layout(Path(source), Path(output))
     else:

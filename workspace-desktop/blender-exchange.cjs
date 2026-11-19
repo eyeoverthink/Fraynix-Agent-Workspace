@@ -52,7 +52,7 @@ async function job(action) {
     }
 }
 
-async function importBlend(input) {
+async function readBlend(input, mode, maxJsonBytes, read) {
     if (path.extname(input).toLowerCase() !== '.blend') throw Error('Choose a .blend file.');
     const file = await fs.stat(input);
     if (!file.isFile() || file.size < 1 || file.size > maxBlendBytes) throw Error('Choose a Blender file up to 32 MiB.');
@@ -63,12 +63,21 @@ async function importBlend(input) {
         const staged = path.join(folder, 'original.blend');
         const output = path.join(folder, 'scene.json');
         await fs.writeFile(staged, original);
-        await runBlender([staged], 'import', staged, output);
-        if ((await fs.stat(output)).size > 131072) throw Error('Blender scene JSON exceeds 128 KiB.');
-        const {scene, blenderVersion} = JSON.parse(await fs.readFile(output, 'utf8'));
+        await runBlender([staged], mode, staged, output);
+        if ((await fs.stat(output)).size > maxJsonBytes) throw Error('Blender data exceeds the exchange size limit.');
+        return read(JSON.parse(await fs.readFile(output, 'utf8')), sha256);
+    });
+}
+
+function importBlend(input) {
+    return readBlend(input, 'import', 131072, ({scene, blenderVersion}, sha256) => {
         scene.source.note = ('Blender ' + blenderVersion + ' source SHA-256 ' + sha256 + '. ' + scene.source.note).slice(0, 1000);
         return {text: JSON.stringify(scene), sha256, blenderVersion};
     });
+}
+
+function importGameLayout(input) {
+    return readBlend(input, 'import-game', 1900000, (data, sha256) => ({...data, blendSha256: sha256}));
 }
 
 async function exportBlend(text, destination, mode = 'export') {
@@ -87,4 +96,4 @@ async function exportBlend(text, destination, mode = 'export') {
     });
 }
 
-module.exports = {importBlend, exportBlend};
+module.exports = {importBlend, importGameLayout, exportBlend};
