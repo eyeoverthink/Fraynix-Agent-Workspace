@@ -39,8 +39,10 @@ record FrayTableInput(List<List<String>> rows, int measurementIndex) {
     }
 
     private static String line(List<String> row, String extra) {
-        return row.stream().map(FrayTableInput::quote).collect(Collectors.joining(",")) + "," + quote(extra);
+        return csvLine(row) + "," + quote(extra);
     }
+
+    static String csvLine(List<String> row) { return row.stream().map(FrayTableInput::quote).collect(Collectors.joining(",")); }
 
     private static String quote(String value) {
         if (value.indexOf(',') < 0 && value.indexOf('"') < 0 && value.indexOf('\n') < 0) return value;

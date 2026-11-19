@@ -12,6 +12,12 @@ export class ClassificationRoutingPanel {
         this.busy = false;
         this.dialog.addEventListener('close',layout);
         $('routing-close').onclick = () => this.dialog.close();
+        $('routing-export').onclick = () => this.work(async()=>{
+            const saved = await this.call('export-routing',{id:this.plan.id});
+            const status = $('routing-export-status');
+            status.textContent='Saved '+saved.source.rows+' verified rows to '+saved.path;
+            status.hidden=false;
+        });
         $('routing-file').onchange = () => this.work(async()=>{
             const file = $('routing-file').files[0];
             if (!file) return;
@@ -55,6 +61,7 @@ export class ClassificationRoutingPanel {
             localStorage.setItem(PROJECT_PLAN,this.plan.id);
             $('routing-file').value='';
             $('routing-pause').checked=false;
+            $('routing-export-status').hidden=true;
             this.render();
             this.dialog.showModal();
             this.layout();
@@ -122,5 +129,7 @@ export class ClassificationRoutingPanel {
         $('routing-run').hidden=!(review||approved);
         $('routing-run').disabled=this.busy;
         $('routing-run').textContent=review?'Confirm and run':'Resume confirmed plan';
+        $('routing-export').hidden=!done;
+        $('routing-export').disabled=this.busy;
     }
 }

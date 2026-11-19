@@ -55,6 +55,25 @@ final class ClassifiedProcedurePlan {
         return view(plan);
     }
 
+    synchronized JSONObject export(JSONObject input) throws Exception {
+        SpatialScene.keys(input, "id");
+        var plan = load(input);
+        var results = plan.getJSONArray("results");
+        if (!plan.has("approved") || results.length() != stages(plan).length())
+            throw new IllegalStateException("Complete and verify every routed procedure before exporting the CSV");
+        var source = check(plan);
+        var rows = plan.getJSONObject("decision").getJSONArray("rows");
+        String csv = RoutedCsvReport.build(source.input().table().rows(), rows, stages(plan), results);
+        var children = new JSONArray();
+        for (int i = 0; i < results.length(); i++) {
+            var child = results.getJSONObject(i);
+            children.put(new JSONObject().put("reviewId", child.getString("childId")).put("artifact", child.getJSONObject("artifact")));
+        }
+        return new JSONObject().put("csv", csv).put("sha256", MeasurementStore.hash(csv))
+                .put("planId", plan.getString("id")).put("decisionSha256", decisionHash(plan))
+                .put("source", source.binding()).put("children", children).put("rows", rows.length());
+    }
+
     synchronized JSONObject confirm(JSONObject input) throws Exception {
         SpatialScene.keys(input, "id", "decisionSha256");
         var plan = load(input);
@@ -108,9 +127,9 @@ final class ClassifiedProcedurePlan {
                 .put("childId", child);
     }
 
-    private void check(JSONObject plan) throws Exception {
+    private RequestWorkbench.RoutingSource check(JSONObject plan) throws Exception {
         var source = source(plan);
-        if (!plan.has("decision")) return;
+        if (!plan.has("decision")) return source;
         if (!decide(source, plan.getString("mapping")).similar(plan.getJSONObject("decision")))
             throw new IllegalStateException("The verified classification or routing decision changed");
         if (plan.has("approved")) requireApproval(plan);
@@ -119,6 +138,7 @@ final class ClassifiedProcedurePlan {
             if (!checkedResult(plan, i).similar(results.getJSONObject(i)))
                 throw new IllegalStateException("A completed routed result changed");
         }
+        return source;
     }
 
     private RequestWorkbench.RoutingSource source(JSONObject plan) throws Exception {

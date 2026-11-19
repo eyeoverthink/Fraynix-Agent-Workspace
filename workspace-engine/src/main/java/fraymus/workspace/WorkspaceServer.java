@@ -758,6 +758,7 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/requests/routing-start" -> result=classificationRouting.start(input);
                     case "/api/requests/routing-attach" -> result=classificationRouting.attach(input);
                     case "/api/requests/routing-read" -> result=classificationRouting.read(input);
+                    case "/api/requests/routing-export" -> result=classificationRouting.export(input);
                     case "/api/requests/routing-confirm", "/api/requests/routing-next", "/api/requests/routing-accept" -> {
                         if (agency.busy() || sharedBusy043())
                             throw new IllegalStateException("Finish the current workspace task before running a routing plan");

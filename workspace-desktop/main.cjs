@@ -544,6 +544,12 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     case 'requestWorkbench': {
       const {command,args}=input;
       if(command==='run-routing')return runClassificationPlan(args);
+      if(command==='export-routing'){
+        const {csv,sha256,...source}=await api('/api/requests/routing-export',{id:args.id});
+        const bytes=Buffer.from(csv,'utf8');
+        if(createHash('sha256').update(bytes).digest('hex')!==sha256)throw Error('The verified CSV bytes changed');
+        return nativeExports.save('verified-routed-results','csv',bytes,{...source,reportSha256:sha256});
+      }
       if(command==='open-routing-result'){
         const plan=await api('/api/requests/routing-read',{id:args.id});
         const result=plan.steps?.find(step=>step.result?.childId===args.childId)?.result;
