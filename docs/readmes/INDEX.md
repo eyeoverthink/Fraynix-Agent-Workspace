@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 185 — choose among interrupted Fray chains](../../README-185.md) · [Walkthrough](185/index.html)
+
 [Edition 184 — resume a verified Fray handoff](../../README-184.md) · [Walkthrough](184/index.html)
 
 [Edition 183 — a verified two-step Fray conversion](../../README-183.md) · [Walkthrough](183/index.html)

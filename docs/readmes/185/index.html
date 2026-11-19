@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 185 · Choose among interrupted Fray chains</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Choose among interrupted Fray chains</h1><p>The Workbench lists saved Fray handoffs by input and verified value. Choose which chain to resume when several are pending after a desktop restart.</p>
+<nav><a href="../../../README-185.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../184/index.html">Edition 184</a><a href="#system">System files</a></nav>
+<figure><img src="three-pending.png" alt="Three durable chains after the desktop restarts"><figcaption>Three durable chains after the desktop restarts</figcaption></figure>
+<figure><img src="selected-length.png" alt="The selected length chain finishes first"><figcaption>The selected length chain finishes first</figcaption></figure>
+<figure><img src="all-resolved.png" alt="The Workbench confirms that every saved handoff has been resolved"><figcaption>The Workbench confirms that every saved handoff has been resolved</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "The Workbench lists saved Fray handoffs by input and verified value. Choose which chain to resume when several are pending after a desktop restart.", "modules": [{"title": "Pending review verification", "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "note": "docs/obsidian/193-fray-pending-recovery.md"}, {"title": "Chooser", "source": "workspace-desktop/renderer/request-workbench.js", "note": "docs/obsidian/193-fray-pending-recovery.md"}, {"title": "Measured review execution", "source": "workspace-desktop/main.cjs", "note": "docs/obsidian/193-fray-pending-recovery.md"}], "screenshots": [{"path": "docs/readmes/185/three-pending.png", "title": "Three durable chains after the desktop restarts"}, {"path": "docs/readmes/185/selected-length.png", "title": "The selected length chain finishes first"}, {"path": "docs/readmes/185/all-resolved.png", "title": "The Workbench confirms that every saved handoff has been resolved"}], "evidence": [{"path": "docs/readmes/185/verification.json", "title": "Verification record"}, {"path": "docs/readmes/185/browser-receipt.json", "title": "Original Chromium receipt"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/193-fray-pending-recovery.canvas", "bytes": 1139, "sha256": "504373e49c467acb4d5ec80bb7bab3daef48678f2b7c62cbd2a128883a50d93d", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/193-fray-pending-recovery.md", "bytes": 328, "sha256": "fabf14ffe967fdd1bad99198ebc99cdf55c82938ecf116975493b9a7ac9d4436", "hashKind": "utf8-lf"}, {"path": "docs/publication185/document.py", "bytes": 11273, "sha256": "07a64962af38682ff1a622afef7d39ccfb88de2ce787dd8601b628da83229ba0", "hashKind": "utf8-lf"}, {"path": "docs/publication185/plan.md", "bytes": 1392, "sha256": "dfe3ca0c1844c1110c5c362906791e35d5a61ae5bfdcb0ebacf9a34dfddec082", "hashKind": "utf8-lf"}, {"path": "docs/publication185/validate-desktop.cjs", "bytes": 11237, "sha256": "1f13522afe9cd511e38c671d3183296ee16fa28a7c32abe8e42f405f98f1cc57", "hashKind": "utf8-lf"}, {"path": "docs/publication185/validate-guide.cjs", "bytes": 1731, "sha256": "820903a003f877be0e007cb1d2c716d5559875f38c81a28cd5664657b2437a21", "hashKind": "utf8-lf"}, {"path": "docs/publication185/validate.py", "bytes": 2112, "sha256": "1b0ddfb3797f9512823976f60d067adebd294db7b6b6d1d191865b4de45c6d34", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 106486, "sha256": "d9c75d166a3853e49ddede401729322bede71bcba9b0288d03a993b4c15a403d", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/index.html", "bytes": 33350, "sha256": "f3d3eaf14bfcfbaadea3930e34fc235de2ebf40b800c34b4e23bfcbdeaea0f11", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/request-workbench.css", "bytes": 694, "sha256": "547b041e7e1b5357d0a86e7ce3954574aed00fcf4626f1f020d9787903ecfbd6", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/request-workbench.js", "bytes": 10664, "sha256": "ee28c7b9633d3ed847b80bea7ea6a1b8c5e77a4c3ff51c1f71183c06d0f8ec69", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "bytes": 25112, "sha256": "664e6346a6216685aa0ffe276ab87c9ad9c2fb61794db1d0af3c13b3bb9159b8", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 128215, "sha256": "11549d5127f1d78627a36a1d5d702c4d30364e2387979e19fd213476b85399e9", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/FrayChainTest.java", "bytes": 12238, "sha256": "e57886a45fe13fd67804f131c3a0e032615fbbbeaa85a86fcb1471f380881f6d", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

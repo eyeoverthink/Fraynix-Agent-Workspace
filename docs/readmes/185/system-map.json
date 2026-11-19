@@ -1,0 +1,44 @@
+{
+  "summary": "The Workbench lists saved Fray handoffs by input and verified value. Choose which chain to resume when several are pending after a desktop restart.",
+  "modules": [
+    {
+      "title": "Pending review verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java",
+      "note": "docs/obsidian/193-fray-pending-recovery.md"
+    },
+    {
+      "title": "Chooser",
+      "source": "workspace-desktop/renderer/request-workbench.js",
+      "note": "docs/obsidian/193-fray-pending-recovery.md"
+    },
+    {
+      "title": "Measured review execution",
+      "source": "workspace-desktop/main.cjs",
+      "note": "docs/obsidian/193-fray-pending-recovery.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/185/three-pending.png",
+      "title": "Three durable chains after the desktop restarts"
+    },
+    {
+      "path": "docs/readmes/185/selected-length.png",
+      "title": "The selected length chain finishes first"
+    },
+    {
+      "path": "docs/readmes/185/all-resolved.png",
+      "title": "The Workbench confirms that every saved handoff has been resolved"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/185/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/185/browser-receipt.json",
+      "title": "Original Chromium receipt"
+    }
+  ]
+}

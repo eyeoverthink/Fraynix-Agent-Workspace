@@ -1,0 +1,147 @@
+{
+  "captures": [
+    {
+      "name": "three-pending.png",
+      "sha256": "4a91d513b164ba4a473dfdac72c50f22252f74b4b33cf05ed772cf50dee8172f"
+    },
+    {
+      "name": "selected-length.png",
+      "sha256": "dc12109e28fe0ad378e40b5387933108e5a2b19b2c32dda22dc7665ba6471035"
+    },
+    {
+      "name": "all-resolved.png",
+      "sha256": "5792105327afd71cefd62b4f808524cc74f0694fa830cedb05c5cd93406559e3"
+    }
+  ],
+  "pending": [
+    {
+      "name": "near-zero",
+      "id": "c5c6e0f0-77e6-445d-9d9b-207dffb20bcf",
+      "input": {
+        "unit": "°C",
+        "value": "-17.7778"
+      },
+      "intermediate": {
+        "value": "-0.00004",
+        "unit": "°F"
+      },
+      "firstReceiptSha256": "daf86ace05180efce24e6903baf6dbc76a046272d4c24b77e06bd067499b7010"
+    },
+    {
+      "name": "length",
+      "id": "2fca00b1-bd63-46c3-bead-74c2b1f1af64",
+      "input": {
+        "unit": "in",
+        "value": "12.3456"
+      },
+      "intermediate": {
+        "value": "313.57824",
+        "unit": "mm"
+      },
+      "firstReceiptSha256": "446260e2d412d8277078193c42d5f24cd7cf99450a3720dc8309e52d212a53bd"
+    },
+    {
+      "name": "body-temperature",
+      "id": "1f494c36-0bc2-4080-a6f0-6b70c88f4772",
+      "input": {
+        "unit": "°C",
+        "value": "37.25"
+      },
+      "intermediate": {
+        "value": "99.05",
+        "unit": "°F"
+      },
+      "firstReceiptSha256": "b17e0e1890ebc28566b24886220b88983d5d4d4a522ca0d5b2a0044ebe54657c"
+    }
+  ],
+  "completed": [
+    {
+      "name": "length",
+      "id": "2fca00b1-bd63-46c3-bead-74c2b1f1af64",
+      "verified": {
+        "artifact": {
+          "sha256": "d44acd008360fc3a9c71504907c44ab8ddc9b5df7e1807b1cfb8364c48f942f2",
+          "id": "d5ac99fd-11ab-3c7f-95a5-1fa4cc57ebe1",
+          "version": 1
+        },
+        "output": "index.html",
+        "summary": "Both Fray steps passed. The second used the verified 313.57824 mm.",
+        "passed": true
+      },
+      "result": "31.357824 cm",
+      "browserChecks": 10,
+      "rebuildMs": 193,
+      "secondStepMs": 360
+    },
+    {
+      "name": "near-zero",
+      "id": "c5c6e0f0-77e6-445d-9d9b-207dffb20bcf",
+      "verified": {
+        "artifact": {
+          "sha256": "e6d05f6e28708e80dae2b538d4370b3dd8b3aefea3335109344c33f2627a776e",
+          "id": "2ac12953-9a26-3672-bbb6-50a796f22a68",
+          "version": 1
+        },
+        "output": "index.html",
+        "summary": "Both Fray steps passed. The second used the verified -0.00004 °F.",
+        "passed": true
+      },
+      "result": "459.66996 °R",
+      "browserChecks": 10,
+      "rebuildMs": 195,
+      "secondStepMs": 364
+    },
+    {
+      "name": "body-temperature",
+      "id": "1f494c36-0bc2-4080-a6f0-6b70c88f4772",
+      "verified": {
+        "artifact": {
+          "sha256": "5f71962b3f08e583d5621b2c903d0798bff0495affb9d4c89e9117b447df7242",
+          "id": "1276e871-af4d-3446-aa2c-97f55ac11db7",
+          "version": 1
+        },
+        "output": "index.html",
+        "summary": "Both Fray steps passed. The second used the verified 99.05 °F.",
+        "passed": true
+      },
+      "result": "558.72 °R",
+      "browserChecks": 10,
+      "rebuildMs": 181,
+      "secondStepMs": 363
+    }
+  ],
+  "rejectedHandoffs": [
+    {
+      "review": "length",
+      "attempted": "near-zero",
+      "unit": "°F"
+    },
+    {
+      "review": "near-zero",
+      "attempted": "body-temperature",
+      "unit": "°F"
+    }
+  ],
+  "restart": {
+    "forced": true,
+    "newDesktopProcess": true
+  },
+  "findThreeMs": 206,
+  "passed": true,
+  "priorEditions": [
+    181,
+    182,
+    183,
+    184
+  ],
+  "unapprovedExcluded": true,
+  "siblingReceiptsUnchanged": true,
+  "source": "7ac2781b26169edbdbbc4f1ffc7ffc58e2e49a21",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 46,
+    "desktop": 181,
+    "archive": 10
+  }
+}

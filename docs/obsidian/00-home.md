@@ -1,3 +1,5 @@
+[Edition 185 — Choose a saved Fray handoff](193-fray-pending-recovery.md)
+
 [Edition 184 — Fray handoff recovery](192-fray-handoff-recovery.md)
 
 [Edition 183 — two-step Fray conversion](191-fray-length-chain.md)

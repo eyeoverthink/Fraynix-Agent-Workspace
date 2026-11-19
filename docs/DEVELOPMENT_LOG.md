@@ -1,3 +1,7 @@
+## Edition 185 — Choose among interrupted Fray chains
+
+2026-11-19. The Workbench lists saved Fray handoffs by input and verified value. Choose which chain to resume when several are pending after a desktop restart. 125 root Java tests, 46 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. Three first-stage receipts survived a forced restart. The selected middle review finished first, and siblings stayed byte-identical until chosen. Wrong-unit and wrong-value handoffs were rejected. The report retains per-chain rebuild and completion timings. Actions credits were unavailable, so validation ran locally. See README-185.md and docs/publication185/plan.md.
+
 ## Edition 184 — Resume a verified Fray handoff after desktop restart
 
 2026-11-19. Convert Celsius to Fahrenheit and then Rankine in one Chat request. The Workbench can save the verified intermediate and resume it after the desktop stops. 125 root Java tests, 45 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. The forced desktop restart preserved the original Fahrenheit receipt. The second step stayed pending until recovery. Two wrong units were refused, six additional inputs passed, and the original Edition 181–183 receipts reopened. See README-184.md and docs/publication184/plan.md.
