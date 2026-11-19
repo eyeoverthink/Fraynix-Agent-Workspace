@@ -1,0 +1,41 @@
+#requests-dialog {
+    width: min(660px, 92vw);
+    padding: 0;
+}
+
+.request-workbench {
+    padding: clamp(16px, 4vw, 26px);
+    max-height: 84vh;
+    overflow: auto;
+}
+
+.request-workbench h2 {
+    margin-top: 0;
+}
+
+#requests-close {
+    float: right;
+}
+
+.request-workbench label:not([hidden]) {
+    display: grid;
+    gap: .4rem;
+    margin: .8rem 0;
+}
+
+.request-workbench label.request-model-option {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+}
+
+#requests-text {
+    width: 100%;
+    min-height: 72px;
+    resize: vertical;
+}
+
+#requests-source,
+#requests-status {
+    overflow-wrap: anywhere;
+}

@@ -81,10 +81,10 @@ export class RequestWorkbenchPanel {
     }
 
     show(task) {
+        if (this.task?.id !== task.id || !task.source || task.status !== 'review') $('requests-file').value = '';
         this.task = task;
         localStorage.setItem('fraynix-request-review', task.id);
         $('requests-text').value = task.request;
-        $('requests-file').value = '';
         $('requests-action').value = '';
         $('requests-status').textContent = task.summary || task.choice.description;
         this.render();
