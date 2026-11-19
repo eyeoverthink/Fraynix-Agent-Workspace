@@ -138,11 +138,15 @@ export class BrainGame {
    <button id="game-blender-open">Open candidate</button><button id="game-blender-start">Run AI playtest</button>
    <button id="game-blender-repair">Prepare repair request</button>
    <button id="game-blender-verify">Recheck evidence</button><button id="game-blender-evidence">Export evidence</button></div>
-   <p id="game-blender-status" role="status"></p>`;
+   <p id="game-blender-status" role="status"></p>
+   <div class="runtime-controls"><label>Saved lesson <select id="game-blender-lesson"></select></label>
+   <button id="game-blender-use-lesson">Prepare request with lesson</button></div>
+   <p id="game-blender-lesson-info"></p>`;
   $('game-view').prepend(box);
   const choice=$('game-blender-choice'), status=$('game-blender-status');
+  const lesson=$('game-blender-lesson'), lessonInfo=$('game-blender-lesson-info');
   const call=(action,args={})=>this.call('gameRuntime','blender-'+action,args);
-  let busy=false, checking=false, trial=null;
+  let busy=false, checking=false, trial=null, lessons=[];
   const valid=()=>Boolean(choice.value&&choice.selectedOptions[0]?.dataset.checked==='yes');
   const buttons=()=>{
    $('game-blender-import').disabled=busy;
@@ -151,6 +155,8 @@ export class BrainGame {
    $('game-blender-start').disabled=busy||!valid()||!['ready','interrupted'].includes(trial?.status);
    $('game-blender-repair').disabled=busy||!valid()||choice.selectedOptions[0]?.dataset.repaired==='yes'
     ||!['ready','failed','interrupted'].includes(trial?.status);
+   $('game-blender-use-lesson').disabled=$('game-blender-repair').disabled||!lesson.value
+    ||choice.selectedOptions[0]?.dataset.level===lessons.find(row=>row.name===lesson.value)?.levelSha256;
    for(const action of ['verify','evidence'])$('game-blender-'+action).disabled=busy||!valid()||trial?.status!=='passed';
   };
   const refresh=async()=>{
@@ -167,10 +173,29 @@ export class BrainGame {
     const option=new Option(row.error?'Needs attention · '+row.id.slice(0,8):row.title+' · '+row.id.slice(0,8),row.id);
     option.dataset.checked=row.error?'no':'yes';
     option.dataset.repaired=row.repair?'yes':'no';
+    option.dataset.level=row.levelSha256||'';
     return option;
    }));
    if(result.candidates.some(row=>row.id===id))choice.value=id;
    await refresh();
+  };
+  const describeLesson=()=>{
+   const selected=lessons.find(row=>row.name===lesson.value);
+   lessonInfo.textContent=selected
+    ? `Up to ${selected.maxEdits} tile moves across ${selected.maxOriginalSpan} game units. The next level must pass its own checks.`
+    : lessons.length?'Choose a lesson to see its tested limits.':'Save a Blender repair lesson from a verified Mission.';
+  };
+  const listLessons=async()=>{
+   const prior=lesson.value;
+   lessons=(await call('lessons')).lessons;
+   lesson.replaceChildren(new Option('Choose a lesson',''),...lessons.map(row=>{
+    const option=new Option(row.name+(row.error?' · unreadable':''),row.name);
+    option.disabled=Boolean(row.error);
+    return option;
+   }));
+   if(lessons.some(row=>row.name===prior&&!row.error))lesson.value=prior;
+   describeLesson();
+   buttons();
   };
   const act=fn=>async()=>{
    if(busy)return;
@@ -179,8 +204,12 @@ export class BrainGame {
    try{await fn();}catch(error){status.textContent=error.message;this.notice(error.message);}
    finally{busy=false;buttons();}
   };
-  box.ontoggle=()=>{if(box.open)void act(()=>list())();};
+  box.ontoggle=()=>{if(box.open)void act(async()=>{await list();await listLessons();})();};
+  window.addEventListener('blender-lesson-saved',()=>{
+   if(box.open)listLessons().catch(error=>this.notice(error.message));
+  });
   choice.onchange=act(refresh);
+  lesson.onchange=()=>{describeLesson();buttons();};
   $('game-blender-import').onclick=act(async()=>{
    this.requireSaved();
    const imported=await call('import');
@@ -204,6 +233,13 @@ export class BrainGame {
    goal.dispatchEvent(new Event('input'));
    goal.focus();
    this.notice('Repair request prepared. Start task to diagnose, repair and playtest once.');
+  };
+  $('game-blender-use-lesson').onclick=()=>{
+   const goal=$('goal');
+   goal.value=`Use Blender repair lesson ${lesson.value} on candidate ${choice.value}, then playtest and save the evidence.`;
+   goal.dispatchEvent(new Event('input'));
+   goal.focus();
+   this.notice('Lesson request prepared. Start task to test it on this level.');
   };
   $('game-blender-verify').onclick=act(async()=>{
    const audit=await call('verify',{id:choice.value});

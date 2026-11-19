@@ -8,7 +8,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 import java.util.regex.Pattern;
@@ -25,11 +24,16 @@ final class BlenderGapRepair {
     private static final Pattern REQUEST = Pattern.compile(
             "^Diagnose and repair Blender candidate ([0-9a-f-]{36}), then playtest and save the evidence[.!]?(?: Pause after repair[.!]?)?$",
             Pattern.CASE_INSENSITIVE);
+    private static final Pattern LESSON_REQUEST = Pattern.compile(
+            "^Use Blender repair lesson (" + BlenderRepairLessons.NAME_PATTERN
+                    + ") on candidate ([0-9a-f-]{36}), then playtest and save the evidence[.!]?$",
+            Pattern.CASE_INSENSITIVE);
 
     private final Path root;
     private final BlenderGameCandidates candidates;
     private final BlenderGamePlaytests playtests;
     private final WorkspaceStore store;
+    private final BlenderRepairLessons lessons;
 
     BlenderGapRepair(Path project, BlenderGameCandidates candidates, BlenderGamePlaytests playtests, WorkspaceStore store)
             throws Exception {
@@ -37,6 +41,7 @@ final class BlenderGapRepair {
         this.candidates = candidates;
         this.playtests = playtests;
         this.store = store;
+        lessons = new BlenderRepairLessons(project);
         Files.createDirectories(root);
         try (var files = Files.list(root)) {
             for (Path file : files.filter(p -> p.getFileName().toString().endsWith(".json")).toList()) {
@@ -52,8 +57,15 @@ final class BlenderGapRepair {
     }
 
     static boolean requested(String goal) {
-        return REQUEST.matcher(goal.strip()).matches();
+        String text = goal.strip();
+        return REQUEST.matcher(text).matches() || LESSON_REQUEST.matcher(text).matches();
     }
+
+    synchronized JSONObject teach(String id, String name) throws Exception {
+        return lessons.save(name, verify(id));
+    }
+
+    synchronized JSONArray lessons() throws Exception { return lessons.list(); }
 
     synchronized boolean owns(String id) {
         return Files.isRegularFile(path(id));
@@ -62,19 +74,26 @@ final class BlenderGapRepair {
     synchronized JSONObject start(JSONObject args) throws Exception {
         SpatialScene.keys(args, "id", "request");
         String id = args.getString("id"), request = args.getString("request").strip();
-        var match = REQUEST.matcher(request);
-        if (!match.matches()) throw new IllegalArgumentException("Choose a Blender candidate to diagnose and repair");
+        var lessonMatch = LESSON_REQUEST.matcher(request);
+        boolean reuse = lessonMatch.matches();
+        var direct = REQUEST.matcher(request);
+        if (!reuse && !direct.matches()) throw new IllegalArgumentException("Choose a Blender candidate to diagnose and repair");
         if (owns(id)) {
             var prior = load(id);
             require(prior.getString("request").equals(request), "The original Blender repair request changed");
             return view(prior);
         }
-        var parent = candidates.read(match.group(1).toLowerCase(Locale.ROOT));
+        var parent = candidates.read((reuse ? lessonMatch.group(2) : direct.group(1)).toLowerCase(Locale.ROOT));
         require(!parent.info().has("repair"), "Select an original Blender import for one bounded repair");
         var task = new JSONObject().put("id", id).put("procedure", KIND).put("request", request)
                 .put("parent", parent.binding()).put("candidateId", derivedId(id))
                 .put("pauseAfterRepair", request.toLowerCase(Locale.ROOT).contains("pause after repair"))
                 .put("status", "running").put("stage", "baseline").put("reason", "Checking the original Blender candidate.");
+        if (reuse) {
+            var lesson = checkedLesson(lessonMatch.group(1).toLowerCase(Locale.ROOT));
+            BlenderRepairLessons.checkTarget(lesson, parent.binding());
+            task.put("lesson", lesson);
+        }
         save(task);
         return view(task);
     }
@@ -95,6 +114,7 @@ final class BlenderGapRepair {
             case "diagnose" -> {
                 var failure = playtests.failure(parent.info().getString("id"));
                 var repair = diagnose(parent, failure);
+                checkLessonPlan(task, repair);
                 task.put("diagnosis", repair).put("failureSha256", WorldFrames.hash(failure));
                 stage(task, "repair", "The player stalled before an unsupported span. Preparing one bounded repair.");
             }
@@ -136,6 +156,7 @@ final class BlenderGapRepair {
             case "resume" -> {
                 require("interrupted".equals(task.getString("status")), "Only interrupted repairs can resume");
                 parent(task);
+                if (task.has("lesson")) verifyLessonBinding(task);
                 task.put("status", "running").put("reason", "Continuing the retained Blender repair.");
             }
             case "interrupt", "cancel" -> {
@@ -189,9 +210,32 @@ final class BlenderGapRepair {
     }
 
     static JSONArray displayChecks(JSONObject task) {
-        return new JSONArray().put(new JSONObject().put("selector", "h1").put("expectText", TITLE))
+        var steps = new JSONArray().put(new JSONObject().put("selector", "h1").put("expectText", TITLE))
                 .put(new JSONObject().put("selector", "#outcome").put("expectText", summary(task.getJSONObject("audit"))))
                 .put(new JSONObject().put("selector", "a[href=\"repair-evidence.json\"]").put("expectCount", 1));
+        if (task.has("lesson")) steps.put(new JSONObject().put("selector", "#lesson")
+                .put("expectText", lessonDisplay(task.getJSONObject("lesson"))));
+        return steps;
+    }
+
+    private JSONObject checkedLesson(String name) throws Exception {
+        var lesson = lessons.read(name);
+        String teacherId = lesson.getString("teacherTaskId");
+        require(!load(teacherId).has("lesson"), "The lesson teacher must be an original repair");
+        require(lesson.similar(BlenderRepairLessons.example(name, verify(teacherId))), "The original teaching evidence changed");
+        return lesson;
+    }
+
+    private JSONObject verifyLessonBinding(JSONObject task) throws Exception {
+        var original = task.getJSONObject("lesson");
+        var current = checkedLesson(original.getString("name"));
+        require(current.similar(original), "The lesson selected for this task changed");
+        BlenderRepairLessons.checkTarget(current, task.getJSONObject("parent"));
+        return current;
+    }
+
+    private void checkLessonPlan(JSONObject task, JSONObject plan) throws Exception {
+        if (task.has("lesson")) BlenderRepairLessons.checkPlan(verifyLessonBinding(task), plan);
     }
 
     private String poll(JSONObject task, String id) throws Exception {
@@ -210,6 +254,7 @@ final class BlenderGapRepair {
         var failure = playtests.failure(parent.info().getString("id"));
         require(WorldFrames.hash(failure).equals(task.getString("failureSha256")), "Original failed motion changed");
         var plan = diagnose(parent, failure);
+        checkLessonPlan(task, plan);
         require(plan.similar(task.getJSONObject("diagnosis")), "Original diagnosis or bounded repair changed");
         return plan;
     }
@@ -246,6 +291,7 @@ final class BlenderGapRepair {
         var audit = new JSONObject().put("kind", KIND).put("passed", true).put("title", TITLE)
                 .put("parent", parent.binding()).put("candidate", repaired.binding()).put("diagnosis", plan)
                 .put("failureSha256", task.getString("failureSha256")).put("playtest", verdict);
+        if (task.has("lesson")) audit.put("lesson", task.getJSONObject("lesson"));
         return new JSONObject().put("audit", audit).put("failed", playtests.failure(parent.info().getString("id")))
                 .put("repaired", checked);
     }
@@ -339,11 +385,21 @@ final class BlenderGapRepair {
                 <p><a href="repair-evidence.json">Download native evidence</a></p></main></html>
                 """.formatted(TITLE, TITLE, summary(audit), plan.getDouble("originalSpan"), plan.getDouble("remainingSpan"),
                 plan.getInt("lastTick"));
+        var sources = new JSONArray().put("blender-level:" + audit.getJSONObject("parent").getString("levelSha256"))
+                .put("failed-trace:" + audit.getString("failureSha256"))
+                .put("repaired-level:" + audit.getJSONObject("candidate").getString("levelSha256"));
+        if (audit.has("lesson")) {
+            var lesson = audit.getJSONObject("lesson");
+            html = html.replace("<dl>", "<p id=\"lesson\">" + lessonDisplay(lesson) + "</p><dl>");
+            sources.put("verified-blender-lesson:" + WorldFrames.hash(lesson));
+        }
         return new JSONObject().put("title", TITLE)
                 .put("files", new JSONObject().put("index.html", html).put("repair-evidence.json", evidence.toString(2)))
-                .put("sources", List.of("blender-level:" + audit.getJSONObject("parent").getString("levelSha256"),
-                        "failed-trace:" + audit.getString("failureSha256"),
-                        "repaired-level:" + audit.getJSONObject("candidate").getString("levelSha256")));
+                .put("sources", sources);
+    }
+
+    private static String lessonDisplay(JSONObject lesson) {
+        return "Lesson: " + lesson.getString("name") + ". Checked against this level's own failed motion and fresh playtests.";
     }
 
     private BlenderGameCandidates.Candidate parent(JSONObject task) throws Exception {

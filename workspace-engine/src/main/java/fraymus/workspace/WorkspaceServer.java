@@ -664,6 +664,18 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/game/blender-list" -> {
                         SpatialScene.keys(input); result=new JSONObject().put("candidates",blenderCandidates.list());
                     }
+                    case "/api/game/blender-lessons" -> {
+                        SpatialScene.keys(input);
+                        result = new JSONObject().put("lessons", blenderRepairs.lessons());
+                    }
+                    case "/api/game/blender-teach" -> {
+                        SpatialScene.keys(input, "id", "name");
+                        String id = input.getString("id");
+                        var teacher = agency.read(id);
+                        if (!"completed".equals(teacher.getString("status")) || !"verified".equals(teacher.optString("outcome")))
+                            throw new IllegalStateException("Complete and verify the teaching mission first");
+                        result = blenderRepairs.teach(id, input.getString("name"));
+                    }
                     case "/api/game/blender-open", "/api/game/blender-start", "/api/game/blender-state",
                          "/api/game/blender-verify" -> {
                         SpatialScene.keys(input, "id");

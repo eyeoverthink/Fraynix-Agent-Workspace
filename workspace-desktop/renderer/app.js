@@ -53,6 +53,7 @@ function quickWorkflowRequest(text) {
 }
 function offlineMissionRequest(text) {
  return /^Diagnose and repair Blender candidate [0-9a-f-]{36}, then playtest and save the evidence[.!]?(?: Pause after repair[.!]?)?$/i.test(text.trim()) ||
+  /^Use Blender repair lesson [a-z0-9][a-z0-9-]{0,39} on candidate [0-9a-f-]{36}, then playtest and save the evidence[.!]?$/i.test(text.trim()) ||
   /^review a local chain:/i.test(text.trim()) || /^run local workflow (?:ramp|analysis):[ \t]*\S.{0,1199}$/i.test(text.trim()) || /^(?:run the local ramp experiment|compare the local ramp setups)(?: and pause after reading)?[.!]?$/i.test(text.trim()) || /^(?:playtest|verify) relay (?:ridge|switchyard) at (?:all three paces|(?:normal|steady|careful) pace)[.!]?$/i.test(text.trim());
 }
 function plannedRampRequest(text) {
