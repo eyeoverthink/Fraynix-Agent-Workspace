@@ -1,0 +1,53 @@
+{
+  "summary": "Move original Relay ground tiles in Blender, import a separate Game Lab candidate, and verify its playability with two fresh Java AI runs.",
+  "modules": [
+    {
+      "title": "Candidate compiler",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BlenderGameCandidates.java",
+      "note": "docs/obsidian/198-blender-playtest.md"
+    },
+    {
+      "title": "Native playtests",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BlenderGamePlaytests.java",
+      "note": "docs/obsidian/198-blender-playtest.md"
+    },
+    {
+      "title": "Blender import adapter",
+      "source": "workspace-desktop/blender-exchange.py",
+      "note": "docs/obsidian/198-blender-playtest.md"
+    },
+    {
+      "title": "Game Lab controls",
+      "source": "workspace-desktop/renderer/brain-game.js",
+      "note": "docs/obsidian/198-blender-playtest.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/190/blender-edit-imported.png",
+      "title": "The Blender translation received a separate candidate"
+    },
+    {
+      "path": "docs/readmes/190/blender-candidate-playing.png",
+      "title": "The candidate advances in the native interactive runtime"
+    },
+    {
+      "path": "docs/readmes/190/blender-candidate-verified.png",
+      "title": "Java rechecks the two completed AI playtests"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/190/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/190/playtest-evidence.json",
+      "title": "Verified native trials"
+    },
+    {
+      "path": "docs/readmes/190/edited-course.blend",
+      "title": "Edited Relay Garden sample"
+    }
+  ]
+}

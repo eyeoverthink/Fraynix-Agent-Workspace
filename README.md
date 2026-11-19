@@ -1,5 +1,5 @@
 # Fraynix Agent Workspace
 
-[Edition 189 — Blender exchange and Game Lab layouts](README-189.md) · [Previous edition](README-188.md) · [Offline walkthrough](docs/readmes/189/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 190 — playable Blender edits](README-190.md) · [Previous edition](README-189.md) · [Offline walkthrough](docs/readmes/190/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Import a Blender rigid-box scene into Spatial, test it with native physics, and export an editable .blend. Export a paused Game Lab frame with named objects and its original Java snapshot.
+Move original Relay ground tiles in Blender, import a separate Game Lab candidate, and verify its playability with two fresh Java AI runs.

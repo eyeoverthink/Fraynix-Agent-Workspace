@@ -1,0 +1,604 @@
+{
+  "layout": {
+    "moves": [
+      {
+        "sourceId": "3ed70823-4bfb-3cb3-8326-a5a4a54ab13d",
+        "from": [
+          4.375,
+          0.125
+        ],
+        "to": [
+          4.625,
+          0.375
+        ]
+      }
+    ],
+    "blendSha256": "eed75e11d135d7dba1bcc0e07efa68e1996b2a6ac49a95d61dbfb26383f91f8e",
+    "manifestSha256": "544865789d8a2a807f394eb8a0f655d20548a9462d421f218d20fda28d5f8f9c",
+    "id": "342b06d4-0f03-439e-a31d-e9177ae57d86",
+    "levelSha256": "14e7ed77d56c70a1530a36d22de977a800d20fc125532006dcc3597e3af4f949",
+    "title": "Relay Garden · Blender candidate",
+    "courseId": "relay-garden-v1",
+    "finishX": 13.625,
+    "snapshotSha256": "1b18c34f9486a03b37c602bd82426854beb067035b85ec2db8737a3714303c4c"
+  },
+  "candidate": {
+    "blendSha256": "eed75e11d135d7dba1bcc0e07efa68e1996b2a6ac49a95d61dbfb26383f91f8e",
+    "manifestSha256": "544865789d8a2a807f394eb8a0f655d20548a9462d421f218d20fda28d5f8f9c",
+    "id": "342b06d4-0f03-439e-a31d-e9177ae57d86",
+    "levelSha256": "14e7ed77d56c70a1530a36d22de977a800d20fc125532006dcc3597e3af4f949",
+    "snapshotSha256": "1b18c34f9486a03b37c602bd82426854beb067035b85ec2db8737a3714303c4c"
+  },
+  "proof": {
+    "candidate": {
+      "blendSha256": "eed75e11d135d7dba1bcc0e07efa68e1996b2a6ac49a95d61dbfb26383f91f8e",
+      "manifestSha256": "544865789d8a2a807f394eb8a0f655d20548a9462d421f218d20fda28d5f8f9c",
+      "id": "342b06d4-0f03-439e-a31d-e9177ae57d86",
+      "levelSha256": "14e7ed77d56c70a1530a36d22de977a800d20fc125532006dcc3597e3af4f949",
+      "snapshotSha256": "1b18c34f9486a03b37c602bd82426854beb067035b85ec2db8737a3714303c4c"
+    },
+    "controller": {
+      "ticks": 24,
+      "targetX": 14.625,
+      "action": "ai-step",
+      "policy": "contact122"
+    },
+    "trials": 2,
+    "ticks": 408,
+    "traceSha256": "688c5e2df9af776e0b60ebb592afdc7d6c70bad1a1312fe74ade81afdd2f754d",
+    "passed": true,
+    "attemptId": "84f916c2-fe07-44fe-ae23-70bcdc338b4a"
+  },
+  "message": "Both AI playtests reached the beacon with matching traces.",
+  "status": "passed",
+  "attempts": [
+    {
+      "trials": [
+        {
+          "trace": [
+            {
+              "tick": 0,
+              "player": {
+                "small": true,
+                "vx": 0,
+                "vy": 0,
+                "onGround": false,
+                "won": false,
+                "x": 0.875,
+                "y": 0.625,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 24,
+              "player": {
+                "small": true,
+                "vx": 0.75999975,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 1.0163172,
+                "y": 0.6343577,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 48,
+              "player": {
+                "small": true,
+                "vx": 1.519999,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 1.4584682,
+                "y": 0.6363003,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 72,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 2.1938527,
+                "y": 0.6363003,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 96,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 3.0212548,
+                "y": 0.6363003,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 120,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 3.848657,
+                "y": 0.6363003,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 144,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 3.1,
+                "onGround": false,
+                "won": false,
+                "x": 4.6760545,
+                "y": 1.3471416,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 168,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": -1.1242425,
+                "onGround": false,
+                "won": false,
+                "x": 5.503451,
+                "y": 1.8317564,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 192,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": -3.1,
+                "onGround": false,
+                "won": false,
+                "x": 6.3308473,
+                "y": 0.9012797,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 216,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 7.15001,
+                "y": 0.63351846,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 240,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 3.1,
+                "onGround": false,
+                "won": false,
+                "x": 7.976884,
+                "y": 1.0405777,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 264,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": -0.42424247,
+                "onGround": false,
+                "won": false,
+                "x": 8.804292,
+                "y": 1.9010593,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 288,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": -3.1,
+                "onGround": false,
+                "won": false,
+                "x": 9.6317,
+                "y": 1.2054154,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 312,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 10.451403,
+                "y": 0.63137704,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 336,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 11.277048,
+                "y": 0.6355248,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 360,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 12.104456,
+                "y": 0.6355248,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 384,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 12.931864,
+                "y": 0.6355248,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 408,
+              "player": {
+                "small": true,
+                "vx": 0,
+                "vy": 0,
+                "onGround": true,
+                "won": true,
+                "x": 13.808331,
+                "y": 0.6355248,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            }
+          ],
+          "imageSha256": "3b0bcb1ec1b1dff8751951f04e199acd02b9ca9c863bb13a45a5f282c3a3d55c",
+          "session": "54fe978f-6fed-47e5-8829-8f0c49bfd42b",
+          "status": "won"
+        },
+        {
+          "trace": [
+            {
+              "tick": 0,
+              "player": {
+                "small": true,
+                "vx": 0,
+                "vy": 0,
+                "onGround": false,
+                "won": false,
+                "x": 0.875,
+                "y": 0.625,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 24,
+              "player": {
+                "small": true,
+                "vx": 0.75999975,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 1.0163172,
+                "y": 0.6343577,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 48,
+              "player": {
+                "small": true,
+                "vx": 1.519999,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 1.4584682,
+                "y": 0.6363003,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 72,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 2.1938527,
+                "y": 0.6363003,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 96,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 3.0212548,
+                "y": 0.6363003,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 120,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 3.848657,
+                "y": 0.6363003,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 144,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 3.1,
+                "onGround": false,
+                "won": false,
+                "x": 4.6760545,
+                "y": 1.3471416,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 168,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": -1.1242425,
+                "onGround": false,
+                "won": false,
+                "x": 5.503451,
+                "y": 1.8317564,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 192,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": -3.1,
+                "onGround": false,
+                "won": false,
+                "x": 6.3308473,
+                "y": 0.9012797,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 216,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 7.15001,
+                "y": 0.63351846,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 240,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 3.1,
+                "onGround": false,
+                "won": false,
+                "x": 7.976884,
+                "y": 1.0405777,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 264,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": -0.42424247,
+                "onGround": false,
+                "won": false,
+                "x": 8.804292,
+                "y": 1.9010593,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 288,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": -3.1,
+                "onGround": false,
+                "won": false,
+                "x": 9.6317,
+                "y": 1.2054154,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 312,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 10.451403,
+                "y": 0.63137704,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 336,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 11.277048,
+                "y": 0.6355248,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 360,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 12.104456,
+                "y": 0.6355248,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 384,
+              "player": {
+                "small": true,
+                "vx": 2.1,
+                "vy": 0,
+                "onGround": true,
+                "won": false,
+                "x": 12.931864,
+                "y": 0.6355248,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            },
+            {
+              "tick": 408,
+              "player": {
+                "small": true,
+                "vx": 0,
+                "vy": 0,
+                "onGround": true,
+                "won": true,
+                "x": 13.808331,
+                "y": 0.6355248,
+                "dead": false,
+                "id": "a5732f65-eef2-3c5f-9add-7a263e9a0f16"
+              }
+            }
+          ],
+          "imageSha256": "3b0bcb1ec1b1dff8751951f04e199acd02b9ca9c863bb13a45a5f282c3a3d55c",
+          "session": "994e7f32-72ad-4b0e-96b6-6b0ebf3f5106",
+          "status": "won"
+        }
+      ],
+      "engine": {
+        "factory-kernel-0.1.0.jar": "62266c09f00fedc78b224c48959703c9071952a4f627e39621ea0a8ee2bdb765",
+        "lwjgl-3.3.3-natives-windows.jar": "5ee63a19187efe5bb8747fd24f7b13257db348df5ad641113a3695e43f213959",
+        "lwjgl-3.3.3.jar": "dc9c7b2d48e8396d68895f8902ffa01e46253de44dfe927533ff09457ebfeec4",
+        "gson-2.8.6.jar": "c8fb4839054d280b3033f800d1f5a97de2f028eb8ba2eb458ad287e536f3f25f",
+        "Fraynix-Agent-Workspace-0.1.0.jar": "03ac1271c6c90bfd994a432cd64dd9485e37095ae6ed0e9c54ed0daca5d32906",
+        "imgui-java-lwjgl3-1.86.11.jar": "076b8ad542e630e2b906d67c46540137b3cd6e0e5e9e1cfefc2f55994d446b42",
+        "imgui-java-natives-windows-1.86.11.jar": "5d7909d011d6d5485090b247813c8f68a98cedad972b535cd78341ccc91f0a29",
+        "factory-models-0.1.0.jar": "8258bcba42600de7aebda292b80aa2e29943881eda1c1098ed17fceecd806014",
+        "brain-core.jar": "0671490bdf63156a235716cfec6f13d719cce3e8b1af4e326f72931164e089df",
+        "lwjgl-opengl-3.3.3.jar": "5062da750e5f7ec89e27e8b67b7d40fa8c4b16890159e35f828116ce6c8eca1e",
+        "lwjgl-stb-3.3.3-natives-windows.jar": "d12ab866fe1169e924ac5b4d6bb7767ae7842a9fc8652798682c0069bb73fcf2",
+        "lwjgl-glfw-3.3.3.jar": "bedc757fd2b1b255146db26b74b9cbd1fcf5644b89b47b104fa721c741604259",
+        "joml-1.9.23.jar": "da93bb3a5eb3aa77fc541d648d24eaae616f0c1f032229d6ddc8f39062b7168f",
+        "lwjgl-openal-3.3.3.jar": "ae0e82767cacf08921f578fba9d84753ddeb00ceada0510a2b4a882be28fbf95",
+        "imgui-java-binding-1.86.11.jar": "cae0960cbd2784b6ab92d5ae13c9356db99eb7a35df9a6171669d64ab6f94b88",
+        "factory-runtime-0.1.0.jar": "fa37bd944651823216595be0b66751de1d4adeeb43ff12b1608f84632c92d9fe",
+        "jbox2d-library.jar": "8d6d78431b0403a4236b7e266cf6c62aee63332d8381433150a16f202c574350",
+        "lwjgl-glfw-3.3.3-natives-windows.jar": "98155b451dfc6f585089dec77a12f9c05789c4dceb8da472f9d308160101a70d",
+        "lwjgl-stb-3.3.3.jar": "0cff7aa46ea9d70fcc20857015293ea80fbf21adcac34600c84da9b81a44ca93",
+        "json-20231013.jar": "0f18192df289114e17aa1a0d0a7f8372cc9f5c7e4f7e39adcf8906fe714fa7d3",
+        "lwjgl-openal-3.3.3-natives-windows.jar": "e3da7c3db25c81db8d425ef1e3dbfa15000b040d669f008b0813c94333ac96c8",
+        "lwjgl-opengl-3.3.3-natives-windows.jar": "f45e5f60596b03b2e3d8b98a123c855ebd0b5154c8155dc2a56b890ccc907477"
+      },
+      "id": "84f916c2-fe07-44fe-ae23-70bcdc338b4a",
+      "status": "passed"
+    }
+  ]
+}

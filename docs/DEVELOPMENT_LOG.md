@@ -1,3 +1,7 @@
+## Edition 190 — Turn a Blender edit into a verified playable Game Lab candidate
+
+2026-11-19. Move original Relay ground tiles in Blender, import a separate Game Lab candidate, and verify its playability with two fresh Java AI runs. 125 root Java tests, 25 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. Relay Garden's edited candidate achieved two matching wins at tick 408. A sixteen-tile challenge failed at tick 1728 and its trace was retained. Source, candidate, engine and image checks gate evidence export. Successful evidence rechecked after restart. See README-190.md and docs/publication190/plan.md.
+
 ## Edition 189 — Bring Blender scenes and Game Lab layouts into one workflow
 
 2026-11-19. Import a Blender rigid-box scene into Spatial, test it with native physics, and export an editable .blend. Export a paused Game Lab frame with named objects and its original Java snapshot. 125 root Java tests, 31 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. The Blender 5.3 round trip preserved three box source identities and the one-metre reference. A reimported scene passed native manipulation and report verification. Relay Garden exported 124 editable quads with a verified Java snapshot at tick 30. Camera or instrument validation and importing edited Game Lab levels are open. See README-189.md and docs/publication189/plan.md.

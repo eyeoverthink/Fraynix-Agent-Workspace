@@ -1,3 +1,5 @@
+[Edition 190 — Playable Blender edits](198-blender-playtest.md)
+
 [Edition 189 — Blender exchange and Game Lab layouts](197-blender-game-layout.md)
 
 [Edition 188 — Recover the final review write](196-fray-review-write.md)

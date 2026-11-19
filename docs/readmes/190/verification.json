@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "candidate": {
+    "moves": [
+      {
+        "sourceId": "3ed70823-4bfb-3cb3-8326-a5a4a54ab13d",
+        "from": [
+          4.375,
+          0.125
+        ],
+        "to": [
+          4.625,
+          0.375
+        ]
+      }
+    ],
+    "blendSha256": "eed75e11d135d7dba1bcc0e07efa68e1996b2a6ac49a95d61dbfb26383f91f8e",
+    "manifestSha256": "544865789d8a2a807f394eb8a0f655d20548a9462d421f218d20fda28d5f8f9c",
+    "id": "342b06d4-0f03-439e-a31d-e9177ae57d86",
+    "levelSha256": "14e7ed77d56c70a1530a36d22de977a800d20fc125532006dcc3597e3af4f949",
+    "title": "Relay Garden · Blender candidate",
+    "courseId": "relay-garden-v1",
+    "finishX": 13.625,
+    "snapshotSha256": "1b18c34f9486a03b37c602bd82426854beb067035b85ec2db8737a3714303c4c"
+  },
+  "proof": {
+    "candidate": {
+      "blendSha256": "eed75e11d135d7dba1bcc0e07efa68e1996b2a6ac49a95d61dbfb26383f91f8e",
+      "manifestSha256": "544865789d8a2a807f394eb8a0f655d20548a9462d421f218d20fda28d5f8f9c",
+      "id": "342b06d4-0f03-439e-a31d-e9177ae57d86",
+      "levelSha256": "14e7ed77d56c70a1530a36d22de977a800d20fc125532006dcc3597e3af4f949",
+      "snapshotSha256": "1b18c34f9486a03b37c602bd82426854beb067035b85ec2db8737a3714303c4c"
+    },
+    "controller": {
+      "ticks": 24,
+      "targetX": 14.625,
+      "action": "ai-step",
+      "policy": "contact122"
+    },
+    "trials": 2,
+    "ticks": 408,
+    "traceSha256": "688c5e2df9af776e0b60ebb592afdc7d6c70bad1a1312fe74ade81afdd2f754d",
+    "passed": true,
+    "attemptId": "84f916c2-fe07-44fe-ae23-70bcdc338b4a"
+  },
+  "originalHash": "2740bce9d6d0c7c39f626b8ff2b856e14070133ebc435e2ec81c528265fedb4e",
+  "failedTrial": {
+    "moves": 16,
+    "tick": 1728,
+    "dead": false,
+    "verified": false
+  },
+  "checks": {
+    "protectedPlayer": true,
+    "quarterGrid": true,
+    "snapshotTamper": true,
+    "levelTamper": true,
+    "imageTamper": true,
+    "separateRuntime": true,
+    "restarted": true,
+    "originalPreserved": true
+  },
+  "screenshots": [
+    {
+      "name": "blender-edit-imported.png",
+      "sha256": "78755c37300db9f5ac4afbc426a9557393a70453e59c4ada58dcf2143faf1449"
+    },
+    {
+      "name": "blender-candidate-playing.png",
+      "sha256": "9bcca2cfe01684a67e4c41810d5f7b6a9afd62c999b695ecab98b00130c673fc"
+    },
+    {
+      "name": "blender-candidate-verified.png",
+      "sha256": "2121dc264e73f49b32acabc9c1d543126de20b79898c25965779f2f40a64000e"
+    }
+  ],
+  "source": "b46416a94fc6e4120e62599413b35ac7fd20ef83",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 25,
+    "desktop": 181,
+    "archive": 10
+  }
+}

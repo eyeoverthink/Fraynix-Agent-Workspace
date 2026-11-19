@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 190 · Turn a Blender edit into a verified playable Game Lab candidate</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Turn a Blender edit into a verified playable Game Lab candidate</h1><p>Move original Relay ground tiles in Blender, import a separate Game Lab candidate, and verify its playability with two fresh Java AI runs.</p>
+<nav><a href="../../../README-190.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../189/index.html">Edition 189</a><a href="#system">System files</a></nav>
+<figure><img src="blender-edit-imported.png" alt="The Blender translation received a separate candidate"><figcaption>The Blender translation received a separate candidate</figcaption></figure>
+<figure><img src="blender-candidate-playing.png" alt="The candidate advances in the native interactive runtime"><figcaption>The candidate advances in the native interactive runtime</figcaption></figure>
+<figure><img src="blender-candidate-verified.png" alt="Java rechecks the two completed AI playtests"><figcaption>Java rechecks the two completed AI playtests</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Move original Relay ground tiles in Blender, import a separate Game Lab candidate, and verify its playability with two fresh Java AI runs.", "modules": [{"title": "Candidate compiler", "source": "workspace-engine/src/main/java/fraymus/workspace/BlenderGameCandidates.java", "note": "docs/obsidian/198-blender-playtest.md"}, {"title": "Native playtests", "source": "workspace-engine/src/main/java/fraymus/workspace/BlenderGamePlaytests.java", "note": "docs/obsidian/198-blender-playtest.md"}, {"title": "Blender import adapter", "source": "workspace-desktop/blender-exchange.py", "note": "docs/obsidian/198-blender-playtest.md"}, {"title": "Game Lab controls", "source": "workspace-desktop/renderer/brain-game.js", "note": "docs/obsidian/198-blender-playtest.md"}], "screenshots": [{"path": "docs/readmes/190/blender-edit-imported.png", "title": "The Blender translation received a separate candidate"}, {"path": "docs/readmes/190/blender-candidate-playing.png", "title": "The candidate advances in the native interactive runtime"}, {"path": "docs/readmes/190/blender-candidate-verified.png", "title": "Java rechecks the two completed AI playtests"}], "evidence": [{"path": "docs/readmes/190/verification.json", "title": "Verification record"}, {"path": "docs/readmes/190/playtest-evidence.json", "title": "Verified native trials"}, {"path": "docs/readmes/190/edited-course.blend", "title": "Edited Relay Garden sample"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/198-blender-playtest.canvas", "bytes": 1492, "sha256": "c6580f57aa62dbccbf0faa08897b799bfa9edafdf70ef6d4617b3267e7caeb87", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/198-blender-playtest.md", "bytes": 341, "sha256": "b1cd93ed28ca282b361758ceaf6d10b8405d836958676fd707ca218bf1cde538", "hashKind": "utf8-lf"}, {"path": "docs/publication190/document.py", "bytes": 11025, "sha256": "c51dfd52f31bfb76601219bafdf951865bf1b5dd366c331ef7fba59c8bb8c4c2", "hashKind": "utf8-lf"}, {"path": "docs/publication190/edit-course.py", "bytes": 991, "sha256": "b7dacc275958bad7155c70a6e58e7cc4661beb323dd2c35b2e7ee810ff4105c8", "hashKind": "utf8-lf"}, {"path": "docs/publication190/plan.md", "bytes": 2767, "sha256": "689ba1cdcfa65bb9342d16afe6ba27e0a84d08ce3689a394bf85a5f4820d9c78", "hashKind": "utf8-lf"}, {"path": "docs/publication190/validate-desktop.cjs", "bytes": 10896, "sha256": "f44994916e2bb95c33a57ae3dd36a5783dea25c508f689983e1f7da0e87bb805", "hashKind": "utf8-lf"}, {"path": "docs/publication190/validate-guide.cjs", "bytes": 1732, "sha256": "da8c6fb7724ef7344980873b4451262fa34eae724b1784ee5444a00131ebf4ad", "hashKind": "utf8-lf"}, {"path": "docs/publication190/validate.py", "bytes": 2043, "sha256": "9a2b439b754a67f927008f5046fcbfcc6f7540d576d6d0da468d2139d06d1396", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/blender-exchange.cjs", "bytes": 4732, "sha256": "59286c736688685a7e601e689005a1f81aae9c218191b77fd9773529c55dec81", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/blender-exchange.py", "bytes": 14169, "sha256": "6a5b9463614247c6b7331eca08ad47a4a42c86855c27aadceb1d038eb803f917", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 108993, "sha256": "6d61541f88d8d7434e85726e2815a75caaaf14a93c7de5fc5c5dd60bca3c5269", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/brain-game.js", "bytes": 43185, "sha256": "c7a481f99dcb2b5c1a25827d3cfe3d705b403dc3d157af790158a4b5e906deb1", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/BlenderGameCandidates.java", "bytes": 10629, "sha256": "05ccc9c098afd0d68c0361702f763a4b06835ef882223c62d84feddf62d9e600", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/BlenderGamePlaytests.java", "bytes": 12808, "sha256": "2f8c022fa506a4ba6c6638b301369509eff88001e83f9a7fb9c7e8dfea2ecd57", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/EmbeddedGameClient.java", "bytes": 9066, "sha256": "880f1bdcbdb5200e789c4526684b017322ed6d8e8e4205a2c931f9e89a96f72a", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 130670, "sha256": "33f21856b0943060e7d7d1b771472e07cf3689cff1b8b06f6f723cd47eb1e8b0", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>
