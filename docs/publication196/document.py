@@ -85,7 +85,7 @@ def publish(live):
 ## Try it
 
 1. Verify and teach two CSV conversion lessons. The example uses `temperature-check` for `probe_c` and `length-check` for `distance_in`.
-2. Verify a range classifier on a CSV with the classification column and the inputs required by the lessons. For the example, use a `reading` column and label the ranges `temperature` and `length`.
+2. Verify a range classifier on a CSV with the column to classify and the inputs required by the lessons. For the example, use a `reading` column and label the ranges `temperature` and `length`.
 3. Send `Route the last verified classification.` Attach a [mapping CSV](docs/readmes/196/example-mapping.csv), review the choices and choose **Confirm and run**.
 4. To stop between batches, choose **Pause after the next verified procedure**. Send `Resume classification routing.` after restart. Each completed batch has a button that opens its verified artifact.
 
