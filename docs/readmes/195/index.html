@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 195 · Teach a checked classifier from rules in a CSV</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Teach a checked classifier from rules in a CSV</h1><p>Teach a classifier from explicit CSV ranges, then reuse the checked rules on new measurements. Java checks every browser result, including unseen values and exact range boundaries.</p>
+<nav><a href="../../../README-195.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../194/index.html">Edition 194</a><a href="#system">System files</a></nav>
+<figure><img src="rules-and-example-reviewed.png" alt="Workbench binds the exact rules CSV and measurement CSV"><figcaption>Workbench binds the exact rules CSV and measurement CSV</figcaption></figure>
+<figure><img src="chat-teaches-ranges.png" alt="Chat saves the named lesson after the original classifier verifies"><figcaption>Chat saves the named lesson after the original classifier verifies</figcaption></figure>
+<figure><img src="fresh-range-result.png" alt="Canvas shows the checked intervals and seven fresh classifications"><figcaption>Canvas shows the checked intervals and seven fresh classifications</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Teach a classifier from explicit CSV ranges, then reuse the checked rules on new measurements. Java checks every browser result, including unseen values and exact range boundaries.", "modules": [{"title": "Range rules", "source": "workspace-engine/src/main/java/fraymus/workspace/FrayRangeRules.java", "note": "docs/obsidian/203-verified-range-lessons.md"}, {"title": "CSV tool verifier", "source": "workspace-engine/src/main/java/fraymus/workspace/FrayDataTool.java", "note": "docs/obsidian/203-verified-range-lessons.md"}, {"title": "Teaching and recovery", "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "note": "docs/obsidian/203-verified-range-lessons.md"}, {"title": "Workbench controls", "source": "workspace-desktop/renderer/request-workbench.js", "note": "docs/obsidian/203-verified-range-lessons.md"}], "screenshots": [{"path": "docs/readmes/195/rules-and-example-reviewed.png", "title": "Workbench binds the exact rules CSV and measurement CSV"}, {"path": "docs/readmes/195/chat-teaches-ranges.png", "title": "Chat saves the named lesson after the original classifier verifies"}, {"path": "docs/readmes/195/fresh-range-result.png", "title": "Canvas shows the checked intervals and seven fresh classifications"}], "evidence": [{"path": "docs/readmes/195/verification.json", "title": "Verification record"}, {"path": "docs/readmes/195/browser-receipt.json", "title": "Original Chromium receipt"}, {"path": "docs/readmes/195/offline-classifier.html", "title": "Runnable offline tool"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/203-verified-range-lessons.canvas", "bytes": 1517, "sha256": "7feb70fea8129b6a2b3e98ef1f8f12bfa08639056c025b277a05fcc7b93e6b50", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/203-verified-range-lessons.md", "bytes": 558, "sha256": "9e9cf578c3a7b0a20d9e091f942319993b79e65cefe4e018d4c5d306b04b8831", "hashKind": "utf8-lf"}, {"path": "docs/publication195/document.py", "bytes": 12069, "sha256": "8ab8950064859317098ee1f0f472746b8b222472a37f1e59932c70041a95f122", "hashKind": "utf8-lf"}, {"path": "docs/publication195/plan.md", "bytes": 2538, "sha256": "e695c7c450fdc138ecd791f7053ec31f918d93f0fe29d177ea14efbdf536fbf8", "hashKind": "utf8-lf"}, {"path": "docs/publication195/validate-desktop.cjs", "bytes": 15004, "sha256": "400b066579f2f52a6724c161c91240ada4f05db5458b9725fe92ce6147ae8f29", "hashKind": "utf8-lf"}, {"path": "docs/publication195/validate-guide.cjs", "bytes": 1711, "sha256": "d54ee36091088073d3c344f0a2ccff246b3a78446b698ff6f202a85d224c2046", "hashKind": "utf8-lf"}, {"path": "docs/publication195/validate.py", "bytes": 2079, "sha256": "4ec047778e79655d1cbe553a6721cc86aef9a5d700aa9ee68deb66a5b47a126e", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 109356, "sha256": "f793a829f86b2f24b782563168390fd69dca20676e2e501837ba6f83fc63943f", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/index.html", "bytes": 33633, "sha256": "9d78bbc102e7558f75bbbb1911a3c716a4d7717ee4bfb0838995e0e0423d5244", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/request-workbench.js", "bytes": 14808, "sha256": "300e2128fb415c6bb9d335bbf6b88cde5c3c8c14a31c2f0a6f8577e9f3648586", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/FrayDataTool.java", "bytes": 13288, "sha256": "18cd8aad4824f1d17d74ccd74bd472705e1e3e120e02695ad01699f65d668586", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/FrayRangeRules.java", "bytes": 4066, "sha256": "b4c039577589131abd693847a54dbc9a3c408c7a59b23a7a933b224884343fac", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "bytes": 42299, "sha256": "3e06b802064e0c0f8cf1b2a3a210b801a07bb46873600c731f7fd1c70cc95a54", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 133402, "sha256": "894d774b14dc73f8ad72400c0adaeead8a294843cc2dae159d1a29237d659cc0", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/resources/workbench/data-range-tool.html", "bytes": 6208, "sha256": "c8a73f9ea01db3677fa2f6fdff2faf9943be811237d750a47a0bbcc353332a10", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

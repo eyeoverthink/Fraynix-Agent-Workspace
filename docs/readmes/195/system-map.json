@@ -1,0 +1,53 @@
+{
+  "summary": "Teach a classifier from explicit CSV ranges, then reuse the checked rules on new measurements. Java checks every browser result, including unseen values and exact range boundaries.",
+  "modules": [
+    {
+      "title": "Range rules",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FrayRangeRules.java",
+      "note": "docs/obsidian/203-verified-range-lessons.md"
+    },
+    {
+      "title": "CSV tool verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FrayDataTool.java",
+      "note": "docs/obsidian/203-verified-range-lessons.md"
+    },
+    {
+      "title": "Teaching and recovery",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java",
+      "note": "docs/obsidian/203-verified-range-lessons.md"
+    },
+    {
+      "title": "Workbench controls",
+      "source": "workspace-desktop/renderer/request-workbench.js",
+      "note": "docs/obsidian/203-verified-range-lessons.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/195/rules-and-example-reviewed.png",
+      "title": "Workbench binds the exact rules CSV and measurement CSV"
+    },
+    {
+      "path": "docs/readmes/195/chat-teaches-ranges.png",
+      "title": "Chat saves the named lesson after the original classifier verifies"
+    },
+    {
+      "path": "docs/readmes/195/fresh-range-result.png",
+      "title": "Canvas shows the checked intervals and seven fresh classifications"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/195/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/195/browser-receipt.json",
+      "title": "Original Chromium receipt"
+    },
+    {
+      "path": "docs/readmes/195/offline-classifier.html",
+      "title": "Runnable offline tool"
+    }
+  ]
+}

@@ -1,3 +1,7 @@
+## Edition 195 — Teach a checked classifier from rules in a CSV
+
+2026-11-19. Teach a classifier from explicit CSV ranges, then reuse the checked rules on new measurements. Java checks every browser result, including unseen values and exact range boundaries. The saved lesson classified 7 fresh rows using four ranges. Java compared the full output and the browser passed 20 checks, including both sides of shared boundaries and the first gap. 125 root Java tests, 62 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed locally. The teaching source, pending review and completed proof survived restart. Two edition 194 results reverified. See README-195.md and docs/publication195/plan.md.
+
 ## Edition 194 — Teach a converter to find a named CSV column
 
 2026-11-19. Choose a named measurement column in Chat and teach a conversion from its verified result. Reuse the lesson on reordered CSV and append the checked result without losing the other cells. The temperature lesson converted 6 fresh rows when the measurement column moved from third to first. Java checked the full output table and the browser passed 16 checks. A separate eight-column inches tool converted 24 rows. 125 root Java tests, 62 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed locally. The three measured builds took 1453, 1552 and 1453 ms. Two edition 193 results reverified. See README-194.md and docs/publication194/plan.md.

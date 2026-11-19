@@ -1,0 +1,293 @@
+{
+  "passed": true,
+  "teacherId": "b660ba28-7d0e-44c6-801f-bce07271cd33",
+  "learnerId": "23b5f256-fb16-4184-8e90-43683530ec9e",
+  "teacher": {
+    "cases": [
+      {
+        "input": "id,reading\nt-1,-12\nt-2,2\nt-3,22\nt-4,65",
+        "java": "id,reading,classification\nt-1,-12,cold\nt-2,2,normal\nt-3,22,warm\nt-4,65,hot",
+        "browser": "id,reading,classification\nt-1,-12,cold\nt-2,2,normal\nt-3,22,warm\nt-4,65,hot"
+      },
+      {
+        "input": "reading,sample\n-1000000,\" Unseen, \"\"batch\"\"\nα \"\n-0.0001,\" Unseen, \"\"batch\"\"\nα \"\n0,\" Unseen, \"\"batch\"\"\nα \"\n9.9999,\" Unseen, \"\"batch\"\"\nα \"\n10,\" Unseen, \"\"batch\"\"\nα \"\n49.9999,\" Unseen, \"\"batch\"\"\nα \"\n60,\" Unseen, \"\"batch\"\"\nα \"\n999999.9999,\" Unseen, \"\"batch\"\"\nα \"",
+        "java": "reading,sample,classification\n-1000000,\" Unseen, \"\"batch\"\"\nα \",cold\n-0.0001,\" Unseen, \"\"batch\"\"\nα \",cold\n0,\" Unseen, \"\"batch\"\"\nα \",normal\n9.9999,\" Unseen, \"\"batch\"\"\nα \",normal\n10,\" Unseen, \"\"batch\"\"\nα \",warm\n49.9999,\" Unseen, \"\"batch\"\"\nα \",warm\n60,\" Unseen, \"\"batch\"\"\nα \",hot\n999999.9999,\" Unseen, \"\"batch\"\"\nα \",hot",
+        "browser": "reading,sample,classification\n-1000000,\" Unseen, \"\"batch\"\"\nα \",cold\n-0.0001,\" Unseen, \"\"batch\"\"\nα \",cold\n0,\" Unseen, \"\"batch\"\"\nα \",normal\n9.9999,\" Unseen, \"\"batch\"\"\nα \",normal\n10,\" Unseen, \"\"batch\"\"\nα \",warm\n49.9999,\" Unseen, \"\"batch\"\"\nα \",warm\n60,\" Unseen, \"\"batch\"\"\nα \",hot\n999999.9999,\" Unseen, \"\"batch\"\"\nα \",hot"
+      },
+      {
+        "input": "sample\n1",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading,reading\n1,2",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading,sample\n1",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading,classification\n1,2",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading\n1e3",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading\n1000000",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading\n50",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "id,reading\nt-1,-12\nt-2,2\nt-3,22\nt-4,65",
+        "java": "id,reading,classification\nt-1,-12,cold\nt-2,2,normal\nt-3,22,warm\nt-4,65,hot",
+        "browser": "id,reading,classification\nt-1,-12,cold\nt-2,2,normal\nt-3,22,warm\nt-4,65,hot"
+      }
+    ],
+    "inputColumn": "range",
+    "ruleKind": "range-classifier-v1",
+    "rulesSha256": "cb48c09afc52b71267a7779546f1e12522f0fb06dfc64e5cc4426c9a64dc5d7d",
+    "inputHeaders": [
+      "id",
+      "reading"
+    ],
+    "ruleProgramSha256": "b0c4f6a0e087318449e4b4b3d0046c0a51653127536a97ab890317c5f6ff008d",
+    "sourceSha256": "4e0b3c9def3b04a676dda02a2bc67691595ed21340588cfadf7ba6c0ff232231",
+    "unseenValidCases": 8,
+    "htmlSha256": "b2b31e0833e6a2ed93a80320fa886524b5cea05b74ba3ce8e00c0a7b7c41a5b4",
+    "outputColumn": "classification",
+    "ruleTable": "min_inclusive,max_exclusive,label\n-1000000,0,cold\n0,10,normal\n10,50,warm\n60,1000000,hot",
+    "passed": true,
+    "tableColumn": "reading",
+    "inputCount": 4
+  },
+  "fresh": {
+    "cases": [
+      {
+        "input": "reading,station\n-0.0001,\"A, north\"\n0,B\n9.9999,C\n10,D\n49.9999,E\n60,F\n999999.9999,G",
+        "java": "reading,station,classification\n-0.0001,\"A, north\",cold\n0,B,normal\n9.9999,C,normal\n10,D,warm\n49.9999,E,warm\n60,F,hot\n999999.9999,G,hot",
+        "browser": "reading,station,classification\n-0.0001,\"A, north\",cold\n0,B,normal\n9.9999,C,normal\n10,D,warm\n49.9999,E,warm\n60,F,hot\n999999.9999,G,hot"
+      },
+      {
+        "input": "sample,reading\n\" Unseen, \"\"batch\"\"\nα \",-1000000\n\" Unseen, \"\"batch\"\"\nα \",-0.0001\n\" Unseen, \"\"batch\"\"\nα \",0\n\" Unseen, \"\"batch\"\"\nα \",9.9999\n\" Unseen, \"\"batch\"\"\nα \",0.0001\n\" Unseen, \"\"batch\"\"\nα \",10\n\" Unseen, \"\"batch\"\"\nα \",49.9999\n\" Unseen, \"\"batch\"\"\nα \",10.0001\n\" Unseen, \"\"batch\"\"\nα \",60\n\" Unseen, \"\"batch\"\"\nα \",999999.9999\n\" Unseen, \"\"batch\"\"\nα \",60.0001",
+        "java": "sample,reading,classification\n\" Unseen, \"\"batch\"\"\nα \",-1000000,cold\n\" Unseen, \"\"batch\"\"\nα \",-0.0001,cold\n\" Unseen, \"\"batch\"\"\nα \",0,normal\n\" Unseen, \"\"batch\"\"\nα \",9.9999,normal\n\" Unseen, \"\"batch\"\"\nα \",0.0001,normal\n\" Unseen, \"\"batch\"\"\nα \",10,warm\n\" Unseen, \"\"batch\"\"\nα \",49.9999,warm\n\" Unseen, \"\"batch\"\"\nα \",10.0001,warm\n\" Unseen, \"\"batch\"\"\nα \",60,hot\n\" Unseen, \"\"batch\"\"\nα \",999999.9999,hot\n\" Unseen, \"\"batch\"\"\nα \",60.0001,hot",
+        "browser": "sample,reading,classification\n\" Unseen, \"\"batch\"\"\nα \",-1000000,cold\n\" Unseen, \"\"batch\"\"\nα \",-0.0001,cold\n\" Unseen, \"\"batch\"\"\nα \",0,normal\n\" Unseen, \"\"batch\"\"\nα \",9.9999,normal\n\" Unseen, \"\"batch\"\"\nα \",0.0001,normal\n\" Unseen, \"\"batch\"\"\nα \",10,warm\n\" Unseen, \"\"batch\"\"\nα \",49.9999,warm\n\" Unseen, \"\"batch\"\"\nα \",10.0001,warm\n\" Unseen, \"\"batch\"\"\nα \",60,hot\n\" Unseen, \"\"batch\"\"\nα \",999999.9999,hot\n\" Unseen, \"\"batch\"\"\nα \",60.0001,hot"
+      },
+      {
+        "input": "sample\n1",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading,reading\n1,2",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading,sample\n1",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading,classification\n1,2",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading\n1e3",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading\n1000000",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading\n50",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading,station\n-0.0001,\"A, north\"\n0,B\n9.9999,C\n10,D\n49.9999,E\n60,F\n999999.9999,G",
+        "java": "reading,station,classification\n-0.0001,\"A, north\",cold\n0,B,normal\n9.9999,C,normal\n10,D,warm\n49.9999,E,warm\n60,F,hot\n999999.9999,G,hot",
+        "browser": "reading,station,classification\n-0.0001,\"A, north\",cold\n0,B,normal\n9.9999,C,normal\n10,D,warm\n49.9999,E,warm\n60,F,hot\n999999.9999,G,hot"
+      }
+    ],
+    "lesson": {
+      "teacherId": "b660ba28-7d0e-44c6-801f-bce07271cd33",
+      "programSha256": "b0c4f6a0e087318449e4b4b3d0046c0a51653127536a97ab890317c5f6ff008d",
+      "teacherSourceSha256": "4e0b3c9def3b04a676dda02a2bc67691595ed21340588cfadf7ba6c0ff232231",
+      "name": "sample-ranges",
+      "column": "range",
+      "ruleTable": "min_inclusive,max_exclusive,label\n-1000000,0,cold\n0,10,normal\n10,50,warm\n60,1000000,hot",
+      "teacherArtifact": {
+        "sha256": "0882d5d25f5261bb6abc880a70f3118d41a628c605da029c9685c1b4c7ab1f60",
+        "id": "dfdf189b-fb90-3ad8-862b-e87e3c2d33b6",
+        "version": 1
+      },
+      "tableColumn": "reading",
+      "rulesSha256": "cb48c09afc52b71267a7779546f1e12522f0fb06dfc64e5cc4426c9a64dc5d7d",
+      "exampleValues": [
+        "-12",
+        "2",
+        "22",
+        "65"
+      ]
+    },
+    "inputColumn": "range",
+    "ruleKind": "range-classifier-v1",
+    "rulesSha256": "cb48c09afc52b71267a7779546f1e12522f0fb06dfc64e5cc4426c9a64dc5d7d",
+    "inputHeaders": [
+      "reading",
+      "station"
+    ],
+    "ruleProgramSha256": "b0c4f6a0e087318449e4b4b3d0046c0a51653127536a97ab890317c5f6ff008d",
+    "sourceSha256": "0e2f477c44334052c9622a6f12da66855c0387d7054b5e0af6a30bfd67676292",
+    "unseenValidCases": 4,
+    "htmlSha256": "1f794c59cec251e3ce6922c9edb93871ce81073e41f6ca8042a67fd492a784b2",
+    "outputColumn": "classification",
+    "ruleTable": "min_inclusive,max_exclusive,label\n-1000000,0,cold\n0,10,normal\n10,50,warm\n60,1000000,hot",
+    "passed": true,
+    "tableColumn": "reading",
+    "inputCount": 7
+  },
+  "exhausted": {
+    "cases": [
+      {
+        "input": "reading\n0\n0.0001",
+        "java": "reading,classification\n0,first\n0.0001,second",
+        "browser": "reading,classification\n0,first\n0.0001,second"
+      },
+      {
+        "input": "sample,reading\n\" Unseen, \"\"batch\"\"\nα \",0\n\" Unseen, \"\"batch\"\"\nα \",0.0001",
+        "java": "sample,reading,classification\n\" Unseen, \"\"batch\"\"\nα \",0,first\n\" Unseen, \"\"batch\"\"\nα \",0.0001,second",
+        "browser": "sample,reading,classification\n\" Unseen, \"\"batch\"\"\nα \",0,first\n\" Unseen, \"\"batch\"\"\nα \",0.0001,second"
+      },
+      {
+        "input": "sample\n1",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading,reading\n1,2",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading,sample\n1",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading,classification\n1,2",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading\n1e3",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading\n0.0002",
+        "java": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "browser": "Use 1–8 unique headers, the named input column, and 1–24 valid rows."
+      },
+      {
+        "input": "reading\n0\n0.0001",
+        "java": "reading,classification\n0,first\n0.0001,second",
+        "browser": "reading,classification\n0,first\n0.0001,second"
+      }
+    ],
+    "inputColumn": "range",
+    "ruleKind": "range-classifier-v1",
+    "rulesSha256": "ecfcbafe521c5d57ae7abb8bd2974437629e9e5c0abdab4d7d1d26111382dc4a",
+    "inputHeaders": [
+      "reading"
+    ],
+    "ruleProgramSha256": "f235771e5e3f2938ac83b7f945a8cbad48779adbff1eb00d0bd5b654ea7dabf3",
+    "sourceSha256": "a499e16675d7e2acb31b72a78c9f265e5e57901a665099679647f577bb3f0149",
+    "unseenValidCases": 0,
+    "htmlSha256": "84b981ff5e19829cd946cd7477067a5ea9c13528914b4f765bb933376452e74e",
+    "outputColumn": "classification",
+    "ruleTable": "min_inclusive,max_exclusive,label\n0,0.0001,first\n0.0001,0.0002,second",
+    "passed": true,
+    "tableColumn": "reading",
+    "inputCount": 2
+  },
+  "offline": {
+    "protocol": "file:",
+    "result": "room,reading,classification\nHall,12.3456,warm"
+  },
+  "legacy": [
+    {
+      "id": "afcd6ee3-e03c-4974-929f-8ae56df8ba91",
+      "sha256": "ac5ae9ae31a14f7dc570a69ae4209e4ede828943a688ad9852d208f041dca935"
+    },
+    {
+      "id": "eb10aba1-7e01-429d-b8e2-67fd5ca22f4f",
+      "sha256": "db7dd6f3f546b69e5b3ba08a66b49baa9af191e3a6c16441e3449aca87353985"
+    }
+  ],
+  "timing": {
+    "teacher": {
+      "rows": 4,
+      "columns": 2,
+      "attachMs": 39,
+      "buildVerifyMs": 1814
+    },
+    "fresh": {
+      "rows": 7,
+      "columns": 2,
+      "attachMs": 88,
+      "buildVerifyMs": 2166
+    }
+  },
+  "checks": {
+    "restartCount": 3,
+    "overlapRefused": true,
+    "duplicateLabelRefused": true,
+    "invalidatedReviewAfterRuleChange": true,
+    "retainedRuleSource": true,
+    "lessonRulesImmutable": true,
+    "gapRefused": true,
+    "upperBoundaryRefused": true,
+    "unchangedTeachingValuesRefused": true,
+    "changedRulesEvidenceRefused": true,
+    "unseenRequiredForTeaching": true
+  },
+  "screenshots": [
+    {
+      "name": "rules-and-example-reviewed.png",
+      "sha256": "1672ef386a61c0b42bbe7b66149a72b4daf5feb4274d70f2362174ef9428a522"
+    },
+    {
+      "name": "chat-teaches-ranges.png",
+      "sha256": "4cc7735c57aa1b78c532f6b6197681200ab42452bb54ad0c317f69e3b148846a"
+    },
+    {
+      "name": "fresh-range-result.png",
+      "sha256": "64b3d9c326ed31fc9aab996f93a486b5e0f150700127c33688402d32c1842b07"
+    }
+  ],
+  "source": "fdaef7c8a0e06b955791b9c381535d03dc719c49",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 62,
+    "desktop": 181,
+    "archive": 10
+  }
+}

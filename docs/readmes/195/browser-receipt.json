@@ -1,0 +1,406 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "reading,station\n-0.0001,\"A, north\"\n0,B\n9.9999,C\n10,D\n49.9999,E\n60,F\n999999.9999,G"
+      },
+      "expected": {
+        "selector": "#source",
+        "expectValue": "reading,station\n-0.0001,\"A, north\"\n0,B\n9.9999,C\n10,D\n49.9999,E\n60,F\n999999.9999,G"
+      },
+      "index": 0,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "reading,station,classification\n-0.0001,\"A, north\",cold\n0,B,normal\n9.9999,C,normal\n10,D,warm\n49.9999,E,warm\n60,F,hot\n999999.9999,G,hot",
+        "value": null
+      },
+      "expected": {
+        "expectText": "reading,station,classification\n-0.0001,\"A, north\",cold\n0,B,normal\n9.9999,C,normal\n10,D,warm\n49.9999,E,warm\n60,F,hot\n999999.9999,G,hot",
+        "selector": "#result"
+      },
+      "index": 1,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "sample,reading\n\" Unseen, \"\"batch\"\"\nα \",-1000000\n\" Unseen, \"\"batch\"\"\nα \",-0.0001\n\" Unseen, \"\"batch\"\"\nα \",0\n\" Unseen, \"\"batch\"\"\nα \",9.9999\n\" Unseen, \"\"batch\"\"\nα \",0.0001\n\" Unseen, \"\"batch\"\"\nα \",10\n\" Unseen, \"\"batch\"\"\nα \",49.9999\n\" Unseen, \"\"batch\"\"\nα \",10.0001\n\" Unseen, \"\"batch\"\"\nα \",60\n\" Unseen, \"\"batch\"\"\nα \",999999.9999\n\" Unseen, \"\"batch\"\"\nα \",60.0001"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "sample,reading\n\" Unseen, \"\"batch\"\"\nα \",-1000000\n\" Unseen, \"\"batch\"\"\nα \",-0.0001\n\" Unseen, \"\"batch\"\"\nα \",0\n\" Unseen, \"\"batch\"\"\nα \",9.9999\n\" Unseen, \"\"batch\"\"\nα \",0.0001\n\" Unseen, \"\"batch\"\"\nα \",10\n\" Unseen, \"\"batch\"\"\nα \",49.9999\n\" Unseen, \"\"batch\"\"\nα \",10.0001\n\" Unseen, \"\"batch\"\"\nα \",60\n\" Unseen, \"\"batch\"\"\nα \",999999.9999\n\" Unseen, \"\"batch\"\"\nα \",60.0001",
+        "value": "sample,reading\n\" Unseen, \"\"batch\"\"\nα \",-1000000\n\" Unseen, \"\"batch\"\"\nα \",-0.0001\n\" Unseen, \"\"batch\"\"\nα \",0\n\" Unseen, \"\"batch\"\"\nα \",9.9999\n\" Unseen, \"\"batch\"\"\nα \",0.0001\n\" Unseen, \"\"batch\"\"\nα \",10\n\" Unseen, \"\"batch\"\"\nα \",49.9999\n\" Unseen, \"\"batch\"\"\nα \",10.0001\n\" Unseen, \"\"batch\"\"\nα \",60\n\" Unseen, \"\"batch\"\"\nα \",999999.9999\n\" Unseen, \"\"batch\"\"\nα \",60.0001"
+      },
+      "index": 2,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "sample,reading,classification\n\" Unseen, \"\"batch\"\"\nα \",-1000000,cold\n\" Unseen, \"\"batch\"\"\nα \",-0.0001,cold\n\" Unseen, \"\"batch\"\"\nα \",0,normal\n\" Unseen, \"\"batch\"\"\nα \",9.9999,normal\n\" Unseen, \"\"batch\"\"\nα \",0.0001,normal\n\" Unseen, \"\"batch\"\"\nα \",10,warm\n\" Unseen, \"\"batch\"\"\nα \",49.9999,warm\n\" Unseen, \"\"batch\"\"\nα \",10.0001,warm\n\" Unseen, \"\"batch\"\"\nα \",60,hot\n\" Unseen, \"\"batch\"\"\nα \",999999.9999,hot\n\" Unseen, \"\"batch\"\"\nα \",60.0001,hot",
+        "value": null
+      },
+      "expected": {
+        "expectText": "sample,reading,classification\n\" Unseen, \"\"batch\"\"\nα \",-1000000,cold\n\" Unseen, \"\"batch\"\"\nα \",-0.0001,cold\n\" Unseen, \"\"batch\"\"\nα \",0,normal\n\" Unseen, \"\"batch\"\"\nα \",9.9999,normal\n\" Unseen, \"\"batch\"\"\nα \",0.0001,normal\n\" Unseen, \"\"batch\"\"\nα \",10,warm\n\" Unseen, \"\"batch\"\"\nα \",49.9999,warm\n\" Unseen, \"\"batch\"\"\nα \",10.0001,warm\n\" Unseen, \"\"batch\"\"\nα \",60,hot\n\" Unseen, \"\"batch\"\"\nα \",999999.9999,hot\n\" Unseen, \"\"batch\"\"\nα \",60.0001,hot",
+        "selector": "#result"
+      },
+      "index": 3,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "sample\n1"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "sample\n1",
+        "value": "sample\n1"
+      },
+      "index": 4,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "selector": "#result"
+      },
+      "index": 5,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "reading,reading\n1,2"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "reading,reading\n1,2",
+        "value": "reading,reading\n1,2"
+      },
+      "index": 6,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "selector": "#result"
+      },
+      "index": 7,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "reading,sample\n1"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "reading,sample\n1",
+        "value": "reading,sample\n1"
+      },
+      "index": 8,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "selector": "#result"
+      },
+      "index": 9,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "reading,classification\n1,2"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "reading,classification\n1,2",
+        "value": "reading,classification\n1,2"
+      },
+      "index": 10,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "selector": "#result"
+      },
+      "index": 11,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "reading\n1e3"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "reading\n1e3",
+        "value": "reading\n1e3"
+      },
+      "index": 12,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "selector": "#result"
+      },
+      "index": 13,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "reading\n1000000"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "reading\n1000000",
+        "value": "reading\n1000000"
+      },
+      "index": 14,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "selector": "#result"
+      },
+      "index": 15,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "reading\n50"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "reading\n50",
+        "value": "reading\n50"
+      },
+      "index": 16,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+        "selector": "#result"
+      },
+      "index": 17,
+      "selector": "#result",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "reading,station\n-0.0001,\"A, north\"\n0,B\n9.9999,C\n10,D\n49.9999,E\n60,F\n999999.9999,G"
+      },
+      "expected": {
+        "action": "fill",
+        "selector": "#source",
+        "expectValue": "reading,station\n-0.0001,\"A, north\"\n0,B\n9.9999,C\n10,D\n49.9999,E\n60,F\n999999.9999,G",
+        "value": "reading,station\n-0.0001,\"A, north\"\n0,B\n9.9999,C\n10,D\n49.9999,E\n60,F\n999999.9999,G"
+      },
+      "index": 18,
+      "selector": "#source",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "reading,station,classification\n-0.0001,\"A, north\",cold\n0,B,normal\n9.9999,C,normal\n10,D,warm\n49.9999,E,warm\n60,F,hot\n999999.9999,G,hot",
+        "value": null
+      },
+      "expected": {
+        "expectText": "reading,station,classification\n-0.0001,\"A, north\",cold\n0,B,normal\n9.9999,C,normal\n10,D,warm\n49.9999,E,warm\n60,F,hot\n999999.9999,G,hot",
+        "selector": "#result"
+      },
+      "index": 19,
+      "selector": "#result",
+      "passed": true
+    }
+  ],
+  "at": "2026-11-19T18:38:32.070342800Z",
+  "id": "fbe72c33-1265-3563-b4af-cb8c7c31da1e",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "selector": "#source",
+      "expectValue": "reading,station\n-0.0001,\"A, north\"\n0,B\n9.9999,C\n10,D\n49.9999,E\n60,F\n999999.9999,G"
+    },
+    {
+      "expectText": "reading,station,classification\n-0.0001,\"A, north\",cold\n0,B,normal\n9.9999,C,normal\n10,D,warm\n49.9999,E,warm\n60,F,hot\n999999.9999,G,hot",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "sample,reading\n\" Unseen, \"\"batch\"\"\nα \",-1000000\n\" Unseen, \"\"batch\"\"\nα \",-0.0001\n\" Unseen, \"\"batch\"\"\nα \",0\n\" Unseen, \"\"batch\"\"\nα \",9.9999\n\" Unseen, \"\"batch\"\"\nα \",0.0001\n\" Unseen, \"\"batch\"\"\nα \",10\n\" Unseen, \"\"batch\"\"\nα \",49.9999\n\" Unseen, \"\"batch\"\"\nα \",10.0001\n\" Unseen, \"\"batch\"\"\nα \",60\n\" Unseen, \"\"batch\"\"\nα \",999999.9999\n\" Unseen, \"\"batch\"\"\nα \",60.0001",
+      "value": "sample,reading\n\" Unseen, \"\"batch\"\"\nα \",-1000000\n\" Unseen, \"\"batch\"\"\nα \",-0.0001\n\" Unseen, \"\"batch\"\"\nα \",0\n\" Unseen, \"\"batch\"\"\nα \",9.9999\n\" Unseen, \"\"batch\"\"\nα \",0.0001\n\" Unseen, \"\"batch\"\"\nα \",10\n\" Unseen, \"\"batch\"\"\nα \",49.9999\n\" Unseen, \"\"batch\"\"\nα \",10.0001\n\" Unseen, \"\"batch\"\"\nα \",60\n\" Unseen, \"\"batch\"\"\nα \",999999.9999\n\" Unseen, \"\"batch\"\"\nα \",60.0001"
+    },
+    {
+      "expectText": "sample,reading,classification\n\" Unseen, \"\"batch\"\"\nα \",-1000000,cold\n\" Unseen, \"\"batch\"\"\nα \",-0.0001,cold\n\" Unseen, \"\"batch\"\"\nα \",0,normal\n\" Unseen, \"\"batch\"\"\nα \",9.9999,normal\n\" Unseen, \"\"batch\"\"\nα \",0.0001,normal\n\" Unseen, \"\"batch\"\"\nα \",10,warm\n\" Unseen, \"\"batch\"\"\nα \",49.9999,warm\n\" Unseen, \"\"batch\"\"\nα \",10.0001,warm\n\" Unseen, \"\"batch\"\"\nα \",60,hot\n\" Unseen, \"\"batch\"\"\nα \",999999.9999,hot\n\" Unseen, \"\"batch\"\"\nα \",60.0001,hot",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "sample\n1",
+      "value": "sample\n1"
+    },
+    {
+      "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "reading,reading\n1,2",
+      "value": "reading,reading\n1,2"
+    },
+    {
+      "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "reading,sample\n1",
+      "value": "reading,sample\n1"
+    },
+    {
+      "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "reading,classification\n1,2",
+      "value": "reading,classification\n1,2"
+    },
+    {
+      "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "reading\n1e3",
+      "value": "reading\n1e3"
+    },
+    {
+      "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "reading\n1000000",
+      "value": "reading\n1000000"
+    },
+    {
+      "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "reading\n50",
+      "value": "reading\n50"
+    },
+    {
+      "expectText": "Use 1–8 unique headers, the named input column, and 1–24 valid rows.",
+      "selector": "#result"
+    },
+    {
+      "action": "fill",
+      "selector": "#source",
+      "expectValue": "reading,station\n-0.0001,\"A, north\"\n0,B\n9.9999,C\n10,D\n49.9999,E\n60,F\n999999.9999,G",
+      "value": "reading,station\n-0.0001,\"A, north\"\n0,B\n9.9999,C\n10,D\n49.9999,E\n60,F\n999999.9999,G"
+    },
+    {
+      "expectText": "reading,station,classification\n-0.0001,\"A, north\",cold\n0,B,normal\n9.9999,C,normal\n10,D,warm\n49.9999,E,warm\n60,F,hot\n999999.9999,G,hot",
+      "selector": "#result"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+[Edition 195 — Verified CSV range lessons](203-verified-range-lessons.md)
+
 [Edition 194 — Named-column CSV lessons](202-named-column-lessons.md)
 
 [Edition 193 — Teach and reuse a CSV-to-tool lesson](201-verified-data-tool-lessons.md)
