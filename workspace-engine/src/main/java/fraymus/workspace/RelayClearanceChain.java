@@ -47,7 +47,7 @@ final class RelayClearanceChain {
         return UUID.nameUUIDFromBytes(reportKey(taskId).getBytes(StandardCharsets.UTF_8)).toString();
     }
 
-    static JSONObject handoff(JSONObject task, JSONObject run, JSONObject report) {
+    static JSONObject handoff(JSONObject task, JSONObject run, JSONObject report) throws Exception {
         var plan = task.getJSONObject(PLAN);
         var audit = run.getJSONObject("audit");
         var ref = run.getJSONObject("report");
@@ -154,7 +154,7 @@ final class RelayClearanceChain {
         return report.getString("id") + " · version " + report.getInt("version");
     }
 
-    static JSONObject ref(JSONObject handoff, JSONObject artifact) {
+    static JSONObject ref(JSONObject handoff, JSONObject artifact) throws Exception {
         var generated = dashboard(handoff);
         if (!handoff.getString("dashboardId").equals(artifact.getString("id")) || artifact.getInt("version") != 1
                 || !generated.getJSONObject("files").similar(artifact.getJSONObject("contents"))
@@ -190,7 +190,7 @@ final class RelayClearanceChain {
         return new JSONObject().put("selector", selector).put("expectText", expected);
     }
 
-    static void checkReceipt(JSONObject handoff, JSONObject artifact, JSONObject receipt) {
+    static void checkReceipt(JSONObject handoff, JSONObject artifact, JSONObject receipt) throws Exception {
         var ref = ref(handoff, artifact);
         if (!RampMissionReport.verifiedReceipt(ref, receipt, checks(handoff)))
             throw new IllegalStateException("The dashboard's original Chromium checks changed");
