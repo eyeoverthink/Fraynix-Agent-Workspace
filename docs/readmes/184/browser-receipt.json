@@ -1,0 +1,190 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "",
+        "value": "-17.7778"
+      },
+      "expected": {
+        "selector": "#celsius",
+        "expectValue": "-17.7778"
+      },
+      "index": 0,
+      "selector": "#celsius",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Convert to Rankine",
+        "value": ""
+      },
+      "expected": {
+        "expectCount": 1,
+        "selector": "#to-r:disabled"
+      },
+      "index": 1,
+      "selector": "#to-r:disabled",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Convert to Fahrenheit",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#to-f"
+      },
+      "index": 2,
+      "selector": "#to-f",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "-0.00004 °F",
+        "value": "-0.00004 °F"
+      },
+      "expected": {
+        "expectText": "-0.00004 °F",
+        "selector": "#fahrenheit"
+      },
+      "index": 3,
+      "selector": "#fahrenheit",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Waiting for conversion.",
+        "value": "Waiting for conversion."
+      },
+      "expected": {
+        "expectText": "Waiting for conversion.",
+        "selector": "#rankine"
+      },
+      "index": 4,
+      "selector": "#rankine",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "-0.00004 °F",
+        "value": "-0.00004 °F"
+      },
+      "expected": {
+        "expectText": "-0.00004 °F",
+        "selector": "#fahrenheit"
+      },
+      "index": 5,
+      "selector": "#fahrenheit",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Waiting for conversion.",
+        "value": "Waiting for conversion."
+      },
+      "expected": {
+        "expectText": "Waiting for conversion.",
+        "selector": "#rankine"
+      },
+      "index": 6,
+      "selector": "#rankine",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Convert to Rankine",
+        "value": ""
+      },
+      "expected": {
+        "action": "click",
+        "selector": "#to-r"
+      },
+      "index": 7,
+      "selector": "#to-r",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "-0.00004 °F",
+        "value": null
+      },
+      "expected": {
+        "expectText": "-0.00004 °F",
+        "selector": "#handoff"
+      },
+      "index": 8,
+      "selector": "#handoff",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "459.66996 °R",
+        "value": "459.66996 °R"
+      },
+      "expected": {
+        "expectText": "459.66996 °R",
+        "selector": "#rankine"
+      },
+      "index": 9,
+      "selector": "#rankine",
+      "passed": true
+    }
+  ],
+  "at": "2026-11-19T09:56:25.458098600Z",
+  "id": "cb1cfcbe-8879-31b5-bf5c-35f012255b76",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "selector": "#celsius",
+      "expectValue": "-17.7778"
+    },
+    {
+      "expectCount": 1,
+      "selector": "#to-r:disabled"
+    },
+    {
+      "action": "click",
+      "selector": "#to-f"
+    },
+    {
+      "expectText": "-0.00004 °F",
+      "selector": "#fahrenheit"
+    },
+    {
+      "expectText": "Waiting for conversion.",
+      "selector": "#rankine"
+    },
+    {
+      "expectText": "-0.00004 °F",
+      "selector": "#fahrenheit"
+    },
+    {
+      "expectText": "Waiting for conversion.",
+      "selector": "#rankine"
+    },
+    {
+      "action": "click",
+      "selector": "#to-r"
+    },
+    {
+      "expectText": "-0.00004 °F",
+      "selector": "#handoff"
+    },
+    {
+      "expectText": "459.66996 °R",
+      "selector": "#rankine"
+    }
+  ]
+}

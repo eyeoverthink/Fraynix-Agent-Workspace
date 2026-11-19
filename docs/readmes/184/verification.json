@@ -1,0 +1,292 @@
+{
+  "request": "Convert -17.7778℃ to ℉, then °F to degrees Rankine.",
+  "captures": [
+    {
+      "name": "alias-refusals.png",
+      "sha256": "f1e27e3e22ba21f84bca462a9d660feb6b9435c0831989e89e22099ef66aa5c4"
+    },
+    {
+      "name": "saved-handoff.png",
+      "sha256": "bb55d69235d2808395eada5c1f8fb1b330dc1ec782144b504c5da5b573b61801"
+    },
+    {
+      "name": "verified-temperature-chain.png",
+      "sha256": "92151cf8ba6062f7ef6120b3f7ef5307e92509bf5b553e1215c541abc619799a"
+    }
+  ],
+  "refusals": [
+    {
+      "request": "Convert -17.7778 C to F, then millimetres to centimetres.",
+      "reason": "Cannot hand off °F to a step that expects mm."
+    },
+    {
+      "request": "Convert -17.7778 C to F, then kelvins to Rankine.",
+      "reason": "Cannot hand off °F to a step that expects K."
+    }
+  ],
+  "holdouts": [
+    {
+      "input": "-273.15",
+      "fahrenheit": "-459.67 °F",
+      "rankine": "0 °R"
+    },
+    {
+      "input": "-40",
+      "fahrenheit": "-40 °F",
+      "rankine": "419.67 °R"
+    },
+    {
+      "input": "0",
+      "fahrenheit": "32 °F",
+      "rankine": "491.67 °R"
+    },
+    {
+      "input": "37.25",
+      "fahrenheit": "99.05 °F",
+      "rankine": "558.72 °R"
+    },
+    {
+      "input": "100",
+      "fahrenheit": "212 °F",
+      "rankine": "671.67 °R"
+    },
+    {
+      "input": "0.0001",
+      "fahrenheit": "32.00018 °F",
+      "rankine": "491.67018 °R"
+    }
+  ],
+  "priorEditions": [
+    181,
+    182,
+    183
+  ],
+  "aliases": [
+    {
+      "request": "Convert -17.7778 Celsius to Fahrenheit, then Fahrenheit to Rankine.",
+      "chain": {
+        "input": {
+          "unit": "°C",
+          "value": "-17.7778"
+        },
+        "id": "c-f-r-v1",
+        "first": "°C to °F",
+        "second": "°F to °R"
+      }
+    },
+    {
+      "request": "Please convert -17.7778 centigrade to degrees Fahrenheit, then deg F to deg R.",
+      "chain": {
+        "input": {
+          "unit": "°C",
+          "value": "-17.7778"
+        },
+        "id": "c-f-r-v1",
+        "first": "°C to °F",
+        "second": "°F to °R"
+      }
+    }
+  ],
+  "restart": {
+    "forced": true,
+    "firstPid": 186144,
+    "secondPid": 157756,
+    "exitCode": 1,
+    "signal": null,
+    "sameReview": true,
+    "firstReceiptUnchanged": true,
+    "secondPendingAtRestart": true
+  },
+  "staleInputRefused": true,
+  "passed": true,
+  "proof": {
+    "secondBytecode": "46524159010001000100000008407cbab851eb851f66616872656e686569740002000001000010ff",
+    "result": "459.66996 °R",
+    "chain": {
+      "input": {
+        "unit": "°C",
+        "value": "-17.7778"
+      },
+      "id": "c-f-r-v1",
+      "first": "°C to °F",
+      "second": "°F to °R"
+    },
+    "htmlSha256": "7a448cdba00c9bf00f202533c6646a993e1076e247f936134a0e00aeebaecd3a",
+    "compilerCommit": "d93947154a1f21dcfd8dfcc97f27439fed6e3275",
+    "firstChecks": [
+      {
+        "actual": {
+          "count": 1,
+          "text": "",
+          "value": "-17.7778"
+        },
+        "expected": {
+          "selector": "#celsius",
+          "expectValue": "-17.7778"
+        },
+        "index": 0,
+        "selector": "#celsius",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Convert to Rankine",
+          "value": ""
+        },
+        "expected": {
+          "expectCount": 1,
+          "selector": "#to-r:disabled"
+        },
+        "index": 1,
+        "selector": "#to-r:disabled",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Convert to Fahrenheit",
+          "value": ""
+        },
+        "expected": {
+          "action": "click",
+          "selector": "#to-f"
+        },
+        "index": 2,
+        "selector": "#to-f",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "-0.00004 °F",
+          "value": "-0.00004 °F"
+        },
+        "expected": {
+          "expectText": "-0.00004 °F",
+          "selector": "#fahrenheit"
+        },
+        "index": 3,
+        "selector": "#fahrenheit",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Waiting for conversion.",
+          "value": "Waiting for conversion."
+        },
+        "expected": {
+          "expectText": "Waiting for conversion.",
+          "selector": "#rankine"
+        },
+        "index": 4,
+        "selector": "#rankine",
+        "passed": true
+      }
+    ],
+    "secondChecks": [
+      {
+        "actual": {
+          "count": 1,
+          "text": "-0.00004 °F",
+          "value": "-0.00004 °F"
+        },
+        "expected": {
+          "expectText": "-0.00004 °F",
+          "selector": "#fahrenheit"
+        },
+        "index": 0,
+        "selector": "#fahrenheit",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Waiting for conversion.",
+          "value": "Waiting for conversion."
+        },
+        "expected": {
+          "expectText": "Waiting for conversion.",
+          "selector": "#rankine"
+        },
+        "index": 1,
+        "selector": "#rankine",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Convert to Rankine",
+          "value": ""
+        },
+        "expected": {
+          "action": "click",
+          "selector": "#to-r"
+        },
+        "index": 2,
+        "selector": "#to-r",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "-0.00004 °F",
+          "value": null
+        },
+        "expected": {
+          "expectText": "-0.00004 °F",
+          "selector": "#handoff"
+        },
+        "index": 3,
+        "selector": "#handoff",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "459.66996 °R",
+          "value": "459.66996 °R"
+        },
+        "expected": {
+          "expectText": "459.66996 °R",
+          "selector": "#rankine"
+        },
+        "index": 4,
+        "selector": "#rankine",
+        "passed": true
+      }
+    ],
+    "intermediate": {
+      "unit": "°F",
+      "value": "-0.00004"
+    },
+    "passed": true,
+    "firstBytecode": "4652415901000300010000001040220000000000004014000000000000404000000000000063656c7369757300020000010000120100011301000210ff"
+  },
+  "verified": {
+    "artifact": {
+      "sha256": "e6d05f6e28708e80dae2b538d4370b3dd8b3aefea3335109344c33f2627a776e",
+      "id": "cb1cfcbe-8879-31b5-bf5c-35f012255b76",
+      "version": 1
+    },
+    "output": "index.html",
+    "summary": "Both Fray steps passed. The second used the verified -0.00004 °F.",
+    "passed": true
+  },
+  "reviewId": "a5e18721-23c5-4226-9f86-77fb7d095140",
+  "reopened": true,
+  "remembered": true,
+  "exportedFile": {
+    "protocol": "file:",
+    "result": "558.72 °R"
+  },
+  "source": "d7c0ac62b18e59521a05babd8f881705dd496e08",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 45,
+    "desktop": 181,
+    "archive": 10
+  }
+}

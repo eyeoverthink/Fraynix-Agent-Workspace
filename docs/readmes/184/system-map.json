@@ -1,0 +1,49 @@
+{
+  "summary": "Convert Celsius to Fahrenheit and then Rankine in one Chat request. The Workbench can save the verified intermediate and resume it after the desktop stops.",
+  "modules": [
+    {
+      "title": "Fray chain and handoff",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FrayChain.java",
+      "note": "docs/obsidian/192-fray-handoff-recovery.md"
+    },
+    {
+      "title": "Durable stage verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java",
+      "note": "docs/obsidian/192-fray-handoff-recovery.md"
+    },
+    {
+      "title": "Fray arithmetic",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/FrayFormula.java",
+      "note": "docs/obsidian/192-fray-handoff-recovery.md"
+    },
+    {
+      "title": "Offline chain",
+      "source": "workspace-engine/src/main/resources/workbench/temperature-chain.html",
+      "note": "docs/obsidian/192-fray-handoff-recovery.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/184/alias-refusals.png",
+      "title": "Chat refuses millimetres and kelvins as substitutes for Fahrenheit"
+    },
+    {
+      "path": "docs/readmes/184/saved-handoff.png",
+      "title": "The saved Fahrenheit handoff recovered after restarting the desktop"
+    },
+    {
+      "path": "docs/readmes/184/verified-temperature-chain.png",
+      "title": "The completed temperature chain and its exact intermediate"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/184/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/184/browser-receipt.json",
+      "title": "Original Chromium receipt"
+    }
+  ]
+}

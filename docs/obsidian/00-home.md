@@ -1,3 +1,5 @@
+[Edition 184 — Fray handoff recovery](192-fray-handoff-recovery.md)
+
 [Edition 183 — two-step Fray conversion](191-fray-length-chain.md)
 
 [Edition 182 — Fray temperature converter](190-fray-temperature-tool.md)

@@ -1,3 +1,7 @@
+## Edition 184 — Resume a verified Fray handoff after desktop restart
+
+2026-11-19. Convert Celsius to Fahrenheit and then Rankine in one Chat request. The Workbench can save the verified intermediate and resume it after the desktop stops. 125 root Java tests, 45 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. The forced desktop restart preserved the original Fahrenheit receipt. The second step stayed pending until recovery. Two wrong units were refused, six additional inputs passed, and the original Edition 181–183 receipts reopened. See README-184.md and docs/publication184/plan.md.
+
 ## Edition 183 — A verified two-step Fray conversion
 
 2026-11-19. One Chat request converts inches to millimetres and then centimetres. Java verifies the intermediate value and its unit before the browser starts the second step. 125 root Java tests, 43 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed. Chromium passed 10 checks. Two wrong unit handoffs were refused before review, and six extra inputs showed both results. The chain and both earlier converter proofs reopened after restart. The first-stage receipt survived a Java recovery test. See README-183.md and docs/publication183/plan.md.
