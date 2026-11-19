@@ -133,6 +133,9 @@ async function main() {
         assert.notEqual(target.levelSha256,source.levelSha256);
         const file = path.join(project,'blender-game-candidates',target.id,'level.json');
         const original = hash(await fs.readFile(file));
+        await page.locator('#game-blender-open').click();
+        await page.waitForFunction(()=>document.querySelector('#game-blender-status').textContent
+            .includes('Opened edited terrain'),{},flags);
         await page.locator('#game-blender-lesson').selectOption(lesson.name);
         await page.locator('#game-blender-use-lesson').click();
         assert.equal(await page.locator('#goal').inputValue(),useText(lesson.name,target.id));
