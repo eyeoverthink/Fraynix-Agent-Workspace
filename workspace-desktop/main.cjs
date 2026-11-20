@@ -528,17 +528,37 @@ async function openRoutedDashboard({verifyOnly=false,compare=false,pair,keyColum
   return openRoutedReport(sources,retained,{verifyOnly,exportCsv});
 }
 
-async function summarizeRoutedComparison({verifyOnly=false,exportId,explorer=false}={}) {
+async function summarizeRoutedComparison({verifyOnly=false,exportId,explorer=false,explorerLesson}={}) {
   if(typeof verifyOnly!=='boolean'||typeof explorer!=='boolean'||(verifyOnly||explorer)&&typeof exportId!=='string')
     throw Error('Summarize a comparison CSV first');
   const readSources=async id=>{
     const comparisonImport=await nativeExports.comparisonCsv(id);
     const {earlier,later,keyColumn}=comparisonImport.receipt.source;
     const [baseline,file]=await Promise.all([nativeExports.routedCsv(earlier.exportId),nativeExports.routedCsv(later.exportId)]);
-    return {comparisonImport,baseline,file,keyColumn,...(explorer?{explorer:true}:{})};
+    return {comparisonImport,baseline,file,keyColumn,...(explorer?{explorer:true}:{}),
+      ...(explorerLesson!==undefined?{explorerLesson}:{})};
   };
   const sources=await readSources(exportId);
   return openRoutedReport(sources,()=>readSources(sources.comparisonImport.receipt.id),{verifyOnly});
+}
+
+async function teachComparisonExplorer({name,exportId}) {
+  if(typeof name!=='string'||!name.trim())throw Error('Choose a comparison explorer lesson name');
+  const teacher=await summarizeRoutedComparison({exportId,explorer:true,verifyOnly:true});
+  return api('/api/requests/routing-explorer-lesson-teach',{id:teacher.id,name});
+}
+
+async function runComparisonExplorerLesson({name,exportId,verifyOnly=false}) {
+  if(typeof name!=='string'||!name.trim())throw Error('Choose a comparison explorer lesson name');
+  if(typeof verifyOnly!=='boolean'||verifyOnly&&typeof exportId!=='string')
+    throw Error('Apply this comparison explorer lesson first');
+  const source=await nativeExports.comparisonCsv(exportId);
+  const attached=source.receipt.id;
+  if(!verifyOnly){
+    await api('/api/requests/routing-explorer-lesson-qualify',{name,receipt:source.receipt});
+    await summarizeRoutedComparison({exportId:attached});
+  }
+  return summarizeRoutedComparison({exportId:attached,explorer:true,explorerLesson:name,verifyOnly});
 }
 
 async function openRoutedReport(sources,retained,{verifyOnly,exportCsv=false}) {
@@ -622,6 +642,8 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(command==='run-routing')return runClassificationPlan(args);
       if(command==='routing-dashboard')return openRoutedDashboard(args);
       if(command==='routing-summary')return summarizeRoutedComparison(args);
+      if(command==='teach-comparison-explorer')return teachComparisonExplorer(args);
+      if(command==='run-comparison-explorer-lesson')return runComparisonExplorerLesson(args);
       if(command==='export-routing'){
         const {csv,sha256,...source}=await api('/api/requests/routing-export',{id:args.id});
         const bytes=Buffer.from(csv,'utf8');

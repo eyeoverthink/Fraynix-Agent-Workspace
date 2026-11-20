@@ -4,6 +4,7 @@ package fraymus.workspace;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,23 +43,42 @@ final class RoutedComparisonExplorer implements RoutedReport {
     }
 
     private final String csv, receiptText, summaryText, bindingText, html;
-    private final JSONObject receipt, summaryArtifact;
+    private final JSONObject receipt, summaryArtifact, lesson;
     private final List<View> views;
 
-    RoutedComparisonExplorer(String csv, JSONObject receipt, JSONObject summaryArtifact, JSONObject summaryProof) {
+    RoutedComparisonExplorer(String csv, JSONObject receipt, JSONObject summaryArtifact, JSONObject summaryProof,
+                             JSONObject lesson) {
         this.csv = csv;
+        this.lesson = lesson;
         this.receipt = receipt;
         this.summaryArtifact = summaryArtifact;
         receiptText = MapCheckpoint.canonical(receipt) + "\n";
         summaryText = MapCheckpoint.canonical(summaryProof) + "\n";
         var binding = new JSONObject().put("artifact", summaryArtifact).put("proofSha256", MeasurementStore.hash(summaryText));
+        if (lesson != null) binding.put("lesson", lesson);
         bindingText = MapCheckpoint.canonical(binding);
         var table = MeasurementStore.csv(csv, 1, 32_000);
         List<List<String>> rows = table.subList(1, table.size());
-        views = List.of(new Filter(null, null), new Filter("mm", null), new Filter("mm", "Duplicate"), new Filter("mm", "Missing"))
-                .stream().map(filter -> view(filter, rows)).toList();
+        views = lesson == null ? List.of(new Filter(null, null), new Filter("mm", null),
+                new Filter("mm", "Duplicate"), new Filter("mm", "Missing"))
+                .stream().map(filter -> view(filter, rows)).toList() : reusableViews(rows);
         html = TEMPLATE.replace("@EXPLORER_CSV@", encode(csv)).replace("@EXPLORER_RECEIPT@", encode(receiptText))
                 .replace("@EXPLORER_SUMMARY@", encode(summaryText)).replace("@EXPLORER_BINDING@", encode(bindingText));
+    }
+
+    private static List<View> reusableViews(List<List<String>> rows) {
+        var all = view(new Filter(null, null), rows);
+        // Exercise a unit with no comparable rows when one exists, otherwise the most populated one.
+        String unit = all.totals().stream()
+                .max(Comparator.comparing((RoutedComparisonTotals.Unit result) -> result.matched() == 0)
+                        .thenComparingInt(RoutedComparisonTotals.Unit::size)).orElseThrow().name();
+        var byUnit = view(new Filter(unit, null), rows);
+        var statuses = List.of("Duplicate", "Added", "Missing", "Matched").stream()
+                .map(status -> view(new Filter(unit, status), byUnit.rows())).toList();
+        var populated = statuses.stream().filter(selection -> !selection.rows().isEmpty()).findFirst().orElseThrow();
+        var edge = statuses.stream().filter(selection -> selection.rows().isEmpty()).findFirst()
+                .orElseGet(() -> statuses.stream().filter(selection -> selection != populated).findFirst().orElseThrow());
+        return List.of(all, byUnit, populated, edge);
     }
 
     private static View view(Filter filter, List<List<String>> rows) {
@@ -96,14 +116,19 @@ final class RoutedComparisonExplorer implements RoutedReport {
         addView(steps, all);
         for (String name : List.of("matched-comparison.csv", "import-receipt.json", "summary-proof.json"))
             steps.put(count("a[href=\"" + name + "\"]", 1));
-        steps.put(click("#unit-mm"));
+        steps.put(click("mm".equals(views.get(1).filter().unit()) ? "#unit-mm" : "#unit-f"));
         addView(steps, views.get(1));
-        steps.put(click("#status-duplicate"));
+        steps.put(click(lesson == null ? "#status-duplicate" : statusButton(views.get(2))));
         addView(steps, views.get(2));
-        steps.put(click("#status-missing")).put(text("#visible-count", views.get(3).countText()));
+        steps.put(click(lesson == null ? "#status-missing" : statusButton(views.get(3))))
+                .put(text("#visible-count", views.get(3).countText()));
         steps.put(click("#reset-filters"));
         addView(steps, all);
         return steps;
+    }
+
+    private static String statusButton(View view) {
+        return "button[data-status=\"" + view.filter().status() + "\"]";
     }
 
     private static JSONObject click(String selector) { return count(selector, 1).put("action", "click"); }
@@ -118,10 +143,15 @@ final class RoutedComparisonExplorer implements RoutedReport {
         var binding = new JSONObject(bindingText);
         var proof = new JSONObject().put("passed", true).put("import", receipt).put("summary", binding)
                 .put("views", new JSONArray(views.stream().map(View::evidence).toList())).put("browserChecks", checks.length());
-        return new JSONObject().put("title", TITLE).put("sources", new JSONArray()
-                        .put("comparison-summary:" + summaryArtifact.getString("id") + ":sha256:" + summaryArtifact.getString("sha256"))
-                        .put("matched-comparison-csv:sha256:" + receipt.getString("sha256"))
-                        .put("matched-comparison-receipt:sha256:" + MeasurementStore.hash(MapCheckpoint.canonical(receipt))))
+        var sources = new JSONArray()
+                .put("comparison-summary:" + summaryArtifact.getString("id") + ":sha256:" + summaryArtifact.getString("sha256"))
+                .put("matched-comparison-csv:sha256:" + receipt.getString("sha256"))
+                .put("matched-comparison-receipt:sha256:" + MeasurementStore.hash(MapCheckpoint.canonical(receipt)));
+        if (lesson != null) {
+            proof.put("lesson", lesson);
+            sources.put("comparison-explorer-lesson:sha256:" + WorldFrames.hash(lesson));
+        }
+        return new JSONObject().put("title", TITLE).put("sources", sources)
                 .put("files", new JSONObject().put("index.html", html).put("matched-comparison.csv", csv)
                         .put("import-receipt.json", receiptText).put("summary-proof.json", summaryText)
                         .put("verification.json", MapCheckpoint.canonical(proof) + "\n"));

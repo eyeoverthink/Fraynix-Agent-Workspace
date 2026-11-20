@@ -11,11 +11,13 @@ const exportKey = /^Export the matched routed CSV comparison[.!]?$/i;
 const summaryRequest = /^(?:Summarize the last verified matched comparison CSV|Recheck the matched comparison CSV summary)[.!]?$/i;
 
 const explorerRequest = /^(?:Build an explorer from the verified comparison totals|Recheck the verified comparison explorer)[.!]?$/i;
+const lessonRequest = /^(Teach|Use|Recheck) comparison explorer lesson ([a-z][a-z0-9-]{2,55})[.!]?$/i;
+const lessonPin = name => 'fraynix-comparison-explorer-lesson-'+name;
 
 export const isRoutingRequest = text => /^(?:Route the last verified classification|Resume classification routing)[.!]?$/i.test(text.trim());
 export const isRoutedDashboardRequest = text =>
     byKey.test(text.trim()) || recheckKey.test(text.trim()) || exportKey.test(text.trim()) ||
-    summaryRequest.test(text.trim()) || explorerRequest.test(text.trim()) ||
+    summaryRequest.test(text.trim()) || explorerRequest.test(text.trim()) || lessonRequest.test(text.trim()) ||
     /^(?:Build a dashboard from the (?:last )?verified routed CSV|Recheck the routed CSV dashboard|Compare the last two verified routed CSVs|Recheck the routed CSV comparison)[.!]?$/i.test(text.trim());
 
 export class ClassificationRoutingPanel {
@@ -64,6 +66,12 @@ export class ClassificationRoutingPanel {
     }
 
     async fromChat(text) {
+        const lesson = lessonRequest.exec(text.trim());
+        if (lesson) {
+            try { await this.fromExplorerLesson(lesson[1].toLowerCase(),lesson[2].toLowerCase()); }
+            catch (error) { this.announce(error.message); }
+            return;
+        }
         const explorer = explorerRequest.test(text.trim());
         if (explorer || summaryRequest.test(text.trim())) {
             try {
@@ -125,6 +133,23 @@ export class ClassificationRoutingPanel {
             this.dialog.showModal();
             this.layout();
         } catch (error) { this.announce(error.message); }
+    }
+
+    async fromExplorerLesson(action,name) {
+        if (action==='teach') {
+            const exportId = localStorage.getItem(COMPARISON_EXPLORER);
+            if (!exportId) throw Error('Build a verified comparison explorer first');
+            await this.call('teach-comparison-explorer',{name,exportId});
+            this.announce('Saved comparison explorer lesson '+name+'.');
+            return;
+        }
+        const verifyOnly = action==='recheck';
+        const exportId = verifyOnly ? localStorage.getItem(lessonPin(name)) : undefined;
+        if (verifyOnly && !exportId) throw Error('Apply this comparison explorer lesson first');
+        const result = await this.call('run-comparison-explorer-lesson',{name,exportId,verifyOnly});
+        localStorage.setItem(lessonPin(name),result.comparisonExportId);
+        this.announce('Comparison explorer lesson '+name+' verified against Java. '+result.browserChecks
+            +(result.rechecked?' fresh browser checks passed.':' browser checks passed.'));
     }
 
     async work(action) {
