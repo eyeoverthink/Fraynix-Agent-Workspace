@@ -37,10 +37,10 @@ For later launches, open Terminal in the checkout and run `./Launch-Agent-Worksp
 
 ## Linux and Windows
 
-- **Linux x64.** Use JDK 21 and Node.js 24 LTS with a graphical desktop. On Ubuntu 24.04, install any missing runtime libraries with `sudo apt install libgtk-3-0t64 libnss3 libgbm1 libasound2t64 libgl1 libgl1-mesa-dri`. Use the same sparse download and Bash launcher shown above.
+- **Linux x64.** Use JDK 21 and Node.js 24 LTS with a graphical desktop. On Ubuntu 24.04, install any missing runtime libraries with `sudo apt install libgtk-3-0t64 libnss3 libgbm1 libasound2t64 libgl1 libgl1-mesa-dri`. Use the same sparse download and Bash launcher shown above. Run it from your graphical session.
 - **Windows x64.** Use JDK 21 and Node.js 24 LTS. Git for Windows can use the same sparse clone from Git Bash, or the commands up to launch can be pasted into PowerShell. Then run `.\Launch-Agent-Workspace.bat -PrepareOnly` followed by `.\Launch-Agent-Workspace.bat` in PowerShell.
 
-The portability workflow covers Windows x64, Linux x64, Intel macOS and Apple silicon macOS. Check the workflow for measured runner results. The optional neural GPU experiment uses an OpenGL 4.3 compute shader. On macOS, choose the CPU backend for that feature. The embedded Game Lab uses Apple's OpenGL 4.1 core profile. [Portable workspace runs](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/workflows/portable-workspace.yml) · [Apple graphics support](https://developer.apple.com/videos/play/wwdc2020/10631/)
+The portability workflow covers Windows x64, Linux x64, Intel macOS and Apple silicon macOS. See the edition 205 results for the desktop, Bullet physics and Game Lab checks. The embedded Game Lab needs a local OpenGL 4.1 display on macOS. If the app reports that the display is unavailable, try from the Mac's local graphical session and check the referenced game log. The rest of the workspace can still run. On macOS, choose the CPU backend for the optional neural compute experiment. [Edition 205 results](../README-205.md). [Portable workspace runs](https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/workflows/portable-workspace.yml) · [Apple graphics support](https://developer.apple.com/videos/play/wwdc2020/10631/)
 
 ## Updates and offline use
 
