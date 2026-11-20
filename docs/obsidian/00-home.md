@@ -1,3 +1,5 @@
+[Edition 200 — Verified key and unit comparison](208-verified-routed-row-comparison.md)
+
 [Edition 199 — Verified routing comparison](207-verified-routing-comparison.md)
 
 [Edition 198 — Verified routing dashboard](206-verified-routing-dashboard.md)

@@ -1,0 +1,182 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Verified routed row comparison</title>
+<style>
+:root {color-scheme:dark;color:#edf7f2;background:#12202a;font:15px/1.5 system-ui,sans-serif}
+* {box-sizing:border-box}
+body {margin:0;padding:clamp(14px,3vw,36px)}
+main {max-width:74rem;margin:auto}
+h1 {font-size:clamp(1.65rem,4vw,2.45rem);line-height:1.15;margin:0 0 10px}
+p {margin:0 0 14px;color:#bed0d4}
+.key {white-space:pre-wrap;overflow-wrap:anywhere}
+.sources {display:flex;gap:9px;flex-wrap:wrap;margin:16px 0}
+.sources a {padding:8px 12px;background:#1a3039;border:1px solid #416673;border-radius:7px;color:#b7f2dd}
+#row-counts {margin:16px 0 8px;color:#e9f7f3;font-weight:650}
+.table-wrap {overflow-x:auto;border:1px solid #3d5664;border-radius:9px}
+table {width:100%;min-width:31rem;border-collapse:collapse;background:#162731;font-variant-numeric:tabular-nums;text-align:left}
+th,td {padding:8px 10px;vertical-align:top;border-bottom:1px solid #324854}
+th {background:#203540;font-size:.84rem;color:#c5d7dc}
+tbody tr:last-child td {border-bottom:0}
+tbody tr:nth-child(even) {background:#1b2d37}
+.unit {white-space:nowrap}
+.matched {color:#b7f2dd}
+.added {color:#c6dcff}
+.missing,.duplicate {color:#f6d0a4}
+</style>
+</head>
+<body>
+<main>
+<h1>Verified routed row comparison</h1>
+<p id="key-column" class="key"></p>
+<p>Changes use later minus earlier. Duplicate groups retain all rows and have no calculated change.</p>
+<nav class="sources" aria-label="Download input files">
+  <a id="source-earlier" href="earlier-routed-results.csv" download></a>
+  <a id="source-later" href="later-routed-results.csv" download></a>
+</nav>
+<p id="row-counts"></p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Matched, added, missing and duplicate results">
+<table>
+<thead><tr><th scope="col">Key</th><th scope="col">Unit</th><th scope="col">Status</th><th scope="col">Earlier row: value</th><th scope="col">Later row: value</th><th scope="col">Change</th></tr></thead>
+<tbody id="matched-rows"></tbody>
+</table>
+</div>
+</main>
+<script>
+'use strict';
+const units = new Set(['°F','mm']);
+const statuses = ['Matched','Added','Missing','Duplicate'];
+const scale = 100000n;
+
+function decode(encoded) {
+    return Uint8Array.from(atob(encoded), char => char.charCodeAt(0));
+}
+
+function readCsv(text) {
+    const records = [];
+    let row = [];
+    let field = '';
+    let quoted = false;
+    let closed = false;
+    for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        if (quoted) {
+            if (char !== '"') field += char;
+            else if (text[i + 1] === '"') {
+                field += '"';
+                i++;
+            } else {
+                quoted = false;
+                closed = true;
+            }
+        } else if (char === '"') {
+            if (field || closed) throw Error('Invalid CSV quote');
+            quoted = true;
+        } else if (char === ',' || char === '\n') {
+            row.push(field);
+            field = '';
+            closed = false;
+            if (char === '\n') {
+                records.push(row);
+                row = [];
+            }
+        } else {
+            if (closed) throw Error('Unexpected CSV text');
+            field += char;
+        }
+    }
+    if (quoted || row.length || field) throw Error('Incomplete verified CSV');
+    return records;
+}
+
+function decimal(text) {
+    const parts = /^(-?)([0-9]+)(?:\.([0-9]{1,5}))?$/.exec(text);
+    if (!parts || parts[0] !== text) throw Error('Invalid verified decimal');
+    const scaled = BigInt(parts[2] + (parts[3] || '').padEnd(5, '0'));
+    return parts[1] ? -scaled : scaled;
+}
+
+function signedDecimal(scaled) {
+    const magnitude = scaled < 0n ? -scaled : scaled;
+    const fraction = (magnitude % scale).toString().padStart(5, '0').replace(/0+$/, '');
+    return (scaled < 0n ? '-' : scaled > 0n ? '+' : '') + (magnitude / scale) + (fraction ? '.' + fraction : '');
+}
+
+function displayKey(key) {
+    return '"' + key.replaceAll('\\','\\\\').replaceAll('"','\\"')
+        .replaceAll('\t','\\t').replaceAll('\r','\\r').replaceAll('\n','\\n') + '"';
+}
+
+async function readExport(encoded, keyColumn, label, id) {
+    const bytes = decode(encoded);
+    const records = readCsv(new TextDecoder('utf-8',{fatal:true}).decode(bytes));
+    const header = records.shift();
+    const offset = header.length - 8;
+    const original = header.slice(0,offset);
+    const index = original.indexOf(keyColumn);
+    if (offset < 1 || index < 0 || original.lastIndexOf(keyColumn) !== index || !header[offset].endsWith('source_row'))
+        throw Error('Invalid routing key column');
+    const groups = new Map();
+    records.forEach((row,i) => {
+        const number = i + 2;
+        const unit = row[offset + 7];
+        if (row.length !== header.length || row[offset] !== String(number) || !units.has(unit))
+            throw Error('Invalid verified routing row');
+        const key = row[index];
+        const identity = JSON.stringify([key,unit]);
+        if (!groups.has(identity)) groups.set(identity,[]);
+        groups.get(identity).push({number,value:row[offset + 6]});
+    });
+    const digest = new Uint8Array(await crypto.subtle.digest('SHA-256',bytes));
+    const prefix = [...digest.slice(0,6)].map(byte => byte.toString(16).padStart(2,'0')).join('');
+    document.getElementById(id).textContent = label + ' · ' + records.length + (records.length === 1 ? ' row' : ' rows') + ' · ' + prefix;
+    return groups;
+}
+
+function compare(earlier, later) {
+    if (earlier.length > 1 || later.length > 1) return ['Duplicate','—'];
+    if (!earlier.length) return ['Added','—'];
+    if (!later.length) return ['Missing','—'];
+    return ['Matched',signedDecimal(decimal(later[0].value) - decimal(earlier[0].value))];
+}
+
+function readingText(readings) {
+    return readings.length ? readings.map(row => '#' + row.number + ': ' + row.value).join(' · ') : '—';
+}
+
+async function render() {
+    const keyColumn = new TextDecoder('utf-8',{fatal:true}).decode(decode('cmVjb3JkIElE'));
+    document.getElementById('key-column').textContent = 'Key column · ' + displayKey(keyColumn);
+    const [earlier,later] = await Promise.all([
+        readExport('cmVjb3JkIElELHJlYWRpbmcscHJvYmVfYyxpbmNoZXMscm91dGVfc291cmNlX3Jvdyxyb3V0ZV9jbGFzc2lmaWNhdGlvbixyb3V0ZV9sZXNzb24scm91dGVfaW5wdXRfY29sdW1uLHJvdXRlX2lucHV0X3ZhbHVlLHJvdXRlX2lucHV0X3VuaXQscm91dGVfb3V0cHV0X3ZhbHVlLHJvdXRlX291dHB1dF91bml0Cs6xLTEsNCwxMCwwLDIsdGVtcGVyYXR1cmUsdGVtcGVyYXR1cmUtZXhwb3J0LHByb2JlX2MsMTAswrBDLDUwLMKwRgpyYWlsLDEyLDAsMywzLGxlbmd0aCxsZW5ndGgtZXhwb3J0LGluY2hlcywzLGluLDc2LjIsbW0KZ29uZSw0LC00MCwwLDQsdGVtcGVyYXR1cmUsdGVtcGVyYXR1cmUtZXhwb3J0LHByb2JlX2MsLTQwLMKwQywtNDAswrBGCnRhbmssMTIsMCwxLjUsNSxsZW5ndGgsbGVuZ3RoLWV4cG9ydCxpbmNoZXMsMS41LGluLDM4LjEsbW0KdGFuaywxMiwwLDEuNzUsNixsZW5ndGgsbGVuZ3RoLWV4cG9ydCxpbmNoZXMsMS43NSxpbiw0NC40NSxtbQpzd2l0Y2gsNCwwLDAsNyx0ZW1wZXJhdHVyZSx0ZW1wZXJhdHVyZS1leHBvcnQscHJvYmVfYywwLMKwQywzMizCsEYKInF1b3RlICIiQSIiLCDOsiIsNCwtNDAsMCw4LHRlbXBlcmF0dXJlLHRlbXBlcmF0dXJlLWV4cG9ydCxwcm9iZV9jLC00MCzCsEMsLTQwLMKwRgpyYWlsLDQsNSwwLDksdGVtcGVyYXR1cmUsdGVtcGVyYXR1cmUtZXhwb3J0LHByb2JlX2MsNSzCsEMsNDEswrBGCmxhdGUtZHVwLDQsMywwLDEwLHRlbXBlcmF0dXJlLHRlbXBlcmF0dXJlLWV4cG9ydCxwcm9iZV9jLDMswrBDLDM3LjQswrBGCg==',keyColumn,'Earlier export','source-earlier'),
+        readExport('cmVhZGluZyxpbmNoZXMscmVjb3JkIElELHByb2JlX2Mscm91dGVfc291cmNlX3Jvdyxyb3V0ZV9jbGFzc2lmaWNhdGlvbixyb3V0ZV9sZXNzb24scm91dGVfaW5wdXRfY29sdW1uLHJvdXRlX2lucHV0X3ZhbHVlLHJvdXRlX2lucHV0X3VuaXQscm91dGVfb3V0cHV0X3ZhbHVlLHJvdXRlX291dHB1dF91bml0CjEyLDIuNSxyYWlsLDAsMixsZW5ndGgsbGVuZ3RoLWV4cG9ydCxpbmNoZXMsMi41LGluLDYzLjUsbW0KMTIsMC4yNSxmcmVzaCwwLDMsbGVuZ3RoLGxlbmd0aC1leHBvcnQsaW5jaGVzLDAuMjUsaW4sNi4zNSxtbQo0LDAszrEtMSwxMS4yNSw0LHRlbXBlcmF0dXJlLHRlbXBlcmF0dXJlLWV4cG9ydCxwcm9iZV9jLDExLjI1LMKwQyw1Mi4yNSzCsEYKMTIsMix0YW5rLDAsNSxsZW5ndGgsbGVuZ3RoLWV4cG9ydCxpbmNoZXMsMixpbiw1MC44LG1tCjEyLDgsc3dpdGNoLDAsNixsZW5ndGgsbGVuZ3RoLWV4cG9ydCxpbmNoZXMsOCxpbiwyMDMuMixtbQo0LDAsInF1b3RlICIiQSIiLCDOsiIsLTQwLDcsdGVtcGVyYXR1cmUsdGVtcGVyYXR1cmUtZXhwb3J0LHByb2JlX2MsLTQwLMKwQywtNDAswrBGCjQsMCxsYXRlLWR1cCw0LDgsdGVtcGVyYXR1cmUsdGVtcGVyYXR1cmUtZXhwb3J0LHByb2JlX2MsNCzCsEMsMzkuMizCsEYKNCwwLHJhaWwsNy43NSw5LHRlbXBlcmF0dXJlLHRlbXBlcmF0dXJlLWV4cG9ydCxwcm9iZV9jLDcuNzUswrBDLDQ1Ljk1LMKwRgo0LDAsbGF0ZS1kdXAsNSwxMCx0ZW1wZXJhdHVyZSx0ZW1wZXJhdHVyZS1leHBvcnQscHJvYmVfYyw1LMKwQyw0MSzCsEYK',keyColumn,'Later export','source-later'),
+    ]);
+    const totals = new Map(statuses.map(status => [status,0]));
+    const table = document.getElementById('matched-rows');
+    for (const identity of new Set([...earlier.keys(),...later.keys()])) {
+        const [key,unit] = JSON.parse(identity);
+        const oldRows = earlier.get(identity) || [];
+        const newRows = later.get(identity) || [];
+        const [status,delta] = compare(oldRows,newRows);
+        const row = document.createElement('tr');
+        const cells = [displayKey(key),unit,status,readingText(oldRows),readingText(newRows),delta];
+        const classes = ['key','unit',status.toLowerCase(),'','',status === 'Matched' ? 'matched' : ''];
+        cells.forEach((value,i) => {
+            const cell = document.createElement('td');
+            cell.className = classes[i];
+            cell.textContent = value;
+            row.append(cell);
+        });
+        table.append(row);
+        totals.set(status,totals.get(status) + 1);
+    }
+    document.getElementById('row-counts').textContent = [...totals].map(([status,total]) => status + ' ' + total).join(' · ');
+}
+render().catch(error => { console.error(error.message); });
+</script>
+</body>
+</html>

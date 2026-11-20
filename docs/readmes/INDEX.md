@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 200 — Verified key and unit comparison](../../README-200.md) · [Walkthrough](200/index.html)
+
 [Edition 199 — Verified routing comparison](../../README-199.md) · [Walkthrough](199/index.html)
 
 [Edition 198 — Verified routing dashboard](../../README-198.md) · [Walkthrough](198/index.html)

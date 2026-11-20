@@ -1,3 +1,7 @@
+## Edition 200 — Compare verified routed rows by key and unit
+
+2026-11-20. Compare rows from two verified routing exports in Chat. Match an original key and output unit, then recheck the exact rows and source files after restart. Two fresh nine-row exports produced 4 matched, 2 added, 2 missing and 2 duplicate key-unit groups. 125 root Java tests, 73 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed locally. After restart, the saved key and original pair passed nine fresh browser checks even after a new export was saved. See README-200.md and docs/publication200/plan.md.
+
 ## Edition 199 — Compare verified routing exports by output unit
 
 2026-11-19. Compare the latest two verified routing exports in Chat, with separate °F and mm summaries. Recheck the same two exports against Java and the browser after restart. The sample means changed by **+23.175 °F** and **+441.325 mm** across the two exports. 125 root Java tests, 71 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed locally. After restart, the original pair passed 12 fresh browser checks even after a new export was saved. See README-199.md and docs/publication199/plan.md.

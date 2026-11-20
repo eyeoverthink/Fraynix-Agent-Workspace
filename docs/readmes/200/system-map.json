@@ -1,0 +1,52 @@
+{
+  "summary": "Compare rows from two verified routing exports in Chat. Match an original key and output unit, then recheck the exact rows and source files after restart.",
+  "modules": [
+    {
+      "title": "Key and unit matching",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedKeyComparisonReport.java",
+      "note": "docs/obsidian/208-verified-routed-row-comparison.md"
+    },
+    {
+      "title": "Comparison and source verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java",
+      "note": "docs/obsidian/208-verified-routed-row-comparison.md"
+    },
+    {
+      "title": "Offline browser comparison",
+      "source": "workspace-engine/src/main/resources/workbench/routing-key-comparison.html",
+      "note": "docs/obsidian/208-verified-routed-row-comparison.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/200/matched-key-and-unit.png",
+      "title": "The desktop compares rows using record ID and each row's output unit"
+    },
+    {
+      "path": "docs/readmes/200/matched-rechecked-after-restart.png",
+      "title": "The same table passes fresh Java and browser checks after desktop restart"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/200/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/200/key-comparison.html",
+      "title": "Open the sample comparison"
+    },
+    {
+      "path": "docs/readmes/200/comparison-browser-receipt.json",
+      "title": "Original comparison browser receipt"
+    },
+    {
+      "path": "docs/readmes/200/earlier-routed-results.csv",
+      "title": "Earlier verified CSV"
+    },
+    {
+      "path": "docs/readmes/200/later-routed-results.csv",
+      "title": "Later verified CSV"
+    }
+  ]
+}

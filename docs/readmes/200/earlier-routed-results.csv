@@ -1,0 +1,10 @@
+record ID,reading,probe_c,inches,route_source_row,route_classification,route_lesson,route_input_column,route_input_value,route_input_unit,route_output_value,route_output_unit
+α-1,4,10,0,2,temperature,temperature-export,probe_c,10,°C,50,°F
+rail,12,0,3,3,length,length-export,inches,3,in,76.2,mm
+gone,4,-40,0,4,temperature,temperature-export,probe_c,-40,°C,-40,°F
+tank,12,0,1.5,5,length,length-export,inches,1.5,in,38.1,mm
+tank,12,0,1.75,6,length,length-export,inches,1.75,in,44.45,mm
+switch,4,0,0,7,temperature,temperature-export,probe_c,0,°C,32,°F
+"quote ""A"", β",4,-40,0,8,temperature,temperature-export,probe_c,-40,°C,-40,°F
+rail,4,5,0,9,temperature,temperature-export,probe_c,5,°C,41,°F
+late-dup,4,3,0,10,temperature,temperature-export,probe_c,3,°C,37.4,°F

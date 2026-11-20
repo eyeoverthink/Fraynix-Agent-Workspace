@@ -1,0 +1,172 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "Verified routed row comparison",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Verified routed row comparison",
+        "selector": "h1"
+      },
+      "index": 0,
+      "selector": "h1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Key column · \"record ID\"",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Key column · \"record ID\"",
+        "selector": "#key-column"
+      },
+      "index": 1,
+      "selector": "#key-column",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Earlier export · 9 rows · 75c288b4662c",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Earlier export · 9 rows · 75c288b4662c",
+        "selector": "#source-earlier"
+      },
+      "index": 2,
+      "selector": "#source-earlier",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Later export · 9 rows · 9920f5e2a5d4",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Later export · 9 rows · 9920f5e2a5d4",
+        "selector": "#source-later"
+      },
+      "index": 3,
+      "selector": "#source-later",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Matched 4 · Added 2 · Missing 2 · Duplicate 2",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Matched 4 · Added 2 · Missing 2 · Duplicate 2",
+        "selector": "#row-counts"
+      },
+      "index": 4,
+      "selector": "#row-counts",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 10,
+        "text": "\"α-1\"\t°F\tMatched\t#2: 50\t#4: 52.25\t+2.25",
+        "value": null
+      },
+      "expected": {
+        "expectCount": 10,
+        "selector": "#matched-rows tr"
+      },
+      "index": 5,
+      "selector": "#matched-rows tr",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "\"α-1\"\t°F\tMatched\t#2: 50\t#4: 52.25\t+2.25\n\"rail\"\tmm\tMatched\t#3: 76.2\t#2: 63.5\t-12.7\n\"gone\"\t°F\tMissing\t#4: -40\t—\t—\n\"tank\"\tmm\tDuplicate\t#5: 38.1 · #6: 44.45\t#5: 50.8\t—\n\"switch\"\t°F\tMissing\t#7: 32\t—\t—\n\"quote \\\"A\\\", β\"\t°F\tMatched\t#8: -40\t#7: -40\t0\n\"rail\"\t°F\tMatched\t#9: 41\t#9: 45.95\t+4.95\n\"late-dup\"\t°F\tDuplicate\t#10: 37.4\t#8: 39.2 · #10: 41\t—\n\"fresh\"\tmm\tAdded\t—\t#3: 6.35\t—\n\"switch\"\tmm\tAdded\t—\t#6: 203.2\t—",
+        "value": null
+      },
+      "expected": {
+        "expectText": "\"α-1\"\t°F\tMatched\t#2: 50\t#4: 52.25\t+2.25\n\"rail\"\tmm\tMatched\t#3: 76.2\t#2: 63.5\t-12.7\n\"gone\"\t°F\tMissing\t#4: -40\t—\t—\n\"tank\"\tmm\tDuplicate\t#5: 38.1 · #6: 44.45\t#5: 50.8\t—\n\"switch\"\t°F\tMissing\t#7: 32\t—\t—\n\"quote \\\"A\\\", β\"\t°F\tMatched\t#8: -40\t#7: -40\t0\n\"rail\"\t°F\tMatched\t#9: 41\t#9: 45.95\t+4.95\n\"late-dup\"\t°F\tDuplicate\t#10: 37.4\t#8: 39.2 · #10: 41\t—\n\"fresh\"\tmm\tAdded\t—\t#3: 6.35\t—\n\"switch\"\tmm\tAdded\t—\t#6: 203.2\t—",
+        "selector": "#matched-rows"
+      },
+      "index": 6,
+      "selector": "#matched-rows",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Earlier export · 9 rows · 75c288b4662c",
+        "value": null
+      },
+      "expected": {
+        "expectCount": 1,
+        "selector": "a[href=\"earlier-routed-results.csv\"]"
+      },
+      "index": 7,
+      "selector": "a[href=\"earlier-routed-results.csv\"]",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Later export · 9 rows · 9920f5e2a5d4",
+        "value": null
+      },
+      "expected": {
+        "expectCount": 1,
+        "selector": "a[href=\"later-routed-results.csv\"]"
+      },
+      "index": 8,
+      "selector": "a[href=\"later-routed-results.csv\"]",
+      "passed": true
+    }
+  ],
+  "at": "2026-11-20T12:31:41.685206800Z",
+  "id": "fedeabb2-489c-3ce8-add7-d2b45d4d3983",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "expectText": "Verified routed row comparison",
+      "selector": "h1"
+    },
+    {
+      "expectText": "Key column · \"record ID\"",
+      "selector": "#key-column"
+    },
+    {
+      "expectText": "Earlier export · 9 rows · 75c288b4662c",
+      "selector": "#source-earlier"
+    },
+    {
+      "expectText": "Later export · 9 rows · 9920f5e2a5d4",
+      "selector": "#source-later"
+    },
+    {
+      "expectText": "Matched 4 · Added 2 · Missing 2 · Duplicate 2",
+      "selector": "#row-counts"
+    },
+    {
+      "expectCount": 10,
+      "selector": "#matched-rows tr"
+    },
+    {
+      "expectText": "\"α-1\"\t°F\tMatched\t#2: 50\t#4: 52.25\t+2.25\n\"rail\"\tmm\tMatched\t#3: 76.2\t#2: 63.5\t-12.7\n\"gone\"\t°F\tMissing\t#4: -40\t—\t—\n\"tank\"\tmm\tDuplicate\t#5: 38.1 · #6: 44.45\t#5: 50.8\t—\n\"switch\"\t°F\tMissing\t#7: 32\t—\t—\n\"quote \\\"A\\\", β\"\t°F\tMatched\t#8: -40\t#7: -40\t0\n\"rail\"\t°F\tMatched\t#9: 41\t#9: 45.95\t+4.95\n\"late-dup\"\t°F\tDuplicate\t#10: 37.4\t#8: 39.2 · #10: 41\t—\n\"fresh\"\tmm\tAdded\t—\t#3: 6.35\t—\n\"switch\"\tmm\tAdded\t—\t#6: 203.2\t—",
+      "selector": "#matched-rows"
+    },
+    {
+      "expectCount": 1,
+      "selector": "a[href=\"earlier-routed-results.csv\"]"
+    },
+    {
+      "expectCount": 1,
+      "selector": "a[href=\"later-routed-results.csv\"]"
+    }
+  ]
+}
