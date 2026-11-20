@@ -1,0 +1,48 @@
+{
+  "summary": "Save a checked key-and-unit comparison as a CSV, with every status and source row. After restart, Fraynix rechecks the same comparison and reproduces the exact file.",
+  "modules": [
+    {
+      "title": "Comparison CSV format",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedKeyCsv.java",
+      "note": "docs/obsidian/209-verified-matched-csv-export.md"
+    },
+    {
+      "title": "Comparison and source verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java",
+      "note": "docs/obsidian/209-verified-matched-csv-export.md"
+    },
+    {
+      "title": "Verified desktop write",
+      "source": "workspace-desktop/exports.cjs",
+      "note": "docs/obsidian/209-verified-matched-csv-export.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/201/comparison-csv-export.png",
+      "title": "Chat saves a verified CSV from the matched report"
+    },
+    {
+      "path": "docs/readmes/201/comparison-csv-export-restarted.png",
+      "title": "Chat repeats the export after restarting and rechecking the original comparison"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/201/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/201/matched-comparison.csv",
+      "title": "Download the matched comparison CSV"
+    },
+    {
+      "path": "docs/readmes/201/export-receipt.json",
+      "title": "Export receipt after restart"
+    },
+    {
+      "path": "docs/readmes/201/source-comparison-proof.json",
+      "title": "Original checked row comparison"
+    }
+  ]
+}

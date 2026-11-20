@@ -1,0 +1,109 @@
+{
+  "passed": true,
+  "report": {
+    "artifact": {
+      "sha256": "1cbf9ff3b52caec18a0cdea06c973b20a6cf256e7656ecdce89b5a6dc849acf7",
+      "id": "99a8a07a-3ef3-3427-aa2d-1bd46a52ce63",
+      "version": 1
+    },
+    "htmlSha256": "8ffa48360c0de8f86b659e4f9abb8c797c7aeedd525a71ad5880ff1223838114",
+    "earlierCsvSha256": "75c288b4662c0078058bc8a58d99e3b9e56513ddd0f5240c45d71a74a1347697",
+    "keyColumn": "record ID",
+    "browserChecks": 9,
+    "id": "f6165411-d8c5-3a59-9c5c-273c1b92b5da",
+    "passed": true,
+    "csvSha256": "9920f5e2a5d4d455d2bfef1a65ad464f3679a7cd2fd7ff590f12e06ffd9bb872",
+    "laterExportId": "74d3e986-c31a-46c7-976c-156f7a3292fb",
+    "earlierExportId": "a2a4434a-bde5-4f3a-94c2-f97c64f5fe3f"
+  },
+  "first": {
+    "id": "83250cea-7f2e-4f08-99d7-f69bb5c598c5",
+    "kind": "verified-routed-comparison",
+    "path": "83250cea-7f2e-4f08-99d7-f69bb5c598c5.csv",
+    "bytes": 960,
+    "sha256": "001b9939b0ef5c9182a2682dc23560634761a984a24771bbb4ad823b0307bbef",
+    "source": {
+      "format": "fraynix.routed-key-comparison-csv-v1",
+      "groups": 10,
+      "comparisonId": "f6165411-d8c5-3a59-9c5c-273c1b92b5da",
+      "artifact": {
+        "sha256": "1cbf9ff3b52caec18a0cdea06c973b20a6cf256e7656ecdce89b5a6dc849acf7",
+        "id": "99a8a07a-3ef3-3427-aa2d-1bd46a52ce63",
+        "version": 1
+      },
+      "keyColumn": "record ID",
+      "earlier": {
+        "exportId": "a2a4434a-bde5-4f3a-94c2-f97c64f5fe3f",
+        "sha256": "75c288b4662c0078058bc8a58d99e3b9e56513ddd0f5240c45d71a74a1347697"
+      },
+      "later": {
+        "exportId": "74d3e986-c31a-46c7-976c-156f7a3292fb",
+        "sha256": "9920f5e2a5d4d455d2bfef1a65ad464f3679a7cd2fd7ff590f12e06ffd9bb872"
+      },
+      "browserChecks": 9,
+      "browserEvidenceSha256": "c7aafbf955d8e8d191c3114c0803a85ec16b886ba17e777ed9cf9e25b03d787a"
+    },
+    "createdAt": "2026-11-20T12:57:09.878Z"
+  },
+  "second": {
+    "id": "7f5664e2-dc02-4f44-9dd9-a689ff938110",
+    "kind": "verified-routed-comparison",
+    "path": "7f5664e2-dc02-4f44-9dd9-a689ff938110.csv",
+    "bytes": 960,
+    "sha256": "001b9939b0ef5c9182a2682dc23560634761a984a24771bbb4ad823b0307bbef",
+    "source": {
+      "format": "fraynix.routed-key-comparison-csv-v1",
+      "groups": 10,
+      "comparisonId": "f6165411-d8c5-3a59-9c5c-273c1b92b5da",
+      "artifact": {
+        "sha256": "1cbf9ff3b52caec18a0cdea06c973b20a6cf256e7656ecdce89b5a6dc849acf7",
+        "id": "99a8a07a-3ef3-3427-aa2d-1bd46a52ce63",
+        "version": 1
+      },
+      "keyColumn": "record ID",
+      "earlier": {
+        "exportId": "a2a4434a-bde5-4f3a-94c2-f97c64f5fe3f",
+        "sha256": "75c288b4662c0078058bc8a58d99e3b9e56513ddd0f5240c45d71a74a1347697"
+      },
+      "later": {
+        "exportId": "74d3e986-c31a-46c7-976c-156f7a3292fb",
+        "sha256": "9920f5e2a5d4d455d2bfef1a65ad464f3679a7cd2fd7ff590f12e06ffd9bb872"
+      },
+      "browserChecks": 9,
+      "browserEvidenceSha256": "c7aafbf955d8e8d191c3114c0803a85ec16b886ba17e777ed9cf9e25b03d787a"
+    },
+    "createdAt": "2026-11-20T12:57:12.430Z"
+  },
+  "screenshots": [
+    {
+      "name": "comparison-csv-export.png",
+      "sha256": "b52ab848088a3c6c68c086de26610b54db6a923e929e93d8bbd8a0cfbe9f0253"
+    },
+    {
+      "name": "comparison-csv-export-restarted.png",
+      "sha256": "530f0d8a285f3f3639a1709fab3ed11248e8287b97ef9a8b3dd991e17473413a"
+    }
+  ],
+  "checks": {
+    "priorComparisonRechecked": true,
+    "exportWithoutReportRefused": true,
+    "allRowsAndStatusesMatch": true,
+    "identicalAcrossRestart": true,
+    "pinnedDespiteNewSourceExport": true,
+    "originalReceiptPreserved": true,
+    "missingBrowserChecksRefused": true,
+    "changedBrowserRowsRefused": true,
+    "changedTransferRefused": true,
+    "rewrittenInputRefused": true,
+    "modifiedSavedReceiptRefused": true,
+    "noCsvWrittenOnRefusal": true
+  },
+  "source": "3b8c35b5147fed879bd5b766bf76678a50a7e5fa",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 75,
+    "desktop": 181,
+    "archive": 10
+  }
+}

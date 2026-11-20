@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 201 · Export a verified matched comparison from Chat</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Export a verified matched comparison from Chat</h1><p>Save a checked key-and-unit comparison as a CSV, with every status and source row. After restart, Fraynix rechecks the same comparison and reproduces the exact file.</p>
+<nav><a href="../../../README-201.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../200/index.html">Edition 200</a><a href="#system">System files</a></nav>
+<figure><img src="comparison-csv-export.png" alt="Chat saves a verified CSV from the matched report"><figcaption>Chat saves a verified CSV from the matched report</figcaption></figure>
+<figure><img src="comparison-csv-export-restarted.png" alt="Chat repeats the export after restarting and rechecking the original comparison"><figcaption>Chat repeats the export after restarting and rechecking the original comparison</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Save a checked key-and-unit comparison as a CSV, with every status and source row. After restart, Fraynix rechecks the same comparison and reproduces the exact file.", "modules": [{"title": "Comparison CSV format", "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedKeyCsv.java", "note": "docs/obsidian/209-verified-matched-csv-export.md"}, {"title": "Comparison and source verification", "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java", "note": "docs/obsidian/209-verified-matched-csv-export.md"}, {"title": "Verified desktop write", "source": "workspace-desktop/exports.cjs", "note": "docs/obsidian/209-verified-matched-csv-export.md"}], "screenshots": [{"path": "docs/readmes/201/comparison-csv-export.png", "title": "Chat saves a verified CSV from the matched report"}, {"path": "docs/readmes/201/comparison-csv-export-restarted.png", "title": "Chat repeats the export after restarting and rechecking the original comparison"}], "evidence": [{"path": "docs/readmes/201/verification.json", "title": "Verification record"}, {"path": "docs/readmes/201/matched-comparison.csv", "title": "Download the matched comparison CSV"}, {"path": "docs/readmes/201/export-receipt.json", "title": "Export receipt after restart"}, {"path": "docs/readmes/201/source-comparison-proof.json", "title": "Original checked row comparison"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/209-verified-matched-csv-export.canvas", "bytes": 1160, "sha256": "a91f0e5c3ef4e3b661b900d0ab8d2cfec08292afa06a300c6deccf8c7cd6e15e", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/209-verified-matched-csv-export.md", "bytes": 492, "sha256": "d615207b49dc91152d81a73a017a8360884abc6fdaf1b1ad6696c4b8f2ea869e", "hashKind": "utf8-lf"}, {"path": "docs/publication201/document.py", "bytes": 12008, "sha256": "4fab4d196745a88b7dbbac23812f7ec1bfc1714e8e2db905bfbdad3a9c9a6bd0", "hashKind": "utf8-lf"}, {"path": "docs/publication201/plan.md", "bytes": 1714, "sha256": "620b1a7de4a21bb4011fbd9016af74e397435f5b17426d27c8182508c1a64515", "hashKind": "utf8-lf"}, {"path": "docs/publication201/validate-desktop.cjs", "bytes": 12159, "sha256": "3c4b0c1191aa47e1632a257046370c20b1006b64b63685daeec222e983bc7b8e", "hashKind": "utf8-lf"}, {"path": "docs/publication201/validate-guide.cjs", "bytes": 1717, "sha256": "f732be7001041e73d6e5459c9fe3b12007c16545e3eab4a2e678bf94c6d3b816", "hashKind": "utf8-lf"}, {"path": "docs/publication201/validate.py", "bytes": 2218, "sha256": "3b4dac0fefa33fb9bdb9938d6eb7b69dcebeec50f923ad2af73668fdc91f87be", "hashKind": "utf8-lf"}, {"path": "docs/publication201/verify-export.py", "bytes": 867, "sha256": "b71aabd84d67b6fde142ba6beb6f8be276a7eda6d0124e405cb3a01296956b9e", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/exports.cjs", "bytes": 12010, "sha256": "a875f0ffc67cd648f69a984a4b0db49145ae7175105c4105a49e99b38380e56a", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 113964, "sha256": "61222505496591014c55efa461bf3e24bf5a3edd394c2fa73452f04534aa83ae", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/classification-routing.js", "bytes": 8792, "sha256": "139eeadcbe434889cb8245a9c3721795c7a21467c840f39207cecfd9f02df6a5", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/MeasurementStore.java", "bytes": 25625, "sha256": "565966cabc5b368833158da083acb7e7fe463e264800b7c7ee66a46600f6c77c", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java", "bytes": 11925, "sha256": "202d41cf5eac8194c88bd6d68427b545f9c090c4d5cb3fdcc9580edc53c16009", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedKeyComparisonReport.java", "bytes": 8197, "sha256": "82a0e730480d8cc0f96313bb3754147b87c6193f2060de35aa82f22ba9897605", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedKeyCsv.java", "bytes": 2662, "sha256": "375a4bdb2684218aa012241b6e6c3637325bae069bba4e0fba294e481b420be6", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/RoutedKeyCsvTest.java", "bytes": 2443, "sha256": "8d22cddbbb1da6faa3c4039bc40053d67d485fa61b67d544a924fbcbcf99e11d", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

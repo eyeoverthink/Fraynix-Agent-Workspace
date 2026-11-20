@@ -1,0 +1,11 @@
+key_json,unit,status,earlier_readings,later_readings,delta
+"""α-1""",°F,Matched,"[{""row"":2,""value"":""50""}]","[{""row"":4,""value"":""52.25""}]",2.25
+"""rail""",mm,Matched,"[{""row"":3,""value"":""76.2""}]","[{""row"":2,""value"":""63.5""}]",-12.7
+"""gone""",°F,Missing,"[{""row"":4,""value"":""-40""}]",[],
+"""tank""",mm,Duplicate,"[{""row"":5,""value"":""38.1""},{""row"":6,""value"":""44.45""}]","[{""row"":5,""value"":""50.8""}]",
+"""switch""",°F,Missing,"[{""row"":7,""value"":""32""}]",[],
+"""quote \""A\"", β""",°F,Matched,"[{""row"":8,""value"":""-40""}]","[{""row"":7,""value"":""-40""}]",0
+"""rail""",°F,Matched,"[{""row"":9,""value"":""41""}]","[{""row"":9,""value"":""45.95""}]",4.95
+"""late-dup""",°F,Duplicate,"[{""row"":10,""value"":""37.4""}]","[{""row"":8,""value"":""39.2""},{""row"":10,""value"":""41""}]",
+"""fresh""",mm,Added,[],"[{""row"":3,""value"":""6.35""}]",
+"""switch""",mm,Added,[],"[{""row"":6,""value"":""203.2""}]",
