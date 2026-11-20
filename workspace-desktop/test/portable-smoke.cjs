@@ -42,7 +42,7 @@ async function main() {
             !error.message.includes('Game Lab cannot get a macOS OpenGL 4.1 context from the current display.')) {
           throw error;
         }
-        assert.equal((await api('/api/game/state')).running,false);
+        assert.equal((await api('/api/game/state',{})).running,false);
         nativeGame = 'display-unavailable';
         console.warn('Game Lab needs a macOS OpenGL 4.1 display. The hosted job verified startup reporting only.');
       }
