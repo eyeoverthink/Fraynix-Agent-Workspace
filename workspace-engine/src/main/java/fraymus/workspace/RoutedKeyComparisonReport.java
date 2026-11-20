@@ -113,7 +113,7 @@ final class RoutedKeyComparisonReport implements RoutedReport {
                 .replace("@LATER_CSV@", file.getString("base64"));
     }
 
-    private static String visibleKey(String key) {
+    static String visibleKey(String key) {
         return "\"" + key.replace("\\", "\\\\").replace("\"", "\\\"")
                 .replace("\t", "\\t").replace("\r", "\\r").replace("\n", "\\n") + "\"";
     }

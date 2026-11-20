@@ -528,14 +528,14 @@ async function openRoutedDashboard({verifyOnly=false,compare=false,pair,keyColum
   return openRoutedReport(sources,retained,{verifyOnly,exportCsv});
 }
 
-async function summarizeRoutedComparison({verifyOnly=false,exportId}={}) {
-  if(typeof verifyOnly!=='boolean'||verifyOnly&&typeof exportId!=='string')
+async function summarizeRoutedComparison({verifyOnly=false,exportId,explorer=false}={}) {
+  if(typeof verifyOnly!=='boolean'||typeof explorer!=='boolean'||(verifyOnly||explorer)&&typeof exportId!=='string')
     throw Error('Summarize a comparison CSV first');
   const readSources=async id=>{
     const comparisonImport=await nativeExports.comparisonCsv(id);
     const {earlier,later,keyColumn}=comparisonImport.receipt.source;
     const [baseline,file]=await Promise.all([nativeExports.routedCsv(earlier.exportId),nativeExports.routedCsv(later.exportId)]);
-    return {comparisonImport,baseline,file,keyColumn};
+    return {comparisonImport,baseline,file,keyColumn,...(explorer?{explorer:true}:{})};
   };
   const sources=await readSources(exportId);
   return openRoutedReport(sources,()=>readSources(sources.comparisonImport.receipt.id),{verifyOnly});

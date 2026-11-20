@@ -18,7 +18,7 @@ final class RoutedComparisonTotals implements RoutedReport {
     private static final String TEMPLATE = FrayConversion.loadHtml("routing-comparison-totals.html");
     private static final List<String> STATUSES = List.of("Matched", "Added", "Missing", "Duplicate");
 
-    private record Unit(String name, int matched, int added, int missing, int duplicate, BigDecimal net,
+    record Unit(String name, int matched, int added, int missing, int duplicate, BigDecimal net,
                         BigDecimal absolute) {
         static Unit from(String name, List<List<String>> rows) {
             int[] counts = new int[STATUSES.size()];
@@ -67,17 +67,28 @@ final class RoutedComparisonTotals implements RoutedReport {
         this.csv = csv;
         this.receipt = receipt;
         var rows = MeasurementStore.csv(csv, 1, 32_000);
-        units = List.of("°F", "mm").stream().map(unit -> Unit.from(unit, rows.subList(1, rows.size())))
-                .filter(unit -> unit.size() > 0).toList();
+        units = totalsFor(rows.subList(1, rows.size()));
         html = TEMPLATE.replace("@COMPARISON_CSV@", encode(csv))
                 .replace("@IMPORT_RECEIPT@", encode(MapCheckpoint.canonical(receipt) + "\n"));
     }
 
-    private static String encode(String value) {
+    static List<Unit> totalsFor(List<List<String>> rows) {
+        return List.of("°F", "mm").stream().map(unit -> Unit.from(unit, rows))
+                .filter(unit -> unit.size() > 0).toList();
+    }
+
+    static String encode(String value) {
         return Base64.getEncoder().encodeToString(value.getBytes(StandardCharsets.UTF_8));
     }
 
     @Override public String html() { return html; }
+
+    String csv() { return csv; }
+
+    JSONObject totalsProof(int checks) {
+        return new JSONObject().put("passed", true).put("import", receipt)
+                .put("totals", new JSONArray(units.stream().map(Unit::evidence).toList())).put("browserChecks", checks);
+    }
 
     @Override public JSONArray steps() {
         var steps = new JSONArray().put(text("h1", TITLE))
@@ -97,9 +108,7 @@ final class RoutedComparisonTotals implements RoutedReport {
 
     @Override public JSONObject artifact(JSONObject file, JSONArray checks) {
         verifyBrowser(checks);
-        var proof = new JSONObject().put("passed", true).put("import", receipt)
-                .put("totals", new JSONArray(units.stream().map(Unit::evidence).toList()))
-                .put("browserChecks", checks.length());
+        var proof = totalsProof(checks.length());
         return new JSONObject().put("title", TITLE)
                 .put("sources", new JSONArray().put("matched-comparison-csv:sha256:" + receipt.getString("sha256"))
                         .put("matched-comparison-receipt:sha256:" + MeasurementStore.hash(MapCheckpoint.canonical(receipt))))

@@ -27,21 +27,23 @@ final class RoutedDashboard {
     }
 
     synchronized JSONObject prepare(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "file", "baseline", "keyColumn", "comparisonImport", "verifyOnly");
+        SpatialScene.keys(input, "file", "baseline", "keyColumn", "comparisonImport", "explorer", "verifyOnly");
         var file = input.getJSONObject("file");
         var baseline = input.optJSONObject("baseline");
         String key = keyColumn(input);
         var imported = comparisonImport(input);
-        var report = checkedReport(file, baseline, key, imported);
-        String id = imported == null ? reportId(file, baseline, key) : summaryId(imported);
+        boolean explorer = isExplorer(input);
+        var report = checkedReport(file, baseline, key, imported, explorer);
+        String id = imported == null ? reportId(file, baseline, key) : importedId(imported, explorer);
         var path = path(id);
         var task = Files.exists(path, LinkOption.NOFOLLOW_LINKS) ? load(id) : null;
-        if (task != null) requireSources(task, file, baseline, key, imported);
+        if (task != null) requireSources(task, file, baseline, key, imported, explorer);
         if (task != null && task.has("artifact")) {
             var saved = proof(task, report);
             return input.optBoolean("verifyOnly") ? saved.put("steps", report.steps()) : saved;
         }
         if (input.optBoolean("verifyOnly")) {
+            if (explorer) throw new IllegalStateException("Build this comparison explorer before rechecking it");
             if (imported != null) throw new IllegalStateException("Summarize this comparison CSV before rechecking it");
             throw new IllegalStateException(baseline == null ? "Build this routed CSV dashboard before rechecking it"
                     : "Build this routed CSV comparison before rechecking it");
@@ -51,6 +53,7 @@ final class RoutedDashboard {
             if (baseline != null) initial.put("baseline", baseline);
             if (key != null) initial.put("keyColumn", key);
             if (imported != null) initial.put("comparisonImport", imported);
+            if (explorer) initial.put("explorer", true);
             save(initial);
         }
         var output = new JSONObject().put("id", id).put("htmlSha256", report.htmlSha256());
@@ -60,14 +63,15 @@ final class RoutedDashboard {
     }
 
     synchronized JSONObject finish(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "id", "file", "baseline", "keyColumn", "comparisonImport", "htmlSha256", "checks", "exportCsv");
+        SpatialScene.keys(input, "id", "file", "baseline", "keyColumn", "comparisonImport", "explorer", "htmlSha256", "checks", "exportCsv");
         var task = load(input.getString("id"));
         var file = input.getJSONObject("file");
         var baseline = input.optJSONObject("baseline");
         String key = keyColumn(input);
         var imported = comparisonImport(input);
-        requireSources(task, file, baseline, key, imported);
-        var report = checkedReport(file, baseline, key, imported);
+        boolean explorer = isExplorer(input);
+        requireSources(task, file, baseline, key, imported, explorer);
+        var report = checkedReport(file, baseline, key, imported, explorer);
         if (!report.htmlSha256().equals(input.getString("htmlSha256")))
             throw new IllegalStateException("The reviewed dashboard changed");
         var supplied = input.optJSONArray("checks");
@@ -109,11 +113,13 @@ final class RoutedDashboard {
         var task = load(parts[0]);
         if (task.has("artifact") || task.has("checks")) return null;
         var report = checkedReport(task.getJSONObject("file"), task.optJSONObject("baseline"),
-                keyColumn(task), comparisonImport(task));
+                keyColumn(task), comparisonImport(task), isExplorer(task));
         return report.htmlSha256().equals(parts[1]) ? report.html().getBytes(StandardCharsets.UTF_8) : null;
     }
 
-    private RoutedReport checkedReport(JSONObject file, JSONObject baseline, String key, JSONObject imported) throws Exception {
+    private RoutedReport checkedReport(JSONObject file, JSONObject baseline, String key, JSONObject imported,
+                                       boolean explorer) throws Exception {
+        if (explorer && imported == null) throw new IllegalArgumentException("The explorer requires a verified comparison summary");
         if (imported != null && (baseline == null || key == null))
             throw new IllegalArgumentException("A comparison CSV needs both original exports and the key");
         String current = checkedCsv(file);
@@ -128,8 +134,19 @@ final class RoutedDashboard {
         var comparison = new RoutedKeyComparisonReport(baseline, earlier, file, current, key);
         if (imported == null) return comparison;
         var original = load(reportId(file, baseline, key));
-        requireSources(original, file, baseline, key, null);
-        return checkedImport(imported, original, comparison);
+        requireSources(original, file, baseline, key, null, false);
+        var totals = checkedImport(imported, original, comparison);
+        if (!explorer) return totals;
+        String id = importedId(imported, false);
+        if (!Files.exists(path(id), LinkOption.NOFOLLOW_LINKS))
+            throw new IllegalStateException("Summarize the comparison CSV before building its explorer");
+        var summary = load(id);
+        requireSources(summary, file, baseline, key, imported, false);
+        if (!summary.has("artifact"))
+            throw new IllegalStateException("Verify the comparison CSV summary before building its explorer");
+        var verified = proof(summary, totals);
+        return new RoutedComparisonExplorer(totals.csv(), imported.getJSONObject("receipt"),
+                verified.getJSONObject("artifact"), totals.totalsProof(verified.getInt("browserChecks")));
     }
 
     private RoutedComparisonTotals checkedImport(JSONObject imported, JSONObject original,
@@ -228,8 +245,13 @@ final class RoutedDashboard {
         return record.has("comparisonImport") ? record.getJSONObject("comparisonImport") : null;
     }
 
+    private static boolean isExplorer(JSONObject record) {
+        return record.has("explorer") && record.getBoolean("explorer");
+    }
+
     private static void requireSources(JSONObject task, JSONObject file, JSONObject baseline, String key,
-                                       JSONObject imported) {
+                                       JSONObject imported, boolean explorer) {
+        if (isExplorer(task) != explorer) throw new IllegalStateException("The selected comparison report changed");
         var earlier = task.optJSONObject("baseline");
         boolean sameBaseline = earlier == null ? baseline == null : earlier.similar(baseline);
         if (!task.getJSONObject("file").similar(file) || !sameBaseline)
@@ -241,9 +263,10 @@ final class RoutedDashboard {
             throw new IllegalStateException("The attached comparison CSV or receipt changed");
     }
 
-    private static String summaryId(JSONObject imported) {
+    private static String importedId(JSONObject imported, boolean explorer) {
         String export = imported.getJSONObject("receipt").getString("id");
-        return UUID.nameUUIDFromBytes(("routed-comparison-totals:" + export).getBytes(StandardCharsets.UTF_8)).toString();
+        String prefix = explorer ? "routed-comparison-explorer:" : "routed-comparison-totals:";
+        return UUID.nameUUIDFromBytes((prefix + export).getBytes(StandardCharsets.UTF_8)).toString();
     }
 
     private static String reportId(JSONObject file, JSONObject baseline, String key) {

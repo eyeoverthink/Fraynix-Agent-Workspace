@@ -4,14 +4,18 @@ const SOURCE = 'fraynix-verified-classification';
 const COMPARISON = 'fraynix-last-routed-comparison';
 const KEY_COMPARISON = 'fraynix-last-key-comparison';
 const COMPARISON_SUMMARY = 'fraynix-last-comparison-summary';
+const COMPARISON_EXPLORER = 'fraynix-last-comparison-explorer';
 const byKey = /^Compare the last two verified routed CSVs by key (?:"([^"\r\n]+)"|([^\s".!?]+))[.!]?$/i;
 const recheckKey = /^Recheck the matched routed CSV comparison[.!]?$/i;
 const exportKey = /^Export the matched routed CSV comparison[.!]?$/i;
 const summaryRequest = /^(?:Summarize the last verified matched comparison CSV|Recheck the matched comparison CSV summary)[.!]?$/i;
 
+const explorerRequest = /^(?:Build an explorer from the verified comparison totals|Recheck the verified comparison explorer)[.!]?$/i;
+
 export const isRoutingRequest = text => /^(?:Route the last verified classification|Resume classification routing)[.!]?$/i.test(text.trim());
 export const isRoutedDashboardRequest = text =>
-    byKey.test(text.trim()) || recheckKey.test(text.trim()) || exportKey.test(text.trim()) || summaryRequest.test(text.trim()) ||
+    byKey.test(text.trim()) || recheckKey.test(text.trim()) || exportKey.test(text.trim()) ||
+    summaryRequest.test(text.trim()) || explorerRequest.test(text.trim()) ||
     /^(?:Build a dashboard from the (?:last )?verified routed CSV|Recheck the routed CSV dashboard|Compare the last two verified routed CSVs|Recheck the routed CSV comparison)[.!]?$/i.test(text.trim());
 
 export class ClassificationRoutingPanel {
@@ -60,14 +64,19 @@ export class ClassificationRoutingPanel {
     }
 
     async fromChat(text) {
-        if (summaryRequest.test(text.trim())) {
+        const explorer = explorerRequest.test(text.trim());
+        if (explorer || summaryRequest.test(text.trim())) {
             try {
                 const verifyOnly = /^recheck/i.test(text.trim());
-                const exportId = verifyOnly ? localStorage.getItem(COMPARISON_SUMMARY) : undefined;
-                if (verifyOnly && !exportId) throw Error('Summarize a comparison CSV first');
-                const result = await this.call('routing-summary',{verifyOnly,exportId});
-                localStorage.setItem(COMPARISON_SUMMARY,result.comparisonExportId);
-                this.announce('Comparison CSV totals verified against Java. '+result.browserChecks
+                const storage = explorer ? COMPARISON_EXPLORER : COMPARISON_SUMMARY;
+                const previous = verifyOnly ? localStorage.getItem(storage)
+                    : explorer ? localStorage.getItem(COMPARISON_SUMMARY) : undefined;
+                if ((verifyOnly||explorer) && !previous)
+                    throw Error(explorer && verifyOnly ? 'Build a verified comparison explorer first' : 'Summarize a comparison CSV first');
+                const result = await this.call('routing-summary',{verifyOnly,exportId:previous,explorer});
+                localStorage.setItem(storage,result.comparisonExportId);
+                const label = explorer ? 'Comparison explorer' : 'Comparison CSV totals';
+                this.announce(label+' verified against Java. '+result.browserChecks
                     +(result.rechecked?' fresh browser checks passed.':' browser checks passed.'));
             } catch (error) { this.announce(error.message); }
             return;
