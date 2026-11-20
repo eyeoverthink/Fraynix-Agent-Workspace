@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 206 · Turn checked comparisons into interactive change stories</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Turn checked comparisons into interactive change stories</h1><p>Ask Fraynix to create an interactive change story from a verified comparison. Inspect the source readings behind a bar and export a single HTML file for offline use.</p>
+<nav><a href="../../../README-206.md">App guide</a><a href="release-proof.json">Verification</a>
+<a href="../205/index.html">Edition 205</a><a href="change-story.html">Open the story</a><a href="#system">System files</a></nav>
+<figure><img src="mac-story.png" alt="Chat creates the verified story inside Fraynix on Apple silicon"><figcaption>Chat creates the verified story inside Fraynix on Apple silicon</figcaption></figure>
+<figure><img src="offline-story.png" alt="The exported file on Windows shows the source readings behind a selected loss"><figcaption>The exported file on Windows shows the source readings behind a selected loss</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Ask Fraynix to create an interactive change story from a verified comparison. Inspect the source readings behind a bar and export a single HTML file for offline use.", "modules": [{"title": "Chat commands", "source": "workspace-desktop/renderer/classification-routing.js", "note": "docs/obsidian/214-change-story.md"}, {"title": "Verified change story", "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedComparisonStory.java", "note": "docs/obsidian/214-change-story.md"}, {"title": "Offline chart", "source": "workspace-engine/src/main/resources/workbench/routing-story.js", "note": "docs/obsidian/214-change-story.md"}, {"title": "Desktop and export verification", "source": "workspace-desktop/test/change-story-integration.cjs", "note": "docs/obsidian/214-change-story.md"}], "screenshots": [{"path": "docs/readmes/206/mac-story.png", "title": "Chat creates the verified story inside Fraynix on Apple silicon"}, {"path": "docs/readmes/206/offline-story.png", "title": "The exported file on Windows shows the source readings behind a selected loss"}], "evidence": [{"path": "docs/readmes/206/change-story.html", "title": "Open the exported offline story"}, {"path": "docs/readmes/206/release-proof.json", "title": "Platform and test evidence"}, {"path": "docs/publication206/plan.md", "title": "Reproduction and next candidate"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 4315, "sha256": "8c3d0924bf7ea737e9bca915fe02914ad0a770d34dfcbfd2fbc67e335fd2b9a9", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/214-change-story.canvas", "bytes": 1506, "sha256": "04831052bc931c3c5a35389df613a7540e5822a8477aba743594ddc3457ed858", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/214-change-story.md", "bytes": 512, "sha256": "becf4ec6443a578af0c5dbf3214c0888f5462fe5dd69088d3349b04e265e55eb", "hashKind": "utf8-lf"}, {"path": "docs/publication206/document.py", "bytes": 12280, "sha256": "a601b0140314ff5294878e696ead7f1c3fd1c8d0833d53d61c2bf519d73beed7", "hashKind": "utf8-lf"}, {"path": "docs/publication206/plan.md", "bytes": 1807, "sha256": "ee822efc964e248ffda323dbd75d5e86a04e5a4422b61144c685569dfddbf69e", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/exports.cjs", "bytes": 13419, "sha256": "5ba37f06165cefa877b021586cca3e648a6b44e83fb392b1ff2b78d800b5d83b", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 116886, "sha256": "81dd14203890dcfd49606b1aab32300297e8befb9f340f4b1448d0c30ebb0162", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/classification-routing.js", "bytes": 12781, "sha256": "f5fe394cf2ecef3b269b309bd6d4b0c48cf4bfe26badcb251c5206b972e76007", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/change-story-integration.cjs", "bytes": 15600, "sha256": "114930591d67286540172b4fc8a522a95e537698156a046a91f4b8e216a12492", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedComparisonExplorer.java", "bytes": 10164, "sha256": "ab991d9167ad457e98c8e2c72006089bfa7dccb14174a4cae40a4588753b3623", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedComparisonStory.java", "bytes": 5350, "sha256": "5aff599c1bffb705ba1966ca468f70717b65c63c6b72f47ae428e91c9594dae5", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java", "bytes": 22118, "sha256": "aa52f6b1529df7725b11a60fad1699962222ce1cb9af79bdf42f2eb76cbcfd2c", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/resources/workbench/routing-story.css", "bytes": 1760, "sha256": "3f2a9a8100a099ebe4909f41243506edf6c507382856505e2d779ff6f673e150", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/resources/workbench/routing-story.js", "bytes": 3832, "sha256": "da4629181cd01ee0121dae1e95e9a6d0e74e48eface6c9273d22237f104d734a", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

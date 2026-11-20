@@ -1,3 +1,5 @@
+[Edition 206 — Interactive change stories](214-change-story.md)
+
 [Edition 205 — Mac, Linux and Windows setup](213-portable-workspace.md)
 
 [Edition 204 — Reusable comparison explorer](212-reusable-comparison-explorer.md)

@@ -1,3 +1,7 @@
+## Edition 206 — Turn checked comparisons into interactive change stories
+
+2026-11-20. Ask Fraynix to create an interactive change story from a verified comparison. Inspect the source readings behind a bar and export a single HTML file for offline use. The desktop built and rechecked the story on Windows x64, Apple silicon, Intel Mac and Linux x64. All four opened the exported HTML with HTTP and HTTPS blocked. The story has its own durable identity beside earlier explorers. Recheck and export reuse its original source, and an altered comparison was refused before export. See README-206.md and docs/publication206/plan.md.
+
 ## Edition 205 — Run Fraynix on Mac, Linux and Windows
 
 2026-11-20. Download the current workspace without the full evidence archive, prepare the local app and run the guided proof on your computer. The Java launcher picks the operating system's executable and the build stages the matching native libraries. All four hosted jobs passed the guided proof, native Bullet ramp and project restart. A physical Mac is still needed to confirm the native Game Lab renderer. The affected hosted runs verified that the app reports an unavailable OpenGL display. 125 root Java tests, 16 focused workspace Java tests, 183 desktop tests and 10 archive tests passed locally. See README-205.md, docs/INSTALL.md and docs/publication205/plan.md.

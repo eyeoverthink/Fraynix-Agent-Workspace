@@ -1,0 +1,432 @@
+{
+  "tests": {
+    "rootJava": 125,
+    "workspaceJava": 10,
+    "desktop": 183,
+    "archive": 10
+  },
+  "matrix": {
+    "id": 44778668741,
+    "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44778668741",
+    "runtimeCommit": "e0311afb8af6561d9c33acf9feba47e5b8478bdc",
+    "targets": {
+      "macos-arm64": {
+        "status": "success",
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44778668741/job/136435215134",
+        "desktop": {
+          "passed": true,
+          "platform": "darwin",
+          "architecture": "arm64",
+          "nativeGame": "display-unavailable",
+          "checks": [
+            "Java connection, local browser interaction, creation canvas and guided verification",
+            "Native Bullet physics passes the independent incline reference",
+            "Persistent Java owner starts and reopens the saved project"
+          ]
+        },
+        "story": {
+          "passed": true,
+          "platform": "darwin",
+          "architecture": "arm64",
+          "proof": {
+            "artifact": {
+              "sha256": "a0f39c0d653b2d7f7c40523296826b48625b7fd0a6ed509f7ea32de920364ef9",
+              "id": "657e5d09-faf4-3836-b5fb-359f8b695222",
+              "version": 1
+            },
+            "htmlSha256": "a4d593e6d3330bdf89f7308e427fba91a4975ac61c7c12d30ea09e26a2f5e03d",
+            "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+            "keyColumn": "record ID",
+            "browserChecks": 24,
+            "id": "05d1fb40-edb1-3495-8ccb-451e9b4e1f3c",
+            "passed": true,
+            "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+            "laterExportId": "002090a9-b8c9-46fc-98d0-a4894902c6a4",
+            "comparisonExportId": "4c575002-76db-4079-bbbf-dcca33b22d79",
+            "earlierExportId": "859b868e-f376-4259-bd4f-04030681bab6",
+            "story": true
+          },
+          "changes": [
+            [
+              "°F",
+              "fall",
+              "-9 °F",
+              "loss",
+              5000
+            ],
+            [
+              "°F",
+              "rise <probe>",
+              "+18 °F",
+              "gain",
+              10000
+            ],
+            [
+              "°F",
+              "steady",
+              "0 °F",
+              "steady",
+              0
+            ],
+            [
+              "mm",
+              "length fall",
+              "-12.7 mm",
+              "loss",
+              5000
+            ],
+            [
+              "mm",
+              "length gain",
+              "+25.4 mm",
+              "gain",
+              10000
+            ]
+          ],
+          "checks": [
+            "Chat builds a separate, Java-verified artifact after the comparison and summary",
+            "Restart rechecks the pinned original beside an independent explorer and a newer export",
+            "Standalone HTML works offline with the correct painted bars, filter changes, keyboard selection and exact CSV download",
+            "Changed comparison bytes are refused before sharing the story"
+          ]
+        }
+      },
+      "windows-x64": {
+        "status": "success",
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44778668741/job/136435215428",
+        "desktop": {
+          "passed": true,
+          "platform": "win32",
+          "architecture": "x64",
+          "nativeGame": "verified",
+          "checks": [
+            "Java connection, local browser interaction, creation canvas and guided verification",
+            "Native Bullet physics passes the independent incline reference",
+            "Hidden native renderer loads Relay Garden and renders fixed-step movement",
+            "Persistent Java owner starts and reopens the saved project"
+          ]
+        },
+        "story": {
+          "passed": true,
+          "platform": "win32",
+          "architecture": "x64",
+          "proof": {
+            "artifact": {
+              "sha256": "8e2a8e550b14fe6e606afbf425e4bd9ea7e652de68148be152a16b5b84d4e3e7",
+              "id": "ae6194ae-0855-37b2-ab6c-f362d72fa1b7",
+              "version": 1
+            },
+            "htmlSha256": "3abfe519f2cf074a60a72aea5ebed8992d57b58d6d1da880663add69d9ba044b",
+            "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+            "keyColumn": "record ID",
+            "browserChecks": 24,
+            "id": "37eaf2b4-93ad-3efb-b4bd-b23ec3eed176",
+            "passed": true,
+            "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+            "laterExportId": "51a970df-5073-445e-a69a-a00daf9ae4da",
+            "comparisonExportId": "621b77fb-e0e7-4455-a299-1adf53d5cf5e",
+            "earlierExportId": "3bf7ae6d-98e4-458a-8480-b1bea47e899f",
+            "story": true
+          },
+          "changes": [
+            [
+              "°F",
+              "fall",
+              "-9 °F",
+              "loss",
+              5000
+            ],
+            [
+              "°F",
+              "rise <probe>",
+              "+18 °F",
+              "gain",
+              10000
+            ],
+            [
+              "°F",
+              "steady",
+              "0 °F",
+              "steady",
+              0
+            ],
+            [
+              "mm",
+              "length fall",
+              "-12.7 mm",
+              "loss",
+              5000
+            ],
+            [
+              "mm",
+              "length gain",
+              "+25.4 mm",
+              "gain",
+              10000
+            ]
+          ],
+          "checks": [
+            "Chat builds a separate, Java-verified artifact after the comparison and summary",
+            "Restart rechecks the pinned original beside an independent explorer and a newer export",
+            "Standalone HTML works offline with the correct painted bars, filter changes, keyboard selection and exact CSV download",
+            "Changed comparison bytes are refused before sharing the story"
+          ]
+        }
+      },
+      "macos-x64": {
+        "status": "success",
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44778668741/job/136435215471",
+        "desktop": {
+          "passed": true,
+          "platform": "darwin",
+          "architecture": "x64",
+          "nativeGame": "display-unavailable",
+          "checks": [
+            "Java connection, local browser interaction, creation canvas and guided verification",
+            "Native Bullet physics passes the independent incline reference",
+            "Persistent Java owner starts and reopens the saved project"
+          ]
+        },
+        "story": {
+          "passed": true,
+          "platform": "darwin",
+          "architecture": "x64",
+          "proof": {
+            "artifact": {
+              "sha256": "1347e9da67ae9a7e8f3029d2117bbf071843e4dfa680dac78781a7588f81c7a8",
+              "id": "a8be2887-9213-3b24-a141-818c48c71d8c",
+              "version": 1
+            },
+            "htmlSha256": "faa8d4d29f3edd03d23a3ec013637a13a33ed44efffdbcf3fc01f684460a1ade",
+            "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+            "keyColumn": "record ID",
+            "browserChecks": 24,
+            "id": "ba2c4d1e-bb7a-3db4-8a8b-5b18047db071",
+            "passed": true,
+            "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+            "laterExportId": "f447084e-aabf-4690-bf8e-53c6120fe2d6",
+            "comparisonExportId": "493b37b5-36f9-4bf5-ab40-d03f1d7753db",
+            "earlierExportId": "d6b996f2-e42c-4083-af41-b3cfeec034de",
+            "story": true
+          },
+          "changes": [
+            [
+              "°F",
+              "fall",
+              "-9 °F",
+              "loss",
+              5000
+            ],
+            [
+              "°F",
+              "rise <probe>",
+              "+18 °F",
+              "gain",
+              10000
+            ],
+            [
+              "°F",
+              "steady",
+              "0 °F",
+              "steady",
+              0
+            ],
+            [
+              "mm",
+              "length fall",
+              "-12.7 mm",
+              "loss",
+              5000
+            ],
+            [
+              "mm",
+              "length gain",
+              "+25.4 mm",
+              "gain",
+              10000
+            ]
+          ],
+          "checks": [
+            "Chat builds a separate, Java-verified artifact after the comparison and summary",
+            "Restart rechecks the pinned original beside an independent explorer and a newer export",
+            "Standalone HTML works offline with the correct painted bars, filter changes, keyboard selection and exact CSV download",
+            "Changed comparison bytes are refused before sharing the story"
+          ]
+        }
+      },
+      "linux-x64": {
+        "status": "success",
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44778668741/job/136435215563",
+        "desktop": {
+          "passed": true,
+          "platform": "linux",
+          "architecture": "x64",
+          "nativeGame": "verified",
+          "checks": [
+            "Java connection, local browser interaction, creation canvas and guided verification",
+            "Native Bullet physics passes the independent incline reference",
+            "Hidden native renderer loads Relay Garden and renders fixed-step movement",
+            "Persistent Java owner starts and reopens the saved project"
+          ]
+        },
+        "story": {
+          "passed": true,
+          "platform": "linux",
+          "architecture": "x64",
+          "proof": {
+            "artifact": {
+              "sha256": "ce6a3b59b34989d54e1378905720d284a00d27000898f8db384100dd08730a6f",
+              "id": "9284f78f-25ef-3653-98da-08c3eac7f261",
+              "version": 1
+            },
+            "htmlSha256": "f79ef9e3e3076dda2c28f2107b8e8d3e26ab6169b98df5b82e2c18ad03debd89",
+            "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+            "keyColumn": "record ID",
+            "browserChecks": 24,
+            "id": "1dc8f2f6-51e9-3e7c-bd01-32af59681a88",
+            "passed": true,
+            "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+            "laterExportId": "79097ef2-0755-4a22-8e60-c0e1acc8856d",
+            "comparisonExportId": "d1a12558-d4ed-4292-9b62-8dc10bf8b7a0",
+            "earlierExportId": "29d5154b-60dc-46c0-b156-06e4940c0354",
+            "story": true
+          },
+          "changes": [
+            [
+              "°F",
+              "fall",
+              "-9 °F",
+              "loss",
+              5000
+            ],
+            [
+              "°F",
+              "rise <probe>",
+              "+18 °F",
+              "gain",
+              10000
+            ],
+            [
+              "°F",
+              "steady",
+              "0 °F",
+              "steady",
+              0
+            ],
+            [
+              "mm",
+              "length fall",
+              "-12.7 mm",
+              "loss",
+              5000
+            ],
+            [
+              "mm",
+              "length gain",
+              "+25.4 mm",
+              "gain",
+              10000
+            ]
+          ],
+          "checks": [
+            "Chat builds a separate, Java-verified artifact after the comparison and summary",
+            "Restart rechecks the pinned original beside an independent explorer and a newer export",
+            "Standalone HTML works offline with the correct painted bars, filter changes, keyboard selection and exact CSV download",
+            "Changed comparison bytes are refused before sharing the story"
+          ]
+        }
+      }
+    }
+  },
+  "legacyExplorer": {
+    "passed": true,
+    "artifact": {
+      "sha256": "edc9df0ea0e9178ed8fb1e931b639efac3ddcb5415f54568f594287f0de30065",
+      "id": "b0f50400-0c38-3ae7-9f60-954780a6843e",
+      "version": 1
+    },
+    "htmlSha256": "0070449ccf4681832f573a567e5756c5c690be513dce83d1a20088c0fbf852b2",
+    "browserChecks": 24
+  },
+  "sourceBaseline": "b995a95a5cb6fa17f20d9ee1e2db6a1d18f3b36a",
+  "windowsStory": {
+    "passed": true,
+    "platform": "win32",
+    "architecture": "x64",
+    "proof": {
+      "artifact": {
+        "sha256": "535a2e8f78052ce8a714cc8e5c7943b89601a54fa1513a5f13bbb6fbf64a580d",
+        "id": "ed191692-1fa9-3f8f-aaad-193d7a90ffe6",
+        "version": 1
+      },
+      "htmlSha256": "8c21ab877f2e23a4d4db5bb2affe77243e8e34205d5dec0f3cd79155b79200a8",
+      "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+      "keyColumn": "record ID",
+      "browserChecks": 24,
+      "id": "c0543831-673a-3994-bead-1b8c7cd4c176",
+      "passed": true,
+      "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+      "laterExportId": "d7f676c6-8ae0-4fe6-821a-f25f3ffc63db",
+      "comparisonExportId": "35609792-ba4f-4af1-bea3-8044b3836d32",
+      "earlierExportId": "8d6cce27-56f1-4107-82f1-4a2eeec45b9d",
+      "story": true
+    },
+    "changes": [
+      [
+        "°F",
+        "fall",
+        "-9 °F",
+        "loss",
+        5000
+      ],
+      [
+        "°F",
+        "rise <probe>",
+        "+18 °F",
+        "gain",
+        10000
+      ],
+      [
+        "°F",
+        "steady",
+        "0 °F",
+        "steady",
+        0
+      ],
+      [
+        "mm",
+        "length fall",
+        "-12.7 mm",
+        "loss",
+        5000
+      ],
+      [
+        "mm",
+        "length gain",
+        "+25.4 mm",
+        "gain",
+        10000
+      ]
+    ],
+    "checks": [
+      "Chat builds a separate, Java-verified artifact after the comparison and summary",
+      "Restart rechecks the pinned original beside an independent explorer and a newer export",
+      "Standalone HTML works offline with the correct painted bars, filter changes, keyboard selection and exact CSV download",
+      "Changed comparison bytes are refused before sharing the story"
+    ]
+  },
+  "screenshots": [
+    {
+      "path": "docs/readmes/206/mac-story.png",
+      "bytes": 178841,
+      "sha256": "62e03ccf8a155c8e692aae5025642adb54b579a2023403b4f003db80967a8160",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/206/offline-story.png",
+      "bytes": 87886,
+      "sha256": "a2276a8ddaba1b1faba1c2d56843233694a7de80a0f238bc0652f4512fee0c65",
+      "hashKind": "binary"
+    }
+  ]
+}

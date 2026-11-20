@@ -1,0 +1,49 @@
+{
+  "summary": "Ask Fraynix to create an interactive change story from a verified comparison. Inspect the source readings behind a bar and export a single HTML file for offline use.",
+  "modules": [
+    {
+      "title": "Chat commands",
+      "source": "workspace-desktop/renderer/classification-routing.js",
+      "note": "docs/obsidian/214-change-story.md"
+    },
+    {
+      "title": "Verified change story",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedComparisonStory.java",
+      "note": "docs/obsidian/214-change-story.md"
+    },
+    {
+      "title": "Offline chart",
+      "source": "workspace-engine/src/main/resources/workbench/routing-story.js",
+      "note": "docs/obsidian/214-change-story.md"
+    },
+    {
+      "title": "Desktop and export verification",
+      "source": "workspace-desktop/test/change-story-integration.cjs",
+      "note": "docs/obsidian/214-change-story.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/206/mac-story.png",
+      "title": "Chat creates the verified story inside Fraynix on Apple silicon"
+    },
+    {
+      "path": "docs/readmes/206/offline-story.png",
+      "title": "The exported file on Windows shows the source readings behind a selected loss"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/206/change-story.html",
+      "title": "Open the exported offline story"
+    },
+    {
+      "path": "docs/readmes/206/release-proof.json",
+      "title": "Platform and test evidence"
+    },
+    {
+      "path": "docs/publication206/plan.md",
+      "title": "Reproduction and next candidate"
+    }
+  ]
+}
