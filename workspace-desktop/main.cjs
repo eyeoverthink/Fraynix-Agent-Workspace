@@ -506,8 +506,11 @@ async function runClassificationPlan({id,decisionSha256,pauseAfterNext=false}) {
   throw Error('Routing plan exceeded the procedure limit');
 }
 
-async function openRoutedDashboard({verifyOnly=false,compare=false,pair}) {
+async function openRoutedDashboard({verifyOnly=false,compare=false,pair,keyColumn}) {
   if(typeof verifyOnly!=='boolean'||typeof compare!=='boolean')throw Error('Choose a routed report to build or recheck');
+  if(keyColumn!==undefined&&(!compare||typeof keyColumn!=='string'||!keyColumn.trim()))
+    throw Error('Choose an original key column for the comparison');
+  if(keyColumn!==undefined&&verifyOnly&&!pair)throw Error('Build a matched routed CSV comparison first');
   let sources;
   if(compare&&verifyOnly&&pair){
     if(typeof pair.earlier!=='string'||typeof pair.later!=='string')throw Error('Choose the original two export IDs');
@@ -516,8 +519,10 @@ async function openRoutedDashboard({verifyOnly=false,compare=false,pair}) {
   }else sources=compare?await nativeExports.routedCsvPair():{file:await nativeExports.routedCsv()};
   const retained=async()=>({
     file:await nativeExports.routedCsv(sources.file.exportId),
-    ...(sources.baseline?{baseline:await nativeExports.routedCsv(sources.baseline.exportId)}:{})
+    ...(sources.baseline?{baseline:await nativeExports.routedCsv(sources.baseline.exportId)}:{}),
+    ...(keyColumn!==undefined?{keyColumn}:{})
   });
+  if(keyColumn!==undefined)sources.keyColumn=keyColumn;
   let result=await api('/api/requests/routing-dashboard-prepare',{...sources,verifyOnly});
   if(verifyOnly){
     await showRoutedDashboard(result);

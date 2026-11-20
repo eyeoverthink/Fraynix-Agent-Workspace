@@ -41,6 +41,19 @@ final class RoutedDashboardReport implements RoutedReport {
 
     RoutedDashboardReport(String csv) {
         this.csv = csv;
+        var table = checkedTable(csv);
+        int offset = table.getFirst().size() - RoutedCsvReport.FIELDS.size();
+        var readings = new ArrayList<Row>();
+        for (var raw : table.subList(1, table.size())) {
+            var row = raw.subList(offset, raw.size());
+            readings.add(new Row(row.get(0), row.get(1), row.get(2), row.get(4), row.get(5), row.get(6), row.get(7)));
+        }
+        rows = List.copyOf(readings);
+        groups = UNITS.stream().map(this::summarize).filter(group -> group.count() > 0).toList();
+        html = TEMPLATE.replace("@CSV_BASE64@", Base64.getEncoder().encodeToString(csv.getBytes(StandardCharsets.UTF_8)));
+    }
+
+    static List<List<String>> checkedTable(String csv) {
         var table = MeasurementStore.csv(csv, 1);
         var fields = RoutedCsvReport.FIELDS;
         int offset = table.getFirst().size() - fields.size();
@@ -52,16 +65,12 @@ final class RoutedDashboardReport implements RoutedReport {
                 || !table.getFirst().subList(offset, table.getFirst().size()).equals(fields.stream().map(field -> prefix + field).toList())
                 || table.stream().anyMatch(row -> row.size() != offset + fields.size()))
             throw new IllegalArgumentException("The routing CSV schema changed");
-        var readings = new ArrayList<Row>();
-        for (var raw : table.subList(1, table.size())) {
-            var row = raw.subList(offset, raw.size());
-            if (!row.get(0).equals(Integer.toString(readings.size() + 2)) || !UNITS.contains(row.get(7)))
+        for (int i = 1; i < table.size(); i++) {
+            var row = table.get(i);
+            if (!row.get(offset).equals(Integer.toString(i + 1)) || !UNITS.contains(row.getLast()))
                 throw new IllegalArgumentException("The routing CSV row order or output unit changed");
-            readings.add(new Row(row.get(0), row.get(1), row.get(2), row.get(4), row.get(5), row.get(6), row.get(7)));
         }
-        rows = List.copyOf(readings);
-        groups = UNITS.stream().map(this::summarize).filter(group -> group.count() > 0).toList();
-        html = TEMPLATE.replace("@CSV_BASE64@", Base64.getEncoder().encodeToString(csv.getBytes(StandardCharsets.UTF_8)));
+        return table;
     }
 
     @Override public String html() { return html; }

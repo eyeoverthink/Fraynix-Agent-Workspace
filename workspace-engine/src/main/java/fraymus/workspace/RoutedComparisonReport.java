@@ -64,7 +64,7 @@ final class RoutedComparisonReport implements RoutedReport {
         return group == null ? "No rows in " + unit : group.text();
     }
 
-    private static String sourceText(String label, int rows, JSONObject file) {
+    static String sourceText(String label, int rows, JSONObject file) {
         return label + " · " + rows + (rows == 1 ? " row" : " rows") + " · " + file.getString("sha256").substring(0, 12);
     }
 
@@ -83,15 +83,15 @@ final class RoutedComparisonReport implements RoutedReport {
                 .put(count("a[href=\"later-routed-results.csv\"]", 1));
     }
 
-    private static JSONObject count(String selector, int value) {
+    static JSONObject count(String selector, int value) {
         return new JSONObject().put("selector", selector).put("expectCount", value);
     }
 
-    private static JSONObject text(String selector, String value) {
+    static JSONObject text(String selector, String value) {
         return new JSONObject().put("selector", selector).put("expectText", value);
     }
 
-    private static JSONObject evidenceSource(JSONObject file, int rows) {
+    static JSONObject evidenceSource(JSONObject file, int rows) {
         return new JSONObject().put("exportId", file.getString("exportId")).put("csvSha256", file.getString("sha256"))
                 .put("rows", rows).put("routing", file.getJSONObject("source"));
     }

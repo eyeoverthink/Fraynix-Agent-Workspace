@@ -25,16 +25,15 @@ final class RoutedDashboard {
     }
 
     synchronized JSONObject prepare(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "file", "baseline", "verifyOnly");
+        SpatialScene.keys(input, "file", "baseline", "keyColumn", "verifyOnly");
         var file = input.getJSONObject("file");
         var baseline = input.optJSONObject("baseline");
-        var report = checkedReport(file, baseline);
-        String id = baseline == null ? requestId(file.getString("exportId")) : UUID.nameUUIDFromBytes(
-                ("routed-comparison:" + baseline.getString("exportId") + ":" + file.getString("exportId"))
-                        .getBytes(StandardCharsets.UTF_8)).toString();
+        String key = keyColumn(input);
+        var report = checkedReport(file, baseline, key);
+        String id = reportId(file, baseline, key);
         var path = path(id);
         var task = Files.exists(path, LinkOption.NOFOLLOW_LINKS) ? load(id) : null;
-        if (task != null) requireFiles(task, file, baseline);
+        if (task != null) requireSources(task, file, baseline, key);
         if (task != null && task.has("artifact")) {
             var saved = proof(task, report);
             return input.optBoolean("verifyOnly") ? saved.put("steps", report.steps()) : saved;
@@ -44,6 +43,7 @@ final class RoutedDashboard {
         if (task == null) {
             var initial = new JSONObject().put("id", id).put("file", file);
             if (baseline != null) initial.put("baseline", baseline);
+            if (key != null) initial.put("keyColumn", key);
             save(initial);
         }
         var output = new JSONObject().put("id", id).put("htmlSha256", report.htmlSha256());
@@ -53,12 +53,13 @@ final class RoutedDashboard {
     }
 
     synchronized JSONObject finish(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "id", "file", "baseline", "htmlSha256", "checks");
+        SpatialScene.keys(input, "id", "file", "baseline", "keyColumn", "htmlSha256", "checks");
         var task = load(input.getString("id"));
         var file = input.getJSONObject("file");
         var baseline = input.optJSONObject("baseline");
-        requireFiles(task, file, baseline);
-        var report = checkedReport(file, baseline);
+        String key = keyColumn(input);
+        requireSources(task, file, baseline, key);
+        var report = checkedReport(file, baseline, key);
         if (!report.htmlSha256().equals(input.getString("htmlSha256")))
             throw new IllegalStateException("The reviewed dashboard changed");
         var supplied = input.optJSONArray("checks");
@@ -94,17 +95,21 @@ final class RoutedDashboard {
         if (parts.length != 3 || !parts[1].matches("[a-f0-9]{64}") || !parts[2].equals("index.html")) return null;
         var task = load(parts[0]);
         if (task.has("artifact") || task.has("checks")) return null;
-        var report = checkedReport(task.getJSONObject("file"), task.optJSONObject("baseline"));
+        var report = checkedReport(task.getJSONObject("file"), task.optJSONObject("baseline"), keyColumn(task));
         return report.htmlSha256().equals(parts[1]) ? report.html().getBytes(StandardCharsets.UTF_8) : null;
     }
 
-    private RoutedReport checkedReport(JSONObject file, JSONObject baseline) throws Exception {
+    private RoutedReport checkedReport(JSONObject file, JSONObject baseline, String key) throws Exception {
         String current = checkedCsv(file);
-        if (baseline == null) return new RoutedDashboardReport(current);
+        if (baseline == null) {
+            if (key != null) throw new IllegalArgumentException("A key requires two verified routing exports");
+            return new RoutedDashboardReport(current);
+        }
         String earlier = checkedCsv(baseline);
         if (baseline.getJSONObject("source").getString("planId").equals(file.getJSONObject("source").getString("planId")))
             throw new IllegalArgumentException("Compare exports from two different verified routing plans");
-        return new RoutedComparisonReport(baseline, earlier, file, current);
+        return key == null ? new RoutedComparisonReport(baseline, earlier, file, current)
+                : new RoutedKeyComparisonReport(baseline, earlier, file, current, key);
     }
 
     private String checkedCsv(JSONObject file) throws Exception {
@@ -139,6 +144,7 @@ final class RoutedDashboard {
         if (baseline != null) result.put("earlierCsvSha256", baseline.getString("sha256"))
                 .put("earlierExportId", baseline.getString("exportId"))
                 .put("laterExportId", task.getJSONObject("file").getString("exportId"));
+        if (task.has("keyColumn")) result.put("keyColumn", task.getString("keyColumn"));
         return result;
     }
 
@@ -156,11 +162,27 @@ final class RoutedDashboard {
                 .put("steps", report.steps()).put("checks", checks);
     }
 
-    private static void requireFiles(JSONObject task, JSONObject file, JSONObject baseline) {
+    private static String keyColumn(JSONObject record) {
+        if (!record.has("keyColumn")) return null;
+        String key = record.getString("keyColumn");
+        if (key.isBlank()) throw new IllegalArgumentException("Choose an original key column");
+        return key;
+    }
+
+    private static void requireSources(JSONObject task, JSONObject file, JSONObject baseline, String key) {
         var earlier = task.optJSONObject("baseline");
         boolean sameBaseline = earlier == null ? baseline == null : earlier.similar(baseline);
         if (!task.getJSONObject("file").similar(file) || !sameBaseline)
             throw new IllegalStateException("The reviewed CSV export or receipt changed");
+        if (!java.util.Objects.equals(keyColumn(task), key))
+            throw new IllegalStateException("The reviewed comparison key changed");
+    }
+
+    private static String reportId(JSONObject file, JSONObject baseline, String key) {
+        if (baseline == null) return requestId(file.getString("exportId"));
+        String pair = baseline.getString("exportId") + ":" + file.getString("exportId");
+        String identity = key == null ? "routed-comparison:" + pair : "routed-key-comparison:" + pair + ":" + key;
+        return UUID.nameUUIDFromBytes(identity.getBytes(StandardCharsets.UTF_8)).toString();
     }
 
     private static String requestId(String exportId) {
