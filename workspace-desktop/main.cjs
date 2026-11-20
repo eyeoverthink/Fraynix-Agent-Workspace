@@ -506,10 +506,12 @@ async function runClassificationPlan({id,decisionSha256,pauseAfterNext=false}) {
   throw Error('Routing plan exceeded the procedure limit');
 }
 
-async function openRoutedDashboard({verifyOnly=false,compare=false,pair,keyColumn}) {
+async function openRoutedDashboard({verifyOnly=false,compare=false,pair,keyColumn,exportCsv=false}) {
   if(typeof verifyOnly!=='boolean'||typeof compare!=='boolean')throw Error('Choose a routed report to build or recheck');
   if(keyColumn!==undefined&&(!compare||typeof keyColumn!=='string'||!keyColumn.trim()))
     throw Error('Choose an original key column for the comparison');
+  if(typeof exportCsv!=='boolean'||exportCsv&&(!verifyOnly||!compare||!pair||keyColumn===undefined))
+    throw Error('Recheck a saved matched comparison before exporting');
   if(keyColumn!==undefined&&verifyOnly&&!pair)throw Error('Build a matched routed CSV comparison first');
   let sources;
   if(compare&&verifyOnly&&pair){
@@ -527,7 +529,9 @@ async function openRoutedDashboard({verifyOnly=false,compare=false,pair,keyColum
   if(verifyOnly){
     await showRoutedDashboard(result);
     const checks=await canvas.test(result.steps);
-    return api('/api/requests/routing-dashboard-finish',{id:result.id,...await retained(),htmlSha256:result.htmlSha256,checks});
+    const verified=await api('/api/requests/routing-dashboard-finish',
+      {id:result.id,...await retained(),htmlSha256:result.htmlSha256,checks,...(exportCsv?{exportCsv:true}:{})});
+    return exportCsv?nativeExports.matchedComparison(verified):verified;
   }
   if(!result.artifact){
     const previous=canvas.view.webContents.getURL();

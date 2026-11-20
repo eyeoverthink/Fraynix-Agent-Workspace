@@ -53,7 +53,7 @@ final class RoutedDashboard {
     }
 
     synchronized JSONObject finish(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "id", "file", "baseline", "keyColumn", "htmlSha256", "checks");
+        SpatialScene.keys(input, "id", "file", "baseline", "keyColumn", "htmlSha256", "checks", "exportCsv");
         var task = load(input.getString("id"));
         var file = input.getJSONObject("file");
         var baseline = input.optJSONObject("baseline");
@@ -63,12 +63,17 @@ final class RoutedDashboard {
         if (!report.htmlSha256().equals(input.getString("htmlSha256")))
             throw new IllegalStateException("The reviewed dashboard changed");
         var supplied = input.optJSONArray("checks");
+        boolean exportCsv = input.has("exportCsv") && input.getBoolean("exportCsv");
+        if (exportCsv && (!(report instanceof RoutedKeyComparisonReport) || !task.has("artifact") || supplied == null))
+            throw new IllegalStateException("Recheck a saved matched comparison before exporting");
         if (task.has("artifact")) {
             var saved = proof(task, report);
             if (supplied != null) {
                 report.verifyBrowser(supplied);
                 saved.put("rechecked", true);
             }
+            if (exportCsv) saved.put("csvExport", ((RoutedKeyComparisonReport)report).exportCsv()
+                    .put("browserEvidenceSha256", MeasurementStore.hash(MapCheckpoint.canonical(supplied))));
             return saved;
         }
         var checks = task.optJSONArray("checks");

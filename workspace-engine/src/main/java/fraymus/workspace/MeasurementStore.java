@@ -69,7 +69,8 @@ public final class MeasurementStore {
     }
     /** Bounded CSV, including quoted commas, newlines and escaped quotes; never executes cells. */
     static List<List<String>> csv(String source) {return csv(source,2);}
-    static List<List<String>> csv(String source,int minimumDataRows) {
+    static List<List<String>> csv(String source,int minimumDataRows) {return csv(source,minimumDataRows,4096);}
+    static List<List<String>> csv(String source,int minimumDataRows,int maxCellLength) {
         if (!StandardCharsets.UTF_8.newEncoder().canEncode(source) || source.getBytes(StandardCharsets.UTF_8).length > 262144 || source.indexOf('\0') >= 0) throw new IllegalArgumentException("CSV must be valid UTF-8, at most 256 KiB, without NUL");
         if (source.startsWith("\uFEFF")) source = source.substring(1);
         var rows = new ArrayList<List<String>>(); var row = new ArrayList<String>(); var cell = new StringBuilder();
@@ -94,7 +95,7 @@ public final class MeasurementStore {
                 if (closed) throw new IllegalArgumentException("Unexpected text after closing CSV quote");
                 cell.append(c);
             }
-            if (cell.length() > 4096) throw new IllegalArgumentException("CSV cell exceeds 4096 characters");
+            if (cell.length() > maxCellLength) throw new IllegalArgumentException("CSV cell exceeds " + maxCellLength + " characters");
         }
         if (quoted) throw new IllegalArgumentException("Unclosed CSV quote");
         if (cell.length() != 0 || !row.isEmpty() || closed) { row.add(cell.toString()); rows.add(List.copyOf(row)); }

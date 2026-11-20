@@ -138,13 +138,19 @@ final class RoutedKeyComparisonReport implements RoutedReport {
                 .put(count("a[href=\"later-routed-results.csv\"]", 1));
     }
 
+    private JSONArray outcomeEvidence() {
+        return new JSONArray(outcomes.stream().map(Outcome::evidence).toList());
+    }
+
+    JSONObject exportCsv() { return RoutedKeyCsv.write(outcomeEvidence()); }
+
     @Override public JSONObject artifact(JSONObject file, JSONArray checks) {
         verifyBrowser(checks);
         var totals = new JSONObject();
         for (Status status : Status.values()) totals.put(status.label, countOf(status));
         var proof = new JSONObject().put("passed", true).put("keyColumn", keyColumn)
                 .put("earlier", earlier.evidence()).put("later", later.evidence()).put("counts", totals)
-                .put("outcomes", new JSONArray(outcomes.stream().map(Outcome::evidence).toList()))
+                .put("outcomes", outcomeEvidence())
                 .put("browserChecks", checks.length());
         return new JSONObject().put("title", TITLE).put("sources", new JSONArray()
                         .put("earlier-routing-csv:sha256:" + earlier.file().getString("sha256"))

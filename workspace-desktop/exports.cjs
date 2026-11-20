@@ -4,13 +4,34 @@ const {createReadStream}=require('node:fs');
 const {createInterface}=require('node:readline');
 class NativeExports {
  constructor(project){this.directory=path.join(project,'exports');this.latest=null;}
- async save(kind,extension,bytes,source){
+ async save(kind,extension,bytes,source,expectedSha256){
   await fs.mkdir(this.directory,{recursive:true});const id=randomUUID(),target=path.join(this.directory,id+'.'+extension),temporary=target+'.tmp';
   const data=Buffer.isBuffer(bytes)?bytes:Buffer.from(bytes,'utf8');if(data.length>20_000_000)throw Error('Export exceeds 20 MB');
   const receipt={id,kind,path:target,bytes:data.length,sha256:createHash('sha256').update(data).digest('hex'),source,createdAt:new Date().toISOString()};
-  await fs.writeFile(temporary,data,{flag:'wx'});await fs.rename(temporary,target);
+  if(expectedSha256!==undefined&&receipt.sha256!==expectedSha256)throw Error('The verified comparison CSV bytes changed');
+  await fs.writeFile(temporary,data,{flag:'wx'});
+  try {
+   if(expectedSha256!==undefined&&!data.equals(await fs.readFile(temporary)))
+    throw Error('The written comparison CSV differs from the checked bytes');
+   await fs.rename(temporary,target);
+  } catch(error) {
+   await fs.unlink(temporary).catch(()=>{});
+   throw error;
+  }
   await fs.writeFile(target+'.receipt.json',JSON.stringify(receipt,null,2)+'\n',{flag:'wx'});
   await fs.appendFile(path.join(this.directory,'manifest.jsonl'),JSON.stringify(receipt)+'\n');this.latest=receipt;return receipt;
+ }
+ async matchedComparison(result){
+  if(!result.passed||!result.rechecked||result.csvExport?.format!=='fraynix.routed-key-comparison-csv-v1')
+   throw Error('The matched comparison has no verified CSV');
+  const {csv,sha256,format,groups,browserEvidenceSha256}=result.csvExport;
+  if(typeof sha256!=='string'||!/^[a-f0-9]{64}$/.test(sha256))throw Error('The verified comparison hash is unavailable');
+  return this.save('verified-routed-comparison','csv',csv,{
+   format,groups,comparisonId:result.id,artifact:result.artifact,keyColumn:result.keyColumn,
+   earlier:{exportId:result.earlierExportId,sha256:result.earlierCsvSha256},
+   later:{exportId:result.laterExportId,sha256:result.csvSha256},
+   browserChecks:result.browserChecks,browserEvidenceSha256
+  },sha256);
  }
  async *routingEntries(){
   const manifest=path.join(this.directory,'manifest.jsonl');

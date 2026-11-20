@@ -5,10 +5,11 @@ const COMPARISON = 'fraynix-last-routed-comparison';
 const KEY_COMPARISON = 'fraynix-last-key-comparison';
 const byKey = /^Compare the last two verified routed CSVs by key (?:"([^"\r\n]+)"|([^\s".!?]+))[.!]?$/i;
 const recheckKey = /^Recheck the matched routed CSV comparison[.!]?$/i;
+const exportKey = /^Export the matched routed CSV comparison[.!]?$/i;
 
 export const isRoutingRequest = text => /^(?:Route the last verified classification|Resume classification routing)[.!]?$/i.test(text.trim());
 export const isRoutedDashboardRequest = text =>
-    byKey.test(text.trim()) || recheckKey.test(text.trim()) ||
+    byKey.test(text.trim()) || recheckKey.test(text.trim()) || exportKey.test(text.trim()) ||
     /^(?:Build a dashboard from the (?:last )?verified routed CSV|Recheck the routed CSV dashboard|Compare the last two verified routed CSVs|Recheck the routed CSV comparison)[.!]?$/i.test(text.trim());
 
 export class ClassificationRoutingPanel {
@@ -61,15 +62,21 @@ export class ClassificationRoutingPanel {
             try {
                 const request = text.trim();
                 const keyed = byKey.exec(request);
-                const matched = Boolean(keyed) || recheckKey.test(request);
+                const exportCsv = exportKey.test(request);
+                const matched = Boolean(keyed) || recheckKey.test(request) || exportCsv;
                 const compare = matched || /^(compare|recheck the routed CSV comparison)/i.test(request);
-                const verifyOnly = /^recheck/i.test(request);
+                const verifyOnly = exportCsv || /^recheck/i.test(request);
                 const storage = matched ? KEY_COMPARISON : COMPARISON;
                 const previous = compare && verifyOnly ? JSON.parse(localStorage.getItem(storage)) : null;
                 if (matched && verifyOnly && !previous) throw Error('Build a matched routed CSV comparison first');
                 const keyColumn = keyed ? (keyed[1] ?? keyed[2]) : previous?.keyColumn;
                 const result = await this.call('routing-dashboard',{verifyOnly,compare,
-                    ...(previous ? {pair:previous} : {}), ...(keyColumn !== undefined ? {keyColumn} : {})});
+                    ...(previous ? {pair:previous} : {}), ...(keyColumn !== undefined ? {keyColumn} : {}),
+                    ...(exportCsv ? {exportCsv:true} : {})});
+                if (exportCsv) {
+                    this.announce('Saved '+result.source.groups+' verified comparison groups to '+result.path);
+                    return;
+                }
                 if (compare) localStorage.setItem(storage,JSON.stringify({
                     earlier:result.earlierExportId,later:result.laterExportId,keyColumn:result.keyColumn
                 }));
