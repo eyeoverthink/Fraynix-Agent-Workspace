@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Verified routing comparison</title>
+<style>
+:root {color-scheme:dark;color:#eff7f3;background:#12202a;font:16px/1.55 system-ui,sans-serif}
+* {box-sizing:border-box}
+body {margin:0;padding:clamp(16px,4vw,44px)}
+main {max-width:65rem;margin:auto}
+h1 {font-size:clamp(1.7rem,5vw,2.75rem);line-height:1.15;margin:0 0 12px}
+header p {color:#b7cdd1;margin:0 0 24px}
+.sources,.cohorts {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.sources {margin-bottom:22px}
+.sources a {display:block;padding:12px 14px;background:#182f38;border:1px solid #426673;border-radius:9px;color:#b6f0dd}
+article {margin-bottom:14px;border:1px solid #456b75;border-radius:12px;background:#1a3039;padding:16px 20px}
+h2 {font-size:1.22rem;color:#b6f0dd;margin:0 0 12px}
+.cohorts div {padding:10px 0;border-top:1px solid #3a5560}
+span {display:block;color:#b9cdd1;font-size:.87rem}
+output {display:block;font-variant-numeric:tabular-nums}
+.change {display:block;color:#b6f0dd;padding-top:9px}
+@media(max-width:500px){.sources,.cohorts {grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+<header><h1>Verified routing comparison</h1><p>Each mean uses rows in one output unit. The change is later minus earlier.</p></header>
+<nav class="sources" aria-label="Download input files">
+  <a id="source-earlier" href="earlier-routed-results.csv" download></a>
+  <a id="source-later" href="later-routed-results.csv" download></a>
+</nav>
+<section id="comparisons" aria-label="Comparisons by output unit"></section>
+</main>
+<script>
+'use strict';
+const scale = 100000n;
+const unitNames = new Map([['°F',['fahrenheit','Temperature · °F']],['mm',['millimetres','Length · mm']]]);
+const missing = 'Mean change unavailable · no matching unit on both sides';
+
+function readCsv(text) {
+    const records = [];
+    let row = [];
+    let field = '';
+    let quoted = false;
+    let closed = false;
+    for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        if (quoted) {
+            if (char !== '"') field += char;
+            else if (text[i + 1] === '"') {
+                field += '"';
+                i++;
+            } else {
+                quoted = false;
+                closed = true;
+            }
+        } else if (char === '"') {
+            if (field || closed) throw Error('Invalid CSV quote');
+            quoted = true;
+        } else if (char === ',' || char === '\n') {
+            row.push(field);
+            field = '';
+            closed = false;
+            if (char === '\n') {
+                records.push(row);
+                row = [];
+            }
+        } else {
+            if (closed) throw Error('Unexpected CSV text');
+            field += char;
+        }
+    }
+    if (quoted || row.length || field) throw Error('Incomplete verified CSV');
+    return records;
+}
+
+function decimal(text) {
+    const parts = /^(-?)([0-9]+)(?:\.([0-9]{1,5}))?$/.exec(text);
+    if (!parts || parts[0] !== text) throw Error('Invalid verified decimal');
+    const scaled = BigInt(parts[2] + (parts[3] || '').padEnd(5, '0'));
+    return parts[1] ? -scaled : scaled;
+}
+
+function format(scaled) {
+    const magnitude = scaled < 0n ? -scaled : scaled;
+    const fraction = (magnitude % scale).toString().padStart(5, '0').replace(/0+$/, '');
+    return (scaled < 0n ? '-' : '') + (magnitude / scale) + (fraction ? '.' + fraction : '');
+}
+
+function rounded(numerator, denominator) {
+    const absolute = numerator < 0n ? -numerator : numerator;
+    const rounded = absolute / denominator + (2n * (absolute % denominator) >= denominator ? 1n : 0n);
+    return numerator < 0n ? -rounded : rounded;
+}
+
+function summarize(records, unit) {
+    const values = records.filter(row => row.unit === unit).map(row => decimal(row.value));
+    if (!values.length) return null;
+    const sum = values.reduce((total, value) => total + value, 0n);
+    const count = BigInt(values.length);
+    const min = values.reduce((a,b) => a < b ? a : b);
+    const max = values.reduce((a,b) => a > b ? a : b);
+    const text = count + (count === 1n ? ' row' : ' rows') + ' · Min ' + format(min) + ' ' + unit
+        + ' · Max ' + format(max) + ' ' + unit + ' · Mean ' + format(rounded(sum,count)) + ' ' + unit;
+    return {count,sum,text};
+}
+
+function change(earlier, later, unit) {
+    if (!earlier || !later) return missing;
+    const numerator = later.sum * earlier.count - earlier.sum * later.count;
+    const value = rounded(numerator, earlier.count * later.count);
+    return 'Mean change · ' + (value > 0n ? '+' : '') + format(value) + ' ' + unit;
+}
+
+async function readExport(encoded, label, id) {
+    const bytes = Uint8Array.from(atob(encoded), char => char.charCodeAt(0));
+    const table = readCsv(new TextDecoder('utf-8', {fatal:true}).decode(bytes));
+    const header = table.shift();
+    const offset = header.length - 8;
+    if (offset < 1 || !header[offset].endsWith('source_row')) throw Error('Missing verified routing columns');
+    const records = table.map((row,i) => {
+        const unit = row[offset + 7];
+        if (row.length !== header.length || row[offset] !== String(i + 2) || !unitNames.has(unit)) throw Error('Invalid verified routing row');
+        return {unit,value:row[offset + 6]};
+    });
+    const digest = new Uint8Array(await crypto.subtle.digest('SHA-256',bytes));
+    const prefix = [...digest.slice(0,6)].map(byte => byte.toString(16).padStart(2,'0')).join('');
+    document.getElementById(id).textContent = label + ' · ' + records.length + (records.length === 1 ? ' row' : ' rows') + ' · ' + prefix;
+    return records;
+}
+
+function cohort(label, id, stats, unit) {
+    const node = document.createElement('div');
+    const title = document.createElement('span');
+    title.textContent = label;
+    const output = document.createElement('output');
+    output.id = id;
+    output.textContent = stats ? stats.text : 'No rows in ' + unit;
+    node.append(title,output);
+    return node;
+}
+
+async function render() {
+    const [earlier, later] = await Promise.all([
+        readExport('aWQscmVhZGluZyxwcm9iZV9jLGRpc3RhbmNlX2luLHJvdXRlX3NvdXJjZV9yb3cscm91dGVfY2xhc3NpZmljYXRpb24scm91dGVfbGVzc29uLHJvdXRlX2lucHV0X2NvbHVtbixyb3V0ZV9pbnB1dF92YWx1ZSxyb3V0ZV9pbnB1dF91bml0LHJvdXRlX291dHB1dF92YWx1ZSxyb3V0ZV9vdXRwdXRfdW5pdAp0LTEsNCwzNy4yNSwxMSwyLHRlbXBlcmF0dXJlLHRlbXBlcmF0dXJlLWNoZWNrLHByb2JlX2MsMzcuMjUswrBDLDk5LjA1LMKwRgpsLTEsMTIsOTAsMi41LDMsbGVuZ3RoLGxlbmd0aC1jaGVjayxkaXN0YW5jZV9pbiwyLjUsaW4sNjMuNSxtbQp0LTIsOS45OTk5LC00MCw5LDQsdGVtcGVyYXR1cmUsdGVtcGVyYXR1cmUtY2hlY2sscHJvYmVfYywtNDAswrBDLC00MCzCsEYK','Earlier export','source-earlier'),
+        readExport('aWQscmVhZGluZyxwcm9iZV9jLGluY2hlcyxub3RlLHJvdXRlX3NvdXJjZV9yb3cscm91dGVfMl9zb3VyY2Vfcm93LHJvdXRlXzJfY2xhc3NpZmljYXRpb24scm91dGVfMl9sZXNzb24scm91dGVfMl9pbnB1dF9jb2x1bW4scm91dGVfMl9pbnB1dF92YWx1ZSxyb3V0ZV8yX2lucHV0X3VuaXQscm91dGVfMl9vdXRwdXRfdmFsdWUscm91dGVfMl9vdXRwdXRfdW5pdApkdXAsNCwzNy4yNSwxMSwiQSwgbm9ydGgiLG9sZC10ZW1wLDIsdGVtcGVyYXR1cmUsdGVtcGVyYXR1cmUtZXhwb3J0LHByb2JlX2MsMzcuMjUswrBDLDk5LjA1LMKwRgpkdXAsMTIsOTAsMzcuMjUsc2FtZSBJRCxvbGQtbGVuZ3RoLDMsbGVuZ3RoLGxlbmd0aC1leHBvcnQsaW5jaGVzLDM3LjI1LGluLDk0Ni4xNSxtbQpkdXAsNCwzNy4yNSwxMSwiQSwgbm9ydGgiLG9sZC10ZW1wLDQsdGVtcGVyYXR1cmUsdGVtcGVyYXR1cmUtZXhwb3J0LHByb2JlX2MsMzcuMjUswrBDLDk5LjA1LMKwRgpsLTIsMTYsODgsMi41LCJGaXJzdCBsaW5lCnNlY29uZCAiInF1b3RlIiIgzrEiLG9sZC1saW5lLDUsbGVuZ3RoLGxlbmd0aC1leHBvcnQsaW5jaGVzLDIuNSxpbiw2My41LG1tCnQtMiw5Ljk5OTksLTQwLDksUGxhaW4sb2xkLXRhaWwsNix0ZW1wZXJhdHVyZSx0ZW1wZXJhdHVyZS1leHBvcnQscHJvYmVfYywtNDAswrBDLC00MCzCsEYK','Later export','source-later')
+    ]);
+    for (const [unit, [id,name]] of unitNames) {
+        const first = summarize(earlier,unit);
+        const second = summarize(later,unit);
+        if (!first && !second) continue;
+        const article = document.createElement('article');
+        const heading = document.createElement('h2');
+        heading.textContent = name;
+        const values = document.createElement('div');
+        values.className = 'cohorts';
+        values.append(cohort('Earlier','earlier-' + id,first,unit),cohort('Later','later-' + id,second,unit));
+        const delta = document.createElement('strong');
+        delta.className = 'change';
+        delta.id = 'change-' + id;
+        delta.textContent = change(first,second,unit);
+        article.append(heading,values,delta);
+        document.getElementById('comparisons').append(article);
+    }
+}
+render().catch(error => {console.error(error.message);});
+</script>
+</body>
+</html>

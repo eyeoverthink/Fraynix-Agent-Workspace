@@ -1,0 +1,52 @@
+{
+  "summary": "Compare the latest two verified routing exports in Chat, with separate °F and mm summaries. Recheck the same two exports against Java and the browser after restart.",
+  "modules": [
+    {
+      "title": "Same-unit comparison",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedComparisonReport.java",
+      "note": "docs/obsidian/207-verified-routing-comparison.md"
+    },
+    {
+      "title": "Comparison and source verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java",
+      "note": "docs/obsidian/207-verified-routing-comparison.md"
+    },
+    {
+      "title": "Offline browser comparison",
+      "source": "workspace-engine/src/main/resources/workbench/routing-comparison.html",
+      "note": "docs/obsidian/207-verified-routing-comparison.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/199/comparison-separate-units.png",
+      "title": "The saved comparison shows changes separately for Fahrenheit and millimetres"
+    },
+    {
+      "path": "docs/readmes/199/comparison-rechecked-after-restart.png",
+      "title": "Chat confirms fresh Java and browser verification for the original pair after restart"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/199/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/199/comparison.html",
+      "title": "Open the sample comparison"
+    },
+    {
+      "path": "docs/readmes/199/comparison-browser-receipt.json",
+      "title": "Original comparison browser receipt"
+    },
+    {
+      "path": "docs/readmes/199/earlier-routed-results.csv",
+      "title": "Earlier verified CSV"
+    },
+    {
+      "path": "docs/readmes/199/later-routed-results.csv",
+      "title": "Later verified CSV"
+    }
+  ]
+}

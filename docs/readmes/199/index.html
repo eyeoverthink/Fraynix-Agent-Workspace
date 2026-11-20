@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 199 · Compare verified routing exports by output unit</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Compare verified routing exports by output unit</h1><p>Compare the latest two verified routing exports in Chat, with separate °F and mm summaries. Recheck the same two exports against Java and the browser after restart.</p>
+<nav><a href="../../../README-199.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../198/index.html">Edition 198</a><a href="#system">System files</a></nav>
+<figure><img src="comparison-separate-units.png" alt="The saved comparison shows changes separately for Fahrenheit and millimetres"><figcaption>The saved comparison shows changes separately for Fahrenheit and millimetres</figcaption></figure>
+<figure><img src="comparison-rechecked-after-restart.png" alt="Chat confirms fresh Java and browser verification for the original pair after restart"><figcaption>Chat confirms fresh Java and browser verification for the original pair after restart</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Compare the latest two verified routing exports in Chat, with separate \u00b0F and mm summaries. Recheck the same two exports against Java and the browser after restart.", "modules": [{"title": "Same-unit comparison", "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedComparisonReport.java", "note": "docs/obsidian/207-verified-routing-comparison.md"}, {"title": "Comparison and source verification", "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java", "note": "docs/obsidian/207-verified-routing-comparison.md"}, {"title": "Offline browser comparison", "source": "workspace-engine/src/main/resources/workbench/routing-comparison.html", "note": "docs/obsidian/207-verified-routing-comparison.md"}], "screenshots": [{"path": "docs/readmes/199/comparison-separate-units.png", "title": "The saved comparison shows changes separately for Fahrenheit and millimetres"}, {"path": "docs/readmes/199/comparison-rechecked-after-restart.png", "title": "Chat confirms fresh Java and browser verification for the original pair after restart"}], "evidence": [{"path": "docs/readmes/199/verification.json", "title": "Verification record"}, {"path": "docs/readmes/199/comparison.html", "title": "Open the sample comparison"}, {"path": "docs/readmes/199/comparison-browser-receipt.json", "title": "Original comparison browser receipt"}, {"path": "docs/readmes/199/earlier-routed-results.csv", "title": "Earlier verified CSV"}, {"path": "docs/readmes/199/later-routed-results.csv", "title": "Later verified CSV"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/207-verified-routing-comparison.canvas", "bytes": 1210, "sha256": "cfd5ca752431f672aba40731d524571d5de5daf30daf39c8b0ba15ec954a24c9", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/207-verified-routing-comparison.md", "bytes": 452, "sha256": "e2aa65bee1da4d19600678bcbe679cc4cd21786c416c83b51d1b8769826eaa44", "hashKind": "utf8-lf"}, {"path": "docs/publication199/document.py", "bytes": 11912, "sha256": "e6b21bbe528a317e06de721e0238c29b903eabdebcb444c6ee651b6d4a7c9816", "hashKind": "utf8-lf"}, {"path": "docs/publication199/plan.md", "bytes": 1577, "sha256": "2d87de85408afc2ef1bf0c56d5bb319d99fd898711a63c30ad36e81f5d89c916", "hashKind": "utf8-lf"}, {"path": "docs/publication199/validate-desktop.cjs", "bytes": 11244, "sha256": "9a96f5644f06cbd831ff8fe494f622b63ec2988569eb39449c07de4e9cdc02af", "hashKind": "utf8-lf"}, {"path": "docs/publication199/validate-guide.cjs", "bytes": 1736, "sha256": "1423b730920c11814d8e169849372436d22f813ee64c3a606a292a21e953a91f", "hashKind": "utf8-lf"}, {"path": "docs/publication199/validate.py", "bytes": 2161, "sha256": "30dbc94830a3a34a698280f8a3c3c63036da4b89b416c247760c3e9517870e61", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/exports.cjs", "bytes": 10848, "sha256": "372e761102566ad0b813c44f65f44eea2905fba927b481a6b9615c4227ade729", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 113270, "sha256": "453c492ce6ba27e2bf5eb13d2615969504587630d51cafcc6338dd13e80ee2e6", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/classification-routing.js", "bytes": 7402, "sha256": "76809bbad2f6142130b79b6971b277667c176cf4361a2e1c8df6ee8dd955a8e5", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedComparisonReport.java", "bytes": 5765, "sha256": "d1d1a8527005a9ed39eb8b359e894f4e1f1339ebc1f3436c04ef1bf87b51fed1", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java", "bytes": 10177, "sha256": "79d4972c6f58ade87ef7e1230e76935fab471aa8dd8c3ed917dbdb6fa2e42500", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboardReport.java", "bytes": 6869, "sha256": "426cdb11fa9d5d1c3a00b0a7e81fd7fe01b56483e27734b6c09090a5d181c4dc", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedReport.java", "bytes": 629, "sha256": "30de81ad83d9501703a4df457ad2141012e6f92d46cfdc9f10a3b7cfc15a868e", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/resources/workbench/routing-comparison.html", "bytes": 7367, "sha256": "97aed9bdce737257b6dfce1f4d541aaabb5342a54a96038337ee281291a1ff15", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/RoutedComparisonReportTest.java", "bytes": 2524, "sha256": "2ae94b96f97b24e31c656c6474979857d908360c36931fb2601e7a32c2752240", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

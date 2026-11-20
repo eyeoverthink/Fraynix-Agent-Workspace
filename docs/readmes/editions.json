@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 198,
+  "latest": 199,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -265638,6 +265638,70 @@
         {
           "path": "docs/readmes/198/verification.json",
           "sha256": "5e082caedb44e904cbaae45295b877df5cbb1b2901778a6d280a27c97cb09bc7",
+          "kind": "text"
+        }
+      ]
+    },
+    {
+      "number": 199,
+      "date": "2026-11-19",
+      "title": "Compare verified routing exports by output unit",
+      "status": "validated-local",
+      "markdown": "README-199.md",
+      "markdownSha256": "fca7a95a9b932a38ae8910bced2b55336a58f0c9c2bb0eb11d4123a6d3ab6526",
+      "companion": "docs/readmes/199/index.html",
+      "tag": "readme-199",
+      "sourceBaseline": "0528fbbb782aff7eaf5c4a2290b45c054e4aaed0",
+      "snapshotDirectory": "docs/readmes/199",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/199/comparison-browser-receipt.json",
+          "sha256": "2f01eadcc275011acd4c2bffc93c5074827318ed0874716c6be341909fd2e36f",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/199/comparison-rechecked-after-restart.png",
+          "sha256": "9aa38dab2a539c3de770270f9ef3f3727dd119d74cbb271a02554dc82abe4163",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/199/comparison-separate-units.png",
+          "sha256": "823dfff08797d486f268ea0d6150cf0efd2cdb05d45e987e95948670ce9c96b5",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/199/comparison.html",
+          "sha256": "5e36030ccf9071dd2515aa534a4e3df5b17e720b6b61d9120a00d6c83fd70521",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/199/earlier-routed-results.csv",
+          "sha256": "085fd468f12d1c68acd47c44b439aaeb6f7126c337465d03f0cfe9ffb98f472c",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/199/file-inventory.json",
+          "sha256": "2266e526fe7a3f98c5bda5c42562643a7a9f419569ddd4b05af9a37de00ef245",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/199/index.html",
+          "sha256": "251fbcb9183fe4a57b09d3f190ea59fe448f2779ea6a1e30045c681554238637",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/199/later-routed-results.csv",
+          "sha256": "c384a979d3eb93df62c4bea5ad6ec527342e43a060e557c492025ebecc7cc28a",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/199/system-map.json",
+          "sha256": "e659e81ff789c805fc03d3606b6e8b4bd1b677ce803657d2fc315907ddce90f6",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/199/verification.json",
+          "sha256": "a293d15695dbf8c985c32da80ef8a7ef63e3e56d8bdb25fe4ce12de61ceef2db",
           "kind": "text"
         }
       ]

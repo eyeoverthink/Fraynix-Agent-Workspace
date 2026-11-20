@@ -1,0 +1,396 @@
+{
+  "passed": true,
+  "saved": {
+    "artifact": {
+      "sha256": "962af35323a596e56afbcd2a0097f4c07e634bf77a6081be66f347166198fd43",
+      "id": "6cc7d2f7-3029-3d27-9fb9-917c2062e496",
+      "version": 1
+    },
+    "htmlSha256": "5e36030ccf9071dd2515aa534a4e3df5b17e720b6b61d9120a00d6c83fd70521",
+    "earlierCsvSha256": "085fd468f12d1c68acd47c44b439aaeb6f7126c337465d03f0cfe9ffb98f472c",
+    "browserChecks": 12,
+    "id": "4c183e70-3178-39f8-983a-35ae7033be6a",
+    "passed": true,
+    "csvSha256": "c384a979d3eb93df62c4bea5ad6ec527342e43a060e557c492025ebecc7cc28a",
+    "laterExportId": "cb47fc25-d42b-46ca-8184-8dc1e080741f",
+    "earlierExportId": "12d2b0cf-d46d-43dd-95ac-745d1564057d"
+  },
+  "proof": {
+    "browserChecks": 12,
+    "comparisons": [
+      {
+        "earlier": {
+          "count": 2,
+          "max": "99.05",
+          "mean": "29.525",
+          "min": "-40",
+          "unit": "°F"
+        },
+        "later": {
+          "count": 3,
+          "max": "99.05",
+          "mean": "52.7",
+          "min": "-40",
+          "unit": "°F"
+        },
+        "meanChange": "23.175",
+        "unit": "°F"
+      },
+      {
+        "earlier": {
+          "count": 1,
+          "max": "63.5",
+          "mean": "63.5",
+          "min": "63.5",
+          "unit": "mm"
+        },
+        "later": {
+          "count": 2,
+          "max": "946.15",
+          "mean": "504.825",
+          "min": "63.5",
+          "unit": "mm"
+        },
+        "meanChange": "441.325",
+        "unit": "mm"
+      }
+    ],
+    "earlier": {
+      "csvSha256": "085fd468f12d1c68acd47c44b439aaeb6f7126c337465d03f0cfe9ffb98f472c",
+      "exportId": "12d2b0cf-d46d-43dd-95ac-745d1564057d",
+      "routing": {
+        "children": [
+          {
+            "artifact": {
+              "id": "ddaf7d44-fe7d-3157-a4b7-b69f703f4ce9",
+              "sha256": "9c218cd55c1a51f0dc321d318fff5d33141e44b36da0201f2029bc38d6e6f8c0",
+              "version": 1
+            },
+            "reviewId": "35d2a887-2695-37f8-8e82-9cd306f073b8"
+          },
+          {
+            "artifact": {
+              "id": "7b6e7597-cd28-379b-9560-b727f96196df",
+              "sha256": "0e966a3bedf79cb299f621a168f9d342aba792a4a6c505f959183b664e0cbea1",
+              "version": 1
+            },
+            "reviewId": "f69b4d97-7871-3647-b57b-79e40c02b128"
+          }
+        ],
+        "decisionSha256": "265f35c9fa0b028886ad34ce731afc50bc286c63c59e2bfcdce7d21abe1f7f06",
+        "planId": "e648215f-9755-454d-8548-94d89e557bdc",
+        "reportSha256": "085fd468f12d1c68acd47c44b439aaeb6f7126c337465d03f0cfe9ffb98f472c",
+        "rows": 3,
+        "source": {
+          "artifact": {
+            "id": "530bf5e3-ad0a-3177-b9e3-9ad87e20d208",
+            "sha256": "eb51205d161ad60ef7d6a38c280351f7944d9ec02da56a650261ceea05e8556c",
+            "version": 1
+          },
+          "reviewId": "bb1429eb-a927-484e-ae34-6f8f42c23bde",
+          "rulesSha256": "30cb192744e3a4529ee3ddd9ef4134145253e47830a178fc462e3333e7805bad",
+          "sourceSha256": "c8bcf121acb448e2f0eb7bb80f6f854ba3afe82b98d4185458394048d8d172d1"
+        }
+      },
+      "rows": 3
+    },
+    "later": {
+      "csvSha256": "c384a979d3eb93df62c4bea5ad6ec527342e43a060e557c492025ebecc7cc28a",
+      "exportId": "cb47fc25-d42b-46ca-8184-8dc1e080741f",
+      "routing": {
+        "children": [
+          {
+            "artifact": {
+              "id": "7e2b3902-4a9c-32e3-a34d-2f7077d01a27",
+              "sha256": "43569bfc2aa982a71526c38881f55720d4d1840288efd11c26f6695053f65afc",
+              "version": 1
+            },
+            "reviewId": "f82e5758-adcb-3d29-8cec-16ef607851e0"
+          },
+          {
+            "artifact": {
+              "id": "218ec13d-22b9-3237-9ad6-763a80015f50",
+              "sha256": "0516b90b075d9cebe7463d3ac26a3d26d6ca0693fdf2e49a9bd411ace7b482f8",
+              "version": 1
+            },
+            "reviewId": "6ab8ac93-528a-3bf2-850b-7b502477cc56"
+          }
+        ],
+        "decisionSha256": "2a948eafc8ddd01d2f1f250de1a213f91192935fc37ec390edc42e3b61042d33",
+        "planId": "5073ab40-1727-4db7-902f-42f4f0635529",
+        "reportSha256": "c384a979d3eb93df62c4bea5ad6ec527342e43a060e557c492025ebecc7cc28a",
+        "rows": 5,
+        "source": {
+          "artifact": {
+            "id": "72fb21e4-841b-3b78-a379-53a2a96fb914",
+            "sha256": "0248bc9046fdcb5d33b96cc4d6ed928b63388f8e344a5d09240eb8615bb0049a",
+            "version": 1
+          },
+          "reviewId": "64e521cd-d17d-4f83-92a9-e7baf7a8e855",
+          "rulesSha256": "30cb192744e3a4529ee3ddd9ef4134145253e47830a178fc462e3333e7805bad",
+          "sourceSha256": "015f5d9a84664a161df5c6df4d2a599920b06a0ded4891ee502048adce0c0503"
+        }
+      },
+      "rows": 5
+    },
+    "passed": true
+  },
+  "browserReceipt": {
+    "checks": [
+      {
+        "actual": {
+          "count": 1,
+          "text": "Verified routing comparison",
+          "value": null
+        },
+        "expected": {
+          "expectText": "Verified routing comparison",
+          "selector": "h1"
+        },
+        "index": 0,
+        "selector": "h1",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Earlier export · 3 rows · 085fd468f12d",
+          "value": null
+        },
+        "expected": {
+          "expectText": "Earlier export · 3 rows · 085fd468f12d",
+          "selector": "#source-earlier"
+        },
+        "index": 1,
+        "selector": "#source-earlier",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Later export · 5 rows · c384a979d3eb",
+          "value": null
+        },
+        "expected": {
+          "expectText": "Later export · 5 rows · c384a979d3eb",
+          "selector": "#source-later"
+        },
+        "index": 2,
+        "selector": "#source-later",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 2,
+          "text": "Temperature · °F\nEarlier\n2 rows · Min -40 °F · Max 99.05 °F · Mean 29.525 °F\nLater\n3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F\nMean change · +23.175 °F",
+          "value": null
+        },
+        "expected": {
+          "expectCount": 2,
+          "selector": "#comparisons article"
+        },
+        "index": 3,
+        "selector": "#comparisons article",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "2 rows · Min -40 °F · Max 99.05 °F · Mean 29.525 °F",
+          "value": "2 rows · Min -40 °F · Max 99.05 °F · Mean 29.525 °F"
+        },
+        "expected": {
+          "expectText": "2 rows · Min -40 °F · Max 99.05 °F · Mean 29.525 °F",
+          "selector": "#earlier-fahrenheit"
+        },
+        "index": 4,
+        "selector": "#earlier-fahrenheit",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F",
+          "value": "3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F"
+        },
+        "expected": {
+          "expectText": "3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F",
+          "selector": "#later-fahrenheit"
+        },
+        "index": 5,
+        "selector": "#later-fahrenheit",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Mean change · +23.175 °F",
+          "value": null
+        },
+        "expected": {
+          "expectText": "Mean change · +23.175 °F",
+          "selector": "#change-fahrenheit"
+        },
+        "index": 6,
+        "selector": "#change-fahrenheit",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "1 row · Min 63.5 mm · Max 63.5 mm · Mean 63.5 mm",
+          "value": "1 row · Min 63.5 mm · Max 63.5 mm · Mean 63.5 mm"
+        },
+        "expected": {
+          "expectText": "1 row · Min 63.5 mm · Max 63.5 mm · Mean 63.5 mm",
+          "selector": "#earlier-millimetres"
+        },
+        "index": 7,
+        "selector": "#earlier-millimetres",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "2 rows · Min 63.5 mm · Max 946.15 mm · Mean 504.825 mm",
+          "value": "2 rows · Min 63.5 mm · Max 946.15 mm · Mean 504.825 mm"
+        },
+        "expected": {
+          "expectText": "2 rows · Min 63.5 mm · Max 946.15 mm · Mean 504.825 mm",
+          "selector": "#later-millimetres"
+        },
+        "index": 8,
+        "selector": "#later-millimetres",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Mean change · +441.325 mm",
+          "value": null
+        },
+        "expected": {
+          "expectText": "Mean change · +441.325 mm",
+          "selector": "#change-millimetres"
+        },
+        "index": 9,
+        "selector": "#change-millimetres",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Earlier export · 3 rows · 085fd468f12d",
+          "value": null
+        },
+        "expected": {
+          "expectCount": 1,
+          "selector": "a[href=\"earlier-routed-results.csv\"]"
+        },
+        "index": 10,
+        "selector": "a[href=\"earlier-routed-results.csv\"]",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Later export · 5 rows · c384a979d3eb",
+          "value": null
+        },
+        "expected": {
+          "expectCount": 1,
+          "selector": "a[href=\"later-routed-results.csv\"]"
+        },
+        "index": 11,
+        "selector": "a[href=\"later-routed-results.csv\"]",
+        "passed": true
+      }
+    ],
+    "at": "2026-11-20T01:37:18.743521900Z",
+    "id": "6cc7d2f7-3029-3d27-9fb9-917c2062e496",
+    "passed": true,
+    "version": 1,
+    "steps": [
+      {
+        "expectText": "Verified routing comparison",
+        "selector": "h1"
+      },
+      {
+        "expectText": "Earlier export · 3 rows · 085fd468f12d",
+        "selector": "#source-earlier"
+      },
+      {
+        "expectText": "Later export · 5 rows · c384a979d3eb",
+        "selector": "#source-later"
+      },
+      {
+        "expectCount": 2,
+        "selector": "#comparisons article"
+      },
+      {
+        "expectText": "2 rows · Min -40 °F · Max 99.05 °F · Mean 29.525 °F",
+        "selector": "#earlier-fahrenheit"
+      },
+      {
+        "expectText": "3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F",
+        "selector": "#later-fahrenheit"
+      },
+      {
+        "expectText": "Mean change · +23.175 °F",
+        "selector": "#change-fahrenheit"
+      },
+      {
+        "expectText": "1 row · Min 63.5 mm · Max 63.5 mm · Mean 63.5 mm",
+        "selector": "#earlier-millimetres"
+      },
+      {
+        "expectText": "2 rows · Min 63.5 mm · Max 946.15 mm · Mean 504.825 mm",
+        "selector": "#later-millimetres"
+      },
+      {
+        "expectText": "Mean change · +441.325 mm",
+        "selector": "#change-millimetres"
+      },
+      {
+        "expectCount": 1,
+        "selector": "a[href=\"earlier-routed-results.csv\"]"
+      },
+      {
+        "expectCount": 1,
+        "selector": "a[href=\"later-routed-results.csv\"]"
+      }
+    ]
+  },
+  "screenshots": [
+    {
+      "name": "comparison-separate-units.png",
+      "sha256": "823dfff08797d486f268ea0d6150cf0efd2cdb05d45e987e95948670ce9c96b5"
+    },
+    {
+      "name": "comparison-rechecked-after-restart.png",
+      "sha256": "9aa38dab2a539c3de770270f9ef3f3727dd119d74cbb271a02554dc82abe4163"
+    }
+  ],
+  "checks": {
+    "legacyDashboardRechecked": true,
+    "singlePlanRefused": true,
+    "repeatExportSkipped": true,
+    "distinctSourcePlans": true,
+    "pinnedAcrossRestart": true,
+    "recheckedLiveBrowser": true,
+    "originalReceiptPreserved": true,
+    "oneComparisonArtifact": true,
+    "earlierTamperRefused": true,
+    "laterTamperRefused": true,
+    "mixedUnitOutputRefused": true,
+    "standalone": true
+  },
+  "source": "0528fbbb782aff7eaf5c4a2290b45c054e4aaed0",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 71,
+    "desktop": 181,
+    "archive": 10
+  }
+}

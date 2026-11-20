@@ -1,3 +1,7 @@
+## Edition 199 — Compare verified routing exports by output unit
+
+2026-11-19. Compare the latest two verified routing exports in Chat, with separate °F and mm summaries. Recheck the same two exports against Java and the browser after restart. The sample means changed by **+23.175 °F** and **+441.325 mm** across the two exports. 125 root Java tests, 71 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed locally. After restart, the original pair passed 12 fresh browser checks even after a new export was saved. See README-199.md and docs/publication199/plan.md.
+
 ## Edition 198 — Build a verified routing dashboard in Chat
 
 2026-11-19. Turn the latest verified routed CSV into a dashboard with separate °F and mm summaries. Recheck the saved artifact against Java and a fresh browser run after restart. The dashboard kept 3 temperature rows and 2 length rows in separate summaries. Their means were 52.7 °F and 504.825 mm. 125 root Java tests, 69 focused Java workspace tests, 181 desktop tests and 10 evidence archive tests passed locally. A blocked save recovered from the original checks. After the next restart, the same artifact passed 15 fresh checks. See README-198.md and docs/publication198/plan.md.

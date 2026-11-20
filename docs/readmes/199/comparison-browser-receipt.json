@@ -1,0 +1,226 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "count": 1,
+        "text": "Verified routing comparison",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Verified routing comparison",
+        "selector": "h1"
+      },
+      "index": 0,
+      "selector": "h1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Earlier export · 3 rows · 085fd468f12d",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Earlier export · 3 rows · 085fd468f12d",
+        "selector": "#source-earlier"
+      },
+      "index": 1,
+      "selector": "#source-earlier",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Later export · 5 rows · c384a979d3eb",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Later export · 5 rows · c384a979d3eb",
+        "selector": "#source-later"
+      },
+      "index": 2,
+      "selector": "#source-later",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 2,
+        "text": "Temperature · °F\nEarlier\n2 rows · Min -40 °F · Max 99.05 °F · Mean 29.525 °F\nLater\n3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F\nMean change · +23.175 °F",
+        "value": null
+      },
+      "expected": {
+        "expectCount": 2,
+        "selector": "#comparisons article"
+      },
+      "index": 3,
+      "selector": "#comparisons article",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "2 rows · Min -40 °F · Max 99.05 °F · Mean 29.525 °F",
+        "value": "2 rows · Min -40 °F · Max 99.05 °F · Mean 29.525 °F"
+      },
+      "expected": {
+        "expectText": "2 rows · Min -40 °F · Max 99.05 °F · Mean 29.525 °F",
+        "selector": "#earlier-fahrenheit"
+      },
+      "index": 4,
+      "selector": "#earlier-fahrenheit",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F",
+        "value": "3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F"
+      },
+      "expected": {
+        "expectText": "3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F",
+        "selector": "#later-fahrenheit"
+      },
+      "index": 5,
+      "selector": "#later-fahrenheit",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Mean change · +23.175 °F",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Mean change · +23.175 °F",
+        "selector": "#change-fahrenheit"
+      },
+      "index": 6,
+      "selector": "#change-fahrenheit",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "1 row · Min 63.5 mm · Max 63.5 mm · Mean 63.5 mm",
+        "value": "1 row · Min 63.5 mm · Max 63.5 mm · Mean 63.5 mm"
+      },
+      "expected": {
+        "expectText": "1 row · Min 63.5 mm · Max 63.5 mm · Mean 63.5 mm",
+        "selector": "#earlier-millimetres"
+      },
+      "index": 7,
+      "selector": "#earlier-millimetres",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "2 rows · Min 63.5 mm · Max 946.15 mm · Mean 504.825 mm",
+        "value": "2 rows · Min 63.5 mm · Max 946.15 mm · Mean 504.825 mm"
+      },
+      "expected": {
+        "expectText": "2 rows · Min 63.5 mm · Max 946.15 mm · Mean 504.825 mm",
+        "selector": "#later-millimetres"
+      },
+      "index": 8,
+      "selector": "#later-millimetres",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Mean change · +441.325 mm",
+        "value": null
+      },
+      "expected": {
+        "expectText": "Mean change · +441.325 mm",
+        "selector": "#change-millimetres"
+      },
+      "index": 9,
+      "selector": "#change-millimetres",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Earlier export · 3 rows · 085fd468f12d",
+        "value": null
+      },
+      "expected": {
+        "expectCount": 1,
+        "selector": "a[href=\"earlier-routed-results.csv\"]"
+      },
+      "index": 10,
+      "selector": "a[href=\"earlier-routed-results.csv\"]",
+      "passed": true
+    },
+    {
+      "actual": {
+        "count": 1,
+        "text": "Later export · 5 rows · c384a979d3eb",
+        "value": null
+      },
+      "expected": {
+        "expectCount": 1,
+        "selector": "a[href=\"later-routed-results.csv\"]"
+      },
+      "index": 11,
+      "selector": "a[href=\"later-routed-results.csv\"]",
+      "passed": true
+    }
+  ],
+  "at": "2026-11-20T01:37:18.743521900Z",
+  "id": "6cc7d2f7-3029-3d27-9fb9-917c2062e496",
+  "passed": true,
+  "version": 1,
+  "steps": [
+    {
+      "expectText": "Verified routing comparison",
+      "selector": "h1"
+    },
+    {
+      "expectText": "Earlier export · 3 rows · 085fd468f12d",
+      "selector": "#source-earlier"
+    },
+    {
+      "expectText": "Later export · 5 rows · c384a979d3eb",
+      "selector": "#source-later"
+    },
+    {
+      "expectCount": 2,
+      "selector": "#comparisons article"
+    },
+    {
+      "expectText": "2 rows · Min -40 °F · Max 99.05 °F · Mean 29.525 °F",
+      "selector": "#earlier-fahrenheit"
+    },
+    {
+      "expectText": "3 rows · Min -40 °F · Max 99.05 °F · Mean 52.7 °F",
+      "selector": "#later-fahrenheit"
+    },
+    {
+      "expectText": "Mean change · +23.175 °F",
+      "selector": "#change-fahrenheit"
+    },
+    {
+      "expectText": "1 row · Min 63.5 mm · Max 63.5 mm · Mean 63.5 mm",
+      "selector": "#earlier-millimetres"
+    },
+    {
+      "expectText": "2 rows · Min 63.5 mm · Max 946.15 mm · Mean 504.825 mm",
+      "selector": "#later-millimetres"
+    },
+    {
+      "expectText": "Mean change · +441.325 mm",
+      "selector": "#change-millimetres"
+    },
+    {
+      "expectCount": 1,
+      "selector": "a[href=\"earlier-routed-results.csv\"]"
+    },
+    {
+      "expectCount": 1,
+      "selector": "a[href=\"later-routed-results.csv\"]"
+    }
+  ]
+}
