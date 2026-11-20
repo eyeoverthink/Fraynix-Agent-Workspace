@@ -12,17 +12,31 @@ class NativeExports {
   await fs.writeFile(target+'.receipt.json',JSON.stringify(receipt,null,2)+'\n',{flag:'wx'});
   await fs.appendFile(path.join(this.directory,'manifest.jsonl'),JSON.stringify(receipt)+'\n');this.latest=receipt;return receipt;
  }
- async routedCsv(exportId){
-  if(!exportId){
-   const manifest=path.join(this.directory,'manifest.jsonl');
-   const stat=await fs.lstat(manifest).catch(error=>{if(error.code==='ENOENT')return null;throw error;});
-   if(!stat?.isFile())throw Error('Export a verified routing CSV first');
-   for await(const line of createInterface({input:createReadStream(manifest),crlfDelay:Infinity})){
-    if(!line.trim())continue;
-    const entry=JSON.parse(line);
-    if(entry.kind==='verified-routed-results')exportId=entry.id;
-   }
+ async *routingEntries(){
+  const manifest=path.join(this.directory,'manifest.jsonl');
+  const stat=await fs.lstat(manifest).catch(error=>{if(error.code==='ENOENT')return null;throw error;});
+  if(!stat?.isFile())throw Error('Export a verified routing CSV first');
+  for await(const line of createInterface({input:createReadStream(manifest),crlfDelay:Infinity})){
+   if(!line.trim())continue;
+   const entry=JSON.parse(line);
+   if(entry.kind==='verified-routed-results')yield entry;
   }
+ }
+ async routedCsvPair(){
+  const latestByPlan=new Map();
+  for await(const entry of this.routingEntries()){
+   const plan=entry.source?.planId;
+   if(typeof plan!=='string'||!plan)throw Error('A routing export has no verified plan ID');
+   latestByPlan.delete(plan);
+   latestByPlan.set(plan,entry.id);
+  }
+  if(latestByPlan.size<2)throw Error('Export CSVs from two different verified routing plans first');
+  const [earlier,later]=[...latestByPlan.values()].slice(-2);
+  const [baseline,file]=await Promise.all([this.routedCsv(earlier),this.routedCsv(later)]);
+  return {file,baseline};
+ }
+ async routedCsv(exportId){
+  if(!exportId)for await(const entry of this.routingEntries())exportId=entry.id;
   if(!exportId)throw Error('Export a verified routing CSV first');
   if(!/^[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$/.test(exportId))throw Error('The routing export ID changed');
   const file=path.join(this.directory,exportId+'.csv');

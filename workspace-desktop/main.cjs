@@ -506,15 +506,23 @@ async function runClassificationPlan({id,decisionSha256,pauseAfterNext=false}) {
   throw Error('Routing plan exceeded the procedure limit');
 }
 
-async function openRoutedDashboard({verifyOnly=false}) {
-  if(typeof verifyOnly!=='boolean')throw Error('Choose whether to build or recheck the dashboard');
-  const file=await nativeExports.routedCsv();
-  let result=await api('/api/requests/routing-dashboard-prepare',{file,verifyOnly});
+async function openRoutedDashboard({verifyOnly=false,compare=false,pair}) {
+  if(typeof verifyOnly!=='boolean'||typeof compare!=='boolean')throw Error('Choose a routed report to build or recheck');
+  let sources;
+  if(compare&&verifyOnly&&pair){
+    if(typeof pair.earlier!=='string'||typeof pair.later!=='string')throw Error('Choose the original two export IDs');
+    const [baseline,file]=await Promise.all([nativeExports.routedCsv(pair.earlier),nativeExports.routedCsv(pair.later)]);
+    sources={baseline,file};
+  }else sources=compare?await nativeExports.routedCsvPair():{file:await nativeExports.routedCsv()};
+  const retained=async()=>({
+    file:await nativeExports.routedCsv(sources.file.exportId),
+    ...(sources.baseline?{baseline:await nativeExports.routedCsv(sources.baseline.exportId)}:{})
+  });
+  let result=await api('/api/requests/routing-dashboard-prepare',{...sources,verifyOnly});
   if(verifyOnly){
     await showRoutedDashboard(result);
     const checks=await canvas.test(result.steps);
-    const current=await nativeExports.routedCsv(file.exportId);
-    return api('/api/requests/routing-dashboard-finish',{id:result.id,file:current,htmlSha256:result.htmlSha256,checks});
+    return api('/api/requests/routing-dashboard-finish',{id:result.id,...await retained(),htmlSha256:result.htmlSha256,checks});
   }
   if(!result.artifact){
     const previous=canvas.view.webContents.getURL();
@@ -529,8 +537,7 @@ async function openRoutedDashboard({verifyOnly=false}) {
         await canvas.navigate(url);
         confirmation.checks=await canvas.test(result.steps);
       }
-      confirmation.file=await nativeExports.routedCsv(file.exportId);
-      result=await api('/api/requests/routing-dashboard-finish',confirmation);
+      result=await api('/api/requests/routing-dashboard-finish',{...confirmation,...await retained()});
     }catch(error){
       await canvas.navigate(previous.startsWith(origin+'/')?previous:origin+'/welcome').catch(()=>{});
       throw error;

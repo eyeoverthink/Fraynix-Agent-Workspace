@@ -1,10 +1,11 @@
 const $ = id => document.getElementById(id);
 const PROJECT_PLAN = 'fraynix-classification-routing-plan';
 const SOURCE = 'fraynix-verified-classification';
+const COMPARISON = 'fraynix-last-routed-comparison';
 
 export const isRoutingRequest = text => /^(?:Route the last verified classification|Resume classification routing)[.!]?$/i.test(text.trim());
 export const isRoutedDashboardRequest = text =>
-    /^(?:Build a dashboard from the (?:last )?verified routed CSV|Recheck the routed CSV dashboard)[.!]?$/i.test(text.trim());
+    /^(?:Build a dashboard from the (?:last )?verified routed CSV|Recheck the routed CSV dashboard|Compare the last two verified routed CSVs|Recheck the routed CSV comparison)[.!]?$/i.test(text.trim());
 
 export class ClassificationRoutingPanel {
     constructor({call, layout, announce}) {
@@ -54,8 +55,12 @@ export class ClassificationRoutingPanel {
     async fromChat(text) {
         if (isRoutedDashboardRequest(text)) {
             try {
-                const result = await this.call('routing-dashboard',{verifyOnly:/^recheck/i.test(text.trim())});
-                this.announce('Dashboard verified against Java. '+result.browserChecks
+                const compare = /^(compare|recheck the routed CSV comparison)/i.test(text.trim());
+                const verifyOnly = /^recheck/i.test(text.trim());
+                const previous = compare&&verifyOnly ? localStorage.getItem(COMPARISON) : null;
+                const result = await this.call('routing-dashboard',{verifyOnly,compare,...(previous?{pair:JSON.parse(previous)}:{})});
+                if(compare)localStorage.setItem(COMPARISON,JSON.stringify({earlier:result.earlierExportId,later:result.laterExportId}));
+                this.announce((compare?'Comparison':'Dashboard')+' verified against Java. '+result.browserChecks
                     +(result.rechecked?' fresh browser checks passed.':' browser checks passed.'));
             } catch (error) { this.announce(error.message); }
             return;

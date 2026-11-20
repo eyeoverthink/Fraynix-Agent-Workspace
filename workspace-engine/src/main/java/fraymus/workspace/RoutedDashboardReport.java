@@ -11,7 +11,7 @@ import java.util.Base64;
 import java.util.List;
 
 /** Exact decimal reference for the unit-separated browser dashboard. */
-final class RoutedDashboardReport {
+final class RoutedDashboardReport implements RoutedReport {
     private static final String TEMPLATE = FrayConversion.loadHtml("routing-dashboard.html");
     static final String TITLE = "Verified routing dashboard";
     private static final List<String> UNITS = List.of("°F", "mm");
@@ -24,7 +24,7 @@ final class RoutedDashboardReport {
         }
     }
 
-    private record Group(String unit, int count, String min, String max, String mean) {
+    record Group(String unit, int count, String min, String max, String mean, BigDecimal sum) {
         String text() {
             return count + (count == 1 ? " row" : " rows") + " · Min " + min + " " + unit + " · Max " + max + " " + unit
                     + " · Mean " + mean + " " + unit;
@@ -64,19 +64,20 @@ final class RoutedDashboardReport {
         html = TEMPLATE.replace("@CSV_BASE64@", Base64.getEncoder().encodeToString(csv.getBytes(StandardCharsets.UTF_8)));
     }
 
-    String html() { return html; }
-    String htmlSha256() { return MeasurementStore.hash(html); }
+    @Override public String html() { return html; }
+    List<Group> groups() { return groups; }
+    int rowCount() { return rows.size(); }
 
     private Group summarize(String unit) {
         var values = rows.stream().filter(row -> unit.equals(row.unit())).map(row -> new BigDecimal(row.value())).toList();
-        if (values.isEmpty()) return new Group(unit, 0, "", "", "");
+        if (values.isEmpty()) return new Group(unit, 0, "", "", "", BigDecimal.ZERO);
         var sum = values.stream().reduce(BigDecimal.ZERO, BigDecimal::add);
         return new Group(unit, values.size(), plain(values.stream().min(BigDecimal::compareTo).orElseThrow()),
                 plain(values.stream().max(BigDecimal::compareTo).orElseThrow()),
-                plain(sum.divide(BigDecimal.valueOf(values.size()), 5, RoundingMode.HALF_UP)));
+                plain(sum.divide(BigDecimal.valueOf(values.size()), 5, RoundingMode.HALF_UP)), sum);
     }
 
-    private static String plain(BigDecimal value) { return value.stripTrailingZeros().toPlainString(); }
+    static String plain(BigDecimal value) { return value.stripTrailingZeros().toPlainString(); }
 
     private String rowText(String unit) {
         return String.join("\n", rows.stream().filter(row -> unit == null || row.unit().equals(unit)).map(Row::text).toList());
@@ -84,7 +85,7 @@ final class RoutedDashboardReport {
 
     static String unitId(String unit) { return "°F".equals(unit) ? "fahrenheit" : "millimetres"; }
 
-    JSONArray steps() {
+    @Override public JSONArray steps() {
         var steps = new JSONArray().put(text("h1", TITLE))
                 .put(text("#dashboard-count", rows.size() + (rows.size() == 1 ? " verified row" : " verified rows")
                         + " · " + groups.size() + (groups.size() == 1 ? " output unit" : " output units")))
@@ -106,10 +107,8 @@ final class RoutedDashboardReport {
         return new JSONObject().put("selector", selector).put("expectText", content);
     }
 
-    JSONObject artifact(JSONObject file, JSONArray checks) {
-        var steps = steps();
-        if (checks.length() != steps.length()) throw new IllegalStateException("The routed dashboard browser checks are incomplete");
-        for (int i = 0; i < steps.length(); i++) FrayConversion.verifyStep(steps.getJSONObject(i), checks.getJSONObject(i), i);
+    @Override public JSONObject artifact(JSONObject file, JSONArray checks) {
+        verifyBrowser(checks);
         var proof = new JSONObject().put("passed", true).put("exportId", file.getString("exportId"))
                 .put("csvSha256", file.getString("sha256")).put("source", file.getJSONObject("source"))
                 .put("groups", new JSONArray(groups.stream().map(Group::evidence).toList()))
