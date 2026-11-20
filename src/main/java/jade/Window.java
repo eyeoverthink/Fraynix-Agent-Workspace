@@ -165,8 +165,10 @@ public class Window implements Observer {
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
-        if (org.lwjgl.system.Platform.get() == org.lwjgl.system.Platform.MACOSX) {
+        boolean mac = org.lwjgl.system.Platform.get() == org.lwjgl.system.Platform.MACOSX;
+        if (mac) {
             // Cocoa provides modern OpenGL through forward-compatible core profiles.
+            glfwWindowHint(GLFW_COCOA_GRAPHICS_SWITCHING, GLFW_TRUE);
             glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
             glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
             glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -178,6 +180,9 @@ public class Window implements Observer {
         // Create the window
         glfwWindow = glfwCreateWindow(this.width, this.height, this.title, NULL, NULL);
         if (glfwWindow == NULL) {
+            if (mac && glfwGetError(null) == GLFW_FORMAT_UNAVAILABLE) {
+                throw new IllegalStateException("Game Lab cannot get a macOS OpenGL 4.1 context from the current display.");
+            }
             throw new IllegalStateException("Failed to create the GLFW window.");
         }
 

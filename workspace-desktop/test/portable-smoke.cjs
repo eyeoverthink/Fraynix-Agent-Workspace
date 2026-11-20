@@ -15,6 +15,7 @@ async function main() {
   process.env.FRAYNIX_WORKSPACE_PERSISTENT = '0';
   const args = process.env.FRAYNIX_WORKSPACE_CI_CHROMIUM === '1' && process.platform === 'linux' ? ['--no-sandbox'] : [];
   const checks = [];
+  let nativeGame;
   try {
     const {app,page} = await launch(project,args);
     try {
@@ -33,19 +34,33 @@ async function main() {
       assert.equal(ramp.samples.at(-1).tick,180);
       checks.push('Native Bullet physics passes the independent incline reference');
 
-      const original = await api('/api/game/open-relay',{});
-      assert.equal(original.state.visibleWindow,false);
-      assert.equal(original.state.editorInitialized,false);
-      const stepped = await api('/api/game/command',{action:'step',ticks:40,horizontal:1,jump:false});
-      assert.equal(stepped.state.tick-original.state.tick,40);
-      assert(stepped.state.player.x > original.state.player.x);
-      assert.notEqual(original.pngSha256,stepped.pngSha256);
-      const frame = Buffer.from(stepped.pngBase64,'base64');
-      assert.equal(frame.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
-      assert.equal(frame.readUInt32BE(16),960);
-      assert.equal(frame.readUInt32BE(20),540);
-      await fs.writeFile(path.join(output,'game-frame.png'),frame);
-      checks.push('Hidden native renderer loads Relay Garden and renders fixed-step movement');
+      let original;
+      try {
+        original = await api('/api/game/open-relay',{});
+      } catch (error) {
+        if (process.platform !== 'darwin' || process.env.FRAYNIX_CI_MAC_DISPLAY !== '1' ||
+            !error.message.includes('Game Lab cannot get a macOS OpenGL 4.1 context from the current display.')) {
+          throw error;
+        }
+        assert.equal((await api('/api/game/state')).running,false);
+        nativeGame = 'display-unavailable';
+        console.warn('Game Lab needs a macOS OpenGL 4.1 display. The hosted job verified startup reporting only.');
+      }
+      if (original) {
+        assert.equal(original.state.visibleWindow,false);
+        assert.equal(original.state.editorInitialized,false);
+        const stepped = await api('/api/game/command',{action:'step',ticks:40,horizontal:1,jump:false});
+        assert.equal(stepped.state.tick-original.state.tick,40);
+        assert(stepped.state.player.x > original.state.player.x);
+        assert.notEqual(original.pngSha256,stepped.pngSha256);
+        const frame = Buffer.from(stepped.pngBase64,'base64');
+        assert.equal(frame.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
+        assert.equal(frame.readUInt32BE(16),960);
+        assert.equal(frame.readUInt32BE(20),540);
+        await fs.writeFile(path.join(output,'game-frame.png'),frame);
+        checks.push('Hidden native renderer loads Relay Garden and renders fixed-step movement');
+        nativeGame = 'verified';
+      }
     } finally { await app.close(); }
 
     process.env.FRAYNIX_WORKSPACE_PERSISTENT = '1';
@@ -70,7 +85,7 @@ async function main() {
       }
     }
   }
-  const result = {passed:true,platform:process.platform,architecture:process.arch,checks};
+  const result = {passed:true,platform:process.platform,architecture:process.arch,nativeGame,checks};
   await fs.writeFile(path.join(output,'result.json'),JSON.stringify(result,null,2)+'\n');
   console.log(JSON.stringify(result));
 }

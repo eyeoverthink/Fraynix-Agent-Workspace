@@ -97,7 +97,13 @@ public final class EmbeddedGameClient implements AutoCloseable {
                 }
                 if (!ready.isDone()) {
                     String reason = owned.waitFor(2, TimeUnit.SECONDS) ? "exited with code " + owned.exitValue() : "closed its startup output";
-                    ready.completeExceptionally(new IOException("Game runtime " + reason + ". See " + runtimeProject.resolve("runtime-errors.log")));
+                    Path errors = runtimeProject.resolve("runtime-errors.log");
+                    String failure = "Game runtime " + reason + ".";
+                    if (os.startsWith("mac") && Files.size(errors) <= 32_768
+                            && Files.readString(errors).contains("Game Lab cannot get a macOS OpenGL 4.1 context")) {
+                        failure = "Game Lab cannot get a macOS OpenGL 4.1 context from the current display.";
+                    }
+                    ready.completeExceptionally(new IOException(failure + " See " + errors));
                 }
             } catch (Exception error) {
                 ready.completeExceptionally(error);

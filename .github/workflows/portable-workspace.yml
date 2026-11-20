@@ -93,6 +93,8 @@ jobs:
           'GALLIUM_DRIVER=llvmpipe' | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
       - name: Exercise desktop, native game and restart
         if: runner.os != 'Linux'
+        env:
+          FRAYNIX_CI_MAC_DISPLAY: ${{ runner.os == 'macOS' && '1' || '0' }}
         run: node workspace-desktop/test/portable-smoke.cjs build/portable-smoke
       - name: Exercise desktop, native game and restart on virtual display
         if: runner.os == 'Linux'
