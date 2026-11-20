@@ -1,0 +1,167 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Verified comparison CSV totals</title>
+<style>
+:root {color-scheme:dark;color:#edf7f3;background:#13202a;font:15px/1.55 system-ui,sans-serif}
+* {box-sizing:border-box}
+body {margin:0;padding:clamp(16px,4vw,40px)}
+main {max-width:62rem;margin:auto}
+h1 {font-size:clamp(1.6rem,4.5vw,2.45rem);line-height:1.13;margin:0 0 8px}
+p {margin:0 0 12px;color:#bed0d6}
+#group-count {font-weight:650;color:#edf7f3}
+#unit-totals {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:12px}
+article {border:1px solid #3b5969;background:#1a3039;padding:15px;border-radius:9px}
+h2 {margin:0 0 7px;color:#b8f2db;font-size:1.2rem}
+dl {display:grid;grid-template-columns:1fr auto;gap:6px 12px;margin:14px 0 0;padding-top:10px;border-top:1px solid #3a5360}
+dd {margin:0;font-weight:650;font-variant-numeric:tabular-nums}
+nav {display:flex;flex-wrap:wrap;gap:10px 16px}
+a {color:#b9f2dc}
+details {margin-top:18px}
+summary {cursor:pointer;color:#dfedf0}
+#source {margin:10px 0}
+#source p {overflow-wrap:anywhere;margin:0 0 4px}
+#source #import-sha {font:0.9rem/1.6 ui-monospace,monospace}
+</style>
+</head>
+<body>
+<main>
+<h1>Verified comparison CSV totals</h1>
+<p>Changes are summed only for matched rows within each output unit.</p>
+<p id="group-count"></p>
+<section id="unit-totals" aria-label="Totals by output unit"></section>
+<details open>
+  <summary>Source and receipt</summary>
+  <div id="source">
+    <p id="import-id"></p>
+    <p id="import-sha"></p>
+    <nav aria-label="Verified source files">
+      <a href="matched-comparison.csv" download>Comparison CSV</a>
+      <a href="import-receipt.json" download>Import receipt</a>
+    </nav>
+  </div>
+</details>
+</main>
+<script>
+'use strict';
+const statuses = ['Matched','Added','Missing','Duplicate'];
+const units = new Map([['°F',['fahrenheit','Temperature']],['mm',['millimetres','Length']]]);
+const scale = 100000n;
+
+function bytes(base64) {
+    return Uint8Array.from(atob(base64), char => char.charCodeAt(0));
+}
+
+function csvRows(input) {
+    const rows = [];
+    let row = [], field = '', quoted = false, closed = false;
+    for (let i = 0; i < input.length; i++) {
+        const char = input[i];
+        if (quoted) {
+            if (char !== '"') field += char;
+            else if (input[i+1] === '"') { field += '"'; i++; }
+            else { quoted = false; closed = true; }
+        } else if (char === '"') {
+            if (field || closed) throw Error('Misplaced quote in comparison CSV');
+            quoted = true;
+        } else if (char === ',' || char === '\n') {
+            row.push(field);
+            field = '';
+            closed = false;
+            if (char === '\n') { rows.push(row); row = []; }
+        } else {
+            if (closed) throw Error('Unexpected comparison CSV text');
+            field += char;
+        }
+    }
+    if (quoted || closed || field || row.length) throw Error('Incomplete comparison CSV row');
+    return rows;
+}
+
+function number(text) {
+    const parts = /^(-?)([0-9]+)(?:\.([0-9]{1,5}))?$/.exec(text);
+    if (!parts || parts[0] !== text) throw Error('Invalid decimal delta');
+    const magnitude = BigInt(parts[2] + (parts[3] || '').padEnd(5,'0'));
+    return parts[1] ? -magnitude : magnitude;
+}
+
+function display(value, signed, unit, matched) {
+    if (!matched) return '—';
+    const absolute = value < 0n ? -value : value;
+    const fraction = (absolute % scale).toString().padStart(5,'0').replace(/0+$/,'');
+    const sign = value < 0n ? '-' : signed && value > 0n ? '+' : '';
+    return sign + (absolute / scale) + (fraction ? '.' + fraction : '') + ' ' + unit;
+}
+
+function countsByUnit(rows) {
+    const totals = new Map();
+    for (const row of rows) {
+        const [,unit,status,,,delta] = row;
+        if (row.length !== 6 || !units.has(unit) || !statuses.includes(status) || (status === 'Matched') !== Boolean(delta))
+            throw Error('Invalid comparison group');
+        if (!totals.has(unit)) totals.set(unit,{counts:new Map(statuses.map(name=>[name,0])),net:0n,absolute:0n});
+        const total = totals.get(unit);
+        total.counts.set(status,total.counts.get(status)+1);
+        if (status === 'Matched') {
+            const value = number(delta);
+            total.net += value;
+            total.absolute += value < 0n ? -value : value;
+        }
+    }
+    return totals;
+}
+
+function node(tag,text,id) {
+    const element = document.createElement(tag);
+    element.textContent = text;
+    if (id) element.id = id;
+    return element;
+}
+
+async function render() {
+    const decoder = new TextDecoder('utf-8',{fatal:true});
+    const data = bytes('a2V5X2pzb24sdW5pdCxzdGF0dXMsZWFybGllcl9yZWFkaW5ncyxsYXRlcl9yZWFkaW5ncyxkZWx0YQoiIiLOsS0xIiIiLMKwRixNYXRjaGVkLCJbeyIicm93IiI6MiwiInZhbHVlIiI6IiI1MCIifV0iLCJbeyIicm93IiI6NCwiInZhbHVlIiI6IiI1Mi4yNSIifV0iLDIuMjUKIiIicmFpbCIiIixtbSxNYXRjaGVkLCJbeyIicm93IiI6MywiInZhbHVlIiI6IiI3Ni4yIiJ9XSIsIlt7IiJyb3ciIjoyLCIidmFsdWUiIjoiIjYzLjUiIn1dIiwtMTIuNwoiIiJnb25lIiIiLMKwRixNaXNzaW5nLCJbeyIicm93IiI6NCwiInZhbHVlIiI6IiItNDAiIn1dIixbXSwKIiIidGFuayIiIixtbSxEdXBsaWNhdGUsIlt7IiJyb3ciIjo1LCIidmFsdWUiIjoiIjM4LjEiIn0seyIicm93IiI6NiwiInZhbHVlIiI6IiI0NC40NSIifV0iLCJbeyIicm93IiI6NSwiInZhbHVlIiI6IiI1MC44IiJ9XSIsCiIiInN3aXRjaCIiIizCsEYsTWlzc2luZywiW3siInJvdyIiOjcsIiJ2YWx1ZSIiOiIiMzIiIn1dIixbXSwKIiIicXVvdGUgXCIiQVwiIiwgzrIiIiIswrBGLE1hdGNoZWQsIlt7IiJyb3ciIjo4LCIidmFsdWUiIjoiIi00MCIifV0iLCJbeyIicm93IiI6NywiInZhbHVlIiI6IiItNDAiIn1dIiwwCiIiInJhaWwiIiIswrBGLE1hdGNoZWQsIlt7IiJyb3ciIjo5LCIidmFsdWUiIjoiIjQxIiJ9XSIsIlt7IiJyb3ciIjo5LCIidmFsdWUiIjoiIjQ1Ljk1IiJ9XSIsNC45NQoiIiJsYXRlLWR1cCIiIizCsEYsRHVwbGljYXRlLCJbeyIicm93IiI6MTAsIiJ2YWx1ZSIiOiIiMzcuNCIifV0iLCJbeyIicm93IiI6OCwiInZhbHVlIiI6IiIzOS4yIiJ9LHsiInJvdyIiOjEwLCIidmFsdWUiIjoiIjQxIiJ9XSIsCiIiImZyZXNoIiIiLG1tLEFkZGVkLFtdLCJbeyIicm93IiI6MywiInZhbHVlIiI6IiI2LjM1IiJ9XSIsCiIiInN3aXRjaCIiIixtbSxBZGRlZCxbXSwiW3siInJvdyIiOjYsIiJ2YWx1ZSIiOiIiMjAzLjIiIn1dIiwK');
+    const receiptBytes = bytes('eyJieXRlcyI6OTYwLCJjcmVhdGVkQXQiOiIyMDI2LTExLTIwVDEyOjU3OjEyLjQzMFoiLCJpZCI6IjdmNTY2NGUyLWRjMDItNGY0NC05ZGQ5LWE2ODlmZjkzODExMCIsImtpbmQiOiJ2ZXJpZmllZC1yb3V0ZWQtY29tcGFyaXNvbiIsInNoYTI1NiI6IjAwMWI5OTM5YjBlZjVjOTE4MmEyNjgyZGMyMzU2MDYzNDc2MWE5ODRhMjQ3NzFiYmI0YWQ4MjNiMDMwN2JiZWYiLCJzb3VyY2UiOnsiYXJ0aWZhY3QiOnsiaWQiOiI5OWE4YTA3YS0zZWYzLTM0MjctYWEyZC0xYmQ0NmE1MmNlNjMiLCJzaGEyNTYiOiIxY2JmOWZmM2I1MmNhZWMxOGEwY2RlYTA2Yzk3M2IyMGE2Y2YyNTZlNzY1NmVjZGNlODliNWE2ZGM4NDlhY2Y3IiwidmVyc2lvbiI6MX0sImJyb3dzZXJDaGVja3MiOjksImJyb3dzZXJFdmlkZW5jZVNoYTI1NiI6ImM3YWFmYmY5NTVkOGU4ZDE5MWMzMTE0YzA4MDNhODVlYzE2Yjg4NmJhMTdlNzc3ZWQ5Y2Y5ZTI1YjAzZDc4N2EiLCJjb21wYXJpc29uSWQiOiJmNjE2NTQxMS1kOGM1LTNhNTktOWM1Yy0yNzNjMWI5MmI1ZGEiLCJlYXJsaWVyIjp7ImV4cG9ydElkIjoiYTJhNDQzNGEtYmRlNS00ZjNhLTk0YzItZjk3YzY0ZjVmZTNmIiwic2hhMjU2IjoiNzVjMjg4YjQ2NjJjMDA3ODA1OGJjOGE1OGQ5OWUzYjllNTY1MTNkZGQwZjUyNDBjNDVkNzFhNzRhMTM0NzY5NyJ9LCJmb3JtYXQiOiJmcmF5bml4LnJvdXRlZC1rZXktY29tcGFyaXNvbi1jc3YtdjEiLCJncm91cHMiOjEwLCJrZXlDb2x1bW4iOiJyZWNvcmQgSUQiLCJsYXRlciI6eyJleHBvcnRJZCI6Ijc0ZDNlOTg2LWMzMWEtNDZjNy05NzZjLTE1NmY3YTMyOTJmYiIsInNoYTI1NiI6Ijk5MjBmNWUyYTVkNGQ0NTVkMmJmZWYxYTY1YWQ0NjRmMzY3OWE3Y2QyZmQ3ZmY1OTBmMTJlMDZmZmQ5YmI4NzIifX19Cg==');
+    const receipt = JSON.parse(decoder.decode(receiptBytes));
+    const parsed = csvRows(decoder.decode(data));
+    const header = ['key_json','unit','status','earlier_readings','later_readings','delta'];
+    const actualHeader = parsed.shift();
+    if (actualHeader.length !== header.length || !actualHeader.every((name,i)=>name===header[i]))
+        throw Error('Unexpected comparison CSV headers');
+    const digest = new Uint8Array(await crypto.subtle.digest('SHA-256',data));
+    const hash = [...digest].map(value=>value.toString(16).padStart(2,'0')).join('');
+    if (hash !== receipt.sha256 || parsed.length !== receipt.source.groups || data.length !== receipt.bytes)
+        throw Error('Comparison CSV bytes differ from receipt');
+    document.getElementById('import-id').textContent = 'Export ' + receipt.id;
+    document.getElementById('import-sha').textContent = 'SHA-256 ' + hash;
+    document.getElementById('group-count').textContent = parsed.length + ' verified groups';
+    const totals = countsByUnit(parsed);
+    document.querySelector('a[href="import-receipt.json"]').addEventListener('click',event=>{
+        event.preventDefault();
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(new Blob([receiptBytes],{type:'application/json'}));
+        link.download = 'import-receipt.json';
+        link.click();
+        setTimeout(()=>URL.revokeObjectURL(link.href),1000);
+    });
+    for (const [unit,[id,name]] of units) {
+        const total = totals.get(unit);
+        if (!total) continue;
+        const matched = total.counts.get('Matched');
+        const article = document.createElement('article');
+        const values = document.createElement('dl');
+        values.append(node('dt','Net change'),node('dd',display(total.net,true,unit,matched),'net-'+id),
+            node('dt','Total absolute change'),node('dd',display(total.absolute,false,unit,matched),'absolute-'+id));
+        article.append(node('h2',name+' · '+unit),
+            node('p',[...total.counts].map(([status,value])=>status+' '+value).join(' · '),'counts-'+id),values);
+        document.getElementById('unit-totals').append(article);
+    }
+}
+render().catch(error=>{console.error(error.message);});
+</script>
+</body>
+</html>

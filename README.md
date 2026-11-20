@@ -1,5 +1,5 @@
 # Fraynix Agent Workspace
 
-[Edition 201 — Verified matched CSV export](README-201.md) · [Previous edition](README-200.md) · [Offline walkthrough](docs/readmes/201/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 202 — Verified comparison CSV totals](README-202.md) · [Previous edition](README-201.md) · [Offline walkthrough](docs/readmes/202/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Save a checked key-and-unit comparison as a CSV, with every status and source row. After restart, Fraynix rechecks the same comparison and reproduces the exact file.
+Attach a verified matched comparison CSV from the project and calculate changes separately by output unit. Check the receipt and original sources again after restart.

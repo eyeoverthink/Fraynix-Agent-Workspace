@@ -1,3 +1,7 @@
+## Edition 202 — Use a verified comparison CSV in a follow-on Chat task
+
+2026-11-20. Attach a verified matched comparison CSV from the project and calculate changes separately by output unit. Check the receipt and original sources again after restart. The recorded import contains ten groups with net changes of +7.2 °F and −12.7 mm. 125 root Java tests, 76 focused workspace Java tests, 181 desktop tests and 10 evidence archive tests passed locally. The original import and artifact passed 13 new browser checks after restart. See README-202.md and docs/publication202/plan.md.
+
 ## Edition 201 — Export a verified matched comparison from Chat
 
 2026-11-20. Save a checked key-and-unit comparison as a CSV, with every status and source row. After restart, Fraynix rechecks the same comparison and reproduces the exact file. The exported file contains four matched, two added, two missing and two duplicate groups from the two synthetic routing exports. 125 root Java tests, 75 focused workspace Java tests, 181 desktop tests and 10 evidence archive tests passed locally. The two exports had identical bytes after restart and both referenced the original comparison. See README-201.md and docs/publication201/plan.md.

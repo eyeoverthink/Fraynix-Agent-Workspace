@@ -1,0 +1,52 @@
+{
+  "summary": "Attach a verified matched comparison CSV from the project and calculate changes separately by output unit. Check the receipt and original sources again after restart.",
+  "modules": [
+    {
+      "title": "Unit totals",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedComparisonTotals.java",
+      "note": "docs/obsidian/210-verified-comparison-csv-totals.md"
+    },
+    {
+      "title": "Comparison and source verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java",
+      "note": "docs/obsidian/210-verified-comparison-csv-totals.md"
+    },
+    {
+      "title": "Independent browser totals",
+      "source": "workspace-engine/src/main/resources/workbench/routing-comparison-totals.html",
+      "note": "docs/obsidian/210-verified-comparison-csv-totals.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/202/comparison-totals-by-unit.png",
+      "title": "The desktop calculates temperature and length changes in separate groups"
+    },
+    {
+      "path": "docs/readmes/202/comparison-totals-rechecked-after-restart.png",
+      "title": "The original import passes a fresh check after desktop restart"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/202/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/202/comparison-totals.html",
+      "title": "Open the offline totals report"
+    },
+    {
+      "path": "docs/readmes/202/matched-comparison.csv",
+      "title": "Imported comparison CSV"
+    },
+    {
+      "path": "docs/readmes/202/import-receipt.json",
+      "title": "Verified import receipt"
+    },
+    {
+      "path": "docs/readmes/202/totals-proof.json",
+      "title": "Totals proof"
+    }
+  ]
+}

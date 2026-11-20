@@ -1,3 +1,5 @@
+[Edition 202 — Verified comparison CSV totals](210-verified-comparison-csv-totals.md)
+
 [Edition 201 — Verified matched CSV export](209-verified-matched-csv-export.md)
 
 [Edition 200 — Verified key and unit comparison](208-verified-routed-row-comparison.md)

@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 202 — Verified comparison CSV totals](../../README-202.md) · [Walkthrough](202/index.html)
+
 [Edition 201 — Verified matched CSV export](../../README-201.md) · [Walkthrough](201/index.html)
 
 [Edition 200 — Verified key and unit comparison](../../README-200.md) · [Walkthrough](200/index.html)

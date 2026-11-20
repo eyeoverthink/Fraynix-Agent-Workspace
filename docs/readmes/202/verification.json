@@ -1,0 +1,349 @@
+{
+  "passed": true,
+  "report": {
+    "artifact": {
+      "sha256": "dfc3e9167969960cc5d168406870ecbf47c4916f820c1e3f97bf310ec508d3fc",
+      "id": "28aea7bb-7c97-3027-849f-bd8d2cd54a5a",
+      "version": 1
+    },
+    "htmlSha256": "e33d6e95575f20abe0211eabb28d8a2c085798a2a92eaeb493a2cb3d5e5bd660",
+    "earlierCsvSha256": "75c288b4662c0078058bc8a58d99e3b9e56513ddd0f5240c45d71a74a1347697",
+    "keyColumn": "record ID",
+    "browserChecks": 13,
+    "id": "7dc681c4-a0f8-3e72-a18c-76966e884230",
+    "passed": true,
+    "csvSha256": "9920f5e2a5d4d455d2bfef1a65ad464f3679a7cd2fd7ff590f12e06ffd9bb872",
+    "laterExportId": "74d3e986-c31a-46c7-976c-156f7a3292fb",
+    "comparisonExportId": "7f5664e2-dc02-4f44-9dd9-a689ff938110",
+    "earlierExportId": "a2a4434a-bde5-4f3a-94c2-f97c64f5fe3f"
+  },
+  "proof": {
+    "browserChecks": 13,
+    "import": {
+      "bytes": 960,
+      "createdAt": "2026-11-20T12:57:12.430Z",
+      "id": "7f5664e2-dc02-4f44-9dd9-a689ff938110",
+      "kind": "verified-routed-comparison",
+      "sha256": "001b9939b0ef5c9182a2682dc23560634761a984a24771bbb4ad823b0307bbef",
+      "source": {
+        "artifact": {
+          "id": "99a8a07a-3ef3-3427-aa2d-1bd46a52ce63",
+          "sha256": "1cbf9ff3b52caec18a0cdea06c973b20a6cf256e7656ecdce89b5a6dc849acf7",
+          "version": 1
+        },
+        "browserChecks": 9,
+        "browserEvidenceSha256": "c7aafbf955d8e8d191c3114c0803a85ec16b886ba17e777ed9cf9e25b03d787a",
+        "comparisonId": "f6165411-d8c5-3a59-9c5c-273c1b92b5da",
+        "earlier": {
+          "exportId": "a2a4434a-bde5-4f3a-94c2-f97c64f5fe3f",
+          "sha256": "75c288b4662c0078058bc8a58d99e3b9e56513ddd0f5240c45d71a74a1347697"
+        },
+        "format": "fraynix.routed-key-comparison-csv-v1",
+        "groups": 10,
+        "keyColumn": "record ID",
+        "later": {
+          "exportId": "74d3e986-c31a-46c7-976c-156f7a3292fb",
+          "sha256": "9920f5e2a5d4d455d2bfef1a65ad464f3679a7cd2fd7ff590f12e06ffd9bb872"
+        }
+      }
+    },
+    "passed": true,
+    "totals": [
+      {
+        "absoluteDelta": "7.2",
+        "added": 0,
+        "duplicate": 1,
+        "matched": 3,
+        "missing": 2,
+        "netDelta": "7.2",
+        "unit": "°F"
+      },
+      {
+        "absoluteDelta": "12.7",
+        "added": 2,
+        "duplicate": 1,
+        "matched": 1,
+        "missing": 0,
+        "netDelta": "-12.7",
+        "unit": "mm"
+      }
+    ]
+  },
+  "browserReceipt": {
+    "checks": [
+      {
+        "actual": {
+          "count": 1,
+          "text": "Verified comparison CSV totals",
+          "value": null
+        },
+        "expected": {
+          "expectText": "Verified comparison CSV totals",
+          "selector": "h1"
+        },
+        "index": 0,
+        "selector": "h1",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Export 7f5664e2-dc02-4f44-9dd9-a689ff938110",
+          "value": null
+        },
+        "expected": {
+          "expectText": "Export 7f5664e2-dc02-4f44-9dd9-a689ff938110",
+          "selector": "#import-id"
+        },
+        "index": 1,
+        "selector": "#import-id",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "SHA-256 001b9939b0ef5c9182a2682dc23560634761a984a24771bbb4ad823b0307bbef",
+          "value": null
+        },
+        "expected": {
+          "expectText": "SHA-256 001b9939b0ef5c9182a2682dc23560634761a984a24771bbb4ad823b0307bbef",
+          "selector": "#import-sha"
+        },
+        "index": 2,
+        "selector": "#import-sha",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "10 verified groups",
+          "value": null
+        },
+        "expected": {
+          "expectText": "10 verified groups",
+          "selector": "#group-count"
+        },
+        "index": 3,
+        "selector": "#group-count",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 2,
+          "text": "Temperature · °F\n\nMatched 3 · Added 0 · Missing 2 · Duplicate 1\n\nNet change\n+7.2 °F\nTotal absolute change\n7.2 °F",
+          "value": null
+        },
+        "expected": {
+          "expectCount": 2,
+          "selector": "#unit-totals article"
+        },
+        "index": 4,
+        "selector": "#unit-totals article",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Matched 3 · Added 0 · Missing 2 · Duplicate 1",
+          "value": null
+        },
+        "expected": {
+          "expectText": "Matched 3 · Added 0 · Missing 2 · Duplicate 1",
+          "selector": "#counts-fahrenheit"
+        },
+        "index": 5,
+        "selector": "#counts-fahrenheit",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "+7.2 °F",
+          "value": null
+        },
+        "expected": {
+          "expectText": "+7.2 °F",
+          "selector": "#net-fahrenheit"
+        },
+        "index": 6,
+        "selector": "#net-fahrenheit",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "7.2 °F",
+          "value": null
+        },
+        "expected": {
+          "expectText": "7.2 °F",
+          "selector": "#absolute-fahrenheit"
+        },
+        "index": 7,
+        "selector": "#absolute-fahrenheit",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Matched 1 · Added 2 · Missing 0 · Duplicate 1",
+          "value": null
+        },
+        "expected": {
+          "expectText": "Matched 1 · Added 2 · Missing 0 · Duplicate 1",
+          "selector": "#counts-millimetres"
+        },
+        "index": 8,
+        "selector": "#counts-millimetres",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "-12.7 mm",
+          "value": null
+        },
+        "expected": {
+          "expectText": "-12.7 mm",
+          "selector": "#net-millimetres"
+        },
+        "index": 9,
+        "selector": "#net-millimetres",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "12.7 mm",
+          "value": null
+        },
+        "expected": {
+          "expectText": "12.7 mm",
+          "selector": "#absolute-millimetres"
+        },
+        "index": 10,
+        "selector": "#absolute-millimetres",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Comparison CSV",
+          "value": null
+        },
+        "expected": {
+          "expectCount": 1,
+          "selector": "a[href=\"matched-comparison.csv\"]"
+        },
+        "index": 11,
+        "selector": "a[href=\"matched-comparison.csv\"]",
+        "passed": true
+      },
+      {
+        "actual": {
+          "count": 1,
+          "text": "Import receipt",
+          "value": null
+        },
+        "expected": {
+          "expectCount": 1,
+          "selector": "a[href=\"import-receipt.json\"]"
+        },
+        "index": 12,
+        "selector": "a[href=\"import-receipt.json\"]",
+        "passed": true
+      }
+    ],
+    "at": "2026-11-20T15:28:50.386240500Z",
+    "id": "28aea7bb-7c97-3027-849f-bd8d2cd54a5a",
+    "passed": true,
+    "version": 1,
+    "steps": [
+      {
+        "expectText": "Verified comparison CSV totals",
+        "selector": "h1"
+      },
+      {
+        "expectText": "Export 7f5664e2-dc02-4f44-9dd9-a689ff938110",
+        "selector": "#import-id"
+      },
+      {
+        "expectText": "SHA-256 001b9939b0ef5c9182a2682dc23560634761a984a24771bbb4ad823b0307bbef",
+        "selector": "#import-sha"
+      },
+      {
+        "expectText": "10 verified groups",
+        "selector": "#group-count"
+      },
+      {
+        "expectCount": 2,
+        "selector": "#unit-totals article"
+      },
+      {
+        "expectText": "Matched 3 · Added 0 · Missing 2 · Duplicate 1",
+        "selector": "#counts-fahrenheit"
+      },
+      {
+        "expectText": "+7.2 °F",
+        "selector": "#net-fahrenheit"
+      },
+      {
+        "expectText": "7.2 °F",
+        "selector": "#absolute-fahrenheit"
+      },
+      {
+        "expectText": "Matched 1 · Added 2 · Missing 0 · Duplicate 1",
+        "selector": "#counts-millimetres"
+      },
+      {
+        "expectText": "-12.7 mm",
+        "selector": "#net-millimetres"
+      },
+      {
+        "expectText": "12.7 mm",
+        "selector": "#absolute-millimetres"
+      },
+      {
+        "expectCount": 1,
+        "selector": "a[href=\"matched-comparison.csv\"]"
+      },
+      {
+        "expectCount": 1,
+        "selector": "a[href=\"import-receipt.json\"]"
+      }
+    ]
+  },
+  "screenshots": [
+    {
+      "name": "comparison-totals-by-unit.png",
+      "sha256": "0a282e73efd263e8833170e1b8c4ebce907114d84411262c051493ab799d7bac"
+    },
+    {
+      "name": "comparison-totals-rechecked-after-restart.png",
+      "sha256": "a4b9bdf03fca8ae84d7941f52c46a209d06e1e415c6ecae053fabaa6d2939cf3"
+    }
+  ],
+  "checks": {
+    "priorComparisonRechecked": true,
+    "summaryByChat": true,
+    "receiptCarried": true,
+    "allTotalsMatchPython": true,
+    "unitSeparation": true,
+    "sameImportAcrossRestart": true,
+    "originalReceiptPreserved": true,
+    "divergentManifestRefused": true,
+    "forgedEvidenceHashRefused": true,
+    "rewrittenCsvRefused": true,
+    "changedParentReceiptRefused": true,
+    "mixedUnitsRefused": true,
+    "offlineDownloadsExact": true
+  },
+  "source": "eb080917a81fa3fc9a3e259ed1b26011c952df91",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 76,
+    "desktop": 181,
+    "archive": 10
+  }
+}
