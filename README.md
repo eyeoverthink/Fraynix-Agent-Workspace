@@ -1,5 +1,7 @@
 # Fraynix Agent Workspace
 
-[Edition 204 — Reusable comparison explorer](README-204.md) · [Previous edition](README-203.md) · [Offline walkthrough](docs/readmes/204/index.html) · [Full history](docs/readmes/INDEX.md)
+[Download and run on Mac, Linux or Windows](docs/INSTALL.md)
 
-Save a verified explorer as a named lesson and reuse it on fresh comparison data. Check the lesson, the original teaching evidence and each new result.
+[Edition 205 — Mac, Linux and Windows setup](README-205.md) · [Previous edition](README-204.md) · [Offline walkthrough](docs/readmes/205/index.html) · [Full history](docs/readmes/INDEX.md)
+
+Download the current workspace without the full evidence archive, prepare the local app and run the guided proof on your computer.

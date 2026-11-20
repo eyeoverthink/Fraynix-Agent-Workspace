@@ -1,0 +1,49 @@
+{
+  "summary": "Download the current workspace without the full evidence archive, prepare the local app and run the guided proof on your computer.",
+  "modules": [
+    {
+      "title": "Platform native selection",
+      "source": "gradle/desktop-platform.gradle",
+      "note": "docs/obsidian/213-portable-workspace.md"
+    },
+    {
+      "title": "Mac and Linux launcher",
+      "source": "Launch-Agent-Workspace.sh",
+      "note": "docs/obsidian/213-portable-workspace.md"
+    },
+    {
+      "title": "Windows launcher",
+      "source": "Launch-Agent-Workspace.bat",
+      "note": "docs/obsidian/213-portable-workspace.md"
+    },
+    {
+      "title": "Build, desktop and verification checks",
+      "source": ".github/workflows/portable-workspace.yml",
+      "note": "docs/obsidian/213-portable-workspace.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/205/mac-workspace.png",
+      "title": "The guided proof completed on Apple silicon macOS"
+    },
+    {
+      "path": "docs/readmes/205/relay-garden.png",
+      "title": "Relay Garden rendered after 40 simulation ticks on Windows"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/INSTALL.md",
+      "title": "Installation and offline instructions"
+    },
+    {
+      "path": "docs/readmes/205/verification.json",
+      "title": "Platform checks and test record"
+    },
+    {
+      "path": "docs/publication205/plan.md",
+      "title": "Reproduction and packaging plan"
+    }
+  ]
+}

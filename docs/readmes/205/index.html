@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 205 · Run Fraynix on Mac, Linux and Windows</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Run Fraynix on Mac, Linux and Windows</h1><p>Download the current workspace without the full evidence archive, prepare the local app and run the guided proof on your computer.</p>
+<nav><a href="../../../README-205.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../204/index.html">Edition 204</a><a href="#system">System files</a></nav>
+<figure><img src="mac-workspace.png" alt="The guided proof completed on Apple silicon macOS"><figcaption>The guided proof completed on Apple silicon macOS</figcaption></figure>
+<figure><img src="relay-garden.png" alt="Relay Garden rendered after 40 simulation ticks on Windows"><figcaption>Relay Garden rendered after 40 simulation ticks on Windows</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Download the current workspace without the full evidence archive, prepare the local app and run the guided proof on your computer.", "modules": [{"title": "Platform native selection", "source": "gradle/desktop-platform.gradle", "note": "docs/obsidian/213-portable-workspace.md"}, {"title": "Mac and Linux launcher", "source": "Launch-Agent-Workspace.sh", "note": "docs/obsidian/213-portable-workspace.md"}, {"title": "Windows launcher", "source": "Launch-Agent-Workspace.bat", "note": "docs/obsidian/213-portable-workspace.md"}, {"title": "Build, desktop and verification checks", "source": ".github/workflows/portable-workspace.yml", "note": "docs/obsidian/213-portable-workspace.md"}], "screenshots": [{"path": "docs/readmes/205/mac-workspace.png", "title": "The guided proof completed on Apple silicon macOS"}, {"path": "docs/readmes/205/relay-garden.png", "title": "Relay Garden rendered after 40 simulation ticks on Windows"}], "evidence": [{"path": "docs/INSTALL.md", "title": "Installation and offline instructions"}, {"path": "docs/readmes/205/verification.json", "title": "Platform checks and test record"}, {"path": "docs/publication205/plan.md", "title": "Reproduction and packaging plan"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 3844, "sha256": "b031e3147e8708485efa27724c78ae4f2e6d085ed7afa9ee985f0bb91a03512a", "hashKind": "utf8-lf"}, {"path": "Launch-Agent-Workspace.sh", "bytes": 3273, "sha256": "072b0e86d7b0afdc4e0731740ebe5947807a395953d093d52e6fc469b22e10c1", "hashKind": "utf8-lf"}, {"path": "build.gradle", "bytes": 6596, "sha256": "c5c9ef1fb581e5bfd6fbbc479e034b7ab039f541dca513b3a6647a79d5845642", "hashKind": "utf8-lf"}, {"path": "docs/INSTALL.md", "bytes": 4527, "sha256": "8baac55e6524ad01a3eab45f125e0fac2712118535705a6a22ee4a592c0dd61e", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/213-portable-workspace.canvas", "bytes": 1387, "sha256": "2baff8bb6812b9b96f36530537f6c44181e6ec4473e2c93f99d6625b1b4985e5", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/213-portable-workspace.md", "bytes": 501, "sha256": "f1c972b418f96f6f61e48e5f796d90487c37f45d26421f42c924c8a4aed86248", "hashKind": "utf8-lf"}, {"path": "docs/publication205/document.py", "bytes": 11919, "sha256": "ea2989a37410947a6698a6764c8cbea763ba69cb5cbeaa8868a6905c7885ca4e", "hashKind": "utf8-lf"}, {"path": "docs/publication205/plan.md", "bytes": 1607, "sha256": "2878f0dc4cef4addff00e80728a68a1b760d2c1951a29796d6a1426d21133ac2", "hashKind": "utf8-lf"}, {"path": "fraynix-modules/brain-gpu/build.gradle", "bytes": 575, "sha256": "7d4314899f0c4471d99d6a2f9863d2d67a96d1800d7060c8cf66bb49ceb6bcf9", "hashKind": "utf8-lf"}, {"path": "fraynix-modules/brain-gpu/src/main/java/fraymus/neural/gpu/GlNeuralCompute.java", "bytes": 4625, "sha256": "546db719ff0f34cfe100202fc3401d16acd3a3156c8f2b65694559061bb68765", "hashKind": "utf8-lf"}, {"path": "gradle/desktop-platform.gradle", "bytes": 1305, "sha256": "fe9b91e4eb1dd65278783ae3e37cc86410c60aa315a152befc457a7a3707c5f4", "hashKind": "utf8-lf"}, {"path": "gradle/locks/linux.lockfile", "bytes": 1557, "sha256": "2f275d86413117c4cfbdcfa34bd670b6155b2db4270ea0475d426d8c9ef2ab7c", "hashKind": "utf8-lf"}, {"path": "gradle/locks/macos.lockfile", "bytes": 1554, "sha256": "ff2b4497fb8596324060e1fae0f8ef124e7191b2beca72fd1467fc01f819859e", "hashKind": "utf8-lf"}, {"path": "scripts/Start-Agent-Workspace.ps1", "bytes": 5999, "sha256": "be15f238a97e770d1d379bbd9315d159c9eaacc194aed83ae540f65e093909e0", "hashKind": "utf8-lf"}, {"path": "src/main/java/jade/ImGuiLayer.java", "bytes": 12795, "sha256": "e188106d116404975f4bb1be202db690bd84e750fd6a89c17348e9960bd3ab83", "hashKind": "utf8-lf"}, {"path": "src/main/java/jade/Window.java", "bytes": 21972, "sha256": "07de5ac193813709ec1400b501b4af915bda3e224bf4c9151766ec50509c87c2", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/java-launch.cjs", "bytes": 493, "sha256": "5f5ca41973eb9d7fb5e28a6a6708a9a40077ce7b95c684c264b1ca956d389d03", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 116233, "sha256": "61636da366734a0ca1f877d423165e72ba98ba7e3911c3ed74d9701698323592", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/package.json", "bytes": 5792, "sha256": "17f19a2484ef3e4faea02eff050a705ae78d7fe932fc24c2a3debd6a153c8043", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/runtime-connection042.cjs", "bytes": 5066, "sha256": "23bcd2d05c0f60913e7643338c438efa10fb8e30c6f8e08aa769cc5d2edf697c", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/java-launch.test.cjs", "bytes": 1030, "sha256": "65680f9779e72881cf36ee2aa716a1c76cb4a001b3541d919e80ff2d12423b70", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/portable-smoke.cjs", "bytes": 4985, "sha256": "434d4f22ad5650e2aa8fe7251a830c7feb765533e90a7e5525d586a97e5f762d", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/EmbeddedGameClient.java", "bytes": 10477, "sha256": "32b9b21ddcc3077c90a07360cf4b2b82ad88b082d95ccc253b0420e72eb94258", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

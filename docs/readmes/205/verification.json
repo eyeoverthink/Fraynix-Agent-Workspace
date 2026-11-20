@@ -1,0 +1,124 @@
+{
+  "matrix": {
+    "id": 44775481407,
+    "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44775481407",
+    "runtimeCommit": "917856fdd814f7b0fd9260359627e5136923b945",
+    "targets": {
+      "linux-x64": {
+        "status": "success",
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44775481407/job/136424022345",
+        "proof": {
+          "passed": true,
+          "platform": "linux",
+          "architecture": "x64",
+          "nativeGame": "verified",
+          "checks": [
+            "Java connection, local browser interaction, creation canvas and guided verification",
+            "Native Bullet physics passes the independent incline reference",
+            "Hidden native renderer loads Relay Garden and renders fixed-step movement",
+            "Persistent Java owner starts and reopens the saved project"
+          ]
+        }
+      },
+      "macos-arm64": {
+        "status": "success",
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44775481407/job/136424022590",
+        "proof": {
+          "passed": true,
+          "platform": "darwin",
+          "architecture": "arm64",
+          "nativeGame": "display-unavailable",
+          "checks": [
+            "Java connection, local browser interaction, creation canvas and guided verification",
+            "Native Bullet physics passes the independent incline reference",
+            "Persistent Java owner starts and reopens the saved project"
+          ]
+        }
+      },
+      "windows-x64": {
+        "status": "success",
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44775481407/job/136424022708",
+        "proof": {
+          "passed": true,
+          "platform": "win32",
+          "architecture": "x64",
+          "nativeGame": "verified",
+          "checks": [
+            "Java connection, local browser interaction, creation canvas and guided verification",
+            "Native Bullet physics passes the independent incline reference",
+            "Hidden native renderer loads Relay Garden and renders fixed-step movement",
+            "Persistent Java owner starts and reopens the saved project"
+          ]
+        }
+      },
+      "macos-x64": {
+        "status": "success",
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/44775481407/job/136424022724",
+        "proof": {
+          "passed": true,
+          "platform": "darwin",
+          "architecture": "x64",
+          "nativeGame": "display-unavailable",
+          "checks": [
+            "Java connection, local browser interaction, creation canvas and guided verification",
+            "Native Bullet physics passes the independent incline reference",
+            "Persistent Java owner starts and reopens the saved project"
+          ]
+        }
+      }
+    }
+  },
+  "localTests": {
+    "rootJava": 125,
+    "focusedJava": 16,
+    "desktop": 183,
+    "archive": 10
+  },
+  "localWindows": {
+    "passed": true,
+    "platform": "win32",
+    "architecture": "x64",
+    "nativeGame": "verified",
+    "checks": [
+      "Java connection, local browser interaction, creation canvas and guided verification",
+      "Native Bullet physics passes the independent incline reference",
+      "Hidden native renderer loads Relay Garden and renders fixed-step movement",
+      "Persistent Java owner starts and reopens the saved project"
+    ]
+  },
+  "sparseWindowsCheckout": {
+    "passed": true,
+    "platform": "win32",
+    "architecture": "x64",
+    "nativeGame": "verified",
+    "checks": [
+      "Java connection, local browser interaction, creation canvas and guided verification",
+      "Native Bullet physics passes the independent incline reference",
+      "Hidden native renderer loads Relay Garden and renders fixed-step movement",
+      "Persistent Java owner starts and reopens the saved project"
+    ]
+  },
+  "standaloneWindows": {
+    "passed": true,
+    "frameSize": [
+      1920,
+      1080
+    ]
+  },
+  "initialGitPackMiB": 15.18,
+  "sourceBaseline": "cc8c1185a2657d5f4104ba0f63539eeb3c8f52a6",
+  "screenshots": [
+    {
+      "path": "docs/readmes/205/mac-workspace.png",
+      "bytes": 183320,
+      "sha256": "7d52cab1265be57674ac6342187646625ed2a87d3374ce43587f943f483b768a",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/205/relay-garden.png",
+      "bytes": 10082,
+      "sha256": "fd37bffc4f496b72d38c941f599b30278353a6df3a6a58b5809f1dffc310bfcc",
+      "hashKind": "binary"
+    }
+  ]
+}

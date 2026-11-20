@@ -1,3 +1,7 @@
+## Edition 205 — Run Fraynix on Mac, Linux and Windows
+
+2026-11-20. Download the current workspace without the full evidence archive, prepare the local app and run the guided proof on your computer. The Java launcher picks the operating system's executable and the build stages the matching native libraries. All four hosted jobs passed the guided proof, native Bullet ramp and project restart. A physical Mac is still needed to confirm the native Game Lab renderer. The affected hosted runs verified that the app reports an unavailable OpenGL display. 125 root Java tests, 16 focused workspace Java tests, 183 desktop tests and 10 archive tests passed locally. See README-205.md, docs/INSTALL.md and docs/publication205/plan.md.
+
 ## Edition 204 — Teach and reuse a verified comparison explorer
 
 2026-11-20. Save a verified explorer as a named lesson and reuse it on fresh comparison data. Check the lesson, the original teaching evidence and each new result. Two fresh comparisons each passed 24 browser checks. Independent Python calculations agreed with Chromium on all 30 offline filter views. 125 root Java tests, 76 focused workspace Java tests, 181 desktop tests and 10 evidence archive tests passed locally. The stored lesson rejected a copied teaching CSV and changed evidence. The original run rechecked after restart. See README-204.md and docs/publication204/plan.md.

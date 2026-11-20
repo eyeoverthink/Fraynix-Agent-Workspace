@@ -1,3 +1,5 @@
+[Edition 205 — Mac, Linux and Windows setup](213-portable-workspace.md)
+
 [Edition 204 — Reusable comparison explorer](212-reusable-comparison-explorer.md)
 
 [Edition 203 — Verified comparison explorer](211-verified-comparison-explorer.md)
