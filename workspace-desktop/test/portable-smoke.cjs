@@ -19,12 +19,19 @@ async function main() {
     const {app,page} = await launch(project,args);
     try {
       const api = (route,input) => app.evaluate((_,[route,input])=>global.workspaceTest.api(route,input),[route,input]);
-      assert.equal((await api('/api/state')).models.length,0);
+      const state = await api('/api/state');
+      assert.equal(state.models.length,0);
       await page.getByRole('button',{name:'Run guided proof'}).click();
       await page.getByRole('status').filter({hasText:'Guided proof passed'}).waitFor({timeout:60_000});
       checks.push('Java connection, local browser interaction, creation canvas and guided verification');
       const screenshot = await app.evaluate(()=>global.workspaceTest.capture());
       await fs.writeFile(path.join(output,'workspace.png'),Buffer.from(screenshot,'base64'));
+
+      const scene = state.scenes[0];
+      const ramp = await api('/api/experiment/run',{id:scene.id,expectedVersion:scene.version,seconds:0.75});
+      assert.equal(ramp.evaluation.passed,true);
+      assert.equal(ramp.samples.at(-1).tick,180);
+      checks.push('Native Bullet physics passes the independent incline reference');
 
       const original = await api('/api/game/open-relay',{});
       assert.equal(original.state.visibleWindow,false);
@@ -55,6 +62,13 @@ async function main() {
   } finally {
     await fs.copyFile(path.join(project,'test-desktop-process.log'),path.join(output,'desktop.log')).catch(()=>{});
     await fs.copyFile(path.join(project,'engine.log'),path.join(output,'engine.log')).catch(()=>{});
+    const nativeRoot = path.join(project,'embedded-game','original-content');
+    for (const session of await fs.readdir(nativeRoot).catch(()=>[])) {
+      for (const name of ['runtime.log','runtime-errors.log']) {
+        const file = path.join(nativeRoot,session,name);
+        await fs.copyFile(file,path.join(output,'game-'+session+'-'+name)).catch(()=>{});
+      }
+    }
   }
   const result = {passed:true,platform:process.platform,architecture:process.arch,checks};
   await fs.writeFile(path.join(output,'result.json'),JSON.stringify(result,null,2)+'\n');

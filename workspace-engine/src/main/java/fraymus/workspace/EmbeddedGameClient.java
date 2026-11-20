@@ -2,6 +2,7 @@ package fraymus.workspace;
 import org.json.*;
 import fraymus.neural.RelayCourse;
 import java.nio.file.*;
+import java.nio.charset.StandardCharsets;
 import java.net.*;
 import java.net.http.*;
 import java.io.*;
@@ -82,7 +83,26 @@ public final class EmbeddedGameClient implements AutoCloseable {
         command.addAll(List.of("-cp",lib.toString()+File.separator+"*","Main","--mario"));var builder=new ProcessBuilder(command);
         builder.directory(repo.resolve("build/install/Fraynix-Studio").toFile());builder.environment().put("FRAYNIX_GAME_TOKEN",token);builder.environment().put("FRAYNIX_GAME_PARENT_PID",String.valueOf(ProcessHandle.current().pid()));builder.redirectError(runtimeProject.resolve("runtime-errors.log").toFile());
         process=builder.start();var ready=new CompletableFuture<String>();var owned=process;
-        Thread.ofPlatform().daemon().name("embedded-game-output").start(()->{try(var reader=owned.inputReader()){String line;while((line=reader.readLine())!=null){Files.writeString(runtimeProject.resolve("runtime.log"),line+"\n",StandardOpenOption.CREATE,StandardOpenOption.APPEND);try{var value=new JSONObject(line);if(value.optString("event").equals("game-runtime-ready"))ready.complete("http://127.0.0.1:"+value.getInt("port"));}catch(JSONException ignored){}}ready.completeExceptionally(new IOException("Game runtime exited "+owned.exitValue()));}catch(Exception e){ready.completeExceptionally(e);}});
+        Thread.ofPlatform().daemon().name("embedded-game-output").start(() -> {
+            try (var reader = owned.inputReader(StandardCharsets.UTF_8)) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    Files.writeString(runtimeProject.resolve("runtime.log"), line + "\n",
+                            StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+                    try {
+                        var event = new JSONObject(line);
+                        if (event.optString("event").equals("game-runtime-ready"))
+                            ready.complete("http://127.0.0.1:" + event.getInt("port"));
+                    } catch (JSONException ignored) {}
+                }
+                if (!ready.isDone()) {
+                    String reason = owned.waitFor(2, TimeUnit.SECONDS) ? "exited with code " + owned.exitValue() : "closed its startup output";
+                    ready.completeExceptionally(new IOException("Game runtime " + reason + ". See " + runtimeProject.resolve("runtime-errors.log")));
+                }
+            } catch (Exception error) {
+                ready.completeExceptionally(error);
+            }
+        });
         try{origin=ready.get(35,TimeUnit.SECONDS);for(int i=0;i<100;i++){try{return frame();}catch(Exception firstFrame){Thread.sleep(50);}}throw new IllegalStateException("Game frame unavailable");}
         catch(Exception error){process.destroy();origin=null;throw error;}
     }
