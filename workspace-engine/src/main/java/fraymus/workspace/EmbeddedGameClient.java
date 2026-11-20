@@ -65,7 +65,15 @@ public final class EmbeddedGameClient implements AutoCloseable {
         activeProject=runtimeProject;
         Path lib=repo.resolve("build/install/Fraynix-Studio/lib");if(!Files.isDirectory(lib))throw new IllegalStateException("Build the preserved game runtime first");
         Files.createDirectories(runtimeProject);token=UUID.randomUUID().toString()+UUID.randomUUID();
-        var command=new ArrayList<String>(List.of(Path.of(System.getProperty("java.home"),"bin","java.exe").toString(),"--enable-native-access=ALL-UNNAMED","-XX:ActiveProcessorCount=4","-Xmx512m","-Dfraynix.embedded=true","-Dfraynix.studio.workspace="+runtimeProject));
+        String os = System.getProperty("os.name").toLowerCase(Locale.ROOT);
+        String java = os.startsWith("windows") ? "java.exe" : "java";
+        var command = new ArrayList<String>();
+        command.add(Path.of(System.getProperty("java.home"), "bin", java).toString());
+        if (os.startsWith("mac")) {
+            command.add("-XstartOnFirstThread");
+            command.add("-Djava.awt.headless=true");
+        }
+        command.addAll(List.of("--enable-native-access=ALL-UNNAMED","-XX:ActiveProcessorCount=4","-Xmx512m","-Dfraynix.embedded=true","-Dfraynix.studio.workspace="+runtimeProject));
         if(level!=null){command.add("-Dfraynix.level="+level.toAbsolutePath());command.add("-Dfraynix.level.sha256="+sha);}
         if (pack != null) {
             command.add("-Dfraynix.content=" + pack.getString("id"));

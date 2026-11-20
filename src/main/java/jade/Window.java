@@ -165,6 +165,13 @@ public class Window implements Observer {
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
+        if (org.lwjgl.system.Platform.get() == org.lwjgl.system.Platform.MACOSX) {
+            // Cocoa provides modern OpenGL through forward-compatible core profiles.
+            glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+            glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+            glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+            glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
+        }
         glfwWindowHint(GLFW_MAXIMIZED, embedded?GLFW_FALSE:GLFW_TRUE);
         if(embedded){width=960;height=540;}
 

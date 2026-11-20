@@ -16,6 +16,7 @@ const {openHistoryResult}=require('./history113.cjs');
 const {createAgency043}=require('./agency043.cjs');const {AsyncLocalStorage}=require('node:async_hooks');const agencyScope043=new AsyncLocalStorage();let agency043;let pendingAgency043=0,agencyLaunchGeneration043=0;
 const {createAgent042}=require('./agent042.cjs');let agent042,runtimeConnection042;
 const {NativeExports}=require('./exports.cjs');
+const {javaExecutable,gameJvmFlags}=require('./java-launch.cjs');
 const {bodyReport}=require('./body-result.cjs');
 const {createGoals}=require('./goals.cjs');
 const {createCreation}=require('./creation.cjs');
@@ -70,7 +71,7 @@ async function refresh(){state={...await api('/api/state'),network:networkPolicy
 async function engineStart(){
   if(process.env.FRAYNIX_WORKSPACE_PERSISTENT==='1'||(!process.env.FRAYNIX_WORKSPACE_TEST&&process.env.FRAYNIX_WORKSPACE_PERSISTENT!=='0')){runtimeConnection042=await connectRuntime042({repo,project,sessionId:selfHostSession,onState:value=>emit('agent042',value),onError:e=>activity('error',e.message)});origin=runtimeConnection042.origin;token=runtimeConnection042.token;return;}
   await fsp.mkdir(project,{recursive:true});token=randomBytes(32).toString('hex');
-  const java=process.env.JAVA_HOME?path.join(process.env.JAVA_HOME,'bin','java.exe'):'java';
+  const java=javaExecutable();
   const lib=path.join(repo,'workspace-engine','build','install','workspace-engine','lib','*');
   const engineLog=fs.openSync(path.join(project,'engine.log'),'a');
   const budget082=javaBudget082();
@@ -424,9 +425,9 @@ async function launchGame(){
   if(gameProcess&&gameProcess.exitCode===null)return {launched:true,pid:gameProcess.pid,alreadyRunning:true};
   const gameLib=path.join(repo,'build','install','Fraynix-Studio','lib','*');
   if(!fs.existsSync(path.dirname(gameLib)))throw Error('Build the preserved Game Lab with gradlew installDist');
-  const java=process.env.JAVA_HOME?path.join(process.env.JAVA_HOME,'bin','java.exe'):'java';
+  const java=javaExecutable();
   const logPath=path.join(project,'game-lab.log'),gameLog=fs.openSync(logPath,'a');
-  const args=['--enable-native-access=ALL-UNNAMED',`-Dfraynix.studio.workspace=${path.join(project,'game-lab')}`,'-Dfraynix.windowTitle=Fraynix Workspace | Game Lab'];
+  const args=[...gameJvmFlags(),'--enable-native-access=ALL-UNNAMED',`-Dfraynix.studio.workspace=${path.join(project,'game-lab')}`,'-Dfraynix.windowTitle=Fraynix Workspace | Game Lab'];
   if(process.env.FRAYNIX_WORKSPACE_TEST)args.push(`-Dfraynix.captureOnStartup=${path.join(project,'game-lab-start.png')}`);
   args.push('-cp',gameLib,'Main','--mario');
   gameProcess=spawn(java,args,{cwd:path.join(repo,'build','install','Fraynix-Studio'),windowsHide:true,stdio:['ignore',gameLog,gameLog]});

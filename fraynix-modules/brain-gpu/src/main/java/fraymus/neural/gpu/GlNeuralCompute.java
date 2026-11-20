@@ -10,6 +10,8 @@ public final class GlNeuralCompute implements NeuralCompute {
     private final ExecutorService worker=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"neural-gpu-context");t.setDaemon(true);return t;});
     private long window;private int program;private String device;
     public GlNeuralCompute(){
+        if (org.lwjgl.system.Platform.get() == org.lwjgl.system.Platform.MACOSX)
+            throw new UnsupportedOperationException("This GPU experiment needs OpenGL 4.3. Use the CPU backend on macOS.");
         try{call(()->{
             if(!glfwInit())throw new IllegalStateException("GLFW unavailable");
             glfwDefaultWindowHints();glfwWindowHint(GLFW_VISIBLE,GLFW_FALSE);glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,4);glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,3);glfwWindowHint(GLFW_OPENGL_PROFILE,GLFW_OPENGL_CORE_PROFILE);

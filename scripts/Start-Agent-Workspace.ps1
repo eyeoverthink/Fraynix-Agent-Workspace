@@ -53,8 +53,10 @@ try {
                 $taskElectronBinary=Join-Path $desktop 'node_modules/electron/dist/electron.exe'
                 $taskRunning=Get-Process electron -ErrorAction SilentlyContinue | Where-Object { $_.Path -eq $taskElectronBinary }
                 if ($taskRunning) { throw 'Desktop dependencies need preparation, but this Workspace is still running. Close it before setup; no dependency replacement was attempted.' }
-                & npm.cmd ci --no-audit --no-fund
+                & npm.cmd ci --include=dev --no-audit --no-fund
                 if ($LASTEXITCODE -ne 0) { throw 'Desktop setup failed; inspect the npm diagnostics.' }
+                & node.exe 'node_modules/electron/install.js'
+                if ($LASTEXITCODE -ne 0) { throw 'The Electron executable could not be downloaded.' }
                 & node.exe (Join-Path $repo 'scripts/Verify-Desktop-Cache.cjs') $desktop
                 if ($LASTEXITCODE -ne 0) { throw 'Installed desktop dependencies could not be verified.' }
             }

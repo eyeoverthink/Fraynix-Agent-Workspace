@@ -1,0 +1,107 @@
+
+name: Portable workspace
+
+on:
+  push:
+    paths:
+      - '.github/workflows/portable-workspace.yml'
+      - 'Launch-Agent-Workspace.*'
+      - 'gradle/**'
+      - 'gradle.lockfile'
+      - '**/build.gradle'
+      - 'src/main/**'
+      - 'workspace-engine/src/main/**'
+      - 'workspace-desktop/**'
+      - 'scripts/Verify-Desktop-Cache.cjs'
+  pull_request:
+    paths:
+      - '.github/workflows/portable-workspace.yml'
+      - 'Launch-Agent-Workspace.*'
+      - '**/build.gradle'
+      - 'gradle/**'
+      - 'gradle.lockfile'
+      - 'src/main/**'
+      - 'workspace-engine/src/main/**'
+      - 'workspace-desktop/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  launch:
+    name: ${{ matrix.target }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {target: windows-x64, runner: windows-latest}
+          - {target: linux-x64, runner: ubuntu-24.04}
+          - {target: macos-x64, runner: macos-15-intel}
+          - {target: macos-arm64, runner: macos-15}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            gradle
+            src
+            assets
+            levels
+            libs
+            licenses
+            models
+            scripts
+            fraynix-modules
+            workspace-desktop
+            workspace-engine
+            docs/datasets/delfys75-013
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Prepare workspace on macOS or Linux
+        if: runner.os != 'Windows'
+        shell: bash
+        run: ./Launch-Agent-Workspace.sh --prepare
+      - name: Prepare workspace on Windows
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: .\Launch-Agent-Workspace.bat -PrepareOnly
+      - name: Provision Linux software OpenGL and a display
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb xauth libgl1-mesa-dri libgtk-3-0t64 libgbm1 libnss3 libasound2t64
+      - name: Provision Windows software OpenGL
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $archive = Join-Path $env:RUNNER_TEMP 'mesa-portable-workspace.7z'
+          $mesa = Join-Path $env:RUNNER_TEMP 'mesa-portable-workspace'
+          Invoke-WebRequest 'https://github.com/pal1000/mesa-dist-win/releases/download/26.2.5/mesa3d-26.2.5-release-msvc.7z' -OutFile $archive -MaximumRetryCount 3 -RetryIntervalSec 5
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash -ne '997123ef4ce8896204ab912d5b54f19372c487ff9835bcefafa2fca23b8953c2') {
+            throw 'Mesa archive checksum mismatch'
+          }
+          7z x $archive "-o$mesa" -y
+          if ($LASTEXITCODE -ne 0) { throw 'Mesa extraction failed' }
+          Copy-Item "$mesa\x64\opengl32.dll", "$mesa\x64\libgallium_wgl.dll" "$env:JAVA_HOME\bin"
+          'GALLIUM_DRIVER=llvmpipe' | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      - name: Exercise desktop, native game and restart
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/portable-smoke.cjs build/portable-smoke
+      - name: Exercise desktop, native game and restart on virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+          FRAYNIX_WORKSPACE_CI_CHROMIUM: '1'
+        run: xvfb-run -a node workspace-desktop/test/portable-smoke.cjs build/portable-smoke
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: workspace-proof-${{ matrix.target }}
+          path: build/portable-smoke/

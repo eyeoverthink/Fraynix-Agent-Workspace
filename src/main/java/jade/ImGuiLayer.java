@@ -255,7 +255,7 @@ public class ImGuiLayer {
     public void destroyImGui() {
         ImGui.saveIniSettingsToDisk(studioLayout.iniPath());
         fraynixPanel.close();
-        imGuiGl3.dispose();
+        imGuiGl3.shutdown();
         ImGui.destroyContext();
     }
 

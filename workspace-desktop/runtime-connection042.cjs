@@ -1,11 +1,12 @@
 'use strict';
 const fs=require('node:fs'),fsp=require('node:fs/promises'),path=require('node:path'),{createHash}=require('node:crypto'),{spawn}=require('node:child_process');
 const protocol='fraynix-agent-host-042-v1';
+const {javaExecutable}=require('./java-launch.cjs');
 const {budget,checkEffective}=require('./java-budget082.cjs');
 function buildId(lib){const text=protocol+'\n'+fs.readdirSync(lib).filter(n=>n.endsWith('.jar')).sort().map(n=>n+':'+createHash('sha256').update(fs.readFileSync(path.join(lib,n))).digest('hex')+'\n').join('');return createHash('sha256').update(text).digest('hex');}
 function validDescriptor(d,project){return d?.protocol===protocol&&/^http:\/\/127\.0\.0\.1:[1-9][0-9]{0,4}$/.test(d.origin)&&/^[a-f0-9]{64}$/.test(d.token)&&/^[a-f0-9]{64}$/.test(d.buildId)&&path.resolve(d.project).toLowerCase()===path.resolve(project).toLowerCase()&&Number.isSafeInteger(d.pid)&&d.pid>0&&typeof d.bootId==='string'&&typeof d.agentId==='string';}
 function launchOwner(repo,project,log){
- const java=process.env.JAVA_HOME?path.join(process.env.JAVA_HOME,'bin',process.platform==='win32'?'java.exe':'java'):'java',lib=path.join(repo,'workspace-engine','build','install','workspace-engine','lib','*');
+ const java=javaExecutable(),lib=path.join(repo,'workspace-engine','build','install','workspace-engine','lib','*');
  const options={cwd:repo,windowsHide:true,detached:true,env:{...process.env,FRAYNIX_WORKSPACE_PROJECT:project},stdio:['ignore',log,log]};
  const limits=budget();
  if(process.platform!=='win32')return spawn(java,[...limits.args,'-cp',lib,'fraymus.workspace.AgentHost042'],options);
