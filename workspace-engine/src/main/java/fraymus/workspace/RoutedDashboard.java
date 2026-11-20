@@ -21,6 +21,8 @@ final class RoutedDashboard {
     private final WorkspaceStore store;
     private final ComparisonExplorerLessons lessons;
 
+    private enum Presentation { TOTALS, EXPLORER, STORY }
+
     RoutedDashboard(Path project, ClassifiedProcedurePlan routing, WorkspaceStore store) {
         var workbench = project.resolve("request-workbench");
         directory = workbench.resolve("routed-dashboards");
@@ -50,34 +52,35 @@ final class RoutedDashboard {
     }
 
     private JSONObject teachingExample(JSONObject task, String name) throws Exception {
-        if (!isExplorer(task) || lessonName(task) != null || !task.has("artifact"))
+        if (presentation(task) != Presentation.EXPLORER || lessonName(task) != null || !task.has("artifact"))
             throw new IllegalStateException("Teach from a verified original comparison explorer");
         var imported = comparisonImport(task);
         var report = checkedReport(task.getJSONObject("file"), task.getJSONObject("baseline"), keyColumn(task),
-                imported, true, null);
+                imported, Presentation.EXPLORER, null);
         return ComparisonExplorerLessons.example(name, proof(task, report), imported.getJSONObject("receipt"),
                 MeasurementStore.hash(MapCheckpoint.canonical(task.getJSONArray("checks"))));
     }
 
     synchronized JSONObject prepare(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "file", "baseline", "keyColumn", "comparisonImport", "explorer", "explorerLesson", "verifyOnly");
+        SpatialScene.keys(input, "file", "baseline", "keyColumn", "comparisonImport", "explorer", "story", "explorerLesson", "verifyOnly");
         var file = input.getJSONObject("file");
         var baseline = input.optJSONObject("baseline");
         String key = keyColumn(input);
         var imported = comparisonImport(input);
-        boolean explorer = isExplorer(input);
+        Presentation presentation = presentation(input);
         String lesson = lessonName(input);
-        var report = checkedReport(file, baseline, key, imported, explorer, lesson);
-        String id = imported == null ? reportId(file, baseline, key) : importedId(imported, explorer, lesson);
+        var report = checkedReport(file, baseline, key, imported, presentation, lesson);
+        String id = imported == null ? reportId(file, baseline, key) : importedId(imported, presentation, lesson);
         var path = path(id);
         var task = Files.exists(path, LinkOption.NOFOLLOW_LINKS) ? load(id) : null;
-        if (task != null) requireSources(task, file, baseline, key, imported, explorer, lesson);
+        if (task != null) requireSources(task, file, baseline, key, imported, presentation, lesson);
         if (task != null && task.has("artifact")) {
             var saved = proof(task, report);
             return input.optBoolean("verifyOnly") ? saved.put("steps", report.steps()) : saved;
         }
         if (input.optBoolean("verifyOnly")) {
-            if (explorer) throw new IllegalStateException("Build this comparison explorer before rechecking it");
+            if (presentation == Presentation.STORY) throw new IllegalStateException("Build this change story before rechecking it");
+            if (presentation == Presentation.EXPLORER) throw new IllegalStateException("Build this comparison explorer before rechecking it");
             if (imported != null) throw new IllegalStateException("Summarize this comparison CSV before rechecking it");
             throw new IllegalStateException(baseline == null ? "Build this routed CSV dashboard before rechecking it"
                     : "Build this routed CSV comparison before rechecking it");
@@ -87,7 +90,8 @@ final class RoutedDashboard {
             if (baseline != null) initial.put("baseline", baseline);
             if (key != null) initial.put("keyColumn", key);
             if (imported != null) initial.put("comparisonImport", imported);
-            if (explorer) initial.put("explorer", true);
+            if (presentation == Presentation.EXPLORER) initial.put("explorer", true);
+            if (presentation == Presentation.STORY) initial.put("story", true);
             if (lesson != null) initial.put("explorerLesson", lesson);
             save(initial);
         }
@@ -98,16 +102,16 @@ final class RoutedDashboard {
     }
 
     synchronized JSONObject finish(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "id", "file", "baseline", "keyColumn", "comparisonImport", "explorer", "explorerLesson", "htmlSha256", "checks", "exportCsv");
+        SpatialScene.keys(input, "id", "file", "baseline", "keyColumn", "comparisonImport", "explorer", "story", "explorerLesson", "htmlSha256", "checks", "exportCsv");
         var task = load(input.getString("id"));
         var file = input.getJSONObject("file");
         var baseline = input.optJSONObject("baseline");
         String key = keyColumn(input);
         var imported = comparisonImport(input);
-        boolean explorer = isExplorer(input);
+        Presentation presentation = presentation(input);
         String lesson = lessonName(input);
-        requireSources(task, file, baseline, key, imported, explorer, lesson);
-        var report = checkedReport(file, baseline, key, imported, explorer, lesson);
+        requireSources(task, file, baseline, key, imported, presentation, lesson);
+        var report = checkedReport(file, baseline, key, imported, presentation, lesson);
         if (!report.htmlSha256().equals(input.getString("htmlSha256")))
             throw new IllegalStateException("The reviewed dashboard changed");
         var supplied = input.optJSONArray("checks");
@@ -149,14 +153,16 @@ final class RoutedDashboard {
         var task = load(parts[0]);
         if (task.has("artifact") || task.has("checks")) return null;
         var report = checkedReport(task.getJSONObject("file"), task.optJSONObject("baseline"),
-                keyColumn(task), comparisonImport(task), isExplorer(task), lessonName(task));
+                keyColumn(task), comparisonImport(task), presentation(task), lessonName(task));
         return report.htmlSha256().equals(parts[1]) ? report.html().getBytes(StandardCharsets.UTF_8) : null;
     }
 
     private RoutedReport checkedReport(JSONObject file, JSONObject baseline, String key, JSONObject imported,
-                                       boolean explorer, String lessonName) throws Exception {
-        if (lessonName != null && !explorer) throw new IllegalArgumentException("Use an explorer lesson with an explorer");
-        if (explorer && imported == null) throw new IllegalArgumentException("The explorer requires a verified comparison summary");
+                                       Presentation presentation, String lessonName) throws Exception {
+        if (lessonName != null && presentation != Presentation.EXPLORER) throw new IllegalArgumentException("Use an explorer lesson with an explorer");
+        if (presentation != Presentation.TOTALS && imported == null) throw new IllegalArgumentException(presentation == Presentation.STORY
+                    ? "The change story requires a verified comparison summary"
+                    : "The explorer requires a verified comparison summary");
         if (imported != null && (baseline == null || key == null))
             throw new IllegalArgumentException("A comparison CSV needs both original exports and the key");
         String current = checkedCsv(file);
@@ -171,14 +177,14 @@ final class RoutedDashboard {
         var comparison = new RoutedKeyComparisonReport(baseline, earlier, file, current, key);
         if (imported == null) return comparison;
         var original = load(reportId(file, baseline, key));
-        requireSources(original, file, baseline, key, null, false, null);
+        requireSources(original, file, baseline, key, null, Presentation.TOTALS, null);
         var totals = checkedImport(imported, original, comparison);
-        if (!explorer) return totals;
-        String id = importedId(imported, false, null);
+        if (presentation == Presentation.TOTALS) return totals;
+        String id = importedId(imported, Presentation.TOTALS, null);
         if (!Files.exists(path(id), LinkOption.NOFOLLOW_LINKS))
             throw new IllegalStateException("Summarize the comparison CSV before building its explorer");
         var summary = load(id);
-        requireSources(summary, file, baseline, key, imported, false, null);
+        requireSources(summary, file, baseline, key, imported, Presentation.TOTALS, null);
         if (!summary.has("artifact"))
             throw new IllegalStateException("Verify the comparison CSV summary before building its explorer");
         var verified = proof(summary, totals);
@@ -186,7 +192,7 @@ final class RoutedDashboard {
         var lesson = lessonName == null ? null : checkedLesson(lessonName);
         if (lesson != null) ComparisonExplorerLessons.requireFresh(lesson, receipt);
         return new RoutedComparisonExplorer(totals.csv(), receipt, verified.getJSONObject("artifact"),
-                totals.totalsProof(verified.getInt("browserChecks")), lesson);
+                totals.totalsProof(verified.getInt("browserChecks")), lesson, presentation == Presentation.STORY);
     }
 
     private RoutedComparisonTotals checkedImport(JSONObject imported, JSONObject original,
@@ -258,6 +264,7 @@ final class RoutedDashboard {
         var imported = comparisonImport(task);
         if (imported != null) result.put("comparisonExportId", imported.getJSONObject("receipt").getString("id"));
         if (lessonName(task) != null) result.put("explorerLesson", lessonName(task));
+        if (presentation(task) == Presentation.STORY) result.put("story", true);
         return result;
     }
 
@@ -286,8 +293,12 @@ final class RoutedDashboard {
         return record.has("comparisonImport") ? record.getJSONObject("comparisonImport") : null;
     }
 
-    private static boolean isExplorer(JSONObject record) {
-        return record.has("explorer") && record.getBoolean("explorer");
+    private static Presentation presentation(JSONObject record) {
+        boolean explorer = record.has("explorer") && record.getBoolean("explorer");
+        boolean story = record.has("story") && record.getBoolean("story");
+        if (story && explorer) throw new IllegalArgumentException("Choose one comparison presentation");
+        if (story) return Presentation.STORY;
+        return explorer ? Presentation.EXPLORER : Presentation.TOTALS;
     }
 
     private static String lessonName(JSONObject record) {
@@ -295,9 +306,9 @@ final class RoutedDashboard {
     }
 
     private static void requireSources(JSONObject task, JSONObject file, JSONObject baseline, String key,
-                                       JSONObject imported, boolean explorer, String lesson) {
+                                       JSONObject imported, Presentation presentation, String lesson) {
         if (!Objects.equals(lessonName(task), lesson)) throw new IllegalStateException("The selected explorer lesson changed");
-        if (isExplorer(task) != explorer) throw new IllegalStateException("The selected comparison report changed");
+        if (presentation(task) != presentation) throw new IllegalStateException("The selected comparison report changed");
         var earlier = task.optJSONObject("baseline");
         boolean sameBaseline = earlier == null ? baseline == null : earlier.similar(baseline);
         if (!task.getJSONObject("file").similar(file) || !sameBaseline)
@@ -309,9 +320,13 @@ final class RoutedDashboard {
             throw new IllegalStateException("The attached comparison CSV or receipt changed");
     }
 
-    private static String importedId(JSONObject imported, boolean explorer, String lesson) {
+    private static String importedId(JSONObject imported, Presentation presentation, String lesson) {
         String export = imported.getJSONObject("receipt").getString("id");
-        String prefix = explorer ? "routed-comparison-explorer:" : "routed-comparison-totals:";
+        String prefix = switch (presentation) {
+            case STORY -> "routed-comparison-story:v1:";
+            case EXPLORER -> "routed-comparison-explorer:";
+            case TOTALS -> "routed-comparison-totals:";
+        };
         String identity = lesson == null ? prefix + export : prefix + export + ":lesson:" + lesson;
         return UUID.nameUUIDFromBytes(identity.getBytes(StandardCharsets.UTF_8)).toString();
     }

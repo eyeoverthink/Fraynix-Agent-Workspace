@@ -45,9 +45,15 @@ final class RoutedComparisonExplorer implements RoutedReport {
     private final String csv, receiptText, summaryText, bindingText, html;
     private final JSONObject receipt, summaryArtifact, lesson;
     private final List<View> views;
+    private final RoutedComparisonStory story;
 
     RoutedComparisonExplorer(String csv, JSONObject receipt, JSONObject summaryArtifact, JSONObject summaryProof,
                              JSONObject lesson) {
+        this(csv, receipt, summaryArtifact, summaryProof, lesson, false);
+    }
+
+    RoutedComparisonExplorer(String csv, JSONObject receipt, JSONObject summaryArtifact, JSONObject summaryProof,
+                             JSONObject lesson, boolean asStory) {
         this.csv = csv;
         this.lesson = lesson;
         this.receipt = receipt;
@@ -59,10 +65,11 @@ final class RoutedComparisonExplorer implements RoutedReport {
         bindingText = MapCheckpoint.canonical(binding);
         var table = MeasurementStore.csv(csv, 1, 32_000);
         List<List<String>> rows = table.subList(1, table.size());
-        views = lesson == null ? List.of(new Filter(null, null), new Filter("mm", null),
+        story = asStory ? new RoutedComparisonStory(rows) : null;
+        views = lesson == null && !asStory ? List.of(new Filter(null, null), new Filter("mm", null),
                 new Filter("mm", "Duplicate"), new Filter("mm", "Missing"))
                 .stream().map(filter -> view(filter, rows)).toList() : reusableViews(rows);
-        html = TEMPLATE.replace("@EXPLORER_CSV@", encode(csv)).replace("@EXPLORER_RECEIPT@", encode(receiptText))
+        html = (asStory ? story.html(TEMPLATE) : TEMPLATE).replace("@EXPLORER_CSV@", encode(csv)).replace("@EXPLORER_RECEIPT@", encode(receiptText))
                 .replace("@EXPLORER_SUMMARY@", encode(summaryText)).replace("@EXPLORER_BINDING@", encode(bindingText));
     }
 
@@ -94,7 +101,7 @@ final class RoutedComparisonExplorer implements RoutedReport {
                 readingsText(row.get(3)), readingsText(row.get(4)), shown);
     }
 
-    private static String readingsText(String json) {
+    static String readingsText(String json) {
         var readings = new JSONArray(json);
         if (readings.isEmpty()) return "—";
         var labels = new java.util.ArrayList<String>();
@@ -107,13 +114,16 @@ final class RoutedComparisonExplorer implements RoutedReport {
 
     @Override public String html() { return html; }
 
+    private String title() { return story == null ? TITLE : RoutedComparisonStory.TITLE; }
+
     @Override public JSONArray steps() {
         var all = views.get(0);
-        var steps = new JSONArray().put(text("h1", TITLE))
+        var steps = new JSONArray().put(text("h1", title()))
                 .put(text("#source-id", "Export " + receipt.getString("id")))
                 .put(text("#source-hash", "CSV SHA-256 " + receipt.getString("sha256")))
                 .put(text("#parent-proof", "Summary SHA-256 " + MeasurementStore.hash(summaryText)));
         addView(steps, all);
+        if (story != null) return storySteps(steps, all);
         for (String name : List.of("matched-comparison.csv", "import-receipt.json", "summary-proof.json"))
             steps.put(count("a[href=\"" + name + "\"]", 1));
         steps.put(click("mm".equals(views.get(1).filter().unit()) ? "#unit-mm" : "#unit-f"));
@@ -124,6 +134,19 @@ final class RoutedComparisonExplorer implements RoutedReport {
                 .put(text("#visible-count", views.get(3).countText()));
         steps.put(click("#reset-filters"));
         addView(steps, all);
+        return steps;
+    }
+
+    private JSONArray storySteps(JSONArray steps, View all) {
+        story.checkOpen(steps);
+        var unit = views.get(1);
+        steps.put(click("mm".equals(unit.filter().unit()) ? "#unit-mm" : "#unit-f"));
+        addView(steps, unit);
+        steps.put(click("#status-missing"));
+        addView(steps, view(new Filter(unit.filter().unit(), "Missing"), all.rows()));
+        story.checkUnmatched(steps);
+        steps.put(click("#reset-filters")).put(text("#visible-count", all.countText()));
+        story.checkReset(steps);
         return steps;
     }
 
@@ -138,11 +161,18 @@ final class RoutedComparisonExplorer implements RoutedReport {
                 .put(text("#visible-totals", view.totalsText()));
     }
 
+    private List<View> verifiedViews() {
+        if (story == null) return views;
+        var all = views.getFirst();
+        var unit = views.get(1);
+        return List.of(all, unit, view(new Filter(unit.filter().unit(), "Missing"), all.rows()));
+    }
+
     @Override public JSONObject artifact(JSONObject file, JSONArray checks) {
         verifyBrowser(checks);
         var binding = new JSONObject(bindingText);
         var proof = new JSONObject().put("passed", true).put("import", receipt).put("summary", binding)
-                .put("views", new JSONArray(views.stream().map(View::evidence).toList())).put("browserChecks", checks.length());
+                .put("views", new JSONArray(verifiedViews().stream().map(View::evidence).toList())).put("browserChecks", checks.length());
         var sources = new JSONArray()
                 .put("comparison-summary:" + summaryArtifact.getString("id") + ":sha256:" + summaryArtifact.getString("sha256"))
                 .put("matched-comparison-csv:sha256:" + receipt.getString("sha256"))
@@ -151,7 +181,8 @@ final class RoutedComparisonExplorer implements RoutedReport {
             proof.put("lesson", lesson);
             sources.put("comparison-explorer-lesson:sha256:" + WorldFrames.hash(lesson));
         }
-        return new JSONObject().put("title", TITLE).put("sources", sources)
+        if (story != null) proof.put("presentation", "change-story-v1");
+        return new JSONObject().put("title", title()).put("sources", sources)
                 .put("files", new JSONObject().put("index.html", html).put("matched-comparison.csv", csv)
                         .put("import-receipt.json", receiptText).put("summary-proof.json", summaryText)
                         .put("verification.json", MapCheckpoint.canonical(proof) + "\n"));

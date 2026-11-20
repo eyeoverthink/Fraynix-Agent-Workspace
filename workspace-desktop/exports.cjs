@@ -9,11 +9,11 @@ class NativeExports {
   await fs.mkdir(this.directory,{recursive:true});const id=randomUUID(),target=path.join(this.directory,id+'.'+extension),temporary=target+'.tmp';
   const data=Buffer.isBuffer(bytes)?bytes:Buffer.from(bytes,'utf8');if(data.length>20_000_000)throw Error('Export exceeds 20 MB');
   const receipt={id,kind,path:target,bytes:data.length,sha256:createHash('sha256').update(data).digest('hex'),source,createdAt:new Date().toISOString()};
-  if(expectedSha256!==undefined&&receipt.sha256!==expectedSha256)throw Error('The verified comparison CSV bytes changed');
+  if(expectedSha256!==undefined&&receipt.sha256!==expectedSha256)throw Error('The verified export bytes changed');
   await fs.writeFile(temporary,data,{flag:'wx'});
   try {
    if(expectedSha256!==undefined&&!data.equals(await fs.readFile(temporary)))
-    throw Error('The written comparison CSV differs from the checked bytes');
+    throw Error('The written export differs from the checked bytes');
    await fs.rename(temporary,target);
   } catch(error) {
    await fs.unlink(temporary).catch(()=>{});

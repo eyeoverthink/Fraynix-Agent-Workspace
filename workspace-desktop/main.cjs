@@ -529,18 +529,25 @@ async function openRoutedDashboard({verifyOnly=false,compare=false,pair,keyColum
   return openRoutedReport(sources,retained,{verifyOnly,exportCsv});
 }
 
-async function summarizeRoutedComparison({verifyOnly=false,exportId,explorer=false,explorerLesson}={}) {
-  if(typeof verifyOnly!=='boolean'||typeof explorer!=='boolean'||(verifyOnly||explorer)&&typeof exportId!=='string')
+async function summarizeRoutedComparison({verifyOnly=false,exportId,explorer=false,story=false,exportStory=false,explorerLesson}={}) {
+  if(typeof verifyOnly!=='boolean'||typeof explorer!=='boolean'||typeof story!=='boolean'||
+      (verifyOnly||explorer||story)&&typeof exportId!=='string')
     throw Error('Summarize a comparison CSV first');
+  if(typeof exportStory!=='boolean'||exportStory&&(!verifyOnly||!story))
+    throw Error('Recheck a saved change story before exporting');
   const readSources=async id=>{
     const comparisonImport=await nativeExports.comparisonCsv(id);
     const {earlier,later,keyColumn}=comparisonImport.receipt.source;
     const [baseline,file]=await Promise.all([nativeExports.routedCsv(earlier.exportId),nativeExports.routedCsv(later.exportId)]);
-    return {comparisonImport,baseline,file,keyColumn,...(explorer?{explorer:true}:{}),
+    return {comparisonImport,baseline,file,keyColumn,...(explorer?{explorer:true}:{}),...(story?{story:true}:{}),
       ...(explorerLesson!==undefined?{explorerLesson}:{})};
   };
   const sources=await readSources(exportId);
-  return openRoutedReport(sources,()=>readSources(sources.comparisonImport.receipt.id),{verifyOnly});
+  const result=await openRoutedReport(sources,()=>readSources(sources.comparisonImport.receipt.id),{verifyOnly});
+  if(!exportStory)return result;
+  const artifact=await checkedRoutedDashboard(result);
+  return nativeExports.save('comparison-change-story','html',artifact.contents['index.html'],
+    {comparisonExportId:result.comparisonExportId,artifact:result.artifact,htmlSha256:result.htmlSha256},result.htmlSha256);
 }
 
 async function teachComparisonExplorer({name,exportId}) {
@@ -594,12 +601,16 @@ async function openRoutedReport(sources,retained,{verifyOnly,exportCsv=false}) {
   return result;
 }
 
-async function showRoutedDashboard(result) {
+async function checkedRoutedDashboard(result) {
   const artifact=await api('/api/artifact/read',{id:result.artifact.id});
   if(artifact.version!==result.artifact.version)throw Error('The verified dashboard revision changed');
   if(createHash('sha256').update(artifact.contents['index.html'],'utf8').digest('hex')!==result.htmlSha256)
     throw Error('The verified dashboard HTML changed');
-  await openArtifact(artifact);
+  return artifact;
+}
+
+async function showRoutedDashboard(result) {
+  await openArtifact(await checkedRoutedDashboard(result));
   emit('view','preview');
 }
 
