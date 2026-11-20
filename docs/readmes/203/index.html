@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 203 · Build an offline explorer from verified comparison totals</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Build an offline explorer from verified comparison totals</h1><p>Turn a checked comparison summary into a working offline tool. Filter source rows by status and unit, then recheck the same inputs after restart.</p>
+<nav><a href="../../../README-203.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../202/index.html">Edition 202</a><a href="#system">System files</a></nav>
+<figure><img src="comparison-explorer-duplicates.png" alt="After a deliberately blocked test save, the recovered explorer filters the tank readings"><figcaption>After a deliberately blocked test save, the recovered explorer filters the tank readings</figcaption></figure>
+<figure><img src="comparison-explorer-rechecked-after-restart.png" alt="The saved explorer passes fresh checks with its original source after restart"><figcaption>The saved explorer passes fresh checks with its original source after restart</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Turn a checked comparison summary into a working offline tool. Filter source rows by status and unit, then recheck the same inputs after restart.", "modules": [{"title": "Explorer filters", "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedComparisonExplorer.java", "note": "docs/obsidian/211-verified-comparison-explorer.md"}, {"title": "Comparison and source verification", "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java", "note": "docs/obsidian/211-verified-comparison-explorer.md"}, {"title": "Offline explorer", "source": "workspace-engine/src/main/resources/workbench/routing-comparison-explorer.html", "note": "docs/obsidian/211-verified-comparison-explorer.md"}], "screenshots": [{"path": "docs/readmes/203/comparison-explorer-duplicates.png", "title": "After a deliberately blocked test save, the recovered explorer filters the tank readings"}, {"path": "docs/readmes/203/comparison-explorer-rechecked-after-restart.png", "title": "The saved explorer passes fresh checks with its original source after restart"}], "evidence": [{"path": "docs/readmes/203/verification.json", "title": "Verification record"}, {"path": "docs/readmes/203/comparison-explorer.html", "title": "Open the offline explorer"}, {"path": "docs/readmes/203/matched-comparison.csv", "title": "Original comparison CSV"}, {"path": "docs/readmes/203/import-receipt.json", "title": "Original import receipt"}, {"path": "docs/readmes/203/summary-proof.json", "title": "Parent summary proof"}, {"path": "docs/readmes/203/explorer-proof.json", "title": "Checked filter views"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/211-verified-comparison-explorer.canvas", "bytes": 1221, "sha256": "9e9039421227fcd00c742807ec19f986493032efef7e7d98d9c76f1d774cae83", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/211-verified-comparison-explorer.md", "bytes": 485, "sha256": "4e4baf58494f92fee250bee95bfa1bb224e2a736db158452f41b414a195a0945", "hashKind": "utf8-lf"}, {"path": "docs/publication203/document.py", "bytes": 12748, "sha256": "52808ff17e4df9827027d23048ea7a38393e252a6d667a125fd1e899c8a20e3b", "hashKind": "utf8-lf"}, {"path": "docs/publication203/plan.md", "bytes": 1821, "sha256": "6d9b956aaa465978b4a3e3159c47490ce120b175eccc4b4e5747a43b31359243", "hashKind": "utf8-lf"}, {"path": "docs/publication203/validate-desktop.cjs", "bytes": 14401, "sha256": "1a38d8692e1fe141f7360aad9e4dd698f332ff2a0f2191143befe1597fab9e09", "hashKind": "utf8-lf"}, {"path": "docs/publication203/validate-guide.cjs", "bytes": 1736, "sha256": "0d0465e8ae86affdf6ef6282556eeb09444d96fd8df4a9600cc652e4c71e2b7c", "hashKind": "utf8-lf"}, {"path": "docs/publication203/validate.py", "bytes": 2248, "sha256": "b1dc616d9d682c31a74e8fb05b85ac2aa2e405e013c1ee47b35c12d793f6261f", "hashKind": "utf8-lf"}, {"path": "docs/publication203/verify-views.py", "bytes": 3016, "sha256": "327d42a97272451c8febbb950a4b741f0d73a6af24e7621b06024be4b34f5c18", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 114993, "sha256": "001da855873e15a5842b2547790b6b8fff2694f9ad47e307147c00340e8ff288", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/classification-routing.js", "bytes": 10458, "sha256": "884383787bae8301e2d3141beb9e1d07940755e0c90543daac0d9709658793d5", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedComparisonExplorer.java", "bytes": 6886, "sha256": "85e272432ac9551e61f04a48af12894a9c6a642e018139c9a325e25933f120ee", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedComparisonTotals.java", "bytes": 5398, "sha256": "ba986430ece8889a8f5b4077f331463734b9dcd1181b5eeeb6080145cbf21011", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java", "bytes": 17870, "sha256": "d5154a43e4aa142f1ad0b8fbecfc05663d3d384aac2e360e0884cb23d01ae174", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedKeyComparisonReport.java", "bytes": 8189, "sha256": "2eb0ffaf0db194484e21cc6e5ca28f6847acb5b3907599f8dfcc868d702ff20e", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/resources/workbench/routing-comparison-explorer.html", "bytes": 11721, "sha256": "6784457fad88ba7f2b8fca6c372108fc522300ad170d2dd780deec0b5fd185e7", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

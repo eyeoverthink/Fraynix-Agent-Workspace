@@ -1,3 +1,7 @@
+## Edition 203 — Build an offline explorer from verified comparison totals
+
+2026-11-20. Turn a checked comparison summary into a working offline tool. Filter source rows by status and unit, then recheck the same inputs after restart. The workbench recovered a blocked save. The offline explorer matched an independent decimal check for all 15 filter combinations. 125 root Java tests, 76 focused workspace Java tests, 181 desktop tests and 10 evidence archive tests passed locally. A blocked artifact save recovered after restart. The original source passed 24 fresh browser checks after a second restart. See README-203.md and docs/publication203/plan.md.
+
 ## Edition 202 — Use a verified comparison CSV in a follow-on Chat task
 
 2026-11-20. Attach a verified matched comparison CSV from the project and calculate changes separately by output unit. Check the receipt and original sources again after restart. The recorded import contains ten groups with net changes of +7.2 °F and −12.7 mm. 125 root Java tests, 76 focused workspace Java tests, 181 desktop tests and 10 evidence archive tests passed locally. The original import and artifact passed 13 new browser checks after restart. See README-202.md and docs/publication202/plan.md.

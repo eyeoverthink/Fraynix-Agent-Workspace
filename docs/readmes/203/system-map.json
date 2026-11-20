@@ -1,0 +1,56 @@
+{
+  "summary": "Turn a checked comparison summary into a working offline tool. Filter source rows by status and unit, then recheck the same inputs after restart.",
+  "modules": [
+    {
+      "title": "Explorer filters",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedComparisonExplorer.java",
+      "note": "docs/obsidian/211-verified-comparison-explorer.md"
+    },
+    {
+      "title": "Comparison and source verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java",
+      "note": "docs/obsidian/211-verified-comparison-explorer.md"
+    },
+    {
+      "title": "Offline explorer",
+      "source": "workspace-engine/src/main/resources/workbench/routing-comparison-explorer.html",
+      "note": "docs/obsidian/211-verified-comparison-explorer.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/203/comparison-explorer-duplicates.png",
+      "title": "After a deliberately blocked test save, the recovered explorer filters the tank readings"
+    },
+    {
+      "path": "docs/readmes/203/comparison-explorer-rechecked-after-restart.png",
+      "title": "The saved explorer passes fresh checks with its original source after restart"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/203/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/203/comparison-explorer.html",
+      "title": "Open the offline explorer"
+    },
+    {
+      "path": "docs/readmes/203/matched-comparison.csv",
+      "title": "Original comparison CSV"
+    },
+    {
+      "path": "docs/readmes/203/import-receipt.json",
+      "title": "Original import receipt"
+    },
+    {
+      "path": "docs/readmes/203/summary-proof.json",
+      "title": "Parent summary proof"
+    },
+    {
+      "path": "docs/readmes/203/explorer-proof.json",
+      "title": "Checked filter views"
+    }
+  ]
+}

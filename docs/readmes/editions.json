@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 202,
+  "latest": 203,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -265889,6 +265889,75 @@
         {
           "path": "docs/readmes/202/verification.json",
           "sha256": "a05e19d0ef5c005125b30c0ce41efdfaa98968539bbb7f3f2edc18c650f93f77",
+          "kind": "text"
+        }
+      ]
+    },
+    {
+      "number": 203,
+      "date": "2026-11-20",
+      "title": "Build an offline explorer from verified comparison totals",
+      "status": "validated-local",
+      "markdown": "README-203.md",
+      "markdownSha256": "6737448c8797fa47cd0021d20087cdb8a4b30b5586ecee5e61f880b9714cb313",
+      "companion": "docs/readmes/203/index.html",
+      "tag": "readme-203",
+      "sourceBaseline": "6d34e86d279d413fbb3538f25fcf55cc3e84c8fa",
+      "snapshotDirectory": "docs/readmes/203",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/203/comparison-explorer-duplicates.png",
+          "sha256": "3cb7fa2caae970db21ed0ff78820f35c3c870476a56ffba75f3122358a2cb342",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/203/comparison-explorer-rechecked-after-restart.png",
+          "sha256": "faaaa2ef8fa1b7cdfbdc7ee938aebad5770e75e4373fa5e95bfce48588aa77c9",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/203/comparison-explorer.html",
+          "sha256": "3b5dab142f0438f49ff01f09474b2d9967f5d8007636467842f7e102b205c452",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/203/explorer-proof.json",
+          "sha256": "9b25b9e4e8127c03c319d25fa0988452eb76828323a9edd51ec2e174ae2fdd9f",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/203/file-inventory.json",
+          "sha256": "b6668b2c4d0da3c71e1b4a2bf8ab5f7f9a298fc54d52830ac6f9b2afcfc18f0b",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/203/import-receipt.json",
+          "sha256": "56bd46e39803661370be5018f2a1b73389ea5117db6fc15df44e797759a680bf",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/203/index.html",
+          "sha256": "31a176445de19079944a68c2b7fae1d703dde73c408b39c26fd0aa37f4910d29",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/203/matched-comparison.csv",
+          "sha256": "001b9939b0ef5c9182a2682dc23560634761a984a24771bbb4ad823b0307bbef",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/203/summary-proof.json",
+          "sha256": "d22b033571d7f76422a5cda8330011e2fff8dc84bb2449d4f48739829486ba85",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/203/system-map.json",
+          "sha256": "6947510f3f57376e28ddbc4889f303095a88010d6f2a28f68b1ee6cbbf375b91",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/203/verification.json",
+          "sha256": "bfaf771900881f874d75a77b425f9d0da484f9930e18103450025ff920f8a8e2",
           "kind": "text"
         }
       ]
