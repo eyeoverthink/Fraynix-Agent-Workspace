@@ -153,12 +153,15 @@ async function main() {
             await browser.locator('#reset-filters').click();
             assert.equal(await browser.locator('button.change-bar[aria-pressed=true]').count(),0);
             assert.equal(await browser.locator('#change-selection-title').innerText(),'Select a bar to inspect both source readings.');
-            await browser.getByRole('link',{name:'Comparison CSV'}).click();
-                for (let attempt=0;attempt<80;attempt++) {
-                if (await fs.stat(marker).then(()=>true,()=>false)) break;
+            await browser.getByRole('link',{name:'Comparison CSV'}).evaluate(link=>link.click());
+            const download = () => app.evaluate(({BrowserWindow},id)=>BrowserWindow.fromId(id)?.storyDownloadState,windowId);
+            let state;
+            for (let attempt=0;attempt<80;attempt++) {
+                state = await download();
+                if (state) break;
                 await new Promise(resolve=>setTimeout(resolve,100));
             }
-            assert.equal(await fs.readFile(marker,'utf8'),'completed');
+            assert.equal(state,'completed');
             assert.equal(await fs.readFile(target,'utf8'),artifact.contents['matched-comparison.csv']);
         } finally {
             await app.evaluate(({BrowserWindow},id)=>BrowserWindow.fromId(id)?.destroy(),windowId);
