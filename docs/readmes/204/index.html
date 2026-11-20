@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 204 · Teach and reuse a verified comparison explorer</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Teach and reuse a verified comparison explorer</h1><p>Save a verified explorer as a named lesson and reuse it on fresh comparison data. Check the lesson, the original teaching evidence and each new result.</p>
+<nav><a href="../../../README-204.md">App guide</a><a href="verification.json">Verification</a>
+<a href="../203/index.html">Edition 203</a><a href="#system">System files</a></nav>
+<figure><img src="temperature-only.png" alt="The reused lesson shows zero net temperature change and eighteen degrees of total movement"><figcaption>The reused lesson shows zero net temperature change and eighteen degrees of total movement</figcaption></figure>
+<figure><img src="mixed-unmatched.png" alt="The reused lesson keeps the small temperature change and the unmatched length groups separate"><figcaption>The reused lesson keeps the small temperature change and the unmatched length groups separate</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Save a verified explorer as a named lesson and reuse it on fresh comparison data. Check the lesson, the original teaching evidence and each new result.", "modules": [{"title": "Verified explorer lessons", "source": "workspace-engine/src/main/java/fraymus/workspace/ComparisonExplorerLessons.java", "note": "docs/obsidian/212-reusable-comparison-explorer.md"}, {"title": "Fresh source and teaching verification", "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java", "note": "docs/obsidian/212-reusable-comparison-explorer.md"}, {"title": "Offline explorer", "source": "workspace-engine/src/main/resources/workbench/routing-comparison-explorer.html", "note": "docs/obsidian/212-reusable-comparison-explorer.md"}], "screenshots": [{"path": "docs/readmes/204/temperature-only.png", "title": "The reused lesson shows zero net temperature change and eighteen degrees of total movement"}, {"path": "docs/readmes/204/mixed-unmatched.png", "title": "The reused lesson keeps the small temperature change and the unmatched length groups separate"}], "evidence": [{"path": "docs/readmes/204/verification.json", "title": "Verification record"}, {"path": "docs/readmes/204/lesson.json", "title": "Saved field-audit lesson"}, {"path": "docs/readmes/204/temperature-only/comparison-explorer.html", "title": "Temperature-only explorer"}, {"path": "docs/readmes/204/mixed-unmatched/comparison-explorer.html", "title": "Mixed-unit explorer with no length matches"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/212-reusable-comparison-explorer.canvas", "bytes": 1222, "sha256": "0906078b3c4bd41956fbc6e369a990b5d8438d0333a1db6f96932ba1410b5a27", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/212-reusable-comparison-explorer.md", "bytes": 488, "sha256": "ff11e1b63b249f4dcaed2f8ab0b268773d5a7ecd24684d8dbd89c8a501f64318", "hashKind": "utf8-lf"}, {"path": "docs/publication204/document.py", "bytes": 13030, "sha256": "bdfc1a68093ae130c65a076ca431d932920bcfdd8fa9707155152ef7fdd65bac", "hashKind": "utf8-lf"}, {"path": "docs/publication204/plan.md", "bytes": 1965, "sha256": "a6be5a0d9c49d1a88eade5f976da4251ae28195d329d61b057a7368a952b4624", "hashKind": "utf8-lf"}, {"path": "docs/publication204/validate-desktop.cjs", "bytes": 18874, "sha256": "95c5afeb90eabaf34654e9aa761e0511ea228d44d6d888414ee275a809e9031d", "hashKind": "utf8-lf"}, {"path": "docs/publication204/validate-guide.cjs", "bytes": 1747, "sha256": "5f0b4b8b5fd5a39cac9ce5a1ac5a81168d4bfe2e467aee44381ef3937f686b96", "hashKind": "utf8-lf"}, {"path": "docs/publication204/validate.py", "bytes": 2248, "sha256": "6bfd4bf7af308d08fb3ebbf3161b16a3c2a44416d40a91948b34e7c8b8531a59", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 116273, "sha256": "940d55a8137e539d2e1e35f2785d059ad239a1633cc1132455b26e9706c1ffbc", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/classification-routing.js", "bytes": 11956, "sha256": "81ec2ce840f91546c74ef06aff34fdcd2228cf795063d84507b9905c7e7747da", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ComparisonExplorerLessons.java", "bytes": 2697, "sha256": "7c8c47492afaf5da4627051a1d090cbd8dfdc0fe7b31cf9c18ce32ff0764b265", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedComparisonExplorer.java", "bytes": 8694, "sha256": "acf64ce7522e78c24160afafdc281a342a1c2e872f86e5b1b045e1676cf09e7e", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java", "bytes": 20821, "sha256": "bbecf826912068335f4a518c837debf58001586f1c11f4ee7310ae53c836a3fa", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 136562, "sha256": "7f3693703c58ab94e0a71ff11af4b71dc6eb9dcf851a7b288c48d11036e86691", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

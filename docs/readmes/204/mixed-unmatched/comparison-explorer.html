@@ -1,0 +1,255 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Verified comparison explorer</title>
+<style>
+:root {color-scheme:dark;color:#eef7f6;background:#13202a;font:15px/1.5 system-ui,sans-serif}
+* {box-sizing:border-box}
+body {margin:0;padding:clamp(14px,3.2vw,34px)}
+main {max-width:72rem;margin:auto}
+h1 {font-size:clamp(1.6rem,4.5vw,2.35rem);line-height:1.15;margin:0 0 8px}
+p {margin:0 0 12px;color:#bed1d9}
+.filters,.filter-set {display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.filters {gap:9px;margin:16px 0 12px}
+button {font:inherit;color:#e4eef2;border:1px solid #415e6d;background:#1b303b;padding:4px 10px;border-radius:6px;cursor:pointer}
+button[aria-pressed=true] {color:#0f2927;background:#a6e8d5;border-color:#a6e8d5;font-weight:650}
+#reset-filters {margin-left:auto}
+#visible-count {font-weight:650;color:#f0faf7;margin-bottom:5px}
+#visible-totals {display:grid;gap:6px;margin-bottom:10px}
+#visible-totals div {padding:5px 9px;border-radius:5px;background:#1e3541;color:#cee9e4}
+.table-wrap {overflow:auto;border:1px solid #3b5260;border-radius:8px}
+table {width:100%;min-width:32rem;border-collapse:collapse;background:#162731;font-variant-numeric:tabular-nums;text-align:left}
+th,td {padding:6px 9px;vertical-align:top;border-bottom:1px solid #324854}
+th {background:#203640;color:#c6d8df;font-size:.84rem}
+tbody tr:last-child td {border-bottom:0}
+tbody tr:nth-child(even) {background:#1c2d38}
+.key {white-space:pre-wrap;overflow-wrap:anywhere}
+.status {color:#f3d1a6}
+.status.matched {color:#b9f0de}
+.status.added {color:#c6ddff}
+details {margin-top:13px}
+summary {cursor:pointer;color:#d5e6e9}
+details p {margin:6px 0;overflow-wrap:anywhere}
+nav {display:flex;flex-wrap:wrap;gap:8px 16px}
+a {color:#b9f0de}
+@media(max-width:560px) {#reset-filters {margin-left:0}}
+</style>
+</head>
+<body>
+<main>
+<h1>Verified comparison explorer</h1>
+<p>Filter the comparison to see source rows and changes by output unit.</p>
+<div class="filters">
+  <div class="filter-set" role="group" aria-label="Output unit">
+    <button id="unit-all" type="button" data-unit="all" aria-pressed="true">All units</button>
+    <button id="unit-f" type="button" data-unit="°F" aria-pressed="false">°F</button>
+    <button id="unit-mm" type="button" data-unit="mm" aria-pressed="false">mm</button>
+  </div>
+  <div class="filter-set" role="group" aria-label="Group status">
+    <button id="status-all" type="button" data-status="all" aria-pressed="true">All statuses</button>
+    <button type="button" data-status="Matched" aria-pressed="false">Matched</button>
+    <button type="button" data-status="Added" aria-pressed="false">Added</button>
+    <button id="status-missing" type="button" data-status="Missing" aria-pressed="false">Missing</button>
+    <button id="status-duplicate" type="button" data-status="Duplicate" aria-pressed="false">Duplicate</button>
+  </div>
+  <button id="reset-filters" type="button">Reset</button>
+</div>
+<p id="visible-count" aria-live="polite"></p>
+<div id="visible-totals"></div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Comparison rows">
+<table>
+<thead><tr><th scope="col">Key</th><th scope="col">Unit</th><th scope="col">Status</th><th scope="col">Earlier row: value</th><th scope="col">Later row: value</th><th scope="col">Change</th></tr></thead>
+<tbody id="visible-rows"></tbody>
+</table>
+</div>
+<details open>
+  <summary>Verified inputs</summary>
+  <p id="source-id"></p>
+  <p id="source-hash"></p>
+  <p id="parent-proof"></p>
+  <nav aria-label="Original evidence">
+    <a href="matched-comparison.csv" download>Comparison CSV</a>
+    <a href="import-receipt.json" download>Import receipt</a>
+    <a href="summary-proof.json" download>Summary proof</a>
+  </nav>
+</details>
+</main>
+<script>
+'use strict';
+const statuses = ['Matched','Added','Missing','Duplicate'];
+const units = new Set(['°F','mm']);
+const scale = 100000n;
+function bytes(base64) {
+    return Uint8Array.from(atob(base64), char => char.charCodeAt(0));
+}
+
+function csvRows(input) {
+    const rows = [];
+    let row = [], field = '', quoted = false, closed = false;
+    for (let i = 0; i < input.length; i++) {
+        const char = input[i];
+        if (quoted) {
+            if (char !== '"') field += char;
+            else if (input[i+1] === '"') { field += '"'; i++; }
+            else { quoted = false; closed = true; }
+        } else if (char === '"') {
+            if (field || closed) throw Error('Misplaced quote in comparison CSV');
+            quoted = true;
+        } else if (char === ',' || char === '\n') {
+            row.push(field);
+            field = '';
+            closed = false;
+            if (char === '\n') { rows.push(row); row = []; }
+        } else {
+            if (closed) throw Error('Unexpected comparison CSV text');
+            field += char;
+        }
+    }
+    if (quoted || closed || field || row.length) throw Error('Incomplete comparison CSV row');
+    return rows;
+}
+
+function number(text) {
+    const parts = /^(-?)([0-9]+)(?:\.([0-9]{1,5}))?$/.exec(text);
+    if (!parts || parts[0] !== text) throw Error('Invalid decimal delta');
+    const magnitude = BigInt(parts[2] + (parts[3] || '').padEnd(5,'0'));
+    return parts[1] ? -magnitude : magnitude;
+}
+
+function display(value, signed, unit, matched) {
+    if (!matched) return '—';
+    const absolute = value < 0n ? -value : value;
+    const fraction = (absolute % scale).toString().padStart(5,'0').replace(/0+$/,'');
+    const sign = value < 0n ? '-' : signed && value > 0n ? '+' : '';
+    return sign + (absolute / scale) + (fraction ? '.' + fraction : '') + ' ' + unit;
+}
+
+function countsByUnit(rows) {
+    const totals = new Map();
+    for (const row of rows) {
+        const [,unit,status,,,delta] = row;
+        if (row.length !== 6 || !units.has(unit) || !statuses.includes(status) || (status === 'Matched') !== Boolean(delta))
+            throw Error('Invalid comparison group');
+        if (!totals.has(unit)) totals.set(unit,{counts:new Map(statuses.map(name=>[name,0])),net:0n,absolute:0n});
+        const total = totals.get(unit);
+        total.counts.set(status,total.counts.get(status)+1);
+        if (status === 'Matched') {
+            const value = number(delta);
+            total.net += value;
+            total.absolute += value < 0n ? -value : value;
+        }
+    }
+    return totals;
+}
+
+function node(tag,text,id) {
+    const element = document.createElement(tag);
+    element.textContent = text;
+    if (id) element.id = id;
+    return element;
+}
+
+function visibleKey(key) {
+    return '"' + key.replaceAll('\\','\\\\').replaceAll('"','\\"')
+        .replaceAll('\t','\\t').replaceAll('\r','\\r').replaceAll('\n','\\n') + '"';
+}
+
+function readingText(json) {
+    const readings = JSON.parse(json);
+    return readings.length ? readings.map(reading=>'#'+reading.row+': '+reading.value).join(' · ') : '—';
+}
+
+function rowNode(row) {
+    const [key,unit,status,earlier,later,delta] = row;
+    const cells = [visibleKey(JSON.parse(key)),unit,status,readingText(earlier),readingText(later),
+        delta ? display(number(delta),true,'',true).trim() : '—'];
+    const element = document.createElement('tr');
+    cells.forEach((value,i)=>{
+        const cell = node('td',value);
+        if (i === 0) cell.className = 'key';
+        if (i === 2) cell.className = 'status '+status.toLowerCase();
+        element.append(cell);
+    });
+    return element;
+}
+
+function showTotals(rows) {
+    const totals = countsByUnit(rows);
+    const lines = [];
+    for (const unit of units) {
+        const total = totals.get(unit);
+        if (!total) continue;
+        const counts = statuses.map(status=>status+' '+total.counts.get(status)).join(' · ');
+        const matched = total.counts.get('Matched');
+        lines.push(node('div',unit+' · '+counts+' · Net '+display(total.net,true,unit,matched)
+            +' · Absolute '+display(total.absolute,false,unit,matched)));
+    }
+    document.getElementById('visible-totals').replaceChildren(...(lines.length ? lines : [node('div','No matching groups.')]));
+}
+
+function installFilters(rows) {
+    const unitButtons = [...document.querySelectorAll('button[data-unit]')];
+    const statusButtons = [...document.querySelectorAll('button[data-status]')];
+    let unit = 'all', status = 'all';
+    function update() {
+        const visible = rows.filter(row=>(unit==='all'||row[1]===unit)&&(status==='all'||row[2]===status));
+        document.getElementById('visible-count').textContent = visible.length + (visible.length===1?' group':' groups');
+        document.getElementById('visible-rows').replaceChildren(...visible.map(rowNode));
+        showTotals(visible);
+        unitButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.unit===unit)));
+        statusButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.status===status)));
+    }
+    unitButtons.forEach(button=>{button.onclick=()=>{unit=button.dataset.unit;update();};});
+    statusButtons.forEach(button=>{button.onclick=()=>{status=button.dataset.status;update();};});
+    document.getElementById('reset-filters').onclick=()=>{unit='all';status='all';update();};
+    update();
+}
+
+async function sha(data) {
+    const digest = new Uint8Array(await crypto.subtle.digest('SHA-256',data));
+    return [...digest].map(value=>value.toString(16).padStart(2,'0')).join('');
+}
+
+function downloadJson(name,data) {
+    document.querySelector('a[download][href='+JSON.stringify(name)+']').addEventListener('click',event=>{
+        event.preventDefault();
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(new Blob([data],{type:'application/json'}));
+        link.download = name;
+        link.click();
+        setTimeout(()=>URL.revokeObjectURL(link.href),1000);
+    });
+}
+
+async function render() {
+    const decoder = new TextDecoder('utf-8',{fatal:true});
+    const data = bytes('a2V5X2pzb24sdW5pdCxzdGF0dXMsZWFybGllcl9yZWFkaW5ncyxsYXRlcl9yZWFkaW5ncyxkZWx0YQoiIiJzbWFsbCIiIizCsEYsTWF0Y2hlZCwiW3siInJvdyIiOjIsIiJ2YWx1ZSIiOiIiMzIiIn1dIiwiW3siInJvdyIiOjUsIiJ2YWx1ZSIiOiIiMzIuMDAwMTgiIn1dIiwwLjAwMDE4CiIiIm1vdmUiIiIswrBGLE1pc3NpbmcsIlt7IiJyb3ciIjozLCIidmFsdWUiIjoiIjQ2LjQiIn1dIixbXSwKIiIiaGluZ2UiIiIsbW0sRHVwbGljYXRlLCJbeyIicm93IiI6NCwiInZhbHVlIiI6IiI1MC44IiJ9LHsiInJvdyIiOjUsIiJ2YWx1ZSIiOiIiNjMuNSIifV0iLCJbeyIicm93IiI6MiwiInZhbHVlIiI6IiI3Ni4yIiJ9XSIsCiIiInJldGlyZWQiIiIsbW0sTWlzc2luZywiW3siInJvdyIiOjYsIiJ2YWx1ZSIiOiIiMTc3LjgiIn1dIixbXSwKIiIibW92ZSIiIixtbSxBZGRlZCxbXSwiW3siInJvdyIiOjMsIiJ2YWx1ZSIiOiIiMzEuNzUiIn1dIiwKIiIiZnJlc2giIiIsbW0sQWRkZWQsW10sIlt7IiJyb3ciIjo0LCIidmFsdWUiIjoiIjUwLjgiIn1dIiwK');
+    const receiptBytes = bytes('eyJieXRlcyI6NTM3LCJjcmVhdGVkQXQiOiIyMDI2LTExLTIwVDE2OjEwOjM0LjE3OFoiLCJpZCI6IjQzNDJhNDBjLTE2YzItNDgwYi05MDA2LTc5NGYwZmExZDg2MSIsImtpbmQiOiJ2ZXJpZmllZC1yb3V0ZWQtY29tcGFyaXNvbiIsInNoYTI1NiI6ImUzMjkyNjA1ODgxN2I1YTAxZmRlNTI1ODgxYzhjOTk0YjViNTU2MDVjZGUyNWZiYjAwZGI1MTJiMzcyZjZhMGYiLCJzb3VyY2UiOnsiYXJ0aWZhY3QiOnsiaWQiOiIzYTMyNjQ3ZS0xODU2LTNjZDEtODI1My0xNTlhNzVhYzhhZGUiLCJzaGEyNTYiOiI5MDg2ZmZhODhjZjI4ODJiOTBlZjE1MmY3MzI0YzgzYmRhOTJhNDUzZTg0ZWRkMmQ4MWVkZjEwYTdjMmMzMmQzIiwidmVyc2lvbiI6MX0sImJyb3dzZXJDaGVja3MiOjksImJyb3dzZXJFdmlkZW5jZVNoYTI1NiI6IjNjZDM1OWU2MzY2OThkMWQxMjE0YzAzMzNiNTY0N2Q1ZmNiMTA2ODNjMTU4YzZmMTk2M2I2NTU0OGQwMjM5NDkiLCJjb21wYXJpc29uSWQiOiI3NGQzZjY5YS03OGM4LTNmYTEtODJiMC1iMjM5OWYyY2ZmYjgiLCJlYXJsaWVyIjp7ImV4cG9ydElkIjoiYjllOWQxMGItYWFiZS00MmQyLWFhZmItMDhhMjQzMjViZjc5Iiwic2hhMjU2IjoiMTM0NjQ1OGE0YzczZDFjNzA4MjYyOWNkNzQyZjVmNzFjNTgyMTNhZDVmOGVjYzZhMWQwZGYwMzljMjczODZmNyJ9LCJmb3JtYXQiOiJmcmF5bml4LnJvdXRlZC1rZXktY29tcGFyaXNvbi1jc3YtdjEiLCJncm91cHMiOjYsImtleUNvbHVtbiI6InJlY29yZCBJRCIsImxhdGVyIjp7ImV4cG9ydElkIjoiNmRjYTRlZWItYTViNi00ZWY3LWI4NDUtNGI2ZWEwZGI0YzkyIiwic2hhMjU2IjoiYTRiZjI3OTI0OTAwOGVlZjBhODhiYTIxNThlNDMwNGYzMzEyOTkyN2MxNzQ2ZjY3NDE2NzMyZDUzMWRiY2I3NiJ9fX0K');
+    const summaryBytes = bytes('eyJicm93c2VyQ2hlY2tzIjoxMywiaW1wb3J0Ijp7ImJ5dGVzIjo1MzcsImNyZWF0ZWRBdCI6IjIwMjYtMTEtMjBUMTY6MTA6MzQuMTc4WiIsImlkIjoiNDM0MmE0MGMtMTZjMi00ODBiLTkwMDYtNzk0ZjBmYTFkODYxIiwia2luZCI6InZlcmlmaWVkLXJvdXRlZC1jb21wYXJpc29uIiwic2hhMjU2IjoiZTMyOTI2MDU4ODE3YjVhMDFmZGU1MjU4ODFjOGM5OTRiNWI1NTYwNWNkZTI1ZmJiMDBkYjUxMmIzNzJmNmEwZiIsInNvdXJjZSI6eyJhcnRpZmFjdCI6eyJpZCI6IjNhMzI2NDdlLTE4NTYtM2NkMS04MjUzLTE1OWE3NWFjOGFkZSIsInNoYTI1NiI6IjkwODZmZmE4OGNmMjg4MmI5MGVmMTUyZjczMjRjODNiZGE5MmE0NTNlODRlZGQyZDgxZWRmMTBhN2MyYzMyZDMiLCJ2ZXJzaW9uIjoxfSwiYnJvd3NlckNoZWNrcyI6OSwiYnJvd3NlckV2aWRlbmNlU2hhMjU2IjoiM2NkMzU5ZTYzNjY5OGQxZDEyMTRjMDMzM2I1NjQ3ZDVmY2IxMDY4M2MxNThjNmYxOTYzYjY1NTQ4ZDAyMzk0OSIsImNvbXBhcmlzb25JZCI6Ijc0ZDNmNjlhLTc4YzgtM2ZhMS04MmIwLWIyMzk5ZjJjZmZiOCIsImVhcmxpZXIiOnsiZXhwb3J0SWQiOiJiOWU5ZDEwYi1hYWJlLTQyZDItYWFmYi0wOGEyNDMyNWJmNzkiLCJzaGEyNTYiOiIxMzQ2NDU4YTRjNzNkMWM3MDgyNjI5Y2Q3NDJmNWY3MWM1ODIxM2FkNWY4ZWNjNmExZDBkZjAzOWMyNzM4NmY3In0sImZvcm1hdCI6ImZyYXluaXgucm91dGVkLWtleS1jb21wYXJpc29uLWNzdi12MSIsImdyb3VwcyI6Niwia2V5Q29sdW1uIjoicmVjb3JkIElEIiwibGF0ZXIiOnsiZXhwb3J0SWQiOiI2ZGNhNGVlYi1hNWI2LTRlZjctYjg0NS00YjZlYTBkYjRjOTIiLCJzaGEyNTYiOiJhNGJmMjc5MjQ5MDA4ZWVmMGE4OGJhMjE1OGU0MzA0ZjMzMTI5OTI3YzE3NDZmNjc0MTY3MzJkNTMxZGJjYjc2In19fSwicGFzc2VkIjp0cnVlLCJ0b3RhbHMiOlt7ImFic29sdXRlRGVsdGEiOiIwLjAwMDE4IiwiYWRkZWQiOjAsImR1cGxpY2F0ZSI6MCwibWF0Y2hlZCI6MSwibWlzc2luZyI6MSwibmV0RGVsdGEiOiIwLjAwMDE4IiwidW5pdCI6IsKwRiJ9LHsiYWJzb2x1dGVEZWx0YSI6bnVsbCwiYWRkZWQiOjIsImR1cGxpY2F0ZSI6MSwibWF0Y2hlZCI6MCwibWlzc2luZyI6MSwibmV0RGVsdGEiOm51bGwsInVuaXQiOiJtbSJ9XX0K');
+    const receipt = JSON.parse(decoder.decode(receiptBytes));
+    const summary = JSON.parse(decoder.decode(summaryBytes));
+    const binding = JSON.parse(decoder.decode(bytes('eyJhcnRpZmFjdCI6eyJpZCI6IjY5ZDk0MjZlLWVhMjQtMzA0YS04NGVjLWFkNWI3ODc5NWZmNSIsInNoYTI1NiI6IjIwYTI1N2M1MDU5YjRhZWIzOWZlODc5YjZiMjEwYzMyZTk1YjZiNjU0OWVhZjQzNGUwYmQyYTMxNTBlNGZlNzMiLCJ2ZXJzaW9uIjoxfSwibGVzc29uIjp7ImZvcm1hdCI6ImZyYXluaXguY29tcGFyaXNvbi1leHBsb3Jlci1sZXNzb24tdjEiLCJuYW1lIjoiZmllbGQtYXVkaXQiLCJ0ZWFjaGVyQXJ0aWZhY3QiOnsiaWQiOiIzM2E3Y2NlNi04MjY3LTNmN2UtYTIzMy02NDliMzRlYjg3ZjQiLCJzaGEyNTYiOiI5YjhiNTBlZjkyZjg5ZWVmMjhlZWYxMTcwMTFkYzY1MDY1NDE0M2VjMjM1Mzg2YjhkNGQ0ZWMwNzE0ODE3NDVmIiwidmVyc2lvbiI6MX0sInRlYWNoZXJCcm93c2VyRXZpZGVuY2VTaGEyNTYiOiJlNzk1OTY0ZmEwOWMzMzUwOGQzZDA1MGIxOTYwN2E2Mzk0Yzg4ZTU4NDNmNDkwNTJiZTk1OTFiOWE2NjNmMTIxIiwidGVhY2hlckNzdlNoYTI1NiI6IjAwMWI5OTM5YjBlZjVjOTE4MmEyNjgyZGMyMzU2MDYzNDc2MWE5ODRhMjQ3NzFiYmI0YWQ4MjNiMDMwN2JiZWYiLCJ0ZWFjaGVyRXhwb3J0SWQiOiI4NmFhNTY1Yy01NWVmLTRlMDAtYjQ0ZS01ZjIxYjIyZTMxMTYiLCJ0ZWFjaGVyVGFza0lkIjoiZGYyYmMyNjMtZjEwNi0zNGI1LWEwYzUtMTAzZmQzNDk0MmM4IiwidmVyc2lvbiI6MX0sInByb29mU2hhMjU2IjoiNGFjYzgyMDk3NWVmMzA4YzUzMjJhYWQ5ZjdmMmE4ZDAzNWYxZGNjOTZmYzhhNjBjODFhZmI5ODNiYzA1M2Q3YiJ9')));
+    const [csvHash,summaryHash] = await Promise.all([sha(data),sha(summaryBytes)]);
+    if (csvHash !== receipt.sha256 || data.length !== receipt.bytes || summaryHash !== binding.proofSha256
+            || summary.import.id !== receipt.id || summary.import.sha256 !== csvHash || summary.passed !== true)
+        throw Error('The explorer inputs differ from their verified evidence');
+    const rows = csvRows(decoder.decode(data));
+    const header = ['key_json','unit','status','earlier_readings','later_readings','delta'];
+    const actual = rows.shift();
+    if (actual.length !== header.length || !actual.every((value,i)=>value===header[i]) || rows.length !== receipt.source.groups)
+        throw Error('The explorer CSV has changed its columns or group count');
+    document.getElementById('source-id').textContent = 'Export ' + receipt.id;
+    document.getElementById('source-hash').textContent = 'CSV SHA-256 ' + csvHash;
+    document.getElementById('parent-proof').textContent = 'Summary SHA-256 ' + summaryHash;
+    downloadJson('import-receipt.json',receiptBytes);
+    downloadJson('summary-proof.json',summaryBytes);
+    installFilters(rows);
+}
+render().catch(error=>{console.error(error.message);});
+</script>
+</body>
+</html>

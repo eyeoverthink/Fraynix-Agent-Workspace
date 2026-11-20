@@ -1,0 +1,1407 @@
+{
+  "passed": true,
+  "teacher": {
+    "artifact": {
+      "sha256": "9b8b50ef92f89eef28eef117011dc650654143ec235386b8d4d4ec071481745f",
+      "id": "33a7cce6-8267-3f7e-a233-649b34eb87f4",
+      "version": 1
+    },
+    "htmlSha256": "d2229a8ee2acb5ec7a574981859e7a16de33938d7758fb94c0da68cdefea7e69",
+    "earlierCsvSha256": "75c288b4662c0078058bc8a58d99e3b9e56513ddd0f5240c45d71a74a1347697",
+    "keyColumn": "record ID",
+    "browserChecks": 24,
+    "id": "df2bc263-f106-34b5-a0c5-103fd34942c8",
+    "passed": true,
+    "csvSha256": "9920f5e2a5d4d455d2bfef1a65ad464f3679a7cd2fd7ff590f12e06ffd9bb872",
+    "laterExportId": "74d3e986-c31a-46c7-976c-156f7a3292fb",
+    "comparisonExportId": "86aa565c-55ef-4e00-b44e-5f21b22e3116",
+    "earlierExportId": "a2a4434a-bde5-4f3a-94c2-f97c64f5fe3f"
+  },
+  "lesson": {
+    "teacherTaskId": "df2bc263-f106-34b5-a0c5-103fd34942c8",
+    "format": "fraynix.comparison-explorer-lesson-v1",
+    "name": "field-audit",
+    "teacherArtifact": {
+      "sha256": "9b8b50ef92f89eef28eef117011dc650654143ec235386b8d4d4ec071481745f",
+      "id": "33a7cce6-8267-3f7e-a233-649b34eb87f4",
+      "version": 1
+    },
+    "teacherBrowserEvidenceSha256": "e795964fa09c33508d3d050b19607a6394c88e5843f49052be9591b9a663f121",
+    "teacherCsvSha256": "001b9939b0ef5c9182a2682dc23560634761a984a24771bbb4ad823b0307bbef",
+    "version": 1,
+    "teacherExportId": "86aa565c-55ef-4e00-b44e-5f21b22e3116"
+  },
+  "runs": {
+    "temperature-only": {
+      "report": {
+        "artifact": {
+          "sha256": "b7cea2b2ce9e2f997d09cc65caf1e833609ad309ed9b8af497dfde93f6ccec5a",
+          "id": "cfc4c79a-25ca-36fa-87b4-c39427b2fd79",
+          "version": 1
+        },
+        "htmlSha256": "134cf67f13f3727af9e54a96c5c4582099e5286185ae72369b2ccce3125ea216",
+        "earlierCsvSha256": "815dcb2de640d9da7e1c9822c24debfa0f5cc6377ebfad82c24f3b7a51c0830f",
+        "keyColumn": "record ID",
+        "explorerLesson": "field-audit",
+        "browserChecks": 24,
+        "id": "f6b1a68a-53d6-378d-9c8c-42c39dfcd10d",
+        "passed": true,
+        "csvSha256": "b86eae829bad19c37a2b0844e0d49de599a914856033bcfde06db930dee8740c",
+        "laterExportId": "d142404f-e669-4c10-ac84-705212ae8868",
+        "comparisonExportId": "666274e3-1290-44d8-bc6f-55e1f1ffa0d6",
+        "earlierExportId": "f15d46e7-c474-4616-b2b3-ef63b03a3221"
+      },
+      "proof": {
+        "browserChecks": 24,
+        "import": {
+          "bytes": 491,
+          "createdAt": "2026-11-20T16:10:20.503Z",
+          "id": "666274e3-1290-44d8-bc6f-55e1f1ffa0d6",
+          "kind": "verified-routed-comparison",
+          "sha256": "650ededb5c8e985a40a2609f41f5386f387f8ab0621251a22030f24c280b76e1",
+          "source": {
+            "artifact": {
+              "id": "620fb617-71d3-3f6f-8657-006f441384ea",
+              "sha256": "7e3b1bbdc6262388ac711b4bc4a2ea426ccb6eea8ba566f46b964fa7315b0e5d",
+              "version": 1
+            },
+            "browserChecks": 9,
+            "browserEvidenceSha256": "8cfce0ad72b2de18599b28208cd7af5a0c741c85bc294fe0465e1f968dcc734f",
+            "comparisonId": "3fecaaf7-454c-36cc-be29-a7fce75b503c",
+            "earlier": {
+              "exportId": "f15d46e7-c474-4616-b2b3-ef63b03a3221",
+              "sha256": "815dcb2de640d9da7e1c9822c24debfa0f5cc6377ebfad82c24f3b7a51c0830f"
+            },
+            "format": "fraynix.routed-key-comparison-csv-v1",
+            "groups": 5,
+            "keyColumn": "record ID",
+            "later": {
+              "exportId": "d142404f-e669-4c10-ac84-705212ae8868",
+              "sha256": "b86eae829bad19c37a2b0844e0d49de599a914856033bcfde06db930dee8740c"
+            }
+          }
+        },
+        "lesson": {
+          "format": "fraynix.comparison-explorer-lesson-v1",
+          "name": "field-audit",
+          "teacherArtifact": {
+            "id": "33a7cce6-8267-3f7e-a233-649b34eb87f4",
+            "sha256": "9b8b50ef92f89eef28eef117011dc650654143ec235386b8d4d4ec071481745f",
+            "version": 1
+          },
+          "teacherBrowserEvidenceSha256": "e795964fa09c33508d3d050b19607a6394c88e5843f49052be9591b9a663f121",
+          "teacherCsvSha256": "001b9939b0ef5c9182a2682dc23560634761a984a24771bbb4ad823b0307bbef",
+          "teacherExportId": "86aa565c-55ef-4e00-b44e-5f21b22e3116",
+          "teacherTaskId": "df2bc263-f106-34b5-a0c5-103fd34942c8",
+          "version": 1
+        },
+        "passed": true,
+        "summary": {
+          "artifact": {
+            "id": "f475a97b-d35a-3342-a2bc-f548004bfff6",
+            "sha256": "afc1adb681266eff03286477ae7540c2c602abf580f811d72d69442047b313c8",
+            "version": 1
+          },
+          "lesson": {
+            "format": "fraynix.comparison-explorer-lesson-v1",
+            "name": "field-audit",
+            "teacherArtifact": {
+              "id": "33a7cce6-8267-3f7e-a233-649b34eb87f4",
+              "sha256": "9b8b50ef92f89eef28eef117011dc650654143ec235386b8d4d4ec071481745f",
+              "version": 1
+            },
+            "teacherBrowserEvidenceSha256": "e795964fa09c33508d3d050b19607a6394c88e5843f49052be9591b9a663f121",
+            "teacherCsvSha256": "001b9939b0ef5c9182a2682dc23560634761a984a24771bbb4ad823b0307bbef",
+            "teacherExportId": "86aa565c-55ef-4e00-b44e-5f21b22e3116",
+            "teacherTaskId": "df2bc263-f106-34b5-a0c5-103fd34942c8",
+            "version": 1
+          },
+          "proofSha256": "440fb0a8354112b661ea57106bba7e5c2f403ef17680784abd0ccdece68d0c0e"
+        },
+        "views": [
+          {
+            "groups": 5,
+            "status": "all",
+            "totals": [
+              {
+                "absoluteDelta": "18",
+                "added": 1,
+                "duplicate": 1,
+                "matched": 2,
+                "missing": 1,
+                "netDelta": "0",
+                "unit": "°F"
+              }
+            ],
+            "unit": "all"
+          },
+          {
+            "groups": 5,
+            "status": "all",
+            "totals": [
+              {
+                "absoluteDelta": "18",
+                "added": 1,
+                "duplicate": 1,
+                "matched": 2,
+                "missing": 1,
+                "netDelta": "0",
+                "unit": "°F"
+              }
+            ],
+            "unit": "°F"
+          },
+          {
+            "groups": 1,
+            "status": "Duplicate",
+            "totals": [
+              {
+                "absoluteDelta": null,
+                "added": 0,
+                "duplicate": 1,
+                "matched": 0,
+                "missing": 0,
+                "netDelta": null,
+                "unit": "°F"
+              }
+            ],
+            "unit": "°F"
+          },
+          {
+            "groups": 1,
+            "status": "Added",
+            "totals": [
+              {
+                "absoluteDelta": null,
+                "added": 1,
+                "duplicate": 0,
+                "matched": 0,
+                "missing": 0,
+                "netDelta": null,
+                "unit": "°F"
+              }
+            ],
+            "unit": "°F"
+          }
+        ]
+      },
+      "browserReceipt": {
+        "checks": [
+          {
+            "actual": {
+              "count": 1,
+              "text": "Verified comparison explorer",
+              "value": null
+            },
+            "expected": {
+              "expectText": "Verified comparison explorer",
+              "selector": "h1"
+            },
+            "index": 0,
+            "selector": "h1",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Export 666274e3-1290-44d8-bc6f-55e1f1ffa0d6",
+              "value": null
+            },
+            "expected": {
+              "expectText": "Export 666274e3-1290-44d8-bc6f-55e1f1ffa0d6",
+              "selector": "#source-id"
+            },
+            "index": 1,
+            "selector": "#source-id",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "CSV SHA-256 650ededb5c8e985a40a2609f41f5386f387f8ab0621251a22030f24c280b76e1",
+              "value": null
+            },
+            "expected": {
+              "expectText": "CSV SHA-256 650ededb5c8e985a40a2609f41f5386f387f8ab0621251a22030f24c280b76e1",
+              "selector": "#source-hash"
+            },
+            "index": 2,
+            "selector": "#source-hash",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Summary SHA-256 440fb0a8354112b661ea57106bba7e5c2f403ef17680784abd0ccdece68d0c0e",
+              "value": null
+            },
+            "expected": {
+              "expectText": "Summary SHA-256 440fb0a8354112b661ea57106bba7e5c2f403ef17680784abd0ccdece68d0c0e",
+              "selector": "#parent-proof"
+            },
+            "index": 3,
+            "selector": "#parent-proof",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "5 groups",
+              "value": null
+            },
+            "expected": {
+              "expectText": "5 groups",
+              "selector": "#visible-count"
+            },
+            "index": 4,
+            "selector": "#visible-count",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "\"rise\"\t°F\tMatched\t#2: 32\t#3: 41\t+9\n\"fall\"\t°F\tMatched\t#3: 50\t#2: 41\t-9\n\"gone\"\t°F\tMissing\t#4: -40\t—\t—\n\"double\"\t°F\tDuplicate\t#5: 35.6 · #6: 37.4\t#4: 35.6\t—\n\"new\"\t°F\tAdded\t—\t#5: 60.8\t—",
+              "value": null
+            },
+            "expected": {
+              "expectText": "\"rise\"\t°F\tMatched\t#2: 32\t#3: 41\t+9\n\"fall\"\t°F\tMatched\t#3: 50\t#2: 41\t-9\n\"gone\"\t°F\tMissing\t#4: -40\t—\t—\n\"double\"\t°F\tDuplicate\t#5: 35.6 · #6: 37.4\t#4: 35.6\t—\n\"new\"\t°F\tAdded\t—\t#5: 60.8\t—",
+              "selector": "#visible-rows"
+            },
+            "index": 5,
+            "selector": "#visible-rows",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "°F · Matched 2 · Added 1 · Missing 1 · Duplicate 1 · Net 0 °F · Absolute 18 °F",
+              "value": null
+            },
+            "expected": {
+              "expectText": "°F · Matched 2 · Added 1 · Missing 1 · Duplicate 1 · Net 0 °F · Absolute 18 °F",
+              "selector": "#visible-totals"
+            },
+            "index": 6,
+            "selector": "#visible-totals",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Comparison CSV",
+              "value": null
+            },
+            "expected": {
+              "expectCount": 1,
+              "selector": "a[href=\"matched-comparison.csv\"]"
+            },
+            "index": 7,
+            "selector": "a[href=\"matched-comparison.csv\"]",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Import receipt",
+              "value": null
+            },
+            "expected": {
+              "expectCount": 1,
+              "selector": "a[href=\"import-receipt.json\"]"
+            },
+            "index": 8,
+            "selector": "a[href=\"import-receipt.json\"]",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Summary proof",
+              "value": null
+            },
+            "expected": {
+              "expectCount": 1,
+              "selector": "a[href=\"summary-proof.json\"]"
+            },
+            "index": 9,
+            "selector": "a[href=\"summary-proof.json\"]",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "°F",
+              "value": ""
+            },
+            "expected": {
+              "expectCount": 1,
+              "action": "click",
+              "selector": "#unit-f"
+            },
+            "index": 10,
+            "selector": "#unit-f",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "5 groups",
+              "value": null
+            },
+            "expected": {
+              "expectText": "5 groups",
+              "selector": "#visible-count"
+            },
+            "index": 11,
+            "selector": "#visible-count",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "\"rise\"\t°F\tMatched\t#2: 32\t#3: 41\t+9\n\"fall\"\t°F\tMatched\t#3: 50\t#2: 41\t-9\n\"gone\"\t°F\tMissing\t#4: -40\t—\t—\n\"double\"\t°F\tDuplicate\t#5: 35.6 · #6: 37.4\t#4: 35.6\t—\n\"new\"\t°F\tAdded\t—\t#5: 60.8\t—",
+              "value": null
+            },
+            "expected": {
+              "expectText": "\"rise\"\t°F\tMatched\t#2: 32\t#3: 41\t+9\n\"fall\"\t°F\tMatched\t#3: 50\t#2: 41\t-9\n\"gone\"\t°F\tMissing\t#4: -40\t—\t—\n\"double\"\t°F\tDuplicate\t#5: 35.6 · #6: 37.4\t#4: 35.6\t—\n\"new\"\t°F\tAdded\t—\t#5: 60.8\t—",
+              "selector": "#visible-rows"
+            },
+            "index": 12,
+            "selector": "#visible-rows",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "°F · Matched 2 · Added 1 · Missing 1 · Duplicate 1 · Net 0 °F · Absolute 18 °F",
+              "value": null
+            },
+            "expected": {
+              "expectText": "°F · Matched 2 · Added 1 · Missing 1 · Duplicate 1 · Net 0 °F · Absolute 18 °F",
+              "selector": "#visible-totals"
+            },
+            "index": 13,
+            "selector": "#visible-totals",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Duplicate",
+              "value": ""
+            },
+            "expected": {
+              "expectCount": 1,
+              "action": "click",
+              "selector": "button[data-status=\"Duplicate\"]"
+            },
+            "index": 14,
+            "selector": "button[data-status=\"Duplicate\"]",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "1 group",
+              "value": null
+            },
+            "expected": {
+              "expectText": "1 group",
+              "selector": "#visible-count"
+            },
+            "index": 15,
+            "selector": "#visible-count",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "\"double\"\t°F\tDuplicate\t#5: 35.6 · #6: 37.4\t#4: 35.6\t—",
+              "value": null
+            },
+            "expected": {
+              "expectText": "\"double\"\t°F\tDuplicate\t#5: 35.6 · #6: 37.4\t#4: 35.6\t—",
+              "selector": "#visible-rows"
+            },
+            "index": 16,
+            "selector": "#visible-rows",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "°F · Matched 0 · Added 0 · Missing 0 · Duplicate 1 · Net — · Absolute —",
+              "value": null
+            },
+            "expected": {
+              "expectText": "°F · Matched 0 · Added 0 · Missing 0 · Duplicate 1 · Net — · Absolute —",
+              "selector": "#visible-totals"
+            },
+            "index": 17,
+            "selector": "#visible-totals",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Added",
+              "value": ""
+            },
+            "expected": {
+              "expectCount": 1,
+              "action": "click",
+              "selector": "button[data-status=\"Added\"]"
+            },
+            "index": 18,
+            "selector": "button[data-status=\"Added\"]",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "1 group",
+              "value": null
+            },
+            "expected": {
+              "expectText": "1 group",
+              "selector": "#visible-count"
+            },
+            "index": 19,
+            "selector": "#visible-count",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Reset",
+              "value": ""
+            },
+            "expected": {
+              "expectCount": 1,
+              "action": "click",
+              "selector": "#reset-filters"
+            },
+            "index": 20,
+            "selector": "#reset-filters",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "5 groups",
+              "value": null
+            },
+            "expected": {
+              "expectText": "5 groups",
+              "selector": "#visible-count"
+            },
+            "index": 21,
+            "selector": "#visible-count",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "\"rise\"\t°F\tMatched\t#2: 32\t#3: 41\t+9\n\"fall\"\t°F\tMatched\t#3: 50\t#2: 41\t-9\n\"gone\"\t°F\tMissing\t#4: -40\t—\t—\n\"double\"\t°F\tDuplicate\t#5: 35.6 · #6: 37.4\t#4: 35.6\t—\n\"new\"\t°F\tAdded\t—\t#5: 60.8\t—",
+              "value": null
+            },
+            "expected": {
+              "expectText": "\"rise\"\t°F\tMatched\t#2: 32\t#3: 41\t+9\n\"fall\"\t°F\tMatched\t#3: 50\t#2: 41\t-9\n\"gone\"\t°F\tMissing\t#4: -40\t—\t—\n\"double\"\t°F\tDuplicate\t#5: 35.6 · #6: 37.4\t#4: 35.6\t—\n\"new\"\t°F\tAdded\t—\t#5: 60.8\t—",
+              "selector": "#visible-rows"
+            },
+            "index": 22,
+            "selector": "#visible-rows",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "°F · Matched 2 · Added 1 · Missing 1 · Duplicate 1 · Net 0 °F · Absolute 18 °F",
+              "value": null
+            },
+            "expected": {
+              "expectText": "°F · Matched 2 · Added 1 · Missing 1 · Duplicate 1 · Net 0 °F · Absolute 18 °F",
+              "selector": "#visible-totals"
+            },
+            "index": 23,
+            "selector": "#visible-totals",
+            "passed": true
+          }
+        ],
+        "at": "2026-11-20T16:10:22.337746Z",
+        "id": "cfc4c79a-25ca-36fa-87b4-c39427b2fd79",
+        "passed": true,
+        "version": 1,
+        "steps": [
+          {
+            "expectText": "Verified comparison explorer",
+            "selector": "h1"
+          },
+          {
+            "expectText": "Export 666274e3-1290-44d8-bc6f-55e1f1ffa0d6",
+            "selector": "#source-id"
+          },
+          {
+            "expectText": "CSV SHA-256 650ededb5c8e985a40a2609f41f5386f387f8ab0621251a22030f24c280b76e1",
+            "selector": "#source-hash"
+          },
+          {
+            "expectText": "Summary SHA-256 440fb0a8354112b661ea57106bba7e5c2f403ef17680784abd0ccdece68d0c0e",
+            "selector": "#parent-proof"
+          },
+          {
+            "expectText": "5 groups",
+            "selector": "#visible-count"
+          },
+          {
+            "expectText": "\"rise\"\t°F\tMatched\t#2: 32\t#3: 41\t+9\n\"fall\"\t°F\tMatched\t#3: 50\t#2: 41\t-9\n\"gone\"\t°F\tMissing\t#4: -40\t—\t—\n\"double\"\t°F\tDuplicate\t#5: 35.6 · #6: 37.4\t#4: 35.6\t—\n\"new\"\t°F\tAdded\t—\t#5: 60.8\t—",
+            "selector": "#visible-rows"
+          },
+          {
+            "expectText": "°F · Matched 2 · Added 1 · Missing 1 · Duplicate 1 · Net 0 °F · Absolute 18 °F",
+            "selector": "#visible-totals"
+          },
+          {
+            "expectCount": 1,
+            "selector": "a[href=\"matched-comparison.csv\"]"
+          },
+          {
+            "expectCount": 1,
+            "selector": "a[href=\"import-receipt.json\"]"
+          },
+          {
+            "expectCount": 1,
+            "selector": "a[href=\"summary-proof.json\"]"
+          },
+          {
+            "expectCount": 1,
+            "action": "click",
+            "selector": "#unit-f"
+          },
+          {
+            "expectText": "5 groups",
+            "selector": "#visible-count"
+          },
+          {
+            "expectText": "\"rise\"\t°F\tMatched\t#2: 32\t#3: 41\t+9\n\"fall\"\t°F\tMatched\t#3: 50\t#2: 41\t-9\n\"gone\"\t°F\tMissing\t#4: -40\t—\t—\n\"double\"\t°F\tDuplicate\t#5: 35.6 · #6: 37.4\t#4: 35.6\t—\n\"new\"\t°F\tAdded\t—\t#5: 60.8\t—",
+            "selector": "#visible-rows"
+          },
+          {
+            "expectText": "°F · Matched 2 · Added 1 · Missing 1 · Duplicate 1 · Net 0 °F · Absolute 18 °F",
+            "selector": "#visible-totals"
+          },
+          {
+            "expectCount": 1,
+            "action": "click",
+            "selector": "button[data-status=\"Duplicate\"]"
+          },
+          {
+            "expectText": "1 group",
+            "selector": "#visible-count"
+          },
+          {
+            "expectText": "\"double\"\t°F\tDuplicate\t#5: 35.6 · #6: 37.4\t#4: 35.6\t—",
+            "selector": "#visible-rows"
+          },
+          {
+            "expectText": "°F · Matched 0 · Added 0 · Missing 0 · Duplicate 1 · Net — · Absolute —",
+            "selector": "#visible-totals"
+          },
+          {
+            "expectCount": 1,
+            "action": "click",
+            "selector": "button[data-status=\"Added\"]"
+          },
+          {
+            "expectText": "1 group",
+            "selector": "#visible-count"
+          },
+          {
+            "expectCount": 1,
+            "action": "click",
+            "selector": "#reset-filters"
+          },
+          {
+            "expectText": "5 groups",
+            "selector": "#visible-count"
+          },
+          {
+            "expectText": "\"rise\"\t°F\tMatched\t#2: 32\t#3: 41\t+9\n\"fall\"\t°F\tMatched\t#3: 50\t#2: 41\t-9\n\"gone\"\t°F\tMissing\t#4: -40\t—\t—\n\"double\"\t°F\tDuplicate\t#5: 35.6 · #6: 37.4\t#4: 35.6\t—\n\"new\"\t°F\tAdded\t—\t#5: 60.8\t—",
+            "selector": "#visible-rows"
+          },
+          {
+            "expectText": "°F · Matched 2 · Added 1 · Missing 1 · Duplicate 1 · Net 0 °F · Absolute 18 °F",
+            "selector": "#visible-totals"
+          }
+        ]
+      },
+      "summary": {
+        "artifact": {
+          "sha256": "afc1adb681266eff03286477ae7540c2c602abf580f811d72d69442047b313c8",
+          "id": "f475a97b-d35a-3342-a2bc-f548004bfff6",
+          "version": 1
+        },
+        "htmlSha256": "2d314b061577006298065baf2fc7060e55622fa841685a2e639dabaf7a4e8619",
+        "earlierCsvSha256": "815dcb2de640d9da7e1c9822c24debfa0f5cc6377ebfad82c24f3b7a51c0830f",
+        "keyColumn": "record ID",
+        "browserChecks": 10,
+        "id": "bbd068b9-ac24-34c2-a8f4-748308e604a7",
+        "passed": true,
+        "csvSha256": "b86eae829bad19c37a2b0844e0d49de599a914856033bcfde06db930dee8740c",
+        "laterExportId": "d142404f-e669-4c10-ac84-705212ae8868",
+        "comparisonExportId": "666274e3-1290-44d8-bc6f-55e1f1ffa0d6",
+        "earlierExportId": "f15d46e7-c474-4616-b2b3-ef63b03a3221",
+        "steps": [
+          {
+            "expectText": "Verified comparison CSV totals",
+            "selector": "h1"
+          },
+          {
+            "expectText": "Export 666274e3-1290-44d8-bc6f-55e1f1ffa0d6",
+            "selector": "#import-id"
+          },
+          {
+            "expectText": "SHA-256 650ededb5c8e985a40a2609f41f5386f387f8ab0621251a22030f24c280b76e1",
+            "selector": "#import-sha"
+          },
+          {
+            "expectText": "5 verified groups",
+            "selector": "#group-count"
+          },
+          {
+            "expectCount": 1,
+            "selector": "#unit-totals article"
+          },
+          {
+            "expectText": "Matched 2 · Added 1 · Missing 1 · Duplicate 1",
+            "selector": "#counts-fahrenheit"
+          },
+          {
+            "expectText": "0 °F",
+            "selector": "#net-fahrenheit"
+          },
+          {
+            "expectText": "18 °F",
+            "selector": "#absolute-fahrenheit"
+          },
+          {
+            "expectCount": 1,
+            "selector": "a[href=\"matched-comparison.csv\"]"
+          },
+          {
+            "expectCount": 1,
+            "selector": "a[href=\"import-receipt.json\"]"
+          }
+        ]
+      }
+    },
+    "mixed-unmatched": {
+      "report": {
+        "artifact": {
+          "sha256": "edc9df0ea0e9178ed8fb1e931b639efac3ddcb5415f54568f594287f0de30065",
+          "id": "b0f50400-0c38-3ae7-9f60-954780a6843e",
+          "version": 1
+        },
+        "htmlSha256": "0070449ccf4681832f573a567e5756c5c690be513dce83d1a20088c0fbf852b2",
+        "earlierCsvSha256": "1346458a4c73d1c7082629cd742f5f71c58213ad5f8ecc6a1d0df039c27386f7",
+        "keyColumn": "record ID",
+        "explorerLesson": "field-audit",
+        "browserChecks": 24,
+        "id": "085027ef-0104-350a-b684-cb42225fbdf8",
+        "passed": true,
+        "csvSha256": "a4bf279249008eef0a88ba2158e4304f33129927c1746f67416732d531dbcb76",
+        "laterExportId": "6dca4eeb-a5b6-4ef7-b845-4b6ea0db4c92",
+        "comparisonExportId": "4342a40c-16c2-480b-9006-794f0fa1d861",
+        "earlierExportId": "b9e9d10b-aabe-42d2-aafb-08a24325bf79"
+      },
+      "proof": {
+        "browserChecks": 24,
+        "import": {
+          "bytes": 537,
+          "createdAt": "2026-11-20T16:10:34.178Z",
+          "id": "4342a40c-16c2-480b-9006-794f0fa1d861",
+          "kind": "verified-routed-comparison",
+          "sha256": "e32926058817b5a01fde525881c8c994b5b55605cde25fbb00db512b372f6a0f",
+          "source": {
+            "artifact": {
+              "id": "3a32647e-1856-3cd1-8253-159a75ac8ade",
+              "sha256": "9086ffa88cf2882b90ef152f7324c83bda92a453e84edd2d81edf10a7c2c32d3",
+              "version": 1
+            },
+            "browserChecks": 9,
+            "browserEvidenceSha256": "3cd359e636698d1d1214c0333b5647d5fcb10683c158c6f1963b65548d023949",
+            "comparisonId": "74d3f69a-78c8-3fa1-82b0-b2399f2cffb8",
+            "earlier": {
+              "exportId": "b9e9d10b-aabe-42d2-aafb-08a24325bf79",
+              "sha256": "1346458a4c73d1c7082629cd742f5f71c58213ad5f8ecc6a1d0df039c27386f7"
+            },
+            "format": "fraynix.routed-key-comparison-csv-v1",
+            "groups": 6,
+            "keyColumn": "record ID",
+            "later": {
+              "exportId": "6dca4eeb-a5b6-4ef7-b845-4b6ea0db4c92",
+              "sha256": "a4bf279249008eef0a88ba2158e4304f33129927c1746f67416732d531dbcb76"
+            }
+          }
+        },
+        "lesson": {
+          "format": "fraynix.comparison-explorer-lesson-v1",
+          "name": "field-audit",
+          "teacherArtifact": {
+            "id": "33a7cce6-8267-3f7e-a233-649b34eb87f4",
+            "sha256": "9b8b50ef92f89eef28eef117011dc650654143ec235386b8d4d4ec071481745f",
+            "version": 1
+          },
+          "teacherBrowserEvidenceSha256": "e795964fa09c33508d3d050b19607a6394c88e5843f49052be9591b9a663f121",
+          "teacherCsvSha256": "001b9939b0ef5c9182a2682dc23560634761a984a24771bbb4ad823b0307bbef",
+          "teacherExportId": "86aa565c-55ef-4e00-b44e-5f21b22e3116",
+          "teacherTaskId": "df2bc263-f106-34b5-a0c5-103fd34942c8",
+          "version": 1
+        },
+        "passed": true,
+        "summary": {
+          "artifact": {
+            "id": "69d9426e-ea24-304a-84ec-ad5b78795ff5",
+            "sha256": "20a257c5059b4aeb39fe879b6b210c32e95b6b6549eaf434e0bd2a3150e4fe73",
+            "version": 1
+          },
+          "lesson": {
+            "format": "fraynix.comparison-explorer-lesson-v1",
+            "name": "field-audit",
+            "teacherArtifact": {
+              "id": "33a7cce6-8267-3f7e-a233-649b34eb87f4",
+              "sha256": "9b8b50ef92f89eef28eef117011dc650654143ec235386b8d4d4ec071481745f",
+              "version": 1
+            },
+            "teacherBrowserEvidenceSha256": "e795964fa09c33508d3d050b19607a6394c88e5843f49052be9591b9a663f121",
+            "teacherCsvSha256": "001b9939b0ef5c9182a2682dc23560634761a984a24771bbb4ad823b0307bbef",
+            "teacherExportId": "86aa565c-55ef-4e00-b44e-5f21b22e3116",
+            "teacherTaskId": "df2bc263-f106-34b5-a0c5-103fd34942c8",
+            "version": 1
+          },
+          "proofSha256": "4acc820975ef308c5322aad9f7f2a8d035f1dcc96fc8a60c81afb983bc053d7b"
+        },
+        "views": [
+          {
+            "groups": 6,
+            "status": "all",
+            "totals": [
+              {
+                "absoluteDelta": "0.00018",
+                "added": 0,
+                "duplicate": 0,
+                "matched": 1,
+                "missing": 1,
+                "netDelta": "0.00018",
+                "unit": "°F"
+              },
+              {
+                "absoluteDelta": null,
+                "added": 2,
+                "duplicate": 1,
+                "matched": 0,
+                "missing": 1,
+                "netDelta": null,
+                "unit": "mm"
+              }
+            ],
+            "unit": "all"
+          },
+          {
+            "groups": 4,
+            "status": "all",
+            "totals": [
+              {
+                "absoluteDelta": null,
+                "added": 2,
+                "duplicate": 1,
+                "matched": 0,
+                "missing": 1,
+                "netDelta": null,
+                "unit": "mm"
+              }
+            ],
+            "unit": "mm"
+          },
+          {
+            "groups": 1,
+            "status": "Duplicate",
+            "totals": [
+              {
+                "absoluteDelta": null,
+                "added": 0,
+                "duplicate": 1,
+                "matched": 0,
+                "missing": 0,
+                "netDelta": null,
+                "unit": "mm"
+              }
+            ],
+            "unit": "mm"
+          },
+          {
+            "groups": 0,
+            "status": "Matched",
+            "totals": [],
+            "unit": "mm"
+          }
+        ]
+      },
+      "browserReceipt": {
+        "checks": [
+          {
+            "actual": {
+              "count": 1,
+              "text": "Verified comparison explorer",
+              "value": null
+            },
+            "expected": {
+              "expectText": "Verified comparison explorer",
+              "selector": "h1"
+            },
+            "index": 0,
+            "selector": "h1",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Export 4342a40c-16c2-480b-9006-794f0fa1d861",
+              "value": null
+            },
+            "expected": {
+              "expectText": "Export 4342a40c-16c2-480b-9006-794f0fa1d861",
+              "selector": "#source-id"
+            },
+            "index": 1,
+            "selector": "#source-id",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "CSV SHA-256 e32926058817b5a01fde525881c8c994b5b55605cde25fbb00db512b372f6a0f",
+              "value": null
+            },
+            "expected": {
+              "expectText": "CSV SHA-256 e32926058817b5a01fde525881c8c994b5b55605cde25fbb00db512b372f6a0f",
+              "selector": "#source-hash"
+            },
+            "index": 2,
+            "selector": "#source-hash",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Summary SHA-256 4acc820975ef308c5322aad9f7f2a8d035f1dcc96fc8a60c81afb983bc053d7b",
+              "value": null
+            },
+            "expected": {
+              "expectText": "Summary SHA-256 4acc820975ef308c5322aad9f7f2a8d035f1dcc96fc8a60c81afb983bc053d7b",
+              "selector": "#parent-proof"
+            },
+            "index": 3,
+            "selector": "#parent-proof",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "6 groups",
+              "value": null
+            },
+            "expected": {
+              "expectText": "6 groups",
+              "selector": "#visible-count"
+            },
+            "index": 4,
+            "selector": "#visible-count",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "\"small\"\t°F\tMatched\t#2: 32\t#5: 32.00018\t+0.00018\n\"move\"\t°F\tMissing\t#3: 46.4\t—\t—\n\"hinge\"\tmm\tDuplicate\t#4: 50.8 · #5: 63.5\t#2: 76.2\t—\n\"retired\"\tmm\tMissing\t#6: 177.8\t—\t—\n\"move\"\tmm\tAdded\t—\t#3: 31.75\t—\n\"fresh\"\tmm\tAdded\t—\t#4: 50.8\t—",
+              "value": null
+            },
+            "expected": {
+              "expectText": "\"small\"\t°F\tMatched\t#2: 32\t#5: 32.00018\t+0.00018\n\"move\"\t°F\tMissing\t#3: 46.4\t—\t—\n\"hinge\"\tmm\tDuplicate\t#4: 50.8 · #5: 63.5\t#2: 76.2\t—\n\"retired\"\tmm\tMissing\t#6: 177.8\t—\t—\n\"move\"\tmm\tAdded\t—\t#3: 31.75\t—\n\"fresh\"\tmm\tAdded\t—\t#4: 50.8\t—",
+              "selector": "#visible-rows"
+            },
+            "index": 5,
+            "selector": "#visible-rows",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "°F · Matched 1 · Added 0 · Missing 1 · Duplicate 0 · Net +0.00018 °F · Absolute 0.00018 °F\nmm · Matched 0 · Added 2 · Missing 1 · Duplicate 1 · Net — · Absolute —",
+              "value": null
+            },
+            "expected": {
+              "expectText": "°F · Matched 1 · Added 0 · Missing 1 · Duplicate 0 · Net +0.00018 °F · Absolute 0.00018 °F\nmm · Matched 0 · Added 2 · Missing 1 · Duplicate 1 · Net — · Absolute —",
+              "selector": "#visible-totals"
+            },
+            "index": 6,
+            "selector": "#visible-totals",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Comparison CSV",
+              "value": null
+            },
+            "expected": {
+              "expectCount": 1,
+              "selector": "a[href=\"matched-comparison.csv\"]"
+            },
+            "index": 7,
+            "selector": "a[href=\"matched-comparison.csv\"]",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Import receipt",
+              "value": null
+            },
+            "expected": {
+              "expectCount": 1,
+              "selector": "a[href=\"import-receipt.json\"]"
+            },
+            "index": 8,
+            "selector": "a[href=\"import-receipt.json\"]",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Summary proof",
+              "value": null
+            },
+            "expected": {
+              "expectCount": 1,
+              "selector": "a[href=\"summary-proof.json\"]"
+            },
+            "index": 9,
+            "selector": "a[href=\"summary-proof.json\"]",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "mm",
+              "value": ""
+            },
+            "expected": {
+              "expectCount": 1,
+              "action": "click",
+              "selector": "#unit-mm"
+            },
+            "index": 10,
+            "selector": "#unit-mm",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "4 groups",
+              "value": null
+            },
+            "expected": {
+              "expectText": "4 groups",
+              "selector": "#visible-count"
+            },
+            "index": 11,
+            "selector": "#visible-count",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "\"hinge\"\tmm\tDuplicate\t#4: 50.8 · #5: 63.5\t#2: 76.2\t—\n\"retired\"\tmm\tMissing\t#6: 177.8\t—\t—\n\"move\"\tmm\tAdded\t—\t#3: 31.75\t—\n\"fresh\"\tmm\tAdded\t—\t#4: 50.8\t—",
+              "value": null
+            },
+            "expected": {
+              "expectText": "\"hinge\"\tmm\tDuplicate\t#4: 50.8 · #5: 63.5\t#2: 76.2\t—\n\"retired\"\tmm\tMissing\t#6: 177.8\t—\t—\n\"move\"\tmm\tAdded\t—\t#3: 31.75\t—\n\"fresh\"\tmm\tAdded\t—\t#4: 50.8\t—",
+              "selector": "#visible-rows"
+            },
+            "index": 12,
+            "selector": "#visible-rows",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "mm · Matched 0 · Added 2 · Missing 1 · Duplicate 1 · Net — · Absolute —",
+              "value": null
+            },
+            "expected": {
+              "expectText": "mm · Matched 0 · Added 2 · Missing 1 · Duplicate 1 · Net — · Absolute —",
+              "selector": "#visible-totals"
+            },
+            "index": 13,
+            "selector": "#visible-totals",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Duplicate",
+              "value": ""
+            },
+            "expected": {
+              "expectCount": 1,
+              "action": "click",
+              "selector": "button[data-status=\"Duplicate\"]"
+            },
+            "index": 14,
+            "selector": "button[data-status=\"Duplicate\"]",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "1 group",
+              "value": null
+            },
+            "expected": {
+              "expectText": "1 group",
+              "selector": "#visible-count"
+            },
+            "index": 15,
+            "selector": "#visible-count",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "\"hinge\"\tmm\tDuplicate\t#4: 50.8 · #5: 63.5\t#2: 76.2\t—",
+              "value": null
+            },
+            "expected": {
+              "expectText": "\"hinge\"\tmm\tDuplicate\t#4: 50.8 · #5: 63.5\t#2: 76.2\t—",
+              "selector": "#visible-rows"
+            },
+            "index": 16,
+            "selector": "#visible-rows",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "mm · Matched 0 · Added 0 · Missing 0 · Duplicate 1 · Net — · Absolute —",
+              "value": null
+            },
+            "expected": {
+              "expectText": "mm · Matched 0 · Added 0 · Missing 0 · Duplicate 1 · Net — · Absolute —",
+              "selector": "#visible-totals"
+            },
+            "index": 17,
+            "selector": "#visible-totals",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Matched",
+              "value": ""
+            },
+            "expected": {
+              "expectCount": 1,
+              "action": "click",
+              "selector": "button[data-status=\"Matched\"]"
+            },
+            "index": 18,
+            "selector": "button[data-status=\"Matched\"]",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "0 groups",
+              "value": null
+            },
+            "expected": {
+              "expectText": "0 groups",
+              "selector": "#visible-count"
+            },
+            "index": 19,
+            "selector": "#visible-count",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "Reset",
+              "value": ""
+            },
+            "expected": {
+              "expectCount": 1,
+              "action": "click",
+              "selector": "#reset-filters"
+            },
+            "index": 20,
+            "selector": "#reset-filters",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "6 groups",
+              "value": null
+            },
+            "expected": {
+              "expectText": "6 groups",
+              "selector": "#visible-count"
+            },
+            "index": 21,
+            "selector": "#visible-count",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "\"small\"\t°F\tMatched\t#2: 32\t#5: 32.00018\t+0.00018\n\"move\"\t°F\tMissing\t#3: 46.4\t—\t—\n\"hinge\"\tmm\tDuplicate\t#4: 50.8 · #5: 63.5\t#2: 76.2\t—\n\"retired\"\tmm\tMissing\t#6: 177.8\t—\t—\n\"move\"\tmm\tAdded\t—\t#3: 31.75\t—\n\"fresh\"\tmm\tAdded\t—\t#4: 50.8\t—",
+              "value": null
+            },
+            "expected": {
+              "expectText": "\"small\"\t°F\tMatched\t#2: 32\t#5: 32.00018\t+0.00018\n\"move\"\t°F\tMissing\t#3: 46.4\t—\t—\n\"hinge\"\tmm\tDuplicate\t#4: 50.8 · #5: 63.5\t#2: 76.2\t—\n\"retired\"\tmm\tMissing\t#6: 177.8\t—\t—\n\"move\"\tmm\tAdded\t—\t#3: 31.75\t—\n\"fresh\"\tmm\tAdded\t—\t#4: 50.8\t—",
+              "selector": "#visible-rows"
+            },
+            "index": 22,
+            "selector": "#visible-rows",
+            "passed": true
+          },
+          {
+            "actual": {
+              "count": 1,
+              "text": "°F · Matched 1 · Added 0 · Missing 1 · Duplicate 0 · Net +0.00018 °F · Absolute 0.00018 °F\nmm · Matched 0 · Added 2 · Missing 1 · Duplicate 1 · Net — · Absolute —",
+              "value": null
+            },
+            "expected": {
+              "expectText": "°F · Matched 1 · Added 0 · Missing 1 · Duplicate 0 · Net +0.00018 °F · Absolute 0.00018 °F\nmm · Matched 0 · Added 2 · Missing 1 · Duplicate 1 · Net — · Absolute —",
+              "selector": "#visible-totals"
+            },
+            "index": 23,
+            "selector": "#visible-totals",
+            "passed": true
+          }
+        ],
+        "at": "2026-11-20T16:10:35.870655500Z",
+        "id": "b0f50400-0c38-3ae7-9f60-954780a6843e",
+        "passed": true,
+        "version": 1,
+        "steps": [
+          {
+            "expectText": "Verified comparison explorer",
+            "selector": "h1"
+          },
+          {
+            "expectText": "Export 4342a40c-16c2-480b-9006-794f0fa1d861",
+            "selector": "#source-id"
+          },
+          {
+            "expectText": "CSV SHA-256 e32926058817b5a01fde525881c8c994b5b55605cde25fbb00db512b372f6a0f",
+            "selector": "#source-hash"
+          },
+          {
+            "expectText": "Summary SHA-256 4acc820975ef308c5322aad9f7f2a8d035f1dcc96fc8a60c81afb983bc053d7b",
+            "selector": "#parent-proof"
+          },
+          {
+            "expectText": "6 groups",
+            "selector": "#visible-count"
+          },
+          {
+            "expectText": "\"small\"\t°F\tMatched\t#2: 32\t#5: 32.00018\t+0.00018\n\"move\"\t°F\tMissing\t#3: 46.4\t—\t—\n\"hinge\"\tmm\tDuplicate\t#4: 50.8 · #5: 63.5\t#2: 76.2\t—\n\"retired\"\tmm\tMissing\t#6: 177.8\t—\t—\n\"move\"\tmm\tAdded\t—\t#3: 31.75\t—\n\"fresh\"\tmm\tAdded\t—\t#4: 50.8\t—",
+            "selector": "#visible-rows"
+          },
+          {
+            "expectText": "°F · Matched 1 · Added 0 · Missing 1 · Duplicate 0 · Net +0.00018 °F · Absolute 0.00018 °F\nmm · Matched 0 · Added 2 · Missing 1 · Duplicate 1 · Net — · Absolute —",
+            "selector": "#visible-totals"
+          },
+          {
+            "expectCount": 1,
+            "selector": "a[href=\"matched-comparison.csv\"]"
+          },
+          {
+            "expectCount": 1,
+            "selector": "a[href=\"import-receipt.json\"]"
+          },
+          {
+            "expectCount": 1,
+            "selector": "a[href=\"summary-proof.json\"]"
+          },
+          {
+            "expectCount": 1,
+            "action": "click",
+            "selector": "#unit-mm"
+          },
+          {
+            "expectText": "4 groups",
+            "selector": "#visible-count"
+          },
+          {
+            "expectText": "\"hinge\"\tmm\tDuplicate\t#4: 50.8 · #5: 63.5\t#2: 76.2\t—\n\"retired\"\tmm\tMissing\t#6: 177.8\t—\t—\n\"move\"\tmm\tAdded\t—\t#3: 31.75\t—\n\"fresh\"\tmm\tAdded\t—\t#4: 50.8\t—",
+            "selector": "#visible-rows"
+          },
+          {
+            "expectText": "mm · Matched 0 · Added 2 · Missing 1 · Duplicate 1 · Net — · Absolute —",
+            "selector": "#visible-totals"
+          },
+          {
+            "expectCount": 1,
+            "action": "click",
+            "selector": "button[data-status=\"Duplicate\"]"
+          },
+          {
+            "expectText": "1 group",
+            "selector": "#visible-count"
+          },
+          {
+            "expectText": "\"hinge\"\tmm\tDuplicate\t#4: 50.8 · #5: 63.5\t#2: 76.2\t—",
+            "selector": "#visible-rows"
+          },
+          {
+            "expectText": "mm · Matched 0 · Added 0 · Missing 0 · Duplicate 1 · Net — · Absolute —",
+            "selector": "#visible-totals"
+          },
+          {
+            "expectCount": 1,
+            "action": "click",
+            "selector": "button[data-status=\"Matched\"]"
+          },
+          {
+            "expectText": "0 groups",
+            "selector": "#visible-count"
+          },
+          {
+            "expectCount": 1,
+            "action": "click",
+            "selector": "#reset-filters"
+          },
+          {
+            "expectText": "6 groups",
+            "selector": "#visible-count"
+          },
+          {
+            "expectText": "\"small\"\t°F\tMatched\t#2: 32\t#5: 32.00018\t+0.00018\n\"move\"\t°F\tMissing\t#3: 46.4\t—\t—\n\"hinge\"\tmm\tDuplicate\t#4: 50.8 · #5: 63.5\t#2: 76.2\t—\n\"retired\"\tmm\tMissing\t#6: 177.8\t—\t—\n\"move\"\tmm\tAdded\t—\t#3: 31.75\t—\n\"fresh\"\tmm\tAdded\t—\t#4: 50.8\t—",
+            "selector": "#visible-rows"
+          },
+          {
+            "expectText": "°F · Matched 1 · Added 0 · Missing 1 · Duplicate 0 · Net +0.00018 °F · Absolute 0.00018 °F\nmm · Matched 0 · Added 2 · Missing 1 · Duplicate 1 · Net — · Absolute —",
+            "selector": "#visible-totals"
+          }
+        ]
+      },
+      "summary": {
+        "artifact": {
+          "sha256": "20a257c5059b4aeb39fe879b6b210c32e95b6b6549eaf434e0bd2a3150e4fe73",
+          "id": "69d9426e-ea24-304a-84ec-ad5b78795ff5",
+          "version": 1
+        },
+        "htmlSha256": "2390ba7503cca795ab13152f9a671ca6314dbe538a8977483cc7ff2899f1b247",
+        "earlierCsvSha256": "1346458a4c73d1c7082629cd742f5f71c58213ad5f8ecc6a1d0df039c27386f7",
+        "keyColumn": "record ID",
+        "browserChecks": 13,
+        "id": "2540d1cf-2047-3e4a-a5d2-b4ac35544056",
+        "passed": true,
+        "csvSha256": "a4bf279249008eef0a88ba2158e4304f33129927c1746f67416732d531dbcb76",
+        "laterExportId": "6dca4eeb-a5b6-4ef7-b845-4b6ea0db4c92",
+        "comparisonExportId": "4342a40c-16c2-480b-9006-794f0fa1d861",
+        "earlierExportId": "b9e9d10b-aabe-42d2-aafb-08a24325bf79",
+        "steps": [
+          {
+            "expectText": "Verified comparison CSV totals",
+            "selector": "h1"
+          },
+          {
+            "expectText": "Export 4342a40c-16c2-480b-9006-794f0fa1d861",
+            "selector": "#import-id"
+          },
+          {
+            "expectText": "SHA-256 e32926058817b5a01fde525881c8c994b5b55605cde25fbb00db512b372f6a0f",
+            "selector": "#import-sha"
+          },
+          {
+            "expectText": "6 verified groups",
+            "selector": "#group-count"
+          },
+          {
+            "expectCount": 2,
+            "selector": "#unit-totals article"
+          },
+          {
+            "expectText": "Matched 1 · Added 0 · Missing 1 · Duplicate 0",
+            "selector": "#counts-fahrenheit"
+          },
+          {
+            "expectText": "+0.00018 °F",
+            "selector": "#net-fahrenheit"
+          },
+          {
+            "expectText": "0.00018 °F",
+            "selector": "#absolute-fahrenheit"
+          },
+          {
+            "expectText": "Matched 0 · Added 2 · Missing 1 · Duplicate 1",
+            "selector": "#counts-millimetres"
+          },
+          {
+            "expectText": "—",
+            "selector": "#net-millimetres"
+          },
+          {
+            "expectText": "—",
+            "selector": "#absolute-millimetres"
+          },
+          {
+            "expectCount": 1,
+            "selector": "a[href=\"matched-comparison.csv\"]"
+          },
+          {
+            "expectCount": 1,
+            "selector": "a[href=\"import-receipt.json\"]"
+          }
+        ]
+      }
+    }
+  },
+  "offlineViews": 30,
+  "screenshots": [
+    {
+      "name": "temperature-only.png",
+      "sha256": "00142617b33c055423ce786efa9fe84ad7ef0a7cbfc975976f184226ef5b5e5b"
+    },
+    {
+      "name": "mixed-unmatched.png",
+      "sha256": "8a83442043c53820bf8c03607b96fac41b6874442058bb2b3fe09bfb8f41dae9"
+    }
+  ],
+  "checks": {
+    "priorExplorerRechecked": true,
+    "lessonSavedFromIndependentTeacher": true,
+    "copyOfTeacherRefused": true,
+    "lessonAvailableAfterRestart": true,
+    "twoFreshInputs": true,
+    "adaptedBrowserChecks": true,
+    "zeroNetDistinguishedFromNoMatches": true,
+    "changedTeacherRefusedBeforeSaving": true,
+    "rewrittenCsvRefused": true,
+    "recheckedOriginalAfterNewExport": true,
+    "originalReceiptsPreserved": true,
+    "allOfflineViewsAgree": true,
+    "offlineDownloadsExact": true
+  },
+  "source": "6a767e65c3dc1b2e9a535bc63fed2a70eabe6370",
+  "tests": {
+    "passed": true,
+    "rootJava": 125,
+    "focusedJava": 76,
+    "desktop": 181,
+    "archive": 10
+  }
+}

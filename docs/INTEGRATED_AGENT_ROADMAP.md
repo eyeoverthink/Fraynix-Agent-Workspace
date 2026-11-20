@@ -1,3 +1,7 @@
+## Edition 204 — Teach and reuse a verified comparison explorer
+
+2026-11-20. Save a verified explorer as a named lesson and reuse it on fresh comparison data. Check the lesson, the original teaching evidence and each new result. Two fresh comparisons each passed 24 browser checks. Independent Python calculations agreed with Chromium on all 30 offline filter views. 125 root Java tests, 76 focused workspace Java tests, 181 desktop tests and 10 evidence archive tests passed locally. The stored lesson rejected a copied teaching CSV and changed evidence. The original run rechecked after restart. See README-204.md and docs/publication204/plan.md.
+
 ## Edition 203 — Build an offline explorer from verified comparison totals
 
 2026-11-20. Turn a checked comparison summary into a working offline tool. Filter source rows by status and unit, then recheck the same inputs after restart. The workbench recovered a blocked save. The offline explorer matched an independent decimal check for all 15 filter combinations. 125 root Java tests, 76 focused workspace Java tests, 181 desktop tests and 10 evidence archive tests passed locally. A blocked artifact save recovered after restart. The original source passed 24 fresh browser checks after a second restart. See README-203.md and docs/publication203/plan.md.

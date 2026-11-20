@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 204 — Reusable comparison explorer](../../README-204.md) · [Walkthrough](204/index.html)
+
 [Edition 203 — Verified comparison explorer](../../README-203.md) · [Walkthrough](203/index.html)
 
 [Edition 202 — Verified comparison CSV totals](../../README-202.md) · [Walkthrough](202/index.html)

@@ -1,0 +1,48 @@
+{
+  "summary": "Save a verified explorer as a named lesson and reuse it on fresh comparison data. Check the lesson, the original teaching evidence and each new result.",
+  "modules": [
+    {
+      "title": "Verified explorer lessons",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ComparisonExplorerLessons.java",
+      "note": "docs/obsidian/212-reusable-comparison-explorer.md"
+    },
+    {
+      "title": "Fresh source and teaching verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java",
+      "note": "docs/obsidian/212-reusable-comparison-explorer.md"
+    },
+    {
+      "title": "Offline explorer",
+      "source": "workspace-engine/src/main/resources/workbench/routing-comparison-explorer.html",
+      "note": "docs/obsidian/212-reusable-comparison-explorer.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/204/temperature-only.png",
+      "title": "The reused lesson shows zero net temperature change and eighteen degrees of total movement"
+    },
+    {
+      "path": "docs/readmes/204/mixed-unmatched.png",
+      "title": "The reused lesson keeps the small temperature change and the unmatched length groups separate"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/204/verification.json",
+      "title": "Verification record"
+    },
+    {
+      "path": "docs/readmes/204/lesson.json",
+      "title": "Saved field-audit lesson"
+    },
+    {
+      "path": "docs/readmes/204/temperature-only/comparison-explorer.html",
+      "title": "Temperature-only explorer"
+    },
+    {
+      "path": "docs/readmes/204/mixed-unmatched/comparison-explorer.html",
+      "title": "Mixed-unit explorer with no length matches"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+[Edition 204 — Reusable comparison explorer](212-reusable-comparison-explorer.md)
+
 [Edition 203 — Verified comparison explorer](211-verified-comparison-explorer.md)
 
 [Edition 202 — Verified comparison CSV totals](210-verified-comparison-csv-totals.md)
