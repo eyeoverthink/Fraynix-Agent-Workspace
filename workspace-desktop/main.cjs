@@ -525,6 +525,23 @@ async function openRoutedDashboard({verifyOnly=false,compare=false,pair,keyColum
     ...(keyColumn!==undefined?{keyColumn}:{})
   });
   if(keyColumn!==undefined)sources.keyColumn=keyColumn;
+  return openRoutedReport(sources,retained,{verifyOnly,exportCsv});
+}
+
+async function summarizeRoutedComparison({verifyOnly=false,exportId}={}) {
+  if(typeof verifyOnly!=='boolean'||verifyOnly&&typeof exportId!=='string')
+    throw Error('Summarize a comparison CSV first');
+  const readSources=async id=>{
+    const comparisonImport=await nativeExports.comparisonCsv(id);
+    const {earlier,later,keyColumn}=comparisonImport.receipt.source;
+    const [baseline,file]=await Promise.all([nativeExports.routedCsv(earlier.exportId),nativeExports.routedCsv(later.exportId)]);
+    return {comparisonImport,baseline,file,keyColumn};
+  };
+  const sources=await readSources(exportId);
+  return openRoutedReport(sources,()=>readSources(sources.comparisonImport.receipt.id),{verifyOnly});
+}
+
+async function openRoutedReport(sources,retained,{verifyOnly,exportCsv=false}) {
   let result=await api('/api/requests/routing-dashboard-prepare',{...sources,verifyOnly});
   if(verifyOnly){
     await showRoutedDashboard(result);
@@ -604,6 +621,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       const {command,args}=input;
       if(command==='run-routing')return runClassificationPlan(args);
       if(command==='routing-dashboard')return openRoutedDashboard(args);
+      if(command==='routing-summary')return summarizeRoutedComparison(args);
       if(command==='export-routing'){
         const {csv,sha256,...source}=await api('/api/requests/routing-export',{id:args.id});
         const bytes=Buffer.from(csv,'utf8');

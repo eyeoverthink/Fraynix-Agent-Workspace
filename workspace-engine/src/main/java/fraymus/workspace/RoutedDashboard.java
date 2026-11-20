@@ -7,8 +7,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Objects;
 import java.util.UUID;
 
 /** Binds a local CSV export to its current Java proof and its independent browser dashboard. */
@@ -25,25 +27,30 @@ final class RoutedDashboard {
     }
 
     synchronized JSONObject prepare(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "file", "baseline", "keyColumn", "verifyOnly");
+        SpatialScene.keys(input, "file", "baseline", "keyColumn", "comparisonImport", "verifyOnly");
         var file = input.getJSONObject("file");
         var baseline = input.optJSONObject("baseline");
         String key = keyColumn(input);
-        var report = checkedReport(file, baseline, key);
-        String id = reportId(file, baseline, key);
+        var imported = comparisonImport(input);
+        var report = checkedReport(file, baseline, key, imported);
+        String id = imported == null ? reportId(file, baseline, key) : summaryId(imported);
         var path = path(id);
         var task = Files.exists(path, LinkOption.NOFOLLOW_LINKS) ? load(id) : null;
-        if (task != null) requireSources(task, file, baseline, key);
+        if (task != null) requireSources(task, file, baseline, key, imported);
         if (task != null && task.has("artifact")) {
             var saved = proof(task, report);
             return input.optBoolean("verifyOnly") ? saved.put("steps", report.steps()) : saved;
         }
-        if (input.optBoolean("verifyOnly")) throw new IllegalStateException(baseline == null
-                ? "Build this routed CSV dashboard before rechecking it" : "Build this routed CSV comparison before rechecking it");
+        if (input.optBoolean("verifyOnly")) {
+            if (imported != null) throw new IllegalStateException("Summarize this comparison CSV before rechecking it");
+            throw new IllegalStateException(baseline == null ? "Build this routed CSV dashboard before rechecking it"
+                    : "Build this routed CSV comparison before rechecking it");
+        }
         if (task == null) {
             var initial = new JSONObject().put("id", id).put("file", file);
             if (baseline != null) initial.put("baseline", baseline);
             if (key != null) initial.put("keyColumn", key);
+            if (imported != null) initial.put("comparisonImport", imported);
             save(initial);
         }
         var output = new JSONObject().put("id", id).put("htmlSha256", report.htmlSha256());
@@ -53,13 +60,14 @@ final class RoutedDashboard {
     }
 
     synchronized JSONObject finish(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "id", "file", "baseline", "keyColumn", "htmlSha256", "checks", "exportCsv");
+        SpatialScene.keys(input, "id", "file", "baseline", "keyColumn", "comparisonImport", "htmlSha256", "checks", "exportCsv");
         var task = load(input.getString("id"));
         var file = input.getJSONObject("file");
         var baseline = input.optJSONObject("baseline");
         String key = keyColumn(input);
-        requireSources(task, file, baseline, key);
-        var report = checkedReport(file, baseline, key);
+        var imported = comparisonImport(input);
+        requireSources(task, file, baseline, key, imported);
+        var report = checkedReport(file, baseline, key, imported);
         if (!report.htmlSha256().equals(input.getString("htmlSha256")))
             throw new IllegalStateException("The reviewed dashboard changed");
         var supplied = input.optJSONArray("checks");
@@ -100,11 +108,14 @@ final class RoutedDashboard {
         if (parts.length != 3 || !parts[1].matches("[a-f0-9]{64}") || !parts[2].equals("index.html")) return null;
         var task = load(parts[0]);
         if (task.has("artifact") || task.has("checks")) return null;
-        var report = checkedReport(task.getJSONObject("file"), task.optJSONObject("baseline"), keyColumn(task));
+        var report = checkedReport(task.getJSONObject("file"), task.optJSONObject("baseline"),
+                keyColumn(task), comparisonImport(task));
         return report.htmlSha256().equals(parts[1]) ? report.html().getBytes(StandardCharsets.UTF_8) : null;
     }
 
-    private RoutedReport checkedReport(JSONObject file, JSONObject baseline, String key) throws Exception {
+    private RoutedReport checkedReport(JSONObject file, JSONObject baseline, String key, JSONObject imported) throws Exception {
+        if (imported != null && (baseline == null || key == null))
+            throw new IllegalArgumentException("A comparison CSV needs both original exports and the key");
         String current = checkedCsv(file);
         if (baseline == null) {
             if (key != null) throw new IllegalArgumentException("A key requires two verified routing exports");
@@ -113,8 +124,45 @@ final class RoutedDashboard {
         String earlier = checkedCsv(baseline);
         if (baseline.getJSONObject("source").getString("planId").equals(file.getJSONObject("source").getString("planId")))
             throw new IllegalArgumentException("Compare exports from two different verified routing plans");
-        return key == null ? new RoutedComparisonReport(baseline, earlier, file, current)
-                : new RoutedKeyComparisonReport(baseline, earlier, file, current, key);
+        if (key == null) return new RoutedComparisonReport(baseline, earlier, file, current);
+        var comparison = new RoutedKeyComparisonReport(baseline, earlier, file, current, key);
+        if (imported == null) return comparison;
+        var original = load(reportId(file, baseline, key));
+        requireSources(original, file, baseline, key, null);
+        return checkedImport(imported, original, comparison);
+    }
+
+    private RoutedComparisonTotals checkedImport(JSONObject imported, JSONObject original,
+                                                  RoutedKeyComparisonReport comparison) throws Exception {
+        SpatialScene.keys(imported, "receipt", "base64");
+        var receipt = imported.getJSONObject("receipt");
+        SpatialScene.keys(receipt, "id", "kind", "bytes", "sha256", "createdAt", "source");
+        requestId(receipt.getString("id"));
+        Instant.parse(receipt.getString("createdAt"));
+        if (!"verified-routed-comparison".equals(receipt.getString("kind")) || !original.has("artifact"))
+            throw new IllegalArgumentException("Use an exported, verified matched comparison");
+        var report = proof(original, comparison);
+        var expected = comparison.exportCsv();
+        String csv = expected.getString("csv");
+        String encoded = imported.getString("base64");
+        if (encoded.length() > 349_528) throw new IllegalArgumentException("The comparison CSV exceeds 256 KiB");
+        byte[] bytes = Base64.getDecoder().decode(encoded);
+        var source = new JSONObject().put("format", expected.getString("format")).put("groups", expected.getInt("groups"))
+                .put("comparisonId", report.getString("id")).put("artifact", report.getJSONObject("artifact"))
+                .put("keyColumn", report.getString("keyColumn"))
+                .put("earlier", exportReference(report, "earlierExportId", "earlierCsvSha256"))
+                .put("later", exportReference(report, "laterExportId", "csvSha256"))
+                .put("browserChecks", report.getInt("browserChecks"))
+                .put("browserEvidenceSha256", MeasurementStore.hash(MapCheckpoint.canonical(original.getJSONArray("checks"))));
+        if (!source.similar(receipt.getJSONObject("source")) || bytes.length != receipt.getInt("bytes")
+                || !expected.getString("sha256").equals(receipt.getString("sha256"))
+                || !Arrays.equals(bytes, csv.getBytes(StandardCharsets.UTF_8)))
+            throw new IllegalStateException("The comparison CSV or receipt disagrees with its verified source");
+        return new RoutedComparisonTotals(csv, receipt);
+    }
+
+    private static JSONObject exportReference(JSONObject report, String id, String hash) {
+        return new JSONObject().put("exportId", report.getString(id)).put("sha256", report.getString(hash));
     }
 
     private String checkedCsv(JSONObject file) throws Exception {
@@ -150,6 +198,8 @@ final class RoutedDashboard {
                 .put("earlierExportId", baseline.getString("exportId"))
                 .put("laterExportId", task.getJSONObject("file").getString("exportId"));
         if (task.has("keyColumn")) result.put("keyColumn", task.getString("keyColumn"));
+        var imported = comparisonImport(task);
+        if (imported != null) result.put("comparisonExportId", imported.getJSONObject("receipt").getString("id"));
         return result;
     }
 
@@ -174,13 +224,26 @@ final class RoutedDashboard {
         return key;
     }
 
-    private static void requireSources(JSONObject task, JSONObject file, JSONObject baseline, String key) {
+    private static JSONObject comparisonImport(JSONObject record) {
+        return record.has("comparisonImport") ? record.getJSONObject("comparisonImport") : null;
+    }
+
+    private static void requireSources(JSONObject task, JSONObject file, JSONObject baseline, String key,
+                                       JSONObject imported) {
         var earlier = task.optJSONObject("baseline");
         boolean sameBaseline = earlier == null ? baseline == null : earlier.similar(baseline);
         if (!task.getJSONObject("file").similar(file) || !sameBaseline)
             throw new IllegalStateException("The reviewed CSV export or receipt changed");
-        if (!java.util.Objects.equals(keyColumn(task), key))
+        if (!Objects.equals(keyColumn(task), key))
             throw new IllegalStateException("The reviewed comparison key changed");
+        var priorImport = comparisonImport(task);
+        if (priorImport == null ? imported != null : !priorImport.similar(imported))
+            throw new IllegalStateException("The attached comparison CSV or receipt changed");
+    }
+
+    private static String summaryId(JSONObject imported) {
+        String export = imported.getJSONObject("receipt").getString("id");
+        return UUID.nameUUIDFromBytes(("routed-comparison-totals:" + export).getBytes(StandardCharsets.UTF_8)).toString();
     }
 
     private static String reportId(JSONObject file, JSONObject baseline, String key) {

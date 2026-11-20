@@ -2,6 +2,7 @@
 const fs=require('node:fs/promises'),path=require('node:path'),{randomUUID,createHash}=require('node:crypto');
 const {createReadStream}=require('node:fs');
 const {createInterface}=require('node:readline');
+const {isDeepStrictEqual}=require('node:util');
 class NativeExports {
  constructor(project){this.directory=path.join(project,'exports');this.latest=null;}
  async save(kind,extension,bytes,source,expectedSha256){
@@ -33,15 +34,39 @@ class NativeExports {
    browserChecks:result.browserChecks,browserEvidenceSha256
   },sha256);
  }
- async *routingEntries(){
+ async *entries(kind,missing){
   const manifest=path.join(this.directory,'manifest.jsonl');
   const stat=await fs.lstat(manifest).catch(error=>{if(error.code==='ENOENT')return null;throw error;});
-  if(!stat?.isFile())throw Error('Export a verified routing CSV first');
+  if(!stat?.isFile())throw Error(missing);
   for await(const line of createInterface({input:createReadStream(manifest),crlfDelay:Infinity})){
    if(!line.trim())continue;
    const entry=JSON.parse(line);
-   if(entry.kind==='verified-routed-results')yield entry;
+   if(entry.kind===kind)yield entry;
   }
+ }
+ routingEntries(){return this.entries('verified-routed-results','Export a verified routing CSV first');}
+ async comparisonCsv(exportId){
+  const kind='verified-routed-comparison';
+  const missing='Export a verified matched comparison CSV first';
+  let selected;
+  for await(const entry of this.entries(kind,missing)){
+   if(exportId===undefined||entry.id===exportId)selected=entry;
+  }
+  if(!selected)throw Error(missing);
+  if(typeof selected.id!=='string'||!/^[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$/.test(selected.id))
+   throw Error('The comparison export ID changed');
+  const file=path.join(this.directory,selected.id+'.csv');
+  const sidecar=file+'.receipt.json';
+  const [csvInfo,receiptInfo]=await Promise.all([fs.lstat(file),fs.lstat(sidecar)]);
+  if(!csvInfo.isFile()||csvInfo.size>262144||!receiptInfo.isFile()||receiptInfo.size>64000)
+   throw Error('The comparison CSV or export receipt is unavailable');
+  const [bytes,receiptText]=await Promise.all([fs.readFile(file),fs.readFile(sidecar,'utf8')]);
+  const receipt=JSON.parse(receiptText);
+  const sha256=createHash('sha256').update(bytes).digest('hex');
+  if(!isDeepStrictEqual(receipt,selected)||receipt.bytes!==bytes.length||receipt.sha256!==sha256)
+   throw Error('The comparison CSV bytes or receipt disagree with the export manifest');
+  const {path:localPath,...evidence}=receipt;
+  return {receipt:evidence,base64:bytes.toString('base64')};
  }
  async routedCsvPair(){
   const latestByPlan=new Map();
