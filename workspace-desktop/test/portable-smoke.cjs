@@ -27,7 +27,7 @@ async function main() {
       const screenshot = await app.evaluate(()=>global.workspaceTest.capture());
       await fs.writeFile(path.join(output,'workspace.png'),Buffer.from(screenshot,'base64'));
 
-      const scene = state.scenes[0];
+      const scene = await api('/api/scene/save',{title:'Portability ramp',parameters:{angleDeg:25,friction:0}});
       const ramp = await api('/api/experiment/run',{id:scene.id,expectedVersion:scene.version,seconds:0.75});
       assert.equal(ramp.evaluation.passed,true);
       assert.equal(ramp.samples.at(-1).tick,180);

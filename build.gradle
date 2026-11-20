@@ -9,9 +9,9 @@ repositories {
     mavenCentral()
 }
 
-def lwjglVersion = '3.3.4'
 apply from: 'gradle/desktop-platform.gradle'
-def imguiVersion = '1.87.7'
+def lwjglVersion = fraynixDesktop.studioLwjgl
+def imguiVersion = fraynixDesktop.imgui
 
 dependencies {
     implementation project(':brain-core')

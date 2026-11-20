@@ -12,10 +12,10 @@ def host = "${hostOs}-${hostArch}".toString()
 // Override for inspecting native bundles. Run them on the matching OS and JVM architecture.
 def target = providers.gradleProperty('fraynixDesktopTarget').getOrElse(host)
 def targets = [
-    'windows-x64': [os: 'windows', lwjgl: 'natives-windows'],
-    'linux-x64'  : [os: 'linux', lwjgl: 'natives-linux'],
-    'macos-x64'  : [os: 'macos', lwjgl: 'natives-macos'],
-    'macos-arm64': [os: 'macos', lwjgl: 'natives-macos-arm64']
+    'windows-x64': [os: 'windows', lwjgl: 'natives-windows', studioLwjgl: '3.3.3', imgui: '1.86.11'],
+    'linux-x64'  : [os: 'linux', lwjgl: 'natives-linux', studioLwjgl: '3.3.3', imgui: '1.86.11'],
+    'macos-x64'  : [os: 'macos', lwjgl: 'natives-macos', studioLwjgl: '3.3.4', imgui: '1.87.7'],
+    'macos-arm64': [os: 'macos', lwjgl: 'natives-macos-arm64', studioLwjgl: '3.3.4', imgui: '1.87.7']
 ]
 if (!targets.containsKey(target)) {
     throw new GradleException("Fraynix has no desktop native bundle for ${target}. Supported targets: ${targets.keySet().join(', ')}")

@@ -255,7 +255,13 @@ public class ImGuiLayer {
     public void destroyImGui() {
         ImGui.saveIniSettingsToDisk(studioLayout.iniPath());
         fraynixPanel.close();
-        imGuiGl3.shutdown();
+        // The universal macOS binding renamed renderer disposal to shutdown.
+        String method = org.lwjgl.system.Platform.get() == org.lwjgl.system.Platform.MACOSX ? "shutdown" : "dispose";
+        try {
+            ImGuiImplGl3.class.getMethod(method).invoke(imGuiGl3);
+        } catch (ReflectiveOperationException error) {
+            throw new IllegalStateException("Could not release the ImGui OpenGL backend", error);
+        }
         ImGui.destroyContext();
     }
 
