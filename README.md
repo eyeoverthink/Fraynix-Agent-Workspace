@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md)
 
-[Edition 208 — Two-source comparison briefings](README-208.md) · [Previous edition](README-207.md) · [Offline walkthrough](docs/readmes/208/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 209 — Pick briefing sources and sections](README-209.md) · [Previous edition](README-208.md) · [Offline walkthrough](docs/readmes/209/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Review two verified comparisons in Chat and export one offline briefing. Each source keeps its own totals, chart, rows and proof.
+Choose two saved verified comparisons and set the sections for each. One approval preserves the selected order and the original evidence through restart and offline export.

@@ -1,3 +1,5 @@
+[Edition 209 — Pick briefing sources and sections](217-selected-briefing.md)
+
 [Edition 208 — Two-source comparison briefings](216-paired-comparisons.md)
 
 [Edition 207 — Reviewed comparison briefings](215-comparison-briefing.md)

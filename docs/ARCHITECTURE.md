@@ -1,3 +1,7 @@
+## Edition 209 — Choose older comparisons and sections for each source
+
+2026-11-23. Choose two saved verified comparisons and set the sections for each. One approval preserves the selected order and the original evidence through restart and offline export. The workflow passed 18 browser checks on Windows x64, Apple silicon, Intel Mac and Linux x64. Each run preserved the expected output order, sections and six original evidence files. The picker reads saved verified summaries and browses beyond the recent Chat history. Section choices, original summaries and source order are bound to one approval. See README-209.md and docs/publication209/plan.md.
+
 ## Edition 208 — Approve one briefing from two verified comparisons
 
 2026-11-23. Review two verified comparisons in Chat and export one offline briefing. Each source keeps its own totals, chart, rows and proof. Windows x64, Apple silicon, Intel Mac and Linux x64 each passed 24 browser checks. They resumed the same review, rechecked the original pair after restart and matched all six offline downloads. The ordered pair is tied to one approval and its original summaries. A changed source produces a source-specific refusal before recheck or export. See README-208.md and docs/publication208/plan.md.

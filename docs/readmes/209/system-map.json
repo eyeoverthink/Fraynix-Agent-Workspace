@@ -1,0 +1,49 @@
+{
+  "summary": "Choose two saved verified comparisons and set the sections for each. One approval preserves the selected order and the original evidence through restart and offline export.",
+  "modules": [
+    {
+      "title": "Briefing source picker",
+      "source": "workspace-desktop/renderer/briefing-picker.js",
+      "note": "docs/obsidian/217-selected-briefing.md"
+    },
+    {
+      "title": "Approved source order and sections",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PairedComparisonBriefing.java",
+      "note": "docs/obsidian/217-selected-briefing.md"
+    },
+    {
+      "title": "Per-source offline sections",
+      "source": "workspace-engine/src/main/resources/workbench/routing-briefing-sections.js",
+      "note": "docs/obsidian/217-selected-briefing.md"
+    },
+    {
+      "title": "Desktop and export verification",
+      "source": "workspace-desktop/test/selected-briefing-integration.cjs",
+      "note": "docs/obsidian/217-selected-briefing.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/209/mac-picker.png",
+      "title": "Apple silicon macOS shows different section choices for two older comparisons"
+    },
+    {
+      "path": "docs/readmes/209/offline-selection.png",
+      "title": "The Windows offline file shows totals and chart on Source 2"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/209/selected-briefing.html",
+      "title": "Open the offline briefing with selected sections"
+    },
+    {
+      "path": "docs/readmes/209/release-proof.json",
+      "title": "Platform and test evidence"
+    },
+    {
+      "path": "docs/publication209/plan.md",
+      "title": "Reproduction and next candidate"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 209 · Choose older comparisons and sections for each source</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Choose older comparisons and sections for each source</h1><p>Choose two saved verified comparisons and set the sections for each. One approval preserves the selected order and the original evidence through restart and offline export.</p>
+<nav><a href="../../../README-209.md">App guide</a><a href="release-proof.json">Verification</a>
+<a href="../208/index.html">Edition 208</a><a href="selected-briefing.html">Open the selected briefing</a><a href="#system">System files</a></nav>
+<figure><img src="mac-picker.png" alt="Apple silicon macOS shows different section choices for two older comparisons"><figcaption>Apple silicon macOS shows different section choices for two older comparisons</figcaption></figure>
+<figure><img src="offline-selection.png" alt="The Windows offline file shows totals and chart on Source 2"><figcaption>The Windows offline file shows totals and chart on Source 2</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Choose two saved verified comparisons and set the sections for each. One approval preserves the selected order and the original evidence through restart and offline export.", "modules": [{"title": "Briefing source picker", "source": "workspace-desktop/renderer/briefing-picker.js", "note": "docs/obsidian/217-selected-briefing.md"}, {"title": "Approved source order and sections", "source": "workspace-engine/src/main/java/fraymus/workspace/PairedComparisonBriefing.java", "note": "docs/obsidian/217-selected-briefing.md"}, {"title": "Per-source offline sections", "source": "workspace-engine/src/main/resources/workbench/routing-briefing-sections.js", "note": "docs/obsidian/217-selected-briefing.md"}, {"title": "Desktop and export verification", "source": "workspace-desktop/test/selected-briefing-integration.cjs", "note": "docs/obsidian/217-selected-briefing.md"}], "screenshots": [{"path": "docs/readmes/209/mac-picker.png", "title": "Apple silicon macOS shows different section choices for two older comparisons"}, {"path": "docs/readmes/209/offline-selection.png", "title": "The Windows offline file shows totals and chart on Source 2"}], "evidence": [{"path": "docs/readmes/209/selected-briefing.html", "title": "Open the offline briefing with selected sections"}, {"path": "docs/readmes/209/release-proof.json", "title": "Platform and test evidence"}, {"path": "docs/publication209/plan.md", "title": "Reproduction and next candidate"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/obsidian/217-selected-briefing.canvas", "bytes": 1519, "sha256": "023ee7f343e86648716d439c3cad1076a24f8534532f3be04d049da6ba3c5955", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/217-selected-briefing.md", "bytes": 542, "sha256": "4a165f37c32e9c9a74d2e31cbda20d1a2c343eeef97cc824f789e8d2760c37ba", "hashKind": "utf8-lf"}, {"path": "docs/publication209/document.py", "bytes": 12999, "sha256": "347448721f4ac0e59fd535c838e398e9fbd07fff7c5822f4ded9ecf1b5d9090c", "hashKind": "utf8-lf"}, {"path": "docs/publication209/plan.md", "bytes": 1860, "sha256": "65980868f3aea77bdffb334319a4398d98293cdd2ef185e7e97189586e67d411", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/exports.cjs", "bytes": 13496, "sha256": "e3efb143e9608ae9d6ae1d9302fb818ca0563f91b7cd3668b126d4580f1dc710", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 120671, "sha256": "93825df04fb372b960830f1004e7eedb37d2f00d999e90556c45f7ee546d2c8d", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/briefing-picker.js", "bytes": 4622, "sha256": "392c189013a1fa030b97e67c35a29535d3e8854eb9a100bb8bd7c4c06bf80095", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/classification-routing.js", "bytes": 18733, "sha256": "a27202e2796893c4818d1a7128b61d767b5a9f31a0edeeb4393dc9e1a53988bc", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/index.html", "bytes": 36800, "sha256": "49afc8ee82c2252250b3dbe2a2f6e50505bd11051dd333375b947c9d072bcd90", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/style.css", "bytes": 11617, "sha256": "c28f09c8426ccb6a69a13164161d7b1ec08a37e647a348b8c6e72553e8747660", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/change-story-integration.cjs", "bytes": 21654, "sha256": "8babdfc759868a32c520ddad2a4d1a0702320c48c465b64abdd583eff6431f9f", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/offline-briefing.cjs", "bytes": 2398, "sha256": "8162a538f14d6604b18871b04274c52f4ef8541666fe67fab924e3fbd12a162a", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/paired-briefing-integration.cjs", "bytes": 9440, "sha256": "edc1f8b4e8061b58ffe3f540129978b3e4f5e2517dab451029fb62b39465d5b7", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/selected-briefing-integration.cjs", "bytes": 8745, "sha256": "0cc2cb9e0f89b6d5c35c8a1a823b59447b14f2b180c38d9d3078847bc7664626", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ComparisonBriefing.java", "bytes": 2822, "sha256": "b054d1d9177060b193129d62b34e0e7601ffcc66c3e40491667b59a1aa3babbf", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/PairedComparisonBriefing.java", "bytes": 8894, "sha256": "a2b6b77b2e2c4ed224e3b8839e5d6f38f25f5ccb1dce0572eb9bacecedc1139e", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java", "bytes": 36086, "sha256": "7b102ad2022d0f0300beaa612f93b82b52bbf7c0db5576fcc85310391b6ce294", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 137040, "sha256": "c1403c4556e84c56db795859cd0a45add74956613e12f16fdcf5b7b46470e33f", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/resources/workbench/routing-briefing-sections.js", "bytes": 385, "sha256": "e3515b05fefce1eba59c7ea60c2514934578d85877af254d9224d363f06ed0b8", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>
