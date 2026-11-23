@@ -71,12 +71,12 @@ async function testSelectedBriefing({project,output,original,second,route,call,a
     await dialog().waitFor({state:'visible',...options});
     assert.deepEqual(await call('briefing-read',{id}),review);
     await dialog().getByRole('button',{name:'Approve and build'}).click();
-    await reply('Comparison briefing verified against Java. 18 browser checks passed.');
+    await reply('Selected comparison briefing verified against Java. 18 browser checks passed.');
     const firstProof = await call('briefing-recheck',{id});
     assert.deepEqual(firstProof.comparisonSources,review.sources);
     await restart();
     await send('Recheck the comparison briefing.');
-    await reply('Comparison briefing verified against Java. 18 fresh browser checks passed.');
+    await reply('Selected comparison briefing verified against Java. 18 fresh browser checks passed.');
     const proof = await call('briefing-recheck',{id});
     assert.deepEqual(proof.artifact,firstProof.artifact);
     assert.equal(proof.htmlSha256,firstProof.htmlSha256);
@@ -87,7 +87,7 @@ async function testSelectedBriefing({project,output,original,second,route,call,a
 
     const manifest = path.join(project,'exports','manifest.jsonl');
     await send('Export the comparison briefing.');
-    await reply('Saved verified two-source comparison briefing to');
+    await reply('Saved verified selected comparison briefing to');
     let receipt;
     for (let attempt=0;attempt<80;attempt++) {
         const entries = (await fs.readFile(manifest,'utf8')).trim().split('\n').map(line=>JSON.parse(line));

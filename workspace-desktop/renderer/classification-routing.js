@@ -22,6 +22,7 @@ const summaryRequest = /^(?:Summarize the last verified matched comparison CSV|R
 const explorerRequest = /^(?:Build an explorer from the verified comparison totals|Recheck the verified comparison explorer)[.!]?$/i;
 const storyRequest = /^(?:Build a change story from the verified comparison totals|Recheck the verified change story|Export the verified change story)[.!]?$/i;
 const lessonRequest = /^(Teach|Use|Recheck) comparison explorer lesson ([a-z][a-z0-9-]{2,55})[.!]?$/i;
+const hasSourceSections = sources => sources?.some(source=>Array.isArray(source.sections));
 const lessonPin = name => 'fraynix-comparison-explorer-lesson-'+name;
 
 export const isRoutingRequest = text => /^(?:Route the last verified classification|Resume classification routing)[.!]?$/i.test(text.trim());
@@ -52,7 +53,8 @@ export class ClassificationRoutingPanel {
             try {
                 const result = await this.call('briefing-build',{id:review.id,reviewSha256:review.reviewSha256});
                 localStorage.setItem(COMPLETED_BRIEFING,review.id);
-                this.announce('Comparison briefing verified against Java. '+result.browserChecks+' browser checks passed.');
+                const name = hasSourceSections(review.sources) ? 'Selected comparison briefing' : 'Comparison briefing';
+                this.announce(name+' verified against Java. '+result.browserChecks+' browser checks passed.');
             } catch (error) {
                 this.showBriefing(review,error.message);
             }
@@ -120,10 +122,12 @@ export class ClassificationRoutingPanel {
                     } else {
                         const result = await this.call('briefing-'+action,{id});
                         if (action==='export') {
-                            const name = result.kind==='paired-comparison-briefing' ? 'two-source comparison briefing' : 'comparison briefing';
+                            const name = hasSourceSections(result.source.comparisonSources) ? 'selected comparison briefing'
+                                : result.kind==='paired-comparison-briefing' ? 'two-source comparison briefing' : 'comparison briefing';
                             this.announce('Saved verified '+name+' to '+result.path);
                         } else {
-                            this.announce('Comparison briefing verified against Java. '+result.browserChecks+' fresh browser checks passed.');
+                            const name = hasSourceSections(result.comparisonSources) ? 'Selected comparison briefing' : 'Comparison briefing';
+                            this.announce(name+' verified against Java. '+result.browserChecks+' fresh browser checks passed.');
                         }
                     }
                 }
