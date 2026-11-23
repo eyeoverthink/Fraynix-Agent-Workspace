@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 207 · Approve and share a verified comparison briefing</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Approve and share a verified comparison briefing</h1><p>Choose the totals, chart or source rows for an offline briefing in Chat. Approve the source and the selected sections before Fraynix builds it.</p>
+<nav><a href="../../../README-207.md">App guide</a><a href="release-proof.json">Verification</a>
+<a href="../206/index.html">Edition 206</a><a href="comparison-briefing.html">Open the briefing</a><a href="#system">System files</a></nav>
+<figure><img src="mac-review.png" alt="Review the proposed sections and comparison on Apple silicon macOS"><figcaption>Review the proposed sections and comparison on Apple silicon macOS</figcaption></figure>
+<figure><img src="offline-briefing.png" alt="The stand-alone file on Windows shows the reviewed totals and chart"><figcaption>The stand-alone file on Windows shows the reviewed totals and chart</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Choose the totals, chart or source rows for an offline briefing in Chat. Approve the source and the selected sections before Fraynix builds it.", "modules": [{"title": "Chat commands", "source": "workspace-desktop/renderer/classification-routing.js", "note": "docs/obsidian/215-comparison-briefing.md"}, {"title": "Reviewed comparison briefing", "source": "workspace-engine/src/main/java/fraymus/workspace/ComparisonBriefing.java", "note": "docs/obsidian/215-comparison-briefing.md"}, {"title": "Desktop output recovery", "source": "workspace-desktop/process-stdio.cjs", "note": "docs/obsidian/215-comparison-briefing.md"}, {"title": "Desktop and export verification", "source": "workspace-desktop/test/change-story-integration.cjs", "note": "docs/obsidian/215-comparison-briefing.md"}], "screenshots": [{"path": "docs/readmes/207/mac-review.png", "title": "Review the proposed sections and comparison on Apple silicon macOS"}, {"path": "docs/readmes/207/offline-briefing.png", "title": "The stand-alone file on Windows shows the reviewed totals and chart"}], "evidence": [{"path": "docs/readmes/207/comparison-briefing.html", "title": "Open the exported offline briefing"}, {"path": "docs/readmes/207/release-proof.json", "title": "Platform and test evidence"}, {"path": "docs/publication207/plan.md", "title": "Reproduction and next candidate"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": "docs/INSTALL.md", "bytes": 4621, "sha256": "7a539e37ff7e330187763408884bebabd6a448ee1754612810f8235116da5076", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/215-comparison-briefing.canvas", "bytes": 1476, "sha256": "bdf9ac2e88565462085b73166e7ec44fdea570bfc5445a60a11ef813a16860ad", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/215-comparison-briefing.md", "bytes": 532, "sha256": "03742db6e27224bf8676e92d3c8734e7d4cbbc414785e474c5e1d715822e8c1c", "hashKind": "utf8-lf"}, {"path": "docs/publication207/document.py", "bytes": 12452, "sha256": "3c40fa2eabba51b78877cf9a56c9aa6289a99977bb717ef200722cc53943ec05", "hashKind": "utf8-lf"}, {"path": "docs/publication207/plan.md", "bytes": 1611, "sha256": "c3f88577befbfb0b96c1b15dbab220783985226f5a5a82d673b404d35dc33fc7", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 118572, "sha256": "d606fa1396d78d202dd597549ff2d3d65ba1160e20817bee71be0cfacb98c67d", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/package.json", "bytes": 5820, "sha256": "ee1977645ed1fe2142a37a5ae56738a88ba951a4e964c8a752d6372f3782c2b8", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/process-stdio.cjs", "bytes": 311, "sha256": "515b9e4dc124ca5d77c369a1df1692d2d18fe871f0f6c06f9adbe3552e0e8829", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/classification-routing.js", "bytes": 16292, "sha256": "37dcdc6021ecc4af5dd828c28b0b93354973b71b565ea09f02bb57fef3ec07a8", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/index.html", "bytes": 35292, "sha256": "d2c3227f30e1cc0d9be8d29c10074cf4e79a27c8cadef8a816229357fcb17ae1", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/change-story-integration.cjs", "bytes": 21089, "sha256": "1809ffd2a36076442d573a7fb3a27681b3f8a71303efc16bae3598af17e7eb9f", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/portable-smoke.cjs", "bytes": 5180, "sha256": "2e35c81bfbfb5b63b4d9257522bcf8b6b5e73a0b5426dfaa776e87b5279eb6a5", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/process-stdio.test.cjs", "bytes": 917, "sha256": "dac5bab09f3603b5230a675b697648d98ec3b87823f04595ca200998c036cf04", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ComparisonBriefing.java", "bytes": 2456, "sha256": "8e56c8f299a59ad8db9a5d582f77cda2ae299723abe2ee6d06ea8832a353ab82", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedComparisonExplorer.java", "bytes": 11860, "sha256": "8a04a4c79f17efd194608e602cb1c3e8ebd798655924e46322831a83ad6399c1", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java", "bytes": 27112, "sha256": "6268e89dbceb4b2410f60158b9438fd005f8fe7d14d83f5ddb92dbcdefbed908", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 136919, "sha256": "c85aed762498318b9620a3d03528faadd02a218f7b065bc28932f808343c32e8", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

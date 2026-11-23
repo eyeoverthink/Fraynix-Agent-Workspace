@@ -1,0 +1,1172 @@
+{
+  "tests": {
+    "rootJava": 125,
+    "workspaceJava": 10,
+    "desktop": 185,
+    "archive": 10
+  },
+  "matrix": {
+    "id": 45235387742,
+    "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/45235387742",
+    "runtimeCommit": "4a0f15756221975f5801a38c7782f820653a5a2f",
+    "targets": {
+      "macos-x64": {
+        "status": "success",
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/45235387742/job/137905608912",
+        "desktop": {
+          "passed": true,
+          "platform": "darwin",
+          "architecture": "x64",
+          "nativeGame": "display-unavailable",
+          "checks": [
+            "Java connection and guided verification continue after closed console errors",
+            "Native Bullet physics passes the independent incline reference",
+            "Persistent Java owner starts and reopens the saved project"
+          ]
+        },
+        "briefing": {
+          "passed": true,
+          "platform": "darwin",
+          "architecture": "x64",
+          "proof": {
+            "artifact": {
+              "sha256": "e33455e122116ee028405b6e3467dde14936cff9dfc751eba0ccf70e7a950bae",
+              "id": "4f278014-4d4c-324c-9827-8c4761aeb5bc",
+              "version": 1
+            },
+            "htmlSha256": "8043693bdbfb0fb0c0cdc55cb0fe41971dd2e03dd4b5a1cea7fcb7e5c27a178b",
+            "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+            "keyColumn": "record ID",
+            "browserChecks": 24,
+            "id": "cd28d9ab-490f-3170-8c72-87b576e59ab5",
+            "passed": true,
+            "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+            "laterExportId": "7e5356b3-a011-4a2e-aa72-3d73dee9d933",
+            "comparisonExportId": "82b7fe33-f6b7-4993-b281-db4d9d8b7f66",
+            "earlierExportId": "a4ac65b7-ca39-4607-a3fd-c2be62418e40",
+            "story": true
+          },
+          "briefing": {
+            "review": {
+              "summary": {
+                "sha256": "901538bf44fbd8d0f47061588296eb5e6d4604338bca920858159aa786a58b9e",
+                "id": "8024908d-7a62-3024-a363-623526db49fa",
+                "version": 1
+              },
+              "sourceSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+              "approved": true,
+              "reviewSha256": "3b5b0416050bf9a60009175241c43c03aee23c4f68dfc3842c8c2f6c2cfd5c5f",
+              "id": "25b63191-6d9e-4c83-b5c2-141ac14bb537",
+              "exportId": "82b7fe33-f6b7-4993-b281-db4d9d8b7f66",
+              "sections": [
+                "totals",
+                "chart"
+              ]
+            },
+            "proof": {
+              "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+              "laterExportId": "7e5356b3-a011-4a2e-aa72-3d73dee9d933",
+              "comparisonExportId": "82b7fe33-f6b7-4993-b281-db4d9d8b7f66",
+              "artifact": {
+                "sha256": "31191646a49b6518ad5e978257ea60b608faea3a0f0c7df6c6633971fe92b8a1",
+                "id": "95a3e620-3940-3eda-ad9b-9155a2ff4202",
+                "version": 1
+              },
+              "briefingId": "25b63191-6d9e-4c83-b5c2-141ac14bb537",
+              "htmlSha256": "8170b9c3474199aa5526a361afecf1e0dbff09576c07aa519772357a603d5e49",
+              "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+              "keyColumn": "record ID",
+              "browserChecks": 22,
+              "rechecked": true,
+              "id": "63f35ee1-138d-3354-a4a9-6364602edb06",
+              "passed": true,
+              "earlierExportId": "a4ac65b7-ca39-4607-a3fd-c2be62418e40"
+            },
+            "evidence": {
+              "briefing": {
+                "id": "25b63191-6d9e-4c83-b5c2-141ac14bb537",
+                "sections": [
+                  "totals",
+                  "chart"
+                ]
+              },
+              "browserChecks": 22,
+              "import": {
+                "bytes": 804,
+                "createdAt": "2026-11-23T18:12:01.189Z",
+                "id": "82b7fe33-f6b7-4993-b281-db4d9d8b7f66",
+                "kind": "verified-routed-comparison",
+                "sha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+                "source": {
+                  "artifact": {
+                    "id": "2f46f5b4-09ca-3d6f-85c6-146ddc59a380",
+                    "sha256": "ad5f6b6848b8c779dfb20b835e61cbf77e375eef29cf7fdb90ae802c912c33a6",
+                    "version": 1
+                  },
+                  "browserChecks": 9,
+                  "browserEvidenceSha256": "bfa174cc57794cc0f1b2745b56049094b5d69220f15a1627fa2ceea15cafa73c",
+                  "comparisonId": "7d99428f-db4d-3ab6-b7a4-8dd818950e9f",
+                  "earlier": {
+                    "exportId": "a4ac65b7-ca39-4607-a3fd-c2be62418e40",
+                    "sha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1"
+                  },
+                  "format": "fraynix.routed-key-comparison-csv-v1",
+                  "groups": 8,
+                  "keyColumn": "record ID",
+                  "later": {
+                    "exportId": "7e5356b3-a011-4a2e-aa72-3d73dee9d933",
+                    "sha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36"
+                  }
+                }
+              },
+              "passed": true,
+              "presentation": "comparison-briefing-v1",
+              "summary": {
+                "artifact": {
+                  "id": "8024908d-7a62-3024-a363-623526db49fa",
+                  "sha256": "901538bf44fbd8d0f47061588296eb5e6d4604338bca920858159aa786a58b9e",
+                  "version": 1
+                },
+                "proofSha256": "757439768477c367215c826ec5679f13e06b39bac642197b1763548a8e82eba3"
+              },
+              "views": [
+                {
+                  "groups": 8,
+                  "status": "all",
+                  "totals": [
+                    {
+                      "absoluteDelta": "27",
+                      "added": 0,
+                      "duplicate": 1,
+                      "matched": 3,
+                      "missing": 0,
+                      "netDelta": "9",
+                      "unit": "°F"
+                    },
+                    {
+                      "absoluteDelta": "38.1",
+                      "added": 1,
+                      "duplicate": 0,
+                      "matched": 2,
+                      "missing": 1,
+                      "netDelta": "12.7",
+                      "unit": "mm"
+                    }
+                  ],
+                  "unit": "all"
+                },
+                {
+                  "groups": 4,
+                  "status": "all",
+                  "totals": [
+                    {
+                      "absoluteDelta": "27",
+                      "added": 0,
+                      "duplicate": 1,
+                      "matched": 3,
+                      "missing": 0,
+                      "netDelta": "9",
+                      "unit": "°F"
+                    }
+                  ],
+                  "unit": "°F"
+                }
+              ]
+            },
+            "rowsOnly": {
+              "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+              "laterExportId": "7e5356b3-a011-4a2e-aa72-3d73dee9d933",
+              "comparisonExportId": "82b7fe33-f6b7-4993-b281-db4d9d8b7f66",
+              "artifact": {
+                "sha256": "74b9700dc216ec0f2a9f65b1a0c78f49d863c2b65baef12595e5e7cce538eee8",
+                "id": "4c8b7f07-fae9-38a6-a4df-79f577cc3873",
+                "version": 1
+              },
+              "briefingId": "65f48379-d185-410b-9256-945f4a5f04ae",
+              "htmlSha256": "20899c0b83fb11e31ebdc131668063a3b32a978ba8d0d7eb624c15ce68e139bd",
+              "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+              "keyColumn": "record ID",
+              "browserChecks": 18,
+              "rechecked": true,
+              "id": "c5a4d30e-e0f6-373c-ab72-864698aeeb90",
+              "passed": true,
+              "earlierExportId": "a4ac65b7-ca39-4607-a3fd-c2be62418e40"
+            }
+          },
+          "changes": [
+            [
+              "°F",
+              "fall",
+              "-9 °F",
+              "loss",
+              5000
+            ],
+            [
+              "°F",
+              "rise <probe>",
+              "+18 °F",
+              "gain",
+              10000
+            ],
+            [
+              "°F",
+              "steady",
+              "0 °F",
+              "steady",
+              0
+            ],
+            [
+              "mm",
+              "length fall",
+              "-12.7 mm",
+              "loss",
+              5000
+            ],
+            [
+              "mm",
+              "length gain",
+              "+25.4 mm",
+              "gain",
+              10000
+            ]
+          ],
+          "checks": [
+            "Chat builds a separate, Java-verified artifact after the comparison and summary",
+            "Restart rechecks the pinned original beside an independent explorer and a newer export",
+            "Standalone HTML works offline with the correct painted bars, filter changes, keyboard selection and exact CSV download",
+            "The exact briefing review survives restart; stale approval and unapproved builds produce no artifact",
+            "Approved sections and original evidence work in the exported briefing with networking blocked",
+            "A rows-only briefing produces a distinct verified artifact and hides the chart and totals",
+            "Changed comparison bytes are refused before sharing the story"
+          ]
+        }
+      },
+      "windows-x64": {
+        "status": "success",
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/45235387742/job/137905609117",
+        "desktop": {
+          "passed": true,
+          "platform": "win32",
+          "architecture": "x64",
+          "nativeGame": "verified",
+          "checks": [
+            "Java connection and guided verification continue after closed console errors",
+            "Native Bullet physics passes the independent incline reference",
+            "Hidden native renderer loads Relay Garden and renders fixed-step movement",
+            "Persistent Java owner starts and reopens the saved project"
+          ]
+        },
+        "briefing": {
+          "passed": true,
+          "platform": "win32",
+          "architecture": "x64",
+          "proof": {
+            "artifact": {
+              "sha256": "956d00b847858a7f5c8c50ce96726aec29d76dbca1b434c9c8ded0f5f0e7a300",
+              "id": "6801f164-2e3f-3eb6-99e5-5ddd1f98f7e3",
+              "version": 1
+            },
+            "htmlSha256": "378754b90e231edc96e8281ddbc2c8e90521a5708e82653ab070ab0ed58c3218",
+            "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+            "keyColumn": "record ID",
+            "browserChecks": 24,
+            "id": "e103b018-a709-32d4-a5e0-f84f78e09b54",
+            "passed": true,
+            "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+            "laterExportId": "a25d906f-d38c-4f3c-9abb-693a3d810a12",
+            "comparisonExportId": "70b68c95-1f88-4393-84f6-f159bdbc7efd",
+            "earlierExportId": "06862cdc-4473-4326-a105-8b9dd7b917bf",
+            "story": true
+          },
+          "briefing": {
+            "review": {
+              "summary": {
+                "sha256": "3ec44b2990b7810189d74fb9a677b9e8d08e91e1ef8e86efd25e66ff37b0bcbe",
+                "id": "6f0b237e-1df0-3868-9348-b186ecc27f0a",
+                "version": 1
+              },
+              "sourceSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+              "approved": true,
+              "reviewSha256": "f96f9dbf91dd8f1add18821b689217222a15315a3a5b42f63a76e24477d70a49",
+              "id": "1a587dcc-d324-4c5e-9e88-96ee275f2ddd",
+              "exportId": "70b68c95-1f88-4393-84f6-f159bdbc7efd",
+              "sections": [
+                "totals",
+                "chart"
+              ]
+            },
+            "proof": {
+              "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+              "laterExportId": "a25d906f-d38c-4f3c-9abb-693a3d810a12",
+              "comparisonExportId": "70b68c95-1f88-4393-84f6-f159bdbc7efd",
+              "artifact": {
+                "sha256": "d5735b5497820247c14f633a0011d8c912d3b79f20d92cd86afcaae97b503e55",
+                "id": "bd5cbe5e-425f-39b3-b363-a60602908b3a",
+                "version": 1
+              },
+              "briefingId": "1a587dcc-d324-4c5e-9e88-96ee275f2ddd",
+              "htmlSha256": "261e6d4d97bc33b07804a29a745c0807834ca08c1971c892ff19545ae297eaf0",
+              "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+              "keyColumn": "record ID",
+              "browserChecks": 22,
+              "rechecked": true,
+              "id": "3fe5d96c-ec0b-365f-9a56-1f42072fe099",
+              "passed": true,
+              "earlierExportId": "06862cdc-4473-4326-a105-8b9dd7b917bf"
+            },
+            "evidence": {
+              "briefing": {
+                "id": "1a587dcc-d324-4c5e-9e88-96ee275f2ddd",
+                "sections": [
+                  "totals",
+                  "chart"
+                ]
+              },
+              "browserChecks": 22,
+              "import": {
+                "bytes": 804,
+                "createdAt": "2026-11-23T18:12:04.422Z",
+                "id": "70b68c95-1f88-4393-84f6-f159bdbc7efd",
+                "kind": "verified-routed-comparison",
+                "sha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+                "source": {
+                  "artifact": {
+                    "id": "e4de775f-7d5e-3809-b501-8218c9cef854",
+                    "sha256": "75b6a18114a7acfc85a13aa10100970461ec7ea3932ce681ed196a7fcfc5fd4f",
+                    "version": 1
+                  },
+                  "browserChecks": 9,
+                  "browserEvidenceSha256": "bfa174cc57794cc0f1b2745b56049094b5d69220f15a1627fa2ceea15cafa73c",
+                  "comparisonId": "639c69dc-b90a-3b23-a4d6-e04cddd59e4c",
+                  "earlier": {
+                    "exportId": "06862cdc-4473-4326-a105-8b9dd7b917bf",
+                    "sha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1"
+                  },
+                  "format": "fraynix.routed-key-comparison-csv-v1",
+                  "groups": 8,
+                  "keyColumn": "record ID",
+                  "later": {
+                    "exportId": "a25d906f-d38c-4f3c-9abb-693a3d810a12",
+                    "sha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36"
+                  }
+                }
+              },
+              "passed": true,
+              "presentation": "comparison-briefing-v1",
+              "summary": {
+                "artifact": {
+                  "id": "6f0b237e-1df0-3868-9348-b186ecc27f0a",
+                  "sha256": "3ec44b2990b7810189d74fb9a677b9e8d08e91e1ef8e86efd25e66ff37b0bcbe",
+                  "version": 1
+                },
+                "proofSha256": "b364233f18b846e0977d8e1222ca7e175c850a2473cd01c2dc2c9c55fe77f8e7"
+              },
+              "views": [
+                {
+                  "groups": 8,
+                  "status": "all",
+                  "totals": [
+                    {
+                      "absoluteDelta": "27",
+                      "added": 0,
+                      "duplicate": 1,
+                      "matched": 3,
+                      "missing": 0,
+                      "netDelta": "9",
+                      "unit": "°F"
+                    },
+                    {
+                      "absoluteDelta": "38.1",
+                      "added": 1,
+                      "duplicate": 0,
+                      "matched": 2,
+                      "missing": 1,
+                      "netDelta": "12.7",
+                      "unit": "mm"
+                    }
+                  ],
+                  "unit": "all"
+                },
+                {
+                  "groups": 4,
+                  "status": "all",
+                  "totals": [
+                    {
+                      "absoluteDelta": "27",
+                      "added": 0,
+                      "duplicate": 1,
+                      "matched": 3,
+                      "missing": 0,
+                      "netDelta": "9",
+                      "unit": "°F"
+                    }
+                  ],
+                  "unit": "°F"
+                }
+              ]
+            },
+            "rowsOnly": {
+              "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+              "laterExportId": "a25d906f-d38c-4f3c-9abb-693a3d810a12",
+              "comparisonExportId": "70b68c95-1f88-4393-84f6-f159bdbc7efd",
+              "artifact": {
+                "sha256": "738469d2e12791b04b01cc7c111eb731cb40c80dcbfd8f079dae5d9bf288d060",
+                "id": "6c27d0a3-6fed-347c-817c-e628cd59a613",
+                "version": 1
+              },
+              "briefingId": "a54a5258-b53c-4862-a4fe-60eb8151939f",
+              "htmlSha256": "74c329acda024e50bc031a1ab41a383595695ba4cc4401226714febc159edd9f",
+              "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+              "keyColumn": "record ID",
+              "browserChecks": 18,
+              "rechecked": true,
+              "id": "c1ccbf8c-a3bf-30a2-aba9-59171748cbfb",
+              "passed": true,
+              "earlierExportId": "06862cdc-4473-4326-a105-8b9dd7b917bf"
+            }
+          },
+          "changes": [
+            [
+              "°F",
+              "fall",
+              "-9 °F",
+              "loss",
+              5000
+            ],
+            [
+              "°F",
+              "rise <probe>",
+              "+18 °F",
+              "gain",
+              10000
+            ],
+            [
+              "°F",
+              "steady",
+              "0 °F",
+              "steady",
+              0
+            ],
+            [
+              "mm",
+              "length fall",
+              "-12.7 mm",
+              "loss",
+              5000
+            ],
+            [
+              "mm",
+              "length gain",
+              "+25.4 mm",
+              "gain",
+              10000
+            ]
+          ],
+          "checks": [
+            "Chat builds a separate, Java-verified artifact after the comparison and summary",
+            "Restart rechecks the pinned original beside an independent explorer and a newer export",
+            "Standalone HTML works offline with the correct painted bars, filter changes, keyboard selection and exact CSV download",
+            "The exact briefing review survives restart; stale approval and unapproved builds produce no artifact",
+            "Approved sections and original evidence work in the exported briefing with networking blocked",
+            "A rows-only briefing produces a distinct verified artifact and hides the chart and totals",
+            "Changed comparison bytes are refused before sharing the story"
+          ]
+        }
+      },
+      "linux-x64": {
+        "status": "success",
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/45235387742/job/137905609253",
+        "desktop": {
+          "passed": true,
+          "platform": "linux",
+          "architecture": "x64",
+          "nativeGame": "verified",
+          "checks": [
+            "Java connection and guided verification continue after closed console errors",
+            "Native Bullet physics passes the independent incline reference",
+            "Hidden native renderer loads Relay Garden and renders fixed-step movement",
+            "Persistent Java owner starts and reopens the saved project"
+          ]
+        },
+        "briefing": {
+          "passed": true,
+          "platform": "linux",
+          "architecture": "x64",
+          "proof": {
+            "artifact": {
+              "sha256": "6b122a86be0d3255ec7d4086b6997793792976ad2176c64dd82a5be38f561ac0",
+              "id": "b33c7871-70cd-3d3c-88cc-55c7ad8b091d",
+              "version": 1
+            },
+            "htmlSha256": "4397dce9e2ed7b0d7edd4926a68a82837fd8c6bff4c6df1883317a4e5de21bfa",
+            "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+            "keyColumn": "record ID",
+            "browserChecks": 24,
+            "id": "d1398227-e0a1-3d5d-9a83-ecd0e39854e1",
+            "passed": true,
+            "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+            "laterExportId": "d8471602-0f44-43b5-9731-2ce4b6e04f39",
+            "comparisonExportId": "6e2a3fdf-bf25-4503-b519-5a05e7dc487d",
+            "earlierExportId": "138cb7d7-69c1-4a74-98c7-38313f7ca004",
+            "story": true
+          },
+          "briefing": {
+            "review": {
+              "summary": {
+                "sha256": "80888eabbc2ce398a6ddb9e9c4a622ec481d40d392f10604e5beba582eafecd3",
+                "id": "e1a04ca1-0f27-3eeb-931c-30a232dd2f3a",
+                "version": 1
+              },
+              "sourceSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+              "approved": true,
+              "reviewSha256": "d22be36cf8b78eaac766d0d59752605bba7adfa9615841ac48a2a97304285a3e",
+              "id": "4da8c792-3e2e-4214-9922-8412044bcdeb",
+              "exportId": "6e2a3fdf-bf25-4503-b519-5a05e7dc487d",
+              "sections": [
+                "totals",
+                "chart"
+              ]
+            },
+            "proof": {
+              "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+              "laterExportId": "d8471602-0f44-43b5-9731-2ce4b6e04f39",
+              "comparisonExportId": "6e2a3fdf-bf25-4503-b519-5a05e7dc487d",
+              "artifact": {
+                "sha256": "563a52e223b124dd25534029909af0f272e295c572ea32fc7c132cbba2d58ef2",
+                "id": "a162251f-e55b-33f4-8cec-b3cf41756928",
+                "version": 1
+              },
+              "briefingId": "4da8c792-3e2e-4214-9922-8412044bcdeb",
+              "htmlSha256": "9c65ece8783c9dda0f91c9c85fd6370cec46b477748bc2e116c0f07a80732405",
+              "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+              "keyColumn": "record ID",
+              "browserChecks": 22,
+              "rechecked": true,
+              "id": "2000aca6-5df4-347a-9804-59d4eee0bcd6",
+              "passed": true,
+              "earlierExportId": "138cb7d7-69c1-4a74-98c7-38313f7ca004"
+            },
+            "evidence": {
+              "briefing": {
+                "id": "4da8c792-3e2e-4214-9922-8412044bcdeb",
+                "sections": [
+                  "totals",
+                  "chart"
+                ]
+              },
+              "browserChecks": 22,
+              "import": {
+                "bytes": 804,
+                "createdAt": "2026-11-23T18:11:22.568Z",
+                "id": "6e2a3fdf-bf25-4503-b519-5a05e7dc487d",
+                "kind": "verified-routed-comparison",
+                "sha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+                "source": {
+                  "artifact": {
+                    "id": "b2242760-db31-31a3-a1b1-8c9d578f0190",
+                    "sha256": "b784c56c721f69625b2cd68cd5e76a9bc469dc4e558b4e2fbdf4646f0f2c76be",
+                    "version": 1
+                  },
+                  "browserChecks": 9,
+                  "browserEvidenceSha256": "bfa174cc57794cc0f1b2745b56049094b5d69220f15a1627fa2ceea15cafa73c",
+                  "comparisonId": "0fb16fed-66df-3b9f-8633-7ebccb812dc6",
+                  "earlier": {
+                    "exportId": "138cb7d7-69c1-4a74-98c7-38313f7ca004",
+                    "sha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1"
+                  },
+                  "format": "fraynix.routed-key-comparison-csv-v1",
+                  "groups": 8,
+                  "keyColumn": "record ID",
+                  "later": {
+                    "exportId": "d8471602-0f44-43b5-9731-2ce4b6e04f39",
+                    "sha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36"
+                  }
+                }
+              },
+              "passed": true,
+              "presentation": "comparison-briefing-v1",
+              "summary": {
+                "artifact": {
+                  "id": "e1a04ca1-0f27-3eeb-931c-30a232dd2f3a",
+                  "sha256": "80888eabbc2ce398a6ddb9e9c4a622ec481d40d392f10604e5beba582eafecd3",
+                  "version": 1
+                },
+                "proofSha256": "345af53ca7ba524f6bc01ca0c9e42f9f0c3cdf4ea36187da4aa1eab5c5a1b90e"
+              },
+              "views": [
+                {
+                  "groups": 8,
+                  "status": "all",
+                  "totals": [
+                    {
+                      "absoluteDelta": "27",
+                      "added": 0,
+                      "duplicate": 1,
+                      "matched": 3,
+                      "missing": 0,
+                      "netDelta": "9",
+                      "unit": "°F"
+                    },
+                    {
+                      "absoluteDelta": "38.1",
+                      "added": 1,
+                      "duplicate": 0,
+                      "matched": 2,
+                      "missing": 1,
+                      "netDelta": "12.7",
+                      "unit": "mm"
+                    }
+                  ],
+                  "unit": "all"
+                },
+                {
+                  "groups": 4,
+                  "status": "all",
+                  "totals": [
+                    {
+                      "absoluteDelta": "27",
+                      "added": 0,
+                      "duplicate": 1,
+                      "matched": 3,
+                      "missing": 0,
+                      "netDelta": "9",
+                      "unit": "°F"
+                    }
+                  ],
+                  "unit": "°F"
+                }
+              ]
+            },
+            "rowsOnly": {
+              "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+              "laterExportId": "d8471602-0f44-43b5-9731-2ce4b6e04f39",
+              "comparisonExportId": "6e2a3fdf-bf25-4503-b519-5a05e7dc487d",
+              "artifact": {
+                "sha256": "a0d308074d59fdc8cc6717de6ca2a57ca09dfb6b64c4f911e7b5ad3d0d5b0b97",
+                "id": "a61a25ea-3c49-34dd-93c0-a168639aac4f",
+                "version": 1
+              },
+              "briefingId": "a6d60cd3-c960-4db1-bf75-0dcae767cd59",
+              "htmlSha256": "0769db7a2041d74b5d2e8f74cd2e5d1f9d09dde0b3a7e823a21a54774ff1fdcb",
+              "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+              "keyColumn": "record ID",
+              "browserChecks": 18,
+              "rechecked": true,
+              "id": "3c13cf1d-41a2-3a42-9699-7e8a3421930a",
+              "passed": true,
+              "earlierExportId": "138cb7d7-69c1-4a74-98c7-38313f7ca004"
+            }
+          },
+          "changes": [
+            [
+              "°F",
+              "fall",
+              "-9 °F",
+              "loss",
+              5000
+            ],
+            [
+              "°F",
+              "rise <probe>",
+              "+18 °F",
+              "gain",
+              10000
+            ],
+            [
+              "°F",
+              "steady",
+              "0 °F",
+              "steady",
+              0
+            ],
+            [
+              "mm",
+              "length fall",
+              "-12.7 mm",
+              "loss",
+              5000
+            ],
+            [
+              "mm",
+              "length gain",
+              "+25.4 mm",
+              "gain",
+              10000
+            ]
+          ],
+          "checks": [
+            "Chat builds a separate, Java-verified artifact after the comparison and summary",
+            "Restart rechecks the pinned original beside an independent explorer and a newer export",
+            "Standalone HTML works offline with the correct painted bars, filter changes, keyboard selection and exact CSV download",
+            "The exact briefing review survives restart; stale approval and unapproved builds produce no artifact",
+            "Approved sections and original evidence work in the exported briefing with networking blocked",
+            "A rows-only briefing produces a distinct verified artifact and hides the chart and totals",
+            "Changed comparison bytes are refused before sharing the story"
+          ]
+        }
+      },
+      "macos-arm64": {
+        "status": "success",
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/45235387742/job/137905609385",
+        "desktop": {
+          "passed": true,
+          "platform": "darwin",
+          "architecture": "arm64",
+          "nativeGame": "display-unavailable",
+          "checks": [
+            "Java connection and guided verification continue after closed console errors",
+            "Native Bullet physics passes the independent incline reference",
+            "Persistent Java owner starts and reopens the saved project"
+          ]
+        },
+        "briefing": {
+          "passed": true,
+          "platform": "darwin",
+          "architecture": "arm64",
+          "proof": {
+            "artifact": {
+              "sha256": "20670280de4bf25202192535dc95397eed0e008aafc82dcb9756aeff24fdc76e",
+              "id": "25f1a6e9-1c1e-31e4-ba3a-8f42b0b361d0",
+              "version": 1
+            },
+            "htmlSha256": "98f1b7800d001cd4afa1288420e166679cbcb172d5a7aad9fb01caa34983bdec",
+            "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+            "keyColumn": "record ID",
+            "browserChecks": 24,
+            "id": "6edca14e-8d54-337f-a1a3-2865c046589b",
+            "passed": true,
+            "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+            "laterExportId": "4f59bd02-580f-4c55-af21-0d43ea597ec1",
+            "comparisonExportId": "b604219d-05f6-48c3-bedc-cce93d0c22d4",
+            "earlierExportId": "89dad108-da5a-4cc1-887f-9d4fd511c8c4",
+            "story": true
+          },
+          "briefing": {
+            "review": {
+              "summary": {
+                "sha256": "b1a9b1ea106cc20afd59ac2b6aeb06af5cff7ccf87e87c6f256d1db5f060c8de",
+                "id": "baace0a4-f15e-3c0f-9124-9253b9d58922",
+                "version": 1
+              },
+              "sourceSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+              "approved": true,
+              "reviewSha256": "8bb4bf3f13d1eb2edbb41d9d2bc45d51b2184cb616aca852603900c17dcbdc13",
+              "id": "1aeaf3bd-1f52-4197-b03d-5615d3ea8aa8",
+              "exportId": "b604219d-05f6-48c3-bedc-cce93d0c22d4",
+              "sections": [
+                "totals",
+                "chart"
+              ]
+            },
+            "proof": {
+              "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+              "laterExportId": "4f59bd02-580f-4c55-af21-0d43ea597ec1",
+              "comparisonExportId": "b604219d-05f6-48c3-bedc-cce93d0c22d4",
+              "artifact": {
+                "sha256": "64e491b2ca531cdd1c3b72de7717c11e22a8cac4f6498b1d5fbb89aa9e3d6f8a",
+                "id": "b74e5532-a95e-3f46-aad2-6bcaebbfec35",
+                "version": 1
+              },
+              "briefingId": "1aeaf3bd-1f52-4197-b03d-5615d3ea8aa8",
+              "htmlSha256": "43e59739daeafe0ed7cdac69e210abcae28b081b0a6c8d83a237e0a4d12ea320",
+              "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+              "keyColumn": "record ID",
+              "browserChecks": 22,
+              "rechecked": true,
+              "id": "0274ac8b-e598-3fdd-a94d-617b6ce04535",
+              "passed": true,
+              "earlierExportId": "89dad108-da5a-4cc1-887f-9d4fd511c8c4"
+            },
+            "evidence": {
+              "briefing": {
+                "id": "1aeaf3bd-1f52-4197-b03d-5615d3ea8aa8",
+                "sections": [
+                  "totals",
+                  "chart"
+                ]
+              },
+              "browserChecks": 22,
+              "import": {
+                "bytes": 804,
+                "createdAt": "2026-11-23T18:10:56.330Z",
+                "id": "b604219d-05f6-48c3-bedc-cce93d0c22d4",
+                "kind": "verified-routed-comparison",
+                "sha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+                "source": {
+                  "artifact": {
+                    "id": "de7bf0f0-4b8d-3af4-9b1e-bbbcd4074f38",
+                    "sha256": "5d2d3923f9b13d0727cfc8afd863912846d7a537329590ba597c2f7d76874003",
+                    "version": 1
+                  },
+                  "browserChecks": 9,
+                  "browserEvidenceSha256": "bfa174cc57794cc0f1b2745b56049094b5d69220f15a1627fa2ceea15cafa73c",
+                  "comparisonId": "3f1023de-19d1-3351-b542-a50f65c9dc52",
+                  "earlier": {
+                    "exportId": "89dad108-da5a-4cc1-887f-9d4fd511c8c4",
+                    "sha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1"
+                  },
+                  "format": "fraynix.routed-key-comparison-csv-v1",
+                  "groups": 8,
+                  "keyColumn": "record ID",
+                  "later": {
+                    "exportId": "4f59bd02-580f-4c55-af21-0d43ea597ec1",
+                    "sha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36"
+                  }
+                }
+              },
+              "passed": true,
+              "presentation": "comparison-briefing-v1",
+              "summary": {
+                "artifact": {
+                  "id": "baace0a4-f15e-3c0f-9124-9253b9d58922",
+                  "sha256": "b1a9b1ea106cc20afd59ac2b6aeb06af5cff7ccf87e87c6f256d1db5f060c8de",
+                  "version": 1
+                },
+                "proofSha256": "dc177771889f78dc68c0dbe5cd26cbd88521973ae9f3d95a844fb732a2624a49"
+              },
+              "views": [
+                {
+                  "groups": 8,
+                  "status": "all",
+                  "totals": [
+                    {
+                      "absoluteDelta": "27",
+                      "added": 0,
+                      "duplicate": 1,
+                      "matched": 3,
+                      "missing": 0,
+                      "netDelta": "9",
+                      "unit": "°F"
+                    },
+                    {
+                      "absoluteDelta": "38.1",
+                      "added": 1,
+                      "duplicate": 0,
+                      "matched": 2,
+                      "missing": 1,
+                      "netDelta": "12.7",
+                      "unit": "mm"
+                    }
+                  ],
+                  "unit": "all"
+                },
+                {
+                  "groups": 4,
+                  "status": "all",
+                  "totals": [
+                    {
+                      "absoluteDelta": "27",
+                      "added": 0,
+                      "duplicate": 1,
+                      "matched": 3,
+                      "missing": 0,
+                      "netDelta": "9",
+                      "unit": "°F"
+                    }
+                  ],
+                  "unit": "°F"
+                }
+              ]
+            },
+            "rowsOnly": {
+              "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+              "laterExportId": "4f59bd02-580f-4c55-af21-0d43ea597ec1",
+              "comparisonExportId": "b604219d-05f6-48c3-bedc-cce93d0c22d4",
+              "artifact": {
+                "sha256": "b487362fd022d7b9e72f82b6af7aa6e7dee39a96637272d75dbf18bb5d443dd3",
+                "id": "bd227e5d-2385-3cd9-88a2-50ac8fb7c4b9",
+                "version": 1
+              },
+              "briefingId": "2700ea0c-ac8e-4d1a-8bce-023b8855c294",
+              "htmlSha256": "0cbcbb80d92c9f0ffaefd894b948b25ef72581f72dc28ada447cf97d6dec18c0",
+              "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+              "keyColumn": "record ID",
+              "browserChecks": 18,
+              "rechecked": true,
+              "id": "df9d48dd-fbf9-370b-8b3c-11f6790cb986",
+              "passed": true,
+              "earlierExportId": "89dad108-da5a-4cc1-887f-9d4fd511c8c4"
+            }
+          },
+          "changes": [
+            [
+              "°F",
+              "fall",
+              "-9 °F",
+              "loss",
+              5000
+            ],
+            [
+              "°F",
+              "rise <probe>",
+              "+18 °F",
+              "gain",
+              10000
+            ],
+            [
+              "°F",
+              "steady",
+              "0 °F",
+              "steady",
+              0
+            ],
+            [
+              "mm",
+              "length fall",
+              "-12.7 mm",
+              "loss",
+              5000
+            ],
+            [
+              "mm",
+              "length gain",
+              "+25.4 mm",
+              "gain",
+              10000
+            ]
+          ],
+          "checks": [
+            "Chat builds a separate, Java-verified artifact after the comparison and summary",
+            "Restart rechecks the pinned original beside an independent explorer and a newer export",
+            "Standalone HTML works offline with the correct painted bars, filter changes, keyboard selection and exact CSV download",
+            "The exact briefing review survives restart; stale approval and unapproved builds produce no artifact",
+            "Approved sections and original evidence work in the exported briefing with networking blocked",
+            "A rows-only briefing produces a distinct verified artifact and hides the chart and totals",
+            "Changed comparison bytes are refused before sharing the story"
+          ]
+        }
+      }
+    }
+  },
+  "sourceBaseline": "4379dc52d501d372515fe271a9737aac475cba08",
+  "windowsBriefing": {
+    "passed": true,
+    "platform": "win32",
+    "architecture": "x64",
+    "proof": {
+      "artifact": {
+        "sha256": "d0b7bb53bd4bb8742db8a5ebadb498f4ac70818a662c97af9646912601561dfc",
+        "id": "8db48af1-db25-3ca1-8cf7-f034a31b0fd2",
+        "version": 1
+      },
+      "htmlSha256": "4e76a05e8f8aadf0429e982537f54caf2730197cc07f90a37b2241763b81f569",
+      "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+      "keyColumn": "record ID",
+      "browserChecks": 24,
+      "id": "01653ec2-b8f6-39b6-81cc-f7f391d7f7da",
+      "passed": true,
+      "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+      "laterExportId": "dd051231-00c5-40b1-8779-0876628664d9",
+      "comparisonExportId": "6aa72868-d7ca-43db-8146-5bcec1bde6a5",
+      "earlierExportId": "7988daa6-d4cc-4396-9297-4283995cdd40",
+      "story": true
+    },
+    "briefing": {
+      "review": {
+        "summary": {
+          "sha256": "7fb12580ffca8a59056b49526f2b076f41642431bcdc842e30269ad8a5e4b745",
+          "id": "90360d32-d666-3795-a2d2-2f7123a85972",
+          "version": 1
+        },
+        "sourceSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+        "approved": true,
+        "reviewSha256": "284efae505d1d32b0047521ffedaf190d57414b2f4e6954c2cff0dfd3e2d91b1",
+        "id": "f9fdc300-24db-4120-85d8-709cb651f457",
+        "exportId": "6aa72868-d7ca-43db-8146-5bcec1bde6a5",
+        "sections": [
+          "totals",
+          "chart"
+        ]
+      },
+      "proof": {
+        "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+        "laterExportId": "dd051231-00c5-40b1-8779-0876628664d9",
+        "comparisonExportId": "6aa72868-d7ca-43db-8146-5bcec1bde6a5",
+        "artifact": {
+          "sha256": "99e5c86c8dce2c80e8c5ff656892437647a774a2bdd9f14af08e5d9f5a1f2ca9",
+          "id": "1dd661c9-e7df-3cab-b5af-24d5b5c30db3",
+          "version": 1
+        },
+        "briefingId": "f9fdc300-24db-4120-85d8-709cb651f457",
+        "htmlSha256": "39ab461cc4f137efd5a13342993834f7919d722f53f425720ddbd4f94e9dad16",
+        "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+        "keyColumn": "record ID",
+        "browserChecks": 22,
+        "rechecked": true,
+        "id": "3f87bbcd-391c-311d-a9bc-a90e045601fc",
+        "passed": true,
+        "earlierExportId": "7988daa6-d4cc-4396-9297-4283995cdd40"
+      },
+      "evidence": {
+        "briefing": {
+          "id": "f9fdc300-24db-4120-85d8-709cb651f457",
+          "sections": [
+            "totals",
+            "chart"
+          ]
+        },
+        "browserChecks": 22,
+        "import": {
+          "bytes": 804,
+          "createdAt": "2026-11-23T18:11:41.549Z",
+          "id": "6aa72868-d7ca-43db-8146-5bcec1bde6a5",
+          "kind": "verified-routed-comparison",
+          "sha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+          "source": {
+            "artifact": {
+              "id": "6ceb86ab-7817-3257-976f-f32f56e67241",
+              "sha256": "f3324a8d2f14d075ab2c3b709fcdb1c7fd39f9362e5bfa1f8df77bcb19d17035",
+              "version": 1
+            },
+            "browserChecks": 9,
+            "browserEvidenceSha256": "bfa174cc57794cc0f1b2745b56049094b5d69220f15a1627fa2ceea15cafa73c",
+            "comparisonId": "99390de1-7976-361c-bfcc-f45eeeb73ba1",
+            "earlier": {
+              "exportId": "7988daa6-d4cc-4396-9297-4283995cdd40",
+              "sha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1"
+            },
+            "format": "fraynix.routed-key-comparison-csv-v1",
+            "groups": 8,
+            "keyColumn": "record ID",
+            "later": {
+              "exportId": "dd051231-00c5-40b1-8779-0876628664d9",
+              "sha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36"
+            }
+          }
+        },
+        "passed": true,
+        "presentation": "comparison-briefing-v1",
+        "summary": {
+          "artifact": {
+            "id": "90360d32-d666-3795-a2d2-2f7123a85972",
+            "sha256": "7fb12580ffca8a59056b49526f2b076f41642431bcdc842e30269ad8a5e4b745",
+            "version": 1
+          },
+          "proofSha256": "fe0065735a4e5037586177a91f935ec577ab107c5409879e420201bbff9fa2c3"
+        },
+        "views": [
+          {
+            "groups": 8,
+            "status": "all",
+            "totals": [
+              {
+                "absoluteDelta": "27",
+                "added": 0,
+                "duplicate": 1,
+                "matched": 3,
+                "missing": 0,
+                "netDelta": "9",
+                "unit": "°F"
+              },
+              {
+                "absoluteDelta": "38.1",
+                "added": 1,
+                "duplicate": 0,
+                "matched": 2,
+                "missing": 1,
+                "netDelta": "12.7",
+                "unit": "mm"
+              }
+            ],
+            "unit": "all"
+          },
+          {
+            "groups": 4,
+            "status": "all",
+            "totals": [
+              {
+                "absoluteDelta": "27",
+                "added": 0,
+                "duplicate": 1,
+                "matched": 3,
+                "missing": 0,
+                "netDelta": "9",
+                "unit": "°F"
+              }
+            ],
+            "unit": "°F"
+          }
+        ]
+      },
+      "rowsOnly": {
+        "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+        "laterExportId": "dd051231-00c5-40b1-8779-0876628664d9",
+        "comparisonExportId": "6aa72868-d7ca-43db-8146-5bcec1bde6a5",
+        "artifact": {
+          "sha256": "50f789827fab75e54f3e598039a5547e8970b02602b8332efc948561951c16a3",
+          "id": "58d4f83f-4a10-3389-a7bc-fa841a8f8bc2",
+          "version": 1
+        },
+        "briefingId": "cd259359-b348-40c5-b705-826720089c8a",
+        "htmlSha256": "cf21eba5f277b2c61f3a92e73852187d93b75dd91c2eda58e1db45537e5c3170",
+        "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+        "keyColumn": "record ID",
+        "browserChecks": 18,
+        "rechecked": true,
+        "id": "3bb833b0-9b8a-3480-8c0e-41b0828e8aac",
+        "passed": true,
+        "earlierExportId": "7988daa6-d4cc-4396-9297-4283995cdd40"
+      }
+    },
+    "changes": [
+      [
+        "°F",
+        "fall",
+        "-9 °F",
+        "loss",
+        5000
+      ],
+      [
+        "°F",
+        "rise <probe>",
+        "+18 °F",
+        "gain",
+        10000
+      ],
+      [
+        "°F",
+        "steady",
+        "0 °F",
+        "steady",
+        0
+      ],
+      [
+        "mm",
+        "length fall",
+        "-12.7 mm",
+        "loss",
+        5000
+      ],
+      [
+        "mm",
+        "length gain",
+        "+25.4 mm",
+        "gain",
+        10000
+      ]
+    ],
+    "checks": [
+      "Chat builds a separate, Java-verified artifact after the comparison and summary",
+      "Restart rechecks the pinned original beside an independent explorer and a newer export",
+      "Standalone HTML works offline with the correct painted bars, filter changes, keyboard selection and exact CSV download",
+      "The exact briefing review survives restart; stale approval and unapproved builds produce no artifact",
+      "Approved sections and original evidence work in the exported briefing with networking blocked",
+      "A rows-only briefing produces a distinct verified artifact and hides the chart and totals",
+      "Changed comparison bytes are refused before sharing the story"
+    ]
+  },
+  "screenshots": [
+    {
+      "path": "docs/readmes/207/mac-review.png",
+      "bytes": 106962,
+      "sha256": "395876284e7462f092c82535dab4418f6926530b741b79b83e66f75b48cad856",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/207/offline-briefing.png",
+      "bytes": 63003,
+      "sha256": "6f53a1672171df5ab0cc955b28451cae40d7d35f0e8db845fd5d5ccac996146f",
+      "hashKind": "binary"
+    }
+  ]
+}

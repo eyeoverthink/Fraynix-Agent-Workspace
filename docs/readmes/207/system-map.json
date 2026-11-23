@@ -1,0 +1,49 @@
+{
+  "summary": "Choose the totals, chart or source rows for an offline briefing in Chat. Approve the source and the selected sections before Fraynix builds it.",
+  "modules": [
+    {
+      "title": "Chat commands",
+      "source": "workspace-desktop/renderer/classification-routing.js",
+      "note": "docs/obsidian/215-comparison-briefing.md"
+    },
+    {
+      "title": "Reviewed comparison briefing",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ComparisonBriefing.java",
+      "note": "docs/obsidian/215-comparison-briefing.md"
+    },
+    {
+      "title": "Desktop output recovery",
+      "source": "workspace-desktop/process-stdio.cjs",
+      "note": "docs/obsidian/215-comparison-briefing.md"
+    },
+    {
+      "title": "Desktop and export verification",
+      "source": "workspace-desktop/test/change-story-integration.cjs",
+      "note": "docs/obsidian/215-comparison-briefing.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/207/mac-review.png",
+      "title": "Review the proposed sections and comparison on Apple silicon macOS"
+    },
+    {
+      "path": "docs/readmes/207/offline-briefing.png",
+      "title": "The stand-alone file on Windows shows the reviewed totals and chart"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/207/comparison-briefing.html",
+      "title": "Open the exported offline briefing"
+    },
+    {
+      "path": "docs/readmes/207/release-proof.json",
+      "title": "Platform and test evidence"
+    },
+    {
+      "path": "docs/publication207/plan.md",
+      "title": "Reproduction and next candidate"
+    }
+  ]
+}

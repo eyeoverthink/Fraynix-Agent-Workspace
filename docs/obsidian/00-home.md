@@ -1,3 +1,5 @@
+[Edition 207 — Reviewed comparison briefings](215-comparison-briefing.md)
+
 [Edition 206 — Interactive change stories](214-change-story.md)
 
 [Edition 205 — Mac, Linux and Windows setup](213-portable-workspace.md)

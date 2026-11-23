@@ -1,3 +1,7 @@
+## Edition 207 — Approve and share a verified comparison briefing
+
+2026-11-23. Choose the totals, chart or source rows for an offline briefing in Chat. Approve the source and the selected sections before Fraynix builds it. Windows x64, Apple silicon, Intel Mac and Linux x64 passed closed-output recovery and the reviewed briefing workflow. Each platform completed 22 browser checks for totals and chart, and 18 for rows only. Fraynix now handles a closed Electron output pipe without raising a second main-process error. A pending review reopens after restart, and changed comparison bytes prevent export. See README-207.md and docs/publication207/plan.md.
+
 ## Edition 206 — Turn checked comparisons into interactive change stories
 
 2026-11-20. Ask Fraynix to create an interactive change story from a verified comparison. Inspect the source readings behind a bar and export a single HTML file for offline use. The desktop built and rechecked the story on Windows x64, Apple silicon, Intel Mac and Linux x64. All four opened the exported HTML with HTTP and HTTPS blocked. The story has its own durable identity beside earlier explorers. Recheck and export reuse its original source, and an altered comparison was refused before export. See README-206.md and docs/publication206/plan.md.

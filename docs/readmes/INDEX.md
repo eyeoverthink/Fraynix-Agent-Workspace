@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 207 — Reviewed comparison briefings](../../README-207.md) · [Walkthrough](207/index.html)
+
 [Edition 206 — Interactive change stories](../../README-206.md) · [Walkthrough](206/index.html)
 
 [Edition 205 — Mac, Linux and Windows setup](../../README-205.md) · [Walkthrough](205/index.html)
