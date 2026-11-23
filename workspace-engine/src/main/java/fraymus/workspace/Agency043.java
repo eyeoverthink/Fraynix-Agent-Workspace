@@ -134,6 +134,12 @@ final class Agency043 implements AutoCloseable {
         String question = LocalWorkflowSelection.QUESTION;
         if (!id.equals(LocalWorkflowSelection.CLARIFY)) {
             var procedure = LocalWorkflowSelection.Procedure.fromId(id);
+            var plain = PlainWorkflowLanguage.intent(task.getString("goal"));
+            if (plain != null && plain.quick() && procedure != LocalWorkflowSelection.Procedure.ANALYSIS) {
+                clarifyLocalWorkflow(task, LocalWorkflowSelection.CLARIFY,
+                        "Should I analyze travel and speed in the selected motion recording?");
+                return false;
+            }
             question = LocalWorkflowSelection.missing(task, procedure);
             if (question.isEmpty()) {
                 if (by.equals("model") && LocalWorkflowSelection.intent(task.getString("goal")).quick()) {

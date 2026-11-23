@@ -12,6 +12,7 @@ export function mayRequestFrayTool(value) {
     const text = value.normalize('NFKC').toLowerCase().replace(/[^a-z0-9]+/g, ' ');
     return (/^(?:please )?convert\b.*\bthen\b/.test(text)
             && /\b(?:celsius|centigrade|fahrenheit|rankine|c|f|r|inch|inches|in|mm|cm)\b/.test(text))
+        || (/\bcsv\b/.test(text) && /\bjson\b/.test(text))
         || (/\b(?:inch|inches)\b/.test(text) && /\b(?:mm|millimet(?:er|re)s?)\b/.test(text))
         || /\b(?:celsius|centigrade|c) (?:to|into) (?:fahrenheit|f)\b/.test(text);
 }
@@ -88,6 +89,7 @@ export class RequestWorkbenchPanel {
                 const result = await this.call('execute', {id, reviewSha256});
                 this.show(result.task);
                 this.dialog.close();
+                this.announce(result.task.summary);
             } else if (isFray(this.task.choice.action)) {
                 this.dialog.close();
                 this.layout();
@@ -166,6 +168,8 @@ export class RequestWorkbenchPanel {
             ? 'Attach CSV data in the Workbench. Java will check every browser result before saving.'
             : result.task.choice.chain
             ? 'Review both conversions in the Workbench. I will verify the first result before starting the second.'
+            : result.task.choice.needsFile
+            ? 'Choose the file in the Workbench and review it. Java will verify that conversion preserves the table before exporting.'
             : 'Review the converter in the Workbench. I will test it in the browser before saving it.');
         if (!this.dialog.open) this.dialog.showModal();
         this.layout();

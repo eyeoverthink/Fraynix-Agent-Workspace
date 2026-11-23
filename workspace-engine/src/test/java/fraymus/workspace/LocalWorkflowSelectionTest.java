@@ -8,6 +8,37 @@ import static org.junit.Assert.*;
 
 public class LocalWorkflowSelectionTest {
     @Test
+    public void ordinaryRequestsAreBoundToOneProcedureAndTheOriginalWording() {
+        String ramp = "Which of these two ramps will the block go farther down?";
+        assertEquals(LocalWorkflowSelection.Procedure.RAMP, LocalWorkflowSelection.intent(ramp).direct());
+        assertTrue(PlainWorkflowLanguage.preview(new JSONObject().put("request", ramp)).getBoolean("needsRampInput"));
+
+        String recording = "Hey, can you tell me how far the object travelled in the selected motion recording?";
+        var intent = LocalWorkflowSelection.intent(recording);
+        assertEquals(LocalWorkflowSelection.Procedure.ANALYSIS, intent.direct());
+        assertEquals(recording, intent.briefing());
+        assertEquals(LocalWorkflowSelection.FAMILY, ChatPolicy044.route(recording, new JSONObject(), false));
+        assertEquals(LocalWorkflowSelection.Procedure.ANALYSIS, LocalWorkflowSelection.intent(
+                "How far did it travel in the selected motion recording?").direct());
+        assertEquals(LocalWorkflowSelection.Procedure.CREATION, LocalWorkflowSelection.intent(
+                "Could you whip up a little offline browser app that counts clicks and resets?").direct());
+
+        var report = LocalWorkflowSelection.intent(
+                "Read the selected motion recording and give me a checkable report on its travel and speed.");
+        assertTrue(report.quick());
+        assertNull(report.direct());
+        assertNull(QuickWorkflowRouting.match(report.briefing()));
+        for (String other : new String[]{
+                "Do not compare these two ramps.",
+                "Compare these two ramps, then convert the CSV to JSON.",
+                "Compare these two ramps or summarize the selected motion recording.",
+                "If we did this again, what would change?",
+                "\"How far did it travel in the selected motion recording?\"",
+                "How far did it travel in the selected motion recording? Email the answer."
+        }) assertNull(other, LocalWorkflowSelection.intent(other));
+    }
+
+    @Test
     public void quickRoutingMatchesTheWholeBriefingAndPreservesSuppliedThresholds() {
         var ramp = LocalWorkflowSelection.intent("Route a local workflow: Compare the two prepared inclines on the same clock.");
         assertTrue(ramp.quick());

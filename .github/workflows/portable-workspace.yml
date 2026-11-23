@@ -110,6 +110,14 @@ jobs:
         env:
           FRAYNIX_WORKSPACE_CI_CHROMIUM: '1'
         run: xvfb-run -a node workspace-desktop/test/change-story-integration.cjs build/portable-smoke/change-story
+      - name: Verify ordinary chat requests and reopen their evidence
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/plain-language-integration.cjs build/portable-smoke/plain-language
+      - name: Verify ordinary chat requests on virtual display
+        if: runner.os == 'Linux'
+        env:
+          FRAYNIX_WORKSPACE_CI_CHROMIUM: '1'
+        run: xvfb-run -a node workspace-desktop/test/plain-language-integration.cjs build/portable-smoke/plain-language
       - if: always()
         uses: actions/upload-artifact@v4
         with:

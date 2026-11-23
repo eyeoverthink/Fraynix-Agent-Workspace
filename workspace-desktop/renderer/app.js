@@ -60,8 +60,7 @@ function plannedRampRequest(text) {
  return /^(?:plan the local ramp experiment(?: and pause after reading)?[.!]?|plan a local ramp task(?: and pause after reading)?:[ 	]*\S.{0,1199})$/i.test(text.trim());
 }
 function hasChatRoute() {
- const text=$('goal').value;
- return Boolean(state?.models.length) || offlineMissionRequest(text) || quickWorkflowRequest(text) || mayRequestFrayTool(text);
+ return Boolean(state && $('goal').value.trim());
 }
 function updateChainRecommendation() {
  const goal=$('goal').value.trim();
@@ -213,9 +212,9 @@ $('run').onclick=()=>safe(async()=>{
  if(mayRequestFrayTool(goal)&&await requestsPanel.offerFromChat(goal))return;
  const local=offlineMissionRequest(goal);
  const selectedModel=state?.models.some(m=>m.name===$('model').value)?$('model').value:'';
- if(!selectedModel&&!local&&!quickWorkflowRequest(goal))throw Error('Select a local model or choose a supported action in the Request workbench');
- await request('agent',{goal,model:local?'':selectedModel,planWorld099:document.querySelector('#plan-world099').checked,
-   ...(!local&&!plannedRampRequest(goal)&&!localWorkflowRequest(goal)&&window.browserChecks126?.contract()
+ await request('agent',{goal,model:local?'':selectedModel,plainOnly:!selectedModel&&!local&&!quickWorkflowRequest(goal),
+   planWorld099:document.querySelector('#plan-world099').checked,
+   ...(selectedModel&&!local&&!plannedRampRequest(goal)&&!localWorkflowRequest(goal)&&window.browserChecks126?.contract()
      ?{browserContract126:window.browserChecks126.contract()}:{})});
 });
 $('goal').addEventListener('input',updateChainRecommendation);

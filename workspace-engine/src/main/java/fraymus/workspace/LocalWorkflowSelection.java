@@ -51,7 +51,7 @@ final class LocalWorkflowSelection {
 
     static Intent intent(String text) {
         var match = REQUEST.matcher(text.strip());
-        if (!match.matches()) return null;
+        if (!match.matches()) return PlainWorkflowLanguage.intent(text);
         String command = match.group(2);
         var direct = command == null ? null : Arrays.stream(Procedure.values())
                 .filter(procedure -> procedure.command.equalsIgnoreCase(command)).findFirst().orElseThrow();

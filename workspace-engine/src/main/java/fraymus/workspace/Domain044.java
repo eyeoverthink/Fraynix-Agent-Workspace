@@ -115,6 +115,10 @@ final class Domain044 {
           .put("modelName",procedure==LocalWorkflowSelection.Procedure.ANALYSIS?"java-owned-summary":g.getString("model"));
   if(procedure==LocalWorkflowSelection.Procedure.CREATION){
    args.put("title","Standalone workspace app");
+   var plain=PlainWorkflowLanguage.intent(g.getString("goal"));
+   if(plain!=null&&plain.direct()==LocalWorkflowSelection.Procedure.CREATION){
+    args.put("title","Click counter").put("checks",PlainWorkflowLanguage.counterChecks());
+   }
    String name=Requested044.fields(briefing,"creation").optString("saveSkillName");
    if(!name.isEmpty())args.put("saveSkillName",name);
    return new JSONObject().put("tool","creation.start").put("args",args);
@@ -480,6 +484,18 @@ final class Domain044 {
   if(meta.has(RampTraceChain.HANDOFF))return "Verified the ramp comparison first, then analyzed the "+meta.getJSONObject(RampTraceChain.HANDOFF).getString("winner")+
           " setup's simulated trace in a separate checked motion summary.";
   if(meta.has("rampMission"))return RampMission.summary(meta.getJSONObject("rampMission").getJSONObject("audit"));
+  if(PlainWorkflowLanguage.intent(g.getString("goal"))!=null){
+   if(DataSummary104.KIND.equals(g.optString("selectedLocalWorkflow"))){
+    var workflow=meta.getJSONObject("javaWorkflow");
+    var motion=workflow.getJSONArray("stages").getJSONObject(0).getJSONObject("metrics");
+    return String.format(Locale.ROOT,"The recording shows %.3f m of travel at an average of %.3f m/s across %d samples. Java checked the source and report. %s",
+            motion.getDouble("totalTravelM"),motion.getDouble("meanSpeedMps"),motion.getInt("rowCount"),
+            motion.getBoolean("qualityPassed")?"All samples met the configured quality thresholds.":"Open the report to inspect intervals flagged by the quality thresholds.");
+   }
+   if(LocalWorkflowSelection.Procedure.CREATION.id.equals(g.optString("selectedLocalWorkflow"))){
+    return "I built the offline click counter. Java checked two increments, a reset, and another increment in the browser. Open the result in Mission.";
+   }
+  }
   if(meta.has("javaGameTask115")){
    var audit=meta.getJSONObject("javaGameTask115").getJSONObject("audit");
    if(BlenderGapRepair.KIND.equals(audit.optString("kind")))return BlenderGapRepair.summary(audit);

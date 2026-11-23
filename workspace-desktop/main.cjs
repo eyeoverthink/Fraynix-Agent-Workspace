@@ -389,13 +389,33 @@ async function openMissionResult(mission) {
 function creationSelection(){return inputs100.binding();}
 let currentObservation158=null,currentCalibrated159=null,currentRecorded162=null;
 function bindings044(){const b={scene:currentScene,dataset:currentDataset,spatial:currentSpatial,pose:currentPose,world:currentPersistentWorld,push:pushSelection(),mapping:currentMapSelection,creation:creationSelection(),knowledge:knowledgeBridge?.selected(),tabletop:tabletopBridge?.selected(),observations:observationBridge?.selection(),metric:observationBridge?.metricSelection?.(),tracking:trackingBridge?.selected(),verifiedObservation:currentObservation158,calibratedObservation:currentCalibrated159,recordedSmall:currentRecorded162};return Object.fromEntries(Object.entries(b).filter(([,v])=>v!=null));}
-async function startAgent(goal,model,extra={}){
+async function startAgent(goal,model,extra={},plainOnly=false){
  if(run||learningJob||manualBusy||pendingAgency043)throw Error('Finish or stop the current operation first');if(typeof goal!=='string'||!goal.trim()||goal.length>8000)throw Error('Enter a request up to8000characters');
  const requiresRamp=!extra.chainRecommendation&&rampRequest(goal);
- const sourcePath=requiresRamp||extra.chainRecommendation||localWorkflowRequest(goal)?rampPath(browser.view.webContents.getURL(),origin):'';
- if(requiresRamp&&!sourcePath)throw Error('Open a saved ramp input in the local browser first');
- const generation=agencyLaunchGeneration043;pendingAgency043++;emit('run',{active:true,goal,model,phase:'Java is admitting and routing the request'});
- try{await inputs100.beforeStart();const settings=await window.webContents.executeJavaScript('window.agency043View?.settings()||({visionModel:""})');if(generation!==agencyLaunchGeneration043)return{stopped:true};await updateSelfHost();if(generation!==agencyLaunchGeneration043)return{stopped:true};return await agency043.begin({goal,model,visionModel:settings.visionModel||'',artifactId:currentArtifact?.id||'',bindings:{...bindings044(),...(sourcePath?{rampInput:{path:sourcePath}}:{})},...extra});}finally{pendingAgency043--;if(!agency043.busy())emit('run',{active:false});}
+ const knownRampBinding=requiresRamp||extra.chainRecommendation||localWorkflowRequest(goal);
+ const visibleRamp=rampPath(browser.view.webContents.getURL(),origin);
+ if(requiresRamp&&!visibleRamp)throw Error('Open a saved ramp input in the local browser first');
+ const generation=agencyLaunchGeneration043;
+ pendingAgency043++;
+ emit('run',{active:true,goal,model,phase:'Java is admitting and routing the request'});
+ try {
+  const plain=!knownRampBinding&&!extra.family&&goal.length<=1200
+   ?await api('/api/requests/plain-workflow-intent',{request:goal}):null;
+  if(generation!==agencyLaunchGeneration043)return {stopped:true};
+  if(plainOnly&&!plain?.matched)throw Error('What should I do? Ask how far an object moved in the selected recording, which saved ramp goes farther, or to turn a CSV into JSON. Select a local model for other requests.');
+  const sourcePath=knownRampBinding||plain?.needsRampInput?visibleRamp:'';
+  await inputs100.beforeStart();
+  const settings=await window.webContents.executeJavaScript('window.agency043View?.settings()||({visionModel:""})');
+  if(generation!==agencyLaunchGeneration043)return {stopped:true};
+  await updateSelfHost();
+  if(generation!==agencyLaunchGeneration043)return {stopped:true};
+  if(plain?.matched)delete extra.browserContract126;
+  return await agency043.begin({goal,model,visionModel:settings.visionModel||'',artifactId:currentArtifact?.id||'',
+   bindings:{...bindings044(),...(sourcePath?{rampInput:{path:sourcePath}}:{})},...extra});
+ } finally {
+  pendingAgency043--;
+  if(!agency043.busy())emit('run',{active:false});
+ }
 }
 function startCreationAgent(goal,model,options={}){return startAgent(goal,model,{family:'creation',options});}
 function startWorkflowAgent(goal,model,options={}){return startAgent(goal,model,{family:'workflow',options});}
@@ -1101,7 +1121,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(!a||Object.keys(a).some(k=>!['evidenceId','browserContract126'].includes(k))||!/^[a-f0-9]{64}$/.test(a.evidenceId)||!a.browserContract126)throw Error('Select verified evidence and browser criteria');
       currentObservation158=JSON.parse(JSON.stringify(a));return {selected:true,evidenceId:a.evidenceId};
     }
-    case 'agent':startAgent(input.goal,input.model,{...(input.chainRecommendation?{chainRecommendation:true}:{}),...(input.planWorld099===undefined?{}:{planWorld099:input.planWorld099}),...(input.browserContract126?{browserContract126:input.browserContract126}:{})}).catch(error=>{activity('error',error.message);emit('answer',error.message);});return {started:true};
+    case 'agent':startAgent(input.goal,input.model,{...(input.chainRecommendation?{chainRecommendation:true}:{}),...(input.planWorld099===undefined?{}:{planWorld099:input.planWorld099}),...(input.browserContract126?{browserContract126:input.browserContract126}:{})},input.plainOnly===true).catch(error=>{activity('error',error.message);emit('answer',error.message);});return {started:true};
     case 'stop':await stopAgent();return {stopped:true};
     case 'proof':return guidedProof();
     case 'learningProof':return learnFromEpisodes({proof:true});

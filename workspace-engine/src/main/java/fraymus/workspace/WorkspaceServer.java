@@ -757,6 +757,7 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/event" -> {store.event(input.getString("kind"),input.getJSONObject("data"));result=new JSONObject().put("saved",true);}
                     case "/api/cancel" -> {var active=requests.get(input.getString("requestId"));if(active!=null)active.cancel();result=new JSONObject().put("cancelled",active!=null);}
                     case "/api/requests/chat" -> result=requestWorkbench.chat(input);
+                    case "/api/requests/plain-workflow-intent" -> result=PlainWorkflowLanguage.preview(input);
                     case "/api/requests/routing-start" -> result=classificationRouting.start(input);
                     case "/api/requests/routing-attach" -> result=classificationRouting.attach(input);
                     case "/api/requests/routing-read" -> result=classificationRouting.read(input);

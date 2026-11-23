@@ -66,7 +66,8 @@ final class RequestWorkbench {
         }
         if (chain != null) return new JSONObject().put("matched", true).put("task", retainChain(text, chain));
         var direct = RequestLanguage.direct(text);
-        if (direct == null || direct.fray() == null) return new JSONObject().put("matched", false);
+        if (direct == null || (direct.fray() == null && direct != RequestLanguage.Intent.TO_JSON
+                && direct != RequestLanguage.Intent.TO_CSV)) return new JSONObject().put("matched", false);
         var known = knownPhrase(RequestLanguage.key(text));
         if (known != null && !known.getString("action").equals(direct.id))
             return new JSONObject().put("matched", false);
