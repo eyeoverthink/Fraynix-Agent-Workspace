@@ -37,12 +37,16 @@ record ComparisonBriefing(String id, List<String> sections) {
 
     private String hidden(String section) { return has(section) ? "" : " hidden"; }
 
-    void checkSections(JSONArray steps) {
+    void checkVisibility(JSONArray steps) {
         steps.put(text("#briefing-sections", label()));
         for (var item : List.of(List.of("totals", "#visible-totals"), List.of("chart", "#change-map"),
                 List.of("rows", ".table-wrap"))) {
             steps.put(count(item.get(1) + (has(item.getFirst()) ? ":not([hidden])" : "[hidden]"), 1));
         }
+    }
+
+    void checkSections(JSONArray steps) {
+        checkVisibility(steps);
         steps.put(count("a[href=\"matched-comparison.csv\"]", 1))
                 .put(count("a[href=\"import-receipt.json\"]", 1))
                 .put(count("a[href=\"summary-proof.json\"]", 1));

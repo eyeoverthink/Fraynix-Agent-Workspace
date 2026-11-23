@@ -9,6 +9,7 @@ import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.time.Instant;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Base64;
 import java.util.Objects;
 import java.util.UUID;
@@ -61,32 +62,67 @@ final class RoutedDashboard {
                 MeasurementStore.hash(MapCheckpoint.canonical(task.getJSONArray("checks"))));
     }
 
+    record VerifiedSummary(RoutedComparisonTotals totals, JSONObject receipt, JSONObject artifact, JSONObject proof) {
+        JSONObject binding() {
+            return new JSONObject().put("exportId", receipt.getString("id"))
+                    .put("sourceSha256", receipt.getString("sha256")).put("summary", artifact);
+        }
+    }
+
     synchronized JSONObject reviewBriefing(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "file", "baseline", "keyColumn", "comparisonImport", "sections");
-        var imported = input.getJSONObject("comparisonImport");
-        var receipt = imported.getJSONObject("receipt");
+        SpatialScene.keys(input, "file", "baseline", "keyColumn", "comparisonImport", "sections", "secondSource");
         var sections = ComparisonBriefing.sections(input.getJSONArray("sections"));
-        checkedReport(input.getJSONObject("file"), input.getJSONObject("baseline"), keyColumn(input),
-                imported, Presentation.STORY, null);
-        var summary = load(importedId(imported, Presentation.TOTALS, null)).getJSONObject("artifact");
-        var id = UUID.randomUUID().toString();
-        var review = new JSONObject().put("id", id).put("sections", sections)
-                .put("exportId", receipt.getString("id")).put("sourceSha256", receipt.getString("sha256"))
-                .put("summary", summary);
+        var review = new JSONObject().put("id", UUID.randomUUID().toString()).put("sections", sections);
+        if (input.has("secondSource")) {
+            var first = checkedBriefingSource(input, "Source 1");
+            var second = checkedBriefingSource(input.getJSONObject("secondSource"), "Source 2");
+            requireDistinct(first, second);
+            review.put("sources", new JSONArray().put(first.binding()).put(second.binding()));
+        } else {
+            var imported = input.getJSONObject("comparisonImport");
+            var totals = checkedTotals(input);
+            var summary = checkedSummary(input.getJSONObject("file"), input.getJSONObject("baseline"), keyColumn(input), imported, totals);
+            var binding = summary.binding();
+            for (var key : binding.keySet()) review.put(key, binding.get(key));
+        }
         review.put("reviewSha256", WorldFrames.hash(review)).put("approved", false);
-        AgentFiles042.saveChecked(briefingPath(id), review);
+        AgentFiles042.saveChecked(briefingPath(review.getString("id")), review);
         return review;
     }
 
+    private static void requireDistinct(VerifiedSummary first, VerifiedSummary second) {
+        if (first.receipt().getString("id").equals(second.receipt().getString("id"))
+                || first.receipt().getString("sha256").equals(second.receipt().getString("sha256")))
+            throw new IllegalArgumentException("Choose two distinct verified comparisons with different CSV contents");
+    }
+
+    private RoutedComparisonTotals checkedTotals(JSONObject input) throws Exception {
+        return (RoutedComparisonTotals) checkedReport(input.getJSONObject("file"), input.getJSONObject("baseline"),
+                keyColumn(input), input.getJSONObject("comparisonImport"), Presentation.TOTALS, null);
+    }
+
+    private VerifiedSummary checkedBriefingSource(JSONObject input, String label) throws Exception {
+        try {
+            var totals = checkedTotals(input);
+            return checkedSummary(input.getJSONObject("file"), input.getJSONObject("baseline"), keyColumn(input),
+                    input.getJSONObject("comparisonImport"), totals);
+        } catch (Exception error) {
+            throw new IllegalStateException(label + ": " + error.getMessage(), error);
+        }
+    }
+
     synchronized JSONObject readBriefing(JSONObject input, boolean approve) throws Exception {
-        if (approve) SpatialScene.keys(input, "id", "reviewSha256");
-        else SpatialScene.keys(input, "id");
         String id = input.getString("id");
         var review = loadBriefing(id);
+        if (!approve) SpatialScene.keys(input, "id");
+        else if (review.has("sources")) SpatialScene.keys(input, "id", "reviewSha256", "file", "baseline",
+                "keyColumn", "comparisonImport", "secondSource");
+        else SpatialScene.keys(input, "id", "reviewSha256");
         if (approve) {
             if (!review.getString("reviewSha256").equals(input.getString("reviewSha256")))
                 throw new IllegalArgumentException("The briefing review changed");
             if (!review.getBoolean("approved")) {
+                if (review.has("sources")) checkedReviewedPair(input, review);
                 review.put("approved", true);
                 AgentFiles042.saveChecked(briefingPath(id), review);
             }
@@ -122,7 +158,7 @@ final class RoutedDashboard {
     }
 
     synchronized JSONObject prepare(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "file", "baseline", "keyColumn", "comparisonImport", "explorer", "story", "explorerLesson", "briefingId", "verifyOnly");
+        SpatialScene.keys(input, "file", "baseline", "keyColumn", "comparisonImport", "explorer", "story", "explorerLesson", "briefingId", "secondSource", "verifyOnly");
         var file = input.getJSONObject("file");
         var baseline = input.optJSONObject("baseline");
         String key = keyColumn(input);
@@ -130,15 +166,16 @@ final class RoutedDashboard {
         Presentation presentation = presentation(input);
         String lesson = lessonName(input);
         String briefing = briefingId(input);
-        var report = checkedReport(file, baseline, key, imported, presentation, lesson, briefing);
+        var report = checkedRequestReport(input);
         String id = briefing != null
                 ? UUID.nameUUIDFromBytes(("comparison-briefing-v1:" + briefing).getBytes(StandardCharsets.UTF_8)).toString()
                 : imported == null ? reportId(file, baseline, key) : importedId(imported, presentation, lesson);
         var path = path(id);
         var task = Files.exists(path, LinkOption.NOFOLLOW_LINKS) ? load(id) : null;
         if (task != null) {
-            requireSources(task, file, baseline, key, imported, presentation, lesson);
+            requireRequestSources(task, file, baseline, key, imported, presentation, lesson);
             requireBriefing(task, briefing);
+            requireSecondSource(task, input);
         }
         if (task != null && task.has("artifact")) {
             var saved = proof(task, report);
@@ -160,6 +197,7 @@ final class RoutedDashboard {
             if (presentation == Presentation.STORY) initial.put("story", true);
             if (lesson != null) initial.put("explorerLesson", lesson);
             if (briefing != null) initial.put("briefingId", briefing);
+            if (input.has("secondSource")) initial.put("secondSource", input.getJSONObject("secondSource"));
             save(initial);
         }
         var output = new JSONObject().put("id", id).put("htmlSha256", report.htmlSha256());
@@ -169,7 +207,7 @@ final class RoutedDashboard {
     }
 
     synchronized JSONObject finish(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "id", "file", "baseline", "keyColumn", "comparisonImport", "explorer", "story", "explorerLesson", "briefingId", "htmlSha256", "checks", "exportCsv");
+        SpatialScene.keys(input, "id", "file", "baseline", "keyColumn", "comparisonImport", "explorer", "story", "explorerLesson", "briefingId", "secondSource", "htmlSha256", "checks", "exportCsv");
         var task = load(input.getString("id"));
         var file = input.getJSONObject("file");
         var baseline = input.optJSONObject("baseline");
@@ -177,10 +215,11 @@ final class RoutedDashboard {
         var imported = comparisonImport(input);
         Presentation presentation = presentation(input);
         String lesson = lessonName(input);
-        requireSources(task, file, baseline, key, imported, presentation, lesson);
+        requireRequestSources(task, file, baseline, key, imported, presentation, lesson);
         String briefing = briefingId(input);
         requireBriefing(task, briefing);
-        var report = checkedReport(file, baseline, key, imported, presentation, lesson, briefing);
+        requireSecondSource(task, input);
+        var report = checkedRequestReport(input);
         if (!report.htmlSha256().equals(input.getString("htmlSha256")))
             throw new IllegalStateException("The reviewed dashboard changed");
         var supplied = input.optJSONArray("checks");
@@ -221,9 +260,60 @@ final class RoutedDashboard {
         if (parts.length != 3 || !parts[1].matches("[a-f0-9]{64}") || !parts[2].equals("index.html")) return null;
         var task = load(parts[0]);
         if (task.has("artifact") || task.has("checks")) return null;
-        var report = checkedReport(task.getJSONObject("file"), task.optJSONObject("baseline"),
-                keyColumn(task), comparisonImport(task), presentation(task), lessonName(task), briefingId(task));
+        var report = checkedRequestReport(task);
         return report.htmlSha256().equals(parts[1]) ? report.html().getBytes(StandardCharsets.UTF_8) : null;
+    }
+
+    private static void requireRequestSources(JSONObject task, JSONObject file, JSONObject baseline, String key,
+                                              JSONObject imported, Presentation presentation, String lesson) {
+        try {
+            requireSources(task, file, baseline, key, imported, presentation, lesson);
+        } catch (IllegalStateException error) {
+            if (!task.has("secondSource")) throw error;
+            throw new IllegalStateException("Source 1: " + error.getMessage(), error);
+        }
+    }
+
+    private static void requireSecondSource(JSONObject task, JSONObject input) {
+        var original = task.optJSONObject("secondSource");
+        var supplied = input.optJSONObject("secondSource");
+        if (original == null ? supplied != null : !original.similar(supplied))
+            throw new IllegalArgumentException("Source 2: The reviewed comparison export or receipt changed");
+    }
+
+    private RoutedReport checkedRequestReport(JSONObject input) throws Exception {
+        var id = briefingId(input);
+        if (input.has("secondSource")) {
+            if (id == null) throw new IllegalArgumentException("Review both sources before building a paired briefing");
+            var selection = loadBriefing(id);
+            if (!selection.has("sources")) throw new IllegalArgumentException("Review both sources before building a paired briefing");
+            return checkedPairedBriefing(input, selection);
+        }
+        return checkedReport(input.getJSONObject("file"), input.optJSONObject("baseline"),
+                keyColumn(input), comparisonImport(input), presentation(input), lessonName(input), id);
+    }
+
+    private RoutedReport checkedPairedBriefing(JSONObject input, JSONObject review) throws Exception {
+        if (presentation(input) != Presentation.STORY || lessonName(input) != null)
+            throw new IllegalArgumentException("Use the reviewed briefing presentation");
+        if (!review.getBoolean("approved")) throw new IllegalStateException("Approve the comparison briefing before building it");
+        return new PairedComparisonBriefing(briefingId(input), ComparisonBriefing.sections(review.getJSONArray("sections")),
+                checkedReviewedPair(input, review));
+    }
+
+    private List<VerifiedSummary> checkedReviewedPair(JSONObject input, JSONObject review) throws Exception {
+        var sources = review.getJSONArray("sources");
+        if (!input.has("secondSource")) throw new IllegalArgumentException("Source 2: The reviewed comparison is required");
+        var first = checkedBriefingSource(input, "Source 1");
+        var second = checkedBriefingSource(input.getJSONObject("secondSource"), "Source 2");
+        verifyBinding(sources, 0, first);
+        verifyBinding(sources, 1, second);
+        return List.of(first, second);
+    }
+
+    private static void verifyBinding(JSONArray reviewed, int index, VerifiedSummary current) {
+        if (!reviewed.getJSONObject(index).similar(current.binding()))
+            throw new IllegalStateException("Source " + (index + 1) + ": The original comparison briefing source changed");
     }
 
     private RoutedReport checkedReport(JSONObject file, JSONObject baseline, String key, JSONObject imported,
@@ -256,21 +346,15 @@ final class RoutedDashboard {
         requireSources(original, file, baseline, key, null, Presentation.TOTALS, null);
         var totals = checkedImport(imported, original, comparison);
         if (presentation == Presentation.TOTALS) return totals;
-        String id = importedId(imported, Presentation.TOTALS, null);
-        if (!Files.exists(path(id), LinkOption.NOFOLLOW_LINKS))
-            throw new IllegalStateException("Summarize the comparison CSV before building its explorer");
-        var summary = load(id);
-        requireSources(summary, file, baseline, key, imported, Presentation.TOTALS, null);
-        if (!summary.has("artifact"))
-            throw new IllegalStateException("Verify the comparison CSV summary before building its explorer");
-        var verified = proof(summary, totals);
-        var receipt = imported.getJSONObject("receipt");
+        var summary = checkedSummary(file, baseline, key, imported, totals);
+        var receipt = summary.receipt();
         var lesson = lessonName == null ? null : checkedLesson(lessonName);
         if (lesson != null) ComparisonExplorerLessons.requireFresh(lesson, receipt);
-        var summaryArtifact = verified.getJSONObject("artifact");
+        var summaryArtifact = summary.artifact();
         ComparisonBriefing briefing = null;
         if (briefingId != null) {
             var selection = loadBriefing(briefingId);
+            if (selection.has("sources")) throw new IllegalArgumentException("Source 2: The reviewed comparison is required");
             if (!selection.getBoolean("approved"))
                 throw new IllegalStateException("Approve the comparison briefing before building it");
             if (!selection.getString("exportId").equals(receipt.getString("id"))
@@ -280,7 +364,21 @@ final class RoutedDashboard {
             briefing = new ComparisonBriefing(briefingId, ComparisonBriefing.sections(selection.getJSONArray("sections")));
         }
         return new RoutedComparisonExplorer(totals.csv(), receipt, summaryArtifact,
-                totals.totalsProof(verified.getInt("browserChecks")), lesson, presentation == Presentation.STORY, briefing);
+                summary.proof(), lesson, presentation == Presentation.STORY, briefing);
+    }
+
+    private VerifiedSummary checkedSummary(JSONObject file, JSONObject baseline, String key, JSONObject imported,
+                                           RoutedComparisonTotals totals) throws Exception {
+        String id = importedId(imported, Presentation.TOTALS, null);
+        if (!Files.exists(path(id), LinkOption.NOFOLLOW_LINKS))
+            throw new IllegalStateException("Summarize the comparison CSV before building its explorer");
+        var summary = load(id);
+        requireSources(summary, file, baseline, key, imported, Presentation.TOTALS, null);
+        if (!summary.has("artifact"))
+            throw new IllegalStateException("Verify the comparison CSV summary before building its explorer");
+        var verified = proof(summary, totals);
+        return new VerifiedSummary(totals, imported.getJSONObject("receipt"), verified.getJSONObject("artifact"),
+                totals.totalsProof(verified.getInt("browserChecks")));
     }
 
     private RoutedComparisonTotals checkedImport(JSONObject imported, JSONObject original,
@@ -352,6 +450,8 @@ final class RoutedDashboard {
         var imported = comparisonImport(task);
         if (imported != null) result.put("comparisonExportId", imported.getJSONObject("receipt").getString("id"));
         if (lessonName(task) != null) result.put("explorerLesson", lessonName(task));
+        if (report instanceof PairedComparisonBriefing briefing)
+            result.put("comparisonSources", briefing.sourceBindings());
         if (briefingId(task) != null) result.put("briefingId", briefingId(task));
         else if (presentation(task) == Presentation.STORY) result.put("story", true);
         return result;

@@ -29,10 +29,7 @@ final class RoutedComparisonExplorer implements RoutedReport {
         String rowsText() { return rows.stream().map(RoutedComparisonExplorer::rowText).collect(Collectors.joining("\n")); }
 
         String totalsText() {
-            if (totals.isEmpty()) return "No matching groups.";
-            return totals.stream().map(unit -> unit.name() + " · " + unit.countsText()
-                    + " · Net " + unit.deltaText(unit.net(), true) + " · Absolute " + unit.deltaText(unit.absolute(), false))
-                    .collect(Collectors.joining("\n"));
+            return formatTotals(totals);
         }
 
         JSONObject evidence() {
@@ -102,7 +99,14 @@ final class RoutedComparisonExplorer implements RoutedReport {
         return new View(filter, selected, RoutedComparisonTotals.totalsFor(selected));
     }
 
-    private static String rowText(List<String> row) {
+    static String formatTotals(List<RoutedComparisonTotals.Unit> totals) {
+        if (totals.isEmpty()) return "No matching groups.";
+        return totals.stream().map(unit -> unit.name() + " · " + unit.countsText()
+                + " · Net " + unit.deltaText(unit.net(), true) + " · Absolute " + unit.deltaText(unit.absolute(), false))
+                .collect(Collectors.joining("\n"));
+    }
+
+    static String rowText(List<String> row) {
         String key = new JSONArray("[" + row.get(0) + "]").getString(0);
         String delta = row.getLast();
         String shown = delta.isEmpty() ? "—" : delta.startsWith("-") || delta.equals("0") ? delta : "+" + delta;

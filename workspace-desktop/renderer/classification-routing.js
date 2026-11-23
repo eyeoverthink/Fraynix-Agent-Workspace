@@ -4,11 +4,12 @@ const SOURCE = 'fraynix-verified-classification';
 const COMPARISON = 'fraynix-last-routed-comparison';
 const KEY_COMPARISON = 'fraynix-last-key-comparison';
 const COMPARISON_SUMMARY = 'fraynix-last-comparison-summary';
+const COMPARISON_SUMMARIES = 'fraynix-recent-comparison-summaries';
 const COMPARISON_EXPLORER = 'fraynix-last-comparison-explorer';
 const COMPARISON_STORY = 'fraynix-last-comparison-story';
 const BRIEFING_REVIEW = 'fraynix-comparison-briefing-review';
 const COMPLETED_BRIEFING = 'fraynix-comparison-briefing';
-const briefingReview = /^Review a comparison briefing with ([a-z ,]+)[.!]?$/i;
+const briefingReview = /^Review a (two-source )?comparison briefing with ([a-z ,]+)[.!]?$/i;
 const briefingAction = /^(Resume|Recheck|Export) the comparison briefing[.!]?$/i;
 const byKey = /^Compare the last two verified routed CSVs by key (?:"([^"\r\n]+)"|([^\s".!?]+))[.!]?$/i;
 const recheckKey = /^Recheck the matched routed CSV comparison[.!]?$/i;
@@ -96,9 +97,11 @@ export class ClassificationRoutingPanel {
             try {
                 if (review) {
                     const exportId = localStorage.getItem(COMPARISON_SUMMARY);
+                    const exportIds = JSON.parse(localStorage.getItem(COMPARISON_SUMMARIES) || '[]');
                     if (!exportId) throw Error('Summarize a comparison CSV first');
-                    const sections = review[1].trim().toLowerCase().split(/\s*(?:,\s*(?:and\s+)?|\s+and\s+)\s*/);
-                    const prepared = await this.call('briefing-review',{exportId,sections});
+                    if (review[1] && exportIds.length !== 2) throw Error('Summarize two different comparison CSV exports first');
+                    const sections = review[2].trim().toLowerCase().split(/\s*(?:,\s*(?:and\s+)?|\s+and\s+)\s*/);
+                    const prepared = await this.call('briefing-review',{...(review[1]?{exportIds}:{exportId}),sections});
                     localStorage.setItem(BRIEFING_REVIEW,prepared.id);
                     this.showBriefing(prepared);
                 } else {
@@ -140,6 +143,12 @@ export class ClassificationRoutingPanel {
                 if (exportStory) {
                     this.announce('Saved verified change story to '+result.path);
                     return;
+                }
+                if (!verifyOnly && !needsSummary) {
+                    const recent = JSON.parse(localStorage.getItem(COMPARISON_SUMMARIES) || '[]');
+                    const ids = [...recent,localStorage.getItem(COMPARISON_SUMMARY),result.comparisonExportId].filter(Boolean);
+                    const newest = ids.pop();
+                    localStorage.setItem(COMPARISON_SUMMARIES,JSON.stringify([...new Set(ids.filter(id=>id!==newest)),newest].slice(-2)));
                 }
                 localStorage.setItem(storage,result.comparisonExportId);
                 const label = story ? 'Change story' : explorer ? 'Comparison explorer' : 'Comparison CSV totals';
@@ -202,7 +211,16 @@ export class ClassificationRoutingPanel {
             item.textContent = names[section];
             return item;
         }));
-        $('briefing-source').textContent = 'Comparison '+review.exportId;
+        const evidence = $('briefing-source');
+        if (review.sources) {
+            evidence.replaceChildren(...review.sources.map((source,index)=>{
+                const item = document.createElement('div');
+                item.textContent = 'Source '+(index+1)+' · Comparison '+source.exportId;
+                return item;
+            }));
+        } else {
+            evidence.textContent = 'Comparison '+review.exportId;
+        }
         $('briefing-status').textContent = error;
         $('briefing-build').disabled = false;
         if (!this.briefingDialog.open) this.briefingDialog.showModal();

@@ -559,15 +559,39 @@ async function summarizeRoutedComparison({verifyOnly=false,exportId,explorer=fal
     'html',artifact.contents['index.html'],source,result.htmlSha256);
 }
 
+async function pairedComparisonSources(ids) {
+  if(!Array.isArray(ids)||ids.length!==2||ids.some(id=>typeof id!=='string')||ids[0]===ids[1])
+    throw Error('Choose two distinct verified comparison exports');
+  const [first,secondSource]=await Promise.all(ids.map((id,index)=>comparisonSources(id).catch(error=>{
+    throw new Error('Source '+(index+1)+': '+error.message,{cause:error});
+  })));
+  return {...first,secondSource};
+}
+
 async function comparisonBriefing(command,args) {
   if (command==='briefing-review') {
-    if (typeof args.exportId!=='string') throw Error('Summarize a comparison CSV first');
-    return api('/api/requests/comparison-briefing-review',{...await comparisonSources(args.exportId),sections:args.sections});
+    if (args.exportIds===undefined&&typeof args.exportId!=='string') throw Error('Summarize a comparison CSV first');
+    const sources=args.exportIds===undefined?await comparisonSources(args.exportId):await pairedComparisonSources(args.exportIds);
+    return api('/api/requests/comparison-briefing-review',{...sources,sections:args.sections});
   }
   const review = await api('/api/requests/comparison-briefing-read',{id:args.id});
   if (command==='briefing-read') return review;
   const exportStory = command==='briefing-export';
   const verifyOnly = exportStory || command==='briefing-recheck';
+  if (review.sources) {
+    const ids=review.sources.map(source=>source.exportId);
+    const sourceFiles=await pairedComparisonSources(ids);
+    if (!verifyOnly) {
+      await api('/api/requests/comparison-briefing-approve',{id:review.id,reviewSha256:args.reviewSha256,...sourceFiles});
+    }
+    const flags={story:true,briefingId:review.id};
+    const retained=async()=>({...await pairedComparisonSources(ids),...flags});
+    const result=await openRoutedReport({...sourceFiles,...flags},retained,{verifyOnly});
+    if(!exportStory)return result;
+    const artifact=await checkedRoutedDashboard(result);
+    return nativeExports.save('paired-comparison-briefing','html',artifact.contents['index.html'],
+      {comparisonSources:result.comparisonSources,briefingId:review.id,artifact:result.artifact},result.htmlSha256);
+  }
   if (!verifyOnly) {
     await api('/api/requests/comparison-briefing-approve',{id:args.id,reviewSha256:args.reviewSha256});
   }

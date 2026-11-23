@@ -6,6 +6,7 @@ const fs = require('node:fs/promises');
 const os = require('node:os');
 const path = require('node:path');
 const {launch} = require('./calibration-integration.cjs');
+const {testPairedBriefing} = require('./paired-briefing-integration.cjs');
 const {NativeExports} = require('../exports.cjs');
 
 const ranges = 'min_inclusive,max_exclusive,label\n0,10,temperature\n10,20,length';
@@ -307,15 +308,23 @@ async function main() {
             [false,false,true]);
         checks.push('A rows-only briefing produces a distinct verified artifact and hides the chart and totals');
 
+        const paired = await testPairedBriefing({project,output,original,route,call,api,send,reply,
+            app:()=>app,page:()=>page,restart:async()=>{
+                await app.close();
+                ({app,page} = await launch(project,args));
+                page.on('pageerror',error=>errors.push(error.message));
+            }});
+        checks.push(...paired.checks);
+        const manifestAfterPaired = await fs.readFile(manifest,'utf8');
         const source = path.join(project,'exports',original.id+'.csv');
         await fs.appendFile(source,'changed');
         await assert.rejects(call('routing-summary',{verifyOnly:true,story:true,exportId:original.id,exportStory:true}),/disagree|changed/i);
         await assert.rejects(call('briefing-export',{id:briefingId}),/disagree|changed/i);
-        assert.equal(await fs.readFile(manifest,'utf8'),finalManifest);
+        assert.equal(await fs.readFile(manifest,'utf8'),manifestAfterPaired);
         checks.push('Changed comparison bytes are refused before sharing the story');
         assert.deepEqual(errors,[]);
         const result = {passed:true,platform:process.platform,architecture:process.arch,proof,
-            briefing:{review:await call('briefing-read',{id:briefingId}),proof:briefingProof,evidence:briefingEvidence,rowsOnly},changes:expected,checks};
+            briefing:{review:await call('briefing-read',{id:briefingId}),proof:briefingProof,evidence:briefingEvidence,rowsOnly},paired,changes:expected,checks};
         await fs.writeFile(path.join(output,'result.json'),JSON.stringify(result,null,2)+'\n');
         console.log(JSON.stringify({passed:true,platform:result.platform,architecture:result.architecture,checks}));
     } finally {
