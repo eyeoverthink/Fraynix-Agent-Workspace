@@ -47,7 +47,7 @@ final class PairedComparisonBriefing implements RoutedReport {
                 .replace("href=\"import-receipt.json\" download", "id=\"briefing-download-receipt\"")
                 .replace("href=\"summary-proof.json\" download", "id=\"briefing-download-summary\"")
                 .replace("document.querySelector('.filters').hidden = true;",
-                        "document.querySelector('.filters').hidden = true;\\n"
+                        "document.querySelector('.filters').hidden = true;\n"
                                 + "    document.querySelector('nav[aria-label=\"Original evidence\"]').hidden = true;")
                 .replace(".filters {gap:", ".source-tabs {display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}\n.filters {gap:")
                 .replace("<div class=\"filters\">", """
