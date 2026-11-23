@@ -1,3 +1,7 @@
+## Edition 210 — Ask the workspace in everyday language
+
+2026-11-23. Ask Chat about a recorded object, compare two saved ramp setups, convert a file or build an offline click counter. Java binds each input and checks the result. On Windows, the real local model proposed a motion report. After restart, the original proposal still required approval and the approved run used the original recorded source without a second model call. The model-free desktop proof passed on Windows x64, Apple silicon macOS, Intel macOS and Linux x64. Keep recorded measurements and simulations distinct. Freeze counter behavior before generation. See README-210.md and docs/publication210/plan.md.
+
 ## Edition 209 — Choose older comparisons and sections for each source
 
 2026-11-23. Choose two saved verified comparisons and set the sections for each. One approval preserves the selected order and the original evidence through restart and offline export. The workflow passed 18 browser checks on Windows x64, Apple silicon, Intel Mac and Linux x64. Each run preserved the expected output order, sections and six original evidence files. The picker reads saved verified summaries and browses beyond the recent Chat history. Section choices, original summaries and source order are bound to one approval. See README-209.md and docs/publication209/plan.md.

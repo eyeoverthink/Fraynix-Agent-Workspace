@@ -1,0 +1,313 @@
+{
+  "date": "2026-11-23",
+  "localDesktop": {
+    "passed": true,
+    "platform": "win32",
+    "arch": "x64",
+    "model": "gpt-oss:20b",
+    "screenshots": [
+      "ramp-comparison.png",
+      "recorded-motion.png",
+      "file-conversion-review.png",
+      "local-model-review.png",
+      "created-counter.png"
+    ],
+    "routes": {
+      "ramps": {
+        "request": "Which of these two ramps will the block go farther down?",
+        "distancesM": {
+          "first": 1.6381809141202348,
+          "second": 0.23588865636850642
+        },
+        "sourceSha256": "7cde22aee3c4012507d58857d2700fe29695ef304853ed9d32669cb7313c62de",
+        "modelCalls": 0,
+        "browserChecks": 9
+      },
+      "recording": {
+        "request": "Hey, can you tell me how far the object travelled in the selected motion recording?",
+        "travelM": 0.7758452762255914,
+        "timeS": 0.8,
+        "meanSpeedMps": 0.9698065952819892,
+        "samples": 49,
+        "sourceSha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+        "modelCalls": 0,
+        "resumes": 0
+      },
+      "file": {
+        "request": "Turn this CSV into JSON, please.",
+        "sourceSha256": "2583d6b3a91240599d34531860bc1fef9ea33754c0a02da3ca4f61580d0bf39a",
+        "exportSha256": "fe79a542c250d247c07a8461cc524dac97c23d51173d036ee8d6e4d23b794d5c",
+        "rows": 2
+      },
+      "review": {
+        "request": "Read the selected motion recording and give me a checkable report on its travel and speed.",
+        "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "travelM": 0.7758452762255914,
+        "timeS": 0.8,
+        "meanSpeedMps": 0.9698065952819892,
+        "samples": 49,
+        "sourceSha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+        "modelCalls": 1,
+        "resumes": 0
+      },
+      "counter": {
+        "request": "Could you whip up a little offline browser app that counts clicks and resets?",
+        "independentChecks": 9,
+        "modelJobs": 1,
+        "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe"
+      }
+    },
+    "errors": [],
+    "refusals": [
+      "mixed request",
+      "missing recording",
+      "missing ramp input",
+      "missing local model"
+    ]
+  },
+  "portableWorkspace": {
+    "id": 45261567836,
+    "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/45261567836",
+    "headSha": "0a71cf686b9d1c3976af248d2a74d75489fe08c3",
+    "status": "completed",
+    "conclusion": "success",
+    "targets": [
+      {
+        "report": {
+          "passed": true,
+          "platform": "win32",
+          "arch": "x64",
+          "model": null,
+          "screenshots": [
+            "ramp-comparison.png",
+            "recorded-motion.png",
+            "file-conversion-review.png"
+          ],
+          "routes": {
+            "ramps": {
+              "request": "Which of these two ramps will the block go farther down?",
+              "distancesM": {
+                "first": 1.6381809141202348,
+                "second": 0.23588865636850642
+              },
+              "sourceSha256": "7cde22aee3c4012507d58857d2700fe29695ef304853ed9d32669cb7313c62de",
+              "modelCalls": 0,
+              "browserChecks": 9
+            },
+            "recording": {
+              "request": "Hey, can you tell me how far the object travelled in the selected motion recording?",
+              "travelM": 0.7758452762255914,
+              "timeS": 0.8,
+              "meanSpeedMps": 0.9698065952819892,
+              "samples": 49,
+              "sourceSha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+              "modelCalls": 0,
+              "resumes": 0
+            },
+            "file": {
+              "request": "Turn this CSV into JSON, please.",
+              "sourceSha256": "2583d6b3a91240599d34531860bc1fef9ea33754c0a02da3ca4f61580d0bf39a",
+              "exportSha256": "fe79a542c250d247c07a8461cc524dac97c23d51173d036ee8d6e4d23b794d5c",
+              "rows": 2
+            }
+          },
+          "errors": [],
+          "refusals": [
+            "mixed request",
+            "missing recording",
+            "missing ramp input",
+            "missing local model"
+          ]
+        },
+        "conclusion": "success",
+        "name": "Windows x64",
+        "jobId": 137997386427
+      },
+      {
+        "report": {
+          "passed": true,
+          "platform": "darwin",
+          "arch": "arm64",
+          "model": null,
+          "screenshots": [
+            "ramp-comparison.png",
+            "recorded-motion.png",
+            "file-conversion-review.png"
+          ],
+          "routes": {
+            "ramps": {
+              "request": "Which of these two ramps will the block go farther down?",
+              "distancesM": {
+                "first": 1.6380508391513997,
+                "second": 0.23587458797898167
+              },
+              "sourceSha256": "7cde22aee3c4012507d58857d2700fe29695ef304853ed9d32669cb7313c62de",
+              "modelCalls": 0,
+              "browserChecks": 9
+            },
+            "recording": {
+              "request": "Hey, can you tell me how far the object travelled in the selected motion recording?",
+              "travelM": 0.7758452762255914,
+              "timeS": 0.8,
+              "meanSpeedMps": 0.9698065952819892,
+              "samples": 49,
+              "sourceSha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+              "modelCalls": 0,
+              "resumes": 0
+            },
+            "file": {
+              "request": "Turn this CSV into JSON, please.",
+              "sourceSha256": "2583d6b3a91240599d34531860bc1fef9ea33754c0a02da3ca4f61580d0bf39a",
+              "exportSha256": "fe79a542c250d247c07a8461cc524dac97c23d51173d036ee8d6e4d23b794d5c",
+              "rows": 2
+            }
+          },
+          "errors": [],
+          "refusals": [
+            "mixed request",
+            "missing recording",
+            "missing ramp input",
+            "missing local model"
+          ]
+        },
+        "conclusion": "success",
+        "name": "Apple silicon macOS",
+        "jobId": 137997385812
+      },
+      {
+        "report": {
+          "passed": true,
+          "platform": "darwin",
+          "arch": "x64",
+          "model": null,
+          "screenshots": [
+            "ramp-comparison.png",
+            "recorded-motion.png",
+            "file-conversion-review.png"
+          ],
+          "routes": {
+            "ramps": {
+              "request": "Which of these two ramps will the block go farther down?",
+              "distancesM": {
+                "first": 1.6378704190468922,
+                "second": 0.23587295627704497
+              },
+              "sourceSha256": "7cde22aee3c4012507d58857d2700fe29695ef304853ed9d32669cb7313c62de",
+              "modelCalls": 0,
+              "browserChecks": 9
+            },
+            "recording": {
+              "request": "Hey, can you tell me how far the object travelled in the selected motion recording?",
+              "travelM": 0.7758452762255914,
+              "timeS": 0.8,
+              "meanSpeedMps": 0.9698065952819892,
+              "samples": 49,
+              "sourceSha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+              "modelCalls": 0,
+              "resumes": 0
+            },
+            "file": {
+              "request": "Turn this CSV into JSON, please.",
+              "sourceSha256": "2583d6b3a91240599d34531860bc1fef9ea33754c0a02da3ca4f61580d0bf39a",
+              "exportSha256": "fe79a542c250d247c07a8461cc524dac97c23d51173d036ee8d6e4d23b794d5c",
+              "rows": 2
+            }
+          },
+          "errors": [],
+          "refusals": [
+            "mixed request",
+            "missing recording",
+            "missing ramp input",
+            "missing local model"
+          ]
+        },
+        "conclusion": "success",
+        "name": "Intel macOS",
+        "jobId": 137997386458
+      },
+      {
+        "report": {
+          "passed": true,
+          "platform": "linux",
+          "arch": "x64",
+          "model": null,
+          "screenshots": [
+            "ramp-comparison.png",
+            "recorded-motion.png",
+            "file-conversion-review.png"
+          ],
+          "routes": {
+            "ramps": {
+              "request": "Which of these two ramps will the block go farther down?",
+              "distancesM": {
+                "first": 1.6377709390877582,
+                "second": 0.23588865636850642
+              },
+              "sourceSha256": "7cde22aee3c4012507d58857d2700fe29695ef304853ed9d32669cb7313c62de",
+              "modelCalls": 0,
+              "browserChecks": 9
+            },
+            "recording": {
+              "request": "Hey, can you tell me how far the object travelled in the selected motion recording?",
+              "travelM": 0.7758452762255914,
+              "timeS": 0.8,
+              "meanSpeedMps": 0.9698065952819892,
+              "samples": 49,
+              "sourceSha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+              "modelCalls": 0,
+              "resumes": 0
+            },
+            "file": {
+              "request": "Turn this CSV into JSON, please.",
+              "sourceSha256": "2583d6b3a91240599d34531860bc1fef9ea33754c0a02da3ca4f61580d0bf39a",
+              "exportSha256": "fe79a542c250d247c07a8461cc524dac97c23d51173d036ee8d6e4d23b794d5c",
+              "rows": 2
+            }
+          },
+          "errors": [],
+          "refusals": [
+            "mixed request",
+            "missing recording",
+            "missing ramp input",
+            "missing local model"
+          ]
+        },
+        "conclusion": "success",
+        "name": "Linux x64",
+        "jobId": 137997386223
+      }
+    ]
+  },
+  "screenshots": [
+    {
+      "path": "docs/readmes/210/recorded-motion.png",
+      "bytes": 206654,
+      "sha256": "f5091dd3beacde075831223d5b190caba4657c1d20a3873ee6759d95ecf9301e",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/210/ramp-comparison.png",
+      "bytes": 211535,
+      "sha256": "cb592f1f63cae9fb7eb19bfe9564d1e1edb58048967fd3f9801aa87272ecbcb9",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/210/file-conversion-review.png",
+      "bytes": 189825,
+      "sha256": "9fb58310deefb04d84558da3dece56e6cf934a9f25bcf3793c26577d6be59e03",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/210/local-model-review.png",
+      "bytes": 207123,
+      "sha256": "d964861a8fe65ceeb1ad3efe3eb126488f1f5cf8ba485bc8ac4cb971331f82e5",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/210/created-counter.png",
+      "bytes": 173022,
+      "sha256": "6df99d703e2f5eb882d8550a40752168f95c50f025ea35cff7f4b9f96d42bbd7",
+      "hashKind": "binary"
+    }
+  ]
+}

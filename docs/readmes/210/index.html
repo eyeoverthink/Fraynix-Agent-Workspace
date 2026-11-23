@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 210 · Ask the workspace in everyday language</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Ask the workspace in everyday language</h1><p>Ask Chat about a recorded object, compare two saved ramp setups, convert a file or build an offline click counter. Java binds each input and checks the result.</p>
+<nav><a href="../../../README-210.md">App guide</a><a href="release-proof.json">Verification</a>
+<a href="../209/index.html">Edition 209</a><a href="../../publication210/plan.md">Try the requests</a><a href="#system">System files</a></nav>
+<figure><img src="recorded-motion.png" alt="Chat answers from a 49-sample recorded motion dataset"><figcaption>Chat answers from a 49-sample recorded motion dataset</figcaption></figure>
+<figure><img src="ramp-comparison.png" alt="Mission shows an independently replayed ramp comparison from an everyday question"><figcaption>Mission shows an independently replayed ramp comparison from an everyday question</figcaption></figure>
+<figure><img src="file-conversion-review.png" alt="Reviewing the exact CSV before conversion"><figcaption>Reviewing the exact CSV before conversion</figcaption></figure>
+<figure><img src="local-model-review.png" alt="Mission waits for approval of the local model&#x27;s proposal"><figcaption>Mission waits for approval of the local model&#x27;s proposal</figcaption></figure>
+<figure><img src="created-counter.png" alt="The locally generated click counter passed the Java-owned browser checks"><figcaption>The locally generated click counter passed the Java-owned browser checks</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Ask Chat about a recorded object, compare two saved ramp setups, convert a file or build an offline click counter. Java binds each input and checks the result.", "modules": [{"title": "Java plain-language routes", "source": "workspace-engine/src/main/java/fraymus/workspace/PlainWorkflowLanguage.java", "note": "docs/obsidian/218-plain-language.md"}, {"title": "Durable approval and task execution", "source": "workspace-engine/src/main/java/fraymus/workspace/Agency043.java", "note": "docs/obsidian/218-plain-language.md"}, {"title": "Source binding and checked outcomes", "source": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java", "note": "docs/obsidian/218-plain-language.md"}, {"title": "Reviewed file conversions", "source": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "note": "docs/obsidian/218-plain-language.md"}, {"title": "Desktop verification", "source": "workspace-desktop/test/plain-language-integration.cjs", "note": "docs/obsidian/218-plain-language.md"}], "screenshots": [{"path": "docs/readmes/210/recorded-motion.png", "title": "Chat answers from a 49-sample recorded motion dataset"}, {"path": "docs/readmes/210/ramp-comparison.png", "title": "Mission shows an independently replayed ramp comparison from an everyday question"}, {"path": "docs/readmes/210/file-conversion-review.png", "title": "Reviewing the exact CSV before conversion"}, {"path": "docs/readmes/210/local-model-review.png", "title": "Mission waits for approval of the local model's proposal"}, {"path": "docs/readmes/210/created-counter.png", "title": "The locally generated click counter passed the Java-owned browser checks"}], "evidence": [{"path": "docs/readmes/210/release-proof.json", "title": "Desktop test measurements"}, {"path": "docs/publication210/plan.md", "title": "Reproduce the workflow"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 4800, "sha256": "929b3727388841de46cd3de5c9b7c2d18abda0cbfd9db499ad5c307776cbf801", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/218-plain-language.canvas", "bytes": 1606, "sha256": "3b131bbde5d9ee7fe8173f1df82cc67abf6668407caed8906482653682c5499a", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/218-plain-language.md", "bytes": 533, "sha256": "80d432a18a50fdd942ad60d6159d532e23b3f564b8d49362ccd7e1c94bd41ba9", "hashKind": "utf8-lf"}, {"path": "docs/publication210/plan.md", "bytes": 2643, "sha256": "0e162be3dc2f57554bc2631f6bbb82454e34018805b80273691a38317b9751d3", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 121331, "sha256": "94fa938a337c600c3f15fd1b21fe76ddb050f1bba6d55052b0ef3e72db2653bf", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/app.js", "bytes": 41175, "sha256": "9b8e1795998d9c9b193c74bcc1087ba9d98c1bcc9866391f187f6aea141a5f03", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/index.html", "bytes": 36722, "sha256": "b12b093dfd2a6e774dbabcdbad8de92559978861633a0815b4a86eff804a29ea", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/request-workbench.js", "bytes": 15608, "sha256": "c2a71db16e67f3d3ee2961da8d512cfea98626cf314fbd15fddb486f8a70cce7", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/plain-language-integration.cjs", "bytes": 15134, "sha256": "88a014470cff206599eb8f4755bbe97553bac3e47368259945680f3c5a160534", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/Agency043.java", "bytes": 74146, "sha256": "92f7e3e25c67d41b3680bc25615f9002153262d89e739da99df4a43f587dd284", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/Domain044.java", "bytes": 67043, "sha256": "2503d42f1965179da4c4114d269ef8758bc3340c4fb66d00f2fbb8904a782b69", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/LocalWorkflowSelection.java", "bytes": 7453, "sha256": "bdda93c2bd90728f39fbb8ca4853ec864c3b205c6e638ca64094012dc0aa2ad6", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/PlainWorkflowLanguage.java", "bytes": 4352, "sha256": "919315d1d206bf74e1a48c22452c307d64ab5eda64569c49c620160f59ef1356", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RequestWorkbench.java", "bytes": 47104, "sha256": "b6b501351894b43ba6cc40579cfcacd6ae0fef1efe02134a403e6ca1f5463695", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 137151, "sha256": "c3fe383cb796675512ce834b9a52f4bad1305c87f1247c24a5836189bc799b41", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/LocalWorkflowSelectionTest.java", "bytes": 8553, "sha256": "d018a29f6202283d0b1342fd3a8235de4626687173f7271d27b0ff73fff40502", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>
