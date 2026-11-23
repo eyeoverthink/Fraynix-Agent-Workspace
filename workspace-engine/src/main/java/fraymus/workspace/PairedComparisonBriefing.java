@@ -43,6 +43,12 @@ final class PairedComparisonBriefing implements RoutedReport {
         chapters = sources.stream().map(Chapter::new).toList();
         String base = sectionPlan.html(new RoutedComparisonStory(chapters.getFirst().rows()).html(TEMPLATE))
                 .replace(ComparisonBriefing.TITLE, TITLE)
+                .replace("href=\"matched-comparison.csv\" download", "id=\"briefing-download-csv\"")
+                .replace("href=\"import-receipt.json\" download", "id=\"briefing-download-receipt\"")
+                .replace("href=\"summary-proof.json\" download", "id=\"briefing-download-summary\"")
+                .replace("document.querySelector('.filters').hidden = true;",
+                        "document.querySelector('.filters').hidden = true;\\n"
+                                + "    document.querySelector('nav[aria-label=\"Original evidence\"]').hidden = true;")
                 .replace(".filters {gap:", ".source-tabs {display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}\n.filters {gap:")
                 .replace("<div class=\"filters\">", """
                         <nav class="source-tabs" aria-label="Briefing source">

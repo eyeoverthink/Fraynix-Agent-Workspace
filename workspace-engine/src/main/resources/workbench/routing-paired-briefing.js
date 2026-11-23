@@ -21,17 +21,11 @@ async function readChapter(chapter) {
     return {rows,csv,receiptBytes,summaryBytes,binding,summaryHash};
 }
 
-function briefingDownload(originalName, name, data, type) {
-    const control = document.querySelector('a[download][href='+JSON.stringify(originalName)+']');
-    control.download = name;
-    control.onclick = event => {
-        event.preventDefault();
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(new Blob([data],{type}));
-        link.download = name;
-        link.click();
-        setTimeout(()=>URL.revokeObjectURL(link.href),1000);
-    };
+function briefingDownload(id, name, data, type) {
+    const link = document.getElementById(id);
+    if (link.href.startsWith('blob:')) URL.revokeObjectURL(link.href);
+    link.href = URL.createObjectURL(new Blob([data],{type}));
+    link.download = name;
 }
 
 async function render() {
@@ -48,9 +42,9 @@ async function render() {
         document.getElementById('source-id').textContent = 'Source '+(index+1)+' · Export '+source.binding.exportId;
         document.getElementById('source-hash').textContent = 'CSV SHA-256 '+source.binding.sourceSha256+
             ' · Summary SHA-256 '+source.summaryHash;
-        briefingDownload('matched-comparison.csv',prefix+'comparison.csv',source.csv,'text/csv');
-        briefingDownload('import-receipt.json',prefix+'receipt.json',source.receiptBytes,'application/json');
-        briefingDownload('summary-proof.json',prefix+'summary.json',source.summaryBytes,'application/json');
+        briefingDownload('briefing-download-csv',prefix+'comparison.csv',source.csv,'text/csv');
+        briefingDownload('briefing-download-receipt',prefix+'receipt.json',source.receiptBytes,'application/json');
+        briefingDownload('briefing-download-summary',prefix+'summary.json',source.summaryBytes,'application/json');
         installFilters(source.rows);
         tabs.forEach((tab,i)=>tab.setAttribute('aria-pressed',String(index===i)));
     }
