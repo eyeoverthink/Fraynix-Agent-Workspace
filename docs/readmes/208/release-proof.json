@@ -1,0 +1,268 @@
+{
+  "tests": {
+    "rootJava": 125,
+    "workspaceJava": 10,
+    "desktop": 185,
+    "archive": 10
+  },
+  "matrix": {
+    "id": 45245791774,
+    "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/45245791774",
+    "runtimeCommit": "add495345ccdab51e65d11ded17d58cef0ce573f",
+    "targets": {
+      "macos-arm64": {
+        "status": "success",
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/45245791774/job/137942063730",
+        "platform": "darwin",
+        "architecture": "arm64",
+        "browserChecks": 24,
+        "checks": [
+          "Two distinct source bindings and their order survive a restart before approval and after building",
+          "Changed CSV bytes for either source block recheck and export with the correct source label",
+          "Source 2 retained summary proof is independently checked even with unchanged CSV bytes",
+          "Single offline file switches sources and returns all six original source and proof downloads"
+        ],
+        "sourceCsvHashes": [
+          "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+          "705c5ee99e08a65909f7e152decd464c04793eac9ba9b75b775700e57318f406"
+        ],
+        "runtime": {
+          "passed": true,
+          "platform": "darwin",
+          "architecture": "arm64",
+          "nativeGame": "display-unavailable",
+          "checks": [
+            "Java connection and guided verification continue after closed console errors",
+            "Native Bullet physics passes the independent incline reference",
+            "Persistent Java owner starts and reopens the saved project"
+          ]
+        }
+      },
+      "windows-x64": {
+        "status": "success",
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/45245791774/job/137942064307",
+        "platform": "win32",
+        "architecture": "x64",
+        "browserChecks": 24,
+        "checks": [
+          "Two distinct source bindings and their order survive a restart before approval and after building",
+          "Changed CSV bytes for either source block recheck and export with the correct source label",
+          "Source 2 retained summary proof is independently checked even with unchanged CSV bytes",
+          "Single offline file switches sources and returns all six original source and proof downloads"
+        ],
+        "sourceCsvHashes": [
+          "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+          "705c5ee99e08a65909f7e152decd464c04793eac9ba9b75b775700e57318f406"
+        ],
+        "runtime": {
+          "passed": true,
+          "platform": "win32",
+          "architecture": "x64",
+          "nativeGame": "verified",
+          "checks": [
+            "Java connection and guided verification continue after closed console errors",
+            "Native Bullet physics passes the independent incline reference",
+            "Hidden native renderer loads Relay Garden and renders fixed-step movement",
+            "Persistent Java owner starts and reopens the saved project"
+          ]
+        }
+      },
+      "linux-x64": {
+        "status": "success",
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/45245791774/job/137942064346",
+        "platform": "linux",
+        "architecture": "x64",
+        "browserChecks": 24,
+        "checks": [
+          "Two distinct source bindings and their order survive a restart before approval and after building",
+          "Changed CSV bytes for either source block recheck and export with the correct source label",
+          "Source 2 retained summary proof is independently checked even with unchanged CSV bytes",
+          "Single offline file switches sources and returns all six original source and proof downloads"
+        ],
+        "sourceCsvHashes": [
+          "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+          "705c5ee99e08a65909f7e152decd464c04793eac9ba9b75b775700e57318f406"
+        ],
+        "runtime": {
+          "passed": true,
+          "platform": "linux",
+          "architecture": "x64",
+          "nativeGame": "verified",
+          "checks": [
+            "Java connection and guided verification continue after closed console errors",
+            "Native Bullet physics passes the independent incline reference",
+            "Hidden native renderer loads Relay Garden and renders fixed-step movement",
+            "Persistent Java owner starts and reopens the saved project"
+          ]
+        }
+      },
+      "macos-x64": {
+        "status": "success",
+        "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/45245791774/job/137942064387",
+        "platform": "darwin",
+        "architecture": "x64",
+        "browserChecks": 24,
+        "checks": [
+          "Two distinct source bindings and their order survive a restart before approval and after building",
+          "Changed CSV bytes for either source block recheck and export with the correct source label",
+          "Source 2 retained summary proof is independently checked even with unchanged CSV bytes",
+          "Single offline file switches sources and returns all six original source and proof downloads"
+        ],
+        "sourceCsvHashes": [
+          "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+          "705c5ee99e08a65909f7e152decd464c04793eac9ba9b75b775700e57318f406"
+        ],
+        "runtime": {
+          "passed": true,
+          "platform": "darwin",
+          "architecture": "x64",
+          "nativeGame": "display-unavailable",
+          "checks": [
+            "Java connection and guided verification continue after closed console errors",
+            "Native Bullet physics passes the independent incline reference",
+            "Persistent Java owner starts and reopens the saved project"
+          ]
+        }
+      }
+    }
+  },
+  "offlineRefusals": {
+    "passed": true,
+    "blockedSources": [
+      1,
+      2
+    ],
+    "downloadsHidden": true,
+    "chartHidden": true
+  },
+  "legacyBriefing": {
+    "passed": true,
+    "htmlSha256": "39ab461cc4f137efd5a13342993834f7919d722f53f425720ddbd4f94e9dad16",
+    "browserChecks": 22
+  },
+  "sourceBaseline": "add495345ccdab51e65d11ded17d58cef0ce573f",
+  "windowsPairedBriefing": {
+    "review": {
+      "approved": true,
+      "sources": [
+        {
+          "summary": {
+            "sha256": "c968e225ff09e3d5685fec7ed94b98285271a87e5e455a6d7e8f3d0d69ef239a",
+            "id": "f3475743-3224-3a81-921c-e775aa334c64",
+            "version": 1
+          },
+          "sourceSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+          "exportId": "f085004c-7b29-4707-90e0-65d0a1406002"
+        },
+        {
+          "summary": {
+            "sha256": "3576cc3e479ae494d64943ae660e8b8f7a3f5c9a06d4dcc89d5ffc2bbca6a733",
+            "id": "e5bcd959-bfca-3dec-99d3-79692d02baa1",
+            "version": 1
+          },
+          "sourceSha256": "705c5ee99e08a65909f7e152decd464c04793eac9ba9b75b775700e57318f406",
+          "exportId": "d5642a70-9bb5-4904-aa18-2572f32249af"
+        }
+      ],
+      "reviewSha256": "6185c333d2849cfa83a8bc56fb35a7e917bc2b3689156169149e513f93ba777c",
+      "id": "6ea81a2a-2529-4be9-96ce-9f938be2d2a5",
+      "sections": [
+        "totals",
+        "chart",
+        "rows"
+      ]
+    },
+    "proof": {
+      "csvSha256": "9f0ddfb3afc50b27cc94e32d0f44be17d01060f881bed220c1e85ae42fa4fc36",
+      "laterExportId": "092336c8-2ded-4fe1-bcb7-023b38f0db14",
+      "comparisonExportId": "f085004c-7b29-4707-90e0-65d0a1406002",
+      "artifact": {
+        "sha256": "2054157382fc6bd1f10011758028ef09ac1bf1b39d2ed7584e461c2471ac3efd",
+        "id": "2c03387e-1a14-3d1c-ba2b-6dc74d5fe2c0",
+        "version": 1
+      },
+      "briefingId": "6ea81a2a-2529-4be9-96ce-9f938be2d2a5",
+      "htmlSha256": "cc2588915a4a33b3d050bc45eb2b2e9a568083a37ef0985e23b7c78820a00192",
+      "earlierCsvSha256": "d05d57bd507cbbeaf4f73f0ab21ad998e5940f523950703f3138416a9cf1ceb1",
+      "keyColumn": "record ID",
+      "browserChecks": 24,
+      "rechecked": true,
+      "id": "3582b279-8ac8-31cb-8ba7-cddd54b6446c",
+      "passed": true,
+      "comparisonSources": [
+        {
+          "summary": {
+            "sha256": "c968e225ff09e3d5685fec7ed94b98285271a87e5e455a6d7e8f3d0d69ef239a",
+            "id": "f3475743-3224-3a81-921c-e775aa334c64",
+            "version": 1
+          },
+          "sourceSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+          "exportId": "f085004c-7b29-4707-90e0-65d0a1406002"
+        },
+        {
+          "summary": {
+            "sha256": "3576cc3e479ae494d64943ae660e8b8f7a3f5c9a06d4dcc89d5ffc2bbca6a733",
+            "id": "e5bcd959-bfca-3dec-99d3-79692d02baa1",
+            "version": 1
+          },
+          "sourceSha256": "705c5ee99e08a65909f7e152decd464c04793eac9ba9b75b775700e57318f406",
+          "exportId": "d5642a70-9bb5-4904-aa18-2572f32249af"
+        }
+      ],
+      "earlierExportId": "b1ed2485-db6c-4462-87ca-e32106a9889a"
+    },
+    "evidence": {
+      "briefing": {
+        "id": "6ea81a2a-2529-4be9-96ce-9f938be2d2a5",
+        "sections": [
+          "totals",
+          "chart",
+          "rows"
+        ]
+      },
+      "browserChecks": 24,
+      "passed": true,
+      "presentation": "paired-comparison-briefing-v1",
+      "sources": [
+        {
+          "exportId": "f085004c-7b29-4707-90e0-65d0a1406002",
+          "sourceSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+          "summary": {
+            "id": "f3475743-3224-3a81-921c-e775aa334c64",
+            "sha256": "c968e225ff09e3d5685fec7ed94b98285271a87e5e455a6d7e8f3d0d69ef239a",
+            "version": 1
+          }
+        },
+        {
+          "exportId": "d5642a70-9bb5-4904-aa18-2572f32249af",
+          "sourceSha256": "705c5ee99e08a65909f7e152decd464c04793eac9ba9b75b775700e57318f406",
+          "summary": {
+            "id": "e5bcd959-bfca-3dec-99d3-79692d02baa1",
+            "sha256": "3576cc3e479ae494d64943ae660e8b8f7a3f5c9a06d4dcc89d5ffc2bbca6a733",
+            "version": 1
+          }
+        }
+      ]
+    },
+    "checks": [
+      "Two distinct source bindings and their order survive a restart before approval and after building",
+      "Changed CSV bytes for either source block recheck and export with the correct source label",
+      "Source 2 retained summary proof is independently checked even with unchanged CSV bytes",
+      "Single offline file switches sources and returns all six original source and proof downloads"
+    ]
+  },
+  "screenshots": [
+    {
+      "path": "docs/readmes/208/mac-review.png",
+      "bytes": 112869,
+      "sha256": "b9e3a319d35c947aab72979fffd26a05c0993834242ad7d55e513f15f483d570",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/208/offline-paired.png",
+      "bytes": 75706,
+      "sha256": "04c36c670143df360213513ee08324efd164bf4114c4361a0496a8558545cb83",
+      "hashKind": "binary"
+    }
+  ]
+}

@@ -1,0 +1,409 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Reviewed two-source briefing</title>
+<style>
+:root {color-scheme:dark;color:#eef7f6;background:#13202a;font:15px/1.5 system-ui,sans-serif}
+* {box-sizing:border-box}
+body {margin:0;padding:clamp(14px,3.2vw,34px)}
+main {max-width:72rem;margin:auto}
+h1 {font-size:clamp(1.6rem,4.5vw,2.35rem);line-height:1.15;margin:0 0 8px}
+p {margin:0 0 12px;color:#bed1d9}
+.filters,.filter-set {display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.source-tabs {display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.filters {gap:9px;margin:16px 0 12px}
+button {font:inherit;color:#e4eef2;border:1px solid #415e6d;background:#1b303b;padding:4px 10px;border-radius:6px;cursor:pointer}
+button[aria-pressed=true] {color:#0f2927;background:#a6e8d5;border-color:#a6e8d5;font-weight:650}
+#reset-filters {margin-left:auto}
+#visible-count {font-weight:650;color:#f0faf7;margin-bottom:5px}
+#visible-totals {display:grid;gap:6px;margin-bottom:10px}
+#visible-totals div {padding:5px 9px;border-radius:5px;background:#1e3541;color:#cee9e4}
+.table-wrap {overflow:auto;border:1px solid #3b5260;border-radius:8px}
+table {width:100%;min-width:32rem;border-collapse:collapse;background:#162731;font-variant-numeric:tabular-nums;text-align:left}
+th,td {padding:6px 9px;vertical-align:top;border-bottom:1px solid #324854}
+th {background:#203640;color:#c6d8df;font-size:.84rem}
+tbody tr:last-child td {border-bottom:0}
+tbody tr:nth-child(even) {background:#1c2d38}
+.key {white-space:pre-wrap;overflow-wrap:anywhere}
+.status {color:#f3d1a6}
+.status.matched {color:#b9f0de}
+.status.added {color:#c6ddff}
+details {margin-top:13px}
+summary {cursor:pointer;color:#d5e6e9}
+details p {margin:6px 0;overflow-wrap:anywhere}
+nav {display:flex;flex-wrap:wrap;gap:8px 16px}
+a {color:#b9f0de}
+@media(max-width:560px) {#reset-filters {margin-left:0}}
+#change-map {margin:18px 0;border:1px solid #436573;border-radius:12px;background:#112633;padding:clamp(12px,2.8vw,24px)}
+#change-map h2 {margin:0 0 5px;font-size:1.4rem;line-height:1.2}
+#change-map p {margin:0 0 10px}
+#change-bars {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:14px}
+.change-lane {min-width:0;border:1px solid #3b5766;border-radius:9px;padding:11px;background:#172e3c}
+.change-lane h3 {margin:0;font-size:1.05rem}
+.change-axis {display:flex;justify-content:space-between;color:#b9cdda;font-size:.8rem;margin:4px 0 7px}
+.change-bar {display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 9px;width:100%;text-align:left;margin:4px 0;padding:5px 7px}
+.change-bar:focus-visible {outline:2px solid #fff3b0;outline-offset:2px}
+.change-bar span:first-child,.change-selection h3,.change-selection p {overflow-wrap:anywhere}
+.change-bar .change-delta {white-space:nowrap;font-variant-numeric:tabular-nums}
+.change-track {position:relative;grid-column:1/-1;width:100%;height:10px;background:#101b26;border-radius:3px}
+.change-track::after {content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:#c0d5e0}
+.change-mark {position:absolute;top:2px;height:6px;width:var(--bar);border-radius:2px;left:50%;background:#8be3ca}
+.change-bar[data-direction=loss] .change-mark {left:auto;right:50%;background:#ffbd93}
+.change-bar[data-direction=steady] .change-mark {transform:translateX(-50%);width:6px;background:#d2dded;z-index:1}
+.change-selection {margin:12px 0 0;padding:10px 12px;background:#192f3c;border-radius:8px}
+.change-selection h3 {margin:0 0 3px;font-size:1rem}
+#change-map .change-selection p {margin:0}
+#story-error {background:#422a2a;color:#ffdbc5;padding:10px;border-radius:6px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+<h1>Reviewed two-source briefing</h1><p id="briefing-sections">Included sections · totals · chart · rows</p>
+<p>Filter the comparison to see source rows and changes by output unit.</p>
+<p id="story-error" role="alert" hidden></p><nav class="source-tabs" aria-label="Briefing source">
+  <button type="button" id="brief-source-1" aria-pressed="true">Source 1</button>
+  <button type="button" id="brief-source-2" aria-pressed="false">Source 2</button>
+</nav>
+<div class="filters">
+  <div class="filter-set" role="group" aria-label="Output unit">
+    <button id="unit-all" type="button" data-unit="all" aria-pressed="true">All units</button>
+    <button id="unit-f" type="button" data-unit="°F" aria-pressed="false">°F</button>
+    <button id="unit-mm" type="button" data-unit="mm" aria-pressed="false">mm</button>
+  </div>
+  <div class="filter-set" role="group" aria-label="Group status">
+    <button id="status-all" type="button" data-status="all" aria-pressed="true">All statuses</button>
+    <button type="button" data-status="Matched" aria-pressed="false">Matched</button>
+    <button type="button" data-status="Added" aria-pressed="false">Added</button>
+    <button id="status-missing" type="button" data-status="Missing" aria-pressed="false">Missing</button>
+    <button id="status-duplicate" type="button" data-status="Duplicate" aria-pressed="false">Duplicate</button>
+  </div>
+  <button id="reset-filters" type="button">Reset</button>
+</div>
+<p id="visible-count" aria-live="polite"></p>
+<div id="visible-totals"></div>
+<section id="change-map" aria-labelledby="change-heading">
+  <h2 id="change-heading">What changed</h2>
+  <p>Losses extend left, gains extend right. Each unit keeps its own scale as you filter.</p>
+  <p id="change-empty" aria-live="polite"></p>
+  <div id="change-bars"></div>
+  <div id="change-selection" class="change-selection" aria-live="polite" hidden>
+    <h3 id="change-selection-title"></h3><p id="change-selection-readings"></p>
+  </div>
+</section>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Comparison rows">
+<table>
+<thead><tr><th scope="col">Key</th><th scope="col">Unit</th><th scope="col">Status</th><th scope="col">Earlier row: value</th><th scope="col">Later row: value</th><th scope="col">Change</th></tr></thead>
+<tbody id="visible-rows"></tbody>
+</table>
+</div>
+<details open>
+  <summary>Verified inputs</summary>
+  <p id="source-id"></p>
+  <p id="source-hash"></p>
+  <p id="parent-proof"></p>
+  <nav aria-label="Original evidence">
+    <a id="briefing-download-csv">Comparison CSV</a>
+    <a id="briefing-download-receipt">Import receipt</a>
+    <a id="briefing-download-summary">Summary proof</a>
+  </nav>
+</details>
+</main>
+<script>
+'use strict';
+const statuses = ['Matched','Added','Missing','Duplicate'];
+const units = new Set(['°F','mm']);
+const scale = 100000n;
+function bytes(base64) {
+    return Uint8Array.from(atob(base64), char => char.charCodeAt(0));
+}
+
+function csvRows(input) {
+    const rows = [];
+    let row = [], field = '', quoted = false, closed = false;
+    for (let i = 0; i < input.length; i++) {
+        const char = input[i];
+        if (quoted) {
+            if (char !== '"') field += char;
+            else if (input[i+1] === '"') { field += '"'; i++; }
+            else { quoted = false; closed = true; }
+        } else if (char === '"') {
+            if (field || closed) throw Error('Misplaced quote in comparison CSV');
+            quoted = true;
+        } else if (char === ',' || char === '\n') {
+            row.push(field);
+            field = '';
+            closed = false;
+            if (char === '\n') { rows.push(row); row = []; }
+        } else {
+            if (closed) throw Error('Unexpected comparison CSV text');
+            field += char;
+        }
+    }
+    if (quoted || closed || field || row.length) throw Error('Incomplete comparison CSV row');
+    return rows;
+}
+
+function number(text) {
+    const parts = /^(-?)([0-9]+)(?:\.([0-9]{1,5}))?$/.exec(text);
+    if (!parts || parts[0] !== text) throw Error('Invalid decimal delta');
+    const magnitude = BigInt(parts[2] + (parts[3] || '').padEnd(5,'0'));
+    return parts[1] ? -magnitude : magnitude;
+}
+
+function display(value, signed, unit, matched) {
+    if (!matched) return '—';
+    const absolute = value < 0n ? -value : value;
+    const fraction = (absolute % scale).toString().padStart(5,'0').replace(/0+$/,'');
+    const sign = value < 0n ? '-' : signed && value > 0n ? '+' : '';
+    return sign + (absolute / scale) + (fraction ? '.' + fraction : '') + ' ' + unit;
+}
+
+function countsByUnit(rows) {
+    const totals = new Map();
+    for (const row of rows) {
+        const [,unit,status,,,delta] = row;
+        if (row.length !== 6 || !units.has(unit) || !statuses.includes(status) || (status === 'Matched') !== Boolean(delta))
+            throw Error('Invalid comparison group');
+        if (!totals.has(unit)) totals.set(unit,{counts:new Map(statuses.map(name=>[name,0])),net:0n,absolute:0n});
+        const total = totals.get(unit);
+        total.counts.set(status,total.counts.get(status)+1);
+        if (status === 'Matched') {
+            const value = number(delta);
+            total.net += value;
+            total.absolute += value < 0n ? -value : value;
+        }
+    }
+    return totals;
+}
+
+function node(tag,text,id) {
+    const element = document.createElement(tag);
+    element.textContent = text;
+    if (id) element.id = id;
+    return element;
+}
+
+function visibleKey(key) {
+    return '"' + key.replaceAll('\\','\\\\').replaceAll('"','\\"')
+        .replaceAll('\t','\\t').replaceAll('\r','\\r').replaceAll('\n','\\n') + '"';
+}
+
+function readingText(json) {
+    const readings = JSON.parse(json);
+    return readings.length ? readings.map(reading=>'#'+reading.row+': '+reading.value).join(' · ') : '—';
+}
+
+function rowNode(row) {
+    const [key,unit,status,earlier,later,delta] = row;
+    const cells = [visibleKey(JSON.parse(key)),unit,status,readingText(earlier),readingText(later),
+        delta ? display(number(delta),true,'',true).trim() : '—'];
+    const element = document.createElement('tr');
+    cells.forEach((value,i)=>{
+        const cell = node('td',value);
+        if (i === 0) cell.className = 'key';
+        if (i === 2) cell.className = 'status '+status.toLowerCase();
+        element.append(cell);
+    });
+    return element;
+}
+
+function showTotals(rows) {
+    const totals = countsByUnit(rows);
+    const lines = [];
+    for (const unit of units) {
+        const total = totals.get(unit);
+        if (!total) continue;
+        const counts = statuses.map(status=>status+' '+total.counts.get(status)).join(' · ');
+        const matched = total.counts.get('Matched');
+        lines.push(node('div',unit+' · '+counts+' · Net '+display(total.net,true,unit,matched)
+            +' · Absolute '+display(total.absolute,false,unit,matched)));
+    }
+    document.getElementById('visible-totals').replaceChildren(...(lines.length ? lines : [node('div','No matching groups.')]));
+}
+
+function installFilters(rows) {
+    const draw = changeChart(rows);
+    const unitButtons = [...document.querySelectorAll('button[data-unit]')];
+    const statusButtons = [...document.querySelectorAll('button[data-status]')];
+    let unit = 'all', status = 'all';
+    function update() {
+        const visible = rows.filter(row=>(unit==='all'||row[1]===unit)&&(status==='all'||row[2]===status));
+        document.getElementById('visible-count').textContent = visible.length + (visible.length===1?' group':' groups');
+        document.getElementById('visible-rows').replaceChildren(...visible.map(rowNode));
+        showTotals(visible);
+        draw(visible);
+        unitButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.unit===unit)));
+        statusButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.status===status)));
+    }
+    unitButtons.forEach(button=>{button.onclick=()=>{unit=button.dataset.unit;update();};});
+    statusButtons.forEach(button=>{button.onclick=()=>{status=button.dataset.status;update();};});
+    document.getElementById('reset-filters').onclick=()=>{unit='all';status='all';update();};
+    update();
+}
+
+async function sha(data) {
+    const digest = new Uint8Array(await crypto.subtle.digest('SHA-256',data));
+    return [...digest].map(value=>value.toString(16).padStart(2,'0')).join('');
+}
+
+function downloadJson(name,data,mime='application/json') {
+    document.querySelector('a[download][href='+JSON.stringify(name)+']').addEventListener('click',event=>{
+        event.preventDefault();
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(new Blob([data],{type:mime}));
+        link.download = name;
+        link.click();
+        setTimeout(()=>URL.revokeObjectURL(link.href),1000);
+    });
+}
+
+const changeMap = document.getElementById('change-map');
+const emptyChanges = 'No matched changes in this view.';
+const selectChange = 'Select a bar to inspect both source readings.';
+
+function changeChart(allRows) {
+    const maximum = new Map();
+    for (const row of allRows) {
+        if (row[2] !== 'Matched') continue;
+        const delta = number(row[5]);
+        const magnitude = delta < 0n ? -delta : delta;
+        if (magnitude > (maximum.get(row[1]) ?? 0n)) maximum.set(row[1],magnitude);
+    }
+    return function renderChanges(visible) {
+        const groups = new Map([...units].map(unit=>[unit,[]]));
+        for (const row of visible) if (row[2] === 'Matched') groups.get(row[1]).push(row);
+        const detail = changeMap.querySelector('#change-selection');
+        const title = changeMap.querySelector('#change-selection-title');
+        const readings = changeMap.querySelector('#change-selection-readings');
+        const lanes = [];
+        let first = true;
+        let selected;
+        title.textContent = selectChange;
+        readings.textContent = '';
+        for (const [unit,matched] of groups) {
+            if (!matched.length) continue;
+            const largest = maximum.get(unit) ?? 0n;
+            const lane = node('section','');
+            lane.className = 'change-lane';
+            lane.dataset.unit = unit;
+            const axis = node('div','');
+            axis.className = 'change-axis';
+            const range = largest === 0n ? ['0 '+unit] :
+                [display(-largest,false,unit,true),'0',display(largest,true,unit,true)];
+            axis.append(...range.map(label=>node('span',label)));
+            lane.append(node('h3',unit),axis);
+            for (const row of matched) {
+                const key = visibleKey(JSON.parse(row[0]));
+                const delta = number(row[5]);
+                const magnitude = delta < 0n ? -delta : delta;
+                const width = largest === 0n ? 0 : Number(magnitude * 10000n / largest);
+                const direction = delta < 0n ? 'loss' : delta > 0n ? 'gain' : 'steady';
+                const amount = display(delta,true,unit,true);
+                const button = node('button','');
+                button.type = 'button';
+                button.className = 'change-bar';
+                button.dataset.direction = direction;
+                button.dataset.width = String(width);
+                if (first) button.dataset.first = '';
+                first = false;
+                button.setAttribute('aria-pressed','false');
+                button.setAttribute('aria-controls',detail.id);
+                const track = node('span','');
+                track.className = 'change-track';
+                track.setAttribute('aria-hidden','true');
+                const mark = node('span','');
+                mark.className = 'change-mark';
+                mark.style.setProperty('--bar',(width/200)+'%');
+                track.append(mark);
+                const label = node('span',amount);
+                label.className = 'change-delta';
+                button.append(node('span',key),label,track);
+                button.onclick = () => {
+                    selected?.setAttribute('aria-pressed','false');
+                    selected = button;
+                    button.setAttribute('aria-pressed','true');
+                    title.textContent = key + ' · ' + amount;
+                    readings.textContent = 'Earlier '+readingText(row[3])+' | Later '+readingText(row[4]);
+                };
+                lane.append(button);
+            }
+            lanes.push(lane);
+        }
+        changeMap.querySelector('#change-bars').replaceChildren(...lanes);
+        changeMap.querySelector('#change-empty').textContent = lanes.length ? '' : emptyChanges;
+        detail.hidden = lanes.length === 0;
+    };
+}
+async function readChapter(chapter) {
+    const decoder = new TextDecoder('utf-8',{fatal:true});
+    const csv = bytes(chapter.csv);
+    const receiptBytes = bytes(chapter.receipt);
+    const summaryBytes = bytes(chapter.proof);
+    const receipt = JSON.parse(decoder.decode(receiptBytes));
+    const summary = JSON.parse(decoder.decode(summaryBytes));
+    const [csvHash,summaryHash] = await Promise.all([sha(csv),sha(summaryBytes)]);
+    const binding = chapter.binding;
+    if (csvHash !== binding.sourceSha256 || receipt.sha256 !== csvHash || csv.length !== receipt.bytes ||
+        receipt.id !== binding.exportId || summaryHash !== chapter.proofSha256 ||
+        JSON.stringify(summary.import) !== JSON.stringify(receipt) || summary.passed !== true)
+        throw Error('The comparison and proof disagree');
+    const rows = csvRows(decoder.decode(csv));
+    const header = ['key_json','unit','status','earlier_readings','later_readings','delta'];
+    const actual = rows.shift();
+    if (!actual || actual.length !== header.length || !actual.every((value,i)=>value===header[i]) ||
+        rows.length !== receipt.source.groups)
+        throw Error('The comparison columns or group count changed');
+    countsByUnit(rows);
+    return {rows,csv,receiptBytes,summaryBytes,binding,summaryHash};
+}
+
+function briefingDownload(id, name, data, type) {
+    const link = document.getElementById(id);
+    if (link.href.startsWith('blob:')) URL.revokeObjectURL(link.href);
+    link.href = URL.createObjectURL(new Blob([data],{type}));
+    link.download = name;
+}
+
+async function render() {
+    const payload = [{"binding":{"exportId":"f085004c-7b29-4707-90e0-65d0a1406002","sourceSha256":"424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b","summary":{"id":"f3475743-3224-3a81-921c-e775aa334c64","sha256":"c968e225ff09e3d5685fec7ed94b98285271a87e5e455a6d7e8f3d0d69ef239a","version":1}},"csv":"a2V5X2pzb24sdW5pdCxzdGF0dXMsZWFybGllcl9yZWFkaW5ncyxsYXRlcl9yZWFkaW5ncyxkZWx0YQoiIiJyaXNlIDxwcm9iZT4iIiIswrBGLE1hdGNoZWQsIlt7IiJyb3ciIjoyLCIidmFsdWUiIjoiIjMyIiJ9XSIsIlt7IiJyb3ciIjozLCIidmFsdWUiIjoiIjUwIiJ9XSIsMTgKIiIiZmFsbCIiIizCsEYsTWF0Y2hlZCwiW3siInJvdyIiOjMsIiJ2YWx1ZSIiOiIiNTAiIn1dIiwiW3siInJvdyIiOjIsIiJ2YWx1ZSIiOiIiNDEiIn1dIiwtOQoiIiJzdGVhZHkiIiIswrBGLE1hdGNoZWQsIlt7IiJyb3ciIjo0LCIidmFsdWUiIjoiIjQxIiJ9XSIsIlt7IiJyb3ciIjo0LCIidmFsdWUiIjoiIjQxIiJ9XSIsMAoiIiJsZW5ndGggZ2FpbiIiIixtbSxNYXRjaGVkLCJbeyIicm93IiI6NSwiInZhbHVlIiI6IiIyNS40IiJ9XSIsIlt7IiJyb3ciIjo1LCIidmFsdWUiIjoiIjUwLjgiIn1dIiwyNS40CiIiImxlbmd0aCBmYWxsIiIiLG1tLE1hdGNoZWQsIlt7IiJyb3ciIjo2LCIidmFsdWUiIjoiIjc2LjIiIn1dIiwiW3siInJvdyIiOjYsIiJ2YWx1ZSIiOiIiNjMuNSIifV0iLC0xMi43CiIiImdvbmUiIiIsbW0sTWlzc2luZywiW3siInJvdyIiOjcsIiJ2YWx1ZSIiOiIiMjAzLjIiIn1dIixbXSwKIiIiZG91YmxlIiIiLMKwRixEdXBsaWNhdGUsIlt7IiJyb3ciIjo4LCIidmFsdWUiIjoiIjM1LjYiIn0seyIicm93IiI6OSwiInZhbHVlIiI6IiIzNy40IiJ9XSIsIlt7IiJyb3ciIjo3LCIidmFsdWUiIjoiIjM1LjYiIn1dIiwKIiIiZnJlc2giIiIsbW0sQWRkZWQsW10sIlt7IiJyb3ciIjo4LCIidmFsdWUiIjoiIjUwLjgiIn1dIiwK","proof":"eyJicm93c2VyQ2hlY2tzIjoxMywiaW1wb3J0Ijp7ImJ5dGVzIjo4MDQsImNyZWF0ZWRBdCI6IjIwMjYtMTEtMjNUMTk6MDk6MjQuNDE1WiIsImlkIjoiZjA4NTAwNGMtN2IyOS00NzA3LTkwZTAtNjVkMGExNDA2MDAyIiwia2luZCI6InZlcmlmaWVkLXJvdXRlZC1jb21wYXJpc29uIiwic2hhMjU2IjoiNDI0ZGViMmU3ZGM1NTU4OGQwYmFlN2MzYjNmOTNlYTFmNjNlOGIxZjE5ZmRlMDIyMjYzODNjNDMzNTkwNTUyYiIsInNvdXJjZSI6eyJhcnRpZmFjdCI6eyJpZCI6IjhmM2YyMGRiLTMyOTUtM2E4ZS1iYjdhLWU5Y2QwNzI3NGE0OSIsInNoYTI1NiI6ImJhMzVhYThhY2JmZTU5NjZiZmY0MWJhYzYxOWUwYjUyN2VkOWE4NmI1YmYwNjZmMmU5ZTVmNjBkY2M5MzJmYTkiLCJ2ZXJzaW9uIjoxfSwiYnJvd3NlckNoZWNrcyI6OSwiYnJvd3NlckV2aWRlbmNlU2hhMjU2IjoiYmZhMTc0Y2M1Nzc5NGNjMGYxYjI3NDViNTYwNDkwOTRiNWQ2OTIyMGYxNWExNjI3ZmEyY2VlYTE1Y2FmYTczYyIsImNvbXBhcmlzb25JZCI6IjliMWM1YmU2LTkzM2ItMzNkZi04NzZlLWE5NjZlNTEyY2U5NCIsImVhcmxpZXIiOnsiZXhwb3J0SWQiOiJiMWVkMjQ4NS1kYjZjLTQ0NjItODdjYS1lMzIxMDZhOTg4OWEiLCJzaGEyNTYiOiJkMDVkNTdiZDUwN2NiYmVhZjRmNzNmMGFiMjFhZDk5OGU1OTQwZjUyMzk1MDcwM2YzMTM4NDE2YTljZjFjZWIxIn0sImZvcm1hdCI6ImZyYXluaXgucm91dGVkLWtleS1jb21wYXJpc29uLWNzdi12MSIsImdyb3VwcyI6OCwia2V5Q29sdW1uIjoicmVjb3JkIElEIiwibGF0ZXIiOnsiZXhwb3J0SWQiOiIwOTIzMzZjOC0yZGVkLTRmZTEtYmNiNy0wMjNiMzhmMGRiMTQiLCJzaGEyNTYiOiI5ZjBkZGZiM2FmYzUwYjI3Y2M5NGUzMmQwZjQ0YmUxN2QwMTA2MGY4ODFiZWQyMjBjMWU4NWFlNDJmYTRmYzM2In19fSwicGFzc2VkIjp0cnVlLCJ0b3RhbHMiOlt7ImFic29sdXRlRGVsdGEiOiIyNyIsImFkZGVkIjowLCJkdXBsaWNhdGUiOjEsIm1hdGNoZWQiOjMsIm1pc3NpbmciOjAsIm5ldERlbHRhIjoiOSIsInVuaXQiOiLCsEYifSx7ImFic29sdXRlRGVsdGEiOiIzOC4xIiwiYWRkZWQiOjEsImR1cGxpY2F0ZSI6MCwibWF0Y2hlZCI6MiwibWlzc2luZyI6MSwibmV0RGVsdGEiOiIxMi43IiwidW5pdCI6Im1tIn1dfQo=","proofSha256":"7f063fb6f9a712d398473280d2ff35d655e5409e1100906c0719e289562147bd","receipt":"eyJieXRlcyI6ODA0LCJjcmVhdGVkQXQiOiIyMDI2LTExLTIzVDE5OjA5OjI0LjQxNVoiLCJpZCI6ImYwODUwMDRjLTdiMjktNDcwNy05MGUwLTY1ZDBhMTQwNjAwMiIsImtpbmQiOiJ2ZXJpZmllZC1yb3V0ZWQtY29tcGFyaXNvbiIsInNoYTI1NiI6IjQyNGRlYjJlN2RjNTU1ODhkMGJhZTdjM2IzZjkzZWExZjYzZThiMWYxOWZkZTAyMjI2MzgzYzQzMzU5MDU1MmIiLCJzb3VyY2UiOnsiYXJ0aWZhY3QiOnsiaWQiOiI4ZjNmMjBkYi0zMjk1LTNhOGUtYmI3YS1lOWNkMDcyNzRhNDkiLCJzaGEyNTYiOiJiYTM1YWE4YWNiZmU1OTY2YmZmNDFiYWM2MTllMGI1MjdlZDlhODZiNWJmMDY2ZjJlOWU1ZjYwZGNjOTMyZmE5IiwidmVyc2lvbiI6MX0sImJyb3dzZXJDaGVja3MiOjksImJyb3dzZXJFdmlkZW5jZVNoYTI1NiI6ImJmYTE3NGNjNTc3OTRjYzBmMWIyNzQ1YjU2MDQ5MDk0YjVkNjkyMjBmMTVhMTYyN2ZhMmNlZWExNWNhZmE3M2MiLCJjb21wYXJpc29uSWQiOiI5YjFjNWJlNi05MzNiLTMzZGYtODc2ZS1hOTY2ZTUxMmNlOTQiLCJlYXJsaWVyIjp7ImV4cG9ydElkIjoiYjFlZDI0ODUtZGI2Yy00NDYyLTg3Y2EtZTMyMTA2YTk4ODlhIiwic2hhMjU2IjoiZDA1ZDU3YmQ1MDdjYmJlYWY0ZjczZjBhYjIxYWQ5OThlNTk0MGY1MjM5NTA3MDNmMzEzODQxNmE5Y2YxY2ViMSJ9LCJmb3JtYXQiOiJmcmF5bml4LnJvdXRlZC1rZXktY29tcGFyaXNvbi1jc3YtdjEiLCJncm91cHMiOjgsImtleUNvbHVtbiI6InJlY29yZCBJRCIsImxhdGVyIjp7ImV4cG9ydElkIjoiMDkyMzM2YzgtMmRlZC00ZmUxLWJjYjctMDIzYjM4ZjBkYjE0Iiwic2hhMjU2IjoiOWYwZGRmYjNhZmM1MGIyN2NjOTRlMzJkMGY0NGJlMTdkMDEwNjBmODgxYmVkMjIwYzFlODVhZTQyZmE0ZmMzNiJ9fX0K"},{"binding":{"exportId":"d5642a70-9bb5-4904-aa18-2572f32249af","sourceSha256":"705c5ee99e08a65909f7e152decd464c04793eac9ba9b75b775700e57318f406","summary":{"id":"e5bcd959-bfca-3dec-99d3-79692d02baa1","sha256":"3576cc3e479ae494d64943ae660e8b8f7a3f5c9a06d4dcc89d5ffc2bbca6a733","version":1}},"csv":"a2V5X2pzb24sdW5pdCxzdGF0dXMsZWFybGllcl9yZWFkaW5ncyxsYXRlcl9yZWFkaW5ncyxkZWx0YQoiIiJjaGlsbCIiIizCsEYsTWF0Y2hlZCwiW3siInJvdyIiOjIsIiJ2YWx1ZSIiOiIiNzciIn1dIiwiW3siInJvdyIiOjIsIiJ2YWx1ZSIiOiIiNTkiIn1dIiwtMTgKIiIid2FybSIiIizCsEYsTWF0Y2hlZCwiW3siInJvdyIiOjMsIiJ2YWx1ZSIiOiIiLTIyIiJ9XSIsIlt7IiJyb3ciIjozLCIidmFsdWUiIjoiIi0yMC4yIiJ9XSIsMS44CiIiInNoaWZ0IiIiLG1tLE1hdGNoZWQsIlt7IiJyb3ciIjo0LCIidmFsdWUiIjoiIjc2LjIiIn1dIiwiW3siInJvdyIiOjQsIiJ2YWx1ZSIiOiIiNjkuODUiIn1dIiwtNi4zNQoiIiJyZXRpcmVkIiIiLG1tLE1pc3NpbmcsIlt7IiJyb3ciIjo1LCIidmFsdWUiIjoiIjEyNyIifV0iLFtdLAoiIiJhZGRlZCIiIizCsEYsQWRkZWQsW10sIlt7IiJyb3ciIjo1LCIidmFsdWUiIjoiIjQ2LjQiIn1dIiwK","proof":"eyJicm93c2VyQ2hlY2tzIjoxMywiaW1wb3J0Ijp7ImJ5dGVzIjo0NzQsImNyZWF0ZWRBdCI6IjIwMjYtMTEtMjNUMTk6MDk6NTIuNTU4WiIsImlkIjoiZDU2NDJhNzAtOWJiNS00OTA0LWFhMTgtMjU3MmYzMjI0OWFmIiwia2luZCI6InZlcmlmaWVkLXJvdXRlZC1jb21wYXJpc29uIiwic2hhMjU2IjoiNzA1YzVlZTk5ZTA4YTY1OTA5ZjdlMTUyZGVjZDQ2NGMwNDc5M2VhYzliYTliNzViNzc1NzAwZTU3MzE4ZjQwNiIsInNvdXJjZSI6eyJhcnRpZmFjdCI6eyJpZCI6ImQwZTdjOGU0LWU4MjAtMzFkNy05N2IxLWFhZTM2ZDFjOWMzMSIsInNoYTI1NiI6ImYyZTM0YzgyMDE1Y2FjN2MwZGVmN2U5ZWQwMTIxYWViNjZhMjBmYzgzOGZjZmNkNWVjZTU1ZGNiMzk0ODIwMmYiLCJ2ZXJzaW9uIjoxfSwiYnJvd3NlckNoZWNrcyI6OSwiYnJvd3NlckV2aWRlbmNlU2hhMjU2IjoiZDAwNDZhZGE1YzJjYjZiM2Y5ZmFlODdiYjViOGY2MTg3MDQ3ZTk5MGY0MWY0YTE4NTRhM2NmOGFkZWYwZWFkNSIsImNvbXBhcmlzb25JZCI6ImU0NTUzOTRiLTA1NzQtM2Q2Yi04MTllLTYyMzM5NzRkNTI0ZSIsImVhcmxpZXIiOnsiZXhwb3J0SWQiOiI2YzkxZGRjMS1hZjczLTRlYzgtODhhNy0xMjU0MDNmOGQxM2QiLCJzaGEyNTYiOiIxY2FhZTAwYTI0OGE1OTIyYzE0MjhlMzg1MDdhYmRlMDExNjQ3ZGM2OGE5NjUzMzY3YWFjY2U4NzNlNzJlNWI3In0sImZvcm1hdCI6ImZyYXluaXgucm91dGVkLWtleS1jb21wYXJpc29uLWNzdi12MSIsImdyb3VwcyI6NSwia2V5Q29sdW1uIjoicmVjb3JkIElEIiwibGF0ZXIiOnsiZXhwb3J0SWQiOiJjNGQ2ODE0NC1jZGU2LTQwY2UtOTg4NC1hZDhmYjM0MGU2NmEiLCJzaGEyNTYiOiI3ZWU2YTRmNzRkNDgxNDBjMDZjMjRhNTVlMTc4NWY4M2E2NDBhOWU2ZjBjMTViZDM2NTFjYTQ3NjhlOGU0YzcyIn19fSwicGFzc2VkIjp0cnVlLCJ0b3RhbHMiOlt7ImFic29sdXRlRGVsdGEiOiIxOS44IiwiYWRkZWQiOjEsImR1cGxpY2F0ZSI6MCwibWF0Y2hlZCI6MiwibWlzc2luZyI6MCwibmV0RGVsdGEiOiItMTYuMiIsInVuaXQiOiLCsEYifSx7ImFic29sdXRlRGVsdGEiOiI2LjM1IiwiYWRkZWQiOjAsImR1cGxpY2F0ZSI6MCwibWF0Y2hlZCI6MSwibWlzc2luZyI6MSwibmV0RGVsdGEiOiItNi4zNSIsInVuaXQiOiJtbSJ9XX0K","proofSha256":"e6bd1e705eaf9892b7b1862a652169fcbcb56de3e47c2f41c98ccdd6b3bc310d","receipt":"eyJieXRlcyI6NDc0LCJjcmVhdGVkQXQiOiIyMDI2LTExLTIzVDE5OjA5OjUyLjU1OFoiLCJpZCI6ImQ1NjQyYTcwLTliYjUtNDkwNC1hYTE4LTI1NzJmMzIyNDlhZiIsImtpbmQiOiJ2ZXJpZmllZC1yb3V0ZWQtY29tcGFyaXNvbiIsInNoYTI1NiI6IjcwNWM1ZWU5OWUwOGE2NTkwOWY3ZTE1MmRlY2Q0NjRjMDQ3OTNlYWM5YmE5Yjc1Yjc3NTcwMGU1NzMxOGY0MDYiLCJzb3VyY2UiOnsiYXJ0aWZhY3QiOnsiaWQiOiJkMGU3YzhlNC1lODIwLTMxZDctOTdiMS1hYWUzNmQxYzljMzEiLCJzaGEyNTYiOiJmMmUzNGM4MjAxNWNhYzdjMGRlZjdlOWVkMDEyMWFlYjY2YTIwZmM4MzhmY2ZjZDVlY2U1NWRjYjM5NDgyMDJmIiwidmVyc2lvbiI6MX0sImJyb3dzZXJDaGVja3MiOjksImJyb3dzZXJFdmlkZW5jZVNoYTI1NiI6ImQwMDQ2YWRhNWMyY2I2YjNmOWZhZTg3YmI1YjhmNjE4NzA0N2U5OTBmNDFmNGExODU0YTNjZjhhZGVmMGVhZDUiLCJjb21wYXJpc29uSWQiOiJlNDU1Mzk0Yi0wNTc0LTNkNmItODE5ZS02MjMzOTc0ZDUyNGUiLCJlYXJsaWVyIjp7ImV4cG9ydElkIjoiNmM5MWRkYzEtYWY3My00ZWM4LTg4YTctMTI1NDAzZjhkMTNkIiwic2hhMjU2IjoiMWNhYWUwMGEyNDhhNTkyMmMxNDI4ZTM4NTA3YWJkZTAxMTY0N2RjNjhhOTY1MzM2N2FhY2NlODczZTcyZTViNyJ9LCJmb3JtYXQiOiJmcmF5bml4LnJvdXRlZC1rZXktY29tcGFyaXNvbi1jc3YtdjEiLCJncm91cHMiOjUsImtleUNvbHVtbiI6InJlY29yZCBJRCIsImxhdGVyIjp7ImV4cG9ydElkIjoiYzRkNjgxNDQtY2RlNi00MGNlLTk4ODQtYWQ4ZmIzNDBlNjZhIiwic2hhMjU2IjoiN2VlNmE0Zjc0ZDQ4MTQwYzA2YzI0YTU1ZTE3ODVmODNhNjQwYTllNmYwYzE1YmQzNjUxY2E0NzY4ZThlNGM3MiJ9fX0K"}];
+    if (payload.length !== 2) throw Error('Two comparison sources are required');
+    const tabs = [document.querySelector('#brief-source-1'),document.querySelector('#brief-source-2')];
+    const chapters = await Promise.all(payload.map(async (source,index)=>{
+        try { return await readChapter(source); }
+        catch (error) { throw Error('Source '+(index+1)+': '+error.message); }
+    }));
+    function select(index) {
+        const source = chapters[index];
+        const prefix = 'source-'+(index+1)+'-';
+        document.getElementById('source-id').textContent = 'Source '+(index+1)+' · Export '+source.binding.exportId;
+        document.getElementById('source-hash').textContent = 'CSV SHA-256 '+source.binding.sourceSha256+
+            ' · Summary SHA-256 '+source.summaryHash;
+        briefingDownload('briefing-download-csv',prefix+'comparison.csv',source.csv,'text/csv');
+        briefingDownload('briefing-download-receipt',prefix+'receipt.json',source.receiptBytes,'application/json');
+        briefingDownload('briefing-download-summary',prefix+'summary.json',source.summaryBytes,'application/json');
+        installFilters(source.rows);
+        tabs.forEach((tab,i)=>tab.setAttribute('aria-pressed',String(index===i)));
+    }
+    tabs.forEach((tab,index)=>{tab.onclick=()=>select(index);});
+    select(0);
+}
+
+render().catch(error=>{
+    const notice = document.getElementById('story-error');
+    notice.hidden = false;
+    notice.textContent = 'Unable to open this verified story: ' + error.message;
+    changeMap.hidden = true;
+    document.querySelector('.filters').hidden = true;
+    document.querySelector('nav[aria-label="Original evidence"]').hidden = true;
+    document.querySelectorAll('a[download]').forEach(link=>link.remove());
+    console.error(error.message);
+});
+
+</script>
+</body>
+</html>

@@ -1,3 +1,5 @@
+[Edition 208 — Two-source comparison briefings](216-paired-comparisons.md)
+
 [Edition 207 — Reviewed comparison briefings](215-comparison-briefing.md)
 
 [Edition 206 — Interactive change stories](214-change-story.md)

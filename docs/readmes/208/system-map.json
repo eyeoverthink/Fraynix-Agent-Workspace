@@ -1,0 +1,49 @@
+{
+  "summary": "Review two verified comparisons in Chat and export one offline briefing. Each source keeps its own totals, chart, rows and proof.",
+  "modules": [
+    {
+      "title": "Chat commands",
+      "source": "workspace-desktop/renderer/classification-routing.js",
+      "note": "docs/obsidian/216-paired-comparisons.md"
+    },
+    {
+      "title": "Paired comparison briefing",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PairedComparisonBriefing.java",
+      "note": "docs/obsidian/216-paired-comparisons.md"
+    },
+    {
+      "title": "Offline source tabs",
+      "source": "workspace-engine/src/main/resources/workbench/routing-paired-briefing.js",
+      "note": "docs/obsidian/216-paired-comparisons.md"
+    },
+    {
+      "title": "Desktop and export verification",
+      "source": "workspace-desktop/test/paired-briefing-integration.cjs",
+      "note": "docs/obsidian/216-paired-comparisons.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/208/mac-review.png",
+      "title": "Apple silicon macOS shows both comparison IDs in one review"
+    },
+    {
+      "path": "docs/readmes/208/offline-paired.png",
+      "title": "The Windows offline file shows Source 2 and its original readings"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/208/paired-briefing.html",
+      "title": "Open the exported offline briefing"
+    },
+    {
+      "path": "docs/readmes/208/release-proof.json",
+      "title": "Platform and test evidence"
+    },
+    {
+      "path": "docs/publication208/plan.md",
+      "title": "Reproduction and next candidate"
+    }
+  ]
+}
