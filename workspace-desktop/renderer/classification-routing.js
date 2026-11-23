@@ -112,8 +112,12 @@ export class ClassificationRoutingPanel {
                         this.showBriefing(await this.call('briefing-read',{id}));
                     } else {
                         const result = await this.call('briefing-'+action,{id});
-                        this.announce(action==='export'?'Saved verified comparison briefing to '+result.path:
-                            'Comparison briefing verified against Java. '+result.browserChecks+' fresh browser checks passed.');
+                        if (action==='export') {
+                            const name = result.kind==='paired-comparison-briefing' ? 'two-source comparison briefing' : 'comparison briefing';
+                            this.announce('Saved verified '+name+' to '+result.path);
+                        } else {
+                            this.announce('Comparison briefing verified against Java. '+result.browserChecks+' fresh browser checks passed.');
+                        }
                     }
                 }
             } catch (error) { this.announce(error.message); }

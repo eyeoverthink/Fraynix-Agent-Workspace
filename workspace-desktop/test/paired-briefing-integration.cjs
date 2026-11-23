@@ -163,7 +163,7 @@ async function testPairedBriefing({project,output,original,route,call,api,send,r
     });
     assert.equal(await fs.readFile(manifest,'utf8'),originalManifest);
     await send('Export the comparison briefing.');
-    await reply('Saved verified comparison briefing to');
+    await reply('Saved verified two-source comparison briefing to');
     const exported = JSON.parse((await fs.readFile(manifest,'utf8')).trim().split('\n').at(-1));
     assert.equal(exported.kind,'paired-comparison-briefing');
     assert.equal(exported.sha256,proof.htmlSha256);
