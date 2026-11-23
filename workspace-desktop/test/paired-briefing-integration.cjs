@@ -4,6 +4,8 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const {createHash} = require('node:crypto');
+const {testSelectedBriefing} = require('./selected-briefing-integration.cjs');
+const {withOfflineBriefing} = require('./offline-briefing.cjs');
 
 const earlier = ['record ID,reading,probe_c,inches','chill,4,25,1','warm,4,-30,1','shift,12,0,3','retired,12,0,5'];
 const later = ['reading,inches,record ID,probe_c','4,1,chill,15','4,1,warm,-29','12,2.75,shift,0','4,1,added,8'];
@@ -21,28 +23,7 @@ async function withChangedFile(file, change, test) {
 }
 
 async function offline(app, file, output, artifact, sources) {
-    const paths = Object.fromEntries(Object.keys(artifact.contents).filter(name=>name.startsWith('source-'))
-        .map(name=>[name,path.join(output,name)]));
-    const opened = app.waitForEvent('window');
-    const id = await app.evaluate(({BrowserWindow},[file,paths])=>{
-        const win = new BrowserWindow({width:730,height:940,webPreferences:{
-            partition:'paired-briefing-offline',sandbox:true,contextIsolation:true,nodeIntegration:false}});
-        const session = win.webContents.session;
-        session.webRequest.onBeforeRequest({urls:['http://*/*','https://*/*']},(_,callback)=>callback({cancel:true}));
-        win.downloads = {};
-        session.on('will-download',(_,item)=>{
-            const name = item.getFilename();
-            if (!Object.hasOwn(paths,name)) { item.cancel(); return; }
-            item.setSavePath(paths[name]);
-            item.once('done',(_,state)=>{win.downloads[name]=state;});
-        });
-        win.loadFile(file);
-        return win.id;
-    },[file,paths]);
-    const browser = await opened;
-    try {
-        assert(browser.url().startsWith('file:'));
-        await browser.locator('.change-bar').first().waitFor(options);
+    await withOfflineBriefing(app,file,output,artifact,async(browser,downloads)=>{
         for (const [index,source] of sources.entries()) {
             const number = index+1;
             await browser.getByRole('button',{name:'Source '+number,exact:true}).click();
@@ -57,28 +38,14 @@ async function offline(app, file, output, artifact, sources) {
             await browser.keyboard.press('Enter');
             assert.equal(await browser.locator('#change-selection-readings').innerText(),
                 index===0?'Earlier #3: 50 | Later #2: 41':'Earlier #2: 77 | Later #2: 59');
-            const prefix = 'source-'+number+'-';
-            for (const name of ['comparison.csv','receipt.json','summary.json']) {
-                const filename = prefix+name;
-                await browser.locator('a[download="'+filename+'"]').evaluate(link=>link.click());
-                let state;
-                for (let attempt=0;attempt<80;attempt++) {
-                    state = await app.evaluate(({BrowserWindow},[id,name])=>BrowserWindow.fromId(id)?.downloads[name],[id,filename]);
-                    if (state) break;
-                    await new Promise(resolve=>setTimeout(resolve,100));
-                }
-                assert.equal(state,'completed');
-                assert.equal(await fs.readFile(path.join(output,filename),'utf8'),artifact.contents[filename]);
-            }
+            await downloads(number);
         }
         await browser.screenshot({path:path.join(output,'offline-paired.png'),fullPage:true});
         await browser.getByRole('button',{name:'Source 1',exact:true}).click();
         assert.equal(await browser.locator('#visible-count').innerText(),'8 groups');
         assert.equal(await browser.locator('#change-selection-readings').innerText(),'');
         assert(await browser.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
-    } finally {
-        await app.evaluate(({BrowserWindow},id)=>BrowserWindow.fromId(id)?.destroy(),id);
-    }
+    });
 }
 
 async function testPairedBriefing({project,output,original,route,call,api,send,reply,app,page,restart}) {
@@ -177,7 +144,8 @@ async function testPairedBriefing({project,output,original,route,call,api,send,r
     for (const [name,content] of Object.entries(artifact.contents))
         await fs.writeFile(path.join(output,name==='index.html'?'paired-briefing.html':
             name==='verification.json'?'paired-verification.json':name),content);
-    return {review:await call('briefing-read',{id}),proof,evidence,checks:[
+    const selected = await testSelectedBriefing({project,output,original,second,route,call,api,send,reply,app,page,restart});
+    return {review:await call('briefing-read',{id}),proof,evidence,selected,checks:[
         'Two distinct source bindings and their order survive a restart before approval and after building',
         'Changed CSV bytes for either source block recheck and export with the correct source label',
         'Source 2 retained summary proof is independently checked even with unchanged CSV bytes',

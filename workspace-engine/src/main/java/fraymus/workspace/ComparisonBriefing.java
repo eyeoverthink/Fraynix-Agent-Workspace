@@ -37,12 +37,18 @@ record ComparisonBriefing(String id, List<String> sections) {
 
     private String hidden(String section) { return has(section) ? "" : " hidden"; }
 
+    private List<String> visibilitySelectors() {
+        return List.of(List.of("totals", "#visible-totals"), List.of("chart", "#change-map"), List.of("rows", ".table-wrap"))
+                .stream().map(item -> item.get(1) + (has(item.getFirst()) ? ":not([hidden])" : "[hidden]")).toList();
+    }
+
     void checkVisibility(JSONArray steps) {
         steps.put(text("#briefing-sections", label()));
-        for (var item : List.of(List.of("totals", "#visible-totals"), List.of("chart", "#change-map"),
-                List.of("rows", ".table-wrap"))) {
-            steps.put(count(item.get(1) + (has(item.getFirst()) ? ":not([hidden])" : "[hidden]"), 1));
-        }
+        for (var selector : visibilitySelectors()) steps.put(count(selector, 1));
+    }
+
+    void checkSourceVisibility(JSONArray steps) {
+        steps.put(text("#briefing-sections", label())).put(count(String.join(",", visibilitySelectors()), 3));
     }
 
     void checkSections(JSONArray steps) {

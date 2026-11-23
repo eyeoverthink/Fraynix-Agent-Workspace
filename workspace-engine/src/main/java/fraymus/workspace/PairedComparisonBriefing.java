@@ -35,11 +35,25 @@ final class PairedComparisonBriefing implements RoutedReport {
     }
 
     private final ComparisonBriefing sectionPlan;
+    private final List<ComparisonBriefing> sourcePlans;
+    private final boolean sourceSpecific;
     private final List<Chapter> chapters;
     private final String html;
 
     PairedComparisonBriefing(String id, List<String> sections, List<RoutedDashboard.VerifiedSummary> sources) {
-        sectionPlan = new ComparisonBriefing(id, sections);
+        this(id, sources, List.of(sections, sections), false);
+    }
+
+    static PairedComparisonBriefing withSourceSections(String id, List<RoutedDashboard.VerifiedSummary> sources,
+                                                       List<List<String>> sections) {
+        return new PairedComparisonBriefing(id, sources, sections, true);
+    }
+
+    private PairedComparisonBriefing(String id, List<RoutedDashboard.VerifiedSummary> sources,
+                                     List<List<String>> sections, boolean sourceSpecific) {
+        this.sourceSpecific = sourceSpecific;
+        sourcePlans = sections.stream().map(selected -> new ComparisonBriefing(id, selected)).toList();
+        sectionPlan = sourcePlans.getFirst();
         chapters = sources.stream().map(Chapter::new).toList();
         String base = sectionPlan.html(new RoutedComparisonStory(chapters.getFirst().rows()).html(TEMPLATE))
                 .replace(ComparisonBriefing.TITLE, TITLE)
@@ -60,21 +74,38 @@ final class PairedComparisonBriefing implements RoutedReport {
         int begin = base.indexOf("async function render() {");
         int end = base.indexOf("const changeMap = ", begin);
         if (begin < 0 || end <= begin) throw new IllegalStateException("The comparison browser template changed");
-        var payload = new JSONArray(chapters.stream().map(Chapter::packed).toList());
+        var payload = new JSONArray();
+        for (int i = 0; i < chapters.size(); i++) {
+            var chapter = chapters.get(i).packed();
+            if (sourceSpecific) chapter.getJSONObject("binding").put("sections", sourcePlans.get(i).sections());
+            payload.put(chapter);
+        }
+        String script = SCRIPT;
+        if (sourceSpecific) {
+            script = FrayConversion.loadHtml("routing-briefing-sections.js")
+                    + script.replace("        installFilters(source.rows);",
+                            "        showSelectedSections(source.binding.sections);\n        installFilters(source.rows);");
+        }
         html = (base.substring(0, begin) + base.substring(end))
-                .replace("render().catch(error=>{", SCRIPT.replace("/*@BRIEFING_SOURCES@*/ []", MapCheckpoint.canonical(payload).replace("<", "\\u003c"))
+                .replace("render().catch(error=>{", script.replace("/*@BRIEFING_SOURCES@*/ []", MapCheckpoint.canonical(payload).replace("<", "\\u003c"))
                         + "\nrender().catch(error=>{");
     }
 
     @Override public String html() { return html; }
 
     JSONArray sourceBindings() {
-        return new JSONArray(chapters.stream().map(chapter -> chapter.summary().binding()).toList());
+        var sources = new JSONArray();
+        for (int i = 0; i < chapters.size(); i++) {
+            var binding = chapters.get(i).summary().binding();
+            if (sourceSpecific) binding.put("sections", sourcePlans.get(i).sections());
+            sources.put(binding);
+        }
+        return sources;
     }
 
     @Override public JSONArray steps() {
         var steps = new JSONArray().put(text("h1", TITLE));
-        sectionPlan.checkVisibility(steps);
+        if (!sourceSpecific) sectionPlan.checkVisibility(steps);
         addChapter(steps, chapters.getFirst(), 1);
         steps.put(count("#brief-source-2", 1).put("action", "click"));
         addChapter(steps, chapters.getLast(), 2);
@@ -82,17 +113,19 @@ final class PairedComparisonBriefing implements RoutedReport {
     }
 
     private void addChapter(JSONArray steps, Chapter chapter, int index) {
+        var plan = sourcePlans.get(index - 1);
+        if (sourceSpecific) plan.checkSourceVisibility(steps);
         var binding = chapter.summary().binding();
         var rows = chapter.rows();
         steps.put(text("#source-id", "Source " + index + " · Export " + binding.getString("exportId")))
                 .put(text("#source-hash", "CSV SHA-256 " + binding.getString("sourceSha256")
                         + " · Summary SHA-256 " + chapter.proofHash()))
                 .put(text("#visible-count", rows.size() + (rows.size() == 1 ? " group" : " groups")));
-        if (sectionPlan.has("totals")) steps.put(text("#visible-totals",
+        if (plan.has("totals")) steps.put(text("#visible-totals",
                 RoutedComparisonExplorer.formatTotals(RoutedComparisonTotals.totalsFor(rows))));
-        if (sectionPlan.has("rows")) steps.put(text("#visible-rows", rows.stream()
+        if (plan.has("rows")) steps.put(text("#visible-rows", rows.stream()
                 .map(RoutedComparisonExplorer::rowText).collect(Collectors.joining("\n"))));
-        if (sectionPlan.has("chart")) new RoutedComparisonStory(rows).checkOpen(steps);
+        if (plan.has("chart")) new RoutedComparisonStory(rows).checkOpen(steps);
     }
 
     @Override public JSONObject artifact(JSONObject file, JSONArray checks) {
@@ -111,8 +144,10 @@ final class PairedComparisonBriefing implements RoutedReport {
                     .put("comparison-summary:" + binding.getJSONObject("summary").getString("id") + ":sha256:"
                             + binding.getJSONObject("summary").getString("sha256"));
         }
-        var proof = new JSONObject().put("passed", true).put("presentation", "paired-comparison-briefing-v1")
-                .put("briefing", sectionPlan.evidence()).put("sources", bindings).put("browserChecks", checks.length());
+        var review = sourceSpecific ? new JSONObject().put("id", sectionPlan.id()) : sectionPlan.evidence();
+        var proof = new JSONObject().put("passed", true)
+                .put("presentation", sourceSpecific ? "selected-paired-briefing-v1" : "paired-comparison-briefing-v1")
+                .put("briefing", review).put("sources", bindings).put("browserChecks", checks.length());
         return new JSONObject().put("title", TITLE).put("sources", sources)
                 .put("files", files.put("verification.json", sealed(proof)));
     }

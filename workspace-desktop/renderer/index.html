@@ -112,6 +112,34 @@
   </div>
  </div>
 </dialog>
+<dialog id="briefing-picker" aria-labelledby="briefing-picker-heading">
+ <div class="panel-head"><h2 id="briefing-picker-heading">Choose briefing sources</h2><button id="briefing-picker-close" type="button">Close</button></div>
+ <form class="briefing-picker-body">
+  <div class="briefing-picker-grid">
+    <fieldset><legend>Source 1</legend>
+      <label for="briefing-pick-1">Comparison</label><select id="briefing-pick-1" required></select>
+      <div class="briefing-picker-sections">
+       <label><input type="checkbox" value="totals" checked> Totals by unit</label>
+       <label><input type="checkbox" value="chart" checked> Interactive change chart</label>
+       <label><input type="checkbox" value="rows" checked> Source rows</label>
+      </div>
+    </fieldset>
+    <fieldset><legend>Source 2</legend>
+      <label for="briefing-pick-2">Comparison</label><select id="briefing-pick-2" required></select>
+      <div class="briefing-picker-sections">
+       <label><input type="checkbox" value="totals" checked> Totals by unit</label>
+       <label><input type="checkbox" value="chart" checked> Interactive change chart</label>
+       <label><input type="checkbox" value="rows" checked> Source rows</label>
+      </div>
+    </fieldset>
+  </div>
+  <p role="status"></p>
+  <div class="runtime-controls">
+   <button id="briefing-older" type="button">Load older comparisons</button>
+   <button id="briefing-picker-review" type="submit" class="primary" disabled>Review selections</button>
+  </div>
+ </form>
+</dialog>
 <dialog id="comparison-briefing" aria-labelledby="briefing-heading">
  <div class="panel-head"><h2 id="briefing-heading">Review comparison briefing</h2><button id="briefing-close" type="button">Close</button></div>
  <p>Confirm the sections and sources before building the briefing.</p>

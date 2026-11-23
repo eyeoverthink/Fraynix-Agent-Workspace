@@ -314,7 +314,7 @@ async function main() {
                 ({app,page} = await launch(project,args));
                 page.on('pageerror',error=>errors.push(error.message));
             }});
-        checks.push(...paired.checks);
+        checks.push(...paired.checks,...paired.selected.checks);
         const manifestAfterPaired = await fs.readFile(manifest,'utf8');
         const source = path.join(project,'exports',original.id+'.csv');
         await fs.appendFile(source,'changed');

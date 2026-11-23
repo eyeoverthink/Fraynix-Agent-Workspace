@@ -568,11 +568,23 @@ async function pairedComparisonSources(ids) {
   return {...first,secondSource};
 }
 
+async function comparisonBriefingCatalog({cursor=0}={}) {
+  if (!Number.isSafeInteger(cursor)||cursor<0) throw Error('Invalid comparison catalog position');
+  const distinct = new Set();
+  for await (const entry of nativeExports.comparisonEntries()) distinct.add(entry.id);
+  const ids = [...distinct].reverse();
+  const end = cursor+24;
+  const {sources} = await api('/api/requests/comparison-briefing-catalog',{exportIds:ids.slice(cursor,end)});
+  return {sources,nextCursor:end<ids.length?end:null};
+}
+
 async function comparisonBriefing(command,args) {
+  if (command==='briefing-catalog') return comparisonBriefingCatalog(args);
   if (command==='briefing-review') {
     if (args.exportIds===undefined&&typeof args.exportId!=='string') throw Error('Summarize a comparison CSV first');
     const sources=args.exportIds===undefined?await comparisonSources(args.exportId):await pairedComparisonSources(args.exportIds);
-    return api('/api/requests/comparison-briefing-review',{...sources,sections:args.sections});
+    const selection = args.sourceSections===undefined ? {sections:args.sections} : {sourceSections:args.sourceSections};
+    return api('/api/requests/comparison-briefing-review',{...sources,...selection});
   }
   const review = await api('/api/requests/comparison-briefing-read',{id:args.id});
   if (command==='briefing-read') return review;
@@ -702,7 +714,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(command==='run-routing')return runClassificationPlan(args);
       if(command==='routing-dashboard')return openRoutedDashboard(args);
       if(command==='routing-summary')return summarizeRoutedComparison(args);
-      if(['briefing-review','briefing-read','briefing-build','briefing-recheck','briefing-export'].includes(command))
+      if(['briefing-catalog','briefing-review','briefing-read','briefing-build','briefing-recheck','briefing-export'].includes(command))
         return comparisonBriefing(command,args);
       if(command==='teach-comparison-explorer')return teachComparisonExplorer(args);
       if(command==='run-comparison-explorer-lesson')return runComparisonExplorerLesson(args);

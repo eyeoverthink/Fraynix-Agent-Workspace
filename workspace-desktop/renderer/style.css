@@ -21,3 +21,11 @@
 .ramp-form-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
 .ramp-form-buttons #ramp-input-save { margin-top: 0; }
 #ramp-catalog { margin-top: 12px; }
+
+.briefing-picker-body { padding: 14px; }
+.briefing-picker-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+.briefing-picker-grid fieldset { min-width: 0; margin: 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; }
+.briefing-picker-grid legend { padding: 0 6px; font-weight: 650; }
+.briefing-picker-grid select { display: block; width: 100%; margin: 4px 0 9px; padding: 6px; }
+.briefing-picker-sections { display: grid; gap: 5px; }
+@media(max-width:650px) { .briefing-picker-grid { grid-template-columns: 1fr; } }

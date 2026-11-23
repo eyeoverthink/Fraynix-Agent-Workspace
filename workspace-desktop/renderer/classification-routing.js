@@ -1,3 +1,5 @@
+import {BriefingPicker,sectionLabel} from './briefing-picker.js';
+
 const $ = id => document.getElementById(id);
 const PROJECT_PLAN = 'fraynix-classification-routing-plan';
 const SOURCE = 'fraynix-verified-classification';
@@ -9,6 +11,7 @@ const COMPARISON_EXPLORER = 'fraynix-last-comparison-explorer';
 const COMPARISON_STORY = 'fraynix-last-comparison-story';
 const BRIEFING_REVIEW = 'fraynix-comparison-briefing-review';
 const COMPLETED_BRIEFING = 'fraynix-comparison-briefing';
+const briefingPickerRequest = /^Review a two-source comparison briefing[.!]?$/i;
 const briefingReview = /^Review a (two-source )?comparison briefing with ([a-z ,]+)[.!]?$/i;
 const briefingAction = /^(Resume|Recheck|Export) the comparison briefing[.!]?$/i;
 const byKey = /^Compare the last two verified routed CSVs by key (?:"([^"\r\n]+)"|([^\s".!?]+))[.!]?$/i;
@@ -25,7 +28,7 @@ export const isRoutingRequest = text => /^(?:Route the last verified classificat
 export const isRoutedDashboardRequest = text =>
     byKey.test(text.trim()) || recheckKey.test(text.trim()) || exportKey.test(text.trim()) ||
     summaryRequest.test(text.trim()) || explorerRequest.test(text.trim()) || storyRequest.test(text.trim()) ||
-    lessonRequest.test(text.trim()) || briefingReview.test(text.trim()) || briefingAction.test(text.trim()) ||
+    lessonRequest.test(text.trim()) || briefingPickerRequest.test(text.trim()) || briefingReview.test(text.trim()) || briefingAction.test(text.trim()) ||
     /^(?:Build a dashboard from the (?:last )?verified routed CSV|Recheck the routed CSV dashboard|Compare the last two verified routed CSVs|Recheck the routed CSV comparison)[.!]?$/i.test(text.trim());
 
 export class ClassificationRoutingPanel {
@@ -38,6 +41,7 @@ export class ClassificationRoutingPanel {
         $('routing-close').onclick = () => this.dialog.close();
         this.briefingDialog = $('comparison-briefing');
         this.briefingDialog.addEventListener('close',layout);
+        this.briefingPicker = new BriefingPicker({call,layout,onReview:review=>this.rememberBriefing(review)});
         $('briefing-close').onclick = () => this.briefingDialog.close();
         $('briefing-build').onclick = async () => {
             const review = this.briefing;
@@ -91,6 +95,10 @@ export class ClassificationRoutingPanel {
     }
 
     async fromChat(text) {
+        if (briefingPickerRequest.test(text.trim())) {
+            await this.briefingPicker.open();
+            return;
+        }
         const review = briefingReview.exec(text.trim());
         const briefing = briefingAction.exec(text.trim());
         if (review || briefing) {
@@ -102,8 +110,7 @@ export class ClassificationRoutingPanel {
                     if (review[1] && exportIds.length !== 2) throw Error('Summarize two different comparison CSV exports first');
                     const sections = review[2].trim().toLowerCase().split(/\s*(?:,\s*(?:and\s+)?|\s+and\s+)\s*/);
                     const prepared = await this.call('briefing-review',{...(review[1]?{exportIds}:{exportId}),sections});
-                    localStorage.setItem(BRIEFING_REVIEW,prepared.id);
-                    this.showBriefing(prepared);
+                    this.rememberBriefing(prepared);
                 } else {
                     const action = briefing[1].toLowerCase();
                     const id = localStorage.getItem(action==='resume'?BRIEFING_REVIEW:COMPLETED_BRIEFING);
@@ -207,12 +214,18 @@ export class ClassificationRoutingPanel {
         } catch (error) { this.announce(error.message); }
     }
 
+    rememberBriefing(review) {
+        localStorage.setItem(BRIEFING_REVIEW,review.id);
+        this.showBriefing(review);
+    }
+
     showBriefing(review,error='') {
         this.briefing = review;
-        const names = {totals:'Totals by unit',chart:'Interactive change chart',rows:'Source rows'};
-        $('briefing-sections').replaceChildren(...review.sections.map(section=>{
+        const labels = review.sections?.map(sectionLabel) ?? review.sources.map((source,index)=>
+            'Source '+(index+1)+' · '+source.sections.map(sectionLabel).join(', '));
+        $('briefing-sections').replaceChildren(...labels.map(label=>{
             const item = document.createElement('li');
-            item.textContent = names[section];
+            item.textContent = label;
             return item;
         }));
         const evidence = $('briefing-source');

@@ -45,11 +45,11 @@ class NativeExports {
   }
  }
  routingEntries(){return this.entries('verified-routed-results','Export a verified routing CSV first');}
+ comparisonEntries(){return this.entries('verified-routed-comparison','Export a verified matched comparison CSV first');}
  async comparisonCsv(exportId){
-  const kind='verified-routed-comparison';
   const missing='Export a verified matched comparison CSV first';
   let selected;
-  for await(const entry of this.entries(kind,missing)){
+  for await(const entry of this.comparisonEntries()){
    if(exportId===undefined||entry.id===exportId)selected=entry;
   }
   if(!selected)throw Error(missing);
