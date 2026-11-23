@@ -96,12 +96,12 @@ async function main() {
         return call('export-routing',{id:done.id});
     }
 
-    async function inspectFile(file,artifact) {
-        const target = path.join(project,'offline-download.csv');
+    async function inspectFile(file,artifact,briefing=false) {
+        const target = path.join(project,briefing?'briefing-download.csv':'offline-download.csv');
         const opened = app.waitForEvent('window');
-        const windowId = await app.evaluate(({BrowserWindow},[file,target])=>{
+        const windowId = await app.evaluate(({BrowserWindow},[file,target,briefing])=>{
             const window = new BrowserWindow({width:530,height:920,webPreferences:{
-                partition:'change-story-offline',sandbox:true,contextIsolation:true,nodeIntegration:false}});
+                partition:briefing?'comparison-briefing-offline':'change-story-offline',sandbox:true,contextIsolation:true,nodeIntegration:false}});
             const session = window.webContents.session;
             session.webRequest.onBeforeRequest({urls:['http://*/*','https://*/*']},
                 (_,callback)=>callback({cancel:true}));
@@ -111,12 +111,18 @@ async function main() {
             });
             window.loadFile(file);
             return window.id;
-        },[file,target]);
+        },[file,target,briefing]);
         const browser = await opened;
         try {
             await browser.locator('.change-bar').first().waitFor(options);
             assert(browser.url().startsWith('file:'));
             assert.equal(await browser.locator('#visible-count').innerText(),'8 groups');
+            if (briefing) {
+                await browser.getByRole('heading',{name:'Reviewed comparison briefing'}).waitFor(options);
+                assert.equal(await browser.locator('.table-wrap').isVisible(),false);
+                assert.equal(await browser.locator('#visible-totals').isVisible(),true);
+                assert.equal(await browser.locator('#change-map').isVisible(),true);
+            }
             assert(await browser.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
             async function marks() {
                 return browser.locator('.change-bar').evaluateAll(buttons=>buttons.map(button=>{
@@ -142,7 +148,7 @@ async function main() {
             await browser.keyboard.press('Enter');
             assert.equal(await loss.getAttribute('aria-pressed'),'true');
             assert.equal(await browser.locator('#change-selection-readings').innerText(),'Earlier #3: 50 | Later #2: 41');
-            await browser.screenshot({path:path.join(output,'offline-story.png'),fullPage:true});
+            await browser.screenshot({path:path.join(output,briefing?'offline-briefing.png':'offline-story.png'),fullPage:true});
             await browser.locator('#unit-mm').click();
             assert.deepEqual(sort(await marks()),sort(expected.filter(row=>row[0]==='mm')));
             assert.equal(await browser.locator('.change-axis').innerText(),'-25.4 mm\n0\n+25.4 mm');
@@ -237,13 +243,79 @@ async function main() {
         await inspectFile(singleFile,artifact);
         checks.push('Standalone HTML works offline with the correct painted bars, filter changes, keyboard selection and exact CSV download');
 
+        const artifactCount = async () => (await api('/api/state')).artifacts.length;
+        const beforeReview = await artifactCount();
+        await send('Review a comparison briefing with totals and chart.');
+        const dialog = page.locator('#comparison-briefing');
+        await dialog.waitFor({state:'visible',...options});
+        assert.deepEqual(await dialog.locator('li').allInnerTexts(),['Totals by unit','Interactive change chart']);
+        assert.match(await dialog.locator('#briefing-source').innerText(),new RegExp(original.id));
+        const briefingId = await page.evaluate(()=>localStorage.getItem('fraynix-comparison-briefing-review'));
+        const review = await call('briefing-read',{id:briefingId});
+        assert.deepEqual(review.sections,['totals','chart']);
+        assert.equal(review.approved,false);
+        await assert.rejects(call('briefing-build',{id:briefingId,reviewSha256:'0'.repeat(64)}),/review changed/);
+        await assert.rejects(call('routing-summary',{story:true,exportId:original.id,briefingId}),/Approve the comparison briefing/);
+        assert.equal(await artifactCount(),beforeReview);
+        await page.screenshot({path:path.join(output,'briefing-review.png')});
+
+        await app.close();
+        ({app,page} = await launch(project,args));
+        page.on('pageerror',error=>errors.push(error.message));
+        await send('Resume the comparison briefing.');
+        await page.locator('#comparison-briefing').waitFor({state:'visible',...options});
+        assert.deepEqual(await call('briefing-read',{id:briefingId}),review);
+        await page.getByRole('button',{name:'Approve and build'}).click();
+        await reply('Comparison briefing verified against Java. 22 browser checks passed.');
+        const briefingProof = await call('briefing-recheck',{id:briefingId});
+        assert.equal(briefingProof.briefingId,briefingId);
+        assert.equal(briefingProof.comparisonExportId,original.id);
+        assert.equal(briefingProof.browserChecks,22);
+        assert.equal(await artifactCount(),beforeReview+1);
+        const briefingArtifact = await api('/api/artifact/read',{id:briefingProof.artifact.id});
+        const briefingEvidence = JSON.parse(briefingArtifact.contents['verification.json']);
+        assert.deepEqual(briefingEvidence.briefing,{id:briefingId,sections:['totals','chart']});
+        const briefingFrame = await app.evaluate(()=>global.workspaceTest.capture());
+        await fs.writeFile(path.join(output,'desktop-briefing.png'),Buffer.from(briefingFrame,'base64'));
+        checks.push('The exact briefing review survives restart; stale approval and unapproved builds produce no artifact');
+
+        await send('Export the comparison briefing.');
+        await reply('Saved verified comparison briefing to');
+        const finalManifest = await fs.readFile(manifest,'utf8');
+        const exportedBrief = finalManifest.trim().split('\n').map(line=>JSON.parse(line))
+            .findLast(entry=>entry.kind==='comparison-briefing');
+        assert.equal(exportedBrief.sha256,briefingProof.htmlSha256);
+        assert.equal(exportedBrief.source.briefingId,briefingId);
+        const briefFile = path.join(standalone,'comparison-briefing.html');
+        for (const [name,content] of Object.entries(briefingArtifact.contents)) {
+            await fs.writeFile(path.join(output,name==='index.html'?'comparison-briefing.html':
+                name==='verification.json'?'briefing-verification.json':name),content);
+        }
+        await fs.copyFile(exportedBrief.path,briefFile);
+        await inspectFile(briefFile,briefingArtifact,true);
+        checks.push('Approved sections and original evidence work in the exported briefing with networking blocked');
+
+        await assert.rejects(call('briefing-review',{exportId:original.id,sections:['rows','rows']}),/Choose distinct sections/);
+        await send('Review a comparison briefing with rows.');
+        await page.locator('#comparison-briefing').waitFor({state:'visible',...options});
+        const rowsId = await page.evaluate(()=>localStorage.getItem('fraynix-comparison-briefing-review'));
+        await page.getByRole('button',{name:'Approve and build'}).click();
+        await reply('Comparison briefing verified against Java. 18 browser checks passed.');
+        const rowsOnly = await call('briefing-recheck',{id:rowsId});
+        assert.notEqual(rowsOnly.artifact.id,briefingProof.artifact.id);
+        assert.deepEqual(await canvas("[...document.querySelectorAll('#visible-totals,#change-map,.table-wrap')].map(section=>getComputedStyle(section).display!=='none')"),
+            [false,false,true]);
+        checks.push('A rows-only briefing produces a distinct verified artifact and hides the chart and totals');
+
         const source = path.join(project,'exports',original.id+'.csv');
         await fs.appendFile(source,'changed');
         await assert.rejects(call('routing-summary',{verifyOnly:true,story:true,exportId:original.id,exportStory:true}),/disagree|changed/i);
-        assert.equal(await fs.readFile(manifest,'utf8'),entries.map(entry=>JSON.stringify(entry)).join('\n')+'\n');
+        await assert.rejects(call('briefing-export',{id:briefingId}),/disagree|changed/i);
+        assert.equal(await fs.readFile(manifest,'utf8'),finalManifest);
         checks.push('Changed comparison bytes are refused before sharing the story');
         assert.deepEqual(errors,[]);
-        const result = {passed:true,platform:process.platform,architecture:process.arch,proof,changes:expected,checks};
+        const result = {passed:true,platform:process.platform,architecture:process.arch,proof,
+            briefing:{review:await call('briefing-read',{id:briefingId}),proof:briefingProof,evidence:briefingEvidence,rowsOnly},changes:expected,checks};
         await fs.writeFile(path.join(output,'result.json'),JSON.stringify(result,null,2)+'\n');
         console.log(JSON.stringify({passed:true,platform:result.platform,architecture:result.architecture,checks}));
     } finally {

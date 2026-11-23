@@ -6,6 +6,10 @@ const KEY_COMPARISON = 'fraynix-last-key-comparison';
 const COMPARISON_SUMMARY = 'fraynix-last-comparison-summary';
 const COMPARISON_EXPLORER = 'fraynix-last-comparison-explorer';
 const COMPARISON_STORY = 'fraynix-last-comparison-story';
+const BRIEFING_REVIEW = 'fraynix-comparison-briefing-review';
+const COMPLETED_BRIEFING = 'fraynix-comparison-briefing';
+const briefingReview = /^Review a comparison briefing with ([a-z ,]+)[.!]?$/i;
+const briefingAction = /^(Resume|Recheck|Export) the comparison briefing[.!]?$/i;
 const byKey = /^Compare the last two verified routed CSVs by key (?:"([^"\r\n]+)"|([^\s".!?]+))[.!]?$/i;
 const recheckKey = /^Recheck the matched routed CSV comparison[.!]?$/i;
 const exportKey = /^Export the matched routed CSV comparison[.!]?$/i;
@@ -20,7 +24,7 @@ export const isRoutingRequest = text => /^(?:Route the last verified classificat
 export const isRoutedDashboardRequest = text =>
     byKey.test(text.trim()) || recheckKey.test(text.trim()) || exportKey.test(text.trim()) ||
     summaryRequest.test(text.trim()) || explorerRequest.test(text.trim()) || storyRequest.test(text.trim()) ||
-    lessonRequest.test(text.trim()) ||
+    lessonRequest.test(text.trim()) || briefingReview.test(text.trim()) || briefingAction.test(text.trim()) ||
     /^(?:Build a dashboard from the (?:last )?verified routed CSV|Recheck the routed CSV dashboard|Compare the last two verified routed CSVs|Recheck the routed CSV comparison)[.!]?$/i.test(text.trim());
 
 export class ClassificationRoutingPanel {
@@ -31,6 +35,23 @@ export class ClassificationRoutingPanel {
         this.busy = false;
         this.dialog.addEventListener('close',layout);
         $('routing-close').onclick = () => this.dialog.close();
+        this.briefingDialog = $('comparison-briefing');
+        this.briefingDialog.addEventListener('close',layout);
+        $('briefing-close').onclick = () => this.briefingDialog.close();
+        $('briefing-build').onclick = async () => {
+            const review = this.briefing;
+            if (!review) return;
+            $('briefing-build').disabled = true;
+            this.briefingDialog.close();
+            this.layout();
+            try {
+                const result = await this.call('briefing-build',{id:review.id,reviewSha256:review.reviewSha256});
+                localStorage.setItem(COMPLETED_BRIEFING,review.id);
+                this.announce('Comparison briefing verified against Java. '+result.browserChecks+' browser checks passed.');
+            } catch (error) {
+                this.showBriefing(review,error.message);
+            }
+        };
         $('routing-export').onclick = () => this.work(async()=>{
             const saved = await this.call('export-routing',{id:this.plan.id});
             const status = $('routing-export-status');
@@ -69,6 +90,32 @@ export class ClassificationRoutingPanel {
     }
 
     async fromChat(text) {
+        const review = briefingReview.exec(text.trim());
+        const briefing = briefingAction.exec(text.trim());
+        if (review || briefing) {
+            try {
+                if (review) {
+                    const exportId = localStorage.getItem(COMPARISON_SUMMARY);
+                    if (!exportId) throw Error('Summarize a comparison CSV first');
+                    const sections = review[1].trim().toLowerCase().split(/\s*(?:,\s*(?:and\s+)?|\s+and\s+)\s*/);
+                    const prepared = await this.call('briefing-review',{exportId,sections});
+                    localStorage.setItem(BRIEFING_REVIEW,prepared.id);
+                    this.showBriefing(prepared);
+                } else {
+                    const action = briefing[1].toLowerCase();
+                    const id = localStorage.getItem(action==='resume'?BRIEFING_REVIEW:COMPLETED_BRIEFING);
+                    if (!id) throw Error(action==='resume'?'Review a comparison briefing first':'Build a comparison briefing first');
+                    if (action==='resume') {
+                        this.showBriefing(await this.call('briefing-read',{id}));
+                    } else {
+                        const result = await this.call('briefing-'+action,{id});
+                        this.announce(action==='export'?'Saved verified comparison briefing to '+result.path:
+                            'Comparison briefing verified against Java. '+result.browserChecks+' fresh browser checks passed.');
+                    }
+                }
+            } catch (error) { this.announce(error.message); }
+            return;
+        }
         const lesson = lessonRequest.exec(text.trim());
         if (lesson) {
             try { await this.fromExplorerLesson(lesson[1].toLowerCase(),lesson[2].toLowerCase()); }
@@ -145,6 +192,21 @@ export class ClassificationRoutingPanel {
             this.dialog.showModal();
             this.layout();
         } catch (error) { this.announce(error.message); }
+    }
+
+    showBriefing(review,error='') {
+        this.briefing = review;
+        const names = {totals:'Totals by unit',chart:'Interactive change chart',rows:'Source rows'};
+        $('briefing-sections').replaceChildren(...review.sections.map(section=>{
+            const item = document.createElement('li');
+            item.textContent = names[section];
+            return item;
+        }));
+        $('briefing-source').textContent = 'Comparison '+review.exportId;
+        $('briefing-status').textContent = error;
+        $('briefing-build').disabled = false;
+        if (!this.briefingDialog.open) this.briefingDialog.showModal();
+        this.layout();
     }
 
     async fromExplorerLesson(action,name) {

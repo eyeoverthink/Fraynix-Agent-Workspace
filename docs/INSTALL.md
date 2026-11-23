@@ -48,4 +48,4 @@ Use **Stop Java & close app** before updating a checkout that owns a running Jav
 
 On a prepared Mac or Linux checkout, `./Launch-Agent-Workspace.sh --offline` opens the app using the installed dependencies. On Windows use `.\Launch-Agent-Workspace.bat -Offline` after preparation. Project data defaults to `~/.fraynix-agent-workspace/projects/default`. Setting `FRAYNIX_WORKSPACE_PROJECT` before launch selects a different project directory.
 
-If Java cannot start, check `java -version` and `node -v`, then read `engine.log` in the project directory. A partial download or an update to dependencies can be repaired by running preparation again with internet access.
+If the desktop cannot complete startup, check `desktop-startup.log` in the project directory. If Java cannot start, check `java -version` and `node -v`, then read `engine.log` in the project directory. A partial download or an update to dependencies can be repaired by running preparation again with internet access.

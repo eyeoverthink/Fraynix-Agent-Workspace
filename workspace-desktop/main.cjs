@@ -1,4 +1,5 @@
 'use strict';
+require('./process-stdio.cjs').guardClosedConsole(process.stdout,process.stderr);
 const {app,BrowserWindow,dialog,ipcMain,Menu,shell}=require('electron');
 const {spawn}=require('node:child_process');
 const fs=require('node:fs');const fsp=require('node:fs/promises');const path=require('node:path');const {createHash,randomBytes,randomUUID}=require('node:crypto');const readline=require('node:readline');
@@ -529,25 +530,48 @@ async function openRoutedDashboard({verifyOnly=false,compare=false,pair,keyColum
   return openRoutedReport(sources,retained,{verifyOnly,exportCsv});
 }
 
-async function summarizeRoutedComparison({verifyOnly=false,exportId,explorer=false,story=false,exportStory=false,explorerLesson}={}) {
+async function comparisonSources(id) {
+  const comparisonImport = await nativeExports.comparisonCsv(id);
+  const {earlier,later,keyColumn} = comparisonImport.receipt.source;
+  const [baseline,file] = await Promise.all([
+    nativeExports.routedCsv(earlier.exportId), nativeExports.routedCsv(later.exportId),
+  ]);
+  return {comparisonImport,baseline,file,keyColumn};
+}
+
+async function summarizeRoutedComparison({verifyOnly=false,exportId,explorer=false,story=false,exportStory=false,explorerLesson,briefingId}={}) {
   if(typeof verifyOnly!=='boolean'||typeof explorer!=='boolean'||typeof story!=='boolean'||
       (verifyOnly||explorer||story)&&typeof exportId!=='string')
     throw Error('Summarize a comparison CSV first');
   if(typeof exportStory!=='boolean'||exportStory&&(!verifyOnly||!story))
     throw Error('Recheck a saved change story before exporting');
-  const readSources=async id=>{
-    const comparisonImport=await nativeExports.comparisonCsv(id);
-    const {earlier,later,keyColumn}=comparisonImport.receipt.source;
-    const [baseline,file]=await Promise.all([nativeExports.routedCsv(earlier.exportId),nativeExports.routedCsv(later.exportId)]);
-    return {comparisonImport,baseline,file,keyColumn,...(explorer?{explorer:true}:{}),...(story?{story:true}:{}),
-      ...(explorerLesson!==undefined?{explorerLesson}:{})};
-  };
+  const readSources=async id=>({
+    ...await comparisonSources(id),...(explorer?{explorer:true}:{}),...(story?{story:true}:{}),
+    ...(explorerLesson!==undefined?{explorerLesson}:{}),...(briefingId!==undefined?{briefingId}:{})
+  });
   const sources=await readSources(exportId);
   const result=await openRoutedReport(sources,()=>readSources(sources.comparisonImport.receipt.id),{verifyOnly});
   if(!exportStory)return result;
   const artifact=await checkedRoutedDashboard(result);
-  return nativeExports.save('comparison-change-story','html',artifact.contents['index.html'],
-    {comparisonExportId:result.comparisonExportId,artifact:result.artifact,htmlSha256:result.htmlSha256},result.htmlSha256);
+  const source={comparisonExportId:result.comparisonExportId,artifact:result.artifact,htmlSha256:result.htmlSha256};
+  if (briefingId!==undefined) source.briefingId=briefingId;
+  return nativeExports.save(briefingId===undefined?'comparison-change-story':'comparison-briefing',
+    'html',artifact.contents['index.html'],source,result.htmlSha256);
+}
+
+async function comparisonBriefing(command,args) {
+  if (command==='briefing-review') {
+    if (typeof args.exportId!=='string') throw Error('Summarize a comparison CSV first');
+    return api('/api/requests/comparison-briefing-review',{...await comparisonSources(args.exportId),sections:args.sections});
+  }
+  const review = await api('/api/requests/comparison-briefing-read',{id:args.id});
+  if (command==='briefing-read') return review;
+  const exportStory = command==='briefing-export';
+  const verifyOnly = exportStory || command==='briefing-recheck';
+  if (!verifyOnly) {
+    await api('/api/requests/comparison-briefing-approve',{id:args.id,reviewSha256:args.reviewSha256});
+  }
+  return summarizeRoutedComparison({verifyOnly,story:true,exportStory,exportId:review.exportId,briefingId:review.id});
 }
 
 async function teachComparisonExplorer({name,exportId}) {
@@ -654,6 +678,8 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(command==='run-routing')return runClassificationPlan(args);
       if(command==='routing-dashboard')return openRoutedDashboard(args);
       if(command==='routing-summary')return summarizeRoutedComparison(args);
+      if(['briefing-review','briefing-read','briefing-build','briefing-recheck','briefing-export'].includes(command))
+        return comparisonBriefing(command,args);
       if(command==='teach-comparison-explorer')return teachComparisonExplorer(args);
       if(command==='run-comparison-explorer-lesson')return runComparisonExplorerLesson(args);
       if(command==='export-routing'){
@@ -1078,7 +1104,16 @@ else app.whenReady().then(async()=>{
     creationBridge=createCreation({api,activity});goalBridge=createGoals({api,withAuthority:(a,fn)=>a?agencyScope043.run(a,fn):fn(),browser,canvas,openArtifact,emit,refresh,activity,getScene:()=>currentScene,getDataset:()=>currentDataset,getSpatial:()=>currentSpatial,getPose:()=>currentPose,getWorld:()=>currentPersistentWorld,getPush:pushSelection,getMapping:()=>currentMapSelection,perception:perceptionBridge,creation:creationBridge,workflow:workflowBridge,getCreationSource:()=>creationSelection(),onScene:async scene=>{currentScene=scene;emit('scene',scene);emit('view','scene');},onTest:async(effect,receipt)=>{if(captureContext?.ownedGoalId===effect.goalId||effect.workflowId&&captureContext?.ownedWorkflowId===effect.workflowId)await episodeStep(captureContext,{tool:'canvas.test',ok:true,failure:receipt.passed?'none':'test-failed',elapsedMs:0,artifactId:receipt.id,artifactVersion:receipt.version,testPassed:receipt.passed});}});goalBridge.start();workflowBridge.start();await agency043.start(createHash('sha256').update(fs.readFileSync(path.join(__dirname,'policy.cjs'))).digest('hex'));
     if(process.env.FRAYNIX_WORKSPACE_CAPTURE){setTimeout(async()=>{await fsp.writeFile(process.env.FRAYNIX_WORKSPACE_CAPTURE,Buffer.from(await captureComposite(),'base64'));},1600);}
     if(process.env.FRAYNIX_WORKSPACE_TEST)global.workspaceTest={surfaceClass102:Surface,sessionId043:selfHostSession,agency043,activityTrace:()=>log,crashEngine:()=>engine?.kill(),canvasChecks:steps=>canvas.test(steps),canvasRead:code=>canvas.isolated(code),execute,controlledExecute,guidedProof,api,capture:captureComposite,launchGame,stopTestGame:()=>gameProcess?.kill(),origin:()=>origin,surfaces:()=>({browser:browser.view.webContents.id,canvas:canvas.view.webContents.id}),network:()=>networkPolicy.status(),knowledge:knowledgeBridge,runtime040,alignment041,research:researchWorker,stopAgent,startAgent,learnFromEpisodes,replay,project,goals:goalBridge,workflows:workflowBridge};
-  }catch(error){console.error(error);app.quit();}
+  } catch (error) {
+    const diagnostic = error instanceof Error ? error.stack || error.message : String(error);
+    try {
+      await fsp.appendFile(path.join(project,'desktop-startup.log'),new Date().toISOString()+' '+diagnostic+'\n','utf8');
+    } catch (logError) {
+      console.error('Could not write the workspace startup log:',logError.message);
+    }
+    console.error(diagnostic);
+    app.quit();
+  }
 });
 app.on('window-all-closed',()=>app.quit());
 app.on('before-quit',event=>{if(closing)return;event.preventDefault();closing=true;agency043?.stop();researchWorker?.stop();workflowBridge?.stop();goalBridge?.stop();learningJob?.abort();if(run)run.cancelled=true;browser?.close();canvas?.close();Promise.race([runtimeConnection042?runtimeConnection042.detach().catch(()=>{}):api('/api/game/close',{}).catch(()=>{}),new Promise(r=>setTimeout(r,5000))]).finally(()=>{if(!runtimeConnection042)engine?.kill();app.quit();});});

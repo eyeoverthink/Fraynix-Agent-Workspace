@@ -46,6 +46,7 @@ final class RoutedComparisonExplorer implements RoutedReport {
     private final JSONObject receipt, summaryArtifact, lesson;
     private final List<View> views;
     private final RoutedComparisonStory story;
+    private final ComparisonBriefing briefing;
 
     RoutedComparisonExplorer(String csv, JSONObject receipt, JSONObject summaryArtifact, JSONObject summaryProof,
                              JSONObject lesson) {
@@ -54,6 +55,12 @@ final class RoutedComparisonExplorer implements RoutedReport {
 
     RoutedComparisonExplorer(String csv, JSONObject receipt, JSONObject summaryArtifact, JSONObject summaryProof,
                              JSONObject lesson, boolean asStory) {
+        this(csv, receipt, summaryArtifact, summaryProof, lesson, asStory, null);
+    }
+
+    RoutedComparisonExplorer(String csv, JSONObject receipt, JSONObject summaryArtifact, JSONObject summaryProof,
+                             JSONObject lesson, boolean asStory, ComparisonBriefing briefing) {
+        this.briefing = briefing;
         this.csv = csv;
         this.lesson = lesson;
         this.receipt = receipt;
@@ -69,7 +76,9 @@ final class RoutedComparisonExplorer implements RoutedReport {
         views = lesson == null && !asStory ? List.of(new Filter(null, null), new Filter("mm", null),
                 new Filter("mm", "Duplicate"), new Filter("mm", "Missing"))
                 .stream().map(filter -> view(filter, rows)).toList() : reusableViews(rows);
-        html = (asStory ? story.html(TEMPLATE) : TEMPLATE).replace("@EXPLORER_CSV@", encode(csv)).replace("@EXPLORER_RECEIPT@", encode(receiptText))
+        String template = asStory ? story.html(TEMPLATE) : TEMPLATE;
+        if (briefing != null) template = briefing.html(template);
+        html = template.replace("@EXPLORER_CSV@", encode(csv)).replace("@EXPLORER_RECEIPT@", encode(receiptText))
                 .replace("@EXPLORER_SUMMARY@", encode(summaryText)).replace("@EXPLORER_BINDING@", encode(bindingText));
     }
 
@@ -114,7 +123,10 @@ final class RoutedComparisonExplorer implements RoutedReport {
 
     @Override public String html() { return html; }
 
-    private String title() { return story == null ? TITLE : RoutedComparisonStory.TITLE; }
+    private String title() {
+        if (briefing != null) return ComparisonBriefing.TITLE;
+        return story == null ? TITLE : RoutedComparisonStory.TITLE;
+    }
 
     @Override public JSONArray steps() {
         var all = views.get(0);
@@ -122,6 +134,7 @@ final class RoutedComparisonExplorer implements RoutedReport {
                 .put(text("#source-id", "Export " + receipt.getString("id")))
                 .put(text("#source-hash", "CSV SHA-256 " + receipt.getString("sha256")))
                 .put(text("#parent-proof", "Summary SHA-256 " + MeasurementStore.hash(summaryText)));
+        if (briefing != null) return briefingSteps(steps, all);
         addView(steps, all);
         if (story != null) return storySteps(steps, all);
         for (String name : List.of("matched-comparison.csv", "import-receipt.json", "summary-proof.json"))
@@ -135,6 +148,23 @@ final class RoutedComparisonExplorer implements RoutedReport {
         steps.put(click("#reset-filters"));
         addView(steps, all);
         return steps;
+    }
+
+    private JSONArray briefingSteps(JSONArray steps, View all) {
+        briefing.checkSections(steps);
+        addBriefingView(steps, all);
+        if (briefing.has("chart")) story.checkOpen(steps);
+        var unit = views.get(1);
+        steps.put(click("mm".equals(unit.filter().unit()) ? "#unit-mm" : "#unit-f"));
+        addBriefingView(steps, unit);
+        steps.put(click("#reset-filters")).put(text("#visible-count", all.countText()));
+        return steps;
+    }
+
+    private void addBriefingView(JSONArray steps, View view) {
+        steps.put(text("#visible-count", view.countText()));
+        if (briefing.has("rows")) steps.put(text("#visible-rows", view.rowsText()));
+        if (briefing.has("totals")) steps.put(text("#visible-totals", view.totalsText()));
     }
 
     private JSONArray storySteps(JSONArray steps, View all) {
@@ -163,6 +193,7 @@ final class RoutedComparisonExplorer implements RoutedReport {
 
     private List<View> verifiedViews() {
         if (story == null) return views;
+        if (briefing != null) return views.subList(0, 2);
         var all = views.getFirst();
         var unit = views.get(1);
         return List.of(all, unit, view(new Filter(unit.filter().unit(), "Missing"), all.rows()));
@@ -181,7 +212,12 @@ final class RoutedComparisonExplorer implements RoutedReport {
             proof.put("lesson", lesson);
             sources.put("comparison-explorer-lesson:sha256:" + WorldFrames.hash(lesson));
         }
-        if (story != null) proof.put("presentation", "change-story-v1");
+        if (briefing != null) {
+            proof.put("presentation", "comparison-briefing-v1").put("briefing", briefing.evidence());
+            sources.put("comparison-briefing-review:" + briefing.id());
+        } else if (story != null) {
+            proof.put("presentation", "change-story-v1");
+        }
         return new JSONObject().put("title", title()).put("sources", sources)
                 .put("files", new JSONObject().put("index.html", html).put("matched-comparison.csv", csv)
                         .put("import-receipt.json", receiptText).put("summary-proof.json", summaryText)

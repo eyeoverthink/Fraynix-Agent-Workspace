@@ -762,6 +762,9 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/requests/routing-read" -> result=classificationRouting.read(input);
                     case "/api/requests/routing-export" -> result=classificationRouting.export(input);
                     case "/api/requests/routing-dashboard-prepare" -> result=routedDashboard.prepare(input);
+                    case "/api/requests/comparison-briefing-review" -> result=routedDashboard.reviewBriefing(input);
+                    case "/api/requests/comparison-briefing-read" -> result=routedDashboard.readBriefing(input,false);
+                    case "/api/requests/comparison-briefing-approve" -> result=routedDashboard.readBriefing(input,true);
                     case "/api/requests/routing-explorer-lesson-teach" -> result=routedDashboard.teachExplorer(input);
                     case "/api/requests/routing-explorer-lesson-qualify" -> result=routedDashboard.qualifyExplorer(input);
                     case "/api/requests/routing-dashboard-finish" -> {

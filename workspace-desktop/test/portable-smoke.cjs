@@ -20,11 +20,15 @@ async function main() {
     const {app,page} = await launch(project,args);
     try {
       const api = (route,input) => app.evaluate((_,[route,input])=>global.workspaceTest.api(route,input),[route,input]);
+      await app.evaluate(()=>{
+        for (const stream of [process.stdout,process.stderr])
+          stream.emit('error',Object.assign(new Error('Closed test output pipe'),{code:'EPIPE'}));
+      });
       const state = await api('/api/state');
       assert.equal(state.models.length,0);
       await page.getByRole('button',{name:'Run guided proof'}).click();
       await page.getByRole('status').filter({hasText:'Guided proof passed'}).waitFor({timeout:60_000});
-      checks.push('Java connection, local browser interaction, creation canvas and guided verification');
+      checks.push('Java connection and guided verification continue after closed console errors');
       const screenshot = await app.evaluate(()=>global.workspaceTest.capture());
       await fs.writeFile(path.join(output,'workspace.png'),Buffer.from(screenshot,'base64'));
 
