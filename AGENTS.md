@@ -1,3 +1,7 @@
+## Edition 228 — Recover a through-opening with a top view
+
+2026-11-24. The browser workflow accepts an optional registered top capture and a separate 60-degree elevated witness. Holding front, side and witness bytes fixed, the test plate's filled control scored 76.5% and refused, while the top-assisted fit recovered the aperture and scored 96.0%. Blender independently matched the corrected 12.5 L volume and the front and side masks. Elevated subpixel sampling raised the narrow-pane comparison from 86.9% to 93.6%. Invalid registration and changed-source refusal passed. Keep witness pixels out of model choice and preserve the prior level workflow. See README-228.md and docs/publication228/plan.md.
+
 ## Edition 227 — Pick browser views and verify the model
 
 2026-11-24. The in-app browser captures the next trusted click on a graphic and preserves navigation. Java fits front and left-side orthographic crops using declared registration and known front width. The side estimated 300 mm depth, and the separately captured 45-degree view reached 95.7% overlap. A different prop reached 47.0% and saved no scene. Blender independently measured the exported GLB with the same dimensions and 0.43% volume difference. Restart and altered-source refusal passed, and the prior selector fixture was made responsive for narrow hosted viewports. Keep the held-out crop outside grid selection and preserve the original captured bytes. See README-227.md and docs/publication227/plan.md.

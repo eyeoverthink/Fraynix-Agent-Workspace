@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 228 · Recover a through-opening with a top view</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Recover a through-opening with a top view</h1><p>Fit an optional top capture and verify the resulting geometry against a separate elevated view.</p>
+<nav><a href="../../../README-228.md">App guide</a><a href="browser-top-evidence.json">Full receipts</a>
+<a href="../227/index.html">Edition 227</a><a href="../../publication222/plan.md">Registration guide</a>
+<a href="with-top.glb" download>Checked GLB</a><a href="#system">System files</a></nav>
+<p>The same elevated witness scores 76.5% against the filled control and 96.0% against the top-assisted model. Blender measured the corrected volume at 12.5 L.</p>
+<figure><img src="top-verified.png" alt="The top-assisted model passes the elevated witness"><figcaption>The top-assisted model passes the elevated witness</figcaption></figure>
+<figure><img src="elevated-refused.png" alt="The same elevated witness refuses the filled model"><figcaption>The same elevated witness refuses the filled model</figcaption></figure>
+<figure><img src="original-elevated.png" alt="Separate Blender render of the original plate"><figcaption>Separate Blender render of the original plate</figcaption></figure>
+<figure><img src="two-view-elevated.png" alt="Blender render of the filled two-view control"><figcaption>Blender render of the filled two-view control</figcaption></figure>
+<figure><img src="with-top-elevated.png" alt="Blender render of the corrected model"><figcaption>Blender render of the corrected model</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Fit an optional top capture and verify the resulting geometry against a separate elevated view.", "modules": [{"title": "Top registration and elevated verification", "source": "workspace-engine/src/main/java/fraymus/workspace/BrowserViewTrace.java", "note": "docs/obsidian/236-browser-top-view.md"}, {"title": "Legacy and extended browser package routes", "source": "workspace-engine/src/main/java/fraymus/workspace/BrowserShapeTrace.java", "note": "docs/obsidian/236-browser-top-view.md"}, {"title": "Optional capture and witness controls", "source": "workspace-desktop/renderer/spatial-panel.js", "note": "docs/obsidian/236-browser-top-view.md"}, {"title": "Independent Blender plate and measurements", "source": "workspace-desktop/test/browser-top-blender.py", "note": "docs/obsidian/236-browser-top-view.md"}, {"title": "Browser capture, positive and negative controls", "source": "workspace-desktop/test/browser-views-integration.cjs", "note": "docs/obsidian/236-browser-top-view.md"}], "screenshots": [{"path": "docs/readmes/228/top-verified.png", "title": "The top-assisted model passes the elevated witness"}, {"path": "docs/readmes/228/elevated-refused.png", "title": "The same elevated witness refuses the filled model"}, {"path": "docs/readmes/228/original-elevated.png", "title": "Separate Blender render of the original plate"}, {"path": "docs/readmes/228/two-view-elevated.png", "title": "Blender render of the filled two-view control"}, {"path": "docs/readmes/228/with-top-elevated.png", "title": "Blender render of the corrected model"}], "evidence": [{"path": "docs/readmes/228/browser-top-evidence.json", "title": "Browser, witness and Blender measurements"}, {"path": "docs/readmes/228/with-top.glb", "title": "Checked top-assisted geometry"}, {"path": "docs/readmes/228/two-view.glb", "title": "Two-view control"}, {"path": "docs/readmes/228/captured-top.png", "title": "Exact browser top capture"}, {"path": "docs/publication228/plan.md", "title": "Registration and verification contract"}, {"path": "docs/readmes/228/FILE_TREE.md", "title": "Edition file tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 14267, "sha256": "08bc2f9fa5ced0f99a5da3012c5b4890a24f7edfccc5c481e1ece8fa160a1792", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/236-browser-top-view.canvas", "bytes": 2259, "sha256": "491d8f0f19547120db3cda6cf04285a92f32a8f3637a1a15375224f2ab33aa0e", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/236-browser-top-view.md", "bytes": 455, "sha256": "a46ae73588f6a3ab2e3cc1af4ef4669e7ecc9b439daa76764208e9fb47ea557f", "hashKind": "utf8-lf"}, {"path": "docs/publication228/plan.md", "bytes": 2852, "sha256": "b050be4b020a5391e904e97753a5cb9b86cc1b18baa64b39902bee68fcc7fe87", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 129880, "sha256": "3bec74b6f13759fd94d97e933da996e572e651fad52e61fff52d2f0722ff3ddd", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-panel.js", "bytes": 48339, "sha256": "acbe28e6a13aecc42706ea21d33c5c70fac8e8755c716b137052ab9440b7da83", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/browser-top-blender.py", "bytes": 3323, "sha256": "a2779394a7fbf9779b88035d6a324554e07e3c17b34535e3c2241adee5c9887a", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/browser-views-integration.cjs", "bytes": 13057, "sha256": "d691be6e3d91d60e4d0fcb0f9883e5afd15a4612aa6566e04e051c25db5c0983", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/fixtures/browser-top/elevated.png", "bytes": 7454, "sha256": "915ae3646edc4e385b515400d7fb17428bbbcfae8c0c545542b18e3c473514d2", "hashKind": "binary"}, {"path": "workspace-desktop/test/fixtures/browser-top/front.png", "bytes": 2073, "sha256": "e1deab84c59d757e6665d547a98e1ad66996b1ea77e9f7196d9c34622cdda3a0", "hashKind": "binary"}, {"path": "workspace-desktop/test/fixtures/browser-top/level.png", "bytes": 2096, "sha256": "f531d588eecc562374d2cdc44bac3cebb64495f20a1c323724a38460b4ac1178", "hashKind": "binary"}, {"path": "workspace-desktop/test/fixtures/browser-top/side.png", "bytes": 2063, "sha256": "342f24b4339fe1e4a203e6034450d58b25b79e40ab3b5eba018cef99f56c4a8c", "hashKind": "binary"}, {"path": "workspace-desktop/test/fixtures/browser-top/top.png", "bytes": 2489, "sha256": "3b063758e722333ca4bab94f4ced5fa4c01645a061cf622203dba5149c03dc40", "hashKind": "binary"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/BrowserShapeTrace.java", "bytes": 8587, "sha256": "e46b68498b07c5baec94c700282885fe2cc8ac104adf9726e67bf464d8048279", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/BrowserViewTrace.java", "bytes": 15213, "sha256": "edf8991bb3b70b71d9b1af438457f1964f7bfbf097f6bbea87f5dd4d41b5c578", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

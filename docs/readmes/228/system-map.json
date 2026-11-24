@@ -1,0 +1,78 @@
+{
+  "summary": "Fit an optional top capture and verify the resulting geometry against a separate elevated view.",
+  "modules": [
+    {
+      "title": "Top registration and elevated verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BrowserViewTrace.java",
+      "note": "docs/obsidian/236-browser-top-view.md"
+    },
+    {
+      "title": "Legacy and extended browser package routes",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BrowserShapeTrace.java",
+      "note": "docs/obsidian/236-browser-top-view.md"
+    },
+    {
+      "title": "Optional capture and witness controls",
+      "source": "workspace-desktop/renderer/spatial-panel.js",
+      "note": "docs/obsidian/236-browser-top-view.md"
+    },
+    {
+      "title": "Independent Blender plate and measurements",
+      "source": "workspace-desktop/test/browser-top-blender.py",
+      "note": "docs/obsidian/236-browser-top-view.md"
+    },
+    {
+      "title": "Browser capture, positive and negative controls",
+      "source": "workspace-desktop/test/browser-views-integration.cjs",
+      "note": "docs/obsidian/236-browser-top-view.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/228/top-verified.png",
+      "title": "The top-assisted model passes the elevated witness"
+    },
+    {
+      "path": "docs/readmes/228/elevated-refused.png",
+      "title": "The same elevated witness refuses the filled model"
+    },
+    {
+      "path": "docs/readmes/228/original-elevated.png",
+      "title": "Separate Blender render of the original plate"
+    },
+    {
+      "path": "docs/readmes/228/two-view-elevated.png",
+      "title": "Blender render of the filled two-view control"
+    },
+    {
+      "path": "docs/readmes/228/with-top-elevated.png",
+      "title": "Blender render of the corrected model"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/228/browser-top-evidence.json",
+      "title": "Browser, witness and Blender measurements"
+    },
+    {
+      "path": "docs/readmes/228/with-top.glb",
+      "title": "Checked top-assisted geometry"
+    },
+    {
+      "path": "docs/readmes/228/two-view.glb",
+      "title": "Two-view control"
+    },
+    {
+      "path": "docs/readmes/228/captured-top.png",
+      "title": "Exact browser top capture"
+    },
+    {
+      "path": "docs/publication228/plan.md",
+      "title": "Registration and verification contract"
+    },
+    {
+      "path": "docs/readmes/228/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}

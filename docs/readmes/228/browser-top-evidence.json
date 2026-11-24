@@ -1,0 +1,152 @@
+{
+  "proof": {
+    "definitionSha256": "d368cbc6329e4e3713ed4650264e0db8123de94e7e3232f5a2fb9aa54810ff70",
+    "declaredWidthM": 0.5,
+    "meshSha256": "3e98c41a3933a5644bcc070a7aa80e7bba3a9d69750bf4bfa377438b49a64092",
+    "cellM": 0.05,
+    "frontIou": 1,
+    "depthResolutionM": 0.05,
+    "heldOutMinimum": 0.86,
+    "heldOutIou": 0.9602872834811998,
+    "triangles": 432,
+    "sourceSha256": "63500ad198a7b2e10f3e3734adb9acee3e12a365d2bfbed69c04792bb042b5e7",
+    "sideIou": 1,
+    "estimatedDepthM": 0.4,
+    "candidateFits": [
+      {
+        "sideIou": 0.759493670886076,
+        "grid": 16,
+        "topIou": 0.7405797101449275,
+        "frontIou": 0.8
+      },
+      {
+        "sideIou": 1,
+        "grid": 20,
+        "topIou": 0.9983361064891847,
+        "frontIou": 1
+      },
+      {
+        "sideIou": 0.8308702791461412,
+        "grid": 22,
+        "topIou": 0.70625,
+        "frontIou": 0.8598382749326146
+      }
+    ],
+    "grid": 20,
+    "meshDepthM": 0.4,
+    "scope": "Declared registration and front width. Front, side and top fit the mesh. A separate oblique view tests it.",
+    "topIou": 0.9983361064891847,
+    "heldOutElevationDeg": 60,
+    "views": {
+      "side": {
+        "pixels": 120,
+        "tag": "img",
+        "pngSha256": "af274f256a6a8b6887e51c729fd1291bfdbc0883765a6b9a2300d0a178c620d7",
+        "url": "http://127.0.0.1:52456/side"
+      },
+      "top": {
+        "pixels": 120,
+        "tag": "img",
+        "pngSha256": "664abddc9375860d4a502da78d14162ed07812814d6bf78f10c146ec3284887f",
+        "url": "http://127.0.0.1:52456/top"
+      },
+      "front": {
+        "pixels": 120,
+        "tag": "img",
+        "pngSha256": "5c52ad82b57b9b96fdd729a26ab427b588176f01d630bbae14f054003654c334",
+        "url": "http://127.0.0.1:52456/front"
+      },
+      "heldOut": {
+        "pixels": 120,
+        "tag": "img",
+        "pngSha256": "59fc61b1b445aa0b8170d999a0785c2d78b3ca034514266743f6c50be60d5904",
+        "url": "http://127.0.0.1:52456/elevated"
+      }
+    },
+    "policy": "browser-registered-orthographic"
+  },
+  "refusal": "Error invoking remote method 'workspace:request': Error: Held-out view refused the fitted model (76.5% overlap, need 86%).",
+  "baseline": {
+    "definitionSha256": "de389d42f37453ad11412d1bb6519aefe7360fe950234a1177ae7b677248ef20",
+    "declaredWidthM": 0.5,
+    "meshSha256": "d6b13fdda0bda4f32528717193676c44e62ce53d0809c57274372d7fd875ff5f",
+    "cellM": 0.05,
+    "frontIou": 1,
+    "depthResolutionM": 0.05,
+    "heldOutMinimum": 0.86,
+    "heldOutIou": 0.9334698055271239,
+    "triangles": 464,
+    "sourceSha256": "f3aaa508a57f11e343ec2ed799b076c0c3c3b0c98407e51ef02edbf37bdafb4a",
+    "sideIou": 1,
+    "estimatedDepthM": 0.4,
+    "candidateFits": [
+      {
+        "sideIou": 0.759493670886076,
+        "grid": 16,
+        "frontIou": 0.8
+      },
+      {
+        "sideIou": 1,
+        "grid": 20,
+        "frontIou": 1
+      },
+      {
+        "sideIou": 0.8308702791461412,
+        "grid": 22,
+        "frontIou": 0.8598382749326146
+      }
+    ],
+    "grid": 20,
+    "meshDepthM": 0.4,
+    "scope": "Declared registration and front width. The side estimates depth. The oblique silhouette verifies the fitted mesh.",
+    "views": {
+      "side": {
+        "pixels": 120,
+        "tag": "img",
+        "pngSha256": "af274f256a6a8b6887e51c729fd1291bfdbc0883765a6b9a2300d0a178c620d7",
+        "url": "http://127.0.0.1:52456/side"
+      },
+      "front": {
+        "pixels": 120,
+        "tag": "img",
+        "pngSha256": "5c52ad82b57b9b96fdd729a26ab427b588176f01d630bbae14f054003654c334",
+        "url": "http://127.0.0.1:52456/front"
+      },
+      "heldOut": {
+        "pixels": 120,
+        "tag": "img",
+        "pngSha256": "b494d7e34fbf8fea5ddb6f65fba5edab127d04f9b4d486623859f118d693a432",
+        "url": "http://127.0.0.1:52456/level"
+      }
+    },
+    "policy": "browser-registered-orthographic"
+  },
+  "blender": {
+    "version": "5.3.0",
+    "originalVolumeM3": 0.012500000186264517,
+    "models": {
+      "two-view": {
+        "volumeM3": 0.02000000059604637,
+        "viewIou": {
+          "front": 1,
+          "side": 1,
+          "elevated": 0.770893371757925
+        }
+      },
+      "with-top": {
+        "volumeM3": 0.012499999962747059,
+        "viewIou": {
+          "front": 1,
+          "side": 1,
+          "elevated": 1
+        }
+      }
+    }
+  },
+  "removedTopRefused": true,
+  "misregisteredTopRefused": true,
+  "restoredAfterRestart": true,
+  "changedSourceRefused": true,
+  "controlSha256": "5f35dee83a8721fd4e058b8b5a992520cb75191f07890e74f6a9947ac72a9b2b",
+  "exportSha256": "62963523e7be7909824e305dbbcef5ccfffeb2c7021ee1e086508dad12927dc5"
+}
