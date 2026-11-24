@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md)
 
-[Edition 218 — Carry a prop through a doorway](README-218.md) · [Previous edition](README-217.md) · [Offline walkthrough](docs/readmes/218/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 219 — Choose a calibrated view to measure height](README-219.md) · [Previous edition](README-218.md) · [Offline walkthrough](docs/readmes/219/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Compare a straight carry and two turns, review the measured path, then replay the approved motion after restart.
+Rank camera views, verify a height from independent images, and review the upper-bound collider.

@@ -1,0 +1,510 @@
+{
+  "platform": "win32",
+  "survivedRestart": true,
+  "independentBlenderMeshMeasurements": {
+    "low": {
+      "meshHeightM": 0.2800000011920929,
+      "blender": "5.3.0"
+    },
+    "tall": {
+      "meshHeightM": 0.6200000047683716,
+      "blender": "5.3.0"
+    },
+    "occluded": {
+      "meshHeightM": 0.2800000011920929,
+      "blender": "5.3.0"
+    }
+  },
+  "plan": {
+    "sourceSha256": "698c9a992863fe9a60b5bd6126d54cdc5bb2839f1cbdbb9994448da70eb31fe2",
+    "planSha256": "1d78e5937884114b36ca66bfd23fa5818602d09699a0b5837586d3949b7729fc",
+    "id": "7f728e114a449d2676a9cc7f9b11262d74d0589f9814515899c988f5f671f0b5",
+    "plan": {
+      "sourceNote": "Original Blender orthographic frames with registered color markers and declared metric dimensions.",
+      "candidateScores": [
+        {
+          "view": "repeat-overhead",
+          "calibrationCheckPx": 0.12834283324225348,
+          "hypothesisDistancePx": 0.07415779429978978,
+          "separationLowerPx": 0
+        },
+        {
+          "view": "inclined",
+          "calibrationCheckPx": 0.08908264168506376,
+          "hypothesisDistancePx": 52.4320825818965,
+          "separationLowerPx": 48.59932883465879
+        },
+        {
+          "view": "side",
+          "calibrationCheckPx": 0.06816377597432834,
+          "hypothesisDistancePx": 107.524867099933,
+          "separationLowerPx": 103.73395108411675
+        }
+      ],
+      "initial": {
+        "view": "overhead",
+        "calibrationCheckPx": 0.06397940760423554,
+        "hypothesisDistancePx": 0.023719528482318952,
+        "separationLowerPx": 0
+      },
+      "heightMeasured": false,
+      "title": "Registered height experiment",
+      "initialMarkerPx": [
+        449.93589743589746,
+        324.93589743589746
+      ],
+      "initialView": "overhead",
+      "selectedView": "side",
+      "canObserve": true,
+      "policy": "registered-height-v1",
+      "hypothesesM": [
+        0.28,
+        0.62
+      ]
+    },
+    "status": "review"
+  },
+  "low": {
+    "sourceSha256": "698c9a992863fe9a60b5bd6126d54cdc5bb2839f1cbdbb9994448da70eb31fe2",
+    "collider": {
+      "objects": [
+        {
+          "sourceId": "deck",
+          "shape": "box",
+          "size": [
+            3.7,
+            0.16,
+            3.7
+          ],
+          "restitution": 0,
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "label": "Support deck",
+          "position": [
+            0,
+            -0.08,
+            0
+          ],
+          "massKg": 0,
+          "friction": 0.5
+        },
+        {
+          "sourceId": "prop",
+          "shape": "box",
+          "size": [
+            0.26,
+            0.2873801602688812,
+            0.32
+          ],
+          "restitution": 0,
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "label": "Upper-bound height collider",
+          "position": [
+            0,
+            0.1436900801344406,
+            0
+          ],
+          "massKg": 1,
+          "friction": 0.5
+        }
+      ],
+      "format": "fraynix.spatial-scene",
+      "units": "m",
+      "source": {
+        "note": "Registered orthographic height interval. Footprint declared. Height evidence SHA-256 b6aa588c382c7b55237aabb65649990c9003bac5be48625da9bae83899ad53e5",
+        "kind": "synthetic",
+        "physicalProperties": "declared"
+      },
+      "title": "Reviewed collider · Registered height experiment",
+      "version": 1,
+      "scaleReference": {
+        "a": [
+          0,
+          0,
+          0
+        ],
+        "b": [
+          1,
+          0,
+          0
+        ],
+        "toleranceM": 0,
+        "knownLengthM": 1,
+        "basis": "declared-test"
+      },
+      "frame": "right-handed-y-up",
+      "gravityMps2": 9.81
+    },
+    "evidenceSha256": "b6aa588c382c7b55237aabb65649990c9003bac5be48625da9bae83899ad53e5",
+    "planSha256": "1d78e5937884114b36ca66bfd23fa5818602d09699a0b5837586d3949b7729fc",
+    "id": "7f728e114a449d2676a9cc7f9b11262d74d0589f9814515899c988f5f671f0b5",
+    "colliderApprovalSha256": "2004a8c6407424dc924df8dd89e49ef8c2f58525c92f16b92dcc7db0dae9d6c5",
+    "plan": {
+      "sourceNote": "Original Blender orthographic frames with registered color markers and declared metric dimensions.",
+      "candidateScores": [
+        {
+          "view": "repeat-overhead",
+          "calibrationCheckPx": 0.12834283324225348,
+          "hypothesisDistancePx": 0.07415779429978978,
+          "separationLowerPx": 0
+        },
+        {
+          "view": "inclined",
+          "calibrationCheckPx": 0.08908264168506376,
+          "hypothesisDistancePx": 52.4320825818965,
+          "separationLowerPx": 48.59932883465879
+        },
+        {
+          "view": "side",
+          "calibrationCheckPx": 0.06816377597432834,
+          "hypothesisDistancePx": 107.524867099933,
+          "separationLowerPx": 103.73395108411675
+        }
+      ],
+      "initial": {
+        "view": "overhead",
+        "calibrationCheckPx": 0.06397940760423554,
+        "hypothesisDistancePx": 0.023719528482318952,
+        "separationLowerPx": 0
+      },
+      "heightMeasured": false,
+      "title": "Registered height experiment",
+      "initialMarkerPx": [
+        449.93589743589746,
+        324.93589743589746
+      ],
+      "initialView": "overhead",
+      "selectedView": "side",
+      "canObserve": true,
+      "policy": "registered-height-v1",
+      "hypothesesM": [
+        0.28,
+        0.62
+      ]
+    },
+    "measurement": {
+      "highM": 0.2873801602688812,
+      "withheldObservedPx": [
+        449.95222929936307,
+        320.8949044585987
+      ],
+      "withheldErrorPx": 0.09415756622173725,
+      "localizationBudgetPx": 2.4094094865112683,
+      "withheldLimitPx": 2,
+      "measuredMarkerPx": [
+        449.95859872611464,
+        326.60828025477707
+      ],
+      "withheldProjectedPx": [
+        450.0087629064516,
+        320.97020119522364
+      ],
+      "passed": true,
+      "lowM": 0.2721427691888723,
+      "selectedView": "side",
+      "witnessView": "withheld",
+      "heightM": 0.27976146472887675
+    },
+    "status": "verified"
+  },
+  "tall": {
+    "sourceSha256": "3082e765ccbe163fc159a4aa4ebc4c425b0f6f71ace335adc1fad194e463e448",
+    "collider": {
+      "objects": [
+        {
+          "sourceId": "deck",
+          "shape": "box",
+          "size": [
+            3.7,
+            0.16,
+            3.7
+          ],
+          "restitution": 0,
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "label": "Support deck",
+          "position": [
+            0,
+            -0.08,
+            0
+          ],
+          "massKg": 0,
+          "friction": 0.5
+        },
+        {
+          "sourceId": "prop",
+          "shape": "box",
+          "size": [
+            0.26,
+            0.6281709724385514,
+            0.32
+          ],
+          "restitution": 0,
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "label": "Upper-bound height collider",
+          "position": [
+            0,
+            0.3140854862192757,
+            0
+          ],
+          "massKg": 1,
+          "friction": 0.5
+        }
+      ],
+      "format": "fraynix.spatial-scene",
+      "units": "m",
+      "source": {
+        "note": "Registered orthographic height interval. Footprint declared. Height evidence SHA-256 e0b902be53a53b56a271d8f2dbd957481bbde714835e2d4b906afe87dce772d5",
+        "kind": "synthetic",
+        "physicalProperties": "declared"
+      },
+      "title": "Reviewed collider · Registered height experiment",
+      "version": 1,
+      "scaleReference": {
+        "a": [
+          0,
+          0,
+          0
+        ],
+        "b": [
+          1,
+          0,
+          0
+        ],
+        "toleranceM": 0,
+        "knownLengthM": 1,
+        "basis": "declared-test"
+      },
+      "frame": "right-handed-y-up",
+      "gravityMps2": 9.81
+    },
+    "evidenceSha256": "e0b902be53a53b56a271d8f2dbd957481bbde714835e2d4b906afe87dce772d5",
+    "planSha256": "8e573fa0aa74407af55a7e71e84c7329d54b0e71371338cb3bd54f03be603efc",
+    "id": "417534f792c929b13e45963f0168af2a0fde054f21ff28b4a9a6dd1cbd2eaa6d",
+    "colliderApprovalSha256": "63020611c5e5b37d65cc54d78385adbac8fc3cfbe70b14f21ff9cd6d78054b40",
+    "plan": {
+      "sourceNote": "Original Blender orthographic frames with registered color markers and declared metric dimensions.",
+      "candidateScores": [
+        {
+          "view": "repeat-overhead",
+          "calibrationCheckPx": 0.12834283324225348,
+          "hypothesisDistancePx": 0.07415779429978978,
+          "separationLowerPx": 0
+        },
+        {
+          "view": "inclined",
+          "calibrationCheckPx": 0.08908264168506376,
+          "hypothesisDistancePx": 52.4320825818965,
+          "separationLowerPx": 48.59932883465879
+        },
+        {
+          "view": "side",
+          "calibrationCheckPx": 0.06816377597432834,
+          "hypothesisDistancePx": 107.524867099933,
+          "separationLowerPx": 103.73395108411675
+        }
+      ],
+      "initial": {
+        "view": "overhead",
+        "calibrationCheckPx": 0.06397940760423554,
+        "hypothesisDistancePx": 0.023719528482318952,
+        "separationLowerPx": 0
+      },
+      "heightMeasured": false,
+      "title": "Registered height experiment",
+      "initialMarkerPx": [
+        449.93589743589746,
+        324.93589743589746
+      ],
+      "initialView": "overhead",
+      "selectedView": "side",
+      "canObserve": true,
+      "policy": "registered-height-v1",
+      "hypothesesM": [
+        0.28,
+        0.62
+      ]
+    },
+    "measurement": {
+      "highM": 0.6281709724385514,
+      "withheldObservedPx": [
+        449.93589743589746,
+        228.85256410256412
+      ],
+      "withheldErrorPx": 0.18824411948004516,
+      "localizationBudgetPx": 2.4094094865112683,
+      "withheldLimitPx": 2,
+      "measuredMarkerPx": [
+        450.0157232704403,
+        218.83333333333334
+      ],
+      "withheldProjectedPx": [
+        450.00998286418564,
+        228.6795115156601
+      ],
+      "passed": true,
+      "lowM": 0.6129335813585424,
+      "selectedView": "side",
+      "witnessView": "withheld",
+      "heightM": 0.6205522768985469
+    },
+    "status": "verified"
+  },
+  "refused": {
+    "sourceSha256": "d980cfeabb8ff6a86c7d70c48265c4c635eb6ea496a4cf6a015c742dcb4507e8",
+    "planSha256": "e4e1703b33a75db6da90d0daec0170a653fff3a0af6edeb177d9609d1ee4042e",
+    "id": "54b6df9556c158c139fcf7e09bf72b01100eb81f8ea467c212e08c65aec2944b",
+    "plan": {
+      "sourceNote": "Original Blender orthographic frames with registered color markers and declared metric dimensions.",
+      "candidateScores": [
+        {
+          "view": "repeat-overhead",
+          "calibrationCheckPx": 0.12834283324225348,
+          "hypothesisDistancePx": 0.07415779429978978,
+          "separationLowerPx": 0
+        },
+        {
+          "view": "inclined",
+          "calibrationCheckPx": 0.08908264168506376,
+          "hypothesisDistancePx": 52.4320825818965,
+          "separationLowerPx": 48.59932883465879
+        },
+        {
+          "view": "side",
+          "calibrationCheckPx": 0.06816377597432834,
+          "hypothesisDistancePx": 107.524867099933,
+          "separationLowerPx": 103.73395108411675
+        }
+      ],
+      "initial": {
+        "view": "overhead",
+        "calibrationCheckPx": 0.06397940760423554,
+        "hypothesisDistancePx": 0.023719528482318952,
+        "separationLowerPx": 0
+      },
+      "heightMeasured": false,
+      "title": "Registered height experiment",
+      "initialMarkerPx": [
+        449.93589743589746,
+        324.93589743589746
+      ],
+      "initialView": "overhead",
+      "selectedView": "side",
+      "canObserve": true,
+      "policy": "registered-height-v1",
+      "hypothesesM": [
+        0.28,
+        0.62
+      ]
+    },
+    "measurement": {
+      "reason": "The top marker is missing, clipped or ambiguous.",
+      "passed": false
+    },
+    "status": "refused"
+  },
+  "imported": {
+    "importedAt": "2026-11-24T13:37:24.210448700Z",
+    "objects": [
+      {
+        "sourceId": "deck",
+        "bodyType": "static",
+        "size": [
+          3.7,
+          0.16,
+          3.7
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "33178eca-3953-3933-b54c-3b1c0706bbc1",
+        "label": "Support deck",
+        "position": [
+          0,
+          -0.08,
+          0
+        ],
+        "massKg": 0,
+        "friction": 0.5
+      },
+      {
+        "sourceId": "prop",
+        "bodyType": "dynamic",
+        "size": [
+          0.26,
+          0.2873801602688812,
+          0.32
+        ],
+        "restitution": 0,
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "id": "76f38aaa-acab-36ba-8070-592c4eab802e",
+        "label": "Upper-bound height collider",
+        "position": [
+          0,
+          0.1436900801344406,
+          0
+        ],
+        "massKg": 1,
+        "friction": 0.5
+      }
+    ],
+    "format": "fraynix.spatial-scene",
+    "sourceText": "{\"objects\":[{\"sourceId\":\"deck\",\"shape\":\"box\",\"size\":[3.7,0.16,3.7],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"Support deck\",\"position\":[0,-0.08,0],\"massKg\":0,\"friction\":0.5},{\"sourceId\":\"prop\",\"shape\":\"box\",\"size\":[0.26,0.2873801602688812,0.32],\"restitution\":0,\"rotation\":[0,0,0,1],\"label\":\"Upper-bound height collider\",\"position\":[0,0.1436900801344406,0],\"massKg\":1,\"friction\":0.5}],\"format\":\"fraynix.spatial-scene\",\"units\":\"m\",\"source\":{\"note\":\"Registered orthographic height interval. Footprint declared. Height evidence SHA-256 b6aa588c382c7b55237aabb65649990c9003bac5be48625da9bae83899ad53e5\",\"kind\":\"synthetic\",\"physicalProperties\":\"declared\"},\"title\":\"Reviewed collider · Registered height experiment\",\"version\":1,\"scaleReference\":{\"a\":[0,0,0],\"b\":[1,0,0],\"toleranceM\":0,\"knownLengthM\":1,\"basis\":\"declared-test\"},\"frame\":\"right-handed-y-up\",\"gravityMps2\":9.81}",
+    "units": "m",
+    "source": {
+      "note": "Registered orthographic height interval. Footprint declared. Height evidence SHA-256 b6aa588c382c7b55237aabb65649990c9003bac5be48625da9bae83899ad53e5",
+      "kind": "synthetic",
+      "physicalProperties": "declared"
+    },
+    "title": "Reviewed collider · Registered height experiment",
+    "version": 1,
+    "heightStudy": {
+      "evidenceSha256": "b6aa588c382c7b55237aabb65649990c9003bac5be48625da9bae83899ad53e5",
+      "id": "7f728e114a449d2676a9cc7f9b11262d74d0589f9814515899c988f5f671f0b5",
+      "colliderApprovalSha256": "2004a8c6407424dc924df8dd89e49ef8c2f58525c92f16b92dcc7db0dae9d6c5"
+    },
+    "gravityMps2": 9.81,
+    "sourceUnits": "m",
+    "sourceSha256": "23eda804157a0ec0d60aaec47e44d93b3418efe51f29e828f302def3357c9e0d",
+    "id": "b758f4dc-302e-3922-9004-8ab11943f3c0",
+    "scaleCheck": {
+      "independentlyCalibrated": false,
+      "toleranceM": 0,
+      "knownLengthM": 1,
+      "passed": true,
+      "basis": "declared-test",
+      "convertedLengthM": 1
+    },
+    "frame": "right-handed-y-up"
+  },
+  "refusedChangedSource": true,
+  "duplicateImportReturnedOriginalScene": true,
+  "scopedChatToOpenStudy": true
+}

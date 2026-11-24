@@ -1,0 +1,74 @@
+{
+  "summary": "Rank camera views, verify a height from independent images, and review the upper-bound collider.",
+  "modules": [
+    {
+      "title": "Camera choice and metric height verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MetricHeightStudy.java",
+      "note": "docs/obsidian/227-height-study.md"
+    },
+    {
+      "title": "Durable camera review and source checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/HeightStudyStore.java",
+      "note": "docs/obsidian/227-height-study.md"
+    },
+    {
+      "title": "Chat and calibrated study controls",
+      "source": "workspace-desktop/renderer/spatial-height.js",
+      "note": "docs/obsidian/227-height-study.md"
+    },
+    {
+      "title": "Blender image and mesh reference authoring",
+      "source": "workspace-desktop/test/height-study-blender.py",
+      "note": "docs/obsidian/227-height-study.md"
+    },
+    {
+      "title": "Independent numerical and approval tests",
+      "source": "workspace-engine/src/test/java/fraymus/workspace/MetricHeightStudyTest.java",
+      "note": "docs/obsidian/227-height-study.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/219/view-plan.png",
+      "title": "Both heights fit overhead and the side view ranks highest"
+    },
+    {
+      "path": "docs/readmes/219/verified-height.png",
+      "title": "The selected and withheld views agree on a conditional height"
+    },
+    {
+      "path": "docs/readmes/219/refused-height.png",
+      "title": "The missing target marker prevents collider approval"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/219/evidence.json",
+      "title": "Windows desktop receipts and Blender reference heights"
+    },
+    {
+      "path": "workspace-engine/src/main/resources/spatial/height-studies/low.json",
+      "title": "Bundled lower-height study"
+    },
+    {
+      "path": "workspace-engine/src/test/resources/spatial/height-studies/tall.json",
+      "title": "Taller prop study"
+    },
+    {
+      "path": "workspace-engine/src/test/resources/spatial/height-studies/occluded.json",
+      "title": "Hidden marker control"
+    },
+    {
+      "path": "workspace-engine/src/test/resources/spatial/height-studies/independent-mesh-measurements.json",
+      "title": "Independent Blender mesh dimensions"
+    },
+    {
+      "path": "docs/publication219/plan.md",
+      "title": "Verification contract and reproduction"
+    },
+    {
+      "path": "docs/readmes/219/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}
