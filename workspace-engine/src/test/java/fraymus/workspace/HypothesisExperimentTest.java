@@ -58,7 +58,22 @@ public class HypothesisExperimentTest {
         try (var store = new WorkspaceStore(project); var relay = new RelayPlaytest(repo, project, store)) {
             var experiment = new HypothesisExperiment(repo, project, store, relay, fixture);
             assertEquals("review", experiment.intent(REQUEST).getJSONObject("experiment").getString("status"));
-            var completed = experiment.approve(approval);
+            JSONObject completed;
+            try { completed = experiment.approve(approval); }
+            catch (java.util.concurrent.ExecutionException error) {
+                boolean hostedMac = "1".equals(System.getenv("FRAYNIX_CI_MAC_DISPLAY")) &&
+                        System.getProperty("os.name").toLowerCase(java.util.Locale.ROOT).startsWith("mac");
+                String message = String.valueOf(error.getCause().getMessage());
+                if (!hostedMac || !message.contains("Game Lab cannot get a macOS OpenGL 4.1 context from the current display."))
+                    throw error;
+                var interrupted = experiment.intent(REQUEST).getJSONObject("experiment");
+                assertEquals("interrupted", interrupted.getString("status"));
+                assertFalse(interrupted.has("artifact"));
+                assertTrue(store.artifacts().isEmpty());
+                assertEquals(1, calls[0]);
+                record("unavailable-opengl", new JSONObject());
+                return;
+            }
             assertEquals("complete", completed.getString("status"));
             assertEquals("Conflicts with prediction", completed.getJSONObject("result").getString("a"));
             assertEquals("Supports prediction", completed.getJSONObject("result").getString("b"));
@@ -69,6 +84,7 @@ public class HypothesisExperimentTest {
             assertNotEquals(evidence.getJSONObject("original").getString("sessionId"),
                     evidence.getJSONObject("replay").getString("sessionId"));
             assertEquals(48, evidence.getJSONObject("original").getJSONObject("observed").getInt("tick"));
+            record("verified-replay", completed.getJSONObject("result"));
         }
         try (var store = new WorkspaceStore(project); var relay = new RelayPlaytest(repo, project, store)) {
             var experiment = new HypothesisExperiment(repo, project, store, relay, fixture);
@@ -81,6 +97,12 @@ public class HypothesisExperimentTest {
             } finally { Files.write(file, before); }
         }
         assertEquals(1, calls[0]);
+    }
+
+    private static void record(String status, JSONObject result) throws Exception {
+        Path output = Path.of("build", "hypothesis-experiment-ci.json");
+        Files.createDirectories(output.getParent());
+        Files.writeString(output, new JSONObject().put("nativeGame", status).put("result", result).toString());
     }
 
     private static ExplanationEvidence.Interval interval(String low, String high) {
