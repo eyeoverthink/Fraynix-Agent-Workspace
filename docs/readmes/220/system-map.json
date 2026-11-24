@@ -1,0 +1,78 @@
+{
+  "summary": "Three calibrated silhouettes become a triangle mesh. Blender checks the result and returns an actual edit.",
+  "modules": [
+    {
+      "title": "Silhouette reconstruction and indexed mesh",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstruction.java",
+      "note": "docs/obsidian/228-visual-reconstruction.md"
+    },
+    {
+      "title": "Source-bound reconstruction and scene store",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/228-visual-reconstruction.md"
+    },
+    {
+      "title": "Spatial workspace and GLB export",
+      "source": "workspace-desktop/renderer/spatial-panel.js",
+      "note": "docs/obsidian/228-visual-reconstruction.md"
+    },
+    {
+      "title": "Independent Blender geometry and held-out view",
+      "source": "workspace-desktop/test/spatial-reconstruction-blender.py",
+      "note": "docs/obsidian/228-visual-reconstruction.md"
+    },
+    {
+      "title": "Real Blender edit, reimport and recovery",
+      "source": "workspace-desktop/test/visual-reconstruction-integration.cjs",
+      "note": "docs/obsidian/228-visual-reconstruction.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/220/fraynix-reconstruction.png",
+      "title": "The editable reconstruction in Fraynix Spatial"
+    },
+    {
+      "path": "docs/readmes/220/withheld-original.png",
+      "title": "Original from the withheld Blender angle"
+    },
+    {
+      "path": "docs/readmes/220/withheld-reconstruction.png",
+      "title": "Java reconstruction from the same withheld Blender angle"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/220/reconstruction-evidence.json",
+      "title": "Actual desktop and Blender evidence"
+    },
+    {
+      "path": "workspace-engine/src/main/resources/spatial/reconstruction/bracket.json",
+      "title": "Three original input PNGs in their registered package"
+    },
+    {
+      "path": "docs/readmes/220/editable-prop.blend",
+      "title": "Editable Blender project"
+    },
+    {
+      "path": "docs/readmes/220/reconstructed.glb",
+      "title": "Fraynix GLB export"
+    },
+    {
+      "path": "docs/readmes/220/blender-edited-reconstruction.glb",
+      "title": "Blender-edited return"
+    },
+    {
+      "path": "docs/publication220/plan.md",
+      "title": "Verification contract and reproduction"
+    },
+    {
+      "path": "docs/publication220/reconstruction-audit.md",
+      "title": "Independent audit of earlier work"
+    },
+    {
+      "path": "docs/readmes/220/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}

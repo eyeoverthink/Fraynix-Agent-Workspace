@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 220 · Reconstruct editable 3D geometry from images</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Reconstruct editable 3D geometry from images</h1><p>Three calibrated silhouettes become a triangle mesh. Blender checks the result and returns an actual edit.</p>
+<nav><a href="../../../README-220.md">App guide</a><a href="reconstruction-evidence.json">Full receipts</a>
+<a href="../219/index.html">Edition 219</a><a href="../../publication220/plan.md">Verification contract</a>
+<a href="editable-prop.blend" download>Editable Blender project</a><a href="#system">System files</a></nav>
+<p>The original and reconstructed bracket matched pixel for pixel in the withheld silhouette. The hidden-recess control shows where the three input views leave uncertainty.</p>
+<figure><img src="fraynix-reconstruction.png" alt="The editable reconstruction in Fraynix Spatial"><figcaption>The editable reconstruction in Fraynix Spatial</figcaption></figure>
+<figure><img src="withheld-original.png" alt="Original from the withheld Blender angle"><figcaption>Original from the withheld Blender angle</figcaption></figure>
+<figure><img src="withheld-reconstruction.png" alt="Java reconstruction from the same withheld Blender angle"><figcaption>Java reconstruction from the same withheld Blender angle</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Three calibrated silhouettes become a triangle mesh. Blender checks the result and returns an actual edit.", "modules": [{"title": "Silhouette reconstruction and indexed mesh", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstruction.java", "note": "docs/obsidian/228-visual-reconstruction.md"}, {"title": "Source-bound reconstruction and scene store", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "note": "docs/obsidian/228-visual-reconstruction.md"}, {"title": "Spatial workspace and GLB export", "source": "workspace-desktop/renderer/spatial-panel.js", "note": "docs/obsidian/228-visual-reconstruction.md"}, {"title": "Independent Blender geometry and held-out view", "source": "workspace-desktop/test/spatial-reconstruction-blender.py", "note": "docs/obsidian/228-visual-reconstruction.md"}, {"title": "Real Blender edit, reimport and recovery", "source": "workspace-desktop/test/visual-reconstruction-integration.cjs", "note": "docs/obsidian/228-visual-reconstruction.md"}], "screenshots": [{"path": "docs/readmes/220/fraynix-reconstruction.png", "title": "The editable reconstruction in Fraynix Spatial"}, {"path": "docs/readmes/220/withheld-original.png", "title": "Original from the withheld Blender angle"}, {"path": "docs/readmes/220/withheld-reconstruction.png", "title": "Java reconstruction from the same withheld Blender angle"}], "evidence": [{"path": "docs/readmes/220/reconstruction-evidence.json", "title": "Actual desktop and Blender evidence"}, {"path": "workspace-engine/src/main/resources/spatial/reconstruction/bracket.json", "title": "Three original input PNGs in their registered package"}, {"path": "docs/readmes/220/editable-prop.blend", "title": "Editable Blender project"}, {"path": "docs/readmes/220/reconstructed.glb", "title": "Fraynix GLB export"}, {"path": "docs/readmes/220/blender-edited-reconstruction.glb", "title": "Blender-edited return"}, {"path": "docs/publication220/plan.md", "title": "Verification contract and reproduction"}, {"path": "docs/publication220/reconstruction-audit.md", "title": "Independent audit of earlier work"}, {"path": "docs/readmes/220/FILE_TREE.md", "title": "Edition file tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 8585, "sha256": "d4941f4323f104261d2e9a06781159927249a57bd8a069dd039261456b07a62e", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/228-visual-reconstruction.canvas", "bytes": 2288, "sha256": "910ed10823dad091855a494ef2d961e818e0e260014ca38e42c73281b7343f14", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/228-visual-reconstruction.md", "bytes": 573, "sha256": "3c041c3e4486d09adb4a35dd006accf288078dad72fd5b0ad32034f4cb2e190d", "hashKind": "utf8-lf"}, {"path": "docs/publication220/plan.md", "bytes": 2251, "sha256": "fda826a2e15457fe0388597a46c431af3244bb66314529e7567a8ffaf2691081", "hashKind": "utf8-lf"}, {"path": "docs/publication220/reconstruction-audit.md", "bytes": 2481, "sha256": "1a062215c08503ec31e74e321e17dde06adbb4555532ae347324a4f89f7a9399", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 128130, "sha256": "3e0cae05568283bbbb4dcc0bac321d0839a0ab514f113d4ff3c692d77edfad7f", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-height.js", "bytes": 8170, "sha256": "b509c3240afe0eab45d7aa75018c4987b2f753137030de7ee4bcb0c78282a348", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-panel.js", "bytes": 39373, "sha256": "9a03ad78e1b1aff74cd976a103343ad2812fc414d05286ebfa663d615b51e8dd", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/height-study-blender.py", "bytes": 5034, "sha256": "c5480ac33d88900fe61a0e3e9de3dd8c9ddc1956d951453c94fb0697ae70c0c1", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/height-study-integration.cjs", "bytes": 7178, "sha256": "2a0375fb738762b88a92f4a6e7e77c907759e93e8476c2cc541e6d817242993e", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/spatial-reconstruction-blender.py", "bytes": 7913, "sha256": "f79a0c5a4d9ea889061421cca4e5e0c4dc9137f1bcbfc30e11ab26fc52f35731", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/visual-reconstruction-integration.cjs", "bytes": 5420, "sha256": "1c24052dcc7f24ce53901a49a73a2e5c8ea197ebd52df895ee3956e306eb11d0", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstruction.java", "bytes": 9672, "sha256": "57ea920f94a28ca121004e34c81a74283c2b6df3cb398abc614e5801487adb77", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 26744, "sha256": "81c63c6d89e33ec736f1da24eef1511a02c7018aee1c9d0e1183e6307ca6dc3d", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 147252, "sha256": "dba6aabb7478c9448e451377d6e7d76d035d0d8929a90dc654dce4e4700c4592", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/resources/spatial/reconstruction/bracket.json", "bytes": 25089, "sha256": "4a7223cf309b4138a15b1b2aa73dedb6fce69dd15a3886dc2702927887db880c", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/SpatialReconstructionTest.java", "bytes": 3157, "sha256": "29b5669ae503dc7aa226959c585ccf1c623a2cc203171aa91b32199da699a38f", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

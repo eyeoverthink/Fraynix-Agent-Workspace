@@ -1,0 +1,60 @@
+{
+  "platform": "win32",
+  "construction": {
+    "definitionSha256": "3fae54dc1a3ab9e00fcb6879fbb67785d47b48296d3db435d27ce6469a15f49e",
+    "vertices": 618,
+    "meshSha256": "99c6be83fbeb810702446ced89b4e23db10b14bd19b59631f279266c9906514f",
+    "cellM": 0.05,
+    "pngSha256": {
+      "x": "a32cb1dfb69a29d74d6b84fb77e9e98e3b51b1063a63d033a483b07152ed7bad",
+      "y": "9e95e30194443167bf0e918add3462539607078131b87a6f9b84a0ea406474c4",
+      "z": "1159db22b6540de2dd7ffdb4338edc1b2e873e098bdefd998e65302601e0c18c"
+    },
+    "volumeM3": 0.08125,
+    "triangles": 1236,
+    "sourceSha256": "4a7223cf309b4138a15b1b2aa73dedb6fce69dd15a3886dc2702927887db880c",
+    "grid": 16,
+    "scope": "Three orthographic silhouettes at a declared scale; surface depth hidden in every silhouette is unresolved.",
+    "physics": "Separate enclosing box; visible cutouts belong to the visual mesh.",
+    "inputProjectionIou": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "voxels": 650,
+    "policy": "axis-visual-hull-v1"
+  },
+  "originalBytesCheckedOnRestart": true,
+  "changedSourceRefused": true,
+  "withheldBlender": {
+    "blender": "5.3.0",
+    "withheldSilhouetteIou": 1,
+    "sourceVolumeM3": 0.08125000232830648,
+    "reconstructedVolumeM3": 0.081250000512227,
+    "hiddenRecessVolumeM3": 0.07900000183656818,
+    "hiddenRecessInputPixelDifferences": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "sampledSurfaceErrorM": 0.000004085290129296482,
+    "surfaceLimitM": 0.00001,
+    "blenderVertices": 618,
+    "blenderPolygons": 1236,
+    "editedVertices": 56,
+    "editDeltaM": 0.05,
+    "passed": true
+  },
+  "editedRoundTrip": {
+    "visualAssetChanged": true,
+    "originalPreserved": true,
+    "colliderSizeM": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "returnedMeshSha256": "4f1ffbedbfe9bc931d45da842e8d00f33cff259541fb5d24d02ac7e6fa6615c1",
+    "measuredHeightEditM": 0.050000011920928955
+  },
+  "exportSha256": "5042b9f9e71612dda45728ec8c1e1d3bfa8714f2742a907b9bf75464358e4d11"
+}
