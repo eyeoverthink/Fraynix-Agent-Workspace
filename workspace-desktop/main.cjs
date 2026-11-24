@@ -1074,6 +1074,23 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(['carry-review','carry-read','carry-latest','carry-approve'].includes(input.command)){
         return api('/api/spatial/'+input.command,input.args);
       }
+      if(input.command==='placement-review'){
+        if(!currentSpatial)throw Error('Select a verified reconstructed prop in Spatial first.');
+        return api('/api/spatial/placement-review',{goal:input.args.goal,...currentSpatial});
+      }
+      if(['placement-latest','placement-approve','placement-replay'].includes(input.command))
+        return api('/api/spatial/'+input.command,input.args||{});
+      if(input.command==='placement-run'){
+        const result=await api('/api/spatial/placement-run',input.args);
+        await refresh();
+        return result;
+      }
+      if(input.command==='placement-export'){
+        const data=await api('/api/spatial/placement-export',input.args);
+        return nativeExports.save('verified-spatial-placement','fraynix-placement.json',
+          Buffer.from(data.base64,'base64'),{sceneId:data.sceneId,evidenceSha256:data.evidenceSha256,
+            glbSha256:data.glbSha256},data.sha256);
+      }
       if(input.command==='prop-review'){
         if(!currentSpatial)throw Error('Select a dynamic detailed prop in Spatial.');
         return api('/api/spatial/prop-review',{...input.args,...currentSpatial});

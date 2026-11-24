@@ -31,6 +31,7 @@ import {TrackingPanel} from './tracking-panel.js';
 import {PerceptionPanel} from './perception-panel.js';
 import {TileEditor} from './media-tile-editor.js';
 import {MediaWorkshop} from './media-workshop.js';
+import {isPlacementRequest} from './spatial-placement.js';
 import {SpatialPanel,isSpatialPropRequest} from './spatial-panel.js';
 import {isSpatialCarryRequest} from './spatial-carry.js';
 import {isSpatialHeightRequest} from './spatial-height.js';
@@ -224,6 +225,7 @@ $('run').onclick=()=>safe(async()=>{
  message(goal,'user');
  if(isSpatialHeightRequest(goal)){await spatial.height.openFromChat(goal);return;}
  if(isSpatialCarryRequest(goal)){await spatial.carry.review(true);return;}
+ if(isPlacementRequest(goal)){await spatial.action(()=>spatial.placement.openFromChat(goal));return;}
  if(isSpatialPropRequest(goal)){spatial.openProp();return;}
  if(await chartFollowup.start(goal))return;
  if(mayRequestFrayTool(goal)&&await requestsPanel.offerFromChat(goal))return;

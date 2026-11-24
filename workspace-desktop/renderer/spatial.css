@@ -104,3 +104,16 @@
     font-size: 11px;
     padding: 7px;
 }
+
+#placement-dialog { width: min(550px, calc(100vw - 24px)); }
+.placement-content { padding: 15px 17px; }
+.placement-content > p { margin: 0 0 10px; overflow-wrap: anywhere; }
+.placement-content > p:empty { display: none; }
+#placement-details { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 12px; margin: 10px 0; }
+#placement-details:empty { display: none; }
+#placement-details dt { color: var(--muted); }
+#placement-details dd { margin: 0; overflow-wrap: anywhere; }
+#placement-scope { padding: 0; }
+#placement-result { color: #a2ebcd; }
+#placement-file { font-size: 11px; }
+.placement-content .spatial-task { padding: 0; }
