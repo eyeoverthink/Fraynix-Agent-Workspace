@@ -33,6 +33,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final RequestWorkbench requestWorkbench;
     private final ClassifiedProcedurePlan classificationRouting;
     private final RoutedDashboard routedDashboard;
+    private final ReferenceChart referenceChart;
     private final LearningStore learning;
     private final SceneStore scenes;
     private final SpatialStore spatial;
@@ -98,6 +99,7 @@ public final class WorkspaceServer implements AutoCloseable {
             rampMission = new RampMission(project, store);
             runtime040=new SpatialRuntime040(project,goals.worlds(),goals.worldNative(),tabletop,knowledge,game);alignment041=new Alignment041Store(project,goals.worlds());workflows.install159(new CalibratedPlane159(project,alignment041,goals.worlds()));accuracy160=new PlaneAccuracyStore160(project,alignment041,goals.worlds(),store);small161=new SmallStore161(project,store);workflows.install162(new RecordedSmall162(project,alignment041,goals.worlds(),small161));smallObjectRoutes=new SmallObjectRoutes(small161,spatial,workflows);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         try{agentRuntime=new AgentRuntime042(project,brain,this::agentFacts042,this::detachHost042,persistentHost);agency=new Agency043(project,store,learning,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();},(kind,evidence)->agentRuntime.record043(kind,evidence),this::sharedBusy043,true);var domain=new Domain044(this::call044,store);agency.install044(domain);agency.installRelayArchive(domain::relayArchive);agency.installArchive112(task->{var bound=task.getJSONObject("completion044").getJSONObject("javaWorkflow");String id=task.getJSONObject("context044").getString("ownedWorkflowId");if(!id.equals(bound.getString("id")))throw new IllegalStateException("Original chat/workflow owner changed");var proof=workflows.verifyArchive110(id);var current=workflows.read(id);for(String k:List.of("status","audit","report","savedSkill","dataBinding"))if(bound.has(k)&&(!current.has(k)||!new JSONObject().put("v",bound.get(k)).similar(new JSONObject().put("v",current.get(k)))))throw new IllegalStateException("Original chat workflow completion changed: "+k);proof.remove("verificationNanos");return proof;});agency.installRampArchive(rampMission::historyEvidence);creation044=new CreationPlanner044(project,goals,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();});}catch(Exception e){close();throw new IOException("Java agent state needs attention; originals retained",e);}
+        referenceChart = new ReferenceChart(project, store, measurements, agency);
         costs087=new CalibrationCosts087(project,goals);
         replay151=new ReplayEvidence151(project,association134);
         diagnosis151=new ReturnDiagnosis151(observations,association134,replay151);
@@ -756,6 +758,12 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/host/skill" -> result=store.hostSkill(input.getString("name"),input.optJSONObject("args")==null?new JSONObject():input.getJSONObject("args"));
                     case "/api/event" -> {store.event(input.getString("kind"),input.getJSONObject("data"));result=new JSONObject().put("saved",true);}
                     case "/api/cancel" -> {var active=requests.get(input.getString("requestId"));if(active!=null)active.cancel();result=new JSONObject().put("cancelled",active!=null);}
+                    case "/api/reference-chart/start" -> result=referenceChart.begin(input);
+                    case "/api/reference-chart/state" -> result=referenceChart.state(input);
+                    case "/api/reference-chart/choose" -> result=referenceChart.choose(input);
+                    case "/api/reference-chart/discard" -> result=referenceChart.discard(input);
+                    case "/api/reference-chart/prepare" -> result=referenceChart.prepare(input);
+                    case "/api/reference-chart/finish" -> result=referenceChart.finish(input);
                     case "/api/requests/chat" -> result=requestWorkbench.chat(input);
                     case "/api/requests/plain-workflow-intent" -> result=PlainWorkflowLanguage.preview(input);
                     case "/api/requests/routing-start" -> result=classificationRouting.start(input);
@@ -817,6 +825,20 @@ public final class WorkspaceServer implements AutoCloseable {
                 }
                 send(exchange,200,result);
             } catch(Exception error) {try{if(admission106)agency.refuseAdmission106(exchange.getRequestHeaders().getFirst("X-Fraynix-Task"),exchange.getRequestHeaders().getFirst("X-Fraynix-Effect"),exchange.getRequestURI().getPath(),exchange.getRequestHeaders().getFirst("X-Fraynix-Interface"),error);send(exchange,400,new JSONObject().put("error",String.valueOf(error.getMessage())));}catch(Exception ignored){exchange.close();}}
+        });
+        server.createContext(ReferenceChart.PREVIEW, exchange -> {
+            byte[] html = "GET".equals(exchange.getRequestMethod())
+                    ? referenceChart.preview(exchange.getRequestURI().getPath()) : null;
+            if (html == null) {
+                send(exchange, 404, new JSONObject().put("error", "Unknown chart preview"));
+                return;
+            }
+            exchange.getResponseHeaders().set("Content-Type", "text/html; charset=utf-8");
+            exchange.getResponseHeaders().set("X-Content-Type-Options", "nosniff");
+            exchange.getResponseHeaders().set("Cache-Control", "no-store");
+            exchange.getResponseHeaders().set("Referrer-Policy", "no-referrer");
+            exchange.sendResponseHeaders(200, html.length);
+            try (var out = exchange.getResponseBody()) { out.write(html); }
         });
         server.createContext(RoutedDashboard.PREVIEW, exchange -> {
             byte[] html = null;

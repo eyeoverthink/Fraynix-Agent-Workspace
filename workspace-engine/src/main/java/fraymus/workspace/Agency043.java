@@ -411,6 +411,25 @@ final class Agency043 implements AutoCloseable {
     synchronized JSONArray outcomes(){var all=new JSONArray(data.getJSONArray("tasks").toString());for(Object raw:archive112.resolveAll(ChatArchive112.refs(data)))all.put(raw);var out=new JSONArray();for(Object raw:all){var g=(JSONObject)raw;String status=g.getString("status");if(status.equals("completed")&&!g.optString("outcome").equals("verified"))status="completed-unverified";out.put(new JSONObject().put("id",g.getString("id")).put("status",LIVE.contains(status)?"running":status));}return out;}
     synchronized JSONObject report(String id)throws Exception{if(busy())throw new IllegalStateException("Finish or stop the active Java task before inspecting another canvas report");var g=task(id);return store.writeOnce("agency043-inspect:"+id+":"+WorldFrames.hash(g.getJSONObject("lastPair")),AgencyReport043.build(g,visual));}
     synchronized JSONObject read(String id){var g=original112(id);var out=WorldFrames.copy(g).put("timing052",ChatChain052.timing(g)).put("diagnostics052",ChatChain052.diagnostics(g));for(Object raw:ChatArchive112.refs(data)){var ref=(JSONObject)raw;if(ref.getString("id").equals(id))out.put("archive112",WorldFrames.copy(ref));}return out;}
+    synchronized List<JSONObject> chartCandidates() {
+        var result = new ArrayList<JSONObject>();
+        for (var tasks : List.of(data.getJSONArray("tasks"), archive112.resolveAll(ChatArchive112.refs(data)))) {
+            for (Object raw : tasks) {
+                var candidate = ReferenceChart.candidate((JSONObject) raw);
+                if (candidate != null) result.add(WorldFrames.copy(candidate));
+            }
+        }
+        return result;
+    }
+
+    synchronized JSONObject chartEvidence(String id) throws Exception {
+        var candidate = ReferenceChart.candidate(original112(id));
+        if (candidate == null) throw new IllegalStateException("Choose a completed verified motion or ramp result.");
+        var proof = verify112(id);
+        proof.remove("verificationNanos");
+        return new JSONObject().put("source", candidate).put("evidence", proof);
+    }
+
     synchronized JSONObject history112(){
         var rows=new JSONArray();int eligible=0;for(Object raw:data.getJSONArray("tasks")){var g=(JSONObject)raw;boolean can=ChatArchive112.eligible(g);if(can)eligible++;rows.put(new JSONObject().put("id",g.getString("id")).put("goal",g.getString("goal")).put("status",g.getString("status")).put("outcome",g.optString("outcome")).put("archived",false).put("eligible",can));}
         var resolved=archive112.resolveAll(ChatArchive112.refs(data));for(int i=0;i<resolved.length();i++){var ref=ChatArchive112.refs(data).getJSONObject(i);var g=resolved.getJSONObject(i);rows.put(new JSONObject().put("id",g.getString("id")).put("goal",g.getString("goal")).put("status",g.getString("status")).put("outcome",g.getString("outcome")).put("archived",true).put("eligible",false).put("archive112",WorldFrames.copy(ref)));}

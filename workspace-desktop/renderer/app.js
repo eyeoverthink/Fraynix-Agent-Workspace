@@ -40,6 +40,7 @@ import {CalibrationPanel} from './calibration-panel.js';
 import {ObserverPanel} from './observer-panel.js';
 import {BodyPanel} from './body-panel.js';
 import {RequestWorkbenchPanel,mayRequestFrayTool} from './request-workbench.js';
+import {ChartFollowup} from './chart-followup.js';
 import {SceneFiles} from './scene-files.js';
 import {exportSceneVideo} from './scene-video.js';
 const $=id=>document.getElementById(id),host=window.workspace;
@@ -122,6 +123,7 @@ window.small161View=new Small161Panel({call:(command,args={})=>request('small161
 const perceptionPanel=new PerceptionPanel({call:(command,args={})=>request('perception',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g)});
 const trackingPanel=new TrackingPanel({call:(command,args={})=>request('tracking',{command,args}),notice,requireSaved,openPerception:()=>perceptionPanel.open()});
 const creationPanel=new CreationPanel({layout:updateLayout,call:(command,args,model)=>request('creation',{command,args,model}),getState:()=>state,getArtifact:()=>artifact,getModel:()=>$('model').value,requireSaved,notice,onGoal:g=>goalsPanel.accept(g)});
+const chartFollowup=new ChartFollowup({request,layout:updateLayout,announce:message,requireSaved});
 const requestsPanel=new RequestWorkbenchPanel({request,getModel:()=>$('model').value,requireSaved,layout:updateLayout,
  openCreation:brief=>creationPanel.open(null,brief),announce:message});
 
@@ -209,6 +211,7 @@ $('run').onclick=()=>safe(async()=>{
  const goal=$('goal').value.trim();
  if(!goal)return;
  message(goal,'user');
+ if(await chartFollowup.start(goal))return;
  if(mayRequestFrayTool(goal)&&await requestsPanel.offerFromChat(goal))return;
  const local=offlineMissionRequest(goal);
  const selectedModel=state?.models.some(m=>m.name===$('model').value)?$('model').value:'';
@@ -380,5 +383,5 @@ host.onEvent(({type,value})=>{
   if(type==='run'){bodies.controls();files.controls();observers.controls();calibrations.controls();if(!value.active&&$('calibration-panel').open)safe(()=>calibrations.refresh());}
 });
 goalsPanel.dialog.addEventListener('close',updateLayout);
-safe(async()=>{const initial=await request('state');renderState(initial);if(initial.currentArtifact)showArtifact(initial.currentArtifact);for(const entry of initial.log||[])timeline(entry);if(initial.origin)$('address').value=initial.origin+'/welcome';notice('Connected. Your Studio baseline and personal state are separate.');updateLayout();});
+safe(async()=>{const initial=await request('state');renderState(initial);if(initial.currentArtifact)showArtifact(initial.currentArtifact);for(const entry of initial.log||[])timeline(entry);if(initial.origin)$('address').value=initial.origin+'/welcome';notice('Connected. Your Studio baseline and personal state are separate.');updateLayout();await chartFollowup.refresh();});
 setInterval(()=>{if(!running)host.request({operation:'state'}).then(renderState).catch(e=>notice(e.message));},12000);

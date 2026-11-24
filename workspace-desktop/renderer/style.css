@@ -29,3 +29,9 @@
 .briefing-picker-grid select { display: block; width: 100%; margin: 4px 0 9px; padding: 6px; }
 .briefing-picker-sections { display: grid; gap: 5px; }
 @media(max-width:650px) { .briefing-picker-grid { grid-template-columns: 1fr; } }
+
+#chart-request-dialog { width: min(560px, calc(100vw - 32px)); }
+#chart-request-dialog .dialog-head { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+#chart-request-heading { margin:0; }
+#chart-request-source { display:block; width:100%; margin:.4rem 0 0; }
+#chart-request-description { overflow-wrap:anywhere; margin:.6rem 0 1rem; }
