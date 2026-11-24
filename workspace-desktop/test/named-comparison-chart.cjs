@@ -5,6 +5,7 @@ const fs = require('node:fs/promises');
 const path = require('node:path');
 const {createHash} = require('node:crypto');
 const {NativeExports} = require('../exports.cjs');
+const {testChartBriefing} = require('./chart-briefing-integration.cjs');
 
 const query = 'Could you chart gains and losses from "Workshop audit" in both units for keys "fall", "rise <probe>" and "length gain"?';
 const specific = 'Make a chart of gains from "Workshop audit" in millimetres for key "length gain".';
@@ -176,7 +177,9 @@ async function testNamedComparisonChart({project,output,original,call,api,app,pa
         ],
     };
     await fs.writeFile(path.join(namedOutput,'result.json'),JSON.stringify(evidence,null,2)+'\n');
-    return evidence;
+    const briefing = await testChartBriefing({project,output,app,page,send,reply,restart,call,api,
+        mixed:built,chartArtifact:artifact,empty,sources:{file,baseline,keyColumn,comparisonImport}});
+    return {...evidence,checks:[...evidence.checks,...briefing.checks],briefing};
 }
 
 module.exports = {testNamedComparisonChart};

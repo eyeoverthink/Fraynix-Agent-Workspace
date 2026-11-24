@@ -577,6 +577,24 @@ async function comparisonChartRequest({request, lastSummary}) {
   return{matched:true,action:'chart',...chart};
 }
 
+async function chartBriefingRequest({request}) {
+  const visible=currentArtifact && canvas.view.webContents.getURL()===
+    origin+'/artifact/'+currentArtifact.id+'/'+currentArtifact.version+'/index.html';
+  const followup={request,...(visible?{canvas:{id:currentArtifact.id,version:currentArtifact.version}}:{})};
+  const intent=await api('/api/requests/chart-briefing-intent',followup);
+  if(!intent.matched||intent.message)return intent;
+  let plan=intent.plan;
+  const exportId=plan?.exportId||intent.exportId;
+  const retained=()=>comparisonSources(exportId).catch(error=>{
+    throw new Error('Unable to recheck the briefing’s original comparison. '+error.message,{cause:error});
+  });
+  const sources=await retained();
+  if(!plan)plan=await api('/api/requests/chart-briefing-pin',{...followup,...sources});
+  const flags={chartBriefingId:plan.chartBriefingId};
+  const proof=await openRoutedReport({...sources,...flags},async()=>({...await retained(),...flags}),{verifyOnly:plan.verifyOnly});
+  return {matched:true,...proof};
+}
+
 async function summarizeRoutedComparison({verifyOnly=false,exportId,explorer=false,story=false,exportStory=false,explorerLesson,briefingId}={}) {
   if(typeof verifyOnly!=='boolean'||typeof explorer!=='boolean'||typeof story!=='boolean'||
       (verifyOnly||explorer||story)&&typeof exportId!=='string')
@@ -754,6 +772,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(command==='routing-dashboard')return openRoutedDashboard(args);
       if(command==='routing-summary')return summarizeRoutedComparison(args);
       if(command==='comparison-chart')return comparisonChartRequest(args);
+      if(command==='chart-briefing')return chartBriefingRequest(args);
       if(['briefing-catalog','briefing-review','briefing-read','briefing-build','briefing-recheck','briefing-export'].includes(command))
         return comparisonBriefing(command,args);
       if(command==='teach-comparison-explorer')return teachComparisonExplorer(args);

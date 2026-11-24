@@ -27,6 +27,10 @@ const namedComparisonRequest = text => {
     return /^(?:name (?:the last verified comparison|comparison export)\b|(?:open|resume|recheck) (?:my |the )?last comparison chart\b)/i.test(wording)
         || /^(?:(?:make|draw) (?:me )?a chart of|chart|plot) (?:gains|losses|changes)\b/i.test(wording);
 };
+const chartBriefingRequest = text => {
+    const wording = text.replace(/^(?:(?:can|could|would) you )?(?:please )?/i,'');
+    return /^(?:(?:brief me on|(?:write|make) (?:me )?a briefing (?:from|on)) (?:that chart|the last comparison chart)\b|(?:open|resume|recheck) (?:my |the )?last chart briefing\b|what caused (?:the |those )?changes (?:in|on) that chart\b)/i.test(wording);
+};
 const hasSourceSections = sources => sources?.some(source=>Array.isArray(source.sections));
 const lessonPin = name => 'fraynix-comparison-explorer-lesson-'+name;
 
@@ -34,7 +38,7 @@ export const isRoutingRequest = text => /^(?:Route the last verified classificat
 export const isRoutedDashboardRequest = text =>
     byKey.test(text.trim()) || recheckKey.test(text.trim()) || exportKey.test(text.trim()) ||
     summaryRequest.test(text.trim()) || explorerRequest.test(text.trim()) || storyRequest.test(text.trim()) ||
-    namedComparisonRequest(text.trim()) ||
+    namedComparisonRequest(text.trim()) || chartBriefingRequest(text.trim()) ||
     lessonRequest.test(text.trim()) || briefingPickerRequest.test(text.trim()) || briefingReview.test(text.trim()) || briefingAction.test(text.trim()) ||
     /^(?:Build a dashboard from the (?:last )?verified routed CSV|Recheck the routed CSV dashboard|Compare the last two verified routed CSVs|Recheck the routed CSV comparison)[.!]?$/i.test(text.trim());
 
@@ -103,6 +107,19 @@ export class ClassificationRoutingPanel {
     }
 
     async fromChat(text) {
+        if (chartBriefingRequest(text.trim())) {
+            try {
+                const result = await this.call('chart-briefing',{request:text});
+                if (!result.matched) throw Error('Try “Brief me on that chart” with a named comparison chart open.');
+                if (result.message) this.announce(result.message);
+                else {
+                    const {name,claims} = result.chartBriefing;
+                    const count = claims===1 ? '1 cited change' : claims+' cited changes';
+                    this.announce('Opened the briefing for “'+name+'”. '+count+'. '+result.browserChecks+' browser checks passed.');
+                }
+            } catch (error) { this.announce(error.message); }
+            return;
+        }
         if (namedComparisonRequest(text.trim())) {
             try {
                 const result = await this.call('comparison-chart',{request:text,lastSummary:localStorage.getItem(COMPARISON_SUMMARY)});

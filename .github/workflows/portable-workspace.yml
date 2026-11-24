@@ -102,10 +102,10 @@ jobs:
           LIBGL_ALWAYS_SOFTWARE: '1'
           FRAYNIX_WORKSPACE_CI_CHROMIUM: '1'
         run: xvfb-run -a node workspace-desktop/test/portable-smoke.cjs build/portable-smoke
-      - name: Verify comparison stories, briefings and named charts
+      - name: Verify comparison stories, charts and cited briefings
         if: runner.os != 'Linux'
         run: node workspace-desktop/test/change-story-integration.cjs build/portable-smoke/change-story
-      - name: Verify comparison stories, briefings and named charts on virtual display
+      - name: Verify comparison stories, charts and cited briefings on virtual display
         if: runner.os == 'Linux'
         env:
           FRAYNIX_WORKSPACE_CI_CHROMIUM: '1'

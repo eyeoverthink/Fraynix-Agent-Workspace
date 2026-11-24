@@ -105,8 +105,8 @@ final class ComparisonChartBook {
     }
 
     JSONObject pin(JSONObject named, JSONObject selection) throws Exception {
-        var body = new JSONObject().put("format", FORMAT).put("named", named).put("selection", selection);
-        var id = UUID.nameUUIDFromBytes(MapCheckpoint.canonical(body).getBytes(StandardCharsets.UTF_8)).toString();
+        var body = definition(named, selection);
+        var id = identity(body);
         var file = path(id);
         if (Files.exists(file, LinkOption.NOFOLLOW_LINKS)) {
             if (!body.similar(read(id))) throw new IllegalStateException("The saved comparison chart request changed.");
@@ -124,15 +124,71 @@ final class ComparisonChartBook {
         return view(id, read(id));
     }
 
+    JSONObject planForChartData(JSONObject data) throws Exception {
+        var named = named(data.getString("name"));
+        if (!named.getJSONObject("source").similar(data.getJSONObject("source")))
+            throw new IllegalStateException("The displayed chart has a different named source.");
+        var body = definition(named, data.getJSONObject("selection"));
+        String id = identity(body);
+        return view(id, read(id));
+    }
+
+    private static JSONObject definition(JSONObject named, JSONObject selection) {
+        return new JSONObject().put("format", FORMAT).put("named", named).put("selection", selection);
+    }
+
+    private static String identity(JSONObject body) {
+        return UUID.nameUUIDFromBytes(MapCheckpoint.canonical(body).getBytes(StandardCharsets.UTF_8)).toString();
+    }
+
     JSONObject read(String id) throws Exception {
         var record = AgentFiles042.loadChecked(path(id));
-        String actual = UUID.nameUUIDFromBytes(MapCheckpoint.canonical(record).getBytes(StandardCharsets.UTF_8)).toString();
+        String actual = identity(record);
         if (!id.equals(actual) || !FORMAT.equals(record.getString("format"))) {
             throw new IllegalStateException("The saved comparison chart request changed.");
         }
         var named = record.getJSONObject("named");
         if (!named.similar(named(named.getString("name")))) throw new IllegalStateException("The named comparison binding changed.");
         return record;
+    }
+
+    JSONObject pinBriefing(JSONObject chartPlan, JSONObject chartRef) throws Exception {
+        var binding = new JSONObject().put("chartId", chartPlan.getString("comparisonChartId"))
+                .put("exportId", chartPlan.getString("exportId")).put("chartArtifact", chartRef);
+        String id = briefingIdentity(binding);
+        var file = briefingPath(id);
+        if (Files.exists(file, LinkOption.NOFOLLOW_LINKS)) {
+            if (!binding.similar(briefing(id))) throw new IllegalStateException("The pinned chart briefing changed.");
+        } else {
+            AgentFiles042.saveChecked(file, binding);
+        }
+        AgentFiles042.saveChecked(directory.resolve("briefings/last.json"), new JSONObject().put("id", id));
+        return WorldFrames.copy(binding).put("chartBriefingId", id);
+    }
+
+    JSONObject lastBriefing() throws Exception {
+        var file = directory.resolve("briefings/last.json");
+        if (!Files.isRegularFile(file, LinkOption.NOFOLLOW_LINKS)) {
+            throw new IllegalStateException("Build a briefing from a named comparison chart first.");
+        }
+        String id = AgentFiles042.loadChecked(file).getString("id");
+        return briefing(id).put("chartBriefingId", id);
+    }
+
+    JSONObject briefing(String id) throws Exception {
+        var binding = AgentFiles042.loadChecked(briefingPath(id));
+        if (!id.equals(briefingIdentity(binding))) throw new IllegalStateException("The pinned chart briefing changed.");
+        return binding;
+    }
+
+    private static String briefingIdentity(JSONObject binding) {
+        return UUID.nameUUIDFromBytes(("named-chart-briefing-v1:" + MapCheckpoint.canonical(binding))
+                .getBytes(StandardCharsets.UTF_8)).toString();
+    }
+
+    private Path briefingPath(String id) {
+        if (!UUID.fromString(id).toString().equals(id)) throw new IllegalArgumentException("Choose a saved chart briefing.");
+        return directory.resolve("briefings").resolve(id + ".json");
     }
 
     private Path path(String id) {
