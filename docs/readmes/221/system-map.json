@@ -1,0 +1,82 @@
+{
+  "summary": "Blender first hits expose the bracket recess, and a separate mesh verification checks the editable result.",
+  "modules": [
+    {
+      "title": "Registered depth and fitted grid faces",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstructionDepth.java",
+      "note": "docs/obsidian/229-first-hit-depth.md"
+    },
+    {
+      "title": "Silhouette checks and editable mesh extraction",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstruction.java",
+      "note": "docs/obsidian/229-first-hit-depth.md"
+    },
+    {
+      "title": "Spatial workspace and GLB export",
+      "source": "workspace-desktop/renderer/spatial-panel.js",
+      "note": "docs/obsidian/229-first-hit-depth.md"
+    },
+    {
+      "title": "Blender depth generation and independent geometry check",
+      "source": "workspace-desktop/test/spatial-depth-blender.py",
+      "note": "docs/obsidian/229-first-hit-depth.md"
+    },
+    {
+      "title": "Browser verification, edit reimport and restart",
+      "source": "workspace-desktop/test/spatial-depth-integration.cjs",
+      "note": "docs/obsidian/229-first-hit-depth.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/221/fraynix-silhouettes.png",
+      "title": "The silhouette reconstruction leaves the upper recess filled"
+    },
+    {
+      "path": "docs/readmes/221/fraynix-depth-reconstruction.png",
+      "title": "Blender depth reveals the upper recess in Fraynix"
+    },
+    {
+      "path": "docs/readmes/221/depth-input-preview.png",
+      "title": "The actual first-hit depth samples"
+    },
+    {
+      "path": "docs/readmes/221/withheld-recess-original.png",
+      "title": "Withheld oblique view of the original Blender bracket"
+    },
+    {
+      "path": "docs/readmes/221/withheld-recess-reconstructed.png",
+      "title": "Independent Blender render of the exported reconstruction"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/221/depth-reconstruction-evidence.json",
+      "title": "Desktop and independent Blender evidence"
+    },
+    {
+      "path": "workspace-engine/src/main/resources/spatial/reconstruction/recess-depth.json",
+      "title": "Registered PNGs and first-hit samples"
+    },
+    {
+      "path": "docs/readmes/221/editable-recess.blend",
+      "title": "Editable Blender project"
+    },
+    {
+      "path": "docs/readmes/221/recovered-recess.glb",
+      "title": "Java GLB export"
+    },
+    {
+      "path": "docs/readmes/221/blender-edited-recess.glb",
+      "title": "Blender-edited return"
+    },
+    {
+      "path": "docs/publication221/plan.md",
+      "title": "Verification, reviewer notes and reproduction"
+    },
+    {
+      "path": "docs/readmes/221/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}

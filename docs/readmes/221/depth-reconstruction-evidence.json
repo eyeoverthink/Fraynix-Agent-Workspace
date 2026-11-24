@@ -1,0 +1,110 @@
+{
+  "platform": "win32",
+  "baseline": {
+    "definitionSha256": "8cfb46b9d4e97d4afb32a28a1f4b368a8bb0b2483f201d39b04fa57c2eb19e22",
+    "vertices": 618,
+    "meshSha256": "99c6be83fbeb810702446ced89b4e23db10b14bd19b59631f279266c9906514f",
+    "cellM": 0.05,
+    "pngSha256": {
+      "x": "3333355c7e0671d017c0b1ec63b1f3cfccafc5e7d64cac92586caeaa11b2468d",
+      "y": "2f736c67c9b2ed4f379c2017af31828dc4982a26b507fd28a03a74064286a235",
+      "z": "e3045457fc1f3b5eb7a357d2b9ab24b77d71e02a4c6061daf08afd076be5059a"
+    },
+    "volumeM3": 0.08125,
+    "triangles": 1236,
+    "sourceSha256": "7bfdfdc41788e083dfd8c3baea9d80bb711fde963b0b3432e20882c91cd893bd",
+    "grid": 16,
+    "scope": "Three orthographic silhouettes at a declared scale; surface depth hidden in every silhouette is unresolved.",
+    "physics": "Separate enclosing box; visible cutouts belong to the visual mesh.",
+    "inputProjectionIou": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "voxels": 650,
+    "policy": "axis-visual-hull-v1"
+  },
+  "depth": {
+    "definitionSha256": "bad0efbece0485bc825934325e83f235574c4ce6e7e584e95f2f956dc04979d3",
+    "vertices": 642,
+    "meshSha256": "f86987773471f0d76f9140f53d0db599f834c8085f401e8cefc7aa9cf321f15d",
+    "cellM": 0.05,
+    "pngSha256": {
+      "x": "3333355c7e0671d017c0b1ec63b1f3cfccafc5e7d64cac92586caeaa11b2468d",
+      "y": "2f736c67c9b2ed4f379c2017af31828dc4982a26b507fd28a03a74064286a235",
+      "z": "e3045457fc1f3b5eb7a357d2b9ab24b77d71e02a4c6061daf08afd076be5059a"
+    },
+    "volumeM3": 0.07900000000000001,
+    "triangles": 1284,
+    "sourceSha256": "9704a09357811c02e355b2009d2c69e6e357490cae14eff3f044a820ea25d095",
+    "depth": {
+      "removedVoxels": 18,
+      "unit": "um",
+      "maxInputGridResidualUm": 0,
+      "backgroundRays": 182,
+      "inputGridToleranceUm": 500,
+      "origin": "positive-grid-face",
+      "samplesSha256": "f7f7e7a7ad02b67db59328c6e8ce7abf9a5df63fdb4300fb75494eba0aade2d4",
+      "unobservedRays": 0,
+      "gridFit": "nearest-face",
+      "axis": "+z",
+      "measuredRays": 74
+    },
+    "grid": 16,
+    "scope": "Silhouettes plus registered first hits; carve only in front of the fitted grid face. Detail behind that face remains unresolved by the depth ray.",
+    "physics": "Separate enclosing box; visible cutouts belong to the visual mesh.",
+    "inputProjectionIou": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "voxels": 632,
+    "policy": "axis-visual-hull-depth-v2"
+  },
+  "exportSha256": "bd7091b77b4bb20a9ff4d5a59ad65ca6438039899e219f1eea8cebd523d76662",
+  "independentBlender": {
+    "blender": "5.3.0",
+    "withheldSilhouetteIou": 1,
+    "sourceVolumeM3": 0.07900000183656818,
+    "silhouetteOnlyVolumeM3": 0.081250000512227,
+    "reconstructedVolumeM3": 0.07900000035576488,
+    "sourceProbe": {
+      "insideM": 0.30000001192092896,
+      "neighborM": 0.20000000298023224,
+      "throughSlotM": null
+    },
+    "silhouetteOnlyProbe": {
+      "insideM": 0.20000000298023224,
+      "neighborM": 0.19999998807907104,
+      "throughSlotM": null
+    },
+    "reconstructedProbe": {
+      "insideM": 0.30000001192092896,
+      "neighborM": 0.19999998807907104,
+      "throughSlotM": null
+    },
+    "withheldRayCount": 196,
+    "withheldTruthHits": 74,
+    "withheldRayMissDisagreements": 0,
+    "maxWithheldDepthErrorM": 5.960464477539063e-8,
+    "sampledSurfaceErrorM": 0.000004085290129296482,
+    "editedVertices": 16,
+    "editedProbe": {
+      "insideM": 0.32499995827674866,
+      "neighborM": 0.19999998807907104,
+      "throughSlotM": null
+    },
+    "passed": true
+  },
+  "editedReturn": {
+    "editedProbeM": 0.3249999970197678,
+    "colliderSizeM": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "originalPreserved": true
+  },
+  "restoredAfterRestart": true,
+  "changedDepthRefused": true
+}

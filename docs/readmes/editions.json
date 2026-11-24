@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 220,
+  "latest": 221,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -267101,6 +267101,85 @@
         {
           "path": "docs/readmes/220/withheld-reconstruction.png",
           "sha256": "b4e3e61a149f00d4b7b3a629d091e5d9a8f59fd0c40420704f303d886a79d6eb",
+          "kind": "binary"
+        }
+      ]
+    },
+    {
+      "number": 221,
+      "date": "2026-11-24",
+      "title": "Recover a hidden recess with Blender depth",
+      "status": "published",
+      "markdown": "README-221.md",
+      "markdownSha256": "ad4f95d6d784b582101989b3a9bbda9db1eaafb6953819956e4ea0d15eee79ba",
+      "snapshotDirectory": "docs/readmes/221",
+      "companion": "docs/readmes/221/index.html",
+      "tag": "readme-221",
+      "sourceBaseline": "670ff8b6d88949497453565827848223985aa7c9",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/221/blender-edited-recess.glb",
+          "sha256": "5d36b33a5aff6eaccdb4f29cfcea9fdb7e7d9e5285c1e4d2c06c7e6a5858a76a",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/221/depth-input-preview.png",
+          "sha256": "f4079c4b99dc69777529abd1beae6eb9b465d86bed447efdf8cc0d1801308a30",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/221/depth-reconstruction-evidence.json",
+          "sha256": "dc416a914cc77c6941dd34f4f0e635aabc1bbc33ba4f0c145eb85fc07956868a",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/221/editable-recess.blend",
+          "sha256": "1e13c0f865bb4a1650b6d151df90e910ce5f2b032f6cb85473a2be26ecbf4b53",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/221/file-inventory.json",
+          "sha256": "2051acb7231432a49263d1e349d7560e10b7c8ad9875ffb254d3943fb7b6fb8a",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/221/FILE_TREE.md",
+          "sha256": "5d2f5317d8daa96e0a9b9a9ae634bc0cd721697e4d99ff8392997b8d1e9685cb",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/221/fraynix-depth-reconstruction.png",
+          "sha256": "638379b5a7cdaad6dcff186ee783d125e0b6cac62a286c2725b3d9ca71bf4259",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/221/fraynix-silhouettes.png",
+          "sha256": "934c48e791a3c7c466581d391764feed7895e464a6717672cf1276bb282f3bee",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/221/index.html",
+          "sha256": "c2306f3f62fcf3ef688da448beda6cfac36aeb2a8efcaa7db86c06d61ae34de1",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/221/recovered-recess.glb",
+          "sha256": "bd7091b77b4bb20a9ff4d5a59ad65ca6438039899e219f1eea8cebd523d76662",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/221/system-map.json",
+          "sha256": "ce0856d33efe15216b63fbbedd0a9eaaceace042dabd79d6f2c380c01fcd3bf2",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/221/withheld-recess-original.png",
+          "sha256": "2eaf72ff22268167cb355a28089460f61e6c5e9dbbfa1a54a7b3e5e577dd7e56",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/221/withheld-recess-reconstructed.png",
+          "sha256": "11b3c30549da4c8c4f5ee1022b82b9086698faf60b62ff344911ff2cb4fb2c70",
           "kind": "binary"
         }
       ]

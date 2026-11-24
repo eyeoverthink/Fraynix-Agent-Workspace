@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md)
 
-[Edition 220 — Reconstruct editable 3D geometry from images](README-220.md) · [Previous edition](README-219.md) · [Offline walkthrough](docs/readmes/220/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 221 — Recover a hidden recess with Blender depth](README-221.md) · [Previous edition](README-220.md) · [Offline walkthrough](docs/readmes/221/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Three calibrated silhouettes become a triangle mesh. Blender checks the result and returns an actual edit.
+Blender first hits expose the bracket recess, and a separate mesh verification checks the editable result.

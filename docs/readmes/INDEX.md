@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 221 — Recover a hidden recess with Blender depth](../../README-221.md) · [Walkthrough](221/index.html)
+
 [Edition 220 — Reconstruct editable 3D geometry from images](../../README-220.md) · [Walkthrough](220/index.html)
 
 [Edition 219 — Choose a calibrated view to measure height](../../README-219.md) · [Walkthrough](219/index.html)
