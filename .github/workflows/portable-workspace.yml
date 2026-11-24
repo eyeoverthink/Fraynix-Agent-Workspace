@@ -67,7 +67,19 @@ jobs:
       - name: Prepare workspace on macOS or Linux
         if: runner.os != 'Windows'
         shell: bash
-        run: ./Launch-Agent-Workspace.sh --prepare
+        run: |
+          for attempt in 1 2 3; do
+            log="$RUNNER_TEMP/workspace-prepare.log"
+            if ./Launch-Agent-Workspace.sh --prepare >"$log" 2>&1; then
+              cat "$log"
+              exit 0
+            fi
+            cat "$log"
+            if [ "$attempt" -eq 3 ] || ! grep -q 'Received status code 429' "$log"; then
+              exit 1
+            fi
+            sleep "$((attempt * 10))"
+          done
       - name: Prepare workspace on Windows
         if: runner.os == 'Windows'
         shell: pwsh
@@ -105,17 +117,17 @@ jobs:
       - name: Verify a reviewed hypothesis with original Game Lab replays on Windows
         if: runner.os == 'Windows'
         shell: pwsh
-        run: .\gradlew.bat --console=plain :workspace-engine:test --tests '*HypothesisExperimentTest' --tests '*SpatialExchangeTest' --tests '*SpatialPropExchangeTest' --tests '*SpatialCarryTest' --tests '*MetricHeightStudyTest' --tests '*SpatialReconstructionTest' --tests '*SpatialReconstructionDepthTest' --tests '*SpatialReconstructionMultiDepthTest'
+        run: .\gradlew.bat --console=plain :workspace-engine:test --tests '*HypothesisExperimentTest' --tests '*SpatialExchangeTest' --tests '*SpatialPropExchangeTest' --tests '*SpatialCarryTest' --tests '*MetricHeightStudyTest' --tests '*SpatialReconstructionTest' --tests '*SpatialReconstructionDepthTest' --tests '*SpatialReconstructionMultiDepthTest' --tests '*SpatialReconstructionAxisDepthTest'
       - name: Verify a reviewed hypothesis and Game Lab availability on macOS
         if: runner.os == 'macOS'
         env:
           FRAYNIX_CI_MAC_DISPLAY: '1'
-        run: ./gradlew --console=plain :workspace-engine:test --tests '*HypothesisExperimentTest' --tests '*SpatialExchangeTest' --tests '*SpatialPropExchangeTest' --tests '*SpatialCarryTest' --tests '*MetricHeightStudyTest' --tests '*SpatialReconstructionTest' --tests '*SpatialReconstructionDepthTest' --tests '*SpatialReconstructionMultiDepthTest'
+        run: ./gradlew --console=plain :workspace-engine:test --tests '*HypothesisExperimentTest' --tests '*SpatialExchangeTest' --tests '*SpatialPropExchangeTest' --tests '*SpatialCarryTest' --tests '*MetricHeightStudyTest' --tests '*SpatialReconstructionTest' --tests '*SpatialReconstructionDepthTest' --tests '*SpatialReconstructionMultiDepthTest' --tests '*SpatialReconstructionAxisDepthTest'
       - name: Verify a reviewed hypothesis with original Game Lab replays on Linux
         if: runner.os == 'Linux'
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
-        run: xvfb-run -a ./gradlew --console=plain :workspace-engine:test --tests '*HypothesisExperimentTest' --tests '*SpatialExchangeTest' --tests '*SpatialPropExchangeTest' --tests '*SpatialCarryTest' --tests '*MetricHeightStudyTest' --tests '*SpatialReconstructionTest' --tests '*SpatialReconstructionDepthTest' --tests '*SpatialReconstructionMultiDepthTest'
+        run: xvfb-run -a ./gradlew --console=plain :workspace-engine:test --tests '*HypothesisExperimentTest' --tests '*SpatialExchangeTest' --tests '*SpatialPropExchangeTest' --tests '*SpatialCarryTest' --tests '*MetricHeightStudyTest' --tests '*SpatialReconstructionTest' --tests '*SpatialReconstructionDepthTest' --tests '*SpatialReconstructionMultiDepthTest' --tests '*SpatialReconstructionAxisDepthTest'
       - name: Retain detailed prop and collider checks
         run: node -e "require('node:fs').copyFileSync('workspace-engine/build/test-results/test/TEST-fraymus.workspace.SpatialPropExchangeTest.xml','build/portable-smoke/spatial-prop-exchange.xml')"
       - name: Retain verified doorway checks
@@ -128,6 +140,8 @@ jobs:
         run: node -e "require('node:fs').copyFileSync('workspace-engine/build/test-results/test/TEST-fraymus.workspace.SpatialReconstructionDepthTest.xml','build/portable-smoke/spatial-depth.xml')"
       - name: Retain opposing depth geometry checks
         run: node -e "require('node:fs').copyFileSync('workspace-engine/build/test-results/test/TEST-fraymus.workspace.SpatialReconstructionMultiDepthTest.xml','build/portable-smoke/spatial-multidepth.xml')"
+      - name: Retain perpendicular depth geometry checks
+        run: node -e "require('node:fs').copyFileSync('workspace-engine/build/test-results/test/TEST-fraymus.workspace.SpatialReconstructionAxisDepthTest.xml','build/portable-smoke/spatial-axis-depth.xml')"
       - name: Retain native scene exchange checks
         run: node -e "require('node:fs').copyFileSync('workspace-engine/build/test-results/test/TEST-fraymus.workspace.SpatialExchangeTest.xml','build/portable-smoke/spatial-exchange.xml')"
       - name: Retain native hypothesis test evidence
@@ -181,6 +195,14 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/spatial-multidepth-integration.cjs build/portable-smoke/spatial-multidepth
+      - name: Verify perpendicular depth, saved export and cross-axis refusal
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/spatial-side-depth-integration.cjs build/portable-smoke/spatial-side-depth
+      - name: Verify perpendicular depth on virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/spatial-side-depth-integration.cjs build/portable-smoke/spatial-side-depth
       - if: always()
         uses: actions/upload-artifact@v4
         with:

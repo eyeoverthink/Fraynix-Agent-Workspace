@@ -21,6 +21,9 @@ final class SpatialReconstruction {
     static final String FORMAT_MULTIDEPTH="fraynix.orthographic-silhouettes-multidepth-v3";
     static final String POLICY_MULTIDEPTH="axis-visual-hull-multidepth-v3";
 
+    static final String FORMAT_AXIS_DEPTH="fraynix.orthographic-silhouettes-axis-depth-v4";
+    static final String POLICY_AXIS_DEPTH="axis-visual-hull-axis-depth-v4";
+
     record Result(JSONObject definition,JSONObject evidence) {}
     private record Point(int x,int y,int z) {}
 
@@ -30,7 +33,8 @@ final class SpatialReconstruction {
         if (bytes.length==0 || bytes.length>LIMIT) throw new IllegalArgumentException("Choose a silhouette set up to 1.2 MB.");
         var input=new JSONObject(new String(bytes,StandardCharsets.UTF_8));
         String format=input.getString("format");
-        boolean multi=FORMAT_MULTIDEPTH.equals(format);
+        boolean allAxes=FORMAT_AXIS_DEPTH.equals(format);
+        boolean multi=allAxes || FORMAT_MULTIDEPTH.equals(format);
         boolean withDepth=multi || FORMAT_DEPTH.equals(format);
         if (!withDepth && !FORMAT.equals(format))
             throw new IllegalArgumentException("Choose a registered orthographic silhouette set.");
@@ -57,7 +61,7 @@ final class SpatialReconstruction {
         for (int x=0;x<n;x++) for (int y=0;y<n;y++) for (int z=0;z<n;z++)
             hull[x][y][z]=masks[0][n-1-y][n-1-z] && masks[1][z][x] && masks[2][n-1-y][x];
         JSONObject depth=null;
-        if (multi) depth=SpatialReconstructionDepth.fuse(input.getJSONArray("depthViews"),hull,masks[2],step);
+        if (multi) depth=SpatialReconstructionDepth.fuse(input.getJSONArray("depthViews"),hull,masks,step,allAxes);
         else if (withDepth) depth=SpatialReconstructionDepth.carve(input.getJSONObject("depth"),hull,masks[2],step);
         var projected=new boolean[3][n][n];
         int[] low={n,n,n},high={0,0,0};
@@ -82,7 +86,7 @@ final class SpatialReconstruction {
         var mesh=surface(hull,low,high,step);
         String sourceSha=MapDefinition.sha(bytes);
         var scene=scene(title,mesh,sourceSha,n,low,high,step,withDepth);
-        String policy=multi?POLICY_MULTIDEPTH:withDepth?POLICY_DEPTH:POLICY;
+        String policy=allAxes?POLICY_AXIS_DEPTH:multi?POLICY_MULTIDEPTH:withDepth?POLICY_DEPTH:POLICY;
         var evidence=new JSONObject().put("policy",policy).put("sourceSha256",sourceSha).put("pngSha256",hashes)
                 .put("grid",n).put("cellM",step).put("voxels",solid).put("volumeM3",solid*step*step*step)
                 .put("vertices",mesh.vertexCount()).put("triangles",mesh.indices().length/3)

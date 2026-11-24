@@ -15,6 +15,7 @@ async function main() {
   const input=JSON.parse(await fs.readFile(fixture,'utf8'));
   const project=await fs.mkdtemp(path.join(os.tmpdir(),'Fraynix opposite recesses '));
   const extra=process.platform==='linux'?['--no-sandbox','--disable-dev-shm-usage']:[];
+  if (process.env.FRAYNIX_TEST_NO_WEBGL==='1') extra.push('--disable-gpu','--disable-software-rasterizer');
   const blender=process.env.FRAYNIX_TEST_BLENDER;
   await fs.mkdir(output,{recursive:true});
   let {app,page}=await launch(project,extra);
@@ -55,7 +56,13 @@ async function main() {
     assert.notEqual(combined.reconstruction.meshSha256,plus.reconstruction.meshSha256);
     assert.notEqual(combined.reconstruction.meshSha256,minus.reconstruction.meshSha256);
     await capture('fraynix-opposed-depth.png');
-    const viewport=await page.locator('#spatial-stage canvas').boundingBox();
+    // Software-only runners can use the app's visible fallback and still verify geometry and export.
+    const viewport=await page.locator('#spatial-stage').evaluate(stage=>
+      stage.querySelector('canvas')?.getBoundingClientRect().toJSON() || null);
+    if (process.env.FRAYNIX_TEST_NO_WEBGL==='1') assert.equal(viewport,null);
+    if (!viewport) {
+      await page.locator('#spatial-stage').getByText('The 3D preview is unavailable on this display.',{exact:false}).waitFor();
+    }
     if (viewport && viewport.width>520) {
       const x=viewport.x+80,y=viewport.y+Math.min(140,viewport.height/2);
       await page.mouse.move(x,y);
@@ -103,7 +110,7 @@ async function main() {
     await fs.writeFile(path.join(output,'multidepth-evidence.json'),JSON.stringify({
       platform:process.platform,baseline:baseline.reconstruction,positiveOnly:plus.reconstruction,
       negativeOnly:minus.reconstruction,combined:combined.reconstruction,independentBlender:independent,
-      exportSha256:sha,contradictionRefused:true,orderIndependentMesh:true,restoredAfterRestart:true,changedGridRefused:true
+      exportSha256:sha,webglPreviewAvailable:viewport!==null,contradictionRefused:true,orderIndependentMesh:true,restoredAfterRestart:true,changedGridRefused:true
     },null,2)+'\n');
     console.log(JSON.stringify({cells:combined.reconstruction.voxels,carved:combined.reconstruction.depth.removedVoxels,independent}));
   } catch(error) {

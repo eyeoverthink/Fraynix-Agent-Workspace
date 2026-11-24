@@ -1057,7 +1057,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         return copy;
       }
       if(input.command==='blueprint-list')return (await api('/api/maps/list',{})).references;
-      if(['blueprint','import-glb','reconstruct','reconstruct-example','reconstruct-depth-example','reconstruct-opposed-example'].includes(input.command)){
+      if(['blueprint','import-glb','reconstruct','reconstruct-example','reconstruct-depth-example','reconstruct-opposed-example','reconstruct-side-example'].includes(input.command)){
         const scene=await api('/api/spatial/'+input.command,input.args||{});
         currentSpatial=null;
         await refresh();

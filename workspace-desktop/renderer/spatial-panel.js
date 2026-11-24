@@ -41,6 +41,7 @@ export class SpatialPanel {
      <button id="spatial-reconstruct-example">Reconstruct Blender example</button>
      <button id="spatial-reconstruct-depth-example">Recover hidden recess</button>
      <button id="spatial-reconstruct-opposed-example">Recover opposite recesses</button>
+     <button id="spatial-reconstruct-side-example">Recover all three recesses</button>
      <label class="spatial-file">Import reconstruction package<input id="spatial-reconstruct-file" type="file" accept=".json,application/json" aria-label="Import reconstruction package"></label>
      <button id="spatial-reconstruct-export" disabled>Export reconstructed GLB</button>
     </div><p id="spatial-reconstruct-result" class="spatial-note" role="status">Use three registered PNG silhouettes. Add first-hit depth to recover recessed surfaces.</p>
@@ -87,6 +88,7 @@ export class SpatialPanel {
    await this.open(scene.id);this.notice('Verified GLB imported as a separate editable scene.');
   });
   $('spatial-reconstruct-export').onclick=()=>this.action(()=>this.exportGlb());
+  $('spatial-reconstruct-side-example').onclick=()=>this.action(()=>this.reconstruct('reconstruct-side-example'));
   $('spatial-reconstruct-opposed-example').onclick=()=>this.action(()=>this.reconstruct('reconstruct-opposed-example'));
   $('spatial-reconstruct-depth-example').onclick=()=>this.action(()=>this.reconstruct('reconstruct-depth-example'));
   $('spatial-reconstruct-example').onclick=()=>this.action(()=>this.reconstruct('reconstruct-example'));
