@@ -1,3 +1,5 @@
+[Edition 212 — Chart named comparisons](220-named-comparison-chart.md)
+
 [Edition 211 — Chart a verified result](219-verified-chart.md)
 
 [Edition 210 — Everyday language](218-plain-language.md)

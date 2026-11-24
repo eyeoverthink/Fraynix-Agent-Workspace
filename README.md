@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md)
 
-[Edition 211 — Chart a verified result](README-211.md) · [Previous edition](README-210.md) · [Offline walkthrough](docs/readmes/211/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 212 — Chart named comparisons](README-212.md) · [Previous edition](README-211.md) · [Offline walkthrough](docs/readmes/212/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Ask “Make a chart of that.” Fraynix uses a single verified source or asks you to choose. The question, selection and checked chart survive restart.
+Name a verified comparison, then ask Chat to plot gains, losses or exact rows. Fraynix gives each unit its own scale and lets you inspect both original readings.

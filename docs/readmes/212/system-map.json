@@ -1,0 +1,54 @@
+{
+  "summary": "Name a verified comparison, then ask Chat to plot gains, losses or exact rows. Fraynix gives each unit its own scale and lets you inspect both original readings.",
+  "modules": [
+    {
+      "title": "Names and durable chart intent",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ComparisonChartBook.java",
+      "note": "docs/obsidian/220-named-comparison-chart.md"
+    },
+    {
+      "title": "Exact row and unit projection",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedComparisonChart.java",
+      "note": "docs/obsidian/220-named-comparison-chart.md"
+    },
+    {
+      "title": "Keyboard inspection and local downloads",
+      "source": "workspace-engine/src/main/resources/workbench/routing-named-chart.html",
+      "note": "docs/obsidian/220-named-comparison-chart.md"
+    },
+    {
+      "title": "Chat routing",
+      "source": "workspace-desktop/renderer/classification-routing.js",
+      "note": "docs/obsidian/220-named-comparison-chart.md"
+    },
+    {
+      "title": "Desktop, browser and restart proof",
+      "source": "workspace-desktop/test/named-comparison-chart.cjs",
+      "note": "docs/obsidian/220-named-comparison-chart.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/212/desktop-length-only.png",
+      "title": "Chat charts a single named row in millimetres in the desktop"
+    },
+    {
+      "path": "docs/readmes/212/offline-readings.png",
+      "title": "The offline chart places original readings beside the selected bar"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/212/chart.html",
+      "title": "Try the verified interactive chart"
+    },
+    {
+      "path": "docs/readmes/212/release-proof.json",
+      "title": "Desktop and portable CI evidence"
+    },
+    {
+      "path": "docs/publication212/plan.md",
+      "title": "Reproduce the chart workflow"
+    }
+  ]
+}

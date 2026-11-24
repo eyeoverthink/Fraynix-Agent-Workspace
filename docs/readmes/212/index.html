@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 212 · Explore exact changes in a named comparison</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Explore exact changes in a named comparison</h1><p>Name a verified comparison, then ask Chat to plot gains, losses or exact rows. Fraynix gives each unit its own scale and lets you inspect both original readings.</p>
+<nav><a href="../../../README-212.md">App guide</a><a href="release-proof.json">Verification</a>
+<a href="../211/index.html">Edition 211</a><a href="chart.html">Open the interactive example</a><a href="#system">System files</a></nav>
+<figure><img src="desktop-length-only.png" alt="Chat charts a single named row in millimetres in the desktop"><figcaption>Chat charts a single named row in millimetres in the desktop</figcaption></figure>
+<figure><img src="offline-readings.png" alt="The offline chart places original readings beside the selected bar"><figcaption>The offline chart places original readings beside the selected bar</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Name a verified comparison, then ask Chat to plot gains, losses or exact rows. Fraynix gives each unit its own scale and lets you inspect both original readings.", "modules": [{"title": "Names and durable chart intent", "source": "workspace-engine/src/main/java/fraymus/workspace/ComparisonChartBook.java", "note": "docs/obsidian/220-named-comparison-chart.md"}, {"title": "Exact row and unit projection", "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedComparisonChart.java", "note": "docs/obsidian/220-named-comparison-chart.md"}, {"title": "Keyboard inspection and local downloads", "source": "workspace-engine/src/main/resources/workbench/routing-named-chart.html", "note": "docs/obsidian/220-named-comparison-chart.md"}, {"title": "Chat routing", "source": "workspace-desktop/renderer/classification-routing.js", "note": "docs/obsidian/220-named-comparison-chart.md"}, {"title": "Desktop, browser and restart proof", "source": "workspace-desktop/test/named-comparison-chart.cjs", "note": "docs/obsidian/220-named-comparison-chart.md"}], "screenshots": [{"path": "docs/readmes/212/desktop-length-only.png", "title": "Chat charts a single named row in millimetres in the desktop"}, {"path": "docs/readmes/212/offline-readings.png", "title": "The offline chart places original readings beside the selected bar"}], "evidence": [{"path": "docs/readmes/212/chart.html", "title": "Try the verified interactive chart"}, {"path": "docs/readmes/212/release-proof.json", "title": "Desktop and portable CI evidence"}, {"path": "docs/publication212/plan.md", "title": "Reproduce the chart workflow"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 5311, "sha256": "4a1d5ad4ceebbf094871b83aff609d5c6dbd1e2194472846cf042c8508d9984b", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/220-named-comparison-chart.canvas", "bytes": 1601, "sha256": "400656aa49c3b67782da389779f612a883f7a4560a1c49641df8d352d20d9e28", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/220-named-comparison-chart.md", "bytes": 581, "sha256": "a4fdfae9e1d8a3f8a8d06a2da4eeff7a4464a4f88baa2e40b8429ea4a43c6625", "hashKind": "utf8-lf"}, {"path": "docs/publication212/plan.md", "bytes": 2312, "sha256": "f8367f6e77d0e6aee33770280a414dd3a0d426a98c5d0fe283d65764a53d5be9", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 122667, "sha256": "4832d5c76a4431c7b1d974924e62fa361d58c510f054fb4b35dd35a0c209e7df", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/classification-routing.js", "bytes": 20173, "sha256": "e79ef8e3854154bcc759c9c2c7741711ec158710d9b1257425b11be681cde328", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/change-story-integration.cjs", "bytes": 22291, "sha256": "1158d6c8256cda47005a4bce7dcd547548af832e2cb109000ba7096491fe780d", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/named-comparison-chart.cjs", "bytes": 10733, "sha256": "c665d867678363032d28b776dc82e16170e568ee9fdda1ff4e79ad921af5e3a2", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ComparisonChartBook.java", "bytes": 7466, "sha256": "58e6c1d83407b725dac85389b3f81bc80cb13095fb1dc94bb1a9a0b4168630ca", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedComparisonChart.java", "bytes": 11038, "sha256": "b2207e978ea2a307641382c683ab4f697b6828b898bb3f97c6c4b036c4c1e6d2", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java", "bytes": 39872, "sha256": "74aa097a9aa9769b7f9e7784b7dbac358ec26de7fd6d68c0b14829644faba0cc", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 138936, "sha256": "a01ed530b979b94a675125139226f01f3f3965bce6c5f080cd4e731180ccc099", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/resources/workbench/routing-named-chart.html", "bytes": 5293, "sha256": "1e45cbb734b910c8a0b6834359bbdfc4b40adad551ce2649628e400e04d5f1a1", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

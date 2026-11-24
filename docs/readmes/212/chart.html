@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Workshop audit · comparison chart</title>
+<style>
+:root { color-scheme:light; color:#1c302c; background:#eff1ea; font:16px/1.5 system-ui,sans-serif; }
+* { box-sizing:border-box; }
+body { margin:0; }
+[hidden] { display:none !important; }
+main { max-width:68rem; margin:auto; padding:clamp(16px,4vw,40px); }
+h1 { margin:.22rem 0; font:600 clamp(1.8rem,4.5vw,3.15rem)/1.08 Georgia,serif; }
+h2 { margin:0; font-size:1.1rem; }
+p { margin:.55rem 0; }
+#query { color:#455e53; }
+#chart-count { color:#1d5c4f; font-weight:650; }
+#chart { display:grid; gap:.9rem; margin:1.15rem 0; }
+.lane, #details { background:#fff; border:1px solid #c7d4ca; border-radius:12px; padding:clamp(12px,2.5vw,21px); }
+.axis { display:flex; justify-content:space-between; color:#466052; font-size:.78rem; margin:.4rem 0; gap:.3rem; }
+.axis span { overflow-wrap:anywhere; }
+.mark { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:.4rem .6rem; text-align:left; width:100%; color:inherit; background:#f5f7f2; border:1px solid transparent; border-radius:8px; padding:.6rem .7rem; margin:.3rem 0; font:inherit; cursor:pointer; }
+.mark:hover,.mark[aria-pressed=true] { background:#e1f0e8; border-color:#82ac9b; }
+.mark:focus-visible { outline:2px solid #136f60; outline-offset:2px; }
+.key { overflow-wrap:anywhere; }
+.delta { text-align:right; overflow-wrap:anywhere; }
+.track { position:relative; grid-column:1/-1; height:11px; border-radius:4px; background:linear-gradient(to right,#e6eae2 calc(50% - .5px),#668578 calc(50% - .5px) calc(50% + .5px),#e6eae2 calc(50% + .5px)); }
+.track span { width:var(--bar); position:absolute; height:100%; border-radius:4px; left:50%; background:#147463; }
+[data-direction=loss] .track span { left:auto; right:50%; background:#a74930; }
+[data-direction=steady] .track span { width:5px; height:5px; top:3px; left:calc(50% - 2px); background:#536e61; }
+#details dl { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.6rem 1rem; margin:.7rem 0 0; }
+#details dt { color:#486354; font-size:.85rem; }
+#details dd { margin:0; overflow-wrap:anywhere; }
+footer { margin-top:1.2rem; color:#435a51; }
+a { color:#155c57; }
+nav { display:flex; flex-wrap:wrap; gap:.45rem 1rem; }
+code { overflow-wrap:anywhere; font-size:.78rem; }
+details { margin-top:.75rem; }
+</style>
+<main>
+<header><h1>Workshop audit · comparison chart</h1><p id="query">Gains and losses · Each unit on its own scale · 3 selected keys</p><p id="chart-count">3 matched rows</p></header>
+<div id="chart"><section class="lane" data-unit="°F"><h2>°F</h2><div class="axis"><span class="axis-low">-18 °F</span><span>0</span><span class="axis-high">+18 °F</span></div><button type="button" class="mark" id="row-0" data-direction="gain" aria-controls="details" aria-pressed="false"><span class="key">&quot;rise &lt;probe&gt;&quot;</span><strong class="delta">+18 °F</strong><span class="track" aria-hidden="true"><span style="--bar:50%"></span></span></button><button type="button" class="mark" id="row-1" data-direction="loss" aria-controls="details" aria-pressed="false"><span class="key">&quot;fall&quot;</span><strong class="delta">-9 °F</strong><span class="track" aria-hidden="true"><span style="--bar:25%"></span></span></button></section><section class="lane" data-unit="mm"><h2>mm</h2><div class="axis"><span class="axis-low">-25.4 mm</span><span>0</span><span class="axis-high">+25.4 mm</span></div><button type="button" class="mark" id="row-2" data-direction="gain" aria-controls="details" aria-pressed="false"><span class="key">&quot;length gain&quot;</span><strong class="delta">+25.4 mm</strong><span class="track" aria-hidden="true"><span style="--bar:50%"></span></span></button></section></div>
+<section id="details" aria-live="polite">
+<h2 id="detail-title">Select a row to inspect the earlier and later readings.</h2>
+<dl id="reading-pair" hidden>
+<div><dt>Earlier source rows</dt><dd id="detail-earlier"></dd></div>
+<div><dt>Later source rows</dt><dd id="detail-later"></dd></div>
+</dl>
+</section>
+<footer>
+<nav aria-label="Evidence downloads">
+<a href="chart-data.json" download>Selected rows and scales</a>
+<a href="matched-comparison.csv" download>Original comparison CSV</a>
+<a href="summary-proof.json" download>Verified summary</a>
+</nav>
+<details open><summary>Source and chart verification</summary>
+<p>Export <code id="chart-export">9909a21b-6dcf-4715-9e58-a9cf02d5b472</code></p>
+<p>Source SHA-256 <code id="chart-csv-sha">424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b</code></p>
+<p>Chart SHA-256 <code id="chart-audit" aria-live="polite"></code></p>
+</details>
+</footer>
+</main>
+<script id="reading-data" type="application/octet-stream">W3sibGF0ZXIiOiIjMzogNTAiLCJlYXJsaWVyIjoiIzI6IDMyIiwidGl0bGUiOiJcInJpc2UgPHByb2JlPlwiIMK3ICsxOCDCsEYifSx7ImxhdGVyIjoiIzI6IDQxIiwiZWFybGllciI6IiMzOiA1MCIsInRpdGxlIjoiXCJmYWxsXCIgwrcgLTkgwrBGIn0seyJsYXRlciI6IiM1OiA1MC44IiwiZWFybGllciI6IiM1OiAyNS40IiwidGl0bGUiOiJcImxlbmd0aCBnYWluXCIgwrcgKzI1LjQgbW0ifV0=</script>
+<script>
+const byId = id => document.getElementById(id);
+const readings = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(byId('reading-data').textContent),
+    value => value.charCodeAt(0))));
+let selected;
+const buttons = [...document.querySelectorAll('.mark')];
+for (const [index,button] of buttons.entries()) {
+    button.addEventListener('click',() => {
+        selected?.setAttribute('aria-pressed','false');
+        selected = button;
+        selected.setAttribute('aria-pressed','true');
+        const entry = readings[index];
+        byId('detail-title').textContent = entry.title;
+        byId('detail-earlier').textContent = entry.earlier;
+        byId('detail-later').textContent = entry.later;
+        byId('reading-pair').hidden = false;
+        button.after(byId('details'));
+    });
+}
+
+async function readChart() {
+    const feed = value => value.length + ':' + value;
+    const fields = [];
+    for (const lane of document.querySelectorAll('.lane')) {
+        fields.push(lane.querySelector('h2').textContent, lane.querySelector('.axis-low').textContent,
+            lane.querySelector('.axis-high').textContent);
+        for (const mark of lane.querySelectorAll('.mark')) {
+            fields.push(mark.querySelector('.key').textContent,mark.querySelector('.delta').textContent,
+                mark.dataset.direction,mark.querySelector('.track span').style.getPropertyValue('--bar'));
+        }
+    }
+    const digest = await crypto.subtle.digest('SHA-256',new TextEncoder().encode(fields.map(feed).join('')));
+    byId('chart-audit').textContent = [...new Uint8Array(digest)].map(byte=>byte.toString(16).padStart(2,'0')).join('');
+}
+readChart().catch(error=>console.error(error.message));
+</script>
+</html>
