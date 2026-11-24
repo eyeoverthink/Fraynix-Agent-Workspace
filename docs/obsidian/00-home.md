@@ -1,3 +1,5 @@
+[Edition 217 — Copy a detailed prop with its own collider](225-detailed-prop.md)
+
 [Edition 216 — Take an editable scene from image to Blender and back](224-spatial-scene-exchange.md)
 
 [Edition 215 — Test two competing explanations](223-hypothesis-experiment.md)

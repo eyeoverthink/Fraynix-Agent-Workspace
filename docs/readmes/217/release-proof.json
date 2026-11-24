@@ -1,0 +1,139 @@
+{
+  "date": "2026-11-23",
+  "windowsDesktopBlenderAndNative": {
+    "passed": true,
+    "native": {
+      "collider": "BoxCollisionShape",
+      "visualOnlyContacts": 0,
+      "ticks": 240,
+      "meshSha256": "94aa5c402645e402f7c47fb2ffcae0f07bb3bb8aadefd84da983c96085affa56",
+      "coreContacts": 1,
+      "copySourceId": "prop-copy-3f2658c093fde3ddc2a6",
+      "settledPositionM": [
+        0.800000011920929,
+        0.2499999850988388,
+        -0.8999999761581421
+      ],
+      "speedMps": 1.1936202781726024e-06,
+      "visualOverhangTested": true,
+      "driftM": 3.053829302179694e-08,
+      "passed": true,
+      "visualTriangles": 636,
+      "support": "floor",
+      "objectId": "704adda6-0be9-3a30-a731-186d5e57b032"
+    },
+    "blender": {
+      "passed": true,
+      "version": "5.3.0",
+      "meshVertices": 1216,
+      "localErrorM": 2.619385098106704e-07,
+      "originalColliderVertices": 8,
+      "copiedColliderVertices": 8,
+      "offsetBlenderM": [
+        1.7999999523162842,
+        0.8999999761581421,
+        0
+      ],
+      "yawDeg": 34.99999642050428
+    },
+    "inputSha256": "912824c34f328bfdef03db946966c4709f006ad337b6db49fe6fa0f8e347d0cf",
+    "outputSha256": "4f21bfd0a987521aea2b2020d4461500edafec5347a99395121521106d628e96",
+    "review": {
+      "sourceId": "beacon",
+      "settleTicks": 240,
+      "targetM": [
+        0.8,
+        0.25,
+        -0.9
+      ],
+      "rotation": [
+        0,
+        0.3007057995042731,
+        0,
+        0.9537169507482269
+      ],
+      "meshSha256": "94aa5c402645e402f7c47fb2ffcae0f07bb3bb8aadefd84da983c96085affa56",
+      "colliderSizeM": [
+        0.800000011920929,
+        0.5,
+        0.6000000238418579
+      ],
+      "source": {
+        "sourceSha256": "7fe21e6c192b9bc47027e1fe583f0368f0436df93b59baf3ec9d5696960da951",
+        "definitionSha256": "0366a3c265474abba32544cd1871138bd41ea03593a633a322b2c967ce4901f2",
+        "sceneId": "afbfe2b3-3f43-44bd-9746-0592ba6e1cf9"
+      },
+      "label": "Signal beacon copy",
+      "objectId": "4ef4fa59-831e-39ac-8a16-3a7542256989",
+      "offsetM": [
+        1.8,
+        0,
+        -0.9
+      ],
+      "yawDeg": 35
+    },
+    "checks": [
+      "Visual triangles and declared collider load as distinct components.",
+      "Stale approval and a colliding copy are refused before committing a scene.",
+      "Chat reaches a reviewed, Java-owned copy and transform.",
+      "Two isolated native worlds agree on support, the collider hit and the visual-only miss.",
+      "Original geometry is preserved and the copy shares one immutable visual asset.",
+      "The checked copy survives restart and repeated approval reopens the same copy."
+    ]
+  },
+  "portableJava": {
+    "id": 45346972841,
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/45346972841",
+    "headSha": "38283bdda3eb0698266f4f4479c6dd28b24111cf",
+    "targets": [
+      {
+        "name": "Linux x64",
+        "jobId": 138283782845,
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "Apple silicon macOS",
+        "jobId": 138283783013,
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "Windows x64",
+        "jobId": 138283783086,
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "Intel macOS",
+        "jobId": 138283783171,
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ]
+  },
+  "screenshots": [
+    {
+      "path": "docs/readmes/217/review.png",
+      "bytes": 252261,
+      "sha256": "919a92ce0cda9d01da92868f2ff86ec5914d9e44946f715330742c8efb2024a6",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/217/verified-copy.png",
+      "bytes": 342037,
+      "sha256": "cfb13a5fa0bf6f7b087cd47d6ed25286c040f02c8490b02ab6f89fa1eb9dc69a",
+      "hashKind": "binary"
+    }
+  ]
+}

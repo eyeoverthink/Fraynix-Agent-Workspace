@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 216,
+  "latest": 217,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -266866,6 +266866,65 @@
           "path": "docs/readmes/216/system-map.json",
           "sha256": "dd0815ca38083e6390112d973e2b82c933401222096af663deddde54274f5dff",
           "kind": "text"
+        }
+      ]
+    },
+    {
+      "number": 217,
+      "date": "2026-11-23",
+      "title": "Copy a detailed prop with its own collider",
+      "status": "validated-local",
+      "markdown": "README-217.md",
+      "markdownSha256": "cb6cf5601eb2084fc33b5ca1a739e2119276a66f53b5f965a7dbe5c35c5098bd",
+      "companion": "docs/readmes/217/index.html",
+      "tag": "readme-217",
+      "sourceBaseline": "38283bdda3eb0698266f4f4479c6dd28b24111cf",
+      "snapshotDirectory": "docs/readmes/217",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/217/blender-verification.json",
+          "sha256": "df73e6625e4ca589ffb93825a5a2c89f673342d7d28eef5b0ad4c720883461df",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/217/copied.glb",
+          "sha256": "4f21bfd0a987521aea2b2020d4461500edafec5347a99395121521106d628e96",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/217/file-inventory.json",
+          "sha256": "53f1727a47a802fc569cc290990e540fc02d8b21055b3e0b2810e8f5507f1efe",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/217/index.html",
+          "sha256": "c993505e3965d5e94fb5236d78cd0c22bbc4fff6d6782a3949ffb4c279f309d6",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/217/release-proof.json",
+          "sha256": "1320cf18d65e3e6480016aaef69cd1ac6fb72438ef6282f241cf8e6dd185f3a8",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/217/review.png",
+          "sha256": "919a92ce0cda9d01da92868f2ff86ec5914d9e44946f715330742c8efb2024a6",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/217/source.glb",
+          "sha256": "912824c34f328bfdef03db946966c4709f006ad337b6db49fe6fa0f8e347d0cf",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/217/system-map.json",
+          "sha256": "28100fb5e3e06e42e5f4a12aa8530ef6add29448ed58fddac256902917931906",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/217/verified-copy.png",
+          "sha256": "cfb13a5fa0bf6f7b087cd47d6ed25286c040f02c8490b02ab6f89fa1eb9dc69a",
+          "kind": "binary"
         }
       ]
     }

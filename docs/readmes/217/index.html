@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 217 · Copy a detailed prop with its own collider</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Copy a detailed prop with its own collider</h1><p>Import a Blender prop as a detailed triangle surface with a separate box collider. Use Chat to review a transformed copy, verify contacts in two native worlds, and return it to Blender.</p>
+<nav><a href="../../../README-217.md">App guide</a><a href="release-proof.json">Verification</a>
+<a href="../216/index.html">Edition 216</a><a href="source.glb" download>Original prop</a><a href="copied.glb" download>Verified copied scene</a><a href="#system">System files</a></nav>
+<figure><img src="review.png" alt="The local agent shows the target pose and both native collision checks before approval"><figcaption>The local agent shows the target pose and both native collision checks before approval</figcaption></figure>
+<figure><img src="verified-copy.png" alt="Two rendered props with their box colliders and the retained contact verdict"><figcaption>Two rendered props with their box colliders and the retained contact verdict</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Import a Blender prop as a detailed triangle surface with a separate box collider. Use Chat to review a transformed copy, verify contacts in two native worlds, and return it to Blender.", "modules": [{"title": "Triangle data and shared visual assets", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialVisualMesh.java", "note": "docs/obsidian/225-detailed-prop.md"}, {"title": "GLB visual and collider exchange", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialGlb.java", "note": "docs/obsidian/225-detailed-prop.md"}, {"title": "Reviewed transform and native contact witness", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialPropCopy.java", "note": "docs/obsidian/225-detailed-prop.md"}, {"title": "Spatial copy review and collider overlay", "source": "workspace-desktop/renderer/spatial-panel.js", "note": "docs/obsidian/225-detailed-prop.md"}, {"title": "Real Blender authoring and export verification", "source": "workspace-desktop/test/spatial-prop-integration.cjs", "note": "docs/obsidian/225-detailed-prop.md"}], "screenshots": [{"path": "docs/readmes/217/review.png", "title": "The local agent shows the target pose and both native collision checks before approval"}, {"path": "docs/readmes/217/verified-copy.png", "title": "Two rendered props with their box colliders and the retained contact verdict"}], "evidence": [{"path": "docs/readmes/217/source.glb", "title": "Original Blender beacon"}, {"path": "docs/readmes/217/copied.glb", "title": "Verified transformed copy"}, {"path": "docs/readmes/217/release-proof.json", "title": "Native collision receipts and portable tests"}, {"path": "docs/publication217/plan.md", "title": "Detailed prop contract and reproduction"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 7017, "sha256": "3b7caa5e36cb5ee3967ea9925f3bbc82d390d03c34288ba688e439c89af0cfe1", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/225-detailed-prop.canvas", "bytes": 1580, "sha256": "af55af37856c0e0c01058143f5691e9019e4dbbbbe88e06a4482975b336d1bf5", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/225-detailed-prop.md", "bytes": 802, "sha256": "4d5085ab46c0b827d503698e53d55b41e79b842d704f6309d3f6b58f2c29a340", "hashKind": "utf8-lf"}, {"path": "docs/publication217/document.py", "bytes": 11269, "sha256": "af2a723fc8f0c017521a92d4b4cc49469a57bb1e73551577fe05dd356dc04be3", "hashKind": "utf8-lf"}, {"path": "docs/publication217/plan.md", "bytes": 3647, "sha256": "e6d0d1fe39fb9419247502ca0f2a2ee3aaf3aaae118dd819561f2bd7b6ecc0fd", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 127600, "sha256": "f3aa001671049b675acdfc15bfd832db5e0a3dee38de8ccc910190c1b8dd8d87", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/app.js", "bytes": 41530, "sha256": "61746653b159c4b3bb0e1e0fe3124a17336782fbcc60e9e0a42cb163afde4388", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-panel.js", "bytes": 35117, "sha256": "dc3b516f0bb21a994e51f964e2188d70ca9c59cb31753f0123c6a5994b1b8be1", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial.css", "bytes": 6600, "sha256": "b15429a00d2da6e0ea47110c836663049c71311c792eac5a67d8a8072e3885b3", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/spatial-prop-blender.py", "bytes": 4077, "sha256": "4cd35497de2b8eb05c2a68ba7f62868ec77af78486792f692b964f1a2228d243", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/spatial-prop-integration.cjs", "bytes": 7730, "sha256": "7961c8db0e63ac68f56067101ca6c4cc858391562c306e0a9a070f0782b61fcd", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialGlb.java", "bytes": 31091, "sha256": "9fb34ce08f51c94e2c013524eae1ccc625c4f7a32ed883ae5c64c1a01f4a3160", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialPropCopy.java", "bytes": 7453, "sha256": "e5bd312d904cb58fc39bf8ace16d5146685036a2e50cc734e20dc9aa93bc9ed1", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialScene.java", "bytes": 6496, "sha256": "c62180500c83427280bfc67314009905b0998b2526380bd8c8685997d621a697", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 21232, "sha256": "2400555cb4dcebd5ead945f920e060bb6224c548e65f76389cd6cd661a208c2e", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialVisualMesh.java", "bytes": 3821, "sha256": "9416650ca15067a7af66f11a7cc648342fb357c87366d0bd776f3e3068c05660", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 144055, "sha256": "481f90d4caa97610570668dc91d9adfd8211873dce4872f9aa5f28800fb8a1e8", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/SpatialPropExchangeTest.java", "bytes": 4885, "sha256": "0e7746ac42d08f20c39ff06e8997cbaa1e016853185124d0919441522411f07f", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/resources/spatial/edition217-beacon.glb", "bytes": 37672, "sha256": "912824c34f328bfdef03db946966c4709f006ad337b6db49fe6fa0f8e347d0cf", "hashKind": "binary"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

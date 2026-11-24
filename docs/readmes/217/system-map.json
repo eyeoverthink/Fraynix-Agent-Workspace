@@ -1,0 +1,58 @@
+{
+  "summary": "Import a Blender prop as a detailed triangle surface with a separate box collider. Use Chat to review a transformed copy, verify contacts in two native worlds, and return it to Blender.",
+  "modules": [
+    {
+      "title": "Triangle data and shared visual assets",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialVisualMesh.java",
+      "note": "docs/obsidian/225-detailed-prop.md"
+    },
+    {
+      "title": "GLB visual and collider exchange",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialGlb.java",
+      "note": "docs/obsidian/225-detailed-prop.md"
+    },
+    {
+      "title": "Reviewed transform and native contact witness",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialPropCopy.java",
+      "note": "docs/obsidian/225-detailed-prop.md"
+    },
+    {
+      "title": "Spatial copy review and collider overlay",
+      "source": "workspace-desktop/renderer/spatial-panel.js",
+      "note": "docs/obsidian/225-detailed-prop.md"
+    },
+    {
+      "title": "Real Blender authoring and export verification",
+      "source": "workspace-desktop/test/spatial-prop-integration.cjs",
+      "note": "docs/obsidian/225-detailed-prop.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/217/review.png",
+      "title": "The local agent shows the target pose and both native collision checks before approval"
+    },
+    {
+      "path": "docs/readmes/217/verified-copy.png",
+      "title": "Two rendered props with their box colliders and the retained contact verdict"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/217/source.glb",
+      "title": "Original Blender beacon"
+    },
+    {
+      "path": "docs/readmes/217/copied.glb",
+      "title": "Verified transformed copy"
+    },
+    {
+      "path": "docs/readmes/217/release-proof.json",
+      "title": "Native collision receipts and portable tests"
+    },
+    {
+      "path": "docs/publication217/plan.md",
+      "title": "Detailed prop contract and reproduction"
+    }
+  ]
+}
