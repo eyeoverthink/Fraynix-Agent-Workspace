@@ -1,0 +1,85 @@
+{
+  "nodes": [
+    {
+      "id": "0",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ExplanationEvidence.java",
+      "x": 0,
+      "y": 0,
+      "width": 350,
+      "height": 250
+    },
+    {
+      "id": "1",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/ExplanationAuditBook.java",
+      "x": 380,
+      "y": 0,
+      "width": 350,
+      "height": 250
+    },
+    {
+      "id": "2",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/RoutedExplanationAudit.java",
+      "x": 760,
+      "y": 0,
+      "width": 350,
+      "height": 250
+    },
+    {
+      "id": "3",
+      "type": "file",
+      "file": "workspace-desktop/renderer/explanation-audit.js",
+      "x": 0,
+      "y": 290,
+      "width": 350,
+      "height": 250
+    },
+    {
+      "id": "4",
+      "type": "file",
+      "file": "workspace-desktop/test/explanation-audit-integration.cjs",
+      "x": 380,
+      "y": 290,
+      "width": 350,
+      "height": 250
+    },
+    {
+      "id": "5",
+      "type": "file",
+      "file": "README-214.md",
+      "x": 760,
+      "y": 290,
+      "width": 350,
+      "height": 250
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "fromNode": "0",
+      "toNode": "1"
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "1",
+      "toNode": "2"
+    },
+    {
+      "id": "edge-3",
+      "fromNode": "2",
+      "toNode": "3"
+    },
+    {
+      "id": "edge-4",
+      "fromNode": "3",
+      "toNode": "4"
+    },
+    {
+      "id": "edge-5",
+      "fromNode": "4",
+      "toNode": "5"
+    }
+  ]
+}

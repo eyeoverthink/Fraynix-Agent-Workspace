@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 214 · Put an explanation to the test</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Put an explanation to the test</h1><p>Ask Fraynix to audit a proposed explanation for a cited change. Attach separate trial observations to see the assumptions, interval and outcome in a verified offline report.</p>
+<nav><a href="../../../README-214.md">App guide</a><a href="release-proof.json">Verification</a>
+<a href="../213/index.html">Edition 213</a><a href="audit.html">Open the verified audit</a><a href="#system">System files</a></nav>
+<figure><img src="desktop-draft.png" alt="Chat opens a saved proposal and waits for separate trial observations"><figcaption>Chat opens a saved proposal and waits for separate trial observations</figcaption></figure>
+<figure><img src="desktop-audit.png" alt="Fraynix shows its verdict and the exact arithmetic behind one trial"><figcaption>Fraynix shows its verdict and the exact arithmetic behind one trial</figcaption></figure>
+<figure><img src="offline-audit.png" alt="The offline report shows the assessed range and expands a dated paired trial"><figcaption>The offline report shows the assessed range and expands a dated paired trial</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Ask Fraynix to audit a proposed explanation for a cited change. Attach separate trial observations to see the assumptions, interval and outcome in a verified offline report.", "modules": [{"title": "Exact trial effects and error bounds", "source": "workspace-engine/src/main/java/fraymus/workspace/ExplanationEvidence.java", "note": "docs/obsidian/222-explanation-audit.md"}, {"title": "Durable proposal and source binding", "source": "workspace-engine/src/main/java/fraymus/workspace/ExplanationAuditBook.java", "note": "docs/obsidian/222-explanation-audit.md"}, {"title": "Report and independent browser checks", "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedExplanationAudit.java", "note": "docs/obsidian/222-explanation-audit.md"}, {"title": "Desktop review and observation attachment", "source": "workspace-desktop/renderer/explanation-audit.js", "note": "docs/obsidian/222-explanation-audit.md"}, {"title": "Restart and changed-evidence tests", "source": "workspace-desktop/test/explanation-audit-integration.cjs", "note": "docs/obsidian/222-explanation-audit.md"}], "screenshots": [{"path": "docs/readmes/214/desktop-draft.png", "title": "Chat opens a saved proposal and waits for separate trial observations"}, {"path": "docs/readmes/214/desktop-audit.png", "title": "Fraynix shows its verdict and the exact arithmetic behind one trial"}, {"path": "docs/readmes/214/offline-audit.png", "title": "The offline report shows the assessed range and expands a dated paired trial"}], "evidence": [{"path": "docs/readmes/214/audit.html", "title": "Open the verified offline audit"}, {"path": "docs/readmes/214/release-proof.json", "title": "Desktop and portable CI evidence"}, {"path": "docs/publication214/plan.md", "title": "Reproduce the explanation audit"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 5333, "sha256": "fc1db85ec3853db75c83ee53fa0d83ea2d70c76ce7f503a85fa84e43577b5514", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/222-explanation-audit.canvas", "bytes": 1608, "sha256": "985d0e8bbed59ccfe173682df77a0048c6f20fc1686efc0fb4f26a24804ef82b", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/222-explanation-audit.md", "bytes": 705, "sha256": "d3c2f9af6c89c05320352aa15fa06363d925c4fd3748b9f7028bedc84b8b1e1f", "hashKind": "utf8-lf"}, {"path": "docs/publication214/document.py", "bytes": 12049, "sha256": "1906a5efcaef430d1164ac28be7a94f5896fcc4d75b3fc2bbaa634c5341bda1d", "hashKind": "utf8-lf"}, {"path": "docs/publication214/plan.md", "bytes": 3142, "sha256": "cbd827511f85c3e5947c3ebff3c53552be38446b3e436613615cdb10c16c0522", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 125150, "sha256": "4c762f23fee34e8a4ca593b7735586991688db162260b678d40fef216daff0a3", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/classification-routing.js", "bytes": 21651, "sha256": "a51d480fc53e1eede2033ac31878f865a5326f103657ed3ffe41f10fff689304", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/explanation-audit.js", "bytes": 4431, "sha256": "33bf9db00f847ffeeb3b5786d60e5adf84f49a8cfd4ea6b68ff8c947cc4f92f0", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/index.html", "bytes": 38675, "sha256": "4831000cee5496012d7c6c88fce70a9ee70758d870e0215e47e28be1f4855553", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/style.css", "bytes": 12543, "sha256": "e58839e9066b05475290bebfb476889c71df70c74fd6b66040fd4e963d140878", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/source-integrity.cjs", "bytes": 1687, "sha256": "73089af9aa8a81ef3fae57a5246309e8f5e1c11cf82a9f445590cda2f5f1d547", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/chart-briefing-integration.cjs", "bytes": 10283, "sha256": "40ba9b93b191a543829830af19e17c70f8ccd133e1431eaa6f229561560e5017", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/explanation-audit-integration.cjs", "bytes": 12430, "sha256": "e7bb85578c9092b26954a8aa3cffa2834fe7a1b06935d314f58adb3472a55bbd", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/policy.test.cjs", "bytes": 17050, "sha256": "6612487621808b516f58e0a7086c04fd5cb4de9a8e7f00aba8342a5d7ceb550b", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ComparisonChartBook.java", "bytes": 10608, "sha256": "2f4dfe32c855c6254b8b31975718da469c2c3f2b75e302f6b3eda7196552273d", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ExplanationAuditBook.java", "bytes": 6429, "sha256": "a84e69e11ced63e8646f4ed297060e23c1091c906c922720b302d5d6b39ec898", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ExplanationEvidence.java", "bytes": 8007, "sha256": "bf3c8815ac18be163ee59a5e91efe72397f75d6b80937993526bb3a03e25adae", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java", "bytes": 51671, "sha256": "acaa89d1dababa8de7bc482539856de27923ed3d8b288bc1da74bd8fcfbe9142", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RoutedExplanationAudit.java", "bytes": 11422, "sha256": "f80ffae2085deb2fcc651e16644265ca36e0fa13db93691c9736f499d1696678", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 139531, "sha256": "b5bb975222c092b08d8b18b91a3e2d91c893170f8b19536d094db29578bbc24c", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/resources/workbench/routing-explanation-audit.html", "bytes": 4480, "sha256": "1833ce971e4ec0870f1a4cd8c189abc258bec158d783412ff8a8f09cd6daf69a", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

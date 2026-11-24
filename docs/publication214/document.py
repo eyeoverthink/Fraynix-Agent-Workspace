@@ -25,7 +25,7 @@ NEXT = ("Let the local model propose one observation that distinguishes two comp
 NOTE = "222-explanation-audit"
 SHOTS = {
     "desktop-draft.png": "Chat opens a saved proposal and waits for separate trial observations",
-    "desktop-mixed.png": "Fraynix shows a conflicting trial alongside a consistent one",
+    "desktop-audit.png": "Fraynix shows its verdict and the exact arithmetic behind one trial",
     "offline-audit.png": "The offline report shows the assessed range and expands a dated paired trial",
 }
 MODULES = (
@@ -77,7 +77,7 @@ def publish(live, matrix_file):
 
 {SUMMARY}
 
-![Fraynix displays mixed trial evidence against one prediction](docs/readmes/214/desktop-mixed.png)
+![Fraynix displays a checked trial result beside the chat conversation](docs/readmes/214/desktop-audit.png)
 
 ## Try it in Chat
 

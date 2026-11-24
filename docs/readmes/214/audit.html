@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'">
+<title>Explanation audit</title>
+<style>
+:root { color-scheme: dark; font: 15px/1.5 system-ui, sans-serif; color: #edf2f8; background: #111923; }
+body { margin: 0; }
+main { max-width: 52rem; margin: auto; padding: clamp(1rem, 5vw, 3rem); }
+h1 { font-size: clamp(1.65rem, 5vw, 2.5rem); letter-spacing: -.035em; margin: 0 0 .6rem; }
+h2 { font-size: 1.05rem; margin-top: 0; }
+p { margin: .35rem 0 .85rem; }
+section, footer { border-top: 1px solid #34475d; padding: 1rem 0; }
+header { padding-bottom: .75rem; }
+#claim-citation, #audit-tally, .axis, footer p { color: #b9cadd; }
+#outcome { background: #17283a; padding: 1rem; border-radius: .6rem; border: 1px solid #34516c; margin: 0 0 1rem; }
+#audit-outcome { color: #b4e5fb; font-size: 1.25rem; }
+figure { margin: .8rem 0 1rem; }
+figcaption { margin-bottom: .55rem; }
+svg { display: block; width: 100%; background: #0f1b2b; }
+.prediction-band { fill: #29516d; }
+.trial-mark { stroke: #f5bd78; stroke-width: 2; }
+.trial-point { fill: #ffd3a0; }
+.axis, nav { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .4rem 1rem; }
+details, .trial { padding: .65rem 0; border-top: 1px solid #34475d; }
+summary, .trial button { cursor: pointer; }
+.trial button { width:100%; text-align:left; font:inherit; color:inherit; border:0; background:transparent; padding:.2rem 0; overflow-wrap:anywhere; }
+.trial button::before { content:"▸ "; color:#a5dcfd; }
+.trial button[aria-expanded="true"]::before { content:"▾ "; }
+[hidden] { display:none; }
+[data-audit-field] { white-space:pre-wrap; overflow-wrap:anywhere; }
+dl { display: grid; grid-template-columns: minmax(6rem, 1fr) minmax(0, 3fr); gap: .35rem .75rem; }
+dd { margin: 0; overflow-wrap: anywhere; }
+dt { color: #b9cadd; }
+a { color: #a5dcfd; }
+code { overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<main>
+<header><h1>Explanation audit</h1>
+<p id="audit-claim"><span data-audit-field>&quot;fall&quot; decreased from 50 °F to 41 °F (-9 °F).</span></p><p id="claim-citation"><span data-audit-field>Earlier row 3 · Later row 2</span></p></header>
+<section aria-labelledby="proposal-heading">
+<h2 id="proposal-heading">Proposed explanation</h2><p id="audit-hypothesis"><span data-audit-field>The airflow change produced the reported temperature drop.</span></p>
+<dl><dt>Assumptions</dt><dd id="audit-assumptions"><span data-audit-field>Equal starting conditions; paired control drift is additive.</span></dd>
+<dt>Predicted effect</dt><dd id="audit-prediction"><span data-audit-field>-10 to -8 °F (margin ±1 °F)</span></dd></dl>
+</section>
+<section id="outcome" aria-labelledby="audit-outcome">
+<h2 id="audit-outcome"><span data-audit-field>Trials support the prediction</span></h2><p id="audit-tally"><span data-audit-field>2 consistent · 0 conflicting · 0 unresolved</span></p>
+<figure><figcaption>Adjusted trial effects and their bounds against the prediction range</figcaption><svg role="img" aria-label="Trial intervals against the shaded prediction range" viewBox="0 0 480 68"><rect class="prediction-band" data-plot="x width height" x="12" width="456" height="68"/><line class="trial-mark" data-plot="x1 x2 y1 y2" x1="183" x2="297" y1="22" y2="22"/><circle class="trial-point" data-plot="cx cy" r="3" cx="240" cy="22"/><line class="trial-mark" data-plot="x1 x2 y1 y2" x1="126" x2="354" y1="46" y2="46"/><circle class="trial-point" data-plot="cx cy" r="3" cx="240" cy="46"/></svg><div class="axis"><span data-audit-field>-10 °F</span><span data-audit-field>-8 °F</span></div></figure>
+<article class="trial" id="trial-0"><button type="button" aria-expanded="false" aria-controls="trial-readings-0"><span data-audit-field>trial-A</span> · <span data-audit-field>-9.25 to -8.75 °F</span> · <span data-audit-field>Within prediction</span></button><dl id="trial-readings-0" hidden><dt>Recorded at</dt><dd class="recorded"><span data-audit-field>2026-11-22T14:01:00Z</span></dd><dt>Source reference</dt><dd><span data-audit-field>fixture log A</span></dd><dt>Treatment</dt><dd class="treatment"><span data-audit-field>55 → 44 °F</span></dd><dt>Control</dt><dd><span data-audit-field>64 → 62 °F</span></dd><dt>Adjusted effect</dt><dd><span data-audit-field>-11 − (-2) = -9 °F</span></dd><dt>Declared error bound</dt><dd><span data-audit-field>±0.25 °F</span></dd></dl></article><article class="trial" id="trial-1"><button type="button" aria-expanded="false" aria-controls="trial-readings-1"><span data-audit-field>trial-B</span> · <span data-audit-field>-9.5 to -8.5 °F</span> · <span data-audit-field>Within prediction</span></button><dl id="trial-readings-1" hidden><dt>Recorded at</dt><dd class="recorded"><span data-audit-field>2026-11-22T22:03:00Z</span></dd><dt>Source reference</dt><dd><span data-audit-field>fixture log B</span></dd><dt>Treatment</dt><dd class="treatment"><span data-audit-field>40 → 31 °F</span></dd><dt>Control</dt><dd><span data-audit-field>50 → 50 °F</span></dd><dt>Adjusted effect</dt><dd><span data-audit-field>-9 − (0) = -9 °F</span></dd><dt>Declared error bound</dt><dd><span data-audit-field>±0.5 °F</span></dd></dl></article>
+</section>
+<footer>
+<p><span data-audit-field>Agreement is conditional on the stated assumptions, controls and error bounds. Trial dates and source references are supplied with the observations.</span></p>
+<nav aria-label="Evidence files">
+<a href="observations.csv" download>Trial observations</a>
+<a href="claim-evidence.json" download>Original claim evidence</a>
+<a href="audit-evidence.json" download>Audit calculations</a>
+</nav>
+<details open><summary>Verification identifiers</summary>
+<p>Briefing artifact <code id="original-briefing"><span data-audit-field>6704690d-7ccf-365c-879c-e3005819b4e3</span></code></p>
+<p>Original comparison SHA-256 <code id="original-sha"><span data-audit-field>424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b</span></code></p>
+<p>Observation SHA-256 <code id="observations-sha"><span data-audit-field>e2237c15189ffd4fce7160b8abbf774875ee15b1a144efb2e414f2c1fd0b42dd</span></code></p>
+<p>Browser SHA-256 <code id="audit-browser-digest" aria-live="polite"></code></p>
+</details>
+</footer></main>
+<script>
+for (const button of document.querySelectorAll('.trial button')) {
+    button.addEventListener('click', () => {
+        const readings = document.getElementById(button.getAttribute('aria-controls'));
+        readings.hidden = !readings.hidden;
+        button.setAttribute('aria-expanded', String(!readings.hidden));
+    });
+}
+async function verifyDisplay() {
+    const fields = [...document.querySelectorAll('[data-audit-field], [data-plot]')].map(field =>
+        field.hasAttribute('data-plot')
+            ? field.getAttribute('data-plot').split(' ').map(name => field.getAttribute(name)).join(',')
+            : field.textContent);
+    const framed = fields.map(value => value.length + ':' + value).join('');
+    const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(framed));
+    document.getElementById('audit-browser-digest').textContent =
+        [...new Uint8Array(hash)].map(byte => byte.toString(16).padStart(2, '0')).join('');
+}
+verifyDisplay().catch(error => console.error(error.message));
+</script>
+</body>
+</html>

@@ -1,0 +1,892 @@
+{
+  "date": "2026-11-23",
+  "windowsDesktop": {
+    "passed": true,
+    "fixture": "Synthetic paired trials with hand-derived exact effects",
+    "outcome": {
+      "conflicting": 0,
+      "unresolved": 0,
+      "trials": 2,
+      "observationsSha256": "e2237c15189ffd4fce7160b8abbf774875ee15b1a144efb2e414f2c1fd0b42dd",
+      "consistent": 2,
+      "label": "Trials support the prediction",
+      "briefing": {
+        "sha256": "96d483a2a941b66b7bff4f814e74bd8a01c46ff5dda843bdb9a4e13424dda957",
+        "id": "6704690d-7ccf-365c-879c-e3005819b4e3",
+        "version": 1
+      },
+      "status": "supports-prediction"
+    },
+    "otherOutcomes": [
+      {
+        "conflicting": 1,
+        "unresolved": 0,
+        "trials": 1,
+        "observationsSha256": "e779838d01b8688d80a46236fb2d37bc282d342cf4e91e92af9b7bc748838a58",
+        "consistent": 0,
+        "label": "Trials conflict with the prediction",
+        "briefing": {
+          "sha256": "96d483a2a941b66b7bff4f814e74bd8a01c46ff5dda843bdb9a4e13424dda957",
+          "id": "6704690d-7ccf-365c-879c-e3005819b4e3",
+          "version": 1
+        },
+        "status": "conflicting"
+      },
+      {
+        "conflicting": 1,
+        "unresolved": 0,
+        "trials": 2,
+        "observationsSha256": "99aaa146d8237a9a8747e96f1d7aefeff2ccb4812bf4cd7aa435fe6b6c315618",
+        "consistent": 1,
+        "label": "Mixed trial evidence",
+        "briefing": {
+          "sha256": "96d483a2a941b66b7bff4f814e74bd8a01c46ff5dda843bdb9a4e13424dda957",
+          "id": "6704690d-7ccf-365c-879c-e3005819b4e3",
+          "version": 1
+        },
+        "status": "mixed"
+      },
+      {
+        "conflicting": 0,
+        "unresolved": 0,
+        "trials": 1,
+        "observationsSha256": "c1903e58b4a494b270cc511dd6f4ee5c301f18ed3b3ff37a07c3dc7a0d4e7eee",
+        "consistent": 1,
+        "label": "Trial evidence is inconclusive",
+        "briefing": {
+          "sha256": "96d483a2a941b66b7bff4f814e74bd8a01c46ff5dda843bdb9a4e13424dda957",
+          "id": "6704690d-7ccf-365c-879c-e3005819b4e3",
+          "version": 1
+        },
+        "status": "inconclusive"
+      },
+      {
+        "conflicting": 0,
+        "unresolved": 1,
+        "trials": 3,
+        "observationsSha256": "8a5015e290037f7a19f690767f5bb6fd66ecc209e3d75e0b8184afcac126ecec",
+        "consistent": 2,
+        "label": "Trial evidence is inconclusive",
+        "briefing": {
+          "sha256": "96d483a2a941b66b7bff4f814e74bd8a01c46ff5dda843bdb9a4e13424dda957",
+          "id": "6704690d-7ccf-365c-879c-e3005819b4e3",
+          "version": 1
+        },
+        "status": "inconclusive"
+      }
+    ],
+    "browserChecks": 14,
+    "evidence": {
+      "browserAuditSha256": "525abd2f248f777abdddeac6a7bc7e9d3eedbace66da562b994b26cc6b154759",
+      "browserChecks": 14,
+      "claim": {
+        "delta": "-9",
+        "earlier": {
+          "row": 3,
+          "value": "50"
+        },
+        "key": "fall",
+        "later": {
+          "row": 2,
+          "value": "41"
+        },
+        "sentence": "\"fall\" decreased from 50 °F to 41 °F (-9 °F).",
+        "unit": "°F"
+      },
+      "comparisonDelta": "-9",
+      "conflicting": 0,
+      "consistent": 2,
+      "margin": "1",
+      "observationFile": "trial-observations.csv",
+      "observationsSha256": "e2237c15189ffd4fce7160b8abbf774875ee15b1a144efb2e414f2c1fd0b42dd",
+      "originalBriefing": {
+        "id": "6704690d-7ccf-365c-879c-e3005819b4e3",
+        "sha256": "96d483a2a941b66b7bff4f814e74bd8a01c46ff5dda843bdb9a4e13424dda957",
+        "version": 1
+      },
+      "originalComparisonCsvSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+      "prediction": {
+        "high": "-8",
+        "low": "-10"
+      },
+      "proposal": {
+        "assumptions": "Equal starting conditions; paired control drift is additive.",
+        "claimIndex": 1,
+        "hypothesis": "The airflow change produced the reported temperature drop.",
+        "margin": "1"
+      },
+      "scope": "Agreement is conditional on the stated assumptions, controls and error bounds. Trial dates and source references are supplied with the observations.",
+      "status": "supports-prediction",
+      "trials": [
+        {
+          "controlAfter": "62",
+          "controlBefore": "64",
+          "controlChange": "-2",
+          "effect": "-9",
+          "errorBound": "0.25",
+          "interval": {
+            "high": "-8.75",
+            "low": "-9.25"
+          },
+          "observedAt": "2026-11-22T14:01:00Z",
+          "runId": "trial-A",
+          "sourceRef": "fixture log A",
+          "status": "consistent",
+          "treatmentAfter": "44",
+          "treatmentBefore": "55",
+          "treatmentChange": "-11"
+        },
+        {
+          "controlAfter": "50",
+          "controlBefore": "50",
+          "controlChange": "0",
+          "effect": "-9",
+          "errorBound": "0.5",
+          "interval": {
+            "high": "-8.5",
+            "low": "-9.5"
+          },
+          "observedAt": "2026-11-22T22:03:00Z",
+          "runId": "trial-B",
+          "sourceRef": "fixture log B",
+          "status": "consistent",
+          "treatmentAfter": "31",
+          "treatmentBefore": "40",
+          "treatmentChange": "-9"
+        }
+      ],
+      "unit": "°F",
+      "unresolved": 0
+    },
+    "checks": [
+      "Ambiguous or empty displayed evidence is refused. A displayed older briefing is selected exactly.",
+      "A proposal without observations saves a resumable draft. The draft and completed report survive separate desktop restarts.",
+      "Original comparison input, repeated references, wrong units, negative error and undated trials are refused.",
+      "Consistent, conflicting, mixed and insufficient or overlapping observations produce distinct outcomes.",
+      "Exact source links, plots, dates, arithmetic and bounds are checked in Java and in the live Canvas.",
+      "A changed original briefing receipt, comparison export, frozen trial file or browser digest is refused.",
+      "The standalone file works with network blocked. Keyboard expansion and byte-exact CSV download are verified."
+    ]
+  },
+  "portableWorkspace": {
+    "id": 45313345164,
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/45313345164",
+    "headSha": "e0c029c71dae1e2aa9f3c1df05db8169ce6e3f8b",
+    "targets": [
+      {
+        "name": "Linux x64",
+        "jobId": 138174147315,
+        "conclusion": "success",
+        "report": {
+          "passed": true,
+          "fixture": "Synthetic paired trials with hand-derived exact effects",
+          "outcome": {
+            "conflicting": 0,
+            "unresolved": 0,
+            "trials": 2,
+            "observationsSha256": "e2237c15189ffd4fce7160b8abbf774875ee15b1a144efb2e414f2c1fd0b42dd",
+            "consistent": 2,
+            "label": "Trials support the prediction",
+            "briefing": {
+              "sha256": "6089c396c7ba5cf058282e4ec581ddc0ade78d8682ff13af31f60e503446cff2",
+              "id": "cb8abc31-b2df-3ab3-8759-4fd99c5c37c5",
+              "version": 1
+            },
+            "status": "supports-prediction"
+          },
+          "otherOutcomes": [
+            {
+              "conflicting": 1,
+              "unresolved": 0,
+              "trials": 1,
+              "observationsSha256": "e779838d01b8688d80a46236fb2d37bc282d342cf4e91e92af9b7bc748838a58",
+              "consistent": 0,
+              "label": "Trials conflict with the prediction",
+              "briefing": {
+                "sha256": "6089c396c7ba5cf058282e4ec581ddc0ade78d8682ff13af31f60e503446cff2",
+                "id": "cb8abc31-b2df-3ab3-8759-4fd99c5c37c5",
+                "version": 1
+              },
+              "status": "conflicting"
+            },
+            {
+              "conflicting": 1,
+              "unresolved": 0,
+              "trials": 2,
+              "observationsSha256": "99aaa146d8237a9a8747e96f1d7aefeff2ccb4812bf4cd7aa435fe6b6c315618",
+              "consistent": 1,
+              "label": "Mixed trial evidence",
+              "briefing": {
+                "sha256": "6089c396c7ba5cf058282e4ec581ddc0ade78d8682ff13af31f60e503446cff2",
+                "id": "cb8abc31-b2df-3ab3-8759-4fd99c5c37c5",
+                "version": 1
+              },
+              "status": "mixed"
+            },
+            {
+              "conflicting": 0,
+              "unresolved": 0,
+              "trials": 1,
+              "observationsSha256": "c1903e58b4a494b270cc511dd6f4ee5c301f18ed3b3ff37a07c3dc7a0d4e7eee",
+              "consistent": 1,
+              "label": "Trial evidence is inconclusive",
+              "briefing": {
+                "sha256": "6089c396c7ba5cf058282e4ec581ddc0ade78d8682ff13af31f60e503446cff2",
+                "id": "cb8abc31-b2df-3ab3-8759-4fd99c5c37c5",
+                "version": 1
+              },
+              "status": "inconclusive"
+            },
+            {
+              "conflicting": 0,
+              "unresolved": 1,
+              "trials": 3,
+              "observationsSha256": "8a5015e290037f7a19f690767f5bb6fd66ecc209e3d75e0b8184afcac126ecec",
+              "consistent": 2,
+              "label": "Trial evidence is inconclusive",
+              "briefing": {
+                "sha256": "6089c396c7ba5cf058282e4ec581ddc0ade78d8682ff13af31f60e503446cff2",
+                "id": "cb8abc31-b2df-3ab3-8759-4fd99c5c37c5",
+                "version": 1
+              },
+              "status": "inconclusive"
+            }
+          ],
+          "browserChecks": 14,
+          "evidence": {
+            "browserAuditSha256": "29f71db95be631a882fc02c362992edcccd4c73fb06a66fd9a72cef4c65b10f8",
+            "browserChecks": 14,
+            "claim": {
+              "delta": "-9",
+              "earlier": {
+                "row": 3,
+                "value": "50"
+              },
+              "key": "fall",
+              "later": {
+                "row": 2,
+                "value": "41"
+              },
+              "sentence": "\"fall\" decreased from 50 °F to 41 °F (-9 °F).",
+              "unit": "°F"
+            },
+            "comparisonDelta": "-9",
+            "conflicting": 0,
+            "consistent": 2,
+            "margin": "1",
+            "observationFile": "trial-observations.csv",
+            "observationsSha256": "e2237c15189ffd4fce7160b8abbf774875ee15b1a144efb2e414f2c1fd0b42dd",
+            "originalBriefing": {
+              "id": "cb8abc31-b2df-3ab3-8759-4fd99c5c37c5",
+              "sha256": "6089c396c7ba5cf058282e4ec581ddc0ade78d8682ff13af31f60e503446cff2",
+              "version": 1
+            },
+            "originalComparisonCsvSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+            "prediction": {
+              "high": "-8",
+              "low": "-10"
+            },
+            "proposal": {
+              "assumptions": "Equal starting conditions; paired control drift is additive.",
+              "claimIndex": 1,
+              "hypothesis": "The airflow change produced the reported temperature drop.",
+              "margin": "1"
+            },
+            "scope": "Agreement is conditional on the stated assumptions, controls and error bounds. Trial dates and source references are supplied with the observations.",
+            "status": "supports-prediction",
+            "trials": [
+              {
+                "controlAfter": "62",
+                "controlBefore": "64",
+                "controlChange": "-2",
+                "effect": "-9",
+                "errorBound": "0.25",
+                "interval": {
+                  "high": "-8.75",
+                  "low": "-9.25"
+                },
+                "observedAt": "2026-11-22T14:01:00Z",
+                "runId": "trial-A",
+                "sourceRef": "fixture log A",
+                "status": "consistent",
+                "treatmentAfter": "44",
+                "treatmentBefore": "55",
+                "treatmentChange": "-11"
+              },
+              {
+                "controlAfter": "50",
+                "controlBefore": "50",
+                "controlChange": "0",
+                "effect": "-9",
+                "errorBound": "0.5",
+                "interval": {
+                  "high": "-8.5",
+                  "low": "-9.5"
+                },
+                "observedAt": "2026-11-22T22:03:00Z",
+                "runId": "trial-B",
+                "sourceRef": "fixture log B",
+                "status": "consistent",
+                "treatmentAfter": "31",
+                "treatmentBefore": "40",
+                "treatmentChange": "-9"
+              }
+            ],
+            "unit": "°F",
+            "unresolved": 0
+          },
+          "checks": [
+            "Ambiguous or empty displayed evidence is refused. A displayed older briefing is selected exactly.",
+            "A proposal without observations saves a resumable draft. The draft and completed report survive separate desktop restarts.",
+            "Original comparison input, repeated references, wrong units, negative error and undated trials are refused.",
+            "Consistent, conflicting, mixed and insufficient or overlapping observations produce distinct outcomes.",
+            "Exact source links, plots, dates, arithmetic and bounds are checked in Java and in the live Canvas.",
+            "A changed original briefing receipt, comparison export, frozen trial file or browser digest is refused.",
+            "The standalone file works with network blocked. Keyboard expansion and byte-exact CSV download are verified."
+          ]
+        }
+      },
+      {
+        "name": "Apple silicon macOS",
+        "jobId": 138174147530,
+        "conclusion": "success",
+        "report": {
+          "passed": true,
+          "fixture": "Synthetic paired trials with hand-derived exact effects",
+          "outcome": {
+            "conflicting": 0,
+            "unresolved": 0,
+            "trials": 2,
+            "observationsSha256": "e2237c15189ffd4fce7160b8abbf774875ee15b1a144efb2e414f2c1fd0b42dd",
+            "consistent": 2,
+            "label": "Trials support the prediction",
+            "briefing": {
+              "sha256": "4cf54d6ba4f7f92cefc7218bd783ef833c429cb2e6c53d61a1122c0ed876f680",
+              "id": "ec580986-80a8-3301-a62d-5e2f28b570d3",
+              "version": 1
+            },
+            "status": "supports-prediction"
+          },
+          "otherOutcomes": [
+            {
+              "conflicting": 1,
+              "unresolved": 0,
+              "trials": 1,
+              "observationsSha256": "e779838d01b8688d80a46236fb2d37bc282d342cf4e91e92af9b7bc748838a58",
+              "consistent": 0,
+              "label": "Trials conflict with the prediction",
+              "briefing": {
+                "sha256": "4cf54d6ba4f7f92cefc7218bd783ef833c429cb2e6c53d61a1122c0ed876f680",
+                "id": "ec580986-80a8-3301-a62d-5e2f28b570d3",
+                "version": 1
+              },
+              "status": "conflicting"
+            },
+            {
+              "conflicting": 1,
+              "unresolved": 0,
+              "trials": 2,
+              "observationsSha256": "99aaa146d8237a9a8747e96f1d7aefeff2ccb4812bf4cd7aa435fe6b6c315618",
+              "consistent": 1,
+              "label": "Mixed trial evidence",
+              "briefing": {
+                "sha256": "4cf54d6ba4f7f92cefc7218bd783ef833c429cb2e6c53d61a1122c0ed876f680",
+                "id": "ec580986-80a8-3301-a62d-5e2f28b570d3",
+                "version": 1
+              },
+              "status": "mixed"
+            },
+            {
+              "conflicting": 0,
+              "unresolved": 0,
+              "trials": 1,
+              "observationsSha256": "c1903e58b4a494b270cc511dd6f4ee5c301f18ed3b3ff37a07c3dc7a0d4e7eee",
+              "consistent": 1,
+              "label": "Trial evidence is inconclusive",
+              "briefing": {
+                "sha256": "4cf54d6ba4f7f92cefc7218bd783ef833c429cb2e6c53d61a1122c0ed876f680",
+                "id": "ec580986-80a8-3301-a62d-5e2f28b570d3",
+                "version": 1
+              },
+              "status": "inconclusive"
+            },
+            {
+              "conflicting": 0,
+              "unresolved": 1,
+              "trials": 3,
+              "observationsSha256": "8a5015e290037f7a19f690767f5bb6fd66ecc209e3d75e0b8184afcac126ecec",
+              "consistent": 2,
+              "label": "Trial evidence is inconclusive",
+              "briefing": {
+                "sha256": "4cf54d6ba4f7f92cefc7218bd783ef833c429cb2e6c53d61a1122c0ed876f680",
+                "id": "ec580986-80a8-3301-a62d-5e2f28b570d3",
+                "version": 1
+              },
+              "status": "inconclusive"
+            }
+          ],
+          "browserChecks": 14,
+          "evidence": {
+            "browserAuditSha256": "1e5175c25ed144b0b65bb11879e0e2d8e55986277eede5eab2a139a0e6238fc4",
+            "browserChecks": 14,
+            "claim": {
+              "delta": "-9",
+              "earlier": {
+                "row": 3,
+                "value": "50"
+              },
+              "key": "fall",
+              "later": {
+                "row": 2,
+                "value": "41"
+              },
+              "sentence": "\"fall\" decreased from 50 °F to 41 °F (-9 °F).",
+              "unit": "°F"
+            },
+            "comparisonDelta": "-9",
+            "conflicting": 0,
+            "consistent": 2,
+            "margin": "1",
+            "observationFile": "trial-observations.csv",
+            "observationsSha256": "e2237c15189ffd4fce7160b8abbf774875ee15b1a144efb2e414f2c1fd0b42dd",
+            "originalBriefing": {
+              "id": "ec580986-80a8-3301-a62d-5e2f28b570d3",
+              "sha256": "4cf54d6ba4f7f92cefc7218bd783ef833c429cb2e6c53d61a1122c0ed876f680",
+              "version": 1
+            },
+            "originalComparisonCsvSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+            "prediction": {
+              "high": "-8",
+              "low": "-10"
+            },
+            "proposal": {
+              "assumptions": "Equal starting conditions; paired control drift is additive.",
+              "claimIndex": 1,
+              "hypothesis": "The airflow change produced the reported temperature drop.",
+              "margin": "1"
+            },
+            "scope": "Agreement is conditional on the stated assumptions, controls and error bounds. Trial dates and source references are supplied with the observations.",
+            "status": "supports-prediction",
+            "trials": [
+              {
+                "controlAfter": "62",
+                "controlBefore": "64",
+                "controlChange": "-2",
+                "effect": "-9",
+                "errorBound": "0.25",
+                "interval": {
+                  "high": "-8.75",
+                  "low": "-9.25"
+                },
+                "observedAt": "2026-11-22T14:01:00Z",
+                "runId": "trial-A",
+                "sourceRef": "fixture log A",
+                "status": "consistent",
+                "treatmentAfter": "44",
+                "treatmentBefore": "55",
+                "treatmentChange": "-11"
+              },
+              {
+                "controlAfter": "50",
+                "controlBefore": "50",
+                "controlChange": "0",
+                "effect": "-9",
+                "errorBound": "0.5",
+                "interval": {
+                  "high": "-8.5",
+                  "low": "-9.5"
+                },
+                "observedAt": "2026-11-22T22:03:00Z",
+                "runId": "trial-B",
+                "sourceRef": "fixture log B",
+                "status": "consistent",
+                "treatmentAfter": "31",
+                "treatmentBefore": "40",
+                "treatmentChange": "-9"
+              }
+            ],
+            "unit": "°F",
+            "unresolved": 0
+          },
+          "checks": [
+            "Ambiguous or empty displayed evidence is refused. A displayed older briefing is selected exactly.",
+            "A proposal without observations saves a resumable draft. The draft and completed report survive separate desktop restarts.",
+            "Original comparison input, repeated references, wrong units, negative error and undated trials are refused.",
+            "Consistent, conflicting, mixed and insufficient or overlapping observations produce distinct outcomes.",
+            "Exact source links, plots, dates, arithmetic and bounds are checked in Java and in the live Canvas.",
+            "A changed original briefing receipt, comparison export, frozen trial file or browser digest is refused.",
+            "The standalone file works with network blocked. Keyboard expansion and byte-exact CSV download are verified."
+          ]
+        }
+      },
+      {
+        "name": "Windows x64",
+        "jobId": 138174147639,
+        "conclusion": "success",
+        "report": {
+          "passed": true,
+          "fixture": "Synthetic paired trials with hand-derived exact effects",
+          "outcome": {
+            "conflicting": 0,
+            "unresolved": 0,
+            "trials": 2,
+            "observationsSha256": "e2237c15189ffd4fce7160b8abbf774875ee15b1a144efb2e414f2c1fd0b42dd",
+            "consistent": 2,
+            "label": "Trials support the prediction",
+            "briefing": {
+              "sha256": "b1b78528ed998895dcf960034793ecbb1f21404fbc6fe421bece98be0bfda22a",
+              "id": "5b53c75f-dd57-39fe-a1bb-df87b4e901d6",
+              "version": 1
+            },
+            "status": "supports-prediction"
+          },
+          "otherOutcomes": [
+            {
+              "conflicting": 1,
+              "unresolved": 0,
+              "trials": 1,
+              "observationsSha256": "e779838d01b8688d80a46236fb2d37bc282d342cf4e91e92af9b7bc748838a58",
+              "consistent": 0,
+              "label": "Trials conflict with the prediction",
+              "briefing": {
+                "sha256": "b1b78528ed998895dcf960034793ecbb1f21404fbc6fe421bece98be0bfda22a",
+                "id": "5b53c75f-dd57-39fe-a1bb-df87b4e901d6",
+                "version": 1
+              },
+              "status": "conflicting"
+            },
+            {
+              "conflicting": 1,
+              "unresolved": 0,
+              "trials": 2,
+              "observationsSha256": "99aaa146d8237a9a8747e96f1d7aefeff2ccb4812bf4cd7aa435fe6b6c315618",
+              "consistent": 1,
+              "label": "Mixed trial evidence",
+              "briefing": {
+                "sha256": "b1b78528ed998895dcf960034793ecbb1f21404fbc6fe421bece98be0bfda22a",
+                "id": "5b53c75f-dd57-39fe-a1bb-df87b4e901d6",
+                "version": 1
+              },
+              "status": "mixed"
+            },
+            {
+              "conflicting": 0,
+              "unresolved": 0,
+              "trials": 1,
+              "observationsSha256": "c1903e58b4a494b270cc511dd6f4ee5c301f18ed3b3ff37a07c3dc7a0d4e7eee",
+              "consistent": 1,
+              "label": "Trial evidence is inconclusive",
+              "briefing": {
+                "sha256": "b1b78528ed998895dcf960034793ecbb1f21404fbc6fe421bece98be0bfda22a",
+                "id": "5b53c75f-dd57-39fe-a1bb-df87b4e901d6",
+                "version": 1
+              },
+              "status": "inconclusive"
+            },
+            {
+              "conflicting": 0,
+              "unresolved": 1,
+              "trials": 3,
+              "observationsSha256": "8a5015e290037f7a19f690767f5bb6fd66ecc209e3d75e0b8184afcac126ecec",
+              "consistent": 2,
+              "label": "Trial evidence is inconclusive",
+              "briefing": {
+                "sha256": "b1b78528ed998895dcf960034793ecbb1f21404fbc6fe421bece98be0bfda22a",
+                "id": "5b53c75f-dd57-39fe-a1bb-df87b4e901d6",
+                "version": 1
+              },
+              "status": "inconclusive"
+            }
+          ],
+          "browserChecks": 14,
+          "evidence": {
+            "browserAuditSha256": "d67a1aef6525db08fcee7c682915d5144784360862fa6938fa6223c2d70b49e0",
+            "browserChecks": 14,
+            "claim": {
+              "delta": "-9",
+              "earlier": {
+                "row": 3,
+                "value": "50"
+              },
+              "key": "fall",
+              "later": {
+                "row": 2,
+                "value": "41"
+              },
+              "sentence": "\"fall\" decreased from 50 °F to 41 °F (-9 °F).",
+              "unit": "°F"
+            },
+            "comparisonDelta": "-9",
+            "conflicting": 0,
+            "consistent": 2,
+            "margin": "1",
+            "observationFile": "trial-observations.csv",
+            "observationsSha256": "e2237c15189ffd4fce7160b8abbf774875ee15b1a144efb2e414f2c1fd0b42dd",
+            "originalBriefing": {
+              "id": "5b53c75f-dd57-39fe-a1bb-df87b4e901d6",
+              "sha256": "b1b78528ed998895dcf960034793ecbb1f21404fbc6fe421bece98be0bfda22a",
+              "version": 1
+            },
+            "originalComparisonCsvSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+            "prediction": {
+              "high": "-8",
+              "low": "-10"
+            },
+            "proposal": {
+              "assumptions": "Equal starting conditions; paired control drift is additive.",
+              "claimIndex": 1,
+              "hypothesis": "The airflow change produced the reported temperature drop.",
+              "margin": "1"
+            },
+            "scope": "Agreement is conditional on the stated assumptions, controls and error bounds. Trial dates and source references are supplied with the observations.",
+            "status": "supports-prediction",
+            "trials": [
+              {
+                "controlAfter": "62",
+                "controlBefore": "64",
+                "controlChange": "-2",
+                "effect": "-9",
+                "errorBound": "0.25",
+                "interval": {
+                  "high": "-8.75",
+                  "low": "-9.25"
+                },
+                "observedAt": "2026-11-22T14:01:00Z",
+                "runId": "trial-A",
+                "sourceRef": "fixture log A",
+                "status": "consistent",
+                "treatmentAfter": "44",
+                "treatmentBefore": "55",
+                "treatmentChange": "-11"
+              },
+              {
+                "controlAfter": "50",
+                "controlBefore": "50",
+                "controlChange": "0",
+                "effect": "-9",
+                "errorBound": "0.5",
+                "interval": {
+                  "high": "-8.5",
+                  "low": "-9.5"
+                },
+                "observedAt": "2026-11-22T22:03:00Z",
+                "runId": "trial-B",
+                "sourceRef": "fixture log B",
+                "status": "consistent",
+                "treatmentAfter": "31",
+                "treatmentBefore": "40",
+                "treatmentChange": "-9"
+              }
+            ],
+            "unit": "°F",
+            "unresolved": 0
+          },
+          "checks": [
+            "Ambiguous or empty displayed evidence is refused. A displayed older briefing is selected exactly.",
+            "A proposal without observations saves a resumable draft. The draft and completed report survive separate desktop restarts.",
+            "Original comparison input, repeated references, wrong units, negative error and undated trials are refused.",
+            "Consistent, conflicting, mixed and insufficient or overlapping observations produce distinct outcomes.",
+            "Exact source links, plots, dates, arithmetic and bounds are checked in Java and in the live Canvas.",
+            "A changed original briefing receipt, comparison export, frozen trial file or browser digest is refused.",
+            "The standalone file works with network blocked. Keyboard expansion and byte-exact CSV download are verified."
+          ]
+        }
+      },
+      {
+        "name": "Intel macOS",
+        "jobId": 138174147729,
+        "conclusion": "success",
+        "report": {
+          "passed": true,
+          "fixture": "Synthetic paired trials with hand-derived exact effects",
+          "outcome": {
+            "conflicting": 0,
+            "unresolved": 0,
+            "trials": 2,
+            "observationsSha256": "e2237c15189ffd4fce7160b8abbf774875ee15b1a144efb2e414f2c1fd0b42dd",
+            "consistent": 2,
+            "label": "Trials support the prediction",
+            "briefing": {
+              "sha256": "f9a9fe6d4d1d7500a5aaae1d4e2a659c47fe94194f0259a70f36eb695856af68",
+              "id": "e69d40f8-d5a9-3c77-98fb-fbf354f6879e",
+              "version": 1
+            },
+            "status": "supports-prediction"
+          },
+          "otherOutcomes": [
+            {
+              "conflicting": 1,
+              "unresolved": 0,
+              "trials": 1,
+              "observationsSha256": "e779838d01b8688d80a46236fb2d37bc282d342cf4e91e92af9b7bc748838a58",
+              "consistent": 0,
+              "label": "Trials conflict with the prediction",
+              "briefing": {
+                "sha256": "f9a9fe6d4d1d7500a5aaae1d4e2a659c47fe94194f0259a70f36eb695856af68",
+                "id": "e69d40f8-d5a9-3c77-98fb-fbf354f6879e",
+                "version": 1
+              },
+              "status": "conflicting"
+            },
+            {
+              "conflicting": 1,
+              "unresolved": 0,
+              "trials": 2,
+              "observationsSha256": "99aaa146d8237a9a8747e96f1d7aefeff2ccb4812bf4cd7aa435fe6b6c315618",
+              "consistent": 1,
+              "label": "Mixed trial evidence",
+              "briefing": {
+                "sha256": "f9a9fe6d4d1d7500a5aaae1d4e2a659c47fe94194f0259a70f36eb695856af68",
+                "id": "e69d40f8-d5a9-3c77-98fb-fbf354f6879e",
+                "version": 1
+              },
+              "status": "mixed"
+            },
+            {
+              "conflicting": 0,
+              "unresolved": 0,
+              "trials": 1,
+              "observationsSha256": "c1903e58b4a494b270cc511dd6f4ee5c301f18ed3b3ff37a07c3dc7a0d4e7eee",
+              "consistent": 1,
+              "label": "Trial evidence is inconclusive",
+              "briefing": {
+                "sha256": "f9a9fe6d4d1d7500a5aaae1d4e2a659c47fe94194f0259a70f36eb695856af68",
+                "id": "e69d40f8-d5a9-3c77-98fb-fbf354f6879e",
+                "version": 1
+              },
+              "status": "inconclusive"
+            },
+            {
+              "conflicting": 0,
+              "unresolved": 1,
+              "trials": 3,
+              "observationsSha256": "8a5015e290037f7a19f690767f5bb6fd66ecc209e3d75e0b8184afcac126ecec",
+              "consistent": 2,
+              "label": "Trial evidence is inconclusive",
+              "briefing": {
+                "sha256": "f9a9fe6d4d1d7500a5aaae1d4e2a659c47fe94194f0259a70f36eb695856af68",
+                "id": "e69d40f8-d5a9-3c77-98fb-fbf354f6879e",
+                "version": 1
+              },
+              "status": "inconclusive"
+            }
+          ],
+          "browserChecks": 14,
+          "evidence": {
+            "browserAuditSha256": "e972e732ff3460cf51aac8690dcf8c2fe21f2ab787e3ad1170d8cb5e1f7e7618",
+            "browserChecks": 14,
+            "claim": {
+              "delta": "-9",
+              "earlier": {
+                "row": 3,
+                "value": "50"
+              },
+              "key": "fall",
+              "later": {
+                "row": 2,
+                "value": "41"
+              },
+              "sentence": "\"fall\" decreased from 50 °F to 41 °F (-9 °F).",
+              "unit": "°F"
+            },
+            "comparisonDelta": "-9",
+            "conflicting": 0,
+            "consistent": 2,
+            "margin": "1",
+            "observationFile": "trial-observations.csv",
+            "observationsSha256": "e2237c15189ffd4fce7160b8abbf774875ee15b1a144efb2e414f2c1fd0b42dd",
+            "originalBriefing": {
+              "id": "e69d40f8-d5a9-3c77-98fb-fbf354f6879e",
+              "sha256": "f9a9fe6d4d1d7500a5aaae1d4e2a659c47fe94194f0259a70f36eb695856af68",
+              "version": 1
+            },
+            "originalComparisonCsvSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+            "prediction": {
+              "high": "-8",
+              "low": "-10"
+            },
+            "proposal": {
+              "assumptions": "Equal starting conditions; paired control drift is additive.",
+              "claimIndex": 1,
+              "hypothesis": "The airflow change produced the reported temperature drop.",
+              "margin": "1"
+            },
+            "scope": "Agreement is conditional on the stated assumptions, controls and error bounds. Trial dates and source references are supplied with the observations.",
+            "status": "supports-prediction",
+            "trials": [
+              {
+                "controlAfter": "62",
+                "controlBefore": "64",
+                "controlChange": "-2",
+                "effect": "-9",
+                "errorBound": "0.25",
+                "interval": {
+                  "high": "-8.75",
+                  "low": "-9.25"
+                },
+                "observedAt": "2026-11-22T14:01:00Z",
+                "runId": "trial-A",
+                "sourceRef": "fixture log A",
+                "status": "consistent",
+                "treatmentAfter": "44",
+                "treatmentBefore": "55",
+                "treatmentChange": "-11"
+              },
+              {
+                "controlAfter": "50",
+                "controlBefore": "50",
+                "controlChange": "0",
+                "effect": "-9",
+                "errorBound": "0.5",
+                "interval": {
+                  "high": "-8.5",
+                  "low": "-9.5"
+                },
+                "observedAt": "2026-11-22T22:03:00Z",
+                "runId": "trial-B",
+                "sourceRef": "fixture log B",
+                "status": "consistent",
+                "treatmentAfter": "31",
+                "treatmentBefore": "40",
+                "treatmentChange": "-9"
+              }
+            ],
+            "unit": "°F",
+            "unresolved": 0
+          },
+          "checks": [
+            "Ambiguous or empty displayed evidence is refused. A displayed older briefing is selected exactly.",
+            "A proposal without observations saves a resumable draft. The draft and completed report survive separate desktop restarts.",
+            "Original comparison input, repeated references, wrong units, negative error and undated trials are refused.",
+            "Consistent, conflicting, mixed and insufficient or overlapping observations produce distinct outcomes.",
+            "Exact source links, plots, dates, arithmetic and bounds are checked in Java and in the live Canvas.",
+            "A changed original briefing receipt, comparison export, frozen trial file or browser digest is refused.",
+            "The standalone file works with network blocked. Keyboard expansion and byte-exact CSV download are verified."
+          ]
+        }
+      }
+    ]
+  },
+  "screenshots": [
+    {
+      "path": "docs/readmes/214/desktop-draft.png",
+      "bytes": 168689,
+      "sha256": "40f073e1197d4aa76eec3f4f1f6b27b287fd3ee916c5bfe170236e56a0e6a94b",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/214/desktop-audit.png",
+      "bytes": 185597,
+      "sha256": "feb304f861f868dd37883801f412b65364cf4dc3cf7e6530ab9d5fed6c8630db",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/214/offline-audit.png",
+      "bytes": 68800,
+      "sha256": "f741d9dae724a5193405958193e518bae7d68b8d8e9b4aba22044df667e39f88",
+      "hashKind": "binary"
+    }
+  ]
+}

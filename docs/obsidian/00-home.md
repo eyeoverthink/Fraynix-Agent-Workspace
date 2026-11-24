@@ -1,3 +1,5 @@
+[Edition 214 — Put an explanation to the test](222-explanation-audit.md)
+
 [Edition 213 — Brief me on that chart](221-cited-chart-briefing.md)
 
 [Edition 212 — Chart named comparisons](220-named-comparison-chart.md)

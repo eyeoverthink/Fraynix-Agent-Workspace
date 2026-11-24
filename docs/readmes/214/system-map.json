@@ -1,0 +1,58 @@
+{
+  "summary": "Ask Fraynix to audit a proposed explanation for a cited change. Attach separate trial observations to see the assumptions, interval and outcome in a verified offline report.",
+  "modules": [
+    {
+      "title": "Exact trial effects and error bounds",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ExplanationEvidence.java",
+      "note": "docs/obsidian/222-explanation-audit.md"
+    },
+    {
+      "title": "Durable proposal and source binding",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ExplanationAuditBook.java",
+      "note": "docs/obsidian/222-explanation-audit.md"
+    },
+    {
+      "title": "Report and independent browser checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedExplanationAudit.java",
+      "note": "docs/obsidian/222-explanation-audit.md"
+    },
+    {
+      "title": "Desktop review and observation attachment",
+      "source": "workspace-desktop/renderer/explanation-audit.js",
+      "note": "docs/obsidian/222-explanation-audit.md"
+    },
+    {
+      "title": "Restart and changed-evidence tests",
+      "source": "workspace-desktop/test/explanation-audit-integration.cjs",
+      "note": "docs/obsidian/222-explanation-audit.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/214/desktop-draft.png",
+      "title": "Chat opens a saved proposal and waits for separate trial observations"
+    },
+    {
+      "path": "docs/readmes/214/desktop-audit.png",
+      "title": "Fraynix shows its verdict and the exact arithmetic behind one trial"
+    },
+    {
+      "path": "docs/readmes/214/offline-audit.png",
+      "title": "The offline report shows the assessed range and expands a dated paired trial"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/214/audit.html",
+      "title": "Open the verified offline audit"
+    },
+    {
+      "path": "docs/readmes/214/release-proof.json",
+      "title": "Desktop and portable CI evidence"
+    },
+    {
+      "path": "docs/publication214/plan.md",
+      "title": "Reproduce the explanation audit"
+    }
+  ]
+}

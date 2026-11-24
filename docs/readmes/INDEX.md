@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 214 — Put an explanation to the test](../../README-214.md) · [Walkthrough](214/index.html)
+
 [Edition 213 — Brief me on that chart](../../README-213.md) · [Walkthrough](213/index.html)
 
 [Edition 212 — Chart named comparisons](../../README-212.md) · [Walkthrough](212/index.html)
