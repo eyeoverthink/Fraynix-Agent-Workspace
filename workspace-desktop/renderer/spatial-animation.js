@@ -45,6 +45,7 @@ export class SpatialAnimationPanel {
       this.renderKeys();
     };
     $('animation-preview').onclick = () => this.run(async () => {
+      spatial.meshEdit.discard();
       const generation = this.previewGeneration;
       const samples = await spatial.call('animation-preview', this.request());
       if (!panel.open || this.blocked || generation !== this.previewGeneration) return;

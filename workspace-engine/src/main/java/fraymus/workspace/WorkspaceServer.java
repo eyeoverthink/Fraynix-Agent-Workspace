@@ -643,6 +643,21 @@ public final class WorkspaceServer implements AutoCloseable {
                         double cell = SpatialScene.number(input,"cellSizeM",.6,1.2);
                         result = spatial.importScene(SpatialBlueprint.build(reference,cell).toString());
                     }
+                    case "/api/spatial/mesh-stl" -> {
+                        SpatialScene.keys(input, "id", "objectId");
+                        var scene=spatial.read(input.getString("id"));
+                        var object=SpatialScene.object(scene,input.getString("objectId"));
+                        if (!object.has("visualMesh")) throw new IllegalArgumentException("Select a triangle prop first.");
+                        byte[] stl=SpatialStl.encode(SpatialGlb.asset(scene,object));
+                        result=new JSONObject().put("base64",Base64.getEncoder().encodeToString(stl))
+                                .put("sha256",MapDefinition.sha(stl)).put("meshSha256",object.getString("visualMesh"))
+                                .put("units","mm").put("up","z");
+                    }
+                    case "/api/spatial/mesh-preview" -> result=spatial.previewMesh(input);
+                    case "/api/spatial/mesh-save" -> {
+                        if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before saving a mesh.");
+                        result=spatial.saveMesh(input);
+                    }
                     case "/api/spatial/animation-preview" -> result=spatial.previewAnimation(input);
                     case "/api/spatial/animation-save" -> {
                         if(agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before saving an animation.");
