@@ -571,6 +571,27 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/goals/perception-resume" -> result=goals.resumePerception(input.getString("id"),input.getString("frameId"));
                     case "/api/spatial/example" -> {try(var stream=WorkspaceServer.class.getResourceAsStream("/spatial/declared-test-scene-v1.json")){result=new JSONObject().put("text",new String(stream.readAllBytes(),StandardCharsets.UTF_8));}}
                     case "/api/spatial/import" -> {SpatialScene.keys(input,"text");result=spatial.importScene(input.getString("text"));}
+                    case "/api/spatial/import-glb" -> {
+                        SpatialScene.keys(input, "base64");
+                        if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before importing a scene.");
+                        String data = input.getString("base64");
+                        if (data.length() > (SpatialGlb.LIMIT+2)/3*4) throw new IllegalArgumentException("Choose a GLB up to 512 KiB.");
+                        result = spatial.importGlb(Base64.getDecoder().decode(data));
+                    }
+                    case "/api/spatial/export-glb" -> {
+                        SpatialScene.keys(input,"id");
+                        var original = spatial.read(input.getString("id"));
+                        byte[] glb = SpatialGlb.verifiedExport(original);
+                        result = new JSONObject().put("base64", Base64.getEncoder().encodeToString(glb))
+                                .put("sha256", MapDefinition.sha(glb)).put("sourceSha256", original.getString("sourceSha256"));
+                    }
+                    case "/api/spatial/blueprint" -> {
+                        SpatialScene.keys(input, "referenceId", "cellSizeM");
+                        if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before building a scene.");
+                        var reference = maps.reference(input.getString("referenceId"));
+                        double cell = SpatialScene.number(input,"cellSizeM",.6,1.2);
+                        result = spatial.importScene(SpatialBlueprint.build(reference,cell).toString());
+                    }
                     case "/api/spatial/read" -> result=spatial.read(input.getString("id"));
                     case "/api/spatial/snapshot" -> result=spatial.snapshot();
                     case "/api/spatial/list" -> result=new JSONObject().put("scenes",spatial.list()).put("runs",spatial.runs());

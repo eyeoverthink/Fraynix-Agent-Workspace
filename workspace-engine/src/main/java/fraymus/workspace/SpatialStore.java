@@ -13,11 +13,65 @@ public final class SpatialStore implements AutoCloseable {
     private final Path file,nativeDir;private final LinkedHashMap<String,JSONObject> scenes=new LinkedHashMap<>(),runs=new LinkedHashMap<>();
     private final ExecutorService worker=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"spatial-native-owner");t.setDaemon(true);return t;});
     private final AtomicBoolean cancelled=new AtomicBoolean();private String active="";private JSONObject current;private volatile boolean closed;
-    public SpatialStore(Path project) throws Exception {file=project.resolve("spatial/state.json");nativeDir=project.resolve("native");if(Files.exists(file)){var data=new JSONObject(Files.readString(file));for(Object raw:data.getJSONArray("scenes")){var s=(JSONObject)raw;validate(s);scenes.put(s.getString("id"),s);}for(Object raw:data.getJSONArray("runs")){var r=(JSONObject)raw;if(Set.of("executing","prepared").contains(r.getString("status")))r.put("status","interrupted").put("reason","Process ended; resume creates a separate native attempt from the immutable import");runs.put(r.getString("id"),r);}persist();}}
+    public SpatialStore(Path project) throws Exception {file=project.resolve("spatial/state.json");nativeDir=project.resolve("native");if(Files.exists(file)){var data=new JSONObject(Files.readString(file));for(Object raw:data.getJSONArray("scenes")){var s=(JSONObject)raw;validateDefinition(s);scenes.put(s.getString("id"),s);}for(Object raw:data.getJSONArray("runs")){var r=(JSONObject)raw;if(Set.of("executing","prepared").contains(r.getString("status")))r.put("status","interrupted").put("reason","Process ended; resume creates a separate native attempt from the immutable import");runs.put(r.getString("id"),r);}persist();}}
     private static JSONObject copy(JSONObject x){return new JSONObject(x.toString());}
-    private static void validate(JSONObject s){var parsed=SpatialScene.parse(s.getString("sourceText"),s.getString("id"));for(String key:parsed.keySet())if(!new JSONObject().put("v",parsed.get(key)).similar(new JSONObject().put("v",s.get(key))))throw new IllegalStateException("Spatial source/definition integrity failed: "+key);}
+    private Path glbFile(String id) {
+        if (!UUID.fromString(id).toString().equals(id)) throw new IllegalArgumentException("Invalid spatial import identity.");
+        return file.resolveSibling("glb-sources").resolve(id+".glb");
+    }
+    private static void validateDefinition(JSONObject scene) {
+        var parsed=SpatialScene.parse(scene.getString("sourceText"),scene.getString("id"));
+        for (String key:parsed.keySet()) if (!new JSONObject().put("v",parsed.get(key)).similar(new JSONObject().put("v",scene.get(key))))
+            throw new IllegalStateException("Spatial source/definition integrity failed: "+key);
+    }
+    private void validate(JSONObject scene) {
+        validateDefinition(scene);
+        if (scene.has("glbSha256")) {
+            try {
+                Path original=glbFile(scene.getString("id"));
+                if (!Files.isRegularFile(original,LinkOption.NOFOLLOW_LINKS) || Files.size(original)>SpatialGlb.LIMIT)
+                    throw new IllegalStateException("The original GLB source is unavailable.");
+                byte[] bytes=Files.readAllBytes(original);
+                if (!MapDefinition.sha(bytes).equals(scene.getString("glbSha256"))
+                        || !SpatialGlb.importScene(bytes).similar(new JSONObject(scene.getString("sourceText"))))
+                    throw new IllegalStateException("The original GLB source changed.");
+            } catch (Exception problem) {
+                throw new IllegalStateException("Cannot recheck the original GLB source.",problem);
+            }
+        }
+    }
     private synchronized void persist() throws Exception {Files.createDirectories(file.getParent());var temp=file.resolveSibling("state.pending.json");Files.writeString(temp,new JSONObject().put("scenes",new JSONArray(scenes.values())).put("runs",new JSONArray(runs.values())).toString(),StandardCharsets.UTF_8);try{Files.move(temp,file,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);}catch(AtomicMoveNotSupportedException e){Files.move(temp,file,StandardCopyOption.REPLACE_EXISTING);}}
-    public synchronized JSONObject importScene(String text) throws Exception {available();if(scenes.size()>=32)throw new IllegalStateException("Spatial import history limit reached (32)");var s=SpatialScene.parse(text,UUID.randomUUID().toString()).put("importedAt",Instant.now().toString());scenes.put(s.getString("id"),s);try{persist();}catch(Exception e){scenes.remove(s.getString("id"));throw e;}current=new JSONObject().put("sceneId",s.getString("id")).put("status","authored").put("current",new JSONObject().put("tick",0).put("objects",s.getJSONArray("objects")).put("gripping",false));return copy(s);}
+    public synchronized JSONObject importScene(String text) throws Exception {
+        available();
+        if (scenes.size()>=32) throw new IllegalStateException("Spatial import history limit reached (32)");
+        return retainScene(SpatialScene.parse(text,UUID.randomUUID().toString()).put("importedAt",Instant.now().toString()));
+    }
+    public synchronized JSONObject importGlb(byte[] bytes) throws Exception {
+        available();
+        if (scenes.size()>=32) throw new IllegalStateException("Spatial import history limit reached (32)");
+        String sha=MapDefinition.sha(bytes);
+        String id=UUID.randomUUID().toString();
+        var scene=SpatialScene.parse(SpatialGlb.importScene(bytes).toString(),id)
+                .put("importedAt",Instant.now().toString()).put("glbSha256",sha);
+        Path source=glbFile(id);
+        Files.createDirectories(source.getParent());
+        Files.write(source,bytes,StandardOpenOption.CREATE_NEW);
+        try { return retainScene(scene); }
+        catch (Exception error) {
+            try { Files.deleteIfExists(source); }
+            catch (Exception cleanup) { error.addSuppressed(cleanup); }
+            throw error;
+        }
+    }
+    private JSONObject retainScene(JSONObject scene) throws Exception {
+        String id=scene.getString("id");
+        scenes.put(id,scene);
+        try { persist(); }
+        catch (Exception error) { scenes.remove(id);throw error; }
+        current=new JSONObject().put("sceneId",id).put("status","authored")
+                .put("current",new JSONObject().put("tick",0).put("objects",scene.getJSONArray("objects")).put("gripping",false));
+        return copy(scene);
+    }
     public synchronized JSONArray list(){var out=new JSONArray();for(var s:scenes.values())out.put(new JSONObject().put("id",s.getString("id")).put("version",1).put("title",s.getString("title")).put("source",s.getJSONObject("source")).put("sourceSha256",s.getString("sourceSha256")));return out;}
     public synchronized JSONObject read(String id){UUID.fromString(id);var s=scenes.get(id);if(s==null)throw new IllegalArgumentException("Unknown spatial scene");validate(s);return copy(s);}
     public synchronized JSONObject snapshot(){return current==null?new JSONObject().put("status","idle"):copy(current);}
