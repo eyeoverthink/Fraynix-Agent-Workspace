@@ -18,19 +18,14 @@ final class BrowserShapeTrace {
 
     static SpatialReconstruction.Result build(byte[] bytes) throws Exception {
         var input = new JSONObject(new String(bytes, StandardCharsets.UTF_8));
+        if (BrowserViewTrace.FORMAT.equals(input.optString("format"))) return BrowserViewTrace.build(bytes,input);
         SpatialScene.keys(input,"format","url","selector","widthM","thicknessM","png");
         if (!FORMAT.equals(input.getString("format"))) throw new IllegalArgumentException("Unsupported browser crop format.");
-        String url = SpatialScene.text(input,"url",800);
-        var uri = java.net.URI.create(url);
-        if (!java.util.Set.of("http","https").contains(uri.getScheme()) || uri.getHost()==null
-                || uri.getUserInfo()!=null || uri.getQuery()!=null || uri.getFragment()!=null)
-            throw new IllegalArgumentException("Use a browser page URL without credentials, query, or fragment.");
+        String url = sourceUrl(input);
         String selector = SpatialScene.text(input,"selector",180);
         double width = SpatialScene.number(input,"widthM",.10,5), depth = SpatialScene.number(input,"thicknessM",.05,2);
         byte[] png = Base64.getDecoder().decode(input.getString("png"));
-        if (png.length<24 || java.nio.ByteBuffer.wrap(png).getLong()!=0x89504e470d0a1a0aL)
-            throw new IllegalArgumentException("Choose a captured PNG graphic.");
-        BufferedImage image = WorldObservationStore.decode(png);
+        BufferedImage image = decode(png);
         int w = image.getWidth(), h = image.getHeight();
         if (w<16 || h<16 || w>1024 || h>1024) throw new IllegalArgumentException("Use a visible graphic between 16 and 1024 pixels per side.");
         var foreground = isolate(image);
@@ -70,7 +65,22 @@ final class BrowserShapeTrace {
         return new SpatialReconstruction.Result(definition,proof);
     }
 
-    private static boolean[] isolate(BufferedImage img) {
+    static String sourceUrl(JSONObject input) {
+        String url = SpatialScene.text(input,"url",800);
+        var uri = java.net.URI.create(url);
+        if (!java.util.Set.of("http","https").contains(uri.getScheme()) || uri.getHost()==null
+                || uri.getUserInfo()!=null || uri.getQuery()!=null || uri.getFragment()!=null)
+            throw new IllegalArgumentException("Use a browser page URL without credentials, query, or fragment.");
+        return url;
+    }
+
+    static BufferedImage decode(byte[] png) throws Exception {
+        if (png.length<24 || java.nio.ByteBuffer.wrap(png).getLong()!=0x89504e470d0a1a0aL)
+            throw new IllegalArgumentException("Choose a captured PNG graphic.");
+        return WorldObservationStore.decode(png);
+    }
+
+    static boolean[] isolate(BufferedImage img) {
         int w=img.getWidth(),h=img.getHeight(),bg=img.getRGB(0,0);
         for(int corner:new int[]{img.getRGB(w-1,0),img.getRGB(0,h-1),img.getRGB(w-1,h-1)})
             if (difference(bg,corner)>24) throw new IllegalArgumentException("Choose a graphic with a uniform contrasting background.");

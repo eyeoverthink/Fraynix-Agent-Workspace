@@ -38,15 +38,62 @@ class Surface {
   async captureGraphic(selector) {
     if(this.kind!=='browser'||typeof selector!=='string'||!selector.trim()||selector.length>180)
       throw Error('Choose one visible graphic with a CSS selector.');
+    return this.captureGraphicTarget(selector);
+  }
+
+  async pickGraphic() {
+    if(this.kind!=='browser'||this.pickingGraphic)throw Error('The browser already has a graphic selection in progress.');
+    const wc=this.view.webContents, page=wc.getURL();
+    webURL(page);
+    this.pickingGraphic=true;
+    try {
+      await this.isolated(`(()=>{
+        globalThis.fraynixPickedGraphic=null;
+        globalThis.fraynixGraphicPick=new Promise(resolve=>{
+          let timer;
+          const finish=result=>{
+            clearTimeout(timer);
+            document.removeEventListener('click',click,true);
+            document.removeEventListener('keydown',key,true);
+            resolve(result);
+          };
+          const click=event=>{
+            if(!event.isTrusted)return;
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            const item=event.target instanceof Element?event.target.closest('img,svg,canvas'):null;
+            globalThis.fraynixPickedGraphic=item;
+            finish(item?{tag:item.tagName.toLowerCase()}:{error:'Click a visible image, SVG or canvas.'});
+          };
+          const key=event=>{if(event.key==='Escape'){event.stopImmediatePropagation();finish({error:'Graphic selection cancelled.'});}};
+          document.addEventListener('click',click,true);
+          document.addEventListener('keydown',key,true);
+          timer=setTimeout(()=>finish({error:'Graphic selection timed out. Try again.'}),30000);
+        });
+        return true;
+      })()`);
+      wc.focus();
+      const result=await wc.executeJavaScriptInIsolatedWorld(1001,[{code:'globalThis.fraynixGraphicPick'}],true);
+      if(result?.error)throw Error(result.error);
+      if(wc.getURL()!==page||!result?.tag)throw Error('The browser changed during selection. Try again.');
+      return this.captureGraphicTarget(null,result.tag);
+    } finally { this.pickingGraphic=false; }
+  }
+
+  async captureGraphicTarget(selector, tag=null) {
     const wc=this.view.webContents, page=wc.getURL();
     const source=new URL(webURL(page));
     source.username=source.password=source.search=source.hash='';
     const bounds=async()=>{
       const measured=await this.isolated(`(()=>{
-      let matches;
-      try{matches=document.querySelectorAll(${JSON.stringify(selector)});}catch{return {error:'Enter a valid CSS selector.'};}
-      const e=matches[0];
-      if(matches.length!==1||!['img','svg','canvas'].includes(e.tagName.toLowerCase()))
+      let e;
+      if(${selector===null})e=globalThis.fraynixPickedGraphic;
+      else{
+        let matches;
+        try{matches=document.querySelectorAll(${JSON.stringify(selector)});}catch{return {error:'Enter a valid CSS selector.'};}
+        if(matches.length===1)e=matches[0];
+      }
+      if(!e?.isConnected||!['img','svg','canvas'].includes(e.tagName.toLowerCase()))
         return {error:'Select exactly one visible img, svg or canvas.'};
       const r=e.getBoundingClientRect(), style=getComputedStyle(e);
       const x=Math.floor(r.x),y=Math.floor(r.y),width=Math.ceil(r.right)-x,height=Math.ceil(r.bottom)-y;
@@ -64,7 +111,10 @@ class Surface {
     if(wc.getURL()!==page||JSON.stringify(await bounds())!==JSON.stringify(rect)||wc.getURL()!==page)
       throw Error('The browser changed during capture. Try again.');
     if(image.isEmpty())throw Error('This graphic could not be captured.');
-    return {url:source.href,selector,png:image.toPNG().toString('base64')};
+    if(selector!==null)return {url:source.href,selector,png:image.toPNG().toString('base64')};
+    // Normalize selected crops to CSS pixels so that the same scale can be compared across displays.
+    const normalized=image.resize({width:rect.width,height:rect.height});
+    return {url:source.href,tag,png:normalized.toPNG({scaleFactor:1}).toString('base64')};
   }
   async observe(){
     const observation=this.lease.create();

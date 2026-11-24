@@ -1063,6 +1063,18 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         await refresh();
         return scene;
       }
+      if(input.command==='pick-browser-view'){
+        if(!surfacesVisible.browser)throw Error('Show the in-app browser to pick a graphic.');
+        return browser.pickGraphic();
+      }
+      if(input.command==='trace-browser-views'){
+        const {widthM,views}=input.args;
+        const source=JSON.stringify({format:'fraynix.browser-registered-views-v2',widthM,views});
+        const scene=await api('/api/spatial/browser-trace',{source});
+        currentSpatial=null;
+        await refresh();
+        return scene;
+      }
       if(input.command==='trace-browser'){
         if(!surfacesVisible.browser)throw Error('Show the in-app browser before capturing a graphic.');
         const {selector,widthM,thicknessM}=input.args;

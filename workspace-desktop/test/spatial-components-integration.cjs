@@ -10,8 +10,8 @@ const { execFile } = require('node:child_process');
 const { promisify } = require('node:util');
 const { launch } = require('./calibration-integration.cjs');
 
-const markup = '<!doctype html><title>Workshop bracket graphic</title><style>body{margin:0;background:white}svg{display:block}</style>' +
-  '<svg id="bracket-graphic" width="160" height="160" viewBox="0 0 160 160">' +
+const markup = '<!doctype html><title>Workshop bracket graphic</title><style>body{margin:0;background:white}svg{display:block;width:120px;height:auto}@media(max-width:119px){svg{width:100px}}@media(max-width:99px){svg{width:80px}}@media(max-width:79px){svg{width:60px}}</style>' +
+  '<svg id="bracket-graphic" width="120" height="120" viewBox="0 0 160 160">' +
   '<path fill="#173d6a" fill-rule="evenodd" d="M32 24H120V48H136V128H56V112H24V56H32Z M64 64H96V96H64Z"/></svg>';
 const closeTo = (actual, expected) => assert(Math.abs(actual - expected) < 2e-6, [actual, expected]);
 
