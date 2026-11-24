@@ -1,0 +1,70 @@
+{
+  "summary": "Move vertices, edges and faces, refit the collider and undo saved edits. Turn a captured browser graphic into a checked, editable silhouette.",
+  "modules": [
+    {
+      "title": "Component moves and collider fitting",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialMeshComponents.java",
+      "note": "docs/obsidian/234-components-browser-trace.md"
+    },
+    {
+      "title": "Browser silhouette fitting",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BrowserShapeTrace.java",
+      "note": "docs/obsidian/234-components-browser-trace.md"
+    },
+    {
+      "title": "Mesh editing panel in Spatial",
+      "source": "workspace-desktop/renderer/spatial-mesh-edit.js",
+      "note": "docs/obsidian/234-components-browser-trace.md"
+    },
+    {
+      "title": "Source and undo verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/234-components-browser-trace.md"
+    },
+    {
+      "title": "Desktop and Blender verification",
+      "source": "workspace-desktop/test/spatial-components-integration.cjs",
+      "note": "docs/obsidian/234-components-browser-trace.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/226/collider-refresh.png",
+      "title": "Fraynix previews the fitted collider"
+    },
+    {
+      "path": "docs/readmes/226/browser-trace.png",
+      "title": "The browser graphic and its checked 3D outline"
+    },
+    {
+      "path": "docs/readmes/226/browser-graphic.png",
+      "title": "The actual retained browser crop"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/226/component-trace-evidence.json",
+      "title": "Desktop, Blender and browser measurements"
+    },
+    {
+      "path": "docs/readmes/226/fraynix-components.blend",
+      "title": "Component edits and refreshed collider"
+    },
+    {
+      "path": "docs/readmes/226/blender-component-edit.blend",
+      "title": "Mesh edited in Blender 4.5 LTS"
+    },
+    {
+      "path": "docs/readmes/226/browser-trace.glb",
+      "title": "Exported browser silhouette mesh"
+    },
+    {
+      "path": "docs/publication226/plan.md",
+      "title": "Verification and observation-driven creation roadmap"
+    },
+    {
+      "path": "docs/readmes/226/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}

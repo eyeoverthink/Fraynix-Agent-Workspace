@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 226 — Edit components and model a browser reference](../../README-226.md) · [Walkthrough](226/index.html)
+
 [Edition 225 — Edit a mesh and export a metric STL](../../README-225.md) · [Walkthrough](225/index.html)
 
 [Edition 224 — Edit a timeline and round-trip through Blender](../../README-224.md) · [Walkthrough](224/index.html)

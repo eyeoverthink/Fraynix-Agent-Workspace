@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 226 · Edit components and model a browser reference</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Edit components and model a browser reference</h1><p>Move vertices, edges and faces, refit the collider and undo saved edits. Turn a captured browser graphic into a checked, editable silhouette.</p>
+<nav><a href="../../../README-226.md">App guide</a><a href="component-trace-evidence.json">Full receipts</a>
+<a href="../225/index.html">Edition 225</a><a href="../../publication222/plan.md">Production roadmap</a>
+<a href="fraynix-components.blend" download>Editable Blender project</a><a href="#system">System files</a></nav>
+<p>Blender checked the 530 mm fitted box and returned a further mesh edit. A browser capture produced a silhouette model whose overlap improved from 83.7% to 100% on the fixture.</p>
+<figure><img src="collider-refresh.png" alt="Fraynix previews the fitted collider"><figcaption>Fraynix previews the fitted collider</figcaption></figure>
+<figure><img src="browser-trace.png" alt="The browser graphic and its checked 3D outline"><figcaption>The browser graphic and its checked 3D outline</figcaption></figure>
+<figure><img src="browser-graphic.png" alt="The actual retained browser crop"><figcaption>The actual retained browser crop</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Move vertices, edges and faces, refit the collider and undo saved edits. Turn a captured browser graphic into a checked, editable silhouette.", "modules": [{"title": "Component moves and collider fitting", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialMeshComponents.java", "note": "docs/obsidian/234-components-browser-trace.md"}, {"title": "Browser silhouette fitting", "source": "workspace-engine/src/main/java/fraymus/workspace/BrowserShapeTrace.java", "note": "docs/obsidian/234-components-browser-trace.md"}, {"title": "Mesh editing panel in Spatial", "source": "workspace-desktop/renderer/spatial-mesh-edit.js", "note": "docs/obsidian/234-components-browser-trace.md"}, {"title": "Source and undo verification", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "note": "docs/obsidian/234-components-browser-trace.md"}, {"title": "Desktop and Blender verification", "source": "workspace-desktop/test/spatial-components-integration.cjs", "note": "docs/obsidian/234-components-browser-trace.md"}], "screenshots": [{"path": "docs/readmes/226/collider-refresh.png", "title": "Fraynix previews the fitted collider"}, {"path": "docs/readmes/226/browser-trace.png", "title": "The browser graphic and its checked 3D outline"}, {"path": "docs/readmes/226/browser-graphic.png", "title": "The actual retained browser crop"}], "evidence": [{"path": "docs/readmes/226/component-trace-evidence.json", "title": "Desktop, Blender and browser measurements"}, {"path": "docs/readmes/226/fraynix-components.blend", "title": "Component edits and refreshed collider"}, {"path": "docs/readmes/226/blender-component-edit.blend", "title": "Mesh edited in Blender 4.5 LTS"}, {"path": "docs/readmes/226/browser-trace.glb", "title": "Exported browser silhouette mesh"}, {"path": "docs/publication226/plan.md", "title": "Verification and observation-driven creation roadmap"}, {"path": "docs/readmes/226/FILE_TREE.md", "title": "Edition file tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 13317, "sha256": "a4bb8e84126e5fd55afc39c17f82b83d30e1624e5ff60ab8f7b5992f27ad1220", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/234-components-browser-trace.canvas", "bytes": 2298, "sha256": "b48fb549e9fa27e38f0378936f0c27bdca973e9276a287d39a31ee57f6f70ce0", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/234-components-browser-trace.md", "bytes": 536, "sha256": "6f07f924c7ee5790a91928111e91257e4930302541ee50f9bd8f8f8b81b968cb", "hashKind": "utf8-lf"}, {"path": "docs/publication226/plan.md", "bytes": 3442, "sha256": "7d9492f8b5f9a55ca41876a29f239320e92efcfd46e45ba15d521cd9923dea94", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 129149, "sha256": "4f8a7075fc1a815df21a0bc1032a94433398a0a8dcab04b68331241481babac2", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-mesh-edit.js", "bytes": 9372, "sha256": "34cf2bb3f4f2586319fb030bad3647691529413423499c2c1b06293fd18c68e7", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-panel.js", "bytes": 44254, "sha256": "d588f3dcca792f6d1bb89e6c851caf65470e5a317be1ee9311b026206787b8d4", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial.css", "bytes": 7694, "sha256": "be5c46517a839f4ef4440cd4b37b779811676f6a34dc5333e09ddbc06d736354", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/surfaces.cjs", "bytes": 10646, "sha256": "0416b21073d1594c40654cfbc6bdc84c44422b1e03c02bb6bc33b7e3e785699c", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/spatial-components-blender.py", "bytes": 1212, "sha256": "0967ba1bd02c2d1db2fcabc41ac82cd56279e348ba10eec211bb72925f7ff4f5", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/spatial-components-integration.cjs", "bytes": 10778, "sha256": "d7c1b893d1f6d8930028bb6e234430f060d7c96c6f554f83de06d95a0fcaa45c", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/BrowserShapeTrace.java", "bytes": 8186, "sha256": "765d97e3f4238f8cf00745186a51022683d76f8d3ad2b36c24b98ea8b0baa34b", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialMeshComponents.java", "bytes": 4658, "sha256": "159d6b521f672d6e2fa31f00b33161af1d131e23128ed6fe0e44eaaf75d4555d", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstruction.java", "bytes": 11699, "sha256": "14f7a36460cec7145c83ae43da5328c987c71fc1247e82cb83caf2273f51f97f", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 36225, "sha256": "583a91bc349e8cd6e9ba8d7c11c19a2352f3a06f2a5ac9a656f3bc6cdffc251f", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 150056, "sha256": "624ded2a3f0dc3b2279a0d8d10bce6ce82c535915e5c941d997b2acefceb2aea", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>
