@@ -7,6 +7,7 @@ const os = require('node:os');
 const path = require('node:path');
 const {launch} = require('./calibration-integration.cjs');
 const {testPairedBriefing} = require('./paired-briefing-integration.cjs');
+const {testNamedComparisonChart} = require('./named-comparison-chart.cjs');
 const {NativeExports} = require('../exports.cjs');
 
 const ranges = 'min_inclusive,max_exclusive,label\n0,10,temperature\n10,20,length';
@@ -191,6 +192,8 @@ async function main() {
         const original = await exportComparison();
         await send('Summarize the last verified matched comparison CSV.');
         await reply('Comparison CSV totals verified against Java.');
+        await send('Name the last verified comparison "Workshop audit".');
+        await reply('Saved “Workshop audit” for verified comparison '+original.id);
         await send('Build an explorer from the verified comparison totals.');
         await reply('Comparison explorer verified against Java.');
         const legacy = await call('routing-summary',{verifyOnly:true,explorer:true,exportId:original.id});
@@ -315,6 +318,13 @@ async function main() {
                 page.on('pageerror',error=>errors.push(error.message));
             }});
         checks.push(...paired.checks,...paired.selected.checks);
+        const namedChart = await testNamedComparisonChart({project,output,original,call,api,send,reply,
+            app:()=>app,page:()=>page,restart:async()=>{
+                await app.close();
+                ({app,page} = await launch(project,args));
+                page.on('pageerror',error=>errors.push(error.message));
+            }});
+        checks.push(...namedChart.checks);
         const manifestAfterPaired = await fs.readFile(manifest,'utf8');
         const source = path.join(project,'exports',original.id+'.csv');
         await fs.appendFile(source,'changed');
@@ -324,7 +334,7 @@ async function main() {
         checks.push('Changed comparison bytes are refused before sharing the story');
         assert.deepEqual(errors,[]);
         const result = {passed:true,platform:process.platform,architecture:process.arch,proof,
-            briefing:{review:await call('briefing-read',{id:briefingId}),proof:briefingProof,evidence:briefingEvidence,rowsOnly},paired,changes:expected,checks};
+            briefing:{review:await call('briefing-read',{id:briefingId}),proof:briefingProof,evidence:briefingEvidence,rowsOnly},paired,namedChart,changes:expected,checks};
         await fs.writeFile(path.join(output,'result.json'),JSON.stringify(result,null,2)+'\n');
         console.log(JSON.stringify({passed:true,platform:result.platform,architecture:result.architecture,checks}));
     } finally {

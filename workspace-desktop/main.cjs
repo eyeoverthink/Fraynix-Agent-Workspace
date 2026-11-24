@@ -560,6 +560,23 @@ async function comparisonSources(id) {
   return {comparisonImport,baseline,file,keyColumn};
 }
 
+async function comparisonChartRequest({request, lastSummary}) {
+  const intent=await api('/api/requests/comparison-chart-intent',{request});
+  if(!intent.matched)return intent;
+  let plan=intent.plan;
+  const exportId=plan?.exportId||intent.exportId||(intent.action==='name'?lastSummary:null);
+  if(!exportId)throw Error('Summarize the comparison CSV you want to name first.');
+  const readSources=()=>comparisonSources(exportId).catch(error=>{
+    throw new Error('Unable to open the named comparison evidence. '+error.message,{cause:error});
+  });
+  const sources=await readSources();
+  if(!plan)plan=await api('/api/requests/comparison-chart-pin',{request,...sources});
+  if(intent.action==='name')return{matched:true,action:'name',...plan};
+  const flags={comparisonChartId:plan.comparisonChartId};
+  const chart=await openRoutedReport({...sources,...flags},async()=>({...await readSources(),...flags}),{verifyOnly:plan.verifyOnly});
+  return{matched:true,action:'chart',...chart};
+}
+
 async function summarizeRoutedComparison({verifyOnly=false,exportId,explorer=false,story=false,exportStory=false,explorerLesson,briefingId}={}) {
   if(typeof verifyOnly!=='boolean'||typeof explorer!=='boolean'||typeof story!=='boolean'||
       (verifyOnly||explorer||story)&&typeof exportId!=='string')
@@ -736,6 +753,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(command==='run-routing')return runClassificationPlan(args);
       if(command==='routing-dashboard')return openRoutedDashboard(args);
       if(command==='routing-summary')return summarizeRoutedComparison(args);
+      if(command==='comparison-chart')return comparisonChartRequest(args);
       if(['briefing-catalog','briefing-review','briefing-read','briefing-build','briefing-recheck','briefing-export'].includes(command))
         return comparisonBriefing(command,args);
       if(command==='teach-comparison-explorer')return teachComparisonExplorer(args);

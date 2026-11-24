@@ -21,6 +21,7 @@ final class RoutedDashboard {
     private final ClassifiedProcedurePlan routing;
     private final WorkspaceStore store;
     private final ComparisonExplorerLessons lessons;
+    private final ComparisonChartBook charts;
 
     private enum Presentation { TOTALS, EXPLORER, STORY }
 
@@ -28,6 +29,7 @@ final class RoutedDashboard {
         var workbench = project.resolve("request-workbench");
         directory = workbench.resolve("routed-dashboards");
         lessons = new ComparisonExplorerLessons(workbench);
+        charts = new ComparisonChartBook(workbench.resolve("comparison-charts"));
         this.routing = routing;
         this.store = store;
     }
@@ -67,6 +69,55 @@ final class RoutedDashboard {
             return new JSONObject().put("exportId", receipt.getString("id"))
                     .put("sourceSha256", receipt.getString("sha256")).put("summary", artifact);
         }
+    }
+
+    synchronized JSONObject chartIntent(JSONObject input) throws Exception {
+        SpatialScene.keys(input, "request");
+        var request = ComparisonChartBook.request(input.getString("request"));
+        if (request == null) return new JSONObject().put("matched", false);
+        var result = new JSONObject().put("matched", true).put("action", request.action());
+        if (request.action().equals("resume")) return result.put("plan", chartPlanView(charts.last()));
+        if (request.action().equals("chart")) {
+            return result.put("exportId", charts.named(request.name()).getJSONObject("source").getString("exportId"));
+        }
+        if (request.exportId() != null) result.put("exportId", request.exportId());
+        return result;
+    }
+
+    synchronized JSONObject pinChart(JSONObject input) throws Exception {
+        SpatialScene.keys(input, "request", "file", "baseline", "keyColumn", "comparisonImport");
+        var request = ComparisonChartBook.request(input.getString("request"));
+        if (request == null || request.action().equals("resume")) {
+            throw new IllegalArgumentException("Name a verified comparison or request a chart for one.");
+        }
+        var verified = checkedBriefingSource(input, "Named comparison source");
+        if (request.action().equals("name")) return charts.name(request, verified);
+
+        var named = charts.named(request.name());
+        requireChartSource(named, verified);
+        // Resolve the exact rows before replacing the last resumable chart request.
+        RoutedComparisonChart.validateSelection(verified, request.selection());
+        return chartPlanView(charts.pin(named, request.selection()));
+    }
+
+    private JSONObject chartPlanView(JSONObject plan) throws Exception {
+        String id = plan.getString("comparisonChartId");
+        boolean saved = Files.isRegularFile(path(id), LinkOption.NOFOLLOW_LINKS) && load(id).has("artifact");
+        return plan.put("verifyOnly", saved);
+    }
+
+    private static void requireChartSource(JSONObject named, VerifiedSummary verified) {
+        if (!named.getJSONObject("source").similar(verified.binding()))
+            throw new IllegalStateException("The named comparison’s original export or summary changed.");
+    }
+
+    private static String comparisonChartId(JSONObject record) {
+        return record.has("comparisonChartId") ? record.getString("comparisonChartId") : null;
+    }
+
+    private static void requireChartId(JSONObject task, String id) {
+        if (!Objects.equals(comparisonChartId(task), id))
+            throw new IllegalArgumentException("The original comparison chart selection changed.");
     }
 
     synchronized JSONObject comparisonCatalog(JSONObject input) throws Exception {
@@ -201,7 +252,7 @@ final class RoutedDashboard {
     }
 
     synchronized JSONObject prepare(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "file", "baseline", "keyColumn", "comparisonImport", "explorer", "story", "explorerLesson", "briefingId", "secondSource", "verifyOnly");
+        SpatialScene.keys(input, "file", "baseline", "keyColumn", "comparisonImport", "explorer", "story", "explorerLesson", "briefingId", "secondSource", "comparisonChartId", "verifyOnly");
         var file = input.getJSONObject("file");
         var baseline = input.optJSONObject("baseline");
         String key = keyColumn(input);
@@ -210,7 +261,8 @@ final class RoutedDashboard {
         String lesson = lessonName(input);
         String briefing = briefingId(input);
         var report = checkedRequestReport(input);
-        String id = briefing != null
+        String chart = comparisonChartId(input);
+        String id = chart != null ? chart : briefing != null
                 ? UUID.nameUUIDFromBytes(("comparison-briefing-v1:" + briefing).getBytes(StandardCharsets.UTF_8)).toString()
                 : imported == null ? reportId(file, baseline, key) : importedId(imported, presentation, lesson);
         var path = path(id);
@@ -218,6 +270,7 @@ final class RoutedDashboard {
         if (task != null) {
             requireRequestSources(task, file, baseline, key, imported, presentation, lesson);
             requireBriefing(task, briefing);
+            requireChartId(task, chart);
             requireSecondSource(task, input);
         }
         if (task != null && task.has("artifact")) {
@@ -240,6 +293,7 @@ final class RoutedDashboard {
             if (presentation == Presentation.STORY) initial.put("story", true);
             if (lesson != null) initial.put("explorerLesson", lesson);
             if (briefing != null) initial.put("briefingId", briefing);
+            if (chart != null) initial.put("comparisonChartId", chart);
             if (input.has("secondSource")) initial.put("secondSource", input.getJSONObject("secondSource"));
             save(initial);
         }
@@ -250,7 +304,7 @@ final class RoutedDashboard {
     }
 
     synchronized JSONObject finish(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "id", "file", "baseline", "keyColumn", "comparisonImport", "explorer", "story", "explorerLesson", "briefingId", "secondSource", "htmlSha256", "checks", "exportCsv");
+        SpatialScene.keys(input, "id", "file", "baseline", "keyColumn", "comparisonImport", "explorer", "story", "explorerLesson", "briefingId", "secondSource", "comparisonChartId", "htmlSha256", "checks", "exportCsv");
         var task = load(input.getString("id"));
         var file = input.getJSONObject("file");
         var baseline = input.optJSONObject("baseline");
@@ -261,6 +315,7 @@ final class RoutedDashboard {
         requireRequestSources(task, file, baseline, key, imported, presentation, lesson);
         String briefing = briefingId(input);
         requireBriefing(task, briefing);
+        requireChartId(task, comparisonChartId(input));
         requireSecondSource(task, input);
         var report = checkedRequestReport(input);
         if (!report.htmlSha256().equals(input.getString("htmlSha256")))
@@ -326,6 +381,15 @@ final class RoutedDashboard {
 
     private RoutedReport checkedRequestReport(JSONObject input) throws Exception {
         var id = briefingId(input);
+        var chart = comparisonChartId(input);
+        if (chart != null) {
+            if (id != null || input.has("secondSource") || presentation(input) != Presentation.TOTALS || lessonName(input) != null)
+                throw new IllegalArgumentException("Choose only the named chart presentation.");
+            var request = charts.read(chart);
+            var verified = checkedBriefingSource(input, "Named comparison source");
+            requireChartSource(request.getJSONObject("named"), verified);
+            return new RoutedComparisonChart(verified, request);
+        }
         if (input.has("secondSource")) {
             if (id == null) throw new IllegalArgumentException("Review both sources before building a paired briefing");
             var selection = loadBriefing(id);
@@ -503,6 +567,8 @@ final class RoutedDashboard {
         if (lessonName(task) != null) result.put("explorerLesson", lessonName(task));
         if (report instanceof PairedComparisonBriefing briefing)
             result.put("comparisonSources", briefing.sourceBindings());
+        if (report instanceof RoutedComparisonChart chart)
+            result.put("comparisonChart", chart.summary());
         if (briefingId(task) != null) result.put("briefingId", briefingId(task));
         else if (presentation(task) == Presentation.STORY) result.put("story", true);
         return result;

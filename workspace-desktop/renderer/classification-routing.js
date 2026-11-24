@@ -22,6 +22,11 @@ const summaryRequest = /^(?:Summarize the last verified matched comparison CSV|R
 const explorerRequest = /^(?:Build an explorer from the verified comparison totals|Recheck the verified comparison explorer)[.!]?$/i;
 const storyRequest = /^(?:Build a change story from the verified comparison totals|Recheck the verified change story|Export the verified change story)[.!]?$/i;
 const lessonRequest = /^(Teach|Use|Recheck) comparison explorer lesson ([a-z][a-z0-9-]{2,55})[.!]?$/i;
+const namedComparisonRequest = text => {
+    const wording = text.replace(/^(?:(?:can|could|would) you )?(?:please )?/i,'');
+    return /^(?:name (?:the last verified comparison|comparison export)\b|(?:open|resume|recheck) (?:my |the )?last comparison chart\b)/i.test(wording)
+        || /^(?:(?:make|draw) (?:me )?a chart of|chart|plot) (?:gains|losses|changes)\b/i.test(wording);
+};
 const hasSourceSections = sources => sources?.some(source=>Array.isArray(source.sections));
 const lessonPin = name => 'fraynix-comparison-explorer-lesson-'+name;
 
@@ -29,6 +34,7 @@ export const isRoutingRequest = text => /^(?:Route the last verified classificat
 export const isRoutedDashboardRequest = text =>
     byKey.test(text.trim()) || recheckKey.test(text.trim()) || exportKey.test(text.trim()) ||
     summaryRequest.test(text.trim()) || explorerRequest.test(text.trim()) || storyRequest.test(text.trim()) ||
+    namedComparisonRequest(text.trim()) ||
     lessonRequest.test(text.trim()) || briefingPickerRequest.test(text.trim()) || briefingReview.test(text.trim()) || briefingAction.test(text.trim()) ||
     /^(?:Build a dashboard from the (?:last )?verified routed CSV|Recheck the routed CSV dashboard|Compare the last two verified routed CSVs|Recheck the routed CSV comparison)[.!]?$/i.test(text.trim());
 
@@ -97,6 +103,21 @@ export class ClassificationRoutingPanel {
     }
 
     async fromChat(text) {
+        if (namedComparisonRequest(text.trim())) {
+            try {
+                const result = await this.call('comparison-chart',{request:text,lastSummary:localStorage.getItem(COMPARISON_SUMMARY)});
+                if (!result.matched) throw Error('Try: Chart gains from "Workshop audit" in millimetres. Quote the saved name and any row keys.');
+                if (result.action === 'name') {
+                    this.announce('Saved “'+result.name+'” for verified comparison '+result.source.exportId+'.');
+                } else {
+                    const {name,rows,units} = result.comparisonChart;
+                    const count = rows===1 ? '1 matched row' : rows+' matched rows';
+                    this.announce('Opened the chart for “'+name+'”. '+count+(units.length?' · '+units.join(' and '):'')
+                        +'. '+result.browserChecks+' browser checks passed.');
+                }
+            } catch (error) { this.announce(error.message); }
+            return;
+        }
         if (briefingPickerRequest.test(text.trim())) {
             await this.briefingPicker.open();
             return;
