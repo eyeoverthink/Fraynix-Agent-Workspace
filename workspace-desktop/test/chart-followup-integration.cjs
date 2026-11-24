@@ -33,10 +33,14 @@ async function main() {
     const csv = await fs.readFile(path.join('docs','datasets','delfys75-013','validation.csv'),'utf8');
     let app, page;
 
-    async function open() {
+    async function open({compact = false} = {}) {
         ({app,page} = await launch(project,flags));
         page.on('pageerror',error => evidence.errors.push(error.message));
-        await app.evaluate(({BrowserWindow}) => BrowserWindow.getAllWindows().find(window => window.isVisible()).setSize(1500,920));
+        await app.evaluate(({BrowserWindow},compact) => {
+            const window = BrowserWindow.getAllWindows().find(window => window.isVisible());
+            window.setSize(compact ? 1100 : 1500, compact ? 760 : 920);
+        },compact);
+        if (compact) await page.waitForFunction(() => window.innerHeight <= 850);
     }
 
     async function close() {
@@ -190,7 +194,7 @@ async function main() {
         await importMotion('A later result','time_s,displacement_m\n0,0\n0.1,-0.04\n0.2,0\n','synthetic');
         const later = await complete(originalMotion);
         await close();
-        await open();
+        await open({compact:true});
 
         await page.locator('#chart-request-open').click();
         await page.locator('#chart-request-dialog').waitFor({state:'visible'});
@@ -225,7 +229,7 @@ async function main() {
         assert.deepEqual(simulated.source.series.map(series=>series.samples),
             [experiment.original.first.samples,experiment.original.second.samples]);
         evidence.ramp = {samples:verifyProjection(simulated.source),sha256:hash(rampCsv),browserChecks:simulated.checks};
-        evidence.recovery = {choicesReopened:pending.choices.length,unofferedSourceRefused:true,selectedSourceReopened:true,
+        evidence.recovery = {choicesReopened:pending.choices.length,compactWindowReopened:true,unofferedSourceRefused:true,selectedSourceReopened:true,
             plottedEvidenceRequired:true,noExtraArtifactBeforeBrowserProof:true};
         await capture('simulated-chart');
 
