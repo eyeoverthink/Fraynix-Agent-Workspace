@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md)
 
-[Edition 231 — Reconstruct editable props from the sprite library](README-231.md) · [Previous edition](README-230.md) · [Offline walkthrough](docs/readmes/231/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 232 — Approve a chat placement and export measured collision evidence](README-232.md) · [Previous edition](README-231.md) · [Offline walkthrough](docs/readmes/232/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Fit an editable 3D prop from registered sprite-library views. Verify a separate view and exchange the mesh and collider through Blender.
+Ask chat to place a checked 3D prop, approve the exact pose, and export the scene with measured native collision evidence.

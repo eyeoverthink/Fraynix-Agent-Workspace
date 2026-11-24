@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 232 — Approve a chat placement and export measured collision evidence](../../README-232.md) · [Walkthrough](232/index.html)
+
 [Edition 231 — Reconstruct editable props from the sprite library](../../README-231.md) · [Walkthrough](231/index.html)
 
 [Edition 230 — Build playable tile levels from a shared sprite library](../../README-230.md) · [Walkthrough](230/index.html)

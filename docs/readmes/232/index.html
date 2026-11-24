@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 232 · Approve a chat placement and export measured collision evidence</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Approve a chat placement and export measured collision evidence</h1><p>Review a checked prop, measure a native hit and miss, and keep the scene and evidence after restart.</p>
+<nav><a href="../../../README-232.md">App guide</a><a href="placement-proof.json">Full receipts</a>
+<a href="../231/index.html">Edition 231</a><a href="../../publication229/plan.md">Implementation</a>
+<a href="verified-placement.fraynix-placement.json" download>Scene and evidence</a><a href="#system">System files</a></nav>
+<p>The approved prop had first contact at tick 43; the lateral control had zero contacts. Replay after restart reproduced the evidence and export.</p>
+<figure><img src="placement-review.png" alt="The exact placement is ready for approval"><figcaption>The exact placement is ready for approval</figcaption></figure>
+<figure><img src="placement-verified.png" alt="The native hit and miss are retained with the export"><figcaption>The native hit and miss are retained with the export</figcaption></figure>
+<figure><img src="placement-scene.png" alt="The new authored scene in Spatial"><figcaption>The new authored scene in Spatial</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Review a checked prop, measure a native hit and miss, and keep the scene and evidence after restart.", "modules": [{"title": "Placement review, native trials and export", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialPlacement.java", "note": "docs/obsidian/240-reviewed-placement.md"}, {"title": "Durable approval and verified scene state", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "note": "docs/obsidian/240-reviewed-placement.md"}, {"title": "Desktop approval and replay controls", "source": "workspace-desktop/renderer/spatial-placement.js", "note": "docs/obsidian/240-reviewed-placement.md"}, {"title": "Chat, approval, restart and scene export acceptance", "source": "workspace-desktop/test/spatial-placement-integration.cjs", "note": "docs/obsidian/240-reviewed-placement.md"}, {"title": "Host guards and native placement routes", "source": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "note": "docs/obsidian/240-reviewed-placement.md"}], "screenshots": [{"path": "docs/readmes/232/placement-review.png", "title": "The exact placement is ready for approval"}, {"path": "docs/readmes/232/placement-verified.png", "title": "The native hit and miss are retained with the export"}, {"path": "docs/readmes/232/placement-scene.png", "title": "The new authored scene in Spatial"}], "evidence": [{"path": "docs/readmes/232/placement-proof.json", "title": "Contact and restart measurements"}, {"path": "docs/readmes/232/verified-placement.fraynix-placement.json", "title": "Editable scene, GLB and native traces"}, {"path": "docs/readmes/232/verified-placement.glb", "title": "Reimported GLB"}, {"path": "docs/publication232/plan.md", "title": "Approval, contact and evidence contract"}, {"path": "docs/readmes/232/FILE_TREE.md", "title": "Edition file tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 16196, "sha256": "5257fa47b3d2f1fddd2747a7a963560dd0f335afd8c25812519a359b2331b74e", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/240-reviewed-placement.canvas", "bytes": 2290, "sha256": "575ae92e3c8138b8940c6e50f170a5b15638c331c0853a85a24f3702c9f445e6", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/240-reviewed-placement.md", "bytes": 772, "sha256": "48c6dcb3d53f5c71939572ab55f2697bd9b5e7b91456212c384c789ec4828b8d", "hashKind": "utf8-lf"}, {"path": "docs/publication232/plan.md", "bytes": 2483, "sha256": "020f869312e23c931e635d199b5b70319bddeb6a29d919eeffdb155f0607a452", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 132907, "sha256": "a40ab932620cebb7396dbe82a36bbeee0109c14815de18e7c877b4dbd14de505", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/app.js", "bytes": 42893, "sha256": "d4f7cf82f8271561f3affdeb36fdcfe42de6d5f5b74c41f0bde24869bf201218", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-panel.js", "bytes": 49465, "sha256": "e6828a69c2c37195c6b9e74f6ff025f09fbb6335e50cd0370dad440cc5de6577", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-placement.js", "bytes": 7718, "sha256": "2c96a6fe9aabed2108dda32279d11053cd360bd69e232287e4c5912d5c09dc6f", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial.css", "bytes": 8594, "sha256": "f621be840fb1b310baa1b702333875f6186843826894cff0e86f7127cf35a97d", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/spatial-placement-integration.cjs", "bytes": 11664, "sha256": "5b83da8320cb8be92ad11eaa9ea0bd1518ef0aa5b0ff3b8ffd274c0295fedad6", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialPlacement.java", "bytes": 14033, "sha256": "8ea9e75f6e1c3910fe7ff68bb8890483f99e6fc6a1db5a27cc2acfe4d2dcab06", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 43045, "sha256": "3e65e9e49103b09a5aabc79a46cfb9fba73dab0f2e2560af2f026cd7c0cd816e", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 152720, "sha256": "79756d5879b57bae2fa2a73b0fc9ebe3294ad485d65773d447299b9794726346", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

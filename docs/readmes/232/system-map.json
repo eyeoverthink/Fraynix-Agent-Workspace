@@ -1,0 +1,66 @@
+{
+  "summary": "Review a checked prop, measure a native hit and miss, and keep the scene and evidence after restart.",
+  "modules": [
+    {
+      "title": "Placement review, native trials and export",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialPlacement.java",
+      "note": "docs/obsidian/240-reviewed-placement.md"
+    },
+    {
+      "title": "Durable approval and verified scene state",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/240-reviewed-placement.md"
+    },
+    {
+      "title": "Desktop approval and replay controls",
+      "source": "workspace-desktop/renderer/spatial-placement.js",
+      "note": "docs/obsidian/240-reviewed-placement.md"
+    },
+    {
+      "title": "Chat, approval, restart and scene export acceptance",
+      "source": "workspace-desktop/test/spatial-placement-integration.cjs",
+      "note": "docs/obsidian/240-reviewed-placement.md"
+    },
+    {
+      "title": "Host guards and native placement routes",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+      "note": "docs/obsidian/240-reviewed-placement.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/232/placement-review.png",
+      "title": "The exact placement is ready for approval"
+    },
+    {
+      "path": "docs/readmes/232/placement-verified.png",
+      "title": "The native hit and miss are retained with the export"
+    },
+    {
+      "path": "docs/readmes/232/placement-scene.png",
+      "title": "The new authored scene in Spatial"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/232/placement-proof.json",
+      "title": "Contact and restart measurements"
+    },
+    {
+      "path": "docs/readmes/232/verified-placement.fraynix-placement.json",
+      "title": "Editable scene, GLB and native traces"
+    },
+    {
+      "path": "docs/readmes/232/verified-placement.glb",
+      "title": "Reimported GLB"
+    },
+    {
+      "path": "docs/publication232/plan.md",
+      "title": "Approval, contact and evidence contract"
+    },
+    {
+      "path": "docs/readmes/232/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}
