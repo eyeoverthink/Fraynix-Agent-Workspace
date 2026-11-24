@@ -1,0 +1,70 @@
+{
+  "summary": "Compare a straight carry and two turns, review the measured path, then replay the approved motion after restart.",
+  "modules": [
+    {
+      "title": "Native grip, yaw and clearance checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialCarry.java",
+      "note": "docs/obsidian/226-doorway-carry.md"
+    },
+    {
+      "title": "Persistent review and verified replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialCarryStore.java",
+      "note": "docs/obsidian/226-doorway-carry.md"
+    },
+    {
+      "title": "Chat review and route trace controls",
+      "source": "workspace-desktop/renderer/spatial-carry.js",
+      "note": "docs/obsidian/226-doorway-carry.md"
+    },
+    {
+      "title": "Blender-authored gate pairs",
+      "source": "workspace-desktop/test/spatial-doorway-blender.py",
+      "note": "docs/obsidian/226-doorway-carry.md"
+    },
+    {
+      "title": "Matched endpoints and restart tests",
+      "source": "workspace-engine/src/test/java/fraymus/workspace/SpatialCarryTest.java",
+      "note": "docs/obsidian/226-doorway-carry.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/218/review.png",
+      "title": "Review the successful turn before approving a fresh replay"
+    },
+    {
+      "path": "docs/readmes/218/verified.png",
+      "title": "The verified key crosses the gate with the approved turn"
+    },
+    {
+      "path": "docs/readmes/218/refused.png",
+      "title": "The blocked quarter-turn reports its first jamb contact"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/218/desktop-evidence.json",
+      "title": "Windows desktop and Java simulator receipts"
+    },
+    {
+      "path": "workspace-engine/src/test/resources/spatial/doorways/gate-a-turn.glb",
+      "title": "Turnable gate"
+    },
+    {
+      "path": "workspace-engine/src/test/resources/spatial/doorways/gate-a-blocked.glb",
+      "title": "Blocked gate"
+    },
+    {
+      "path": "workspace-engine/src/test/resources/spatial/doorways/gate-a-visual.glb",
+      "title": "Collider-fit visual-clash control"
+    },
+    {
+      "path": "docs/publication218/plan.md",
+      "title": "Verification contract and reproduction"
+    },
+    {
+      "path": "docs/readmes/218/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}

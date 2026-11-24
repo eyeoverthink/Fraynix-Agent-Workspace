@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 218 — Carry a prop through a doorway](../../README-218.md) · [Walkthrough](218/index.html)
+
 [Edition 217 — Copy a detailed prop with its own collider](../../README-217.md) · [Walkthrough](217/index.html)
 
 [Edition 216 — Take an editable scene from image to Blender and back](../../README-216.md) · [Walkthrough](216/index.html)
