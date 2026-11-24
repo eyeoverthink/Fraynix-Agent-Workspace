@@ -29,7 +29,7 @@ import {WorkflowPanel} from './workflow-panel.js';
 import {CreationPanel} from './creation-panel.js';
 import {TrackingPanel} from './tracking-panel.js';
 import {PerceptionPanel} from './perception-panel.js';
-import {SpatialPanel} from './spatial-panel.js';
+import {SpatialPanel,isSpatialPropRequest} from './spatial-panel.js';
 import {DataPanel} from './data-panel.js';
 import {GoalsPanel} from './goals-panel.js';
 import {WorldPanel} from './world-panel.js';
@@ -86,7 +86,7 @@ window.agency043View=new Agency043Panel(request);
 const brainGame=new BrainGame({call:(operation,command,args={})=>request(operation,{command,args}),notice,activate:setCanvasMode,layout:updateLayout,lab,requireSaved});
 const dataPanel=new DataPanel({call:(command,args)=>request('data',{command,args}),notice,requireSaved,layout:updateLayout});
 const goalsPanel=new GoalsPanel({getMapSources:()=>mapPanel.sources,onCompileMap:(id,layers)=>mapPanel.compile(id,layers),getCreationSources:()=>creationPanel.sources(),getDatasets:()=>state?.datasets||[],call:(command,args)=>request('javaGoal',{command,args}),notice,requireSaved,openReport:async id=>{requireSaved();setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});}});
-const spatial=new SpatialPanel({call:(command,args={})=>request('spatial',{command,args}),pushCall:(command,args={})=>request('push',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g)});
+const spatial=new SpatialPanel({call:(command,args={})=>request('spatial',{command,args}),pushCall:(command,args={})=>request('push',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g),announce:text=>message(text),layout:updateLayout});
 const workshop050=new Workshop050({call:(command,args={})=>request('workshop050',{command,args}),goal:g=>goalsPanel.accept(g),requireSaved});
 const construction051=new Construction051({call:(command,args={})=>request('construction051',{command,args}),goal:g=>goalsPanel.accept(g),requireSaved,notice});
 const forcePanel=new ForceLearningPanel({call:(command,args={})=>request('forceLearning',{command,args}),spatial,notice,goal:g=>goalsPanel.accept(g),openReport:async id=>{setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});}});
@@ -211,6 +211,7 @@ $('run').onclick=()=>safe(async()=>{
  const goal=$('goal').value.trim();
  if(!goal)return;
  message(goal,'user');
+ if(isSpatialPropRequest(goal)){spatial.openProp();return;}
  if(await chartFollowup.start(goal))return;
  if(mayRequestFrayTool(goal)&&await requestsPanel.offerFromChat(goal))return;
  const local=offlineMissionRequest(goal);

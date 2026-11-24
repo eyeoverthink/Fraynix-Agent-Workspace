@@ -26,6 +26,24 @@ public final class SpatialStore implements AutoCloseable {
     }
     private void validate(JSONObject scene) {
         validateDefinition(scene);
+        if (scene.has("propCopy")) {
+            var receipt=scene.getJSONObject("propCopy");
+            var review=receipt.getJSONObject("review");
+            var parent=scenes.get(review.getJSONObject("source").getString("sceneId"));
+            if (parent==null || !SpatialPropCopy.binding(parent).similar(review.getJSONObject("source")))
+                throw new IllegalStateException("The original prop scene changed.");
+            if (!WorldFrames.hash(receipt).equals(scene.getString("propCopySha256"))
+                    || !WorldFrames.hash(review).equals(receipt.getString("approvalSha256"))
+                    || !receipt.getJSONObject("verify").similar(receipt.getJSONObject("replay")))
+                throw new IllegalStateException("The reviewed prop copy contact receipt changed.");
+            String expected=WorldFrames.hash(SpatialPropCopy.definition(parent,review));
+            if (!expected.equals(WorldFrames.hash(new JSONObject(scene.getString("sourceText")))))
+                throw new IllegalStateException("The reviewed prop copy geometry changed.");
+            // A copy can be used as a source for another copy. Each link must precede it.
+            if (!Instant.parse(parent.getString("importedAt")).isBefore(Instant.parse(scene.getString("importedAt"))))
+                throw new IllegalStateException("Invalid prop copy ancestry.");
+            validate(parent);
+        }
         if (scene.has("glbSha256")) {
             try {
                 Path original=glbFile(scene.getString("id"));
@@ -63,6 +81,32 @@ public final class SpatialStore implements AutoCloseable {
             throw error;
         }
     }
+    synchronized JSONObject reviewProp(JSONObject args) {
+        available();
+        var review=SpatialPropCopy.review(read(args.getString("sceneId")),args);
+        return new JSONObject().put("review",review).put("approvalSha256",WorldFrames.hash(review));
+    }
+    synchronized JSONObject copyProp(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"args","approvalSha256");
+        var args=input.getJSONObject("args");
+        var parent=read(args.getString("sceneId"));
+        var review=SpatialPropCopy.review(parent,args);
+        String digest=WorldFrames.hash(review);
+        if (!digest.equals(input.getString("approvalSha256")))
+            throw new IllegalStateException("Approve the exact selected prop, source and transform.");
+        String id=UUID.nameUUIDFromBytes(("spatial-prop-copy-v1:"+digest).getBytes(StandardCharsets.UTF_8)).toString();
+        if (scenes.containsKey(id)) return read(id);
+        available();
+        if (scenes.size()>=32) throw new IllegalStateException("Spatial import history limit reached (32)");
+        var scene=SpatialScene.parse(SpatialPropCopy.definition(parent,review).toString(),id);
+        var checked=SpatialPropCopy.verifyNative(scene,review,nativeDir);
+        var replay=SpatialPropCopy.verifyNative(scene,review,nativeDir);
+        if (!checked.similar(replay)) throw new IllegalStateException("The independent native collision replay differs.");
+        var receipt=new JSONObject().put("review",review).put("approvalSha256",digest).put("verify",checked).put("replay",replay);
+        return retainScene(scene.put("importedAt",Instant.now().toString()).put("propCopy",receipt)
+                .put("propCopySha256",WorldFrames.hash(receipt)));
+    }
+
     private JSONObject retainScene(JSONObject scene) throws Exception {
         String id=scene.getString("id");
         scenes.put(id,scene);

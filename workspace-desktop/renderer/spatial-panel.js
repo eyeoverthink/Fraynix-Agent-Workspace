@@ -1,8 +1,25 @@
 import * as THREE from '../node_modules/three/build/three.module.js';
 const $=id=>document.getElementById(id);
+export const isSpatialPropRequest = text =>
+ /^(?:(?:can|could|would) you )?(?:please )?copy (?:and transform )?the selected prop(?: and transform it)?[.!?]?$/i.test(text.trim());
+
+function visualGeometry(encoded){
+ const binary=atob(encoded), bytes=Uint8Array.from(binary,letter=>letter.charCodeAt(0));
+ const data=new DataView(bytes.buffer);
+ const count=data.getUint32(0,true)*3,indexCount=data.getUint32(4,true);
+ const vertices=new Float32Array(count), triangles=new Uint16Array(indexCount);
+ for(let i=0;i<count;i++)vertices[i]=data.getFloat32(8+4*i,true);
+ for(let i=0;i<indexCount;i++)triangles[i]=data.getUint16(8+4*count+2*i,true);
+ const geometry=new THREE.BufferGeometry();
+ geometry.setAttribute('position',new THREE.BufferAttribute(vertices,3));
+ geometry.setIndex(new THREE.BufferAttribute(triangles,1));
+ geometry.computeVertexNormals();
+ return geometry;
+}
+
 export class SpatialPanel {
- constructor({call,pushCall,goalCall,notice,activate,goal}){
-  Object.assign(this,{call,pushCall,goalCall,notice,activate,goal});this.visible=false;this.meshes=new Map();this.trace=[];
+ constructor({call,pushCall,goalCall,notice,activate,goal,announce,layout}){
+  Object.assign(this,{call,pushCall,goalCall,notice,activate,goal,announce,layout});this.visible=false;this.meshes=new Map();this.trace=[];
   const section=document.createElement('section');section.id='spatial-view';section.hidden=true;
   section.innerHTML=`<div class="spatial-top"><div><strong>Spatial workspace</strong><small>Declared-scale boxes · native physics · persistent identities</small></div><button id="spatial-example">Load labelled test scene</button><label class="spatial-file">Import JSON<input id="spatial-file" type="file" accept=".json,application/json" aria-label="Import spatial scene JSON"></label><button id="spatial-import-blender">Import Blender</button></div>
    <div class="spatial-bind"><label>Imported scene<select id="spatial-scenes" aria-label="Imported spatial scene"></select></label><label>Object<select id="spatial-objects" aria-label="Spatial object"></select></label><button id="spatial-frame">Frame scene</button><button id="spatial-top-down" aria-pressed="false">Top down</button><button id="spatial-export">Export scene</button><button id="spatial-export-blender">Export Blender</button><button id="spatial-observe">Check visible objects</button></div>
@@ -10,6 +27,8 @@ export class SpatialPanel {
     <div class="spatial-task">
      <label class="spatial-file">Import Fraynix GLB<input id="spatial-glb" type="file" accept=".glb" aria-label="Import Fraynix GLB"></label>
      <button id="spatial-export-glb">Export GLB</button>
+     <label><input id="spatial-colliders" type="checkbox"> Show prop colliders</label>
+     <button id="spatial-prop-open">Copy selected prop</button>
     </div><div class="spatial-task">
      <label>Labelled image from Maps<select id="spatial-blueprint"></select></label>
      <label>One tile measures · m<input id="spatial-blueprint-scale" type="number" min="0.6" max="1.2" step="0.01" value="1"></label>
@@ -23,6 +42,25 @@ export class SpatialPanel {
   $('game-view').before(section);const tab=document.createElement('button');tab.id='spatial-tab';tab.textContent='Spatial';$('scene-tab').after(tab);tab.onclick=()=>this.action(()=>this.open());
   $('spatial-example').onclick=()=>this.action(async()=>this.import((await this.call('example')).text));
   $('spatial-file').onchange=()=>this.action(async()=>{const f=$('spatial-file').files[0];if(!f)return;if(f.size>131072)throw Error('Scene JSON is limited to 128 KiB');await this.import(await f.text());});
+  const copyDialog=document.createElement('dialog');
+  copyDialog.id='spatial-prop-dialog';
+  copyDialog.setAttribute('aria-labelledby','spatial-prop-title');
+  copyDialog.innerHTML='<div class="panel-head"><h2 id="spatial-prop-title">Copy and transform a prop</h2><button id="spatial-prop-close">Close</button></div>'
+   +'<form id="spatial-prop-form"><label>Name <input id="spatial-prop-label" maxlength="80" required value="Prop copy"></label>'
+   +'<div class="spatial-task"><label>X offset · m <input id="spatial-prop-x" type="number" required value="1.8" step="0.01"></label>'
+   +'<label>Y offset · m <input id="spatial-prop-y" type="number" required value="0" step="0.01"></label>'
+   +'<label>Z offset · m <input id="spatial-prop-z" type="number" required value="-0.9" step="0.01"></label>'
+   +'<label>Yaw · degrees <input id="spatial-prop-yaw" type="number" min="-180" max="180" required value="35" step="1"></label></div>'
+   +'<button id="spatial-prop-review">Review copy</button></form><p id="spatial-prop-status" role="status"></p>'
+   +'<button id="spatial-prop-approve" class="primary" disabled>Approve and verify</button>';
+  document.body.append(copyDialog);
+  copyDialog.addEventListener("close",layout);
+  $('spatial-prop-close').onclick=()=>copyDialog.close();
+  $('spatial-prop-open').onclick=()=>this.action(()=>this.openProp());
+  $('spatial-colliders').onchange=()=>this.paintColliders();
+  $('spatial-prop-form').oninput=()=>this.clearPropReview();
+  $('spatial-prop-form').onsubmit=event=>{event.preventDefault();this.action(()=>this.reviewProp());};
+  $('spatial-prop-approve').onclick=()=>this.action(()=>this.approveProp());
   $('spatial-exchange').ontoggle=()=>{if($('spatial-exchange').open)this.action(()=>this.refreshBlueprints());};
   $('spatial-blueprint').onchange=()=>this.controls();
   $('spatial-blueprint-build').onclick=()=>this.action(async()=>{
@@ -35,7 +73,7 @@ export class SpatialPanel {
    const bytes=new Uint8Array(await file.arrayBuffer());let binary='';
    for(let i=0;i<bytes.length;i+=8192)binary+=String.fromCharCode(...bytes.subarray(i,i+8192));
    const scene=await this.call('import-glb',{base64:btoa(binary)});
-   await this.open(scene.id);this.notice('Verified GLB boxes imported as a separate editable scene.');
+   await this.open(scene.id);this.notice('Verified GLB imported as a separate editable scene.');
   });
   $('spatial-export-glb').onclick=()=>this.action(async()=>{
    const result=await this.call('export-glb',{id:this.scene.id});
@@ -65,6 +103,49 @@ export class SpatialPanel {
   setInterval(()=>{if(this.visible&&!this.polling)this.poll().catch(e=>this.notice(e.message));},100);new ResizeObserver(()=>this.resize()).observe($('spatial-stage'));
  }
  async action(fn){this.pending=(this.pending||Promise.resolve()).catch(()=>{}).then(async()=>{this.busy=true;this.controls();try{await fn();}catch(e){this.notice(e.message);}finally{this.busy=false;this.controls();}});return this.pending;}
+ openProp(){
+  if(this.worldMode||!this.object?.visualMesh||!this.object.massKg)throw Error('Select a dynamic detailed prop in Spatial first.');
+  this.clearPropReview();
+  $('spatial-prop-label').value=this.object.label.slice(0,70)+' copy';
+  if(!$('spatial-prop-dialog').open)$('spatial-prop-dialog').showModal();
+  this.layout();
+ }
+ clearPropReview(){
+  this.propReview=null;
+  $('spatial-prop-status').textContent='';
+  $('spatial-prop-approve').disabled=true;
+ }
+ async reviewProp(){
+  const input={label:$('spatial-prop-label').value,yawDeg:Number($('spatial-prop-yaw').value),
+   offsetM:['x','y','z'].map(axis=>Number($('spatial-prop-'+axis).value))};
+  try{
+   this.propReview=await this.call('prop-review',input);
+   const review=this.propReview.review;
+   $('spatial-prop-status').textContent='New pose '+review.targetM.map(n=>n.toFixed(2)).join(', ')+' m · yaw '
+    +review.yawDeg+'° · two isolated '+review.settleTicks+'-tick contact checks';
+   $('spatial-prop-approve').disabled=false;
+  }catch(error){$('spatial-prop-status').textContent=error.message;}
+ }
+ async approveProp(){
+  if(!this.propReview)return;
+  $('spatial-prop-approve').disabled=true;
+  $('spatial-prop-status').textContent='Checking contacts in two fresh native worlds.';
+  try {
+   const scene=await this.call('prop-copy',this.propReview);
+   $('spatial-prop-dialog').close();
+   await this.open(scene.id);
+   await this.selectObject(scene.propCopy.verify.objectId);
+   this.announce(this.propSummary(scene.propCopy.verify));
+  }catch(error){
+   $('spatial-prop-status').textContent=error.message;
+   $('spatial-prop-approve').disabled=false;
+  }
+ }
+ propSummary(result){
+  return 'Prop copy verified · '+result.visualTriangles+' visual triangles · '+result.coreContacts+' collider contacts'
+   +(result.visualOverhangTested?' · '+result.visualOnlyContacts+' contacts at the visual overhang':'')+' · supported by '+result.support;
+ }
+
  async refreshBlueprints(){
   const control=$('spatial-blueprint'), prior=control.value;
   const rows=await this.call('blueprint-list');
@@ -76,6 +157,7 @@ export class SpatialPanel {
   $('spatial-observe').title=this.topDown?'Use the perspective camera to check visible objects.':'';
   $('spatial-export-glb').disabled=this.busy||!this.scene||this.worldMode;
   const exchangeBusy=this.busy||this.agentBusy||this.evaluationBusy||['prepared','executing','running','paused'].includes(this.snapshot?.status);
+  $('spatial-prop-open').disabled=exchangeBusy||!!this.worldMode||!this.object?.visualMesh||!this.object.massKg;
   $('spatial-glb').disabled=exchangeBusy;$('spatial-blueprint-build').disabled=exchangeBusy||!$('spatial-blueprint').value;
   $('spatial-export-blender').disabled=this.busy||!this.scene||this.worldMode;const pushHeld=this.pushMode&&(this.pushGoal&&['running','waiting-host'].includes(this.pushGoal.status)||['running','paused'].includes(this.snapshot?.status)),held=this.evaluationBusy||pushHeld||['prepared','executing'].includes(this.snapshot?.status);for(const id of ['spatial-example','spatial-file','spatial-import-blender','spatial-scenes','spatial-objects','spatial-preview','spatial-run','spatial-dx','spatial-dz','spatial-skill'])$(id).disabled=this.busy||this.agentBusy||held||(['spatial-preview','spatial-run'].includes(id)&&!this.object?.massKg);for(const id of ['push-example','push-variant','push-pusher','push-dx','push-dz','push-initial-force','push-max-force','push-skill','push-preview','push-run'])$(id).disabled=this.busy||this.agentBusy||held||(['push-preview','push-run'].includes(id)&&(!this.object?.massKg||!$('push-pusher').value));if($('push-use-profile')){$('push-use-profile').disabled=this.busy||this.agentBusy||held;$('push-initial-force').disabled=this.busy||this.agentBusy||held||($('push-use-profile').checked||$('push-use-contact')?.checked);}if($('push-use-contact')){$('push-use-contact').disabled=this.busy||this.agentBusy||held;if($('push-use-contact').checked){$('push-initial-force').disabled=true;$('push-max-force').disabled=true;}}if(this.worldMode)for(const id of ['spatial-preview','spatial-run','spatial-dx','spatial-dz','spatial-skill'])$(id).disabled=true;$('push-export').disabled=this.busy||!this.pushRunId||!['completed','failed','cancelled'].includes(this.snapshot?.status);$('push-pause').disabled=this.busy||!this.pushMode||this.snapshot?.status!=='running';$('push-resume').disabled=this.busy||this.pushGoal?.status!=='interrupted'||!['paused','interrupted'].includes(this.snapshot?.status);}
  binding(){return {sceneId:this.scene.id,objectId:this.object.id};}
@@ -84,7 +166,7 @@ export class SpatialPanel {
  async import(text){const s=await this.call('import',{text});await this.open(s.id);this.notice('Imported source and declared scale verified. No independent room calibration.');return s;}
  async open(id){if(!id&&this.worldMode&&this.worldReopen){this.activate('spatial');await this.worldReopen();this.resize();return;}this.worldMode=false;this.poseMode=false;this.removePoseTargets();this.evaluationMode=false;this.activate('spatial');this.ensureRenderer();const list=await this.call('list');$('spatial-scenes').replaceChildren(...list.scenes.map(s=>{const o=document.createElement('option');o.value=s.id;o.textContent=s.title;return o;}));const selected=id||this.scene?.id||list.scenes.at(-1)?.id;if(selected)await this.select(selected,list);if($('spatial-exchange').open)await this.refreshBlueprints();this.resize();this.controls();}
  async openWorld(scene){this.activate('spatial');this.ensureRenderer();this.scene=scene;this.worldMode=true;this.poseMode=true;this.pushMode=false;this.evaluationMode=false;this.plan=null;this.snapshot=null;this.removePoseTargets();this.forecast(null);this.trace=[];this.drawTrace();this.paint(scene.objects);$('spatial-objects').replaceChildren(...scene.objects.map(o=>{const item=document.createElement('option');item.value=o.id;item.textContent=o.label+' · '+(o.massKg>0?'dynamic':'static');return item;}));this.object=scene.objects.find(o=>o.massKg>0);$('spatial-objects').value=this.object.id;this.paintSelection();this.resize();this.controls();}
- async select(id,list){this.worldMode=false;this.pushMode=false;this.pushGoal=null;this.pushRunId=null;this.removeLine(this.pusherTraceLine);this.pusherTraceLine=null;this.pusherTrace=[];this.scene=await this.call('read',{id});$('spatial-scenes').value=id;this.plan=null;this.forecast(null);this.trace=[];this.drawTrace();this.snapshot=null;this.paint(this.scene.objects);$('spatial-objects').replaceChildren(...this.scene.objects.map(o=>{const v=document.createElement('option');v.value=o.id;v.textContent=`${o.label} · ${o.massKg>0?'dynamic':'static'}`;return v;}));await this.selectObject(this.scene.objects.find(o=>o.massKg>0).id);const s=this.scene;$('spatial-source').textContent=`${s.source.kind.toUpperCase()} · ${s.sourceUnits} → m · ${s.scaleCheck.convertedLengthM} m reference (${s.scaleCheck.basis}) · ${s.source.physicalProperties} properties · not independently calibrated`;$('spatial-evidence').textContent=JSON.stringify({sceneId:s.id,sourceSha256:s.sourceSha256,source:s.source,scaleCheck:s.scaleCheck},null,2);this.frame();const records=list||await this.call('list');const last=records.runs.filter(r=>r.sceneId===id&&r.status==='completed').at(-1);if(last){const r=await this.call('run',{id:last.id});this.accept({id:r.id,sceneId:id,status:r.status,current:r.actual.final,verification:r.verification});this.forecast(r.plan);this.trace=r.actual.samples.map(s=>s.position);this.drawTrace();}const pushState=await this.pushCall('scene-state',{sceneId:id});if(pushState.current){this.pushMode=true;this.acceptPush(pushState);}await this.pushRoles();this.controls();}
+ async select(id,list){this.worldMode=false;this.pushMode=false;this.pushGoal=null;this.pushRunId=null;this.removeLine(this.pusherTraceLine);this.pusherTraceLine=null;this.pusherTrace=[];this.scene=await this.call('read',{id});$('spatial-scenes').value=id;this.plan=null;this.forecast(null);this.trace=[];this.drawTrace();this.snapshot=null;this.paint(this.scene.objects);$('spatial-objects').replaceChildren(...this.scene.objects.map(o=>{const v=document.createElement('option');v.value=o.id;v.textContent=`${o.label} · ${o.massKg>0?'dynamic':'static'}`;return v;}));await this.selectObject(this.scene.objects.find(o=>o.massKg>0).id);const s=this.scene;$('spatial-source').textContent=`${s.source.kind.toUpperCase()} · ${s.sourceUnits} → m · ${s.scaleCheck.convertedLengthM} m reference (${s.scaleCheck.basis}) · ${s.source.physicalProperties} properties · not independently calibrated`;$('spatial-evidence').textContent=JSON.stringify({sceneId:s.id,sourceSha256:s.sourceSha256,source:s.source,scaleCheck:s.scaleCheck,propCopy:s.propCopy},null,2);if(s.propCopy)$('spatial-plan').textContent=this.propSummary(s.propCopy.verify);this.frame();const records=list||await this.call('list');const last=records.runs.filter(r=>r.sceneId===id&&r.status==='completed').at(-1);if(last){const r=await this.call('run',{id:last.id});this.accept({id:r.id,sceneId:id,status:r.status,current:r.actual.final,verification:r.verification});this.forecast(r.plan);this.trace=r.actual.samples.map(s=>s.position);this.drawTrace();}const pushState=await this.pushCall('scene-state',{sceneId:id});if(pushState.current){this.pushMode=true;this.acceptPush(pushState);}await this.pushRoles();this.controls();}
  async selectObject(id){this.object=this.scene.objects.find(o=>o.id===id);$('spatial-objects').value=id;await this.call('select',this.binding());this.paintSelection();await this.pushRoles();this.controls();}
  async poll(){if(this.worldMode||this.poseMode)return;if(this.evaluationMode&&this.evaluationBusy)return;this.polling=true;try{const s=await (this.pushMode?this.pushCall:this.call)('snapshot');if(s.sceneId===this.scene?.id){if(this.pushMode)this.acceptPush(s);else this.accept(s);}}finally{this.polling=false;}}
  accept(s){if(!s.current)return;const prior=this.snapshot;this.snapshot=s;if(s.id&&s.id!==prior?.id){this.trace=[];this.drawTrace();this.call('run',{id:s.id}).then(r=>{if(this.snapshot?.id===r.id){this.forecast(r.plan);$('spatial-plan').textContent=`Native forecast ${r.plan.route} route · ${r.plan.trials.length} candidate worlds · orange prediction / blue actual. Source ${r.definition.source.kind}, declared parameters.`;}}).catch(e=>this.notice(e.message));}this.paint(s.current.objects);if(s.current.tick!==prior?.current?.tick&&this.object){const o=s.current.objects.find(o=>o.id===this.object.id);if(o&&s.status==='executing'){this.trace.push(o.position);if(this.trace.length>1000)this.trace.shift();this.drawTrace();}}
@@ -109,7 +191,42 @@ export class SpatialPanel {
   Object.assign(this.planCamera,{left:-horizontal,right:horizontal,top:vertical,bottom:-vertical});
   this.planCamera.updateProjectionMatrix();
  }
- paint(objects){if(!this.renderer)return;for(const o of objects){let mesh=this.meshes.get(o.id);if(!mesh){mesh=new THREE.Mesh(new THREE.BoxGeometry(...o.size),new THREE.MeshStandardMaterial({color:o.sourceId==='pusher'?0x75a9e8:o.massKg>0?0x80d6b3:o.sourceId==='floor'?0x263f4c:0x8a98b1,roughness:.7,transparent:o.sourceId==='floor',opacity:o.sourceId==='floor'?.65:1}));mesh.userData.id=o.id;this.meshes.set(o.id,mesh);this.world.add(mesh);}mesh.position.fromArray(o.position);mesh.quaternion.fromArray(o.rotation);}for(const [id,mesh] of this.meshes)if(!objects.some(o=>o.id===id)){this.world.remove(mesh);mesh.geometry.dispose();mesh.material.dispose();this.meshes.delete(id);}this.paintSelection();}
+ paint(objects){
+  if(!this.renderer)return;
+  for(const o of objects){
+   let mesh=this.meshes.get(o.id);
+   if(!mesh){
+    const asset=this.scene?.visualMeshes?.[o.visualMesh];
+    const geometry=asset?visualGeometry(asset):new THREE.BoxGeometry(...o.size);
+    mesh=new THREE.Mesh(geometry,new THREE.MeshStandardMaterial({
+     color:asset?0xf0b176:o.sourceId==='pusher'?0x75a9e8:o.massKg>0?0x80d6b3:o.sourceId==='floor'?0x263f4c:0x8a98b1,
+     roughness:.7,transparent:o.sourceId==='floor',opacity:o.sourceId==='floor'?.65:1
+    }));
+    mesh.userData.id=o.id;
+    if(asset){
+     const wire=new THREE.Mesh(new THREE.BoxGeometry(...o.size),
+      new THREE.MeshBasicMaterial({color:0x9dffda,wireframe:true,depthTest:false,transparent:true,opacity:.72}));
+     wire.userData.id=o.id;
+     mesh.userData.collider=wire;
+     mesh.add(wire);
+    }
+    this.meshes.set(o.id,mesh);
+    this.world.add(mesh);
+   }
+   mesh.position.fromArray(o.position);
+   mesh.quaternion.fromArray(o.rotation);
+  }
+  for(const [id,mesh] of this.meshes)if(!objects.some(o=>o.id===id)){
+   this.world.remove(mesh);
+   mesh.traverse(child=>{child.geometry?.dispose();child.material?.dispose();});
+   this.meshes.delete(id);
+  }
+  this.paintColliders();
+  this.paintSelection();
+ }
+ paintColliders(){
+  for(const mesh of this.meshes.values())if(mesh.userData.collider)mesh.userData.collider.visible=$('spatial-colliders').checked;
+ }
  paintSelection(){for(const [id,m] of this.meshes)m.material.emissive.setHex(id===this.object?.id?0x154a31:0);}
  line(points,color){const geometry=new THREE.BufferGeometry().setFromPoints(points.map(p=>new THREE.Vector3(...p)));const line=new THREE.Line(geometry,new THREE.LineBasicMaterial({color}));this.world.add(line);return line;}
  removeLine(line){if(line){this.world.remove(line);line.geometry.dispose();line.material.dispose();}}

@@ -1035,6 +1035,19 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(!['example','reference-cases','reference-example','dungeons','inspect-image','import-image','reference','list','read','run','snapshot','manual','control','stop','pause','resume','from-procedural','import-package'].includes(input.command))throw Error('Unknown map operation');return api('/api/maps/'+input.command,input.args||{});
     }
     case 'spatial':{
+      if(input.command==='prop-review'){
+        if(!currentSpatial)throw Error('Select a dynamic detailed prop in Spatial.');
+        return api('/api/spatial/prop-review',{...input.args,...currentSpatial});
+      }
+      if(input.command==='prop-copy'){
+        const {review,approvalSha256}=input.args;
+        if(currentSpatial?.sceneId!==review.source.sceneId||currentSpatial?.objectId!==review.objectId)
+          throw Error('The selected prop changed. Review the copy again.');
+        const {label,offsetM,yawDeg}=review;
+        const copy=await api('/api/spatial/prop-copy',{args:{...currentSpatial,label,offsetM,yawDeg},approvalSha256});
+        await refresh();
+        return copy;
+      }
       if(input.command==='blueprint-list')return (await api('/api/maps/list',{})).references;
       if(['blueprint','import-glb'].includes(input.command)){
         const scene=await api('/api/spatial/'+input.command,input.args||{});

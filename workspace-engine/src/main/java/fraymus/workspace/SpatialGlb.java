@@ -14,7 +14,8 @@ import java.util.Set;
 final class SpatialGlb {
     static final int LIMIT = 512 * 1024;
     private static final int MAGIC = 0x46546c67, JSON = 0x4e4f534a, BIN = 0x004e4942;
-    private static final String METADATA = "fraynixScene", BODY = "fraynixBody";
+    private static final String METADATA = "fraynixScene", BODY = "fraynixBody", VISUAL = "fraynixVisual";
+    private static final String SURFACE = "triangle-surface";
     private static final int[] INDICES = {0,2,3,0,3,1,4,5,7,4,7,6,0,1,5,0,5,4,2,6,7,2,7,3,
             0,4,6,0,6,2,1,3,7,1,7,5};
     private static final double EPS = 1e-5;
@@ -27,39 +28,84 @@ final class SpatialGlb {
                 .put("gravityMps2", definition.getDouble("gravityMps2")).put("source", definition.getJSONObject("source"))
                 .put("scaleReference", metresReference(definition));
         var nodes = new JSONArray();
-        var roots = new JSONArray();
+        var roots = new JSONArray().put(0);
         nodes.put(new JSONObject().put("name", "Fraynix scene metadata")
                 .put("extras", new JSONObject().put(METADATA, info.toString())));
-        roots.put(0);
+        var visuals = new java.util.LinkedHashMap<String,SpatialVisualMesh>();
+        var assets = scene.optJSONObject("visualMeshes",new JSONObject());
+        int cubeBytes = 8 * 12 + INDICES.length * 2;
+        int binaryLength = cubeBytes;
+        for (String id : new java.util.TreeSet<>(assets.keySet())) {
+            var mesh = SpatialVisualMesh.read(assets.getString(id));
+            visuals.put(id,mesh);
+            binaryLength += (mesh.positions().length*4 + mesh.indices().length*2 + 3)&~3;
+        }
+        var bin = buffer(binaryLength);
+        var views = new JSONArray();
+        var accessors = new JSONArray();
+        var meshes = new JSONArray();
+        float[] cube = new float[24];
+        for (int corner=0;corner<8;corner++) for (int axis=0;axis<3;axis++)
+            cube[corner*3+axis]=(corner & (1<<axis))==0 ? -.5f : .5f;
+        appendMesh(bin,views,accessors,meshes,new SpatialVisualMesh(cube,INDICES));
+        var meshIndices = new java.util.HashMap<String,Integer>();
+        for (var entry : visuals.entrySet()) {
+            meshIndices.put(entry.getKey(),meshes.length());
+            appendMesh(bin,views,accessors,meshes,entry.getValue());
+        }
         for (Object raw : scene.getJSONArray("objects")) {
             var box = (JSONObject) raw;
             var body = new JSONObject();
             for (String key : Set.of("sourceId", "label", "massKg", "friction", "restitution")) body.put(key, box.get(key));
             roots.put(nodes.length());
-            nodes.put(new JSONObject().put("name", box.getString("label")).put("mesh", 0)
+            var size = box.getJSONArray("size");
+            var node = new JSONObject().put("name", box.getString("label")).put("mesh", 0)
                     .put("translation", box.getJSONArray("position")).put("rotation", normalized(box.getJSONArray("rotation")))
-                    .put("scale", box.getJSONArray("size")).put("extras", new JSONObject().put(BODY, body.toString())));
+                    .put("scale", size).put("extras", new JSONObject().put(BODY, body.toString()));
+            nodes.put(node);
+            if (box.has("visualMesh")) {
+                node.put("children",new JSONArray().put(nodes.length()));
+                nodes.put(new JSONObject().put("name",box.getString("label")+" visual")
+                        .put("mesh",meshIndices.get(box.getString("visualMesh")))
+                        .put("scale",new JSONArray(new double[]{1/size.getDouble(0),1/size.getDouble(1),1/size.getDouble(2)}))
+                        .put("extras",new JSONObject().put(VISUAL,SURFACE)));
+            }
         }
-        var bin = buffer(8 * 12 + INDICES.length * 2);
-        for (int i = 0; i < 8; i++) for (int axis = 2; axis >= 0; axis--)
-            bin.putFloat((i & (1 << axis)) == 0 ? -.5f : .5f);
-        for (int index : INDICES) bin.putShort((short) index);
         var json = new JSONObject().put("asset", new JSONObject().put("version", "2.0").put("generator", "Fraynix Spatial"))
                 .put("scene", 0).put("scenes", new JSONArray().put(new JSONObject().put("nodes", roots)))
                 .put("nodes", nodes).put("buffers", new JSONArray().put(new JSONObject().put("byteLength", bin.capacity())))
-                .put("bufferViews", new JSONArray().put(view(0, 96)).put(view(96, INDICES.length * 2)))
-                .put("accessors", new JSONArray().put(new JSONObject().put("bufferView", 0).put("componentType", 5126)
-                        .put("count", 8).put("type", "VEC3").put("min", new JSONArray(new double[]{-.5,-.5,-.5}))
-                        .put("max", new JSONArray(new double[]{.5,.5,.5}))).put(new JSONObject().put("bufferView", 1)
-                        .put("componentType", 5123).put("count", INDICES.length).put("type", "SCALAR")))
-                .put("meshes", new JSONArray().put(new JSONObject().put("primitives", new JSONArray().put(
-                        new JSONObject().put("attributes", new JSONObject().put("POSITION", 0)).put("indices", 1)))));
+                .put("bufferViews", views).put("accessors",accessors).put("meshes",meshes);
         byte[] text = json.toString().getBytes(StandardCharsets.UTF_8);
         int padded = (text.length + 3) & ~3;
         var output = buffer(28 + padded + bin.capacity()).putInt(MAGIC).putInt(2).putInt(28 + padded + bin.capacity())
                 .putInt(padded).putInt(JSON).put(text);
         for (int i = text.length; i < padded; i++) output.put((byte) ' ');
         return output.putInt(bin.capacity()).putInt(BIN).put(bin.array()).array();
+    }
+
+    private static void appendMesh(ByteBuffer bytes, JSONArray views, JSONArray accessors, JSONArray meshes,
+                                   SpatialVisualMesh mesh) {
+        var low = new double[]{Double.POSITIVE_INFINITY,Double.POSITIVE_INFINITY,Double.POSITIVE_INFINITY};
+        var high = new double[]{Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY};
+        int offset=bytes.position();
+        for (int i=0;i<mesh.positions().length;i++) {
+            float value=mesh.positions()[i];
+            low[i%3]=Math.min(low[i%3],value);
+            high[i%3]=Math.max(high[i%3],value);
+            bytes.putFloat(value);
+        }
+        int positionView=views.length(), positionAccessor=accessors.length();
+        views.put(view(offset,bytes.position()-offset));
+        accessors.put(new JSONObject().put("bufferView",positionView).put("componentType",5126)
+                .put("count",mesh.vertexCount()).put("type","VEC3").put("min",new JSONArray(low)).put("max",new JSONArray(high)));
+        offset=bytes.position();
+        for (int value : mesh.indices()) bytes.putShort((short)value);
+        accessors.put(new JSONObject().put("bufferView",views.length()).put("componentType",5123)
+                .put("count",mesh.indices().length).put("type","SCALAR"));
+        views.put(view(offset,bytes.position()-offset));
+        while (bytes.position()%4!=0) bytes.put((byte)0);
+        meshes.put(new JSONObject().put("primitives",new JSONArray().put(new JSONObject()
+                .put("attributes",new JSONObject().put("POSITION",positionAccessor)).put("indices",positionAccessor+1))));
     }
 
     static byte[] verifiedExport(JSONObject scene) throws Exception {
@@ -79,6 +125,9 @@ final class SpatialGlb {
                 if (ObserverGeometry.norm(ObserverGeometry.sub(ObserverGeometry.v(a.getJSONArray(key)),
                         ObserverGeometry.v(b.getJSONArray(key))))>EPS)
                     throw new IllegalStateException("GLB export changed an oriented box.");
+            if (a.has("visualMesh")!=b.has("visualMesh")
+                    || a.has("visualMesh")&&!asset(scene,a).closeTo(asset(restored,b)))
+                throw new IllegalStateException("GLB export changed the visual triangles.");
             var q=normalized(a.getJSONArray("rotation"));
             var r=normalized(b.getJSONArray("rotation"));
             double matches=0;
@@ -91,6 +140,10 @@ final class SpatialGlb {
             if (Math.abs(expected-actual)>EPS) throw new IllegalStateException("GLB export changed the scale reference.");
         }
         return encoded;
+    }
+
+    static SpatialVisualMesh asset(JSONObject scene,JSONObject body) {
+        return SpatialVisualMesh.read(scene.getJSONObject("visualMeshes").getString(body.getString("visualMesh")));
     }
 
     private static JSONArray normalized(JSONArray q) {
@@ -167,6 +220,7 @@ final class SpatialGlb {
         final JSONArray nodes;
         final Set<Integer> visited = new HashSet<>();
         final JSONArray boxes = new JSONArray();
+        final JSONObject visuals = new JSONObject();
         JSONObject metadata;
 
         Reader(JSONObject root, byte[] bytes) {
@@ -179,19 +233,21 @@ final class SpatialGlb {
         JSONObject scene(String sha) {
             var parents = root.getJSONArray("scenes");
             var roots = parents.getJSONObject(offset(root, "scene", parents.length()-1)).getJSONArray("nodes");
-            for (int i = 0; i < roots.length(); i++) visit(index(roots,i), Transform.identity(), 0);
+            for (int i = 0; i < roots.length(); i++) visit(index(roots,i), Transform.identity(), 0, null);
             if (metadata == null) throw new IllegalArgumentException("The GLB needs the Fraynix scene metadata node. Export a scene from Spatial first.");
             SpatialScene.keys(metadata, "title", "source", "scaleReference", "gravityMps2");
             var source = WorldFrames.copy(metadata.getJSONObject("source"));
             String original = source.getString("note");
             String prefix = "GLB SHA-256 " + sha + ". ";
             source.put("note", prefix + original.substring(0, Math.min(original.length(),1000-prefix.length())));
-            return new JSONObject().put("format","fraynix.spatial-scene").put("version",1).put("units","m").put("frame","right-handed-y-up")
+            var result = new JSONObject().put("format","fraynix.spatial-scene").put("version",1).put("units","m").put("frame","right-handed-y-up")
                     .put("title",metadata.getString("title")).put("gravityMps2",metadata.get("gravityMps2"))
                     .put("source",source).put("scaleReference",metadata.getJSONObject("scaleReference")).put("objects",boxes);
+            if (!visuals.isEmpty()) result.put("visualMeshes",visuals);
+            return result;
         }
 
-        void visit(int index, Transform parent, int depth) {
+        void visit(int index, Transform parent, int depth, JSONObject enclosingBox) {
             if (depth > 24 || !visited.add(index) || index < 0 || index >= nodes.length())
                 throw new IllegalArgumentException("GLB hierarchy contains an invalid, repeated or too-deep node.");
             var node = nodes.getJSONObject(index);
@@ -202,26 +258,69 @@ final class SpatialGlb {
                 if (metadata != null || node.has("mesh")) throw new IllegalArgumentException("Choose one scene metadata empty.");
                 metadata = new JSONObject(extras.getString(METADATA));
             }
+            JSONObject box = enclosingBox;
             if (node.has("mesh")) {
-                if (!extras.has(BODY)) throw new IllegalArgumentException("Every box needs its Fraynix body properties.");
-                if (boxes.length() == 32) throw new IllegalArgumentException("GLB exceeds the 32-box spatial budget.");
-                var body = new JSONObject(extras.getString(BODY));
-                SpatialScene.keys(body,"sourceId","label","massKg","friction","restitution");
-                var bounds = bounds(count(node,"mesh",0,root.getJSONArray("meshes").length()-1));
-                boxes.put(world.box(body,bounds));
+                int mesh=count(node,"mesh",0,root.getJSONArray("meshes").length()-1);
+                if (SURFACE.equals(extras.optString(VISUAL))) {
+                    if (box==null || box.has("visualMesh") || extras.has(BODY))
+                        throw new IllegalArgumentException("Place one visual surface under its explicit collider node.");
+                    var surface = visual(mesh,world,box);
+                    String id=surface.key();
+                    visuals.put(id,surface.encoded());
+                    box.put("visualMesh",id);
+                    box=null;
+                } else {
+                    if (!extras.has(BODY)) throw new IllegalArgumentException("Every box needs its Fraynix body properties.");
+                    if (boxes.length() == 32) throw new IllegalArgumentException("GLB exceeds the 32-box spatial budget.");
+                    var body = new JSONObject(extras.getString(BODY));
+                    SpatialScene.keys(body,"sourceId","label","massKg","friction","restitution");
+                    box=world.box(body,bounds(mesh));
+                    boxes.put(box);
+                }
             }
             var children = node.optJSONArray("children",new JSONArray());
-            for (int i = 0; i < children.length(); i++) visit(index(children,i),world,depth+1);
+            for (int i = 0; i < children.length(); i++) visit(index(children,i),world,depth+1,box);
+        }
+
+        private JSONObject primitive(int id) {
+            var mesh = root.getJSONArray("meshes").getJSONObject(id);
+            var pieces=mesh.getJSONArray("primitives");
+            if (pieces.length()!=1 || mesh.has("weights")) throw new IllegalArgumentException("Use one indexed triangle primitive per mesh.");
+            var primitive=pieces.getJSONObject(0);
+            if ((primitive.has("mode") && count(primitive,"mode",0,6)!=4) || primitive.has("targets") || primitive.has("extensions"))
+                throw new IllegalArgumentException("Use uncompressed indexed triangles without morph targets.");
+            return primitive;
+        }
+
+        private SpatialVisualMesh visual(int id,Transform world,JSONObject collider) {
+            var primitive=primitive(id);
+            var positions=accessor(primitive.getJSONObject("attributes"),"POSITION","VEC3",12,5126);
+            var triangles=accessor(primitive,"indices","SCALAR",0,5123,5121,5125);
+            if (positions.count>SpatialVisualMesh.MAX_VERTICES || triangles.count>SpatialVisualMesh.MAX_INDICES)
+                throw new IllegalArgumentException("Detailed prop exceeds the triangle budget.");
+            double[] center=ObserverGeometry.v(collider.getJSONArray("position"));
+            var rotation=collider.getJSONArray("rotation");
+            var vertices=new float[positions.count*3];
+            for (int i=0;i<positions.count;i++) {
+                int at=positions.start+i*positions.stride;
+                var point=new double[]{bytes.getFloat(at),bytes.getFloat(at+4),bytes.getFloat(at+8)};
+                var local=ObserverGeometry.rotate(ObserverGeometry.sub(ObserverGeometry.add(world.origin,world.apply(point)),center),rotation,true);
+                for (int axis=0;axis<3;axis++) vertices[i*3+axis]=(float)local[axis];
+            }
+            var indices=new int[triangles.count];
+            for (int i=0;i<indices.length;i++) {
+                indices[i]=indexValue(triangles,i);
+                if (indices[i]<0 || indices[i]>=positions.count)
+                    throw new IllegalArgumentException("A visual triangle indexes a missing vertex.");
+            }
+            var mesh=new SpatialVisualMesh(vertices,indices);
+            // Verify before packing into the shared asset table.
+            SpatialVisualMesh.read(mesh.encoded());
+            return mesh;
         }
 
         Bounds bounds(int id) {
-            var mesh = root.getJSONArray("meshes").getJSONObject(id);
-            var pieces = mesh.getJSONArray("primitives");
-            if (pieces.length() != 1 || mesh.has("weights")) throw new IllegalArgumentException("Use one triangle primitive per box.");
-            var primitive = pieces.getJSONObject(0);
-            if ((primitive.has("mode") && count(primitive,"mode",0,6)!=4)
-                    || primitive.has("targets") || primitive.has("extensions"))
-                throw new IllegalArgumentException("Only uncompressed triangle boxes can become native colliders.");
+            var primitive = primitive(id);
             var attrs = primitive.getJSONObject("attributes");
             var positions = accessor(attrs,"POSITION","VEC3",12,5126);
             if (positions.count < 8 || positions.count > 256 || positions.component != 5126)
@@ -260,12 +359,7 @@ final class SpatialGlb {
             for (int triangle = 0; triangle < 12; triangle++) {
                 int corners = 0;
                 for (int j=0;j<3;j++) {
-                    int at = indices.start+(triangle*3+j)*indices.stride;
-                    int value = switch (indices.component) {
-                        case 5121 -> Byte.toUnsignedInt(bytes.get(at));
-                        case 5123 -> Short.toUnsignedInt(bytes.getShort(at));
-                        default -> bytes.getInt(at);
-                    };
+                    int value = indexValue(indices,triangle*3+j);
                     if (value<0 || value>=codes.length) throw new IllegalArgumentException("GLB index points outside the positions.");
                     corners |= 1 << codes[value];
                 }
@@ -279,6 +373,15 @@ final class SpatialGlb {
             }
             for (int f=0;f<6;f++) if (trianglesPerFace[f]!=2 || Integer.bitCount(unions[f])!=4)
                 throw new IllegalArgumentException("Each box face needs two triangles covering its four corners.");
+        }
+
+        private int indexValue(Access access,int index) {
+            int at=access.start+index*access.stride;
+            return switch (access.component) {
+                case 5121 -> Byte.toUnsignedInt(bytes.get(at));
+                case 5123 -> Short.toUnsignedInt(bytes.getShort(at));
+                default -> bytes.getInt(at);
+            };
         }
 
         private static int face(int corners) {
@@ -314,7 +417,7 @@ final class SpatialGlb {
             if (width == 0 && view.has("byteStride")) throw new IllegalArgumentException("Index arrays must be tightly packed.");
             int stride = view.has("byteStride") ? count(view,"byteStride",widthBytes,252) : widthBytes;
             int base = offset(view,"byteOffset",bytes.capacity()), length = count(view,"byteLength",1,bytes.capacity());
-            int relative = offset(a,"byteOffset",length), size = count(a,"count",1,4096);
+            int relative = offset(a,"byteOffset",length), size = count(a,"count",1,SpatialVisualMesh.MAX_INDICES);
             int alignment = width == 0 ? widthBytes : 4;
             if (base+length>bytes.capacity() || relative+(size-1)*stride+widthBytes>length
                     || (base+relative)%alignment!=0 || stride%alignment!=0)

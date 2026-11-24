@@ -571,6 +571,11 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/goals/perception-resume" -> result=goals.resumePerception(input.getString("id"),input.getString("frameId"));
                     case "/api/spatial/example" -> {try(var stream=WorkspaceServer.class.getResourceAsStream("/spatial/declared-test-scene-v1.json")){result=new JSONObject().put("text",new String(stream.readAllBytes(),StandardCharsets.UTF_8));}}
                     case "/api/spatial/import" -> {SpatialScene.keys(input,"text");result=spatial.importScene(input.getString("text"));}
+                    case "/api/spatial/prop-review" -> result=spatial.reviewProp(input);
+                    case "/api/spatial/prop-copy" -> {
+                        if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before copying a prop.");
+                        result=spatial.copyProp(input);
+                    }
                     case "/api/spatial/import-glb" -> {
                         SpatialScene.keys(input, "base64");
                         if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before importing a scene.");

@@ -46,3 +46,8 @@
 #procedure079-enabled{width:auto;flex:none;margin:0 8px 0 0}
 
 #cost080-pairs{max-height:240px;overflow:auto;margin:12px 0}#cost080-pairs label{flex-direction:row;align-items:flex-start;gap:8px;margin:10px 0;overflow-wrap:anywhere}#cost080-pairs input{width:auto;flex:none;margin-top:3px}#cost080-mode{flex:1;min-width:0}#cost080-status,#cost080-actual{overflow-wrap:anywhere}
+
+#spatial-prop-dialog { width:min(37rem,calc(100vw - 2rem)); max-height:calc(100vh - 2rem); padding:1rem; overflow:auto; }
+#spatial-prop-dialog .panel-head { padding:0 0 .65rem; }
+#spatial-prop-form > label { display:grid; gap:.35rem; }
+#spatial-prop-status { overflow-wrap:anywhere; }
