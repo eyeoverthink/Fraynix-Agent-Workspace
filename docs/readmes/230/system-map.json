@@ -1,0 +1,78 @@
+{
+  "summary": "Reuse sprites, drag placements, paint tiles and edit the colliders in an offline playable level.",
+  "modules": [
+    {
+      "title": "Java sprite library, checked levels and exports",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java",
+      "note": "docs/obsidian/238-media-tiles.md"
+    },
+    {
+      "title": "Sprite placement, tile painting and collider inspector",
+      "source": "workspace-desktop/renderer/media-tile-editor.js",
+      "note": "docs/obsidian/238-media-tiles.md"
+    },
+    {
+      "title": "Shared local and exported gameplay",
+      "source": "workspace-desktop/renderer/media-tile-play.js",
+      "note": "docs/obsidian/238-media-tiles.md"
+    },
+    {
+      "title": "Desktop editing, restart and offline playtest",
+      "source": "workspace-desktop/test/media-tile-integration.cjs",
+      "note": "docs/obsidian/238-media-tiles.md"
+    },
+    {
+      "title": "Level integrity and refusal checks",
+      "source": "workspace-engine/src/test/java/fraymus/workspace/TileWorkshopTest.java",
+      "note": "docs/obsidian/238-media-tiles.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/230/tile-workshop.png",
+      "title": "Sprite library and the Signal Foundry tile level"
+    },
+    {
+      "path": "docs/readmes/230/tile-collider.png",
+      "title": "Inspecting an offset solid collider"
+    },
+    {
+      "path": "docs/readmes/230/tile-offline.png",
+      "title": "Completing the exported level offline"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/230/tile-evidence.json",
+      "title": "Collision, restart, export and refusal measurements"
+    },
+    {
+      "path": "docs/readmes/230/signal-foundry.html",
+      "title": "Standalone playable level"
+    },
+    {
+      "path": "docs/readmes/230/signal-foundry.json",
+      "title": "Editable level with both original sources"
+    },
+    {
+      "path": "docs/readmes/230/library-slate.png",
+      "title": "Reusable tile sprite PNG"
+    },
+    {
+      "path": "docs/readmes/230/amber-beacon.png",
+      "title": "Original amber sprite source"
+    },
+    {
+      "path": "docs/readmes/230/cobalt-slate.png",
+      "title": "Original cobalt sprite source"
+    },
+    {
+      "path": "docs/publication230/plan.md",
+      "title": "Implementation and next steps"
+    },
+    {
+      "path": "docs/readmes/230/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}

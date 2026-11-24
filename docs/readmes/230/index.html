@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 230 · Build playable tile levels from a shared sprite library</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Build playable tile levels from a shared sprite library</h1><p>Reuse sprites, drag placements, paint tiles and edit the colliders in an offline playable level.</p>
+<nav><a href="../../../README-230.md">App guide</a><a href="tile-evidence.json">Full receipts</a>
+<a href="../229/index.html">Edition 229</a><a href="../../publication229/plan.md">Implementation</a>
+<a href="signal-foundry.html" download>Playable HTML</a><a href="#system">System files</a></nav>
+<p>Two sprites were reused across two courses. Signal Foundry passed edited collider, restart and offline play checks.</p>
+<figure><img src="tile-workshop.png" alt="Sprite library and the Signal Foundry tile level"><figcaption>Sprite library and the Signal Foundry tile level</figcaption></figure>
+<figure><img src="tile-collider.png" alt="Inspecting an offset solid collider"><figcaption>Inspecting an offset solid collider</figcaption></figure>
+<figure><img src="tile-offline.png" alt="Completing the exported level offline"><figcaption>Completing the exported level offline</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Reuse sprites, drag placements, paint tiles and edit the colliders in an offline playable level.", "modules": [{"title": "Java sprite library, checked levels and exports", "source": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java", "note": "docs/obsidian/238-media-tiles.md"}, {"title": "Sprite placement, tile painting and collider inspector", "source": "workspace-desktop/renderer/media-tile-editor.js", "note": "docs/obsidian/238-media-tiles.md"}, {"title": "Shared local and exported gameplay", "source": "workspace-desktop/renderer/media-tile-play.js", "note": "docs/obsidian/238-media-tiles.md"}, {"title": "Desktop editing, restart and offline playtest", "source": "workspace-desktop/test/media-tile-integration.cjs", "note": "docs/obsidian/238-media-tiles.md"}, {"title": "Level integrity and refusal checks", "source": "workspace-engine/src/test/java/fraymus/workspace/TileWorkshopTest.java", "note": "docs/obsidian/238-media-tiles.md"}], "screenshots": [{"path": "docs/readmes/230/tile-workshop.png", "title": "Sprite library and the Signal Foundry tile level"}, {"path": "docs/readmes/230/tile-collider.png", "title": "Inspecting an offset solid collider"}, {"path": "docs/readmes/230/tile-offline.png", "title": "Completing the exported level offline"}], "evidence": [{"path": "docs/readmes/230/tile-evidence.json", "title": "Collision, restart, export and refusal measurements"}, {"path": "docs/readmes/230/signal-foundry.html", "title": "Standalone playable level"}, {"path": "docs/readmes/230/signal-foundry.json", "title": "Editable level with both original sources"}, {"path": "docs/readmes/230/library-slate.png", "title": "Reusable tile sprite PNG"}, {"path": "docs/readmes/230/amber-beacon.png", "title": "Original amber sprite source"}, {"path": "docs/readmes/230/cobalt-slate.png", "title": "Original cobalt sprite source"}, {"path": "docs/publication230/plan.md", "title": "Implementation and next steps"}, {"path": "docs/readmes/230/FILE_TREE.md", "title": "Edition file tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 15220, "sha256": "d5a4ae89fa78206b202c47dbf38cfc9f01c09262c674313fc094bd61938141fc", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/238-media-tiles.canvas", "bytes": 2256, "sha256": "5e91276871a76bdf1a88a450db836b8a15e8cc783d2d23ce41537e4fe93312ce", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/238-media-tiles.md", "bytes": 886, "sha256": "5de2afde5efec81dfbcf5d8e414fd5542f2c8520cca488f66177f5c1d5db54bc", "hashKind": "utf8-lf"}, {"path": "docs/publication230/plan.md", "bytes": 2800, "sha256": "029181c5fe2b00473c98a19dd24eea4e2e132407af109662dbfd8868bb5c8ffe", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 131856, "sha256": "32c5c7f7302b6f7cc5272771211f6180303727717acd9707aebc0c2f73525a89", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/app.js", "bytes": 42636, "sha256": "5cbd8629756cd31b85524be45b6d331d09d695ddc500c984c8067bfbcd68ead1", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/media-tile-editor.js", "bytes": 22618, "sha256": "083fde186838db1a522c4f19bec9737a81e25492126c93fa455d67c20634abca", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/media-tile-play.js", "bytes": 8286, "sha256": "b446bcef955bde952ee3a9e0232029b880871ce58161a0498592347e68a7b182", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/media-workshop.css", "bytes": 3917, "sha256": "ed2daa0052e75b24759ca1b73a2796df6fe23ea9502313e07ce3f0a9c1f9e73b", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/media-workshop.js", "bytes": 9136, "sha256": "e2d7046e22d2eaa8720143211aebe4758f7ca1b3eafbe89a96dbb41604fb349f", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/media-tile-integration.cjs", "bytes": 16293, "sha256": "12829d850dbfeb4f084a1983f019ddf9a98304704958a68c43cec9a1cea43bda", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/media-workshop-integration.cjs", "bytes": 13406, "sha256": "d71b2ec5063a6ae37b049825297d0dca1c7cd76ff3c1482795e70983116f70f5", "hashKind": "utf8-lf"}, {"path": "workspace-engine/build.gradle", "bytes": 2585, "sha256": "e15363bbc8a6eb8036e0e4a2c108fe466970fbf1ab4de624e5b6cae19b67b475", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpriteWorkshop.java", "bytes": 13666, "sha256": "7c59ea14f6f6b0ea6273d8c5bea1100b846c33e9f5fdb44d36f381065eb8c9fc", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java", "bytes": 15234, "sha256": "2ac0a1a90ad4a916279ee09e56ba86b50990d23cbeb6176f048fd679585b3ba6", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 151355, "sha256": "e1bbfc8793a95354ec0c41425614ec844307f4a3484d234ff94e5beae70c6676", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/TileWorkshopTest.java", "bytes": 4596, "sha256": "bd4d82637e23a349cf9239bd4cef48765ea74d5182cd6436bce47e3a36574165", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

@@ -1,0 +1,248 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; script-src 'sha256-dJutL4icYtsPHNTor5B/2sbqLfJSAHZtdByikFJZOQY='; style-src 'unsafe-inline'">
+<title>Fraynix level</title>
+<style>
+  * { box-sizing: border-box }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 1rem; background: #101c22; color: #edf7f3; font: 16px system-ui, sans-serif }
+  main { width: min(100%, 780px) }
+  h1 { font-size: clamp(1.35rem, 4vw, 2rem); margin: 0 0 .65rem }
+  canvas { display: block; width: 100%; border: 1px solid #638983; border-radius: .5rem }
+  canvas:focus-visible { outline: 2px solid #9aebcb; outline-offset: 4px }
+  footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .75rem; margin: 1rem 0 }
+  p { margin: 0; color: #caddd7 }
+  #controls { margin-bottom: .65rem }
+  button { padding: .55rem .8rem; border: 1px solid #638983; border-radius: .4rem; color: inherit; background: #24403e; font: inherit; cursor: pointer }
+</style>
+</head>
+<body>
+<main>
+  <h1>Fraynix level</h1>
+  <p id="controls">Click the game to focus it. Move with ← and →. Jump with ↑ or Space.</p>
+  <canvas tabindex="0" aria-label="Playable level" aria-describedby="controls"></canvas>
+  <footer><p id="progress" role="status"></p><button id="restart">Restart level</button></footer>
+</main>
+<template id="level-data">eyJsYXlvdXQiOnsib2JqZWN0cyI6W3sic2l6ZSI6MTI4LCJhc3NldElkIjoiNWFiMzViYWRjZTdkYmUyODBjMmZkOGMyMWQ4ZTJkYzAwMDUzZDZjMmEzM2MzNTIxMWM4ZTVjYWQ5ZjMzYTI2OSIsImtpbmQiOiJzcHJpdGUiLCJ4IjoxMzIsInkiOjEwNCwiaWQiOiI5OTI3ZjViNC0yOTkzLTQ0MTYtOWViMC00ZDUzNTg2YzJiMTUiLCJsYXllciI6ImJhY2tkcm9wIn0seyJzaXplIjozMiwiYXNzZXRJZCI6IjVhYjM1YmFkY2U3ZGJlMjgwYzJmZDhjMjFkOGUyZGMwMDA1M2Q2YzJhMzNjMzUyMTFjOGU1Y2FkOWYzM2EyNjkiLCJraW5kIjoic3ByaXRlIiwieCI6MTQ4LCJ5IjoyODAsImlkIjoiN2U5YTkxYzEtZDk4OC00ODI1LWFkZWQtZDI4ZjA4YTg2NmViIiwibGF5ZXIiOiJwaWNrdXAifSx7ImNvbGxpZGVyIjp7InciOjM2LCJ4Ijo4LCJoIjo0NCwieSI6NH0sInNpemUiOjQ4LCJhc3NldElkIjoiZDBhNTMyMTM1MDU1N2I0Yjk0OTQ1NWE2ZmMxZTc3MzIxYzk1MTk0NmUzNzc2NjgwMmU0ODUyMzg0NWQ5NDk5MiIsImtpbmQiOiJzcHJpdGUiLCJ4IjoyMTYsInkiOjI2NCwiaWQiOiJmNTEzMDY2ZC00ODgzLTQzM2EtOTJmYy0yNmM4OWZjMGEwZGUiLCJsYXllciI6InRlcnJhaW4ifSx7ImNvbGxpZGVyIjp7InciOjI0LCJ4IjowLCJoIjoxNiwieSI6NH0sInNpemUiOjI0LCJhc3NldElkIjoiZDBhNTMyMTM1MDU1N2I0Yjk0OTQ1NWE2ZmMxZTc3MzIxYzk1MTk0NmUzNzc2NjgwMmU0ODUyMzg0NWQ5NDk5MiIsImtpbmQiOiJ0aWxlIiwieCI6MzYwLCJ5IjoyNDAsImlkIjoiMzQyYTdiNjctMjJjOS00MDk3LWFjOTAtMTFjNTQ5ZjY4NTk5IiwibGF5ZXIiOiJ0ZXJyYWluIn0seyJjb2xsaWRlciI6eyJ3IjoyNCwieCI6MCwiaCI6MjQsInkiOjB9LCJzaXplIjoyNCwiYXNzZXRJZCI6ImQwYTUzMjEzNTA1NTdiNGI5NDk0NTVhNmZjMWU3NzMyMWM5NTE5NDZlMzc3NjY4MDJlNDg1MjM4NDVkOTQ5OTIiLCJraW5kIjoidGlsZSIsIngiOjM4NCwieSI6MjQwLCJpZCI6IjcwN2Q1ODY4LTVlY2MtNDI3Yi1hYzRiLWY3OTA0MTRkYWQxZCIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJkMGE1MzIxMzUwNTU3YjRiOTQ5NDU1YTZmYzFlNzczMjFjOTUxOTQ2ZTM3NzY2ODAyZTQ4NTIzODQ1ZDk0OTkyIiwia2luZCI6InRpbGUiLCJ4Ijo0MDgsInkiOjI0MCwiaWQiOiI4ZTIwZDdmZS0yOGJiLTRmMGUtYTZkZi1jY2EyM2IxZGY4MzEiLCJsYXllciI6InRlcnJhaW4ifSx7ImNvbGxpZGVyIjp7InciOjI0LCJ4IjowLCJoIjoyNCwieSI6MH0sInNpemUiOjI0LCJhc3NldElkIjoiZDBhNTMyMTM1MDU1N2I0Yjk0OTQ1NWE2ZmMxZTc3MzIxYzk1MTk0NmUzNzc2NjgwMmU0ODUyMzg0NWQ5NDk5MiIsImtpbmQiOiJ0aWxlIiwieCI6NDMyLCJ5IjoyNDAsImlkIjoiNGIxNGU3MzAtZDI2Yy00MjRkLWI3MjgtZjcyYWM3ZjhlYzYzIiwibGF5ZXIiOiJ0ZXJyYWluIn0seyJzaXplIjozMiwiYXNzZXRJZCI6IjVhYjM1YmFkY2U3ZGJlMjgwYzJmZDhjMjFkOGUyZGMwMDA1M2Q2YzJhMzNjMzUyMTFjOGU1Y2FkOWYzM2EyNjkiLCJraW5kIjoic3ByaXRlIiwieCI6MzkyLCJ5IjoyMDgsImlkIjoiYzc3ZjdhODQtODQxNC00ZjQ3LTgyNjAtMmZmMTkzMjViNTUxIiwibGF5ZXIiOiJwaWNrdXAifSx7InNpemUiOjQ4LCJhc3NldElkIjoiZDBhNTMyMTM1MDU1N2I0Yjk0OTQ1NWE2ZmMxZTc3MzIxYzk1MTk0NmUzNzc2NjgwMmU0ODUyMzg0NWQ5NDk5MiIsImtpbmQiOiJzcHJpdGUiLCJ4Ijo1MzQsInkiOjI2MSwiaWQiOiIwZDUzMjFiNy03ZGNlLTRiMzAtYjk4ZS1lMTBmNTc4ZjFkYTkiLCJsYXllciI6ImZvcmVncm91bmQifV0sInRpdGxlIjoiU2lnbmFsIEZvdW5kcnkifSwic3ByaXRlcyI6eyJkMGE1MzIxMzUwNTU3YjRiOTQ5NDU1YTZmYzFlNzczMjFjOTUxOTQ2ZTM3NzY2ODAyZTQ4NTIzODQ1ZDk0OTkyIjp7InBuZyI6ImlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFDZ0FBQUFvQ0FZQUFBQ00vcmh0QUFBQWpFbEVRVlI0WHUzWXNRbUFRQkJFMFd2THlHNnN3c0RZTnF4SXNKOHovd3lyc0lxTHpNRkxaR0YrYkZ1UHZWZlcrS0VhQjJZNU1LdCs0RGh2dmJKL0JBN1Q4Z3J1S0E2TWNFZHhZSVE3aWdNajNGSFNnZTNpOGQ2QnhDQSszanVRR01USGV3Y1NnL2g0NzhBbmNVZHhZSVE3aWdNajNGRWNHT0dPY2l2d1MvVUQrYXVoR2dkbU9URExnVmtua3dTUXRrMGN0TzhBQUFBQVNVVk9SSzVDWUlJPSJ9LCI1YWIzNWJhZGNlN2RiZTI4MGMyZmQ4YzIxZDhlMmRjMDAwNTNkNmMyYTMzYzM1MjExYzhlNWNhZDlmMzNhMjY5Ijp7InBuZyI6ImlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFDZ0FBQUFvQ0FZQUFBQ00vcmh0QUFBQWlrbEVRVlI0WHUzWXNRbUFRQkJFMFN2UDZxekFqc3lOTE1JTzF2d3pyTUlxTGpJSEw1R0YrYkVqdGlVNkcvelFqUU9ySEZqVlAzQ2ZwK2pzSDRGeHJLL2dqdUxBREhjVUIyYTRvemd3d3gybEhEZ3VIdThkU0F6aTQ3MERpVUY4dkhjZ01ZaVA5dzU4RW5jVUIyYTRvemd3d3gzRmdSbnVLTGNDdjlRL2tMOGF1bkZnbFFPckhGaDFBdFpsZWc0b1BTNUVBQUFBQUVsRlRrU3VRbUNDIn19fQ==</template>
+<script type="module">
+
+export const tileWorld = Object.freeze({width:720, height:336, floor:312, tile:24, exit:672});
+const PLAYER_W = 24, PLAYER_H = 32, STEP = 1 / 120;
+const overlaps = (a, sizeA, b, sizeB) => a < b + sizeB && a + sizeA > b;
+const layers = ['backdrop', 'terrain', 'pickup', 'foreground'];
+
+const spawn = () => ({x:48, y:tileWorld.floor - PLAYER_H, vy:0, support:'floor', wall:'',
+    collected:new Set(), won:false});
+
+export function tileImages(sprites, invalidate, images = new Map()) {
+    for (const [id, sprite] of Object.entries(sprites)) {
+        if (images.has(id)) continue;
+        const image = new Image();
+        images.set(id, image);
+        image.addEventListener('load', invalidate, {once:true});
+        image.src = 'data:image/png;base64,' + sprite.png;
+    }
+    return images;
+}
+
+export function drawTileLevel(canvas, layout, images, state = spawn(), editor = null) {
+    const {width, height, floor, tile, exit} = tileWorld;
+    const g = canvas.getContext('2d');
+    const rect = (fill, x, y, w, h) => {
+        g.fillStyle = fill;
+        g.fillRect(x, y, w, h);
+    };
+    const sky = g.createLinearGradient(0, 0, 0, floor);
+    sky.addColorStop(0, '#142337');
+    sky.addColorStop(1, '#36565b');
+    rect(sky, 0, 0, width, height);
+    rect('#829a91', 0, floor, width, 3);
+    rect('#213b40', 0, floor + 3, width, height - floor);
+    if (editor) {
+        g.beginPath();
+        g.strokeStyle = '#bed0d02e';
+        for (let x = tile; x < width; x += tile) { g.moveTo(x, 0); g.lineTo(x, floor); }
+        for (let y = tile; y < floor; y += tile) { g.moveTo(0, y); g.lineTo(width, y); }
+        g.stroke();
+    }
+    const ready = layout.objects.every(item => item.layer !== 'pickup' || state.collected.has(item.id));
+    const gate = ready ? '#8de9bd' : '#d88376';
+    rect(gate, exit, floor - 48, 5, 48);
+    rect(gate, exit, floor - 48, 28, 5);
+    for (const layer of layers) {
+        if (layer === 'foreground') {
+            rect('#ffe3a5', state.x, state.y, PLAYER_W, PLAYER_H);
+            rect('#284044', state.x + 4, state.y + 5, PLAYER_W - 8, 11);
+        }
+        for (const item of layout.objects) {
+            if (item.layer !== layer || state.collected.has(item.id)) continue;
+            const image = images.get(item.assetId);
+            if (!image?.complete || !image.naturalWidth) continue;
+            const scale = item.size / Math.max(image.naturalWidth, image.naturalHeight);
+            const w = image.naturalWidth * scale, h = image.naturalHeight * scale;
+            g.drawImage(image, item.x + (item.size - w) / 2, item.y + item.size - h, w, h);
+        }
+    }
+    if (!editor) return;
+    for (const item of layout.objects) {
+        if (item.collider) {
+            const {x, y, w, h} = item.collider;
+            g.strokeStyle = '#f5a65f';
+            g.strokeRect(item.x + x + .5, item.y + y + .5, w - 1, h - 1);
+        }
+        if (item.id === editor.selected) {
+            g.strokeStyle = '#a3ffdb';
+            g.lineWidth = 2;
+            g.strokeRect(item.x + 1, item.y + 1, item.size - 2, item.size - 2);
+            g.lineWidth = 1;
+        }
+    }
+    if (editor.hover) {
+        const {x,y} = editor.hover;
+        rect(editor.mode === 'erase' ? '#e57b723b' : '#91eac447', x, y, tile, tile);
+    }
+}
+
+export function mountTileGame(canvas, status, level) {
+    const {width, height, floor, exit} = tileWorld;
+    const pickups = level.layout.objects.filter(item => item.layer === 'pickup');
+    const solids = level.layout.objects.filter(item => item.collider).map(({id,x,y,collider:c}) =>
+        ({id, x:x+c.x, y:y+c.y, w:c.w, h:c.h}));
+    const keys = new Set();
+    const events = new AbortController();
+    const options = {signal:events.signal};
+    let state, jump = false, frame = 0, previous = 0, accumulator = 0;
+    canvas.width = width;
+    canvas.height = height;
+    const images = tileImages(level.sprites, draw);
+
+    function draw() {
+        drawTileLevel(canvas, level.layout, images, state);
+        Object.assign(canvas.dataset, {playerX:state.x.toFixed(2), playerY:state.y.toFixed(2),
+            support:state.support, wall:state.wall, collected:String(state.collected.size),
+            required:String(pickups.length), won:String(state.won)});
+    }
+
+    function restart() {
+        state = spawn();
+        keys.clear();
+        jump = false;
+        previous = 0;
+        accumulator = 0;
+        status.textContent = 'Move with ← and →. Jump with ↑ or Space. Collect all pickups.';
+        draw();
+    }
+
+    function step() {
+        if (state.won) return;
+        if (jump && state.support) state.vy = -610;
+        jump = false;
+        const direction = Number(keys.has('ArrowRight')) - Number(keys.has('ArrowLeft'));
+        let nextX = Math.max(0, Math.min(width-PLAYER_W, state.x + direction*215*STEP));
+        state.wall = '';
+        for (const box of solids) {
+            if (!overlaps(state.y, PLAYER_H, box.y, box.h)) continue;
+            if (direction > 0 && state.x + PLAYER_W <= box.x && nextX + PLAYER_W > box.x) {
+                nextX = box.x - PLAYER_W;
+                state.wall = box.id;
+            }
+            if (direction < 0 && state.x >= box.x + box.w && nextX < box.x + box.w) {
+                nextX = box.x + box.w;
+                state.wall = box.id;
+            }
+        }
+        state.x = nextX;
+        state.vy += 1560 * STEP;
+        let nextY = state.y + state.vy * STEP;
+        state.support = '';
+        for (const box of solids) {
+            if (!overlaps(state.x, PLAYER_W, box.x, box.w)) continue;
+            if (state.vy < 0 && state.y >= box.y+box.h && nextY < box.y+box.h) {
+                nextY = box.y+box.h;
+            } else if (state.vy >= 0 && state.y + PLAYER_H <= box.y && nextY + PLAYER_H >= box.y) {
+                nextY = box.y - PLAYER_H;
+                state.support = box.id;
+            }
+        }
+        if (nextY < 0) nextY = 0;
+        if (nextY + PLAYER_H >= floor) {
+            nextY = floor - PLAYER_H;
+            state.support = 'floor';
+        }
+        if (nextY !== state.y + state.vy * STEP || state.support) state.vy = 0;
+        state.y = nextY;
+        for (const item of pickups) {
+            if (!state.collected.has(item.id) && overlaps(state.x, PLAYER_W, item.x, item.size)
+                && overlaps(state.y, PLAYER_H, item.y, item.size)) {
+                state.collected.add(item.id);
+                status.textContent = state.collected.size === pickups.length
+                    ? 'All sprites collected. The exit is open.'
+                    : state.collected.size + ' of ' + pickups.length + ' sprites collected.';
+            }
+        }
+        if (state.x+PLAYER_W >= exit) {
+            if (state.collected.size === pickups.length) {
+                state.won = true;
+                status.textContent = 'Level complete.';
+            } else {
+                state.x = Math.min(state.x, exit - PLAYER_W);
+                status.textContent = 'The exit is locked. Collect every pickup.';
+            }
+        }
+    }
+
+    function advance(now) {
+        accumulator += previous ? Math.min((now - previous) / 1000, .05) : 0;
+        previous = now;
+        let dirty = false;
+        while (accumulator >= STEP) {
+            step();
+            accumulator -= STEP;
+            dirty = true;
+        }
+        if (dirty) draw();
+        if (!state.won) frame = requestAnimationFrame(advance);
+        else frame = 0;
+    }
+
+    function release() {
+        keys.clear();
+        jump = false;
+    }
+
+    canvas.addEventListener('keydown', event => {
+        if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'Space'].includes(event.code)) return;
+        event.preventDefault();
+        if (event.code === 'ArrowUp' || event.code === 'Space') {
+            if (!event.repeat) jump = true;
+        } else keys.add(event.code);
+    }, options);
+    canvas.addEventListener('keyup', event => keys.delete(event.code), options);
+    canvas.addEventListener('blur', release, options);
+    function start() {
+        restart();
+        cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(advance);
+    }
+    start();
+    return {
+        restart:start,
+        close() {
+            cancelAnimationFrame(frame);
+            events.abort();
+        }
+    };
+}
+
+const bytes = Uint8Array.from(atob(document.querySelector('#level-data').content.textContent), c => c.charCodeAt(0));
+const level = JSON.parse(new TextDecoder().decode(bytes));
+document.title = level.layout.title;
+document.querySelector('h1').textContent = level.layout.title;
+const game = mountTileGame(document.querySelector('canvas'), document.querySelector('#progress'), level);
+document.querySelector('#restart').onclick = () => { game.restart(); document.querySelector('canvas').focus(); };
+</script>
+</body>
+</html>
