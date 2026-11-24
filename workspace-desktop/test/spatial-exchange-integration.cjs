@@ -27,6 +27,12 @@ async function main() {
     const near = (a,b) => assert(Math.abs(a-b)<1e-5,String(a)+' differs from '+b);
     const selected = () => page.locator('#spatial-scenes').inputValue();
     const marker = scene => scene.objects.find(obj=>obj.sourceId==='marker');
+    async function frameScene() {
+        await page.locator('#spatial-stage').evaluate(stage=>{
+            stage.scrollIntoView({block:'center'});
+            return new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+        });
+    }
 
     try {
         const reference = await api('/api/maps/import-image',await api('/api/maps/example',{variant:0}));
@@ -50,6 +56,7 @@ async function main() {
         await page.locator('#spatial-top-down').click();
         assert.equal(await page.locator('#spatial-top-down').getAttribute('aria-pressed'),'true');
         assert.equal(await page.locator('#spatial-observe').isDisabled(),true);
+        await frameScene();
         await capture('blueprint-spatial.png');
         await page.locator('#spatial-top-down').click();
 
@@ -98,6 +105,7 @@ async function main() {
             blender = {version,sourceSha256:hash(changed),
                 originalX:marker(original).position[0],importedX:marker(active).position[0]};
             checks.push('Stock Blender reparented the marker, translated its parent and exported an independently edited copy.');
+            await frameScene();
             await capture('blender-return.png');
         }
 

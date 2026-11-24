@@ -1,0 +1,66 @@
+{
+  "summary": "Convert a labelled plan into an editable 3D scene, exchange it with Blender via GLB, and move a returned object using the existing verified agent tool.",
+  "modules": [
+    {
+      "title": "Binary interchange, transforms and collider validation",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialGlb.java",
+      "note": "docs/obsidian/224-spatial-scene-exchange.md"
+    },
+    {
+      "title": "Original image to native geometry",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialBlueprint.java",
+      "note": "docs/obsidian/224-spatial-scene-exchange.md"
+    },
+    {
+      "title": "Retained input bytes and scene binding",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/224-spatial-scene-exchange.md"
+    },
+    {
+      "title": "Spatial controls and top-down camera",
+      "source": "workspace-desktop/renderer/spatial-panel.js",
+      "note": "docs/obsidian/224-spatial-scene-exchange.md"
+    },
+    {
+      "title": "Independent Blender and agent tests",
+      "source": "workspace-desktop/test/spatial-exchange-integration.cjs",
+      "note": "docs/obsidian/224-spatial-scene-exchange.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/216/blueprint-spatial.png",
+      "title": "Top-down Spatial view of the original labelled tile layout"
+    },
+    {
+      "path": "docs/readmes/216/blender-return.png",
+      "title": "A Blender-edited copy reopens as individual editable objects"
+    },
+    {
+      "path": "docs/readmes/216/native-move.png",
+      "title": "Fraynix completes and checks the native move on the returned object"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/216/reference.png",
+      "title": "Original labelled blueprint"
+    },
+    {
+      "path": "docs/readmes/216/blueprint.glb",
+      "title": "Original GLB"
+    },
+    {
+      "path": "docs/readmes/216/blender-edited.glb",
+      "title": "GLB edited in Blender"
+    },
+    {
+      "path": "docs/readmes/216/release-proof.json",
+      "title": "Desktop, Blender and portable test evidence"
+    },
+    {
+      "path": "docs/publication216/plan.md",
+      "title": "References, next test and reproduction"
+    }
+  ]
+}

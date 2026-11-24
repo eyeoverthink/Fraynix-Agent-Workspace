@@ -1,3 +1,5 @@
+[Edition 216 — Take an editable scene from image to Blender and back](224-spatial-scene-exchange.md)
+
 [Edition 215 — Test two competing explanations](223-hypothesis-experiment.md)
 
 [Edition 214 — Put an explanation to the test](222-explanation-audit.md)

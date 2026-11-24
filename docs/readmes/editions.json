@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 215,
+  "latest": 216,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -266801,6 +266801,70 @@
         {
           "path": "docs/readmes/215/system-map.json",
           "sha256": "0ce0a3467b839bb901ba7aa5794e9112ee65e5656a24dbc1fd17e54b29bb5993",
+          "kind": "text"
+        }
+      ]
+    },
+    {
+      "number": 216,
+      "date": "2026-11-23",
+      "title": "Take an editable scene from image to Blender and back",
+      "status": "validated-local",
+      "markdown": "README-216.md",
+      "markdownSha256": "8735f1e91aa8d44a142c879c4ec58cee25fa16fe0d65c1a80f80f80d36dadbb9",
+      "companion": "docs/readmes/216/index.html",
+      "tag": "readme-216",
+      "sourceBaseline": "b19d9ca4e1a110af7476301f436e495f76a6aa8c",
+      "snapshotDirectory": "docs/readmes/216",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/216/blender-edited.glb",
+          "sha256": "05911175843d000c0872559b78bc34ae3280d62df31f5fd77db2cf1eabcfc94f",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/216/blender-return.png",
+          "sha256": "1093abe1a4193c03b8fc31682a3f1c1be9e535c26fed2301587a75fa68ffd0e6",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/216/blueprint-spatial.png",
+          "sha256": "85f6a3c43c5bae204d75b13c021d5465ed551ce30b95937b28d83c2401d72d1d",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/216/blueprint.glb",
+          "sha256": "91ac89f685381bd346041da40ae6f64f5b7b8fc886c3d8ebb5b126fb9d8168e2",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/216/file-inventory.json",
+          "sha256": "f3c542c2d84736b9942603109e400d68f6cd7428e9414accbc8bc48173efc61c",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/216/index.html",
+          "sha256": "ff08a082a4d669f6142d44cbea38fb6464d4bcee62a53f7c18b1d2eab7c072f4",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/216/native-move.png",
+          "sha256": "f069a4b2a200bcc92cb12def16eb5ad592c80419251e327a2cc4beb87eca8a1d",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/216/reference.png",
+          "sha256": "a897f70f21a664080fd3cb615294305ed2b3010c4936677f904a6e124df1e4ff",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/216/release-proof.json",
+          "sha256": "21fd4648d661bda29c09b6ef05c171caf0817eb6b5c1c75bebb159d0ca0df10c",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/216/system-map.json",
+          "sha256": "dd0815ca38083e6390112d973e2b82c933401222096af663deddde54274f5dff",
           "kind": "text"
         }
       ]

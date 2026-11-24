@@ -1,0 +1,103 @@
+{
+  "date": "2026-11-23",
+  "windowsDesktopAndBlender": {
+    "passed": true,
+    "blender": {
+      "version": "Blender 5.3.0",
+      "sourceSha256": "05911175843d000c0872559b78bc34ae3280d62df31f5fd77db2cf1eabcfc94f",
+      "originalX": 6.5,
+      "importedX": 6.6500000059604645
+    },
+    "checks": [
+      "Every original PNG tile matches the collision footprint of the editable 3D copy.",
+      "Binary GLB bytes are hashed, bad chunks are refused and a copied scene has new IDs and unchanged geometry.",
+      "Stock Blender reparented the marker, translated its parent and exported an independently edited copy.",
+      "The existing agent tool binds the copy’s object, forecasts, grabs, moves, releases and passes its original verification.",
+      "Imported identity and the verified goal survive restart. A changed retained GLB is refused."
+    ],
+    "reference": {
+      "sha256": "a897f70f21a664080fd3cb615294305ed2b3010c4936677f904a6e124df1e4ff",
+      "width": 16,
+      "height": 16
+    },
+    "boxedObjects": 8,
+    "glbSha256": "91ac89f685381bd346041da40ae6f64f5b7b8fc886c3d8ebb5b126fb9d8168e2",
+    "metrics": {
+      "forecastMaxErrorM": 0,
+      "grabs": 1,
+      "maxGripEndpointErrorM": 1.043187715005108e-06,
+      "forecastRmseM": 0,
+      "samples": 83,
+      "releases": 1,
+      "route": "direct",
+      "sourceKind": "unverified",
+      "verticalErrorM": 0,
+      "passed": true,
+      "terminalSpeedMps": 1.4502343249963169e-06,
+      "horizontalErrorM": 1.043081283569336e-06,
+      "scaleIndependentlyCalibrated": false
+    },
+    "browserChecks": 8
+  },
+  "portableJava": {
+    "id": 45323857696,
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/45323857696",
+    "headSha": "b19d9ca4e1a110af7476301f436e495f76a6aa8c",
+    "targets": [
+      {
+        "name": "Linux x64",
+        "jobId": 138212243914,
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "Windows x64",
+        "jobId": 138212245509,
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "Apple silicon macOS",
+        "jobId": 138212246103,
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "Intel macOS",
+        "jobId": 138212296727,
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ]
+  },
+  "screenshots": [
+    {
+      "path": "docs/readmes/216/blueprint-spatial.png",
+      "bytes": 181995,
+      "sha256": "85f6a3c43c5bae204d75b13c021d5465ed551ce30b95937b28d83c2401d72d1d",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/216/blender-return.png",
+      "bytes": 295176,
+      "sha256": "1093abe1a4193c03b8fc31682a3f1c1be9e535c26fed2301587a75fa68ffd0e6",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/216/native-move.png",
+      "bytes": 182038,
+      "sha256": "f069a4b2a200bcc92cb12def16eb5ad592c80419251e327a2cc4beb87eca8a1d",
+      "hashKind": "binary"
+    }
+  ]
+}
