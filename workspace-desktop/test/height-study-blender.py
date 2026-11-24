@@ -106,10 +106,8 @@ def create_study(folder):
                 "views":[{"id":key,"role":VIEWS[key][2],"calibrationPng":calibrations[key],
                           "observationPng":observations[key]} for key in VIEWS]
             }
-            (folder / f"{label}.json").write_text(json.dumps(study,separators=(",",":"))+"\n",encoding="utf-8",newline="
-")
-    (folder / "independent-mesh-measurements.json").write_text(json.dumps(witness,indent=2)+"\n",encoding="utf-8",newline="
-")
+            (folder / f"{label}.json").write_text(json.dumps(study,separators=(",",":"))+"\n",encoding="utf-8",newline="\n")
+    (folder / "independent-mesh-measurements.json").write_text(json.dumps(witness,indent=2)+"\n",encoding="utf-8",newline="\n")
 
 
 if __name__ == "__main__":

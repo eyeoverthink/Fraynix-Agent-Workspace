@@ -607,6 +607,22 @@ public final class WorkspaceServer implements AutoCloseable {
                         if (data.length() > (SpatialGlb.LIMIT+2)/3*4) throw new IllegalArgumentException("Choose a GLB up to 512 KiB.");
                         result = spatial.importGlb(Base64.getDecoder().decode(data));
                     }
+                    case "/api/spatial/reconstruct-example","/api/spatial/reconstruct" -> {
+                        if (agency.busy() || sharedBusy043() || goals.workflowReserved() || goals.ownsSpatial())
+                            throw new IllegalStateException("Finish active work before reconstructing a scene.");
+                        if (route.endsWith("example")) {
+                            SpatialScene.keys(input);
+                            try (var in=WorkspaceServer.class.getResourceAsStream("/spatial/reconstruction/bracket.json")) {
+                                result=spatial.reconstruct(in.readAllBytes());
+                            }
+                        } else {
+                            SpatialScene.keys(input,"base64");
+                            String data=input.getString("base64");
+                            if (data.length()>(SpatialReconstruction.LIMIT+2)/3*4)
+                                throw new IllegalArgumentException("Choose a silhouette set up to 1.2 MB.");
+                            result=spatial.reconstruct(Base64.getDecoder().decode(data));
+                        }
+                    }
                     case "/api/spatial/export-glb" -> {
                         SpatialScene.keys(input,"id");
                         var original = spatial.read(input.getString("id"));

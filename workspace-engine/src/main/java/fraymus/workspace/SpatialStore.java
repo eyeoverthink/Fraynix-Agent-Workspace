@@ -26,8 +26,31 @@ public final class SpatialStore implements AutoCloseable {
         for (String key:parsed.keySet()) if (!new JSONObject().put("v",parsed.get(key)).similar(new JSONObject().put("v",scene.get(key))))
             throw new IllegalStateException("Spatial source/definition integrity failed: "+key);
     }
+    private Path reconstructionSource(String id) {
+        if (!UUID.fromString(id).toString().equals(id)) throw new IllegalArgumentException("Invalid reconstruction identity.");
+        return file.resolveSibling("reconstruction-sources").resolve(id+".json");
+    }
+
+    private void verifyReconstructionSource(String id,String expected) throws Exception {
+        Path original=reconstructionSource(id);
+        if (!Files.isRegularFile(original,LinkOption.NOFOLLOW_LINKS) || Files.size(original)>SpatialReconstruction.LIMIT
+                || !MapDefinition.sha(Files.readAllBytes(original)).equals(expected))
+            throw new IllegalStateException("The original silhouette package changed or is unavailable.");
+    }
+
     private void validate(JSONObject scene) {
         validateDefinition(scene);
+        if (scene.has("reconstruction")) {
+            try {
+                var proof=scene.getJSONObject("reconstruction");
+                verifyReconstructionSource(scene.getString("id"),proof.getString("sourceSha256"));
+                if (!WorldFrames.hash(proof).equals(scene.getString("reconstructionSha256"))
+                        || !proof.getString("definitionSha256").equals(MeasurementStore.hash(scene.getString("sourceText"))))
+                    throw new IllegalStateException("The reconstruction receipt or definition changed.");
+            } catch (Exception error) {
+                throw new IllegalStateException("Cannot recheck the original visual reconstruction.",error);
+            }
+        }
         if (scene.has("heightStudy")) {
             try {
                 var original=heightStudies.boundDefinition(scene.getJSONObject("heightStudy"));
@@ -136,6 +159,32 @@ public final class SpatialStore implements AutoCloseable {
         var receipt=new JSONObject().put("review",review).put("approvalSha256",digest).put("verify",checked).put("replay",replay);
         return retainScene(scene.put("importedAt",Instant.now().toString()).put("propCopy",receipt)
                 .put("propCopySha256",WorldFrames.hash(receipt)));
+    }
+
+    synchronized JSONObject reconstruct(byte[] source) throws Exception {
+        if (source.length==0 || source.length>SpatialReconstruction.LIMIT)
+            throw new IllegalArgumentException("Choose a silhouette set up to 1.2 MB.");
+        String sha=MapDefinition.sha(source);
+        String id=UUID.nameUUIDFromBytes((SpatialReconstruction.POLICY+":"+sha).getBytes(StandardCharsets.UTF_8)).toString();
+        if (scenes.containsKey(id)) return read(id);
+        available();
+        if (scenes.size()>=32) throw new IllegalStateException("Spatial import history limit reached (32)");
+        var result=SpatialReconstruction.build(source);
+        String definition=result.definition().toString();
+        var proof=result.evidence().put("definitionSha256",MeasurementStore.hash(definition));
+        var scene=SpatialScene.parse(definition,id).put("importedAt",Instant.now().toString())
+                .put("reconstruction",proof).put("reconstructionSha256",WorldFrames.hash(proof));
+        Path original=reconstructionSource(id);
+        Files.createDirectories(original.getParent());
+        if (Files.exists(original)) verifyReconstructionSource(id,sha);
+        else {
+            Path pending=Files.createTempFile(original.getParent(),"reconstruction-",".pending");
+            try {
+                Files.write(pending,source);
+                Files.move(pending,original,StandardCopyOption.ATOMIC_MOVE);
+            } finally { Files.deleteIfExists(pending); }
+        }
+        return retainScene(scene);
     }
 
     synchronized JSONObject importHeightCollider(JSONObject approved) throws Exception {

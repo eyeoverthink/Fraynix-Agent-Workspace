@@ -111,6 +111,9 @@ export class SpatialHeightPanel {
     const {id,colliderApprovalSha256} = this.record;
     const scene = await this.spatial.call('height-collider',{id,colliderApprovalSha256});
     await this.spatial.open(scene.id);
+    const status = get('height-status');
+    status.dataset.collider = scene.id;
+    status.textContent = 'Approved collider opened from the verified study.';
     this.spatial.notice('Approved upper-bound collider opened in Spatial.');
     this.spatial.announce('I opened the approved collider. Its height uses the upper bound from the verified interval.');
   }
@@ -127,6 +130,7 @@ export class SpatialHeightPanel {
     measure.hidden = true;
     source.hidden = scores.hidden = pictures.hidden = !this.record;
     status.dataset.status = record.status || 'empty';
+    delete status.dataset.collider;
     if (!this.record) {
       status.textContent = 'No saved study. Choose the Blender example or import a registered study.';
       return;

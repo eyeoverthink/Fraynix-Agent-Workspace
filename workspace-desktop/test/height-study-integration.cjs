@@ -14,10 +14,14 @@ async function main() {
   const fixtures=path.resolve(__dirname,'../../workspace-engine/src/test/resources/spatial/height-studies');
   const truth=JSON.parse(await fs.readFile(path.join(fixtures,'independent-mesh-measurements.json'),'utf8'));
   const extra=process.platform==='linux'?['--no-sandbox','--disable-dev-shm-usage']:[];
+  if(process.env.FRAYNIX_HEIGHT_TEST_NO_WEBGL==='1') extra.push('--disable-webgl');
   let {app,page}=await launch(project,extra);
   const api=(method,args={})=>app.evaluate((_,x)=>global.workspaceTest.api('/api/spatial/'+x.method,x.args),{method,args});
   const record=()=>api('height-latest');
-  const state=status=>page.locator('#height-status[data-status="'+status+'"]').waitFor({timeout:20000});
+  const state=async status=>{
+    await page.waitForFunction(wanted=>[wanted,'error'].includes(document.querySelector('#height-status')?.dataset.status),status,{timeout:20000});
+    assert.equal(await page.locator('#height-status').getAttribute('data-status'),status,await page.locator('#height-status').textContent());
+  };
   const click=id=>page.locator('#'+id).click();
   const capture=async name=>{
     await page.locator('#spatial-height').evaluate(element=>element.scrollIntoView({block:'start'}));
@@ -31,6 +35,7 @@ async function main() {
     if (!await panel.evaluate(element=>element.open)) await panel.locator('summary').click();
   };
   const choose=async name=>{
+    await page.locator('#height-import:enabled').waitFor({state:'attached'});
     await page.locator('#height-import').setInputFiles(path.join(fixtures,name+'.json'));
     await state('review');
   };
@@ -75,11 +80,17 @@ async function main() {
     await capture('verified-height.png');
     assert.equal((await api('list')).scenes.length,0);
     await click('height-collider');
-    await page.waitForFunction(()=>document.querySelector('#spatial-objects').selectedOptions[0]?.textContent.includes('Upper-bound height collider'));
+    await page.waitForFunction(()=>document.querySelector('#height-status').dataset.status==='error'
+      || Boolean(document.querySelector('#height-status').dataset.collider));
+    assert.notEqual(await page.locator('#height-status').getAttribute('data-status'),'error',
+      await page.locator('#height-status').textContent());
     const importedId=await page.locator('#spatial-scenes').inputValue();
+    assert.equal(await page.locator('#height-status').getAttribute('data-collider'),importedId);
+    assert((await page.locator('#spatial-objects').locator('option:checked').textContent()).includes('Upper-bound height collider'));
     const imported=await api('read',{id:importedId});
     assert.equal(imported.objects.find(body=>body.sourceId==='prop').size[1],low.measurement.highM);
     await click('height-collider');
+    await page.locator('#height-collider:enabled').waitFor();
     assert.equal((await api('list')).scenes.length,1);
     await page.locator('#goal').fill('How tall is this prop?');
     await click('run');
@@ -104,6 +115,7 @@ async function main() {
     await click('run');
     const oldMeasure=(low.measurement.heightM*1000).toFixed(1)+' mm';
     await page.getByText('measured '+oldMeasure,{exact:false}).last().waitFor();
+    await page.locator('#height-import:enabled').waitFor({state:'attached'});
     await choose('occluded');
     await click('height-approve');
     await state('refused');

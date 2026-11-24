@@ -36,6 +36,13 @@ export class SpatialPanel {
      <label>One tile measures · m<input id="spatial-blueprint-scale" type="number" min="0.6" max="1.2" step="0.01" value="1"></label>
      <button id="spatial-blueprint-build">Build 3D copy</button>
     </div><p class="spatial-note">Import a labelled PNG in Maps first. The original layout supplies the floor plan. The collider walls are 1.1 m high.</p></details>
+   <details class="spatial-detail" id="spatial-reconstruct"><summary>Reconstruct editable geometry from images</summary>
+    <div class="spatial-task">
+     <button id="spatial-reconstruct-example">Reconstruct Blender example</button>
+     <label class="spatial-file">Import silhouette set<input id="spatial-reconstruct-file" type="file" accept=".json,application/json" aria-label="Import silhouette set"></label>
+     <button id="spatial-reconstruct-export" disabled>Export reconstructed GLB</button>
+    </div><p id="spatial-reconstruct-result" class="spatial-note" role="status">Use three calibrated orthographic PNG silhouettes with a declared scale.</p>
+   </details>
    <p id="spatial-source" class="spatial-note">Load the labelled test scene or import a supported box-scene JSON. No captured-room calibration is implied.</p>
    <div id="spatial-stage" aria-label="Spatial native viewport"></div><div id="spatial-live" role="status">Select an imported scene.</div>
    <div class="spatial-task"><label>Relative move X · m<input id="spatial-dx" type="number" value="4" min="-6" max="6" step="0.1"></label><label>Z · m<input id="spatial-dz" type="number" value="0" min="-6" max="6" step="0.1"></label><label>Save verified procedure as<input id="spatial-skill" value="spatial-crate-route" maxlength="56"></label><button id="spatial-preview">Forecast only</button><button id="spatial-run" class="primary">Grab, move &amp; release</button></div>
@@ -77,10 +84,17 @@ export class SpatialPanel {
    const scene=await this.call('import-glb',{base64:btoa(binary)});
    await this.open(scene.id);this.notice('Verified GLB imported as a separate editable scene.');
   });
-  $('spatial-export-glb').onclick=()=>this.action(async()=>{
-   const result=await this.call('export-glb',{id:this.scene.id});
-   this.notice('Checked GLB saved to '+result.path);$('spatial-evidence').textContent=JSON.stringify(result,null,2);
+  $('spatial-reconstruct-export').onclick=()=>this.action(()=>this.exportGlb());
+  $('spatial-reconstruct-example').onclick=()=>this.action(()=>this.reconstruct('reconstruct-example'));
+  $('spatial-reconstruct-file').onchange=()=>this.action(async()=>{
+   const input=$('spatial-reconstruct-file'),file=input.files[0];input.value='';
+   if(!file)return;
+   if(file.size>1200000)throw Error('Choose a silhouette set up to 1.2 MB.');
+   const bytes=new Uint8Array(await file.arrayBuffer());let binary='';
+   for(let i=0;i<bytes.length;i+=8192)binary+=String.fromCharCode(...bytes.subarray(i,i+8192));
+   await this.reconstruct('reconstruct',{base64:btoa(binary)});
   });
+  $('spatial-export-glb').onclick=()=>this.action(()=>this.exportGlb());
   $('spatial-import-blender').onclick=()=>this.action(async()=>{
    const imported=await this.call('import-blender');
    if(imported){await this.open(imported.id);this.notice('Blender scene imported. Check declared scale and source in Spatial.');}
@@ -101,7 +115,7 @@ export class SpatialPanel {
  $('spatial-preview').onclick=()=>this.action(async()=>{this.requireObject();const before=await this.call('snapshot');this.plan=await this.call('preview',{...this.binding(),displacementM:this.delta()});const after=await this.call('snapshot');if(JSON.stringify(before)!==JSON.stringify(after))throw Error('Forecast changed displayed state');this.forecast(this.plan);$('spatial-plan').textContent=`Forecast only · ${this.plan.route} route · ${this.plan.trials.length} finite native trials · source unchanged. ${this.plan.trials.map(t=>`${t.route}: ${t.passed?'feasible':'blocked / rejected'}`).join(' · ')}`;});
   $('spatial-run').onclick=()=>this.action(async()=>{this.requireObject();const g=await this.call('start',{displacementM:this.delta(),saveSkillName:$('spatial-skill').value.trim()});this.goal(g);});
   $('spatial-export').onclick=()=>this.action(async()=>{if(!this.scene)throw Error('Select a scene');const r=await this.call('export',{kind:'scene',id:this.scene.id});this.notice(`Scene JSON saved: ${r.path}`);$('spatial-evidence').textContent=JSON.stringify(r,null,2);});
-  $('spatial-observe').onclick=()=>this.action(async()=>{if(!this.scene)throw Error('Select a scene');const dir=new THREE.Vector3();this.camera.getWorldDirection(dir);const pose={position:this.camera.position.toArray(),yawDeg:Math.atan2(dir.x,-dir.z)*180/Math.PI,pitchDeg:Math.asin(dir.y)*180/Math.PI,fovDeg:this.camera.fov};const r=await (this.worldMode&&this.worldObserve?(_command,args)=>this.worldObserve(args):this.poseMode&&this.poseCall?this.poseCall:this.pushMode?this.pushCall:this.call)('observe',{sceneId:this.scene.id,pose,viewport:{width:Math.max(100,this.renderer.domElement.clientWidth),height:Math.max(100,this.renderer.domElement.clientHeight)}});$('spatial-evidence').textContent=JSON.stringify(r,null,2);$('spatial-plan').textContent=`${r.visibleObjects.length} visible of ${r.knownObjects.length} known objects. Occluded identities remain known; visibility uses rays through native box geometry.`;});
+  $('spatial-observe').onclick=()=>this.action(async()=>{if(!this.scene)throw Error('Select a scene');if(!this.renderer)throw Error('The 3D preview is unavailable on this display.');const dir=new THREE.Vector3();this.camera.getWorldDirection(dir);const pose={position:this.camera.position.toArray(),yawDeg:Math.atan2(dir.x,-dir.z)*180/Math.PI,pitchDeg:Math.asin(dir.y)*180/Math.PI,fovDeg:this.camera.fov};const r=await (this.worldMode&&this.worldObserve?(_command,args)=>this.worldObserve(args):this.poseMode&&this.poseCall?this.poseCall:this.pushMode?this.pushCall:this.call)('observe',{sceneId:this.scene.id,pose,viewport:{width:Math.max(100,this.renderer.domElement.clientWidth),height:Math.max(100,this.renderer.domElement.clientHeight)}});$('spatial-evidence').textContent=JSON.stringify(r,null,2);$('spatial-plan').textContent=`${r.visibleObjects.length} visible of ${r.knownObjects.length} known objects. Occluded identities remain known; visibility uses rays through native box geometry.`;});
   setInterval(()=>{if(this.visible&&!this.polling)this.poll().catch(e=>this.notice(e.message));},100);new ResizeObserver(()=>this.resize()).observe($('spatial-stage'));
  }
  async action(fn){this.pending=(this.pending||Promise.resolve()).catch(()=>{}).then(async()=>{this.busy=true;this.controls();try{await fn();}catch(e){this.notice(e.message);}finally{this.busy=false;this.controls();}});return this.pending;}
@@ -155,9 +169,10 @@ export class SpatialPanel {
   if(rows.some(row=>row.id===prior))control.value=prior;
   if(!rows.length)control.add(new Option('Import a labelled PNG in Maps',''));
  }
- controls(){$('spatial-observe').disabled=Boolean(this.topDown);
+ controls(){$('spatial-observe').disabled=!this.renderer||Boolean(this.topDown);
   $('spatial-observe').title=this.topDown?'Use the perspective camera to check visible objects.':'';
   $('spatial-export-glb').disabled=this.busy||!this.scene||this.worldMode;
+  $('spatial-reconstruct-export').disabled=this.busy||!this.scene?.reconstruction||this.worldMode;
   const exchangeBusy=this.busy||this.agentBusy||this.evaluationBusy||['prepared','executing','running','paused'].includes(this.snapshot?.status);
   $('spatial-prop-open').disabled=exchangeBusy||!!this.worldMode||!this.object?.visualMesh||!this.object.massKg;
   $('spatial-glb').disabled=exchangeBusy;$('spatial-blueprint-build').disabled=exchangeBusy||!$('spatial-blueprint').value;
@@ -166,9 +181,26 @@ export class SpatialPanel {
  delta(){return [Number($('spatial-dx').value),0,Number($('spatial-dz').value)];}
  requireObject(){if(!this.scene||!this.object?.massKg)throw Error('Select a dynamic imported object first');}
  async import(text){const s=await this.call('import',{text});await this.open(s.id);this.notice('Imported source and declared scale verified. No independent room calibration.');return s;}
+ async exportGlb(){
+  const result=await this.call('export-glb',{id:this.scene.id});
+  this.notice('Checked GLB saved to '+result.path);$('spatial-evidence').textContent=JSON.stringify(result,null,2);
+ }
+ async reconstruct(command,args){
+  const status=$('spatial-reconstruct-result');
+  status.textContent='Reconstructing an editable surface from the silhouettes…';
+  try{
+   const scene=await this.call(command,args);
+   await this.open(scene.id);
+   const proof=scene.reconstruction;
+   status.textContent=proof.triangles+' editable triangles · '+proof.voxels+' reconstructed cells · separate enclosing collider. Export GLB to edit in Blender.';
+  }catch(error){
+   status.textContent=error.message;
+   throw error;
+  }
+ }
  async open(id){if(!id&&this.worldMode&&this.worldReopen){this.activate('spatial');await this.worldReopen();this.resize();return;}this.worldMode=false;this.poseMode=false;this.removePoseTargets();this.evaluationMode=false;this.activate('spatial');this.ensureRenderer();const list=await this.call('list');$('spatial-scenes').replaceChildren(...list.scenes.map(s=>{const o=document.createElement('option');o.value=s.id;o.textContent=s.title;return o;}));const selected=id||this.scene?.id||list.scenes.at(-1)?.id;if(selected)await this.select(selected,list);if($('spatial-exchange').open)await this.refreshBlueprints();this.resize();this.controls();}
  async openWorld(scene){this.carry.clear();this.activate('spatial');this.ensureRenderer();this.scene=scene;this.worldMode=true;this.poseMode=true;this.pushMode=false;this.evaluationMode=false;this.plan=null;this.snapshot=null;this.removePoseTargets();this.forecast(null);this.trace=[];this.drawTrace();this.paint(scene.objects);$('spatial-objects').replaceChildren(...scene.objects.map(o=>{const item=document.createElement('option');item.value=o.id;item.textContent=o.label+' · '+(o.massKg>0?'dynamic':'static');return item;}));this.object=scene.objects.find(o=>o.massKg>0);$('spatial-objects').value=this.object.id;this.paintSelection();this.resize();this.controls();}
- async select(id,list){this.carry.clear();this.worldMode=false;this.pushMode=false;this.pushGoal=null;this.pushRunId=null;this.removeLine(this.pusherTraceLine);this.pusherTraceLine=null;this.pusherTrace=[];this.scene=await this.call('read',{id});$('spatial-scenes').value=id;this.plan=null;this.forecast(null);this.trace=[];this.drawTrace();this.snapshot=null;this.accept({sceneId:id,status:'authored',current:{tick:0,objects:this.scene.objects,gripping:false}});$('spatial-objects').replaceChildren(...this.scene.objects.map(o=>{const v=document.createElement('option');v.value=o.id;v.textContent=`${o.label} · ${o.massKg>0?'dynamic':'static'}`;return v;}));await this.selectObject(this.scene.objects.find(o=>o.massKg>0).id);const s=this.scene;$('spatial-source').textContent=`${s.source.kind.toUpperCase()} · ${s.sourceUnits} → m · ${s.scaleCheck.convertedLengthM} m reference (${s.scaleCheck.basis}) · ${s.source.physicalProperties} properties · not independently calibrated`;$('spatial-evidence').textContent=JSON.stringify({sceneId:s.id,sourceSha256:s.sourceSha256,source:s.source,scaleCheck:s.scaleCheck,propCopy:s.propCopy},null,2);if(s.propCopy)$('spatial-plan').textContent=this.propSummary(s.propCopy.verify);this.frame();const records=list||await this.call('list');const last=records.runs.filter(r=>r.sceneId===id&&r.status==='completed').at(-1);if(last){const r=await this.call('run',{id:last.id});this.accept({id:r.id,sceneId:id,status:r.status,current:r.actual.final,verification:r.verification});this.forecast(r.plan);this.trace=r.actual.samples.map(s=>s.position);this.drawTrace();}const pushState=await this.pushCall('scene-state',{sceneId:id});if(pushState.current){this.pushMode=true;this.acceptPush(pushState);}await this.pushRoles();this.controls();}
+ async select(id,list){this.carry.clear();this.worldMode=false;this.pushMode=false;this.pushGoal=null;this.pushRunId=null;this.removeLine(this.pusherTraceLine);this.pusherTraceLine=null;this.pusherTrace=[];this.scene=await this.call('read',{id});$('spatial-scenes').value=id;this.plan=null;this.forecast(null);this.trace=[];this.drawTrace();this.snapshot=null;this.accept({sceneId:id,status:'authored',current:{tick:0,objects:this.scene.objects,gripping:false}});$('spatial-objects').replaceChildren(...this.scene.objects.map(o=>{const v=document.createElement('option');v.value=o.id;v.textContent=`${o.label} · ${o.massKg>0?'dynamic':'static'}`;return v;}));await this.selectObject(this.scene.objects.find(o=>o.massKg>0).id);const s=this.scene;$('spatial-source').textContent=s.reconstruction?`Reconstructed visual mesh · source bytes verified · ${s.reconstruction.cellM*1000} mm grid · declared scale`:`${s.source.kind.toUpperCase()} · ${s.sourceUnits} → m · ${s.scaleCheck.convertedLengthM} m reference (${s.scaleCheck.basis}) · ${s.source.physicalProperties} properties · not independently calibrated`;$('spatial-evidence').textContent=JSON.stringify({sceneId:s.id,sourceSha256:s.sourceSha256,source:s.source,scaleCheck:s.scaleCheck,propCopy:s.propCopy,reconstruction:s.reconstruction},null,2);if(s.propCopy)$('spatial-plan').textContent=this.propSummary(s.propCopy.verify);this.frame();const records=list||await this.call('list');const last=records.runs.filter(r=>r.sceneId===id&&r.status==='completed').at(-1);if(last){const r=await this.call('run',{id:last.id});this.accept({id:r.id,sceneId:id,status:r.status,current:r.actual.final,verification:r.verification});this.forecast(r.plan);this.trace=r.actual.samples.map(s=>s.position);this.drawTrace();}const pushState=await this.pushCall('scene-state',{sceneId:id});if(pushState.current){this.pushMode=true;this.acceptPush(pushState);}await this.pushRoles();this.controls();}
  async selectObject(id){if(this.object?.id!==id)this.carry.clear();this.object=this.scene.objects.find(o=>o.id===id);$('spatial-objects').value=id;await this.call('select',this.binding());this.paintSelection();await this.pushRoles();this.controls();}
  async poll(){if(this.worldMode||this.poseMode)return;if(this.evaluationMode&&this.evaluationBusy)return;this.polling=true;try{const s=await (this.pushMode?this.pushCall:this.call)('snapshot');if(s.sceneId===this.scene?.id){if(this.pushMode)this.acceptPush(s);else this.accept(s);}}finally{this.polling=false;}}
  accept(s){if(!s.current)return;const prior=this.snapshot;this.snapshot=s;if(s.id&&s.id!==prior?.id){this.trace=[];this.drawTrace();this.call('run',{id:s.id}).then(r=>{if(this.snapshot?.id===r.id){this.forecast(r.plan);$('spatial-plan').textContent=`Native forecast ${r.plan.route} route · ${r.plan.trials.length} candidate worlds · orange prediction / blue actual. Source ${r.definition.source.kind}, declared parameters.`;}}).catch(e=>this.notice(e.message));}this.paint(s.current.objects);if(s.current.tick!==prior?.current?.tick&&this.object){const o=s.current.objects.find(o=>o.id===this.object.id);if(o&&s.status==='executing'){this.trace.push(o.position);if(this.trace.length>1000)this.trace.shift();this.drawTrace();}}
@@ -207,8 +239,24 @@ export class SpatialPanel {
  showPoseTargets(targets,objects=this.scene?.objects||[]){this.ensureRenderer();this.removePoseTargets();this.poseTargetGroup=new THREE.Group();for(const t of targets){const o=objects.find(o=>o.id===t.objectId);if(!o)continue;const mesh=new THREE.Mesh(new THREE.BoxGeometry(...o.size),new THREE.MeshBasicMaterial({color:0xf0c178,wireframe:true,transparent:true,opacity:.65}));mesh.position.fromArray(t.positionM);mesh.quaternion.fromArray(t.rotation);this.poseTargetGroup.add(mesh);const axes=new THREE.AxesHelper(.6);axes.position.copy(mesh.position);axes.quaternion.copy(mesh.quaternion);this.poseTargetGroup.add(axes);}this.world.add(this.poseTargetGroup);}
  showPose(snapshot){if(!this.poseMode)this.carry.clear();this.ensureRenderer();this.poseMode=true;this.paint(snapshot.current.objects);for(const o of snapshot.current.objects){const mesh=this.meshes.get(o.id);if(o.massKg>0&&mesh)mesh.material.color.setHex(o.sourceId==='A'?0x8cdbbc:o.sourceId==='B'?0x8fb7e9:o.sourceId==='C'?0xd1a0e5:0xa1abad);}this.showPoseTargets(snapshot.targets||[],snapshot.current.objects);$('spatial-live').textContent='Native pose '+snapshot.status+' · '+snapshot.sample.timeS.toFixed(2)+'simulated s · held '+(snapshot.current.grippingId||'none')+' · '+snapshot.sample.bodies.length+' actual dynamic bodies';this.resize();}
  showEvaluation(live){if(!this.evaluationMode)this.carry.clear();this.ensureRenderer();this.evaluationMode=true;const snap=live.snapshot;this.paint(snap.current.objects);$('spatial-live').textContent='Native experience · '+live.currentTrial.caseId+' / '+live.currentTrial.arm+' · '+(snap.sample?.timeS||0).toFixed(2)+' s · actual contacts '+(snap.sample?.contacts||0);$('spatial-plan').textContent='Actual private evaluation world; authored scene selection stays separate. Source '+live.source.sourceSha256;this.resize();}
- ensureRenderer(){if(this.renderer)return;this.world=new THREE.Scene();this.world.background=new THREE.Color('#11232c');this.camera=new THREE.PerspectiveCamera(45,1,.05,100);this.planCamera=new THREE.OrthographicCamera(-10,10,10,-10,.05,100);this.planCamera.up.set(0,0,-1);this.planCamera.position.set(0,45,0);this.planCamera.lookAt(0,0,0);this.renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});this.renderer.setPixelRatio(Math.min(devicePixelRatio,2));this.renderer.domElement.setAttribute('aria-label','Rendered native spatial scene');$('spatial-stage').append(this.renderer.domElement);this.world.add(new THREE.HemisphereLight(0xe0fff4,0x263e5d,2));const light=new THREE.DirectionalLight(0xffffff,3);light.position.set(-3,8,5);this.world.add(light);this.world.add(new THREE.GridHelper(16,32,0x5a817f,0x29414b));this.world.add(new THREE.AxesHelper(1.5));this.frame();let drag=null,moved=false;const stage=$('spatial-stage');stage.onpointerdown=e=>{drag=[e.clientX,e.clientY];moved=false;stage.setPointerCapture(e.pointerId);};stage.onpointermove=e=>{if(!drag)return;const dx=e.clientX-drag[0],dy=e.clientY-drag[1];if(Math.abs(dx)+Math.abs(dy)>2)moved=true;if(this.topDown)return;this.yaw-=dx*.008;this.pitch=Math.max(.12,Math.min(1.35,this.pitch+dy*.008));drag=[e.clientX,e.clientY];};stage.onpointerup=e=>{drag=null;if(moved)return;const r=stage.getBoundingClientRect(),ray=new THREE.Raycaster();ray.setFromCamera(new THREE.Vector2((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1),(this.topDown?this.planCamera:this.camera));const hit=ray.intersectObjects([...this.meshes.values()])[0];if(hit)this.action(()=>this.selectObject(hit.object.userData.id));};stage.addEventListener('wheel',e=>{e.preventDefault();if(this.topDown){this.planZoom=Math.max(.25,Math.min(5,this.planZoom*Math.exp(e.deltaY*.001)));this.resize();}else this.radius=Math.max(3,Math.min(30,this.radius+e.deltaY*.01));},{passive:false});const draw=()=>{requestAnimationFrame(draw);if(!this.visible||this.linkedMode)return;this.camera.position.set(this.radius*Math.cos(this.pitch)*Math.sin(this.yaw),.5+this.radius*Math.sin(this.pitch),this.radius*Math.cos(this.pitch)*Math.cos(this.yaw));this.camera.lookAt(0,.5,0);this.renderer.render(this.world,this.topDown?this.planCamera:this.camera);};draw();}
- frame(){this.yaw=.55;this.pitch=.55;this.radius=9;this.planZoom=1;this.resize();}
+ ensureRenderer(){if(this.renderer||this.rendererUnavailable)return;this.world=new THREE.Scene();this.world.background=new THREE.Color('#11232c');this.camera=new THREE.PerspectiveCamera(45,1,.05,100);this.planCamera=new THREE.OrthographicCamera(-10,10,10,-10,.05,100);this.planCamera.up.set(0,0,-1);this.planCamera.position.set(0,45,0);this.planCamera.lookAt(0,0,0);try{
+   this.renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+  }catch(error){
+   this.rendererUnavailable=true;
+   const status=document.createElement('p');
+   status.className='spatial-note';
+   status.setAttribute('role','status');
+   status.textContent='The 3D preview is unavailable on this display. Spatial scenes, measurements and exports are available.';
+   $('spatial-stage').append(status);
+   console.warn(error.message);
+   return;
+  }this.renderer.setPixelRatio(Math.min(devicePixelRatio,2));this.renderer.domElement.setAttribute('aria-label','Rendered native spatial scene');$('spatial-stage').append(this.renderer.domElement);this.world.add(new THREE.HemisphereLight(0xe0fff4,0x263e5d,2));const light=new THREE.DirectionalLight(0xffffff,3);light.position.set(-3,8,5);this.world.add(light);this.world.add(new THREE.GridHelper(16,32,0x5a817f,0x29414b));this.world.add(new THREE.AxesHelper(1.5));this.frame();let drag=null,moved=false;const stage=$('spatial-stage');stage.onpointerdown=e=>{drag=[e.clientX,e.clientY];moved=false;stage.setPointerCapture(e.pointerId);};stage.onpointermove=e=>{if(!drag)return;const dx=e.clientX-drag[0],dy=e.clientY-drag[1];if(Math.abs(dx)+Math.abs(dy)>2)moved=true;if(this.topDown)return;this.yaw-=dx*.008;this.pitch=Math.max(.12,Math.min(1.35,this.pitch+dy*.008));drag=[e.clientX,e.clientY];};stage.onpointerup=e=>{drag=null;if(moved)return;const r=stage.getBoundingClientRect(),ray=new THREE.Raycaster();ray.setFromCamera(new THREE.Vector2((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1),(this.topDown?this.planCamera:this.camera));const hit=ray.intersectObjects([...this.meshes.values()])[0];if(hit)this.action(()=>this.selectObject(hit.object.userData.id));};stage.addEventListener('wheel',e=>{e.preventDefault();if(this.topDown){this.planZoom=Math.max(.25,Math.min(5,this.planZoom*Math.exp(e.deltaY*.001)));this.resize();}else this.radius=Math.max(this.scene?.reconstruction?.cellM ? .6 : 3,Math.min(30,this.radius+e.deltaY*.01));},{passive:false});const draw=()=>{requestAnimationFrame(draw);if(!this.visible||this.linkedMode)return;const focus=this.focus||[0,.5,0];this.camera.position.set(focus[0]+this.radius*Math.cos(this.pitch)*Math.sin(this.yaw),focus[1]+this.radius*Math.sin(this.pitch),focus[2]+this.radius*Math.cos(this.pitch)*Math.cos(this.yaw));this.camera.lookAt(...focus);this.renderer.render(this.world,this.topDown?this.planCamera:this.camera);};draw();}
+ frame(){
+  this.yaw=.55;this.pitch=.55;this.radius=9;this.planZoom=1;this.focus=[0,.5,0];
+  const subject=this.scene?.reconstruction&&this.scene.objects.find(object=>object.sourceId==='surface');
+  if(subject){this.focus=subject.position;this.radius=Math.max(1.15,Math.max(...subject.size)*2.5);}
+  this.resize();
+ }
  resize(){if(!this.renderer||!this.visible)return;const r=$('spatial-stage').getBoundingClientRect();if(r.width<1||r.height<1)return;this.renderer.setSize(r.width,r.height,false);this.camera.aspect=r.width/r.height;this.camera.updateProjectionMatrix();
   let half=3;
   for(const o of this.scene?.objects||[])half=Math.max(half,Math.abs(o.position[0])+Math.hypot(...o.size)/2,Math.abs(o.position[2])+Math.hypot(...o.size)/2);
@@ -225,7 +273,7 @@ export class SpatialPanel {
     const geometry=asset?visualGeometry(asset):new THREE.BoxGeometry(...o.size);
     mesh=new THREE.Mesh(geometry,new THREE.MeshStandardMaterial({
      color:asset?0xf0b176:o.sourceId==='pusher'?0x75a9e8:o.massKg>0?0x80d6b3:o.sourceId==='floor'?0x263f4c:0x8a98b1,
-     roughness:.7,transparent:o.sourceId==='floor',opacity:o.sourceId==='floor'?.65:1
+     roughness:.7,flatShading:Boolean(asset&&this.scene?.reconstruction),transparent:o.sourceId==='floor',opacity:o.sourceId==='floor'?.65:1
     }));
     mesh.userData.id=o.id;
     if(asset){
