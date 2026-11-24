@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 224 — Edit a timeline and round-trip through Blender](../../README-224.md) · [Walkthrough](224/index.html)
+
 [Edition 223 — Recover the perpendicular recess](../../README-223.md) · [Walkthrough](223/index.html)
 
 [Edition 222 — Combine depth from opposing views](../../README-222.md) · [Walkthrough](222/index.html)

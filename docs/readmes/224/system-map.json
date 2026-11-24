@@ -1,0 +1,66 @@
+{
+  "summary": "Fraynix authors and plays prop translation locally. Native .blend exchange preserves the editable timeline, detailed mesh and separate collider.",
+  "modules": [
+    {
+      "title": "Java validation and frame sampling",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TranslationTimeline.java",
+      "note": "docs/obsidian/232-production-animation.md"
+    },
+    {
+      "title": "Native scene timeline data",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialScene.java",
+      "note": "docs/obsidian/232-production-animation.md"
+    },
+    {
+      "title": "Animation editor in Spatial",
+      "source": "workspace-desktop/renderer/spatial-animation.js",
+      "note": "docs/obsidian/232-production-animation.md"
+    },
+    {
+      "title": "Editable Blender conversion",
+      "source": "workspace-desktop/blender-exchange.py",
+      "note": "docs/obsidian/232-production-animation.md"
+    },
+    {
+      "title": "Desktop edits, Blender measurements and restart",
+      "source": "workspace-desktop/test/spatial-animation-integration.cjs",
+      "note": "docs/obsidian/232-production-animation.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/224/animation-timeline.png",
+      "title": "Fraynix previews an authored move at frame 13"
+    },
+    {
+      "path": "docs/readmes/224/animation-blender-return.png",
+      "title": "The Blender-edited end key is back in Fraynix"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/224/animation-evidence.json",
+      "title": "Desktop and both Blender versions"
+    },
+    {
+      "path": "docs/readmes/224/lts-animation-evidence.json",
+      "title": "The 4.5 LTS adapter performs both sides of the exchange"
+    },
+    {
+      "path": "docs/readmes/224/fraynix-authored.blend",
+      "title": "Native scene exported from Fraynix"
+    },
+    {
+      "path": "docs/readmes/224/edited-in-blender.blend",
+      "title": "Scene edited in Blender 4.5 LTS"
+    },
+    {
+      "path": "docs/publication224/plan.md",
+      "title": "Acceptance plan for the nine production workflows"
+    },
+    {
+      "path": "docs/readmes/224/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}

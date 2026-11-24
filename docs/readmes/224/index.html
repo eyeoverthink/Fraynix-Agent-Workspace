@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 224 · Edit a timeline and round-trip through Blender</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Edit a timeline and round-trip through Blender</h1><p>Fraynix authors and plays prop translation locally. Native .blend exchange preserves the editable timeline, detailed mesh and separate collider.</p>
+<nav><a href="../../../README-224.md">App guide</a><a href="animation-evidence.json">Full receipts</a>
+<a href="../223/index.html">Edition 223</a><a href="../../publication222/plan.md">Nine-workflow roadmap</a>
+<a href="fraynix-authored.blend" download>Editable Blender project</a><a href="#system">System files</a></nav>
+<p>Blender 4.5.17 LTS and 5.3.0 checked five positions and edited the final key by 250 mm. Fraynix reopened the motion with the same 1,376 triangles and collider properties.</p>
+<figure><img src="animation-timeline.png" alt="Fraynix previews an authored move at frame 13"><figcaption>Fraynix previews an authored move at frame 13</figcaption></figure>
+<figure><img src="animation-blender-return.png" alt="The Blender-edited end key is back in Fraynix"><figcaption>The Blender-edited end key is back in Fraynix</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Fraynix authors and plays prop translation locally. Native .blend exchange preserves the editable timeline, detailed mesh and separate collider.", "modules": [{"title": "Java validation and frame sampling", "source": "workspace-engine/src/main/java/fraymus/workspace/TranslationTimeline.java", "note": "docs/obsidian/232-production-animation.md"}, {"title": "Native scene timeline data", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialScene.java", "note": "docs/obsidian/232-production-animation.md"}, {"title": "Animation editor in Spatial", "source": "workspace-desktop/renderer/spatial-animation.js", "note": "docs/obsidian/232-production-animation.md"}, {"title": "Editable Blender conversion", "source": "workspace-desktop/blender-exchange.py", "note": "docs/obsidian/232-production-animation.md"}, {"title": "Desktop edits, Blender measurements and restart", "source": "workspace-desktop/test/spatial-animation-integration.cjs", "note": "docs/obsidian/232-production-animation.md"}], "screenshots": [{"path": "docs/readmes/224/animation-timeline.png", "title": "Fraynix previews an authored move at frame 13"}, {"path": "docs/readmes/224/animation-blender-return.png", "title": "The Blender-edited end key is back in Fraynix"}], "evidence": [{"path": "docs/readmes/224/animation-evidence.json", "title": "Desktop and both Blender versions"}, {"path": "docs/readmes/224/lts-animation-evidence.json", "title": "The 4.5 LTS adapter performs both sides of the exchange"}, {"path": "docs/readmes/224/fraynix-authored.blend", "title": "Native scene exported from Fraynix"}, {"path": "docs/readmes/224/edited-in-blender.blend", "title": "Scene edited in Blender 4.5 LTS"}, {"path": "docs/publication224/plan.md", "title": "Acceptance plan for the nine production workflows"}, {"path": "docs/readmes/224/FILE_TREE.md", "title": "Edition file tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 12211, "sha256": "9b3b5929f36b178378eae8f79be7acea468afd5d208889605876135c9d0c9b31", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/232-production-animation.canvas", "bytes": 2263, "sha256": "551b4726786447b3844a16b889c254db2f192a3cd9b3048dc1fc0c8ce0e1bab7", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/232-production-animation.md", "bytes": 598, "sha256": "ca3a24a3c602c79c5b27dcccc6c5c5c1b20e9e68917c2c1c787f0964895aff66", "hashKind": "utf8-lf"}, {"path": "docs/publication224/plan.md", "bytes": 5594, "sha256": "3d553cb93470d1cddac01df9838981e5ca8f3bbf396cb653f0ea347569aeb16e", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/blender-exchange.py", "bytes": 21182, "sha256": "01a26e4337fce7be1bb9452cd3bce12203748fbdf13c04946358f4b46fa35fed", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 128252, "sha256": "2cb46aa9fbee8a5d0b4a8def065ead94c4bb0cb9c54416f740416069a4250ba7", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-animation.js", "bytes": 8243, "sha256": "67bd6a6b0fbefbb06c21403bd93972e2cfe9745b70afc19a13ca237d4bf04ce9", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-panel.js", "bytes": 41484, "sha256": "7feccf33eca1e27775bfa12e1b2146df130969a95337faf5e5446b872b8464b7", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial.css", "bytes": 7656, "sha256": "94025f0b99ed5d5c2163f68ed5cfdc1a51ee0f0a026a2adc6ded13e26df8dfac", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/spatial-animation-blender.py", "bytes": 2302, "sha256": "7ff7e0d4b84be4a765ae9bbd7e875636b1739cbc5c498b3b81f1538456c1d9a0", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/spatial-animation-integration.cjs", "bytes": 9613, "sha256": "397bbaa85525a38f7aa495d41acddf64d9b05341b4ee167dcda49ba17478768e", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialGlb.java", "bytes": 31250, "sha256": "872db7ca99b827dd5cc9c31e60b7a32904fccd7176b304a67cd452184f648b7f", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialScene.java", "bytes": 6687, "sha256": "d376a328c292cf7dcd1e3b04e59811d289a9f24b6452d10986156b5730d7060d", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 28075, "sha256": "14a9cadd686d8763114beb8497ffe5bd630049f8a8ecea17c5cb7e1fe6acbba7", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/TranslationTimeline.java", "bytes": 4688, "sha256": "21433cab2b40527b74ae08909579f9b50e21dd59364605c38021201966908b6b", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 148216, "sha256": "4bd499d2e0d83e7ef4d3b8ebe1700ee9d0ba4d7dbd029f1fa1bb2cf15d73aa62", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/TranslationTimelineTest.java", "bytes": 3136, "sha256": "1182070b9e2c98994acb729cc239b52120a64e02915ab881bf183e92477714f6", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>
