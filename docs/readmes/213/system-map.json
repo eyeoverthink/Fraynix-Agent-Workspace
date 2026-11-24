@@ -1,0 +1,54 @@
+{
+  "summary": "Turn an open named comparison chart into a briefing. Each claim carries the original earlier and later row citations, and the totals stay separate by unit.",
+  "modules": [
+    {
+      "title": "Cited claims and exact decimals",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedChartBriefing.java",
+      "note": "docs/obsidian/221-cited-chart-briefing.md"
+    },
+    {
+      "title": "Chart and briefing source binding",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RoutedDashboard.java",
+      "note": "docs/obsidian/221-cited-chart-briefing.md"
+    },
+    {
+      "title": "Saved chart and briefing plans",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ComparisonChartBook.java",
+      "note": "docs/obsidian/221-cited-chart-briefing.md"
+    },
+    {
+      "title": "Offline citation controls",
+      "source": "workspace-engine/src/main/resources/workbench/routing-chart-briefing.html",
+      "note": "docs/obsidian/221-cited-chart-briefing.md"
+    },
+    {
+      "title": "Restart, refusal and offline proof",
+      "source": "workspace-desktop/test/chart-briefing-integration.cjs",
+      "note": "docs/obsidian/221-cited-chart-briefing.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/213/desktop-briefing.png",
+      "title": "A plain-language follow-up opens the cited briefing in Fraynix"
+    },
+    {
+      "path": "docs/readmes/213/offline-citation.png",
+      "title": "The offline briefing opens the 50 °F and 41 °F citations behind a 9 °F loss"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/213/briefing.html",
+      "title": "Try the cited offline briefing"
+    },
+    {
+      "path": "docs/readmes/213/release-proof.json",
+      "title": "Desktop and portable CI evidence"
+    },
+    {
+      "path": "docs/publication213/plan.md",
+      "title": "Reproduce the cited briefing"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Workshop audit · change briefing</title>
+<style>
+:root { color-scheme:light; background:#ecf0ec; color:#233a33; font:16px/1.55 system-ui,sans-serif; }
+* { box-sizing:border-box; }
+body { margin:0; }
+[hidden] { display:none !important; }
+main { max-width:58rem; margin:auto; padding:clamp(16px,5vw,42px); }
+header { border-bottom:1px solid #a3b9ad; padding-bottom:1rem; margin-bottom:1.1rem; }
+h1 { margin:.25rem 0; font:600 clamp(2rem,5vw,3.1rem)/1.06 Georgia,serif; }
+h2 { margin:0; font-size:1.1rem; }
+p { margin:.5rem 0; }
+#briefing-count { color:#1b6957; font-weight:700; }
+#briefing-scope { color:#40594e; }
+.unit { background:#fff; border:1px solid #c7d5cd; border-radius:12px; padding:clamp(12px,4vw,24px); margin-bottom:1rem; }
+.unit-heading { display:flex; gap:.4rem 1rem; justify-content:space-between; flex-wrap:wrap; }
+.unit-heading strong { color:#116652; }
+.unit-counts { color:#4c6358; font-size:.88rem; }
+.claims { list-style:none; margin:.6rem 0 0; padding:0; }
+.claims li { border-top:1px solid #d8e1db; padding:.65rem 0; }
+.claim { font-weight:550; margin:0 0 .35rem; overflow-wrap:anywhere; }
+details summary { cursor:pointer; color:#155b50; }
+details summary:focus-visible { outline:2px solid #127963; outline-offset:3px; }
+.citation { background:#f0f5f1; border-radius:6px; padding:.36rem .65rem; }
+.citation-toggle { font:inherit; color:#155b50; background:transparent; border:0; padding:.1rem 0; text-align:left; cursor:pointer; }
+.citation-toggle::before { content:"▸"; margin-right:.45rem; }
+.citation-toggle[aria-expanded=true]::before { content:"▾"; }
+.citation-toggle:focus-visible { outline:2px solid #127963; outline-offset:2px; }
+.claims dl { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.5rem 1rem; margin:.4rem 0 .15rem; }
+dt { color:#465d52; font-size:.85rem; }
+dd { margin:0; overflow-wrap:anywhere; }
+footer { border-top:1px solid #a3b9ad; color:#435d51; padding-top:.8rem; }
+nav { display:flex; flex-wrap:wrap; gap:.4rem 1rem; margin-bottom:.8rem; }
+a { color:#0f5a50; }
+code { font-size:.79rem; overflow-wrap:anywhere; }
+</style>
+<main>
+<header><h1>Workshop audit · change briefing</h1><p id="briefing-count">3 cited changes</p><p id="briefing-scope">This briefing describes the selected comparison. Causes require separate evidence.</p></header>
+
+<div id="briefing-sections"><section class="unit"><div class="unit-heading"><h2><span data-briefing-field>°F</span></h2><strong><span data-briefing-field>Net +9 °F</span></strong></div><p class="unit-counts"><span data-briefing-field>2 matched rows · 1 gain · 1 loss · 0 steady</span></p><ol class="claims"><li><p class="claim"><span data-briefing-field>&quot;rise &lt;probe&gt;&quot; increased from 32 °F to 50 °F (+18 °F).</span></p><div class="citation" id="citation-0"><button type="button" class="citation-toggle" aria-expanded="false" aria-controls="readings-0"><span data-briefing-field>Earlier row 2 · Later row 3</span></button><dl id="readings-0" hidden><div><dt>Earlier reading</dt><dd class="earlier"><span data-briefing-field>Row 2 · 32 °F</span></dd></div><div><dt>Later reading</dt><dd class="later"><span data-briefing-field>Row 3 · 50 °F</span></dd></div></dl></div></li><li><p class="claim"><span data-briefing-field>&quot;fall&quot; decreased from 50 °F to 41 °F (-9 °F).</span></p><div class="citation" id="citation-1"><button type="button" class="citation-toggle" aria-expanded="false" aria-controls="readings-1"><span data-briefing-field>Earlier row 3 · Later row 2</span></button><dl id="readings-1" hidden><div><dt>Earlier reading</dt><dd class="earlier"><span data-briefing-field>Row 3 · 50 °F</span></dd></div><div><dt>Later reading</dt><dd class="later"><span data-briefing-field>Row 2 · 41 °F</span></dd></div></dl></div></li></ol></section><section class="unit"><div class="unit-heading"><h2><span data-briefing-field>mm</span></h2><strong><span data-briefing-field>Net +25.4 mm</span></strong></div><p class="unit-counts"><span data-briefing-field>1 matched row · 1 gain · 0 losses · 0 steady</span></p><ol class="claims"><li><p class="claim"><span data-briefing-field>&quot;length gain&quot; increased from 25.4 mm to 50.8 mm (+25.4 mm).</span></p><div class="citation" id="citation-2"><button type="button" class="citation-toggle" aria-expanded="false" aria-controls="readings-2"><span data-briefing-field>Earlier row 5 · Later row 5</span></button><dl id="readings-2" hidden><div><dt>Earlier reading</dt><dd class="earlier"><span data-briefing-field>Row 5 · 25.4 mm</span></dd></div><div><dt>Later reading</dt><dd class="later"><span data-briefing-field>Row 5 · 50.8 mm</span></dd></div></dl></div></li></ol></section></div>
+<footer>
+<nav aria-label="Original evidence">
+<a href="named-chart.html">Open the original chart</a>
+<a href="claim-evidence.json" download>Claim evidence</a>
+<a href="chart-data.json" download>Chart selection and data</a>
+<a href="matched-comparison.csv" download>Original comparison CSV</a>
+<a href="summary-proof.json" download>Verified summary</a>
+</nav>
+<details open><summary>Source and briefing verification</summary>
+<p>Chart artifact <code id="original-chart">470cfb4c-7e91-3ab1-baf9-87d1f37709e3</code></p>
+<p>Comparison export <code id="comparison-export">ba9c4e25-315f-43aa-a677-d6e02d25a33e</code></p>
+<p>Source SHA-256 <code id="comparison-sha">424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b</code></p>
+<p>Briefing SHA-256 <code id="briefing-audit" aria-live="polite"></code></p>
+</details>
+</footer>
+</main>
+<script>
+for (const trigger of document.querySelectorAll('.citation-toggle')) {
+    trigger.addEventListener('click',()=>{
+        const target = document.getElementById(trigger.getAttribute('aria-controls'));
+        target.hidden = !target.hidden;
+        trigger.setAttribute('aria-expanded',String(!target.hidden));
+    });
+}
+async function readBriefing() {
+    const fields = [...document.querySelectorAll('[data-briefing-field]')].map(field=>field.textContent);
+    const framed = fields.map(value=>value.length + ':' + value).join('');
+    const digest = await crypto.subtle.digest('SHA-256',new TextEncoder().encode(framed));
+    document.getElementById('briefing-audit').textContent =
+        [...new Uint8Array(digest)].map(byte=>byte.toString(16).padStart(2,'0')).join('');
+}
+readBriefing().catch(error=>console.error(error.message));
+</script>
+</html>

@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md)
 
-[Edition 212 — Chart named comparisons](README-212.md) · [Previous edition](README-211.md) · [Offline walkthrough](docs/readmes/212/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 213 — Brief me on that chart](README-213.md) · [Previous edition](README-212.md) · [Offline walkthrough](docs/readmes/213/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Name a verified comparison, then ask Chat to plot gains, losses or exact rows. Fraynix gives each unit its own scale and lets you inspect both original readings.
+Turn an open named comparison chart into a briefing. Each claim carries the original earlier and later row citations, and the totals stay separate by unit.

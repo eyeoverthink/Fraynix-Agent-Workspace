@@ -1,0 +1,431 @@
+{
+  "date": "2026-11-23",
+  "windowsDesktop": {
+    "passed": true,
+    "claims": [
+      {
+        "delta": "18",
+        "earlier": {
+          "row": 2,
+          "value": "32"
+        },
+        "key": "rise <probe>",
+        "later": {
+          "row": 3,
+          "value": "50"
+        },
+        "sentence": "\"rise <probe>\" increased from 32 °F to 50 °F (+18 °F).",
+        "unit": "°F"
+      },
+      {
+        "delta": "-9",
+        "earlier": {
+          "row": 3,
+          "value": "50"
+        },
+        "key": "fall",
+        "later": {
+          "row": 2,
+          "value": "41"
+        },
+        "sentence": "\"fall\" decreased from 50 °F to 41 °F (-9 °F).",
+        "unit": "°F"
+      },
+      {
+        "delta": "25.4",
+        "earlier": {
+          "row": 5,
+          "value": "25.4"
+        },
+        "key": "length gain",
+        "later": {
+          "row": 5,
+          "value": "50.8"
+        },
+        "sentence": "\"length gain\" increased from 25.4 mm to 50.8 mm (+25.4 mm).",
+        "unit": "mm"
+      }
+    ],
+    "units": [
+      {
+        "gains": 1,
+        "losses": 1,
+        "netDelta": "9",
+        "rows": 2,
+        "steady": 0,
+        "unit": "°F"
+      },
+      {
+        "gains": 1,
+        "losses": 0,
+        "netDelta": "25.4",
+        "rows": 1,
+        "steady": 0,
+        "unit": "mm"
+      }
+    ],
+    "mixedChecks": 20,
+    "emptyChecks": 13,
+    "sourceSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+    "browserBriefingSha256": "3a6ed3b24fd33433b36b613c546b224f44af144f532cf00463515bcd536f5fe7",
+    "checks": [
+      "Natural-language follow-up uses the displayed chart even when a newer chart exists",
+      "Every reported amount and citation matches the original rows, with totals kept by unit",
+      "Requests for causes ask for independent evidence and create no briefing",
+      "A newer chart cannot replace a saved briefing, and an unfinished empty briefing resumes after restart",
+      "A falsified citation, a changed original chart receipt and a changed comparison export are refused",
+      "Offline keyboard citations, exact downloads and the original chart link work"
+    ]
+  },
+  "portableWorkspace": {
+    "id": 45309285750,
+    "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/45309285750",
+    "headSha": "78864745886b120aef22e566cf7f046970fc88c2",
+    "status": "completed",
+    "conclusion": "success",
+    "targets": [
+      {
+        "conclusion": "success",
+        "name": "Windows x64",
+        "jobId": 138160670733,
+        "report": {
+          "passed": true,
+          "claims": [
+            {
+              "delta": "18",
+              "earlier": {
+                "row": 2,
+                "value": "32"
+              },
+              "key": "rise <probe>",
+              "later": {
+                "row": 3,
+                "value": "50"
+              },
+              "sentence": "\"rise <probe>\" increased from 32 °F to 50 °F (+18 °F).",
+              "unit": "°F"
+            },
+            {
+              "delta": "-9",
+              "earlier": {
+                "row": 3,
+                "value": "50"
+              },
+              "key": "fall",
+              "later": {
+                "row": 2,
+                "value": "41"
+              },
+              "sentence": "\"fall\" decreased from 50 °F to 41 °F (-9 °F).",
+              "unit": "°F"
+            },
+            {
+              "delta": "25.4",
+              "earlier": {
+                "row": 5,
+                "value": "25.4"
+              },
+              "key": "length gain",
+              "later": {
+                "row": 5,
+                "value": "50.8"
+              },
+              "sentence": "\"length gain\" increased from 25.4 mm to 50.8 mm (+25.4 mm).",
+              "unit": "mm"
+            }
+          ],
+          "units": [
+            {
+              "gains": 1,
+              "losses": 1,
+              "netDelta": "9",
+              "rows": 2,
+              "steady": 0,
+              "unit": "°F"
+            },
+            {
+              "gains": 1,
+              "losses": 0,
+              "netDelta": "25.4",
+              "rows": 1,
+              "steady": 0,
+              "unit": "mm"
+            }
+          ],
+          "mixedChecks": 20,
+          "emptyChecks": 13,
+          "sourceSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+          "browserBriefingSha256": "3a6ed3b24fd33433b36b613c546b224f44af144f532cf00463515bcd536f5fe7",
+          "checks": [
+            "Natural-language follow-up uses the displayed chart even when a newer chart exists",
+            "Every reported amount and citation matches the original rows, with totals kept by unit",
+            "Requests for causes ask for independent evidence and create no briefing",
+            "A newer chart cannot replace a saved briefing, and an unfinished empty briefing resumes after restart",
+            "A falsified citation, a changed original chart receipt and a changed comparison export are refused",
+            "Offline keyboard citations, exact downloads and the original chart link work"
+          ]
+        }
+      },
+      {
+        "conclusion": "success",
+        "name": "Apple silicon macOS",
+        "jobId": 138160671075,
+        "report": {
+          "passed": true,
+          "claims": [
+            {
+              "delta": "18",
+              "earlier": {
+                "row": 2,
+                "value": "32"
+              },
+              "key": "rise <probe>",
+              "later": {
+                "row": 3,
+                "value": "50"
+              },
+              "sentence": "\"rise <probe>\" increased from 32 °F to 50 °F (+18 °F).",
+              "unit": "°F"
+            },
+            {
+              "delta": "-9",
+              "earlier": {
+                "row": 3,
+                "value": "50"
+              },
+              "key": "fall",
+              "later": {
+                "row": 2,
+                "value": "41"
+              },
+              "sentence": "\"fall\" decreased from 50 °F to 41 °F (-9 °F).",
+              "unit": "°F"
+            },
+            {
+              "delta": "25.4",
+              "earlier": {
+                "row": 5,
+                "value": "25.4"
+              },
+              "key": "length gain",
+              "later": {
+                "row": 5,
+                "value": "50.8"
+              },
+              "sentence": "\"length gain\" increased from 25.4 mm to 50.8 mm (+25.4 mm).",
+              "unit": "mm"
+            }
+          ],
+          "units": [
+            {
+              "gains": 1,
+              "losses": 1,
+              "netDelta": "9",
+              "rows": 2,
+              "steady": 0,
+              "unit": "°F"
+            },
+            {
+              "gains": 1,
+              "losses": 0,
+              "netDelta": "25.4",
+              "rows": 1,
+              "steady": 0,
+              "unit": "mm"
+            }
+          ],
+          "mixedChecks": 20,
+          "emptyChecks": 13,
+          "sourceSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+          "browserBriefingSha256": "3a6ed3b24fd33433b36b613c546b224f44af144f532cf00463515bcd536f5fe7",
+          "checks": [
+            "Natural-language follow-up uses the displayed chart even when a newer chart exists",
+            "Every reported amount and citation matches the original rows, with totals kept by unit",
+            "Requests for causes ask for independent evidence and create no briefing",
+            "A newer chart cannot replace a saved briefing, and an unfinished empty briefing resumes after restart",
+            "A falsified citation, a changed original chart receipt and a changed comparison export are refused",
+            "Offline keyboard citations, exact downloads and the original chart link work"
+          ]
+        }
+      },
+      {
+        "conclusion": "success",
+        "name": "Intel macOS",
+        "jobId": 138160671050,
+        "report": {
+          "passed": true,
+          "claims": [
+            {
+              "delta": "18",
+              "earlier": {
+                "row": 2,
+                "value": "32"
+              },
+              "key": "rise <probe>",
+              "later": {
+                "row": 3,
+                "value": "50"
+              },
+              "sentence": "\"rise <probe>\" increased from 32 °F to 50 °F (+18 °F).",
+              "unit": "°F"
+            },
+            {
+              "delta": "-9",
+              "earlier": {
+                "row": 3,
+                "value": "50"
+              },
+              "key": "fall",
+              "later": {
+                "row": 2,
+                "value": "41"
+              },
+              "sentence": "\"fall\" decreased from 50 °F to 41 °F (-9 °F).",
+              "unit": "°F"
+            },
+            {
+              "delta": "25.4",
+              "earlier": {
+                "row": 5,
+                "value": "25.4"
+              },
+              "key": "length gain",
+              "later": {
+                "row": 5,
+                "value": "50.8"
+              },
+              "sentence": "\"length gain\" increased from 25.4 mm to 50.8 mm (+25.4 mm).",
+              "unit": "mm"
+            }
+          ],
+          "units": [
+            {
+              "gains": 1,
+              "losses": 1,
+              "netDelta": "9",
+              "rows": 2,
+              "steady": 0,
+              "unit": "°F"
+            },
+            {
+              "gains": 1,
+              "losses": 0,
+              "netDelta": "25.4",
+              "rows": 1,
+              "steady": 0,
+              "unit": "mm"
+            }
+          ],
+          "mixedChecks": 20,
+          "emptyChecks": 13,
+          "sourceSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+          "browserBriefingSha256": "3a6ed3b24fd33433b36b613c546b224f44af144f532cf00463515bcd536f5fe7",
+          "checks": [
+            "Natural-language follow-up uses the displayed chart even when a newer chart exists",
+            "Every reported amount and citation matches the original rows, with totals kept by unit",
+            "Requests for causes ask for independent evidence and create no briefing",
+            "A newer chart cannot replace a saved briefing, and an unfinished empty briefing resumes after restart",
+            "A falsified citation, a changed original chart receipt and a changed comparison export are refused",
+            "Offline keyboard citations, exact downloads and the original chart link work"
+          ]
+        }
+      },
+      {
+        "conclusion": "success",
+        "name": "Linux x64",
+        "jobId": 138160671142,
+        "report": {
+          "passed": true,
+          "claims": [
+            {
+              "delta": "18",
+              "earlier": {
+                "row": 2,
+                "value": "32"
+              },
+              "key": "rise <probe>",
+              "later": {
+                "row": 3,
+                "value": "50"
+              },
+              "sentence": "\"rise <probe>\" increased from 32 °F to 50 °F (+18 °F).",
+              "unit": "°F"
+            },
+            {
+              "delta": "-9",
+              "earlier": {
+                "row": 3,
+                "value": "50"
+              },
+              "key": "fall",
+              "later": {
+                "row": 2,
+                "value": "41"
+              },
+              "sentence": "\"fall\" decreased from 50 °F to 41 °F (-9 °F).",
+              "unit": "°F"
+            },
+            {
+              "delta": "25.4",
+              "earlier": {
+                "row": 5,
+                "value": "25.4"
+              },
+              "key": "length gain",
+              "later": {
+                "row": 5,
+                "value": "50.8"
+              },
+              "sentence": "\"length gain\" increased from 25.4 mm to 50.8 mm (+25.4 mm).",
+              "unit": "mm"
+            }
+          ],
+          "units": [
+            {
+              "gains": 1,
+              "losses": 1,
+              "netDelta": "9",
+              "rows": 2,
+              "steady": 0,
+              "unit": "°F"
+            },
+            {
+              "gains": 1,
+              "losses": 0,
+              "netDelta": "25.4",
+              "rows": 1,
+              "steady": 0,
+              "unit": "mm"
+            }
+          ],
+          "mixedChecks": 20,
+          "emptyChecks": 13,
+          "sourceSha256": "424deb2e7dc55588d0bae7c3b3f93ea1f63e8b1f19fde02226383c433590552b",
+          "browserBriefingSha256": "3a6ed3b24fd33433b36b613c546b224f44af144f532cf00463515bcd536f5fe7",
+          "checks": [
+            "Natural-language follow-up uses the displayed chart even when a newer chart exists",
+            "Every reported amount and citation matches the original rows, with totals kept by unit",
+            "Requests for causes ask for independent evidence and create no briefing",
+            "A newer chart cannot replace a saved briefing, and an unfinished empty briefing resumes after restart",
+            "A falsified citation, a changed original chart receipt and a changed comparison export are refused",
+            "Offline keyboard citations, exact downloads and the original chart link work"
+          ]
+        }
+      }
+    ]
+  },
+  "screenshots": [
+    {
+      "path": "docs/readmes/213/desktop-briefing.png",
+      "bytes": 203469,
+      "sha256": "bf00de6b244441228746a33e619df080a3ff550bee9f259ad5d2ab7e513c1440",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/213/offline-citation.png",
+      "bytes": 65859,
+      "sha256": "8bd97d92094127eb1469a13e77bcf6da536f9325fe60a999e0addd7a8380e086",
+      "hashKind": "binary"
+    }
+  ]
+}
