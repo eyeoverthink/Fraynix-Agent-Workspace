@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 229 · Turn an image into a sprite and a playable level</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Turn an image into a sprite and a playable level</h1><p>Pick a browser graphic or import a PNG, layer the sprite and play the exported level offline.</p>
+<nav><a href="../../../README-229.md">App guide</a><a href="media-evidence.json">Full receipts</a>
+<a href="../228/index.html">Edition 228</a><a href="../../publication229/plan.md">Production roadmap</a>
+<a href="sprite-relay.html" download>Playable HTML</a><a href="#system">System files</a></nav>
+<p>The 91 × 54 px sprite kept its transparent opening. Both the desktop build and standalone export passed collision, platform landing, pickup and exit checks.</p>
+<figure><img src="media-workshop.png" alt="The original browser graphic and the layered Media Workshop level"><figcaption>The original browser graphic and the layered Media Workshop level</figcaption></figure>
+<figure><img src="standalone-level.png" alt="The exported level completes in a separate offline window"><figcaption>The exported level completes in a separate offline window</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Pick a browser graphic or import a PNG, layer the sprite and play the exported level offline.", "modules": [{"title": "Java isolation, saved levels and verified exports", "source": "workspace-engine/src/main/java/fraymus/workspace/SpriteWorkshop.java", "note": "docs/obsidian/237-media-workshop.md"}, {"title": "Layer controls and live draft preview", "source": "workspace-desktop/renderer/media-workshop.js", "note": "docs/obsidian/237-media-workshop.md"}, {"title": "Shared preview and standalone gameplay", "source": "workspace-desktop/renderer/media-play.js", "note": "docs/obsidian/237-media-workshop.md"}, {"title": "Browser input, restart, independent play and refusals", "source": "workspace-desktop/test/media-workshop-integration.cjs", "note": "docs/obsidian/237-media-workshop.md"}, {"title": "Pixel preservation and invalid layout checks", "source": "workspace-engine/src/test/java/fraymus/workspace/SpriteWorkshopTest.java", "note": "docs/obsidian/237-media-workshop.md"}], "screenshots": [{"path": "docs/readmes/229/media-workshop.png", "title": "The original browser graphic and the layered Media Workshop level"}, {"path": "docs/readmes/229/standalone-level.png", "title": "The exported level completes in a separate offline window"}], "evidence": [{"path": "docs/readmes/229/media-evidence.json", "title": "Pixel samples, gameplay, transfer and byte verification"}, {"path": "docs/readmes/229/sprite-relay.html", "title": "Standalone playable level"}, {"path": "docs/readmes/229/sprite-relay.json", "title": "Editable level and retained source"}, {"path": "docs/readmes/229/beacon.png", "title": "Reusable sprite PNG"}, {"path": "docs/readmes/229/captured-beacon.png", "title": "Exact browser capture"}, {"path": "docs/publication229/plan.md", "title": "Media production roadmap"}, {"path": "docs/readmes/229/FILE_TREE.md", "title": "Edition file tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 14734, "sha256": "65f15f2180b4267bfcb96f2292dca3b546c1a6163132de8714d1f2bfae5b1ad1", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/237-media-workshop.canvas", "bytes": 2257, "sha256": "7e21357ca423b9e11b55fb3cc2940a8b5a1de1e40d9824c1d1955644fb87119b", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/237-media-workshop.md", "bytes": 931, "sha256": "123540c2d764e0e0ef9d7f09c0a930740d2c43035f9deddc69f14fac1428a96c", "hashKind": "utf8-lf"}, {"path": "docs/publication229/plan.md", "bytes": 3650, "sha256": "a6d6a74258b4d663d46aca63b79d644de1fc18cb690d7e18ffe206fec449ce9b", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 130888, "sha256": "61b0bed2df6287a6def7bf6017b91cf3c86a4c0c12b013ead00140b30cc2fc00", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/app.js", "bytes": 42245, "sha256": "a33a52849041fa839c8998d397ef4f58cff481527f45a93fa143d63f87d2db62", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/index.html", "bytes": 40095, "sha256": "e109a97e550c0c65b878638c9912b3286700f92e5f0931aa8be7ca4927395e40", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/media-play.js", "bytes": 6154, "sha256": "2393cd40a6bb47842e8c14eff5f1f24bbcb1a0ed7b4c39eda21234544156a133", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/media-workshop.css", "bytes": 2041, "sha256": "87442cc4d995e1786fa635c4f378da7d32461e5bd3eb1234bd4dd9c0987795ee", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/media-workshop.js", "bytes": 9058, "sha256": "2817d8b4e58e055f9efe53a0507cd85f6162147ee0a24c0f6202b68932d229eb", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/media-workshop-integration.cjs", "bytes": 13319, "sha256": "48033c1bbfffa060e930d282efa9e5d8e2ecc631a69b5c7d772edef183883b70", "hashKind": "utf8-lf"}, {"path": "workspace-engine/build.gradle", "bytes": 2509, "sha256": "95f7e4b238e870999dd492fd13a61b9104b5465f54d27769a81589f3d0f1a5c8", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/BrowserShapeTrace.java", "bytes": 8711, "sha256": "8048ae76b7de85bd6a5d54f5c79461a086070322893ac1bafbae0566be53b80e", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpriteWorkshop.java", "bytes": 13541, "sha256": "fc18240db97038314aae6d9f9c7b9ef0fafddb80afb57b91e6a4b16aa955ceab", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 150534, "sha256": "f75a0c7be259d65ee3cfe4723d97c9a42fad030176272fe05a098ccace153c74", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorldObservationStore.java", "bytes": 29361, "sha256": "bf4c5a4b56de08a893cc8ca8e4c11caee14bdfdc112237c25f812d0fed888964", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/resources/media-play.html", "bytes": 1590, "sha256": "3ad5fb337fa9aa01b3904ebfbd0f37d3a1ac14e4e517bdf64df8548733ac40c3", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/SpriteWorkshopTest.java", "bytes": 3122, "sha256": "5c6bd3236c48be8898f38a933f0d40d507a747495e067d31a156723567b487c3", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

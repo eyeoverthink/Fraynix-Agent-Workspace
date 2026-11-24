@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 229 — Turn an image into a sprite and a playable level](../../README-229.md) · [Walkthrough](229/index.html)
+
 [Edition 228 — Recover a through-opening with a top view](../../README-228.md) · [Walkthrough](228/index.html)
 
 [Edition 227 — Pick browser views and verify the model](../../README-227.md) · [Walkthrough](227/index.html)

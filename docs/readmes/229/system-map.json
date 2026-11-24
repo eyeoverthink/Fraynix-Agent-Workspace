@@ -1,0 +1,70 @@
+{
+  "summary": "Pick a browser graphic or import a PNG, layer the sprite and play the exported level offline.",
+  "modules": [
+    {
+      "title": "Java isolation, saved levels and verified exports",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpriteWorkshop.java",
+      "note": "docs/obsidian/237-media-workshop.md"
+    },
+    {
+      "title": "Layer controls and live draft preview",
+      "source": "workspace-desktop/renderer/media-workshop.js",
+      "note": "docs/obsidian/237-media-workshop.md"
+    },
+    {
+      "title": "Shared preview and standalone gameplay",
+      "source": "workspace-desktop/renderer/media-play.js",
+      "note": "docs/obsidian/237-media-workshop.md"
+    },
+    {
+      "title": "Browser input, restart, independent play and refusals",
+      "source": "workspace-desktop/test/media-workshop-integration.cjs",
+      "note": "docs/obsidian/237-media-workshop.md"
+    },
+    {
+      "title": "Pixel preservation and invalid layout checks",
+      "source": "workspace-engine/src/test/java/fraymus/workspace/SpriteWorkshopTest.java",
+      "note": "docs/obsidian/237-media-workshop.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/229/media-workshop.png",
+      "title": "The original browser graphic and the layered Media Workshop level"
+    },
+    {
+      "path": "docs/readmes/229/standalone-level.png",
+      "title": "The exported level completes in a separate offline window"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/229/media-evidence.json",
+      "title": "Pixel samples, gameplay, transfer and byte verification"
+    },
+    {
+      "path": "docs/readmes/229/sprite-relay.html",
+      "title": "Standalone playable level"
+    },
+    {
+      "path": "docs/readmes/229/sprite-relay.json",
+      "title": "Editable level and retained source"
+    },
+    {
+      "path": "docs/readmes/229/beacon.png",
+      "title": "Reusable sprite PNG"
+    },
+    {
+      "path": "docs/readmes/229/captured-beacon.png",
+      "title": "Exact browser capture"
+    },
+    {
+      "path": "docs/publication229/plan.md",
+      "title": "Media production roadmap"
+    },
+    {
+      "path": "docs/readmes/229/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}

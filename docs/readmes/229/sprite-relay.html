@@ -1,0 +1,198 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; script-src 'sha256-mSf3JcZ40QkJnPoXWBVW1bUlOouX2fjiBfuG3jfLgXU='; style-src 'unsafe-inline'">
+<title>Fraynix level</title>
+<style>
+  * { box-sizing: border-box }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 1rem; background: #101c22; color: #edf7f3; font: 16px system-ui, sans-serif }
+  main { width: min(100%, 780px) }
+  h1 { font-size: clamp(1.35rem, 4vw, 2rem); margin: 0 0 .65rem }
+  canvas { display: block; width: 100%; border: 1px solid #638983; border-radius: .5rem }
+  canvas:focus-visible { outline: 2px solid #9aebcb; outline-offset: 4px }
+  footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .75rem; margin: 1rem 0 }
+  p { margin: 0; color: #caddd7 }
+  #controls { margin-bottom: .65rem }
+  button { padding: .55rem .8rem; border: 1px solid #638983; border-radius: .4rem; color: inherit; background: #24403e; font: inherit; cursor: pointer }
+</style>
+</head>
+<body>
+<main>
+  <h1>Fraynix level</h1>
+  <p id="controls">Click the game to focus it. Move with ← and →. Jump with ↑ or Space.</p>
+  <canvas tabindex="0" aria-label="Playable level" aria-describedby="controls"></canvas>
+  <footer><p id="progress" role="status"></p><button id="restart">Restart level</button></footer>
+</main>
+<template id="level-data">eyJsYXlvdXQiOnsicGlja3VwWCI6MzMyLCJmb3JlZ3JvdW5kWCI6NTU1LCJiYWNrZHJvcFgiOjQ0MCwicGxhdGZvcm1ZIjoyNDIsInBsYXRmb3JtWCI6Mjc2LCJ0aXRsZSI6IlNwcml0ZSBSZWxheSJ9LCJzcHJpdGUiOnsicG5nIjoiaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUZzQUFBQTJDQVlBQUFDb1hPVWRBQUFFRGtsRVFWUjRYdTJhTVdzV1FSQ0c4eHZTMklnMk52NE5zUkIvZ1NDU1NwdUFXS2lGcUlWZ2xTZ1dLWlNBaFlLb2haV0ZoWTJOWUdHbmhhMkZwWC9oWkNMN3NYbHVkbmZ1YnVmdXZ2dnl3bFBFSk4vTXpzMjlPN3R4YTZ1bnZ2MyswNXgvY3JoWURyNStiN2pteWJUei9tTXJ3U1Z4OGZCdEl3M0ZkWSt1RHo5K3RaSmJJbEp3cm4xMFNSSk1iS25jKy9SbHVvSnZTbGZIVE9iZm05VFZnVW44VzU0d0Uxa3FyMS9lYVc0L2Y3ejZlblQvWmtKTDVmT3JtODNmZHp2Tnp6YzNtZ3ZQRGxiL1BwcC9TNkE0b2FzSCswZkp4RTkvQ1lSQ0I2VEQ0KytQNHQrNXBLVG9lNGNQV29tdkU5TEJMSFNBZHVMcTMreHFDYzZFMXJub3VVS0hkY1YyNHViZjJyRmNnak1oSmlkRmp4T2NLNUlqODllZ25iajRONC9sVWtRbWtrS0tMa21LdjNPUmMwRHlZczQ1dUQ5VjlXK3RxNW1BbGJrVnZXdWhCYzFPcXZrM3Uxb0t4Z1M2SUw3SVJVOUJhcyt4UUR1cDR0ODhsbHU5TFFkZnd3QmpleWlPbDlzTUxYQWRnLzJiWFQwMFFTRzFZVEsyaCtKNFF4dUhkaUwwOW05MmRSOS9JM3o5cGl5Mk1OUVN1WjdlL3MzTHBocGR6VmR2Nm1JUDdXNXRUWjM5bTEwOVpET0o0V0pqbUlPSEdGUG9Nc1pxYUhiU3liK1pVT2tBWTRHdkhHRU9IbUpNb1VaM2Eyc3orVGV2VUd0MWRXbStaaDRlWXN5YWE5VHNwT2pmVElRZjJoZCtMbUVlSG1MTWdIVDMwTGRYczVPc2YvT3lhYWlmQmZqVU5aaUxoeGd6cGtaM2EzYVM5Ty80aDJwNFdZQlBYSU81ZUlneGlkZkUxZkp2SG1DR3pxQUI3V2xySEV2R1NZeEphcHdsVW5heThtOWVOdFVJR3RDZXRBYnE0aUxHMUtqUjNWcURyZnliWFYwallJQkJVNkF1TG1KTWpScjJtV3F3SS85bXNXdHRqTm9UVHNIQ2VJZ3hVL1MxVUxHUTNJaTcyaXo1alJvRnp3VW1xSXVMR0RORm4rNHVGVm9hZXBVSWorakMwSEdJbjVjanFvbWJHRE5IbDJZcjNkR3I4emJ0Uk9qemxJVXVGaUl3Rnc4eFpnN3J1a3ZyVkFzdDRsVFNOWEFNeDU4U3pNVkRqRm1pOUdhbk5zS1k3SkdkcDhoQWx5TnQ2YlhTWUI0ZVlzd1NxVFdYL0RtUUxYUVE3N0pMd1lubGlSUG00Q0hHdE1EdXRoYTZkV3BNU2Rzc0E1YUM4M2NzTUFjUE1hYVZjTzZ3dnJISEpnK0x0TTB5SUFWUEhYeEtHMFlLeHZjUVkxcVJUcmF1cTNPaGcvaEJNVkp3YmZpM3ZHSWFqTzBoeHF4TmN2S3dpSDlJSUZKd3pxUDhtVTNDdENIbWxOb3NBM0hCcmEvYUVobGNhRkZxOWlicjhwOG9QWkNCZ25YcnJkeG11ZWtrL3hJelJBeHl3b0RKbzZUYzdMMkpESm84TERxeGsvKzRGMXBrM1N5WFRwWEp3NkxVUlJVNWRXVzMyYjUwYlcwNXMzdS90YVpSQ3gxVW1yMkZzN2NldFJhd0xxUUtiYjVjcWluVFpybjNvdG0rdk5OYXlOeEpGZHB0OHJESXNsbWV2bjYzdFpnNU04dENCekVwY3U3aDA5YUM1a3FxMEtOTUhoYVZMcXFXd09nYllrNld6WEpkbVZXaFJVdWR2YXRlTGtYNkIyWGlTSjdqQkZsVEFBQUFBRWxGVGtTdVFtQ0MifX0=</template>
+<script type="module">
+
+const WIDTH = 720, HEIGHT = 320, FLOOR = 284, EXIT = 672;
+const PLAYER_W = 24, PLAYER_H = 32, PLATFORM_W = 140, PLATFORM_H = 16;
+const STEP = 1 / 120;
+const overlaps = (a, sizeA, b, sizeB) => a < b + sizeB && a + sizeA > b;
+
+export function mountGame(canvas, status, level, playable = true) {
+    const {backdropX, platformX, platformY, pickupX, foregroundX} = level.layout;
+    const platform = {x: platformX, y: platformY};
+    const pickup = {x: pickupX - 15, y: platformY - 32};
+    const context = canvas.getContext('2d');
+    canvas.width = WIDTH;
+    canvas.height = HEIGHT;
+    const sprite = new Image();
+    sprite.src = 'data:image/png;base64,' + level.sprite.png;
+    const keys = new Set();
+    const events = new AbortController();
+    const options = {signal: events.signal};
+    let state, jump, frame = 0, running = true;
+    let last = 0, accumulator = 0;
+
+    function tell(text) {
+        status.textContent = text;
+    }
+
+    function restart() {
+        state = {x: 48, y: FLOOR - PLAYER_H, vy: 0, support: 'floor', collected: false, won: false};
+        keys.clear();
+        jump = false;
+        tell(playable ? 'Find the sprite, then reach the exit.' : 'Save the draft to play it.');
+        draw();
+    }
+
+    function step() {
+        if (state.won) return;
+        if (jump && state.support) {
+            state.vy = -610;
+            state.support = '';
+        }
+        jump = false;
+        const direction = Number(keys.has('ArrowRight')) - Number(keys.has('ArrowLeft'));
+        let nextX = state.x + direction * 215 * STEP;
+        if (overlaps(state.y, PLAYER_H, platform.y, PLATFORM_H)) {
+            if (direction > 0 && state.x + PLAYER_W <= platform.x)
+                nextX = Math.min(nextX, platform.x - PLAYER_W);
+            if (direction < 0 && state.x >= platform.x + PLATFORM_W)
+                nextX = Math.max(nextX, platform.x + PLATFORM_W);
+        }
+        state.x = Math.max(0, Math.min(WIDTH - PLAYER_W, nextX));
+        const platformUnder = overlaps(state.x, PLAYER_W, platform.x, PLATFORM_W);
+        state.vy += 1560 * STEP;
+        const oldY = state.y;
+        state.y += state.vy * STEP;
+        state.support = '';
+        if (platformUnder && state.vy < 0 && oldY >= platform.y + PLATFORM_H
+            && state.y < platform.y + PLATFORM_H) {
+            state.y = platform.y + PLATFORM_H;
+            state.vy = 0;
+        }
+        if (platformUnder && state.vy >= 0 && oldY + PLAYER_H <= platform.y
+            && state.y + PLAYER_H >= platform.y) {
+            state.y = platform.y - PLAYER_H;
+            state.vy = 0;
+            state.support = 'platform';
+        }
+        if (state.y + PLAYER_H >= FLOOR) {
+            state.y = FLOOR - PLAYER_H;
+            state.vy = 0;
+            state.support = 'floor';
+        }
+        if (!state.collected && overlaps(state.x, PLAYER_W, pickup.x, 30)
+            && overlaps(state.y, PLAYER_H, pickup.y, 32)) {
+            state.collected = true;
+            tell('Sprite collected. The exit is open.');
+        }
+        if (state.collected && state.x + PLAYER_W >= EXIT) {
+            state.won = true;
+            tell('Level complete.');
+        }
+    }
+
+    function imageAt(x, y, size, opacity = 1) {
+        if (!sprite.complete || !sprite.naturalWidth) return;
+        const scale = size / Math.max(sprite.naturalWidth, sprite.naturalHeight);
+        const w = sprite.naturalWidth * scale, h = sprite.naturalHeight * scale;
+        context.globalAlpha = opacity;
+        context.drawImage(sprite, x - w / 2, y - h, w, h);
+        context.globalAlpha = 1;
+    }
+
+    function rect(color, x, y, width, height) {
+        context.fillStyle = color;
+        context.fillRect(x, y, width, height);
+    }
+
+    function draw() {
+        const sky = context.createLinearGradient(0, 0, 0, FLOOR);
+        sky.addColorStop(0, '#16283d');
+        sky.addColorStop(1, '#304e58');
+        rect(sky, 0, 0, WIDTH, HEIGHT);
+        imageAt(backdropX, FLOOR, 200, 0.33);
+        rect('#537375', 0, FLOOR, WIDTH, 4);
+        rect('#1a3035', 0, FLOOR + 4, WIDTH, HEIGHT - FLOOR);
+        rect('#284044', platform.x, platform.y, PLATFORM_W, PLATFORM_H);
+        rect('#82b2ac', platform.x, platform.y, PLATFORM_W, 4);
+        rect(state.collected ? '#6fddb3' : '#a3746e', EXIT, FLOOR - 48, 6, 48);
+        rect(state.collected ? '#6fddb3' : '#a3746e', EXIT, FLOOR - 48, 28, 5);
+        if (!state.collected) imageAt(pickupX, platformY, 32);
+        rect('#ffe3a5', state.x, state.y, PLAYER_W, PLAYER_H);
+        rect('#284044', state.x + 4, state.y + 5, PLAYER_W - 8, 11);
+        imageAt(foregroundX, HEIGHT + 5, 115, 0.74);
+        canvas.dataset.playerX = state.x.toFixed(2);
+        canvas.dataset.playerY = state.y.toFixed(2);
+        canvas.dataset.support = state.support;
+        canvas.dataset.collected = String(state.collected);
+        canvas.dataset.won = String(state.won);
+    }
+
+    function advance(now) {
+        if (!running) return;
+        accumulator += last ? Math.min((now - last) / 1000, 0.05) : 0;
+        last = now;
+        let dirty = false;
+        while (accumulator >= STEP) {
+            step();
+            accumulator -= STEP;
+            dirty = true;
+        }
+        if (dirty) draw();
+        frame = requestAnimationFrame(advance);
+    }
+
+    function press(event) {
+        if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'Space'].includes(event.code)) return;
+        event.preventDefault();
+        if (event.code === 'ArrowUp' || event.code === 'Space') {
+            if (!event.repeat) jump = true;
+        } else {
+            keys.add(event.code);
+        }
+    }
+    if (playable) {
+        canvas.addEventListener('keydown', press, options);
+        canvas.addEventListener('keyup', event => keys.delete(event.code), options);
+        canvas.addEventListener('blur', () => { keys.clear(); jump = false; }, options);
+        frame = requestAnimationFrame(advance);
+    }
+    sprite.addEventListener('load', draw, options);
+    restart();
+    return {
+        restart,
+        close() {
+            running = false;
+            cancelAnimationFrame(frame);
+            events.abort();
+        }
+    };
+}
+
+const bytes = Uint8Array.from(atob(document.querySelector('#level-data').content.textContent), c => c.charCodeAt(0));
+const level = JSON.parse(new TextDecoder().decode(bytes));
+document.title = level.layout.title;
+document.querySelector('h1').textContent = level.layout.title;
+const game = mountGame(document.querySelector('canvas'), document.querySelector('#progress'), level);
+document.querySelector('#restart').onclick = () => { game.restart(); document.querySelector('canvas').focus(); };
+</script>
+</body>
+</html>
