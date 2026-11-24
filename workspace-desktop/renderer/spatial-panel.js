@@ -38,6 +38,13 @@ export class SpatialPanel {
      <label>One tile measures · m<input id="spatial-blueprint-scale" type="number" min="0.6" max="1.2" step="0.01" value="1"></label>
      <button id="spatial-blueprint-build">Build 3D copy</button>
     </div><p class="spatial-note">Import a labelled PNG in Maps first. The original layout supplies the floor plan. The collider walls are 1.1 m high.</p></details>
+   <details class="spatial-detail" id="spatial-browser-trace"><summary>Trace a browser graphic</summary>
+    <form id="spatial-trace-form" class="spatial-task">
+     <label>Graphic selector<input id="spatial-trace-selector" placeholder="#product-image" maxlength="180" required></label>
+     <label>Width · m<input id="spatial-trace-width" type="number" min=".1" max="5" step="any" value=".6" required></label>
+     <label>Thickness · m<input id="spatial-trace-depth" type="number" min=".05" max="2" step="any" value=".1" required></label>
+     <button id="spatial-trace-build">Capture and model</button>
+    </form><div class="spatial-task"><button id="spatial-trace-export">Export traced GLB</button></div><p id="spatial-trace-status" class="spatial-note" role="status">Choose a fully visible image, SVG or canvas with a plain contrasting background.</p></details>
    <details class="spatial-detail" id="spatial-reconstruct"><summary>Reconstruct editable geometry from images</summary>
     <div class="spatial-task">
      <button id="spatial-reconstruct-example">Reconstruct Blender example</button>
@@ -89,6 +96,19 @@ export class SpatialPanel {
    const scene=await this.call('import-glb',{base64:btoa(binary)});
    await this.open(scene.id);this.notice('Verified GLB imported as a separate editable scene.');
   });
+  $('spatial-trace-form').onsubmit=event=>{
+   event.preventDefault();
+   this.action(async()=>{
+    const status=$('spatial-trace-status');
+    status.textContent='Capturing the selected browser graphic…';
+    try {
+     const scene=await this.call('trace-browser',{selector:$('spatial-trace-selector').value.trim(),
+      widthM:$('spatial-trace-width').valueAsNumber,thicknessM:$('spatial-trace-depth').valueAsNumber});
+     await this.open(scene.id);
+    }catch(error){status.textContent=error.message;}
+   });
+  };
+  $('spatial-trace-export').onclick=()=>this.action(()=>this.exportGlb());
   $('spatial-reconstruct-export').onclick=()=>this.action(()=>this.exportGlb());
   $('spatial-reconstruct-side-example').onclick=()=>this.action(()=>this.reconstruct('reconstruct-side-example'));
   $('spatial-reconstruct-opposed-example').onclick=()=>this.action(()=>this.reconstruct('reconstruct-opposed-example'));
@@ -183,9 +203,11 @@ export class SpatialPanel {
   const editingBlocked=this.worldMode||this.poseMode||this.evaluationBusy||this.agentBusy||moving;
   this.timeline.controls(editingBlocked);
   this.meshEdit.controls(editingBlocked,this.busy);
+  $('spatial-trace-build').disabled=this.busy||editingBlocked;
+  $('spatial-trace-export').disabled=this.busy||editingBlocked||this.scene?.reconstruction?.policy!=='browser-silhouette-slab';
   $('spatial-export-glb').disabled=this.busy||!this.scene||this.worldMode||Boolean(this.scene.translationAnimation);
   $('spatial-export-glb').title=this.scene?.translationAnimation?'Use Export Blender to preserve your timeline.':'';
-  $('spatial-reconstruct-export').disabled=this.busy||!this.scene?.reconstruction||this.worldMode;
+  $('spatial-reconstruct-export').disabled=this.busy||!this.scene?.reconstruction||this.scene.reconstruction.policy==='browser-silhouette-slab'||this.worldMode;
   const exchangeBusy=this.busy||this.agentBusy||this.evaluationBusy||['prepared','executing','running','paused'].includes(this.snapshot?.status);
   $('spatial-prop-open').disabled=exchangeBusy||!!this.worldMode||!this.object?.visualMesh||!this.object.massKg;
   $('spatial-glb').disabled=exchangeBusy;$('spatial-blueprint-build').disabled=exchangeBusy||!$('spatial-blueprint').value;
@@ -210,6 +232,10 @@ export class SpatialPanel {
   }
  }
  showReconstruction(proof){
+  if(proof?.policy==='browser-silhouette-slab'){
+   $('spatial-trace-status').textContent=(proof.foregroundIou*100).toFixed(1)+'% silhouette overlap · '+proof.grid+'-cell grid · declared thickness '+proof.declaredThicknessM+' m.';
+   proof=null;
+  }else $('spatial-trace-status').textContent='Choose a fully visible image, SVG or canvas with a plain contrasting background.';
   const status=$('spatial-reconstruct-result');
   if(!proof){
    status.textContent='Use three registered PNG silhouettes. Add first-hit depth to recover recessed surfaces.';
@@ -221,7 +247,7 @@ export class SpatialPanel {
  }
  async open(id){if(!id&&this.worldMode&&this.worldReopen){this.activate('spatial');await this.worldReopen();this.resize();return;}this.worldMode=false;this.poseMode=false;this.removePoseTargets();this.evaluationMode=false;this.activate('spatial');this.ensureRenderer();const list=await this.call('list');$('spatial-scenes').replaceChildren(...list.scenes.map(s=>{const o=document.createElement('option');o.value=s.id;o.textContent=s.title;return o;}));const selected=id||this.scene?.id||list.scenes.at(-1)?.id;if(selected)await this.select(selected,list);if($('spatial-exchange').open)await this.refreshBlueprints();this.resize();this.controls();}
  async openWorld(scene){this.meshEdit.bind(null,null);this.timeline.bind(null,null);this.carry.clear();this.showReconstruction();this.activate('spatial');this.ensureRenderer();this.scene=scene;this.worldMode=true;this.poseMode=true;this.pushMode=false;this.evaluationMode=false;this.plan=null;this.snapshot=null;this.removePoseTargets();this.forecast(null);this.trace=[];this.drawTrace();this.paint(scene.objects);$('spatial-objects').replaceChildren(...scene.objects.map(o=>{const item=document.createElement('option');item.value=o.id;item.textContent=o.label+' · '+(o.massKg>0?'dynamic':'static');return item;}));this.object=scene.objects.find(o=>o.massKg>0);$('spatial-objects').value=this.object.id;this.paintSelection();this.resize();this.controls();}
- async select(id,list){this.meshEdit.bind(null,null);this.timeline.bind(null,null);this.carry.clear();this.worldMode=false;this.pushMode=false;this.pushGoal=null;this.pushRunId=null;this.removeLine(this.pusherTraceLine);this.pusherTraceLine=null;this.pusherTrace=[];this.scene=await this.call('read',{id});$('spatial-scenes').value=id;this.plan=null;this.forecast(null);this.trace=[];this.drawTrace();this.snapshot=null;this.accept({sceneId:id,status:'authored',current:{tick:0,objects:this.scene.objects,gripping:false}});$('spatial-objects').replaceChildren(...this.scene.objects.map(o=>{const v=document.createElement('option');v.value=o.id;v.textContent=`${o.label} · ${o.massKg>0?'dynamic':'static'}`;return v;}));await this.selectObject(this.scene.objects.find(o=>o.massKg>0).id);const s=this.scene;this.showReconstruction(s.reconstruction);$('spatial-source').textContent=s.reconstruction?`Reconstructed visual mesh · ${s.reconstruction.depth?'silhouettes and depth':'silhouettes'} verified · ${s.reconstruction.cellM*1000} mm grid · declared scale`:`${s.source.kind.toUpperCase()} · ${s.sourceUnits} → m · ${s.scaleCheck.convertedLengthM} m reference (${s.scaleCheck.basis}) · ${s.source.physicalProperties} properties · not independently calibrated`;$('spatial-evidence').textContent=JSON.stringify({sceneId:s.id,sourceSha256:s.sourceSha256,source:s.source,scaleCheck:s.scaleCheck,propCopy:s.propCopy,reconstruction:s.reconstruction,meshEdit:s.meshEdit},null,2);if(s.propCopy)$('spatial-plan').textContent=this.propSummary(s.propCopy.verify);this.frame();const records=list||await this.call('list');const last=records.runs.filter(r=>r.sceneId===id&&r.status==='completed').at(-1);if(last){const r=await this.call('run',{id:last.id});this.accept({id:r.id,sceneId:id,status:r.status,current:r.actual.final,verification:r.verification});this.forecast(r.plan);this.trace=r.actual.samples.map(s=>s.position);this.drawTrace();}const pushState=await this.pushCall('scene-state',{sceneId:id});if(pushState.current){this.pushMode=true;this.acceptPush(pushState);}await this.pushRoles();this.controls();}
+ async select(id,list){this.meshEdit.bind(null,null);this.timeline.bind(null,null);this.carry.clear();this.worldMode=false;this.pushMode=false;this.pushGoal=null;this.pushRunId=null;this.removeLine(this.pusherTraceLine);this.pusherTraceLine=null;this.pusherTrace=[];this.scene=await this.call('read',{id});$('spatial-scenes').value=id;this.plan=null;this.forecast(null);this.trace=[];this.drawTrace();this.snapshot=null;this.accept({sceneId:id,status:'authored',current:{tick:0,objects:this.scene.objects,gripping:false}});$('spatial-objects').replaceChildren(...this.scene.objects.map(o=>{const v=document.createElement('option');v.value=o.id;v.textContent=`${o.label} · ${o.massKg>0?'dynamic':'static'}`;return v;}));await this.selectObject(this.scene.objects.find(o=>o.massKg>0).id);const s=this.scene;this.showReconstruction(s.reconstruction);$('spatial-source').textContent=s.reconstruction?.policy==='browser-silhouette-slab'?'Browser silhouette · one captured view · declared scale and thickness':s.reconstruction?`Reconstructed visual mesh · ${s.reconstruction.depth?'silhouettes and depth':'silhouettes'} verified · ${s.reconstruction.cellM*1000} mm grid · declared scale`:`${s.source.kind.toUpperCase()} · ${s.sourceUnits} → m · ${s.scaleCheck.convertedLengthM} m reference (${s.scaleCheck.basis}) · ${s.source.physicalProperties} properties · not independently calibrated`;$('spatial-evidence').textContent=JSON.stringify({sceneId:s.id,sourceSha256:s.sourceSha256,source:s.source,scaleCheck:s.scaleCheck,propCopy:s.propCopy,reconstruction:s.reconstruction,meshEdit:s.meshEdit},null,2);if(s.propCopy)$('spatial-plan').textContent=this.propSummary(s.propCopy.verify);this.frame();const records=list||await this.call('list');const last=records.runs.filter(r=>r.sceneId===id&&r.status==='completed').at(-1);if(last){const r=await this.call('run',{id:last.id});this.accept({id:r.id,sceneId:id,status:r.status,current:r.actual.final,verification:r.verification});this.forecast(r.plan);this.trace=r.actual.samples.map(s=>s.position);this.drawTrace();}const pushState=await this.pushCall('scene-state',{sceneId:id});if(pushState.current){this.pushMode=true;this.acceptPush(pushState);}await this.pushRoles();this.controls();}
  async selectObject(id){if(this.object?.id!==id)this.carry.clear();this.object=this.scene.objects.find(o=>o.id===id);this.timeline.bind(this.scene,this.object?.massKg?this.object:null);this.meshEdit.bind(this.scene,this.object);$('spatial-objects').value=id;await this.call('select',this.binding());this.paintSelection();await this.pushRoles();this.controls();}
  async poll(){if(this.worldMode||this.poseMode)return;if(this.evaluationMode&&this.evaluationBusy)return;this.polling=true;try{const s=await (this.pushMode?this.pushCall:this.call)('snapshot');if(s.sceneId===this.scene?.id){if(this.pushMode)this.acceptPush(s);else this.accept(s);}}finally{this.polling=false;}}
  accept(s){if(!s.current)return;if(['prepared','executing'].includes(s.status)){this.meshEdit.clear();this.timeline.stop();}const prior=this.snapshot;this.snapshot=s;if(s.id&&s.id!==prior?.id){this.trace=[];this.drawTrace();this.call('run',{id:s.id}).then(r=>{if(this.snapshot?.id===r.id){this.forecast(r.plan);$('spatial-plan').textContent=`Native forecast ${r.plan.route} route · ${r.plan.trials.length} candidate worlds · orange prediction / blue actual. Source ${r.definition.source.kind}, declared parameters.`;}}).catch(e=>this.notice(e.message));}this.paint(s.current.objects);if(s.current.tick!==prior?.current?.tick&&this.object){const o=s.current.objects.find(o=>o.id===this.object.id);if(o&&s.status==='executing'){this.trace.push(o.position);if(this.trace.length>1000)this.trace.shift();this.drawTrace();}}

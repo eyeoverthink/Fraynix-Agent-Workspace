@@ -35,6 +35,37 @@ class Surface {
   cancelPending(){if(this.pending)this.view.webContents.forcefullyCrashRenderer();else this.view.webContents.stop();this.lease.invalidate();}
   async navigate(url){url=webURL(url);await diagnostics102.install(this);this.networkPolicy?.require(url);if(this.kind==='canvas')this.allowedPrefix=url.slice(0,url.lastIndexOf('/')+1);this.errors=[];this.missingIds102=[];this.lease.invalidate();await this.bounded(this.view.webContents.loadURL(url),'navigation',15000);return this.observe();}
   async isolated(code){return this.bounded(this.view.webContents.executeJavaScriptInIsolatedWorld(1001,[{code}],true),'script operation');}
+  async captureGraphic(selector) {
+    if(this.kind!=='browser'||typeof selector!=='string'||!selector.trim()||selector.length>180)
+      throw Error('Choose one visible graphic with a CSS selector.');
+    const wc=this.view.webContents, page=wc.getURL();
+    const source=new URL(webURL(page));
+    source.username=source.password=source.search=source.hash='';
+    const bounds=async()=>{
+      const measured=await this.isolated(`(()=>{
+      let matches;
+      try{matches=document.querySelectorAll(${JSON.stringify(selector)});}catch{return {error:'Enter a valid CSS selector.'};}
+      const e=matches[0];
+      if(matches.length!==1||!['img','svg','canvas'].includes(e.tagName.toLowerCase()))
+        return {error:'Select exactly one visible img, svg or canvas.'};
+      const r=e.getBoundingClientRect(), style=getComputedStyle(e);
+      const x=Math.floor(r.x),y=Math.floor(r.y),width=Math.ceil(r.right)-x,height=Math.ceil(r.bottom)-y;
+      if(x<0||y<0||x+width>innerWidth||y+height>innerHeight||width<16||height<16||width>512||height>512||
+          style.visibility!=='visible'||Number(style.opacity)===0) return {error:'Bring the whole graphic into view, 16–512 pixels per side.'};
+      const top=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
+      if(top!==e&&!e.contains(top))return {error:'Uncover the graphic before capturing it.'};
+      return {x,y,width,height};
+      })()`);
+      if(measured.error)throw Error(measured.error);
+      return measured;
+    };
+    const rect=await bounds();
+    const image=await this.bounded(wc.capturePage(rect),'graphic capture');
+    if(wc.getURL()!==page||JSON.stringify(await bounds())!==JSON.stringify(rect)||wc.getURL()!==page)
+      throw Error('The browser changed during capture. Try again.');
+    if(image.isEmpty())throw Error('This graphic could not be captured.');
+    return {url:source.href,selector,png:image.toPNG().toString('base64')};
+  }
   async observe(){
     const observation=this.lease.create();
     const data=await this.isolated(`(()=>{

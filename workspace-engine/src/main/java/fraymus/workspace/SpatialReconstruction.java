@@ -128,7 +128,7 @@ final class SpatialReconstruction {
         return common/(double)union;
     }
 
-    private static SpatialVisualMesh surface(boolean[][][] hull,int[] low,int[] high,double step) {
+    static SpatialVisualMesh surface(boolean[][][] hull,int[] low,int[] high,double step) {
         var keys=new LinkedHashMap<Point,Integer>();
         List<Integer> indices=new ArrayList<>();
         int n=hull.length;
@@ -188,7 +188,7 @@ final class SpatialReconstruction {
                         .put(box("surface","Reconstructed surface",center,size,1).put("visualMesh",mesh.key())));
     }
 
-    private static JSONObject box(String key,String label,double[] position,double[] size,int mass) {
+    static JSONObject box(String key,String label,double[] position,double[] size,int mass) {
         return new JSONObject().put("sourceId",key).put("label",label).put("shape","box").put("massKg",mass)
                 .put("position",new JSONArray(position)).put("size",new JSONArray(size))
                 .put("rotation",new JSONArray(new int[]{0,0,0,1})).put("restitution",0).put("friction",.5);

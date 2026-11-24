@@ -1057,8 +1057,18 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         return copy;
       }
       if(input.command==='blueprint-list')return (await api('/api/maps/list',{})).references;
-      if(['blueprint','import-glb','animation-save','mesh-save','reconstruct','reconstruct-example','reconstruct-depth-example','reconstruct-opposed-example','reconstruct-side-example'].includes(input.command)){
+      if(['blueprint','import-glb','animation-save','mesh-save','mesh-undo','reconstruct','reconstruct-example','reconstruct-depth-example','reconstruct-opposed-example','reconstruct-side-example'].includes(input.command)){
         const scene=await api('/api/spatial/'+input.command,input.args||{});
+        currentSpatial=null;
+        await refresh();
+        return scene;
+      }
+      if(input.command==='trace-browser'){
+        if(!surfacesVisible.browser)throw Error('Show the in-app browser before capturing a graphic.');
+        const {selector,widthM,thicknessM}=input.args;
+        const crop=await browser.captureGraphic(selector);
+        const source=JSON.stringify({format:'fraynix.browser-graphic-v1',...crop,widthM,thicknessM});
+        const scene=await api('/api/spatial/browser-trace',{source});
         currentSpatial=null;
         await refresh();
         return scene;

@@ -123,18 +123,18 @@ public final class SpatialStore implements AutoCloseable {
     private record MeshChange(JSONObject definition, JSONObject evidence, String previewSha256, String encoded) {}
 
     synchronized JSONObject previewMesh(JSONObject input) {
-        SpatialScene.keys(input, "id", "objectId", "triangle", "distanceM");
+        SpatialScene.keys(input, "id", "objectId", "triangle", "distanceM", "mode", "index", "edge", "deltaM", "refreshCollider");
         var edit = meshChange(input);
         return new JSONObject().put("previewSha256", edit.previewSha256)
                 .put("evidence", edit.evidence).put("visualMesh", edit.encoded);
     }
 
     synchronized JSONObject saveMesh(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "id", "objectId", "triangle", "distanceM", "previewSha256");
+        SpatialScene.keys(input, "id", "objectId", "triangle", "distanceM", "previewSha256", "mode", "index", "edge", "deltaM", "refreshCollider");
         available();
         var edit = meshChange(input);
         if (!edit.previewSha256.equals(input.getString("previewSha256"))) {
-            throw new IllegalArgumentException("Preview the current face and distance before saving.");
+            throw new IllegalArgumentException("Preview the current face or component and its settings before saving.");
         }
         String definition = edit.definition.toString();
         String id = UUID.nameUUIDFromBytes(("mesh-extrusion:" + edit.previewSha256).getBytes(StandardCharsets.UTF_8)).toString();
@@ -146,23 +146,58 @@ public final class SpatialStore implements AutoCloseable {
         return retainScene(scene);
     }
 
+    synchronized JSONObject undoMesh(JSONObject input) {
+        SpatialScene.keys(input, "id");
+        available();
+        var edited = read(input.getString("id"));
+        var receipt = edited.optJSONObject("meshEdit");
+        if (receipt == null) throw new IllegalArgumentException("This scene has no saved mesh edit to undo.");
+        var parent = read(receipt.getString("sceneId"));
+        var body = findSourceBody(parent, receipt.getString("sourceId"));
+        if (!parent.getString("sourceSha256").equals(receipt.getString("sourceSha256"))
+                || !body.getString("visualMesh").equals(receipt.getString("sourceMeshSha256"))) {
+            throw new IllegalStateException("The previous mesh version changed.");
+        }
+        return parent;
+    }
+
     private MeshChange meshChange(JSONObject input) {
         var parent = read(input.getString("id"));
         var body = SpatialScene.object(parent, input.getString("objectId"));
         if (!body.has("visualMesh")) throw new IllegalArgumentException("Select a triangle prop first.");
         var source = SpatialGlb.asset(parent, body);
-        double seed = SpatialScene.number(input, "triangle", 0, source.indices().length / 3 - 1);
-        if ((int) seed != seed) throw new IllegalArgumentException("A triangle index must be a whole number.");
-        double distance = SpatialScene.number(input, "distanceM", .001, 1);
-        var result = SpatialFaceExtrusion.apply(source, (int) seed, distance);
+        String mode = input.optString("mode", "extrude");
+        boolean refresh = mode.equals("fit") || input.has("refreshCollider") && input.getBoolean("refreshCollider");
+        var result = switch (mode) {
+            case "extrude" -> SpatialFaceExtrusion.apply(source,
+                    SpatialMeshComponents.integer(input, "triangle", source.indices().length / 3 - 1),
+                    SpatialScene.number(input, "distanceM", .001, 1));
+            case "fit" -> new SpatialFaceExtrusion.Result(source, new JSONObject().put("mode", "fit")
+                    .put("sourceMeshSha256", source.key()).put("triangles", source.indices().length / 3));
+            default -> SpatialMeshComponents.move(source, input);
+        };
+        var mesh = result.mesh();
         var proof = result.evidence().put("sceneId", parent.getString("id"))
                 .put("sourceSha256", parent.getString("sourceSha256")).put("objectId", body.getString("id"))
                 .put("sourceId", body.getString("sourceId")).put("colliderSizeM", body.getJSONArray("size"));
-        String previewSha256 = WorldFrames.hash(proof);
         var definition = new JSONObject(parent.getString("sourceText"));
         var assets = definition.getJSONObject("visualMeshes");
         String previous = body.getString("visualMesh");
-        String updated = result.mesh().key();
+        if (refresh) {
+            var fit = SpatialMeshComponents.fit(mesh);
+            var shift = ObserverGeometry.rotate(fit.center(), body.getJSONArray("rotation"), false);
+            var target = findSourceBody(definition, body.getString("sourceId"));
+            moveCentre(target, "position", shift);
+            target.put("size", new JSONArray(fit.size()));
+            var timeline = definition.optJSONObject("translationAnimation");
+            var keys = timeline == null ? null : timeline.getJSONObject("tracks").optJSONArray(body.getString("sourceId"));
+            if (keys != null) for (Object raw : keys) moveCentre((JSONObject) raw, "positionM", shift);
+            proof.put("colliderSizeM", target.getJSONArray("size")).put("colliderCentreShiftM", new JSONArray(shift));
+            mesh = fit.mesh();
+        }
+        String updated = mesh.key();
+        proof.put("meshSha256", updated);
+        String previewSha256 = WorldFrames.hash(proof);
         boolean stillUsed = false;
         for (Object raw : definition.getJSONArray("objects")) {
             var object = (JSONObject) raw;
@@ -170,14 +205,20 @@ public final class SpatialStore implements AutoCloseable {
             else if (previous.equals(object.optString("visualMesh"))) stillUsed = true;
         }
         if (!stillUsed) assets.remove(previous);
-        String encoded = result.mesh().encoded();
+        String encoded = mesh.encoded();
         assets.put(updated, encoded);
         String title = definition.getString("title");
-        definition.put("title", title.substring(0, Math.min(108, title.length())) + " · extruded");
+        String suffix = mode.equals("extrude") ? " · extruded" : mode.equals("fit") ? " · collider fit" : " · mesh edit";
+        definition.put("title", title.substring(0, Math.min(120-suffix.length(), title.length())) + suffix);
         var provenance = definition.getJSONObject("source");
-        String note = "Planar extrusion from scene SHA-256 " + parent.getString("sourceSha256") + ". " + provenance.getString("note");
+        String note = (mode.equals("extrude") ? "Planar extrusion" : "Mesh "+mode)+" from scene SHA-256 " + parent.getString("sourceSha256") + ". " + provenance.getString("note");
         provenance.put("note", note.substring(0, Math.min(1000, note.length())));
-        return new MeshChange(definition, proof, previewSha256, encoded);
+        if (refresh) SpatialScene.parse(definition.toString(), parent.getString("id"));
+        return new MeshChange(definition, proof, previewSha256, result.mesh().encoded());
+    }
+
+    private static void moveCentre(JSONObject object, String key, double[] shift) {
+        object.put(key, new JSONArray(ObserverGeometry.add(ObserverGeometry.v(object.getJSONArray(key)), shift)));
     }
 
     synchronized JSONObject previewAnimation(JSONObject input) {
@@ -265,14 +306,22 @@ public final class SpatialStore implements AutoCloseable {
     }
 
     synchronized JSONObject reconstruct(byte[] source) throws Exception {
+        return retainReconstruction(source,false);
+    }
+
+    synchronized JSONObject traceBrowser(byte[] source) throws Exception {
+        return retainReconstruction(source,true);
+    }
+
+    private JSONObject retainReconstruction(byte[] source, boolean browserTrace) throws Exception {
         if (source.length==0 || source.length>SpatialReconstruction.LIMIT)
             throw new IllegalArgumentException("Choose a silhouette set up to 1.2 MB.");
         String sha=MapDefinition.sha(source);
-        String id=UUID.nameUUIDFromBytes((SpatialReconstruction.POLICY+":"+sha).getBytes(StandardCharsets.UTF_8)).toString();
+        String id=UUID.nameUUIDFromBytes(((browserTrace?BrowserShapeTrace.FORMAT:SpatialReconstruction.POLICY)+":"+sha).getBytes(StandardCharsets.UTF_8)).toString();
         if (scenes.containsKey(id)) return read(id);
         available();
         if (scenes.size()>=32) throw new IllegalStateException("Spatial import history limit reached (32)");
-        var result=SpatialReconstruction.build(source);
+        var result=browserTrace?BrowserShapeTrace.build(source):SpatialReconstruction.build(source);
         String definition=result.definition().toString();
         var proof=result.evidence().put("definitionSha256",MeasurementStore.hash(definition));
         var scene=SpatialScene.parse(definition,id).put("importedAt",Instant.now().toString())

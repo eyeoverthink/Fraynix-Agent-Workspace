@@ -643,6 +643,11 @@ public final class WorkspaceServer implements AutoCloseable {
                         double cell = SpatialScene.number(input,"cellSizeM",.6,1.2);
                         result = spatial.importScene(SpatialBlueprint.build(reference,cell).toString());
                     }
+                    case "/api/spatial/browser-trace" -> {
+                        SpatialScene.keys(input,"source");
+                        if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before tracing a graphic.");
+                        result=spatial.traceBrowser(input.getString("source").getBytes(StandardCharsets.UTF_8));
+                    }
                     case "/api/spatial/mesh-stl" -> {
                         SpatialScene.keys(input, "id", "objectId");
                         var scene=spatial.read(input.getString("id"));
@@ -654,6 +659,10 @@ public final class WorkspaceServer implements AutoCloseable {
                                 .put("units","mm").put("up","z");
                     }
                     case "/api/spatial/mesh-preview" -> result=spatial.previewMesh(input);
+                    case "/api/spatial/mesh-undo" -> {
+                        if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before undoing a mesh edit.");
+                        result=spatial.undoMesh(input);
+                    }
                     case "/api/spatial/mesh-save" -> {
                         if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before saving a mesh.");
                         result=spatial.saveMesh(input);
