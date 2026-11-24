@@ -22,7 +22,7 @@ const isFray = action => ['build-inch-converter', 'build-temperature-converter',
 export class RequestWorkbenchPanel {
     constructor({request, getModel, requireSaved, layout, openCreation, announce}) {
         Object.assign(this, {request, getModel, requireSaved, layout, openCreation, announce});
-        this.routing = new ClassificationRoutingPanel({call:(command,args)=>this.call(command,args),layout,announce});
+        this.routing = new ClassificationRoutingPanel({call:(command,args)=>this.call(command,args),layout,announce,getModel});
         this.dialog = $('requests-dialog');
         this.task = null;
         this.busy = false;

@@ -621,6 +621,13 @@ async function explanationAuditChat({request}) {
   return plan.status === 'ready' ? {matched: true, ...await openExplanationAudit(plan)} : {matched: true, plan};
 }
 
+async function showHypothesisReport(ref) {
+  const artifact = await api('/api/artifact/read',{id:ref.id});
+  if (artifact.version !== ref.version) throw Error('The saved experiment artifact revision changed.');
+  await openArtifact(artifact);
+  emit('view','preview');
+}
+
 async function explanationAuditSubmit(input) {
   const plan = await api('/api/requests/explanation-audit-submit', input);
   return plan.status === 'ready' ? openExplanationAudit(plan) : {plan};
@@ -805,6 +812,17 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(command==='comparison-chart')return comparisonChartRequest(args);
       if(command==='chart-briefing')return chartBriefingRequest(args);
       if(command==='explanation-audit-chat')return explanationAuditChat(args);
+      if(command==='hypothesis-chat') {
+        const result = await api('/api/requests/hypothesis-intent',args);
+        if (result.experiment?.artifact) await showHypothesisReport(result.experiment.artifact);
+        return result;
+      }
+      if(command==='hypothesis-propose') return api('/api/requests/hypothesis-propose',args);
+      if(command==='hypothesis-approve') {
+        const result = await api('/api/requests/hypothesis-approve',args);
+        await showHypothesisReport(result.artifact);
+        return result;
+      }
       if(command==='explanation-audit-submit')return explanationAuditSubmit(args);
       if(['briefing-catalog','briefing-review','briefing-read','briefing-build','briefing-recheck','briefing-export'].includes(command))
         return comparisonBriefing(command,args);

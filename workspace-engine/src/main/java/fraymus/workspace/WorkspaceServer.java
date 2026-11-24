@@ -77,6 +77,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final SmallObjectRoutes smallObjectRoutes;
     private final WorkflowRunner workflows;
     private final EmbeddedGameClient game;
+    private final HypothesisExperiment hypothesisExperiment;
     private final String token;
     private final FactoryModelService models=new FactoryModelService();
     private volatile FactoryModelService.Snapshot catalog;
@@ -93,6 +94,7 @@ public final class WorkspaceServer implements AutoCloseable {
         try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);memory074=new MemoryStudy074(project,goals::memoryBundle074);memory075=new MemoryStudy075(project,goals::memoryBundle074);procedures076=new ProcedureStudy076(project);procedures077=new ProcedureStudy077(project);procedures078=new ProcedureStudy078(project);observations=new WorldObservationStore(project,goals.worlds());metrics=new MetricObservationStore(project,observations,goals.worlds());physicalAudit130=new PhysicalAudit130(project,metrics);labels132=new ObservationLabels132(project,observations,metrics);contact133=new ContactAudit133(project,observations,labels132);association134=new AssociationAudit134(project,observations);appearances135=new VerifiedAppearances135(project,association134);tabletop=new TabletopStore(project,goals.worlds(),metrics);knowledge=new KnowledgeStore(project,tabletop);selfModel=new SelfModel(knowledge);workflows=new WorkflowRunner(project,goals,measurements,scenes,store);workflows.install128(new ObservationArtifact128(project,observations,metrics,goals.worlds()));game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);gameReferences115=new GameReference115(Path.of(System.getProperty("user.dir")),project);gameTasks115=new GameCosts125(Path.of(System.getProperty("user.dir")),project,game);
             relayPlaytest = new RelayPlaytest(Path.of(System.getProperty("user.dir")), project, store);
             Path repo = Path.of(System.getProperty("user.dir"));
+            hypothesisExperiment = new HypothesisExperiment(repo, project, store, relayPlaytest, this::proposeExperiment);
             blenderCandidates = new BlenderGameCandidates(repo, project);
             blenderPlaytests = new BlenderGamePlaytests(repo, project, blenderCandidates);
             blenderRepairs = new BlenderGapRepair(project, blenderCandidates, blenderPlaytests, store);
@@ -776,6 +778,17 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/requests/chart-briefing-intent" -> result=routedDashboard.chartBriefingIntent(input);
                     case "/api/requests/chart-briefing-pin" -> result=routedDashboard.pinChartBriefing(input);
                     case "/api/requests/explanation-audit-intent" -> result=routedDashboard.explanationAuditIntent(input);
+                    case "/api/requests/hypothesis-intent" -> result = hypothesisExperiment.intent(input);
+                    case "/api/requests/hypothesis-propose" -> {
+                        if (agency.busy() || sharedBusy043())
+                            throw new IllegalStateException("Finish the current task before proposing an experiment.");
+                        result = hypothesisExperiment.propose(input);
+                    }
+                    case "/api/requests/hypothesis-approve" -> {
+                        if (agency.busy() || sharedBusy043())
+                            throw new IllegalStateException("Finish the current task before starting Game Lab.");
+                        result = hypothesisExperiment.approve(input);
+                    }
                     case "/api/requests/explanation-audit-start" -> result=routedDashboard.startExplanationAudit(input);
                     case "/api/requests/explanation-audit-submit" -> result=routedDashboard.submitExplanationAudit(input);
                     case "/api/requests/comparison-briefing-catalog" -> result=routedDashboard.comparisonCatalog(input);
@@ -1062,6 +1075,25 @@ public final class WorkspaceServer implements AutoCloseable {
         try{if(agency!=null)agency.hostDetached();knowledge.hostDetached044();goals.hostDetached042(creation044==null?Set.of():creation044.retained());workflows.hostDetached042();learning.hostDetached042(agency==null?Set.of():agency.retainedEpisodes());for(Object raw:alignment041.state().getJSONArray("trials")){var t=(JSONObject)raw;if(t.optString("status").equals("running"))alignment041.finish(t.getString("id"),true);}for(Object raw:tabletop.state().getJSONArray("runs")){var t=(JSONObject)raw;if(t.optString("status").equals("running"))tabletop.stop(t.getString("id"));}}catch(Exception e){throw new IllegalStateException("Host detach needs attention",e);}
     }
     @Override public synchronized void close(){if(closed)return;closed=true;if(small161!=null)small161.close();if(accuracy160!=null)accuracy160.close();if(rotation152!=null)rotation152.close();if(rotation153!=null)rotation153.close();if(continuity154!=null)continuity154.close();if(continuity155!=null)continuity155.close();if(continuity156!=null)continuity156.close();if(continuity157!=null)continuity157.close();requests.values().forEach(OllamaIntegration.RequestControl::cancel);scanner.shutdownNow();if(creation044!=null)creation044.close();if(agency!=null)agency.close();if(agentRuntime!=null)agentRuntime.close();if(gameTasks115!=null)gameTasks115.close();if(relayPlaytest!=null)relayPlaytest.close();if(blenderPlaytests!=null)blenderPlaytests.close();procedures078.close();procedures077.close();procedures076.close();memory075.close();memory074.close();observations.close();game.close();workflows.close();goals.close();perception.close();brain.close();if(agentRuntime!=null)try{agentRuntime.checkpoint();}catch(Exception e){System.err.println("Final shared cortex checkpoint needs attention: "+e.getMessage());}calibrations.close();scenes.close();if(httpServer!=null)httpServer.stop(0);try{store.close();}catch(IOException ignored){}}
+    private JSONObject proposeExperiment(String modelName, String prompt, JSONObject definition) throws Exception {
+        var snapshot = catalog;
+        if (snapshot == null) throw new IllegalStateException("Local models are still being discovered.");
+        var model = snapshot.models().stream().filter(item -> item.available() && item.name().equals(modelName))
+                .findFirst().orElseThrow(() -> new IllegalArgumentException("Select an available local model."));
+        var admission = LocalModelAdmission.verify(model.endpoint(), model.name());
+        var control = new OllamaIntegration.RequestControl();
+        String requestId = UUID.randomUUID().toString();
+        requests.put(requestId, control);
+        try {
+            boolean cpuOnly = "1".equals(System.getenv("FRAYNIX_WORKSPACE_PLAN_CPU_ONLY"));
+            var settings = new ModelRunSettings(8192, 1024, cpuOnly ? 4 : 0, cpuOnly ? 0 : -1,
+                    120, 120, .1, 1.1, true);
+            var reply = models.toolChat(model, List.of(Map.of("role", "user", "content", prompt)),
+                    settings, control, new JSONArray().put(definition));
+            var provider = new JSONObject(reply.evidence()).put("modelDigest", admission.getString("digest"));
+            return new JSONObject().put("call", new JSONObject(reply.text())).put("provider", provider);
+        } finally { requests.remove(requestId); }
+    }
     private JSONObject plan(JSONObject input)throws Exception{return plan(input,false);}
     private JSONObject plan(JSONObject input,boolean javaOwned) throws Exception {
         if(catalog==null)throw new IllegalStateException("Local models are still being discovered");

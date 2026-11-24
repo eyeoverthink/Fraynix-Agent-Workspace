@@ -151,6 +151,24 @@
   </div>
  </form>
 </dialog>
+<dialog id="hypothesis-dialog" aria-labelledby="hypothesis-title">
+    <div class="panel-head"><h2 id="hypothesis-title">Test two explanations</h2><button id="hypothesis-close">Close</button></div>
+    <form id="hypothesis-form">
+        <p>Describe two explanations for what the player should do in a short, simulated Game Lab test.</p>
+        <label>Explanation A<textarea id="hypothesis-a" maxlength="280" required rows="2"></textarea></label>
+        <label>Explanation B<textarea id="hypothesis-b" maxlength="280" required rows="2"></textarea></label>
+        <button id="hypothesis-propose" class="primary">Propose one observation</button>
+    </form>
+    <section id="hypothesis-review" hidden>
+        <p><strong id="hypothesis-probe"></strong></p><p id="hypothesis-rationale"></p>
+        <dl><dt>Explanation A</dt><dd id="hypothesis-claim-a"></dd><dd id="hypothesis-range-a"></dd>
+            <dt>Explanation B</dt><dd id="hypothesis-claim-b"></dd><dd id="hypothesis-range-b"></dd></dl>
+        <p id="hypothesis-budget"></p><p id="hypothesis-source"></p>
+        <details><summary>Original course checksum</summary><code id="hypothesis-source-hash"></code></details>
+        <button id="hypothesis-approve" class="primary">Approve and run</button>
+    </section>
+    <p id="hypothesis-status" role="status"></p>
+</dialog>
 <dialog id="explanation-audit-dialog" aria-labelledby="audit-review-heading">
     <form id="audit-form">
         <div class="panel-head"><h2 id="audit-review-heading">Audit an explanation</h2><button id="audit-close" type="button">Close</button></div>

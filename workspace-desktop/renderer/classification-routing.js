@@ -1,3 +1,4 @@
+import {HypothesisExperimentPanel,isHypothesisExperimentRequest} from './hypothesis-experiment.js';
 import {BriefingPicker,sectionLabel} from './briefing-picker.js';
 import {ExplanationAuditPanel,isExplanationAuditRequest} from './explanation-audit.js';
 
@@ -39,16 +40,17 @@ export const isRoutingRequest = text => /^(?:Route the last verified classificat
 export const isRoutedDashboardRequest = text =>
     byKey.test(text.trim()) || recheckKey.test(text.trim()) || exportKey.test(text.trim()) ||
     summaryRequest.test(text.trim()) || explorerRequest.test(text.trim()) || storyRequest.test(text.trim()) ||
-    namedComparisonRequest(text.trim()) || chartBriefingRequest(text.trim()) || isExplanationAuditRequest(text) ||
+    namedComparisonRequest(text.trim()) || chartBriefingRequest(text.trim()) || isExplanationAuditRequest(text) || isHypothesisExperimentRequest(text) ||
     lessonRequest.test(text.trim()) || briefingPickerRequest.test(text.trim()) || briefingReview.test(text.trim()) || briefingAction.test(text.trim()) ||
     /^(?:Build a dashboard from the (?:last )?verified routed CSV|Recheck the routed CSV dashboard|Compare the last two verified routed CSVs|Recheck the routed CSV comparison)[.!]?$/i.test(text.trim());
 
 export class ClassificationRoutingPanel {
-    constructor({call, layout, announce}) {
+    constructor({call, layout, announce, getModel}) {
         Object.assign(this,{call,layout,announce});
         this.dialog = $('classification-routing');
         this.plan = null;
         this.explanationAudit = new ExplanationAuditPanel({call,layout,announce});
+        this.hypothesis = new HypothesisExperimentPanel({call,layout,announce,getModel});
         this.busy = false;
         this.dialog.addEventListener('close',layout);
         $('routing-close').onclick = () => this.dialog.close();
@@ -109,6 +111,7 @@ export class ClassificationRoutingPanel {
     }
 
     async fromChat(text) {
+        if (isHypothesisExperimentRequest(text)) return this.hypothesis.fromChat(text);
         if (isExplanationAuditRequest(text)) return this.explanationAudit.fromChat(text);
         if (chartBriefingRequest(text.trim())) {
             try {
