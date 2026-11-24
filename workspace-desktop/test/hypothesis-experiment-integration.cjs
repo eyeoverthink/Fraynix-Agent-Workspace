@@ -83,6 +83,13 @@ async function main() {
         assert.equal(await canvas('document.querySelector("#outcome-b").textContent'),'Supports prediction');
         assert.deepEqual(await api('/api/game/state',{}),initialGame);
         const artifact = await api('/api/artifact/read',{id:completed.artifact.id});
+        assert.equal(artifact.test.passed,true);
+        assert.equal(completed.browserChecks,6);
+        const alteredBrowser = structuredClone(artifact.test.checks);
+        alteredBrowser[2].actual.text = 'Altered verdict';
+        await assert.rejects(api('/api/requests/hypothesis-browser-checks',{
+            id:completed.id,version:completed.artifact.version,checks:alteredBrowser
+        }),/Browser result differed/);
         const evidence = JSON.parse(artifact.contents['experiment-evidence.json']);
         assert.notEqual(evidence.original.sessionId,evidence.replay.sessionId);
         assert.equal(evidence.original.observed.tick,scenario.tick);

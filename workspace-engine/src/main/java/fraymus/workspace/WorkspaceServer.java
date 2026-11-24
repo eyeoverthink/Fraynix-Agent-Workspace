@@ -779,6 +779,7 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/requests/chart-briefing-pin" -> result=routedDashboard.pinChartBriefing(input);
                     case "/api/requests/explanation-audit-intent" -> result=routedDashboard.explanationAuditIntent(input);
                     case "/api/requests/hypothesis-intent" -> result = hypothesisExperiment.intent(input);
+                    case "/api/requests/hypothesis-browser-checks" -> result = hypothesisExperiment.checkBrowser(input);
                     case "/api/requests/hypothesis-propose" -> {
                         if (agency.busy() || sharedBusy043())
                             throw new IllegalStateException("Finish the current task before proposing an experiment.");
