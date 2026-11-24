@@ -18,7 +18,8 @@ final class BrowserShapeTrace {
 
     static SpatialReconstruction.Result build(byte[] bytes) throws Exception {
         var input = new JSONObject(new String(bytes, StandardCharsets.UTF_8));
-        if (BrowserViewTrace.FORMAT.equals(input.optString("format"))) return BrowserViewTrace.build(bytes,input);
+        if (BrowserViewTrace.FORMAT.equals(input.optString("format")) || BrowserViewTrace.FORMAT_ELEVATED.equals(input.optString("format")))
+            return BrowserViewTrace.build(bytes,input);
         SpatialScene.keys(input,"format","url","selector","widthM","thicknessM","png");
         if (!FORMAT.equals(input.getString("format"))) throw new IllegalArgumentException("Unsupported browser crop format.");
         String url = sourceUrl(input);

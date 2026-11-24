@@ -39,11 +39,11 @@ export class SpatialPanel {
      <button id="spatial-blueprint-build">Build 3D copy</button>
     </div><p class="spatial-note">Import a labelled PNG in Maps first. The original layout supplies the floor plan. The collider walls are 1.1 m high.</p></details>
    <details class="spatial-detail" id="spatial-browser-views"><summary>Model from browser views</summary>
-    <p class="spatial-note">Use equal-sized orthographic images at the same scale and center. Side is viewed from the left. The held-out view is halfway between front and side.</p>
+    <p class="spatial-note">Use equal-sized orthographic images at the same scale and center. Pick the left side, and optionally a top view with the front edge down. The held-out camera is halfway between front and side.</p>
     <div class="spatial-task"><button id="browser-pick-front">Pick front</button><button id="browser-pick-side">Pick side</button>
-     <button id="browser-pick-heldOut">Pick held-out 45°</button><button id="browser-views-clear">Clear picks</button></div>
+     <button id="browser-pick-top">Pick top</button><button id="browser-pick-heldOut">Pick held-out 45°</button><button id="browser-top-clear">Remove top</button><button id="browser-views-clear">Clear picks</button></div>
     <form id="browser-views-form" class="spatial-task"><label>Front width · m<input id="browser-views-width" type="number" min=".1" max="5" step="any" value=".5" required></label>
-     <button id="browser-views-build">Fit and verify model</button><button type="button" id="browser-views-export">Export checked GLB</button></form>
+     <label>Held-out elevation<select id="browser-views-elevation"><option value="0">Level</option><option value="60">60° above</option></select></label><button id="browser-views-build">Fit and verify model</button><button type="button" id="browser-views-export">Export checked GLB</button></form>
     <p id="browser-views-status" class="spatial-note" role="status">Pick a graphic for each view.</p>
    </details>
    <details class="spatial-detail" id="spatial-browser-trace"><summary>Trace a browser graphic</summary>
@@ -105,17 +105,23 @@ export class SpatialPanel {
    await this.open(scene.id);this.notice('Verified GLB imported as a separate editable scene.');
   });
   this.browserViews={};
-  const viewRoles=['front','side','heldOut'];
-  const viewLabels={front:'front',side:'side',heldOut:'held-out 45°'};
+  const viewRoles=['front','side','top','heldOut'];
+  const viewLabels={front:'front',side:'side',top:'top',heldOut:'held-out 45°'};
   for(const role of viewRoles)$('browser-pick-'+role).onclick=()=>this.action(async()=>{
    const status=$('browser-views-status');
    status.textContent='Click the '+viewLabels[role]+' graphic in the browser. Escape cancels.';
    try{
     this.browserViews[role]=await this.call('pick-browser-view');
     $('browser-pick-'+role).textContent='Replace '+viewLabels[role];
-    status.textContent='Captured '+viewLabels[role]+' · '+Object.keys(this.browserViews).length+' of 3 views.';
+    status.textContent='Captured '+viewLabels[role]+' · '+['front','side','heldOut'].filter(key=>this.browserViews[key]).length+' of 3 required views.';
    }catch(error){status.textContent=error.message;}
   });
+  $('browser-top-clear').onclick=()=>{
+   delete this.browserViews.top;
+   $('browser-pick-top').textContent='Pick top';
+   $('browser-views-status').textContent='Top view removed from the next fit.';
+   this.controls();
+  };
   $('browser-views-clear').onclick=()=>{
    this.browserViews={};
    for(const role of viewRoles)$('browser-pick-'+role).textContent='Pick '+viewLabels[role];
@@ -126,9 +132,9 @@ export class SpatialPanel {
    event.preventDefault();
    this.action(async()=>{
     const status=$('browser-views-status');
-    status.textContent='Fitting front and side, then checking the held-out view…';
+    status.textContent='Fitting registered views, then checking the held-out view…';
     try {
-     const scene=await this.call('trace-browser-views',{views:this.browserViews,widthM:$('browser-views-width').valueAsNumber});
+     const scene=await this.call('trace-browser-views',{views:this.browserViews,widthM:$('browser-views-width').valueAsNumber,heldOutElevationDeg:Number($('browser-views-elevation').value)});
      await this.open(scene.id);
     }catch(error){status.textContent=error.message;}
    });
@@ -242,9 +248,10 @@ export class SpatialPanel {
   this.timeline.controls(editingBlocked);
   this.meshEdit.controls(editingBlocked,this.busy);
   $('spatial-trace-build').disabled=this.busy||editingBlocked;
-  for(const role of ['front','side','heldOut'])$('browser-pick-'+role).disabled=this.busy||editingBlocked;
+  for(const role of ['front','side','top','heldOut'])$('browser-pick-'+role).disabled=this.busy||editingBlocked;
   $('browser-views-clear').disabled=this.busy||!Object.keys(this.browserViews).length;
-  $('browser-views-build').disabled=this.busy||editingBlocked||Object.keys(this.browserViews).length!==3;
+  $('browser-top-clear').disabled=this.busy||!this.browserViews.top;
+  $('browser-views-build').disabled=this.busy||editingBlocked||!this.browserViews.front||!this.browserViews.side||!this.browserViews.heldOut;
   $('browser-views-export').disabled=this.busy||editingBlocked||this.scene?.reconstruction?.policy!=='browser-registered-orthographic';
   $('spatial-trace-export').disabled=this.busy||editingBlocked||this.scene?.reconstruction?.policy!=='browser-silhouette-slab';
   $('spatial-export-glb').disabled=this.busy||!this.scene||this.worldMode||Boolean(this.scene.translationAnimation);
@@ -276,7 +283,8 @@ export class SpatialPanel {
  showReconstruction(proof){
   if(proof?.policy==='browser-registered-orthographic'){
    $('browser-views-status').textContent='Side estimates '+Math.round(proof.estimatedDepthM*1000)+' mm depth · '+
-    (proof.heldOutIou*100).toFixed(1)+'% held-out silhouette overlap.';
+    (proof.heldOutIou*100).toFixed(1)+'% held-out silhouette overlap.'+
+    (proof.topIou==null?'':' Top view included.');
    proof=null;
   }
   if(proof?.policy==='browser-silhouette-slab'){

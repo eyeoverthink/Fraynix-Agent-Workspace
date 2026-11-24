@@ -1068,8 +1068,11 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         return browser.pickGraphic();
       }
       if(input.command==='trace-browser-views'){
-        const {widthM,views}=input.args;
-        const source=JSON.stringify({format:'fraynix.browser-registered-views-v2',widthM,views});
+        const {widthM,views,heldOutElevationDeg=0}=input.args;
+        const extended=Boolean(views.top)||heldOutElevationDeg!==0;
+        const source=JSON.stringify(extended?
+          {format:'fraynix.browser-registered-views-v3',widthM,views,heldOutElevationDeg}:
+          {format:'fraynix.browser-registered-views-v2',widthM,views});
         const scene=await api('/api/spatial/browser-trace',{source});
         currentSpatial=null;
         await refresh();

@@ -9,50 +9,63 @@ import java.awt.geom.Path2D;
 import java.awt.image.BufferedImage;
 import java.util.Base64;
 
-/** Fits two registered horizontal orthographic views and scores an untouched third view. */
+/** Fits registered orthographic views and scores a separately captured projection. */
 final class BrowserViewTrace {
     static final String FORMAT = "fraynix.browser-registered-views-v2";
     static final String POLICY = "browser-registered-orthographic";
+    static final String FORMAT_ELEVATED = "fraynix.browser-registered-views-v3";
     private static final double MIN_FIT = .86;
     private static final double MIN_HELD_OUT = .86;
     private static final double DIAGONAL = Math.sqrt(.5);
 
     private record Capture(int side, boolean[] mask, int left, int right, int top, int bottom, JSONObject receipt) {}
-    private record Model(SpatialVisualMesh mesh, int grid, int[] low, int[] high, double cellM, double front, double side) {}
+    private record Model(SpatialVisualMesh mesh, int grid, int[] low, int[] high, double cellM, double front, double side, Double top) {}
 
     private BrowserViewTrace() {}
 
     static SpatialReconstruction.Result build(byte[] bytes, JSONObject input) throws Exception {
-        SpatialScene.keys(input, "format", "widthM", "views");
+        boolean extended = FORMAT_ELEVATED.equals(input.getString("format"));
+        int elevation = 0;
+        if (extended) {
+            SpatialScene.keys(input, "format", "widthM", "views", "heldOutElevationDeg");
+            double value = SpatialScene.number(input, "heldOutElevationDeg", 0, 60);
+            if (value != 0 && value != 60) throw new IllegalArgumentException("Choose a level or 60° elevated witness.");
+            elevation = (int) value;
+        } else SpatialScene.keys(input, "format", "widthM", "views");
         double width = SpatialScene.number(input, "widthM", .10, 5);
         var views = input.getJSONObject("views");
-        SpatialScene.keys(views, "front", "side", "heldOut");
+        if (extended) SpatialScene.keys(views, "front", "side", "top", "heldOut");
+        else SpatialScene.keys(views, "front", "side", "heldOut");
         var front = capture(views.getJSONObject("front"));
         var side = capture(views.getJSONObject("side"));
         register(front, side);
+        var top = views.has("top") ? capture(views.getJSONObject("top")) : null;
+        if (top != null) registerTop(front, side, top);
         var attempts = new JSONArray();
         Model best = null;
         for (int grid : new int[]{16, 20, 22}) {
             try {
-                var model = fit(front, side, grid, width);
-                attempts.put(new JSONObject().put("grid", grid).put("frontIou", model.front).put("sideIou", model.side));
+                var model = fit(front, side, top, grid, width);
+                var attempt = new JSONObject().put("grid", grid).put("frontIou", model.front).put("sideIou", model.side);
+                if (top != null) attempt.put("topIou", model.top);
+                attempts.put(attempt);
                 if (best == null || score(model) > score(best)) best = model;
             } catch (IllegalArgumentException error) {
                 attempts.put(new JSONObject().put("grid", grid).put("refused", error.getMessage()));
             }
         }
         if (best == null || score(best) < MIN_FIT) {
-            throw new IllegalArgumentException("The registered front and side could not be fit at the supported resolutions.");
+            throw new IllegalArgumentException("The registered fitting views could not be reproduced at the supported resolutions.");
         }
 
-        // The third image enters the pipeline only after model selection is finished.
+        // The witness enters the pipeline only after model selection is finished.
         var witness = capture(views.getJSONObject("heldOut"));
-        register(front, witness);
-        if (witness.receipt.getString("pngSha256").equals(front.receipt.getString("pngSha256"))
-                || witness.receipt.getString("pngSha256").equals(side.receipt.getString("pngSha256"))) {
+        if (elevation == 0) register(front, witness);
+        else if (front.side != witness.side) throw new IllegalArgumentException("The held-out crop must use the same size and scale.");
+        if (samePixels(witness, front) || samePixels(witness, side) || (top != null && samePixels(witness, top))) {
             throw new IllegalArgumentException("Choose a separate 45° held-out view.");
         }
-        double verification = overlap(witness.mask, renderOblique(best, witness.side));
+        double verification = overlap(witness.mask, renderOblique(best, witness.side, elevation));
         if (verification < MIN_HELD_OUT) {
             throw new IllegalArgumentException(String.format(java.util.Locale.ROOT,
                     "Held-out view refused the fitted model (%.1f%% overlap, need %.0f%%).", verification * 100, MIN_HELD_OUT * 100));
@@ -70,6 +83,12 @@ final class BrowserViewTrace {
                 .put("depthResolutionM", best.cellM)
                 .put("views", new JSONObject().put("front", front.receipt).put("side", side.receipt).put("heldOut", witness.receipt))
                 .put("scope", "Declared registration and front width. The side estimates depth. The oblique silhouette verifies the fitted mesh.");
+        if (extended) proof.put("heldOutElevationDeg", elevation);
+        if (top != null) {
+            proof.getJSONObject("views").put("top", top.receipt);
+            proof.put("topIou", best.top)
+                    .put("scope", "Declared registration and front width. Front, side and top fit the mesh. A separate oblique view tests it.");
+        }
         return new SpatialReconstruction.Result(definition(best.mesh, hash, width, dimensions), proof);
     }
 
@@ -105,17 +124,35 @@ final class BrowserViewTrace {
         }
     }
 
-    private static double score(Model model) { return Math.min(model.front, model.side); }
+    private static boolean samePixels(Capture a, Capture b) {
+        return a.receipt.getString("pngSha256").equals(b.receipt.getString("pngSha256"));
+    }
 
-    private static Model fit(Capture front, Capture side, int grid, double width) {
+    private static void registerTop(Capture front, Capture side, Capture top) {
+        if (front.side != top.side || Math.abs(front.left - top.left) > 2 || Math.abs(front.right - top.right) > 2
+                || Math.abs(side.left - top.top) > 2 || Math.abs(side.right - top.bottom) > 2) {
+            throw new IllegalArgumentException("Align the top crop to the same scale and center, with the front edge at the bottom.");
+        }
+    }
+
+    private static double score(Model model) {
+        double horizontal = Math.min(model.front, model.side);
+        return model.top == null ? horizontal : Math.min(horizontal, model.top);
+    }
+
+    private static Model fit(Capture front, Capture side, Capture top, int grid, double width) {
         var a = raster(front, grid);
         var b = raster(side, grid);
+        var c = top == null ? null : raster(top, grid);
+        var topFit = top == null ? null : new boolean[grid][grid];
         var hull = new boolean[grid][grid][grid];
         var frontFit = new boolean[grid][grid];
         var sideFit = new boolean[grid][grid];
         int[] low = {grid, grid, grid}, high = {0, 0, 0};
         for (int x = 0; x < grid; x++) for (int y = 0; y < grid; y++) for (int z = 0; z < grid; z++) {
-            if (!a[y][x] || !b[y][z]) continue;
+            int topRow = grid - 1 - z;
+            if (!a[y][x] || !b[y][z] || (c != null && !c[topRow][x])) continue;
+            if (topFit != null) topFit[topRow][x] = true;
             hull[x][y][z] = true;
             frontFit[y][x] = true;
             sideFit[y][z] = true;
@@ -130,7 +167,8 @@ final class BrowserViewTrace {
         var mesh = SpatialReconstruction.surface(hull, low, high, cell);
         SpatialFaceExtrusion.requireClosed(mesh);
         return new Model(mesh, grid, low, high, cell, overlap(front.mask, enlarge(frontFit, front.side)),
-                overlap(side.mask, enlarge(sideFit, side.side)));
+                overlap(side.mask, enlarge(sideFit, side.side)),
+                top == null ? null : overlap(top.mask, enlarge(topFit, top.side)));
     }
 
     private static boolean[][] raster(Capture source, int grid) {
@@ -157,8 +195,11 @@ final class BrowserViewTrace {
         return out;
     }
 
-    private static boolean[] renderOblique(Model model, int size) {
-        var pixels = new BufferedImage(size, size, BufferedImage.TYPE_BYTE_BINARY);
+    private static boolean[] renderOblique(Model model, int size, int elevation) {
+        // Elevated silhouettes contain diagonal edges in both axes. Sample within each source pixel.
+        int samples = elevation == 0 ? 1 : 3;
+        int rasterSize = size * samples;
+        var pixels = new BufferedImage(rasterSize, rasterSize, BufferedImage.TYPE_BYTE_BINARY);
         var graphics = pixels.createGraphics();
         try {
             graphics.setColor(Color.WHITE);
@@ -167,13 +208,15 @@ final class BrowserViewTrace {
             double offsetX = (model.low[0] + model.high[0] - model.grid) / 2.0;
             double offsetY = (model.low[1] + model.high[1] - model.grid) / 2.0;
             double offsetZ = (model.low[2] + model.high[2] - model.grid) / 2.0;
-            double pixelsPerGrid = size / (double) model.grid;
+            double pixelsPerGrid = rasterSize / (double) model.grid;
+            double radians = Math.toRadians(elevation);
+            double up = Math.cos(radians), away = Math.sin(radians);
             for (int i = 0; i < xy.length; i++) {
                 double x = mesh.positions()[i * 3] / model.cellM + offsetX;
                 double y = mesh.positions()[i * 3 + 1] / model.cellM + offsetY;
                 double z = mesh.positions()[i * 3 + 2] / model.cellM + offsetZ;
-                xy[i][0] = size / 2.0 + (x + z) * DIAGONAL * pixelsPerGrid;
-                xy[i][1] = size / 2.0 - y * pixelsPerGrid;
+                xy[i][0] = rasterSize / 2.0 + (x + z) * DIAGONAL * pixelsPerGrid;
+                xy[i][1] = rasterSize / 2.0 - (y * up - (z - x) * DIAGONAL * away) * pixelsPerGrid;
             }
             var indices = mesh.indices();
             for (int i = 0; i < indices.length; i += 3) {
@@ -189,7 +232,13 @@ final class BrowserViewTrace {
             }
         } finally { graphics.dispose(); }
         boolean[] out = new boolean[size * size];
-        for (int y = 0; y < size; y++) for (int x = 0; x < size; x++) out[y * size + x] = pixels.getRGB(x, y) == -1;
+        for (int y = 0; y < size; y++) for (int x = 0; x < size; x++) {
+            int covered = 0;
+            for (int row = 0; row < samples; row++) for (int col = 0; col < samples; col++) {
+                if (pixels.getRGB(x * samples + col, y * samples + row) == -1) covered++;
+            }
+            out[y * size + x] = covered * 2 >= samples * samples;
+        }
         return out;
     }
 

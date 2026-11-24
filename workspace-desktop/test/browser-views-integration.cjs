@@ -11,9 +11,10 @@ const path = require('node:path');
 const { promisify } = require('node:util');
 const { launch } = require('./calibration-integration.cjs');
 
-const fixture = path.join(__dirname, 'fixtures', 'browser-views');
+const withTop = process.argv[3] === 'top';
+const fixture = path.join(__dirname, 'fixtures', withTop ? 'browser-top' : 'browser-views');
 const digest = bytes => createHash('sha256').update(bytes).digest('hex');
-const roles = ['front','side','held-out','wrong'];
+const roles = withTop ? ['front','side','top','level','elevated'] : ['front','side','held-out','wrong'];
 
 async function main() {
   process.env.FRAYNIX_WORKSPACE_NO_MODELS = '1';
@@ -81,6 +82,79 @@ async function main() {
     await page.locator('#spatial-tab').click();
     await page.locator('#spatial-browser-views summary').click();
     assert(await page.locator('#browser-views-build').isDisabled());
+    if(withTop){
+      await pick('front','front','front');
+      await pick('side','side','side');
+      await pick('heldOut','level','held-out 45°');
+      await page.locator('#browser-views-build').click();
+      await status('held-out silhouette overlap');
+      const controlId=await page.locator('#spatial-scenes').inputValue();
+      const baseline=await api('read',{id:controlId});
+      assert.equal(baseline.reconstruction.topIou,undefined);
+      const originalGlb=await api('export-glb',{id:controlId});
+      await fs.writeFile(path.join(output,'two-view.glb'),Buffer.from(originalGlb.base64,'base64'));
+
+      await page.locator('#browser-views-elevation').selectOption('60');
+      await pick('heldOut','elevated','held-out 45°');
+      await page.locator('#browser-views-build').click();
+      await status('Held-out view refused');
+      const refusal=await page.locator('#browser-views-status').textContent();
+      assert.equal((await api('list')).scenes.length,1);
+      await capture('elevated-refused.png');
+
+      await pick('top','top','top');
+      await page.locator('#browser-views-build').click();
+      await status('Top view included.');
+      const id=await page.locator('#spatial-scenes').inputValue();
+      const result=await api('read',{id});
+      const proof=result.reconstruction;
+      assert.equal(proof.heldOutElevationDeg,60);
+      assert.equal(proof.grid,20);
+      assert(proof.topIou>.97&&proof.heldOutIou>.90,JSON.stringify(proof));
+      assert.notEqual(proof.meshSha256,baseline.reconstruction.meshSha256);
+      for(const role of ['front','side']){
+        assert.equal(proof.views[role].pngSha256,baseline.reconstruction.views[role].pngSha256);
+      }
+      await page.locator('#browser-views-export').click();
+      await page.getByText('Checked GLB saved to',{exact:false}).last().waitFor();
+      const glb=await api('export-glb',{id});
+      await fs.writeFile(path.join(output,'with-top.glb'),Buffer.from(glb.base64,'base64'));
+      await capture('top-verified.png');
+
+      let blender=null;
+      if(process.env.FRAYNIX_TEST_BLENDER){
+        await promisify(execFile)(process.env.FRAYNIX_TEST_BLENDER,['--background','--factory-startup','--disable-autoexec',
+          '--python-exit-code','17','--python',path.join(__dirname,'browser-top-blender.py'),'--','verify',output],
+        {timeout:60000,windowsHide:true});
+        blender=JSON.parse(await fs.readFile(path.join(output,'blender-top-evidence.json'),'utf8'));
+      }
+
+      await page.locator('#browser-top-clear').click();
+      await status('Top view removed');
+      await page.locator('#browser-views-build').click();
+      await status('Held-out view refused');
+      assert.equal((await api('list')).scenes.length,2);
+      await app.close();
+      ({app,page}=await launch(project,extra));
+      assert.deepEqual(await api('read',{id}),result);
+      const file=path.join(project,'spatial','reconstruction-sources',id+'.json');
+      const stored=JSON.parse(await fs.readFile(file,'utf8'));
+      await assert.rejects(api('browser-trace',{source:JSON.stringify({...stored,
+        views:{...stored.views,top:stored.views.side}})}),/Align the top crop/);
+      for(const role of ['front','side','top','heldOut']){
+        const image=Buffer.from(stored.views[role].png,'base64');
+        assert.equal(digest(image),proof.views[role].pngSha256);
+        await fs.writeFile(path.join(output,'captured-'+role+'.png'),image);
+      }
+      await fs.appendFile(file,' ');
+      await assert.rejects(api('export-glb',{id}),/original visual reconstruction/);
+      await fs.writeFile(path.join(output,'browser-top-evidence.json'),JSON.stringify({
+        proof,refusal,baseline:baseline.reconstruction,blender,removedTopRefused:true,misregisteredTopRefused:true,
+        restoredAfterRestart:true,changedSourceRefused:true,controlSha256:originalGlb.sha256,exportSha256:glb.sha256
+      },null,2)+'\n');
+      console.log(JSON.stringify({topFit:proof.topIou,heldOut:proof.heldOutIou,refusal,blender}));
+      return;
+    }
     await visit('front');
     await page.locator('#browser-pick-front').click();
     await status('Click the front');
