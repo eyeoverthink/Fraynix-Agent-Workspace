@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 211 — Chart a verified result](../../README-211.md) · [Walkthrough](211/index.html)
+
 [Edition 210 — Everyday language](../../README-210.md) · [Walkthrough](210/index.html)
 
 [Edition 209 — Pick briefing sources and sections](../../README-209.md) · [Walkthrough](209/index.html)

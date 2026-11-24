@@ -1,0 +1,264 @@
+{
+  "date": "2026-11-23",
+  "localDesktop": {
+    "passed": true,
+    "platform": "win32",
+    "arch": "x64",
+    "screenshots": [
+      "recorded-chart.png",
+      "needs-source-choice.png",
+      "choice-after-restart.png",
+      "simulated-chart.png",
+      "changed-source-refusal.png"
+    ],
+    "errors": [],
+    "noSourceRefused": true,
+    "motion": {
+      "samples": [
+        49
+      ],
+      "sha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+      "browserChecks": 6
+    },
+    "archivedSourceReverified": true,
+    "ramp": {
+      "samples": [
+        18,
+        18
+      ],
+      "sha256": "7cde22aee3c4012507d58857d2700fe29695ef304853ed9d32669cb7313c62de",
+      "browserChecks": 6
+    },
+    "recovery": {
+      "choicesReopened": 2,
+      "compactWindowReopened": true,
+      "unofferedSourceRefused": true,
+      "selectedSourceReopened": true,
+      "plottedEvidenceRequired": true,
+      "noExtraArtifactBeforeBrowserProof": true,
+      "reopenedSameArtifact": true
+    },
+    "changedSourceRefused": true
+  },
+  "portableWorkspace": {
+    "id": 45299430768,
+    "url": "https://github.com/eyeoverthink/Fraynix-Agent-Workspace/actions/runs/45299430768",
+    "headSha": "25fcd2de84a34f413f033c9a54f7cabc6add08ed",
+    "status": "completed",
+    "conclusion": "success",
+    "targets": [
+      {
+        "jobId": 138127946505,
+        "conclusion": "success",
+        "report": {
+          "passed": true,
+          "platform": "win32",
+          "arch": "x64",
+          "screenshots": [
+            "recorded-chart.png",
+            "needs-source-choice.png",
+            "choice-after-restart.png",
+            "simulated-chart.png",
+            "changed-source-refusal.png"
+          ],
+          "errors": [],
+          "noSourceRefused": true,
+          "motion": {
+            "samples": [
+              49
+            ],
+            "sha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+            "browserChecks": 6
+          },
+          "archivedSourceReverified": true,
+          "ramp": {
+            "samples": [
+              18,
+              18
+            ],
+            "sha256": "7cde22aee3c4012507d58857d2700fe29695ef304853ed9d32669cb7313c62de",
+            "browserChecks": 6
+          },
+          "recovery": {
+            "choicesReopened": 2,
+            "compactWindowReopened": true,
+            "unofferedSourceRefused": true,
+            "selectedSourceReopened": true,
+            "plottedEvidenceRequired": true,
+            "noExtraArtifactBeforeBrowserProof": true,
+            "reopenedSameArtifact": true
+          },
+          "changedSourceRefused": true
+        },
+        "name": "Windows x64"
+      },
+      {
+        "jobId": 138127946719,
+        "conclusion": "success",
+        "report": {
+          "passed": true,
+          "platform": "darwin",
+          "arch": "arm64",
+          "screenshots": [
+            "recorded-chart.png",
+            "needs-source-choice.png",
+            "choice-after-restart.png",
+            "simulated-chart.png",
+            "changed-source-refusal.png"
+          ],
+          "errors": [],
+          "noSourceRefused": true,
+          "motion": {
+            "samples": [
+              49
+            ],
+            "sha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+            "browserChecks": 6
+          },
+          "archivedSourceReverified": true,
+          "ramp": {
+            "samples": [
+              18,
+              18
+            ],
+            "sha256": "7cde22aee3c4012507d58857d2700fe29695ef304853ed9d32669cb7313c62de",
+            "browserChecks": 6
+          },
+          "recovery": {
+            "choicesReopened": 2,
+            "compactWindowReopened": true,
+            "unofferedSourceRefused": true,
+            "selectedSourceReopened": true,
+            "plottedEvidenceRequired": true,
+            "noExtraArtifactBeforeBrowserProof": true,
+            "reopenedSameArtifact": true
+          },
+          "changedSourceRefused": true
+        },
+        "name": "Apple silicon macOS"
+      },
+      {
+        "jobId": 138127946617,
+        "conclusion": "success",
+        "report": {
+          "passed": true,
+          "platform": "darwin",
+          "arch": "x64",
+          "screenshots": [
+            "recorded-chart.png",
+            "needs-source-choice.png",
+            "choice-after-restart.png",
+            "simulated-chart.png",
+            "changed-source-refusal.png"
+          ],
+          "errors": [],
+          "noSourceRefused": true,
+          "motion": {
+            "samples": [
+              49
+            ],
+            "sha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+            "browserChecks": 6
+          },
+          "archivedSourceReverified": true,
+          "ramp": {
+            "samples": [
+              18,
+              18
+            ],
+            "sha256": "7cde22aee3c4012507d58857d2700fe29695ef304853ed9d32669cb7313c62de",
+            "browserChecks": 6
+          },
+          "recovery": {
+            "choicesReopened": 2,
+            "compactWindowReopened": true,
+            "unofferedSourceRefused": true,
+            "selectedSourceReopened": true,
+            "plottedEvidenceRequired": true,
+            "noExtraArtifactBeforeBrowserProof": true,
+            "reopenedSameArtifact": true
+          },
+          "changedSourceRefused": true
+        },
+        "name": "Intel macOS"
+      },
+      {
+        "jobId": 138127946219,
+        "conclusion": "success",
+        "report": {
+          "passed": true,
+          "platform": "linux",
+          "arch": "x64",
+          "screenshots": [
+            "recorded-chart.png",
+            "needs-source-choice.png",
+            "choice-after-restart.png",
+            "simulated-chart.png",
+            "changed-source-refusal.png"
+          ],
+          "errors": [],
+          "noSourceRefused": true,
+          "motion": {
+            "samples": [
+              49
+            ],
+            "sha256": "591c0cb5e7b1755dce0e9e415ed0766840a9e74021effca78a45c1ae9e59b4c8",
+            "browserChecks": 6
+          },
+          "archivedSourceReverified": true,
+          "ramp": {
+            "samples": [
+              18,
+              18
+            ],
+            "sha256": "7cde22aee3c4012507d58857d2700fe29695ef304853ed9d32669cb7313c62de",
+            "browserChecks": 6
+          },
+          "recovery": {
+            "choicesReopened": 2,
+            "compactWindowReopened": true,
+            "unofferedSourceRefused": true,
+            "selectedSourceReopened": true,
+            "plottedEvidenceRequired": true,
+            "noExtraArtifactBeforeBrowserProof": true,
+            "reopenedSameArtifact": true
+          },
+          "changedSourceRefused": true
+        },
+        "name": "Linux x64"
+      }
+    ]
+  },
+  "screenshots": [
+    {
+      "path": "docs/readmes/211/recorded-chart.png",
+      "bytes": 168346,
+      "sha256": "17e67a0a27c61dbb349d6958f2400caf574043e03e806ced3237c10f989564af",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/211/needs-source-choice.png",
+      "bytes": 144622,
+      "sha256": "4cdf771693061361c0e022c3334dbd22227bab5e85b0b1e456774d0df8d51290",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/211/choice-after-restart.png",
+      "bytes": 117455,
+      "sha256": "23caaee30999d32479e1ced48c3fc0ea78c185a4ce7ec174f28f95e4d795fa74",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/211/simulated-chart.png",
+      "bytes": 178297,
+      "sha256": "5a20e357159baff071dc3c848b8e21f0a603b35f88f55075bfcf56f2e2696177",
+      "hashKind": "binary"
+    },
+    {
+      "path": "docs/readmes/211/changed-source-refusal.png",
+      "bytes": 153934,
+      "sha256": "ae59ce0cf92796c9901e83573c797bcfa61c30c66c9bbf23ffb482d2202e3a60",
+      "hashKind": "binary"
+    }
+  ]
+}

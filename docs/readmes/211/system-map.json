@@ -1,0 +1,62 @@
+{
+  "summary": "Ask “Make a chart of that.” Fraynix uses a single verified source or asks you to choose. The question, selection and checked chart survive restart.",
+  "modules": [
+    {
+      "title": "Durable chart request",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ReferenceChart.java",
+      "note": "docs/obsidian/219-verified-chart.md"
+    },
+    {
+      "title": "Exact sample projection",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ChartProjection.java",
+      "note": "docs/obsidian/219-verified-chart.md"
+    },
+    {
+      "title": "Desktop source choice",
+      "source": "workspace-desktop/renderer/chart-followup.js",
+      "note": "docs/obsidian/219-verified-chart.md"
+    },
+    {
+      "title": "Isolated browser verification",
+      "source": "workspace-desktop/chart-followup.cjs",
+      "note": "docs/obsidian/219-verified-chart.md"
+    },
+    {
+      "title": "Restart and refusal test",
+      "source": "workspace-desktop/test/chart-followup-integration.cjs",
+      "note": "docs/obsidian/219-verified-chart.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/211/recorded-chart.png",
+      "title": "All 49 mapped samples from the recorded-motion source appear in the canvas"
+    },
+    {
+      "path": "docs/readmes/211/needs-source-choice.png",
+      "title": "Fraynix asks which of two verified results to chart"
+    },
+    {
+      "path": "docs/readmes/211/choice-after-restart.png",
+      "title": "The original choices are available after restart with the selected ramp highlighted"
+    },
+    {
+      "path": "docs/readmes/211/simulated-chart.png",
+      "title": "Two verified ramp traces are plotted on the same clock and labelled as simulated"
+    },
+    {
+      "path": "docs/readmes/211/changed-source-refusal.png",
+      "title": "Fraynix refuses to reopen the chart after its original report changes"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/211/release-proof.json",
+      "title": "Desktop and portable CI evidence"
+    },
+    {
+      "path": "docs/publication211/plan.md",
+      "title": "Reproduce the chart workflow"
+    }
+  ]
+}
