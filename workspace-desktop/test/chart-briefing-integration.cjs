@@ -14,7 +14,7 @@ const expected = [
         sentence:'"rise <probe>" increased from 32 °F to 50 °F (+18 °F).'},
     {key:'fall',unit:'°F',delta:'-9',earlier:{row:3,value:'50'},later:{row:2,value:'41'},
         sentence:'"fall" decreased from 50 °F to 41 °F (-9 °F).'},
-    {key:'length gain',unit:'mm',delta:'25.4',earlier:{row:5,value:'25.4'},later:{row:6,value:'50.8'},
+    {key:'length gain',unit:'mm',delta:'25.4',earlier:{row:5,value:'25.4'},later:{row:5,value:'50.8'},
         sentence:'"length gain" increased from 25.4 mm to 50.8 mm (+25.4 mm).'},
 ];
 
