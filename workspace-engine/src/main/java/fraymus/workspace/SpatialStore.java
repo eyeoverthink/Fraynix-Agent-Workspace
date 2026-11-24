@@ -11,10 +11,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /** Source-qualified imports and bounded native manipulation receipts, isolated from the ramp lab. */
 public final class SpatialStore implements AutoCloseable {
     private final SpatialCarryStore carries;
+    final HeightStudyStore heightStudies;
     private final Path file,nativeDir;private final LinkedHashMap<String,JSONObject> scenes=new LinkedHashMap<>(),runs=new LinkedHashMap<>();
     private final ExecutorService worker=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"spatial-native-owner");t.setDaemon(true);return t;});
     private final AtomicBoolean cancelled=new AtomicBoolean();private String active="";private JSONObject current;private volatile boolean closed;
-    public SpatialStore(Path project) throws Exception {carries=new SpatialCarryStore(project);file=project.resolve("spatial/state.json");nativeDir=project.resolve("native");if(Files.exists(file)){var data=new JSONObject(Files.readString(file));for(Object raw:data.getJSONArray("scenes")){var s=(JSONObject)raw;validateDefinition(s);scenes.put(s.getString("id"),s);}for(Object raw:data.getJSONArray("runs")){var r=(JSONObject)raw;if(Set.of("executing","prepared").contains(r.getString("status")))r.put("status","interrupted").put("reason","Process ended; resume creates a separate native attempt from the immutable import");runs.put(r.getString("id"),r);}persist();}}
+    public SpatialStore(Path project) throws Exception {carries=new SpatialCarryStore(project);heightStudies=new HeightStudyStore(project);file=project.resolve("spatial/state.json");nativeDir=project.resolve("native");if(Files.exists(file)){var data=new JSONObject(Files.readString(file));for(Object raw:data.getJSONArray("scenes")){var s=(JSONObject)raw;validateDefinition(s);scenes.put(s.getString("id"),s);}for(Object raw:data.getJSONArray("runs")){var r=(JSONObject)raw;if(Set.of("executing","prepared").contains(r.getString("status")))r.put("status","interrupted").put("reason","Process ended; resume creates a separate native attempt from the immutable import");runs.put(r.getString("id"),r);}persist();}}
     private static JSONObject copy(JSONObject x){return new JSONObject(x.toString());}
     private Path glbFile(String id) {
         if (!UUID.fromString(id).toString().equals(id)) throw new IllegalArgumentException("Invalid spatial import identity.");
@@ -27,6 +28,15 @@ public final class SpatialStore implements AutoCloseable {
     }
     private void validate(JSONObject scene) {
         validateDefinition(scene);
+        if (scene.has("heightStudy")) {
+            try {
+                var original=heightStudies.boundDefinition(scene.getJSONObject("heightStudy"));
+                if (!original.similar(new JSONObject(scene.getString("sourceText"))))
+                    throw new IllegalStateException("The measured collider definition changed.");
+            } catch (Exception error) {
+                throw new IllegalStateException("Cannot recheck the original height study.",error);
+            }
+        }
         if (scene.has("propCopy")) {
             var receipt=scene.getJSONObject("propCopy");
             var review=receipt.getJSONObject("review");
@@ -126,6 +136,24 @@ public final class SpatialStore implements AutoCloseable {
         var receipt=new JSONObject().put("review",review).put("approvalSha256",digest).put("verify",checked).put("replay",replay);
         return retainScene(scene.put("importedAt",Instant.now().toString()).put("propCopy",receipt)
                 .put("propCopySha256",WorldFrames.hash(receipt)));
+    }
+
+    synchronized JSONObject importHeightCollider(JSONObject approved) throws Exception {
+        var definition=approved.getJSONObject("collider");
+        String key=approved.getString("colliderApprovalSha256");
+        String id=UUID.nameUUIDFromBytes(("height-collider:"+key).getBytes(StandardCharsets.UTF_8)).toString();
+        if (scenes.containsKey(id)) {
+            var existing=read(id);
+            if (!new JSONObject(existing.getString("sourceText")).similar(definition))
+                throw new IllegalStateException("Previously imported collider definition changed.");
+            return existing;
+        }
+        available();
+        if (scenes.size()>=32) throw new IllegalStateException("Spatial import history limit reached (32)");
+        var source=new JSONObject().put("id",approved.getString("id")).put("colliderApprovalSha256",key)
+                .put("evidenceSha256",approved.getString("evidenceSha256"));
+        return retainScene(SpatialScene.parse(definition.toString(),id).put("importedAt",Instant.now().toString())
+                .put("heightStudy",source));
     }
 
     private JSONObject retainScene(JSONObject scene) throws Exception {

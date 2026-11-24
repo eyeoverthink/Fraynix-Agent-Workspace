@@ -51,3 +51,39 @@
 #spatial-prop-dialog .panel-head { padding:0 0 .65rem; }
 #spatial-prop-form > label { display:grid; gap:.35rem; }
 #spatial-prop-status { overflow-wrap:anywhere; }
+
+
+.height-views:not([hidden]) {
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(min(100%,165px),1fr));
+ gap:10px;
+ margin:8px 0;
+}
+.height-views figure {
+ margin:0;
+ min-width:0;
+}
+.height-views img {
+ display:block;
+ width:100%;
+ max-height:179px;
+ object-fit:contain;
+ background:#101923;
+ border:1px solid #38515c;
+ border-radius:5px;
+}
+.height-views figcaption {
+ padding:4px 0;
+ font-size:.78rem;
+}
+.height-scores {
+ padding-inline-start:21px;
+ font-size:.83rem;
+}
+.height-scores li {
+ margin:.28em 0;
+}
+.height-scores .height-selected {
+ color:#a9e8d9;
+ font-weight:600;
+}

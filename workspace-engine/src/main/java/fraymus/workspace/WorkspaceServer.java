@@ -78,6 +78,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final WorkflowRunner workflows;
     private final EmbeddedGameClient game;
     private final HypothesisExperiment hypothesisExperiment;
+    private final HeightStudyStore heightStudies;
     private final String token;
     private final FactoryModelService models=new FactoryModelService();
     private volatile FactoryModelService.Snapshot catalog;
@@ -94,6 +95,7 @@ public final class WorkspaceServer implements AutoCloseable {
         try{scenes=new SceneStore(project);spatial=new SpatialStore(project);maps=new MapStore(project);perception=new PerceptionStore(project);measurements=new MeasurementStore(project);calibrations=new CalibrationStore(project,scenes,measurements);observers=new ObserverStore(project,scenes);brain=new BrainService(project);goals=new GoalRunner(project,scenes,brain,store,measurements,spatial,perception,maps);memory074=new MemoryStudy074(project,goals::memoryBundle074);memory075=new MemoryStudy075(project,goals::memoryBundle074);procedures076=new ProcedureStudy076(project);procedures077=new ProcedureStudy077(project);procedures078=new ProcedureStudy078(project);observations=new WorldObservationStore(project,goals.worlds());metrics=new MetricObservationStore(project,observations,goals.worlds());physicalAudit130=new PhysicalAudit130(project,metrics);labels132=new ObservationLabels132(project,observations,metrics);contact133=new ContactAudit133(project,observations,labels132);association134=new AssociationAudit134(project,observations);appearances135=new VerifiedAppearances135(project,association134);tabletop=new TabletopStore(project,goals.worlds(),metrics);knowledge=new KnowledgeStore(project,tabletop);selfModel=new SelfModel(knowledge);workflows=new WorkflowRunner(project,goals,measurements,scenes,store);workflows.install128(new ObservationArtifact128(project,observations,metrics,goals.worlds()));game=new EmbeddedGameClient(Path.of(System.getProperty("user.dir")),project);gameReferences115=new GameReference115(Path.of(System.getProperty("user.dir")),project);gameTasks115=new GameCosts125(Path.of(System.getProperty("user.dir")),project,game);
             relayPlaytest = new RelayPlaytest(Path.of(System.getProperty("user.dir")), project, store);
             Path repo = Path.of(System.getProperty("user.dir"));
+            heightStudies = spatial.heightStudies;
             hypothesisExperiment = new HypothesisExperiment(repo, project, store, relayPlaytest, this::proposeExperiment);
             blenderCandidates = new BlenderGameCandidates(repo, project);
             blenderPlaytests = new BlenderGamePlaytests(repo, project, blenderCandidates);
@@ -571,6 +573,21 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/goals/perception-resume" -> result=goals.resumePerception(input.getString("id"),input.getString("frameId"));
                     case "/api/spatial/example" -> {try(var stream=WorkspaceServer.class.getResourceAsStream("/spatial/declared-test-scene-v1.json")){result=new JSONObject().put("text",new String(stream.readAllBytes(),StandardCharsets.UTF_8));}}
                     case "/api/spatial/import" -> {SpatialScene.keys(input,"text");result=spatial.importScene(input.getString("text"));}
+                    case "/api/spatial/height-example" -> {
+                        SpatialScene.keys(input);
+                        try (var source=WorkspaceServer.class.getResourceAsStream("/spatial/height-studies/low.json")) {
+                            result=heightStudies.review(new JSONObject().put("base64",Base64.getEncoder().encodeToString(source.readAllBytes())));
+                        }
+                    }
+                    case "/api/spatial/height-review" -> result=heightStudies.review(input);
+                    case "/api/spatial/height-approve" -> result=heightStudies.approve(input);
+                    case "/api/spatial/height-read" -> { SpatialScene.keys(input,"id"); result=heightStudies.view(input.getString("id")); }
+                    case "/api/spatial/height-latest" -> { SpatialScene.keys(input); result=heightStudies.latest(); }
+                    case "/api/spatial/height-collider" -> {
+                        if (agency.busy() || sharedBusy043() || goals.workflowReserved() || goals.ownsSpatial())
+                            throw new IllegalStateException("Finish active work before importing a measured collider.");
+                        result=spatial.importHeightCollider(heightStudies.approvedCollider(input));
+                    }
                     case "/api/spatial/carry-latest" -> { SpatialScene.keys(input); result=spatial.latestCarry(); }
                     case "/api/spatial/carry-read" -> result=spatial.readCarry(input);
                     case "/api/spatial/carry-review","/api/spatial/carry-approve" -> {
