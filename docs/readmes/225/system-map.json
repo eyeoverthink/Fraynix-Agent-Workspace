@@ -1,0 +1,66 @@
+{
+  "summary": "Fraynix extrudes an outer face region, preserves the collider, and exports editable Blender geometry or a checked STL.",
+  "modules": [
+    {
+      "title": "Planar extrusion and topology checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialFaceExtrusion.java",
+      "note": "docs/obsidian/233-native-mesh-edit.md"
+    },
+    {
+      "title": "Millimetre STL encoding",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStl.java",
+      "note": "docs/obsidian/233-native-mesh-edit.md"
+    },
+    {
+      "title": "Mesh editing panel in Spatial",
+      "source": "workspace-desktop/renderer/spatial-mesh-edit.js",
+      "note": "docs/obsidian/233-native-mesh-edit.md"
+    },
+    {
+      "title": "Source and saved-scene verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/233-native-mesh-edit.md"
+    },
+    {
+      "title": "Desktop modeling and Blender exchange",
+      "source": "workspace-desktop/test/spatial-mesh-edit-integration.cjs",
+      "note": "docs/obsidian/233-native-mesh-edit.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/225/mesh-extrusion.png",
+      "title": "Fraynix previews the 100 mm extrusion"
+    },
+    {
+      "path": "docs/readmes/225/mesh-blender-return.png",
+      "title": "The Blender-edited shell has returned to Fraynix"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/225/mesh-edit-evidence.json",
+      "title": "Desktop and Blender geometry measurements"
+    },
+    {
+      "path": "docs/readmes/225/fraynix-extrusion.blend",
+      "title": "Native scene exported from Fraynix"
+    },
+    {
+      "path": "docs/readmes/225/mesh-blender-edit.blend",
+      "title": "Scene edited in Blender 4.5 LTS"
+    },
+    {
+      "path": "docs/readmes/225/extruded-shell-mm.stl",
+      "title": "Z-up millimetre STL"
+    },
+    {
+      "path": "docs/publication225/plan.md",
+      "title": "Expanded acceptance plan for the production workbench"
+    },
+    {
+      "path": "docs/readmes/225/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}

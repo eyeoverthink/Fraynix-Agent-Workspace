@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md)
 
-[Edition 224 — Edit a timeline and round-trip through Blender](README-224.md) · [Previous edition](README-223.md) · [Offline walkthrough](docs/readmes/224/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 225 — Edit a mesh and export a metric STL](README-225.md) · [Previous edition](README-224.md) · [Offline walkthrough](docs/readmes/225/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Author and play prop translation in Spatial, then open or edit the timeline in Blender. Edition 224 includes the roadmap for nine integrated production workflows.
+Extrude an outer face region in Spatial, save a new mesh, and exchange it with Blender or export the selected shell as a metric STL.
