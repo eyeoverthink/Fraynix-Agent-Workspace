@@ -202,13 +202,14 @@ def verify(glb, output):
         raise ValueError(report)
 
 
-mode,*args=sys.argv[sys.argv.index("--")+1:]
-if mode=="create":
-    output=Path(args[0]).resolve()
-    output.mkdir(parents=True,exist_ok=True)
-    fixture(output,"bracket",False)
-    fixture(output,"hidden-recess",True)
-elif mode=="verify":
-    verify(Path(args[0]).resolve(),Path(args[1]).resolve())
-else:
-    raise ValueError(mode)
+if __name__ == '__main__':
+    mode,*args=sys.argv[sys.argv.index("--")+1:]
+    if mode=="create":
+        output=Path(args[0]).resolve()
+        output.mkdir(parents=True,exist_ok=True)
+        fixture(output,"bracket",False)
+        fixture(output,"hidden-recess",True)
+    elif mode=="verify":
+        verify(Path(args[0]).resolve(),Path(args[1]).resolve())
+    else:
+        raise ValueError(mode)

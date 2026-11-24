@@ -11,11 +11,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/** Reconstructs an editable visual hull from three registered orthographic PNG silhouettes. */
+/** Reconstructs an editable visual hull and optionally carves observed free space. */
 final class SpatialReconstruction {
     static final int LIMIT=1_200_000;
     static final String FORMAT="fraynix.orthographic-silhouettes-v1";
     static final String POLICY="axis-visual-hull-v1";
+    static final String FORMAT_DEPTH="fraynix.orthographic-silhouettes-depth-v2";
+    static final String POLICY_DEPTH="axis-visual-hull-depth-v2";
 
     record Result(JSONObject definition,JSONObject evidence) {}
     private record Point(int x,int y,int z) {}
@@ -25,8 +27,12 @@ final class SpatialReconstruction {
     static Result build(byte[] bytes) throws Exception {
         if (bytes.length==0 || bytes.length>LIMIT) throw new IllegalArgumentException("Choose a silhouette set up to 1.2 MB.");
         var input=new JSONObject(new String(bytes,StandardCharsets.UTF_8));
-        SpatialScene.keys(input,"format","title","grid","cellM","views");
-        if (!FORMAT.equals(input.getString("format"))) throw new IllegalArgumentException("Choose a registered orthographic silhouette set.");
+        String format=input.getString("format");
+        boolean withDepth=FORMAT_DEPTH.equals(format);
+        if (!withDepth && !FORMAT.equals(format))
+            throw new IllegalArgumentException("Choose a registered orthographic silhouette set.");
+        if (withDepth) SpatialScene.keys(input,"format","title","grid","cellM","views","depth");
+        else SpatialScene.keys(input,"format","title","grid","cellM","views");
         String title=SpatialScene.text(input,"title",80);
         int n=(int)SpatialScene.number(input,"grid",8,22);
         if (input.getDouble("grid")!=n) throw new IllegalArgumentException("Grid size must be an integer.");
@@ -44,12 +50,14 @@ final class SpatialReconstruction {
         }
 
         var hull=new boolean[n][n][n];
+        for (int x=0;x<n;x++) for (int y=0;y<n;y++) for (int z=0;z<n;z++)
+            hull[x][y][z]=masks[0][n-1-y][n-1-z] && masks[1][z][x] && masks[2][n-1-y][x];
+        JSONObject depth=withDepth?SpatialReconstructionDepth.carve(input.getJSONObject("depth"),hull,masks[2],step):null;
         var projected=new boolean[3][n][n];
         int[] low={n,n,n},high={0,0,0};
         int solid=0;
         for (int x=0;x<n;x++) for (int y=0;y<n;y++) for (int z=0;z<n;z++) {
-            if (!(masks[0][n-1-y][n-1-z] && masks[1][z][x] && masks[2][n-1-y][x])) continue;
-            hull[x][y][z]=true;
+            if (!hull[x][y][z]) continue;
             projected[0][n-1-y][n-1-z]=true;
             projected[1][z][x]=true;
             projected[2][n-1-y][x]=true;
@@ -61,18 +69,21 @@ final class SpatialReconstruction {
         var consistency=new JSONObject();
         for (int axis=0;axis<3;axis++) {
             double iou=iou(masks[axis],projected[axis]);
+            if (withDepth && iou<1) throw new IllegalArgumentException("Depth conflicts with the registered silhouettes.");
             if (iou<.98) throw new IllegalArgumentException("The registered views disagree at the declared resolution.");
             consistency.put("xyz".substring(axis,axis+1),iou);
         }
         var mesh=surface(hull,low,high,step);
         String sourceSha=MapDefinition.sha(bytes);
-        var scene=scene(title,mesh,sourceSha,n,low,high,step);
-        var evidence=new JSONObject().put("policy",POLICY).put("sourceSha256",sourceSha).put("pngSha256",hashes)
+        var scene=scene(title,mesh,sourceSha,n,low,high,step,withDepth);
+        var evidence=new JSONObject().put("policy",withDepth?POLICY_DEPTH:POLICY).put("sourceSha256",sourceSha).put("pngSha256",hashes)
                 .put("grid",n).put("cellM",step).put("voxels",solid).put("volumeM3",solid*step*step*step)
                 .put("vertices",mesh.vertexCount()).put("triangles",mesh.indices().length/3)
                 .put("inputProjectionIou",consistency).put("meshSha256",mesh.key())
                 .put("scope","Three orthographic silhouettes at a declared scale; surface depth hidden in every silhouette is unresolved.")
                 .put("physics","Separate enclosing box; visible cutouts belong to the visual mesh.");
+        if (withDepth) evidence.put("depth",depth)
+                .put("scope","Silhouettes plus registered first hits; carve only in front of the fitted grid face. Detail behind that face remains unresolved by the depth ray.");
         return new Result(scene,evidence);
     }
 
@@ -144,7 +155,7 @@ final class SpatialReconstruction {
         for (int i:sign>0?new int[]{0,1,2,0,2,3}:new int[]{0,2,1,0,3,2}) indices.add(corners[i]);
     }
 
-    private static JSONObject scene(String title,SpatialVisualMesh mesh,String source,int n,int[] low,int[] high,double step) {
+    private static JSONObject scene(String title,SpatialVisualMesh mesh,String source,int n,int[] low,int[] high,double step,boolean withDepth) {
         double[] center=new double[3],size=new double[3];
         for (int axis=0;axis<3;axis++) {
             center[axis]=((low[axis]+high[axis])/2.0-n/2.0)*step;
@@ -156,7 +167,8 @@ final class SpatialReconstruction {
                 .put("scaleReference",new JSONObject().put("a",new JSONArray(new int[]{0,0,0}))
                         .put("b",new JSONArray(new int[]{1,0,0})).put("knownLengthM",1).put("toleranceM",0).put("basis","declared-test"))
                 .put("source",new JSONObject().put("kind","unverified").put("physicalProperties","declared")
-                        .put("note","Orthographic visual hull from PNG set "+source+". Declared scale and enclosing physics proxy."))
+                        .put("note",(withDepth?"Orthographic silhouette and first-hit depth package ":"Orthographic visual hull from PNG set ")
+                                +source+". Declared scale and enclosing physics proxy."))
                 .put("visualMeshes",new JSONObject().put(mesh.key(),mesh.encoded()))
                 .put("objects",new JSONArray()
                         .put(box("floor","Support deck",new double[]{0,(low[1]-n/2.0)*step-.10,0},
