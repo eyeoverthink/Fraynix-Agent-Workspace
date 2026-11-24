@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 222 · Combine depth from opposing views</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Combine depth from opposing views</h1><p>Two registered Blender depth views recover opposite recesses in one editable mesh. Java refuses views that contradict each other.</p>
+<nav><a href="../../../README-222.md">App guide</a><a href="multidepth-evidence.json">Full receipts</a>
+<a href="../221/index.html">Edition 221</a><a href="../../publication222/plan.md">Verification contract</a>
+<a href="editable-opposed-recesses.blend" download>Editable Blender project</a><a href="#system">System files</a></nav>
+<p>The combined mesh recovered 100 mm and 150 mm recesses, removing 36 cells. Blender checked 392 offset rays and two withheld oblique silhouettes.</p>
+<figure><img src="fraynix-opposed-depth.png" alt="Fraynix combines both depth views in the editable mesh"><figcaption>Fraynix combines both depth views in the editable mesh</figcaption></figure>
+<figure><img src="fraynix-opposite-side.png" alt="The opposite side shows the second recess"><figcaption>The opposite side shows the second recess</figcaption></figure>
+<figure><img src="withheld-positive-original.png" alt="Withheld view of the original positive-side recess"><figcaption>Withheld view of the original positive-side recess</figcaption></figure>
+<figure><img src="withheld-positive-reconstruction.png" alt="Blender render of the recovered positive-side recess"><figcaption>Blender render of the recovered positive-side recess</figcaption></figure>
+<figure><img src="withheld-negative-original.png" alt="Withheld view of the original negative-side recess"><figcaption>Withheld view of the original negative-side recess</figcaption></figure>
+<figure><img src="withheld-negative-reconstruction.png" alt="Blender render of the recovered negative-side recess"><figcaption>Blender render of the recovered negative-side recess</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Two registered Blender depth views recover opposite recesses in one editable mesh. Java refuses views that contradict each other.", "modules": [{"title": "Registered opposing depth and measured hits", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstructionDepth.java", "note": "docs/obsidian/230-opposing-depth.md"}, {"title": "Silhouette checks and editable mesh extraction", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstruction.java", "note": "docs/obsidian/230-opposing-depth.md"}, {"title": "Spatial workspace and GLB export", "source": "workspace-desktop/renderer/spatial-panel.js", "note": "docs/obsidian/230-opposing-depth.md"}, {"title": "Blender depth capture and independent geometry check", "source": "workspace-desktop/test/spatial-multidepth-blender.py", "note": "docs/obsidian/230-opposing-depth.md"}, {"title": "Desktop controls, conflict refusal and restart", "source": "workspace-desktop/test/spatial-multidepth-integration.cjs", "note": "docs/obsidian/230-opposing-depth.md"}], "screenshots": [{"path": "docs/readmes/222/fraynix-opposed-depth.png", "title": "Fraynix combines both depth views in the editable mesh"}, {"path": "docs/readmes/222/fraynix-opposite-side.png", "title": "The opposite side shows the second recess"}, {"path": "docs/readmes/222/withheld-positive-original.png", "title": "Withheld view of the original positive-side recess"}, {"path": "docs/readmes/222/withheld-positive-reconstruction.png", "title": "Blender render of the recovered positive-side recess"}, {"path": "docs/readmes/222/withheld-negative-original.png", "title": "Withheld view of the original negative-side recess"}, {"path": "docs/readmes/222/withheld-negative-reconstruction.png", "title": "Blender render of the recovered negative-side recess"}], "evidence": [{"path": "docs/readmes/222/multidepth-evidence.json", "title": "Desktop and independent Blender evidence"}, {"path": "workspace-engine/src/main/resources/spatial/reconstruction/opposed-depth.json", "title": "Registered silhouettes and opposing first-hit samples"}, {"path": "docs/readmes/222/editable-opposed-recesses.blend", "title": "Editable Blender project"}, {"path": "docs/readmes/222/opposed-depth.glb", "title": "Java GLB export"}, {"path": "docs/publication222/plan.md", "title": "Verification, reviewer notes and reproduction"}, {"path": "docs/readmes/222/FILE_TREE.md", "title": "Edition file tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 10341, "sha256": "5b5f7e64246ad7f75121974686420c6357a73be41405ee8027cc081f0168bd29", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/230-opposing-depth.canvas", "bytes": 2294, "sha256": "aafc2fe18f9177f8f8a382f3393e2c41401c7bc6e3175f60b80c64a3b57842b0", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/230-opposing-depth.md", "bytes": 452, "sha256": "a760290bca09e373dec93d249cdff1346f64326b9752202c9063324760f6a22c", "hashKind": "utf8-lf"}, {"path": "docs/publication222/plan.md", "bytes": 3591, "sha256": "7ab4ecb77608d4f20187e0f0e94ed587b110dfeb7f13a6d3fcff8a59ff45f5d2", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 128188, "sha256": "d9cfbebcd552a6d71997d75797a469948746c58b57fa1e5caf084d85e86b2224", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-panel.js", "bytes": 40291, "sha256": "56af27127542a17fabad076506d56723b9e9c4b8247d5993cd3e4e913b42328c", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/spatial-multidepth-blender.py", "bytes": 6647, "sha256": "c0827bd197a981226fcd6d1366aaae09d5ffa2d173ae04b8a6905268a716ca36", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/spatial-multidepth-integration.cjs", "bytes": 6491, "sha256": "f365de412288ddbfd8539e41336793e406c011d5086fad88f1c1089fed71dda4", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstruction.java", "bytes": 11446, "sha256": "84b2a8fb3070adf27b14ee6eeb6570ca594af80aeb6f526716491161c03ae39d", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstructionDepth.java", "bytes": 6647, "sha256": "d7339a9f2dccf667f6f533d3718b82614b4aee71aafa9aa8899e46bd77856b40", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 147689, "sha256": "c8bb0f748ef9d5ea83a26b399869dc14413a22e01d34ae39f9ecdd9c6dbb2a7d", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/resources/spatial/reconstruction/opposed-depth.json", "bytes": 27394, "sha256": "3e556d36a4d30d392f42abd14e518f60244e686f28762011a6da6420858ff8c2", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/SpatialReconstructionMultiDepthTest.java", "bytes": 5030, "sha256": "e102d3f6a933c5296be275f91b11c8f5318b013b82c495dc9280162a21a06253", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

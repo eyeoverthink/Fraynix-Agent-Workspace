@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 222 — Combine depth from opposing views](../../README-222.md) · [Walkthrough](222/index.html)
+
 [Edition 221 — Recover a hidden recess with Blender depth](../../README-221.md) · [Walkthrough](221/index.html)
 
 [Edition 220 — Reconstruct editable 3D geometry from images](../../README-220.md) · [Walkthrough](220/index.html)

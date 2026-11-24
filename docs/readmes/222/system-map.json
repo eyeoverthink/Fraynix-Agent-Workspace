@@ -1,0 +1,82 @@
+{
+  "summary": "Two registered Blender depth views recover opposite recesses in one editable mesh. Java refuses views that contradict each other.",
+  "modules": [
+    {
+      "title": "Registered opposing depth and measured hits",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstructionDepth.java",
+      "note": "docs/obsidian/230-opposing-depth.md"
+    },
+    {
+      "title": "Silhouette checks and editable mesh extraction",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstruction.java",
+      "note": "docs/obsidian/230-opposing-depth.md"
+    },
+    {
+      "title": "Spatial workspace and GLB export",
+      "source": "workspace-desktop/renderer/spatial-panel.js",
+      "note": "docs/obsidian/230-opposing-depth.md"
+    },
+    {
+      "title": "Blender depth capture and independent geometry check",
+      "source": "workspace-desktop/test/spatial-multidepth-blender.py",
+      "note": "docs/obsidian/230-opposing-depth.md"
+    },
+    {
+      "title": "Desktop controls, conflict refusal and restart",
+      "source": "workspace-desktop/test/spatial-multidepth-integration.cjs",
+      "note": "docs/obsidian/230-opposing-depth.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/222/fraynix-opposed-depth.png",
+      "title": "Fraynix combines both depth views in the editable mesh"
+    },
+    {
+      "path": "docs/readmes/222/fraynix-opposite-side.png",
+      "title": "The opposite side shows the second recess"
+    },
+    {
+      "path": "docs/readmes/222/withheld-positive-original.png",
+      "title": "Withheld view of the original positive-side recess"
+    },
+    {
+      "path": "docs/readmes/222/withheld-positive-reconstruction.png",
+      "title": "Blender render of the recovered positive-side recess"
+    },
+    {
+      "path": "docs/readmes/222/withheld-negative-original.png",
+      "title": "Withheld view of the original negative-side recess"
+    },
+    {
+      "path": "docs/readmes/222/withheld-negative-reconstruction.png",
+      "title": "Blender render of the recovered negative-side recess"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/222/multidepth-evidence.json",
+      "title": "Desktop and independent Blender evidence"
+    },
+    {
+      "path": "workspace-engine/src/main/resources/spatial/reconstruction/opposed-depth.json",
+      "title": "Registered silhouettes and opposing first-hit samples"
+    },
+    {
+      "path": "docs/readmes/222/editable-opposed-recesses.blend",
+      "title": "Editable Blender project"
+    },
+    {
+      "path": "docs/readmes/222/opposed-depth.glb",
+      "title": "Java GLB export"
+    },
+    {
+      "path": "docs/publication222/plan.md",
+      "title": "Verification, reviewer notes and reproduction"
+    },
+    {
+      "path": "docs/readmes/222/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}
