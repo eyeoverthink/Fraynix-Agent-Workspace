@@ -95,3 +95,12 @@
 .animation-scrub input { flex:1; min-width:min(9rem,100%); }
 .animation-timeline select { max-width:100%; }
 .mesh-field[hidden] { display:none; }
+
+#library-views-form { padding-left: 0; align-items: end; }
+#library-view-name { width: min(178px, 42vw); }
+#library-view-picks { padding: 0; }
+#library-views-form select {
+    max-width: min(150px, 36vw);
+    font-size: 11px;
+    padding: 7px;
+}

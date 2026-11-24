@@ -13,6 +13,7 @@ import java.util.Base64;
 final class BrowserViewTrace {
     static final String FORMAT = "fraynix.browser-registered-views-v2";
     static final String POLICY = "browser-registered-orthographic";
+    static final String FORMAT_LIBRARY = "fraynix.library-registered-views-v1";
     static final String FORMAT_ELEVATED = "fraynix.browser-registered-views-v3";
     private static final double MIN_FIT = .86;
     private static final double MIN_HELD_OUT = .86;
@@ -24,10 +25,17 @@ final class BrowserViewTrace {
     private BrowserViewTrace() {}
 
     static SpatialReconstruction.Result build(byte[] bytes, JSONObject input) throws Exception {
-        boolean extended = FORMAT_ELEVATED.equals(input.getString("format"));
+        return build(bytes, input, false);
+    }
+
+    static SpatialReconstruction.Result build(byte[] bytes, JSONObject input, boolean library) throws Exception {
+        boolean extended = library || FORMAT_ELEVATED.equals(input.getString("format"));
         int elevation = 0;
         if (extended) {
-            SpatialScene.keys(input, "format", "widthM", "views", "heldOutElevationDeg");
+            if (library) {
+                if (!FORMAT_LIBRARY.equals(input.getString("format"))) throw new IllegalArgumentException("Invalid registered library format.");
+                SpatialScene.keys(input, "format", "name", "widthM", "views", "heldOutElevationDeg");
+            } else SpatialScene.keys(input, "format", "widthM", "views", "heldOutElevationDeg");
             double value = SpatialScene.number(input, "heldOutElevationDeg", 0, 60);
             if (value != 0 && value != 60) throw new IllegalArgumentException("Choose a level or 60° elevated witness.");
             elevation = (int) value;
@@ -36,10 +44,10 @@ final class BrowserViewTrace {
         var views = input.getJSONObject("views");
         if (extended) SpatialScene.keys(views, "front", "side", "top", "heldOut");
         else SpatialScene.keys(views, "front", "side", "heldOut");
-        var front = capture(views.getJSONObject("front"));
-        var side = capture(views.getJSONObject("side"));
+        var front = capture(views.getJSONObject("front"), library);
+        var side = capture(views.getJSONObject("side"), library);
         register(front, side);
-        var top = views.has("top") ? capture(views.getJSONObject("top")) : null;
+        var top = views.has("top") ? capture(views.getJSONObject("top"), library) : null;
         if (top != null) registerTop(front, side, top);
         var attempts = new JSONArray();
         Model best = null;
@@ -59,10 +67,10 @@ final class BrowserViewTrace {
         }
 
         // The witness enters the pipeline only after model selection is finished.
-        var witness = capture(views.getJSONObject("heldOut"));
+        var witness = capture(views.getJSONObject("heldOut"), library);
         if (elevation == 0) register(front, witness);
         else if (front.side != witness.side) throw new IllegalArgumentException("The held-out crop must use the same size and scale.");
-        if (samePixels(witness, front) || samePixels(witness, side) || (top != null && samePixels(witness, top))) {
+        if (samePixels(witness, front, library) || samePixels(witness, side, library) || (top != null && samePixels(witness, top, library))) {
             throw new IllegalArgumentException("Choose a separate 45° held-out view.");
         }
         double verification = overlap(witness.mask, renderOblique(best, witness.side, elevation));
@@ -89,21 +97,37 @@ final class BrowserViewTrace {
             proof.put("topIou", best.top)
                     .put("scope", "Declared registration and front width. Front, side and top fit the mesh. A separate oblique view tests it.");
         }
-        return new SpatialReconstruction.Result(definition(best.mesh, hash, width, dimensions), proof);
+        var definition = definition(best.mesh, hash, width, dimensions);
+        if (library) {
+            definition.put("title", SpatialScene.text(input, "name", 70));
+            definition.getJSONArray("objects").getJSONObject(1).put("label", "Reconstructed prop");
+            definition.getJSONObject("source").put("note", "Registered library originals SHA-256 " + hash
+                    + ". Width declared. Visual mesh and enclosing collider are separate.");
+            proof.put("viewSource", "sprite-library");
+        }
+        return new SpatialReconstruction.Result(definition, proof);
     }
 
-    private static Capture capture(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "url", "tag", "png");
-        String url = BrowserShapeTrace.sourceUrl(input);
-        String tag = SpatialScene.text(input, "tag", 8);
-        if (!java.util.Set.of("img", "svg", "canvas").contains(tag)) throw new IllegalArgumentException("Pick a browser graphic.");
+    private static Capture capture(JSONObject input, boolean library) throws Exception {
+        JSONObject receipt;
+        if (library) {
+            SpatialScene.keys(input, "assetId", "label", "png", "pngSha256", "sourceSha256", "spriteSha256");
+            receipt = new JSONObject(input, "assetId", "label", "pngSha256", "sourceSha256", "spriteSha256");
+        } else {
+            SpatialScene.keys(input, "url", "tag", "png");
+            String url = BrowserShapeTrace.sourceUrl(input);
+            String tag = SpatialScene.text(input, "tag", 8);
+            if (!java.util.Set.of("img", "svg", "canvas").contains(tag)) throw new IllegalArgumentException("Pick a browser graphic.");
+            receipt = new JSONObject().put("url", url).put("tag", tag);
+        }
         byte[] png = Base64.getDecoder().decode(input.getString("png"));
         var image = BrowserShapeTrace.decode(png);
         int side = image.getWidth();
         if (image.getHeight() != side || side < 40 || side > 512) {
-            throw new IllegalArgumentException("Use equal square browser crops, 40–512 pixels per side.");
+            throw new IllegalArgumentException(library ? "Use equal square originals, 40–512 pixels per side."
+                    : "Use equal square browser crops, 40–512 pixels per side.");
         }
-        var mask = BrowserShapeTrace.isolate(image);
+        var mask = library ? libraryMask(image) : BrowserShapeTrace.isolate(image);
         int left = side, right = -1, top = side, bottom = -1;
         for (int i = 0; i < mask.length; i++) {
             if (!mask[i]) continue;
@@ -114,8 +138,26 @@ final class BrowserViewTrace {
         if (left <= 0 || top <= 0 || right >= side - 1 || bottom >= side - 1) {
             throw new IllegalArgumentException("Keep the entire silhouette and its background margin in view.");
         }
-        return new Capture(side, mask, left, right, top, bottom, new JSONObject()
-                .put("url", url).put("tag", tag).put("pixels", side).put("pngSha256", MapDefinition.sha(png)));
+        String digest = MapDefinition.sha(png);
+        if (library && !digest.equals(receipt.getString("pngSha256")))
+            throw new IllegalStateException("The library source pixels changed.");
+        return new Capture(side, mask, left, right, top, bottom, receipt.put("pixels", side).put("pngSha256", digest));
+    }
+
+    private static boolean[] libraryMask(BufferedImage image) {
+        int width = image.getWidth(), height = image.getHeight();
+        int[] rgba = image.getRGB(0, 0, width, height, null, 0, width);
+        if (java.util.Arrays.stream(rgba).noneMatch(pixel -> pixel >>> 24 < 255))
+            return BrowserShapeTrace.isolate(image);
+        boolean[] mask = new boolean[rgba.length];
+        int area = 0;
+        for (int i = 0; i < rgba.length; i++) {
+            mask[i] = (rgba[i] >>> 24) >= 128;
+            if (mask[i]) area++;
+        }
+        if (area < 64 || area > rgba.length * .85)
+            throw new IllegalArgumentException("Choose a registered alpha silhouette with clear padding.");
+        return mask;
     }
 
     private static void register(Capture known, Capture other) {
@@ -124,8 +166,9 @@ final class BrowserViewTrace {
         }
     }
 
-    private static boolean samePixels(Capture a, Capture b) {
-        return a.receipt.getString("pngSha256").equals(b.receipt.getString("pngSha256"));
+    private static boolean samePixels(Capture a, Capture b, boolean library) {
+        return a.receipt.getString("pngSha256").equals(b.receipt.getString("pngSha256"))
+                || (library && java.util.Arrays.equals(a.mask, b.mask));
     }
 
     private static void registerTop(Capture front, Capture side, Capture top) {

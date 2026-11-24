@@ -22,6 +22,7 @@ export class TileEditor {
                 <button id="tile-new">New level</button>
                 <select id="tile-saved" aria-label="Saved tile levels"><option value="">Open saved level</option></select>
                 <label class="media-file">Import level<input id="tile-import-level" type="file" accept=".json,application/json" aria-label="Import tile level"></label>
+                <button id="tile-model-3d">Model sprites in 3D</button>
                 <button id="media-legacy-mode" class="quiet">Single sprite</button>
             </div>
             <div class="tile-library">
@@ -441,7 +442,7 @@ export class TileEditor {
 
     refresh() {
         const busy = Boolean(this.busy || this.game);
-        for (const selector of ['#tile-new','#tile-saved','#tile-import-level','#tile-png','#tile-pick','#tile-title','#tile-layer'])
+        for (const selector of ['#tile-new','#tile-saved','#tile-import-level','#tile-png','#tile-pick','#tile-model-3d','#tile-title','#tile-layer'])
             this.find(selector).disabled = busy;
         this.find('#tile-modes').hidden = Boolean(this.game);
         this.find('#tile-place').disabled = busy || !this.active;

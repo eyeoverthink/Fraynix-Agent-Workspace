@@ -211,6 +211,42 @@ final class TileWorkshop {
         return value.toString().getBytes(StandardCharsets.UTF_8);
     }
 
+    synchronized JSONObject registeredViews(JSONObject request) throws Exception {
+        SpatialScene.keys(request, "name", "widthM", "heldOutElevationDeg", "assets");
+        var assets = request.getJSONObject("assets");
+        SpatialScene.keys(assets, "front", "side", "top", "heldOut");
+        var checked = new JSONObject();
+        var seen = new HashSet<String>();
+        for (String role : java.util.List.of("front", "side", "top", "heldOut")) {
+            if ("top".equals(role) && !assets.has(role)) continue;
+            String id = assets.getString(role);
+            if (!seen.add(id)) throw new IllegalArgumentException("Choose different sprite library entries for each view.");
+            var recipe = read(this.assets, id, MAX_ASSET);
+            var sprite = checkAsset(id, recipe);
+            checked.put(role, hashes(sprite).put("assetId", id).put("label", sprite.getString("label"))
+                    .put("pngSha256", sprite.getString("imageSha256"))
+                    .put("png", recipe.getJSONObject("source").getString("png")));
+        }
+        return new JSONObject().put("format", BrowserViewTrace.FORMAT_LIBRARY)
+                .put("name", SpatialScene.text(request, "name", 70).strip())
+                .put("widthM", SpatialScene.number(request, "widthM", .1, 5))
+                .put("heldOutElevationDeg", SpatialScene.number(request, "heldOutElevationDeg", 0, 60))
+                .put("views", checked);
+    }
+
+    synchronized void verifyRegisteredViews(JSONObject views) throws Exception {
+        for (String role : views.keySet()) {
+            var receipt = views.getJSONObject(role);
+            String id = receipt.getString("assetId");
+            var record = read(assets, id, MAX_ASSET);
+            String pngSha256 = MapDefinition.sha(SpriteWorkshop.decode(record.getJSONObject("source").getString("png"), 750_000));
+            if (!pngSha256.equals(receipt.getString("pngSha256"))
+                    || !record.getString("sourceSha256").equals(receipt.getString("sourceSha256"))
+                    || !record.getString("spriteSha256").equals(receipt.getString("spriteSha256")))
+                throw new IllegalStateException("A source sprite changed since reconstruction.");
+        }
+    }
+
     private static JSONObject checkAsset(String id, JSONObject recipe) throws Exception {
         SpatialScene.keys(recipe, "source", "sourceSha256", "spriteSha256");
         if (!MapDefinition.sha(encoded(recipe)).equals(id)) throw new IllegalArgumentException("The sprite record changed.");

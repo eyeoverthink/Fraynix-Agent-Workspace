@@ -11,11 +11,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /** Source-qualified imports and bounded native manipulation receipts, isolated from the ramp lab. */
 public final class SpatialStore implements AutoCloseable {
     private final SpatialCarryStore carries;
+    private final TileWorkshop library;
     final HeightStudyStore heightStudies;
     private final Path file,nativeDir;private final LinkedHashMap<String,JSONObject> scenes=new LinkedHashMap<>(),runs=new LinkedHashMap<>();
     private final ExecutorService worker=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"spatial-native-owner");t.setDaemon(true);return t;});
     private final AtomicBoolean cancelled=new AtomicBoolean();private String active="";private JSONObject current;private volatile boolean closed;
-    public SpatialStore(Path project) throws Exception {carries=new SpatialCarryStore(project);heightStudies=new HeightStudyStore(project);file=project.resolve("spatial/state.json");nativeDir=project.resolve("native");if(Files.exists(file)){var data=new JSONObject(Files.readString(file));for(Object raw:data.getJSONArray("scenes")){var s=(JSONObject)raw;validateDefinition(s);scenes.put(s.getString("id"),s);}for(Object raw:data.getJSONArray("runs")){var r=(JSONObject)raw;if(Set.of("executing","prepared").contains(r.getString("status")))r.put("status","interrupted").put("reason","Process ended; resume creates a separate native attempt from the immutable import");runs.put(r.getString("id"),r);}persist();}}
+    public SpatialStore(Path project) throws Exception { this(project, new TileWorkshop(project)); }
+    SpatialStore(Path project, TileWorkshop library) throws Exception {this.library=library;carries=new SpatialCarryStore(project);heightStudies=new HeightStudyStore(project);file=project.resolve("spatial/state.json");nativeDir=project.resolve("native");if(Files.exists(file)){var data=new JSONObject(Files.readString(file));for(Object raw:data.getJSONArray("scenes")){var s=(JSONObject)raw;validateDefinition(s);scenes.put(s.getString("id"),s);}for(Object raw:data.getJSONArray("runs")){var r=(JSONObject)raw;if(Set.of("executing","prepared").contains(r.getString("status")))r.put("status","interrupted").put("reason","Process ended; resume creates a separate native attempt from the immutable import");runs.put(r.getString("id"),r);}persist();}}
     private static JSONObject copy(JSONObject x){return new JSONObject(x.toString());}
     private Path glbFile(String id) {
         if (!UUID.fromString(id).toString().equals(id)) throw new IllegalArgumentException("Invalid spatial import identity.");
@@ -55,6 +57,8 @@ public final class SpatialStore implements AutoCloseable {
                 if (!WorldFrames.hash(proof).equals(scene.getString("reconstructionSha256"))
                         || !proof.getString("definitionSha256").equals(MeasurementStore.hash(scene.getString("sourceText"))))
                     throw new IllegalStateException("The reconstruction receipt or definition changed.");
+                if ("sprite-library".equals(proof.optString("viewSource")))
+                    library.verifyRegisteredViews(proof.getJSONObject("views"));
             } catch (Exception error) {
                 throw new IllegalStateException("Cannot recheck the original visual reconstruction.",error);
             }
@@ -306,22 +310,32 @@ public final class SpatialStore implements AutoCloseable {
     }
 
     synchronized JSONObject reconstruct(byte[] source) throws Exception {
-        return retainReconstruction(source,false);
+        return retainReconstruction(source,SpatialReconstruction.POLICY);
     }
 
     synchronized JSONObject traceBrowser(byte[] source) throws Exception {
-        return retainReconstruction(source,true);
+        return retainReconstruction(source,BrowserShapeTrace.FORMAT);
     }
 
-    private JSONObject retainReconstruction(byte[] source, boolean browserTrace) throws Exception {
+    synchronized JSONObject traceLibrary(JSONObject input) throws Exception {
+        var original = library.registeredViews(input);
+        return retainReconstruction(original.toString().getBytes(StandardCharsets.UTF_8), BrowserViewTrace.FORMAT_LIBRARY);
+    }
+
+    private JSONObject retainReconstruction(byte[] source, String format) throws Exception {
         if (source.length==0 || source.length>SpatialReconstruction.LIMIT)
             throw new IllegalArgumentException("Choose a silhouette set up to 1.2 MB.");
         String sha=MapDefinition.sha(source);
-        String id=UUID.nameUUIDFromBytes(((browserTrace?BrowserShapeTrace.FORMAT:SpatialReconstruction.POLICY)+":"+sha).getBytes(StandardCharsets.UTF_8)).toString();
+        String id=UUID.nameUUIDFromBytes((format+":"+sha).getBytes(StandardCharsets.UTF_8)).toString();
         if (scenes.containsKey(id)) return read(id);
         available();
         if (scenes.size()>=32) throw new IllegalStateException("Spatial import history limit reached (32)");
-        var result=browserTrace?BrowserShapeTrace.build(source):SpatialReconstruction.build(source);
+        var result = switch (format) {
+            case BrowserViewTrace.FORMAT_LIBRARY -> BrowserViewTrace.build(source,
+                    new JSONObject(new String(source, StandardCharsets.UTF_8)), true);
+            case BrowserShapeTrace.FORMAT -> BrowserShapeTrace.build(source);
+            default -> SpatialReconstruction.build(source);
+        };
         String definition=result.definition().toString();
         var proof=result.evidence().put("definitionSha256",MeasurementStore.hash(definition));
         var scene=SpatialScene.parse(definition,id).put("importedAt",Instant.now().toString())

@@ -134,6 +134,7 @@ const perceptionPanel=new PerceptionPanel({call:(command,args={})=>request('perc
 const trackingPanel=new TrackingPanel({call:(command,args={})=>request('tracking',{command,args}),notice,requireSaved,openPerception:()=>perceptionPanel.open()});
 const creationPanel=new CreationPanel({layout:updateLayout,call:(command,args,model)=>request('creation',{command,args,model}),getState:()=>state,getArtifact:()=>artifact,getModel:()=>$('model').value,requireSaved,notice,onGoal:g=>goalsPanel.accept(g)});
 const chartFollowup=new ChartFollowup({request,layout:updateLayout,announce:message,requireSaved});
+$('tile-model-3d').onclick=()=>spatial.action(()=>spatial.openLibraryViews(tileEditor.active));
 const requestsPanel=new RequestWorkbenchPanel({request,getModel:()=>$('model').value,requireSaved,layout:updateLayout,
  openCreation:brief=>creationPanel.open(null,brief),announce:message});
 

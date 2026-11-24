@@ -126,6 +126,7 @@ async function main() {
         const beacon = path.join(output,'amber-beacon.png'), slate = path.join(output,'cobalt-slate.png');
         await makePNG(beacon,['#dc8e48','#ffd69c','#fff0cb']);
         await makePNG(slate,['#3f7ca3','#8ad4d1','#396680']);
+        await page.waitForFunction(() => !document.querySelector('#tile-png').disabled);
         await page.locator('#tile-png').setInputFiles(beacon);
         await status('Added amber-beacon.png');
         await page.locator('#tile-png').setInputFiles(slate);
