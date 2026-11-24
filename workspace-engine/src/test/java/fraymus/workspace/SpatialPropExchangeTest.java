@@ -18,18 +18,26 @@ public class SpatialPropExchangeTest {
         }
     }
 
+    private static JSONObject beacon(JSONObject scene) {
+        for (Object item : scene.getJSONArray("objects")) {
+            var body=(JSONObject)item;
+            if ("beacon".equals(body.getString("sourceId"))) return body;
+        }
+        throw new AssertionError("The Blender beacon is missing.");
+    }
+
     @Test public void retainsOnlyTheDeclaredBodiesAndRoundTripsTheVisualTriangles() throws Exception {
         var definition=SpatialGlb.importScene(fixture());
         var id=UUID.randomUUID().toString();
         var scene=SpatialScene.parse(definition.toString(),id);
-        var body=scene.getJSONArray("objects").getJSONObject(1);
+        var body=beacon(scene);
         var mesh=SpatialGlb.asset(scene,body);
         assertEquals(2,scene.getJSONArray("objects").length());
         assertTrue(mesh.indices().length/3>500);
         assertNotNull(mesh.overhang(ObserverGeometry.v(body.getJSONArray("size"))));
         var exported=SpatialGlb.verifiedExport(scene);
         var restored=SpatialScene.parse(SpatialGlb.importScene(exported).toString(),id);
-        assertTrue(mesh.closeTo(SpatialGlb.asset(restored,restored.getJSONArray("objects").getJSONObject(1))));
+        assertTrue(mesh.closeTo(SpatialGlb.asset(restored,beacon(restored))));
         var assets=definition.getJSONObject("visualMeshes");
         String key=body.getString("visualMesh");
         byte[] changed=mesh.bytes();
@@ -44,7 +52,7 @@ public class SpatialPropExchangeTest {
         JSONObject receipt;
         try (var store=new SpatialStore(project)) {
             var original=store.importGlb(fixture());
-            var body=original.getJSONArray("objects").getJSONObject(1);
+            var body=beacon(original);
             var params=new JSONObject().put("sceneId",original.getString("id")).put("objectId",body.getString("id"))
                     .put("label","Beacon copy").put("yawDeg",35).put("offsetM",new JSONArray(new double[]{1.8,0,-.9}));
             var review=store.reviewProp(params);

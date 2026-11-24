@@ -82,6 +82,9 @@ async function main() {
             stage.scrollIntoView({block:'center'});
             return new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
         });
+        await page.locator('#spatial-stage canvas').hover();
+        await page.mouse.wheel(0,-460);
+        await page.locator('#spatial-stage').evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
         await capture('verified-copy.png');
         const exported=await call('export-glb',{id});
         await fs.copyFile(exported.path,resultGlb);
