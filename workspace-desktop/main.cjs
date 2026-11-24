@@ -1034,6 +1034,21 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='export'){const result=await api('/api/maps/export',{id:input.args.id});return nativeExports.save('playable-map','json',result.text,{id:input.args.id});}
       if(!['example','reference-cases','reference-example','dungeons','inspect-image','import-image','reference','list','read','run','snapshot','manual','control','stop','pause','resume','from-procedural','import-package'].includes(input.command))throw Error('Unknown map operation');return api('/api/maps/'+input.command,input.args||{});
     }
+    case 'media-tiles': {
+      if (input.command === 'pick') {
+        if (!surfacesVisible.browser) throw Error('Show the in-app browser to pick a graphic.');
+        return api('/api/media-tiles/add', {source:await browser.pickGraphic()});
+      }
+      if (['add', 'library', 'sprite', 'list', 'open', 'save', 'import'].includes(input.command))
+        return api('/api/media-tiles/' + input.command, input.args || {});
+      if (input.command !== 'export') throw Error('Unknown tile editor command.');
+      const {id, format} = input.args;
+      const kinds = {png:'media-library-sprite', json:'media-tile-level', html:'media-tile-playable'};
+      if (!Object.hasOwn(kinds, format)) throw Error('Choose PNG, editable level, or playable HTML.');
+      const data = await api('/api/media-tiles/export', {id, format});
+      return nativeExports.save(kinds[format], format, Buffer.from(data.base64, 'base64'),
+        {id, assets:data.assets}, data.sha256);
+    }
     case 'media': {
       if (input.command === 'pick') {
         if (!surfacesVisible.browser) throw Error('Show the in-app browser to pick a graphic.');

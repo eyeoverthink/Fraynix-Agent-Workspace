@@ -120,13 +120,13 @@ final class SpriteWorkshop {
                 .put("foregroundX", integer(input, "foregroundX", 80, 670));
     }
 
-    private static int integer(JSONObject input, String key, int min, int max) {
+    static int integer(JSONObject input, String key, int min, int max) {
         double n = SpatialScene.number(input, key, min, max);
         if (Math.rint(n) != n) throw new IllegalArgumentException(key + " must be a whole pixel.");
         return (int) n;
     }
 
-    private static JSONObject source(JSONObject input) {
+    static JSONObject source(JSONObject input) {
         SpatialScene.keys(input, "url", "tag", "filename", "png");
         var source = new JSONObject().put("png", input.getString("png"));
         if (input.has("url")) {
@@ -141,7 +141,7 @@ final class SpriteWorkshop {
         return source.put("filename", name);
     }
 
-    private static JSONObject sprite(JSONObject input) throws Exception {
+    static JSONObject sprite(JSONObject input) throws Exception {
         var source = source(input);
         byte[] png = decode(source.getString("png"), MAX_PNG);
         var image = BrowserShapeTrace.decode(png, 8);
@@ -189,14 +189,14 @@ final class SpriteWorkshop {
                 .put("imageSha256", MapDefinition.sha(png)).put("sha256", MapDefinition.sha(bytes));
     }
 
-    private static byte[] decode(String encoded, int max) {
+    static byte[] decode(String encoded, int max) {
         if (encoded.length() > ((max + 2) / 3) * 4) throw new IllegalArgumentException("Media file exceeds the size limit.");
         byte[] bytes = Base64.getDecoder().decode(encoded);
         if (bytes.length > max) throw new IllegalArgumentException("Media file exceeds the size limit.");
         return bytes;
     }
 
-    private static byte[] read(Path path, int max) throws IOException {
+    static byte[] read(Path path, int max) throws IOException {
         if (!Files.isRegularFile(path, LinkOption.NOFOLLOW_LINKS))
             throw new IllegalArgumentException("The saved media file is unavailable.");
         try (var in = Files.newInputStream(path)) {
@@ -206,14 +206,14 @@ final class SpriteWorkshop {
         }
     }
 
-    private static byte[] read(Path path, int max, String expected) throws IOException {
+    static byte[] read(Path path, int max, String expected) throws IOException {
         byte[] bytes = read(path, max);
         if (!MapDefinition.sha(bytes).equals(expected))
             throw new IllegalArgumentException("The saved level bytes changed.");
         return bytes;
     }
 
-    private static void replace(Path target, byte[] bytes) throws IOException {
+    static void replace(Path target, byte[] bytes) throws IOException {
         Path pending = Files.createTempFile(target.getParent(), "media-", ".pending");
         try {
             Files.write(pending, bytes);
@@ -238,16 +238,20 @@ final class SpriteWorkshop {
         var sprite = level.getJSONObject("sprite");
         var game = new JSONObject().put("layout", level.getJSONObject("layout"))
                 .put("sprite", new JSONObject().put("png", sprite.getString("png")));
+        return portableGame(game, "media-play.js", "mountGame");
+    }
+
+    static byte[] portableGame(JSONObject game, String runtime, String entryPoint) throws Exception {
         String data = Base64.getEncoder().encodeToString(game.toString().getBytes(StandardCharsets.UTF_8));
-        String script = "\n" + resource("media-play.js").replace("\r\n", "\n") + """
+        String script = "\n" + resource(runtime).replace("\r\n", "\n") + """
 
                 const bytes = Uint8Array.from(atob(document.querySelector('#level-data').content.textContent), c => c.charCodeAt(0));
                 const level = JSON.parse(new TextDecoder().decode(bytes));
                 document.title = level.layout.title;
                 document.querySelector('h1').textContent = level.layout.title;
-                const game = mountGame(document.querySelector('canvas'), document.querySelector('#progress'), level);
+                const game = %s(document.querySelector('canvas'), document.querySelector('#progress'), level);
                 document.querySelector('#restart').onclick = () => { game.restart(); document.querySelector('canvas').focus(); };
-                """;
+                """.formatted(entryPoint);
         String hash = Base64.getEncoder().encodeToString(java.security.MessageDigest.getInstance("SHA-256")
                 .digest(script.getBytes(StandardCharsets.UTF_8)));
         return resource("media-play.html").replace("@@SCRIPT_HASH@@", hash).replace("@@LEVEL_DATA@@", data)

@@ -42,7 +42,10 @@ async function main() {
         {route, body});
     const mediaStatus = text => page.waitForFunction(text =>
         document.querySelector('#media-status')?.textContent.includes(text), text);
-    const enter = () => page.locator('#media-tab').click();
+    const enter = async () => {
+        await page.locator('#media-tab').click();
+        await page.locator('#media-legacy-mode').click();
+    };
     const canvas = (view, id) => view.locator(id);
     const state = (view, id) => canvas(view, id).evaluate(el => ({...el.dataset}));
     const scene = (view, id, prop, value) => view.waitForFunction(

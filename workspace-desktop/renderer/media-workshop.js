@@ -3,7 +3,7 @@ import {mountGame} from './media-play.js';
 
 const layoutFields = ['title', 'backdropX', 'platformX', 'platformY', 'pickupX', 'foregroundX'];
 
-async function readBase64(file, max) {
+export async function readBase64(file, max) {
     if (file.size > max) throw new Error('This file exceeds the media size limit.');
     const bytes = new Uint8Array(await file.arrayBuffer());
     let binary = '';
@@ -21,6 +21,7 @@ export class MediaWorkshop {
         this.root.innerHTML = `
             <div class="media-source">
                 <div class="media-actions">
+                    <button id="media-tiles-mode">Tile editor</button>
                     <button id="media-pick">Pick in browser</button>
                     <label class="media-file">Import PNG<input id="media-png" type="file" accept=".png,image/png" aria-label="Import PNG"></label>
                     <label class="media-file">Open level<input id="media-level" type="file" accept=".json,application/json" aria-label="Open editable level"></label>

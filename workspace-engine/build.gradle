@@ -26,6 +26,7 @@ tasks.withType(Test).configureEach {
 }
 tasks.named('processResources') {
     from(rootProject.file('workspace-desktop/renderer/media-play.js'))
+    from(rootProject.file('workspace-desktop/renderer/media-tile-play.js'))
 }
 tasks.named('test') {
     useJUnit()
