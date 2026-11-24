@@ -607,12 +607,16 @@ public final class WorkspaceServer implements AutoCloseable {
                         if (data.length() > (SpatialGlb.LIMIT+2)/3*4) throw new IllegalArgumentException("Choose a GLB up to 512 KiB.");
                         result = spatial.importGlb(Base64.getDecoder().decode(data));
                     }
-                    case "/api/spatial/reconstruct-example","/api/spatial/reconstruct-depth-example","/api/spatial/reconstruct" -> {
+                    case "/api/spatial/reconstruct-example","/api/spatial/reconstruct-depth-example","/api/spatial/reconstruct-opposed-example","/api/spatial/reconstruct" -> {
                         if (agency.busy() || sharedBusy043() || goals.workflowReserved() || goals.ownsSpatial())
                             throw new IllegalStateException("Finish active work before reconstructing a scene.");
                         if (route.endsWith("example")) {
                             SpatialScene.keys(input);
-                            String example=route.endsWith("depth-example")?"recess-depth.json":"bracket.json";
+                            String example=switch (route) {
+                                case "/api/spatial/reconstruct-opposed-example" -> "opposed-depth.json";
+                                case "/api/spatial/reconstruct-depth-example" -> "recess-depth.json";
+                                default -> "bracket.json";
+                            };
                             try (var in=WorkspaceServer.class.getResourceAsStream("/spatial/reconstruction/"+example)) {
                                 result=spatial.reconstruct(in.readAllBytes());
                             }

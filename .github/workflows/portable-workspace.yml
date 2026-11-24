@@ -105,17 +105,17 @@ jobs:
       - name: Verify a reviewed hypothesis with original Game Lab replays on Windows
         if: runner.os == 'Windows'
         shell: pwsh
-        run: .\gradlew.bat --console=plain :workspace-engine:test --tests '*HypothesisExperimentTest' --tests '*SpatialExchangeTest' --tests '*SpatialPropExchangeTest' --tests '*SpatialCarryTest' --tests '*MetricHeightStudyTest' --tests '*SpatialReconstructionTest' --tests '*SpatialReconstructionDepthTest'
+        run: .\gradlew.bat --console=plain :workspace-engine:test --tests '*HypothesisExperimentTest' --tests '*SpatialExchangeTest' --tests '*SpatialPropExchangeTest' --tests '*SpatialCarryTest' --tests '*MetricHeightStudyTest' --tests '*SpatialReconstructionTest' --tests '*SpatialReconstructionDepthTest' --tests '*SpatialReconstructionMultiDepthTest'
       - name: Verify a reviewed hypothesis and Game Lab availability on macOS
         if: runner.os == 'macOS'
         env:
           FRAYNIX_CI_MAC_DISPLAY: '1'
-        run: ./gradlew --console=plain :workspace-engine:test --tests '*HypothesisExperimentTest' --tests '*SpatialExchangeTest' --tests '*SpatialPropExchangeTest' --tests '*SpatialCarryTest' --tests '*MetricHeightStudyTest' --tests '*SpatialReconstructionTest' --tests '*SpatialReconstructionDepthTest'
+        run: ./gradlew --console=plain :workspace-engine:test --tests '*HypothesisExperimentTest' --tests '*SpatialExchangeTest' --tests '*SpatialPropExchangeTest' --tests '*SpatialCarryTest' --tests '*MetricHeightStudyTest' --tests '*SpatialReconstructionTest' --tests '*SpatialReconstructionDepthTest' --tests '*SpatialReconstructionMultiDepthTest'
       - name: Verify a reviewed hypothesis with original Game Lab replays on Linux
         if: runner.os == 'Linux'
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
-        run: xvfb-run -a ./gradlew --console=plain :workspace-engine:test --tests '*HypothesisExperimentTest' --tests '*SpatialExchangeTest' --tests '*SpatialPropExchangeTest' --tests '*SpatialCarryTest' --tests '*MetricHeightStudyTest' --tests '*SpatialReconstructionTest' --tests '*SpatialReconstructionDepthTest'
+        run: xvfb-run -a ./gradlew --console=plain :workspace-engine:test --tests '*HypothesisExperimentTest' --tests '*SpatialExchangeTest' --tests '*SpatialPropExchangeTest' --tests '*SpatialCarryTest' --tests '*MetricHeightStudyTest' --tests '*SpatialReconstructionTest' --tests '*SpatialReconstructionDepthTest' --tests '*SpatialReconstructionMultiDepthTest'
       - name: Retain detailed prop and collider checks
         run: node -e "require('node:fs').copyFileSync('workspace-engine/build/test-results/test/TEST-fraymus.workspace.SpatialPropExchangeTest.xml','build/portable-smoke/spatial-prop-exchange.xml')"
       - name: Retain verified doorway checks
@@ -126,6 +126,8 @@ jobs:
         run: node -e "require('node:fs').copyFileSync('workspace-engine/build/test-results/test/TEST-fraymus.workspace.SpatialReconstructionTest.xml','build/portable-smoke/spatial-reconstruction.xml')"
       - name: Retain first-hit depth geometry checks
         run: node -e "require('node:fs').copyFileSync('workspace-engine/build/test-results/test/TEST-fraymus.workspace.SpatialReconstructionDepthTest.xml','build/portable-smoke/spatial-depth.xml')"
+      - name: Retain opposing depth geometry checks
+        run: node -e "require('node:fs').copyFileSync('workspace-engine/build/test-results/test/TEST-fraymus.workspace.SpatialReconstructionMultiDepthTest.xml','build/portable-smoke/spatial-multidepth.xml')"
       - name: Retain native scene exchange checks
         run: node -e "require('node:fs').copyFileSync('workspace-engine/build/test-results/test/TEST-fraymus.workspace.SpatialExchangeTest.xml','build/portable-smoke/spatial-exchange.xml')"
       - name: Retain native hypothesis test evidence
@@ -171,6 +173,14 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/spatial-depth-integration.cjs build/portable-smoke/spatial-depth
+      - name: Verify opposing depth fusion and conflicting source refusal
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/spatial-multidepth-integration.cjs build/portable-smoke/spatial-multidepth
+      - name: Verify opposing depth fusion on virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/spatial-multidepth-integration.cjs build/portable-smoke/spatial-multidepth
       - if: always()
         uses: actions/upload-artifact@v4
         with:
