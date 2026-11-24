@@ -775,6 +775,9 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/requests/comparison-chart-pin" -> result=routedDashboard.pinChart(input);
                     case "/api/requests/chart-briefing-intent" -> result=routedDashboard.chartBriefingIntent(input);
                     case "/api/requests/chart-briefing-pin" -> result=routedDashboard.pinChartBriefing(input);
+                    case "/api/requests/explanation-audit-intent" -> result=routedDashboard.explanationAuditIntent(input);
+                    case "/api/requests/explanation-audit-start" -> result=routedDashboard.startExplanationAudit(input);
+                    case "/api/requests/explanation-audit-submit" -> result=routedDashboard.submitExplanationAudit(input);
                     case "/api/requests/comparison-briefing-catalog" -> result=routedDashboard.comparisonCatalog(input);
                     case "/api/requests/comparison-briefing-review" -> result=routedDashboard.reviewBriefing(input);
                     case "/api/requests/comparison-briefing-read" -> result=routedDashboard.readBriefing(input,false);

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'">
+<title>Explanation audit</title>
+<style>
+:root { color-scheme: dark; font: 15px/1.5 system-ui, sans-serif; color: #edf2f8; background: #111923; }
+body { margin: 0; }
+main { max-width: 52rem; margin: auto; padding: clamp(1rem, 5vw, 3rem); }
+h1 { font-size: clamp(1.65rem, 5vw, 2.5rem); letter-spacing: -.035em; margin: 0 0 .6rem; }
+h2 { font-size: 1.05rem; margin-top: 0; }
+p { margin: .35rem 0 .85rem; }
+section, footer { border-top: 1px solid #34475d; padding: 1rem 0; }
+header { padding-bottom: .75rem; }
+#claim-citation, #audit-tally, .axis, footer p { color: #b9cadd; }
+#outcome { background: #17283a; padding: 1rem; border-radius: .6rem; border: 1px solid #34516c; margin: 0 0 1rem; }
+#audit-outcome { color: #b4e5fb; font-size: 1.25rem; }
+figure { margin: .8rem 0 1rem; }
+figcaption { margin-bottom: .55rem; }
+svg { display: block; width: 100%; background: #0f1b2b; }
+.prediction-band { fill: #29516d; }
+.trial-mark { stroke: #f5bd78; stroke-width: 2; }
+.trial-point { fill: #ffd3a0; }
+.axis, nav { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .4rem 1rem; }
+details, .trial { padding: .65rem 0; border-top: 1px solid #34475d; }
+summary, .trial button { cursor: pointer; }
+.trial button { width:100%; text-align:left; font:inherit; color:inherit; border:0; background:transparent; padding:.2rem 0; overflow-wrap:anywhere; }
+.trial button::before { content:"▸ "; color:#a5dcfd; }
+.trial button[aria-expanded="true"]::before { content:"▾ "; }
+[hidden] { display:none; }
+[data-audit-field] { white-space:pre-wrap; overflow-wrap:anywhere; }
+dl { display: grid; grid-template-columns: minmax(6rem, 1fr) minmax(0, 3fr); gap: .35rem .75rem; }
+dd { margin: 0; overflow-wrap: anywhere; }
+dt { color: #b9cadd; }
+a { color: #a5dcfd; }
+code { overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<main>
+<header><h1>Explanation audit</h1>
+<p id="audit-claim">@CLAIM@</p><p id="claim-citation">@CITATION@</p></header>
+<section aria-labelledby="proposal-heading">
+<h2 id="proposal-heading">Proposed explanation</h2><p id="audit-hypothesis">@HYPOTHESIS@</p>
+<dl><dt>Assumptions</dt><dd id="audit-assumptions">@ASSUMPTIONS@</dd>
+<dt>Predicted effect</dt><dd id="audit-prediction">@PREDICTION@</dd></dl>
+</section>
+<section id="outcome" aria-labelledby="audit-outcome">
+<h2 id="audit-outcome">@OUTCOME@</h2><p id="audit-tally">@TALLY@</p>
+<figure><figcaption>Adjusted trial effects and their bounds against the prediction range</figcaption>@PLOT@</figure>
+@TRIALS@
+</section>
+<footer>
+<p>@SCOPE@</p>
+<nav aria-label="Evidence files">
+<a href="observations.csv" download>Trial observations</a>
+<a href="claim-evidence.json" download>Original claim evidence</a>
+<a href="audit-evidence.json" download>Audit calculations</a>
+</nav>
+<details open><summary>Verification identifiers</summary>
+<p>Briefing artifact <code id="original-briefing">@BRIEFING@</code></p>
+<p>Original comparison SHA-256 <code id="original-sha">@ORIGINAL_SHA@</code></p>
+<p>Observation SHA-256 <code id="observations-sha">@OBSERVATION_SHA@</code></p>
+<p>Browser SHA-256 <code id="audit-browser-digest" aria-live="polite"></code></p>
+</details>
+</footer></main>
+<script>
+for (const button of document.querySelectorAll('.trial button')) {
+    button.addEventListener('click', () => {
+        const readings = document.getElementById(button.getAttribute('aria-controls'));
+        readings.hidden = !readings.hidden;
+        button.setAttribute('aria-expanded', String(!readings.hidden));
+    });
+}
+async function verifyDisplay() {
+    const fields = [...document.querySelectorAll('[data-audit-field], [data-plot]')].map(field =>
+        field.hasAttribute('data-plot')
+            ? field.getAttribute('data-plot').split(' ').map(name => field.getAttribute(name)).join(',')
+            : field.textContent);
+    const framed = fields.map(value => value.length + ':' + value).join('');
+    const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(framed));
+    document.getElementById('audit-browser-digest').textContent =
+        [...new Uint8Array(hash)].map(byte => byte.toString(16).padStart(2, '0')).join('');
+}
+verifyDisplay().catch(error => console.error(error.message));
+</script>
+</body>
+</html>

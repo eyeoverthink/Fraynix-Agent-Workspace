@@ -166,6 +166,15 @@ final class ComparisonChartBook {
         return WorldFrames.copy(binding).put("chartBriefingId", id);
     }
 
+    JSONObject briefingForChartData(JSONObject chartData, JSONObject chartRef) throws Exception {
+        var chart = planForChartData(chartData);
+        var binding = new JSONObject().put("chartId", chart.getString("comparisonChartId"))
+                .put("exportId", chart.getString("exportId")).put("chartArtifact", chartRef);
+        String id = briefingIdentity(binding);
+        if (!binding.similar(briefing(id))) throw new IllegalStateException("The displayed briefing binding changed.");
+        return binding.put("chartBriefingId", id);
+    }
+
     JSONObject lastBriefing() throws Exception {
         var file = directory.resolve("briefings/last.json");
         if (!Files.isRegularFile(file, LinkOption.NOFOLLOW_LINKS)) {

@@ -4,6 +4,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const {createHash} = require('node:crypto');
+const {testExplanationAudit} = require('./explanation-audit-integration.cjs');
 
 const brief = 'Could you brief me on that chart?';
 const reopen = 'Open my last chart briefing.';
@@ -158,6 +159,8 @@ async function testChartBriefing({project,output,app,page,send,reply,restart,cal
             'Offline keyboard citations, exact downloads and the original chart link work',
         ]};
     await fs.writeFile(path.join(work,'result.json'),JSON.stringify(proof,null,2)+'\n');
+    await testExplanationAudit({project,output,app,page,send,reply,restart,call,api,
+        briefing:completed.artifact,briefingContents:result.contents,sources});
     return proof;
 }
 

@@ -151,6 +151,22 @@
   </div>
  </form>
 </dialog>
+<dialog id="explanation-audit-dialog" aria-labelledby="audit-review-heading">
+    <form id="audit-form">
+        <div class="panel-head"><h2 id="audit-review-heading">Audit an explanation</h2><button id="audit-close" type="button">Close</button></div>
+        <p id="audit-source"></p>
+        <label>Change to explain<select id="audit-claim"></select></label>
+        <label>Proposed explanation<input id="audit-hypothesis" maxlength="280" required></label>
+        <label>Trial assumptions<input id="audit-assumptions" maxlength="400" required></label>
+        <label><span id="audit-margin-label">Allowed difference from original change</span>
+            <input id="audit-margin" inputmode="decimal" maxlength="26" required>
+        </label>
+        <label>Separate trial observations (.csv)<input id="audit-file" type="file" accept=".csv,text/csv"></label>
+        <details><summary>CSV format</summary><p>Use one row per paired treatment and control trial, up to 64. Give each trial its own source reference and use timestamps with a time zone.</p><code id="audit-columns"></code></details>
+        <p id="audit-status" role="status"></p>
+        <div class="runtime-controls"><button id="audit-submit" class="primary">Save draft</button></div>
+    </form>
+</dialog>
 <dialog id="comparison-briefing" aria-labelledby="briefing-heading">
  <div class="panel-head"><h2 id="briefing-heading">Review comparison briefing</h2><button id="briefing-close" type="button">Close</button></div>
  <p>Confirm the sections and sources before building the briefing.</p>

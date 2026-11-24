@@ -577,10 +577,16 @@ async function comparisonChartRequest({request, lastSummary}) {
   return{matched:true,action:'chart',...chart};
 }
 
+function displayedArtifact() {
+  if (currentArtifact && canvas.view.webContents.getURL() ===
+      origin + '/artifact/' + currentArtifact.id + '/' + currentArtifact.version + '/index.html') {
+    return {canvas: {id: currentArtifact.id, version: currentArtifact.version}};
+  }
+  return {};
+}
+
 async function chartBriefingRequest({request}) {
-  const visible=currentArtifact && canvas.view.webContents.getURL()===
-    origin+'/artifact/'+currentArtifact.id+'/'+currentArtifact.version+'/index.html';
-  const followup={request,...(visible?{canvas:{id:currentArtifact.id,version:currentArtifact.version}}:{})};
+  const followup = {request, ...displayedArtifact()};
   const intent=await api('/api/requests/chart-briefing-intent',followup);
   if(!intent.matched||intent.message)return intent;
   let plan=intent.plan;
@@ -593,6 +599,31 @@ async function chartBriefingRequest({request}) {
   const flags={chartBriefingId:plan.chartBriefingId};
   const proof=await openRoutedReport({...sources,...flags},async()=>({...await retained(),...flags}),{verifyOnly:plan.verifyOnly});
   return {matched:true,...proof};
+}
+
+function explanationSources(exportId) {
+  return comparisonSources(exportId).catch(error => {
+    throw new Error('Unable to recheck the original briefing evidence. ' + error.message, {cause: error});
+  });
+}
+
+async function openExplanationAudit(plan) {
+  const sources = async () => ({...await explanationSources(plan.exportId), explanationAuditId: plan.id});
+  return openRoutedReport(await sources(), sources, {verifyOnly: plan.verifyOnly});
+}
+
+async function explanationAuditChat({request}) {
+  const followup = {request, ...displayedArtifact()};
+  const intent = await api('/api/requests/explanation-audit-intent', followup);
+  if (!intent.matched) return intent;
+  const plan = intent.plan ?? await api('/api/requests/explanation-audit-start',
+    {...followup, ...await explanationSources(intent.exportId)});
+  return plan.status === 'ready' ? {matched: true, ...await openExplanationAudit(plan)} : {matched: true, plan};
+}
+
+async function explanationAuditSubmit(input) {
+  const plan = await api('/api/requests/explanation-audit-submit', input);
+  return plan.status === 'ready' ? openExplanationAudit(plan) : {plan};
 }
 
 async function summarizeRoutedComparison({verifyOnly=false,exportId,explorer=false,story=false,exportStory=false,explorerLesson,briefingId}={}) {
@@ -773,6 +804,8 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(command==='routing-summary')return summarizeRoutedComparison(args);
       if(command==='comparison-chart')return comparisonChartRequest(args);
       if(command==='chart-briefing')return chartBriefingRequest(args);
+      if(command==='explanation-audit-chat')return explanationAuditChat(args);
+      if(command==='explanation-audit-submit')return explanationAuditSubmit(args);
       if(['briefing-catalog','briefing-review','briefing-read','briefing-build','briefing-recheck','briefing-export'].includes(command))
         return comparisonBriefing(command,args);
       if(command==='teach-comparison-explorer')return teachComparisonExplorer(args);

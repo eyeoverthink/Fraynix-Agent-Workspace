@@ -22,6 +22,7 @@ final class RoutedDashboard {
     private final WorkspaceStore store;
     private final ComparisonExplorerLessons lessons;
     private final ComparisonChartBook charts;
+    private final ExplanationAuditBook audits;
 
     private enum Presentation { TOTALS, EXPLORER, STORY }
 
@@ -30,6 +31,7 @@ final class RoutedDashboard {
         directory = workbench.resolve("routed-dashboards");
         lessons = new ComparisonExplorerLessons(workbench);
         charts = new ComparisonChartBook(workbench.resolve("comparison-charts"));
+        audits = new ExplanationAuditBook(workbench.resolve("explanation-audits"));
         this.routing = routing;
         this.store = store;
     }
@@ -119,10 +121,15 @@ final class RoutedDashboard {
         return record.has("chartBriefingId") ? record.getString("chartBriefingId") : null;
     }
 
+    private static String explanationAuditId(JSONObject record) {
+        return record.has("explanationAuditId") ? record.getString("explanationAuditId") : null;
+    }
+
     private static void requireChartSelection(JSONObject task, JSONObject selection) {
         if (!Objects.equals(comparisonChartId(task), comparisonChartId(selection))
-                || !Objects.equals(chartBriefingId(task), chartBriefingId(selection))) {
-            throw new IllegalArgumentException("The original comparison chart or briefing selection changed.");
+                || !Objects.equals(chartBriefingId(task), chartBriefingId(selection))
+                || !Objects.equals(explanationAuditId(task), explanationAuditId(selection))) {
+            throw new IllegalArgumentException("The original comparison chart, briefing or explanation audit selection changed.");
         }
     }
 
@@ -184,9 +191,9 @@ final class RoutedDashboard {
         return plan.put("verifyOnly", Files.isRegularFile(path(id), LinkOption.NOFOLLOW_LINKS) && load(id).has("artifact"));
     }
 
-    private record VerifiedChart(JSONObject ref, JSONObject artifact) {}
+    private record VerifiedArtifact(JSONObject ref, JSONObject artifact) {}
 
-    private VerifiedChart verifiedChart(JSONObject input, String chartId) throws Exception {
+    private VerifiedArtifact verifiedChart(JSONObject input, String chartId) throws Exception {
         var original = load(chartId);
         var identity = new JSONObject().put("comparisonChartId", chartId);
         requireChartSelection(original, identity);
@@ -199,7 +206,73 @@ final class RoutedDashboard {
         var ref = proof(original, chart).getJSONObject("artifact");
         var actual = store.read(ref.getString("id"));
         if (!ref.similar(Creation.reference(actual))) throw new IllegalStateException("The original named chart changed.");
-        return new VerifiedChart(ref, actual);
+        return new VerifiedArtifact(ref, actual);
+    }
+
+    synchronized JSONObject explanationAuditIntent(JSONObject input) throws Exception {
+        SpatialScene.keys(input, "request", "canvas");
+        var intent = ExplanationAuditBook.intent(input.getString("request"));
+        if (intent == null) return new JSONObject().put("matched", false);
+        var response = new JSONObject().put("matched", true);
+        if (intent == ExplanationAuditBook.Intent.RESUME) return response.put("plan", auditPlanView(audits.last()));
+        return response.put("exportId", briefingForAudit(intent, input.optJSONObject("canvas")).getString("exportId"));
+    }
+
+    synchronized JSONObject startExplanationAudit(JSONObject input) throws Exception {
+        SpatialScene.keys(input, "request", "canvas", "file", "baseline", "keyColumn", "comparisonImport");
+        var plan = briefingForAudit(ExplanationAuditBook.intent(input.getString("request")), input.optJSONObject("canvas"));
+        String id = plan.getString("chartBriefingId");
+        var briefing = verifiedBriefing(input, id);
+        var evidence = new JSONObject(briefing.artifact().getJSONObject("contents").getString("claim-evidence.json"));
+        return auditPlanView(audits.start(id, briefing.ref(), evidence));
+    }
+
+    synchronized JSONObject submitExplanationAudit(JSONObject input) throws Exception {
+        return auditPlanView(audits.submit(input));
+    }
+
+    private JSONObject auditPlanView(JSONObject plan) throws Exception {
+        String id = plan.getString("id");
+        return plan.put("verifyOnly", Files.isRegularFile(path(id), LinkOption.NOFOLLOW_LINKS) && load(id).has("artifact"));
+    }
+
+    private JSONObject briefingForAudit(ExplanationAuditBook.Intent intent, JSONObject canvas) throws Exception {
+        if (intent == ExplanationAuditBook.Intent.LAST) {
+            var latest = charts.lastBriefing();
+            if (!chartBriefingPlanView(latest).getBoolean("verifyOnly"))
+                throw new IllegalStateException("Finish the last chart briefing before auditing it.");
+            return latest;
+        }
+        if (intent == ExplanationAuditBook.Intent.DISPLAYED && canvas != null) {
+            var artifact = store.read(canvas.getString("id"));
+            var contents = artifact.getJSONObject("contents");
+            if (artifact.getInt("version") == canvas.getInt("version") && contents.has("claim-evidence.json")
+                    && contents.has("chart-data.json")) {
+                var binding = new JSONObject(contents.getString("claim-evidence.json")).getJSONObject("binding");
+                var plan = charts.briefingForChartData(new JSONObject(contents.getString("chart-data.json")), binding.getJSONObject("chart"));
+                if (load(plan.getString("chartBriefingId")).getJSONObject("artifact").similar(Creation.reference(artifact))) return plan;
+            }
+        }
+        throw new IllegalStateException("Open the verified chart briefing you mean, or ask to audit the last chart briefing.");
+    }
+
+    private VerifiedArtifact verifiedBriefing(JSONObject input, String id) throws Exception {
+        var original = load(id);
+        var identity = new JSONObject().put("chartBriefingId", id);
+        requireChartSelection(original, identity);
+        requireBriefing(original, null);
+        requireSecondSource(original, identity);
+        var file = input.getJSONObject("file");
+        var baseline = input.optJSONObject("baseline");
+        var key = keyColumn(input);
+        var imported = comparisonImport(input);
+        requireRequestSources(original, file, baseline, key, imported, Presentation.TOTALS, null);
+        if (!original.has("artifact")) throw new IllegalStateException("Finish the chart briefing before auditing it.");
+        var briefing = checkedChartBriefing(input, id);
+        var ref = proof(original, briefing).getJSONObject("artifact");
+        var actual = store.read(ref.getString("id"));
+        if (!ref.similar(Creation.reference(actual))) throw new IllegalStateException("The original chart briefing changed.");
+        return new VerifiedArtifact(ref, actual);
     }
 
     synchronized JSONObject comparisonCatalog(JSONObject input) throws Exception {
@@ -335,7 +408,7 @@ final class RoutedDashboard {
 
     synchronized JSONObject prepare(JSONObject input) throws Exception {
         SpatialScene.keys(input, "file", "baseline", "keyColumn", "comparisonImport", "explorer", "story", "explorerLesson",
-                "briefingId", "secondSource", "comparisonChartId", "chartBriefingId", "verifyOnly");
+                "briefingId", "secondSource", "comparisonChartId", "chartBriefingId", "explanationAuditId", "verifyOnly");
         var file = input.getJSONObject("file");
         var baseline = input.optJSONObject("baseline");
         String key = keyColumn(input);
@@ -346,7 +419,8 @@ final class RoutedDashboard {
         var report = checkedRequestReport(input);
         String chart = comparisonChartId(input);
         String chartBriefing = chartBriefingId(input);
-        String id = chartBriefing != null ? chartBriefing : chart != null ? chart : briefing != null
+        String audit = explanationAuditId(input);
+        String id = audit != null ? audit : chartBriefing != null ? chartBriefing : chart != null ? chart : briefing != null
                 ? UUID.nameUUIDFromBytes(("comparison-briefing-v1:" + briefing).getBytes(StandardCharsets.UTF_8)).toString()
                 : imported == null ? reportId(file, baseline, key) : importedId(imported, presentation, lesson);
         var path = path(id);
@@ -379,6 +453,7 @@ final class RoutedDashboard {
             if (briefing != null) initial.put("briefingId", briefing);
             if (chart != null) initial.put("comparisonChartId", chart);
             if (chartBriefing != null) initial.put("chartBriefingId", chartBriefing);
+            if (audit != null) initial.put("explanationAuditId", audit);
             if (input.has("secondSource")) initial.put("secondSource", input.getJSONObject("secondSource"));
             save(initial);
         }
@@ -390,7 +465,7 @@ final class RoutedDashboard {
 
     synchronized JSONObject finish(JSONObject input) throws Exception {
         SpatialScene.keys(input, "id", "file", "baseline", "keyColumn", "comparisonImport", "explorer", "story", "explorerLesson",
-                "briefingId", "secondSource", "comparisonChartId", "chartBriefingId", "htmlSha256", "checks", "exportCsv");
+                "briefingId", "secondSource", "comparisonChartId", "chartBriefingId", "explanationAuditId", "htmlSha256", "checks", "exportCsv");
         var task = load(input.getString("id"));
         var file = input.getJSONObject("file");
         var baseline = input.optJSONObject("baseline");
@@ -472,24 +547,35 @@ final class RoutedDashboard {
         return new RoutedComparisonChart(verified, request);
     }
 
+    private RoutedChartBriefing checkedChartBriefing(JSONObject input, String id) throws Exception {
+        var binding = charts.briefing(id);
+        var original = verifiedChart(input, binding.getString("chartId"));
+        if (!original.ref().similar(binding.getJSONObject("chartArtifact"))
+                || !binding.getString("exportId").equals(input.getJSONObject("comparisonImport").getJSONObject("receipt").getString("id"))) {
+            throw new IllegalStateException("The briefing's named chart or export changed.");
+        }
+        return new RoutedChartBriefing(original.artifact(), original.ref());
+    }
+
     private RoutedReport checkedRequestReport(JSONObject input) throws Exception {
         var id = briefingId(input);
         var chart = comparisonChartId(input);
         var chartBriefing = chartBriefingId(input);
-        if (chart != null || chartBriefing != null) {
+        var audit = explanationAuditId(input);
+        if (chart != null || chartBriefing != null || audit != null) {
             if (id != null || input.has("secondSource") || presentation(input) != Presentation.TOTALS || lessonName(input) != null
-                    || chart != null && chartBriefing != null) {
+                    || chart != null && (chartBriefing != null || audit != null) || chartBriefing != null && audit != null) {
                 throw new IllegalArgumentException("Choose one named comparison presentation.");
             }
             if (chart != null) return checkedNamedChart(input, chart);
-
-            var binding = charts.briefing(chartBriefing);
-            var original = verifiedChart(input, binding.getString("chartId"));
-            if (!original.ref().similar(binding.getJSONObject("chartArtifact"))
-                    || !binding.getString("exportId").equals(input.getJSONObject("comparisonImport").getJSONObject("receipt").getString("id"))) {
-                throw new IllegalStateException("The briefing's named chart or export changed.");
+            if (chartBriefing != null) return checkedChartBriefing(input, chartBriefing);
+            var plan = audits.load(audit);
+            if (!plan.has("attachment")) throw new IllegalStateException("Attach separate trial observations to run the audit.");
+            var verified = verifiedBriefing(input, plan.getString("briefingId"));
+            if (!verified.ref().similar(plan.getJSONObject("briefingArtifact"))) {
+                throw new IllegalStateException("The original briefing evidence for the explanation audit changed.");
             }
-            return new RoutedChartBriefing(original.artifact(), original.ref());
+            return new RoutedExplanationAudit(plan, verified.artifact());
         }
         if (input.has("secondSource")) {
             if (id == null) throw new IllegalArgumentException("Review both sources before building a paired briefing");
@@ -672,6 +758,8 @@ final class RoutedDashboard {
             result.put("comparisonChart", chart.summary());
         if (report instanceof RoutedChartBriefing chartBriefing)
             result.put("chartBriefing", chartBriefing.summary());
+        if (report instanceof RoutedExplanationAudit audit)
+            result.put("explanationAudit", audit.summary());
         if (briefingId(task) != null) result.put("briefingId", briefingId(task));
         else if (presentation(task) == Presentation.STORY) result.put("story", true);
         return result;
