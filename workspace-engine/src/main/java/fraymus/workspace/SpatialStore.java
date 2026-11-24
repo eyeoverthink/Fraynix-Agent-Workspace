@@ -10,10 +10,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 /** Source-qualified imports and bounded native manipulation receipts, isolated from the ramp lab. */
 public final class SpatialStore implements AutoCloseable {
+    private final SpatialCarryStore carries;
     private final Path file,nativeDir;private final LinkedHashMap<String,JSONObject> scenes=new LinkedHashMap<>(),runs=new LinkedHashMap<>();
     private final ExecutorService worker=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"spatial-native-owner");t.setDaemon(true);return t;});
     private final AtomicBoolean cancelled=new AtomicBoolean();private String active="";private JSONObject current;private volatile boolean closed;
-    public SpatialStore(Path project) throws Exception {file=project.resolve("spatial/state.json");nativeDir=project.resolve("native");if(Files.exists(file)){var data=new JSONObject(Files.readString(file));for(Object raw:data.getJSONArray("scenes")){var s=(JSONObject)raw;validateDefinition(s);scenes.put(s.getString("id"),s);}for(Object raw:data.getJSONArray("runs")){var r=(JSONObject)raw;if(Set.of("executing","prepared").contains(r.getString("status")))r.put("status","interrupted").put("reason","Process ended; resume creates a separate native attempt from the immutable import");runs.put(r.getString("id"),r);}persist();}}
+    public SpatialStore(Path project) throws Exception {carries=new SpatialCarryStore(project);file=project.resolve("spatial/state.json");nativeDir=project.resolve("native");if(Files.exists(file)){var data=new JSONObject(Files.readString(file));for(Object raw:data.getJSONArray("scenes")){var s=(JSONObject)raw;validateDefinition(s);scenes.put(s.getString("id"),s);}for(Object raw:data.getJSONArray("runs")){var r=(JSONObject)raw;if(Set.of("executing","prepared").contains(r.getString("status")))r.put("status","interrupted").put("reason","Process ended; resume creates a separate native attempt from the immutable import");runs.put(r.getString("id"),r);}persist();}}
     private static JSONObject copy(JSONObject x){return new JSONObject(x.toString());}
     private Path glbFile(String id) {
         if (!UUID.fromString(id).toString().equals(id)) throw new IllegalArgumentException("Invalid spatial import identity.");
@@ -81,6 +82,26 @@ public final class SpatialStore implements AutoCloseable {
             throw error;
         }
     }
+    synchronized JSONObject reviewCarry(JSONObject input) throws Exception {
+        available();
+        return carries.review(read(input.getString("sceneId")),input);
+    }
+
+    synchronized JSONObject readCarry(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"sceneId","id");
+        return carries.read(read(input.getString("sceneId")),input.getString("id"));
+    }
+
+    synchronized JSONObject latestCarry() throws Exception {
+        var reference=carries.latestReference();
+        return reference.isEmpty()?reference:readCarry(reference);
+    }
+
+    synchronized JSONObject approveCarry(JSONObject input) throws Exception {
+        available();
+        return carries.approve(read(input.getString("sceneId")),input);
+    }
+
     synchronized JSONObject reviewProp(JSONObject args) {
         available();
         var review=SpatialPropCopy.review(read(args.getString("sceneId")),args);

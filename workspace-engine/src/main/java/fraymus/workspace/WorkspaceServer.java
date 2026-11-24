@@ -571,6 +571,13 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/goals/perception-resume" -> result=goals.resumePerception(input.getString("id"),input.getString("frameId"));
                     case "/api/spatial/example" -> {try(var stream=WorkspaceServer.class.getResourceAsStream("/spatial/declared-test-scene-v1.json")){result=new JSONObject().put("text",new String(stream.readAllBytes(),StandardCharsets.UTF_8));}}
                     case "/api/spatial/import" -> {SpatialScene.keys(input,"text");result=spatial.importScene(input.getString("text"));}
+                    case "/api/spatial/carry-latest" -> { SpatialScene.keys(input); result=spatial.latestCarry(); }
+                    case "/api/spatial/carry-read" -> result=spatial.readCarry(input);
+                    case "/api/spatial/carry-review","/api/spatial/carry-approve" -> {
+                        if (agency.busy() || sharedBusy043() || goals.workflowReserved() || goals.ownsSpatial())
+                            throw new IllegalStateException("Finish active work before running a carry trial.");
+                        result=route.endsWith("review")?spatial.reviewCarry(input):spatial.approveCarry(input);
+                    }
                     case "/api/spatial/prop-review" -> result=spatial.reviewProp(input);
                     case "/api/spatial/prop-copy" -> {
                         if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before copying a prop.");

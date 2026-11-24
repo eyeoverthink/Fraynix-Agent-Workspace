@@ -1035,6 +1035,9 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(!['example','reference-cases','reference-example','dungeons','inspect-image','import-image','reference','list','read','run','snapshot','manual','control','stop','pause','resume','from-procedural','import-package'].includes(input.command))throw Error('Unknown map operation');return api('/api/maps/'+input.command,input.args||{});
     }
     case 'spatial':{
+      if(['carry-review','carry-read','carry-latest','carry-approve'].includes(input.command)){
+        return api('/api/spatial/'+input.command,input.args);
+      }
       if(input.command==='prop-review'){
         if(!currentSpatial)throw Error('Select a dynamic detailed prop in Spatial.');
         return api('/api/spatial/prop-review',{...input.args,...currentSpatial});

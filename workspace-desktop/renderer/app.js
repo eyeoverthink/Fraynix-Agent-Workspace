@@ -30,6 +30,7 @@ import {CreationPanel} from './creation-panel.js';
 import {TrackingPanel} from './tracking-panel.js';
 import {PerceptionPanel} from './perception-panel.js';
 import {SpatialPanel,isSpatialPropRequest} from './spatial-panel.js';
+import {isSpatialCarryRequest} from './spatial-carry.js';
 import {DataPanel} from './data-panel.js';
 import {GoalsPanel} from './goals-panel.js';
 import {WorldPanel} from './world-panel.js';
@@ -211,6 +212,7 @@ $('run').onclick=()=>safe(async()=>{
  const goal=$('goal').value.trim();
  if(!goal)return;
  message(goal,'user');
+ if(isSpatialCarryRequest(goal)){await spatial.carry.review(true);return;}
  if(isSpatialPropRequest(goal)){spatial.openProp();return;}
  if(await chartFollowup.start(goal))return;
  if(mayRequestFrayTool(goal)&&await requestsPanel.offerFromChat(goal))return;
