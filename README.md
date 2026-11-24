@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md)
 
-[Edition 214 — Put an explanation to the test](README-214.md) · [Previous edition](README-213.md) · [Offline walkthrough](docs/readmes/214/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 215 — Test two competing explanations](README-215.md) · [Previous edition](README-214.md) · [Offline walkthrough](docs/readmes/215/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Ask Fraynix to audit a proposed explanation for a cited change. Attach separate trial observations to see the assumptions, interval and outcome in a verified offline report.
+A local model suggests one observation to distinguish two Game Lab explanations. You review its predictions and budget before Java runs the original course, replays it and reports the result.

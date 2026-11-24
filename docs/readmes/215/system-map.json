@@ -1,0 +1,62 @@
+{
+  "summary": "A local model suggests one observation to distinguish two Game Lab explanations. You review its predictions and budget before Java runs the original course, replays it and reports the result.",
+  "modules": [
+    {
+      "title": "Proposal, approval and native replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/HypothesisExperiment.java",
+      "note": "docs/obsidian/223-hypothesis-experiment.md"
+    },
+    {
+      "title": "Review and result in Chat",
+      "source": "workspace-desktop/renderer/hypothesis-experiment.js",
+      "note": "docs/obsidian/223-hypothesis-experiment.md"
+    },
+    {
+      "title": "Offline report with checked Game Lab frame",
+      "source": "workspace-engine/src/main/resources/workbench/game-hypothesis-experiment.html",
+      "note": "docs/obsidian/223-hypothesis-experiment.md"
+    },
+    {
+      "title": "Live local-model desktop tests",
+      "source": "workspace-desktop/test/hypothesis-experiment-integration.cjs",
+      "note": "docs/obsidian/223-hypothesis-experiment.md"
+    },
+    {
+      "title": "Proposal refusals and game replay tests",
+      "source": "workspace-engine/src/test/java/fraymus/workspace/HypothesisExperimentTest.java",
+      "note": "docs/obsidian/223-hypothesis-experiment.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/215/review.png",
+      "title": "A pending review shows the local model’s proposal, predicted ranges and runtime budget"
+    },
+    {
+      "path": "docs/readmes/215/right.png",
+      "title": "Fraynix shows a measured horizontal displacement and separate verdicts"
+    },
+    {
+      "path": "docs/readmes/215/jump.png",
+      "title": "Fraynix chooses a vertical measurement for the Jump question"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/215/right/index.html",
+      "title": "Open the verified Right report"
+    },
+    {
+      "path": "docs/readmes/215/jump/index.html",
+      "title": "Open the verified Jump report"
+    },
+    {
+      "path": "docs/readmes/215/release-proof.json",
+      "title": "Live model proof and portable Java tests"
+    },
+    {
+      "path": "docs/publication215/plan.md",
+      "title": "Reproduce the experiment"
+    }
+  ]
+}

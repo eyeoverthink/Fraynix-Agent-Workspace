@@ -1,3 +1,7 @@
+## Edition 215 — Test two competing explanations
+
+2026-11-23. A local model suggests one observation to distinguish two Game Lab explanations. You review its predictions and budget before Java runs the original course, replays it and reports the result. Two Windows desktop runs used the real gpt-oss:20b local model. Both reviews survived restart and a changed measurement checkpoint was refused. Native approval and replay tests with a supplied proposal passed on Windows x64 and Linux x64. Hosted Apple silicon macOS and Intel macOS runners reported no OpenGL 4.1 display and verified that the review stopped without a result. Keep proposal authorization separate from game observations. Pin original inputs and replay in fresh sessions. See README-215.md and docs/publication215/plan.md.
+
 ## Edition 214 — Put an explanation to the test
 
 2026-11-23. Ask Fraynix to audit a proposed explanation for a cited change. Attach separate trial observations to see the assumptions, interval and outcome in a verified offline report. The draft and completed audit reopen after separate desktop restarts. The app refuses changed original files, receipts, trial attachments or browser evidence. Windows x64, Apple silicon macOS, Intel macOS, and Linux x64 each passed the audit suite. The result measures numerical agreement under the declared assumptions. The references, trial design, and error bounds come from the attached observations and proposal. Keep the sealed audit and all existing source and browser checks. See README-214.md and docs/publication214/plan.md.

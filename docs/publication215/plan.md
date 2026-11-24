@@ -4,7 +4,7 @@
 
 1. Select a tool-capable local Ollama model and ask **“What observation would distinguish these two explanations?”**
 2. Enter two explanations that make different predictions in the original Relay Ridge scene. For example, compare disabled Right input with working Right input and provide disjoint horizontal-displacement intervals after 24 ticks.
-3. Ask the model for one observation. Review its proposed input, two predicted ranges, and the pinned course. Java checks the range separation, the observation and the run budget before offering approval.
+3. Ask the model for one observation. Review its proposed input, two predicted ranges, and the pinned course. When the model proposes a range that differs from the explanation, the review displays the actual numbers that would be used. Java checks the range separation, the observation and the run budget before offering approval.
 4. Select **Approve and run**. Game Lab starts in a separate runtime and settles for 24 ticks. It applies the exact named probe, records the positions, then repeats the same procedure with a new game session.
 5. Read the outcome for each prediction and compare the original and replay positions. The report includes a checked Game Lab frame from the measured tick and the evidence JSON for both sessions.
 6. Say **“Resume my last hypothesis experiment”** after a restart. It reopens the saved review or rechecks the completed report. An interrupted approved run can resume using the same review. A completed primary measurement is retained while the replay is retried.

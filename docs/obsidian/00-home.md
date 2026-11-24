@@ -1,3 +1,5 @@
+[Edition 215 — Test two competing explanations](223-hypothesis-experiment.md)
+
 [Edition 214 — Put an explanation to the test](222-explanation-audit.md)
 
 [Edition 213 — Brief me on that chart](221-cited-chart-briefing.md)
