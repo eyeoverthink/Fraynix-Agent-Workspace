@@ -87,3 +87,10 @@
  color:#a9e8d9;
  font-weight:600;
 }
+
+.animation-timeline[open] { margin:0 12px 12px; border:1px solid #385055; border-radius:8px; padding:10px; background:#173039; }
+.animation-timeline .spatial-task { padding:4px 0; }
+.animation-top,.animation-scrub { display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:8px 0; }
+.animation-top span,#animation-status { color:var(--muted); }
+.animation-scrub input { flex:1; min-width:min(9rem,100%); }
+.animation-timeline select { max-width:100%; }

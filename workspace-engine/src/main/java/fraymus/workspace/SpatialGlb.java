@@ -23,6 +23,8 @@ final class SpatialGlb {
     private SpatialGlb() {}
 
     static byte[] exportScene(JSONObject scene) {
+        if (scene.has("translationAnimation"))
+            throw new IllegalArgumentException("Use native Blender export to preserve translation animation.");
         var definition = new JSONObject(scene.getString("sourceText"));
         var info = new JSONObject().put("title", definition.getString("title"))
                 .put("gravityMps2", definition.getDouble("gravityMps2")).put("source", definition.getJSONObject("source"))

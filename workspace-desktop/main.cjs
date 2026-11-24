@@ -1057,7 +1057,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         return copy;
       }
       if(input.command==='blueprint-list')return (await api('/api/maps/list',{})).references;
-      if(['blueprint','import-glb','reconstruct','reconstruct-example','reconstruct-depth-example','reconstruct-opposed-example','reconstruct-side-example'].includes(input.command)){
+      if(['blueprint','import-glb','animation-save','reconstruct','reconstruct-example','reconstruct-depth-example','reconstruct-opposed-example','reconstruct-side-example'].includes(input.command)){
         const scene=await api('/api/spatial/'+input.command,input.args||{});
         currentSpatial=null;
         await refresh();
@@ -1086,7 +1086,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='start')return goalBridge.execute('spatial.start',input.args||{});
       if(input.command==='select'){const s=await api('/api/spatial/read',{id:input.args.sceneId});const o=s.objects.find(o=>o.id===input.args.objectId);if(!o)throw Error('Select an actual spatial object');currentSpatial=o.massKg>0?{sceneId:s.id,objectId:o.id}:null;currentPushPusher=currentSpatial?s.objects.find(b=>b.massKg>0&&b.id!==o.id)?.id||null:null;return currentSpatial;}
       if(input.command==='export'){const kind=input.args.kind;let bytes;if(kind==='scene'){const s=await api('/api/spatial/read',{id:input.args.id});bytes=s.sourceText;}else if(kind==='run')bytes=JSON.stringify(await api('/api/spatial/run',{id:input.args.id}),null,2)+'\n';else throw Error('Choose scene or run export');return nativeExports.save('spatial-'+kind,'json',bytes,{id:input.args.id,kind});}
-      if(!['example','import','read','list','snapshot','preview','observe','run'].includes(input.command))throw Error('Unknown spatial command');const result=await api('/api/spatial/'+input.command,input.args||{});if(input.command==='import'){currentSpatial=null;await refresh();}return result;
+      if(!['example','import','read','list','snapshot','preview','observe','run','animation-preview'].includes(input.command))throw Error('Unknown spatial command');const result=await api('/api/spatial/'+input.command,input.args||{});if(input.command==='import'){currentSpatial=null;await refresh();}return result;
     }
     case 'data':{
       if(input.command==='start')return goalBridge.execute('data.start',input.args||{});

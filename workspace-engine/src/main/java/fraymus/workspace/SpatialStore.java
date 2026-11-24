@@ -98,6 +98,27 @@ public final class SpatialStore implements AutoCloseable {
         if (scenes.size()>=32) throw new IllegalStateException("Spatial import history limit reached (32)");
         return retainScene(SpatialScene.parse(text,UUID.randomUUID().toString()).put("importedAt",Instant.now().toString()));
     }
+    synchronized JSONObject previewAnimation(JSONObject input) {
+        SpatialScene.keys(input,"id","sourceId","keys");
+        var scene=read(input.getString("id"));
+        var animation=input.has("keys") ? TranslationTimeline.edit(scene,input.getString("sourceId"),input.getJSONArray("keys"))
+                : scene.getJSONObject("translationAnimation");
+        return TranslationTimeline.sample(animation);
+    }
+
+    synchronized JSONObject saveAnimation(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"id","sourceId","keys");
+        var parent=read(input.getString("id"));
+        var animation=TranslationTimeline.edit(parent,input.getString("sourceId"),input.getJSONArray("keys"));
+        var definition=new JSONObject(parent.getString("sourceText")).put("translationAnimation",animation);
+        var source=definition.getJSONObject("source");
+        String note="Translation timeline from scene SHA-256 "+parent.getString("sourceSha256")+". "+source.getString("note");
+        source.put("note",note.substring(0,Math.min(1000,note.length())));
+        String title=definition.getString("title");
+        if (!parent.has("translationAnimation")) definition.put("title",title.substring(0,Math.min(105,title.length()))+" · animation");
+        return importScene(definition.toString());
+    }
+
     public synchronized JSONObject importGlb(byte[] bytes) throws Exception {
         available();
         if (scenes.size()>=32) throw new IllegalStateException("Spatial import history limit reached (32)");

@@ -643,6 +643,11 @@ public final class WorkspaceServer implements AutoCloseable {
                         double cell = SpatialScene.number(input,"cellSizeM",.6,1.2);
                         result = spatial.importScene(SpatialBlueprint.build(reference,cell).toString());
                     }
+                    case "/api/spatial/animation-preview" -> result=spatial.previewAnimation(input);
+                    case "/api/spatial/animation-save" -> {
+                        if(agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before saving an animation.");
+                        result=spatial.saveAnimation(input);
+                    }
                     case "/api/spatial/read" -> result=spatial.read(input.getString("id"));
                     case "/api/spatial/snapshot" -> result=spatial.snapshot();
                     case "/api/spatial/list" -> result=new JSONObject().put("scenes",spatial.list()).put("runs",spatial.runs());

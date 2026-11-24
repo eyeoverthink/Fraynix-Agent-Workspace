@@ -14,7 +14,7 @@ final class SpatialScene {
     static String text(JSONObject o,String k,int max){String s=o.getString(k);if(s.isBlank()||s.length()>max)throw new IllegalArgumentException("Invalid "+k);return s;}
     static JSONObject parse(String source,String id){
         if(source.getBytes(StandardCharsets.UTF_8).length>131072)throw new IllegalArgumentException("Spatial JSON exceeds 128 KiB");UUID.fromString(id);
-        var in=new JSONObject(source);keys(in,"format","version","title","units","frame","source","scaleReference","gravityMps2","objects","visualMeshes");
+        var in=new JSONObject(source);keys(in,"format","version","title","units","frame","source","scaleReference","gravityMps2","objects","visualMeshes","translationAnimation");
         if(!in.getString("format").equals("fraynix.spatial-scene")||number(in,"version",1,1)!=1||!in.getString("frame").equals("right-handed-y-up"))throw new IllegalArgumentException("Require spatial-scene v1 / right-handed-y-up");
         double scale=switch(in.getString("units")){case "m"->1;case "cm"->.01;case "mm"->.001;default->throw new IllegalArgumentException("Explicit m, cm or mm units required");};
         var provenance=in.getJSONObject("source");keys(provenance,"kind","note","physicalProperties");
@@ -39,6 +39,8 @@ final class SpatialScene {
         var scene=new JSONObject().put("id",id).put("version",1).put("title",text(in,"title",120)).put("format","fraynix.spatial-scene").put("sourceUnits",in.getString("units")).put("units","m").put("frame",in.getString("frame")).put("source",provenance).put("sourceText",source).put("sourceSha256",MeasurementStore.hash(source)).put("gravityMps2",number(in,"gravityMps2",.1,20)).put("objects",out)
             .put("scaleCheck",new JSONObject().put("basis",ref.getString("basis")).put("knownLengthM",known).put("convertedLengthM",length).put("toleranceM",tolerance).put("passed",true).put("independentlyCalibrated",false));
         if(!meshes.isEmpty())scene.put("visualMeshes",meshes);
+        if(in.has("translationAnimation"))scene.put("translationAnimation",
+                TranslationTimeline.checked(in.getJSONObject("translationAnimation"),out));
         return scene;
     }
     static JSONObject object(JSONObject scene,String id){for(Object raw:scene.getJSONArray("objects")){var o=(JSONObject)raw;if(o.getString("id").equals(id))return o;}throw new IllegalArgumentException("Object is not in the selected spatial scene");}

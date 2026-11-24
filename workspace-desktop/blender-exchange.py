@@ -1,8 +1,11 @@
-"""Convert between a Blender rigid-box scene and the Fraynix spatial v1 contract."""
+"""Exchange declared rigid props, triangle surfaces and linear translations with Blender."""
+import base64
+import hashlib
 import json
 import math
 from pathlib import Path
 import re
+import struct
 import sys
 
 import bpy
@@ -67,6 +70,83 @@ def read_body(obj, evaluated, metres, source_id):
     }
 
 
+def read_translation(obj, center, metres):
+    anim = obj.animation_data
+    if not anim:
+        return None
+    if anim.drivers or anim.nla_tracks:
+        raise ValueError(f"{obj.name}: drivers and NLA are outside translation exchange")
+    if anim.action is None:
+        return None
+    if obj.parent or obj.constraints or obj.modifiers or center.length > 1e-6:
+        raise ValueError(f"{obj.name}: animate an unparented, centered box without constraints or modifiers")
+    if anim.action.is_action_legacy:
+        curves = list(anim.action.fcurves)
+    else:
+        if len(anim.action.layers) != 1 or len(anim.action.layers[0].strips) != 1 or not anim.action_slot:
+            raise ValueError(f"{obj.name}: use one active action slot and keyframe strip")
+        bag = anim.action.layers[0].strips[0].channelbag(anim.action_slot)
+        curves = list(bag.fcurves) if bag is not None else []
+    if len(curves) != 3 or {curve.array_index for curve in curves} != {0, 1, 2}:
+        raise ValueError(f"{obj.name}: use three synchronized location curves")
+    by_axis = []
+    for curve in sorted(curves, key=lambda fcurve: fcurve.array_index):
+        if (curve.data_path != "location" or curve.mute or curve.modifiers or curve.sampled_points
+                or curve.extrapolation != "CONSTANT"):
+            raise ValueError(f"{obj.name}: use unmodified location keyframes")
+        values = {}
+        for key in curve.keyframe_points:
+            frame, value = key.co
+            if frame != int(frame) or frame in values or key.interpolation != "LINEAR":
+                raise ValueError(f"{obj.name}: use linear keys on whole frames")
+            values[int(frame)] = value
+        by_axis.append(values)
+    if not all(values.keys() == by_axis[0].keys() for values in by_axis):
+        raise ValueError(f"{obj.name}: key X, Y and Z on the same frames")
+    return [{"frame": frame, "positionM": [round(v, 6) for v in
+             metres * (TO_WORKSPACE @ Vector([values[frame] for values in by_axis]))]}
+            for frame in sorted(by_axis[0])]
+
+
+def read_visual(obj, parent, graph, metres):
+    if (obj.type != "MESH" or obj.rigid_body or obj.animation_data or obj.constraints or obj.modifiers
+            or obj.data.shape_keys or metres != 1):
+        raise ValueError(f"{obj.name}: use an unanimated triangle surface in a metre scene")
+    if any(len(face.vertices) != 3 for face in obj.data.polygons):
+        raise ValueError(f"{obj.name}: triangulate the visual mesh before exchange")
+    center, _ = box_bounds(parent.evaluated_get(graph).data, parent.name)
+    _, _, scale = parent.evaluated_get(graph).matrix_world.decompose()
+    local = obj.matrix_parent_inverse @ obj.matrix_basis
+    points = []
+    for vertex in obj.data.vertices:
+        point = (local @ vertex.co) - center
+        mapped = TO_WORKSPACE @ Vector(tuple(point[i] * scale[i] for i in range(3)))
+        points.extend(v if v else 0.0 for v in mapped)
+    indices = [index for face in obj.data.polygons for index in face.vertices]
+    vertices = len(obj.data.vertices)
+    if not 3 <= vertices <= 4096 or not 3 <= len(indices) <= 12288:
+        raise ValueError(f"{obj.name}: visual mesh exceeds the triangle budget")
+    packed = struct.pack("<II", vertices, len(indices))
+    packed += struct.pack(f"<{len(points)}f{len(indices)}H", *points, *indices)
+    return hashlib.sha256(packed).hexdigest(), base64.b64encode(packed).decode("ascii")
+
+
+def write_visual(parent, encoded):
+    packed = base64.b64decode(encoded)
+    count, index_count = struct.unpack_from("<II", packed)
+    values = struct.unpack_from(f"<{count * 3}f{index_count}H", packed, 8)
+    vertices = [TO_BLENDER @ Vector(values[i:i + 3]) for i in range(0, count * 3, 3)]
+    faces = [values[i:i + 3] for i in range(count * 3, len(values), 3)]
+    mesh = bpy.data.meshes.new(parent.name + " surface")
+    mesh.from_pydata(vertices, [], faces)
+    mesh.update()
+    obj = bpy.data.objects.new(parent.name + " surface", mesh)
+    bpy.context.scene.collection.objects.link(obj)
+    obj.parent = parent
+    obj["fraynix_visual"] = "triangle-surface"
+    parent.display_type = "WIRE"
+    parent.hide_render = True
+
 def read_scene(output):
     scene = bpy.context.scene
     if bpy.data.libraries:
@@ -87,18 +167,37 @@ def read_scene(output):
     tolerance = scene.get("fraynix_tolerance_m")
     if type(known) not in (int, float) or type(tolerance) not in (int, float):
         raise ValueError("Set scene properties fraynix_known_length_m and fraynix_tolerance_m")
-    bodies = [obj for obj in scene.objects if obj.type not in {"EMPTY", "LIGHT", "CAMERA"}]
+    visuals = [obj for obj in scene.objects if obj.get("fraynix_visual") == "triangle-surface"]
+    bodies = [obj for obj in scene.objects if obj.type not in {"EMPTY", "LIGHT", "CAMERA"} and obj not in visuals]
     if not 2 <= len(bodies) <= 32 or any(obj.type != "MESH" for obj in bodies):
         raise ValueError("Use 2–32 rigid box meshes, plus the scale reference empties")
     scene.frame_set(scene.frame_start)
     graph = bpy.context.evaluated_depsgraph_get()
     objects = []
+    tracks = {}
+    meshes = {}
+    by_parent = {}
+    for obj in visuals:
+        if obj.parent not in bodies or obj.parent in by_parent:
+            raise ValueError("Attach one marked visual surface to its collider")
+        by_parent[obj.parent] = obj
     for obj in sorted(bodies, key=lambda item: item.get("fraynix_source_id", item.name)):
         # Names are stable for externally authored files that supply a unique ASCII identifier.
         source_id = obj.get("fraynix_source_id", obj.name)
         if not isinstance(source_id, str) or not re.fullmatch(r"[A-Za-z0-9_.-]{1,80}", source_id):
             raise ValueError(f"{obj.name}: set a unique ASCII fraynix_source_id or rename the mesh")
-        objects.append(read_body(obj, obj.evaluated_get(graph), metres, source_id))
+        evaluated = obj.evaluated_get(graph)
+        body = read_body(obj, evaluated, metres, source_id)
+        surfaces = by_parent.get(obj)
+        if surfaces:
+            key, encoded = read_visual(surfaces, obj, graph, metres)
+            meshes[key] = encoded
+            body["visualMesh"] = key
+        center, _ = box_bounds(evaluated.data, obj.name)
+        keys = read_translation(obj, center, metres)
+        if keys is not None:
+            tracks[source_id] = keys
+        objects.append(body)
     a, b = ([round(coordinate, 6) for coordinate in metres * (TO_WORKSPACE @ obj.evaluated_get(graph).matrix_world.translation)] for obj in refs)
     data = {
         "format": "fraynix.spatial-scene", "version": 1,
@@ -110,6 +209,17 @@ def read_scene(output):
                            "basis": scene.get("fraynix_scale_basis", "declared-test")},
         "gravityMps2": round(-scene.gravity.z, 6), "objects": objects,
     }
+    if meshes:
+        data["visualMeshes"] = meshes
+    if tracks:
+        for obj in bodies:
+            if obj.data.shape_keys or obj.data.animation_data:
+                raise ValueError(f"{obj.name}: collider shape keys and mesh animation are outside translation exchange")
+        if scene.frame_start != 1 or scene.render.fps != 24 or scene.render.fps_base != 1:
+            raise ValueError("Use a 24 fps translation timeline starting at frame 1")
+        if scene.rigidbody_world and scene.rigidbody_world.enabled:
+            raise ValueError("Disable Blender rigid-body playback before importing authored translation keys")
+        data["translationAnimation"] = {"fps": 24, "tracks": tracks}
     output.write_text(json.dumps({"blenderVersion": bpy.app.version_string, "scene": data},
                                  allow_nan=False), encoding="utf-8")
 
@@ -123,7 +233,11 @@ def add_body(spec):
     x, y, z, w = spec["rotation"]
     obj.rotation_mode = "QUATERNION"
     obj.rotation_quaternion = (TO_BLENDER @ Quaternion((w, x, y, z)).to_matrix() @ TO_WORKSPACE).to_quaternion()
-    obj.scale = tuple(spec["size"][i] for i in (0, 2, 1))
+    scale = [spec["size"][i] for i in (0, 2, 1)]
+    if "visualMesh" in spec:
+        obj.data.transform(Matrix.Diagonal((*scale, 1)))
+    else:
+        obj.scale = scale
     bpy.ops.rigidbody.object_add()
     obj.rigid_body.collision_shape = "BOX"
     obj.rigid_body.type = "ACTIVE" if spec["massKg"] else "PASSIVE"
@@ -131,6 +245,27 @@ def add_body(spec):
         obj.rigid_body.mass = spec["massKg"]
     obj.rigid_body.friction = spec["friction"]
     obj.rigid_body.restitution = spec["restitution"]
+    return obj
+
+
+def write_translation(scene, bodies, animation, metres):
+    scene.render.fps = animation["fps"]
+    scene.render.fps_base = 1
+    scene.frame_start = 1
+    scene.frame_end = max(track[-1]["frame"] for track in animation["tracks"].values())
+    if scene.rigidbody_world:
+        scene.rigidbody_world.enabled = False
+    for source_id, keys in animation["tracks"].items():
+        obj = bodies[source_id]
+        for key in keys:
+            obj.location = TO_BLENDER @ Vector(key["positionM"]) / metres
+            obj.keyframe_insert("location", frame=key["frame"], group="Location")
+        anim = obj.animation_data
+        curves = anim.action.layers[0].strips[0].channelbag(anim.action_slot).fcurves
+        for curve in curves:
+            for key in curve.keyframe_points:
+                key.interpolation = "LINEAR"
+    scene.frame_set(scene.frame_start)
 
 
 def write_scene(source, output):
@@ -155,8 +290,14 @@ def write_scene(source, output):
         obj = bpy.data.objects.new(name, None)
         scene.collection.objects.link(obj)
         obj.location = TO_BLENDER @ Vector(reference[key])
+    bodies = {}
     for spec in data["objects"]:
-        add_body(spec)
+        body = add_body(spec)
+        bodies[spec["sourceId"]] = body
+        if "visualMesh" in spec:
+            write_visual(body, data["visualMeshes"][spec["visualMesh"]])
+    if "translationAnimation" in data:
+        write_translation(scene, bodies, data["translationAnimation"], metres)
     bpy.context.preferences.filepaths.save_version = 0
     bpy.ops.wm.save_as_mainfile(filepath=str(output), compress=True)
 
