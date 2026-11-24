@@ -1,0 +1,118 @@
+{
+  "format": "fraynix.library-prop-playtest-v1",
+  "platform": "win32",
+  "sceneId": "b890015b-f546-3bf6-8c9d-01fa8b21e710",
+  "proof": {
+    "definitionSha256": "c1d03213b5cbbf9a8893da33bd9ff39a141680f880de7738b4f5efaea73c89c6",
+    "declaredWidthM": 0.5,
+    "meshSha256": "c88b4426091e3287f8802d299cf6fc48a2b11eb2ace20f9c6e9e449b00cd9567",
+    "cellM": 0.05,
+    "frontIou": 1,
+    "depthResolutionM": 0.05,
+    "heldOutMinimum": 0.86,
+    "heldOutIou": 0.9923813063272322,
+    "triangles": 496,
+    "sourceSha256": "249749bd0f6a49c9c628b6708575a797f3a08104fb0025c66cfe17ffe87d03ea",
+    "sideIou": 1,
+    "estimatedDepthM": 0.4,
+    "candidateFits": [
+      {
+        "sideIou": 0.759493670886076,
+        "grid": 16,
+        "topIou": 0.8008928571428572,
+        "frontIou": 0.8
+      },
+      {
+        "sideIou": 1,
+        "grid": 20,
+        "topIou": 1,
+        "frontIou": 1
+      },
+      {
+        "sideIou": 0.79296875,
+        "grid": 22,
+        "topIou": 0.728239069394304,
+        "frontIou": 0.8090452261306532
+      }
+    ],
+    "grid": 20,
+    "meshDepthM": 0.4,
+    "scope": "Declared registration and front width. Front, side and top fit the mesh. A separate oblique view tests it.",
+    "topIou": 1,
+    "heldOutElevationDeg": 60,
+    "viewSource": "sprite-library",
+    "views": {
+      "side": {
+        "sourceSha256": "9a9f2e505d9a5e28a7ced6004f2ceb5d7720ac7787e3f288ed5952adffb260be",
+        "pixels": 240,
+        "assetId": "55bf58f966b7f36ad787b8df3a73ea4292066e715b747c11eabb40f3dd2322a0",
+        "label": "side.png",
+        "spriteSha256": "4a3fcb426c5e6f1cf0c588f0a6ddcb110e22f054b94169b47e7a5e8ff2517c42",
+        "pngSha256": "c8ad7b18346195e1becd901aa45a9557284a08b1185604ab1807b5183d05eaa4"
+      },
+      "top": {
+        "sourceSha256": "24e97d2c0f423837e71e1b43136d20a09477af462773063418a2e52ab4e5fd0c",
+        "pixels": 240,
+        "assetId": "0fc0c0c7aa2ac9c5551632626392f32e7be01c502de920df8b1bc613f31f0a2a",
+        "label": "top.png",
+        "spriteSha256": "a711d6e912226890f9fad7dba6885edb41b9fd721327b54eb3941ea586a6bfd1",
+        "pngSha256": "2631192904863d5d5d388565e72677f6d6a773e90afaf7f7201b7f654cd33db1"
+      },
+      "front": {
+        "sourceSha256": "4a0ba8319be7ce13c09ab514e7112272e33f5a9bcf631fc4ecf13c3721fe2ff3",
+        "pixels": 240,
+        "assetId": "31a1e836dc4e8a5f0324e48d60521776147a8dde7eacb120ccae93008839d6f5",
+        "label": "front.png",
+        "spriteSha256": "affdb3eb45f1532e3e183add927033543737cb44dbee48373eded78cb5ed3669",
+        "pngSha256": "698e3a2b5e806f3b0bdc29d149249a94ce80b08df2490abd7507efccb4b1e4e6"
+      },
+      "heldOut": {
+        "sourceSha256": "ac930b6d9341ba7b386ff05758232f1a945cc8a6a2389b3c8f2641c81d81b5de",
+        "pixels": 240,
+        "assetId": "97df040c5119907500a2b13c5d49a5c86828acafe50f3a05a058f8796fcd79fd",
+        "label": "elevated.png",
+        "spriteSha256": "f3ce54fa7e4d264b8e68bd93e16cbdf34d85e356ee891e4cc77f30ecadd26e8e",
+        "pngSha256": "6f97e480be01b42df181ded4220040bc5387bb8fef0589b0cc41ee88137d0853"
+      }
+    },
+    "policy": "browser-registered-orthographic"
+  },
+  "refusal": "Error invoking remote method 'workspace:request': Error: Held-out view refused the fitted model (24.6% overlap, need 86%).",
+  "colliderM": [
+    0.5,
+    0.1,
+    0.4
+  ],
+  "exportSha256": "3e2250c0967c6368e689fc439a930e6e77166bd894140d390817dda542016272",
+  "blender": {
+    "version": "4.5.17 LTS",
+    "expectedVolumeM3": 0.0155,
+    "measuredVolumeM3": 0.015500000152736813,
+    "colliderShape": "BOX",
+    "colliderDimensionsBlenderM": [
+      0.5,
+      0.4000000059604645,
+      0.10000000149011612
+    ],
+    "separateVisual": true,
+    "visualManifold": true,
+    "triangles": 496,
+    "editedVertices": 92,
+    "originalVisualTopM": 0.05000000074505806,
+    "editedVisualTopM": 0.054999999701976776,
+    "importedAs": "b561b91c-1463-456b-b35d-16de033dd0f3",
+    "exportedBlendSha256": "715c3a97fa19b3fb857e069e5b01eaa44cd8df51f56cc2524b3a7e4345038b17",
+    "editedBlendSha256": "441314e01b5a66f58f92e336a4461fadca48ffe366ca93be5a49b7dcd1f54cdb",
+    "returnedVisualTopM": 0.054999999701976776,
+    "returnedColliderM": [
+      0.5,
+      0.1,
+      0.4
+    ]
+  },
+  "restartMatched": true,
+  "duplicateEntryRefused": true,
+  "relabelledWitnessRefused": true,
+  "changedLibrarySourceRefused": true,
+  "changedRetainedPackageRefused": true
+}

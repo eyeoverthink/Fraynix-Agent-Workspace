@@ -1,0 +1,120 @@
+{
+  "nodes": [
+    {
+      "id": "0",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/BrowserViewTrace.java",
+      "x": 0,
+      "y": 0,
+      "width": 350,
+      "height": 250
+    },
+    {
+      "id": "1",
+      "type": "file",
+      "file": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java",
+      "x": 390,
+      "y": 0,
+      "width": 350,
+      "height": 250
+    },
+    {
+      "id": "2",
+      "type": "file",
+      "file": "workspace-desktop/renderer/spatial-library-views.js",
+      "x": 780,
+      "y": 0,
+      "width": 350,
+      "height": 250
+    },
+    {
+      "id": "3",
+      "type": "file",
+      "file": "workspace-desktop/test/library-prop-integration.cjs",
+      "x": 0,
+      "y": 300,
+      "width": 350,
+      "height": 250
+    },
+    {
+      "id": "4",
+      "type": "file",
+      "file": "workspace-desktop/test/library-prop-blender.py",
+      "x": 390,
+      "y": 300,
+      "width": 350,
+      "height": 250
+    },
+    {
+      "id": "5",
+      "type": "file",
+      "file": "docs/publication231/plan.md",
+      "x": 780,
+      "y": 300,
+      "width": 350,
+      "height": 250
+    },
+    {
+      "id": "6",
+      "type": "file",
+      "file": "README-231.md",
+      "x": 0,
+      "y": 600,
+      "width": 350,
+      "height": 250
+    },
+    {
+      "id": "7",
+      "type": "file",
+      "file": "docs/readmes/231/library-prop-verified.png",
+      "x": 390,
+      "y": 600,
+      "width": 350,
+      "height": 250
+    }
+  ],
+  "edges": [
+    {
+      "id": "0",
+      "fromNode": "3",
+      "fromSide": "right",
+      "toNode": "0",
+      "toSide": "left"
+    },
+    {
+      "id": "1",
+      "fromNode": "0",
+      "fromSide": "right",
+      "toNode": "1",
+      "toSide": "left"
+    },
+    {
+      "id": "2",
+      "fromNode": "1",
+      "fromSide": "right",
+      "toNode": "2",
+      "toSide": "left"
+    },
+    {
+      "id": "3",
+      "fromNode": "4",
+      "fromSide": "right",
+      "toNode": "1",
+      "toSide": "left"
+    },
+    {
+      "id": "4",
+      "fromNode": "5",
+      "fromSide": "right",
+      "toNode": "6",
+      "toSide": "left"
+    },
+    {
+      "id": "5",
+      "fromNode": "2",
+      "fromSide": "right",
+      "toNode": "7",
+      "toSide": "left"
+    }
+  ]
+}

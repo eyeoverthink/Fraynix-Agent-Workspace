@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 231 — Reconstruct editable props from the sprite library](../../README-231.md) · [Walkthrough](231/index.html)
+
 [Edition 230 — Build playable tile levels from a shared sprite library](../../README-230.md) · [Walkthrough](230/index.html)
 
 [Edition 229 — Turn an image into a sprite and a playable level](../../README-229.md) · [Walkthrough](229/index.html)

@@ -1,0 +1,74 @@
+{
+  "summary": "Fit registered library originals, verify a separate view and round-trip the mesh and collider through Blender.",
+  "modules": [
+    {
+      "title": "Registered fitting and held-out verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BrowserViewTrace.java",
+      "note": "docs/obsidian/239-library-prop.md"
+    },
+    {
+      "title": "Original sprite records and view bindings",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java",
+      "note": "docs/obsidian/239-library-prop.md"
+    },
+    {
+      "title": "Library view selection and measured results",
+      "source": "workspace-desktop/renderer/spatial-library-views.js",
+      "note": "docs/obsidian/239-library-prop.md"
+    },
+    {
+      "title": "Desktop reconstruction, refusal and Blender return",
+      "source": "workspace-desktop/test/library-prop-integration.cjs",
+      "note": "docs/obsidian/239-library-prop.md"
+    },
+    {
+      "title": "Independent Blender fixture and mesh edit",
+      "source": "workspace-desktop/test/library-prop-blender.py",
+      "note": "docs/obsidian/239-library-prop.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/231/library-prop-verified.png",
+      "title": "Library reconstruction and both through-openings"
+    },
+    {
+      "path": "docs/readmes/231/library-witness-refused.png",
+      "title": "The wrong held-out prop is refused"
+    },
+    {
+      "path": "docs/readmes/231/library-prop-returned.png",
+      "title": "Fraynix reopens the edited Blender visual"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/231/library-prop-evidence.json",
+      "title": "Original records, held-out check and Blender edit receipt"
+    },
+    {
+      "path": "docs/readmes/231/library-prop.glb",
+      "title": "Checked GLB"
+    },
+    {
+      "path": "docs/readmes/231/library-prop.blend",
+      "title": "Original Blender scene with separate collider"
+    },
+    {
+      "path": "docs/readmes/231/library-prop-edited.blend",
+      "title": "Edited Blender return"
+    },
+    {
+      "path": "docs/readmes/231/library-view-package.json",
+      "title": "Exact retained original view package"
+    },
+    {
+      "path": "docs/publication231/plan.md",
+      "title": "Registration and evidence details"
+    },
+    {
+      "path": "docs/readmes/231/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}
