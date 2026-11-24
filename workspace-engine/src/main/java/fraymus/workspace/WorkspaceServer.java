@@ -37,6 +37,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final LearningStore learning;
     private final SceneStore scenes;
     private final SpatialStore spatial;
+    private final SpriteWorkshop media;
     private final MapStore maps;
     private final PerceptionStore perception;
     private final MeasurementStore measurements;
@@ -88,6 +89,7 @@ public final class WorkspaceServer implements AutoCloseable {
         this(project,token,false);
     }
     WorkspaceServer(Path project,String token,boolean persistentHost) throws IOException {
+        media = new SpriteWorkshop(project);
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;this.persistentHost=persistentHost;store=new WorkspaceStore(project);requestWorkbench=new RequestWorkbench(project,store);learning=new LearningStore(project);
         classificationRouting = new ClassifiedProcedurePlan(project, requestWorkbench);
@@ -643,6 +645,11 @@ public final class WorkspaceServer implements AutoCloseable {
                         double cell = SpatialScene.number(input,"cellSizeM",.6,1.2);
                         result = spatial.importScene(SpatialBlueprint.build(reference,cell).toString());
                     }
+                    case "/api/media/isolate" -> result = media.isolate(input);
+                    case "/api/media/save" -> result = media.save(input);
+                    case "/api/media/import" -> result = media.importLevel(input);
+                    case "/api/media/latest" -> result = media.latest(input);
+                    case "/api/media/export" -> result = media.export(input);
                     case "/api/spatial/browser-trace" -> {
                         SpatialScene.keys(input,"source");
                         if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before tracing a graphic.");

@@ -76,9 +76,13 @@ final class BrowserShapeTrace {
     }
 
     static BufferedImage decode(byte[] png) throws Exception {
+        return decode(png, 32);
+    }
+
+    static BufferedImage decode(byte[] png, int minSide) throws Exception {
         if (png.length<24 || java.nio.ByteBuffer.wrap(png).getLong()!=0x89504e470d0a1a0aL)
             throw new IllegalArgumentException("Choose a captured PNG graphic.");
-        return WorldObservationStore.decode(png);
+        return WorldObservationStore.decode(png, minSide);
     }
 
     static boolean[] isolate(BufferedImage img) {

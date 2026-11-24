@@ -1034,6 +1034,22 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='export'){const result=await api('/api/maps/export',{id:input.args.id});return nativeExports.save('playable-map','json',result.text,{id:input.args.id});}
       if(!['example','reference-cases','reference-example','dungeons','inspect-image','import-image','reference','list','read','run','snapshot','manual','control','stop','pause','resume','from-procedural','import-package'].includes(input.command))throw Error('Unknown map operation');return api('/api/maps/'+input.command,input.args||{});
     }
+    case 'media': {
+      if (input.command === 'pick') {
+        if (!surfacesVisible.browser) throw Error('Show the in-app browser to pick a graphic.');
+        const source = await browser.pickGraphic();
+        return {source, sprite: await api('/api/media/isolate', {source})};
+      }
+      if (['isolate', 'save', 'latest', 'import'].includes(input.command))
+        return api('/api/media/' + input.command, input.args || {});
+      if (input.command !== 'export') throw Error('Unknown media command.');
+      const {id, format} = input.args;
+      const kinds = {png:'media-sprite', json:'media-editable-level', html:'media-playable-level'};
+      if (!Object.hasOwn(kinds, format)) throw Error('Choose PNG, editable level, or playable HTML.');
+      const data = await api('/api/media/export', {id, format});
+      return nativeExports.save(kinds[format], format, Buffer.from(data.base64, 'base64'),
+        {id, sourceSha256:data.sourceSha256, spriteSha256:data.spriteSha256}, data.sha256);
+    }
     case 'spatial':{
       if(['height-example','height-review','height-approve','height-read','height-latest','height-collider'].includes(input.command)){
         const result=await api('/api/spatial/'+input.command,input.args||{});

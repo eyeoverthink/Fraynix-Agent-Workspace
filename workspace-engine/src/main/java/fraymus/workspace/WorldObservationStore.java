@@ -91,8 +91,11 @@ final class WorldObservationStore implements AutoCloseable {
     JSONObject read(String id)throws Exception{return access(false,s->WorldFrames.copy(find(s.getJSONArray("runs"),id)));}
     JSONObject dataset(String id)throws Exception{return access(false,s->WorldFrames.copy(find(s.getJSONArray("datasets"),id)));}
     static BufferedImage decode(byte[] bytes)throws Exception{
+        return decode(bytes,32);
+    }
+    static BufferedImage decode(byte[] bytes,int minSide)throws Exception{
         if(bytes.length<12||bytes.length>1_500_000)throw new IllegalArgumentException("Choose a JPEG/PNG frame up to1.5MB");
-        try(var stream=ImageIO.createImageInputStream(new ByteArrayInputStream(bytes))){var readers=ImageIO.getImageReaders(stream);if(!readers.hasNext())throw new IllegalArgumentException("Unsupported image frame");var reader=readers.next();try{reader.setInput(stream);String type=reader.getFormatName();if(!type.equalsIgnoreCase("JPEG")&&!type.equalsIgnoreCase("PNG"))throw new IllegalArgumentException("Only JPEG/PNG pixels accepted");int w=reader.getWidth(0),h=reader.getHeight(0);if(w<32||h<32||w>1920||h>1080)throw new IllegalArgumentException("Frames require32..1920 by32..1080pixels");return reader.read(0);}finally{reader.dispose();}}
+        try(var stream=ImageIO.createImageInputStream(new ByteArrayInputStream(bytes))){var readers=ImageIO.getImageReaders(stream);if(!readers.hasNext())throw new IllegalArgumentException("Unsupported image frame");var reader=readers.next();try{reader.setInput(stream);String type=reader.getFormatName();if(!type.equalsIgnoreCase("JPEG")&&!type.equalsIgnoreCase("PNG"))throw new IllegalArgumentException("Only JPEG/PNG pixels accepted");int w=reader.getWidth(0),h=reader.getHeight(0);if(w<minSide||h<minSide||w>1920||h>1080)throw new IllegalArgumentException("Frames require"+minSide+"..1920 by"+minSide+"..1080pixels");return reader.read(0);}finally{reader.dispose();}}
     }
     synchronized JSONObject begin(JSONObject input)throws Exception{
         SpatialScene.keys(input,"schema","title","source","license","clock","objects","frameCount");

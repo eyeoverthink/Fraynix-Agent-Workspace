@@ -1,0 +1,65 @@
+
+#media-workshop {
+    min-height: 0;
+    flex: 1;
+    overflow: auto;
+    padding: 16px;
+    background: #142125;
+}
+#media-workshop :is(p, form) { margin: 0; }
+.media-source, .media-actions, .media-play-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.media-source { justify-content: space-between; }
+.media-file {
+    position: relative;
+    padding: 8px 11px;
+    border: 1px solid #385055;
+    border-radius: 7px;
+    background: #1e3035;
+    cursor: pointer;
+}
+.media-file:focus-within { outline: 2px solid var(--teal); }
+.media-file:has(input:disabled) { opacity: .4; }
+.media-file input { position: absolute; inset: 0; width: 100%; opacity: 0; cursor: pointer; }
+#media-source-preview {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #abc2bf;
+    font-size: 12px;
+}
+#media-source-preview[hidden], #media-export[hidden] { display: none; }
+#media-sprite {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    border: 1px solid #638983;
+    border-radius: 4px;
+    background: conic-gradient(#37454b 25%, #19292e 0 50%, #37454b 0 75%, #19292e 0) 0 0 / 12px 12px;
+}
+#media-workshop #media-layout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 10px;
+    padding: 12px 0;
+}
+#media-layout label { display: grid; gap: 4px; font-size: 12px; color: #b7ccca; }
+#media-layout input { min-width: 0; width: 100%; padding: 7px; }
+.media-title { flex: 1 1 140px; }
+.media-fields { flex: 4 1 360px; display: grid; grid-template-columns: repeat(auto-fit, minmax(76px, 1fr)); gap: 8px; }
+#media-workshop #media-status { color: var(--teal); font-size: 12px; overflow-wrap: anywhere; margin-bottom: 9px; }
+#media-canvas {
+    width: 100%;
+    max-width: 840px;
+    display: block;
+    border: 1px solid #638983;
+    border-radius: 7px;
+}
+#media-canvas:focus { outline: 2px solid var(--teal); outline-offset: 2px; }
+.media-play-row { justify-content: space-between; padding-top: 9px; }
+#media-workshop #media-progress { margin: 7px 0 11px; color: #b7e8d3; }
