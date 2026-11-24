@@ -1,0 +1,78 @@
+{
+  "summary": "Click visible graphics. Fit front and side, estimate depth, and check the mesh against a separate 45-degree view.",
+  "modules": [
+    {
+      "title": "Registered fit and held-out test",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BrowserViewTrace.java",
+      "note": "docs/obsidian/235-verified-browser-views.md"
+    },
+    {
+      "title": "Browser picker and actual capture",
+      "source": "workspace-desktop/surfaces.cjs",
+      "note": "docs/obsidian/235-verified-browser-views.md"
+    },
+    {
+      "title": "In-app pick and export controls",
+      "source": "workspace-desktop/renderer/spatial-panel.js",
+      "note": "docs/obsidian/235-verified-browser-views.md"
+    },
+    {
+      "title": "Independent Blender source and GLB checks",
+      "source": "workspace-desktop/test/browser-views-blender.py",
+      "note": "docs/obsidian/235-verified-browser-views.md"
+    },
+    {
+      "title": "Browser click, refusal, and restart tests",
+      "source": "workspace-desktop/test/browser-views-integration.cjs",
+      "note": "docs/obsidian/235-verified-browser-views.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/227/held-out-verified.png",
+      "title": "Fraynix verifies the model at the held-out view"
+    },
+    {
+      "path": "docs/readmes/227/held-out-refused.png",
+      "title": "A different prop is refused"
+    },
+    {
+      "path": "docs/readmes/227/captured-front.png",
+      "title": "Actual captured front view"
+    },
+    {
+      "path": "docs/readmes/227/captured-side.png",
+      "title": "Actual captured side view"
+    },
+    {
+      "path": "docs/readmes/227/captured-heldOut.png",
+      "title": "Actual captured held-out view"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/227/browser-views-evidence.json",
+      "title": "Browser, held-out and Blender measurements"
+    },
+    {
+      "path": "docs/readmes/227/browser-verified.glb",
+      "title": "Editable geometry exported from Fraynix"
+    },
+    {
+      "path": "docs/readmes/227/blender-held-out-original.png",
+      "title": "Independent Blender oblique render"
+    },
+    {
+      "path": "docs/readmes/227/blender-held-out-export.png",
+      "title": "Blender render of the returned GLB"
+    },
+    {
+      "path": "docs/publication227/plan.md",
+      "title": "Registration and verification contract"
+    },
+    {
+      "path": "docs/readmes/227/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}

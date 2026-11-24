@@ -1,0 +1,84 @@
+{
+  "evidence": {
+    "definitionSha256": "790f8ceb49a58dcc5ac1aed0a33c9dc78b244cdba8601924db4937647b2d0566",
+    "declaredWidthM": 0.5,
+    "meshSha256": "693934b66dddf8a46bd62029bafe468176127f3361f2e5fc94509b699bfa771f",
+    "cellM": 0.05,
+    "frontIou": 0.9901160292221745,
+    "depthResolutionM": 0.05,
+    "heldOutMinimum": 0.86,
+    "heldOutIou": 0.9565058479532164,
+    "triangles": 656,
+    "sourceSha256": "01efd99c9e76638908a92074b0603f878d8ececb4cd53131784546d32970df5d",
+    "sideIou": 0.9924190213645762,
+    "estimatedDepthM": 0.3,
+    "candidateFits": [
+      {
+        "sideIou": 0.7761572606214331,
+        "grid": 16,
+        "frontIou": 0.8783496384517226
+      },
+      {
+        "sideIou": 0.9924190213645762,
+        "grid": 20,
+        "frontIou": 0.9901160292221745
+      },
+      {
+        "sideIou": 0.8124174372523117,
+        "grid": 22,
+        "frontIou": 0.838436744560838
+      }
+    ],
+    "grid": 20,
+    "meshDepthM": 0.30000000000000004,
+    "scope": "Declared registration and front width. The side estimates depth. The oblique silhouette verifies the fitted mesh.",
+    "views": {
+      "side": {
+        "pixels": 120,
+        "tag": "img",
+        "pngSha256": "4bbed4b7a8f93ef3f28f8c5052b5d7c9c8d63ff3ff01456f7753f628f5f4538a",
+        "url": "http://127.0.0.1:51504/side"
+      },
+      "front": {
+        "pixels": 120,
+        "tag": "img",
+        "pngSha256": "502c7d762f075f36801a103ebefa66786727ccfed283785c094ad4a563210e51",
+        "url": "http://127.0.0.1:51504/front"
+      },
+      "heldOut": {
+        "pixels": 120,
+        "tag": "img",
+        "pngSha256": "1f40fb591e5108f02d41a1800d07de0355930cdf639111a5374eb11336c14f16",
+        "url": "http://127.0.0.1:51504/held-out"
+      }
+    },
+    "policy": "browser-registered-orthographic"
+  },
+  "refusedHeldOut": "Error invoking remote method 'workspace:request': Error: Held-out view refused the fitted model (47.0% overlap, need 86%).",
+  "refusalSavedNoScene": true,
+  "clickPreservedNavigation": true,
+  "escapeCancelled": true,
+  "restoredAfterRestart": true,
+  "changedSourceRefused": true,
+  "duplicateWitnessRefused": true,
+  "mismatchedScaleRefused": true,
+  "exportSha256": "8844a12e0b3fd52e24a39bfb772e6eca66949415e21f85e540e813881471a815",
+  "blender": {
+    "version": "5.3.0",
+    "originalDimensionsBlenderM": [
+      0.5,
+      0.30000001192092896,
+      0.4000000059604645
+    ],
+    "modelDimensionsBlenderM": [
+      0.5,
+      0.30000001192092896,
+      0.4000000059604645
+    ],
+    "originalVolumeM3": 0.04218000194966792,
+    "modelVolumeM3": 0.042000002473592535,
+    "volumeRelativeError": 0.004267412701644142,
+    "independentObliqueIou": 1,
+    "triangles": 656
+  }
+}

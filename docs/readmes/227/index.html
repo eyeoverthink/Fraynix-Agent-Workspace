@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 227 · Pick browser views and verify the model</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Pick browser views and verify the model</h1><p>Click visible graphics. Fit front and side, estimate depth, and check the mesh against a separate 45-degree view.</p>
+<nav><a href="../../../README-227.md">App guide</a><a href="browser-views-evidence.json">Full receipts</a>
+<a href="../226/index.html">Edition 226</a><a href="../../publication222/plan.md">Registration guide</a>
+<a href="browser-verified.glb" download>Checked GLB</a><a href="#system">System files</a></nav>
+<p>The side view estimates 300 mm depth. The correct held-out view scores 95.7% and a different prop scores 47.0%, below the 86% gate.</p>
+<figure><img src="held-out-verified.png" alt="Fraynix verifies the model at the held-out view"><figcaption>Fraynix verifies the model at the held-out view</figcaption></figure>
+<figure><img src="held-out-refused.png" alt="A different prop is refused"><figcaption>A different prop is refused</figcaption></figure>
+<figure><img src="captured-front.png" alt="Actual captured front view"><figcaption>Actual captured front view</figcaption></figure>
+<figure><img src="captured-side.png" alt="Actual captured side view"><figcaption>Actual captured side view</figcaption></figure>
+<figure><img src="captured-heldOut.png" alt="Actual captured held-out view"><figcaption>Actual captured held-out view</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Click visible graphics. Fit front and side, estimate depth, and check the mesh against a separate 45-degree view.", "modules": [{"title": "Registered fit and held-out test", "source": "workspace-engine/src/main/java/fraymus/workspace/BrowserViewTrace.java", "note": "docs/obsidian/235-verified-browser-views.md"}, {"title": "Browser picker and actual capture", "source": "workspace-desktop/surfaces.cjs", "note": "docs/obsidian/235-verified-browser-views.md"}, {"title": "In-app pick and export controls", "source": "workspace-desktop/renderer/spatial-panel.js", "note": "docs/obsidian/235-verified-browser-views.md"}, {"title": "Independent Blender source and GLB checks", "source": "workspace-desktop/test/browser-views-blender.py", "note": "docs/obsidian/235-verified-browser-views.md"}, {"title": "Browser click, refusal, and restart tests", "source": "workspace-desktop/test/browser-views-integration.cjs", "note": "docs/obsidian/235-verified-browser-views.md"}], "screenshots": [{"path": "docs/readmes/227/held-out-verified.png", "title": "Fraynix verifies the model at the held-out view"}, {"path": "docs/readmes/227/held-out-refused.png", "title": "A different prop is refused"}, {"path": "docs/readmes/227/captured-front.png", "title": "Actual captured front view"}, {"path": "docs/readmes/227/captured-side.png", "title": "Actual captured side view"}, {"path": "docs/readmes/227/captured-heldOut.png", "title": "Actual captured held-out view"}], "evidence": [{"path": "docs/readmes/227/browser-views-evidence.json", "title": "Browser, held-out and Blender measurements"}, {"path": "docs/readmes/227/browser-verified.glb", "title": "Editable geometry exported from Fraynix"}, {"path": "docs/readmes/227/blender-held-out-original.png", "title": "Independent Blender oblique render"}, {"path": "docs/readmes/227/blender-held-out-export.png", "title": "Blender render of the returned GLB"}, {"path": "docs/publication227/plan.md", "title": "Registration and verification contract"}, {"path": "docs/readmes/227/FILE_TREE.md", "title": "Edition file tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 13794, "sha256": "72f62d2a1a95557bb90de4877f5b3930c5481256a86df70f7ffd9143efd31121", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/235-verified-browser-views.canvas", "bytes": 2225, "sha256": "59ab7d21ac291cbbbb38cfd1d49bada848f6f3cd0832fe50cec3ef904734321e", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/235-verified-browser-views.md", "bytes": 539, "sha256": "c0a9c1d91a29a081f3781b259793c4f4d844071597973d8c173aa6acc3834ba9", "hashKind": "utf8-lf"}, {"path": "docs/publication227/plan.md", "bytes": 3504, "sha256": "629de7097b21777a74bcd89ba0ef5f035342e6c6b12c4edc256e9fa1de71a857", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 129679, "sha256": "2dab5477ad1cbde64081745afda6dddd2f8cd0ac18242efd8b7f923c23af3024", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-panel.js", "bytes": 47539, "sha256": "dd868d26368fc34b48dd8ecf68554416149093a3704089669b8d32e94fe0d4ad", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/surfaces.cjs", "bytes": 13018, "sha256": "333ab22b1918b483ba437f8acb9ff3e0b2a523cd9d756b86cd57b7a0a278027e", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/browser-views-blender.py", "bytes": 3615, "sha256": "9671ec59582d1d7a6d5bf5255cb0b3a592cee554fecb35b8e47f0e7c9456e844", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/browser-views-integration.cjs", "bytes": 8890, "sha256": "e2ce0fd9f56e5f08ecd15cc5438ac9fd4832ed6f7333ca40c97cbc8b1609af70", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/fixtures/browser-views/front.png", "bytes": 2446, "sha256": "a60ffee396abaaab7df4ff9f1c8b55056e9921626b31b971efd37e0a3e246aa5", "hashKind": "binary"}, {"path": "workspace-desktop/test/fixtures/browser-views/held-out.png", "bytes": 2482, "sha256": "98e38edda16831bdb4caa17bb3aa4b04429d2b26e03970daf928639773d5cbed", "hashKind": "binary"}, {"path": "workspace-desktop/test/fixtures/browser-views/side.png", "bytes": 2407, "sha256": "fb8963fff65a712dce15e09d53f1380b59ad73e993844749ec70bacbfa30e77b", "hashKind": "binary"}, {"path": "workspace-desktop/test/fixtures/browser-views/wrong.png", "bytes": 2324, "sha256": "58190ed89d84d7a3d2d9383af34d1c2e8e626db1428f994da4c728ac2d429c53", "hashKind": "binary"}, {"path": "workspace-desktop/test/spatial-components-integration.cjs", "bytes": 10921, "sha256": "20ff48b9075f32e33a801088e4b37998b70928219b79b4bc4d3f7114ce28a6cc", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/BrowserShapeTrace.java", "bytes": 8505, "sha256": "4d3c5095d0513c72b7b5b51ce184b0a1fa0ee644886d54a32b7f47ad4f94ca63", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/BrowserViewTrace.java", "bytes": 12169, "sha256": "fe5f3ec3c70d1d8a0cc5f9f523a4bda24216cea975e5994d8446b265fc8a6aa6", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

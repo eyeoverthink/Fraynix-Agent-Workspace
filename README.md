@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md)
 
-[Edition 226 — Edit components and model a browser reference](README-226.md) · [Previous edition](README-225.md) · [Offline walkthrough](docs/readmes/226/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 227 — Pick browser views and verify the model](README-227.md) · [Previous edition](README-226.md) · [Offline walkthrough](docs/readmes/227/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Move mesh vertices, edges and faces, undo saved edits, and refresh the collider. Capture a graphic from the in-app browser and turn its silhouette into an editable model.
+Click graphics in the in-app browser. Fit a model from front and side, estimate depth, and check a third view before export.

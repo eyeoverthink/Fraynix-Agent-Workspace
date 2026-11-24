@@ -1,3 +1,7 @@
+## Edition 227 — Pick browser views and verify the model
+
+2026-11-24. The in-app browser captures the next trusted click on a graphic and preserves navigation. Java fits front and left-side orthographic crops using declared registration and known front width. The side estimated 300 mm depth, and the separately captured 45-degree view reached 95.7% overlap. A different prop reached 47.0% and saved no scene. Blender independently measured the exported GLB with the same dimensions and 0.43% volume difference. Restart and altered-source refusal passed, and the prior selector fixture was made responsive for narrow hosted viewports. Keep the held-out crop outside grid selection and preserve the original captured bytes. See README-227.md and docs/publication227/plan.md.
+
 ## Edition 226 — Edit components and model a browser reference
 
 2026-11-24. Java moves shared vertices, edges and triangle faces, verifies saved undo ancestry, and refits the local box without moving the authored surface in world coordinates. It rebases existing translation keys when the pivot changes. Blender 4.5.17 LTS checked the 530 mm fitted collider and returned a further 5 mm visual edit. The in-app browser capture isolates a selected graphic, compares three grid fits and keeps the best. The fixture improved from 83.7% to 100% foreground overlap. The reading came from rendered pixels. Thickness and scale are declared, and missing views leave hidden geometry unresolved. After restart the app refused an altered retained capture. See README-226.md and docs/publication226/plan.md.
