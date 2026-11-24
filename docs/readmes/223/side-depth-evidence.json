@@ -1,0 +1,319 @@
+{
+  "platform": "win32",
+  "opposedOnly": {
+    "definitionSha256": "d8b8b460839d1c8177d6623811a53cf128e7ae12821c5bea51cc521b46902bff",
+    "vertices": 672,
+    "meshSha256": "bbd2dc98444b4ab8db7bf24417e36d5f8a551617db6a6ca2ddb993a5b409c76a",
+    "cellM": 0.05,
+    "pngSha256": {
+      "x": "0df572e845a413f699c6e0fcb2af4e27a55046a0716988ed9e4e5ca8e3b7c947",
+      "y": "5033de1eeb5f845868128d4aa97e8b81325a2472f216180ebcdc91a05ae55928",
+      "z": "1c942b8d5637790c4025bf1f0e39538c4d1eaeb9a946d161486cde06cfb3a167"
+    },
+    "volumeM3": 0.07675000000000001,
+    "triangles": 1344,
+    "sourceSha256": "b51aa2fbc494516448504407bc8d25f45f6f529a10c94c573c431822690c7bc6",
+    "depth": {
+      "removedVoxels": 36,
+      "rules": "Validate all hits against the same hull before applying the combined free space.",
+      "registration": {
+        "x": "rows -Y, columns -Z",
+        "y": "rows +Z, columns +X",
+        "z": "rows -Y, columns +X"
+      },
+      "views": [
+        {
+          "removedVoxels": 18,
+          "unit": "um",
+          "maxInputGridResidualUm": 0,
+          "backgroundRays": 182,
+          "inputGridToleranceUm": 500,
+          "origin": "positive-grid-face",
+          "samplesSha256": "f7f7e7a7ad02b67db59328c6e8ce7abf9a5df63fdb4300fb75494eba0aade2d4",
+          "unobservedRays": 0,
+          "gridFit": "nearest-face",
+          "axis": "+z",
+          "measuredRays": 74
+        },
+        {
+          "removedVoxels": 18,
+          "unit": "um",
+          "maxInputGridResidualUm": 0,
+          "backgroundRays": 182,
+          "inputGridToleranceUm": 500,
+          "origin": "negative-grid-face",
+          "samplesSha256": "c84e1cc84823a42a22f66b0a872f594961999906ac117cbbe87772056df323e5",
+          "unobservedRays": 0,
+          "gridFit": "nearest-face",
+          "axis": "-z",
+          "measuredRays": 74
+        }
+      ]
+    },
+    "grid": 16,
+    "scope": "Registered silhouette and first-hit evidence. Each ray carves before its fitted face. Any detail beyond all observed faces remains unresolved.",
+    "physics": "Separate enclosing box; visible cutouts belong to the visual mesh.",
+    "inputProjectionIou": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "voxels": 614,
+    "policy": "axis-visual-hull-axis-depth-v4"
+  },
+  "withSide": {
+    "definitionSha256": "6c2533f6bb090abc6a380f6694a82c56d5b6a90ef80da296ae4f79bcdbc41d4c",
+    "vertices": 688,
+    "meshSha256": "bb4ea2803e0dd8d6b23c83554880bae71d7f308b73ffbf978b822a431e7790b2",
+    "cellM": 0.05,
+    "pngSha256": {
+      "x": "0df572e845a413f699c6e0fcb2af4e27a55046a0716988ed9e4e5ca8e3b7c947",
+      "y": "5033de1eeb5f845868128d4aa97e8b81325a2472f216180ebcdc91a05ae55928",
+      "z": "1c942b8d5637790c4025bf1f0e39538c4d1eaeb9a946d161486cde06cfb3a167"
+    },
+    "volumeM3": 0.07575000000000001,
+    "triangles": 1376,
+    "sourceSha256": "51b299c31299a262b7c646b05cc5a1e350521bf5c3ecf821d2f03bd448926711",
+    "depth": {
+      "removedVoxels": 44,
+      "rules": "Validate all hits against the same hull before applying the combined free space.",
+      "registration": {
+        "x": "rows -Y, columns -Z",
+        "y": "rows +Z, columns +X",
+        "z": "rows -Y, columns +X"
+      },
+      "views": [
+        {
+          "removedVoxels": 8,
+          "unit": "um",
+          "maxInputGridResidualUm": 0,
+          "backgroundRays": 171,
+          "inputGridToleranceUm": 500,
+          "origin": "positive-grid-face",
+          "samplesSha256": "5c78e9f94e9aaedbc2ed1e7841e96cb1aed9378d8342e08f31e24bd8459704c0",
+          "unobservedRays": 0,
+          "gridFit": "nearest-face",
+          "axis": "+x",
+          "measuredRays": 85
+        },
+        {
+          "removedVoxels": 18,
+          "unit": "um",
+          "maxInputGridResidualUm": 0,
+          "backgroundRays": 182,
+          "inputGridToleranceUm": 500,
+          "origin": "positive-grid-face",
+          "samplesSha256": "f7f7e7a7ad02b67db59328c6e8ce7abf9a5df63fdb4300fb75494eba0aade2d4",
+          "unobservedRays": 0,
+          "gridFit": "nearest-face",
+          "axis": "+z",
+          "measuredRays": 74
+        },
+        {
+          "removedVoxels": 18,
+          "unit": "um",
+          "maxInputGridResidualUm": 0,
+          "backgroundRays": 182,
+          "inputGridToleranceUm": 500,
+          "origin": "negative-grid-face",
+          "samplesSha256": "c84e1cc84823a42a22f66b0a872f594961999906ac117cbbe87772056df323e5",
+          "unobservedRays": 0,
+          "gridFit": "nearest-face",
+          "axis": "-z",
+          "measuredRays": 74
+        }
+      ]
+    },
+    "grid": 16,
+    "scope": "Registered silhouette and first-hit evidence. Each ray carves before its fitted face. Any detail beyond all observed faces remains unresolved.",
+    "physics": "Separate enclosing box; visible cutouts belong to the visual mesh.",
+    "inputProjectionIou": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "voxels": 606,
+    "policy": "axis-visual-hull-axis-depth-v4"
+  },
+  "allFaces": {
+    "definitionSha256": "7054e270f00f5f58f57f9558fb851783d4d5635281ef5ef507b7c3da1a0ad65e",
+    "vertices": 688,
+    "meshSha256": "bb4ea2803e0dd8d6b23c83554880bae71d7f308b73ffbf978b822a431e7790b2",
+    "cellM": 0.05,
+    "pngSha256": {
+      "x": "0df572e845a413f699c6e0fcb2af4e27a55046a0716988ed9e4e5ca8e3b7c947",
+      "y": "5033de1eeb5f845868128d4aa97e8b81325a2472f216180ebcdc91a05ae55928",
+      "z": "1c942b8d5637790c4025bf1f0e39538c4d1eaeb9a946d161486cde06cfb3a167"
+    },
+    "volumeM3": 0.07575000000000001,
+    "triangles": 1376,
+    "sourceSha256": "0bd4bee7f5be59dc324d635097edba5500185e4cdcc7e9c2580a0b13dd771ba1",
+    "depth": {
+      "removedVoxels": 44,
+      "rules": "Validate all hits against the same hull before applying the combined free space.",
+      "registration": {
+        "x": "rows -Y, columns -Z",
+        "y": "rows +Z, columns +X",
+        "z": "rows -Y, columns +X"
+      },
+      "views": [
+        {
+          "removedVoxels": 8,
+          "unit": "um",
+          "maxInputGridResidualUm": 0,
+          "backgroundRays": 171,
+          "inputGridToleranceUm": 500,
+          "origin": "positive-grid-face",
+          "samplesSha256": "5c78e9f94e9aaedbc2ed1e7841e96cb1aed9378d8342e08f31e24bd8459704c0",
+          "unobservedRays": 0,
+          "gridFit": "nearest-face",
+          "axis": "+x",
+          "measuredRays": 85
+        },
+        {
+          "removedVoxels": 0,
+          "unit": "um",
+          "maxInputGridResidualUm": 0,
+          "backgroundRays": 171,
+          "inputGridToleranceUm": 500,
+          "origin": "negative-grid-face",
+          "samplesSha256": "cec7b8fb2b0ec74b198b3bdf0314a4bff9a00a19c423e848bcc6637af2e2c7a7",
+          "unobservedRays": 0,
+          "gridFit": "nearest-face",
+          "axis": "-x",
+          "measuredRays": 85
+        },
+        {
+          "removedVoxels": 0,
+          "unit": "um",
+          "maxInputGridResidualUm": 0,
+          "backgroundRays": 156,
+          "inputGridToleranceUm": 500,
+          "origin": "positive-grid-face",
+          "samplesSha256": "da37e4063299682b16d3e45c21bc0807c2b28eb5bbb7bf0e3a3649e8ca127cd3",
+          "unobservedRays": 0,
+          "gridFit": "nearest-face",
+          "axis": "+y",
+          "measuredRays": 100
+        },
+        {
+          "removedVoxels": 0,
+          "unit": "um",
+          "maxInputGridResidualUm": 0,
+          "backgroundRays": 156,
+          "inputGridToleranceUm": 500,
+          "origin": "negative-grid-face",
+          "samplesSha256": "940d2f7309a1ddd4f49c9c04950b14196325450ed47a1b57340bce52cbc8567f",
+          "unobservedRays": 0,
+          "gridFit": "nearest-face",
+          "axis": "-y",
+          "measuredRays": 100
+        },
+        {
+          "removedVoxels": 18,
+          "unit": "um",
+          "maxInputGridResidualUm": 0,
+          "backgroundRays": 182,
+          "inputGridToleranceUm": 500,
+          "origin": "positive-grid-face",
+          "samplesSha256": "f7f7e7a7ad02b67db59328c6e8ce7abf9a5df63fdb4300fb75494eba0aade2d4",
+          "unobservedRays": 0,
+          "gridFit": "nearest-face",
+          "axis": "+z",
+          "measuredRays": 74
+        },
+        {
+          "removedVoxels": 18,
+          "unit": "um",
+          "maxInputGridResidualUm": 0,
+          "backgroundRays": 182,
+          "inputGridToleranceUm": 500,
+          "origin": "negative-grid-face",
+          "samplesSha256": "c84e1cc84823a42a22f66b0a872f594961999906ac117cbbe87772056df323e5",
+          "unobservedRays": 0,
+          "gridFit": "nearest-face",
+          "axis": "-z",
+          "measuredRays": 74
+        }
+      ]
+    },
+    "grid": 16,
+    "scope": "Registered silhouette and first-hit evidence. Each ray carves before its fitted face. Any detail beyond all observed faces remains unresolved.",
+    "physics": "Separate enclosing box; visible cutouts belong to the visual mesh.",
+    "inputProjectionIou": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "voxels": 606,
+    "policy": "axis-visual-hull-axis-depth-v4"
+  },
+  "exportSha256": "68e60280a3b36a03b30720966f87f9bfba3cdd74be5182acae31c829d1530da2",
+  "independentBlender": {
+    "blender": "5.3.0",
+    "inputGridChangesFromSideRecess": {
+      "+x": 4,
+      "-x": 0,
+      "+y": 0,
+      "-y": 0,
+      "+z": 0,
+      "-z": 0
+    },
+    "originalVolumeM3": 0.0757500018961728,
+    "opposedOnlyVolumeM3": 0.07675000031106144,
+    "recoveredVolumeM3": 0.07575000034086371,
+    "sideRecessM": {
+      "original": 0.09999999403953552,
+      "opposedOnly": 1.4901161193847656e-8,
+      "recovered": 0.10000000894069672
+    },
+    "withheldRays": {
+      "+x": {
+        "rays": 196,
+        "sourceHits": 85,
+        "missDisagreements": 0,
+        "maxHitErrorM": 2.9802322387695312e-8
+      },
+      "-x": {
+        "rays": 196,
+        "sourceHits": 85,
+        "missDisagreements": 0,
+        "maxHitErrorM": 2.9802322387695312e-8
+      },
+      "+y": {
+        "rays": 196,
+        "sourceHits": 100,
+        "missDisagreements": 0,
+        "maxHitErrorM": 8.940696716308594e-8
+      },
+      "-y": {
+        "rays": 196,
+        "sourceHits": 100,
+        "missDisagreements": 0,
+        "maxHitErrorM": 2.9802322387695312e-8
+      },
+      "+z": {
+        "rays": 196,
+        "sourceHits": 74,
+        "missDisagreements": 0,
+        "maxHitErrorM": 4.470348358154297e-8
+      },
+      "-z": {
+        "rays": 196,
+        "sourceHits": 74,
+        "missDisagreements": 0,
+        "maxHitErrorM": 2.9802322387695312e-8
+      }
+    },
+    "withheldObliqueSilhouetteIou": 0.9999902801267472,
+    "maxSampledSurfaceErrorM": 0.000004085290129296482,
+    "enclosedCavityVolumeM3": 0.00012500003352762523,
+    "enclosedCavityPreservesAllSixGrids": true,
+    "passed": true
+  },
+  "webglPreviewAvailable": true,
+  "crossAxisConflictRefused": true,
+  "orderIndependentMesh": true,
+  "restoredAfterRestart": true,
+  "changedSourceRefused": true
+}

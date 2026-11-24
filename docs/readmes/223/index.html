@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 223 · Recover the perpendicular recess</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Recover the perpendicular recess</h1><p>A registered side view exposes a 100 mm recess the opposing depth grids could not see.</p>
+<nav><a href="../../../README-223.md">App guide</a><a href="side-depth-evidence.json">Full receipts</a>
+<a href="../222/index.html">Edition 222</a><a href="../../publication222/plan.md">Verification contract</a>
+<a href="editable-three-recesses.blend" download>Editable Blender project</a><a href="#system">System files</a></nav>
+<p>The perpendicular view removed eight additional cells and recovered a 100 mm recess. Blender checked 1,176 offset rays across six directions and a separate oblique view.</p>
+<figure><img src="fraynix-three-recesses.png" alt="Fraynix shows the side recess in the mesh carved from six views"><figcaption>Fraynix shows the side recess in the mesh carved from six views</figcaption></figure>
+<figure><img src="withheld-side-original.png" alt="The original bracket from a withheld oblique view"><figcaption>The original bracket from a withheld oblique view</figcaption></figure>
+<figure><img src="withheld-side-opposed.png" alt="The opposing Z control leaves the side wall filled"><figcaption>The opposing Z control leaves the side wall filled</figcaption></figure>
+<figure><img src="withheld-side-recovered.png" alt="The side observation recovers the recess in the exported mesh"><figcaption>The side observation recovers the recess in the exported mesh</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "A registered side view exposes a 100 mm recess the opposing depth grids could not see.", "modules": [{"title": "Six registered directions and measured hits", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstructionDepth.java", "note": "docs/obsidian/231-perpendicular-depth.md"}, {"title": "Silhouette checks and editable mesh extraction", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstruction.java", "note": "docs/obsidian/231-perpendicular-depth.md"}, {"title": "Spatial workspace and GLB export", "source": "workspace-desktop/renderer/spatial-panel.js", "note": "docs/obsidian/231-perpendicular-depth.md"}, {"title": "Blender capture and independent geometry checks", "source": "workspace-desktop/test/spatial-side-depth-blender.py", "note": "docs/obsidian/231-perpendicular-depth.md"}, {"title": "Desktop controls, conflict refusal and restart", "source": "workspace-desktop/test/spatial-side-depth-integration.cjs", "note": "docs/obsidian/231-perpendicular-depth.md"}], "screenshots": [{"path": "docs/readmes/223/fraynix-three-recesses.png", "title": "Fraynix shows the side recess in the mesh carved from six views"}, {"path": "docs/readmes/223/withheld-side-original.png", "title": "The original bracket from a withheld oblique view"}, {"path": "docs/readmes/223/withheld-side-opposed.png", "title": "The opposing Z control leaves the side wall filled"}, {"path": "docs/readmes/223/withheld-side-recovered.png", "title": "The side observation recovers the recess in the exported mesh"}], "evidence": [{"path": "docs/readmes/223/side-depth-evidence.json", "title": "Desktop and independent Blender evidence"}, {"path": "workspace-engine/src/main/resources/spatial/reconstruction/side-depth.json", "title": "Silhouettes and depth from six registered faces"}, {"path": "docs/readmes/223/editable-three-recesses.blend", "title": "Editable Blender project"}, {"path": "docs/readmes/223/three-recesses.glb", "title": "Java GLB export"}, {"path": "docs/publication223/plan.md", "title": "Verification, reviewer notes and reproduction"}, {"path": "docs/readmes/223/FILE_TREE.md", "title": "Edition file tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 11627, "sha256": "77f3a06710d1dc062943ddae87868d7f7f401de159eae3605e05b4470e75630e", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/231-perpendicular-depth.canvas", "bytes": 2295, "sha256": "ca1dfffa6ba87195027e935d9f25fe8f0f2792afb8708c2269f00c8a6fc679d8", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/231-perpendicular-depth.md", "bytes": 409, "sha256": "e94aab6a77c3756085f640599a877d4ed5731410cb61aab8c961207bcc5cc883", "hashKind": "utf8-lf"}, {"path": "docs/publication223/plan.md", "bytes": 4180, "sha256": "82c650e9483f7e9629603990ade4db667d3f61dd5110bc538c10a9c93dc6d499", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 128215, "sha256": "b86305a460b351364a03872ccceec3e1977c98022cee14645249cc5169edd106", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-panel.js", "bytes": 40493, "sha256": "c8cc68fc04c76961b74b85bbcb589f634344c4917b1a519030acee017dd7043a", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/spatial-multidepth-integration.cjs", "bytes": 7047, "sha256": "cbe084bdd6f70a99c8c57ba7fb166581322cac7ae527ef491864b8641f169b33", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/spatial-side-depth-blender.py", "bytes": 7836, "sha256": "9775145a4df83f92556c91a45913c5a98139976f1b1aff8f10514604619493c1", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/spatial-side-depth-integration.cjs", "bytes": 6940, "sha256": "0f840573a9de64c81c7cf19b7cadf03b867a5c0e0ef26fd7b3de6bf81f5f57e3", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstruction.java", "bytes": 11715, "sha256": "ab13b9dd1a233ebd5d098db3db08860a39aaff36d0878dcdc0308d5a8bf64499", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstructionDepth.java", "bytes": 9238, "sha256": "f49886bb72580eb292ab456d69ba932b1f67ee19831ef53eb016120bf28372a3", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 147828, "sha256": "a36207f19e7eb182082e74d7161ceee9a360c97ba84cb3460dc2806d2a3d73a9", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/resources/spatial/reconstruction/side-depth.json", "bytes": 32215, "sha256": "0bd4bee7f5be59dc324d635097edba5500185e4cdcc7e9c2580a0b13dd771ba1", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/SpatialReconstructionAxisDepthTest.java", "bytes": 6478, "sha256": "eebeea14d21f13206a8bf41551498cbdf7ef20c2f7090f63cfc9eea9cb5d36b1", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

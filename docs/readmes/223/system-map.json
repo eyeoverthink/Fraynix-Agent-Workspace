@@ -1,0 +1,74 @@
+{
+  "summary": "A registered side view exposes a 100 mm recess the opposing depth grids could not see.",
+  "modules": [
+    {
+      "title": "Six registered directions and measured hits",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstructionDepth.java",
+      "note": "docs/obsidian/231-perpendicular-depth.md"
+    },
+    {
+      "title": "Silhouette checks and editable mesh extraction",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialReconstruction.java",
+      "note": "docs/obsidian/231-perpendicular-depth.md"
+    },
+    {
+      "title": "Spatial workspace and GLB export",
+      "source": "workspace-desktop/renderer/spatial-panel.js",
+      "note": "docs/obsidian/231-perpendicular-depth.md"
+    },
+    {
+      "title": "Blender capture and independent geometry checks",
+      "source": "workspace-desktop/test/spatial-side-depth-blender.py",
+      "note": "docs/obsidian/231-perpendicular-depth.md"
+    },
+    {
+      "title": "Desktop controls, conflict refusal and restart",
+      "source": "workspace-desktop/test/spatial-side-depth-integration.cjs",
+      "note": "docs/obsidian/231-perpendicular-depth.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/223/fraynix-three-recesses.png",
+      "title": "Fraynix shows the side recess in the mesh carved from six views"
+    },
+    {
+      "path": "docs/readmes/223/withheld-side-original.png",
+      "title": "The original bracket from a withheld oblique view"
+    },
+    {
+      "path": "docs/readmes/223/withheld-side-opposed.png",
+      "title": "The opposing Z control leaves the side wall filled"
+    },
+    {
+      "path": "docs/readmes/223/withheld-side-recovered.png",
+      "title": "The side observation recovers the recess in the exported mesh"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/223/side-depth-evidence.json",
+      "title": "Desktop and independent Blender evidence"
+    },
+    {
+      "path": "workspace-engine/src/main/resources/spatial/reconstruction/side-depth.json",
+      "title": "Silhouettes and depth from six registered faces"
+    },
+    {
+      "path": "docs/readmes/223/editable-three-recesses.blend",
+      "title": "Editable Blender project"
+    },
+    {
+      "path": "docs/readmes/223/three-recesses.glb",
+      "title": "Java GLB export"
+    },
+    {
+      "path": "docs/publication223/plan.md",
+      "title": "Verification, reviewer notes and reproduction"
+    },
+    {
+      "path": "docs/readmes/223/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}
