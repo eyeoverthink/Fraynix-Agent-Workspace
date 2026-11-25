@@ -1,6 +1,8 @@
 
-const existingLevelRequest = text =>
-    /^(?:please )?(?:place|put|add|drop)\b[^.!?]{1,100}\b(?:into|in|to) (?:my|the|this|our) (?:existing |open |current )?(?:level|scene)\b/i.test(text.trim());
+const levelRequest = /^(?:please )?(?:place|put|add|drop)\s+([^.!?]{1,100}?)\s+(?:into|in|to) (?:my|the|this|our) (?:existing |open |current )?(?:level|scene)\b/i;
+const propReference = /\b(?:prop|bracket|model|selected (?:object|asset))\b|^(?:it|this|that)$/i;
+const existingLevelRequest = text => propReference.test(levelRequest.exec(text.trim())?.[1] ?? '');
+
 export const isPlacementRequest = text => existingLevelRequest(text)
     || /^(?:please )?place (?:the )?(?:selected |verified )?(?:3d )?prop\b/i.test(text.trim());
 
@@ -40,10 +42,7 @@ export class SpatialPlacementPanel {
                         aria-label="Top-down preview of proposed prop and aisle on the existing floor"></canvas>
                     <figcaption>Amber prop · teal walking aisle · gray colliders</figcaption>
                 </figure>
-                <p id="placement-scope" class="spatial-note" hidden>
-                    The trial uses a new contact deck. The source model stays in its original scene.
-                    Approval runs a moving hit and a lateral miss, repeats both, then saves the scene and evidence.
-                </p>
+                <p id="placement-scope" class="spatial-note" hidden></p>
                 <p id="placement-status" role="status"></p>
                 <p id="placement-result" role="status"></p>
                 <p id="placement-file"></p>
@@ -216,7 +215,9 @@ export class SpatialPlacementPanel {
             const xyz = review.targetM.map(m => Number(m.toFixed(4))).join(', ');
             const destination = level ? [
                 ['Destination',review.destinationTitle], ['Revision',review.destination.sceneId],
-                ['Floor',review.floorLabel], ['Clear aisle',result.layout.routeLengthM.toFixed(2)+' m · 0.36 m wide']
+                ['Floor',review.floorLabel],
+                ['Clear aisle',result.layout.routeLengthM.toFixed(2)+' m · '+(2*result.layout.radius).toFixed(2)+' m wide'],
+                ['Aisle start → exit',review.aisle.slice(0,2).join(', ')+' → '+review.aisle.slice(2).join(', ')+' m (X, Z)']
             ] : [];
             for (const [key,value] of [...destination,
                 ['Source prop',review.sourceTitle],['Checked view',(100*review.sourceOverlap).toFixed(1)+'% overlap'],

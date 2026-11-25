@@ -65,6 +65,12 @@ async function main() {
     }
 
     try {
+        const routing = await page.evaluate(async goal => {
+            const {isPlacementRequest} = await import('./spatial-placement.js');
+            return [goal,'Drop it in the open scene','Place the verified prop',
+                'Add more enemies to my level'].map(isPlacementRequest);
+        },command);
+        assert.deepEqual(routing,[true,true,true,false]);
         const firstDefinition = level('Siding Workshop',0);
         const first = await api('import',{text:JSON.stringify(firstDefinition)});
         const secondDefinition = level('Raised Switchyard',.25,[
@@ -243,7 +249,7 @@ async function main() {
                 missTicks:item.evidence.measured.miss.contactTicks,routeM:item.evidence.measured.routeLengthM
             })),
             blockedPlacementRefused:true,interceptingColliderRefused:true,changedSourceRefused:true,
-            staleDestinationRefused:true,changedDestinationRefused:true,duplicateCommitRefused:true,unapprovedRunRefused:true,
+            staleDestinationRefused:true,changedDestinationRefused:true,duplicateCommitPrevented:true,unapprovedRunRefused:true,
             reviewRestart:true,approvalRestart:true,replayAfterRestart:true,unchangedExistingObjects:true,
             cleanProjectReimport:true,offlineObstacleStopsPlayer:true,offlineExitReached:true,
             evidenceSha256:verified.evidenceSha256,evidenceExportSha256:evidence.receipt.sha256,playSha256:html.receipt.sha256
