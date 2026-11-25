@@ -158,7 +158,7 @@ async function main() {
             measurements:receipt.measured,localPngImports:7,didRestart:true,exactGlbRoundTrip:true,
             sourceScenesPreserved:true,refusedOverlap:true,refusedChangedLayout:true,refusedChangedViewSet:true};
         await fs.writeFile(path.join(out,'image-assembly-evidence.json'),JSON.stringify(proof,null,2)+'\n');
-        await fs.writeFile(path.join(out,'image-workshop.json'),scene.sourceText+'\n');
+        await fs.writeFile(path.join(out,'image-workshop.json'),scene.sourceText);
         await fs.writeFile(path.join(out,'image-workshop.glb'),bytes);
         console.log(JSON.stringify(proof));
     } catch (error) {
