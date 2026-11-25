@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md) · [Independent system review](docs/publication244/review.md)
 
-[Edition 249 — Recover and verify prop rotation from unmarked images](README-249.md) · [Previous edition](README-248.md) · [Offline walkthrough](docs/readmes/249/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 250 — Recover full prop poses from unmarked images](README-250.md) · [Previous edition](README-249.md) · [Offline walkthrough](docs/readmes/250/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Recover the floor position and heading of known 3D props from an unmarked overhead image. A second registered angle verifies the fixed poses before the scene is saved.
+Recover the 3D position, heading, pitch and roll of known props from registered unmarked images. A separate angle checks the fixed poses before Java saves the editable scene and colliders.

@@ -1,0 +1,223 @@
+{
+  "platform": "win32",
+  "layoutSha256": "f00882b8f6591dd0ebf6db3f292cc8296b197e4b25bcdc1e03794ece59e3d3a5",
+  "sceneSha256": "c9ea683c98c8b83866bfa1a657cd6657fab5845b80a909e551b1e8e53002a00f",
+  "glbSha256": "4bdf01e41d8826a601b4b968cc49daa43f4f369ad6f8354e8912db0c11cd6925",
+  "validation": {
+    "witnessElevationDeg": 45,
+    "minimumWitnessIou": 0.83,
+    "tiltLimitDeg": 30,
+    "minimumWitnessRotationGain": 0.022,
+    "witnessHeadingDeg": 45,
+    "minimumPoseGap": 0.022,
+    "props": [
+      {
+        "sourceId": "image-prop-1",
+        "poseGap": 0.13277080265080254,
+        "positionM": [
+          0.7466666666666667,
+          0.39183503419072285,
+          0.7400000000000001
+        ],
+        "witnessCenterErrorPx": 0.2085120362200694,
+        "witnessEstimatedAnglesDeg": [
+          -54,
+          19,
+          -13
+        ],
+        "anglesDeg": [
+          -54,
+          17,
+          -15
+        ],
+        "witnessIou": 0.9805862200228398,
+        "label": "Offset step",
+        "overheadIou": 0.9754098360655737,
+        "guideIou": 0.9716522107044637,
+        "witnessCorrectionDeg": 2.8283553219044113,
+        "witnessCorrectionGain": 0.0038362723783760266
+      },
+      {
+        "sourceId": "image-prop-2",
+        "poseGap": 0.27462477867103874,
+        "positionM": [
+          -0.8133333333333334,
+          0.348399649414025,
+          -0.42000000000000004
+        ],
+        "witnessCenterErrorPx": 0.7939767203639763,
+        "witnessEstimatedAnglesDeg": [
+          32,
+          -15,
+          21
+        ],
+        "anglesDeg": [
+          32,
+          -19,
+          21
+        ],
+        "witnessIou": 0.9371231696813093,
+        "label": "Elbow bracket",
+        "overheadIou": 0.9686558167570826,
+        "guideIou": 0.9736256752462663,
+        "witnessCorrectionDeg": 3.99999999999953,
+        "witnessCorrectionGain": 0.03484214823776588
+      }
+    ],
+    "witnessSha256": "dd5d21081cfbb1735c8eb69f9b3f7305a150dd624aed149a7df7065c1a4d0e9a",
+    "assignmentGap": 1.3894455190974204,
+    "guideHeadingDeg": -45,
+    "maximumWitnessCorrectionDeg": 8,
+    "guideSha256": "57353b3efbef25e83e6c0ca48f4f4010ca5c4957dc81becba8ff77743f428fa3",
+    "guideElevationDeg": 60,
+    "policy": "registered-silhouettes-tilt-v3",
+    "maximumWitnessCenterErrorPx": 2.5
+  },
+  "measured": [
+    {
+      "label": "Offset step",
+      "positionErrorM": 0.005397677566746799,
+      "angularErrorDeg": 1.9571514471707456,
+      "reference": {
+        "model": "step",
+        "positionM": [
+          0.751,
+          0.393,
+          0.743
+        ],
+        "anglesDeg": [
+          -53,
+          17,
+          -13
+        ],
+        "quaternion": [
+          0.1813855916261673,
+          -0.42348554730415344,
+          -0.034668318927288055,
+          0.8868807554244995
+        ]
+      }
+    },
+    {
+      "label": "Elbow bracket",
+      "positionErrorM": 0.001916307154174842,
+      "angularErrorDeg": 2.2360505218793696,
+      "reference": {
+        "model": "elbow",
+        "positionM": [
+          -0.813,
+          0.35,
+          -0.419
+        ],
+        "anglesDeg": [
+          33,
+          -17,
+          21
+        ],
+        "quaternion": [
+          -0.08816022425889969,
+          0.30201902985572815,
+          0.21408896148204803,
+          0.9247585535049438
+        ]
+      }
+    }
+  ],
+  "physics": [
+    {
+      "sourceId": "image-prop-1",
+      "initialRotationErrorMilliDeg": 0,
+      "contactTick": 56,
+      "centerMm": [
+        746,
+        150,
+        738
+      ],
+      "ticks": 480,
+      "initialCenterM": [
+        0.7466666666666667,
+        0.39183503419072285,
+        0.7400000000000001
+      ],
+      "speedMmps": 0,
+      "rotationErrorMilliDeg": 22526
+    },
+    {
+      "sourceId": "image-prop-2",
+      "initialRotationErrorMilliDeg": 0,
+      "contactTick": 60,
+      "centerMm": [
+        -794,
+        100,
+        -418
+      ],
+      "ticks": 480,
+      "initialCenterM": [
+        -0.8133333333333334,
+        0.348399649414025,
+        -0.42000000000000004
+      ],
+      "speedMmps": 0,
+      "rotationErrorMilliDeg": 28088
+    }
+  ],
+  "truth": {
+    "blenderVersion": "4.5.17 LTS",
+    "widthM": 3.2,
+    "imagePixels": [
+      480,
+      360
+    ],
+    "samples": [
+      {
+        "model": "elbow",
+        "positionM": [
+          -0.813,
+          0.35,
+          -0.419
+        ],
+        "anglesDeg": [
+          33,
+          -17,
+          21
+        ],
+        "quaternion": [
+          -0.08816022425889969,
+          0.30201902985572815,
+          0.21408896148204803,
+          0.9247585535049438
+        ]
+      },
+      {
+        "model": "step",
+        "positionM": [
+          0.751,
+          0.393,
+          0.743
+        ],
+        "anglesDeg": [
+          -53,
+          17,
+          -13
+        ],
+        "quaternion": [
+          0.1813855916261673,
+          -0.42348554730415344,
+          -0.034668318927288055,
+          0.8868807554244995
+        ]
+      }
+    ],
+    "pitchOnlyControlDeltaDeg": -16,
+    "heightOnlyControlDeltaM": 0.09
+  },
+  "wrongTilt": "Held-out view refused Offset step's orientation at its fixed position (14.3° correction).",
+  "maxGlbVertexDeltaM": 1.1102230246251565e-16,
+  "refusedHeightOnly": true,
+  "refusedDuplicateWitness": true,
+  "matchedReverseSelectionOrder": true,
+  "restoredAfterRestart": true,
+  "refusedChangedGuide": true,
+  "refusedChangedWitness": true,
+  "refusedChangedModelImages": true
+}

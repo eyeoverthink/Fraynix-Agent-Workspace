@@ -1,3 +1,7 @@
+## Edition 250 — Recover full prop poses from unmarked images
+
+2026-11-25. Java fits XYZ, heading, pitch and roll using overhead and a registered side view. A third fixed camera verifies the retained poses. On the two independent Blender reference props, the largest 3D position error was 5.4 mm and the largest full rotation error was 2.24°. Tilt-only and height-only changes refused. Windows replayed the complete checks after restart, refused changed inputs and reproduced the exact GLB. Blender reopened the fitted visual meshes and distinct collider boxes. The study uses rendered reference views. See README-250.md and docs/publication250/plan.md.
+
 ## Edition 249 — Recover and verify prop rotation from unmarked images
 
 2026-11-25. Rotation recovery searches upright headings from the unmarked overhead image, preserves a fixed pose, and checks both position and orientation in a separate oblique view. The two off-grid Blender samples had 5 mm floor position error and 1° heading error. The second-view headings agreed with the overhead estimates. Rotation-only, translation-only, and symmetric-heading controls were refused. The Windows desktop restored the mode after restart and reproduced geometric checks, native floor contacts and the GLB. Blender reopened both rotated meshes and distinct colliders. Color and position-only regressions passed. See README-249.md and docs/publication249/plan.md.

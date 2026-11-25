@@ -1,0 +1,96 @@
+{
+  "summary": "Two images recover position and full rotation. A third verifies the saved poses.",
+  "modules": [
+    {
+      "title": "Three-axis pose fit and held-out verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ImageTiltRegistration.java",
+      "note": "docs/obsidian/258-image-tilt-registration.md"
+    },
+    {
+      "title": "Rotated boxes and native floor checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java",
+      "note": "docs/obsidian/258-image-tilt-registration.md"
+    },
+    {
+      "title": "Saved sources and restart replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/258-image-tilt-registration.md"
+    },
+    {
+      "title": "Desktop full-pose controls",
+      "source": "workspace-desktop/renderer/image-assembly.js",
+      "note": "docs/obsidian/258-image-tilt-registration.md"
+    },
+    {
+      "title": "Desktop pose, refusal and restart tests",
+      "source": "workspace-desktop/test/image-tilt-integration.cjs",
+      "note": "docs/obsidian/258-image-tilt-registration.md"
+    },
+    {
+      "title": "Independent Blender fixture generator",
+      "source": "workspace-desktop/test/image-tilt-fixtures.py",
+      "note": "docs/obsidian/258-image-tilt-registration.md"
+    },
+    {
+      "title": "Independent Blender GLB verification",
+      "source": "workspace-desktop/test/image-assembly-blender.py",
+      "note": "docs/obsidian/258-image-tilt-registration.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/250/assembled-tilted-scene.png",
+      "title": "Editable Blender-derived props at the recovered full poses in Spatial"
+    },
+    {
+      "path": "docs/readmes/250/tilt-only-refused.png",
+      "title": "The held-out angle refuses a tilt-only change at the same 3D position"
+    },
+    {
+      "path": "docs/readmes/250/tilted-scene-after-restart.png",
+      "title": "Saved poses and native floor contacts rechecked after desktop restart"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/250/overhead.png",
+      "title": "Overhead"
+    },
+    {
+      "path": "docs/readmes/250/fitting-side.png",
+      "title": "Fitting side"
+    },
+    {
+      "path": "docs/readmes/250/held-out.png",
+      "title": "Held-out angle"
+    },
+    {
+      "path": "docs/readmes/250/wrong-tilt.png",
+      "title": "Tilt-only control"
+    },
+    {
+      "path": "docs/readmes/250/wrong-height.png",
+      "title": "Height-only control"
+    },
+    {
+      "path": "docs/readmes/250/pose-verification.json",
+      "title": "Measured evidence"
+    },
+    {
+      "path": "docs/readmes/250/blender-readback.json",
+      "title": "Blender readback"
+    },
+    {
+      "path": "docs/readmes/250/image-workshop.glb",
+      "title": "GLB"
+    },
+    {
+      "path": "docs/publication250/plan.md",
+      "title": "Reproduction"
+    },
+    {
+      "path": "docs/readmes/250/FILE_TREE.md",
+      "title": "File tree"
+    }
+  ]
+}

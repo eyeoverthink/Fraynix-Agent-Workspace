@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 250 · Recover full prop poses from unmarked images</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Recover full prop poses from unmarked images</h1>
+<p>Two registered views recover heading, pitch, roll and position. A third angle verifies the frozen poses before saving.</p>
+<nav><a href="../../../README-250.md">App guide</a><a href="../249/index.html">Edition 249</a>
+<a href="../../publication250/plan.md">Reproduction</a><a href="pose-verification.json" download>Download measurements</a>
+<a href="image-workshop.glb" download>Download the GLB</a><a href="#system">System files</a></nav>
+<figure><img src="assembled-tilted-scene.png" alt="Editable Blender-derived props at the recovered full poses in Spatial"><figcaption>Editable Blender-derived props at the recovered full poses in Spatial</figcaption></figure>
+<figure><img src="tilt-only-refused.png" alt="The held-out angle refuses a tilt-only change at the same 3D position"><figcaption>The held-out angle refuses a tilt-only change at the same 3D position</figcaption></figure>
+<figure><img src="tilted-scene-after-restart.png" alt="Saved poses and native floor contacts rechecked after desktop restart"><figcaption>Saved poses and native floor contacts rechecked after desktop restart</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Two images recover position and full rotation. A third verifies the saved poses.", "modules": [{"title": "Three-axis pose fit and held-out verification", "source": "workspace-engine/src/main/java/fraymus/workspace/ImageTiltRegistration.java", "note": "docs/obsidian/258-image-tilt-registration.md"}, {"title": "Rotated boxes and native floor checks", "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java", "note": "docs/obsidian/258-image-tilt-registration.md"}, {"title": "Saved sources and restart replay", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "note": "docs/obsidian/258-image-tilt-registration.md"}, {"title": "Desktop full-pose controls", "source": "workspace-desktop/renderer/image-assembly.js", "note": "docs/obsidian/258-image-tilt-registration.md"}, {"title": "Desktop pose, refusal and restart tests", "source": "workspace-desktop/test/image-tilt-integration.cjs", "note": "docs/obsidian/258-image-tilt-registration.md"}, {"title": "Independent Blender fixture generator", "source": "workspace-desktop/test/image-tilt-fixtures.py", "note": "docs/obsidian/258-image-tilt-registration.md"}, {"title": "Independent Blender GLB verification", "source": "workspace-desktop/test/image-assembly-blender.py", "note": "docs/obsidian/258-image-tilt-registration.md"}], "screenshots": [{"path": "docs/readmes/250/assembled-tilted-scene.png", "title": "Editable Blender-derived props at the recovered full poses in Spatial"}, {"path": "docs/readmes/250/tilt-only-refused.png", "title": "The held-out angle refuses a tilt-only change at the same 3D position"}, {"path": "docs/readmes/250/tilted-scene-after-restart.png", "title": "Saved poses and native floor contacts rechecked after desktop restart"}], "evidence": [{"path": "docs/readmes/250/overhead.png", "title": "Overhead"}, {"path": "docs/readmes/250/fitting-side.png", "title": "Fitting side"}, {"path": "docs/readmes/250/held-out.png", "title": "Held-out angle"}, {"path": "docs/readmes/250/wrong-tilt.png", "title": "Tilt-only control"}, {"path": "docs/readmes/250/wrong-height.png", "title": "Height-only control"}, {"path": "docs/readmes/250/pose-verification.json", "title": "Measured evidence"}, {"path": "docs/readmes/250/blender-readback.json", "title": "Blender readback"}, {"path": "docs/readmes/250/image-workshop.glb", "title": "GLB"}, {"path": "docs/publication250/plan.md", "title": "Reproduction"}, {"path": "docs/readmes/250/FILE_TREE.md", "title": "File tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 27607, "sha256": "6d1d5479644829ed689f5cb32299dd08ddc3f4175f28bf7f5881b7fe2a795ad5", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/258-image-tilt-registration.canvas", "bytes": 1133, "sha256": "87db15627130ebb66359c200ea2d970d2f8b9646cdddc9244a72775261d3abd3", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/258-image-tilt-registration.md", "bytes": 431, "sha256": "f469d33f752f30c345b6fcbc0b9f6d2072d0a9e17e0a73d8b510924ebbef4489", "hashKind": "utf8-lf"}, {"path": "docs/publication250/plan.md", "bytes": 3086, "sha256": "1a68fb1ed4d8aabe5afb51e7bf08de7487fbe07bd734b1b63882882b35ca40ff", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/image-assembly.js", "bytes": 8942, "sha256": "56c42395cb9604c0f63a07ad91228fbb2bd9dbd261135795bf90043562e71fd5", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-panel.js", "bytes": 55623, "sha256": "5fe459052b497f344e22c3fab5a24963f73073c386fbc6f819e40dc4e105f64f", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/image-assembly-blender.py", "bytes": 3596, "sha256": "a422c98b2a0cc3b6e0afe1343f5db0fa83270e9849fd0b92c360190431b5e4a4", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/image-tilt-fixtures.py", "bytes": 2351, "sha256": "e092e57f8c203907425566fe08247d40bec6871cbaf0c32a4f10f5f395574d8b", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/image-tilt-integration.cjs", "bytes": 10283, "sha256": "f63b997a9cf7426bfd822ce79cc7819d1b2698f3b6cf7584590c0cdcb8c14716", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java", "bytes": 17138, "sha256": "829aa709a18d0afc3513be8b209983cc9bc7563eafba98eda63cdc97aa0c0c72", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneRegistration.java", "bytes": 18661, "sha256": "f5c07f9c8b3f121d6fe7e9ac77d9fa76f9df12e7fd1f01e2a0b6e95a58ff24b7", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ImageTiltRegistration.java", "bytes": 16025, "sha256": "5086d3516ebf252f94662d2baf2c0e8273053464c29b1fa999468a08b1a456da", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 81293, "sha256": "4c986604c5c19048d4684740a1a719a458608da7cea4bbb41ca99e60d1efd540", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>
