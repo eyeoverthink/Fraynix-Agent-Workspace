@@ -1,0 +1,66 @@
+{
+  "summary": "Branch a replayed authored level and require fresh approval and native verification for each new pose.",
+  "modules": [
+    {
+      "title": "Local pose edit and preceding revision",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RecipientLevelEdit.java",
+      "note": "docs/obsidian/246-recipient-edit.md"
+    },
+    {
+      "title": "Exact approval and native revision commit",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/246-recipient-edit.md"
+    },
+    {
+      "title": "Archive and attached replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PlacementExchange.java",
+      "note": "docs/obsidian/246-recipient-edit.md"
+    },
+    {
+      "title": "Interactive recipient review",
+      "source": "workspace-desktop/renderer/recipient-edit.js",
+      "note": "docs/obsidian/246-recipient-edit.md"
+    },
+    {
+      "title": "Windows workflow and recovery checks",
+      "source": "workspace-desktop/test/recipient-edit-integration.cjs",
+      "note": "docs/obsidian/246-recipient-edit.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/238/recipient-copy-ready.png",
+      "title": "A verified replay offers an explicit editable copy"
+    },
+    {
+      "path": "docs/readmes/238/recipient-edit-preview.png",
+      "title": "The exact requested pose and protected aisle"
+    },
+    {
+      "path": "docs/readmes/238/recipient-edit-verified.png",
+      "title": "The new local result after independent verification"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/238/recipient-edit-proof.json",
+      "title": "Recipient test result"
+    },
+    {
+      "path": "docs/readmes/238/local-edit-receipt.json",
+      "title": "Finalized first local edit and native trials"
+    },
+    {
+      "path": "docs/readmes/237/edited-signal-bay.fraynix-level.json",
+      "title": "Original Signal Bay bundle"
+    },
+    {
+      "path": "docs/publication238/plan.md",
+      "title": "Implementation and reproducibility"
+    },
+    {
+      "path": "docs/readmes/238/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}

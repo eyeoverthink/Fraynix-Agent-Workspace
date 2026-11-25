@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 238 · Edit a verified recipient copy</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Edit a verified recipient copy</h1>
+<p>Branch a replayed authored level and require fresh approval and native verification for each new pose.</p>
+<nav><a href="../../../README-238.md">App guide</a><a href="../237/index.html">Edition 237</a>
+<a href="../../publication238/plan.md">Implementation</a><a href="../237/edited-signal-bay.fraynix-level.json" download>Download original bundle</a>
+<a href="local-edit-receipt.json" download>Download local edit receipt</a><a href="recipient-edit-proof.json">Test results</a><a href="#system">System files</a></nav>
+<p>The first edited pose hit at tick 48, reached 63 contact ticks, missed cleanly in the control, and preserved the 4.35 m aisle. A separate approved second edit also passed.</p>
+<figure><img src="recipient-copy-ready.png" alt="A verified replay offers an explicit editable copy"><figcaption>A verified replay offers an explicit editable copy</figcaption></figure>
+<figure><img src="recipient-edit-preview.png" alt="The exact requested pose and protected aisle"><figcaption>The exact requested pose and protected aisle</figcaption></figure>
+<figure><img src="recipient-edit-verified.png" alt="The new local result after independent verification"><figcaption>The new local result after independent verification</figcaption></figure>
+
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Branch a replayed authored level and require fresh approval and native verification for each new pose.", "modules": [{"title": "Local pose edit and preceding revision", "source": "workspace-engine/src/main/java/fraymus/workspace/RecipientLevelEdit.java", "note": "docs/obsidian/246-recipient-edit.md"}, {"title": "Exact approval and native revision commit", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "note": "docs/obsidian/246-recipient-edit.md"}, {"title": "Archive and attached replay", "source": "workspace-engine/src/main/java/fraymus/workspace/PlacementExchange.java", "note": "docs/obsidian/246-recipient-edit.md"}, {"title": "Interactive recipient review", "source": "workspace-desktop/renderer/recipient-edit.js", "note": "docs/obsidian/246-recipient-edit.md"}, {"title": "Windows workflow and recovery checks", "source": "workspace-desktop/test/recipient-edit-integration.cjs", "note": "docs/obsidian/246-recipient-edit.md"}], "screenshots": [{"path": "docs/readmes/238/recipient-copy-ready.png", "title": "A verified replay offers an explicit editable copy"}, {"path": "docs/readmes/238/recipient-edit-preview.png", "title": "The exact requested pose and protected aisle"}, {"path": "docs/readmes/238/recipient-edit-verified.png", "title": "The new local result after independent verification"}], "evidence": [{"path": "docs/readmes/238/recipient-edit-proof.json", "title": "Recipient test result"}, {"path": "docs/readmes/238/local-edit-receipt.json", "title": "Finalized first local edit and native trials"}, {"path": "docs/readmes/237/edited-signal-bay.fraynix-level.json", "title": "Original Signal Bay bundle"}, {"path": "docs/publication238/plan.md", "title": "Implementation and reproducibility"}, {"path": "docs/readmes/238/FILE_TREE.md", "title": "Edition file tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 19467, "sha256": "6a8fcae1285c64a1fa949f794380dd3c0d52755d8c93681450ca23b0e7f8f9da", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/246-recipient-edit.canvas", "bytes": 1125, "sha256": "3c0d5fdc4ba105bfc946bf162db9d08684876e2d749beb69f7b00cbe1be486b2", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/246-recipient-edit.md", "bytes": 412, "sha256": "b2b56a4fe835b6c2a81101b615faf3f60567f8942420e792ac68855abca5d011", "hashKind": "utf8-lf"}, {"path": "docs/publication238/plan.md", "bytes": 2269, "sha256": "e2f1cacd7b7bc374dfcd2c742fbf9bf4cd157978f1670fa5a4ebf881de98348e", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 134364, "sha256": "c00238d5daab2dc093422a5db0ce1db5816d86bff42db066b078228384c6c739", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/placement-exchange.js", "bytes": 12818, "sha256": "e93c687ff54ed30a36f70a01b6c634f90c772d75b1c25af6ae878ad35ca57603", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/recipient-edit.js", "bytes": 6932, "sha256": "718a05051e646bb9e8172786d427b0b198aaa4a2b1be646cea4a3b6d629848f5", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-panel.js", "bytes": 51461, "sha256": "0fa25f76452983b86482a0b523ee0cc31ca986f8091ccb62e116b3bb569f1cef", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/recipient-edit-integration.cjs", "bytes": 11461, "sha256": "67effd7d06c97c42a4d87d78e0791da4ab556fbe95f1d8ee5fd98e0c6ef880c0", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/PlacementExchange.java", "bytes": 24863, "sha256": "a7b3ec4a5926e15879ef1c205edd52a31433f22ed294c82e2028699f265d2ae9", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RecipientLevelEdit.java", "bytes": 3307, "sha256": "ad6a6eb1defd3809515d91636e39a3848bf949670871b77f0baf17c6ef934c92", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialLevelPlacement.java", "bytes": 15174, "sha256": "ee963f28c0ae87592b4b432d1adf745133bd872f71a5c789df8b5b1462307588", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialPlacement.java", "bytes": 16977, "sha256": "a1f65282531841711f60fba94739279bf90bd2e5551e370bca8e99fd22cfe0e6", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 64712, "sha256": "d9ae80dc042f97c901b2fa9c9d9596f3cdfdc2a4300aefdab6229c78d3ec9ff7", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 155577, "sha256": "fdcb17758fc65238b8cb869e5ad0e3c7b2b42ca95130c9a22191e734aec4a767", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>
