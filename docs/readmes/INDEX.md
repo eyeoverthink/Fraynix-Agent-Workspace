@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 234 — Place a verified prop in an existing level](../../README-234.md) · [Walkthrough](234/index.html)
+
 [Edition 233 — Replay a collision bundle in a fresh project](../../README-233.md) · [Walkthrough](233/index.html)
 
 [Edition 232 — Approve a chat placement and export measured collision evidence](../../README-232.md) · [Walkthrough](232/index.html)

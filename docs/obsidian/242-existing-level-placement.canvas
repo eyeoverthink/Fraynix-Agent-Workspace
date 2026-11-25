@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "guide",
+      "type": "file",
+      "file": "README-234.md",
+      "x": 0,
+      "y": 0,
+      "width": 360,
+      "height": 370
+    },
+    {
+      "id": "contract",
+      "type": "file",
+      "file": "docs/publication234/plan.md",
+      "x": 420,
+      "y": 0,
+      "width": 390,
+      "height": 390
+    },
+    {
+      "id": "receipt",
+      "type": "file",
+      "file": "docs/readmes/234/level-proof.json",
+      "x": 875,
+      "y": 0,
+      "width": 390,
+      "height": 390
+    },
+    {
+      "id": "next",
+      "type": "file",
+      "file": "docs/obsidian/242-existing-level-placement.md",
+      "x": 420,
+      "y": 450,
+      "width": 390,
+      "height": 230
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "guide",
+      "toNode": "contract",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "contract",
+      "toNode": "receipt",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "contract",
+      "toNode": "next",
+      "fromSide": "bottom",
+      "toSide": "top"
+    }
+  ]
+}

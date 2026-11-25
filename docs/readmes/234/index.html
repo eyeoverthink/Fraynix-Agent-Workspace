@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 234 · Place a verified prop in an existing level</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+</style>
+<main><h1>Place a verified prop in an existing level</h1>
+<p>Review a verified 3D prop in your existing level, then play the checked aisle offline.</p>
+<nav><a href="../../../README-234.md">App guide</a><a href="../233/index.html">Edition 233</a>
+<a href="../../publication234/plan.md">Implementation</a><a href="siding-workshop.html">Play Siding Workshop</a>
+<a href="siding-workshop.fraynix-level.json" download>Download scene and evidence</a><a href="level-proof.json">Test results</a>
+<a href="#system">System files</a></nav>
+<p>Two test scenes produced hits at ticks 43 and 47, with zero miss contacts. The offline workshop stopped the player at the side post and accepted the route to the exit.</p>
+<figure><img src="level-review.png" alt="The exact placement and aisle before approval"><figcaption>The exact placement and aisle before approval</figcaption></figure>
+<figure><img src="level-verified.png" alt="The native contact and clearance receipt"><figcaption>The native contact and clearance receipt</figcaption></figure>
+<figure><img src="level-offline.png" alt="The offline playtest after reaching the exit"><figcaption>The offline playtest after reaching the exit</figcaption></figure>
+
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Review a verified 3D prop in your existing level, then play the checked aisle offline.", "modules": [{"title": "Reviewed geometry and native aisle witness", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialLevelPlacement.java", "note": "docs/obsidian/242-existing-level-placement.md"}, {"title": "Approval, replay and save recovery", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "note": "docs/obsidian/242-existing-level-placement.md"}, {"title": "Chat placement and preview", "source": "workspace-desktop/renderer/spatial-placement.js", "note": "docs/obsidian/242-existing-level-placement.md"}, {"title": "Offline collision controls", "source": "workspace-engine/src/main/resources/spatial-level-play.js", "note": "docs/obsidian/242-existing-level-placement.md"}, {"title": "Desktop and clean-project acceptance", "source": "workspace-desktop/test/spatial-level-integration.cjs", "note": "docs/obsidian/242-existing-level-placement.md"}], "screenshots": [{"path": "docs/readmes/234/level-review.png", "title": "The exact placement and aisle before approval"}, {"path": "docs/readmes/234/level-verified.png", "title": "The native contact and clearance receipt"}, {"path": "docs/readmes/234/level-offline.png", "title": "The offline playtest after reaching the exit"}], "evidence": [{"path": "docs/readmes/234/level-proof.json", "title": "Windows test results"}, {"path": "docs/readmes/234/siding-workshop.html", "title": "Play Siding Workshop offline"}, {"path": "docs/readmes/234/siding-workshop.fraynix-level.json", "title": "Editable scene, GLB and native evidence"}, {"path": "docs/publication234/plan.md", "title": "Implementation and test contract"}, {"path": "docs/readmes/234/FILE_TREE.md", "title": "File tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 17181, "sha256": "259441c850d046b369e0b04e28ef062fcdff5d969838505bad464d11a23c6159", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/242-existing-level-placement.canvas", "bytes": 1144, "sha256": "be92c37c1025436651e8a9c345b0e8c0ad37d7c74005a9649364f1ee5687552e", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/242-existing-level-placement.md", "bytes": 604, "sha256": "30c1f2963d672bf142abe5e444b4256bf9d47af1c3974dbda6b2766bfe7d7a6e", "hashKind": "utf8-lf"}, {"path": "docs/publication234/plan.md", "bytes": 2838, "sha256": "8815ff2c4bd19fbe55b5e504d4a44b0217add892396799fa4e2cee8855518954", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 133587, "sha256": "29deea57d77243b727409b1f29e6f4d4d47d85ba1a75a74beaeb08df1fff60d6", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-placement.js", "bytes": 14806, "sha256": "8be4ce3ed7c1b98c9ae15227484f5c50571e920936f15b532fa0e7200033b2dd", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial.css", "bytes": 9998, "sha256": "75868b315cac1a2f9c4dd2e3c40f3975c05c087b8843084e8d755a7a8851954b", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/spatial-level-integration.cjs", "bytes": 15522, "sha256": "439b8d5f284646bc03466cd0873894f3e5217a8f1bfa50a8310b0fb8c7e2c415", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialLevelPlacement.java", "bytes": 11812, "sha256": "6adcda157c8bef4df09bcb9e0816867acb38b452066b4bc9389d62e3b01be9e8", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialPlacement.java", "bytes": 15276, "sha256": "e0a8d9fba22bfa98e160ee567beb16fac037e118a36a83189928f09afef26621", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 48351, "sha256": "4e1a77ef06de2eb434608aefd15ce216f1e040e820bddfbb260bc586b993b3e2", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 153491, "sha256": "e677d5d61e89b010ebf73ec1cbb6ba8c2759d1f86fb783fbd77c65ac376cfa76", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/resources/spatial-level-play.js", "bytes": 4129, "sha256": "00f3ba69d5d24dfffe7870c409245b0ed2f581b49e042a13e4e683bed5f85741", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

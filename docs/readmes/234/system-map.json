@@ -1,0 +1,66 @@
+{
+  "summary": "Review a verified 3D prop in your existing level, then play the checked aisle offline.",
+  "modules": [
+    {
+      "title": "Reviewed geometry and native aisle witness",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialLevelPlacement.java",
+      "note": "docs/obsidian/242-existing-level-placement.md"
+    },
+    {
+      "title": "Approval, replay and save recovery",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/242-existing-level-placement.md"
+    },
+    {
+      "title": "Chat placement and preview",
+      "source": "workspace-desktop/renderer/spatial-placement.js",
+      "note": "docs/obsidian/242-existing-level-placement.md"
+    },
+    {
+      "title": "Offline collision controls",
+      "source": "workspace-engine/src/main/resources/spatial-level-play.js",
+      "note": "docs/obsidian/242-existing-level-placement.md"
+    },
+    {
+      "title": "Desktop and clean-project acceptance",
+      "source": "workspace-desktop/test/spatial-level-integration.cjs",
+      "note": "docs/obsidian/242-existing-level-placement.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/234/level-review.png",
+      "title": "The exact placement and aisle before approval"
+    },
+    {
+      "path": "docs/readmes/234/level-verified.png",
+      "title": "The native contact and clearance receipt"
+    },
+    {
+      "path": "docs/readmes/234/level-offline.png",
+      "title": "The offline playtest after reaching the exit"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/234/level-proof.json",
+      "title": "Windows test results"
+    },
+    {
+      "path": "docs/readmes/234/siding-workshop.html",
+      "title": "Play Siding Workshop offline"
+    },
+    {
+      "path": "docs/readmes/234/siding-workshop.fraynix-level.json",
+      "title": "Editable scene, GLB and native evidence"
+    },
+    {
+      "path": "docs/publication234/plan.md",
+      "title": "Implementation and test contract"
+    },
+    {
+      "path": "docs/readmes/234/FILE_TREE.md",
+      "title": "File tree"
+    }
+  ]
+}
