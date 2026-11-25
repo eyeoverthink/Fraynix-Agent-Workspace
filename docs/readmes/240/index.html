@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 240 · Edit a forwarded revision with fresh local approval</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Edit a forwarded revision with fresh local approval</h1>
+<p>Replay the forwarded Signal Bay scene, create an editable copy of the final pose, and approve one new move in the receiving project.</p>
+<nav><a href="../../../README-240.md">App guide</a><a href="../239/index.html">Edition 239</a>
+<a href="../../publication240/plan.md">Implementation</a><a href="signal-bay-handoff.fraynix-recipient.json" download>Download handoff bundle</a>
+<a href="local-replay.json" download>Download third-project replay</a><a href="handoff-evidence.json">Local edit results</a><a href="#system">System files</a></nav>
+<p>The third Windows project matched first contact at ticks 75, 48, 44 and 41. All four lateral probes missed, and every 4.35 m aisle cleared.</p>
+<figure><img src="forwarded-replay-ready.png" alt="Local replay makes the final revision available as an editable copy"><figcaption>Local replay makes the final revision available as an editable copy</figcaption></figure>
+<figure><img src="editable-inherited-copy.png" alt="The local copy starts at the forwarded pose with two inherited approved edits"><figcaption>The local copy starts at the forwarded pose with two inherited approved edits</figcaption></figure>
+<figure><img src="new-local-approval-required.png" alt="The new pose is reviewed against the protected walking aisle"><figcaption>The new pose is reviewed against the protected walking aisle</figcaption></figure>
+<figure><img src="local-hit-replay.png" alt="A third clean project independently reproduces the newest collision"><figcaption>A third clean project independently reproduces the newest collision</figcaption></figure>
+
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Create a local copy after replay, review a fresh edit, and forward its original evidence and new approval.", "modules": [{"title": "Forwarded archive and revision verification", "source": "workspace-engine/src/main/java/fraymus/workspace/RecipientRevisionExchange.java", "note": "docs/obsidian/248-forwarded-recipient-edit.md"}, {"title": "Local root and exact review binding", "source": "workspace-engine/src/main/java/fraymus/workspace/RecipientLevelEdit.java", "note": "docs/obsidian/248-forwarded-recipient-edit.md"}, {"title": "Replay gate and inherited evidence", "source": "workspace-engine/src/main/java/fraymus/workspace/PlacementExchange.java", "note": "docs/obsidian/248-forwarded-recipient-edit.md"}, {"title": "Durable local approval and scene storage", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "note": "docs/obsidian/248-forwarded-recipient-edit.md"}, {"title": "Create editable copy of final revision", "source": "workspace-desktop/renderer/placement-exchange.js", "note": "docs/obsidian/248-forwarded-recipient-edit.md"}, {"title": "Edit and export the local revision", "source": "workspace-desktop/renderer/recipient-edit.js", "note": "docs/obsidian/248-forwarded-recipient-edit.md"}, {"title": "Clean recipient and fresh approval test", "source": "workspace-desktop/test/recipient-handoff-integration.cjs", "note": "docs/obsidian/248-forwarded-recipient-edit.md"}, {"title": "Independent third-project replay test", "source": "workspace-desktop/test/placement-exchange-integration.cjs", "note": "docs/obsidian/248-forwarded-recipient-edit.md"}], "screenshots": [{"path": "docs/readmes/240/forwarded-replay-ready.png", "title": "Local replay makes the final revision available as an editable copy"}, {"path": "docs/readmes/240/editable-inherited-copy.png", "title": "The local copy starts at the forwarded pose with two inherited approved edits"}, {"path": "docs/readmes/240/new-local-approval-required.png", "title": "The new pose is reviewed against the protected walking aisle"}, {"path": "docs/readmes/240/local-hit-replay.png", "title": "A third clean project independently reproduces the newest collision"}], "evidence": [{"path": "docs/readmes/239/signal-bay-revision.fraynix-recipient.json", "title": "Exact incoming edition 239 archive"}, {"path": "docs/readmes/240/signal-bay-handoff.fraynix-recipient.json", "title": "Edition 240 forwarded Signal Bay archive"}, {"path": "docs/readmes/240/handoff-evidence.json", "title": "Fresh approval and local edit checks"}, {"path": "docs/readmes/240/exchange-evidence.json", "title": "Independent third-project results"}, {"path": "docs/readmes/240/local-replay.json", "title": "Full local replay for all four stages"}, {"path": "docs/publication240/plan.md", "title": "Implementation and reproduction"}, {"path": "docs/readmes/240/FILE_TREE.md", "title": "Edition file tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 21262, "sha256": "4d6cef4cca168139bdabfb078f2d93fc0d2e7c622a1d52b3b2ae4efc4880ce57", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/248-forwarded-recipient-edit.canvas", "bytes": 1129, "sha256": "4ace762f9eb54d467c5183328175cd58eeacd9d541250104c5d290ccdcbd983f", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/248-forwarded-recipient-edit.md", "bytes": 598, "sha256": "9692bf5b267ce2d2f2953f4e5b4bc324c49aa074737341c615fa4c672fba1632", "hashKind": "utf8-lf"}, {"path": "docs/publication240/plan.md", "bytes": 2688, "sha256": "cfe5bfeba092c97820ec132f52aefcfa3cfa91bea4225df93c471eab692bf75d", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 134842, "sha256": "a387ff04e8393b58788a100a46a75c3366a7243bc89323b0d90d4a3f19e88c88", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/placement-exchange.js", "bytes": 14462, "sha256": "01113fb32967d8ad87572e536ec655fda3067369a63ac755a57cd784f5de3af8", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/recipient-edit.js", "bytes": 8405, "sha256": "1eb893d9027be672a672faa4444ee4e800b11ba5b60d7209a330f3bc6648fb74", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/placement-exchange-integration.cjs", "bytes": 12151, "sha256": "77c001608c9294044dcba79969b11f11873a39e6433aa82e084ac4caea7092c7", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/recipient-handoff-integration.cjs", "bytes": 12477, "sha256": "a2e9f5ea732001527af72ab4bf51f3f31e6a25d5a295054f8a7b45e0f36bdedb", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/PlacementExchange.java", "bytes": 29232, "sha256": "f16706b5da31f78102ab3ee8d2f6539549c387129c54832fcbf4f922ca17920c", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RecipientLevelEdit.java", "bytes": 4604, "sha256": "55638d6b5042baf47c68f287df4c5f6caea4d52668af79da63bffa3a7497298f", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RecipientRevisionExchange.java", "bytes": 8025, "sha256": "74d1d6989fe504af17bfe96eba1089f0fc20b05b63cd758a15130fa5e99d6551", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 65224, "sha256": "17897d61079f86aa51f102c3729cd4718cba77c6d67797d1a514317aadf84480", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/PlacementExchangeTest.java", "bytes": 9546, "sha256": "40801d97d234dde2d7ffe2153df8c0f396d2ec891a002499120145b138401f29", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

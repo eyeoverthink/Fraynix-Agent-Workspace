@@ -1,0 +1,93 @@
+{
+  "summary": "Create a local copy after replay, review a fresh edit, and forward its original evidence and new approval.",
+  "modules": [
+    {
+      "title": "Forwarded archive and revision verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RecipientRevisionExchange.java",
+      "note": "docs/obsidian/248-forwarded-recipient-edit.md"
+    },
+    {
+      "title": "Local root and exact review binding",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RecipientLevelEdit.java",
+      "note": "docs/obsidian/248-forwarded-recipient-edit.md"
+    },
+    {
+      "title": "Replay gate and inherited evidence",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PlacementExchange.java",
+      "note": "docs/obsidian/248-forwarded-recipient-edit.md"
+    },
+    {
+      "title": "Durable local approval and scene storage",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/248-forwarded-recipient-edit.md"
+    },
+    {
+      "title": "Create editable copy of final revision",
+      "source": "workspace-desktop/renderer/placement-exchange.js",
+      "note": "docs/obsidian/248-forwarded-recipient-edit.md"
+    },
+    {
+      "title": "Edit and export the local revision",
+      "source": "workspace-desktop/renderer/recipient-edit.js",
+      "note": "docs/obsidian/248-forwarded-recipient-edit.md"
+    },
+    {
+      "title": "Clean recipient and fresh approval test",
+      "source": "workspace-desktop/test/recipient-handoff-integration.cjs",
+      "note": "docs/obsidian/248-forwarded-recipient-edit.md"
+    },
+    {
+      "title": "Independent third-project replay test",
+      "source": "workspace-desktop/test/placement-exchange-integration.cjs",
+      "note": "docs/obsidian/248-forwarded-recipient-edit.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/240/forwarded-replay-ready.png",
+      "title": "Local replay makes the final revision available as an editable copy"
+    },
+    {
+      "path": "docs/readmes/240/editable-inherited-copy.png",
+      "title": "The local copy starts at the forwarded pose with two inherited approved edits"
+    },
+    {
+      "path": "docs/readmes/240/new-local-approval-required.png",
+      "title": "The new pose is reviewed against the protected walking aisle"
+    },
+    {
+      "path": "docs/readmes/240/local-hit-replay.png",
+      "title": "A third clean project independently reproduces the newest collision"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/239/signal-bay-revision.fraynix-recipient.json",
+      "title": "Exact incoming edition 239 archive"
+    },
+    {
+      "path": "docs/readmes/240/signal-bay-handoff.fraynix-recipient.json",
+      "title": "Edition 240 forwarded Signal Bay archive"
+    },
+    {
+      "path": "docs/readmes/240/handoff-evidence.json",
+      "title": "Fresh approval and local edit checks"
+    },
+    {
+      "path": "docs/readmes/240/exchange-evidence.json",
+      "title": "Independent third-project results"
+    },
+    {
+      "path": "docs/readmes/240/local-replay.json",
+      "title": "Full local replay for all four stages"
+    },
+    {
+      "path": "docs/publication240/plan.md",
+      "title": "Implementation and reproduction"
+    },
+    {
+      "path": "docs/readmes/240/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}
