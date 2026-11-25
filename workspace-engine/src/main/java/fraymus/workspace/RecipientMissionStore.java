@@ -18,12 +18,15 @@ final class RecipientMissionStore {
         exports = project.resolve("exports");
     }
 
-    void start(String id, JSONObject parent, JSONObject review, String request) throws Exception {
-        if (read(id) == null) {
+    void start(String id, JSONObject parent, JSONObject review, String request, JSONObject routing) throws Exception {
+        var mission = read(id);
+        if (mission == null) {
             Files.createDirectories(directory);
             save(id,new JSONObject().put("reviewId",id).put("parentSceneId",parent.getString("id"))
                     .put("parent",SpatialPropCopy.binding(parent)).put("review",review)
-                    .put("request",request).put("requestedAt",Instant.now().toString()));
+                    .put("request",request).put("requestedAt",Instant.now().toString()).put("routing",routing));
+        } else if (routing != null && !mission.has("approval")) {
+            save(id,mission.put("routing",routing));
         }
         SpriteWorkshop.replace(directory.resolve("latest"),id.getBytes(StandardCharsets.US_ASCII));
     }

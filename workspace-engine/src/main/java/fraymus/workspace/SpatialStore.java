@@ -525,7 +525,22 @@ public final class SpatialStore implements AutoCloseable {
         return recipientEditStatus(id,review,RecipientLevelEdit.candidate(parent,review,id));
     }
 
+    synchronized JSONObject recipientRoutingTarget(String sceneId) throws Exception {
+        if (sceneId.isEmpty()) return new JSONObject();
+        var parent = read(sceneId);
+        if (!parent.has("recipientBranch")) return new JSONObject();
+        var target = new JSONObject().put("sceneId",sceneId).put("sceneTitle",parent.getString("title"));
+        var status = latestRecipientEdit(new JSONObject().put("sceneId",sceneId));
+        if ("review".equals(status.optString("status")) && status.getJSONObject("review").has("collider"))
+            target.put("reviewId",status.getString("reviewId")).put("collider",status.getJSONObject("review").getJSONObject("collider"));
+        return target;
+    }
+
     synchronized JSONObject startRecipientMission(JSONObject input) throws Exception {
+        return startRecipientMission(input,null);
+    }
+
+    synchronized JSONObject startRecipientMission(JSONObject input, JSONObject routing) throws Exception {
         SpatialScene.keys(input,"reviewId","request");
         available();
         String id = input.getString("reviewId");
@@ -534,7 +549,9 @@ public final class SpatialStore implements AutoCloseable {
         var parent = currentRecipient(review.getJSONObject("parent").getString("sceneId"));
         requireCurrentRecipientReview(id,parent);
         if (recipientEdits.approved(id)) throw new IllegalStateException("Choose a collider review that is still pending approval.");
-        recipientMissions.start(id,parent,review,SpatialScene.text(input,"request",300));
+        if (routing != null && !recipientRoutingTarget(parent.getString("id")).similar(routing.getJSONObject("target")))
+            throw new IllegalStateException("The routed collider proposal changed before comparison.");
+        recipientMissions.start(id,parent,review,SpatialScene.text(input,"request",300),routing);
         return compareRecipientEdit(new JSONObject().put("reviewId",id));
     }
 

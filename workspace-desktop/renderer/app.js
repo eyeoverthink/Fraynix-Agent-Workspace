@@ -219,12 +219,61 @@ $('chain-recommend').onclick=()=>safe(async()=>{
  message(goal,'user');
  await request('agent',{goal,model,chainRecommendation:true});
 });
+let colliderQuestion = null;
+let routingCollider = false;
+function showColliderQuestion(route) {
+ colliderQuestion = route.decision === 'clarify' ? route : null;
+ if (colliderQuestion) message(colliderQuestion.question);
+}
+async function routeColliderChat(goal, model) {
+ const explicit = /\bcolliders?\b|\bcollision box\b/i.test(goal);
+ const selected = spatial.visible && !spatial.worldMode && spatial.scene?.recipientBranch ? spatial.scene.id : '';
+ if (goal.length>300 || (!colliderQuestion && !selected && !explicit)) return false;
+ if (!model) {
+  if (!colliderQuestion) return false;
+  message('Select a local model to answer the saved collider question.');
+  return true;
+ }
+ routingCollider = true;
+ $('run').disabled = true;
+ $('run-state').textContent = 'The local model is reading the collider request…';
+ try {
+  const input = {request:goal,model,sceneId:selected};
+  if (colliderQuestion) input.clarificationId = colliderQuestion.id;
+  const route = await spatial.call('recipient-route',input);
+  showColliderQuestion(route);
+  if (route.decision === 'compare') {
+   await spatial.action(async()=>{
+    await spatial.open(route.target.sceneId);
+    await spatial.recipient.open();
+   });
+   message('I compared the saved collider proposal. The mission keeps the model decision and measured results for your review.');
+   return true;
+  }
+  if (route.decision === 'clarify') return true;
+  if (explicit) {
+   message('The collider mission can compare a pending proposal. Use the review controls for edits, approval, and export.');
+   return true;
+  }
+  return false;
+ } catch (error) {
+  message('I could not complete the collider comparison. '+error.message.replace(/^Error invoking remote method '[^']+': (?:Error: )?/,''));
+  return true;
+ } finally {
+  routingCollider = false;
+  $('run').disabled = running||creationBusy||dirty||lab.dirty||!hasChatRoute()
+   ||Boolean(state?.goals?.some(goal=>['running','waiting-host'].includes(goal.status)));
+  $('run-state').textContent = 'Ready when you are';
+ }
+}
 $('run').onclick=()=>safe(async()=>{
+ if(routingCollider)return;
  requireSaved();
  const goal=$('goal').value.trim();
  if(!goal)return;
  message(goal,'user');
- if(isRecipientApproachRequest(goal)){await spatial.action(()=>spatial.recipient.compareFromChat(goal));return;}
+ const selectedModel=state?.models.some(m=>m.name===$('model').value)?$('model').value:'';
+ if(isRecipientApproachRequest(goal)&&!selectedModel&&!colliderQuestion){await spatial.action(()=>spatial.recipient.compareFromChat(goal));return;}
  if(isSpatialHeightRequest(goal)){await spatial.height.openFromChat(goal);return;}
  if(isSpatialCarryRequest(goal)){await spatial.carry.review(true);return;}
  if(isPlacementRequest(goal)){await spatial.action(()=>spatial.placement.openFromChat(goal));return;}
@@ -232,7 +281,7 @@ $('run').onclick=()=>safe(async()=>{
  if(await chartFollowup.start(goal))return;
  if(mayRequestFrayTool(goal)&&await requestsPanel.offerFromChat(goal))return;
  const local=offlineMissionRequest(goal);
- const selectedModel=state?.models.some(m=>m.name===$('model').value)?$('model').value:'';
+ if(!local&&!plannedRampRequest(goal)&&!quickWorkflowRequest(goal)&&await routeColliderChat(goal,selectedModel))return;
  await request('agent',{goal,model:local?'':selectedModel,plainOnly:!selectedModel&&!local&&!quickWorkflowRequest(goal),
    planWorld099:document.querySelector('#plan-world099').checked,
    ...(selectedModel&&!local&&!plannedRampRequest(goal)&&!localWorkflowRequest(goal)&&window.browserChecks126?.contract()
@@ -401,5 +450,7 @@ host.onEvent(({type,value})=>{
   if(type==='run'){bodies.controls();files.controls();observers.controls();calibrations.controls();if(!value.active&&$('calibration-panel').open)safe(()=>calibrations.refresh());}
 });
 goalsPanel.dialog.addEventListener('close',updateLayout);
-safe(async()=>{const initial=await request('state');renderState(initial);if(initial.currentArtifact)showArtifact(initial.currentArtifact);for(const entry of initial.log||[])timeline(entry);if(initial.origin)$('address').value=initial.origin+'/welcome';notice('Connected. Your Studio baseline and personal state are separate.');updateLayout();await chartFollowup.refresh();});
+safe(async()=>{const initial=await request('state');renderState(initial);if(initial.currentArtifact)showArtifact(initial.currentArtifact);for(const entry of initial.log||[])timeline(entry);if(initial.origin)$('address').value=initial.origin+'/welcome';notice('Connected. Your Studio baseline and personal state are separate.');updateLayout();await chartFollowup.refresh();
+ showColliderQuestion(await spatial.call('recipient-route-latest'));
+});
 setInterval(()=>{if(!running)host.request({operation:'state'}).then(renderState).catch(e=>notice(e.message));},12000);

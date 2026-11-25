@@ -12,6 +12,7 @@ export class RecipientMissionPanel {
                 <div id="recipient-mission-record" hidden>
                     <dl>
                         <dt>Chat request</dt><dd id="recipient-mission-request"></dd>
+                        <dt class="recipient-model-route" hidden>Local routing</dt><dd id="recipient-mission-routing" class="recipient-model-route" hidden></dd>
                         <dt>Scene and proposal</dt><dd id="recipient-mission-scene"></dd>
                         <dt>Measured evidence</dt><dd id="recipient-mission-evidence"></dd>
                         <dt>Approval</dt><dd id="recipient-mission-approval"></dd>
@@ -69,7 +70,7 @@ export class RecipientMissionPanel {
     }
 
     render() {
-        const {request,sceneTitle,review,comparison,approvalConfirmed,revision,export:artifact,exportAvailable,superseded}
+        const {request,routing,sceneTitle,review,comparison,approvalConfirmed,revision,export:artifact,exportAvailable,superseded}
             = this.record;
         const status = this.find('#recipient-mission-status');
         this.find('#recipient-mission-record').hidden = !request;
@@ -77,6 +78,13 @@ export class RecipientMissionPanel {
             : 'Start a collider comparison from Chat to create a mission.';
         if (!request) return;
         this.find('#recipient-mission-request').textContent = request;
+        for (const element of this.dialog.querySelectorAll('.recipient-model-route')) element.hidden = !routing;
+        if (routing) {
+            const details = this.find('#recipient-mission-routing');
+            details.textContent = routing.model.name+' selected comparison'
+                +(routing.priorQuestion ? ' · Clarification: '+routing.request : '');
+            details.title = routing.model.digest;
+        }
         const size = review.collider.proposedM;
         this.find('#recipient-mission-scene').textContent = sceneTitle+' · '+size[0]+' × '+size[2]+' m collider';
         const summary = comparison?.summary;
