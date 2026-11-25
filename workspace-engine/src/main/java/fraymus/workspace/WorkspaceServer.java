@@ -148,7 +148,7 @@ public final class WorkspaceServer implements AutoCloseable {
                 if(exchange.getRequestMethod().equals("GET")&&exchange.getRequestURI().getPath().equals("/api/state")){send(exchange,200,state());return;}
                 if(!exchange.getRequestMethod().equals("POST")){send(exchange,405,new JSONObject().put("error","POST required"));return;}
                 int bodyLimit = switch (exchange.getRequestURI().getPath()) {
-                    case "/api/media-tiles/import", "/api/timeline/import" -> 8_700_000;
+                    case "/api/media-tiles/import", "/api/media-tiles/import-nexus", "/api/timeline/import" -> 8_700_000;
                     case "/api/game/import-reference" -> 4_000_100;
                     case "/api/goals/ack" -> 24_000_000;
                     case "/api/agency043/frame" -> 8_100_000;
@@ -736,6 +736,7 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/media-tiles/open" -> result = tiles.open(input);
                     case "/api/media-tiles/save" -> result = tiles.save(input);
                     case "/api/media-tiles/import" -> result = tiles.importLevel(input);
+                    case "/api/media-tiles/import-nexus" -> result = tiles.importNexus(input);
                     case "/api/media-tiles/export" -> result = tiles.export(input);
                     case "/api/timeline/assets" -> result = mediaEdit.list(input);
                     case "/api/timeline/import" -> result = mediaEdit.importAsset(input);

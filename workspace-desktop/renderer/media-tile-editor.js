@@ -6,6 +6,9 @@ const {width, height, floor, tile} = tileWorld;
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 const spriteLayers = ['foreground', 'pickup', 'terrain', 'backdrop'];
 const modes = ['select', 'paint', 'erase'];
+const layoutAssets = layout => new Set([
+    ...layout.objects.map(item => item.assetId), layout.stage?.hero?.assetId, layout.stage?.backdropAsset
+].filter(Boolean));
 
 export class TileEditor {
     constructor(request) {
@@ -22,6 +25,8 @@ export class TileEditor {
                 <button id="tile-new">New level</button>
                 <select id="tile-saved" aria-label="Saved tile levels"><option value="">Open saved level</option></select>
                 <label class="media-file">Import level<input id="tile-import-level" type="file" accept=".json,application/json" aria-label="Import tile level"></label>
+                <label class="media-file">Import Nexus design<input id="tile-import-nexus" type="file"
+                    accept=".json,.html,application/json,text/html" aria-label="Import Nexus design"></label>
                 <button id="tile-model-3d">Model sprites in 3D</button>
                 <button id="media-legacy-mode" class="quiet">Single sprite</button>
                 <button id="media-motion-mode">Motion media</button>
@@ -54,6 +59,17 @@ export class TileEditor {
                     <option value="foreground">Foreground</option></select></label>
                 <button id="tile-place">Add sprite</button>
             </div>
+            <details id="tile-stage" hidden>
+                <summary>Nexus stage and playable character</summary>
+                <p id="tile-stage-hero"></p>
+                <p id="tile-stage-style"></p>
+                <div class="tile-bar">
+                    <label>Spawn X<input type="number" min="0" max="696" step="1" data-stage="spawn.x"></label>
+                    <label>Spawn Y<input type="number" min="0" max="280" step="1" data-stage="spawn.y"></label>
+                    <label>Goal X<input type="number" min="0" max="696" step="1" data-stage="goal.x"></label>
+                    <label>Goal Y<input type="number" min="0" max="288" step="1" data-stage="goal.y"></label>
+                </div>
+            </details>
             <p id="tile-status" role="status">Import a sprite to begin. Place at least one pickup before saving.</p>
             <canvas id="tile-canvas" width="720" height="336" tabindex="-1" aria-label="Tile level stage" aria-describedby="tile-progress"></canvas>
             <div class="tile-bar">
@@ -119,6 +135,25 @@ export class TileEditor {
             await this.loadLevels();
             this.tell('Imported checked level and its sprites.');
         });
+        this.find('#tile-import-nexus').onchange = event => this.file(event, async file => {
+            if (!this.canReplace()) return;
+            const level = await this.call('import-nexus', {base64:await readBase64(file, 3_300_000)});
+            this.setLevel(level);
+            await this.loadLibrary();
+            await this.loadLevels();
+            this.tell('Imported a playable Nexus level. Play it or edit the tiles, spawn and goal.');
+        });
+        for (const field of this.root.querySelectorAll('[data-stage]')) {
+            field.onchange = () => {
+                const [part, axis] = field.dataset.stage.split('.');
+                if (!field.reportValidity() || !Number.isInteger(field.valueAsNumber)) {
+                    this.refresh();
+                    return;
+                }
+                this.layout.stage[part][axis] = field.valueAsNumber;
+                this.changed();
+            };
+        }
         this.find('#tile-place').onclick = () => this.placeSprite();
         for (const button of this.root.querySelectorAll('[data-mode]'))
             button.onclick = () => this.setMode(button.dataset.mode);
@@ -326,7 +361,7 @@ export class TileEditor {
             this.tell('A level can contain up to 160 items.');
             return false;
         }
-        if (new Set(this.layout.objects.map(object => object.assetId).concat(item.assetId)).size > 6) {
+        if (layoutAssets(this.layout).add(item.assetId).size > 6) {
             this.tell('A level can use up to six different sprites.');
             return false;
         }
@@ -444,7 +479,7 @@ export class TileEditor {
 
     refresh() {
         const busy = Boolean(this.busy || this.game);
-        for (const selector of ['#tile-new','#tile-saved','#tile-import-level','#tile-png','#tile-pick','#tile-model-3d','#tile-title','#tile-layer'])
+        for (const selector of ['#tile-new','#tile-saved','#tile-import-level','#tile-import-nexus','#tile-png','#tile-pick','#tile-model-3d','#tile-title','#tile-layer'])
             this.find(selector).disabled = busy;
         this.find('#tile-modes').hidden = Boolean(this.game);
         this.find('#tile-place').disabled = busy || !this.active;
@@ -454,7 +489,7 @@ export class TileEditor {
         this.find('#tile-html').disabled = !canPlay;
         this.find('#tile-json').disabled = !canPlay;
         this.find('#tile-save').disabled = busy || !this.dirty || !this.title.value.trim()
-            || !this.layout.objects.some(item => item.layer === 'pickup');
+            || (!this.layout.stage && !this.layout.objects.some(item => item.layer === 'pickup'));
         for (const card of this.root.querySelectorAll('[data-asset]')) {
             card.disabled = busy || Boolean(this.library?.find(asset => asset.id === card.dataset.asset)?.unavailable);
             card.setAttribute('aria-pressed', String(this.active === card.dataset.asset));
@@ -465,6 +500,21 @@ export class TileEditor {
         }
         this.canvas.dataset.mode = this.game ? 'play' : this.mode;
         this.find('#tile-stop').hidden = !this.game;
+        const stage = this.layout.stage;
+        const stagePanel = this.find('#tile-stage');
+        stagePanel.hidden = !stage || Boolean(this.game);
+        if (stage) {
+            this.find('#tile-stage-hero').textContent = stage.hero
+                ? stage.hero.name + ' · ' + stage.hero.animation + ' animation' : 'Default player';
+            const style = this.find('#tile-stage-style');
+            style.textContent = stage.style ? 'Style · ' + stage.style : '';
+            style.hidden = !stage.style;
+            for (const field of stagePanel.querySelectorAll('[data-stage]')) {
+                const [part, axis] = field.dataset.stage.split('.');
+                field.disabled = busy;
+                field.value = stage[part][axis];
+            }
+        }
         this.refreshInspector(busy);
     }
 
@@ -474,9 +524,10 @@ export class TileEditor {
         inspector.hidden = !item || Boolean(this.game);
         inspector.disabled = busy;
         if (!item) return;
-        this.find('#tile-selected').textContent = (this.sprites[item.assetId]?.label || 'Sprite') + ' · ' + item.layer;
+        this.find('#tile-selected').textContent = (this.sprites[item.assetId]?.label || 'Sprite') + ' · ' + (item.effect || item.layer);
         this.find('#tile-solid-label').hidden = item.layer !== 'terrain';
         this.find('#tile-solid').checked = Boolean(item.collider);
+        this.find('#tile-solid').disabled = Boolean(item.effect);
         this.find('#tile-collider').hidden = !item.collider;
         for (const input of inspector.querySelectorAll('[data-position]')) {
             const key = input.dataset.position;
@@ -500,7 +551,7 @@ export class TileEditor {
     }
 
     play() {
-        const sprites = Object.fromEntries(this.layout.objects.map(item => [item.assetId,this.sprites[item.assetId]]));
+        const sprites = Object.fromEntries([...layoutAssets(this.layout)].map(id => [id,this.sprites[id]]));
         this.canvas.tabIndex = 0;
         this.game = mountTileGame(this.canvas, this.find('#tile-progress'), {layout:this.layout, sprites});
         this.refresh();

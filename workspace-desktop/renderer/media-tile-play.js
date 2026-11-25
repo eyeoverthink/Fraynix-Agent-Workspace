@@ -4,8 +4,51 @@ const PLAYER_W = 24, PLAYER_H = 32, STEP = 1 / 120;
 const overlaps = (a, sizeA, b, sizeB) => a < b + sizeB && a + sizeA > b;
 const layers = ['backdrop', 'terrain', 'pickup', 'foreground'];
 
-const spawn = () => ({x:48, y:tileWorld.floor - PLAYER_H, vy:0, support:'floor', wall:'',
-    collected:new Set(), won:false});
+const spawn = layout => ({...(layout.stage?.spawn || {x:48, y:tileWorld.floor - PLAYER_H}),
+    vy:0, support:layout.stage?'':'floor', wall:'', collected:new Set(), won:false,
+    direction:0, facing:1, time:0, resets:0, bounces:0, spring:''});
+
+function drawStageTile(g, item, colors) {
+    const {x,y,size,effect}=item;
+    g.fillStyle={ground:colors.ground,brick:colors.rock,coin:colors.accent,spring:colors.water,hazard:'#f6756c'}[effect];
+    if (effect==='coin') {
+        g.beginPath();
+        g.arc(x+size/2,y+size/2,size/4,0,Math.PI*2);
+        g.fill();
+    } else if (effect==='hazard') {
+        g.beginPath();
+        g.moveTo(x,y+size);
+        g.lineTo(x+size/2,y+4);
+        g.lineTo(x+size,y+size);
+        g.fill();
+    } else if (effect==='spring') {
+        g.fillRect(x+2,y+size-14,size-4,4);
+        g.fillRect(x+5,y+size-8,size-10,6);
+    } else {
+        g.fillRect(x,y,size,size);
+        g.fillStyle=colors.accent+'38';
+        g.fillRect(x,y,size,3);
+        g.strokeStyle=colors.sky+'99';
+        g.strokeRect(x+.5,y+.5,size-1,size-1);
+    }
+}
+
+function drawHero(g, image, hero, state) {
+    const moving=state.direction!==0;
+    const stride=hero.animation==='stride'&&moving;
+    const lift=hero.animation==='hover' || (hero.animation==='bob'&&moving);
+    const squash=hero.animation==='squash' && Math.abs(state.vy)>25;
+    const wobble=Math.sin(state.time*(stride?18:8));
+    const height=PLAYER_H*hero.scale*(squash?1.14:1);
+    const width=height*image.naturalWidth/image.naturalHeight*(squash ? .83 : 1);
+    g.save();
+    g.imageSmoothingEnabled=false;
+    g.translate(state.x+PLAYER_W/2,state.y+PLAYER_H-(stride?Math.abs(wobble)*3:lift?3+wobble*2:0));
+    if (stride) g.rotate(wobble*.09);
+    g.scale(state.facing,1);
+    g.drawImage(image,-width/2,-height,width,height);
+    g.restore();
+}
 
 export function tileImages(sprites, invalidate, images = new Map()) {
     for (const [id, sprite] of Object.entries(sprites)) {
@@ -18,19 +61,32 @@ export function tileImages(sprites, invalidate, images = new Map()) {
     return images;
 }
 
-export function drawTileLevel(canvas, layout, images, state = spawn(), editor = null) {
+export function drawTileLevel(canvas, layout, images, state = spawn(layout), editor = null) {
     const {width, height, floor, tile, exit} = tileWorld;
     const g = canvas.getContext('2d');
     const rect = (fill, x, y, w, h) => {
         g.fillStyle = fill;
         g.fillRect(x, y, w, h);
     };
+    const stage=layout.stage;
+    const colors=stage?.palette;
     const sky = g.createLinearGradient(0, 0, 0, floor);
-    sky.addColorStop(0, '#142337');
-    sky.addColorStop(1, '#36565b');
+    sky.addColorStop(0, colors?.sky||'#142337');
+    sky.addColorStop(1, colors?.water||'#36565b');
     rect(sky, 0, 0, width, height);
-    rect('#829a91', 0, floor, width, 3);
-    rect('#213b40', 0, floor + 3, width, height - floor);
+    if (stage) {
+        const backdrop=images.get(stage.backdropAsset);
+        if (backdrop?.complete&&backdrop.naturalWidth) {
+            g.save();
+            g.globalAlpha=stage.backdropOpacity;
+            const drift=(state.x-stage.spawn.x)*stage.parallax*.05;
+            g.drawImage(backdrop,-48-drift,0,width+96,height);
+            g.restore();
+        }
+    } else {
+        rect('#829a91', 0, floor, width, 3);
+        rect('#213b40', 0, floor + 3, width, height - floor);
+    }
     if (editor) {
         g.beginPath();
         g.strokeStyle = '#bed0d02e';
@@ -38,17 +94,25 @@ export function drawTileLevel(canvas, layout, images, state = spawn(), editor = 
         for (let y = tile; y < floor; y += tile) { g.moveTo(0, y); g.lineTo(width, y); }
         g.stroke();
     }
-    const ready = layout.objects.every(item => item.layer !== 'pickup' || state.collected.has(item.id));
-    const gate = ready ? '#8de9bd' : '#d88376';
-    rect(gate, exit, floor - 48, 5, 48);
-    rect(gate, exit, floor - 48, 28, 5);
+    const ready = stage || layout.objects.every(item => item.layer !== 'pickup' || state.collected.has(item.id));
+    const gate = ready ? colors?.accent||'#8de9bd' : '#d88376';
+    const goal=stage?.goal||{x:exit,y:floor-48};
+    rect(gate, goal.x, goal.y, 5, stage?tile:48);
+    rect(gate, goal.x, goal.y, stage?tile:28, 5);
+    if (stage) rect(gate,goal.x+tile-5,goal.y,5,tile);
     for (const layer of layers) {
         if (layer === 'foreground') {
-            rect('#ffe3a5', state.x, state.y, PLAYER_W, PLAYER_H);
-            rect('#284044', state.x + 4, state.y + 5, PLAYER_W - 8, 11);
+            const hero=stage?.hero;
+            const image=hero&&images.get(hero.assetId);
+            if (image?.complete&&image.naturalWidth) drawHero(g,image,hero,state);
+            else {
+                rect('#ffe3a5', state.x, state.y, PLAYER_W, PLAYER_H);
+                rect('#284044', state.x + 4, state.y + 5, PLAYER_W - 8, 11);
+            }
         }
         for (const item of layout.objects) {
             if (item.layer !== layer || state.collected.has(item.id)) continue;
+            if (item.effect&&colors) {drawStageTile(g,item,colors);continue;}
             const image = images.get(item.assetId);
             if (!image?.complete || !image.naturalWidth) continue;
             const scale = item.size / Math.max(image.naturalWidth, image.naturalHeight);
@@ -78,7 +142,14 @@ export function drawTileLevel(canvas, layout, images, state = spawn(), editor = 
 
 export function mountTileGame(canvas, status, level) {
     const {width, height, floor, exit} = tileWorld;
-    const pickups = level.layout.objects.filter(item => item.layer === 'pickup');
+    const {layout}=level;
+    const stage=layout.stage;
+    const speed=stage?.hero?.speed??215;
+    const lift=stage?.hero?.jump??610;
+    const pickups = layout.objects.filter(item => item.layer === 'pickup');
+    const hazards=layout.objects.filter(item=>item.effect==='hazard');
+    const springs=layout.objects.filter(item=>item.effect==='spring');
+    const touches=item=>overlaps(state.x,PLAYER_W,item.x,item.size)&&overlaps(state.y,PLAYER_H,item.y,item.size);
     const solids = level.layout.objects.filter(item => item.collider).map(({id,x,y,collider:c}) =>
         ({id, x:x+c.x, y:y+c.y, w:c.w, h:c.h}));
     const keys = new Set();
@@ -94,24 +165,32 @@ export function mountTileGame(canvas, status, level) {
         Object.assign(canvas.dataset, {playerX:state.x.toFixed(2), playerY:state.y.toFixed(2),
             support:state.support, wall:state.wall, collected:String(state.collected.size),
             required:String(pickups.length), won:String(state.won)});
+        if (stage) Object.assign(canvas.dataset,{bounces:String(state.bounces),resets:String(state.resets),
+            hero:stage.hero?.name||'',phase:state.won?'complete':'playing'});
+        else for (const key of ['bounces','resets','hero','phase']) delete canvas.dataset[key];
     }
 
     function restart() {
-        state = spawn();
+        state = spawn(layout);
         keys.clear();
         jump = false;
         previous = 0;
         accumulator = 0;
-        status.textContent = 'Move with ← and →. Jump with ↑ or Space. Collect all pickups.';
+        status.textContent = stage
+            ? 'Move with ← and →. Jump with ↑ or Space. Reach the gate.'
+            : 'Move with ← and →. Jump with ↑ or Space. Collect all pickups.';
         draw();
     }
 
     function step() {
         if (state.won) return;
-        if (jump && state.support) state.vy = -610;
+        if (jump && state.support) state.vy = -lift;
         jump = false;
         const direction = Number(keys.has('ArrowRight')) - Number(keys.has('ArrowLeft'));
-        let nextX = Math.max(0, Math.min(width-PLAYER_W, state.x + direction*215*STEP));
+        state.direction=direction;
+        if (direction) state.facing=direction;
+        state.time+=STEP;
+        let nextX = Math.max(0, Math.min(width-PLAYER_W, state.x + direction*speed*STEP));
         state.wall = '';
         for (const box of solids) {
             if (!overlaps(state.y, PLAYER_H, box.y, box.h)) continue;
@@ -138,20 +217,47 @@ export function mountTileGame(canvas, status, level) {
             }
         }
         if (nextY < 0) nextY = 0;
-        if (nextY + PLAYER_H >= floor) {
+        if (!stage && nextY + PLAYER_H >= floor) {
             nextY = floor - PLAYER_H;
             state.support = 'floor';
         }
         if (nextY !== state.y + state.vy * STEP || state.support) state.vy = 0;
         state.y = nextY;
+        if (stage) {
+            const hazard=hazards.some(touches);
+            if (hazard || state.y > height+PLAYER_H) {
+                const {resets,bounces}=state;
+                state=spawn(layout);
+                state.resets=resets+1;
+                state.bounces=bounces;
+                keys.clear();
+                status.textContent=hazard?'Hit a hazard. Returned to spawn.':'Fell below the level. Returned to spawn.';
+                return;
+            }
+            const spring=springs.find(touches);
+            if (spring && state.spring!==spring.id) {
+                state.vy=-lift*1.42;
+                state.support='';
+                state.bounces++;
+                status.textContent='Spring boost.';
+            }
+            state.spring=spring?.id||'';
+        }
         for (const item of pickups) {
             if (!state.collected.has(item.id) && overlaps(state.x, PLAYER_W, item.x, item.size)
                 && overlaps(state.y, PLAYER_H, item.y, item.size)) {
                 state.collected.add(item.id);
-                status.textContent = state.collected.size === pickups.length
+                status.textContent = stage ? state.collected.size+' picked up.' : state.collected.size === pickups.length
                     ? 'All sprites collected. The exit is open.'
                     : state.collected.size + ' of ' + pickups.length + ' sprites collected.';
             }
+        }
+        if (stage) {
+            if (touches({...stage.goal,size:tileWorld.tile})) {
+                state.won=true;
+                status.textContent='Level complete.';
+            }
+            return;
         }
         if (state.x+PLAYER_W >= exit) {
             if (state.collected.size === pickups.length) {

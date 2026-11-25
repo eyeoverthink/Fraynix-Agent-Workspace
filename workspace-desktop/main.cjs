@@ -1072,7 +1072,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         if (!surfacesVisible.browser) throw Error('Show the in-app browser to pick a graphic.');
         return api('/api/media-tiles/add', {source:await browser.pickGraphic()});
       }
-      if (['add', 'library', 'sprite', 'list', 'open', 'save', 'import'].includes(input.command))
+      if (['add', 'library', 'sprite', 'list', 'open', 'save', 'import', 'import-nexus'].includes(input.command))
         return api('/api/media-tiles/' + input.command, input.args || {});
       if (input.command !== 'export') throw Error('Unknown tile editor command.');
       const {id, format} = input.args;

@@ -260,6 +260,14 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/media-tile-integration.cjs build/portable-smoke/media-tiles
+      - name: Convert Nexus designs to playable offline levels
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/nexus-level-integration.cjs build/portable-smoke/nexus-level
+      - name: Verify imported Nexus levels on a virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/nexus-level-integration.cjs build/portable-smoke/nexus-level
       - name: Create and verify offline motion media across restarts
         if: runner.os != 'Linux'
         run: node workspace-desktop/test/motion-media-integration.cjs build/portable-smoke/motion-media

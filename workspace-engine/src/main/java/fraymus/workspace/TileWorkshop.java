@@ -16,7 +16,7 @@ import java.util.Set;
 final class TileWorkshop {
     private static final String FORMAT = "fraynix.tile-level-v1";
     private static final int MAX_ASSET = 1_050_000;
-    private static final int MAX_LAYOUT = 65_000;
+    private static final int MAX_LAYOUT = 110_000;
     private static final int MAX_PACKAGE = 6_500_000;
     private static final int MAX_LIBRARY = 64;
     private static final int MAX_USED = 6;
@@ -33,12 +33,20 @@ final class TileWorkshop {
         SpatialScene.keys(input, "source");
         var source = SpriteWorkshop.source(input.getJSONObject("source"));
         var sprite = SpriteWorkshop.sprite(source);
-        var recipe = new JSONObject().put("source", source)
-                .put("sourceSha256", sprite.getString("sourceSha256")).put("spriteSha256", sprite.getString("sha256"));
+        var recipe = assetRecipe(source, sprite);
         byte[] bytes = encoded(recipe);
         String id = MapDefinition.sha(bytes);
         store(assets, id, bytes, MAX_ASSET);
         return sprite.put("id", id).put("label", label(source));
+    }
+
+    static JSONObject assetRecipe(JSONObject source, JSONObject sprite) {
+        return new JSONObject().put("source", source).put("sourceSha256", sprite.getString("sourceSha256"))
+                .put("spriteSha256", sprite.getString("sha256"));
+    }
+
+    static String assetIdentity(JSONObject recipe) {
+        return MapDefinition.sha(encoded(recipe));
     }
 
     synchronized JSONObject library(JSONObject input) throws IOException {
@@ -101,6 +109,14 @@ final class TileWorkshop {
         SpatialScene.keys(input, "base64");
         var bundle = new JSONObject(new String(SpriteWorkshop.decode(input.getString("base64"), MAX_PACKAGE),
                 StandardCharsets.UTF_8));
+        return importBundle(bundle);
+    }
+
+    synchronized JSONObject importNexus(JSONObject input) throws Exception {
+        return importBundle(NexusSceneLevel.convert(input));
+    }
+
+    private JSONObject importBundle(JSONObject bundle) throws Exception {
         SpatialScene.keys(bundle, "format", "layout", "assets");
         if (!FORMAT.equals(bundle.getString("format"))) throw new IllegalArgumentException("Choose a Tile editor export.");
         var layout = layout(bundle.getJSONObject("layout"));
@@ -279,22 +295,25 @@ final class TileWorkshop {
     private static Set<String> used(JSONObject layout) {
         var ids = new java.util.LinkedHashSet<String>();
         for (Object entry : layout.getJSONArray("objects")) ids.add(((JSONObject) entry).getString("assetId"));
+        if (layout.has("stage")) NexusSceneLevel.addStageAssets(layout.getJSONObject("stage"), ids);
         if (ids.size() > MAX_USED) throw new IllegalArgumentException("Use up to six different sprites per level.");
         return ids;
     }
 
     private static JSONObject layout(JSONObject input) {
-        SpatialScene.keys(input, "title", "objects");
+        SpatialScene.keys(input, "title", "objects", "stage");
         String title = SpatialScene.text(input, "title", 70).strip();
+        var stage = input.has("stage") ? NexusSceneLevel.validatedStage(input.getJSONObject("stage")) : null;
         var objects = input.getJSONArray("objects");
-        if (objects.length() > 160) throw new IllegalArgumentException("Place up to 160 items per level.");
+        int capacity = stage == null ? 160 : 390;
+        if (objects.length() > capacity) throw new IllegalArgumentException("This level holds up to " + capacity + " tiles and items.");
         var result = new JSONArray();
         var ids = new HashSet<String>();
         var cells = new HashSet<Integer>();
         int pickups = 0;
         for (int i = 0; i < objects.length(); i++) {
             var item = objects.getJSONObject(i);
-            SpatialScene.keys(item, "id", "assetId", "kind", "layer", "x", "y", "size", "collider");
+            SpatialScene.keys(item, "id", "assetId", "kind", "layer", "x", "y", "size", "collider", "effect");
             String id = item.getString("id"), asset = item.getString("assetId");
             if (!id.matches("[a-zA-Z0-9-]{1,40}") || !ids.add(id) || !asset.matches("[0-9a-f]{64}"))
                 throw new IllegalArgumentException("Use a unique item ID and a valid sprite reference.");
@@ -311,23 +330,39 @@ final class TileWorkshop {
                     .put("x", x).put("y", y).put("size", size);
             if (item.has("collider")) {
                 if (!"terrain".equals(layer)) throw new IllegalArgumentException("Only terrain can be solid.");
-                output.put("collider", collider(item.getJSONObject("collider"), x, y, size));
+                output.put("collider", collider(item.getJSONObject("collider"), x, y, size, stage));
+            }
+            if (item.has("effect")) {
+                if (stage == null) throw new IllegalArgumentException("Nexus roles require their imported stage.");
+                output.put("effect", NexusSceneLevel.effect(item, layer, item.has("collider")));
+                if (item.getString("effect").equals("hazard") &&
+                        intersects(x, y, size, size, stage.getJSONObject("spawn"), 24, 32))
+                    throw new IllegalArgumentException("A hazard overlaps the player start.");
             }
             if ("pickup".equals(layer)) pickups++;
             result.put(output);
         }
-        if (pickups == 0) throw new IllegalArgumentException("Place at least one pickup to unlock the exit.");
-        return new JSONObject().put("title", title).put("objects", result);
+        if (stage == null && pickups == 0) throw new IllegalArgumentException("Place at least one pickup to unlock the exit.");
+        var output = new JSONObject().put("title", title).put("objects", result);
+        return stage == null ? output : output.put("stage", stage);
     }
 
-    private static JSONObject collider(JSONObject input, int itemX, int itemY, int size) {
+    private static JSONObject collider(JSONObject input, int itemX, int itemY, int size, JSONObject stage) {
         SpatialScene.keys(input, "x", "y", "w", "h");
         int x = number(input, "x", 0, size - 1), y = number(input, "y", 0, size - 1);
         int w = number(input, "w", 1, size - x), h = number(input, "h", 1, size - y);
         int left = itemX + x, top = itemY + y;
-        if (left < 72 && left + w > 48 && top + h > FLOOR - 32)
+        var spawn = stage == null ? new JSONObject().put("x", 48).put("y", FLOOR - 32) : stage.getJSONObject("spawn");
+        if (intersects(left, top, w, h, spawn, 24, 32))
             throw new IllegalArgumentException("A collider overlaps the player start.");
+        if (stage != null && intersects(left, top, w, h, stage.getJSONObject("goal"), TILE, TILE))
+            throw new IllegalArgumentException("A collider overlaps the goal.");
         return new JSONObject().put("x", x).put("y", y).put("w", w).put("h", h);
+    }
+
+    private static boolean intersects(int x, int y, int w, int h, JSONObject point, int width, int height) {
+        int left = point.getInt("x"), top = point.getInt("y");
+        return x < left + width && x + w > left && y < top + height && y + h > top;
     }
 
     private static int number(JSONObject input, String key, int min, int max) {
