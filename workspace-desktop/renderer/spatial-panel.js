@@ -57,11 +57,16 @@ export class SpatialPanel {
     <p id="browser-views-status" class="spatial-note" role="status">Pick a graphic for each view.</p>
    </details>
    <details class="spatial-detail" id="image-assembly"><summary>Build a scene from images</summary>
-    <p class="spatial-note">Fit each prop under Model from registered images first. Use an opaque top-down PNG with one solid rectangular marker per prop and a plain background. The marker centers set position, the PNG width sets scale, and each prop keeps its original orientation.</p>
+    <p class="spatial-note">Fit each prop under Model from registered images first. Choose a marked layout or locate the props by their silhouettes in two registered views.</p>
     <form>
      <div class="spatial-task"><label>Scene name<input name="title" value="Image scene" maxlength="90" required></label>
+      <label>Position source<select name="mode"><option value="markers">Color markers</option><option value="views">Unmarked registered views</option></select></label>
       <label>Layout width · m<input name="widthM" type="number" min=".5" max="20" step="any" value="4" required></label>
-      <label class="spatial-file">Layout PNG<input name="layout" type="file" accept="image/png,.png" required></label></div>
+      <label class="spatial-file"><span id="image-assembly-layout-label">Layout PNG</span><input name="layout" type="file" accept="image/png,.png" required></label></div>
+     <div id="image-assembly-witness-fields" hidden>
+      <p class="spatial-note">Use an opaque top-down image with separated silhouettes on a plain background. The second camera is 45° toward the left from the front and 60° above the floor. Use the same canvas, center and metres per pixel for both views. Keep each prop axis-aligned.</p>
+      <label class="spatial-file">Second-angle PNG<input name="witness" type="file" accept="image/png,.png"></label>
+     </div>
      <div class="spatial-assembly-props"></div>
      <div class="spatial-task"><button id="image-assembly-add" type="button">Add prop</button>
       <button id="image-assembly-build" class="primary">Build verified 3D scene</button></div>

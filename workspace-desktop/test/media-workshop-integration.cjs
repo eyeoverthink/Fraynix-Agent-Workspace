@@ -159,8 +159,8 @@ async function main() {
         await enter();
         await mediaStatus('Reopened saved level');
         assert.equal((await api('latest')).id, level.id);
-        await page.locator('input[name="title"]').fill('Signal crossing');
-        await page.locator('input[name="foregroundX"]').fill('574');
+        await page.locator('#media-layout input[name="title"]').fill('Signal crossing');
+        await page.locator('#media-layout input[name="foregroundX"]').fill('574');
         await page.locator('#media-save').click();
         await mediaStatus('Saved level');
         const revised = await api('latest');

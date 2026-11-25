@@ -4,10 +4,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import com.jme3.bullet.objects.PhysicsRigidBody;
 
+import java.awt.image.BufferedImage;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.UUID;
 import java.util.function.Function;
 
@@ -41,54 +43,58 @@ final class ImageSceneAssembly {
         }
     }
 
-    static Plan plan(JSONObject input, byte[] png, Function<String,JSONObject> source) throws Exception {
+    private record Asset(JSONObject slot, JSONObject original, JSONObject proof, JSONObject body, String mesh, double[] size) {}
+
+    static Plan plan(JSONObject input, byte[] png, byte[] witness, Function<String,JSONObject> source) throws Exception {
         SpatialScene.keys(input,"title","widthM","props");
         String title = SpatialScene.text(input,"title",90);
         double widthM = SpatialScene.number(input,"widthM",.5,20);
         var slots = input.getJSONArray("props");
         if (slots.length()<2 || slots.length()>4) throw new IllegalArgumentException("Choose two to four checked props.");
-        var markers = new LinkedHashMap<Integer,Marker>();
-        for (Object value : slots) {
-            var slot = (JSONObject)value;
-            SpatialScene.keys(slot,"sceneId","label","color");
-            int color = color(slot);
-            if (markers.putIfAbsent(color,new Marker())!=null)
-                throw new IllegalArgumentException("Use a distinct marker colour for each prop.");
-        }
         var image = BrowserShapeTrace.decode(png);
         int cols = image.getWidth(), rows = image.getHeight();
         if (cols>MAX_SIDE || rows>MAX_SIDE) throw new IllegalArgumentException("Use a PNG up to 1024 × 1024 pixels.");
-        int background = image.getRGB(0,0);
-        if (markers.containsKey(background) || (background>>>24)!=255)
-            throw new IllegalArgumentException("Use an opaque layout with a background different from the marker colours.");
-        for (int y=0;y<rows;y++) for (int x=0;x<cols;x++) {
-            int pixel = image.getRGB(x,y);
-            if (pixel==background) continue;
-            var marker = markers.get(pixel);
-            if (marker==null) throw new IllegalArgumentException("The layout contains an unassigned colour or transparent pixel.");
-            marker.add(x,y);
-        }
         double cell = widthM/cols, depthM = rows*cell;
         RampDefinition.range(depthM,.25,20,"layout depth metres");
-        var geometries = new JSONObject();
-        var entries = new JSONArray();
-        var objects = new JSONArray().put(SpatialReconstruction.box(FLOOR,"Layout floor",
-                new double[]{0,-.1,0},new double[]{widthM,.2,depthM},0));
-        var occupied = new ArrayList<double[]>();
-        for (int i=0;i<slots.length();i++) {
-            var slot = slots.getJSONObject(i);
-            var marker = markers.get(color(slot));
-            marker.validate(cols,rows);
+        var assets = new ArrayList<Asset>();
+        for (Object value : slots) {
+            var slot = (JSONObject)value;
+            if (witness==null) SpatialScene.keys(slot,"sceneId","label","color");
+            else SpatialScene.keys(slot,"sceneId","label");
             var original = source.apply(SpatialScene.text(slot,"sceneId",36));
             var proof = original.optJSONObject("reconstruction");
             if (proof==null || !BrowserViewTrace.POLICY.equals(proof.optString("policy")))
                 throw new IllegalArgumentException("Use a prop checked against a separate registered image.");
             String mesh = proof.getString("meshSha256");
-            var originalBody = original.getJSONArray("objects").getJSONObject(1);
-            if (!mesh.equals(originalBody.optString("visualMesh")) || originalBody.getDouble("massKg")<=0)
+            var body = original.getJSONArray("objects").getJSONObject(1);
+            if (!mesh.equals(body.optString("visualMesh")) || body.getDouble("massKg")<=0)
                 throw new IllegalStateException("The reconstructed visual mesh or collider changed.");
-            var size = SpatialScene.vector(originalBody.getJSONArray("size"),20);
-            double px = (marker.left+marker.right+1)/2.0, py = (marker.top+marker.bottom+1)/2.0;
+            assets.add(new Asset(slot,original,proof,body,mesh,SpatialScene.vector(body.getJSONArray("size"),20)));
+        }
+        ImageSceneRegistration.Result registration = null;
+        List<double[]> centers;
+        if (witness==null) centers = markerCenters(image,slots);
+        else {
+            if (java.util.Arrays.equals(png,witness))
+                throw new IllegalArgumentException("Choose a separate registered second view.");
+            var props = assets.stream().map(asset->new ImageSceneRegistration.Prop(SpatialScene.text(asset.slot,"label",70),
+                    SpatialVisualMesh.read(asset.original.getJSONObject("visualMeshes").getString(asset.mesh)),asset.size[1])).toList();
+            registration = ImageSceneRegistration.locate(image,witness,cell,props);
+            centers = registration.centersPx();
+        }
+        var geometries = new JSONObject();
+        var entries = new JSONArray();
+        var objects = new JSONArray().put(SpatialReconstruction.box(FLOOR,"Layout floor",
+                new double[]{0,-.1,0},new double[]{widthM,.2,depthM},0));
+        var occupied = new ArrayList<double[]>();
+        for (int i=0;i<assets.size();i++) {
+            var asset = assets.get(i);
+            var original = asset.original;
+            var proof = asset.proof;
+            var originalBody = asset.body;
+            String mesh = asset.mesh;
+            double[] size = asset.size;
+            double px = centers.get(i)[0], py = centers.get(i)[1];
             double x = (px-cols/2.0)*cell, z = (py-rows/2.0)*cell;
             double[] bounds = {x-size[0]/2,z-size[2]/2,x+size[0]/2,z+size[2]/2};
             if (bounds[0]<-widthM/2+.01 || bounds[2]>widthM/2-.01
@@ -100,7 +106,7 @@ final class ImageSceneAssembly {
             occupied.add(bounds);
             String key = "image-prop-"+(i+1);
             var position = new double[]{x,size[1]/2,z};
-            var body = SpatialReconstruction.box(key,SpatialScene.text(slot,"label",70),position,size,1)
+            var body = SpatialReconstruction.box(key,SpatialScene.text(asset.slot,"label",70),position,size,1)
                     .put("visualMesh",mesh).put("massKg",originalBody.getDouble("massKg"))
                     .put("friction",originalBody.getDouble("friction")).put("restitution",originalBody.getDouble("restitution"));
             objects.put(body);
@@ -108,21 +114,51 @@ final class ImageSceneAssembly {
             entries.put(new JSONObject().put("sourceId",key).put("source",SpatialPropCopy.binding(original))
                     .put("originalImageSha256",proof.getString("sourceSha256"))
                     .put("heldOutIou",proof.getDouble("heldOutIou")).put("meshSha256",mesh)
-                    .put("markerCenterPx",new JSONArray(new double[]{px,py})).put("positionM",new JSONArray(position))
+                    .put(registration==null?"markerCenterPx":"overheadCenterPx",new JSONArray(new double[]{px,py})).put("positionM",new JSONArray(position))
                     .put("colliderSizeM",new JSONArray(size)));
         }
         String layoutSha = MapDefinition.sha(png);
         var binding = new JSONObject().put("format",FORMAT).put("input",WorldFrames.copy(input)).put("layoutSha256",layoutSha)
                 .put("imageSizePx",new JSONArray(new int[]{cols,rows})).put("metresPerPixel",cell).put("props",entries);
+        if (registration!=null) binding.put("registration",registration.evidence());
         var def = new JSONObject().put("format","fraynix.spatial-scene").put("version",1).put("units","m")
                 .put("frame","right-handed-y-up").put("title",title).put("gravityMps2",9.81)
                 .put("scaleReference",new JSONObject().put("a",new JSONArray(new int[]{0,0,0}))
                         .put("b",new JSONArray(new double[]{widthM,0,0})).put("knownLengthM",widthM)
                         .put("toleranceM",0).put("basis","declared-test"))
                 .put("source",new JSONObject().put("kind","unverified").put("physicalProperties","declared")
-                        .put("note","Orthographic colour layout "+layoutSha+". Declared width, axis-aligned props and a flat support floor."))
+                        .put("note",registration==null
+                                ? "Orthographic colour layout "+layoutSha+". Declared width, axis-aligned props and a flat support floor."
+                                : "Unmarked overhead view "+layoutSha+". Positions cross-checked against a registered second angle."
+                                +" Declared width, axis-aligned props and a flat support floor."))
                 .put("objects",objects).put("visualMeshes",geometries);
         return new Plan(def,binding);
+    }
+
+    private static List<double[]> markerCenters(BufferedImage image, JSONArray slots) {
+        int cols = image.getWidth(), rows = image.getHeight();
+        var markers = new LinkedHashMap<Integer,Marker>();
+        for (Object value : slots) {
+            int color = color((JSONObject)value);
+            if (markers.putIfAbsent(color,new Marker())!=null)
+                throw new IllegalArgumentException("Use a distinct marker colour for each prop.");
+        }
+        int background = image.getRGB(0,0);
+        if (markers.containsKey(background) || (background>>>24)!=255)
+            throw new IllegalArgumentException("Use an opaque layout with a background different from the marker colours.");
+        for (int y=0;y<rows;y++) for (int x=0;x<cols;x++) {
+            int pixel = image.getRGB(x,y);
+            if (pixel==background) continue;
+            var marker = markers.get(pixel);
+            if (marker==null) throw new IllegalArgumentException("The layout contains an unassigned colour or transparent pixel.");
+            marker.add(x,y);
+        }
+        var result = new ArrayList<double[]>();
+        for (var marker : markers.values()) {
+            marker.validate(cols,rows);
+            result.add(new double[]{(marker.left+marker.right+1)/2.0,(marker.top+marker.bottom+1)/2.0});
+        }
+        return result;
     }
 
     private static int color(JSONObject slot) {

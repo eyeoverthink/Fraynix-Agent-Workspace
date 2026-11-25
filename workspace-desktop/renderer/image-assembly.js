@@ -8,10 +8,13 @@ export class ImageAssemblyPanel {
         this.form = this.root.querySelector('form');
         this.rows = this.root.querySelector('.spatial-assembly-props');
         this.status = this.root.querySelector('[role=status]');
+        this.mode = this.form.elements.namedItem('mode');
+        this.witness = this.form.elements.namedItem('witness');
         this.add = this.root.querySelector('#image-assembly-add');
         this.replay = this.root.querySelector('#image-assembly-replay');
         this.assets = [];
         this.add.onclick = () => this.addRow();
+        this.mode.onchange = () => this.controls();
         this.root.addEventListener('toggle', () => {
             if (this.root.open) spatial.action(() => this.refresh());
         });
@@ -34,7 +37,7 @@ export class ImageAssemblyPanel {
         row.innerHTML = `
             <label>Checked prop<select name="sceneId" required></select></label>
             <label>Name<input name="label" value="Image prop ${index+1}" maxlength="70" required></label>
-            <label>Marker<input name="color" type="color" value="${marker}"></label>
+            <label class="assembly-color">Marker<input name="color" type="color" value="${marker}"></label>
             ${index>=2?'<button type="button">Remove</button>':''}`;
         row.querySelector('button')?.addEventListener('click', () => {
             row.remove();
@@ -63,32 +66,53 @@ export class ImageAssemblyPanel {
         this.blocked = blocked;
         const scene = this.spatial.worldMode ? null : this.spatial.scene;
         const receipt = scene?.imageAssembly;
+        if (this.sceneId !== scene?.id) {
+            this.sceneId = scene?.id;
+            if (receipt) this.mode.value = receipt.binding.registration?'views':'markers';
+            this.status.textContent = receipt ? this.receiptSummary(receipt) : '';
+        }
+        const views = this.mode.value==='views';
+        this.root.querySelector('#image-assembly-layout-label').textContent = views?'Overhead PNG':'Layout PNG';
+        this.witness.required = views;
+        this.witness.disabled = !views;
+        this.root.querySelector('#image-assembly-witness-fields').hidden = !views;
+        for (const label of this.rows.querySelectorAll('.assembly-color')) label.hidden = views;
         this.replay.hidden = !receipt;
         this.replay.disabled = this.spatial.busy || blocked;
         this.add.disabled = this.spatial.busy || blocked || this.rows.children.length>=MARKERS.length;
         this.root.querySelector('#image-assembly-build').disabled = this.spatial.busy || blocked || !this.assets.length;
-        if (this.sceneId !== scene?.id) {
-            this.sceneId = scene?.id;
-            this.status.textContent = receipt ? receipt.measured.length+' props · floor contact verified twice' : '';
-        }
     }
 
-    async build() {
-        const fields = this.form.elements;
-        const file = fields.namedItem('layout').files[0];
-        if (!file || file.size>MAX_PNG_BYTES) throw Error('Choose an opaque layout PNG up to 512 KiB.');
+    receiptSummary(receipt) {
+        const registered = receipt.binding.registration;
+        if (!registered) return receipt.measured.length+' props · floor contact verified twice';
+        const scores = registered.props.map(prop=>Math.round(100*prop.witnessIou)+'%');
+        return receipt.measured.length+' positions verified in the second view · '+scores.join(' / ')+' overlap · floor contact verified twice';
+    }
+
+    async readPng(file) {
+        if (!file || file.size>MAX_PNG_BYTES) throw Error('Choose an opaque PNG up to 512 KiB per view.');
         const bytes = new Uint8Array(await file.arrayBuffer());
         let binary = '';
         for (let offset=0; offset<bytes.length; offset+=8192)
             binary += String.fromCharCode(...bytes.subarray(offset,offset+8192));
+        return btoa(binary);
+    }
+
+    async build() {
+        const fields = this.form.elements;
+        const views = this.mode.value==='views';
         const props = [...this.rows.children].map(row => Object.fromEntries(
-            [...row.querySelectorAll('[name]')].map(input=>[input.name,input.value])));
+            [...row.querySelectorAll('[name]')].filter(input=>!views||input.name!=='color')
+                .map(input=>[input.name,input.value])));
         this.status.textContent = 'Checking the layout, source images and floor contacts…';
         try {
-            const scene = await this.spatial.call('image-assembly',{layoutPng:btoa(binary),
-                title:fields.namedItem('title').value,widthM:fields.namedItem('widthM').valueAsNumber,props});
+            const request = {layoutPng:await this.readPng(fields.namedItem('layout').files[0]),
+                title:fields.namedItem('title').value,widthM:fields.namedItem('widthM').valueAsNumber,props};
+            if (views) request.witnessPng = await this.readPng(this.witness.files[0]);
+            const scene = await this.spatial.call('image-assembly',request);
             await this.spatial.open(scene.id);
-            this.status.textContent = scene.imageAssembly.measured.length+' props · floor contact verified twice';
+            this.status.textContent = this.receiptSummary(scene.imageAssembly);
             this.spatial.notice('Image scene ready. Review the props or export the checked GLB.');
         } catch (error) {
             this.status.textContent = error.message.replace(/^Error invoking remote method '[^']+': (?:Error: )?/,'');
@@ -98,7 +122,9 @@ export class ImageAssemblyPanel {
     async recheck() {
         try {
             const result = await this.spatial.call('image-assembly-replay',{id:this.spatial.scene.id});
-            this.status.textContent = 'Fresh floor contacts matched for all '+result.measured.length+' props.';
+            const positions = this.spatial.scene.imageAssembly.binding.registration;
+            this.status.textContent = positions ? 'Both registered views rechecked. Fresh floor contacts matched for all '+result.measured.length+' props.'
+                : 'Fresh floor contacts matched for all '+result.measured.length+' props.';
         } catch (error) {
             this.status.textContent = error.message.replace(/^Error invoking remote method '[^']+': (?:Error: )?/,'');
         }

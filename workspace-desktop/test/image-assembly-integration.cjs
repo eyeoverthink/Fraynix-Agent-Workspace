@@ -9,12 +9,16 @@ const {launch} = require('./calibration-integration.cjs');
 
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const fixtures = path.join(__dirname,'fixtures');
-const layout = path.join(fixtures,'image-assembly','overhead.png');
 const overlap = path.join(fixtures,'image-assembly','overlap.png');
+const registration = path.join(fixtures,'image-registration');
 
 async function main() {
     process.env.FRAYNIX_WORKSPACE_NO_MODELS = '1';
-    const out = path.resolve(process.argv[2] || 'build/image-assembly247');
+    const registered = process.argv[3]==='registered';
+    const out = path.resolve(process.argv[2] || (registered?'build/image-registration248':'build/image-assembly247'));
+    const layout = path.join(registered?registration:path.join(fixtures,'image-assembly'),'overhead.png');
+    const witness = path.join(registration,'second-angle.png');
+    const truth = registered?JSON.parse(await fs.readFile(path.join(registration,'truth.json'),'utf8')):null;
     await fs.mkdir(out,{recursive:true});
     const project = await fs.mkdtemp(path.join(os.tmpdir(),'Fraynix image assembly '));
     const extraArgs = process.platform==='linux' ? ['--no-sandbox','--disable-dev-shm-usage'] : [];
@@ -77,34 +81,64 @@ async function main() {
         assert.notEqual(first.reconstruction.meshSha256,second.reconstruction.meshSha256);
         assert(first.reconstruction.heldOutIou>.9 && second.reconstruction.heldOutIou>.9);
         await open();
+        const assets = registered ? [second,first] : [first,second];
+        const labels = registered ? ['Perforated plate','Stepped bracket'] : ['Stepped bracket','Perforated plate'];
         const prop = page.locator('#image-assembly select[name=sceneId]');
         const label = page.locator('#image-assembly input[name=label]');
-        await prop.nth(0).selectOption(first.id);
-        await prop.nth(1).selectOption(second.id);
-        await label.nth(0).fill('Stepped bracket');
-        await label.nth(1).fill('Perforated plate');
-        await page.locator('#image-assembly input[name=title]').fill('Image assembly workshop');
-        await page.locator('#image-assembly input[name=layout]').setInputFiles(overlap);
+        for (const [index,asset] of assets.entries()) {
+            await prop.nth(index).selectOption(asset.id);
+            await label.nth(index).fill(labels[index]);
+        }
+        const title = registered?'Unmarked image workshop':'Image assembly workshop';
+        await page.locator('#image-assembly input[name=title]').fill(title);
+        const layoutField = page.locator('#image-assembly input[name=layout]');
+        const witnessField = page.locator('#image-assembly input[name=witness]');
+        if (registered) {
+            await page.locator('#image-assembly select[name=mode]').selectOption('views');
+            await page.locator('#image-assembly .assembly-color').first().waitFor({state:'hidden'});
+            await layoutField.setInputFiles(layout);
+            await witnessField.setInputFiles(path.join(registration,'shifted-second-angle.png'));
+        } else await layoutField.setInputFiles(overlap);
         await page.locator('#image-assembly-build').click();
-        await status('colliders overlap');
+        await status(registered?'Second view refused Perforated plate':'colliders overlap');
+        const refusal = await page.locator('#image-assembly-status').textContent();
         assert.equal((await call('list')).scenes.length,2);
-        await capture('overlapping-layout-refused.png');
+        const rejected = page.locator('#image-assembly-status');
+        await rejected.evaluate(element=>element.scrollIntoView({block:'nearest'}));
+        await capture(registered?'shifted-second-view-refused.png':'overlapping-layout-refused.png');
 
-        await page.locator('#image-assembly input[name=layout]').setInputFiles(layout);
+        if (registered) {
+            const layoutPng=(await fs.readFile(layout)).toString('base64');
+            const witnessPng=(await fs.readFile(witness)).toString('base64');
+            const request={title,widthM:truth.widthM,layoutPng,witnessPng,
+                props:assets.map((asset,index)=>({sceneId:asset.id,label:labels[index]}))};
+            await assert.rejects(call('image-assembly',{...request,witnessPng:layoutPng}),/separate registered second view/);
+            await assert.rejects(call('image-assembly',{...request,props:[request.props[0],request.props[0]]}),/do not uniquely identify/);
+            assert.equal((await call('list')).scenes.length,2);
+            await witnessField.setInputFiles(witness);
+        } else await layoutField.setInputFiles(layout);
         await page.locator('#image-assembly-build').click();
-        await status('2 props · floor contact verified twice');
+        await status(registered?'2 positions verified in the second view':'2 props · floor contact verified twice');
         const id = await page.locator('#spatial-scenes').inputValue();
         const scene = await call('read',{id});
-        assert.equal(scene.title,'Image assembly workshop');
+        assert.equal(scene.title,title);
         assert.equal(scene.objects.length,3);
         const receipt = scene.imageAssembly;
-        assert.deepEqual(receipt.binding.props.map(p=>p.markerCenterPx),[[110,105],[305,210]]);
+        const placement = receipt.binding.registration;
+        if (registered) {
+            assert.equal(placement.witnessSha256,hash(await fs.readFile(witness)));
+            assert(placement.props.every(p=>p.witnessIou>=placement.minimumWitnessIou
+                && p.witnessCenterErrorPx<=placement.maximumWitnessCenterErrorPx));
+        } else assert.deepEqual(receipt.binding.props.map(p=>p.markerCenterPx),[[110,105],[305,210]]);
         assert.equal(receipt.binding.metresPerPixel,.01);
-        const expected = [[-.90,-.45],[1.05,.60]];
+        const expected = registered?[truth.propsXZ[1],truth.propsXZ[0]]:[[-.90,-.45],[1.05,.60]];
+        const positionErrorsM = [];
         for (let i=0;i<expected.length;i++) {
             const object = scene.objects[i+1];
-            assert.deepEqual([object.position[0],object.position[2]],expected[i]);
-            const asset = [first,second][i];
+            positionErrorsM.push(Math.hypot(object.position[0]-expected[i][0],object.position[2]-expected[i][1]));
+            assert(positionErrorsM[i]<=(registered ? .02 : 0));
+            const asset = assets[i];
+            assert.equal(object.label,labels[i]);
             assert.equal(object.visualMesh,asset.reconstruction.meshSha256);
             assert.equal(scene.visualMeshes[object.visualMesh],asset.visualMeshes[object.visualMesh]);
             assert.deepEqual(object.size,asset.objects[1].size);
@@ -129,10 +163,12 @@ async function main() {
         await restart();
         await page.locator('#spatial-scenes').selectOption(id);
         await status('floor contact verified twice');
+        if (registered) assert.equal(await page.locator('#image-assembly select[name=mode]').inputValue(),'views');
         assert.deepEqual(await call('read',{id}),scene);
         await page.locator('#image-assembly-replay').click();
         await status('Fresh floor contacts matched for all 2 props.');
         assert.equal((await call('export-glb',{id})).sha256,exported.sha256);
+        if (registered) await status('Both registered views rechecked.');
         await page.locator('#image-assembly-status').evaluate(element=>element.scrollIntoView({block:'nearest'}));
         await capture('image-scene-restarted.png');
 
@@ -143,6 +179,15 @@ async function main() {
         await fs.writeFile(retainedLayout,Buffer.concat([originalLayout,Buffer.from('changed')]));
         await assert.rejects(call('export-glb',{id}),/recheck the layout PNG/);
         await fs.writeFile(retainedLayout,originalLayout);
+        if (registered) {
+            const originalWitness = await fs.readFile(witness);
+            const retainedWitness = path.join(project,'spatial','image-assemblies',id+'.witness.png');
+            assert((await fs.readFile(retainedWitness)).equals(originalWitness));
+            await fs.writeFile(retainedWitness,await fs.readFile(path.join(registration,'shifted-second-angle.png')));
+            await assert.rejects(call('image-assembly-replay',{id}),/registered views/);
+            await assert.rejects(call('export-glb',{id}),/registered views/);
+            await fs.writeFile(retainedWitness,originalWitness);
+        }
         const pkg = assetPixels(second.id);
         const images = await fs.readFile(pkg);
         await fs.writeFile(pkg,Buffer.concat([images,Buffer.from('changed')]));
@@ -156,7 +201,10 @@ async function main() {
         const proof = {platform:process.platform,layoutSha256:receipt.binding.layoutSha256,
             sceneSha256:scene.sourceSha256,glbSha256:exported.sha256,props:receipt.binding.props,
             measurements:receipt.measured,localPngImports:7,didRestart:true,exactGlbRoundTrip:true,
-            sourceScenesPreserved:true,refusedOverlap:true,refusedChangedLayout:true,refusedChangedViewSet:true};
+            sourceScenesPreserved:true,refusedChangedLayout:true,refusedChangedViewSet:true,
+            ...(registered?{registration:placement,truth,labels,positionErrorsM,shiftedViewRefusal:refusal,
+                detectedInReverseInputOrder:true,
+                refusedReusedView:true,refusedAmbiguousIdentity:true,refusedChangedWitness:true}:{refusedOverlap:true})};
         await fs.writeFile(path.join(out,'image-assembly-evidence.json'),JSON.stringify(proof,null,2)+'\n');
         await fs.writeFile(path.join(out,'image-workshop.json'),scene.sourceText);
         await fs.writeFile(path.join(out,'image-workshop.glb'),bytes);
