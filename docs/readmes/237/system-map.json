@@ -1,0 +1,70 @@
+{
+  "summary": "Check the original destination and replay the contact and walking aisle in a clean project.",
+  "modules": [
+    {
+      "title": "Recipient archive contract and physics replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PlacementExchange.java",
+      "note": "docs/obsidian/245-authored-level-replay.md"
+    },
+    {
+      "title": "Authored export and aisle witness",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialLevelPlacement.java",
+      "note": "docs/obsidian/245-authored-level-replay.md"
+    },
+    {
+      "title": "Collision and aisle viewer",
+      "source": "workspace-desktop/renderer/placement-exchange.js",
+      "note": "docs/obsidian/245-authored-level-replay.md"
+    },
+    {
+      "title": "Clean recipient and restart tests",
+      "source": "workspace-desktop/test/placement-exchange-integration.cjs",
+      "note": "docs/obsidian/245-authored-level-replay.md"
+    },
+    {
+      "title": "Independent archive integrity tests",
+      "source": "workspace-engine/src/test/java/fraymus/workspace/PlacementExchangeTest.java",
+      "note": "docs/obsidian/245-authored-level-replay.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/237/local-aisle-replay.png",
+      "title": "The archived and local walking envelope both clear"
+    },
+    {
+      "path": "docs/readmes/237/local-hit-replay.png",
+      "title": "The archived and local hit traces agree"
+    },
+    {
+      "path": "docs/readmes/237/local-miss-replay.png",
+      "title": "The lateral control has zero contacts"
+    },
+    {
+      "path": "docs/readmes/237/archive-inspected.png",
+      "title": "The reviewed destination is checked before local execution"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/237/edited-signal-bay.fraynix-level.json",
+      "title": "Signal Bay authored-level bundle"
+    },
+    {
+      "path": "docs/readmes/237/exchange-evidence.json",
+      "title": "Recipient acceptance results"
+    },
+    {
+      "path": "docs/readmes/237/local-replay.json",
+      "title": "Full native local replay"
+    },
+    {
+      "path": "docs/publication237/plan.md",
+      "title": "Implementation and reproducibility"
+    },
+    {
+      "path": "docs/readmes/237/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}

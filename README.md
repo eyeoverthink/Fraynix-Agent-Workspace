@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md)
 
-[Edition 236 — Qualify a mesh edit with a new browser view](README-236.md) · [Previous edition](README-235.md) · [Offline walkthrough](docs/readmes/236/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 237 — Replay an authored level in a clean project](README-237.md) · [Previous edition](README-236.md) · [Offline walkthrough](docs/readmes/237/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Use a fresh registered browser view to check an edited prop before approving placement and exporting it to Blender.
+Open an authored-level bundle in a separate project and independently replay its native contact and walking aisle.
