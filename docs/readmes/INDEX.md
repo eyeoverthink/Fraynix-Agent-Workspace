@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 241 — Review and replay a bounded collider edit](../../README-241.md) · [Walkthrough](241/index.html)
+
 [Edition 240 — Edit a forwarded revision with fresh local approval](../../README-240.md) · [Walkthrough](240/index.html)
 
 [Edition 239 — Forward and replay a verified recipient revision](../../README-239.md) · [Walkthrough](239/index.html)

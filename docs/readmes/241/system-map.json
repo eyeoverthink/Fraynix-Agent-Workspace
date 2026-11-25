@@ -1,0 +1,101 @@
+{
+  "summary": "Preview and approve a bounded collision-box edit against the retained mesh, aisle and archived physics.",
+  "modules": [
+    {
+      "title": "Bounded sizing and exact mesh enclosure",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RecipientLevelEdit.java",
+      "note": "docs/obsidian/249-reviewed-collider-edit.md"
+    },
+    {
+      "title": "Reconstruct approved edits before replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RecipientRevisionExchange.java",
+      "note": "docs/obsidian/249-reviewed-collider-edit.md"
+    },
+    {
+      "title": "Floor, obstruction and aisle verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialLevelPlacement.java",
+      "note": "docs/obsidian/249-reviewed-collider-edit.md"
+    },
+    {
+      "title": "Mesh and collider preview",
+      "source": "workspace-desktop/renderer/recipient-edit.js",
+      "note": "docs/obsidian/249-reviewed-collider-edit.md"
+    },
+    {
+      "title": "Collision evidence viewer",
+      "source": "workspace-desktop/renderer/placement-exchange.js",
+      "note": "docs/obsidian/249-reviewed-collider-edit.md"
+    },
+    {
+      "title": "Collider approval and restart test",
+      "source": "workspace-desktop/test/recipient-collider-integration.cjs",
+      "note": "docs/obsidian/249-reviewed-collider-edit.md"
+    },
+    {
+      "title": "Independent Blender import measurements",
+      "source": "workspace-desktop/test/recipient-collider-blender.py",
+      "note": "docs/obsidian/249-reviewed-collider-edit.md"
+    },
+    {
+      "title": "Independent clean project replay",
+      "source": "workspace-desktop/test/placement-exchange-integration.cjs",
+      "note": "docs/obsidian/249-reviewed-collider-edit.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/241/mesh-and-collider-preview.png",
+      "title": "Preview both box footprints against the retained mesh and the walking aisle"
+    },
+    {
+      "path": "docs/readmes/241/collider-cut-refused.png",
+      "title": "A proposal that clips the retained mesh is refused"
+    },
+    {
+      "path": "docs/readmes/241/collider-revision-exported.png",
+      "title": "Export the freshly approved collider with the original evidence"
+    },
+    {
+      "path": "docs/readmes/241/local-hit-replay.png",
+      "title": "An independent project replays the edited collider at tick 41"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/240/signal-bay-handoff.fraynix-recipient.json",
+      "title": "Exact incoming edition 240 archive"
+    },
+    {
+      "path": "docs/readmes/241/signal-bay-collider.fraynix-recipient.json",
+      "title": "Edition 241 collider revision archive"
+    },
+    {
+      "path": "docs/readmes/241/collider-final.glb",
+      "title": "Collider and visual mesh in the verified GLB"
+    },
+    {
+      "path": "docs/readmes/241/collider-evidence.json",
+      "title": "Local edit and approval checks"
+    },
+    {
+      "path": "docs/readmes/241/blender-collider-proof.json",
+      "title": "Blender comparison with the earlier GLB"
+    },
+    {
+      "path": "docs/readmes/241/exchange-evidence.json",
+      "title": "Independent replay and restart"
+    },
+    {
+      "path": "docs/readmes/241/local-replay.json",
+      "title": "Native measurements for all five stages"
+    },
+    {
+      "path": "docs/publication241/plan.md",
+      "title": "Implementation and reproduction"
+    },
+    {
+      "path": "docs/readmes/241/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}
