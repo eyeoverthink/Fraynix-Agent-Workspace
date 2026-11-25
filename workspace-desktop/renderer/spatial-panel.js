@@ -60,11 +60,11 @@ export class SpatialPanel {
     <p class="spatial-note">Fit each prop under Model from registered images first. Choose a marked layout or locate the props by their silhouettes in two registered views.</p>
     <form>
      <div class="spatial-task"><label>Scene name<input name="title" value="Image scene" maxlength="90" required></label>
-      <label>Position source<select name="mode"><option value="markers">Color markers</option><option value="views">Unmarked registered views</option></select></label>
+      <label>Placement method<select name="mode"><option value="markers">Color markers</option><option value="views">Unmarked views · position</option><option value="yaw">Unmarked views · position &amp; rotation</option></select></label>
       <label>Layout width · m<input name="widthM" type="number" min=".5" max="20" step="any" value="4" required></label>
       <label class="spatial-file"><span id="image-assembly-layout-label">Layout PNG</span><input name="layout" type="file" accept="image/png,.png" required></label></div>
      <div id="image-assembly-witness-fields" hidden>
-      <p class="spatial-note">Use an opaque top-down image with separated silhouettes on a plain background. The second camera is 45° toward the left from the front and 60° above the floor. Use the same canvas, center and metres per pixel for both views. Keep each prop axis-aligned.</p>
+      <p class="spatial-note">Use an opaque overhead image with separated silhouettes on a plain background. The second camera is 45° left of the front and 60° above the floor. Match the frame, center and metres per pixel. For rotation, use upright props with distinct, directional silhouettes.</p>
       <label class="spatial-file">Second-angle PNG<input name="witness" type="file" accept="image/png,.png"></label>
      </div>
      <div class="spatial-assembly-props"></div>

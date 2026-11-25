@@ -924,18 +924,19 @@ public final class SpatialStore implements AutoCloseable {
     }
 
     synchronized JSONObject createImageAssembly(JSONObject input) throws Exception {
-        SpatialScene.keys(input,"layoutPng","witnessPng","title","widthM","props");
+        SpatialScene.keys(input,"layoutPng","witnessPng","title","widthM","props","recoverYaw");
         available();
         var png = SpriteWorkshop.decode(input.getString("layoutPng"),ImageSceneAssembly.PNG_LIMIT);
         byte[] witness = input.has("witnessPng")
                 ? SpriteWorkshop.decode(input.getString("witnessPng"),ImageSceneAssembly.PNG_LIMIT) : null;
-        var plan = ImageSceneAssembly.plan(new JSONObject(input,"title","widthM","props"),png,witness,this::readAssemblySource);
+        var plan = ImageSceneAssembly.plan(new JSONObject(input,"title","widthM","props","recoverYaw"),png,witness,this::readAssemblySource);
         String id = plan.id();
         if (scenes.containsKey(id)) return read(id);
         if (scenes.size()>=32) throw new IllegalStateException("Spatial import history limit reached (32)");
         var scene = SpatialScene.parse(plan.definition().toString(),id);
-        var measured = ImageSceneAssembly.verify(scene,nativeDir);
-        var repeat = ImageSceneAssembly.verify(scene,nativeDir);
+        boolean verifyRotation = input.has("recoverYaw");
+        var measured = ImageSceneAssembly.verify(scene,nativeDir,verifyRotation);
+        var repeat = ImageSceneAssembly.verify(scene,nativeDir,verifyRotation);
         if (!measured.similar(repeat)) throw new IllegalStateException("The repeated native floor checks disagree.");
         var receipt = new JSONObject().put("binding",plan.binding()).put("measured",measured).put("repeat",repeat);
         retainAssemblyImage(assemblyImage(id,false),png);
@@ -977,7 +978,8 @@ public final class SpatialStore implements AutoCloseable {
         available();
         var scene = read(input.getString("id"));
         var receipt = scene.getJSONObject("imageAssembly");
-        var local = ImageSceneAssembly.verify(scene,nativeDir);
+        boolean verifyRotation = receipt.getJSONObject("binding").getJSONObject("input").has("recoverYaw");
+        var local = ImageSceneAssembly.verify(scene,nativeDir,verifyRotation);
         if (!local.similar(receipt.getJSONArray("measured")))
             throw new IllegalStateException("The fresh native support check differs from the retained evidence.");
         return new JSONObject().put("id",scene.getString("id")).put("matched",true).put("measured",local);

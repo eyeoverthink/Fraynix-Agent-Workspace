@@ -68,10 +68,10 @@ export class ImageAssemblyPanel {
         const receipt = scene?.imageAssembly;
         if (this.sceneId !== scene?.id) {
             this.sceneId = scene?.id;
-            if (receipt) this.mode.value = receipt.binding.registration?'views':'markers';
+            if (receipt) this.mode.value = receipt.binding.input.recoverYaw?'yaw':receipt.binding.registration?'views':'markers';
             this.status.textContent = receipt ? this.receiptSummary(receipt) : '';
         }
-        const views = this.mode.value==='views';
+        const views = this.mode.value!=='markers';
         this.root.querySelector('#image-assembly-layout-label').textContent = views?'Overhead PNG':'Layout PNG';
         this.witness.required = views;
         this.witness.disabled = !views;
@@ -86,8 +86,14 @@ export class ImageAssemblyPanel {
     receiptSummary(receipt) {
         const registered = receipt.binding.registration;
         if (!registered) return receipt.measured.length+' props · floor contact verified twice';
+        if (receipt.binding.input.recoverYaw)
+            return receipt.measured.length+' positions and rotations verified · '+this.headingLabels(registered)+' · floor contact verified twice';
         const scores = registered.props.map(prop=>Math.round(100*prop.witnessIou)+'%');
         return receipt.measured.length+' positions verified in the second view · '+scores.join(' / ')+' overlap · floor contact verified twice';
+    }
+
+    headingLabels(registration) {
+        return registration.props.map(prop=>prop.label+' '+prop.overheadYawDeg+'°').join(' / ');
     }
 
     async readPng(file) {
@@ -101,7 +107,8 @@ export class ImageAssemblyPanel {
 
     async build() {
         const fields = this.form.elements;
-        const views = this.mode.value==='views';
+        const views = this.mode.value!=='markers';
+        const recoverYaw = this.mode.value==='yaw';
         const props = [...this.rows.children].map(row => Object.fromEntries(
             [...row.querySelectorAll('[name]')].filter(input=>!views||input.name!=='color')
                 .map(input=>[input.name,input.value])));
@@ -110,6 +117,7 @@ export class ImageAssemblyPanel {
             const request = {layoutPng:await this.readPng(fields.namedItem('layout').files[0]),
                 title:fields.namedItem('title').value,widthM:fields.namedItem('widthM').valueAsNumber,props};
             if (views) request.witnessPng = await this.readPng(this.witness.files[0]);
+            if (recoverYaw) request.recoverYaw = true;
             const scene = await this.spatial.call('image-assembly',request);
             await this.spatial.open(scene.id);
             this.status.textContent = this.receiptSummary(scene.imageAssembly);
@@ -122,9 +130,10 @@ export class ImageAssemblyPanel {
     async recheck() {
         try {
             const result = await this.spatial.call('image-assembly-replay',{id:this.spatial.scene.id});
-            const positions = this.spatial.scene.imageAssembly.binding.registration;
-            this.status.textContent = positions ? 'Both registered views rechecked. Fresh floor contacts matched for all '+result.measured.length+' props.'
-                : 'Fresh floor contacts matched for all '+result.measured.length+' props.';
+            const binding = this.spatial.scene.imageAssembly.binding;
+            const rechecked = binding.input.recoverYaw?'Positions and rotations rechecked. ':binding.registration?'Both registered views rechecked. ':'';
+            const headings = binding.input.recoverYaw?' '+this.headingLabels(binding.registration):'';
+            this.status.textContent = rechecked+'Fresh floor contacts matched for all '+result.measured.length+' props.'+headings;
         } catch (error) {
             this.status.textContent = error.message.replace(/^Error invoking remote method '[^']+': (?:Error: )?/,'');
         }

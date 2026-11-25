@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Function;
 
-/** Compose independently checked meshes using a registered, colour-keyed top view. */
+/** Compose independently checked meshes from marked or registered unmarked images. */
 final class ImageSceneAssembly {
     static final int PNG_LIMIT = 512 * 1024;
     private static final int MAX_SIDE = 1024;
@@ -46,7 +46,10 @@ final class ImageSceneAssembly {
     private record Asset(JSONObject slot, JSONObject original, JSONObject proof, JSONObject body, String mesh, double[] size) {}
 
     static Plan plan(JSONObject input, byte[] png, byte[] witness, Function<String,JSONObject> source) throws Exception {
-        SpatialScene.keys(input,"title","widthM","props");
+        SpatialScene.keys(input,"title","widthM","props","recoverYaw");
+        boolean recoverYaw = input.has("recoverYaw");
+        if (recoverYaw && (!Boolean.TRUE.equals(input.get("recoverYaw")) || witness==null))
+            throw new IllegalArgumentException("Rotation recovery requires two registered views.");
         String title = SpatialScene.text(input,"title",90);
         double widthM = SpatialScene.number(input,"widthM",.5,20);
         var slots = input.getJSONArray("props");
@@ -79,7 +82,7 @@ final class ImageSceneAssembly {
                 throw new IllegalArgumentException("Choose a separate registered second view.");
             var props = assets.stream().map(asset->new ImageSceneRegistration.Prop(SpatialScene.text(asset.slot,"label",70),
                     SpatialVisualMesh.read(asset.original.getJSONObject("visualMeshes").getString(asset.mesh)),asset.size[1])).toList();
-            registration = ImageSceneRegistration.locate(image,witness,cell,props);
+            registration = ImageSceneRegistration.locate(image,witness,cell,props,recoverYaw);
             centers = registration.centersPx();
         }
         var geometries = new JSONObject();
@@ -96,7 +99,11 @@ final class ImageSceneAssembly {
             double[] size = asset.size;
             double px = centers.get(i)[0], py = centers.get(i)[1];
             double x = (px-cols/2.0)*cell, z = (py-rows/2.0)*cell;
-            double[] bounds = {x-size[0]/2,z-size[2]/2,x+size[0]/2,z+size[2]/2};
+            int yaw = recoverYaw?registration.yawDeg()[i]:0;
+            double radians = Math.toRadians(yaw);
+            double sin = Math.abs(Math.sin(radians)), cos = Math.abs(Math.cos(radians));
+            double extentX=(cos*size[0]+sin*size[2])/2, extentZ=(sin*size[0]+cos*size[2])/2;
+            double[] bounds = {x-extentX,z-extentZ,x+extentX,z+extentZ};
             if (bounds[0]<-widthM/2+.01 || bounds[2]>widthM/2-.01
                     || bounds[1]<-depthM/2+.01 || bounds[3]>depthM/2-.01)
                 throw new IllegalArgumentException("A prop collider extends past the layout floor.");
@@ -109,13 +116,16 @@ final class ImageSceneAssembly {
             var body = SpatialReconstruction.box(key,SpatialScene.text(asset.slot,"label",70),position,size,1)
                     .put("visualMesh",mesh).put("massKg",originalBody.getDouble("massKg"))
                     .put("friction",originalBody.getDouble("friction")).put("restitution",originalBody.getDouble("restitution"));
+            if (recoverYaw) body.put("rotation",new JSONArray(new double[]{0,Math.sin(radians/2),0,Math.cos(radians/2)}));
             objects.put(body);
             geometries.put(mesh,original.getJSONObject("visualMeshes").get(mesh));
-            entries.put(new JSONObject().put("sourceId",key).put("source",SpatialPropCopy.binding(original))
+            var entry = new JSONObject().put("sourceId",key).put("source",SpatialPropCopy.binding(original))
                     .put("originalImageSha256",proof.getString("sourceSha256"))
                     .put("heldOutIou",proof.getDouble("heldOutIou")).put("meshSha256",mesh)
                     .put(registration==null?"markerCenterPx":"overheadCenterPx",new JSONArray(new double[]{px,py})).put("positionM",new JSONArray(position))
-                    .put("colliderSizeM",new JSONArray(size)));
+                    .put("colliderSizeM",new JSONArray(size));
+            if (recoverYaw) entry.put("yawDeg",yaw);
+            entries.put(entry);
         }
         String layoutSha = MapDefinition.sha(png);
         var binding = new JSONObject().put("format",FORMAT).put("input",WorldFrames.copy(input)).put("layoutSha256",layoutSha)
@@ -129,6 +139,9 @@ final class ImageSceneAssembly {
                 .put("source",new JSONObject().put("kind","unverified").put("physicalProperties","declared")
                         .put("note",registration==null
                                 ? "Orthographic colour layout "+layoutSha+". Declared width, axis-aligned props and a flat support floor."
+                                : recoverYaw
+                                ? "Unmarked overhead view "+layoutSha+". Positions and upright orientations checked against a registered second angle."
+                                +" Declared width and a flat support floor."
                                 : "Unmarked overhead view "+layoutSha+". Positions cross-checked against a registered second angle."
                                 +" Declared width, axis-aligned props and a flat support floor."))
                 .put("objects",objects).put("visualMeshes",geometries);
@@ -167,7 +180,7 @@ final class ImageSceneAssembly {
         return 0xff000000 | Integer.parseInt(value.substring(1),16);
     }
 
-    static JSONArray verify(JSONObject scene, Path nativeDir) throws Exception {
+    static JSONArray verify(JSONObject scene, Path nativeDir, boolean verifyRotation) throws Exception {
         var lifted = WorldFrames.copy(scene);
         var objects = lifted.getJSONArray("objects");
         for (int i=1;i<objects.length();i++) {
@@ -195,10 +208,26 @@ final class ImageSceneAssembly {
                         || Math.abs(pos.y-expected.getDouble(1))>.01
                         || Math.hypot(pos.x-expected.getDouble(0),pos.z-expected.getDouble(2))>.01)
                     throw new IllegalStateException("The native floor check did not settle "+authored.getString("label")+".");
-                result.put(new JSONObject().put("sourceId",authored.getString("sourceId"))
+                var trace = new JSONObject().put("sourceId",authored.getString("sourceId"))
                         .put("contactTick",contacts[i]).put("ticks",TICKS)
                         .put("centerMm",new JSONArray(new long[]{Math.round(pos.x*1000),Math.round(pos.y*1000),Math.round(pos.z*1000)}))
-                        .put("speedMmps",Math.round(speed*1000)));
+                        .put("speedMmps",Math.round(speed*1000));
+                if (verifyRotation) {
+                    var target = authored.getJSONArray("rotation");
+                    var actual = body.getPhysicsRotation();
+                    double[] quaternion = {actual.getX(),actual.getY(),actual.getZ(),actual.getW()};
+                    double dot=0, norm=0;
+                    for (int axis=0;axis<4;axis++) {
+                        dot+=quaternion[axis]*target.getDouble(axis);
+                        norm+=quaternion[axis]*quaternion[axis];
+                    }
+                    if (norm==0 || !Double.isFinite(norm))
+                        throw new IllegalStateException("The native floor check returned an invalid rotation.");
+                    double error=2*Math.toDegrees(Math.acos(Math.min(1,Math.abs(dot)/Math.sqrt(norm))));
+                    if (error>1) throw new IllegalStateException("The native floor check did not retain "+authored.getString("label")+"'s orientation.");
+                    trace.put("rotationErrorMilliDeg",Math.round(error*1000));
+                }
+                result.put(trace);
             }
         }
         return result;

@@ -9,10 +9,13 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
+import java.util.TreeMap;
+import java.util.function.IntFunction;
 
 /** Match silhouettes in plan view, then check the frozen positions in a separate registered view. */
 final class ImageSceneRegistration {
     static final String POLICY = "registered-silhouettes-v1";
+    static final String YAW_POLICY = "registered-silhouettes-yaw-v2";
     private static final double DIAGONAL = Math.sqrt(.5);
     private static final double WITNESS_UP = .5;
     private static final double WITNESS_AWAY = Math.sqrt(.75);
@@ -22,10 +25,16 @@ final class ImageSceneRegistration {
     private static final double MAX_WITNESS_CENTER_PX = 2.5;
     private static final int RASTER_SAMPLES = 3;
     private static final int FOREGROUND_CONTRAST = 64;
+    private static final int COARSE_YAW_STEP = 12;
+    private static final int FINE_YAW_STEP = 2;
+    private static final int ALTERNATE_YAW_DISTANCE = 24;
+    private static final double MIN_YAW_GAP = .035;
+    private static final int MAX_WITNESS_YAW_ERROR = 6;
 
     record Prop(String label, SpatialVisualMesh mesh, double heightM) {}
-    record Result(List<double[]> centersPx, JSONObject evidence) {}
+    record Result(List<double[]> centersPx, int[] yawDeg, JSONObject evidence) {}
     private record Match(int dx, int dy, double iou, double centerErrorPx) {}
+    private record Heading(int yaw, Match match, double gap) {}
 
     private static final class Silhouette {
         final BitSet mask = new BitSet();
@@ -71,28 +80,40 @@ final class ImageSceneRegistration {
         }
     }
 
-    static Result locate(BufferedImage overhead, byte[] witnessBytes, double cellM, List<Prop> props) throws Exception {
+    static Result locate(BufferedImage overhead, byte[] witnessBytes, double cellM, List<Prop> props,
+                         boolean recoverYaw) throws Exception {
         int w=overhead.getWidth(), h=overhead.getHeight(), n=props.size();
         if (cellM>.025) throw new IllegalArgumentException("Use at least 40 pixels per metre in the registered views.");
         var observed=components(overhead,n,"Overhead");
         var scores=new Match[n][n];
+        var headings=new Heading[n][];
         for (int i=0;i<n;i++) {
-            var template=render(w,h,cellM,props.get(i),0,0,false);
-            for (int j=0;j<n;j++) scores[i][j]=fit(template,observed.get(j),w,h);
+            var prop=props.get(i);
+            if (recoverYaw) {
+                headings[i]=searchHeadings(n, yaw->fits(render(w,h,cellM,prop,0,0,false,yaw,true),observed,w,h));
+                for (int j=0;j<n;j++) scores[i][j]=headings[i][j].match;
+            } else scores[i]=fits(render(w,h,cellM,prop,0,0,false,0,false),observed,w,h);
         }
         var assignment=assign(scores);
         if (assignment.score-assignment.runner<MIN_ASSIGNMENT_GAP)
             throw new IllegalArgumentException("Overhead silhouettes do not uniquely identify the selected props.");
         var positions=new ArrayList<double[]>();
+        int[] yawDeg=new int[n];
         for (int i=0;i<n;i++) {
             var match=scores[i][assignment.best[i]];
             if (match.iou<MIN_OVERHEAD_IOU)
                 throw new IllegalArgumentException(String.format(java.util.Locale.ROOT,
                         "Overhead refused %s at this scale (%.1f%% silhouette overlap).",props.get(i).label,match.iou*100));
             positions.add(new double[]{w/2.0+match.dx,h/2.0+match.dy});
+            if (recoverYaw) {
+                var heading=headings[i][assignment.best[i]];
+                if (heading.gap<MIN_YAW_GAP)
+                    throw new IllegalArgumentException("Overhead orientation is ambiguous for "+props.get(i).label+".");
+                yawDeg[i]=heading.yaw;
+            }
         }
 
-        // The second image is first decoded here. It cannot change the fitted identities or coordinates.
+        // The second image is first decoded here. It cannot change the fitted identities, positions or angles.
         var witness=BrowserShapeTrace.decode(witnessBytes);
         if (witness.getWidth()!=w || witness.getHeight()!=h)
             throw new IllegalArgumentException("Both registered views need the same image dimensions and scale.");
@@ -103,7 +124,8 @@ final class ImageSceneRegistration {
         var projected=new Match[n][n];
         for (int i=0;i<n;i++) {
             var center=positions.get(i);
-            var predicted=render(w,h,cellM,props.get(i),(center[0]-w/2.0)*cellM,(center[1]-h/2.0)*cellM,true);
+            var predicted=render(w,h,cellM,props.get(i),(center[0]-w/2.0)*cellM,(center[1]-h/2.0)*cellM,
+                    true,yawDeg[i],false);
             for (int j=0;j<n;j++) projected[i][j]=compare(predicted,witnessParts.get(j),w,h,0,0);
         }
         var pairing=assign(projected);
@@ -115,17 +137,95 @@ final class ImageSceneRegistration {
                 throw new IllegalArgumentException(String.format(java.util.Locale.ROOT,
                         "Second view refused %s at its overhead position (%.1f%% overlap, %.2f px center error).",
                         props.get(i).label,witnessMatch.iou*100,witnessMatch.centerErrorPx));
-            perProp.put(new JSONObject().put("sourceId","image-prop-"+(i+1))
+            var row=new JSONObject().put("sourceId","image-prop-"+(i+1))
                     .put("label",props.get(i).label)
                     .put("overheadIou",overheadMatch.iou).put("witnessIou",witnessMatch.iou)
-                    .put("witnessCenterErrorPx",witnessMatch.centerErrorPx));
+                    .put("witnessCenterErrorPx",witnessMatch.centerErrorPx);
+            if (recoverYaw) {
+                var prop=props.get(i);
+                var measured=witnessParts.get(pairing.best[i]);
+                var center=positions.get(i);
+                double x=(center[0]-w/2.0)*cellM, z=(center[1]-h/2.0)*cellM;
+                var witnessHeading=searchHeadings(1, yaw->{
+                    var view=render(w,h,cellM,prop,x,z,true,yaw,true);
+                    return new Match[]{view==null?null:compare(view,measured,w,h,0,0)};
+                })[0];
+                int disagreement=angleDistance(yawDeg[i],witnessHeading.yaw);
+                if (witnessHeading.gap<MIN_YAW_GAP)
+                    throw new IllegalArgumentException("Second-view orientation is ambiguous for "+prop.label+".");
+                if (disagreement>MAX_WITNESS_YAW_ERROR)
+                    throw new IllegalArgumentException("Second view refused "+prop.label+" orientation at its fixed position ("
+                            +disagreement+"° difference).");
+                row.put("overheadYawDeg",yawDeg[i]).put("witnessYawDeg",witnessHeading.yaw)
+                        .put("witnessYawErrorDeg",disagreement).put("witnessYawGap",witnessHeading.gap)
+                        .put("overheadYawGap",headings[i][assignment.best[i]].gap);
+            }
+            perProp.put(row);
         }
-        return new Result(positions,new JSONObject().put("policy",POLICY).put("witnessSha256",MapDefinition.sha(witnessBytes))
+        var evidence=new JSONObject().put("policy",recoverYaw?YAW_POLICY:POLICY).put("witnessSha256",MapDefinition.sha(witnessBytes))
                 .put("witnessElevationDeg",60).put("witnessAzimuthFromFrontDeg",45)
                 .put("assignmentGap",assignment.score-assignment.runner).put("minimumAssignmentGap",MIN_ASSIGNMENT_GAP)
                 .put("minimumOverheadIou",MIN_OVERHEAD_IOU).put("minimumWitnessIou",MIN_WITNESS_IOU)
-                .put("maximumWitnessCenterErrorPx",MAX_WITNESS_CENTER_PX).put("props",perProp));
+                .put("maximumWitnessCenterErrorPx",MAX_WITNESS_CENTER_PX).put("props",perProp);
+        if (recoverYaw) evidence.put("yawResolutionDeg",FINE_YAW_STEP)
+                .put("minimumYawGap",MIN_YAW_GAP).put("alternateYawDistanceDeg",ALTERNATE_YAW_DISTANCE)
+                .put("maximumWitnessYawErrorDeg",MAX_WITNESS_YAW_ERROR);
+        return new Result(positions,yawDeg,evidence);
     }
+
+    private static Match[] fits(Silhouette template, List<Silhouette> observed, int w, int h) {
+        var scores=new Match[observed.size()];
+        if (template!=null)
+            for (int j=0;j<observed.size();j++) scores[j]=fit(template,observed.get(j),w,h);
+        return scores;
+    }
+
+    private static Heading[] searchHeadings(int count, IntFunction<Match[]> evaluate) {
+        var samples=new TreeMap<Integer,Match[]>();
+        int first=-180;
+        for (int yaw=first;yaw<180;yaw+=COARSE_YAW_STEP) samples.put(yaw,evaluate.apply(yaw));
+        int steps=360/COARSE_YAW_STEP;
+        for (int component=0;component<count;component++) {
+            double[] coarse=new double[steps];
+            double best=-1;
+            for (int i=0;i<steps;i++) {
+                var match=samples.get(first+i*COARSE_YAW_STEP)[component];
+                coarse[i]=match==null?-1:match.iou;
+                best=Math.max(best,coarse[i]);
+            }
+            for (int i=0;i<steps;i++) {
+                if (coarse[i]<0 || coarse[i]<best-.14 ||
+                        coarse[i]<coarse[(i+steps-1)%steps] || coarse[i]<coarse[(i+1)%steps]) continue;
+                for (int delta=-COARSE_YAW_STEP+FINE_YAW_STEP;delta<COARSE_YAW_STEP;delta+=FINE_YAW_STEP)
+                    samples.computeIfAbsent(wrap(first+i*COARSE_YAW_STEP+delta),evaluate::apply);
+            }
+        }
+        var result=new Heading[count];
+        for (int component=0;component<count;component++) {
+            Match best=null;
+            int yaw=0;
+            for (var row:samples.entrySet()) {
+                var match=row.getValue()[component];
+                if (match!=null && (best==null || match.iou>best.iou ||
+                        match.iou==best.iou && match.centerErrorPx<best.centerErrorPx)) {
+                    best=match;
+                    yaw=row.getKey();
+                }
+            }
+            if (best==null) throw new IllegalArgumentException("A rotated prop could not be projected inside the registered frame.");
+            double alternate=0;
+            for (var row:samples.entrySet()) {
+                var match=row.getValue()[component];
+                if (match!=null && angleDistance(row.getKey(),yaw)>=ALTERNATE_YAW_DISTANCE)
+                    alternate=Math.max(alternate,match.iou);
+            }
+            result[component]=new Heading(yaw,best,best.iou-alternate);
+        }
+        return result;
+    }
+
+    private static int wrap(int degrees) { return Math.floorMod(degrees+180,360)-180; }
+    private static int angleDistance(int a,int b) { return Math.abs(wrap(a-b)); }
 
     private static Assignment assign(Match[][] scores) {
         var assignment=new Assignment();
@@ -157,23 +257,38 @@ final class ImageSceneRegistration {
                 Math.hypot(a.centerX()+dx-b.centerX(),a.centerY()+dy-b.centerY()));
     }
 
-    private static Silhouette render(int w, int h, double cellM, Prop prop, double x, double z, boolean witness) {
+    private static Silhouette render(int w, int h, double cellM, Prop prop, double x, double z, boolean witness,
+                                     int yaw, boolean crop) {
         var mesh=prop.mesh;
-        var pixels=new BufferedImage(w*RASTER_SAMPLES,h*RASTER_SAMPLES,BufferedImage.TYPE_BYTE_BINARY);
+        double angle=Math.toRadians(yaw), sin=Math.sin(angle), cos=Math.cos(angle);
+        double[][] projected=new double[mesh.vertexCount()][2];
+        int left=w, right=0, top=h, bottom=0;
+        for (int i=0;i<projected.length;i++) {
+            double lx=mesh.positions()[3*i], lz=mesh.positions()[3*i+2];
+            double vx=cos*lx+sin*lz+x, vy=mesh.positions()[3*i+1]+prop.heightM/2, vz=-sin*lx+cos*lz+z;
+            double u=witness?(vx+vz)*DIAGONAL:vx;
+            double v=witness?(vz-vx)*DIAGONAL*WITNESS_AWAY-vy*WITNESS_UP:vz;
+            double col=w/2.0+u/cellM, row=h/2.0+v/cellM;
+            if (col<1 || col>=w-1 || row<1 || row>=h-1) {
+                if (crop) return null;
+                throw new IllegalArgumentException("Keep every projected model fully inside the registered image frame.");
+            }
+            projected[i][0]=col;
+            projected[i][1]=row;
+            left=Math.min(left,(int)Math.floor(col));
+            top=Math.min(top,(int)Math.floor(row));
+            right=Math.max(right,(int)Math.ceil(col));
+            bottom=Math.max(bottom,(int)Math.ceil(row));
+        }
+        if (!crop) {
+            left=0; top=0; right=w; bottom=h;
+        }
+        var pixels=new BufferedImage((right-left)*RASTER_SAMPLES,(bottom-top)*RASTER_SAMPLES,BufferedImage.TYPE_BYTE_BINARY);
         var graphics=pixels.createGraphics();
         try {
             graphics.scale(RASTER_SAMPLES,RASTER_SAMPLES);
+            graphics.translate(-left,-top);
             graphics.setColor(Color.WHITE);
-            double[][] projected=new double[mesh.vertexCount()][2];
-            for (int i=0;i<projected.length;i++) {
-                double vx=mesh.positions()[3*i]+x, vy=mesh.positions()[3*i+1]+prop.heightM/2, vz=mesh.positions()[3*i+2]+z;
-                double u=witness?(vx+vz)*DIAGONAL:vx;
-                double v=witness?(vz-vx)*DIAGONAL*WITNESS_AWAY-vy*WITNESS_UP:vz;
-                projected[i][0]=w/2.0+u/cellM;
-                projected[i][1]=h/2.0+v/cellM;
-                if (projected[i][0]<1 || projected[i][0]>=w-1 || projected[i][1]<1 || projected[i][1]>=h-1)
-                    throw new IllegalArgumentException("Keep every projected model fully inside the registered image frame.");
-            }
             int[] indices=mesh.indices();
             for (int i=0;i<indices.length;i+=3) {
                 var a=projected[indices[i]];
@@ -189,11 +304,14 @@ final class ImageSceneRegistration {
         } finally { graphics.dispose(); }
         var result=new Silhouette(w,h);
         var raster=pixels.getRaster();
-        for (int row=0;row<h;row++) for (int col=0;col<w;col++) {
-            int sampleX=col*RASTER_SAMPLES+RASTER_SAMPLES/2, sampleY=row*RASTER_SAMPLES+RASTER_SAMPLES/2;
+        for (int row=top;row<bottom;row++) for (int col=left;col<right;col++) {
+            int sampleX=(col-left)*RASTER_SAMPLES+RASTER_SAMPLES/2, sampleY=(row-top)*RASTER_SAMPLES+RASTER_SAMPLES/2;
             if (raster.getSample(sampleX,sampleY,0)!=0) result.add(row*w+col);
         }
-        if (result.count<16) throw new IllegalArgumentException("A projected mesh is too small to match.");
+        if (result.count<16) {
+            if (crop) return null;
+            throw new IllegalArgumentException("A projected mesh is too small to match.");
+        }
         return result;
     }
 

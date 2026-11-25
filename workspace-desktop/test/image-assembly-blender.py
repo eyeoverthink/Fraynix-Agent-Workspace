@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 import bpy
-from mathutils import Matrix, Vector
+from mathutils import Matrix, Quaternion, Vector
 
 folder = Path(sys.argv[sys.argv.index("--") + 1]).resolve()
 glb = folder / "image-workshop.glb"
@@ -37,20 +37,29 @@ for body in scene["objects"]:
     origin = collider.matrix_world.translation
     error = (origin - basis @ Vector(body["position"])).length
     assert error < tolerance
-    vertices = [collider.matrix_world @ v.co for v in collider.data.vertices]
+    xq, yq, zq, wq = body["rotation"]
+    orientation = basis @ Quaternion((wq, xq, yq, zq)).to_matrix() @ basis.inverted()
+    collider_rotation = collider.matrix_world.to_quaternion().to_matrix()
+    for axis in [(1,0,0),(0,1,0),(0,0,1)]:
+        assert ((collider_rotation @ Vector(axis)) - (orientation @ Vector(axis))).length < tolerance
+    tangent = collider_rotation @ Vector((1,0,0))
+    expected_tangent = orientation @ Vector((1,0,0))
+    error_deg = math.degrees(math.atan2(tangent.cross(expected_tangent).length, tangent.dot(expected_tangent)))
+    vertices = [orientation.inverted() @ (collider.matrix_world @ v.co - origin) for v in collider.data.vertices]
     dims = Vector([max(p[i] for p in vertices) - min(p[i] for p in vertices) for i in range(3)])
     x, y, z = body["size"]
     assert (dims - Vector((x, z, y))).length < tolerance
     assert len(vertices) == 8
 
-    row = {"sourceId": body["sourceId"], "centerErrorM": error, "boxVertices": len(vertices)}
+    row = {"sourceId": body["sourceId"], "centerErrorM": error, "boxVertices": len(vertices),
+           "yawDeg": math.degrees(math.atan2(tangent.y,tangent.x)), "rotationErrorDeg": error_deg}
     if "visualMesh" in body:
         visual, = [child for child in collider.children if child.get("fraynixVisual") == "triangle-surface"]
         assert visual.type == "MESH" and visual.data != collider.data
         encoded = base64.b64decode(scene["visualMeshes"][body["visualMesh"]])
         count, indices = struct.unpack_from("<II", encoded)
         positions = struct.unpack_from("<" + "f" * (count * 3), encoded, 8)
-        wanted = [origin + basis @ Vector(positions[i:i+3]) for i in range(0, len(positions), 3)]
+        wanted = [origin + orientation @ basis @ Vector(positions[i:i+3]) for i in range(0, len(positions), 3)]
         actual = [visual.matrix_world @ v.co for v in visual.data.vertices]
         drift = max(max(min((a-b).length for a in actual) for b in wanted),
                     max(min((a-b).length for b in wanted) for a in actual))
