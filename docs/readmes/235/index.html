@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 235 · From a browser reference to a placed Blender scene</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>From a browser reference to a placed Blender scene</h1>
+<p>Use registered in-app browser captures to add an editable object to an existing level and verify the export in Blender.</p>
+<nav><a href="../../../README-235.md">App guide</a><a href="../234/index.html">Edition 234</a>
+<a href="../../publication235/plan.md">Implementation</a><a href="browser-level.glb" download>Download checked GLB</a>
+<a href="browser-level.blend" download>Download Blender scene</a><a href="browser-placement-proof.json">Test results</a><a href="#system">System files</a></nav>
+<p>The browser fit produced 656 triangles. Java verified a moving hit and a clear 4.35 m aisle. Blender reopened the export and measured 99.81% overlap from a fourth view.</p>
+<figure><img src="browser-captures.png" alt="Registered browser captures and fit result"><figcaption>Registered browser captures and fit result</figcaption></figure>
+<figure><img src="browser-placement-review.png" alt="The browser mesh is the source of the placement review"><figcaption>The browser mesh is the source of the placement review</figcaption></figure>
+<figure><img src="browser-placement-verified.png" alt="Native contact and clearance evidence after approval"><figcaption>Native contact and clearance evidence after approval</figcaption></figure>
+
+<div class="oracle"><figure><img src="oracle-original.png" alt="Blender original at the independent fourth angle"><figcaption>Blender original at the independent fourth angle</figcaption></figure>
+<figure><img src="oracle-export.png" alt="Fraynix export at the same fourth angle"><figcaption>Fraynix export at the same fourth angle</figcaption></figure>
+</div>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Use registered in-app browser captures to add an editable object to an existing level and verify the export in Blender.", "modules": [{"title": "Registered reconstruction", "source": "workspace-engine/src/main/java/fraymus/workspace/BrowserViewTrace.java", "note": "docs/obsidian/243-browser-placement.md"}, {"title": "Retained browser placement source", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "note": "docs/obsidian/243-browser-placement.md"}, {"title": "Reviewed placement and checked GLB", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialLevelPlacement.java", "note": "docs/obsidian/243-browser-placement.md"}, {"title": "Browser handoff in Spatial", "source": "workspace-desktop/renderer/spatial-panel.js", "note": "docs/obsidian/243-browser-placement.md"}, {"title": "Placement review and save", "source": "workspace-desktop/renderer/spatial-placement.js", "note": "docs/obsidian/243-browser-placement.md"}, {"title": "End-to-end browser acceptance", "source": "workspace-desktop/test/browser-placement-integration.cjs", "note": "docs/obsidian/243-browser-placement.md"}, {"title": "Blender scene and independent render tests", "source": "workspace-desktop/test/browser-placement-blender.py", "note": "docs/obsidian/243-browser-placement.md"}], "screenshots": [{"path": "docs/readmes/235/browser-captures.png", "title": "Registered browser captures and fit result"}, {"path": "docs/readmes/235/browser-placement-review.png", "title": "The browser mesh is the source of the placement review"}, {"path": "docs/readmes/235/browser-placement-verified.png", "title": "Native contact and clearance evidence after approval"}, {"path": "docs/readmes/235/oracle-original.png", "title": "Blender original at the independent fourth angle"}, {"path": "docs/readmes/235/oracle-export.png", "title": "Fraynix export at the same fourth angle"}], "evidence": [{"path": "docs/readmes/235/browser-placement-proof.json", "title": "Browser, restart and native outcomes"}, {"path": "docs/readmes/235/blender-level-proof.json", "title": "Independent Blender outcome"}, {"path": "docs/readmes/235/browser-level.glb", "title": "Verified assembled scene GLB"}, {"path": "docs/readmes/235/browser-level.blend", "title": "Reopened native Blender file"}, {"path": "docs/readmes/235/browser-level.fraynix-level.json", "title": "Editable scene and evidence bundle"}, {"path": "docs/readmes/235/expected-level.json", "title": "Independently authored test inputs"}, {"path": "docs/publication235/plan.md", "title": "Implementation and reproduction commands"}, {"path": "docs/readmes/235/FILE_TREE.md", "title": "Edition file tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 17711, "sha256": "3b112f73cfadc0995539afb910d84f3c857ba94aa96a77a5048a31fbf3b8a208", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/243-browser-placement.canvas", "bytes": 1457, "sha256": "dd3f66e2373b2dfc84d7aa4857f475098c733927f7dbb8b33f8cc4605a81dc91", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/243-browser-placement.md", "bytes": 622, "sha256": "3ac589a8d4c5deb3270e9cb68d24b10b1fbc0a2ec6af6a28016461c95589a434", "hashKind": "utf8-lf"}, {"path": "docs/publication235/plan.md", "bytes": 3310, "sha256": "cff6821170abef24d9d5ee0b0804da2ad060bd8b466f76da3699efe7139b9f2b", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 134188, "sha256": "0b09bc703226a1e218b93097a23e7ef3a53de651101060e8bde6d56b96f27d5a", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-panel.js", "bytes": 50788, "sha256": "f786e726d6a3042867bbf5af309c78e06e73ddb72e1dbfb9e4282f87cf216fce", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-placement.js", "bytes": 16397, "sha256": "b156818c9c802462dc1674747b72686613a2a0bec0d706c30b8ee36513480a56", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial.css", "bytes": 10073, "sha256": "06e7ec276cd5fb26f2033d5991bfc272cb8bdd673c317ad786bff936476a3370", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/browser-placement-blender.py", "bytes": 6217, "sha256": "5521e7b3687f60799eba52bc9027087a674b21d6dd388498240e299a2e7e809d", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/browser-placement-integration.cjs", "bytes": 11451, "sha256": "5a5897fab124edd4e7c764d237b9e9265fabdee5113967b32033f17e6bc661fe", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/browser-views-integration.cjs", "bytes": 13869, "sha256": "f9c38ebcc872e0e75c4f5e340cac4a2104d6fd2c24e1ccb2f0bb6c468832b0c5", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/BrowserViewTrace.java", "bytes": 17785, "sha256": "893f9d4258fb6b2739ea2d724ffa2de07d9b86c758c321af99e2caf922d366ef", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialLevelPlacement.java", "bytes": 13373, "sha256": "ef05b9941aeb3bfe4e23f84049b2fec6bf17f85572dff508046419d043a28490", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialPlacement.java", "bytes": 16186, "sha256": "f990e1f47d8107d8d612cfd2188dddcc57d8c8131b637412be9f83137172557c", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 50479, "sha256": "398f6bfee3d9a80d10a265f2136049504f73c2b3dfcead39d59765b540b8d9fe", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 154052, "sha256": "02b25445e9a9408bcead68326c3dcbc7ddc291efa2f39ec704d325d7422c020c", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

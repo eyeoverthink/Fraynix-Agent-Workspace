@@ -1,0 +1,96 @@
+{
+  "summary": "Use registered in-app browser captures to add an editable object to an existing level and verify the export in Blender.",
+  "modules": [
+    {
+      "title": "Registered reconstruction",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BrowserViewTrace.java",
+      "note": "docs/obsidian/243-browser-placement.md"
+    },
+    {
+      "title": "Retained browser placement source",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/243-browser-placement.md"
+    },
+    {
+      "title": "Reviewed placement and checked GLB",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialLevelPlacement.java",
+      "note": "docs/obsidian/243-browser-placement.md"
+    },
+    {
+      "title": "Browser handoff in Spatial",
+      "source": "workspace-desktop/renderer/spatial-panel.js",
+      "note": "docs/obsidian/243-browser-placement.md"
+    },
+    {
+      "title": "Placement review and save",
+      "source": "workspace-desktop/renderer/spatial-placement.js",
+      "note": "docs/obsidian/243-browser-placement.md"
+    },
+    {
+      "title": "End-to-end browser acceptance",
+      "source": "workspace-desktop/test/browser-placement-integration.cjs",
+      "note": "docs/obsidian/243-browser-placement.md"
+    },
+    {
+      "title": "Blender scene and independent render tests",
+      "source": "workspace-desktop/test/browser-placement-blender.py",
+      "note": "docs/obsidian/243-browser-placement.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/235/browser-captures.png",
+      "title": "Registered browser captures and fit result"
+    },
+    {
+      "path": "docs/readmes/235/browser-placement-review.png",
+      "title": "The browser mesh is the source of the placement review"
+    },
+    {
+      "path": "docs/readmes/235/browser-placement-verified.png",
+      "title": "Native contact and clearance evidence after approval"
+    },
+    {
+      "path": "docs/readmes/235/oracle-original.png",
+      "title": "Blender original at the independent fourth angle"
+    },
+    {
+      "path": "docs/readmes/235/oracle-export.png",
+      "title": "Fraynix export at the same fourth angle"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/235/browser-placement-proof.json",
+      "title": "Browser, restart and native outcomes"
+    },
+    {
+      "path": "docs/readmes/235/blender-level-proof.json",
+      "title": "Independent Blender outcome"
+    },
+    {
+      "path": "docs/readmes/235/browser-level.glb",
+      "title": "Verified assembled scene GLB"
+    },
+    {
+      "path": "docs/readmes/235/browser-level.blend",
+      "title": "Reopened native Blender file"
+    },
+    {
+      "path": "docs/readmes/235/browser-level.fraynix-level.json",
+      "title": "Editable scene and evidence bundle"
+    },
+    {
+      "path": "docs/readmes/235/expected-level.json",
+      "title": "Independently authored test inputs"
+    },
+    {
+      "path": "docs/publication235/plan.md",
+      "title": "Implementation and reproduction commands"
+    },
+    {
+      "path": "docs/readmes/235/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}

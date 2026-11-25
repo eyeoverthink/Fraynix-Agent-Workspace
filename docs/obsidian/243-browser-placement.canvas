@@ -1,0 +1,79 @@
+{
+  "nodes": [
+    {
+      "id": "guide",
+      "type": "file",
+      "file": "README-235.md",
+      "x": 0,
+      "y": 0,
+      "width": 350,
+      "height": 320
+    },
+    {
+      "id": "plan",
+      "type": "file",
+      "file": "docs/publication235/plan.md",
+      "x": 420,
+      "y": 0,
+      "width": 390,
+      "height": 360
+    },
+    {
+      "id": "native",
+      "type": "file",
+      "file": "docs/readmes/235/browser-placement-proof.json",
+      "x": 890,
+      "y": -150,
+      "width": 350,
+      "height": 330
+    },
+    {
+      "id": "blender",
+      "type": "file",
+      "file": "docs/readmes/235/blender-level-proof.json",
+      "x": 890,
+      "y": 245,
+      "width": 350,
+      "height": 330
+    },
+    {
+      "id": "note",
+      "type": "file",
+      "file": "docs/obsidian/243-browser-placement.md",
+      "x": 420,
+      "y": 460,
+      "width": 390,
+      "height": 260
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "guide",
+      "toNode": "plan",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "plan",
+      "toNode": "native",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "plan",
+      "toNode": "blender",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "plan",
+      "toNode": "note",
+      "fromSide": "bottom",
+      "toSide": "top"
+    }
+  ]
+}

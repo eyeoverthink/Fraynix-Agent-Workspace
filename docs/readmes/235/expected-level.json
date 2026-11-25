@@ -1,0 +1,113 @@
+{
+  "destination": {
+    "format": "fraynix.spatial-scene",
+    "version": 1,
+    "title": "Harbour Relay Workshop",
+    "units": "m",
+    "frame": "right-handed-y-up",
+    "source": {
+      "kind": "synthetic",
+      "physicalProperties": "declared",
+      "note": "Authored level for browser placement validation."
+    },
+    "scaleReference": {
+      "a": [
+        0,
+        0,
+        0
+      ],
+      "b": [
+        1,
+        0,
+        0
+      ],
+      "knownLengthM": 1,
+      "toleranceM": 0,
+      "basis": "declared-test"
+    },
+    "gravityMps2": 9.81,
+    "objects": [
+      {
+        "sourceId": "floor",
+        "label": "Workshop floor",
+        "shape": "box",
+        "position": [
+          0,
+          -0.1,
+          0
+        ],
+        "size": [
+          7,
+          0.2,
+          4.8
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "massKg": 0,
+        "friction": 0.57,
+        "restitution": 0.04
+      },
+      {
+        "sourceId": "rail",
+        "label": "Rail by the entrance",
+        "shape": "box",
+        "position": [
+          -2.15,
+          0.43,
+          0.2
+        ],
+        "size": [
+          0.25,
+          0.86,
+          0.45
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "massKg": 0,
+        "friction": 0.57,
+        "restitution": 0.04
+      },
+      {
+        "sourceId": "crate",
+        "label": "Original relay crate",
+        "shape": "box",
+        "position": [
+          2.5,
+          0.22,
+          -1.8
+        ],
+        "size": [
+          0.48,
+          0.44,
+          0.62
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "massKg": 1.8,
+        "friction": 0.57,
+        "restitution": 0.04
+      }
+    ]
+  },
+  "placement": {
+    "x": 0.15,
+    "z": 0.7,
+    "yaw": 31,
+    "startX": -2.15,
+    "startZ": -1.1,
+    "endX": 2.2,
+    "endZ": -1.1
+  }
+}
