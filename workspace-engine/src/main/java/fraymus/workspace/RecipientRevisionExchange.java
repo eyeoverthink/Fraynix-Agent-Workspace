@@ -85,11 +85,6 @@ final class RecipientRevisionExchange {
                     || !WorldFrames.hash(receipt).equals(revision.getString("receiptSha256")))
                 throw new IllegalArgumentException("A recipient approval, review or trial receipt differs.");
 
-            var target = review.getJSONArray("targetM");
-            var issued = RecipientLevelEdit.plan(parent,new JSONObject().put("sceneId",parent.getString("id"))
-                    .put("xM",target.getDouble(0)).put("zM",target.getDouble(2)).put("yawDeg",review.getDouble("yawDeg")));
-            if (!issued.similar(review))
-                throw new IllegalArgumentException("The recipient review does not match the preceding revision or bound aisle.");
             var candidate = RecipientLevelEdit.candidate(parent,review,id);
             String prop = RecipientLevelEdit.propKey(review);
             layout = SpatialLevelPlacement.playable(candidate,review,prop);

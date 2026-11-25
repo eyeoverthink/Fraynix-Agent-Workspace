@@ -1,8 +1,40 @@
 import {drawPlacementLayout} from './spatial-placement.js';
 
+function drawCollider(canvas, geometry, previous, proposed) {
+    const ctx = canvas.getContext('2d');
+    const {width,height} = canvas;
+    const scale = Math.min((width-36)/Math.max(previous[0],proposed[0]),
+        (height-34)/Math.max(previous[2],proposed[2]));
+    const x = value => width/2 + value*scale;
+    const z = value => height/2 + value*scale;
+    ctx.fillStyle = '#102429';
+    ctx.fillRect(0,0,width,height);
+    const position = geometry.getAttribute('position');
+    const indices = geometry.index.array;
+    ctx.fillStyle = '#90a3b8';
+    for (let i=0;i<indices.length;i+=3) {
+        ctx.beginPath();
+        for (let j=0;j<3;j++) {
+            const vertex = indices[i+j];
+            const px = x(position.getX(vertex)), pz = z(position.getZ(vertex));
+            if (j===0) ctx.moveTo(px,pz);
+            else ctx.lineTo(px,pz);
+        }
+        ctx.closePath();
+        ctx.fill();
+    }
+    ctx.lineWidth = 2;
+    for (const [box,color,dashes] of [[previous,'#d2e0eb',[5,5]],[proposed,'#f0b176',[]]]) {
+        ctx.strokeStyle = color;
+        ctx.setLineDash(dashes);
+        ctx.strokeRect(x(-box[0]/2),z(-box[2]/2),box[0]*scale,box[2]*scale);
+    }
+}
+
 export class RecipientEditPanel {
-    constructor(spatial) {
+    constructor(spatial, geometryFrom) {
         this.spatial = spatial;
+        this.geometryFrom = geometryFrom;
         const dialog = document.createElement('dialog');
         dialog.id = 'recipient-edit-dialog';
         dialog.setAttribute('aria-labelledby','recipient-edit-title');
@@ -12,14 +44,32 @@ export class RecipientEditPanel {
             <div class="placement-content">
                 <p id="recipient-copy-summary"></p>
                 <button id="recipient-open-evidence" type="button">Open original evidence</button>
-                <form id="recipient-edit-form" class="spatial-task">
-                    <label>Prop X · m<input name="xM" type="number" min="-20" max="20" step="any" required></label>
-                    <label>Prop Z · m<input name="zM" type="number" min="-20" max="20" step="any" required></label>
-                    <label>Yaw · °<input name="yawDeg" type="number" min="-180" max="180" step="any" required></label>
+                <form id="recipient-edit-form">
+                    <label>Edit <select name="kind"><option value="pose">Prop position and yaw</option>
+                        <option value="collider">Collider width and depth</option></select></label>
+                    <div id="recipient-pose-fields" class="spatial-task">
+                        <label>Prop X · m<input name="xM" type="number" min="-20" max="20" step="any" required></label>
+                        <label>Prop Z · m<input name="zM" type="number" min="-20" max="20" step="any" required></label>
+                        <label>Yaw · °<input name="yawDeg" type="number" min="-180" max="180" step="any" required></label>
+                    </div>
+                    <div id="recipient-collider-fields" class="spatial-task" hidden>
+                        <label>Width (X) · m<input name="colliderWidthM" type="number" min=".05" max="40" step="any" required></label>
+                        <label>Depth (Z) · m<input name="colliderDepthM" type="number" min=".05" max="40" step="any" required></label>
+                    </div>
                     <button type="submit">Preview local edit</button>
                 </form>
                 <p id="recipient-edit-delta"></p>
-                <canvas id="recipient-edit-preview" width="530" height="205" aria-label="Edited prop and retained walking aisle" hidden></canvas>
+                <div class="recipient-preview-grid">
+                    <figure id="recipient-collider-figure" hidden>
+                        <canvas width="440" height="230" aria-label="Top view of the visual mesh and both collider footprints"></canvas>
+                        <figcaption>Mesh · dashed current box · amber proposed box</figcaption>
+                    </figure>
+                    <figure id="recipient-aisle-figure" hidden>
+                        <canvas id="recipient-edit-preview" width="530" height="205"
+                            aria-label="Edited prop and retained walking aisle"></canvas>
+                        <figcaption>Teal walking aisle · amber prop · gray colliders</figcaption>
+                    </figure>
+                </div>
                 <p id="recipient-edit-status" role="status"></p>
                 <div class="spatial-task">
                     <button id="recipient-edit-approve" class="primary" hidden>Approve and verify local edit</button>
@@ -67,22 +117,37 @@ export class RecipientEditPanel {
         this.find('#recipient-copy-summary').textContent = 'Local revision '+this.source.recipientRevision+' · '+prop.label
             +' · '+attachment;
         this.find('#recipient-open-evidence').textContent = link.inheritedRevisions ? 'Open inherited evidence' : 'Open original evidence';
-        this.fields(prop.position,this.source.recipientEdit?.review.yawDeg ?? link.initialYawDeg);
+        const fields = this.find('#recipient-edit-form').elements;
+        fields.namedItem('kind').value = 'pose';
+        this.poseFields(prop.position,this.source.recipientEdit?.review.yawDeg ?? link.initialYawDeg);
+        this.colliderFields(prop.size);
+        this.visualMesh = this.source.visualMeshes?.[prop.visualMesh];
+        fields.namedItem('kind').querySelector('[value=collider]').disabled = !this.visualMesh;
         this.render();
         this.dialog.showModal();
         this.spatial.layout();
         try {
             this.result = await this.spatial.call('recipient-edit-latest',{sceneId:this.source.id});
-            if (this.result.review) this.fields(this.result.review.targetM,this.result.review.yawDeg);
+            const {review} = this.result;
+            if (review?.collider) {
+                fields.namedItem('kind').value = 'collider';
+                this.colliderFields(review.collider.proposedM);
+            } else if (review) this.poseFields(review.targetM,review.yawDeg);
             this.render();
         } catch (error) { this.fail(error); }
     }
 
-    fields(position,yaw) {
+    poseFields(position,yaw) {
         const fields = this.find('#recipient-edit-form').elements;
         fields.namedItem('xM').value = position[0];
         fields.namedItem('zM').value = position[2];
         fields.namedItem('yawDeg').value = yaw;
+    }
+
+    colliderFields(size) {
+        const fields = this.find('#recipient-edit-form').elements;
+        fields.namedItem('colliderWidthM').value = size[0];
+        fields.namedItem('colliderDepthM').value = size[2];
     }
 
     async exportRevision() {
@@ -99,7 +164,9 @@ export class RecipientEditPanel {
 
     async review() {
         const fields = this.find('#recipient-edit-form').elements;
-        const values = Object.fromEntries(['xM','zM','yawDeg'].map(name=>[name,fields.namedItem(name).valueAsNumber]));
+        const inputNames = fields.namedItem('kind').value === 'collider'
+            ? ['colliderWidthM','colliderDepthM'] : ['xM','zM','yawDeg'];
+        const values = Object.fromEntries(inputNames.map(name=>[name,fields.namedItem(name).valueAsNumber]));
         try {
             this.result = await this.spatial.call('recipient-edit-review',{sceneId:this.source.id,...values});
             this.render();
@@ -125,12 +192,22 @@ export class RecipientEditPanel {
         const {review,layout,receipt,status} = this.result || {};
         this.find('#recipient-edit-form').hidden = ['verified','superseded'].includes(status);
         const preview = this.find('#recipient-edit-preview');
-        preview.hidden = !layout;
+        this.find('#recipient-aisle-figure').hidden = !layout;
         if (layout) drawPlacementLayout(preview,layout);
-        this.find('#recipient-edit-delta').textContent = review
-            ? 'X, Z · '+[review.fromM[0],review.fromM[2]].join(', ')+' → '
+        const collider = review?.collider;
+        const figure = this.find('#recipient-collider-figure');
+        figure.hidden = !collider;
+        const dimensions = box => [box[0],box[2]].map(m=>Number(m.toFixed(4))).join(' × ');
+        this.find('#recipient-edit-delta').textContent = collider
+            ? 'Width × depth · '+dimensions(collider.previousM)+' → '+dimensions(collider.proposedM)+' m'
+            : review ? 'X, Z · '+[review.fromM[0],review.fromM[2]].join(', ')+' → '
                 +[review.targetM[0],review.targetM[2]].join(', ')+' m · '+review.yawDeg+'° yaw'
             : '';
+        if (collider) {
+            const geometry = this.geometryFrom(this.visualMesh);
+            try { drawCollider(figure.querySelector('canvas'),geometry,collider.previousM,collider.proposedM); }
+            finally { geometry.dispose(); }
+        }
         const approve = this.find('#recipient-edit-approve');
         approve.hidden = !['review','approved'].includes(status);
         approve.textContent = status === 'approved' ? 'Run approved edit checks' : 'Approve and verify local edit';
@@ -141,18 +218,24 @@ export class RecipientEditPanel {
         exportPath.textContent = '';
         exportPath.title = '';
         this.tell({
-            review:'Preview saved. Approve the exact pose to run the local checks twice.',
+            review:'Preview saved. Approve the exact '+(collider?'collider':'pose')+' to run the local checks twice.',
             approved:'Approval saved. Run the checks to finish this revision.',
             superseded:'A newer revision exists. Open it to continue.',
             verified:receipt && 'Local revision verified · hit at tick '+receipt.measured.hit.firstContactTick
                 +' · '+receipt.measured.miss.contactTicks+' miss contacts · '
                 +receipt.measured.routeLengthM.toFixed(2)+' m aisle clear.'
-        }[status] || 'Set a position and yaw for the placed prop. The floor, colliders and aisle are included in the checks.');
+        }[status] || (this.find('[name=kind]').value === 'collider'
+            ? 'Adjust width and depth by up to 0.10 m each. The box must enclose the mesh and preserve the aisle.'
+            : 'Set a position and yaw for the placed prop. The floor, colliders and aisle are included in the checks.'));
         this.controls();
     }
 
     controls() {
-        for (const field of this.dialog.querySelectorAll('.placement-content input, .placement-content button'))
-            field.disabled = Boolean(this.spatial.busy);
+        const busy = Boolean(this.spatial.busy);
+        const colliderMode = this.find('[name=kind]').value === 'collider';
+        this.find('#recipient-pose-fields').hidden = colliderMode;
+        this.find('#recipient-collider-fields').hidden = !colliderMode;
+        for (const field of this.dialog.querySelectorAll('.placement-content :is(input,select,button)'))
+            field.disabled = busy || Boolean(field.closest('#recipient-pose-fields[hidden],#recipient-collider-fields[hidden]'));
     }
 }

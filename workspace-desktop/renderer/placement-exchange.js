@@ -234,8 +234,11 @@ export class PlacementExchangePanel {
         this.find('#exchange-stage-label').hidden = !count;
         if (count) {
             stage.add(new Option('Original placement','0'));
-            for (let index=1;index<=count;index++)
-                stage.add(new Option((result.handoffCount?'Approved edit ':'Local edit ')+index+(index===count?' · final':''),String(index)));
+            for (let index=1;index<=count;index++) {
+                const review = index===count ? result.review : result.previousStages[index].review;
+                const label = review.collider ? 'Collider edit ' : result.handoffCount ? 'Approved edit ' : 'Local edit ';
+                stage.add(new Option(label+index+(index===count?' · final':''),String(index)));
+            }
             stage.value = prior || String(count);
         }
         this.find('#exchange-revisions').textContent = count

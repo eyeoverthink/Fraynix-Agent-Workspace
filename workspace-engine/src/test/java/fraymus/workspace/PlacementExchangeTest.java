@@ -150,6 +150,46 @@ public class PlacementExchangeTest {
         assertFalse(new PlacementExchange(project).latest(new JSONObject()).has("replay"));
     }
 
+    @Test
+    public void refusesARehashedColliderReviewThatChangesHeight() throws Exception {
+        var parent = originalRecipientRoot();
+        var review = RecipientLevelEdit.plan(parent, colliderRequest(parent, .56, .34));
+        review.getJSONObject("collider").getJSONArray("proposedM").put(1, .65);
+        String rehashed = WorldFrames.hash(review);
+        var refused = assertThrows(IllegalArgumentException.class,
+                () -> RecipientLevelEdit.candidate(parent, review, rehashed));
+        assertTrue(refused.getMessage().contains("does not match the preceding revision"));
+    }
+
+    @Test
+    public void rejectsInBudgetDepthChangeWhenItBlocksTheReviewedAisle() throws Exception {
+        var root = originalRecipientRoot();
+        var pose = RecipientLevelEdit.plan(root, new JSONObject().put("sceneId",root.getString("id"))
+                .put("xM",.15).put("zM",-.74).put("yawDeg",0));
+        String poseId = WorldFrames.hash(pose);
+        var candidate = RecipientLevelEdit.candidate(root,pose,poseId);
+        String prop = RecipientLevelEdit.propKey(pose);
+        assertEquals(4.35,SpatialLevelPlacement.playable(candidate,pose,prop).getDouble("routeLengthM"),1e-10);
+        var receipt = new JSONObject().put("reviewId",poseId).put("review",pose);
+        var parent = RecipientLevelEdit.commit(candidate,root,receipt,"2026-11-25T15:00:00Z");
+        var collider = RecipientLevelEdit.plan(parent,colliderRequest(parent,.50,.38));
+        var wider = RecipientLevelEdit.candidate(parent,collider,WorldFrames.hash(collider));
+        var refused = assertThrows(IllegalArgumentException.class,
+                () -> SpatialLevelPlacement.playable(wider,collider,prop));
+        assertTrue(refused.getMessage().contains("player aisle is blocked"));
+    }
+
+    private static JSONObject colliderRequest(JSONObject parent, double width, double depth) {
+        return new JSONObject().put("sceneId",parent.getString("id"))
+                .put("colliderWidthM",width).put("colliderDepthM",depth);
+    }
+
+    private static JSONObject originalRecipientRoot() throws Exception {
+        var archive = recipientRevision();
+        var original = PlacementExchange.inspect(Base64.getDecoder().decode(archive.getString("originalArchiveBase64")));
+        return RecipientLevelEdit.root(original,archive.getJSONObject("baseReplay"),archive.getString("rootImportedAt"));
+    }
+
     private static JSONObject recipientRevision() throws Exception {
         return new JSONObject(Files.readString(Path.of("..", "workspace-desktop", "test", "fixtures",
                 "recipient-revision-exchange", "signal-bay-revision.fraynix-recipient.json")));

@@ -83,6 +83,10 @@ async function main() {
             assert.match(await page.locator('#exchange-revisions').textContent(),/approvals checked/);
             assert.equal(await page.locator('#exchange-stage').inputValue(),String(edits.length));
             assert(await page.locator('#exchange-fork').isHidden());
+            if (terminal.review.collider) {
+                assert.deepEqual(archive.review.colliderM,terminal.review.collider.proposedM);
+                assert(await page.getByRole('option',{name:'Collider edit '+edits.length+' · final',exact:true}).count());
+            }
         }
         await render('archive-inspected.png');
 

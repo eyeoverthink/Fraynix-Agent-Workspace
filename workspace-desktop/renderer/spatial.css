@@ -156,6 +156,15 @@
 #exchange-contact-key[hidden], #exchange-aisle-key[hidden], #exchange-scrubber[hidden] { display: none; }
 
 #recipient-edit-dialog { width: min(570px, calc(100vw - 24px)); }
-#recipient-edit-form { margin-top: 12px; }
-#recipient-edit-preview { display: block; width: 100%; height: auto; border: 1px solid #45616a; border-radius: 7px; }
-#recipient-edit-form[hidden], #recipient-edit-preview[hidden] { display: none; }
+#recipient-edit-form { display: grid; gap: 8px; justify-items: start; margin: 12px 0 10px; }
+#recipient-edit-form[hidden], #recipient-edit-form .spatial-task[hidden],
+.recipient-preview-grid figure[hidden] { display: none; }
+#recipient-edit-form select { max-width: 100%; }
+.recipient-preview-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.recipient-preview-grid:has(#recipient-collider-figure:not([hidden])) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.recipient-preview-grid figure { margin: 0 0 10px; min-width: 0; }
+.recipient-preview-grid canvas { display: block; width: 100%; height: auto; border: 1px solid #45616a; border-radius: 7px; }
+.recipient-preview-grid figcaption { color: var(--muted); font-size: 12px; margin-top: 4px; }
+@media (max-width: 510px) {
+    .recipient-preview-grid:has(#recipient-collider-figure:not([hidden])) { grid-template-columns: 1fr; }
+}
