@@ -22,7 +22,13 @@ export class SpatialMeshEditPanel {
       '<button id="mesh-preview-button">Preview extrusion</button></form>'  +
       '<div class="spatial-task"><button id="mesh-edit-save" class="primary">Save mesh copy</button>' +
       '<button id="mesh-undo">Undo saved edit</button><button id="mesh-edit-discard">Discard preview</button><button id="mesh-edit-stl">Export STL · mm</button></div>' +
-      '<p id="mesh-edit-status" class="spatial-note" role="status"></p>';
+      '<p id="mesh-edit-status" class="spatial-note" role="status"></p>' +
+      '<div class="spatial-task" id="mesh-witness-tools" hidden>' +
+      '<label id="mesh-witness-angle-label">New 45° view<select id="mesh-witness-angle">' +
+      '<option value="60">60° above</option><option value="0">Level</option></select></label>' +
+      '<button id="mesh-witness-pick">Pick new view &amp; verify edit</button>' +
+      '<button id="mesh-qualified-place" hidden>Review qualified placement</button></div>' +
+      '<p id="mesh-witness-status" class="spatial-note" role="status"></p>';
     $('spatial-animation').before(panel);
     this.panel = panel;
 
@@ -81,7 +87,25 @@ export class SpatialMeshEditPanel {
       $('mesh-edit-status').textContent='Previous scene restored.';
     });
     $('mesh-edit-discard').onclick = () => this.discard();
+    $('mesh-witness-pick').onclick = () => spatial.action(() => this.qualify());
+    $('mesh-qualified-place').onclick = () => spatial.action(() => spatial.placement.openForQualified());
     panel.ontoggle = () => { if (!panel.open) this.discard(); };
+  }
+
+  async qualify() {
+    const status = $('mesh-witness-status');
+    const input = {id:this.scene.id,objectId:this.object.id,elevationDeg:Number($('mesh-witness-angle').value)};
+    status.textContent = 'Click the new registered view in the browser. Escape cancels.';
+    try {
+      const view = await this.spatial.call('pick-browser-view');
+      status.textContent = 'Comparing the saved edit and original with the new view…';
+      const qualified = await this.spatial.call('mesh-qualify',{...input,view});
+      await this.spatial.open(qualified.id);
+      const sourceId = qualified.meshQualification.sourceId;
+      await this.spatial.selectObject(qualified.objects.find(object=>object.sourceId===sourceId).id);
+    } catch (error) {
+      status.textContent = error.message;
+    }
   }
 
   bind(scene, object) {
@@ -96,6 +120,11 @@ export class SpatialMeshEditPanel {
        : null;
     this.updateMode();
     $('mesh-edit-status').textContent = encoded ? '' : 'Select a prop with a detailed triangle mesh.';
+    const proof = scene?.meshQualification;
+    $('mesh-witness-status').textContent = proof
+      ? 'Qualified edit · '+(100*proof.heldOutIou).toFixed(1)+'% new-view overlap · original '
+          +(100*proof.originalIou).toFixed(1)+'%.'
+      : scene?.meshEdit ? 'Use a new registered view with the original crop size and scale, at the other elevation.' : '';
   }
 
   pick(hit) {
@@ -156,6 +185,15 @@ export class SpatialMeshEditPanel {
     $('mesh-edit-save').disabled = inactive || !this.preview;
     $('mesh-edit-discard').disabled = !this.preview;
     $('mesh-edit-stl').disabled = inactive || Boolean(this.preview);
+    const qualified = this.scene?.meshQualification?.sourceId === this.object?.sourceId && Boolean(this.object);
+    const canCheck = this.scene?.meshEdit?.sourceId === this.object?.sourceId && Boolean(this.object);
+    $('mesh-witness-tools').hidden = !qualified && !canCheck;
+    $('mesh-witness-angle-label').hidden = !canCheck;
+    $('mesh-witness-angle').disabled = inactive;
+    $('mesh-witness-pick').hidden = !canCheck;
+    $('mesh-witness-pick').disabled = inactive || Boolean(this.preview);
+    $('mesh-qualified-place').hidden = !qualified;
+    $('mesh-qualified-place').disabled = inactive || Boolean(this.preview);
   }
 
   discard() {

@@ -79,6 +79,7 @@ public final class SpatialStore implements AutoCloseable {
                     .getBytes(StandardCharsets.UTF_8)).toString();
             if (!id.equals(scene.getString("id"))) throw new IllegalStateException("The saved extrusion receipt changed.");
         }
+        if (scene.has("meshQualification")) validateMeshQualification(scene);
         if (scene.has("heightStudy")) {
             try {
                 var original=heightStudies.boundDefinition(scene.getJSONObject("heightStudy"));
@@ -142,6 +143,30 @@ public final class SpatialStore implements AutoCloseable {
             }
         }
     }
+    private void validateMeshQualification(JSONObject scene) {
+        var proof = scene.getJSONObject("meshQualification");
+        try {
+            var original = olderScene(scene,proof,"original");
+            var edited = olderScene(scene,proof,"edited");
+            String id = scene.getString("id"), hash = WorldFrames.hash(proof);
+            if (!id.equals(SpatialMeshQualification.sceneId(hash)) || !hash.equals(scene.getString("meshQualificationSha256"))
+                    || !scene.getString("sourceText").equals(edited.getString("sourceText"))
+                    || !SpatialPropCopy.binding(original).similar(proof.getJSONObject("original"))
+                    || !SpatialPropCopy.binding(edited).similar(proof.getJSONObject("edited"))
+                    || !findSourceBody(scene,proof.getString("sourceId")).getString("visualMesh").equals(proof.getString("meshSha256")))
+                throw new IllegalStateException("The qualified revision or its ancestry changed.");
+            SpriteWorkshop.read(meshWitness(id), SpatialMeshQualification.MAX_CAPTURE_BYTES, proof.getString("captureSha256"));
+            validate(original);
+            validate(edited);
+        } catch (Exception error) {
+            throw new IllegalStateException("Cannot recheck the edited mesh and its retained witness.",error);
+        }
+    }
+
+    private Path meshWitness(String id) {
+        return file.resolveSibling("mesh-qualification-sources").resolve(id+".json");
+    }
+
     private void validateLevelPlacement(JSONObject scene) {
         var receipt = scene.getJSONObject("levelPlacement");
         var review = receipt.getJSONObject("review");
@@ -154,8 +179,8 @@ public final class SpatialStore implements AutoCloseable {
                     || !receipt.getJSONObject("measured").getBoolean("playerEnvelopeClear")
                     || !receipt.getJSONObject("measured").similar(receipt.getJSONObject("repeat")))
                 throw new IllegalStateException("The saved level contact receipt changed.");
-            var parent = olderPlacementScene(scene, review, "source");
-            var destination = olderPlacementScene(scene, review, "destination");
+            var parent = olderScene(scene, review, "source");
+            var destination = olderScene(scene, review, "destination");
             if (!SpatialLevelPlacement.definition(parent,destination,review)
                     .similar(new JSONObject(scene.getString("sourceText"))))
                 throw new IllegalStateException("The approved level edit changed.");
@@ -167,11 +192,11 @@ public final class SpatialStore implements AutoCloseable {
         }
     }
 
-    private JSONObject olderPlacementScene(JSONObject scene, JSONObject review, String role) {
+    private JSONObject olderScene(JSONObject scene, JSONObject review, String role) {
         var dependency = scenes.get(review.getJSONObject(role).getString("sceneId"));
         if (dependency == null || !Instant.parse(dependency.getString("importedAt"))
                 .isBefore(Instant.parse(scene.getString("importedAt"))))
-            throw new IllegalStateException("Invalid level edit ancestry: " + role);
+            throw new IllegalStateException("Invalid scene ancestry: " + role);
         return dependency;
     }
 
@@ -204,6 +229,40 @@ public final class SpatialStore implements AutoCloseable {
         var scene = SpatialScene.parse(definition, id)
                 .put("importedAt", Instant.now().toString())
                 .put("meshEdit", edit.evidence.put("definitionSha256", MeasurementStore.hash(definition)));
+        return retainScene(scene);
+    }
+
+    synchronized JSONObject qualifyMesh(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"id","objectId","view","elevationDeg");
+        available();
+        int elevation = (int)SpatialScene.number(input,"elevationDeg",0,60);
+        if ((elevation != 0 && elevation != 60) || elevation != input.getDouble("elevationDeg"))
+            throw new IllegalArgumentException("Choose a level or 60° elevated witness.");
+        var edited = read(input.getString("id"));
+        var edit = edited.optJSONObject("meshEdit");
+        if (edit == null) throw new IllegalArgumentException("Select a saved mesh edit before qualifying.");
+        var original = read(edit.getString("sceneId"));
+        var reconstruction = original.optJSONObject("reconstruction");
+        if (reconstruction == null || reconstruction.has("viewSource")
+                || !BrowserViewTrace.POLICY.equals(reconstruction.optString("policy")))
+            throw new IllegalArgumentException("Save a direct edit of an original registered browser reconstruction first.");
+        byte[] originals = SpriteWorkshop.read(reconstructionSource(original.getString("id")),
+                SpatialReconstruction.LIMIT,reconstruction.getString("sourceSha256"));
+        byte[] witness = input.getJSONObject("view").toString().getBytes(StandardCharsets.UTF_8);
+        if (witness.length > SpatialMeshQualification.MAX_CAPTURE_BYTES)
+            throw new IllegalArgumentException("Choose a browser witness up to 1.2 MB.");
+        var proof = SpatialMeshQualification.check(original,edited,input.getString("objectId"),originals,witness,elevation);
+        String hash = WorldFrames.hash(proof), id = SpatialMeshQualification.sceneId(hash);
+        if (scenes.containsKey(id)) return read(id);
+        if (scenes.size() >= 32) throw new IllegalStateException("Spatial import history limit reached (32)");
+        var scene = SpatialScene.parse(edited.getString("sourceText"),id)
+                .put("importedAt",Instant.now().toString()).put("meshQualification",proof)
+                .put("meshQualificationSha256",hash);
+        Path target = meshWitness(id);
+        Files.createDirectories(target.getParent());
+        if (Files.exists(target,LinkOption.NOFOLLOW_LINKS))
+            SpriteWorkshop.read(target,SpatialMeshQualification.MAX_CAPTURE_BYTES,proof.getString("captureSha256"));
+        else SpriteWorkshop.replace(target,witness);
         return retainScene(scene);
     }
 

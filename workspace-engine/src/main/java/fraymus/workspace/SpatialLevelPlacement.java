@@ -29,7 +29,8 @@ final class SpatialLevelPlacement {
         double yaw = SpatialScene.number(input, "yawDeg", -180, 180);
         String goal = SpatialScene.text(input, "goal", 300);
         var review = SpatialPlacement.plan(source, new JSONObject().put("goal", "Place the verified prop")
-                .put("sceneId", input.getString("sceneId")).put("objectId", input.getString("objectId")));
+                .put("sceneId", input.getString("sceneId")).put("objectId", input.getString("objectId")),
+                source.optJSONObject("meshQualification"));
         var floor = SpatialScene.object(destination, input.getString("floorId"));
         var r = floor.getJSONArray("rotation");
         if (floor.getDouble("massKg") != 0 || Math.abs(r.getDouble(0)) > 1e-8
@@ -46,6 +47,10 @@ final class SpatialLevelPlacement {
                 .put("rotation", new JSONArray(new double[]{0, Math.sin(angle), 0, Math.cos(angle)}));
         var reference = browserReference(source);
         if (reference != null) review.put("browserReference", reference);
+        if (source.has("meshQualification")) {
+            review.put("editReference", WorldFrames.copy(source.getJSONObject("meshQualification"))
+                    .put("receiptSha256", source.getString("meshQualificationSha256")));
+        }
         var scene = SpatialScene.parse(definition(source, destination, review).toString(), sceneId(WorldFrames.hash(review)));
         playable(scene, review);
         return review;
@@ -85,6 +90,10 @@ final class SpatialLevelPlacement {
             if (checked == null || !checked.similar(review.getJSONObject("browserReference")))
                 throw new IllegalStateException("The approved browser reference changed.");
         }
+        if (review.has("editReference") && (!source.has("meshQualification")
+                || !review.getJSONObject("editReference").similar(WorldFrames.copy(source.getJSONObject("meshQualification"))
+                    .put("receiptSha256", source.getString("meshQualificationSha256")))))
+            throw new IllegalStateException("The approved edit qualification changed.");
         var prop = SpatialPlacement.placedBody(source, review, propKey(review));
         var original = new JSONObject(destination.getString("sourceText"));
         original.getJSONArray("objects").put(prop);

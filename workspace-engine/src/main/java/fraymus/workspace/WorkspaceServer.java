@@ -711,6 +711,11 @@ public final class WorkspaceServer implements AutoCloseable {
                         if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before undoing a mesh edit.");
                         result=spatial.undoMesh(input);
                     }
+                    case "/api/spatial/mesh-qualify" -> {
+                        if (agency.busy() || sharedBusy043() || goals.workflowReserved() || goals.ownsSpatial())
+                            throw new IllegalStateException("Finish active work before checking a mesh edit.");
+                        result=spatial.qualifyMesh(input);
+                    }
                     case "/api/spatial/mesh-save" -> {
                         if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before saving a mesh.");
                         result=spatial.saveMesh(input);

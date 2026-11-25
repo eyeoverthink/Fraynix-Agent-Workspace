@@ -41,16 +41,27 @@ final class SpatialPlacement {
     }
 
     static JSONObject plan(JSONObject source, JSONObject input) {
+        return plan(source, input, null);
+    }
+
+    static JSONObject plan(JSONObject source, JSONObject input, JSONObject qualifiedEdit) {
         SpatialScene.keys(input, "sceneId", "objectId", "goal");
         String goal = SpatialScene.text(input, "goal", 300).strip().replaceFirst("[.!?]+$", "");
         var match = REQUEST.matcher(goal);
         if (!match.matches()) throw new IllegalArgumentException("Start with “Place the verified prop”.");
         var body = SpatialScene.object(source, input.getString("objectId"));
         var proof = source.optJSONObject("reconstruction");
-        if (proof == null || !BrowserViewTrace.POLICY.equals(proof.optString("policy"))
-                || !(proof.optDouble("heldOutIou", 0) >= .86) || !body.optString("visualMesh").equals(proof.optString("meshSha256"))
+        if (qualifiedEdit != null) {
+            if (!body.getString("sourceId").equals(qualifiedEdit.getString("sourceId")))
+                throw new IllegalArgumentException("Select the independently checked edited prop.");
+            proof = qualifiedEdit;
+        } else if (proof != null && !BrowserViewTrace.POLICY.equals(proof.optString("policy"))) {
+            proof = null;
+        }
+        if (proof == null || !(proof.optDouble("heldOutIou", 0) >= .86)
+                || !body.optString("visualMesh").equals(proof.optString("meshSha256"))
                 || body.optString("visualMesh").isEmpty() || body.getDouble("massKg") <= 0)
-            throw new IllegalArgumentException("Select an original Spatial prop with a checked held-out view.");
+            throw new IllegalArgumentException("Select a Spatial prop with a checked held-out view.");
 
         String where = SUFFIX.matcher(match.group(1)).replaceFirst("").strip();
         double x = .75, z = 0, yaw = 0;

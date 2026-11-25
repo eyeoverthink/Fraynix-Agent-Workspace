@@ -61,6 +61,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
+          cache: gradle
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
@@ -299,6 +300,14 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/browser-views-integration.cjs build/portable-smoke/browser-placement placement
+      - name: Verify fresh witness qualification and placement of an edited mesh
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/browser-views-integration.cjs build/portable-smoke/mesh-qualification qualification
+      - name: Verify mesh edit qualification and placement on a virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/browser-views-integration.cjs build/portable-smoke/mesh-qualification qualification
       - if: always()
         uses: actions/upload-artifact@v4
         with:

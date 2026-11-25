@@ -10,13 +10,17 @@ const os = require('node:os');
 const path = require('node:path');
 const { promisify } = require('node:util');
 const { launch } = require('./calibration-integration.cjs');
+const {verifyQualification} = require('./mesh-qualification-integration.cjs');
 const {verifyPlacement} = require('./browser-placement-integration.cjs');
 
 const withTop = process.argv[3] === 'top';
 const withPlacement = process.argv[3] === 'placement';
+const withQualification = process.argv[3] === 'qualification';
 const fixture = path.join(__dirname, 'fixtures', withTop ? 'browser-top' : 'browser-views');
 const digest = bytes => createHash('sha256').update(bytes).digest('hex');
 const roles = withTop ? ['front','side','top','level','elevated'] : ['front','side','held-out','wrong'];
+const witnesses = ['unchanged-elevated','edited-elevated'];
+if(withQualification) roles.push(...witnesses);
 
 async function main() {
   process.env.FRAYNIX_WORKSPACE_NO_MODELS = '1';
@@ -24,14 +28,16 @@ async function main() {
   const project = await fs.mkdtemp(path.join(os.tmpdir(), 'Fraynix browser views '));
   await fs.mkdir(output,{recursive:true});
   let imageDirectory = fixture;
-  if(withPlacement && process.env.FRAYNIX_TEST_BLENDER){
+  if((withPlacement || withQualification) && process.env.FRAYNIX_TEST_BLENDER){
     imageDirectory = path.join(output,'registered-views');
     await promisify(execFile)(process.env.FRAYNIX_TEST_BLENDER,['--background','--factory-startup','--disable-autoexec',
-      '--python-exit-code','17','--python',path.join(__dirname,'browser-views-blender.py'),'--','create',imageDirectory],
+      '--python-exit-code','17','--python',path.join(__dirname,withQualification
+        ?'mesh-qualification-blender.py':'browser-views-blender.py'),'--','create',imageDirectory],
     {timeout:90000,windowsHide:true});
   }
   const images = Object.fromEntries(await Promise.all(roles.map(async name=>[name,
-    await fs.readFile(path.join(imageDirectory,name+'.png'))])));
+    await fs.readFile(path.join(imageDirectory===fixture && withQualification && witnesses.includes(name)
+      ? path.join(__dirname,'fixtures','mesh-qualification') : imageDirectory,name+'.png'))])));
   const server=http.createServer((req,res)=>{
     const name=req.url.split('?')[0].slice(1);
     if(name.endsWith('.png')&&Object.hasOwn(images,name.slice(0,-4))){
@@ -91,8 +97,9 @@ async function main() {
     await page.locator('#spatial-tab').click();
     await page.locator('#spatial-browser-views summary').click();
     assert(await page.locator('#browser-views-build').isDisabled());
-    if(withPlacement){
-      await verifyPlacement({app,page,pick,status,capture,api,project,output,extra,launch,
+    if(withPlacement || withQualification){
+      const phase = withQualification ? verifyQualification : verifyPlacement;
+      await phase({app,page,pick,status,capture,api,project,output,extra,launch,visit,clickGraphic,
         stopSource:()=>new Promise((resolve,reject)=>server.close(error=>error?reject(error):resolve()))});
       return;
     }

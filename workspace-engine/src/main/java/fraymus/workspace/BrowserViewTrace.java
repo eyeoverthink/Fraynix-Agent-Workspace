@@ -7,6 +7,7 @@ import org.json.JSONObject;
 import java.awt.Color;
 import java.awt.geom.Path2D;
 import java.awt.image.BufferedImage;
+import java.util.Arrays;
 import java.util.Base64;
 
 /** Fits registered orthographic views and scores a separately captured projection. */
@@ -106,6 +107,41 @@ final class BrowserViewTrace {
             proof.put("viewSource", "sprite-library");
         }
         return new SpatialReconstruction.Result(definition, proof);
+    }
+
+    static JSONObject verifyEdit(byte[] originals, JSONObject proof, JSONObject capture, int elevation,
+                                 SpatialVisualMesh edit, double[] centreShift) throws Exception {
+        var views = new JSONObject(new String(originals, java.nio.charset.StandardCharsets.UTF_8))
+                .getJSONObject("views");
+        if (elevation == proof.optInt("heldOutElevationDeg", 0))
+            throw new IllegalArgumentException("Pick the other registered elevation for a new view of the edit.");
+        var witness = capture(capture, false);
+        var front = capture(views.getJSONObject("front"), false);
+        if (front.side != witness.side)
+            throw new IllegalArgumentException("Keep the new crop the same size and scale as the original views.");
+        var side = capture(views.getJSONObject("side"), false);
+        var top = views.has("top") ? capture(views.getJSONObject("top"), false) : null;
+        for (String role : views.keySet()) {
+            var old = capture(views.getJSONObject(role), false);
+            if (Arrays.equals(old.mask, witness.mask))
+                throw new IllegalArgumentException("Pick a fresh witness showing the edited shape.");
+        }
+        // Rebuild the exact original registration. The new witness never changes the fit or scale.
+        var baseline = fit(front, side, top, proof.getInt("grid"), proof.getDouble("declaredWidthM"));
+        if (!baseline.mesh.key().equals(proof.getString("meshSha256")))
+            throw new IllegalStateException("The original mesh no longer matches its registered views.");
+        double originalScore = overlap(witness.mask,
+                renderOblique(baseline, baseline.mesh, new double[3], witness.side, elevation, true));
+        double editedScore = overlap(witness.mask,
+                renderOblique(baseline, edit, centreShift, witness.side, elevation, true));
+        if (editedScore < MIN_HELD_OUT || editedScore - originalScore < .02)
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT,
+                    "The new view did not verify the edit (%.1f%% edited, %.1f%% original). "
+                            + "Require 86%% overlap and a 2-point improvement.",
+                    editedScore * 100, originalScore * 100));
+        return new JSONObject().put("heldOutIou", editedScore).put("originalIou", originalScore)
+                .put("minimumOverlap", MIN_HELD_OUT).put("minimumGain", .02).put("elevationDeg", elevation)
+                .put("witness", new JSONObject(witness.receipt, "tag", "pixels", "pngSha256"));
     }
 
     private static Capture capture(JSONObject input, boolean library) throws Exception {
@@ -239,6 +275,11 @@ final class BrowserViewTrace {
     }
 
     private static boolean[] renderOblique(Model model, int size, int elevation) {
+        return renderOblique(model, model.mesh, new double[3], size, elevation, false);
+    }
+
+    private static boolean[] renderOblique(Model model, SpatialVisualMesh mesh, double[] shift,
+                                            int size, int elevation, boolean keepFrame) {
         // Elevated silhouettes contain diagonal edges in both axes. Sample within each source pixel.
         int samples = elevation == 0 ? 1 : 3;
         int rasterSize = size * samples;
@@ -246,7 +287,6 @@ final class BrowserViewTrace {
         var graphics = pixels.createGraphics();
         try {
             graphics.setColor(Color.WHITE);
-            var mesh = model.mesh;
             var xy = new double[mesh.vertexCount()][2];
             double offsetX = (model.low[0] + model.high[0] - model.grid) / 2.0;
             double offsetY = (model.low[1] + model.high[1] - model.grid) / 2.0;
@@ -255,11 +295,14 @@ final class BrowserViewTrace {
             double radians = Math.toRadians(elevation);
             double up = Math.cos(radians), away = Math.sin(radians);
             for (int i = 0; i < xy.length; i++) {
-                double x = mesh.positions()[i * 3] / model.cellM + offsetX;
-                double y = mesh.positions()[i * 3 + 1] / model.cellM + offsetY;
-                double z = mesh.positions()[i * 3 + 2] / model.cellM + offsetZ;
+                double x = (mesh.positions()[i * 3] + shift[0]) / model.cellM + offsetX;
+                double y = (mesh.positions()[i * 3 + 1] + shift[1]) / model.cellM + offsetY;
+                double z = (mesh.positions()[i * 3 + 2] + shift[2]) / model.cellM + offsetZ;
                 xy[i][0] = rasterSize / 2.0 + (x + z) * DIAGONAL * pixelsPerGrid;
                 xy[i][1] = rasterSize / 2.0 - (y * up - (z - x) * DIAGONAL * away) * pixelsPerGrid;
+                if (keepFrame && (xy[i][0] < samples || xy[i][1] < samples
+                        || xy[i][0] > rasterSize - samples || xy[i][1] > rasterSize - samples))
+                    throw new IllegalArgumentException("Keep the full model inside the registered witness frame.");
             }
             var indices = mesh.indices();
             for (int i = 0; i < indices.length; i += 3) {

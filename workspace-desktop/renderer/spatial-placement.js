@@ -115,10 +115,19 @@ export class SpatialPlacementPanel {
         }
     }
 
+    async openForQualified() {
+        this.show();
+        try {
+            await this.setupLevel('Place the qualified edited prop in this level.');
+        } catch (error) {
+            this.tell(this.errorMessage(error));
+        }
+    }
+
     async setupLevel(goal, saved) {
         const {scene, object} = this.parent;
-        if (!scene?.reconstruction || !object?.visualMesh)
-            throw Error('Select a verified reconstructed prop in Spatial first.');
+        if ((!scene?.reconstruction && !scene?.meshQualification) || !object?.visualMesh)
+            throw Error('Select a verified reconstructed or independently checked edited prop in Spatial first.');
         if (saved && (saved.objectId !== object.id || saved.source.sceneId !== scene.id
                 || saved.meshSha256 !== object.visualMesh))
             throw Error('The browser model selection changed. Resume its original placement source.');
@@ -244,7 +253,11 @@ export class SpatialPlacementPanel {
                 ['Browser views',Object.keys(reference.crops).length+' retained captures'],
                 ['Declared width',reference.declaredWidthM+' m']
             ] : [];
-            for (const [key,value] of [...destination,...capture,
+            const edit = review.editReference;
+            const changed = edit ? [
+                ['Fresh edit witness',(100*edit.heldOutIou).toFixed(1)+'% · original '+(100*edit.originalIou).toFixed(1)+'%']
+            ] : [];
+            for (const [key,value] of [...destination,...capture,...changed,
                 ['Source prop',review.sourceTitle],['Checked view',(100*review.sourceOverlap).toFixed(1)+'% overlap'],
                 ['Placement X, Y, Z',xyz+' m'],['Yaw',review.yawDeg+'°'],
                 ['Collider',review.colliderM.map(m=>Number(m.toFixed(4))).join(' × ')+' m']
