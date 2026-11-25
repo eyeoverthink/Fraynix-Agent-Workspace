@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 242 · Compare collider sizes with the same probe approach</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Compare collider sizes with the same probe approach</h1>
+<p>The resized Signal Bay box made first contact at tick 41. The original made contact at tick 46 from the same launch.</p>
+<nav><a href="../../../README-242.md">App guide</a><a href="../241/index.html">Edition 241</a>
+<a href="../../publication242/plan.md">Implementation</a><a href="fixed-approach-receipt.json" download>Download comparison receipt</a>
+<a href="../241/signal-bay-collider.fraynix-recipient.json" download>Download Signal Bay input</a><a href="#system">System files</a></nav>
+<figure><img src="same-probe-comparison.png" alt="Both colliders on the same contact timeline"><figcaption>Both colliders on the same contact timeline</figcaption></figure>
+<figure><img src="same-probe-after-restart.png" alt="The verified comparison reopened after a desktop restart"><figcaption>The verified comparison reopened after a desktop restart</figcaption></figure>
+<figure><img src="changed-comparison-refused.png" alt="The changed comparison is withheld while the archived replay remains available"><figcaption>The changed comparison is withheld while the archived replay remains available</figcaption></figure>
+
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Compare a reviewed collider resize with its previous scene using identical probe launches.", "modules": [{"title": "Same-launch verification and result", "source": "workspace-engine/src/main/java/fraymus/workspace/ColliderApproachComparison.java", "note": "docs/obsidian/250-same-probe-collider-comparison.md"}, {"title": "Shared native sphere launch", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialPlacement.java", "note": "docs/obsidian/250-same-probe-collider-comparison.md"}, {"title": "Aisle clearance and scene physics", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialLevelPlacement.java", "note": "docs/obsidian/250-same-probe-collider-comparison.md"}, {"title": "Archive replay and saved comparison", "source": "workspace-engine/src/main/java/fraymus/workspace/PlacementExchange.java", "note": "docs/obsidian/250-same-probe-collider-comparison.md"}, {"title": "Contact timeline and results table", "source": "workspace-desktop/renderer/placement-exchange.js", "note": "docs/obsidian/250-same-probe-collider-comparison.md"}, {"title": "Desktop restart and corruption checks", "source": "workspace-desktop/test/recipient-comparison-integration.cjs", "note": "docs/obsidian/250-same-probe-collider-comparison.md"}], "screenshots": [{"path": "docs/readmes/242/same-probe-comparison.png", "title": "Both colliders on the same contact timeline"}, {"path": "docs/readmes/242/same-probe-after-restart.png", "title": "The verified comparison reopened after a desktop restart"}, {"path": "docs/readmes/242/changed-comparison-refused.png", "title": "The changed comparison is withheld while the archived replay remains available"}], "evidence": [{"path": "docs/readmes/241/signal-bay-collider.fraynix-recipient.json", "title": "Exact edition 241 collider archive"}, {"path": "docs/readmes/242/fixed-approach-evidence.json", "title": "Measured contact and recovery summary"}, {"path": "docs/readmes/242/fixed-approach-receipt.json", "title": "Full shared launch measurements"}, {"path": "docs/publication242/plan.md", "title": "Reproduction"}, {"path": "docs/readmes/242/FILE_TREE.md", "title": "Edition file tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 23092, "sha256": "d1a72dc016eef49c0aa531eb30e26040db2ceaa183cb95a9a3c3654b271b5c4a", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/250-same-probe-collider-comparison.canvas", "bytes": 1145, "sha256": "1266b68dec6e0359b70da7a68c328caab60e530f01caefde831d4fe885b5c969", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/250-same-probe-collider-comparison.md", "bytes": 475, "sha256": "6b4c8a48f1ef81a84bf4da0a866877f16d0288cc4910f399de65ff50aa4ceb6b", "hashKind": "utf8-lf"}, {"path": "docs/publication242/plan.md", "bytes": 2451, "sha256": "dbf50edf06e65a683f74be5336385d8b8b08fb20945c963b0bff35dc7bc04cfe", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 134871, "sha256": "28a779286d20c7fcf707e63efc93ee48f93961b6321479ee33689b166dbfd3c0", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/placement-exchange.js", "bytes": 21510, "sha256": "d844c8e807cd6826682f54252543c9c2c5e8a50e01b808d0f7db36cf237ff239", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial.css", "bytes": 11867, "sha256": "f34a39f4606eb2f01f9104de512c9c0e9ac89cf97c3863dddff3e252c2fbe086", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/recipient-comparison-integration.cjs", "bytes": 9512, "sha256": "182eca34831fedbcedf31cd3369849ee9cfd56afcc5f7f7abb98534ffc63bf02", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ColliderApproachComparison.java", "bytes": 7039, "sha256": "858092e7f972ae11cef6eec83b6a5da230c634bd4fbc2c119bb4e3242753b826", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/PlacementExchange.java", "bytes": 30686, "sha256": "3dae866868f018264a5acf71195830544c0c7a21920ddf7bce0830dffd0c8b43", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialLevelPlacement.java", "bytes": 15591, "sha256": "676b458368f9c091d4c0acfe95d5bd4f113287f94b4deffe88dea63eeb844ed9", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialPlacement.java", "bytes": 17981, "sha256": "00968ee3d2c2bb19d58e7ae3a3fa2e9618679662e16da275f34f0bb013b02e6f", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 65391, "sha256": "a080ef7a2a7778b78c904f525dc3315ddaa1c951b71bb4725e722470b51f8290", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 155838, "sha256": "8a29aff691f1fd53268b7e4290f104b4554e2f8a6fb5386f167734881b904bcb", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

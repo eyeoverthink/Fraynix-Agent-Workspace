@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 241,
+  "latest": 242,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -268640,6 +268640,65 @@
         {
           "path": "docs/readmes/241/system-map.json",
           "sha256": "3e86cbaa4301a3c6530409b21c1cbec6f225badb247998e5625337e0a4223b0f",
+          "kind": "text"
+        }
+      ]
+    },
+    {
+      "number": 242,
+      "date": "2026-11-25",
+      "title": "Compare collider sizes with the same probe approach",
+      "status": "published",
+      "markdown": "README-242.md",
+      "markdownSha256": "61ddac1026e3dd414555fc2fcf6f9d8f6a9c150a854ce42a511ed6a93d932130",
+      "snapshotDirectory": "docs/readmes/242",
+      "companion": "docs/readmes/242/index.html",
+      "tag": "readme-242",
+      "sourceBaseline": "16b94b52c3cc403311bccbdffc3000459b8bc92f",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/242/file-inventory.json",
+          "sha256": "12c9229ec8b941301ef0408703918948645c858307f3a395cf6e57c0638ea88d",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/242/FILE_TREE.md",
+          "sha256": "9b98ad3516465471f5506ed5afb8abe343999adde4a1cd8d60d7e5df536ce8a9",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/242/changed-comparison-refused.png",
+          "sha256": "97183a38ddc521e7ad296f1818e4a27cd4a6466882b764fa405fb9b3d6012bea",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/242/fixed-approach-evidence.json",
+          "sha256": "859ad737746a19d9b31f42398addecc60a06c44394589d6c8acf9e3f513ed90d",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/242/fixed-approach-receipt.json",
+          "sha256": "138808d32ffc5f2302ba8f81c1ba061b2e23d651adaf96068f6fa19e621310b1",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/242/index.html",
+          "sha256": "d3bf5f23c6e5f1647f9c021cc034fa4cafd389b1e96b5e408ec5c142ada9ffa5",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/242/same-probe-after-restart.png",
+          "sha256": "45606007456fb719874908b41f72522587ff33296442229d4f3f37182bf9e694",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/242/same-probe-comparison.png",
+          "sha256": "c65a4ce63679514d9e79713ccb6fb7add52601bdf8688196da68fcceed31a9b8",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/242/system-map.json",
+          "sha256": "8b042d6525cda2aee8740f986bced3935d544df8aa6cff41fe37e893988bfd17",
           "kind": "text"
         }
       ]

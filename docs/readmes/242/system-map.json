@@ -1,0 +1,71 @@
+{
+  "summary": "Compare a reviewed collider resize with its previous scene using identical probe launches.",
+  "modules": [
+    {
+      "title": "Same-launch verification and result",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ColliderApproachComparison.java",
+      "note": "docs/obsidian/250-same-probe-collider-comparison.md"
+    },
+    {
+      "title": "Shared native sphere launch",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialPlacement.java",
+      "note": "docs/obsidian/250-same-probe-collider-comparison.md"
+    },
+    {
+      "title": "Aisle clearance and scene physics",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialLevelPlacement.java",
+      "note": "docs/obsidian/250-same-probe-collider-comparison.md"
+    },
+    {
+      "title": "Archive replay and saved comparison",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PlacementExchange.java",
+      "note": "docs/obsidian/250-same-probe-collider-comparison.md"
+    },
+    {
+      "title": "Contact timeline and results table",
+      "source": "workspace-desktop/renderer/placement-exchange.js",
+      "note": "docs/obsidian/250-same-probe-collider-comparison.md"
+    },
+    {
+      "title": "Desktop restart and corruption checks",
+      "source": "workspace-desktop/test/recipient-comparison-integration.cjs",
+      "note": "docs/obsidian/250-same-probe-collider-comparison.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/242/same-probe-comparison.png",
+      "title": "Both colliders on the same contact timeline"
+    },
+    {
+      "path": "docs/readmes/242/same-probe-after-restart.png",
+      "title": "The verified comparison reopened after a desktop restart"
+    },
+    {
+      "path": "docs/readmes/242/changed-comparison-refused.png",
+      "title": "The changed comparison is withheld while the archived replay remains available"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/241/signal-bay-collider.fraynix-recipient.json",
+      "title": "Exact edition 241 collider archive"
+    },
+    {
+      "path": "docs/readmes/242/fixed-approach-evidence.json",
+      "title": "Measured contact and recovery summary"
+    },
+    {
+      "path": "docs/readmes/242/fixed-approach-receipt.json",
+      "title": "Full shared launch measurements"
+    },
+    {
+      "path": "docs/publication242/plan.md",
+      "title": "Reproduction"
+    },
+    {
+      "path": "docs/readmes/242/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}
