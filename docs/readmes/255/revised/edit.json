@@ -1,0 +1,111 @@
+{
+  "parent": "22318e09c5652d1ab558431965baf2c213dd92b8db447fed6b9213de31b32c43",
+  "assets": {
+    "e409d7325ff2c9e032dd83a52c0511e7db34501429ab0266541bb539aa8eaea5": {
+      "pictureFrames": 16,
+      "soundFrames": 0,
+      "id": "e409d7325ff2c9e032dd83a52c0511e7db34501429ab0266541bb539aa8eaea5",
+      "source": {
+        "sha256": "6f8ab9fa8c06ffcdd5ff13e9914f48b34189eac226006458c943743df94d2d95",
+        "origin": {"type": "imported"},
+        "format": "avi",
+        "title": "two-colors.avi"
+      }
+    },
+    "ed585b03ef8b486b8829861e10bfc3f25fca2f0fcf36d4d0b017c150d67c735f": {
+      "pictureFrames": 144,
+      "soundFrames": 0,
+      "id": "ed585b03ef8b486b8829861e10bfc3f25fca2f0fcf36d4d0b017c150d67c735f",
+      "source": {
+        "sha256": "3df12b12ce30054d71fe5194f725dd6a674bbda04499ec05561c458ee3a18221",
+        "origin": {"type": "imported"},
+        "format": "png",
+        "title": "overlay.png"
+      }
+    },
+    "f0366d6e6ff644da954a2b3c28f711e5466724a572e3f001089f0029a54f5297": {
+      "pictureFrames": 19,
+      "soundFrames": 19,
+      "id": "f0366d6e6ff644da954a2b3c28f711e5466724a572e3f001089f0029a54f5297",
+      "source": {
+        "sha256": "a263013375c0330b21c1ce45952f6dba5d1224358017d4d51ee79bcfd94c0e63",
+        "origin": {
+          "nativeSource": {
+            "recipe": "fraynix.motion-media-v1",
+            "sceneVersion": 1,
+            "runId": "3949c7ff-c51f-43e5-a2c1-4fa5178ad6fb",
+            "runSha256": "3d2d5455f37f9f01b9c9d1dfd6ae32cc31a2a955b3a2ae4cf4c51cdff05c38ee",
+            "title": "Timeline ramp experiment"
+          },
+          "type": "generated",
+          "recipeId": "f016fdfd7bfd8fe5e307a555713ae20cc03c9ec1ae6a76f2c4052e896bc327ee"
+        },
+        "format": "avi",
+        "title": "Timeline ramp experiment · AVI"
+      }
+    },
+    "d464e03518d7ca1e837ef1a7630be57725bd883b5f902ebcc5bf1793b83f2696": {
+      "pictureFrames": 0,
+      "soundFrames": 24,
+      "id": "d464e03518d7ca1e837ef1a7630be57725bd883b5f902ebcc5bf1793b83f2696",
+      "source": {
+        "sha256": "b379fb4f5a6225b33753cd248bcc7fdbb87478be7972a4a5778c588c434330b4",
+        "origin": {"type": "imported"},
+        "format": "wav",
+        "title": "cue.wav"
+      }
+    }
+  },
+  "format": "fraynix.timeline-edit-v1",
+  "title": "Motion and color study · revised",
+  "strips": [
+    {
+      "in": 0,
+      "assetId": "f0366d6e6ff644da954a2b3c28f711e5466724a572e3f001089f0029a54f5297",
+      "start": 0,
+      "length": 12,
+      "lane": "PICTURE"
+    },
+    {
+      "in": 0,
+      "assetId": "e409d7325ff2c9e032dd83a52c0511e7db34501429ab0266541bb539aa8eaea5",
+      "start": 12,
+      "length": 6,
+      "lane": "PICTURE"
+    },
+    {
+      "in": 0,
+      "assetId": "ed585b03ef8b486b8829861e10bfc3f25fca2f0fcf36d4d0b017c150d67c735f",
+      "start": 18,
+      "length": 6,
+      "lane": "PICTURE"
+    },
+    {
+      "size": 100,
+      "in": 0,
+      "assetId": "ed585b03ef8b486b8829861e10bfc3f25fca2f0fcf36d4d0b017c150d67c735f",
+      "start": 4,
+      "length": 12,
+      "x": 128,
+      "y": 28,
+      "opacity": 100,
+      "lane": "OVERLAY"
+    },
+    {
+      "in": 2,
+      "assetId": "f0366d6e6ff644da954a2b3c28f711e5466724a572e3f001089f0029a54f5297",
+      "start": 0,
+      "length": 16,
+      "lane": "AUDIO1",
+      "gain": 0.85
+    },
+    {
+      "in": 3,
+      "assetId": "d464e03518d7ca1e837ef1a7630be57725bd883b5f902ebcc5bf1793b83f2696",
+      "start": 9,
+      "length": 13,
+      "lane": "AUDIO2",
+      "gain": 0.85
+    }
+  ]
+}

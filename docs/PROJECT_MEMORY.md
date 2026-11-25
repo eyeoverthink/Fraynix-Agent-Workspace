@@ -1,3 +1,7 @@
+## Edition 255 — Edit and verify a multi-track media timeline
+
+2026-11-25. Java combines checked imported PNG, MJPEG AVI and PCM WAV with verified native media on picture, overlay and two audio lanes. The desktop edits whole-frame timing, overlay placement and gain, previews a saved frame or mix, and exports AVI, WAV, PNG and timeline JSON. Independent FFmpeg checks proved frame cuts, alpha layer boundaries, and exact PCM for two revisions. Blender reopened both, restart preserved exact bytes, and changed source data refused replay. See README-255.md and docs/publication255/plan.md.
+
 ## Edition 254 — Create verified motion media without a language model
 
 2026-11-25. A selected native recording can drive a deterministic local media procedure from chat or the Motion media panel. Java renders video, normalizes speed sonification, and exports indexed AVI, exact WAV, PNG and a bound timeline. A verified JPEG setting survived restart and passed fresh decoded probes on a different run in one trial after the first took two. FFmpeg decoded both products and Blender reopened synchronized editable strips. Byte changes refused export and restart preserved exact artifacts. See README-254.md and docs/publication254/plan.md.

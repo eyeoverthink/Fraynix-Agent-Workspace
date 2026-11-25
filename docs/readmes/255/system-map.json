@@ -1,0 +1,93 @@
+{
+  "summary": "Make a verified edit from imported images, clips and audio together with generated material.",
+  "modules": [
+    {
+      "title": "Source binding, rendering and revision storage",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MediaEditStore.java",
+      "note": "docs/obsidian/263-editable-media-timeline.md"
+    },
+    {
+      "title": "Video composition and sample-aligned mixing",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/EditableMedia.java",
+      "note": "docs/obsidian/263-editable-media-timeline.md"
+    },
+    {
+      "title": "AVI and WAV import and verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MotionMediaContainers.java",
+      "note": "docs/obsidian/263-editable-media-timeline.md"
+    },
+    {
+      "title": "Desktop timeline editor",
+      "source": "workspace-desktop/renderer/timeline-editor.js",
+      "note": "docs/obsidian/263-editable-media-timeline.md"
+    },
+    {
+      "title": "Offline desktop editing and restart test",
+      "source": "workspace-desktop/test/timeline-editor-integration.cjs",
+      "note": "docs/obsidian/263-editable-media-timeline.md"
+    },
+    {
+      "title": "Independent frame and sample checks",
+      "source": "workspace-desktop/test/timeline-ffmpeg.cjs",
+      "note": "docs/obsidian/263-editable-media-timeline.md"
+    },
+    {
+      "title": "Independent Blender strip verification",
+      "source": "workspace-desktop/test/timeline-blender.py",
+      "note": "docs/obsidian/263-editable-media-timeline.md"
+    },
+    {
+      "title": "Imported test media generator",
+      "source": "workspace-desktop/test/timeline-fixtures.py",
+      "note": "docs/obsidian/263-editable-media-timeline.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The timeline combines generated motion, an imported clip, a PNG and two audio tracks",
+      "path": "docs/readmes/255/timeline-first-edit.png"
+    },
+    {
+      "title": "Scrubbing shows the imported cut with its active PNG overlay",
+      "path": "docs/readmes/255/timeline-frame-preview.png"
+    },
+    {
+      "title": "Both revisions are retained. Here the original trim is reopened after restart",
+      "path": "docs/readmes/255/timeline-previous-reopened.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Measured evidence",
+      "path": "docs/readmes/255/timeline-evidence.json"
+    },
+    {
+      "title": "FFmpeg decode",
+      "path": "docs/readmes/255/independent-timeline.json"
+    },
+    {
+      "title": "Blender strips",
+      "path": "docs/readmes/255/blender-edit.json"
+    },
+    {
+      "title": "Revised picture and sound",
+      "path": "docs/readmes/255/revised/edit.avi"
+    },
+    {
+      "title": "Revised mix",
+      "path": "docs/readmes/255/revised/edit.wav"
+    },
+    {
+      "title": "Editable definition",
+      "path": "docs/readmes/255/revised/edit.json"
+    },
+    {
+      "title": "File tree",
+      "path": "docs/readmes/255/FILE_TREE.md"
+    },
+    {
+      "title": "Reproduction",
+      "path": "docs/publication255/plan.md"
+    }
+  ]
+}

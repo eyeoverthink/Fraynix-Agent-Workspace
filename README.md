@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md) · [Independent system review](docs/publication244/review.md)
 
-[Edition 254 — Create verified motion media without a language model](README-254.md) · [Previous edition](README-253.md) · [Offline walkthrough](docs/readmes/254/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 255 — Edit and verify a multi-track media timeline](README-255.md) · [Previous edition](README-254.md) · [Offline walkthrough](docs/readmes/255/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Fraynix can turn a recorded native experiment into synchronized video, synthesized sound, a poster and a reusable timeline. Java verifies the outputs and can start a new encode from a previously verified setting after restart.
+Edit generated and imported media together. The desktop supports picture cuts, PNG overlays, two audio tracks, checked exports and editable revision history.

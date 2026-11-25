@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 255 — Edit and verify a multi-track media timeline](../../README-255.md) · [Walkthrough](255/index.html)
+
 [Edition 254 — Create verified motion media without a language model](../../README-254.md) · [Walkthrough](254/index.html)
 
 [Edition 253 — Recover overlapping props with noisy side masks](../../README-253.md) · [Walkthrough](253/index.html)
