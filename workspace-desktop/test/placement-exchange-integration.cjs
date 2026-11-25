@@ -11,6 +11,17 @@ const {launch} = require('./calibration-integration.cjs');
 const sha = value => createHash('sha256').update(value).digest('hex');
 const frozen = path.resolve(process.argv[3] || path.join(__dirname,'fixtures','placement-exchange','edition232.fraynix-placement.json'));
 
+function lineage(bundle) {
+    if (bundle.format === 'fraynix.verified-recipient-handoff-v2') {
+        const parent = JSON.parse(Buffer.from(bundle.parentArchiveBase64,'base64'));
+        const history = lineage(parent);
+        return {source:history.source, edits:[...history.edits,...bundle.revisions]};
+    }
+    if (bundle.format === 'fraynix.verified-recipient-level-v1')
+        return {source:JSON.parse(Buffer.from(bundle.originalArchiveBase64,'base64')),edits:bundle.revisions};
+    return {source:bundle,edits:[]};
+}
+
 async function main() {
     process.env.FRAYNIX_WORKSPACE_NO_MODELS = '1';
     const output = path.resolve(process.argv[2] || 'build/visual-placement-exchange233');
@@ -19,7 +30,8 @@ async function main() {
     const original = await fs.readFile(frozen);
     const id = sha(original);
     const document = JSON.parse(original);
-    const isRecipient = document.format === 'fraynix.verified-recipient-level-v1';
+    const {source,edits} = lineage(document);
+    const isRecipient = edits.length>0;
     const isLevel = isRecipient || document.format.startsWith('fraynix.verified-spatial-level-');
     const exactDestination = isRecipient || document.format === 'fraynix.verified-spatial-level-v2';
     const terminal = isRecipient ? document.revisions.at(-1).receipt : document.evidence;
@@ -66,10 +78,10 @@ async function main() {
             assert(await page.locator('#exchange-sample').isHidden());
         }
         if (isRecipient) {
-            assert.equal(archive.recipientRevision,document.revisions.length);
+            assert.equal(archive.recipientRevision,edits.length);
             assert.equal(archive.originalArchiveSha256,document.originalArchiveSha256);
             assert.match(await page.locator('#exchange-revisions').textContent(),/approvals checked/);
-            assert.equal(await page.locator('#exchange-stage').inputValue(),String(document.revisions.length));
+            assert.equal(await page.locator('#exchange-stage').inputValue(),String(edits.length));
             assert(await page.locator('#exchange-fork').isHidden());
         }
         await render('archive-inspected.png');
@@ -111,10 +123,9 @@ async function main() {
         await render('local-hit-replay.png');
         if (isRecipient) {
             const earlier = restored.replay.previous;
-            assert.equal(earlier.length,document.revisions.length);
-            const source = JSON.parse(Buffer.from(document.originalArchiveBase64,'base64'));
+            assert.equal(earlier.length,edits.length);
             assert.equal(earlier[0].sceneId,source.sceneId);
-            const expected = [source.evidence,...document.revisions.slice(0,-1).map(stage=>stage.receipt)];
+            const expected = [source.evidence,...edits.slice(0,-1).map(stage=>stage.receipt)];
             for (const [index,receipt] of expected.entries()) {
                 const native = earlier[index];
                 assert(native.comparison.passed&&native.comparison.aisle.passed);
@@ -124,10 +135,11 @@ async function main() {
             }
             await page.locator('#exchange-stage').selectOption('0');
             await render('original-placement-replayed.png');
-            await page.locator('#exchange-stage').selectOption(String(document.revisions.length));
+            await page.locator('#exchange-stage').selectOption(String(edits.length));
             assert.match(await page.locator('#exchange-revisions').textContent(),/all revisions replayed locally/);
-            await assert.rejects(call('placement-exchange-fork',{id,replaySha256:restored.replay.sha256}),
-                /authored bundle with its checked original destination/i);
+            assert(await page.locator('#exchange-fork').isVisible());
+            await assert.rejects(call('placement-exchange-fork',{id,replaySha256:'0'.repeat(64)}),
+                /Replay this exact bundle locally/i);
         }
 
         await page.locator('#exchange-trial').selectOption('miss');

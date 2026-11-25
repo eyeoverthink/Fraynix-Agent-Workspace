@@ -61,8 +61,12 @@ export class RecipientEditPanel {
         this.result = null;
         const link = this.source.recipientBranch;
         const prop = this.source.objects.find(item => item.sourceId === link.propSourceId);
+        const attachment = link.inheritedRevisions
+            ? 'Inherited approved edits: '+link.inheritedRevisions
+            : 'Original archive '+link.archiveSha256.slice(0,12)+'…';
         this.find('#recipient-copy-summary').textContent = 'Local revision '+this.source.recipientRevision+' · '+prop.label
-            +' · Original archive '+link.archiveSha256.slice(0,12)+'…';
+            +' · '+attachment;
+        this.find('#recipient-open-evidence').textContent = link.inheritedRevisions ? 'Open inherited evidence' : 'Open original evidence';
         this.fields(prop.position,this.source.recipientEdit?.review.yawDeg ?? link.initialYawDeg);
         this.render();
         this.dialog.showModal();

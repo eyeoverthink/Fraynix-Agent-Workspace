@@ -20,10 +20,15 @@ final class RecipientLevelEdit {
 
     static JSONObject provenance(PlacementExchange.Bundle bundle, JSONObject replay) {
         var reviewed = bundle.evidence().getJSONObject("review");
-        return new JSONObject().put("rootId",rootId(bundle.id())).put("archiveSha256",bundle.id())
+        String prop = bundle.recipient() ? bundle.stage().propKey() : SpatialLevelPlacement.propKey(reviewed);
+        var link = new JSONObject().put("rootId",rootId(bundle.id())).put("archiveSha256",bundle.id())
                 .put("glbSha256",bundle.glbSha256()).put("localReplaySha256",replay.getString("sha256"))
-                .put("propSourceId",SpatialLevelPlacement.propKey(reviewed)).put("floor",reviewed.getString("floor"))
+                .put("propSourceId",prop).put("floor",reviewed.getString("floor"))
                 .put("aisle",reviewed.getJSONArray("aisle")).put("initialYawDeg",reviewed.getDouble("yawDeg"));
+        if (bundle.recipient())
+            link.put("inheritedRevisions",bundle.previous().size())
+                    .put("originalArchiveSha256",bundle.originalArchiveSha256());
+        return link;
     }
 
     static JSONObject root(PlacementExchange.Bundle bundle, JSONObject replay, String importedAt) {

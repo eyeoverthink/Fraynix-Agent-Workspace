@@ -24,11 +24,16 @@ final class PlacementExchange {
     record Stage(JSONObject scene, JSONObject evidence, String propKey, boolean authored) {}
 
     record Bundle(String id, Stage stage, String glbSha256, JSONObject layout, boolean destinationVerified,
-                  List<Stage> previous) {
+                  List<Stage> previous, int handoffDepth) {
         JSONObject scene() { return stage.scene; }
         JSONObject evidence() { return stage.evidence; }
         boolean authored() { return stage.authored; }
         boolean recipient() { return !previous.isEmpty(); }
+        String originalArchiveSha256() {
+            if (!recipient()) return id;
+            var branch = scene().getJSONObject("recipientBranch");
+            return branch.optString("originalArchiveSha256", branch.getString("archiveSha256"));
+        }
     }
 
     PlacementExchange(Path project) {
@@ -91,9 +96,9 @@ final class PlacementExchange {
 
     ForkSource forkSource(String archive, String replayHash) throws Exception {
         var bundle = load(archive);
-        if (!bundle.destinationVerified() || bundle.recipient())
+        if (!bundle.destinationVerified())
             throw new IllegalArgumentException("Create a local copy from an authored bundle with its checked original destination.");
-        var checked = status(bundle).optJSONObject("replay");
+        var checked = localReplay(bundle);
         if (checked == null || !replayHash.equals(checked.getString("sha256")))
             throw new IllegalStateException("Replay this exact bundle locally before creating an editable copy.");
         return new ForkSource(bundle,checked);
@@ -101,7 +106,7 @@ final class PlacementExchange {
 
     Bundle checkForkSource(String archive, JSONObject replay) throws Exception {
         var bundle = load(archive);
-        if (!bundle.destinationVerified() || bundle.recipient() || !validReplay(bundle,replay))
+        if (!bundle.destinationVerified() || !validReplay(bundle,replay))
             throw new IllegalStateException("The original bundle or attached local replay changed.");
         return bundle;
     }
@@ -150,15 +155,23 @@ final class PlacementExchange {
 
     private JSONObject status(Bundle bundle) throws Exception {
         var summary = summarize(bundle);
+        var receipt = localReplay(bundle);
+        if (receipt != null) return summary.put("replay",receipt);
+        if (Files.exists(file(bundle.id,".replay.json"),LinkOption.NOFOLLOW_LINKS))
+            summary.put("replayUnavailable",true);
+        return summary;
+    }
+
+    private JSONObject localReplay(Bundle bundle) {
         Path path = file(bundle.id,".replay.json");
-        if (!Files.exists(path,LinkOption.NOFOLLOW_LINKS)) return summary;
+        if (!Files.exists(path,LinkOption.NOFOLLOW_LINKS)) return null;
         try {
             var receipt = new JSONObject(new String(SpriteWorkshop.read(path,BYTE_LIMIT),StandardCharsets.UTF_8));
-            if (validReplay(bundle,receipt)) return summary.put("replay",receipt);
+            if (validReplay(bundle,receipt)) return receipt;
         } catch (java.io.IOException | RuntimeException changed) {
-            // The original archive was already checked. The user can regenerate this local replay.
+            // The archive is still available for a fresh replay.
         }
-        return summary.put("replayUnavailable",true);
+        return null;
     }
 
     private static JSONObject summarize(Bundle bundle) {
@@ -175,7 +188,8 @@ final class PlacementExchange {
             }
             result.put("sourceOverlap",original.getDouble("sourceOverlap")).put("previousStages",past)
                     .put("recipientRevision",bundle.previous.size())
-                    .put("originalArchiveSha256",bundle.scene().getJSONObject("recipientBranch").getString("archiveSha256"));
+                    .put("originalArchiveSha256",bundle.originalArchiveSha256());
+            if (bundle.handoffDepth > 0) result.put("handoffCount",bundle.handoffDepth);
         } else result.put("sourceOverlap",bundle.evidence().getJSONObject("review").getDouble("sourceOverlap"));
         return result;
     }
@@ -192,17 +206,18 @@ final class PlacementExchange {
     }
 
     static Bundle inspect(byte[] bytes) throws Exception {
-        return inspect(bytes,true);
+        return inspect(bytes,RecipientRevisionExchange.MAX_HANDOFFS);
     }
 
-    static Bundle inspect(byte[] bytes, boolean allowRecipient) throws Exception {
+    static Bundle inspect(byte[] bytes, int remainingHandoffs) throws Exception {
         if (bytes.length == 0 || bytes.length > BYTE_LIMIT)
             throw new IllegalArgumentException("Choose a placement bundle up to 1.5 MB.");
         var input = new JSONObject(new String(bytes,StandardCharsets.UTF_8));
         String format = input.getString("format");
-        if (RecipientRevisionExchange.FORMAT.equals(format)) {
-            if (!allowRecipient) throw new IllegalArgumentException("Choose a direct authored archive for the original level.");
-            return RecipientRevisionExchange.inspect(input,MapDefinition.sha(bytes));
+        if (RecipientRevisionExchange.FORMAT.equals(format) || RecipientRevisionExchange.HANDOFF.equals(format)) {
+            if (remainingHandoffs < 0)
+                throw new IllegalArgumentException("Choose a direct authored archive for the original level.");
+            return RecipientRevisionExchange.inspect(input,MapDefinition.sha(bytes),remainingHandoffs);
         }
         if (bytes.length > AUTHORED_BYTE_LIMIT)
             throw new IllegalArgumentException("Choose a placement bundle up to 1.2 MB.");
@@ -247,7 +262,7 @@ final class PlacementExchange {
         String digest = MapDefinition.sha(glb);
         if (!digest.equals(input.getString("glbSha256"))) throw new IllegalArgumentException("The embedded GLB checksum differs.");
         SpatialGlb.verifyScene(scene,glb);
-        return new Bundle(MapDefinition.sha(bytes),new Stage(scene,evidence,null,authored),digest,layout,exactDestination,List.of());
+        return new Bundle(MapDefinition.sha(bytes),new Stage(scene,evidence,null,authored),digest,layout,exactDestination,List.of(),0);
     }
 
     private static JSONObject checkLevel(JSONObject raw, JSONObject scene, JSONObject review) {

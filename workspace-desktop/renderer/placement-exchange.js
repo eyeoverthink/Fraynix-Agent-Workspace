@@ -204,7 +204,8 @@ export class PlacementExchangePanel {
         this.find('#exchange-file').disabled = busy;
         this.find('#exchange-replay').disabled = busy || !this.result?.id;
         const fork = this.find('#exchange-fork');
-        fork.hidden = this.attachmentMode || !this.result?.destinationVerified || !this.result.replay || Boolean(this.result.recipientRevision);
+        fork.hidden = this.attachmentMode || !this.result?.destinationVerified || !this.result.replay;
+        fork.textContent = this.result?.recipientRevision ? 'Create editable copy of final revision' : 'Create editable copy';
         fork.disabled = busy || fork.hidden;
     }
 
@@ -234,7 +235,7 @@ export class PlacementExchangePanel {
         if (count) {
             stage.add(new Option('Original placement','0'));
             for (let index=1;index<=count;index++)
-                stage.add(new Option('Local edit '+index+(index===count?' · final':''),String(index)));
+                stage.add(new Option((result.handoffCount?'Approved edit ':'Local edit ')+index+(index===count?' · final':''),String(index)));
             stage.value = prior || String(count);
         }
         this.find('#exchange-revisions').textContent = count
