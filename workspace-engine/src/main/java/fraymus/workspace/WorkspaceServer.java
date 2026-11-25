@@ -39,6 +39,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final SpatialStore spatial;
     private final ColliderRouting colliderRouting;
     private final SpriteWorkshop media;
+    private final MotionMedia motionMedia;
     private final TileWorkshop tiles;
     private final MapStore maps;
     private final PerceptionStore perception;
@@ -108,6 +109,7 @@ public final class WorkspaceServer implements AutoCloseable {
             rampMission = new RampMission(project, store);
             runtime040=new SpatialRuntime040(project,goals.worlds(),goals.worldNative(),tabletop,knowledge,game);alignment041=new Alignment041Store(project,goals.worlds());workflows.install159(new CalibratedPlane159(project,alignment041,goals.worlds()));accuracy160=new PlaneAccuracyStore160(project,alignment041,goals.worlds(),store);small161=new SmallStore161(project,store);workflows.install162(new RecordedSmall162(project,alignment041,goals.worlds(),small161));smallObjectRoutes=new SmallObjectRoutes(small161,spatial,workflows);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         try{agentRuntime=new AgentRuntime042(project,brain,this::agentFacts042,this::detachHost042,persistentHost);agency=new Agency043(project,store,learning,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();},(kind,evidence)->agentRuntime.record043(kind,evidence),this::sharedBusy043,true);var domain=new Domain044(this::call044,store);agency.install044(domain);agency.installRelayArchive(domain::relayArchive);agency.installArchive112(task->{var bound=task.getJSONObject("completion044").getJSONObject("javaWorkflow");String id=task.getJSONObject("context044").getString("ownedWorkflowId");if(!id.equals(bound.getString("id")))throw new IllegalStateException("Original chat/workflow owner changed");var proof=workflows.verifyArchive110(id);var current=workflows.read(id);for(String k:List.of("status","audit","report","savedSkill","dataBinding"))if(bound.has(k)&&(!current.has(k)||!new JSONObject().put("v",bound.get(k)).similar(new JSONObject().put("v",current.get(k)))))throw new IllegalStateException("Original chat workflow completion changed: "+k);proof.remove("verificationNanos");return proof;});agency.installRampArchive(rampMission::historyEvidence);creation044=new CreationPlanner044(project,goals,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();});}catch(Exception e){close();throw new IOException("Java agent state needs attention; originals retained",e);}
+        motionMedia = new MotionMedia(project,scenes);
         colliderRouting = new ColliderRouting(project,this::proposeExperiment,spatial);
         referenceChart = new ReferenceChart(project, store, measurements, agency);
         costs087=new CalibrationCosts087(project,goals);
@@ -731,6 +733,11 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/media-tiles/save" -> result = tiles.save(input);
                     case "/api/media-tiles/import" -> result = tiles.importLevel(input);
                     case "/api/media-tiles/export" -> result = tiles.export(input);
+                    case "/api/motion-media/sources" -> result = motionMedia.sources(input);
+                    case "/api/motion-media/build" -> result = motionMedia.build(input);
+                    case "/api/motion-media/latest" -> result = motionMedia.latest(input);
+                    case "/api/motion-media/open" -> result = motionMedia.open(input);
+                    case "/api/motion-media/export" -> result = motionMedia.export(input);
                     case "/api/media/isolate" -> result = media.isolate(input);
                     case "/api/media/save" -> result = media.save(input);
                     case "/api/media/import" -> result = media.importLevel(input);

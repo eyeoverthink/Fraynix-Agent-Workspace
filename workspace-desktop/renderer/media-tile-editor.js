@@ -24,6 +24,7 @@ export class TileEditor {
                 <label class="media-file">Import level<input id="tile-import-level" type="file" accept=".json,application/json" aria-label="Import tile level"></label>
                 <button id="tile-model-3d">Model sprites in 3D</button>
                 <button id="media-legacy-mode" class="quiet">Single sprite</button>
+                <button id="media-motion-mode">Motion media</button>
             </div>
             <div class="tile-library">
                 <div class="tile-bar">

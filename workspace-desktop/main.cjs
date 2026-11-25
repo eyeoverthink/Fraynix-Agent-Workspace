@@ -1034,6 +1034,20 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='export'){const result=await api('/api/maps/export',{id:input.args.id});return nativeExports.save('playable-map','json',result.text,{id:input.args.id});}
       if(!['example','reference-cases','reference-example','dungeons','inspect-image','import-image','reference','list','read','run','snapshot','manual','control','stop','pause','resume','from-procedural','import-package'].includes(input.command))throw Error('Unknown map operation');return api('/api/maps/'+input.command,input.args||{});
     }
+    case 'motion-media': {
+      const args=input.args||{};
+      const command=input.command;
+      if (['sources','latest','open','build'].includes(command)) {
+        const result=await api('/api/motion-media/'+command,args);
+        if (command==='build') activity('media','Verified motion media from a native recording',{id:result.id,source:result.source});
+        return result;
+      }
+      if (command==='preview-audio') return api('/api/motion-media/export',{id:args.id,format:'wav'});
+      if (command!=='export' || !['png','wav','avi','json'].includes(args.format)) throw Error('Choose a supported motion media export.');
+      const data=await api('/api/motion-media/export',args);
+      return nativeExports.save('verified-motion-media',args.format,Buffer.from(data.base64,'base64'),
+        {id:args.id,...data.source},data.sha256);
+    }
     case 'media-tiles': {
       if (input.command === 'pick') {
         if (!surfacesVisible.browser) throw Error('Show the in-app browser to pick a graphic.');

@@ -93,3 +93,11 @@
 #tile-inspector { margin: 9px 0 0; padding: 7px 10px 3px; border: 1px solid #3d575d; border-radius: 7px; }
 #tile-inspector legend { padding: 0 5px; color: #bddbd5; }
 #tile-inspector input[type="number"] { width: 66px; padding: 4px 5px; }
+#motion-media { min-height: 0; flex: 1; overflow: auto; padding: 16px; background: #142125; }
+#motion-media form { display: flex; flex-wrap: wrap; align-items: end; gap: 8px; margin: 12px 0; }
+#motion-media label { display: grid; gap: 4px; font-size: 12px; }
+#motion-media select { max-width: min(100%, 48ch); }
+#motion-media figure { margin: 12px 0; }
+#motion-media img { width: min(100%, 640px); display: block; border: 1px solid #385055; border-radius: 8px; }
+#motion-media figcaption, #motion-status { margin: 7px 0; color: #a8dfcc; overflow-wrap: anywhere; font-size: 12px; }
+#motion-audio { margin: 10px 0; max-width: 100%; }
