@@ -70,6 +70,15 @@ export class SpatialPanel {
        <label class="spatial-file"><span id="image-assembly-witness-label">Second-angle PNG</span><input name="witness" type="file" accept="image/png,.png"></label>
       </div>
      </div>
+     <div id="image-assembly-camera-fields" hidden>
+      <label class="spatial-note"><input name="customAngles" type="checkbox"> Use custom camera angles</label>
+      <div class="spatial-task" id="image-assembly-camera-angles" hidden>
+       <label>Fitting heading · °<input name="sideHeadingDeg" type="number" min="-180" max="180" step="any" value="-45" required></label>
+       <label>Fitting elevation · °<input name="sideElevationDeg" type="number" min="25" max="70" step="any" value="60" required></label>
+       <label>Held-out heading · °<input name="witnessHeadingDeg" type="number" min="-180" max="180" step="any" value="45" required></label>
+       <label>Held-out elevation · °<input name="witnessElevationDeg" type="number" min="25" max="70" step="any" value="45" required></label>
+      </div>
+     </div>
      <div class="spatial-assembly-props"></div>
      <div class="spatial-task"><button id="image-assembly-add" type="button">Add prop</button>
       <button id="image-assembly-build" class="primary">Build verified 3D scene</button></div>

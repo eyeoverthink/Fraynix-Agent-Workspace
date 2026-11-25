@@ -1,5 +1,6 @@
 const MARKERS = ['#ff8800','#2288ff','#20bf6b','#af4fe0'];
 const MAX_PNG_BYTES = 512 * 1024;
+const CAMERA_ANGLES = {sideHeadingDeg:-45,sideElevationDeg:60,witnessHeadingDeg:45,witnessElevationDeg:45};
 
 export class ImageAssemblyPanel {
     constructor(spatial) {
@@ -11,11 +12,13 @@ export class ImageAssemblyPanel {
         this.mode = this.form.elements.namedItem('mode');
         this.witness = this.form.elements.namedItem('witness');
         this.guide = this.form.elements.namedItem('guide');
+        this.customAngles = this.form.elements.namedItem('customAngles');
         this.add = this.root.querySelector('#image-assembly-add');
         this.replay = this.root.querySelector('#image-assembly-replay');
         this.assets = [];
         this.add.onclick = () => this.addRow();
         this.mode.onchange = () => this.controls();
+        this.customAngles.onchange = () => this.controls();
         this.root.addEventListener('toggle', () => {
             if (this.root.open) spatial.action(() => this.refresh());
         });
@@ -71,6 +74,12 @@ export class ImageAssemblyPanel {
             this.sceneId = scene?.id;
             if (receipt) this.mode.value = receipt.binding.registration?.guideSha256?'tilt':
                 receipt.binding.input.recoverYaw?'yaw':receipt.binding.registration?'views':'markers';
+            if (receipt) {
+                const angles = receipt.binding.input.cameraAngles;
+                this.customAngles.checked = Boolean(angles);
+                for (const [key,value] of Object.entries(angles ?? CAMERA_ANGLES))
+                    this.form.elements.namedItem(key).value = value;
+            }
             this.status.textContent = receipt ? this.receiptSummary(receipt) : '';
         }
         const views = this.mode.value!=='markers';
@@ -81,9 +90,16 @@ export class ImageAssemblyPanel {
         this.guide.required = tilt;
         this.guide.disabled = !tilt;
         this.root.querySelector('#image-assembly-guide-fields').hidden = !tilt;
+        const custom = tilt && this.customAngles.checked;
+        this.customAngles.disabled = !tilt;
+        this.root.querySelector('#image-assembly-camera-fields').hidden = !tilt;
+        this.root.querySelector('#image-assembly-camera-angles').hidden = !custom;
+        for (const key of Object.keys(CAMERA_ANGLES)) this.form.elements.namedItem(key).disabled = !custom;
         this.root.querySelector('#image-assembly-witness-label').textContent = tilt?'Held-out angle PNG':'Second-angle PNG';
         this.root.querySelector('#image-assembly-camera-hint').textContent = tilt
-            ? 'Use overhead, a fitting side at 45° left / 60° above, and a held-out angle at 45° right / 45° above. Match the frame, center and metres per pixel. Keep props separated on a plain background.'
+            ? (custom
+                ? 'Use the same center and metres per pixel in all views. Negative heading is left of front. Keep the fitting and held-out cameras at least 25° apart and silhouettes separated.'
+                : 'Use overhead, a fitting side at 45° left / 60° above, and a held-out angle at 45° right / 45° above. Match the frame, center and metres per pixel. Keep props separated on a plain background.')
             : 'Use an opaque overhead image with separated silhouettes on a plain background. The second camera is 45° left of the front and 60° above the floor. Match the frame, center and metres per pixel.';
         this.root.querySelector('#image-assembly-witness-fields').hidden = !views;
         for (const label of this.rows.querySelectorAll('.assembly-color')) label.hidden = views;
@@ -134,7 +150,12 @@ export class ImageAssemblyPanel {
             const request = {layoutPng:await this.readPng(fields.namedItem('layout').files[0]),
                 title:fields.namedItem('title').value,widthM:fields.namedItem('widthM').valueAsNumber,props};
             if (views) request.witnessPng = await this.readPng(this.witness.files[0]);
-            if (this.mode.value==='tilt') request.guidePng = await this.readPng(this.guide.files[0]);
+            if (this.mode.value==='tilt') {
+                request.guidePng = await this.readPng(this.guide.files[0]);
+                if (this.customAngles.checked)
+                    request.cameraAngles = Object.fromEntries(Object.keys(CAMERA_ANGLES)
+                        .map(key=>[key,fields.namedItem(key).valueAsNumber]));
+            }
             if (recoverYaw) request.recoverYaw = true;
             const scene = await this.spatial.call('image-assembly',request);
             await this.spatial.open(scene.id);

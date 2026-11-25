@@ -15,6 +15,7 @@ import static fraymus.workspace.ImageSceneRegistration.*;
 /** Fits three-axis rotation using two registered views. A third view checks the frozen pose. */
 final class ImageTiltRegistration {
     static final String POLICY = "registered-silhouettes-tilt-v3";
+    static final String CALIBRATED_POLICY = "registered-silhouettes-tilt-v4";
     static final int TILT_LIMIT = 30;
     private static final double D = Math.sqrt(.5);
     private static final double FIT_AWAY = Math.sqrt(.75);
@@ -24,7 +25,48 @@ final class ImageTiltRegistration {
     private static final double MAX_WITNESS_ANGLE = 8;
     private static final double MIN_WITNESS_ROTATION_GAIN = .022;
 
-    private enum View { OVERHEAD, GUIDE, WITNESS }
+    private record Camera(double heading, double elevation, double sine, double cosine,
+                          double rise, double run, boolean legacy) {
+        static Camera calibrated(double heading, double elevation) {
+            double azimuth = Math.toRadians(heading), height = Math.toRadians(elevation);
+            return new Camera(heading, elevation, Math.sin(azimuth), Math.cos(azimuth),
+                    Math.sin(height), Math.cos(height), false);
+        }
+
+        double horizontal(double x, double z) {
+            return legacy ? (heading < 0 ? D*(x+z) : D*(x-z)) : cosine*x-sine*z;
+        }
+
+        double vertical(double x, double y, double z) {
+            if (legacy) return heading < 0 ? D*(z-x)*FIT_AWAY-y*FIT_UP : .5*(x+z)-D*y;
+            return rise*(sine*x+cosine*z)-run*y;
+        }
+
+        double height(double x, double z, double viewY) {
+            return (vertical(x,0,z)-viewY)/run;
+        }
+
+        double separation(Camera other) {
+            double dot = rise*other.rise + run*other.run*(sine*other.sine + cosine*other.cosine);
+            return Math.toDegrees(Math.acos(Math.clamp(dot,-1,1)));
+        }
+    }
+
+    private record Cameras(Camera side, Camera witness, boolean calibrated) {
+        static Cameras read(JSONObject angles) {
+            if (angles == null) return new Cameras(
+                    new Camera(-45,60,-D,D,FIT_AWAY,FIT_UP,true),
+                    new Camera(45,45,D,D,D,D,true),false);
+            SpatialScene.keys(angles,"sideHeadingDeg","sideElevationDeg","witnessHeadingDeg","witnessElevationDeg");
+            var side = Camera.calibrated(SpatialScene.number(angles,"sideHeadingDeg",-180,180),
+                    SpatialScene.number(angles,"sideElevationDeg",25,70));
+            var witness = Camera.calibrated(SpatialScene.number(angles,"witnessHeadingDeg",-180,180),
+                    SpatialScene.number(angles,"witnessElevationDeg",25,70));
+            if (side.separation(witness)<25)
+                throw new IllegalArgumentException("Fitting and held-out cameras must be at least 25° apart.");
+            return new Cameras(side,witness,true);
+        }
+    }
 
     record Angles(int yaw, int pitch, int roll) {
         double[] quaternion() {
@@ -75,10 +117,12 @@ final class ImageTiltRegistration {
         final double cell;
         final Prop prop;
         final List<Silhouette> overhead, guide;
+        final Camera camera;
         final HashMap<Angles,Candidate[]> samples=new HashMap<>();
 
-        Fit(int w, int h, double cell, Prop prop, List<Silhouette> overhead, List<Silhouette> guide) {
+        Fit(int w, int h, double cell, Prop prop, List<Silhouette> overhead, List<Silhouette> guide, Camera camera) {
             this.w=w; this.h=h; this.cell=cell; this.prop=prop; this.overhead=overhead; this.guide=guide;
+            this.camera=camera;
             n=overhead.size();
         }
 
@@ -89,7 +133,7 @@ final class ImageTiltRegistration {
         private Candidate[] measure(Angles angles) {
             var candidate=new Candidate[n*n];
             var origin=new Pose(0,0,0,angles);
-            var top=project(w,h,cell,prop.mesh(),origin,View.OVERHEAD);
+            var top=project(w,h,cell,prop.mesh(),origin,null);
             if (top==null) return candidate;
             var fitted=new Match[n];
             boolean any=false;
@@ -101,13 +145,13 @@ final class ImageTiltRegistration {
                 }
             }
             if (!any) return candidate;
-            var second=project(w,h,cell,prop.mesh(),origin,View.GUIDE);
+            var second=project(w,h,cell,prop.mesh(),origin,camera);
             if (second==null) return candidate;
             for (int i=0;i<n;i++) {
                 var first=fitted[i];
                 if (first==null) continue;
                 double x=first.dx()*cell, z=first.dy()*cell;
-                int dx=(int)Math.round(D*(x+z)/cell);
+                int dx=(int)Math.round(camera.horizontal(x,z)/cell);
                 for (int j=0;j<n;j++) {
                     var observation=guide.get(j);
                     int center=(int)Math.round((observation.minY+observation.maxY-second.minY-second.maxY)/2.0);
@@ -117,7 +161,7 @@ final class ImageTiltRegistration {
                         if (best==null || match.iou()>best.iou() ||
                                 match.iou()==best.iou() && match.centerErrorPx()<best.centerErrorPx()) best=match;
                     }
-                    double y=(D*(z-x)*FIT_AWAY-best.dy()*cell)/FIT_UP;
+                    double y=camera.height(x,z,best.dy()*cell);
                     if (best.iou()>=.55 && y>=0 && y<=15)
                         candidate[i*n+j]=new Candidate(new Pose(x,y,z,angles),first,best);
                 }
@@ -157,6 +201,12 @@ final class ImageTiltRegistration {
         }
 
         double gap(Candidate winner, int pair) {
+            if (!camera.legacy) {
+                // Local Y half-turn preserves many rectangular prisms. Check the exact alternate
+                // even when the coarse lattice falls between the two refined poses.
+                var angles = winner.pose.angles;
+                sample(new Angles(Math.floorMod(angles.yaw,360)-180,-angles.pitch,-angles.roll));
+            }
             double alternate=0;
             for (var choices:samples.values()) {
                 var other=choices[pair];
@@ -177,7 +227,8 @@ final class ImageTiltRegistration {
     }
 
     static Result locate(BufferedImage overhead, byte[] guideBytes, byte[] witnessBytes, double cell,
-                         List<Prop> props) throws Exception {
+                         List<Prop> props, JSONObject cameraAngles) throws Exception {
+        var cameras = Cameras.read(cameraAngles);
         int w=overhead.getWidth(), h=overhead.getHeight(), n=props.size();
         if (cell>.025) throw new IllegalArgumentException("Use at least 40 pixels per metre in the registered views.");
         var first=components(overhead,n,"Overhead");
@@ -186,7 +237,7 @@ final class ImageTiltRegistration {
         var fit=new Fit[n];
         var choices=new Candidate[n][];
         for (int i=0;i<n;i++) {
-            fit[i]=new Fit(w,h,cell,props.get(i),first,second);
+            fit[i]=new Fit(w,h,cell,props.get(i),first,second,cameras.side);
             choices[i]=fit[i].solve();
         }
         var assignment=new JointAssignment();
@@ -215,7 +266,7 @@ final class ImageTiltRegistration {
             throw new IllegalArgumentException("Choose a separate held-out camera image.");
         var scores=new Match[n][n];
         for (int i=0;i<n;i++) {
-            var expected=project(w,h,cell,props.get(i).mesh(),poses.get(i),View.WITNESS);
+            var expected=project(w,h,cell,props.get(i).mesh(),poses.get(i),cameras.witness);
             if (expected==null) throw new IllegalArgumentException("Keep each prop inside the held-out camera frame.");
             for (int j=0;j<n;j++) scores[i][j]=compare(expected,witness.get(j),w,h,0,0);
         }
@@ -234,7 +285,7 @@ final class ImageTiltRegistration {
             double[] best={match.iou()};
             for (int step:new int[]{8,4,2}) {
                 neighbors(head[0],step, angles->{
-                    var alternate=project(w,h,cell,target.mesh(),new Pose(fixed.x,fixed.y,fixed.z,angles),View.WITNESS);
+                    var alternate=project(w,h,cell,target.mesh(),new Pose(fixed.x,fixed.y,fixed.z,angles),cameras.witness);
                     if (alternate==null) return;
                     double score=compare(alternate,observed,w,h,0,0).iou();
                     if (score>best[0]) { best[0]=score; head[0]=angles; }
@@ -253,12 +304,12 @@ final class ImageTiltRegistration {
                     .put("witnessEstimatedAnglesDeg",head[0].values()).put("witnessCorrectionDeg",angularDifference)
                     .put("witnessCorrectionGain",gain));
         }
-        return new Result(poses,new JSONObject().put("policy",POLICY).put("guideSha256",MapDefinition.sha(guideBytes))
+        return new Result(poses,new JSONObject().put("policy",cameras.calibrated?CALIBRATED_POLICY:POLICY).put("guideSha256",MapDefinition.sha(guideBytes))
                 .put("witnessSha256",MapDefinition.sha(witnessBytes)).put("tiltLimitDeg",TILT_LIMIT)
                 .put("assignmentGap",Double.isFinite(assignment.runner)?assignment.score-assignment.runner:JSONObject.NULL)
                 .put("minimumPoseGap",MIN_POSE_GAP)
-                .put("guideHeadingDeg",-45).put("guideElevationDeg",60)
-                .put("witnessHeadingDeg",45).put("witnessElevationDeg",45)
+                .put("guideHeadingDeg",cameras.side.heading).put("guideElevationDeg",cameras.side.elevation)
+                .put("witnessHeadingDeg",cameras.witness.heading).put("witnessElevationDeg",cameras.witness.elevation)
                 .put("minimumWitnessIou",MIN_WITNESS_IOU).put("maximumWitnessCenterErrorPx",MAX_WITNESS_CENTER_PX)
                 .put("maximumWitnessCorrectionDeg",MAX_WITNESS_ANGLE).put("minimumWitnessRotationGain",MIN_WITNESS_ROTATION_GAIN)
                 .put("props",proof));
@@ -295,7 +346,7 @@ final class ImageTiltRegistration {
         };
     }
 
-    private static Silhouette project(int w, int h, double cell, SpatialVisualMesh mesh, Pose pose, View view) {
+    private static Silhouette project(int w, int h, double cell, SpatialVisualMesh mesh, Pose pose, Camera camera) {
         var r=rotation(pose.angles);
         var points=mesh.positions();
         double[][] projected=new double[mesh.vertexCount()][2];
@@ -303,8 +354,8 @@ final class ImageTiltRegistration {
             double x=pose.x+r[0][0]*points[3*i]+r[0][1]*points[3*i+1]+r[0][2]*points[3*i+2];
             double y=pose.y+r[1][0]*points[3*i]+r[1][1]*points[3*i+1]+r[1][2]*points[3*i+2];
             double z=pose.z+r[2][0]*points[3*i]+r[2][1]*points[3*i+1]+r[2][2]*points[3*i+2];
-            double u=switch(view) { case OVERHEAD->x; case GUIDE->D*(x+z); case WITNESS->D*(x-z); };
-            double v=switch(view) { case OVERHEAD->z; case GUIDE->D*(z-x)*FIT_AWAY-y*FIT_UP; case WITNESS->.5*(x+z)-D*y; };
+            double u=camera==null?x:camera.horizontal(x,z);
+            double v=camera==null?z:camera.vertical(x,y,z);
             projected[i][0]=w/2.0+u/cell;
             projected[i][1]=h/2.0+v/cell;
         }

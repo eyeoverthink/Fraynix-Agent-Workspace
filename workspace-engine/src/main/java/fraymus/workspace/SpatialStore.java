@@ -929,14 +929,14 @@ public final class SpatialStore implements AutoCloseable {
     }
 
     synchronized JSONObject createImageAssembly(JSONObject input) throws Exception {
-        SpatialScene.keys(input,"layoutPng","guidePng","witnessPng","title","widthM","props","recoverYaw");
+        SpatialScene.keys(input,"layoutPng","guidePng","witnessPng","title","widthM","props","recoverYaw","cameraAngles");
         available();
         var png = SpriteWorkshop.decode(input.getString("layoutPng"),ImageSceneAssembly.PNG_LIMIT);
         byte[] witness = input.has("witnessPng")
                 ? SpriteWorkshop.decode(input.getString("witnessPng"),ImageSceneAssembly.PNG_LIMIT) : null;
         byte[] guide = input.has("guidePng")
                 ? SpriteWorkshop.decode(input.getString("guidePng"),ImageSceneAssembly.PNG_LIMIT) : null;
-        var plan = ImageSceneAssembly.plan(new JSONObject(input,"title","widthM","props","recoverYaw"),png,guide,witness,this::readAssemblySource);
+        var plan = ImageSceneAssembly.plan(new JSONObject(input,"title","widthM","props","recoverYaw","cameraAngles"),png,guide,witness,this::readAssemblySource);
         String id = plan.id();
         if (scenes.containsKey(id)) return read(id);
         if (scenes.size()>=32) throw new IllegalStateException("Spatial import history limit reached (32)");

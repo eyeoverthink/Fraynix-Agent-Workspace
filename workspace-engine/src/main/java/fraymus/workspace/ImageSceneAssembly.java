@@ -46,7 +46,9 @@ final class ImageSceneAssembly {
     private record Asset(JSONObject slot, JSONObject original, JSONObject proof, JSONObject body, String mesh, double[] size) {}
 
     static Plan plan(JSONObject input, byte[] png, byte[] guide, byte[] witness, Function<String,JSONObject> source) throws Exception {
-        SpatialScene.keys(input,"title","widthM","props","recoverYaw");
+        SpatialScene.keys(input,"title","widthM","props","recoverYaw","cameraAngles");
+        if (input.has("cameraAngles") && guide==null)
+            throw new IllegalArgumentException("Custom camera angles require full-pose recovery.");
         boolean recoverYaw = input.has("recoverYaw");
         if (recoverYaw && (!Boolean.TRUE.equals(input.get("recoverYaw")) || witness==null || guide!=null))
             throw new IllegalArgumentException("Rotation recovery requires two registered views.");
@@ -89,7 +91,7 @@ final class ImageSceneAssembly {
                 registration = ImageSceneRegistration.locate(image,witness,cell,props,recoverYaw);
                 centers = registration.centersPx();
             } else {
-                tilt = ImageTiltRegistration.locate(image,guide,witness,cell,props);
+                tilt = ImageTiltRegistration.locate(image,guide,witness,cell,props,input.has("cameraAngles")?input.getJSONObject("cameraAngles"):null);
                 centers = tilt.poses().stream().map(pose->new double[]{cols/2.0+pose.x()/cell,rows/2.0+pose.z()/cell}).toList();
             }
         }
