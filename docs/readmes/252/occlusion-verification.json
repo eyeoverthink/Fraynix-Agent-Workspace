@@ -1,0 +1,362 @@
+{
+  "platform": "win32",
+  "layoutSha256": "299838707c24b790df688b5086a667b582c49da7ca176c9d6a0f57b5032ecebf",
+  "sceneSha256": "a44111e00c5a2ddd641704e777b0aa83976746d83e3487cce25941ec32f040bb",
+  "glbSha256": "386d2ab76015fca1b279e159c627b826e6a2cc8cde176d9efd9e28e2fffcc9db",
+  "validation": {
+    "witnessElevationDeg": 38,
+    "minimumWitnessIou": 0.83,
+    "tiltLimitDeg": 30,
+    "minimumWitnessRotationGain": 0.022,
+    "witnessHeadingDeg": 75,
+    "additionalSha256": "dab8be613899798c09a4b14f44cbe059803b16d6ccc654088041439309089d96",
+    "minimumPoseGap": 0.022,
+    "props": [
+      {
+        "sourceId": "image-prop-1",
+        "poseGap": 0.15855340358661785,
+        "positionM": [
+          0.31333333333333335,
+          0.4398028177279608,
+          -0.4066666666666667
+        ],
+        "witnessCenterErrorPx": 0.5395650762534657,
+        "witnessEstimatedAnglesDeg": [
+          68,
+          16,
+          -22
+        ],
+        "additionalIou": 0.9758275261324042,
+        "anglesDeg": [
+          66,
+          14,
+          -22
+        ],
+        "witnessIou": 0.9663723464211911,
+        "label": "Offset step",
+        "overheadIou": 0.9716256157635468,
+        "witnessCorrectionDeg": 2.82835532190338,
+        "witnessCorrectionGain": 0.011409615544540452
+      },
+      {
+        "sourceId": "image-prop-2",
+        "poseGap": 0.07083110470534693,
+        "positionM": [
+          0.8733333333333334,
+          0.41126745500140377,
+          0.66
+        ],
+        "witnessCenterErrorPx": 0.17171257597240352,
+        "witnessEstimatedAnglesDeg": [
+          120,
+          -8,
+          15
+        ],
+        "additionalIou": 0.9291277258566978,
+        "anglesDeg": [
+          118,
+          -14,
+          15
+        ],
+        "witnessIou": 0.9452352231604343,
+        "label": "Fork bracket",
+        "overheadIou": 0.9569677257943457,
+        "witnessCorrectionDeg": 6.324266269575644,
+        "witnessCorrectionGain": 0.03204848877770006
+      },
+      {
+        "sourceId": "image-prop-3",
+        "poseGap": 0.35549395321031985,
+        "positionM": [
+          -0.4866666666666667,
+          1.0810196005947565,
+          0.6133333333333334
+        ],
+        "witnessCenterErrorPx": 0.37209551246560396,
+        "witnessEstimatedAnglesDeg": [
+          -30,
+          -13,
+          18
+        ],
+        "additionalIou": 0.9677244372118253,
+        "anglesDeg": [
+          -32,
+          -13,
+          20
+        ],
+        "witnessIou": 0.9597417394606912,
+        "label": "Elbow bracket",
+        "overheadIou": 0.9679974651457541,
+        "witnessCorrectionDeg": 2.489981114948939,
+        "witnessCorrectionGain": 0.0004251801144226075
+      }
+    ],
+    "witnessSha256": "abd8ad24374b47240117c46b562dabd8430fc25802d6308144eb7d05c1cfb339",
+    "assignmentGap": 0.6038403629168245,
+    "guideHeadingDeg": -45,
+    "maximumWitnessCorrectionDeg": 8,
+    "additionalElevationDeg": 55,
+    "guideSha256": "981e56b92dc7b55fcd4ff37c0e391208d4446187cdaae66880c76f3eaeb753fc",
+    "occludedSide": {
+      "minimumOverlapFraction": 0.03,
+      "minimumExclusiveSupport": 0.85,
+      "compositeIou": 0.959917445144471,
+      "minimumCompositeIou": 0.9,
+      "minimumExclusiveFraction": 0.35,
+      "overlapPixels": 1500,
+      "props": [
+        {
+          "sourceId": "image-prop-1",
+          "exclusiveSupport": 0.9923591212989494,
+          "label": "Offset step",
+          "exclusiveFraction": 0.5826377295492488
+        },
+        {
+          "sourceId": "image-prop-2",
+          "exclusiveSupport": 0.9836859546265613,
+          "label": "Fork bracket",
+          "exclusiveFraction": 1
+        },
+        {
+          "sourceId": "image-prop-3",
+          "exclusiveSupport": 0.9957325746799431,
+          "label": "Elbow bracket",
+          "exclusiveFraction": 0.48382656572608396
+        }
+      ]
+    },
+    "guideElevationDeg": 30,
+    "additionalHeadingDeg": 4,
+    "policy": "registered-silhouettes-tilt-v5",
+    "maximumWitnessCenterErrorPx": 2.5
+  },
+  "measured": [
+    {
+      "label": "Offset step",
+      "positionErrorM": 0.003231748242494128,
+      "angleErrorDeg": 1.5808770805730474,
+      "reference": {
+        "model": "step",
+        "positionM": [
+          0.313,
+          0.443,
+          -0.407
+        ],
+        "anglesDeg": [
+          67,
+          15,
+          -21
+        ],
+        "quaternion": [
+          0.007299236953258514,
+          0.5578873157501221,
+          -0.22149944305419922,
+          0.7997791171073914
+        ]
+      }
+    },
+    {
+      "label": "Fork bracket",
+      "positionErrorM": 0.003481480522801044,
+      "angleErrorDeg": 5.098952455154511,
+      "reference": {
+        "model": "fork",
+        "positionM": [
+          0.874,
+          0.408,
+          0.659
+        ],
+        "anglesDeg": [
+          119,
+          -9,
+          15
+        ],
+        "quaternion": [
+          0.07263810932636261,
+          0.8568220734596252,
+          0.13306714594364166,
+          0.49282121658325195
+        ]
+      }
+    },
+    {
+      "label": "Elbow bracket",
+      "positionErrorM": 0.0004718118327649903,
+      "angleErrorDeg": 1.2450188650134264,
+      "reference": {
+        "model": "elbow",
+        "positionM": [
+          -0.487,
+          1.081,
+          0.613
+        ],
+        "anglesDeg": [
+          -31,
+          -13,
+          19
+        ],
+        "quaternion": [
+          -0.15141350030899048,
+          -0.2438746988773346,
+          0.1281851977109909,
+          0.9492985010147095
+        ]
+      }
+    }
+  ],
+  "truth": {
+    "blenderVersion": "4.5.17 LTS",
+    "widthM": 4,
+    "imagePixels": [
+      600,
+      450
+    ],
+    "cameraAngles": {
+      "sideHeadingDeg": -45,
+      "sideElevationDeg": 30,
+      "witnessHeadingDeg": 75,
+      "witnessElevationDeg": 38
+    },
+    "additionalCamera": {
+      "headingDeg": 4,
+      "elevationDeg": 55
+    },
+    "samples": [
+      {
+        "model": "elbow",
+        "positionM": [
+          -0.487,
+          1.081,
+          0.613
+        ],
+        "anglesDeg": [
+          -31,
+          -13,
+          19
+        ],
+        "quaternion": [
+          -0.15141350030899048,
+          -0.2438746988773346,
+          0.1281851977109909,
+          0.9492985010147095
+        ]
+      },
+      {
+        "model": "step",
+        "positionM": [
+          0.313,
+          0.443,
+          -0.407
+        ],
+        "anglesDeg": [
+          67,
+          15,
+          -21
+        ],
+        "quaternion": [
+          0.007299236953258514,
+          0.5578873157501221,
+          -0.22149944305419922,
+          0.7997791171073914
+        ]
+      },
+      {
+        "model": "fork",
+        "positionM": [
+          0.874,
+          0.408,
+          0.659
+        ],
+        "anglesDeg": [
+          119,
+          -9,
+          15
+        ],
+        "quaternion": [
+          0.07263810932636261,
+          0.8568220734596252,
+          0.13306714594364166,
+          0.49282121658325195
+        ]
+      }
+    ],
+    "visibility": {
+      "frontProp": "elbow",
+      "partiallyOccludedProp": "step",
+      "overlapPixels": 1569,
+      "rearHiddenFraction": 0.42234185733512786,
+      "isolatedSilhouettePixels": [
+        3022,
+        3715,
+        3952
+      ]
+    },
+    "heldOutTranslationControlM": 0.14
+  },
+  "refusals": {
+    "withoutExtra": "Fitting side needs one separated silhouette per selected prop.",
+    "incompletePair": "Occluded recovery needs four registered images and all three side camera angles.",
+    "missingRear": "Occluded side view refused the combined silhouettes (75.3% overlap, need 90%).",
+    "wrongHeldOut": "Held-out view refused Offset step's fixed pose (62.0% overlap, 13.08 px center error).",
+    "reusedHeldOut": "Choose a separate held-out camera image."
+  },
+  "physics": [
+    {
+      "sourceId": "image-prop-1",
+      "initialRotationErrorMilliDeg": 0,
+      "contactTick": 65,
+      "centerMm": [
+        288,
+        150,
+        -410
+      ],
+      "ticks": 480,
+      "initialCenterM": [
+        0.31333333333333335,
+        0.4398028177279608,
+        -0.4066666666666667
+      ],
+      "speedMmps": 0,
+      "rotationErrorMilliDeg": 26163
+    },
+    {
+      "sourceId": "image-prop-2",
+      "initialRotationErrorMilliDeg": 0,
+      "contactTick": 63,
+      "centerMm": [
+        878,
+        100,
+        661
+      ],
+      "ticks": 480,
+      "initialCenterM": [
+        0.8733333333333334,
+        0.41126745500140377,
+        0.66
+      ],
+      "speedMmps": 0,
+      "rotationErrorMilliDeg": 20528
+    },
+    {
+      "sourceId": "image-prop-3",
+      "initialRotationErrorMilliDeg": 0,
+      "contactTick": 107,
+      "centerMm": [
+        -469,
+        100,
+        593
+      ],
+      "ticks": 480,
+      "initialCenterM": [
+        -0.4866666666666667,
+        1.0810196005947565,
+        0.6133333333333334
+      ],
+      "speedMmps": 0,
+      "rotationErrorMilliDeg": 23713
+    }
+  ],
+  "exactReplayAfterRestart": true,
+  "refusedChangedSideExtraAndHeldOut": true,
+  "maxVertexDeltaM": 1.196959198423997e-16
+}

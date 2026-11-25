@@ -1,0 +1,89 @@
+{
+  "blenderVersion": "4.5.17 LTS",
+  "widthM": 4,
+  "imagePixels": [
+    600,
+    450
+  ],
+  "cameraAngles": {
+    "sideHeadingDeg": -45,
+    "sideElevationDeg": 30,
+    "witnessHeadingDeg": 75,
+    "witnessElevationDeg": 38
+  },
+  "additionalCamera": {
+    "headingDeg": 4,
+    "elevationDeg": 55
+  },
+  "samples": [
+    {
+      "model": "elbow",
+      "positionM": [
+        -0.487,
+        1.081,
+        0.613
+      ],
+      "anglesDeg": [
+        -31,
+        -13,
+        19
+      ],
+      "quaternion": [
+        -0.15141350030899048,
+        -0.2438746988773346,
+        0.1281851977109909,
+        0.9492985010147095
+      ]
+    },
+    {
+      "model": "step",
+      "positionM": [
+        0.313,
+        0.443,
+        -0.407
+      ],
+      "anglesDeg": [
+        67,
+        15,
+        -21
+      ],
+      "quaternion": [
+        0.007299236953258514,
+        0.5578873157501221,
+        -0.22149944305419922,
+        0.7997791171073914
+      ]
+    },
+    {
+      "model": "fork",
+      "positionM": [
+        0.874,
+        0.408,
+        0.659
+      ],
+      "anglesDeg": [
+        119,
+        -9,
+        15
+      ],
+      "quaternion": [
+        0.07263810932636261,
+        0.8568220734596252,
+        0.13306714594364166,
+        0.49282121658325195
+      ]
+    }
+  ],
+  "visibility": {
+    "frontProp": "elbow",
+    "partiallyOccludedProp": "step",
+    "overlapPixels": 1569,
+    "rearHiddenFraction": 0.42234185733512786,
+    "isolatedSilhouettePixels": [
+      3022,
+      3715,
+      3952
+    ]
+  },
+  "heldOutTranslationControlM": 0.14
+}

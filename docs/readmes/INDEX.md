@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 252 — Recover partly occluded props with an extra view](../../README-252.md) · [Walkthrough](252/index.html)
+
 [Edition 251 — Verify three prop poses with custom camera angles](../../README-251.md) · [Walkthrough](251/index.html)
 
 [Edition 250 — Recover full prop poses from unmarked images](../../README-250.md) · [Walkthrough](250/index.html)

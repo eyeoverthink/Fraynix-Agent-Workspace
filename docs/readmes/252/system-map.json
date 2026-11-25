@@ -1,0 +1,114 @@
+{
+  "summary": "Resolve three known props using an extra fitting image. Check the occluded side and verify the poses independently.",
+  "modules": [
+    {
+      "title": "Extra view, occluded composite and independent pose checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ImageTiltRegistration.java",
+      "note": "docs/obsidian/260-partial-occlusion-recovery.md"
+    },
+    {
+      "title": "Foreground and projection routines",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneRegistration.java",
+      "note": "docs/obsidian/260-partial-occlusion-recovery.md"
+    },
+    {
+      "title": "Recovered scene and native contacts",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java",
+      "note": "docs/obsidian/260-partial-occlusion-recovery.md"
+    },
+    {
+      "title": "Four source files and restart replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/260-partial-occlusion-recovery.md"
+    },
+    {
+      "title": "Bounded four-image request",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+      "note": "docs/obsidian/260-partial-occlusion-recovery.md"
+    },
+    {
+      "title": "Overlapping props controls in Spatial",
+      "source": "workspace-desktop/renderer/image-assembly.js",
+      "note": "docs/obsidian/260-partial-occlusion-recovery.md"
+    },
+    {
+      "title": "Four-view desktop and restart test",
+      "source": "workspace-desktop/test/image-occlusion-integration.cjs",
+      "note": "docs/obsidian/260-partial-occlusion-recovery.md"
+    },
+    {
+      "title": "Blender poses and visible silhouette reference",
+      "source": "workspace-desktop/test/image-occlusion-fixtures.py",
+      "note": "docs/obsidian/260-partial-occlusion-recovery.md"
+    },
+    {
+      "title": "Independent Blender export verification",
+      "source": "workspace-desktop/test/image-assembly-blender.py",
+      "note": "docs/obsidian/260-partial-occlusion-recovery.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Three editable meshes and colliders recovered from the registered views",
+      "path": "docs/readmes/252/recovered-three-props.png"
+    },
+    {
+      "title": "The independent angle refuses a displaced prop after the occluded side checks",
+      "path": "docs/readmes/252/wrong-held-out-refused.png"
+    },
+    {
+      "title": "All camera values and the three floor contacts rechecked after restart",
+      "path": "docs/readmes/252/occluded-side-after-restart.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Overhead",
+      "path": "docs/readmes/252/overhead.png"
+    },
+    {
+      "title": "Occluded side",
+      "path": "docs/readmes/252/occluded-side.png"
+    },
+    {
+      "title": "Extra fitting angle",
+      "path": "docs/readmes/252/extra-fitting.png"
+    },
+    {
+      "title": "Held-out angle",
+      "path": "docs/readmes/252/held-out.png"
+    },
+    {
+      "title": "Missing rear prop control",
+      "path": "docs/readmes/252/missing-rear.png"
+    },
+    {
+      "title": "Displaced held-out control",
+      "path": "docs/readmes/252/wrong-held-out.png"
+    },
+    {
+      "title": "Measured evidence",
+      "path": "docs/readmes/252/occlusion-verification.json"
+    },
+    {
+      "title": "Blender readback",
+      "path": "docs/readmes/252/blender-readback.json"
+    },
+    {
+      "title": "GLB",
+      "path": "docs/readmes/252/image-workshop.glb"
+    },
+    {
+      "title": "Scene JSON",
+      "path": "docs/readmes/252/image-workshop.json"
+    },
+    {
+      "title": "File tree",
+      "path": "docs/readmes/252/FILE_TREE.md"
+    },
+    {
+      "title": "Reproduction",
+      "path": "docs/publication252/plan.md"
+    }
+  ]
+}

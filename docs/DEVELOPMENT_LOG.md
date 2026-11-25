@@ -1,3 +1,7 @@
+## Edition 252 — Recover partly occluded props with an extra view
+
+2026-11-25. Spatial uses a clear extra side view plus overhead to fit full poses. It checks the frozen poses against the partly occluded side composite and a separate held-out angle. Blender measured 42.2% occlusion of the rear step. The recovered side mask matched 96.0% and the largest errors across three props were 3.5 mm and 5.10°. The desktop restored camera settings, checked all four image bindings and reproduced native contacts and exact GLB after restart. The edition 251 fixture still produces its published scene and GLB. See README-252.md and docs/publication252/plan.md.
+
 ## Edition 251 — Verify three prop poses with custom camera angles
 
 2026-11-25. The optional full-pose camera controls bind four calibrated angles to the source images and replay. The fresh three-prop Blender study measured up to 5.3 mm position error and 3.37° full-rotation error. Merged silhouettes, a symmetric orientation, insufficient camera separation and an incorrect held-out view were refused. Native checks and exact GLB export reproduced after restart. Independent Blender readback passed. The edition 250 preset still generates its published JSON and GLB. See README-251.md and docs/publication251/plan.md.
