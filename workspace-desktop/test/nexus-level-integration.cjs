@@ -24,6 +24,7 @@ async function main() {
         ({app,page}=await launch(projectPath,args));
         await page.waitForFunction(()=>document.querySelector('#engine-state')?.textContent.includes('0 local models'));
         await page.locator('#media-tab').click();
+        await page.waitForFunction(()=>!document.querySelector('#tile-import-level')?.disabled);
     }
     const call=(route,body={})=>app.evaluate((_,r)=>global.workspaceTest.api('/api/media-tiles/'+r.route,r.body),{route,body});
     const status=text=>page.waitForFunction(text=>document.querySelector('#tile-status')?.textContent.includes(text),text);

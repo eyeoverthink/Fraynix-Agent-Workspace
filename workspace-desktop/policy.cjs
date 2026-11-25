@@ -3,6 +3,10 @@ const { randomUUID } = require('node:crypto');
 const catalog = [
  ['experiment.rehearse','Rebuild a verified initial-at-rest experiment, change one friction or dynamic mass, compare bounded alternatives and verify a separate persistent world. Review pauses before action.','{episodeId?,sourceId,property,value,review?}'],
  ['construction.start','Assemble declared bridge stock with checked routes, optional direct-first comparison and independent load experiments. Optional dynamic payload tests drop actual bodies at declared positions and retain unstable cases. Measured load design optionally sweeps off-centre forces and widens supports only after actual failure. Native motion, released support and report verification precede world commit; overload failures are retained, not structural-strength certification.','{centerX?,centerZ?,forceLimitN?,torqueLimitNm?,saveSkillName?,design053?,directFirst055?,loadTests055?,payloadTests057?,payloadDesign058?,asymmetricSupports059?,independentSupports060?,allowPayloadRedesign058?,loadDesign056?,requiredLoadN?,allowRedesign056?,reviewCounterfactual045?}'],
+ ['tile.level','Inspect the selected saved tile level, layer depths, score rules, source image IDs and object geometry.','{start?,limit?}'],
+ ['tile.ticks','Read exact 120 Hz Tile Workshop rows and score events from a live or saved playtest.','{runId?,start?,limit?}'],
+ ['tile.image','Save the exact PNG of a replayed tile tick or a verified level asset.','{runId?,tick?,assetId?}'],
+ ['tile.pixels','Read exact RGBA values from a bounded rectangle in a tile tick or verified level asset.','{runId?,tick?,assetId?,x,y,width?,height?}'],
  ['screen.read','Read dated app-surface screenshots, local visual estimates, original hashes and retained routine matches. No supplied facts or capture of other desktop apps.','{}'],
  ['screen.report','Open and verify the actual saved visual witness report for a recorded Java task. Pixel differences and captions are not task success.','{}'],
  ['agent.read','Read actual continuing Java identity, independent clocks, shared sensory state, retained experience and integrity audit. No supplied facts or action authority.','{}'],
@@ -136,7 +140,14 @@ const spatialOptions={displacementM:{type:'array',items:{type:'number',minimum:-
 const perceptionOptions={mode:{type:'string',enum:['vision','appearance','dom']},targetLabel:text,visionModel:text,lessonName:text,seconds:{type:'number',minimum:2,maximum:30},saveSkillName:text};
 const mapConstraints=object({connected:{type:'boolean'},minFloorFraction:{type:'number',minimum:.05,maximum:.95},maxFloorFraction:{type:'number',minimum:.05,maximum:.95},minRouteSteps:{type:'integer',minimum:0,maximum:128},maxRouteSteps:{type:'integer',minimum:0,maximum:128}},[]);
 const mapOptions={materials:{type:'array',minItems:1,maxItems:8,items:object({tile:{type:'integer',minimum:0,maximum:7},name:{type:'string',minLength:1,maxLength:60},friction:{type:'number',minimum:.05,maximum:1.2},restitution:{type:'number',minimum:0,maximum:.95},dragNsPerM:{type:'number',minimum:0,maximum:8}},['tile','name','friction'])},constraints:mapConstraints,seed:{type:'integer',minimum:0,maximum:1e9},width:{type:'integer',minimum:8,maximum:24},height:{type:'integer',minimum:8,maximum:24},cellSizeM:{type:'number',minimum:.6,maximum:1.2},friction:{type:'number',minimum:.05,maximum:1.2},disturbanceNs:{type:'number',minimum:-.5,maximum:.5},saveSkillName:text,pins:{type:'array',maxItems:64,items:object({x:{type:'integer',minimum:0,maximum:23},y:{type:'integer',minimum:0,maximum:23},tile:{type:'integer',minimum:0,maximum:7}},['x','y','tile'])}};
+const range=(minimum,maximum)=>({type:'integer',minimum,maximum});
+const hash={type:'string',pattern:'^[a-f0-9]{64}$'};
+const tileRaster={runId:hash,tick:range(0,7200),assetId:hash};
 const argumentSchemas={
+ 'tile.level':object({start:range(0,390),limit:range(1,24)},[]),
+ 'tile.ticks':object({runId:hash,start:range(0,7200),limit:range(1,60)},[]),
+ 'tile.image':object(tileRaster,[]),
+ 'tile.pixels':object({...tileRaster,x:range(0,1023),y:range(0,1023),width:range(1,16),height:range(1,16)},['x','y']),
  'experiment.rehearse':object({episodeId:{type:'string',format:'uuid'},sourceId:{type:'string',pattern:'^[A-Za-z0-9_.-]{1,80}$'},property:{type:'string',enum:['friction','massKg']},value:{type:'number',minimum:0,maximum:20},review:{type:'boolean'}},['sourceId','property','value']),
  'screen.read':empty,'screen.report':empty,
  'agent.read':empty,'agent.report':empty,

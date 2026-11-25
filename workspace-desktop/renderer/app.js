@@ -96,6 +96,12 @@ const dataPanel=new DataPanel({call:(command,args)=>request('data',{command,args
 const goalsPanel=new GoalsPanel({getMapSources:()=>mapPanel.sources,onCompileMap:(id,layers)=>mapPanel.compile(id,layers),getCreationSources:()=>creationPanel.sources(),getDatasets:()=>state?.datasets||[],call:(command,args)=>request('javaGoal',{command,args}),notice,requireSaved,openReport:async id=>{requireSaved();setCanvasMode('preview');await request('tool',{tool:'canvas.open',args:{id}});}});
 const mediaWorkshop=new MediaWorkshop(request);
 const tileEditor=new TileEditor(request);
+window.tileEvidence=Object.freeze({
+  levelId:()=>tileEditor.levelId||'',
+  live:options=>tileEditor.liveEvidence(options),
+  render:options=>tileEditor.renderEvidence(options),
+  settle:()=>tileEditor.pendingRun
+});
 let mediaMode='tiles';
 function showMedia(mode) { mediaMode=mode; setCanvasMode('media'); }
 const timelineEditor=new TimelinePanel(request,()=>showMedia('tiles'));
@@ -279,6 +285,39 @@ async function routeColliderChat(goal, model) {
   $('run-state').textContent = 'Ready when you are';
  }
 }
+async function answerTileQuestion(goal) {
+ const names=/\b(tile (workshop|level|editor)|nexus|playtest)\b/i;
+ if (!names.test(goal)||!/^(show|read|inspect|report|export|what|which|how)\b/i.test(goal)
+     ||!/\b(ticks?|pixels?|image|score|layers?|objects?|playtest)\b/i.test(goal)) return false;
+ const tick=/\btick\s+(\d+)/i.exec(goal);
+ const pixel=/\bpixels?\s+(?:at\s*)?\(?\s*(\d+)\s*,\s*(\d+)/i.exec(goal);
+ const invoke=(tool,args)=>request('tile-evidence',{tool,args});
+ try {
+   if (/\bpixels?\b/i.test(goal)) {
+     if (!tick||!pixel) {message('Give me a tick and pixel coordinates, for example: Show Nexus pixel (154, 275) at tick 0.');return true;}
+     const result=await invoke('tile.pixels',{tick:Number(tick[1]),x:Number(pixel[1]),y:Number(pixel[2])});
+     message('Tile playtest tick '+result.tick+' · pixel ('+result.x+', '+result.y+') · RGBA '+result.rgba.join(', ')+'.');
+   } else if (/\bimage\b/i.test(goal)) {
+     if (!tick) {message('Which tick should I render from the tile playtest?');return true;}
+     const result=await invoke('tile.image',{tick:Number(tick[1])});
+     message('Saved the '+result.width+' × '+result.height+' PNG for tick '+result.tick+' at '+result.file.path);
+   } else if (/\b(layers?|objects?)\b/i.test(goal)) {
+     const result=await invoke('tile.level',{limit:1});
+     const layers=result.settings.planes||[];
+     message(result.settings.title+' has '+result.total+' objects. '+(layers.length?layers.map(layer=>
+       layer.name+' at Z '+layer.z+(layer.visible?'':' (hidden)')).join(' · '):'It uses the automatic layers.'));
+   } else {
+     const result=await invoke('tile.ticks',{start:tick?Number(tick[1]):0,limit:1});
+     if (tick) {
+       const row=result.rows[0];
+       if (!row) message('There is no tick '+tick[1]+' in this playtest.');
+       else message('Tick '+row[0]+' · position ('+row[1].toFixed(2)+', '+row[2].toFixed(2)+') px · score '+row[15]+
+         '. '+(row[17].map(event=>event[0]+(event[1]?' '+event[1]:'')).join(' · ')||'No events at this tick.'));
+     } else message('The tile playtest is at tick '+result.lastTick+' at '+result.hz+' Hz, with a score of '+result.score+'.');
+   }
+ } catch (error) {message('I could not read the tile evidence. '+error.message.replace(/^Error invoking remote method '[^']+': (?:Error: )?/,''));}
+ return true;
+}
 $('run').onclick=()=>safe(async()=>{
  await colliderRecovery;
  if(routingCollider)return;
@@ -286,6 +325,7 @@ $('run').onclick=()=>safe(async()=>{
  const goal=$('goal').value.trim();
  if(!goal)return;
  message(goal,'user');
+ if(await answerTileQuestion(goal))return;
  if (isMotionMediaRequest(goal)) {
   showMedia('motion');
   await motionMedia.pending;

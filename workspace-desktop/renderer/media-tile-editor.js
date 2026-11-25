@@ -1,6 +1,7 @@
 
 import {readBase64} from './media-workshop.js';
-import {drawTileLevel, mountTileGame, tileImages, tileWorld} from './media-tile-play.js';
+import {drawTileLevel, mountTileGame, renderTileEvidence, tileDrawingOrder, tileImages, tileWorld} from './media-tile-play.js';
+import {TileLayerPanel} from './tile-layer-panel.js';
 
 const {width, height, floor, tile} = tileWorld;
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
@@ -47,6 +48,7 @@ export class TileEditor {
                 <button id="tile-play">Play level</button>
                 <button id="tile-html">Export offline HTML</button>
                 <button id="tile-json">Export editable JSON</button>
+                <button id="tile-export-run" disabled>Export playtest JSON</button>
             </div>
             <div class="tile-bar">
                 <div id="tile-modes" class="tile-bar" role="group" aria-label="Canvas tools">
@@ -70,6 +72,7 @@ export class TileEditor {
                     <label>Goal Y<input type="number" min="0" max="288" step="1" data-stage="goal.y"></label>
                 </div>
             </details>
+            <p id="tile-run-summary" role="status"></p>
             <p id="tile-status" role="status">Import a sprite to begin. Place at least one pickup before saving.</p>
             <canvas id="tile-canvas" width="720" height="336" tabindex="-1" aria-label="Tile level stage" aria-describedby="tile-progress"></canvas>
             <div class="tile-bar">
@@ -83,7 +86,8 @@ export class TileEditor {
                     <label>Y <input data-position="y" type="number" min="0" step="1"></label>
                     <label>Size <input data-position="size" type="number" min="16" max="192" step="1"></label>
                     <label id="tile-solid-label"><input id="tile-solid" type="checkbox"> Solid collider</label>
-                    <button id="tile-delete">Delete item</button>
+                    <label id="tile-points-label">Points<input id="tile-points" type="number" min="0" max="10000" step="1"></label>
+                    <button id="tile-delete">Delete selected</button>
                 </div>
                 <div id="tile-collider" class="tile-bar">
                     <label>Offset X <input data-collider="x" type="number" min="0" step="1"></label>
@@ -96,6 +100,20 @@ export class TileEditor {
         this.canvas = this.find('#tile-canvas');
         this.title = this.find('#tile-title');
         this.saved = this.find('#tile-saved');
+        this.layerTools = new TileLayerPanel(this);
+        this.find('#tile-stage').before(this.layerTools.root);
+        this.find('#tile-points').onchange = event => {
+            const input = event.target;
+            if (!input.reportValidity()) return;
+            const item = this.selection();
+            if (input.value === '') delete item.points;
+            else item.points = input.valueAsNumber;
+            this.changed();
+        };
+        this.find('#tile-export-run').onclick = () => this.run(async () => {
+            const receipt=await this.call('export-run',{runId:this.lastRun.id});
+            this.tell('Saved '+receipt.path);
+        });
 
         this.find('#tile-new').onclick = () => {
             if (this.canReplace()) {
@@ -158,7 +176,8 @@ export class TileEditor {
         for (const button of this.root.querySelectorAll('[data-mode]'))
             button.onclick = () => this.setMode(button.dataset.mode);
         this.find('#tile-delete').onclick = () => {
-            this.layout.objects = this.layout.objects.filter(item => item.id !== this.selected);
+            this.layout.objects = this.layout.objects.filter(item => !this.layerTools.selected.has(item.id));
+            this.layerTools.selected.clear();
             this.selected = null;
             this.changed();
         };
@@ -237,6 +256,11 @@ export class TileEditor {
             this.run(async () => {
                 await this.loadLibrary();
                 await this.loadLevels();
+                try {
+                    this.showRun(await this.call('read-run',{limit:1}));
+                } catch (error) {
+                    this.find('#tile-run-summary').textContent='Could not reopen the playtest. '+error.message;
+                }
                 const level = await this.call('open');
                 if (level.id) {
                     this.setLevel(level);
@@ -312,6 +336,7 @@ export class TileEditor {
         this.levelId = level.id;
         this.layout = level.layout;
         this.title.value = this.layout.title;
+        this.layerTools.selected.clear();
         this.selected = selected;
         this.dirty = false;
         for (const sprite of Object.values(level.sprites || {})) {
@@ -351,6 +376,7 @@ export class TileEditor {
         const item = this.item('sprite', layer, x, y, size);
         if (!this.canPlace(item)) return;
         this.layout.objects.push(item);
+        this.layerTools.selected.clear();
         this.selected = item.id;
         this.setMode('select');
         this.changed();
@@ -387,12 +413,12 @@ export class TileEditor {
             this.stroke(this.gesture.cell);
             return;
         }
-        const order = {backdrop:0, terrain:1, pickup:2, foreground:3};
-        const item = [...this.layout.objects].reverse().sort((a,b) => order[b.layer] - order[a.layer])
-            .find(item => point.x >= item.x && point.x < item.x + item.size
-                && point.y >= item.y && point.y < item.y + item.size);
-        this.selected = item?.id;
-        if (item?.kind === 'sprite') this.gesture = {pointer:event.pointerId, item,
+        const found = tileDrawingOrder(this.layout).reverse().find(({item,opacity}) =>
+            opacity>0 && this.layerTools.contains(item) && point.x >= item.x && point.x < item.x+item.size
+            && point.y >= item.y && point.y < item.y+item.size);
+        const item=found?.item;
+        this.layerTools.select(item?.id,event.shiftKey);
+        if (item?.kind === 'sprite' && !event.shiftKey) this.gesture = {pointer:event.pointerId, item,
             x:point.x-item.x, y:point.y-item.y};
         this.refresh();
         this.draw();
@@ -515,6 +541,8 @@ export class TileEditor {
                 field.value = stage[part][axis];
             }
         }
+        this.layerTools.refresh(busy);
+        this.find('#tile-export-run').disabled = busy || !this.lastRun?.id;
         this.refreshInspector(busy);
     }
 
@@ -525,6 +553,9 @@ export class TileEditor {
         inspector.disabled = busy;
         if (!item) return;
         this.find('#tile-selected').textContent = (this.sprites[item.assetId]?.label || 'Sprite') + ' · ' + (item.effect || item.layer);
+        this.find('#tile-points-label').hidden = item.layer !== 'pickup';
+        this.find('#tile-points').value = item.points ?? '';
+        this.find('#tile-points').placeholder = String(this.layout.scoring?.pickup ?? 100);
         this.find('#tile-solid-label').hidden = item.layer !== 'terrain';
         this.find('#tile-solid').checked = Boolean(item.collider);
         this.find('#tile-solid').disabled = Boolean(item.effect);
@@ -553,9 +584,28 @@ export class TileEditor {
     play() {
         const sprites = Object.fromEntries([...layoutAssets(this.layout)].map(id => [id,this.sprites[id]]));
         this.canvas.tabIndex = 0;
-        this.game = mountTileGame(this.canvas, this.find('#tile-progress'), {layout:this.layout, sprites});
+        this.game = mountTileGame(this.canvas, this.find('#tile-progress'), {id:this.levelId,layout:this.layout,sprites},
+            record=>this.rememberRun(record));
         this.refresh();
         this.canvas.focus();
+    }
+
+    liveEvidence({start,limit}) {return this.game?.evidence(start,limit)||null;}
+    renderEvidence({level,row,region,assetId}) {return renderTileEvidence(level,row,region,assetId);}
+
+    rememberRun(record) {
+        this.pendingRun = this.call('save-run',record).then(run=>this.showRun(run)).catch(error=>{
+            this.find('#tile-run-summary').textContent='Could not save playtest. '+error.message;
+        });
+    }
+
+    showRun(run) {
+        if (!run.id) return;
+        this.lastRun=run;
+        const summary=this.find('#tile-run-summary');
+        summary.dataset.runId=run.id;
+        summary.textContent='Saved playtest · '+run.tickCount+' ticks · '+run.score+' points';
+        this.refresh();
     }
 
     stop() {
@@ -564,6 +614,7 @@ export class TileEditor {
         this.game = null;
         this.canvas.tabIndex = -1;
         this.find('#tile-progress').textContent = '';
+        delete this.find('#tile-progress').dataset.score;
         this.refresh();
         this.draw();
     }

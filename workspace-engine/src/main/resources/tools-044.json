@@ -2658,5 +2658,134 @@
         "additionalProperties": false
       }
     }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "tile_level",
+      "description": "Inspect the selected saved tile level, layer depths, score rules, source image IDs and object geometry.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 390
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 24
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "tile_ticks",
+      "description": "Read exact 120 Hz Tile Workshop rows and score events from a live or saved playtest.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "runId": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "start": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 7200
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 60
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "tile_image",
+      "description": "Save the exact PNG of a replayed tile tick or a verified level asset.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "runId": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "tick": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 7200
+          },
+          "assetId": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "tile_pixels",
+      "description": "Read exact RGBA values from a bounded rectangle in a tile tick or verified level asset.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "runId": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "tick": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 7200
+          },
+          "assetId": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "x": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1023
+          },
+          "y": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1023
+          },
+          "width": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 16
+          },
+          "height": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 16
+          }
+        },
+        "required": [
+          "x",
+          "y"
+        ],
+        "additionalProperties": false
+      }
+    }
   }
 ]

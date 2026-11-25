@@ -16,17 +16,19 @@ import java.util.Set;
 final class TileWorkshop {
     private static final String FORMAT = "fraynix.tile-level-v1";
     private static final int MAX_ASSET = 1_050_000;
-    private static final int MAX_LAYOUT = 110_000;
+    private static final int MAX_LAYOUT = 155_000;
     private static final int MAX_PACKAGE = 6_500_000;
     private static final int MAX_LIBRARY = 64;
     private static final int MAX_USED = 6;
     private static final int WIDTH = 720, FLOOR = 312, TILE = 24;
     private final Path root, assets, levels;
+    private final TilePlayRecords playtests;
 
     TileWorkshop(Path project) {
         root = project.resolve("media/tiles");
         assets = root.resolve("sprites");
         levels = root.resolve("levels");
+        playtests = new TilePlayRecords(project);
     }
 
     synchronized JSONObject add(JSONObject input) throws Exception {
@@ -94,6 +96,26 @@ final class TileWorkshop {
         var level = checkedLevel(id, layout(read(levels, id, MAX_LAYOUT)));
         if (input.has("id")) SpriteWorkshop.replace(latest, id.getBytes(StandardCharsets.US_ASCII));
         return level;
+    }
+
+    synchronized JSONObject inspect(JSONObject input) throws Exception {
+        SpatialScene.keys(input, "id");
+        String id = input.getString("id");
+        return checkedLevel(id, layout(read(levels, id, MAX_LAYOUT)));
+    }
+
+    synchronized JSONObject saveRun(JSONObject input) throws Exception {
+        String id = input.getString("levelId");
+        return playtests.save(input, inspect(new JSONObject().put("id", id)).getJSONObject("layout"));
+    }
+
+    synchronized JSONObject run(JSONObject input, boolean all) throws Exception {
+        JSONObject result = playtests.read(input, all);
+        if (result.has("levelId")) {
+            String id = result.getString("levelId");
+            inspect(new JSONObject().put("id", id));
+        }
+        return result;
     }
 
     synchronized JSONObject save(JSONObject input) throws Exception {
@@ -301,7 +323,7 @@ final class TileWorkshop {
     }
 
     private static JSONObject layout(JSONObject input) {
-        SpatialScene.keys(input, "title", "objects", "stage");
+        SpatialScene.keys(input, "title", "objects", "stage", "planes", "scoring");
         String title = SpatialScene.text(input, "title", 70).strip();
         var stage = input.has("stage") ? NexusSceneLevel.validatedStage(input.getJSONObject("stage")) : null;
         var objects = input.getJSONArray("objects");
@@ -309,11 +331,13 @@ final class TileWorkshop {
         if (objects.length() > capacity) throw new IllegalArgumentException("This level holds up to " + capacity + " tiles and items.");
         var result = new JSONArray();
         var ids = new HashSet<String>();
+        var planeIds = new HashSet<String>();
+        var planes = input.has("planes") ? planes(input.getJSONArray("planes"), planeIds) : null;
         var cells = new HashSet<Integer>();
         int pickups = 0;
         for (int i = 0; i < objects.length(); i++) {
             var item = objects.getJSONObject(i);
-            SpatialScene.keys(item, "id", "assetId", "kind", "layer", "x", "y", "size", "collider", "effect");
+            SpatialScene.keys(item, "id", "assetId", "kind", "layer", "x", "y", "size", "collider", "effect", "plane", "z", "points");
             String id = item.getString("id"), asset = item.getString("assetId");
             if (!id.matches("[a-zA-Z0-9-]{1,40}") || !ids.add(id) || !asset.matches("[0-9a-f]{64}"))
                 throw new IllegalArgumentException("Use a unique item ID and a valid sprite reference.");
@@ -328,6 +352,16 @@ final class TileWorkshop {
                 throw new IllegalArgumentException("Paint one terrain tile per grid cell.");
             var output = new JSONObject().put("id", id).put("assetId", asset).put("kind", kind).put("layer", layer)
                     .put("x", x).put("y", y).put("size", size);
+            if (item.has("plane")) {
+                String plane = item.getString("plane");
+                if (!planeIds.contains(plane)) throw new IllegalArgumentException("Choose an existing visual layer.");
+                output.put("plane", plane);
+            }
+            if (item.has("z")) output.put("z", number(item, "z", -99, 99));
+            if (item.has("points")) {
+                if (!"pickup".equals(layer)) throw new IllegalArgumentException("Only pickups have individual points.");
+                output.put("points", number(item, "points", 0, 10_000));
+            }
             if (item.has("collider")) {
                 if (!"terrain".equals(layer)) throw new IllegalArgumentException("Only terrain can be solid.");
                 output.put("collider", collider(item.getJSONObject("collider"), x, y, size, stage));
@@ -344,7 +378,32 @@ final class TileWorkshop {
         }
         if (stage == null && pickups == 0) throw new IllegalArgumentException("Place at least one pickup to unlock the exit.");
         var output = new JSONObject().put("title", title).put("objects", result);
-        return stage == null ? output : output.put("stage", stage);
+        if (stage != null) output.put("stage", stage);
+        if (planes != null) output.put("planes", planes);
+        if (input.has("scoring")) {
+            var rules = input.getJSONObject("scoring");
+            SpatialScene.keys(rules, "pickup", "goal", "resetPenalty");
+            output.put("scoring", new JSONObject().put("pickup", number(rules, "pickup", 0, 10_000))
+                    .put("goal", number(rules, "goal", 0, 10_000))
+                    .put("resetPenalty", number(rules, "resetPenalty", 0, 10_000)));
+        }
+        return output;
+    }
+
+    private static JSONArray planes(JSONArray raw, Set<String> ids) {
+        if (raw.length() > 16) throw new IllegalArgumentException("A level holds up to 16 visual layers.");
+        var planes = new JSONArray();
+        for (Object value : raw) {
+            var plane = (JSONObject) value;
+            SpatialScene.keys(plane, "id", "name", "z", "opacity", "visible");
+            String id = plane.getString("id");
+            if (!id.matches("[a-zA-Z0-9-]{1,40}") || !ids.add(id) || !(plane.get("visible") instanceof Boolean))
+                throw new IllegalArgumentException("Each layer needs a unique ID and visibility.");
+            planes.put(new JSONObject().put("id", id).put("name", SpatialScene.text(plane, "name", 50))
+                    .put("z", number(plane, "z", -999, 999)).put("opacity", SpatialScene.number(plane, "opacity", 0, 1))
+                    .put("visible", plane.getBoolean("visible")));
+        }
+        return planes;
     }
 
     private static JSONObject collider(JSONObject input, int itemX, int itemY, int size, JSONObject stage) {

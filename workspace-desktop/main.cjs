@@ -18,6 +18,7 @@ const {chartFollowup}=require('./chart-followup.cjs');
 const {createAgency043}=require('./agency043.cjs');const {AsyncLocalStorage}=require('node:async_hooks');const agencyScope043=new AsyncLocalStorage();let agency043;let pendingAgency043=0,agencyLaunchGeneration043=0;
 const {createAgent042}=require('./agent042.cjs');let agent042,runtimeConnection042;
 const {NativeExports}=require('./exports.cjs');
+const {createTileEvidence}=require('./tile-evidence.cjs');
 const {javaExecutable,gameJvmFlags}=require('./java-launch.cjs');
 const {bodyReport}=require('./body-result.cjs');
 const {createGoals}=require('./goals.cjs');
@@ -69,6 +70,13 @@ async function api(route,input){
   const response=await fetch(origin+route,{method:input===undefined?'GET':'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json','X-Fraynix-Interface':selfHostSession,...(agencyAuthority043?{'X-Fraynix-Task':agencyAuthority043.taskId,'X-Fraynix-Effect':agencyAuthority043.nonce}:{})},body:input===undefined?undefined:JSON.stringify(input)});
   const data=await response.json();if(!response.ok)throw Error(data.error||`Engine HTTP ${response.status}`);return data;
 }
+const tileRendererSha256=createHash('sha256').update(fs.readFileSync(path.join(__dirname,'renderer','media-tile-play.js'))).digest('hex');
+const tileEvidence=createTileEvidence({
+  rendererSha256:tileRendererSha256,
+  api,
+  surface:(method,args)=>window.webContents.executeJavaScript('window.tileEvidence['+JSON.stringify(method)+']('+JSON.stringify(args??null)+')'),
+  save:(...args)=>nativeExports.save(...args)
+});
 async function refresh(){state={...await api('/api/state'),network:networkPolicy.status()};emit('state',state);return state;}
 async function engineStart(){
   if(process.env.FRAYNIX_WORKSPACE_PERSISTENT==='1'||(!process.env.FRAYNIX_WORKSPACE_TEST&&process.env.FRAYNIX_WORKSPACE_PERSISTENT!=='0')){runtimeConnection042=await connectRuntime042({repo,project,sessionId:selfHostSession,onState:value=>emit('agent042',value),onError:e=>activity('error',e.message)});origin=runtimeConnection042.origin;token=runtimeConnection042.token;return;}
@@ -117,6 +125,8 @@ async function executeRaw(tool,args={}){
   }
   let result;
   switch(tool){
+    case 'tile.level':case 'tile.ticks':case 'tile.image':case 'tile.pixels':
+      result=await tileEvidence.read(tool,args);break;
     case 'screen.read':case 'screen.report':result=await agency043.action(tool,args);break;
     case 'agent.report':if((await api('/api/goals/list',{})).goals.some(g=>['running','waiting-host'].includes(g.status))||(await api('/api/workflows/list',{})).workflows.some(g=>['running','waiting-host','queued'].includes(g.status)))throw Error('Finish or stop the active goal before opening another canvas report');
     case 'agent.read':result=await agent042.action(tool,args,captureContext||{});break;
@@ -1067,12 +1077,22 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       return nativeExports.save('verified-motion-media',args.format,Buffer.from(data.base64,'base64'),
         {id:args.id,...data.source},data.sha256);
     }
+    case 'tile-evidence':
+      if (!['tile.level','tile.ticks','tile.image','tile.pixels'].includes(input.tool)) throw Error('Unknown tile evidence tool.');
+      return execute(input.tool,input.args||{});
     case 'media-tiles': {
+      if (input.command === 'save-run')
+        return api('/api/media-tiles/save-run',{...input.args,rendererSha256:tileRendererSha256});
+      if (input.command === 'export-run') {
+        const recording=await api('/api/media-tiles/export-run',input.args||{});
+        if (!recording.id) throw Error('Play a tile level before exporting.');
+        return nativeExports.save('tile-playtest','json',JSON.stringify(recording),{id:recording.id,levelId:recording.levelId});
+      }
       if (input.command === 'pick') {
         if (!surfacesVisible.browser) throw Error('Show the in-app browser to pick a graphic.');
         return api('/api/media-tiles/add', {source:await browser.pickGraphic()});
       }
-      if (['add', 'library', 'sprite', 'list', 'open', 'save', 'import', 'import-nexus'].includes(input.command))
+      if (['add', 'library', 'sprite', 'list', 'open', 'save', 'import', 'import-nexus', 'read-run'].includes(input.command))
         return api('/api/media-tiles/' + input.command, input.args || {});
       if (input.command !== 'export') throw Error('Unknown tile editor command.');
       const {id, format} = input.args;
