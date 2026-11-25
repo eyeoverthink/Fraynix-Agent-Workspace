@@ -1,0 +1,84 @@
+{
+  "summary": "Forward a verified recipient revision and independently replay its original placement and every approved edit.",
+  "modules": [
+    {
+      "title": "Original evidence and approved revision chain",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RecipientRevisionExchange.java",
+      "note": "docs/obsidian/247-recipient-revision-exchange.md"
+    },
+    {
+      "title": "Local export of verified scenes",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/247-recipient-revision-exchange.md"
+    },
+    {
+      "title": "Independent native replay and restart",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PlacementExchange.java",
+      "note": "docs/obsidian/247-recipient-revision-exchange.md"
+    },
+    {
+      "title": "Recipient export panel",
+      "source": "workspace-desktop/renderer/recipient-edit.js",
+      "note": "docs/obsidian/247-recipient-revision-exchange.md"
+    },
+    {
+      "title": "Revision and trial viewer",
+      "source": "workspace-desktop/renderer/placement-exchange.js",
+      "note": "docs/obsidian/247-recipient-revision-exchange.md"
+    },
+    {
+      "title": "Two-project replay and tamper checks",
+      "source": "workspace-desktop/test/placement-exchange-integration.cjs",
+      "note": "docs/obsidian/247-recipient-revision-exchange.md"
+    },
+    {
+      "title": "Rehashed earlier motion regression",
+      "source": "workspace-engine/src/test/java/fraymus/workspace/PlacementExchangeTest.java",
+      "note": "docs/obsidian/247-recipient-revision-exchange.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/239/recipient-revision-exported.png",
+      "title": "Export the exact committed Signal Bay revision"
+    },
+    {
+      "path": "docs/readmes/239/original-placement-replayed.png",
+      "title": "Replay the original placement in the second project"
+    },
+    {
+      "path": "docs/readmes/239/local-hit-replay.png",
+      "title": "Compare archived contact traces with the final local replay"
+    },
+    {
+      "path": "docs/readmes/239/local-aisle-replay.png",
+      "title": "Inspect the independently rechecked 4.35 m aisle"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/239/signal-bay-revision.fraynix-recipient.json",
+      "title": "Signal Bay edition 238 revision and full original archive"
+    },
+    {
+      "path": "docs/readmes/239/recipient-export-proof.json",
+      "title": "Proof of the exact previously committed revision"
+    },
+    {
+      "path": "docs/readmes/239/exchange-evidence.json",
+      "title": "Second clean project acceptance and restart checks"
+    },
+    {
+      "path": "docs/readmes/239/local-replay.json",
+      "title": "Second clean project native measurements for all stages"
+    },
+    {
+      "path": "docs/publication239/plan.md",
+      "title": "Implementation and reproduction"
+    },
+    {
+      "path": "docs/readmes/239/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}

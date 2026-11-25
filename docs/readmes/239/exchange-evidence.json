@@ -1,0 +1,67 @@
+{
+  "format": "fraynix.placement-exchange-acceptance-v1",
+  "platform": "win32",
+  "archiveSha256": "802fb12ba919118a9f5530fc63e741cb7ae085ac6a3552c285832e1543246d7f",
+  "localReplaySha256": "d3b55c4ac81a20c04e967bf0b5758e379c6662c5505613589c80e1a6aec92ed5",
+  "comparison": {
+    "contactTickTolerance": 1,
+    "velocityToleranceMps": 0.05,
+    "contactDurationToleranceTicks": 3,
+    "peakSpeedToleranceMps": 0.015,
+    "hit": {
+      "firstContactTickError": 0,
+      "peakSpeedErrorMps": 0,
+      "firstSeparationErrorM": 0,
+      "maxPositionErrorM": 0,
+      "maxVelocityErrorMps": 0,
+      "contactDurationErrorTicks": 0
+    },
+    "passed": true,
+    "aisle": {
+      "routeLengthErrorM": 0,
+      "passed": true
+    },
+    "positionToleranceM": 0.01,
+    "miss": {
+      "firstContactTickError": 0,
+      "peakSpeedErrorMps": 0,
+      "firstSeparationErrorM": 0,
+      "maxPositionErrorM": 0,
+      "maxVelocityErrorMps": 0,
+      "contactDurationErrorTicks": 0
+    },
+    "contactSeparationToleranceM": 0.003
+  },
+  "archiveHitTick": 44,
+  "localHitTick": 44,
+  "archiveMissContacts": 0,
+  "localMissContacts": 0,
+  "freshProject": true,
+  "noPlacementAuthorityCreated": true,
+  "restoredAfterRestart": true,
+  "archiveUntouched": true,
+  "refusedChangedArchive": true,
+  "refusedChangedGlb": true,
+  "changedLocalReplayRefusedAndRecovered": true,
+  "destinationVerified": true,
+  "routeLengthM": 4.35,
+  "playerEnvelopeClear": true,
+  "editedMesh": true,
+  "archiveHitContacts": 62,
+  "localHitContacts": 62,
+  "originalArchiveSha256": "807d27b83e222c4aa58ff22dcb1093e3d8ac5ea9f016eb38f8d7c3874eed50e3",
+  "approvedRevisions": 2,
+  "previousStageCount": 2,
+  "stageHitTicks": [
+    75,
+    48,
+    44
+  ],
+  "stageMissContacts": [
+    0,
+    0,
+    0
+  ],
+  "refusedAlteredApproval": true,
+  "allStagesReplayedLocally": true
+}
