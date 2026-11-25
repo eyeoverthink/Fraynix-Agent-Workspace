@@ -65,6 +65,8 @@ async function main() {
         assert.equal(root.recipientBranch.archiveSha256,archiveId);
         assert.equal(root.recipientBranch.glbSha256,document.glbSha256);
         assert.equal(root.recipientRevision,0);
+        assert(await page.locator('#recipient-edit-export').isHidden());
+        await assert.rejects(call('recipient-edit-export',{sceneId:root.id}),/Complete a verified local edit/i);
         assert.equal((await call('placement-exchange-fork',fork)).id,root.id);
         assert.equal((await call('list')).scenes.length,1);
         assert.deepEqual(await call('placement-latest'),{});
@@ -162,6 +164,27 @@ async function main() {
         await assert.rejects(plan(final.sceneId,.7,.5,12),/recheck the recipient branch/i);
         await fs.writeFile(retained,bytes);
         assert.deepEqual(await call('read',{id:final.sceneId}),recovered);
+        await page.locator('#spatial-scenes').selectOption(final.sceneId);
+        await page.locator('#recipient-edit').click();
+        await page.locator('#recipient-edit-export').click();
+        await check('recipient-edit-export-path','Saved ');
+        const file = await page.locator('#recipient-edit-export-path').getAttribute('title');
+        const exported = await fs.readFile(file);
+        const sidecar = JSON.parse(await fs.readFile(file+'.receipt.json','utf8'));
+        const packageId = digest(exported);
+        assert.equal(sidecar.sha256,packageId);
+        assert.equal(sidecar.source.originalArchiveSha256,archiveId);
+        const shared = JSON.parse(exported);
+        assert(Buffer.from(shared.originalArchiveBase64,'base64').equals(bytes));
+        assert.deepEqual(shared.baseReplay,local.replay);
+        assert.deepEqual(shared.revisions.map(stage=>stage.approvalSha256),[pending.reviewId,second.reviewId]);
+        assert.equal(shared.headSceneId,final.sceneId);
+        assert.deepEqual(shared.revisions.at(-1).receipt,recovered.recipientEdit);
+        const reconstructed = await call('recipient-edit-export',{sceneId:final.sceneId});
+        assert.equal(reconstructed.sha256,packageId);
+        assert(Buffer.from(reconstructed.base64,'base64').equals(exported));
+        await capture('recipient-revision-exported.png');
+        await fs.writeFile(path.join(output,'signal-bay-revision.fraynix-recipient.json'),exported);
 
         const measured = revision.recipientEdit.measured;
         const proof = {
@@ -170,6 +193,7 @@ async function main() {
             fromM:prop.position,toM:edited.position,yawDeg:applied.review.yawDeg,
             hitTick:measured.hit.firstContactTick,hitContacts:measured.hit.contactTicks,
             missContacts:measured.miss.contactTicks,aisleM:measured.routeLengthM,
+            packageSha256:packageId,exportedApprovals:shared.revisions.length,exportedFinalScene:shared.headSceneId,
             secondEditVerified:true,blockingPoseRefused:true,interceptedProbeRefused:true,unapprovedRefused:true,
             staleReviewRefused:true,previewRestart:true,approvalRestart:true,renderedOriginalPinned:true,
             archiveAlterationRefused:true,changedApprovalRefused:true,retainedReplayIndependentOfViewerCache:true,archiveBytesPreserved:true

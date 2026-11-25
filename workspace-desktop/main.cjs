@@ -1091,6 +1091,11 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         await refresh();
         return result;
       }
+      if(input.command==='recipient-edit-export'){
+        const data=await api('/api/spatial/recipient-edit-export',input.args);
+        return nativeExports.save('verified-recipient-revision','fraynix-recipient.json',
+          Buffer.from(data.base64,'base64'),{sceneId:data.sceneId,originalArchiveSha256:data.originalArchiveSha256},data.sha256);
+      }
       if(input.command==='placement-export'){
         const data=await api('/api/spatial/placement-export',input.args);
         const source={sceneId:data.sceneId,evidenceSha256:data.evidenceSha256};

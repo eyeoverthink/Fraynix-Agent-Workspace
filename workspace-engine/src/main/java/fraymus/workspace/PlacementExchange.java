@@ -8,20 +8,27 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
-import java.util.ArrayList;
 
 final class PlacementExchange {
-    static final int BYTE_LIMIT = 1_200_000;
+    static final int BYTE_LIMIT = 1_500_000;
+    static final int AUTHORED_BYTE_LIMIT = 1_200_000;
     private static final int TICKS = 180, INTERVAL = 12;
     private static final double POSITION_M = .010, VELOCITY_MPS = .050, SPEED_MPS = .015, SEPARATION_M = .003;
     private static final String FORMAT = "fraynix.verified-placement-export-v1";
     private final Path directory, nativeDir;
 
-    record Bundle(String id, JSONObject scene, JSONObject evidence, String glbSha256,
-                  JSONObject layout, boolean destinationVerified) {
-        boolean authored() { return layout != null; }
+    record Stage(JSONObject scene, JSONObject evidence, String propKey, boolean authored) {}
+
+    record Bundle(String id, Stage stage, String glbSha256, JSONObject layout, boolean destinationVerified,
+                  List<Stage> previous) {
+        JSONObject scene() { return stage.scene; }
+        JSONObject evidence() { return stage.evidence; }
+        boolean authored() { return stage.authored; }
+        boolean recipient() { return !previous.isEmpty(); }
     }
 
     PlacementExchange(Path project) {
@@ -52,27 +59,39 @@ final class PlacementExchange {
     JSONObject replay(JSONObject input) throws Exception {
         SpatialScene.keys(input, "id");
         Bundle original = load(input.getString("id"));
-        var review = original.evidence.getJSONObject("review");
-        var fresh = run(original,review);
-        var repeat = run(original,review);
-        if (!fresh.similar(repeat)) throw new IllegalStateException("The two local native runs did not agree.");
-        var checked = compare(original.evidence.getJSONObject("measured"), fresh, original.authored());
-        var saved = new JSONObject().put("bundleSha256",original.id).put("trials",fresh).put("comparison",checked);
+        var previous = new JSONArray();
+        for (var stage : original.previous) previous.put(verify(stage));
+        var result = verify(original.stage);
+        var saved = new JSONObject().put("bundleSha256",original.id)
+                .put("trials",result.getJSONObject("trials")).put("comparison",result.getJSONObject("comparison"));
+        if (original.recipient()) saved.put("previous",previous);
         saved.put("sha256",WorldFrames.hash(saved));
-        SpriteWorkshop.replace(file(original.id,".replay.json"),saved.toString().getBytes(StandardCharsets.UTF_8));
+        byte[] bytes = saved.toString().getBytes(StandardCharsets.UTF_8);
+        if (bytes.length > BYTE_LIMIT) throw new IllegalStateException("The local receipt exceeds the exchange limit.");
+        SpriteWorkshop.replace(file(original.id,".replay.json"),bytes);
         return summarize(original).put("replay",saved);
     }
 
-    private JSONObject run(Bundle bundle, JSONObject review) throws Exception {
-        return bundle.authored() ? SpatialLevelPlacement.verifyNative(bundle.scene,review,nativeDir)
-                : SpatialPlacement.verifyNative(bundle.scene,review,nativeDir);
+    private JSONObject verify(Stage stage) throws Exception {
+        var review = stage.evidence.getJSONObject("review");
+        var fresh = run(stage,review);
+        var repeat = run(stage,review);
+        if (!fresh.similar(repeat)) throw new IllegalStateException("The two local native runs did not agree.");
+        return new JSONObject().put("sceneId",stage.scene.getString("id")).put("trials",fresh)
+                .put("comparison",compare(stage.evidence.getJSONObject("measured"),fresh,stage.authored));
+    }
+
+    private JSONObject run(Stage stage, JSONObject review) throws Exception {
+        if (stage.propKey != null) return SpatialLevelPlacement.verifyNative(stage.scene,review,nativeDir,stage.propKey);
+        return stage.authored ? SpatialLevelPlacement.verifyNative(stage.scene,review,nativeDir)
+                : SpatialPlacement.verifyNative(stage.scene,review,nativeDir);
     }
 
     record ForkSource(Bundle bundle, JSONObject replay) {}
 
     ForkSource forkSource(String archive, String replayHash) throws Exception {
         var bundle = load(archive);
-        if (!bundle.authored() || !bundle.destinationVerified())
+        if (!bundle.destinationVerified() || bundle.recipient())
             throw new IllegalArgumentException("Create a local copy from an authored bundle with its checked original destination.");
         var checked = status(bundle).optJSONObject("replay");
         if (checked == null || !replayHash.equals(checked.getString("sha256")))
@@ -82,7 +101,7 @@ final class PlacementExchange {
 
     Bundle checkForkSource(String archive, JSONObject replay) throws Exception {
         var bundle = load(archive);
-        if (!bundle.destinationVerified() || !validReplay(bundle,replay))
+        if (!bundle.destinationVerified() || bundle.recipient() || !validReplay(bundle,replay))
             throw new IllegalStateException("The original bundle or attached local replay changed.");
         return bundle;
     }
@@ -91,18 +110,37 @@ final class PlacementExchange {
         return summarize(checkForkSource(archive,replay)).put("replay",replay);
     }
 
-    private static boolean validReplay(Bundle bundle, JSONObject receipt) {
-        SpatialScene.keys(receipt,"bundleSha256","trials","comparison","sha256");
+    static boolean validReplay(Bundle bundle, JSONObject receipt) {
+        SpatialScene.keys(receipt,"bundleSha256","trials","comparison","sha256","previous");
         var sealed = WorldFrames.copy(receipt);
         String hash = receipt.getString("sha256");
         sealed.remove("sha256");
-        return bundle.id.equals(receipt.getString("bundleSha256")) && WorldFrames.hash(sealed).equals(hash)
-                && compare(bundle.evidence.getJSONObject("measured"),receipt.getJSONObject("trials"),bundle.authored())
-                   .similar(receipt.getJSONObject("comparison"));
+        if (!bundle.id.equals(receipt.getString("bundleSha256")) || !WorldFrames.hash(sealed).equals(hash)
+                || !matches(bundle.stage,receipt) || receipt.has("previous") != bundle.recipient())
+            return false;
+        if (!bundle.recipient()) return true;
+        var previous = receipt.getJSONArray("previous");
+        if (previous.length() != bundle.previous.size()) return false;
+        for (int i=0;i<previous.length();i++) {
+            var stage = bundle.previous.get(i);
+            var archived = previous.getJSONObject(i);
+            SpatialScene.keys(archived,"sceneId","trials","comparison");
+            if (!stage.scene.getString("id").equals(archived.getString("sceneId")) || !matches(stage,archived)) return false;
+        }
+        return true;
+    }
+
+    private static boolean matches(Stage stage, JSONObject checked) {
+        return compare(stage.evidence.getJSONObject("measured"),checked.getJSONObject("trials"),stage.authored)
+                .similar(checked.getJSONObject("comparison"));
+    }
+
+    byte[] archiveBytes(String id) throws Exception {
+        return SpriteWorkshop.read(file(id,".json"),BYTE_LIMIT,id);
     }
 
     private Bundle load(String id) throws Exception {
-        return inspect(SpriteWorkshop.read(file(id,".json"),BYTE_LIMIT,id));
+        return inspect(archiveBytes(id));
     }
 
     private Path file(String id, String extension) {
@@ -124,20 +162,50 @@ final class PlacementExchange {
     }
 
     private static JSONObject summarize(Bundle bundle) {
-        var review = bundle.evidence.getJSONObject("review");
-        var result = new JSONObject().put("id",bundle.id).put("title",bundle.scene.getString("title"))
-                .put("review",review).put("archived",bundle.evidence.getJSONObject("measured"))
-                .put("sourceOverlap",review.getDouble("sourceOverlap"))
-                .put("glbSha256",bundle.glbSha256);
-        if (bundle.authored()) result.put("layout",bundle.layout).put("destinationVerified",bundle.destinationVerified);
+        var result = viewStage(bundle.stage,bundle.layout).put("id",bundle.id)
+                .put("title",bundle.scene().getString("title")).put("glbSha256",bundle.glbSha256);
+        if (bundle.authored()) result.put("destinationVerified",bundle.destinationVerified);
+        if (bundle.recipient()) {
+            var original = bundle.previous.getFirst().evidence.getJSONObject("review");
+            var past = new JSONArray();
+            for (var stage : bundle.previous) {
+                var review = stage.evidence.getJSONObject("review");
+                String key = stage.propKey == null ? SpatialLevelPlacement.propKey(review) : stage.propKey;
+                past.put(viewStage(stage,SpatialLevelPlacement.playable(stage.scene,review,key)));
+            }
+            result.put("sourceOverlap",original.getDouble("sourceOverlap")).put("previousStages",past)
+                    .put("recipientRevision",bundle.previous.size())
+                    .put("originalArchiveSha256",bundle.scene().getJSONObject("recipientBranch").getString("archiveSha256"));
+        } else result.put("sourceOverlap",bundle.evidence().getJSONObject("review").getDouble("sourceOverlap"));
         return result;
     }
 
+    private static JSONObject viewStage(Stage stage, JSONObject layout) {
+        var review = stage.evidence.getJSONObject("review");
+        if (stage.propKey != null) {
+            var body = SpatialLevelPlacement.propByKey(stage.scene,stage.propKey);
+            review = WorldFrames.copy(review).put("contact",SpatialPlacement.contactSpec())
+                    .put("colliderM",body.getJSONArray("size"));
+        }
+        return new JSONObject().put("review",review).put("archived",stage.evidence.getJSONObject("measured"))
+                .put("layout",layout);
+    }
+
     static Bundle inspect(byte[] bytes) throws Exception {
+        return inspect(bytes,true);
+    }
+
+    static Bundle inspect(byte[] bytes, boolean allowRecipient) throws Exception {
         if (bytes.length == 0 || bytes.length > BYTE_LIMIT)
-            throw new IllegalArgumentException("Choose a placement bundle up to 1.2 MB.");
+            throw new IllegalArgumentException("Choose a placement bundle up to 1.5 MB.");
         var input = new JSONObject(new String(bytes,StandardCharsets.UTF_8));
         String format = input.getString("format");
+        if (RecipientRevisionExchange.FORMAT.equals(format)) {
+            if (!allowRecipient) throw new IllegalArgumentException("Choose a direct authored archive for the original level.");
+            return RecipientRevisionExchange.inspect(input,MapDefinition.sha(bytes));
+        }
+        if (bytes.length > AUTHORED_BYTE_LIMIT)
+            throw new IllegalArgumentException("Choose a placement bundle up to 1.2 MB.");
         boolean exactDestination = SpatialLevelPlacement.ARCHIVE.equals(format);
         boolean authored = exactDestination || SpatialLevelPlacement.LEGACY_ARCHIVE.equals(format);
         if (authored) {
@@ -179,7 +247,7 @@ final class PlacementExchange {
         String digest = MapDefinition.sha(glb);
         if (!digest.equals(input.getString("glbSha256"))) throw new IllegalArgumentException("The embedded GLB checksum differs.");
         SpatialGlb.verifyScene(scene,glb);
-        return new Bundle(MapDefinition.sha(bytes),scene,evidence,digest,layout,exactDestination);
+        return new Bundle(MapDefinition.sha(bytes),new Stage(scene,evidence,null,authored),digest,layout,exactDestination,List.of());
     }
 
     private static JSONObject checkLevel(JSONObject raw, JSONObject scene, JSONObject review) {
@@ -254,7 +322,7 @@ final class PlacementExchange {
             throw new IllegalArgumentException("Existing destination geometry or properties changed in the authored scene.");
     }
 
-    private static void checkTrials(JSONObject measured, boolean authored) {
+    static void checkTrials(JSONObject measured, boolean authored) {
         if (authored) {
             SpatialScene.keys(measured,"passed","hit","miss","playerEnvelopeClear","routeLengthM");
             if (!measured.getBoolean("playerEnvelopeClear"))

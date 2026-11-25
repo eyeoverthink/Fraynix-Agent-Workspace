@@ -494,16 +494,14 @@ public final class SpatialStore implements AutoCloseable {
         String root = link.getString("rootId");
         if (scenes.containsKey(root)) return read(recipientHead(root));
         requireRecipientSpace();
-        return retainScene(SpatialScene.parse(checked.bundle().scene().getString("sourceText"),root)
-                .put("importedAt",Instant.now().toString()).put("recipientBranch",link)
-                .put("recipientRevision",0).put("recipientBaseReplay",checked.replay()));
+        return retainScene(RecipientLevelEdit.root(checked.bundle(),checked.replay(),Instant.now().toString()));
     }
 
     synchronized JSONObject reviewRecipientEdit(JSONObject input) throws Exception {
         available();
         var parent = currentRecipient(input.getString("sceneId"));
         var review = RecipientLevelEdit.plan(parent,input);
-        var candidate = candidateRecipient(parent,review,WorldFrames.hash(review));
+        var candidate = RecipientLevelEdit.candidate(parent,review,WorldFrames.hash(review));
         SpatialLevelPlacement.playable(candidate,review,RecipientLevelEdit.propKey(review));
         String id = recipientEdits.saveReview(review,"latest-"+parent.getString("id"));
         return recipientEditStatus(id,review,candidate);
@@ -518,7 +516,7 @@ public final class SpatialStore implements AutoCloseable {
         String id = recipientEdits.latestId("latest-"+head);
         if (id.isEmpty()) return new JSONObject();
         var review = recipientEdits.readReview(id);
-        return recipientEditStatus(id,review,candidateRecipient(parent,review,id));
+        return recipientEditStatus(id,review,RecipientLevelEdit.candidate(parent,review,id));
     }
 
     synchronized JSONObject approveRecipientEdit(JSONObject input) throws Exception {
@@ -531,7 +529,7 @@ public final class SpatialStore implements AutoCloseable {
         String revision = RecipientLevelEdit.revisionId(id);
         if (scenes.containsKey(revision)) return recipientEditStatus(id,review,read(revision));
         var parent = currentRecipient(review.getJSONObject("parent").getString("sceneId"));
-        var candidate = candidateRecipient(parent,review,id);
+        var candidate = RecipientLevelEdit.candidate(parent,review,id);
         SpatialLevelPlacement.playable(candidate,review,RecipientLevelEdit.propKey(review));
         recipientEdits.approve(id);
         return recipientEditStatus(id,review,candidate);
@@ -547,22 +545,33 @@ public final class SpatialStore implements AutoCloseable {
         String revision = RecipientLevelEdit.revisionId(id);
         if (scenes.containsKey(revision)) return recipientEditStatus(id,review,read(revision));
         var parent = currentRecipient(review.getJSONObject("parent").getString("sceneId"));
-        var candidate = candidateRecipient(parent,review,id);
+        var candidate = RecipientLevelEdit.candidate(parent,review,id);
         requireRecipientSpace();
         String prop = RecipientLevelEdit.propKey(review);
         var verified = SpatialLevelPlacement.verifyNative(candidate,review,nativeDir,prop);
         var repeat = SpatialLevelPlacement.verifyNative(candidate,review,nativeDir,prop);
         if (!verified.similar(repeat)) throw new IllegalStateException("The independent local edit runs did not agree.");
         var receipt = new JSONObject().put("reviewId",id).put("review",review).put("measured",verified).put("repeat",repeat);
-        var saved = retainScene(candidate.put("importedAt",Instant.now().toString())
-                .put("recipientBranch",parent.getJSONObject("recipientBranch"))
-                .put("recipientRevision",parent.getInt("recipientRevision")+1)
-                .put("recipientEdit",receipt).put("recipientEditSha256",WorldFrames.hash(receipt)));
+        var saved = retainScene(RecipientLevelEdit.commit(candidate,parent,receipt,Instant.now().toString()));
         return recipientEditStatus(id,review,saved);
     }
 
-    private static JSONObject candidateRecipient(JSONObject parent, JSONObject review, String id) {
-        return SpatialScene.parse(RecipientLevelEdit.definition(parent,review).toString(),RecipientLevelEdit.revisionId(id));
+    synchronized JSONObject exportRecipientRevision(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"sceneId");
+        var head = read(input.getString("sceneId"));
+        if (!head.has("recipientEdit")) throw new IllegalStateException("Complete a verified local edit before exporting a revision.");
+        var stages = new ArrayList<JSONObject>();
+        var root = head;
+        while (root.has("recipientEdit")) {
+            var receipt = root.getJSONObject("recipientEdit");
+            stages.add(new JSONObject().put("approvalSha256",receipt.getString("reviewId"))
+                    .put("receiptSha256",root.getString("recipientEditSha256")).put("receipt",receipt)
+                    .put("importedAt",root.getString("importedAt")));
+            root = olderScene(root,receipt.getJSONObject("review"),"parent");
+        }
+        Collections.reverse(stages);
+        String archive = root.getJSONObject("recipientBranch").getString("archiveSha256");
+        return RecipientRevisionExchange.export(head,root,exchange.archiveBytes(archive),new JSONArray(stages));
     }
 
     private JSONObject recipientEditStatus(String id, JSONObject review, JSONObject scene) throws Exception {

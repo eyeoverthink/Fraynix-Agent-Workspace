@@ -207,7 +207,7 @@ final class SpatialLevelPlacement {
                     .put("evidence", evidence).put("evidenceSha256", receipt)
                     .put("glbSha256", MapDefinition.sha(glb)).put("glbBase64", Base64.getEncoder().encodeToString(glb));
             bytes = document.toString().getBytes(StandardCharsets.UTF_8);
-            if (bytes.length > PlacementExchange.BYTE_LIMIT)
+            if (bytes.length > PlacementExchange.AUTHORED_BYTE_LIMIT)
                 throw new IllegalArgumentException("The authored level evidence exceeds the 1.2 MB exchange limit.");
         } else {
             throw new IllegalArgumentException("Choose a playable level, GLB, or an evidence bundle.");

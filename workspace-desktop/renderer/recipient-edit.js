@@ -24,7 +24,9 @@ export class RecipientEditPanel {
                 <div class="spatial-task">
                     <button id="recipient-edit-approve" class="primary" hidden>Approve and verify local edit</button>
                     <button id="recipient-edit-open" hidden>Open local revision</button>
+                    <button id="recipient-edit-export" hidden>Export verified revision</button>
                 </div>
+                <p id="recipient-edit-export-path" role="status"></p>
             </div>`;
         document.body.append(dialog);
         this.dialog = dialog;
@@ -43,6 +45,7 @@ export class RecipientEditPanel {
             spatial.action(() => this.review());
         };
         this.find('#recipient-edit-approve').onclick = () => spatial.action(() => this.approve());
+        this.find('#recipient-edit-export').onclick = () => spatial.action(() => this.exportRevision());
         this.find('#recipient-edit-open').onclick = () => spatial.action(async () => {
             dialog.close();
             await spatial.open(this.result.sceneId);
@@ -76,6 +79,18 @@ export class RecipientEditPanel {
         fields.namedItem('xM').value = position[0];
         fields.namedItem('zM').value = position[2];
         fields.namedItem('yawDeg').value = yaw;
+    }
+
+    async exportRevision() {
+        const sceneId = this.result?.status === 'verified' ? this.result.sceneId : this.source.id;
+        const output = this.find('#recipient-edit-export-path');
+        try {
+            const saved = await this.spatial.call('recipient-edit-export',{sceneId});
+            const filename = saved.path.split(/[\\/]/).at(-1);
+            output.textContent = 'Saved '+filename+' in this project’s exports folder.';
+            output.title = saved.path;
+            this.spatial.notice('Saved the verified revision and its original evidence.');
+        } catch (error) { this.fail(error); }
     }
 
     async review() {
@@ -116,6 +131,11 @@ export class RecipientEditPanel {
         approve.hidden = !['review','approved'].includes(status);
         approve.textContent = status === 'approved' ? 'Run approved edit checks' : 'Approve and verify local edit';
         this.find('#recipient-edit-open').hidden = !['verified','superseded'].includes(status);
+        this.find('#recipient-edit-export').hidden = status !== 'verified'
+            && (this.source.recipientRevision === 0 || Boolean(status));
+        const exportPath = this.find('#recipient-edit-export-path');
+        exportPath.textContent = '';
+        exportPath.title = '';
         this.tell({
             review:'Preview saved. Approve the exact pose to run the local checks twice.',
             approved:'Approval saved. Run the checks to finish this revision.',

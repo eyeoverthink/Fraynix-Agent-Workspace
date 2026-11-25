@@ -19,8 +19,10 @@ async function main() {
     const original = await fs.readFile(frozen);
     const id = sha(original);
     const document = JSON.parse(original);
-    const isLevel = document.format.startsWith('fraynix.verified-spatial-level-');
-    const exactDestination = document.format === 'fraynix.verified-spatial-level-v2';
+    const isRecipient = document.format === 'fraynix.verified-recipient-level-v1';
+    const isLevel = isRecipient || document.format.startsWith('fraynix.verified-spatial-level-');
+    const exactDestination = isRecipient || document.format === 'fraynix.verified-spatial-level-v2';
+    const terminal = isRecipient ? document.revisions.at(-1).receipt : document.evidence;
     const args = process.platform === 'linux' ? ['--no-sandbox','--disable-dev-shm-usage'] : [];
     let {app,page} = await launch(project,args);
     const call = (route,input={}) => app.evaluate((_,request) =>
@@ -49,13 +51,13 @@ async function main() {
         assert.equal(archive.id,id);
         assert.equal(archive.replay,undefined);
         assert.equal(archive.archived.hit.firstContactTick,
-            isLevel ? document.evidence.measured.hit.firstContactTick : 43);
+            isLevel ? terminal.measured.hit.firstContactTick : 43);
         assert.equal(archive.archived.miss.contactTicks,0);
         assert.deepEqual(await call('placement-latest'),{});
         assert.equal((await call('list')).scenes.length,0);
         if (isLevel) {
             assert.equal(archive.destinationVerified,exactDestination);
-            assert.equal(archive.layout.routeLengthM,document.evidence.measured.routeLengthM);
+            assert.equal(archive.layout.routeLengthM,terminal.measured.routeLengthM);
             assert(archive.layout.blockers.some(item=>item.id===archive.layout.prop));
             assert(archive.layout.blockers.some(item=>item.id!==archive.layout.prop));
             if (exactDestination) assert.match(await page.locator('#exchange-provenance').textContent(),/Existing colliders|existing colliders/);
@@ -63,15 +65,29 @@ async function main() {
             assert.match(await page.locator('#exchange-metrics').textContent(),/local clearance pending/);
             assert(await page.locator('#exchange-sample').isHidden());
         }
+        if (isRecipient) {
+            assert.equal(archive.recipientRevision,document.revisions.length);
+            assert.equal(archive.originalArchiveSha256,document.originalArchiveSha256);
+            assert.match(await page.locator('#exchange-revisions').textContent(),/approvals checked/);
+            assert.equal(await page.locator('#exchange-stage').inputValue(),String(document.revisions.length));
+            assert(await page.locator('#exchange-fork').isHidden());
+        }
         await render('archive-inspected.png');
 
         const bad = JSON.parse(original);
-        bad.evidence.measured.hit.samples[2].probeM[0] += .25;
+        const badReceipt = isRecipient ? bad.revisions[0].receipt : bad.evidence;
+        badReceipt.measured.hit.samples[2].probeM[0] += .25;
         const badFile = path.join(output,'tampered-placement.json');
         await fs.writeFile(badFile,JSON.stringify(bad));
         await page.locator('#exchange-file').setInputFiles(badFile);
-        await status('collision evidence checksum differs');
+        await status(isRecipient ? 'approval, review or trial receipt differs' : 'collision evidence checksum differs');
         assert.equal((await call('placement-exchange-latest')).id,id);
+        if (isRecipient) {
+            const missingApproval = JSON.parse(original);
+            missingApproval.revisions[0].approvalSha256 = '0'.repeat(64);
+            await assert.rejects(call('placement-exchange-open',
+                {base64:Buffer.from(JSON.stringify(missingApproval)).toString('base64')}),/approval, review or trial receipt differs/);
+        }
         const badGlb = JSON.parse(original);
         badGlb.glbSha256 = '0'.repeat(64);
         await assert.rejects(call('placement-exchange-open',
@@ -93,6 +109,26 @@ async function main() {
             await page.locator('#exchange-trial').selectOption('hit');
         }
         await render('local-hit-replay.png');
+        if (isRecipient) {
+            const earlier = restored.replay.previous;
+            assert.equal(earlier.length,document.revisions.length);
+            const source = JSON.parse(Buffer.from(document.originalArchiveBase64,'base64'));
+            assert.equal(earlier[0].sceneId,source.sceneId);
+            const expected = [source.evidence,...document.revisions.slice(0,-1).map(stage=>stage.receipt)];
+            for (const [index,receipt] of expected.entries()) {
+                const native = earlier[index];
+                assert(native.comparison.passed&&native.comparison.aisle.passed);
+                assert(Math.abs(native.trials.hit.firstContactTick-receipt.measured.hit.firstContactTick)<=1);
+                await page.locator('#exchange-stage').selectOption(String(index));
+                assert.match(await page.locator('#exchange-metrics').textContent(),/archived \/ .* local/);
+            }
+            await page.locator('#exchange-stage').selectOption('0');
+            await render('original-placement-replayed.png');
+            await page.locator('#exchange-stage').selectOption(String(document.revisions.length));
+            assert.match(await page.locator('#exchange-revisions').textContent(),/all revisions replayed locally/);
+            await assert.rejects(call('placement-exchange-fork',{id,replaySha256:restored.replay.sha256}),
+                /authored bundle with its checked original destination/i);
+        }
 
         await page.locator('#exchange-trial').selectOption('miss');
         await page.locator('#exchange-sample').focus();
@@ -130,8 +166,17 @@ async function main() {
             refusedChangedArchive:true,refusedChangedGlb:true,changedLocalReplayRefusedAndRecovered:true};
         if (isLevel) Object.assign(evidence,{destinationVerified:archive.destinationVerified,
             routeLengthM:archive.layout.routeLengthM,playerEnvelopeClear:restored.replay.trials.playerEnvelopeClear,
-            editedMesh:Boolean(archive.review.editReference),
+            editedMesh:Boolean((isRecipient ? archive.previousStages[0].review : archive.review).editReference),
             archiveHitContacts:archive.archived.hit.contactTicks,localHitContacts:restored.replay.trials.hit.contactTicks});
+        if (isRecipient) Object.assign(evidence,{
+            originalArchiveSha256:archive.originalArchiveSha256,
+            approvedRevisions:archive.recipientRevision, previousStageCount:restored.replay.previous.length,
+            stageHitTicks:[...restored.replay.previous.map(stage=>stage.trials.hit.firstContactTick),
+                restored.replay.trials.hit.firstContactTick],
+            stageMissContacts:[...restored.replay.previous.map(stage=>stage.trials.miss.contactTicks),
+                restored.replay.trials.miss.contactTicks],
+            refusedAlteredApproval:true, allStagesReplayedLocally:true
+        });
         await fs.writeFile(path.join(output,'exchange-evidence.json'),JSON.stringify(evidence,null,2)+'\n');
         console.log(JSON.stringify(evidence));
     } finally {

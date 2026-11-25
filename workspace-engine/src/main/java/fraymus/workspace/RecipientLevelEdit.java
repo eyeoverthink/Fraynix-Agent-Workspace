@@ -26,6 +26,24 @@ final class RecipientLevelEdit {
                 .put("aisle",reviewed.getJSONArray("aisle")).put("initialYawDeg",reviewed.getDouble("yawDeg"));
     }
 
+    static JSONObject root(PlacementExchange.Bundle bundle, JSONObject replay, String importedAt) {
+        var link = provenance(bundle,replay);
+        return SpatialScene.parse(bundle.scene().getString("sourceText"),link.getString("rootId"))
+                .put("importedAt",importedAt).put("recipientBranch",link)
+                .put("recipientRevision",0).put("recipientBaseReplay",replay);
+    }
+
+    static JSONObject candidate(JSONObject parent, JSONObject review, String id) {
+        return SpatialScene.parse(definition(parent,review).toString(),revisionId(id));
+    }
+
+    static JSONObject commit(JSONObject candidate, JSONObject parent, JSONObject receipt, String importedAt) {
+        return candidate.put("importedAt",importedAt)
+                .put("recipientBranch",parent.getJSONObject("recipientBranch"))
+                .put("recipientRevision",parent.getInt("recipientRevision")+1)
+                .put("recipientEdit",receipt).put("recipientEditSha256",WorldFrames.hash(receipt));
+    }
+
     static JSONObject plan(JSONObject scene, JSONObject input) {
         SpatialScene.keys(input,"sceneId","xM","zM","yawDeg");
         var provenance = scene.getJSONObject("recipientBranch");

@@ -103,6 +103,58 @@ public class PlacementExchangeTest {
         assertEquals(4.35, parsed.layout().getDouble("routeLengthM"), 1e-10);
     }
 
+    @Test
+    public void refusesALineageWithItsFirstApprovalOmitted() throws Exception {
+        var archive = recipientRevision();
+        archive.getJSONArray("revisions").remove(0);
+        assertThrows(IllegalArgumentException.class, () -> PlacementExchange.inspect(encoded(archive)));
+    }
+
+    @Test
+    public void rejectsFalseMotionInAnEarlierStageEvenWithAReboundApprovalChain() throws Exception {
+        var archive = recipientRevision();
+        var original = PlacementExchange.inspect(Base64.getDecoder().decode(archive.getString("originalArchiveBase64")));
+        var root = RecipientLevelEdit.root(original, archive.getJSONObject("baseReplay"),
+                archive.getString("rootImportedAt"));
+
+        var edits = archive.getJSONArray("revisions");
+        var first = edits.getJSONObject(0);
+        var firstReceipt = first.getJSONObject("receipt");
+        var measured = firstReceipt.getJSONObject("measured");
+        var position = measured.getJSONObject("hit").getJSONArray("samples").getJSONObject(2).getJSONArray("propM");
+        position.put(0, position.getDouble(0) + .25);
+        firstReceipt.put("repeat", WorldFrames.copy(measured));
+        first.put("receiptSha256", WorldFrames.hash(firstReceipt));
+        var candidate = RecipientLevelEdit.candidate(root, firstReceipt.getJSONObject("review"),
+                firstReceipt.getString("reviewId"));
+        var parent = RecipientLevelEdit.commit(candidate, root, firstReceipt, first.getString("importedAt"));
+
+        var second = edits.getJSONObject(1);
+        var secondReceipt = second.getJSONObject("receipt");
+        var originalReview = secondReceipt.getJSONObject("review");
+        var target = originalReview.getJSONArray("targetM");
+        var rebound = RecipientLevelEdit.plan(parent, new JSONObject().put("sceneId", parent.getString("id"))
+                .put("xM", target.getDouble(0)).put("zM", target.getDouble(2))
+                .put("yawDeg", originalReview.getDouble("yawDeg")));
+        String approvalHash = WorldFrames.hash(rebound);
+        secondReceipt.put("review", rebound).put("reviewId", approvalHash);
+        second.put("approvalSha256", approvalHash).put("receiptSha256", WorldFrames.hash(secondReceipt));
+        archive.put("headSceneId", RecipientLevelEdit.revisionId(approvalHash));
+
+        var project = temp.newFolder().toPath();
+        var exchange = new PlacementExchange(project);
+        String id = exchange.open(request(archive)).getString("id");
+        var difference = assertThrows(IllegalStateException.class,
+                () -> exchange.replay(new JSONObject().put("id", id)));
+        assertTrue(difference.getMessage(), difference.getMessage().contains("hit replay differs"));
+        assertFalse(new PlacementExchange(project).latest(new JSONObject()).has("replay"));
+    }
+
+    private static JSONObject recipientRevision() throws Exception {
+        return new JSONObject(Files.readString(Path.of("..", "workspace-desktop", "test", "fixtures",
+                "recipient-revision-exchange", "signal-bay-revision.fraynix-recipient.json")));
+    }
+
     private static void sealReview(JSONObject bundle, JSONObject review) {
         var evidence = bundle.getJSONObject("evidence");
         String reviewId = WorldFrames.hash(review);

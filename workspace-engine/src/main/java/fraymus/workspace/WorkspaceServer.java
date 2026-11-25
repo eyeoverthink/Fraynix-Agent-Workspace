@@ -616,6 +616,7 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/spatial/placement-exchange-open" -> result=spatial.openPlacementExchange(input);
                     case "/api/spatial/placement-exchange-latest" -> result=spatial.latestPlacementExchange(input);
                     case "/api/spatial/recipient-evidence" -> result = spatial.readRecipientEvidence(input);
+                    case "/api/spatial/recipient-edit-export" -> result = spatial.exportRecipientRevision(input);
                     case "/api/spatial/recipient-edit-latest" -> result = spatial.latestRecipientEdit(input);
                     case "/api/spatial/placement-exchange-fork", "/api/spatial/recipient-edit-review",
                          "/api/spatial/recipient-edit-approve", "/api/spatial/recipient-edit-run" -> {

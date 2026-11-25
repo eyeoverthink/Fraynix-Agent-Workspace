@@ -103,7 +103,9 @@ export class PlacementExchangePanel {
                 <section id="exchange-study" hidden>
                     <h3 id="exchange-scene-title"></h3>
                     <p id="exchange-provenance" class="spatial-note"></p>
+                    <p id="exchange-revisions" class="spatial-note"></p>
                     <div class="spatial-task exchange-controls">
+                        <label id="exchange-stage-label" hidden>Revision<select id="exchange-stage"></select></label>
                         <label>Trial<select id="exchange-trial"><option value="hit">Hit</option><option value="miss">Lateral miss</option>
                             <option value="aisle" hidden>Walking aisle</option></select></label>
                     </div>
@@ -126,6 +128,7 @@ export class PlacementExchangePanel {
         this.find('#exchange-replay').onclick = () => this.parent.action(() => this.replay());
         this.find('#exchange-fork').onclick = () => this.parent.action(() => this.fork());
         this.find('#exchange-trial').onchange = () => this.draw(true);
+        this.find('#exchange-stage').onchange = () => this.draw(true);
         this.find('#exchange-sample').oninput = () => this.draw(false);
     }
 
@@ -156,7 +159,7 @@ export class PlacementExchangePanel {
     async load(file) {
         this.tell('Checking the exported scene and archived evidence…');
         try {
-            this.result = await this.parent.call('placement-exchange-open',{base64:await readBase64(file,1_200_000)});
+            this.result = await this.parent.call('placement-exchange-open',{base64:await readBase64(file,1_500_000)});
             this.attachmentMode = false;
             this.render();
             this.parent.notice('Collision evidence bundle opened.');
@@ -166,8 +169,9 @@ export class PlacementExchangePanel {
     }
 
     async replay() {
-        this.tell(this.result.layout
-            ? 'Running both contact trials and aisle clearance twice in local physics…'
+        this.tell(this.result.recipientRevision
+            ? 'Replaying the original level and each approved edit twice…'
+            : this.result.layout ? 'Running both contact trials and aisle clearance twice in local physics…'
             : 'Running the hit and miss twice in local physics…');
         try {
             this.result = await this.parent.call('placement-exchange-replay',{id:this.result.id});
@@ -200,7 +204,7 @@ export class PlacementExchangePanel {
         this.find('#exchange-file').disabled = busy;
         this.find('#exchange-replay').disabled = busy || !this.result?.id;
         const fork = this.find('#exchange-fork');
-        fork.hidden = this.attachmentMode || !this.result?.destinationVerified || !this.result.replay;
+        fork.hidden = this.attachmentMode || !this.result?.destinationVerified || !this.result.replay || Boolean(this.result.recipientRevision);
         fork.disabled = busy || fork.hidden;
     }
 
@@ -222,6 +226,21 @@ export class PlacementExchangePanel {
             ? ' Original destination and existing colliders match the reviewed source.'
             : result.layout ? ' This older bundle supplies the finished scene and aisle.' : '';
         this.find('#exchange-provenance').textContent = provenance+destination;
+        const count = result.recipientRevision || 0;
+        const stage = this.find('#exchange-stage');
+        const prior = stage.options.length === count + 1 ? stage.value : '';
+        stage.replaceChildren();
+        this.find('#exchange-stage-label').hidden = !count;
+        if (count) {
+            stage.add(new Option('Original placement','0'));
+            for (let index=1;index<=count;index++)
+                stage.add(new Option('Local edit '+index+(index===count?' · final':''),String(index)));
+            stage.value = prior || String(count);
+        }
+        this.find('#exchange-revisions').textContent = count
+            ? count+' approved '+(count===1?'edit':'edits')+' · '
+                +(result.replay?'Original and all revisions replayed locally.':'Original evidence and approvals checked.')
+            : '';
         this.find('#exchange-local-key').hidden = !result.replay;
         this.tell(result.replay ? 'Saved local replay matches the archive.'
             : result.replayUnavailable ? 'The saved local replay changed. Run a fresh check.'
@@ -232,6 +251,10 @@ export class PlacementExchangePanel {
     draw(reset) {
         if (!this.result?.id) return;
         const kind = this.find('#exchange-trial').value;
+        const index = Number(this.find('#exchange-stage').value);
+        const previous = index < (this.result.recipientRevision || 0);
+        const current = previous ? this.result.previousStages[index] : this.result;
+        const replay = previous ? this.result.replay?.previous[index] : this.result.replay;
         const aisle = kind === 'aisle';
         this.find('#exchange-contact-key').hidden = aisle;
         this.find('#exchange-scrubber').hidden = aisle;
@@ -239,7 +262,7 @@ export class PlacementExchangePanel {
         const canvas = this.find('#exchange-canvas');
         canvas.setAttribute('aria-label',aisle ? 'Top-down checked walking aisle and level colliders' : 'Top-down probe and prop paths');
         if (aisle) {
-            const {layout, replay} = this.result;
+            const {layout} = current;
             this.find('#exchange-reading').textContent = layout.routeLengthM.toFixed(2)+' m route · '
                 +(layout.radius*2).toFixed(2)+' m wide · '+layout.heightM.toFixed(2)+' m tall';
             this.find('#exchange-metrics').textContent = replay?.comparison.aisle.passed
@@ -248,7 +271,7 @@ export class PlacementExchangePanel {
             drawPlacementLayout(canvas,layout);
             return;
         }
-        const archived = this.result.archived[kind], fresh = this.result.replay?.trials[kind];
+        const archived = current.archived[kind], fresh = replay?.trials[kind];
         const slider = this.find('#exchange-sample');
         slider.max = archived.samples.length-1;
         if (reset) {
@@ -257,15 +280,15 @@ export class PlacementExchangePanel {
         }
         const sample = archived.samples[Number(slider.value)];
         const at = (...v) => v.map(n=>n.toFixed(3)).join(', ');
-        const seconds = (sample.tick*this.result.review.contact.stepS).toFixed(3);
+        const seconds = (sample.tick*current.review.contact.stepS).toFixed(3);
         this.find('#exchange-reading').textContent = seconds+' s · tick '+sample.tick+' · prop X, Z '
             +at(sample.propM[0],sample.propM[2])+' m';
-        const comparison = this.result.replay?.comparison[kind];
+        const comparison = replay?.comparison[kind];
         this.find('#exchange-metrics').textContent = comparison
             ? 'Largest position difference '+(comparison.maxPositionErrorM*1000).toFixed(2)
                 +' mm · largest velocity difference '+comparison.maxVelocityErrorMps.toFixed(3)+' m/s · contacts '
                 +archived.contactTicks+' archived / '+fresh.contactTicks+' local'
             : 'Archived contact steps '+archived.contactTicks+' · maximum prop speed '+archived.maxPropPlanarSpeedMps.toFixed(3)+' m/s';
-        drawTrace(canvas,this.result.review,archived,fresh,sample);
+        drawTrace(canvas,current.review,archived,fresh,sample);
     }
 }
