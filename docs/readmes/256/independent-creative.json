@@ -1,0 +1,65 @@
+{
+  "reader": "FFmpeg and ffprobe",
+  "decodes": [
+    {
+      "name": "without-memory.avi",
+      "cutAtFrame": 10,
+      "before": [
+        41,
+        52,
+        63
+      ],
+      "atCut": [
+        227,
+        69,
+        52
+      ],
+      "frames": 20,
+      "samples": 20000,
+      "exactPcm": true,
+      "privatePictureControlAbsent": true,
+      "containerTags": 0,
+      "sha256": "e190f7489b6e3173956718461d94530ad5ab77dec5bf052712bd6f8e9ed2bb62"
+    },
+    {
+      "name": "with-memory.avi",
+      "cutAtFrame": 14,
+      "before": [
+        41,
+        52,
+        63
+      ],
+      "atCut": [
+        227,
+        69,
+        52
+      ],
+      "frames": 24,
+      "samples": 24000,
+      "exactPcm": true,
+      "privatePictureControlAbsent": true,
+      "containerTags": 0,
+      "sha256": "39cf5b60e863e3acef621d964afa3dd420b02f3046ad6283a34603ec9f676106"
+    },
+    {
+      "name": "family-cut.avi",
+      "cutAtFrame": 14,
+      "before": [
+        41,
+        52,
+        63
+      ],
+      "atCut": [
+        227,
+        69,
+        52
+      ],
+      "frames": 24,
+      "samples": 24000,
+      "exactPcm": true,
+      "privatePictureControlAbsent": true,
+      "containerTags": 0,
+      "sha256": "39cf5b60e863e3acef621d964afa3dd420b02f3046ad6283a34603ec9f676106"
+    }
+  ]
+}

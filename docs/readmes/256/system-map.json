@@ -1,0 +1,83 @@
+{
+  "summary": "Resume a project, apply a verified pacing choice to fresh material, and review a local audience copy.",
+  "modules": [
+    {
+      "title": "Durable creative projects and audience review",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CreativeProjects.java",
+      "note": "docs/obsidian/264-creative-project-continuity.md"
+    },
+    {
+      "title": "Checked timeline storage and playback",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MediaEditStore.java",
+      "note": "docs/obsidian/264-creative-project-continuity.md"
+    },
+    {
+      "title": "Project card and review controls",
+      "source": "workspace-desktop/renderer/creative-project.js",
+      "note": "docs/obsidian/264-creative-project-continuity.md"
+    },
+    {
+      "title": "Timeline integration",
+      "source": "workspace-desktop/renderer/timeline-editor.js",
+      "note": "docs/obsidian/264-creative-project-continuity.md"
+    },
+    {
+      "title": "Offline desktop acceptance",
+      "source": "workspace-desktop/test/creative-project-integration.cjs",
+      "note": "docs/obsidian/264-creative-project-continuity.md"
+    },
+    {
+      "title": "Independent AVI and PCM checks",
+      "source": "workspace-desktop/test/creative-project-ffmpeg.cjs",
+      "note": "docs/obsidian/264-creative-project-continuity.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The project reopens with its next intention, approved cut and saved pacing",
+      "path": "docs/readmes/256/project-resumed.png"
+    },
+    {
+      "title": "The same request retains a longer opening when saved pacing is enabled",
+      "path": "docs/readmes/256/pacing-review.png"
+    },
+    {
+      "title": "The family review shows the actual output and its two included sources",
+      "path": "docs/readmes/256/family-copy-review.png"
+    },
+    {
+      "title": "The checked audience copy is exported locally",
+      "path": "docs/readmes/256/family-copy-exported.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Desktop measurements",
+      "path": "docs/readmes/256/creative-evidence.json"
+    },
+    {
+      "title": "Independent decode",
+      "path": "docs/readmes/256/independent-creative.json"
+    },
+    {
+      "title": "Family export",
+      "path": "docs/readmes/256/family-cut.avi"
+    },
+    {
+      "title": "Pacing disabled",
+      "path": "docs/readmes/256/without-memory.avi"
+    },
+    {
+      "title": "Pacing enabled",
+      "path": "docs/readmes/256/with-memory.avi"
+    },
+    {
+      "title": "Files",
+      "path": "docs/readmes/256/FILE_TREE.md"
+    },
+    {
+      "title": "Reproduction",
+      "path": "docs/publication256/plan.md"
+    }
+  ]
+}

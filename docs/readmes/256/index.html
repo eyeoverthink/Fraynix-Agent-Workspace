@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 256 · Resume a project, teach pacing and prepare an audience copy</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Resume a project, teach pacing and prepare an audience copy</h1>
+<p>The same fresh footage yielded different cut timing after the project remembered an approved pacing choice.</p>
+<nav><a href="../../../README-256.md">App guide</a><a href="../255/index.html">Edition 255</a>
+<a href="../../publication256/plan.md">Reproduction</a><a href="creative-evidence.json" download>Download measurements</a>
+<a href="without-memory.avi" download>Download control AVI</a><a href="family-cut.avi" download>Download family AVI</a>
+<a href="#system">System files</a></nav>
+<p>Listen to the source selected for the family edit.</p><audio controls preload="metadata" src="fresh-source.wav"></audio>
+<figure><img src="project-resumed.png" alt="The project reopens with its next intention, approved cut and saved pacing"><figcaption>The project reopens with its next intention, approved cut and saved pacing</figcaption></figure>
+<figure><img src="pacing-review.png" alt="The same request retains a longer opening when saved pacing is enabled"><figcaption>The same request retains a longer opening when saved pacing is enabled</figcaption></figure>
+<figure><img src="family-copy-review.png" alt="The family review shows the actual output and its two included sources"><figcaption>The family review shows the actual output and its two included sources</figcaption></figure>
+<figure><img src="family-copy-exported.png" alt="The checked audience copy is exported locally"><figcaption>The checked audience copy is exported locally</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Resume a project, apply a verified pacing choice to fresh material, and review a local audience copy.", "modules": [{"title": "Durable creative projects and audience review", "source": "workspace-engine/src/main/java/fraymus/workspace/CreativeProjects.java", "note": "docs/obsidian/264-creative-project-continuity.md"}, {"title": "Checked timeline storage and playback", "source": "workspace-engine/src/main/java/fraymus/workspace/MediaEditStore.java", "note": "docs/obsidian/264-creative-project-continuity.md"}, {"title": "Project card and review controls", "source": "workspace-desktop/renderer/creative-project.js", "note": "docs/obsidian/264-creative-project-continuity.md"}, {"title": "Timeline integration", "source": "workspace-desktop/renderer/timeline-editor.js", "note": "docs/obsidian/264-creative-project-continuity.md"}, {"title": "Offline desktop acceptance", "source": "workspace-desktop/test/creative-project-integration.cjs", "note": "docs/obsidian/264-creative-project-continuity.md"}, {"title": "Independent AVI and PCM checks", "source": "workspace-desktop/test/creative-project-ffmpeg.cjs", "note": "docs/obsidian/264-creative-project-continuity.md"}], "screenshots": [{"title": "The project reopens with its next intention, approved cut and saved pacing", "path": "docs/readmes/256/project-resumed.png"}, {"title": "The same request retains a longer opening when saved pacing is enabled", "path": "docs/readmes/256/pacing-review.png"}, {"title": "The family review shows the actual output and its two included sources", "path": "docs/readmes/256/family-copy-review.png"}, {"title": "The checked audience copy is exported locally", "path": "docs/readmes/256/family-copy-exported.png"}], "evidence": [{"title": "Desktop measurements", "path": "docs/readmes/256/creative-evidence.json"}, {"title": "Independent decode", "path": "docs/readmes/256/independent-creative.json"}, {"title": "Family export", "path": "docs/readmes/256/family-cut.avi"}, {"title": "Pacing disabled", "path": "docs/readmes/256/without-memory.avi"}, {"title": "Pacing enabled", "path": "docs/readmes/256/with-memory.avi"}, {"title": "Files", "path": "docs/readmes/256/FILE_TREE.md"}, {"title": "Reproduction", "path": "docs/publication256/plan.md"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 30518, "sha256": "d3c63b627bb8f97b821ead366abcdfef4eaeb6cf62c8cfa5a8a778d9f42f010c", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/264-creative-project-continuity.canvas", "bytes": 1137, "sha256": "be69076b43ee5b4298b0a447124ac5c983eccb311343c68cfed8d7c0d35856b7", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/264-creative-project-continuity.md", "bytes": 326, "sha256": "fbf075ef6ce6cf4f757014f5a2aadc2fe7ec5754538046cc60d5bfdee30f97e6", "hashKind": "utf8-lf"}, {"path": "docs/publication256/plan.md", "bytes": 3632, "sha256": "ce1d9fe9690670c9099638284f7f4b81ebbbea584638bdda9744350301076c1d", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 137142, "sha256": "2adde00731f22aa9f42e62d105bff4e2366f0fac178027e9a05976964732ee65", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/creative-project.js", "bytes": 22026, "sha256": "28eb9f565dd1c489e0f4c1af9cc52116a279e83bccf0966c089c7e8e5a4c0334", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/media-workshop.css", "bytes": 7988, "sha256": "38a499d025e11b6218b4554634640d0affea0fcbc849d89d730c4f3f338d5483", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/timeline-editor.js", "bytes": 13906, "sha256": "f7095cb72de43de9c40d05271e11067842314217242adefa096fed918b769762", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/creative-project-ffmpeg.cjs", "bytes": 3742, "sha256": "8801e79f541bb860ef86a8e9c3bc5d185c0f5f5dd9adc59ef0b07ca04a326178", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/creative-project-integration.cjs", "bytes": 19243, "sha256": "3a712fc266a9eb2bcb7b43bb5baeefd76aafeab8d503e076b044702a055bcf27", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/CreativeProjects.java", "bytes": 21779, "sha256": "ab6cca6eff3e60ddc42e910683753e7205fc64473a3f36e1f55dfd9b2d581989", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/MediaEditStore.java", "bytes": 15886, "sha256": "1f85b0ac668be6450a6d9f23e9ee36efcf172b54b14f4de47a0690d11a5288b7", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 160187, "sha256": "c2b6fa013ed67d5990751514ebc97dcc87effdabe373b247647e3657dd8216cf", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

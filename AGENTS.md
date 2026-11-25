@@ -1,3 +1,7 @@
+## Edition 256 — Resume a project, teach pacing and prepare an audience copy
+
+2026-11-25. Media Timeline resumes an approved project, a pending draft and the next intention. Java derives a new two-shot cut from fresh sources with a project-scoped opening choice taught during review. Independent FFmpeg checks measured the same cut at frame 10 without memory and 14 with it. A one-off correction stayed in its cut. Saving the shorter opening changed the next cut to frame 6 after restart. Undo restored frame 14 and a sibling project used its own reference. A changed audience or changed source bytes refused export. The approved family AVI retained its exact video and audio without private source metadata, and the master reopened. See README-256.md and docs/publication256/plan.md.
+
 ## Edition 255 — Edit and verify a multi-track media timeline
 
 2026-11-25. Java combines checked imported PNG, MJPEG AVI and PCM WAV with verified native media on picture, overlay and two audio lanes. The desktop edits whole-frame timing, overlay placement and gain, previews a saved frame or mix, and exports AVI, WAV, PNG and timeline JSON. Independent FFmpeg checks proved frame cuts, alpha layer boundaries, and exact PCM for two revisions. Blender reopened both, restart preserved exact bytes, and changed source data refused replay. See README-255.md and docs/publication255/plan.md.
