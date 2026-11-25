@@ -1034,6 +1034,11 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='export'){const result=await api('/api/maps/export',{id:input.args.id});return nativeExports.save('playable-map','json',result.text,{id:input.args.id});}
       if(!['example','reference-cases','reference-example','dungeons','inspect-image','import-image','reference','list','read','run','snapshot','manual','control','stop','pause','resume','from-procedural','import-package'].includes(input.command))throw Error('Unknown map operation');return api('/api/maps/'+input.command,input.args||{});
     }
+    case 'creative': {
+      const result=await api('/api/creative',{command:input.command,args:input.args||{}});
+      if (input.command==='locate-share') shell.showItemInFolder(result.path);
+      return result;
+    }
     case 'timeline': {
       const args=input.args||{};
       const command=input.command;

@@ -276,6 +276,14 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/timeline-editor-integration.cjs build/portable-smoke/timeline-edit
+      - name: Verify creative project pacing and share approval across restarts
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/creative-project-integration.cjs build/portable-smoke/creative-project
+      - name: Verify creative project continuity on a virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/creative-project-integration.cjs build/portable-smoke/creative-project
       - name: Verify registered library assets and held-out refusal
         if: runner.os != 'Linux'
         run: node workspace-desktop/test/library-prop-integration.cjs build/portable-smoke/library-prop

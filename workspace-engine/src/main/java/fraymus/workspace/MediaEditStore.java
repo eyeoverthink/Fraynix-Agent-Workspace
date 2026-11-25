@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -93,6 +94,38 @@ final class MediaEditStore {
     }
 
     synchronized JSONObject render(JSONObject input) throws Exception {
+        return render(input, true);
+    }
+
+    synchronized JSONObject renderPreview(JSONObject input) throws Exception {
+        return render(input, false);
+    }
+
+    synchronized JSONObject verifiedRevision(String id) throws Exception {
+        return check(id);
+    }
+
+    synchronized JSONObject assetSummary(String id) throws IOException {
+        return readAsset(id);
+    }
+
+    synchronized byte[] verifiedVideo(JSONObject record) throws IOException {
+        return output(record, "avi");
+    }
+
+    synchronized JSONObject playback(String id) throws Exception {
+        var verified = check(id);
+        var clip = readClip(output(verified, "avi"), EditableMedia.MAX_FRAMES, false);
+        var frames = new JSONArray();
+        var encoder = Base64.getEncoder();
+        for (byte[] frame : clip.frames()) frames.put(encoder.encodeToString(frame));
+        byte[] sound = wav(clip.pcm());
+        if (!Arrays.equals(sound, output(verified, "wav")) || clip.pcm().length != clip.frames().size() * PCM_PER_FRAME)
+            throw new IOException("The rendered picture and sound no longer share the approved timeline.");
+        return new JSONObject().put("frames", frames).put("fps", FPS).put("wav", encoder.encodeToString(sound));
+    }
+
+    private JSONObject render(JSONObject input, boolean publish) throws Exception {
         SpatialScene.keys(input,"title","strips","parent");
         String title=SpatialScene.text(input,"title",90);
         String parent=input.optString("parent","");
@@ -136,7 +169,7 @@ final class MediaEditStore {
         Files.createDirectories(edits);
         if (Files.exists(path(edits,id,"receipt"),LinkOption.NOFOLLOW_LINKS)) {
             var previous=check(id);
-            retainLatest(id);
+            if (publish) retainLatest(id);
             return display(previous);
         }
         var film=new EditableMedia(strips).render();
@@ -151,7 +184,7 @@ final class MediaEditStore {
         }
         var result=new JSONObject().put("id",id).put("definition",plan).put("metrics",film.metrics()).put("files",manifests);
         AgentFiles042.saveChecked(path(edits,id,"receipt"),result);
-        retainLatest(id);
+        if (publish) retainLatest(id);
         return display(check(id));
     }
 

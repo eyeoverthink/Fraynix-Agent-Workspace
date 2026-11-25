@@ -1,4 +1,5 @@
 import {readBase64} from './media-workshop.js';
+import {CreativeProjectPanel} from './creative-project.js';
 
 const lanes={PICTURE:'Picture',OVERLAY:'Overlay',AUDIO1:'Audio 1',AUDIO2:'Audio 2'};
 const formats={avi:'AVI',wav:'WAV',png:'PNG',json:'Timeline JSON'};
@@ -38,6 +39,15 @@ export class TimelinePanel {
             <audio id="timeline-audio" controls hidden></audio>
           </div>`;
         document.querySelector('#canvas-surface').before(this.root);
+        this.project=new CreativeProjectPanel(request,{
+            getCut:()=>this.revision,
+            getAssets:()=>this.assets,
+            openCut:id=>this.run(async()=>{
+                this.present(await this.call('open',{id}),'Opened and verified this project cut.');
+                this.find('#timeline-render').scrollIntoView({block:'nearest'});
+            })
+        });
+        this.find('#timeline-add').before(this.project.root);
         this.find('#timeline-back').onclick=back;
         this.asset=this.find('#timeline-asset');
         this.lane=this.find('#timeline-lane');
@@ -132,11 +142,15 @@ export class TimelinePanel {
 
     show(visible) {
         this.root.hidden=!visible;
-        if (!visible) this.clearAudio();
+        if (!visible) {
+            this.clearAudio();
+            this.project.close();
+        }
         if (visible && !this.initialized) this.run(async()=>{
             await this.reloadAssets();
             const latest=await this.call('latest');
             if (latest.id) this.present(latest,'Reopened and verified the saved timeline.');
+            await this.project.load();
             this.initialized=true;
         });
     }
@@ -157,6 +171,7 @@ export class TimelinePanel {
             return new Option(asset.source.title,asset.id);
         }));
         if (this.assets.some(asset=>asset.id===previous)) this.asset.value=previous;
+        this.project.refreshSources();
     }
 
     sourceLength(asset,lane) { return isAudio(lane)?asset.soundFrames:asset.pictureFrames; }
@@ -181,6 +196,7 @@ export class TimelinePanel {
         this.find('#timeline-time').textContent=result.metrics.posterFrame+' · '+(result.metrics.posterFrame/24).toFixed(3)+' s';
         this.redraw();
         this.tell(message);
+        if (this.project.state) this.project.drawHome();
     }
 
     draftChanged() {

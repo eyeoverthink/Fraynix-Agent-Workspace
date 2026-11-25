@@ -120,3 +120,29 @@
 #timeline-scrub-label { max-width: 640px; margin: 8px 0; }
 #timeline-status { color: #a8dfcc; overflow-wrap: anywhere; font-size: 12px; }
 #timeline-audio { margin: 10px 0; max-width: 100%; }
+
+.creative-project { padding: 13px 15px; margin: 12px 0; border: 1px solid #39565e; border-radius: 12px; background: #192a30; }
+.creative-head, .creative-summary { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.creative-head h2 { flex: 1 1 160px; font-size: 16px; margin: 4px 0; }
+#timeline-editor .creative-head select { max-width: min(100%, 24ch); }
+#creative-status, #creative-journey p { margin: 5px 0 8px; font-size: 12px; overflow-wrap: anywhere; }
+#creative-status { color: #addfcd; }
+#creative-journey h3 { margin: 5px 0 8px; font-size: 14px; }
+#creative-journey details { border-top: 1px solid #39565e; padding-top: 8px; margin-top: 9px; }
+#creative-journey summary { cursor: pointer; font-weight: 600; }
+.creative-summary { margin: 5px 0; font-size: 12px; }
+#creative-draft, #creative-share { border: 1px solid #496962; background: #182a29; padding: 10px; margin-top: 9px; border-radius: 8px; }
+.creative-next-intent, .creative-cut-time { color: #e2fcf0; font-weight: 650; }
+#timeline-editor .creative-check { display: flex; align-items: center; gap: 6px; }
+.creative-prompt { flex: 1 0 min(100%, 400px); }
+.creative-prompt input { width: 100%; box-sizing: border-box; }
+#creative-reference-cards { display: flex; gap: 8px; flex-wrap: wrap; }
+#creative-reference-cards[hidden] { display: none; }
+#creative-reference-cards button { display: grid; gap: 5px; max-width: 205px; white-space: normal; }
+#creative-reference-cards img { width: 100%; border-radius: 4px; }
+#creative-share fieldset { margin-top: 8px; border: 1px solid #496962; border-radius: 6px; }
+#creative-share fieldset label { margin: 5px 0; }
+.creative-play-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 5px 0; }
+#creative-share-player img, #creative-draft-player img { width: min(100%, 400px); display: block; border-radius: 5px; }
+
+#timeline-editor form[hidden] { display: none; }

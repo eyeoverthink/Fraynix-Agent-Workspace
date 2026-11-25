@@ -41,6 +41,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final SpriteWorkshop media;
     private final MotionMedia motionMedia;
     private final MediaEditStore mediaEdit;
+    private final CreativeProjects creativeProjects;
     private final TileWorkshop tiles;
     private final MapStore maps;
     private final PerceptionStore perception;
@@ -112,6 +113,7 @@ public final class WorkspaceServer implements AutoCloseable {
         try{agentRuntime=new AgentRuntime042(project,brain,this::agentFacts042,this::detachHost042,persistentHost);agency=new Agency043(project,store,learning,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();},(kind,evidence)->agentRuntime.record043(kind,evidence),this::sharedBusy043,true);var domain=new Domain044(this::call044,store);agency.install044(domain);agency.installRelayArchive(domain::relayArchive);agency.installArchive112(task->{var bound=task.getJSONObject("completion044").getJSONObject("javaWorkflow");String id=task.getJSONObject("context044").getString("ownedWorkflowId");if(!id.equals(bound.getString("id")))throw new IllegalStateException("Original chat/workflow owner changed");var proof=workflows.verifyArchive110(id);var current=workflows.read(id);for(String k:List.of("status","audit","report","savedSkill","dataBinding"))if(bound.has(k)&&(!current.has(k)||!new JSONObject().put("v",bound.get(k)).similar(new JSONObject().put("v",current.get(k)))))throw new IllegalStateException("Original chat workflow completion changed: "+k);proof.remove("verificationNanos");return proof;});agency.installRampArchive(rampMission::historyEvidence);creation044=new CreationPlanner044(project,goals,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();});}catch(Exception e){close();throw new IOException("Java agent state needs attention; originals retained",e);}
         motionMedia = new MotionMedia(project,scenes);
         mediaEdit = new MediaEditStore(project,motionMedia);
+        creativeProjects = new CreativeProjects(project, mediaEdit);
         colliderRouting = new ColliderRouting(project,this::proposeExperiment,spatial);
         referenceChart = new ReferenceChart(project, store, measurements, agency);
         costs087=new CalibrationCosts087(project,goals);
@@ -743,6 +745,10 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/timeline/open" -> result = mediaEdit.open(input);
                     case "/api/timeline/frame" -> result = mediaEdit.frame(input);
                     case "/api/timeline/export" -> result = mediaEdit.export(input);
+                    case "/api/creative" -> {
+                        SpatialScene.keys(input, "command", "args");
+                        result = creativeProjects.handle(input.getString("command"), input.getJSONObject("args"));
+                    }
                     case "/api/motion-media/sources" -> result = motionMedia.sources(input);
                     case "/api/motion-media/build" -> result = motionMedia.build(input);
                     case "/api/motion-media/latest" -> result = motionMedia.latest(input);
