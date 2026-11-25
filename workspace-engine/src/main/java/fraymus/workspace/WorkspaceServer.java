@@ -612,6 +612,13 @@ public final class WorkspaceServer implements AutoCloseable {
                     }
                     case "/api/spatial/placement-latest" -> result=spatial.latestPlacement(input);
                     case "/api/spatial/placement-export" -> result=spatial.exportPlacement(input);
+                    case "/api/spatial/placement-exchange-open" -> result=spatial.openPlacementExchange(input);
+                    case "/api/spatial/placement-exchange-latest" -> result=spatial.latestPlacementExchange(input);
+                    case "/api/spatial/placement-exchange-replay" -> {
+                        if (agency.busy() || sharedBusy043() || goals.workflowReserved() || goals.ownsSpatial())
+                            throw new IllegalStateException("Finish active work before replaying a contact test.");
+                        result=spatial.replayPlacementExchange(input);
+                    }
                     case "/api/spatial/prop-review" -> result=spatial.reviewProp(input);
                     case "/api/spatial/prop-copy" -> {
                         if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before copying a prop.");

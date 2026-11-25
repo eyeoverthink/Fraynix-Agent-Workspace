@@ -112,6 +112,11 @@ final class SpatialGlb {
 
     static byte[] verifiedExport(JSONObject scene) throws Exception {
         byte[] encoded=exportScene(scene);
+        verifyScene(scene,encoded);
+        return encoded;
+    }
+
+    static void verifyScene(JSONObject scene, byte[] encoded) throws Exception {
         var restored=SpatialScene.parse(importScene(encoded).toString(),scene.getString("id"));
         var originals=scene.getJSONArray("objects");
         var boxes=restored.getJSONArray("objects");
@@ -141,7 +146,6 @@ final class SpatialGlb {
             double actual=restored.getJSONObject("scaleCheck").getDouble("convertedLengthM");
             if (Math.abs(expected-actual)>EPS) throw new IllegalStateException("GLB export changed the scale reference.");
         }
-        return encoded;
     }
 
     static SpatialVisualMesh asset(JSONObject scene,JSONObject body) {

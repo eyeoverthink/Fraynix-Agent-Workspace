@@ -1078,7 +1078,8 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         if(!currentSpatial)throw Error('Select a verified reconstructed prop in Spatial first.');
         return api('/api/spatial/placement-review',{goal:input.args.goal,...currentSpatial});
       }
-      if(['placement-latest','placement-approve','placement-replay'].includes(input.command))
+      if(['placement-latest','placement-approve','placement-replay','placement-exchange-open',
+        'placement-exchange-latest','placement-exchange-replay'].includes(input.command))
         return api('/api/spatial/'+input.command,input.args||{});
       if(input.command==='placement-run'){
         const result=await api('/api/spatial/placement-run',input.args);

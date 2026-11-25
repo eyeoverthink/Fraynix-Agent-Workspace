@@ -87,9 +87,13 @@ final class SpatialPlacement {
                 .put("sourceOverlap", proof.getDouble("heldOutIou")).put("colliderM", body.getJSONArray("size"))
                 .put("targetM", new JSONArray(new double[]{x, size[1] / 2, z})).put("yawDeg", yaw)
                 .put("rotation", new JSONArray(new double[]{0,Math.sin(angle),0,Math.cos(angle)}))
-                .put("contact", new JSONObject().put("probeSpeedMps", SPEED).put("probeMassKg", PROBE_MASS)
-                        .put("ticksPerTrial", TICKS).put("stepS", BulletRamp.DT)
-                        .put("trialCount",4).put("policy", "moving-sphere-with-lateral-miss"));
+                .put("contact", contactSpec());
+    }
+
+    static JSONObject contactSpec() {
+        return new JSONObject().put("probeSpeedMps", SPEED).put("probeMassKg", PROBE_MASS)
+                .put("ticksPerTrial", TICKS).put("stepS", BulletRamp.DT)
+                .put("trialCount",4).put("policy", "moving-sphere-with-lateral-miss");
     }
 
     static JSONObject definition(JSONObject source, JSONObject review) {

@@ -13,12 +13,13 @@ public final class SpatialStore implements AutoCloseable {
     private final SpatialCarryStore carries;
     private final TileWorkshop library;
     private final SpatialPlacement placements;
+    private final PlacementExchange exchange;
     final HeightStudyStore heightStudies;
     private final Path file,nativeDir;private final LinkedHashMap<String,JSONObject> scenes=new LinkedHashMap<>(),runs=new LinkedHashMap<>();
     private final ExecutorService worker=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"spatial-native-owner");t.setDaemon(true);return t;});
     private final AtomicBoolean cancelled=new AtomicBoolean();private String active="";private JSONObject current;private volatile boolean closed;
     public SpatialStore(Path project) throws Exception { this(project, new TileWorkshop(project)); }
-    SpatialStore(Path project, TileWorkshop library) throws Exception {this.library=library;placements=new SpatialPlacement(project);carries=new SpatialCarryStore(project);heightStudies=new HeightStudyStore(project);file=project.resolve("spatial/state.json");nativeDir=project.resolve("native");if(Files.exists(file)){var data=new JSONObject(Files.readString(file));for(Object raw:data.getJSONArray("scenes")){var s=(JSONObject)raw;validateDefinition(s);scenes.put(s.getString("id"),s);}for(Object raw:data.getJSONArray("runs")){var r=(JSONObject)raw;if(Set.of("executing","prepared").contains(r.getString("status")))r.put("status","interrupted").put("reason","Process ended; resume creates a separate native attempt from the immutable import");runs.put(r.getString("id"),r);}persist();}}
+    SpatialStore(Path project, TileWorkshop library) throws Exception {this.library=library;placements=new SpatialPlacement(project);exchange=new PlacementExchange(project);carries=new SpatialCarryStore(project);heightStudies=new HeightStudyStore(project);file=project.resolve("spatial/state.json");nativeDir=project.resolve("native");if(Files.exists(file)){var data=new JSONObject(Files.readString(file));for(Object raw:data.getJSONArray("scenes")){var s=(JSONObject)raw;validateDefinition(s);scenes.put(s.getString("id"),s);}for(Object raw:data.getJSONArray("runs")){var r=(JSONObject)raw;if(Set.of("executing","prepared").contains(r.getString("status")))r.put("status","interrupted").put("reason","Process ended; resume creates a separate native attempt from the immutable import");runs.put(r.getString("id"),r);}persist();}}
     private static JSONObject copy(JSONObject x){return new JSONObject(x.toString());}
     private Path glbFile(String id) {
         if (!UUID.fromString(id).toString().equals(id)) throw new IllegalArgumentException("Invalid spatial import identity.");
@@ -329,6 +330,19 @@ public final class SpatialStore implements AutoCloseable {
         var receipt=new JSONObject().put("review",review).put("approvalSha256",digest).put("verify",checked).put("replay",replay);
         return retainScene(scene.put("importedAt",Instant.now().toString()).put("propCopy",receipt)
                 .put("propCopySha256",WorldFrames.hash(receipt)));
+    }
+
+    synchronized JSONObject openPlacementExchange(JSONObject input) throws Exception {
+        return exchange.open(input);
+    }
+
+    synchronized JSONObject latestPlacementExchange(JSONObject input) throws Exception {
+        return exchange.latest(input);
+    }
+
+    synchronized JSONObject replayPlacementExchange(JSONObject input) throws Exception {
+        available();
+        return exchange.replay(input);
     }
 
     synchronized JSONObject reviewPlacement(JSONObject input) throws Exception {

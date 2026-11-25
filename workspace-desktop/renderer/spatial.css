@@ -117,3 +117,17 @@
 #placement-result { color: #a2ebcd; }
 #placement-file { font-size: 11px; }
 .placement-content .spatial-task { padding: 0; }
+
+#placement-exchange-dialog { width: min(730px, calc(100vw - 24px)); }
+.exchange-controls { padding: 0; align-items: center; margin-bottom: 10px; }
+.exchange-controls select { padding: 5px 8px; }
+.exchange-key { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; margin-bottom: 5px; }
+.exchange-key span:nth-child(1) { color: #8bcde6; }
+.exchange-key span:nth-child(2) { color: #ffc47d; }
+#exchange-canvas { display: block; width: 100%; height: auto; border: 1px solid #45616a; border-radius: 7px; }
+.exchange-scrubber { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+.exchange-scrubber input { flex: 1; }
+#exchange-status, #exchange-metrics { color: #a2ebcd; }
+#exchange-scene-title { margin: 8px 0 3px; }
+#exchange-provenance { padding: 0; }
+#exchange-reading, #exchange-metrics { margin: 5px 0 0; font-size: 12px; }
