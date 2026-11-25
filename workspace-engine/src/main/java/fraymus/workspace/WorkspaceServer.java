@@ -685,11 +685,17 @@ public final class WorkspaceServer implements AutoCloseable {
                         if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before fitting a prop.");
                         result = spatial.traceLibrary(input);
                     }
-                    case "/api/spatial/browser-trace" -> {
+                    case "/api/spatial/browser-trace", "/api/spatial/browser-placement-source" -> {
                         SpatialScene.keys(input,"source");
                         if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before tracing a graphic.");
-                        result=spatial.traceBrowser(input.getString("source").getBytes(StandardCharsets.UTF_8));
+                        byte[] bytes = input.getString("source").getBytes(StandardCharsets.UTF_8);
+                        if (route.endsWith("placement-source")) {
+                            if (goals.workflowReserved() || goals.ownsSpatial())
+                                throw new IllegalStateException("Finish active work before preparing a placement source.");
+                            result = spatial.traceBrowserForPlacement(bytes);
+                        } else result = spatial.traceBrowser(bytes);
                     }
+                    case "/api/spatial/browser-placement-latest" -> result = spatial.resumeBrowserPlacement(input);
                     case "/api/spatial/mesh-stl" -> {
                         SpatialScene.keys(input, "id", "objectId");
                         var scene=spatial.read(input.getString("id"));

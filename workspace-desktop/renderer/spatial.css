@@ -141,5 +141,12 @@
 #placement-level-fields[hidden], #placement-level-preview[hidden] { display: none; }
 #placement-level-fields > p, #placement-level-preview figcaption { color: var(--muted); font-size: 12px; }
 #placement-level-fields .spatial-bind { padding-inline: 0; }
-#placement-level-preview canvas { display: block; width: 100%; height: auto; border-radius: 5px; }
+#placement-level-preview canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: min(24vh, 172px);
+    object-fit: contain;
+    border-radius: 5px;
+}
 #placement-level-preview figcaption { margin-top: 6px; }

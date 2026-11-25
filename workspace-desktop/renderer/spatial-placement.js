@@ -18,6 +18,7 @@ export class SpatialPlacementPanel {
             <div class="placement-content">
                 <p id="placement-request"></p>
                 <form id="placement-level-fields" hidden>
+                    <p id="placement-source-choice"></p>
                     <p>Choose the destination and mark a straight player aisle on its floor. Use metres.</p>
                     <div class="spatial-bind">
                         <label>Destination level<select id="placement-destination" required></select></label>
@@ -52,6 +53,7 @@ export class SpatialPlacementPanel {
                     <button id="placement-replay" hidden>Replay collision</button>
                     <button id="placement-export" hidden>Save scene and evidence</button>
                     <button id="placement-play" hidden>Save offline playable level</button>
+                    <button id="placement-glb" hidden>Save GLB for Blender</button>
                 </div>
             </div>`;
         document.body.append(this.dialog);
@@ -61,6 +63,7 @@ export class SpatialPlacementPanel {
         this.find('#placement-replay').onclick = () => this.parent.action(() => this.replay());
         this.find('#placement-export').onclick = () => this.parent.action(() => this.save());
         this.find('#placement-play').onclick = () => this.parent.action(() => this.save('play'));
+        this.find('#placement-glb').onclick = () => this.parent.action(() => this.save('glb'));
         this.find('#placement-destination').onchange = () => this.parent.action(() => this.updateFloors());
         this.find('#placement-level-fields').onsubmit = event => {
             event.preventDefault();
@@ -103,11 +106,28 @@ export class SpatialPlacementPanel {
         }
     }
 
-    async setupLevel(goal) {
+    async openForBrowser(saved) {
+        this.show();
+        try {
+            await this.setupLevel('Place the verified browser model in this level.', saved);
+        } catch (error) {
+            this.tell(this.errorMessage(error));
+        }
+    }
+
+    async setupLevel(goal, saved) {
         const {scene, object} = this.parent;
         if (!scene?.reconstruction || !object?.visualMesh)
             throw Error('Select a verified reconstructed prop in Spatial first.');
+        if (saved && (saved.objectId !== object.id || saved.source.sceneId !== scene.id
+                || saved.meshSha256 !== object.visualMesh))
+            throw Error('The browser model selection changed. Resume its original placement source.');
         this.goal = goal;
+        this.expectedSource = {sceneId:scene.id,objectId:object.id};
+        this.find('#placement-source-choice').textContent = saved
+            ? 'Selected source · '+scene.title+' · '+Object.keys(saved.reference.crops).length+' browser views · '
+                +(100*saved.reference.heldOutIou).toFixed(1)+'% held-out overlap'
+            : 'Selected source · '+scene.title;
         const destination = this.find('#placement-destination');
         const records = await this.parent.call('list');
         destination.replaceChildren(new Option('Choose an existing Spatial level',''));
@@ -139,7 +159,7 @@ export class SpatialPlacementPanel {
         this.tell('Checking the prop footprint and player aisle…');
         try {
             this.result = await this.parent.call('placement-level-review',{
-                goal:this.goal, destinationId:this.find('#placement-destination').value,
+                goal:this.goal, expectedSource:this.expectedSource, destinationId:this.find('#placement-destination').value,
                 floorId:this.find('#placement-floor').value, targetM:['x','z'].map(coordinate),
                 yawDeg:coordinate('yaw'), aisle:['startX','startZ','endX','endZ'].map(coordinate)
             });
@@ -219,7 +239,12 @@ export class SpatialPlacementPanel {
                 ['Clear aisle',result.layout.routeLengthM.toFixed(2)+' m · '+(2*result.layout.radius).toFixed(2)+' m wide'],
                 ['Aisle start → exit',review.aisle.slice(0,2).join(', ')+' → '+review.aisle.slice(2).join(', ')+' m (X, Z)']
             ] : [];
-            for (const [key,value] of [...destination,
+            const reference = review.browserReference;
+            const capture = reference ? [
+                ['Browser views',Object.keys(reference.crops).length+' retained captures'],
+                ['Declared width',reference.declaredWidthM+' m']
+            ] : [];
+            for (const [key,value] of [...destination,...capture,
                 ['Source prop',review.sourceTitle],['Checked view',(100*review.sourceOverlap).toFixed(1)+'% overlap'],
                 ['Placement X, Y, Z',xyz+' m'],['Yaw',review.yawDeg+'°'],
                 ['Collider',review.colliderM.map(m=>Number(m.toFixed(4))).join(' × ')+' m']
@@ -233,6 +258,7 @@ export class SpatialPlacementPanel {
         for (const selector of ['#placement-open-scene','#placement-replay','#placement-export'])
             this.find(selector).hidden = !hasResult;
         this.find('#placement-play').hidden = !hasResult || !level;
+        this.find('#placement-glb').hidden = !hasResult || !level;
         const measurement = result?.evidence?.measured;
         this.find('#placement-result').textContent = measurement
             ? 'Native hit at tick '+measurement.hit.firstContactTick+' · prop peaked at '
@@ -287,7 +313,8 @@ export class SpatialPlacementPanel {
             kind ??= this.result.review.destination ? 'evidence' : undefined;
             const receipt = await this.parent.call('placement-export',{reviewId:this.result.reviewId,kind});
             this.find('#placement-file').textContent = 'Saved ' + receipt.path;
-            this.tell(kind === 'play' ? 'Offline playable level saved.' : 'Scene, GLB and contact evidence saved together.');
+            const message = {play:'Offline playable level saved.',glb:'Checked GLB saved for Blender.'}[kind];
+            this.tell(message || 'Scene, GLB and contact evidence saved together.');
             await this.parent.announce(this.find('#placement-status').textContent+' '+receipt.path);
         } catch (error) {
             this.tell(this.errorMessage(error));

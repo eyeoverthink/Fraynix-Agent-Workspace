@@ -516,6 +516,42 @@ public final class SpatialStore implements AutoCloseable {
         return retainReconstruction(source,BrowserShapeTrace.FORMAT);
     }
 
+    synchronized JSONObject traceBrowserForPlacement(byte[] bytes) throws Exception {
+        available();
+        if (bytes.length == 0 || bytes.length > SpatialReconstruction.LIMIT)
+            throw new IllegalArgumentException("Choose a silhouette set up to 1.2 MB.");
+        String format = new JSONObject(new String(bytes, StandardCharsets.UTF_8)).optString("format");
+        if (!Set.of(BrowserViewTrace.FORMAT, BrowserViewTrace.FORMAT_ELEVATED).contains(format))
+            throw new IllegalArgumentException("Placement needs registered browser views and a separate held-out view.");
+        var source = traceBrowser(bytes);
+        var binding = browserPlacementBinding(source);
+        placements.saveBrowserSource(binding);
+        return binding;
+    }
+
+    synchronized JSONObject resumeBrowserPlacement(JSONObject input) throws Exception {
+        SpatialScene.keys(input);
+        var saved = placements.latestBrowserSource();
+        if (saved.isEmpty()) return saved;
+        var source = read(saved.getJSONObject("source").getString("sceneId"));
+        if (!browserPlacementBinding(source).similar(saved))
+            throw new IllegalStateException("The saved browser placement source no longer matches the original reconstruction.");
+        return saved;
+    }
+
+    private static JSONObject browserPlacementBinding(JSONObject source) {
+        var reference = SpatialLevelPlacement.browserReference(source);
+        if (reference == null) throw new IllegalStateException("A verified browser reconstruction is required.");
+        String hash = source.getJSONObject("reconstruction").getString("meshSha256");
+        for (Object raw : source.getJSONArray("objects")) {
+            var body = (JSONObject) raw;
+            if (hash.equals(body.optString("visualMesh")) && body.getDouble("massKg") > 0)
+                return new JSONObject().put("source", SpatialPropCopy.binding(source))
+                        .put("objectId", body.getString("id")).put("meshSha256", hash).put("reference", reference);
+        }
+        throw new IllegalStateException("The checked browser mesh is missing.");
+    }
+
     synchronized JSONObject traceLibrary(JSONObject input) throws Exception {
         var original = library.registeredViews(input);
         return retainReconstruction(original.toString().getBytes(StandardCharsets.UTF_8), BrowserViewTrace.FORMAT_LIBRARY);

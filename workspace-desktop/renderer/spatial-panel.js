@@ -46,7 +46,8 @@ export class SpatialPanel {
     <div class="spatial-task"><button id="browser-pick-front">Pick front</button><button id="browser-pick-side">Pick side</button>
      <button id="browser-pick-top">Pick top</button><button id="browser-pick-heldOut">Pick held-out 45°</button><button id="browser-top-clear">Remove top</button><button id="browser-views-clear">Clear picks</button></div>
     <form id="browser-views-form" class="spatial-task"><label>Front width · m<input id="browser-views-width" type="number" min=".1" max="5" step="any" value=".5" required></label>
-     <label>Held-out elevation<select id="browser-views-elevation"><option value="0">Level</option><option value="60">60° above</option></select></label><button id="browser-views-build">Fit and verify model</button><button type="button" id="browser-views-export">Export checked GLB</button></form>
+     <label>Held-out elevation<select id="browser-views-elevation"><option value="0">Level</option><option value="60">60° above</option></select></label><button id="browser-views-build">Fit and verify model</button><button id="browser-views-place">Fit and review placement</button>
+     <button type="button" id="browser-views-resume">Resume browser placement</button><button type="button" id="browser-views-export">Export checked GLB</button></form>
     <p id="browser-views-status" class="spatial-note" role="status">Pick a graphic for each view.</p>
    </details>
    <details class="spatial-detail" id="spatial-browser-trace"><summary>Trace a browser graphic</summary>
@@ -135,15 +136,28 @@ export class SpatialPanel {
   };
   $('browser-views-form').onsubmit=event=>{
    event.preventDefault();
+   const forPlacement=event.submitter?.id==='browser-views-place';
    this.action(async()=>{
     const status=$('browser-views-status');
     status.textContent='Fitting registered views, then checking the held-out view…';
     try {
-     const scene=await this.call('trace-browser-views',{views:this.browserViews,widthM:$('browser-views-width').valueAsNumber,heldOutElevationDeg:Number($('browser-views-elevation').value)});
-     await this.open(scene.id);
+     const result=await this.call('trace-browser-views',{
+      views:this.browserViews,widthM:$('browser-views-width').valueAsNumber,
+      heldOutElevationDeg:Number($('browser-views-elevation').value),forPlacement
+     });
+     if(forPlacement)await this.openBrowserPlacement(result);
+     else await this.open(result.id);
     }catch(error){status.textContent=error.message;}
    });
   };
+  $('browser-views-resume').onclick=()=>this.action(async()=>{
+   const status=$('browser-views-status');
+   try{
+    const saved=await this.call('browser-placement-latest');
+    if(!saved.source){status.textContent='Fit and verify a browser model for placement first.';return;}
+    await this.openBrowserPlacement(saved);
+   }catch(error){status.textContent=error.message;}
+  });
   $('browser-views-export').onclick=()=>this.action(()=>this.exportGlb());
   $('spatial-trace-form').onsubmit=event=>{
    event.preventDefault();
@@ -259,6 +273,8 @@ export class SpatialPanel {
   $('browser-views-clear').disabled=this.busy||!Object.keys(this.browserViews).length;
   $('browser-top-clear').disabled=this.busy||!this.browserViews.top;
   $('browser-views-build').disabled=this.busy||editingBlocked||!this.browserViews.front||!this.browserViews.side||!this.browserViews.heldOut;
+  $('browser-views-place').disabled=$('browser-views-build').disabled;
+  $('browser-views-resume').disabled=this.busy||editingBlocked;
   $('browser-views-export').disabled=this.busy||editingBlocked||this.scene?.reconstruction?.policy!=='browser-registered-orthographic';
   $('spatial-trace-export').disabled=this.busy||editingBlocked||this.scene?.reconstruction?.policy!=='browser-silhouette-slab';
   $('spatial-export-glb').disabled=this.busy||!this.scene||this.worldMode||Boolean(this.scene.translationAnimation);
@@ -312,6 +328,11 @@ export class SpatialPanel {
  async openLibraryViews(front){
   await this.open();
   await this.libraryViews.open(front);
+ }
+ async openBrowserPlacement(saved){
+  await this.open(saved.source.sceneId);
+  if(this.object?.id!==saved.objectId)await this.selectObject(saved.objectId);
+  await this.placement.openForBrowser(saved);
  }
  async open(id){if(!id&&this.worldMode&&this.worldReopen){this.activate('spatial');await this.worldReopen();this.resize();return;}this.worldMode=false;this.poseMode=false;this.removePoseTargets();this.evaluationMode=false;this.activate('spatial');this.ensureRenderer();const list=await this.call('list');$('spatial-scenes').replaceChildren(...list.scenes.map(s=>{const o=document.createElement('option');o.value=s.id;o.textContent=s.title;return o;}));const selected=id||this.scene?.id||list.scenes.at(-1)?.id;if(selected)await this.select(selected,list);if($('spatial-exchange').open)await this.refreshBlueprints();this.resize();this.controls();}
  async openWorld(scene){this.meshEdit.bind(null,null);this.timeline.bind(null,null);this.carry.clear();this.showReconstruction();this.activate('spatial');this.ensureRenderer();this.scene=scene;this.worldMode=true;this.poseMode=true;this.pushMode=false;this.evaluationMode=false;this.plan=null;this.snapshot=null;this.removePoseTargets();this.forecast(null);this.trace=[];this.drawTrace();this.paint(scene.objects);$('spatial-objects').replaceChildren(...scene.objects.map(o=>{const item=document.createElement('option');item.value=o.id;item.textContent=o.label+' · '+(o.massKg>0?'dynamic':'static');return item;}));this.object=scene.objects.find(o=>o.massKg>0);$('spatial-objects').value=this.object.id;this.paintSelection();this.resize();this.controls();}

@@ -163,6 +163,22 @@ final class SpatialPlacement {
         if (!approved(id)) SpriteWorkshop.replace(file(id,".approved"), YES);
     }
 
+    void saveBrowserSource(JSONObject binding) throws IOException {
+        Files.createDirectories(directory);
+        var record = new JSONObject().put("binding", binding).put("sha256", WorldFrames.hash(binding));
+        SpriteWorkshop.replace(directory.resolve("browser-source.json"), record.toString().getBytes(StandardCharsets.UTF_8));
+    }
+
+    JSONObject latestBrowserSource() throws IOException {
+        Path file = directory.resolve("browser-source.json");
+        if (!Files.exists(file, LinkOption.NOFOLLOW_LINKS)) return new JSONObject();
+        var saved = new JSONObject(new String(SpriteWorkshop.read(file, 4096), StandardCharsets.UTF_8));
+        var binding = saved.getJSONObject("binding");
+        if (!WorldFrames.hash(binding).equals(saved.getString("sha256")))
+            throw new IllegalStateException("The saved browser placement source changed.");
+        return binding;
+    }
+
     private Path file(String id, String extension) {
         if (!id.matches("[0-9a-f]{64}")) throw new IllegalArgumentException("Invalid placement review ID.");
         return directory.resolve(id + extension);

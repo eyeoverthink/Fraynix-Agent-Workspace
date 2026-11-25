@@ -10,8 +10,10 @@ const os = require('node:os');
 const path = require('node:path');
 const { promisify } = require('node:util');
 const { launch } = require('./calibration-integration.cjs');
+const {verifyPlacement} = require('./browser-placement-integration.cjs');
 
 const withTop = process.argv[3] === 'top';
+const withPlacement = process.argv[3] === 'placement';
 const fixture = path.join(__dirname, 'fixtures', withTop ? 'browser-top' : 'browser-views');
 const digest = bytes => createHash('sha256').update(bytes).digest('hex');
 const roles = withTop ? ['front','side','top','level','elevated'] : ['front','side','held-out','wrong'];
@@ -21,8 +23,15 @@ async function main() {
   const output = path.resolve(process.argv[2] || 'build/visual-browser-views227');
   const project = await fs.mkdtemp(path.join(os.tmpdir(), 'Fraynix browser views '));
   await fs.mkdir(output,{recursive:true});
+  let imageDirectory = fixture;
+  if(withPlacement && process.env.FRAYNIX_TEST_BLENDER){
+    imageDirectory = path.join(output,'registered-views');
+    await promisify(execFile)(process.env.FRAYNIX_TEST_BLENDER,['--background','--factory-startup','--disable-autoexec',
+      '--python-exit-code','17','--python',path.join(__dirname,'browser-views-blender.py'),'--','create',imageDirectory],
+    {timeout:90000,windowsHide:true});
+  }
   const images = Object.fromEntries(await Promise.all(roles.map(async name=>[name,
-    await fs.readFile(path.join(fixture,name+'.png'))])));
+    await fs.readFile(path.join(imageDirectory,name+'.png'))])));
   const server=http.createServer((req,res)=>{
     const name=req.url.split('?')[0].slice(1);
     if(name.endsWith('.png')&&Object.hasOwn(images,name.slice(0,-4))){
@@ -82,6 +91,11 @@ async function main() {
     await page.locator('#spatial-tab').click();
     await page.locator('#spatial-browser-views summary').click();
     assert(await page.locator('#browser-views-build').isDisabled());
+    if(withPlacement){
+      await verifyPlacement({app,page,pick,status,capture,api,project,output,extra,launch,
+        stopSource:()=>new Promise((resolve,reject)=>server.close(error=>error?reject(error):resolve()))});
+      return;
+    }
     if(withTop){
       await pick('front','front','front');
       await pick('side','side','side');

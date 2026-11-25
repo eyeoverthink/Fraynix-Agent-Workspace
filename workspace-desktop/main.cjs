@@ -1076,7 +1076,9 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       }
       if(input.command==='placement-review'||input.command==='placement-level-review'){
         if(!currentSpatial)throw Error('Select a verified reconstructed prop in Spatial first.');
-        const {goal,destinationId,floorId,targetM,yawDeg,aisle}=input.args;
+        const {goal,destinationId,floorId,targetM,yawDeg,aisle,expectedSource}=input.args;
+        if(expectedSource && (expectedSource.sceneId!==currentSpatial.sceneId || expectedSource.objectId!==currentSpatial.objectId))
+          throw Error('The selected source changed. Reopen its placement setup.');
         const level=input.command==='placement-level-review'?{destinationId,floorId,targetM,yawDeg,aisle}:{};
         return api('/api/spatial/'+input.command,{goal,...level,...currentSpatial});
       }
@@ -1092,6 +1094,8 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         const data=await api('/api/spatial/placement-export',input.args);
         const source={sceneId:data.sceneId,evidenceSha256:data.evidenceSha256};
         if(input.args.kind==='play') return nativeExports.save('verified-spatial-level','html',
+          Buffer.from(data.base64,'base64'),source,data.sha256);
+        if(input.args.kind==='glb') return nativeExports.save('verified-spatial-level-glb','glb',
           Buffer.from(data.base64,'base64'),source,data.sha256);
         if(input.args.kind==='evidence') return nativeExports.save('verified-spatial-level-evidence','fraynix-level.json',
           Buffer.from(data.base64,'base64'),source,data.sha256);
@@ -1123,16 +1127,18 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         if(!surfacesVisible.browser)throw Error('Show the in-app browser to pick a graphic.');
         return browser.pickGraphic();
       }
+      if(input.command==='browser-placement-latest') return api('/api/spatial/browser-placement-latest',{});
       if(input.command==='trace-browser-views'){
-        const {widthM,views,heldOutElevationDeg=0}=input.args;
+        const {widthM,views,heldOutElevationDeg=0,forPlacement=false}=input.args;
         const extended=Boolean(views.top)||heldOutElevationDeg!==0;
         const source=JSON.stringify(extended?
           {format:'fraynix.browser-registered-views-v3',widthM,views,heldOutElevationDeg}:
           {format:'fraynix.browser-registered-views-v2',widthM,views});
-        const scene=await api('/api/spatial/browser-trace',{source});
+        const route=forPlacement===true?'browser-placement-source':'browser-trace';
+        const result=await api('/api/spatial/'+route,{source});
         currentSpatial=null;
         await refresh();
-        return scene;
+        return result;
       }
       if(input.command==='trace-browser'){
         if(!surfacesVisible.browser)throw Error('Show the in-app browser before capturing a graphic.');

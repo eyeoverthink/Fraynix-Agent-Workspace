@@ -44,9 +44,29 @@ final class SpatialLevelPlacement {
                 .put("aisle", new JSONArray(aisle)).put("yawDeg", yaw)
                 .put("targetM", new JSONArray(new double[]{target[0], height + review.getJSONArray("colliderM").getDouble(1) / 2, target[1]}))
                 .put("rotation", new JSONArray(new double[]{0, Math.sin(angle), 0, Math.cos(angle)}));
+        var reference = browserReference(source);
+        if (reference != null) review.put("browserReference", reference);
         var scene = SpatialScene.parse(definition(source, destination, review).toString(), sceneId(WorldFrames.hash(review)));
         playable(scene, review);
         return review;
+    }
+
+    static JSONObject browserReference(JSONObject source) {
+        var proof = source.optJSONObject("reconstruction");
+        if (proof == null || !BrowserViewTrace.POLICY.equals(proof.optString("policy")) || proof.has("viewSource"))
+            return null;
+        var crops = new JSONObject();
+        var views = proof.getJSONObject("views");
+        for (String role : views.keySet()) {
+            // Share capture identities, without embedding the source page address or pixels.
+            crops.put(role, new JSONObject(views.getJSONObject(role), "tag", "pixels", "pngSha256"));
+        }
+        return new JSONObject().put("sourceSha256", proof.getString("sourceSha256"))
+                .put("reconstructionSha256", source.getString("reconstructionSha256"))
+                .put("declaredWidthM", proof.getDouble("declaredWidthM"))
+                .put("heldOutIou", proof.getDouble("heldOutIou"))
+                .put("heldOutElevationDeg", proof.optInt("heldOutElevationDeg", 0))
+                .put("crops", crops);
     }
 
     static String sceneId(String reviewId) {
@@ -60,6 +80,11 @@ final class SpatialLevelPlacement {
     static JSONObject definition(JSONObject source, JSONObject destination, JSONObject review) {
         if (!SpatialPropCopy.binding(destination).similar(review.getJSONObject("destination")))
             throw new IllegalStateException("The approved destination revision changed.");
+        if (review.has("browserReference")) {
+            var checked = browserReference(source);
+            if (checked == null || !checked.similar(review.getJSONObject("browserReference")))
+                throw new IllegalStateException("The approved browser reference changed.");
+        }
         var prop = SpatialPlacement.placedBody(source, review, propKey(review));
         var original = new JSONObject(destination.getString("sourceText"));
         original.getJSONArray("objects").put(prop);
@@ -152,6 +177,8 @@ final class SpatialLevelPlacement {
         if ("play".equals(kind)) {
             bytes = SpriteWorkshop.portableGame(new JSONObject().put("layout", layout).put("evidenceSha256", receipt),
                     "spatial-level-play.js", "mountSpatialLevel");
+        } else if ("glb".equals(kind)) {
+            bytes = SpatialGlb.verifiedExport(scene);
         } else if ("evidence".equals(kind)) {
             byte[] glb = SpatialGlb.verifiedExport(scene);
             var document = new JSONObject().put("format", "fraynix.verified-spatial-level-v1")
@@ -160,7 +187,7 @@ final class SpatialLevelPlacement {
                     .put("glbSha256", MapDefinition.sha(glb)).put("glbBase64", Base64.getEncoder().encodeToString(glb));
             bytes = document.toString().getBytes(StandardCharsets.UTF_8);
         } else {
-            throw new IllegalArgumentException("Choose a playable level or an evidence bundle.");
+            throw new IllegalArgumentException("Choose a playable level, GLB, or an evidence bundle.");
         }
         return new JSONObject().put("sceneId", scene.getString("id")).put("evidenceSha256", receipt)
                 .put("base64", Base64.getEncoder().encodeToString(bytes)).put("sha256", MapDefinition.sha(bytes));

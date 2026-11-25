@@ -32,7 +32,7 @@ jobs:
   launch:
     name: ${{ matrix.target }}
     runs-on: ${{ matrix.runner }}
-    timeout-minutes: 15
+    timeout-minutes: 22
     strategy:
       fail-fast: false
       matrix:
@@ -291,6 +291,14 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/spatial-level-integration.cjs build/portable-smoke/spatial-level
+      - name: Verify browser reconstruction handoff and existing-level export
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/browser-views-integration.cjs build/portable-smoke/browser-placement placement
+      - name: Verify browser reconstruction handoff and export on a virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/browser-views-integration.cjs build/portable-smoke/browser-placement placement
       - if: always()
         uses: actions/upload-artifact@v4
         with:
