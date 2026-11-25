@@ -16,6 +16,7 @@ export class ImageAssemblyPanel {
         this.additional = this.form.elements.namedItem('additional');
         this.additionalHeading = this.form.elements.namedItem('additionalHeadingDeg');
         this.additionalElevation = this.form.elements.namedItem('additionalElevationDeg');
+        this.cleanOccludedMask = this.form.elements.namedItem('cleanOccludedMask');
         this.add = this.root.querySelector('#image-assembly-add');
         this.replay = this.root.querySelector('#image-assembly-replay');
         this.assets = [];
@@ -82,6 +83,7 @@ export class ImageAssemblyPanel {
                 const angles = receipt.binding.input.cameraAngles;
                 const extra = receipt.binding.input.additionalCamera;
                 this.customAngles.checked = Boolean(angles) && !extra;
+                this.cleanOccludedMask.checked = Boolean(receipt.binding.input.cleanOccludedMask);
                 this.additionalHeading.value = extra?.headingDeg ?? this.additionalHeading.defaultValue;
                 this.additionalElevation.value = extra?.elevationDeg ?? this.additionalElevation.defaultValue;
                 for (const [key,value] of Object.entries(angles ?? CAMERA_ANGLES))
@@ -107,6 +109,8 @@ export class ImageAssemblyPanel {
         this.additional.required = occluded;
         this.additionalHeading.disabled = !occluded;
         this.additionalElevation.disabled = !occluded;
+        this.cleanOccludedMask.disabled = !occluded;
+        this.root.querySelector('#image-assembly-mask-cleanup').hidden = !occluded;
         this.root.querySelector('#image-assembly-guide-label').textContent = occluded?'Occluded side PNG':'Fitting side PNG';
         this.root.querySelector('#image-assembly-side-heading-label').textContent = occluded?'Occluded heading · °':'Fitting heading · °';
         this.root.querySelector('#image-assembly-side-elevation-label').textContent = occluded?'Occluded elevation · °':'Fitting elevation · °';
@@ -133,7 +137,9 @@ export class ImageAssemblyPanel {
         if (!registered) return receipt.measured.length+' props · floor contact verified twice';
         if (registered.occludedSide) {
             const overlap = Math.round(100*registered.occludedSide.compositeIou);
-            return receipt.measured.length+' full poses verified · occluded side '+overlap+'% match · '+this.poseLabels(registered);
+            const cleanup = registered.occludedSide.maskCleanup;
+            const corrected = cleanup ? ' · '+(cleanup.removedSpecks+cleanup.filledHoles)+' isolated pixels corrected' : '';
+            return receipt.measured.length+' full poses verified · occluded side '+overlap+'% match'+corrected+' · '+this.poseLabels(registered);
         }
         if (registered.guideSha256)
             return receipt.measured.length+' full poses verified · '+this.poseLabels(registered)+' · floor contact verified twice';
@@ -184,6 +190,7 @@ export class ImageAssemblyPanel {
                 request.additionalPng = await this.readPng(this.additional.files[0]);
                 request.additionalCamera = {headingDeg:this.additionalHeading.valueAsNumber,
                     elevationDeg:this.additionalElevation.valueAsNumber};
+                if (this.cleanOccludedMask.checked) request.cleanOccludedMask = true;
             }
             if (recoverYaw) request.recoverYaw = true;
             const scene = await this.spatial.call('image-assembly',request);

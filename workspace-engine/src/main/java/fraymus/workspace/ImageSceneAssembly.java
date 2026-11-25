@@ -47,10 +47,13 @@ final class ImageSceneAssembly {
 
     static Plan plan(JSONObject input, byte[] png, byte[] guide, byte[] additional,
                      byte[] witness, Function<String,JSONObject> source) throws Exception {
-        SpatialScene.keys(input,"title","widthM","props","recoverYaw","cameraAngles","additionalCamera");
+        SpatialScene.keys(input,"title","widthM","props","recoverYaw","cameraAngles","additionalCamera","cleanOccludedMask");
         if ((additional!=null)!=input.has("additionalCamera") ||
                 (additional!=null && (guide==null || witness==null || !input.has("cameraAngles"))))
             throw new IllegalArgumentException("Occluded recovery needs four registered images and all three side camera angles.");
+        boolean cleanOccludedMask = input.has("cleanOccludedMask");
+        if (cleanOccludedMask && (additional==null || !Boolean.TRUE.equals(input.get("cleanOccludedMask"))))
+            throw new IllegalArgumentException("Mask cleanup is available only for the occluded side image in four-view recovery.");
         if (input.has("cameraAngles") && guide==null)
             throw new IllegalArgumentException("Custom camera angles require full-pose recovery.");
         boolean recoverYaw = input.has("recoverYaw");
@@ -97,7 +100,7 @@ final class ImageSceneAssembly {
             } else {
                 tilt = ImageTiltRegistration.locate(image,guide,additional,witness,cell,props,
                         input.has("cameraAngles")?input.getJSONObject("cameraAngles"):null,
-                        input.has("additionalCamera")?input.getJSONObject("additionalCamera"):null);
+                        input.has("additionalCamera")?input.getJSONObject("additionalCamera"):null,cleanOccludedMask);
                 centers = tilt.poses().stream().map(pose->new double[]{cols/2.0+pose.x()/cell,rows/2.0+pose.z()/cell}).toList();
             }
         }
@@ -216,7 +219,7 @@ final class ImageSceneAssembly {
         return 0xff000000 | Integer.parseInt(value.substring(1),16);
     }
 
-    static JSONArray verify(JSONObject scene, Path nativeDir, boolean verifyRotation, boolean releaseTilt) throws Exception {
+    static JSONArray verify(JSONObject scene, Path nativeDir, boolean verifyRotation, boolean releaseTilt, boolean refinedTilt) throws Exception {
         var lifted = WorldFrames.copy(scene);
         var objects = lifted.getJSONArray("objects");
         for (int i=1;i<objects.length();i++) {
@@ -227,7 +230,7 @@ final class ImageSceneAssembly {
         try (var world = new SpatialPhysics(lifted,nativeDir)) {
             var floor = world.bodies.get(objects.getJSONObject(0).getString("id"));
             int[] contacts = new int[objects.length()];
-            int ticks=releaseTilt?TICKS*2:TICKS;
+            int ticks=refinedTilt?TICKS*4:releaseTilt?TICKS*2:TICKS;
             var initialErrors = new long[objects.length()];
             if (releaseTilt) for (int i=1;i<objects.length();i++) {
                 var authored = objects.getJSONObject(i);
@@ -251,14 +254,19 @@ final class ImageSceneAssembly {
                 var pos = body.getPhysicsLocation();
                 var expected = authored.getJSONArray("position");
                 double speed = body.getLinearVelocity().length();
-                if (contacts[i]==0 || !touchesFloor(world,floor,body) || speed>.03
+                boolean onFloor = touchesFloor(world,floor,body);
+                boolean supportedBox = refinedTilt && !onFloor && supportedAtRest(body,authored,objects.getJSONObject(0));
+                if (contacts[i]==0 || !(onFloor || supportedBox) || speed>.03
                         || !releaseTilt && (Math.abs(pos.y-expected.getDouble(1))>.01
                         || Math.hypot(pos.x-expected.getDouble(0),pos.z-expected.getDouble(2))>.01))
-                    throw new IllegalStateException("The native floor check did not settle "+authored.getString("label")+".");
+                    throw new IllegalStateException("The native floor check did not settle "+authored.getString("label")+
+                            (refinedTilt ? " (first contact tick "+contacts[i]+", final support "+(onFloor || supportedBox)+
+                                    ", speed "+speed+" m/s)." : "."));
                 var trace = new JSONObject().put("sourceId",authored.getString("sourceId"))
                         .put("contactTick",contacts[i]).put("ticks",ticks)
                         .put("centerMm",new JSONArray(new long[]{Math.round(pos.x*1000),Math.round(pos.y*1000),Math.round(pos.z*1000)}))
                         .put("speedMmps",Math.round(speed*1000));
+                if (refinedTilt) trace.put("terminalSupport",onFloor?"native-pair":"resting-box");
                 if (verifyRotation) {
                     double error=rotationError(body,authored.getJSONArray("rotation"));
                     if (error>1 && !releaseTilt)
@@ -271,6 +279,23 @@ final class ImageSceneAssembly {
             }
         }
         return result;
+    }
+
+    private static boolean supportedAtRest(PhysicsRigidBody body, JSONObject authored, JSONObject floor) {
+        if (body.getAngularVelocity().length()>.05) return false;
+        var extent = SpatialScene.vector(authored.getJSONArray("size"),20);
+        var floorSize = SpatialScene.vector(floor.getJSONArray("size"),20);
+        var floorCenter = SpatialScene.vector(floor.getJSONArray("position"),20);
+        var rotation = body.getPhysicsRotation().toRotationMatrix();
+        var center = body.getPhysicsLocation();
+        // A sleeping box can sit flush with the floor without a fresh pair-test point.
+        double bottom = center.y-extent(new double[]{rotation.get(1,0),rotation.get(1,1),rotation.get(1,2)},extent);
+        double top = floorCenter[1]+floorSize[1]/2;
+        double reachX = extent(new double[]{rotation.get(0,0),rotation.get(0,1),rotation.get(0,2)},extent);
+        double reachZ = extent(new double[]{rotation.get(2,0),rotation.get(2,1),rotation.get(2,2)},extent);
+        return Math.abs(bottom-top)<=.001
+                && Math.abs(center.x-floorCenter[0])+reachX<=floorSize[0]/2
+                && Math.abs(center.z-floorCenter[2])+reachZ<=floorSize[2]/2;
     }
 
     private static double rotationError(PhysicsRigidBody body, JSONArray target) {

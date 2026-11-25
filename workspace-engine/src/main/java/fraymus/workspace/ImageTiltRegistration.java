@@ -18,6 +18,7 @@ final class ImageTiltRegistration {
     static final String POLICY = "registered-silhouettes-tilt-v3";
     static final String CALIBRATED_POLICY = "registered-silhouettes-tilt-v4";
     static final String OCCLUSION_POLICY = "registered-silhouettes-tilt-v5";
+    static final String CLEAN_OCCLUSION_POLICY = "registered-silhouettes-tilt-v6";
     static final int TILT_LIMIT = 30;
     private static final double D = Math.sqrt(.5);
     private static final double FIT_AWAY = Math.sqrt(.75);
@@ -31,6 +32,8 @@ final class ImageTiltRegistration {
     private static final double MIN_EXCLUSIVE_FRACTION = .35;
     private static final double MIN_EXCLUSIVE_SUPPORT = .85;
     private static final double MIN_OVERLAP_FRACTION = .03;
+    private static final double MAX_MASK_CORRECTION_FRACTION = .09;
+    private static final int MAX_MASK_CORRECTIONS = 8192;
 
     private record Camera(double heading, double elevation, double sine, double cosine,
                           double rise, double run, boolean legacy) {
@@ -125,11 +128,14 @@ final class ImageTiltRegistration {
         final Prop prop;
         final List<Silhouette> overhead, guide;
         final Camera camera;
+        final boolean fineResolution;
         final HashMap<Angles,Candidate[]> samples=new HashMap<>();
 
-        Fit(int w, int h, double cell, Prop prop, List<Silhouette> overhead, List<Silhouette> guide, Camera camera) {
+        Fit(int w, int h, double cell, Prop prop, List<Silhouette> overhead, List<Silhouette> guide, Camera camera,
+            boolean fineResolution) {
             this.w=w; this.h=h; this.cell=cell; this.prop=prop; this.overhead=overhead; this.guide=guide;
             this.camera=camera;
+            this.fineResolution=fineResolution;
             n=overhead.size();
         }
 
@@ -183,6 +189,7 @@ final class ImageTiltRegistration {
                     for (int roll=-TILT_LIMIT;roll<=TILT_LIMIT;roll+=15)
                         coarse.add(sample(new Angles(yaw,pitch,roll)));
             var result=new Candidate[n*n];
+            int[] refinement = fineResolution ? new int[]{8,4,2,2,1,1} : new int[]{8,4,2,2};
             for (int pair=0;pair<result.length;pair++) {
                 final int index=pair;
                 var seeds=new ArrayList<Candidate>();
@@ -193,7 +200,7 @@ final class ImageTiltRegistration {
                     if (seed.score()<seeds.get(0).score()-.14 || refined.size()==3) break;
                     if (refined.stream().anyMatch(other->angularDistance(other.pose.angles,seed.pose.angles)<16)) continue;
                     var winner=new Candidate[]{seed};
-                    for (int step:new int[]{8,4,2,2}) {
+                    for (int step:refinement) {
                         neighbors(winner[0].pose.angles,step, angle->{
                             var proposal=sample(angle)[index];
                             if (proposal!=null && proposal.score()>winner[0].score()) winner[0]=proposal;
@@ -205,6 +212,37 @@ final class ImageTiltRegistration {
                     if (result[pair]==null || choice.score()>result[pair].score()) result[pair]=choice;
             }
             return result;
+        }
+
+        Candidate refineProjection(Candidate approximate, int pair) {
+            Candidate[] best = {measureAt(approximate.pose,pair)};
+            if (best[0]==null) return approximate;
+            for (int step : new int[]{2,1}) {
+                var pose = best[0].pose;
+                double distance = cell*step/3;
+                for (int dx=-1; dx<=1; dx++) for (int dy=-1; dy<=1; dy++) for (int dz=-1; dz<=1; dz++) {
+                    var trial = measureAt(new Pose(pose.x+dx*distance,pose.y+dy*distance,pose.z+dz*distance,pose.angles),pair);
+                    if (trial!=null && trial.score()>best[0].score()) best[0]=trial;
+                }
+                var shifted = best[0].pose;
+                neighbors(shifted.angles,step,angles->{
+                    var trial = measureAt(new Pose(shifted.x,shifted.y,shifted.z,angles),pair);
+                    if (trial!=null && trial.score()>best[0].score()) best[0]=trial;
+                });
+            }
+            return best[0];
+        }
+
+        private Candidate measureAt(Pose pose, int pair) {
+            if (pose.y<0 || pose.y>15) return null;
+            var top = project(w,h,cell,prop.mesh(),pose,null);
+            var side = project(w,h,cell,prop.mesh(),pose,camera);
+            if (top==null || side==null) return null;
+            var overheadMatch = compare(top,overhead.get(pair/n),w,h,0,0);
+            var sideMatch = compare(side,guide.get(pair%n),w,h,0,0);
+            if (overheadMatch.iou()<MIN_OVERHEAD_IOU || sideMatch.iou()<MIN_WITNESS_IOU ||
+                    sideMatch.centerErrorPx()>MAX_WITNESS_CENTER_PX) return null;
+            return new Candidate(pose,overheadMatch,sideMatch);
         }
 
         double gap(Candidate winner, int pair) {
@@ -234,7 +272,8 @@ final class ImageTiltRegistration {
     }
 
     static Result locate(BufferedImage overhead, byte[] guideBytes, byte[] additionalBytes, byte[] witnessBytes,
-                         double cell, List<Prop> props, JSONObject cameraAngles, JSONObject additionalAngles) throws Exception {
+                         double cell, List<Prop> props, JSONObject cameraAngles, JSONObject additionalAngles,
+                         boolean cleanOccludedMask) throws Exception {
         var cameras = Cameras.read(cameraAngles);
         Camera additionalCamera = null;
         if (additionalAngles!=null) {
@@ -257,7 +296,7 @@ final class ImageTiltRegistration {
         var fit=new Fit[n];
         var choices=new Candidate[n][];
         for (int i=0;i<n;i++) {
-            fit[i]=new Fit(w,h,cell,props.get(i),first,second,fittingCamera);
+            fit[i]=new Fit(w,h,cell,props.get(i),first,second,fittingCamera,cleanOccludedMask);
             choices[i]=fit[i].solve();
         }
         var assignment=new JointAssignment();
@@ -266,9 +305,11 @@ final class ImageTiltRegistration {
             throw new IllegalArgumentException("The fitting views do not uniquely identify the selected props.");
         var poses=new ArrayList<Pose>();
         var gaps=new double[n];
+        var pairs=new int[n];
         for (int i=0;i<n;i++) {
             var candidate=assignment.best[i];
             int pair=Arrays.asList(choices[i]).indexOf(candidate);
+            pairs[i]=pair;
             if (candidate.top.iou()<MIN_OVERHEAD_IOU || candidate.guide.iou()<MIN_WITNESS_IOU ||
                     candidate.guide.centerErrorPx()>MAX_WITNESS_CENTER_PX)
                 throw new IllegalArgumentException(String.format(java.util.Locale.ROOT,
@@ -277,11 +318,30 @@ final class ImageTiltRegistration {
             gaps[i]=fit[i].gap(candidate,pair);
             if (gaps[i]<MIN_POSE_GAP)
                 throw new IllegalArgumentException("The fitting views leave "+props.get(i).label()+"'s tilt or heading ambiguous.");
+            if (cleanOccludedMask) {
+                candidate = fit[i].refineProjection(candidate,pair);
+                assignment.best[i] = candidate;
+            }
             poses.add(candidate.pose);
         }
 
-        JSONObject occlusion = additionalBytes==null ? null : checkOccludedSide(
-                guideBytes,w,h,cell,props,poses,cameras.side);
+        JSONObject occlusion = null;
+        if (additionalBytes!=null) {
+            var rawObserved = readOccludedForeground(guideBytes,w,h);
+            var cleanup = cleanOccludedMask ? removeIsolatedNoise(rawObserved,w,h) : null;
+            if (cleanup!=null) {
+                for (int i=0;i<n;i++) {
+                    var refined = refineWithPartialSide(fit[i],assignment.best[i],pairs[i],i,props,poses,
+                            cameras.side,cleanup.mask);
+                    gaps[i] = Math.min(gaps[i],fit[i].gap(refined,pairs[i]));
+                    if (gaps[i]<MIN_POSE_GAP)
+                        throw new IllegalArgumentException("The fitting views leave "+props.get(i).label()+"'s tilt or heading ambiguous.");
+                    assignment.best[i]=refined;
+                    poses.set(i,refined.pose);
+                }
+            }
+            occlusion = checkOccludedSide(rawObserved,w,h,cell,props,poses,cameras.side,cleanup);
+        }
 
         // The withheld camera cannot select, move or rotate any fitted prop.
         var witness=readParts(witnessBytes,w,h,n,"Held-out view");
@@ -327,7 +387,8 @@ final class ImageTiltRegistration {
                     .put("witnessEstimatedAnglesDeg",head[0].values()).put("witnessCorrectionDeg",angularDifference)
                     .put("witnessCorrectionGain",gain));
         }
-        String policy = occlusion!=null ? OCCLUSION_POLICY : cameras.calibrated ? CALIBRATED_POLICY : POLICY;
+        String policy = cleanOccludedMask ? CLEAN_OCCLUSION_POLICY :
+                occlusion!=null ? OCCLUSION_POLICY : cameras.calibrated ? CALIBRATED_POLICY : POLICY;
         var evidence = new JSONObject().put("policy",policy).put("guideSha256",MapDefinition.sha(guideBytes))
                 .put("witnessSha256",MapDefinition.sha(witnessBytes)).put("tiltLimitDeg",TILT_LIMIT)
                 .put("assignmentGap",Double.isFinite(assignment.runner)?assignment.score-assignment.runner:JSONObject.NULL)
@@ -344,14 +405,55 @@ final class ImageTiltRegistration {
         return new Result(poses,evidence);
     }
 
-    private static JSONObject checkOccludedSide(byte[] bytes, int w, int h, double cell,
-                                                List<Prop> props, List<Pose> poses, Camera camera) throws Exception {
-        var observed = foreground(readView(bytes,w,h),"Occluded side view");
-        for (int pixel=observed.nextSetBit(0); pixel>=0; pixel=observed.nextSetBit(pixel+1)) {
+    private static Candidate refineWithPartialSide(Fit fit, Candidate initial, int pair, int focus, List<Prop> props,
+                                                   List<Pose> poses, Camera camera, BitSet observed) {
+        var others = new BitSet();
+        for (int i=0;i<poses.size();i++) {
+            if (i==focus) continue;
+            var other = project(fit.w,fit.h,fit.cell,props.get(i).mesh(),poses.get(i),camera);
+            if (other==null) return initial;
+            others.or(other.mask);
+        }
+        var exclusive = (BitSet) observed.clone();
+        exclusive.andNot(others);
+        Candidate[] best = {initial};
+        double[] objective = {partialSideScore(fit,initial,camera,others,exclusive)};
+        for (int step : new int[]{4,2,1}) {
+            var center = best[0].pose;
+            neighbors(center.angles,step,angle->{
+                var candidate = fit.measureAt(new Pose(center.x,center.y,center.z,angle),pair);
+                if (candidate==null) return;
+                double score = partialSideScore(fit,candidate,camera,others,exclusive);
+                if (score>objective[0]) {
+                    best[0]=candidate;
+                    objective[0]=score;
+                }
+            });
+        }
+        return best[0];
+    }
+
+    private static double partialSideScore(Fit fit, Candidate sample, Camera camera, BitSet others, BitSet exclusive) {
+        var silhouette = project(fit.w,fit.h,fit.cell,fit.prop.mesh(),sample.pose,camera);
+        if (silhouette==null) return Double.NEGATIVE_INFINITY;
+        // Discard pixels that can be explained by another prop before comparing this candidate.
+        silhouette.mask.andNot(others);
+        return sample.score()+maskIou(silhouette.mask,exclusive);
+    }
+
+    private static BitSet readOccludedForeground(byte[] bytes, int w, int h) throws Exception {
+        var rawObserved = foreground(readView(bytes,w,h),"Occluded side view");
+        for (int pixel=rawObserved.nextSetBit(0); pixel>=0; pixel=rawObserved.nextSetBit(pixel+1)) {
             int column = pixel%w, row = pixel/w;
             if (column==0 || column==w-1 || row==0 || row==h-1)
                 throw new IllegalArgumentException("Occluded side view clips a silhouette at the frame edge.");
         }
+        return rawObserved;
+    }
+
+    private static JSONObject checkOccludedSide(BitSet rawObserved, int w, int h, double cell,
+                                                List<Prop> props, List<Pose> poses, Camera camera, MaskCleanup cleanup) {
+        var observed = cleanup==null ? rawObserved : cleanup.mask;
         var projected = new ArrayList<Silhouette>();
         var composite = new BitSet();
         var overlap = new BitSet();
@@ -365,10 +467,7 @@ final class ImageTiltRegistration {
             projected.add(silhouette);
         }
 
-        var intersection = (BitSet) composite.clone();
-        intersection.and(observed);
-        double iou = intersection.cardinality() /
-                (double)(composite.cardinality()+observed.cardinality()-intersection.cardinality());
+        double iou = maskIou(composite,observed);
         if (iou<MIN_COMPOSITE_IOU) throw new IllegalArgumentException(String.format(java.util.Locale.ROOT,
                 "Occluded side view refused the combined silhouettes (%.1f%% overlap, need %.0f%%).",
                 iou*100,MIN_COMPOSITE_IOU*100));
@@ -393,10 +492,47 @@ final class ImageTiltRegistration {
         }
         if (maxHiddenFraction<MIN_OVERLAP_FRACTION)
             throw new IllegalArgumentException("The side view shows no meaningful prop overlap. Use regular full-pose mode.");
-        return new JSONObject().put("compositeIou",iou).put("minimumCompositeIou",MIN_COMPOSITE_IOU)
+        var evidence = new JSONObject().put("compositeIou",iou).put("minimumCompositeIou",MIN_COMPOSITE_IOU)
                 .put("minimumExclusiveFraction",MIN_EXCLUSIVE_FRACTION).put("minimumExclusiveSupport",MIN_EXCLUSIVE_SUPPORT)
                 .put("minimumOverlapFraction",MIN_OVERLAP_FRACTION).put("overlapPixels",overlap.cardinality())
                 .put("props",support);
+        if (cleanup!=null) evidence.put("maskCleanup",cleanup.evidence.put("rawCompositeIou",maskIou(composite,rawObserved)));
+        return evidence;
+    }
+
+    private static double maskIou(BitSet expected, BitSet observed) {
+        var intersection = (BitSet) expected.clone();
+        intersection.and(observed);
+        int common = intersection.cardinality();
+        int union = expected.cardinality()+observed.cardinality()-common;
+        return union==0 ? 0 : common/(double)union;
+    }
+
+    private record MaskCleanup(BitSet mask, JSONObject evidence) {}
+
+    private static MaskCleanup removeIsolatedNoise(BitSet original, int width, int height) {
+        var corrected = (BitSet) original.clone();
+        int removed = 0, filled = 0;
+        for (int y=1; y<height-1; y++) {
+            for (int x=1; x<width-1; x++) {
+                int pixel = y*width+x;
+                boolean current = original.get(pixel);
+                if (original.get(pixel-width-1)==current || original.get(pixel-width)==current ||
+                        original.get(pixel-width+1)==current || original.get(pixel-1)==current ||
+                        original.get(pixel+1)==current || original.get(pixel+width-1)==current ||
+                        original.get(pixel+width)==current || original.get(pixel+width+1)==current) continue;
+                corrected.flip(pixel);
+                if (current) removed++;
+                else filled++;
+            }
+        }
+        int foregroundPixels = original.cardinality();
+        int limit = Math.min(MAX_MASK_CORRECTIONS,(int)(foregroundPixels*MAX_MASK_CORRECTION_FRACTION));
+        if (removed+filled>limit)
+            throw new IllegalArgumentException("Too many isolated changes are needed in the occluded side mask. Use a clearer side image.");
+        return new MaskCleanup(corrected,new JSONObject().put("removedSpecks",removed).put("filledHoles",filled)
+                .put("rawForegroundPixels",foregroundPixels).put("maximumChangedPixels",limit)
+                .put("maximumChangedFraction",MAX_MASK_CORRECTION_FRACTION));
     }
 
     private static List<Silhouette> readParts(byte[] bytes, int w, int h, int count, String label) throws Exception {

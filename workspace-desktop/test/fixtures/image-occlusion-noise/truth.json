@@ -1,0 +1,350 @@
+{
+  "blenderVersion": "4.5.17 LTS",
+  "widthM": 4,
+  "imagePixels": [
+    600,
+    450
+  ],
+  "cases": [
+    {
+      "id": "step-behind-elbow",
+      "order": [
+        "elbow",
+        "step",
+        "fork"
+      ],
+      "samples": [
+        {
+          "model": "elbow",
+          "positionM": [
+            -0.475,
+            1.0915946041215714,
+            0.628
+          ],
+          "anglesDeg": [
+            -32,
+            -13,
+            19
+          ],
+          "quaternion": [
+            -0.1525263488292694,
+            -0.25214946269989014,
+            0.12685902416706085,
+            0.9471341967582703
+          ]
+        },
+        {
+          "model": "step",
+          "positionM": [
+            0.321,
+            0.443,
+            -0.391
+          ],
+          "anglesDeg": [
+            68,
+            15,
+            -21
+          ],
+          "quaternion": [
+            0.005366064608097076,
+            0.5648452639579773,
+            -0.221554696559906,
+            0.794880211353302
+          ]
+        },
+        {
+          "model": "fork",
+          "positionM": [
+            0.887,
+            0.409,
+            0.664
+          ],
+          "anglesDeg": [
+            120,
+            -9,
+            15
+          ],
+          "quaternion": [
+            0.07379656285047531,
+            0.8610900640487671,
+            0.13242819905281067,
+            0.4853253960609436
+          ]
+        }
+      ],
+      "cameraAngles": {
+        "sideHeadingDeg": -45,
+        "sideElevationDeg": 30,
+        "witnessHeadingDeg": 75,
+        "witnessElevationDeg": 38
+      },
+      "additionalCamera": {
+        "headingDeg": 4,
+        "elevationDeg": 55
+      },
+      "rearHiddenFraction": 0.4310160427807487,
+      "overlapPixels": 1612,
+      "cleanForegroundPixels": 9069,
+      "noise": {
+        "injectedSpecks": 562,
+        "injectedHoles": 181
+      },
+      "heldOutTranslationControlM": 0.14
+    },
+    {
+      "id": "elbow-behind-step",
+      "order": [
+        "step",
+        "elbow",
+        "fork"
+      ],
+      "samples": [
+        {
+          "model": "step",
+          "positionM": [
+            -0.493,
+            1.103207232655267,
+            0.629
+          ],
+          "anglesDeg": [
+            68,
+            15,
+            -20
+          ],
+          "quaternion": [
+            0.01029503345489502,
+            0.5647768974304199,
+            -0.21460966765880585,
+            0.7967833280563354
+          ]
+        },
+        {
+          "model": "elbow",
+          "positionM": [
+            0.319,
+            0.43,
+            -0.389
+          ],
+          "anglesDeg": [
+            -32,
+            -12,
+            19
+          ],
+          "quaternion": [
+            -0.1443452686071396,
+            -0.25378403067588806,
+            0.12936802208423615,
+            0.9476402401924133
+          ]
+        },
+        {
+          "model": "fork",
+          "positionM": [
+            0.868,
+            0.395,
+            0.681
+          ],
+          "anglesDeg": [
+            122,
+            -10,
+            15
+          ],
+          "quaternion": [
+            0.07183390855789185,
+            0.8693528175354004,
+            0.13861551880836487,
+            0.4688831567764282
+          ]
+        }
+      ],
+      "cameraAngles": {
+        "sideHeadingDeg": -46,
+        "sideElevationDeg": 31,
+        "witnessHeadingDeg": 76,
+        "witnessElevationDeg": 39
+      },
+      "additionalCamera": {
+        "headingDeg": 4,
+        "elevationDeg": 55
+      },
+      "rearHiddenFraction": 0.43048740595354923,
+      "overlapPixels": 1316,
+      "cleanForegroundPixels": 9504,
+      "noise": {
+        "injectedSpecks": 598,
+        "injectedHoles": 190
+      },
+      "heldOutTranslationControlM": 0.14
+    },
+    {
+      "id": "step-behind-fork",
+      "order": [
+        "fork",
+        "step",
+        "elbow"
+      ],
+      "samples": [
+        {
+          "model": "fork",
+          "positionM": [
+            -0.475,
+            1.1271466891767317,
+            0.636
+          ],
+          "anglesDeg": [
+            122,
+            -11,
+            16
+          ],
+          "quaternion": [
+            0.07514843344688416,
+            0.8685874938964844,
+            0.15017466247081757,
+            0.46621450781822205
+          ]
+        },
+        {
+          "model": "step",
+          "positionM": [
+            0.34,
+            0.431,
+            -0.375
+          ],
+          "anglesDeg": [
+            69,
+            14,
+            -21
+          ],
+          "quaternion": [
+            -0.003696046769618988,
+            0.5710734724998474,
+            -0.21693731844425201,
+            0.7917068004608154
+          ]
+        },
+        {
+          "model": "elbow",
+          "positionM": [
+            0.878,
+            0.402,
+            0.657
+          ],
+          "anglesDeg": [
+            -32,
+            -13,
+            19
+          ],
+          "quaternion": [
+            -0.1525263488292694,
+            -0.25214946269989014,
+            0.12685902416706085,
+            0.9471341967582703
+          ]
+        }
+      ],
+      "cameraAngles": {
+        "sideHeadingDeg": -43,
+        "sideElevationDeg": 32,
+        "witnessHeadingDeg": 77,
+        "witnessElevationDeg": 40
+      },
+      "additionalCamera": {
+        "headingDeg": 4,
+        "elevationDeg": 55
+      },
+      "rearHiddenFraction": 0.53860103626943,
+      "overlapPixels": 2079,
+      "cleanForegroundPixels": 8735,
+      "noise": {
+        "injectedSpecks": 559,
+        "injectedHoles": 174
+      },
+      "heldOutTranslationControlM": 0.14
+    },
+    {
+      "id": "fork-behind-elbow",
+      "order": [
+        "elbow",
+        "fork",
+        "step"
+      ],
+      "samples": [
+        {
+          "model": "elbow",
+          "positionM": [
+            -0.468,
+            1.0072786184210893,
+            0.646
+          ],
+          "anglesDeg": [
+            -33,
+            -14,
+            19
+          ],
+          "quaternion": [
+            -0.1617748737335205,
+            -0.2587463855743408,
+            0.12293325364589691,
+            0.9443340301513672
+          ]
+        },
+        {
+          "model": "fork",
+          "positionM": [
+            0.325,
+            0.421,
+            -0.369
+          ],
+          "anglesDeg": [
+            120,
+            -10,
+            15
+          ],
+          "quaternion": [
+            0.06940377503633499,
+            0.8610372543334961,
+            0.13984808325767517,
+            0.4839841425418854
+          ]
+        },
+        {
+          "model": "step",
+          "positionM": [
+            0.886,
+            0.42,
+            0.671
+          ],
+          "anglesDeg": [
+            68,
+            16,
+            -21
+          ],
+          "quaternion": [
+            0.01253461092710495,
+            0.5655046105384827,
+            -0.22613129019737244,
+            0.7930397987365723
+          ]
+        }
+      ],
+      "cameraAngles": {
+        "sideHeadingDeg": -47,
+        "sideElevationDeg": 29,
+        "witnessHeadingDeg": 78,
+        "witnessElevationDeg": 41
+      },
+      "additionalCamera": {
+        "headingDeg": 4,
+        "elevationDeg": 55
+      },
+      "rearHiddenFraction": 0.41628145865434,
+      "overlapPixels": 1621,
+      "cleanForegroundPixels": 8972,
+      "noise": {
+        "injectedSpecks": 583,
+        "injectedHoles": 179
+      },
+      "heldOutTranslationControlM": 0.14
+    }
+  ]
+}

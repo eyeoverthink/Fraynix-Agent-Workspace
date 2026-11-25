@@ -933,7 +933,7 @@ public final class SpatialStore implements AutoCloseable {
     }
 
     synchronized JSONObject createImageAssembly(JSONObject input) throws Exception {
-        SpatialScene.keys(input,"layoutPng","guidePng","additionalPng","witnessPng","title","widthM","props","recoverYaw","cameraAngles","additionalCamera");
+        SpatialScene.keys(input,"layoutPng","guidePng","additionalPng","witnessPng","title","widthM","props","recoverYaw","cameraAngles","additionalCamera","cleanOccludedMask");
         available();
         var png = SpriteWorkshop.decode(input.getString("layoutPng"),ImageSceneAssembly.PNG_LIMIT);
         byte[] witness = input.has("witnessPng")
@@ -942,15 +942,16 @@ public final class SpatialStore implements AutoCloseable {
                 ? SpriteWorkshop.decode(input.getString("guidePng"),ImageSceneAssembly.PNG_LIMIT) : null;
         byte[] additional = input.has("additionalPng")
                 ? SpriteWorkshop.decode(input.getString("additionalPng"),ImageSceneAssembly.PNG_LIMIT) : null;
-        var plan = ImageSceneAssembly.plan(new JSONObject(input,"title","widthM","props","recoverYaw","cameraAngles","additionalCamera"),
+        var plan = ImageSceneAssembly.plan(new JSONObject(input,"title","widthM","props","recoverYaw","cameraAngles","additionalCamera","cleanOccludedMask"),
                 png,guide,additional,witness,this::readAssemblySource);
         String id = plan.id();
         if (scenes.containsKey(id)) return read(id);
         if (scenes.size()>=32) throw new IllegalStateException("Spatial import history limit reached (32)");
         var scene = SpatialScene.parse(plan.definition().toString(),id);
         boolean verifyRotation = input.has("recoverYaw") || guide!=null;
-        var measured = ImageSceneAssembly.verify(scene,nativeDir,verifyRotation,guide!=null);
-        var repeat = ImageSceneAssembly.verify(scene,nativeDir,verifyRotation,guide!=null);
+        boolean refinedTilt = input.has("cleanOccludedMask");
+        var measured = ImageSceneAssembly.verify(scene,nativeDir,verifyRotation,guide!=null,refinedTilt);
+        var repeat = ImageSceneAssembly.verify(scene,nativeDir,verifyRotation,guide!=null,refinedTilt);
         if (!measured.similar(repeat)) throw new IllegalStateException("The repeated native floor checks disagree.");
         var receipt = new JSONObject().put("binding",plan.binding()).put("measured",measured).put("repeat",repeat);
         retainAssemblyImage(assemblyImage(id,false),png);
@@ -1013,7 +1014,8 @@ public final class SpatialStore implements AutoCloseable {
         var registration = binding.optJSONObject("registration");
         boolean releaseTilt = registration!=null && registration.has("guideSha256");
         boolean verifyRotation = binding.getJSONObject("input").has("recoverYaw") || releaseTilt;
-        var local = ImageSceneAssembly.verify(scene,nativeDir,verifyRotation,releaseTilt);
+        var local = ImageSceneAssembly.verify(scene,nativeDir,verifyRotation,releaseTilt,
+                binding.getJSONObject("input").has("cleanOccludedMask"));
         if (!local.similar(receipt.getJSONArray("measured")))
             throw new IllegalStateException("The fresh native support check differs from the retained evidence.");
         return new JSONObject().put("id",scene.getString("id")).put("matched",true).put("measured",local);

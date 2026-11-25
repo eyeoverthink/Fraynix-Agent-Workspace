@@ -79,6 +79,7 @@ export class SpatialPanel {
        <label>Held-out heading · °<input name="witnessHeadingDeg" type="number" min="-180" max="180" step="any" value="45" required></label>
        <label>Held-out elevation · °<input name="witnessElevationDeg" type="number" min="25" max="70" step="any" value="45" required></label>
       </div>
+      <label class="spatial-note" id="image-assembly-mask-cleanup" hidden><input name="cleanOccludedMask" type="checkbox"> Remove isolated specks and pinholes from the occluded side</label>
       <div class="spatial-task" id="image-assembly-additional-angles" hidden>
        <label>Extra fitting heading · °<input name="additionalHeadingDeg" type="number" min="-180" max="180" step="any" value="0" required></label>
        <label>Extra fitting elevation · °<input name="additionalElevationDeg" type="number" min="25" max="70" step="any" value="45" required></label>

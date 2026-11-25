@@ -186,8 +186,8 @@
 .spatial-task .assembly-color[hidden], #image-assembly-guide-fields[hidden],
 #image-assembly-camera-fields[hidden], #image-assembly-camera-angles[hidden],
 #image-assembly-custom-control[hidden], #image-assembly-additional-file[hidden],
-#image-assembly-additional-angles[hidden] { display: none; }
-#image-assembly-custom-control:not([hidden]) { display: inline-flex; align-items: center; gap: .35rem; }
+#image-assembly-additional-angles[hidden], #image-assembly-mask-cleanup[hidden] { display: none; }
+#image-assembly-custom-control:not([hidden]), #image-assembly-mask-cleanup:not([hidden]) { display: inline-flex; align-items: center; gap: .35rem; }
 #image-assembly-camera-angles input, #image-assembly-additional-angles input { width: 5rem; }
 #recipient-approach-review { margin-bottom: 12px; }
 #recipient-approach-status, #recipient-approach-summary { margin: 8px 0; }
