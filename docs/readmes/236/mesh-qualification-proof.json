@@ -1,0 +1,62 @@
+{
+  "platform": "win32",
+  "receipt": {
+    "sourceId": "surface",
+    "witness": {
+      "pixels": 120,
+      "tag": "img",
+      "pngSha256": "dfa7f849687d159a4753227502da818b2d3fee30b552bc0adc53b4cda1c3fe18"
+    },
+    "original": {
+      "sourceSha256": "9bd5173f4681516a585a9797a3ce405f92b56c79f78f49ce158ef6f99076ccb7",
+      "definitionSha256": "046cfc646951bf06ebd9c00b1aee78f89294c2b3a78cf24bbc056e8701d1c525",
+      "sceneId": "16bf2ad5-a78a-3821-80b9-84128183e38e"
+    },
+    "edited": {
+      "sourceSha256": "3ef6e798cf851242c8fa737e70818b75892e04a7b31f3a8cb8e936a3f5fd22e5",
+      "definitionSha256": "79a921bf7a9553f4c9a155ff7e9643444bfdf73a5986eeb2bc8e67ee8e1ddc3e",
+      "sceneId": "953f7387-4164-3324-a8b9-0abab2df7f25"
+    },
+    "captureSha256": "7e8d42b256b7b3becad5297a72f0f5592b233602c4096e7576913777885efd74",
+    "meshSha256": "6ae6aa4d9421b21d3f5cc469923693b06ac3e25c2db08946ea96aaa938bd6bab",
+    "originalIou": 0.872941907424666,
+    "minimumOverlap": 0.86,
+    "elevationDeg": 60,
+    "heldOutIou": 0.9794967381174278,
+    "minimumGain": 0.02,
+    "policy": "registered-browser-edit-witness-v1"
+  },
+  "refusal": "Error invoking remote method 'workspace:request': Error: The new view did not verify the edit (89.1% edited, 97.9% original). Require 86% overlap and a 2-point improvement.",
+  "meshTriangles": 696,
+  "heightM": 0.5499999970197678,
+  "hitTick": 75,
+  "hitContacts": 14,
+  "missContacts": 0,
+  "aisleM": 4.35,
+  "glbSha256": "ececddc4546d3b915a91851e3cad06d8e95cafc2dfa35fa9e4ed314b6a535cf7",
+  "blender": {
+    "version": "5.3.0",
+    "glbSha256": "ececddc4546d3b915a91851e3cad06d8e95cafc2dfa35fa9e4ed314b6a535cf7",
+    "originalBodies": 3,
+    "colliderVertices": 8,
+    "visualTriangles": 696,
+    "dimensionsBlenderM": [
+      0.5,
+      0.30000007152557373,
+      0.550000011920929
+    ],
+    "targetVolumeM3": 0.05118000279903413,
+    "exportVolumeM3": 0.051000005802625134,
+    "volumeRelativeError": 0.0035169399485143363
+  },
+  "resumedWithSourceOffline": true,
+  "reviewRestart": true,
+  "replayedAfterRestart": true,
+  "unqualifiedRefused": true,
+  "reusedWitnessRefused": true,
+  "wrongWitnessRefused": true,
+  "unapprovedRefused": true,
+  "changedOriginalRefused": true,
+  "changedWitnessRefused": true,
+  "originalDestinationPreserved": true
+}

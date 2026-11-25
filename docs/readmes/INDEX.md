@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 236 — Qualify a mesh edit with a new browser view](../../README-236.md) · [Walkthrough](236/index.html)
+
 [Edition 235 — From a browser reference to a placed Blender scene](../../README-235.md) · [Walkthrough](235/index.html)
 
 [Edition 234 — Place a verified prop in an existing level](../../README-234.md) · [Walkthrough](234/index.html)

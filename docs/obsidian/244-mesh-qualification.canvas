@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "guide",
+      "type": "file",
+      "file": "README-236.md",
+      "x": 0,
+      "y": 0,
+      "width": 350,
+      "height": 320
+    },
+    {
+      "id": "plan",
+      "type": "file",
+      "file": "docs/publication236/plan.md",
+      "x": 420,
+      "y": 0,
+      "width": 390,
+      "height": 360
+    },
+    {
+      "id": "proof",
+      "type": "file",
+      "file": "docs/readmes/236/mesh-qualification-proof.json",
+      "x": 890,
+      "y": 0,
+      "width": 350,
+      "height": 320
+    },
+    {
+      "id": "note",
+      "type": "file",
+      "file": "docs/obsidian/244-mesh-qualification.md",
+      "x": 420,
+      "y": 440,
+      "width": 390,
+      "height": 250
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "guide",
+      "toNode": "plan",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "plan",
+      "toNode": "proof",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "plan",
+      "toNode": "note",
+      "fromSide": "bottom",
+      "toSide": "top"
+    }
+  ]
+}

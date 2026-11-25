@@ -1,0 +1,88 @@
+{
+  "summary": "An edited mesh earns its own evidence by explaining a new observation better than the original.",
+  "modules": [
+    {
+      "title": "Original and edited mesh projection",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BrowserViewTrace.java",
+      "note": "docs/obsidian/244-mesh-qualification.md"
+    },
+    {
+      "title": "Fresh witness admission",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialMeshQualification.java",
+      "note": "docs/obsidian/244-mesh-qualification.md"
+    },
+    {
+      "title": "Durable verification and ancestry",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/244-mesh-qualification.md"
+    },
+    {
+      "title": "Qualification panel",
+      "source": "workspace-desktop/renderer/spatial-mesh-edit.js",
+      "note": "docs/obsidian/244-mesh-qualification.md"
+    },
+    {
+      "title": "Reviewed existing-level placement",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialLevelPlacement.java",
+      "note": "docs/obsidian/244-mesh-qualification.md"
+    },
+    {
+      "title": "Blender reference and export oracle",
+      "source": "workspace-desktop/test/mesh-qualification-blender.py",
+      "note": "docs/obsidian/244-mesh-qualification.md"
+    },
+    {
+      "title": "Browser, placement and restart tests",
+      "source": "workspace-desktop/test/mesh-qualification-integration.cjs",
+      "note": "docs/obsidian/244-mesh-qualification.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/236/qualified-mesh.png",
+      "title": "The edit qualifies with the fresh reference"
+    },
+    {
+      "path": "docs/readmes/236/wrong-witness-refused.png",
+      "title": "A fresh image of the unchanged prop refuses the edit"
+    },
+    {
+      "path": "docs/readmes/236/qualified-edit-review.png",
+      "title": "The placement review carries the measured evidence"
+    },
+    {
+      "path": "docs/readmes/236/edited-elevated.png",
+      "title": "Independently authored taller reference"
+    },
+    {
+      "path": "docs/readmes/236/unchanged-elevated.png",
+      "title": "Unchanged control at the same new angle"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/236/mesh-qualification-proof.json",
+      "title": "Browser, native and restart evidence"
+    },
+    {
+      "path": "docs/readmes/236/qualified-blender-proof.json",
+      "title": "Independent Blender verification"
+    },
+    {
+      "path": "docs/readmes/236/qualified-edit.glb",
+      "title": "Exact checked GLB"
+    },
+    {
+      "path": "docs/readmes/236/qualified-edit.blend",
+      "title": "Blender project"
+    },
+    {
+      "path": "docs/publication236/plan.md",
+      "title": "Implementation and reproduction"
+    },
+    {
+      "path": "docs/readmes/236/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}

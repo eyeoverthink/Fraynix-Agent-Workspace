@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 236 · Qualify a mesh edit with a new browser view</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Qualify a mesh edit with a new browser view</h1>
+<p>An edited mesh earns its own evidence by explaining a new observation better than the original.</p>
+<nav><a href="../../../README-236.md">App guide</a><a href="../235/index.html">Edition 235</a>
+<a href="../../publication236/plan.md">Implementation</a><a href="qualified-edit.glb" download>Download checked GLB</a>
+<a href="qualified-edit.blend" download>Download Blender scene</a><a href="mesh-qualification-proof.json">Test results</a><a href="#system">System files</a></nav>
+<p>The taller reference scored 97.9% edited and 87.3% original. The unchanged control favored the original, so the edit was refused for that image.</p>
+<div class="oracle"><figure><img src="edited-elevated.png" alt="Independently authored taller reference"><figcaption>Independently authored taller reference</figcaption></figure>
+<figure><img src="unchanged-elevated.png" alt="Unchanged control at the same new angle"><figcaption>Unchanged control at the same new angle</figcaption></figure>
+</div>
+<figure><img src="qualified-mesh.png" alt="The edit qualifies with the fresh reference"><figcaption>The edit qualifies with the fresh reference</figcaption></figure>
+<figure><img src="wrong-witness-refused.png" alt="A fresh image of the unchanged prop refuses the edit"><figcaption>A fresh image of the unchanged prop refuses the edit</figcaption></figure>
+<figure><img src="qualified-edit-review.png" alt="The placement review carries the measured evidence"><figcaption>The placement review carries the measured evidence</figcaption></figure>
+
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "An edited mesh earns its own evidence by explaining a new observation better than the original.", "modules": [{"title": "Original and edited mesh projection", "source": "workspace-engine/src/main/java/fraymus/workspace/BrowserViewTrace.java", "note": "docs/obsidian/244-mesh-qualification.md"}, {"title": "Fresh witness admission", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialMeshQualification.java", "note": "docs/obsidian/244-mesh-qualification.md"}, {"title": "Durable verification and ancestry", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "note": "docs/obsidian/244-mesh-qualification.md"}, {"title": "Qualification panel", "source": "workspace-desktop/renderer/spatial-mesh-edit.js", "note": "docs/obsidian/244-mesh-qualification.md"}, {"title": "Reviewed existing-level placement", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialLevelPlacement.java", "note": "docs/obsidian/244-mesh-qualification.md"}, {"title": "Blender reference and export oracle", "source": "workspace-desktop/test/mesh-qualification-blender.py", "note": "docs/obsidian/244-mesh-qualification.md"}, {"title": "Browser, placement and restart tests", "source": "workspace-desktop/test/mesh-qualification-integration.cjs", "note": "docs/obsidian/244-mesh-qualification.md"}], "screenshots": [{"path": "docs/readmes/236/qualified-mesh.png", "title": "The edit qualifies with the fresh reference"}, {"path": "docs/readmes/236/wrong-witness-refused.png", "title": "A fresh image of the unchanged prop refuses the edit"}, {"path": "docs/readmes/236/qualified-edit-review.png", "title": "The placement review carries the measured evidence"}, {"path": "docs/readmes/236/edited-elevated.png", "title": "Independently authored taller reference"}, {"path": "docs/readmes/236/unchanged-elevated.png", "title": "Unchanged control at the same new angle"}], "evidence": [{"path": "docs/readmes/236/mesh-qualification-proof.json", "title": "Browser, native and restart evidence"}, {"path": "docs/readmes/236/qualified-blender-proof.json", "title": "Independent Blender verification"}, {"path": "docs/readmes/236/qualified-edit.glb", "title": "Exact checked GLB"}, {"path": "docs/readmes/236/qualified-edit.blend", "title": "Blender project"}, {"path": "docs/publication236/plan.md", "title": "Implementation and reproduction"}, {"path": "docs/readmes/236/FILE_TREE.md", "title": "Edition file tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 18274, "sha256": "6ee764bd01cccee51e4d7b7ee098cd57a283f7fb84733fec5f56f8285fe08e58", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/244-mesh-qualification.canvas", "bytes": 1131, "sha256": "272ad36334b891f0b22a59509a3161de056e56a0d63abe8f66d2ff2d6e1142b4", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/244-mesh-qualification.md", "bytes": 494, "sha256": "40f24ff3eb6a95354b5475834f928828e16fb62910ddc326009c48656b1b114e", "hashKind": "utf8-lf"}, {"path": "docs/publication236/plan.md", "bytes": 2370, "sha256": "10983cf80e7009051950091e4ebe764c11658c929c58fbe0ccdb9b77da12c168", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 134203, "sha256": "88c28d3f7c639af855709dbb8167f8f8599378b1aa89a5748d9134d3366f5784", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-mesh-edit.js", "bytes": 11859, "sha256": "44278f6634eb871e0131efb20a74ad9cb2609dad33f78363517aee20eb127ace", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-placement.js", "bytes": 16945, "sha256": "7a3b222f73eabe2ae0d86e88b02fd2fce5a6657aaa0658dd558fe6ca1c1fcf81", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/browser-views-integration.cjs", "bytes": 14447, "sha256": "86c649b07dd1ec47d305eb6b0bffa10291b1662b2d5fd87e5782fb32f80bff37", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/mesh-qualification-blender.py", "bytes": 3026, "sha256": "80ee13e23a3563ce81151975bbb7c329ece5d1318cfd1538f516da6cd90c2665", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/mesh-qualification-integration.cjs", "bytes": 11261, "sha256": "1e35df4b917ef258bff4bb53adcedf31a62a32f53e63b8eb517ef4cf494f0166", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/BrowserViewTrace.java", "bytes": 20988, "sha256": "867525b34cfa359dbcb6df127f58944ab0407e9cbe8359d786dcd63c78b7348e", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialLevelPlacement.java", "bytes": 14060, "sha256": "27605b41616e985b5442bea38ceb29bfa82dcd0fdf54a4cb45440685aae626b5", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialMeshQualification.java", "bytes": 3209, "sha256": "08d5f6a82526eeb0537c9da3ee1fccb1b415f5ccbf1fb1e8bd55eeeceafd48ce", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialPlacement.java", "bytes": 16651, "sha256": "935605a01cc28f7ac703ec3bda524df3ebbb6089118874b9e9199e6fd806af10", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 54472, "sha256": "5d052f2e52cceb12110f078edf50ec9c61ab40da9b9a9dddec3d989a09b7ee82", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 154416, "sha256": "77fa0f9f9c0646aea62a738f25d059021d09de7c5478eca24d9b8a68072e9f10", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>
