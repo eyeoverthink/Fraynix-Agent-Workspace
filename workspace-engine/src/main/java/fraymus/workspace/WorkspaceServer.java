@@ -698,6 +698,15 @@ public final class WorkspaceServer implements AutoCloseable {
                         result = new JSONObject().put("base64", Base64.getEncoder().encodeToString(glb))
                                 .put("sha256", MapDefinition.sha(glb)).put("sourceSha256", original.getString("sourceSha256"));
                     }
+                    case "/api/spatial/image-assembly-assets" -> {
+                        SpatialScene.keys(input);
+                        result = new JSONObject().put("assets",spatial.imageAssemblyAssets());
+                    }
+                    case "/api/spatial/image-assembly", "/api/spatial/image-assembly-replay" -> {
+                        if (agency.busy() || sharedBusy043() || goals.workflowReserved() || goals.ownsSpatial())
+                            throw new IllegalStateException("Finish active work before testing an image scene.");
+                        result = route.endsWith("replay") ? spatial.replayImageAssembly(input) : spatial.createImageAssembly(input);
+                    }
                     case "/api/spatial/blueprint" -> {
                         SpatialScene.keys(input, "referenceId", "cellSizeM");
                         if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before building a scene.");

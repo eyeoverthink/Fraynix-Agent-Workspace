@@ -53,6 +53,7 @@ public final class SpatialStore implements AutoCloseable {
 
     private void validate(JSONObject scene) {
         validateDefinition(scene);
+        if (scene.has("imageAssembly")) validateImageAssembly(scene);
         if (scene.has("reconstruction")) {
             try {
                 var proof=scene.getJSONObject("reconstruction");
@@ -896,6 +897,80 @@ public final class SpatialStore implements AutoCloseable {
 
     synchronized JSONObject reconstruct(byte[] source) throws Exception {
         return retainReconstruction(source,SpatialReconstruction.POLICY);
+    }
+
+    private Path assemblyLayout(String id) {
+        return file.resolveSibling("image-assemblies").resolve(UUID.fromString(id)+".png");
+    }
+
+    private boolean assemblySource(JSONObject scene) {
+        var proof = scene.optJSONObject("reconstruction");
+        return proof!=null && !scene.has("imageAssembly") && BrowserViewTrace.POLICY.equals(proof.optString("policy"));
+    }
+
+    private JSONObject readAssemblySource(String id) {
+        var source = scenes.get(id);
+        if (source==null || !assemblySource(source))
+            throw new IllegalArgumentException("Choose an existing image model checked against a separate view.");
+        return read(id);
+    }
+
+    synchronized JSONArray imageAssemblyAssets() {
+        var result = new JSONArray();
+        for (var scene : scenes.values()) if (assemblySource(scene))
+            result.put(new JSONObject().put("id",scene.getString("id")).put("title",scene.getString("title"))
+                    .put("sizeM",scene.getJSONArray("objects").getJSONObject(1).getJSONArray("size")));
+        return result;
+    }
+
+    synchronized JSONObject createImageAssembly(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"layoutPng","title","widthM","props");
+        available();
+        var png = SpriteWorkshop.decode(input.getString("layoutPng"),ImageSceneAssembly.PNG_LIMIT);
+        var plan = ImageSceneAssembly.plan(new JSONObject(input,"title","widthM","props"),png,this::readAssemblySource);
+        String id = plan.id();
+        if (scenes.containsKey(id)) return read(id);
+        if (scenes.size()>=32) throw new IllegalStateException("Spatial import history limit reached (32)");
+        var scene = SpatialScene.parse(plan.definition().toString(),id);
+        var measured = ImageSceneAssembly.verify(scene,nativeDir);
+        var repeat = ImageSceneAssembly.verify(scene,nativeDir);
+        if (!measured.similar(repeat)) throw new IllegalStateException("The repeated native floor checks disagree.");
+        var receipt = new JSONObject().put("binding",plan.binding()).put("measured",measured).put("repeat",repeat);
+        Path layout = assemblyLayout(id);
+        Files.createDirectories(layout.getParent());
+        if (Files.exists(layout,LinkOption.NOFOLLOW_LINKS))
+            SpriteWorkshop.read(layout,ImageSceneAssembly.PNG_LIMIT,plan.binding().getString("layoutSha256"));
+        else SpriteWorkshop.replace(layout,png);
+        return retainScene(scene.put("importedAt",Instant.now().toString()).put("imageAssembly",receipt)
+                .put("imageAssemblySha256",WorldFrames.hash(receipt)));
+    }
+
+    private void validateImageAssembly(JSONObject scene) {
+        try {
+            var receipt = scene.getJSONObject("imageAssembly");
+            var binding = receipt.getJSONObject("binding");
+            var png = SpriteWorkshop.read(assemblyLayout(scene.getString("id")),ImageSceneAssembly.PNG_LIMIT,
+                    binding.getString("layoutSha256"));
+            var plan = ImageSceneAssembly.plan(binding.getJSONObject("input"),png,this::readAssemblySource);
+            if (!plan.id().equals(scene.getString("id")) || !plan.binding().similar(binding)
+                    || !plan.definition().similar(new JSONObject(scene.getString("sourceText")))
+                    || !WorldFrames.hash(receipt).equals(scene.getString("imageAssemblySha256"))
+                    || !receipt.getJSONArray("measured").similar(receipt.getJSONArray("repeat")))
+                throw new IllegalStateException("The image-layout definition or measured evidence changed.");
+        } catch (Exception error) {
+            throw new IllegalStateException("Cannot recheck the layout PNG, source images and assembled scene.",error);
+        }
+    }
+
+    synchronized JSONObject replayImageAssembly(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"id");
+        available();
+        var scene = read(input.getString("id"));
+        var receipt = scene.getJSONObject("imageAssembly");
+        var local = ImageSceneAssembly.verify(scene,nativeDir);
+        if (!local.similar(receipt.getJSONArray("measured")))
+            throw new IllegalStateException("The fresh native support check differs from the retained evidence.");
+        return new JSONObject().put("id",scene.getString("id")).put("matched",true).put("measured",local);
     }
 
     synchronized JSONObject traceBrowser(byte[] source) throws Exception {

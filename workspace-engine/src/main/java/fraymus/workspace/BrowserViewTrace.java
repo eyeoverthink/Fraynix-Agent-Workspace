@@ -99,6 +99,13 @@ final class BrowserViewTrace {
                     .put("scope", "Declared registration and front width. Front, side and top fit the mesh. A separate oblique view tests it.");
         }
         var definition = definition(best.mesh, hash, width, dimensions);
+        if (!library && proof.getJSONObject("views").keySet().stream()
+                .anyMatch(role->proof.getJSONObject("views").getJSONObject(role).has("fileName"))) {
+            definition.put("title","Registered image prop");
+            definition.getJSONArray("objects").getJSONObject(1).put("label","Registered image model");
+            definition.getJSONObject("source").put("note","Registered image set "+hash
+                    +". Declared scale and enclosing physics proxy. Separate oblique view checked.");
+        }
         if (library) {
             definition.put("title", SpatialScene.text(input, "name", 70));
             definition.getJSONArray("objects").getJSONObject(1).put("label", "Reconstructed prop");
@@ -149,6 +156,13 @@ final class BrowserViewTrace {
         if (library) {
             SpatialScene.keys(input, "assetId", "label", "png", "pngSha256", "sourceSha256", "spriteSha256");
             receipt = new JSONObject(input, "assetId", "label", "pngSha256", "sourceSha256", "spriteSha256");
+        } else if (input.has("fileName")) {
+            SpatialScene.keys(input,"fileName","png");
+            String name = SpatialScene.text(input,"fileName",160);
+            if (name.contains("/") || name.contains("\\") || name.chars().anyMatch(Character::isISOControl)
+                    || !name.toLowerCase(java.util.Locale.ROOT).endsWith(".png"))
+                throw new IllegalArgumentException("Choose a local PNG filename without a path.");
+            receipt = new JSONObject().put("fileName",name).put("tag","img");
         } else {
             SpatialScene.keys(input, "url", "tag", "png");
             String url = BrowserShapeTrace.sourceUrl(input);

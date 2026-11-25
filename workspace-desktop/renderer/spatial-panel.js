@@ -7,6 +7,7 @@ import {SpatialMeshEditPanel} from './spatial-mesh-edit.js';
 import {SpatialAnimationPanel} from './spatial-animation.js';
 import {SpatialHeightPanel} from './spatial-height.js';
 import {SpatialCarryPanel} from './spatial-carry.js';
+import {ImageAssemblyPanel} from './image-assembly.js';
 import * as THREE from '../node_modules/three/build/three.module.js';
 const $=id=>document.getElementById(id);
 export const isSpatialPropRequest = text =>
@@ -43,14 +44,30 @@ export class SpatialPanel {
      <label>One tile measures · m<input id="spatial-blueprint-scale" type="number" min="0.6" max="1.2" step="0.01" value="1"></label>
      <button id="spatial-blueprint-build">Build 3D copy</button>
     </div><p class="spatial-note">Import a labelled PNG in Maps first. The original layout supplies the floor plan. The collider walls are 1.1 m high.</p></details>
-   <details class="spatial-detail" id="spatial-browser-views"><summary>Model from browser views</summary>
+   <details class="spatial-detail" id="spatial-browser-views"><summary>Model from registered images</summary>
     <p class="spatial-note">Use equal-sized orthographic images at the same scale and center. Pick the left side, and optionally a top view with the front edge down. The held-out camera is halfway between front and side.</p>
     <div class="spatial-task"><button id="browser-pick-front">Pick front</button><button id="browser-pick-side">Pick side</button>
      <button id="browser-pick-top">Pick top</button><button id="browser-pick-heldOut">Pick held-out 45°</button><button id="browser-top-clear">Remove top</button><button id="browser-views-clear">Clear picks</button></div>
+    <div class="spatial-task"><label>Local image role<select id="registered-png-role">
+      <option value="front">Front</option><option value="side">Left side</option><option value="top">Top</option><option value="heldOut">Held-out 45°</option>
+     </select></label><label class="spatial-file">Load local PNG<input id="registered-png-file" type="file" accept="image/png,.png" aria-label="Load local PNG"></label></div>
     <form id="browser-views-form" class="spatial-task"><label>Front width · m<input id="browser-views-width" type="number" min=".1" max="5" step="any" value=".5" required></label>
      <label>Held-out elevation<select id="browser-views-elevation"><option value="0">Level</option><option value="60">60° above</option></select></label><button id="browser-views-build">Fit and verify model</button><button id="browser-views-place">Fit and review placement</button>
      <button type="button" id="browser-views-resume">Resume browser placement</button><button type="button" id="browser-views-export">Export checked GLB</button></form>
     <p id="browser-views-status" class="spatial-note" role="status">Pick a graphic for each view.</p>
+   </details>
+   <details class="spatial-detail" id="image-assembly"><summary>Build a scene from images</summary>
+    <p class="spatial-note">Fit each prop under Model from registered images first. Use an opaque top-down PNG with one solid rectangular marker per prop and a plain background. The marker centers set position, the PNG width sets scale, and each prop keeps its original orientation.</p>
+    <form>
+     <div class="spatial-task"><label>Scene name<input name="title" value="Image scene" maxlength="90" required></label>
+      <label>Layout width · m<input name="widthM" type="number" min=".5" max="20" step="any" value="4" required></label>
+      <label class="spatial-file">Layout PNG<input name="layout" type="file" accept="image/png,.png" required></label></div>
+     <div class="spatial-assembly-props"></div>
+     <div class="spatial-task"><button id="image-assembly-add" type="button">Add prop</button>
+      <button id="image-assembly-build" class="primary">Build verified 3D scene</button></div>
+    </form>
+    <div class="spatial-task"><button id="image-assembly-replay" hidden>Replay floor contact checks</button></div>
+    <p class="spatial-note" role="status" id="image-assembly-status"></p>
    </details>
    <details class="spatial-detail" id="spatial-browser-trace"><summary>Trace a browser graphic</summary>
     <form id="spatial-trace-form" class="spatial-task">
@@ -76,6 +93,7 @@ export class SpatialPanel {
    <p id="spatial-plan" class="spatial-note">The agent tests direct, over and lateral routes using isolated native worlds. Orange is the selected forecast; blue is actual motion. New tasks start from the immutable imported state.</p><details class="spatial-detail"><summary>Identity, source and visibility evidence</summary><pre id="spatial-evidence"></pre></details>`;
   $('game-view').before(section);this.placement=new SpatialPlacementPanel(this);this.exchange=new PlacementExchangePanel(this);this.recipient=new RecipientEditPanel(this,visualGeometry);this.recipientMission=new RecipientMissionPanel(this);this.libraryViews=new SpatialLibraryViews(this);this.timeline=new SpatialAnimationPanel(this);this.meshEdit=new SpatialMeshEditPanel(this,visualGeometry);this.carry=new SpatialCarryPanel(this);this.height=new SpatialHeightPanel(this);const tab=document.createElement('button');tab.id='spatial-tab';tab.textContent='Spatial';$('scene-tab').after(tab);tab.onclick=()=>this.action(()=>this.open());
   $('placement-exchange').onclick=()=>this.action(()=>this.exchange.open());
+  this.imageAssembly=new ImageAssemblyPanel(this);
   $('recipient-edit').onclick=()=>this.action(()=>this.recipient.open());
   $('recipient-mission').onclick=()=>this.action(()=>this.recipientMission.open());
   $('placement-resume').onclick=()=>this.action(()=>this.placement.openLatest());
@@ -117,13 +135,28 @@ export class SpatialPanel {
   this.browserViews={};
   const viewRoles=['front','side','top','heldOut'];
   const viewLabels={front:'front',side:'side',top:'top',heldOut:'held-out 45°'};
+  const recordView=(role,capture)=>{
+   this.browserViews[role]=capture;
+   $('browser-pick-'+role).textContent='Replace '+viewLabels[role];
+   const count=['front','side','heldOut'].filter(key=>this.browserViews[key]).length;
+   $('browser-views-status').textContent=(capture.fileName?'Loaded ':'Captured ')+viewLabels[role]+' · '+count+' of 3 required views.';
+  };
+  $('registered-png-file').onchange=()=>{
+   const field=$('registered-png-file'),file=field.files[0],role=$('registered-png-role').value;
+   field.value='';
+   if(!file)return;
+   this.action(async()=>{
+    if(file.size>204800)throw Error('Each registered PNG must be at most 200 KiB.');
+    const bytes=new Uint8Array(await file.arrayBuffer());let binary='';
+    for(let i=0;i<bytes.length;i+=8192)binary+=String.fromCharCode(...bytes.subarray(i,i+8192));
+    recordView(role,{fileName:file.name,png:btoa(binary)});
+   });
+  };
   for(const role of viewRoles)$('browser-pick-'+role).onclick=()=>this.action(async()=>{
    const status=$('browser-views-status');
    status.textContent='Click the '+viewLabels[role]+' graphic in the browser. Escape cancels.';
    try{
-    this.browserViews[role]=await this.call('pick-browser-view');
-    $('browser-pick-'+role).textContent='Replace '+viewLabels[role];
-    status.textContent='Captured '+viewLabels[role]+' · '+['front','side','heldOut'].filter(key=>this.browserViews[key]).length+' of 3 required views.';
+    recordView(role,await this.call('pick-browser-view'));
    }catch(error){status.textContent=error.message;}
   });
   $('browser-top-clear').onclick=()=>{
@@ -268,6 +301,7 @@ export class SpatialPanel {
   $('spatial-observe').title=(this.timeline.samples||this.meshEdit.preview)?'Exit the edit preview to check native visibility.':this.topDown?'Use the perspective camera to check visible objects.':'';
   const moving=['prepared','executing','running','paused'].includes(this.snapshot?.status);
   const editingBlocked=this.worldMode||this.poseMode||this.evaluationBusy||this.agentBusy||moving;
+  this.imageAssembly?.controls(editingBlocked);
   const recipient=Boolean(this.scene?.recipientBranch)&&!this.worldMode;
   $('recipient-edit').hidden=!recipient;
   $('recipient-edit').disabled=this.busy||editingBlocked;
@@ -276,6 +310,7 @@ export class SpatialPanel {
   this.timeline.controls(editingBlocked||recipient);
   this.meshEdit.controls(editingBlocked||recipient,this.busy);
   $('spatial-trace-build').disabled=this.busy||editingBlocked;
+  $('registered-png-file').disabled=this.busy||editingBlocked;
   for(const role of ['front','side','top','heldOut'])$('browser-pick-'+role).disabled=this.busy||editingBlocked;
   $('browser-views-clear').disabled=this.busy||!Object.keys(this.browserViews).length;
   $('browser-top-clear').disabled=this.busy||!this.browserViews.top;
@@ -341,9 +376,9 @@ export class SpatialPanel {
   if(this.object?.id!==saved.objectId)await this.selectObject(saved.objectId);
   await this.placement.openForBrowser(saved);
  }
- async open(id){if(!id&&this.worldMode&&this.worldReopen){this.activate('spatial');await this.worldReopen();this.resize();return;}this.worldMode=false;this.poseMode=false;this.removePoseTargets();this.evaluationMode=false;this.activate('spatial');this.ensureRenderer();const list=await this.call('list');$('spatial-scenes').replaceChildren(...list.scenes.map(s=>{const o=document.createElement('option');o.value=s.id;o.textContent=Number.isInteger(s.recipientRevision)?s.title+' · Local revision '+s.recipientRevision:s.title;return o;}));const selected=id||this.scene?.id||list.scenes.at(-1)?.id;if(selected)await this.select(selected,list);if($('spatial-exchange').open)await this.refreshBlueprints();this.resize();this.controls();}
+ async open(id){if(!id&&this.worldMode&&this.worldReopen){this.activate('spatial');await this.worldReopen();this.resize();return;}this.worldMode=false;this.poseMode=false;this.removePoseTargets();this.evaluationMode=false;this.activate('spatial');this.ensureRenderer();const list=await this.call('list');$('spatial-scenes').replaceChildren(...list.scenes.map(s=>{const o=document.createElement('option');o.value=s.id;o.textContent=Number.isInteger(s.recipientRevision)?s.title+' · Local revision '+s.recipientRevision:s.title;return o;}));const selected=id||this.scene?.id||list.scenes.at(-1)?.id;if(selected)await this.select(selected,list);if($('spatial-exchange').open)await this.refreshBlueprints();if($('image-assembly').open)await this.imageAssembly.refresh();this.resize();this.controls();}
  async openWorld(scene){this.meshEdit.bind(null,null);this.timeline.bind(null,null);this.carry.clear();this.showReconstruction();this.activate('spatial');this.ensureRenderer();this.scene=scene;this.worldMode=true;this.poseMode=true;this.pushMode=false;this.evaluationMode=false;this.plan=null;this.snapshot=null;this.removePoseTargets();this.forecast(null);this.trace=[];this.drawTrace();this.paint(scene.objects);$('spatial-objects').replaceChildren(...scene.objects.map(o=>{const item=document.createElement('option');item.value=o.id;item.textContent=o.label+' · '+(o.massKg>0?'dynamic':'static');return item;}));this.object=scene.objects.find(o=>o.massKg>0);$('spatial-objects').value=this.object.id;this.paintSelection();this.resize();this.controls();}
- async select(id,list){this.meshEdit.bind(null,null);this.timeline.bind(null,null);this.carry.clear();this.worldMode=false;this.pushMode=false;this.pushGoal=null;this.pushRunId=null;this.removeLine(this.pusherTraceLine);this.pusherTraceLine=null;this.pusherTrace=[];this.scene=await this.call('read',{id});$('spatial-scenes').value=id;this.plan=null;this.forecast(null);this.trace=[];this.drawTrace();this.snapshot=null;this.accept({sceneId:id,status:'authored',current:{tick:0,objects:this.scene.objects,gripping:false}});$('spatial-objects').replaceChildren(...this.scene.objects.map(o=>{const v=document.createElement('option');v.value=o.id;v.textContent=`${o.label} · ${o.massKg>0?'dynamic':'static'}`;return v;}));const recipientProp=this.scene.objects.find(o=>o.sourceId===this.scene.recipientBranch?.propSourceId);await this.selectObject((recipientProp||this.scene.objects.find(o=>o.massKg>0)).id);const s=this.scene;this.showReconstruction(s.reconstruction);$('spatial-source').textContent=s.reconstruction?.viewSource==='sprite-library'?'Library model · linked original views · held-out view checked':s.reconstruction?.policy==='browser-registered-orthographic'?'Browser model · estimated depth · held-out view checked':s.reconstruction?.policy==='browser-silhouette-slab'?'Browser silhouette · one captured view · declared scale and thickness':s.reconstruction?`Reconstructed visual mesh · ${s.reconstruction.depth?'silhouettes and depth':'silhouettes'} verified · ${s.reconstruction.cellM*1000} mm grid · declared scale`:`${s.source.kind.toUpperCase()} · ${s.sourceUnits} → m · ${s.scaleCheck.convertedLengthM} m reference (${s.scaleCheck.basis}) · ${s.source.physicalProperties} properties · not independently calibrated`;$('spatial-evidence').textContent=JSON.stringify({sceneId:s.id,sourceSha256:s.sourceSha256,source:s.source,scaleCheck:s.scaleCheck,propCopy:s.propCopy,reconstruction:s.reconstruction,meshEdit:s.meshEdit},null,2);if(s.propCopy)$('spatial-plan').textContent=this.propSummary(s.propCopy.verify);this.frame();const records=list||await this.call('list');const last=records.runs.filter(r=>r.sceneId===id&&r.status==='completed').at(-1);if(last){const r=await this.call('run',{id:last.id});this.accept({id:r.id,sceneId:id,status:r.status,current:r.actual.final,verification:r.verification});this.forecast(r.plan);this.trace=r.actual.samples.map(s=>s.position);this.drawTrace();}const pushState=await this.pushCall('scene-state',{sceneId:id});if(pushState.current){this.pushMode=true;this.acceptPush(pushState);}await this.pushRoles();this.controls();}
+ async select(id,list){this.meshEdit.bind(null,null);this.timeline.bind(null,null);this.carry.clear();this.worldMode=false;this.pushMode=false;this.pushGoal=null;this.pushRunId=null;this.removeLine(this.pusherTraceLine);this.pusherTraceLine=null;this.pusherTrace=[];this.scene=await this.call('read',{id});$('spatial-scenes').value=id;this.plan=null;this.forecast(null);this.trace=[];this.drawTrace();this.snapshot=null;this.accept({sceneId:id,status:'authored',current:{tick:0,objects:this.scene.objects,gripping:false}});$('spatial-objects').replaceChildren(...this.scene.objects.map(o=>{const v=document.createElement('option');v.value=o.id;v.textContent=`${o.label} · ${o.massKg>0?'dynamic':'static'}`;return v;}));const recipientProp=this.scene.objects.find(o=>o.sourceId===this.scene.recipientBranch?.propSourceId);await this.selectObject((recipientProp||this.scene.objects.find(o=>o.massKg>0)).id);const s=this.scene;this.showReconstruction(s.reconstruction);$('spatial-source').textContent=s.imageAssembly?'Image scene · '+s.imageAssembly.measured.length+' checked props · declared layout scale':s.reconstruction?.viewSource==='sprite-library'?'Library model · linked original views · held-out view checked':s.reconstruction?.policy==='browser-registered-orthographic'?'Browser model · estimated depth · held-out view checked':s.reconstruction?.policy==='browser-silhouette-slab'?'Browser silhouette · one captured view · declared scale and thickness':s.reconstruction?`Reconstructed visual mesh · ${s.reconstruction.depth?'silhouettes and depth':'silhouettes'} verified · ${s.reconstruction.cellM*1000} mm grid · declared scale`:`${s.source.kind.toUpperCase()} · ${s.sourceUnits} → m · ${s.scaleCheck.convertedLengthM} m reference (${s.scaleCheck.basis}) · ${s.source.physicalProperties} properties · not independently calibrated`;$('spatial-evidence').textContent=JSON.stringify({sceneId:s.id,sourceSha256:s.sourceSha256,source:s.source,scaleCheck:s.scaleCheck,propCopy:s.propCopy,reconstruction:s.reconstruction,meshEdit:s.meshEdit,imageAssembly:s.imageAssembly},null,2);if(s.propCopy)$('spatial-plan').textContent=this.propSummary(s.propCopy.verify);this.frame();const records=list||await this.call('list');const last=records.runs.filter(r=>r.sceneId===id&&r.status==='completed').at(-1);if(last){const r=await this.call('run',{id:last.id});this.accept({id:r.id,sceneId:id,status:r.status,current:r.actual.final,verification:r.verification});this.forecast(r.plan);this.trace=r.actual.samples.map(s=>s.position);this.drawTrace();}const pushState=await this.pushCall('scene-state',{sceneId:id});if(pushState.current){this.pushMode=true;this.acceptPush(pushState);}await this.pushRoles();this.controls();}
  async selectObject(id){if(this.object?.id!==id)this.carry.clear();this.object=this.scene.objects.find(o=>o.id===id);this.timeline.bind(this.scene,this.object?.massKg?this.object:null);this.meshEdit.bind(this.scene,this.object);$('spatial-objects').value=id;await this.call('select',this.binding());this.paintSelection();await this.pushRoles();this.controls();}
  async poll(){if(this.worldMode||this.poseMode)return;if(this.evaluationMode&&this.evaluationBusy)return;this.polling=true;try{const s=await (this.pushMode?this.pushCall:this.call)('snapshot');if(s.sceneId===this.scene?.id){if(this.pushMode)this.acceptPush(s);else this.accept(s);}}finally{this.polling=false;}}
  accept(s){if(!s.current)return;if(['prepared','executing'].includes(s.status)){this.meshEdit.clear();this.timeline.stop();}const prior=this.snapshot;this.snapshot=s;if(s.id&&s.id!==prior?.id){this.trace=[];this.drawTrace();this.call('run',{id:s.id}).then(r=>{if(this.snapshot?.id===r.id){this.forecast(r.plan);$('spatial-plan').textContent=`Native forecast ${r.plan.route} route · ${r.plan.trials.length} candidate worlds · orange prediction / blue actual. Source ${r.definition.source.kind}, declared parameters.`;}}).catch(e=>this.notice(e.message));}this.paint(s.current.objects);if(s.current.tick!==prior?.current?.tick&&this.object){const o=s.current.objects.find(o=>o.id===this.object.id);if(o&&s.status==='executing'){this.trace.push(o.position);if(this.trace.length>1000)this.trace.shift();this.drawTrace();}}
@@ -394,15 +429,23 @@ export class SpatialPanel {
    console.warn(error.message);
    return;
   }this.renderer.setPixelRatio(Math.min(devicePixelRatio,2));this.renderer.domElement.setAttribute('aria-label','Rendered native spatial scene');$('spatial-stage').append(this.renderer.domElement);this.world.add(new THREE.HemisphereLight(0xe0fff4,0x263e5d,2));const light=new THREE.DirectionalLight(0xffffff,3);light.position.set(-3,8,5);this.world.add(light);this.world.add(new THREE.GridHelper(16,32,0x5a817f,0x29414b));this.world.add(new THREE.AxesHelper(1.5));this.frame();let drag=null,moved=false;const stage=$('spatial-stage');stage.onpointerdown=e=>{drag=[e.clientX,e.clientY];moved=false;stage.setPointerCapture(e.pointerId);};stage.onpointermove=e=>{if(!drag)return;const dx=e.clientX-drag[0],dy=e.clientY-drag[1];if(Math.abs(dx)+Math.abs(dy)>2)moved=true;if(this.topDown)return;this.yaw-=dx*.008;this.pitch=Math.max(.12,Math.min(1.35,this.pitch+dy*.008));drag=[e.clientX,e.clientY];};stage.onpointerup=e=>{drag=null;if(moved)return;const r=stage.getBoundingClientRect(),ray=new THREE.Raycaster();ray.setFromCamera(new THREE.Vector2((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1),(this.topDown?this.planCamera:this.camera));const hit=ray.intersectObjects([...this.meshes.values()])[0];if(hit&&!this.meshEdit.pick(hit))this.action(()=>this.selectObject(hit.object.userData.id));};stage.addEventListener('wheel',e=>{e.preventDefault();if(this.topDown){this.planZoom=Math.max(.25,Math.min(5,this.planZoom*Math.exp(e.deltaY*.001)));this.resize();}else this.radius=Math.max(this.focusedProp ? .6 : 3,Math.min(30,this.radius+e.deltaY*.01));},{passive:false});const draw=()=>{requestAnimationFrame(draw);if(!this.visible||this.linkedMode)return;const focus=this.focus||[0,.5,0];this.camera.position.set(focus[0]+this.radius*Math.cos(this.pitch)*Math.sin(this.yaw),focus[1]+this.radius*Math.sin(this.pitch),focus[2]+this.radius*Math.cos(this.pitch)*Math.cos(this.yaw));this.camera.lookAt(...focus);this.renderer.render(this.world,this.topDown?this.planCamera:this.camera);};draw();}
+ framedVisual(){
+  if(this.scene?.imageAssembly)return null;
+  return this.scene?.objects.find(object=>object.id===this.object?.id&&object.visualMesh);
+ }
  frame(){
   this.yaw=.55;this.pitch=.55;this.radius=9;this.planZoom=1;this.focus=[0,.5,0];
-  const subject=this.scene?.objects.find(object=>object.id===this.object?.id&&object.visualMesh);
+  const subject=this.framedVisual();
   this.focusedProp=Boolean(subject);
   if(subject){this.focus=this.timeline.point(subject);this.radius=Math.max(1.15,Math.max(...subject.size)*2.5);}
+  if(this.scene?.imageAssembly){
+   const size=this.scene.objects[0].size;
+   this.radius=Math.max(2.6,Math.hypot(size[0],size[2])*1.35);
+  }
   this.resize();
  }
  resize(){if(!this.renderer||!this.visible)return;const r=$('spatial-stage').getBoundingClientRect();if(r.width<1||r.height<1)return;this.renderer.setSize(r.width,r.height,false);this.camera.aspect=r.width/r.height;this.camera.updateProjectionMatrix();
-  const subject=this.scene?.objects.find(object=>object.id===this.object?.id&&object.visualMesh);
+  const subject=this.framedVisual();
   let half=3;
   if(subject){
    const [x,y,z]=this.timeline.point(subject);

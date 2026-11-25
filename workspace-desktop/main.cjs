@@ -1126,8 +1126,10 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         return copy;
       }
       if(input.command==='library-sprites')return api('/api/media-tiles/library',{});
+      if(['image-assembly-assets','image-assembly-replay'].includes(input.command))
+        return api('/api/spatial/'+input.command,input.args||{});
       if(input.command==='blueprint-list')return (await api('/api/maps/list',{})).references;
-      if(['blueprint','library-views','import-glb','animation-save','mesh-save','mesh-undo','mesh-qualify','reconstruct','reconstruct-example','reconstruct-depth-example','reconstruct-opposed-example','reconstruct-side-example'].includes(input.command)){
+      if(['blueprint','image-assembly','library-views','import-glb','animation-save','mesh-save','mesh-undo','mesh-qualify','reconstruct','reconstruct-example','reconstruct-depth-example','reconstruct-opposed-example','reconstruct-side-example'].includes(input.command)){
         const scene=await api('/api/spatial/'+input.command,input.args||{});
         currentSpatial=null;
         await refresh();
