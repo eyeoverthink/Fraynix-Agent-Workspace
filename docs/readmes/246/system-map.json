@@ -1,0 +1,79 @@
+{
+  "summary": "A local model routes the request. Java checks the exact proposal, measures five approaches and retains the decision with the verified mission.",
+  "modules": [
+    {
+      "title": "Local model intent and durable clarification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ColliderRouting.java",
+      "note": "docs/obsidian/254-collider-model-routing.md"
+    },
+    {
+      "title": "Durable request, evidence and export file",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RecipientMissionStore.java",
+      "note": "docs/obsidian/254-collider-model-routing.md"
+    },
+    {
+      "title": "Scene authority and mission recovery",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/254-collider-model-routing.md"
+    },
+    {
+      "title": "Chat request and clarification controls",
+      "source": "workspace-desktop/renderer/app.js",
+      "note": "docs/obsidian/254-collider-model-routing.md"
+    },
+    {
+      "title": "Collider mission record and actions",
+      "source": "workspace-desktop/renderer/recipient-mission.js",
+      "note": "docs/obsidian/254-collider-model-routing.md"
+    },
+    {
+      "title": "Actual local model and restart acceptance",
+      "source": "workspace-desktop/test/recipient-model-routing-integration.cjs",
+      "note": "docs/obsidian/254-collider-model-routing.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/246/plain-language-collider.png",
+      "title": "A plain-language request opened the exact collider comparison before approval"
+    },
+    {
+      "path": "docs/readmes/246/collider-clarification.png",
+      "title": "The local model asked what to measure before starting another mission"
+    },
+    {
+      "path": "docs/readmes/246/routed-mission-after-restart.png",
+      "title": "The restarted workspace reopened the completed mission and verified export"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/245/raised-switchyard.fraynix-level.json",
+      "title": "Raised Switchyard source"
+    },
+    {
+      "path": "docs/readmes/246/model-routing-proof.json",
+      "title": "Local model receipt"
+    },
+    {
+      "path": "docs/readmes/246/collider-mission.json",
+      "title": "Windows mission"
+    },
+    {
+      "path": "docs/readmes/246/raised-switchyard-model-reviewed.fraynix-recipient.json",
+      "title": "Verified recipient export"
+    },
+    {
+      "path": "docs/readmes/246/independent-replay.json",
+      "title": "Independent replay"
+    },
+    {
+      "path": "docs/publication246/plan.md",
+      "title": "Reproduction"
+    },
+    {
+      "path": "docs/readmes/246/FILE_TREE.md",
+      "title": "File tree"
+    }
+  ]
+}

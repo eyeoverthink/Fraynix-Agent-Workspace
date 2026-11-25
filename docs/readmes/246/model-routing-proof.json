@@ -1,0 +1,213 @@
+{
+  "platform": "win32",
+  "scene": "Raised Switchyard",
+  "inputSha256": "5908f64005c06ba7fba01a340c08cdbf3fc688644f8a70c8e24e723a5c08819b",
+  "direct": {
+    "request": "Can you check where the new box makes contact when it comes in from an angle, before I commit?",
+    "decision": "compare",
+    "recordedAt": "2026-11-25T17:44:54.852974800Z",
+    "modelChoice": "compare",
+    "model": {
+      "provider": {
+        "done_reason": "stop",
+        "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "load_duration": "11393538000",
+        "requestSha256": "d69759d9cacefdf1b96b973b8d0712f8717505dc844e955405e8b93e9f333f93",
+        "prompt_eval_count": "461",
+        "frames": "35",
+        "transport": "ollama-http-ndjson",
+        "done": "true",
+        "elapsedMillis": "36223",
+        "prompt_eval_duration": "15128964000",
+        "endpoint": "http://127.0.0.1:11434",
+        "firstTokenMillis": "27094",
+        "total_duration": "36178868600",
+        "requestedModel": "gpt-oss:20b",
+        "reportedModel": "gpt-oss:20b",
+        "firstAnswerMillis": "-1",
+        "requestId": "ee60f5a6-b71d-4951-9d01-c9d13b019e2b",
+        "eval_duration": "9643255000",
+        "eval_count": "60",
+        "httpStatus": "200",
+        "responseSha256": "cb0e978debce89f96cef393d44ac1683edda9355242f64cd8e2d7c98197d05b8"
+      },
+      "name": "gpt-oss:20b",
+      "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe"
+    },
+    "id": "4a57b535-6221-42a8-9e4c-9df32ad00bb5",
+    "target": {
+      "collider": {
+        "meshEnvelopeM": [
+          0.5,
+          0.10000000149011612,
+          0.4000000059604645
+        ],
+        "previousM": [
+          0.5,
+          0.1,
+          0.4
+        ],
+        "meshSha256": "c88b4426091e3287f8802d299cf6fc48a2b11eb2ace20f9c6e9e449b00cd9567",
+        "proposedM": [
+          0.54,
+          0.1,
+          0.435
+        ]
+      },
+      "sceneId": "f8121be1-5a6d-37d3-93f5-aa2c4764684f",
+      "reviewId": "5f79c0624a7442c53ee74ddf40e2f43874c27d232dbde48df73c30f05ceff55e",
+      "sceneTitle": "Raised Switchyard"
+    }
+  },
+  "clarification": {
+    "request": "Try it.",
+    "decision": "clarify",
+    "question": "Do you want to compare the saved collider proposal across five approaches before approval?",
+    "recordedAt": "2026-11-25T17:45:32.778540100Z",
+    "modelChoice": "clarify",
+    "model": {
+      "provider": {
+        "done_reason": "stop",
+        "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "load_duration": "6330100",
+        "requestSha256": "5719db53d546ce5af42e0eb77a1304329627b59d238ddd58ea1e17c34cb71f9d",
+        "prompt_eval_count": "424",
+        "frames": "29",
+        "transport": "ollama-http-ndjson",
+        "done": "true",
+        "elapsedMillis": "10007",
+        "prompt_eval_duration": "1154364000",
+        "endpoint": "http://127.0.0.1:11434",
+        "firstTokenMillis": "1732",
+        "total_duration": "10005174000",
+        "requestedModel": "gpt-oss:20b",
+        "reportedModel": "gpt-oss:20b",
+        "firstAnswerMillis": "-1",
+        "requestId": "928231c4-f9ee-42e4-9513-906c0d241296",
+        "eval_duration": "8832647000",
+        "eval_count": "55",
+        "httpStatus": "200",
+        "responseSha256": "6f5f3dfb1f48e6bdaa9c4c3d626508390afbc8ffa4d46bd3505ae775d303a029"
+      },
+      "name": "gpt-oss:20b",
+      "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe"
+    },
+    "id": "70ea41e8-2bd8-47a4-ace3-431a84a2fb89",
+    "target": {
+      "collider": {
+        "meshEnvelopeM": [
+          0.5,
+          0.10000000149011612,
+          0.4000000059604645
+        ],
+        "previousM": [
+          0.5,
+          0.1,
+          0.4
+        ],
+        "meshSha256": "c88b4426091e3287f8802d299cf6fc48a2b11eb2ace20f9c6e9e449b00cd9567",
+        "proposedM": [
+          0.55,
+          0.1,
+          0.44
+        ]
+      },
+      "sceneId": "f8121be1-5a6d-37d3-93f5-aa2c4764684f",
+      "reviewId": "319733db39d57667077dbaa4d74b4440966bfa80b1bf838d0d0bfdf7b4b86238",
+      "sceneTitle": "Raised Switchyard"
+    }
+  },
+  "resumed": {
+    "originalRequest": "Try it.",
+    "request": "Yes, compare the original and proposed collision boxes across the five approaches.",
+    "decision": "compare",
+    "recordedAt": "2026-11-25T17:45:44.980186200Z",
+    "clarificationOf": "70ea41e8-2bd8-47a4-ace3-431a84a2fb89",
+    "modelChoice": "compare",
+    "priorQuestion": "Do you want to compare the saved collider proposal across five approaches before approval?",
+    "model": {
+      "provider": {
+        "done_reason": "stop",
+        "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "requestSha256": "7f634c8beb781d8e0f5bba86aa20fc7bd689c1f76ad5ab46462da32ba8e6599a",
+        "load_duration": "6253900",
+        "frames": "19",
+        "prompt_eval_count": "453",
+        "transport": "ollama-http-ndjson",
+        "elapsedMillis": "8266",
+        "done": "true",
+        "prompt_eval_duration": "1415329000",
+        "endpoint": "http://127.0.0.1:11434",
+        "firstTokenMillis": "1973",
+        "reportedModel": "gpt-oss:20b",
+        "requestedModel": "gpt-oss:20b",
+        "total_duration": "8219174400",
+        "requestId": "11e14d6e-261d-462f-9542-3f96610634dd",
+        "firstAnswerMillis": "-1",
+        "eval_duration": "6787438000",
+        "httpStatus": "200",
+        "eval_count": "44",
+        "responseSha256": "19472083b6bb97e00b6afacb8f89bc678cba99a1ee98a6ccc18669531448d630"
+      },
+      "name": "gpt-oss:20b",
+      "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe"
+    },
+    "id": "148ce73f-90f5-4354-839b-dd9c32c85f46",
+    "priorModel": {
+      "provider": {
+        "done_reason": "stop",
+        "modelDigest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe",
+        "load_duration": "6330100",
+        "requestSha256": "5719db53d546ce5af42e0eb77a1304329627b59d238ddd58ea1e17c34cb71f9d",
+        "prompt_eval_count": "424",
+        "frames": "29",
+        "transport": "ollama-http-ndjson",
+        "done": "true",
+        "elapsedMillis": "10007",
+        "prompt_eval_duration": "1154364000",
+        "endpoint": "http://127.0.0.1:11434",
+        "firstTokenMillis": "1732",
+        "total_duration": "10005174000",
+        "requestedModel": "gpt-oss:20b",
+        "reportedModel": "gpt-oss:20b",
+        "firstAnswerMillis": "-1",
+        "requestId": "928231c4-f9ee-42e4-9513-906c0d241296",
+        "eval_duration": "8832647000",
+        "eval_count": "55",
+        "httpStatus": "200",
+        "responseSha256": "6f5f3dfb1f48e6bdaa9c4c3d626508390afbc8ffa4d46bd3505ae775d303a029"
+      },
+      "name": "gpt-oss:20b",
+      "digest": "f38aa0c53da5f8c49d08c43a99df24ff53167fe68e24664a7777288e7656fdfe"
+    },
+    "target": {
+      "collider": {
+        "meshEnvelopeM": [
+          0.5,
+          0.10000000149011612,
+          0.4000000059604645
+        ],
+        "previousM": [
+          0.5,
+          0.1,
+          0.4
+        ],
+        "meshSha256": "c88b4426091e3287f8802d299cf6fc48a2b11eb2ace20f9c6e9e449b00cd9567",
+        "proposedM": [
+          0.55,
+          0.1,
+          0.44
+        ]
+      },
+      "sceneId": "f8121be1-5a6d-37d3-93f5-aa2c4764684f",
+      "reviewId": "319733db39d57667077dbaa4d74b4440966bfa80b1bf838d0d0bfdf7b4b86238",
+      "sceneTitle": "Raised Switchyard"
+    }
+  },
+  "approaches": 5,
+  "comparisonSha256": "0052b1da402ced3e669fe87d6a3348d7ba8429cd7dab22ecd758854936e5fd1c",
+  "exportSha256": "04713a5fdec255ee3da681a7a34d91a9f7ad5e1fc50eba28bf3868740b36d775",
+  "explicitApprovalRequired": true,
+  "clarificationRestored": true,
+  "exportedMissionRestored": true
+}

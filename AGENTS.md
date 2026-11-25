@@ -1,3 +1,7 @@
+## Edition 246 — Route plain-language collider missions with a local model
+
+2026-11-25. gpt-oss:20b chose comparison from plain wording on Raised Switchyard, asked for clarification on “Try it,” then chose comparison for the saved answer after restart. Java binds the review, asks again if it changes, rejects unsupported calls, and retains the original request, answer and model receipt alongside measured approaches. The preapproval checks refused a commit and export. After explicit approval, the native repeats agreed, with zero miss contacts and a clear aisle. The verified export and mission reopened after a second restart. See README-246.md and docs/publication246/plan.md.
+
 ## Edition 245 — Keep a Chat collider review in one durable mission
 
 2026-11-25. Raised Switchyard exercised the Chat collider review in a clean project with a raised floor, a divider and a different detailed prop. A durable mission now keeps the original request, exact preview, measured approaches, approval evidence and verified export together. Before/after first contacts were 50/48, 92/41, 41/39, 58/55 and 44/53 under shared launches. The +12 cm case hit nine ticks later. The app restored the mission before approval, after approval and after export. It retained measured evidence independently of the preview cache and regenerated a changed export to the exact saved digest. The independently opened package replayed stages at ticks 47 and 48 with zero miss contacts and a clear 4.90 m aisle. See README-245.md and docs/publication245/plan.md.

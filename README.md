@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md) · [Independent system review](docs/publication244/review.md)
 
-[Edition 245 — Keep a Chat collider review in one durable mission](README-245.md) · [Previous edition](README-244.md) · [Offline walkthrough](docs/readmes/245/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 246 — Route plain-language collider missions with a local model](README-246.md) · [Previous edition](README-245.md) · [Offline walkthrough](docs/readmes/246/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Open one local collider mission to see what Chat requested, what the app measured, what you approved, and which verified export it saved.
+Ask the local model how a proposed collider behaves. Java measures the exact proposal, asks you to approve any edit, and links the decision and checked export in a mission that survives restart.

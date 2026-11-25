@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 246 · Route plain-language collider missions with a local model</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Route plain-language collider missions with a local model</h1>
+<p>gpt-oss:20b compared a saved proposal, asked a clarifying question, and routed the answer after restart. The completed mission keeps the verified export and the original evidence.</p>
+<nav><a href="../../../README-246.md">App guide</a><a href="../245/index.html">Edition 245</a>
+<a href="../../publication246/plan.md">Reproduction</a><a href="model-routing-proof.json" download>Download model receipt</a>
+<a href="raised-switchyard-model-reviewed.fraynix-recipient.json" download>Download verified export</a><a href="#system">System files</a></nav>
+<figure><img src="plain-language-collider.png" alt="A plain-language request opened the exact collider comparison before approval"><figcaption>A plain-language request opened the exact collider comparison before approval</figcaption></figure>
+<figure><img src="collider-clarification.png" alt="The local model asked what to measure before starting another mission"><figcaption>The local model asked what to measure before starting another mission</figcaption></figure>
+<figure><img src="routed-mission-after-restart.png" alt="The restarted workspace reopened the completed mission and verified export"><figcaption>The restarted workspace reopened the completed mission and verified export</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "A local model routes the request. Java checks the exact proposal, measures five approaches and retains the decision with the verified mission.", "modules": [{"title": "Local model intent and durable clarification", "source": "workspace-engine/src/main/java/fraymus/workspace/ColliderRouting.java", "note": "docs/obsidian/254-collider-model-routing.md"}, {"title": "Durable request, evidence and export file", "source": "workspace-engine/src/main/java/fraymus/workspace/RecipientMissionStore.java", "note": "docs/obsidian/254-collider-model-routing.md"}, {"title": "Scene authority and mission recovery", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "note": "docs/obsidian/254-collider-model-routing.md"}, {"title": "Chat request and clarification controls", "source": "workspace-desktop/renderer/app.js", "note": "docs/obsidian/254-collider-model-routing.md"}, {"title": "Collider mission record and actions", "source": "workspace-desktop/renderer/recipient-mission.js", "note": "docs/obsidian/254-collider-model-routing.md"}, {"title": "Actual local model and restart acceptance", "source": "workspace-desktop/test/recipient-model-routing-integration.cjs", "note": "docs/obsidian/254-collider-model-routing.md"}], "screenshots": [{"path": "docs/readmes/246/plain-language-collider.png", "title": "A plain-language request opened the exact collider comparison before approval"}, {"path": "docs/readmes/246/collider-clarification.png", "title": "The local model asked what to measure before starting another mission"}, {"path": "docs/readmes/246/routed-mission-after-restart.png", "title": "The restarted workspace reopened the completed mission and verified export"}], "evidence": [{"path": "docs/readmes/245/raised-switchyard.fraynix-level.json", "title": "Raised Switchyard source"}, {"path": "docs/readmes/246/model-routing-proof.json", "title": "Local model receipt"}, {"path": "docs/readmes/246/collider-mission.json", "title": "Windows mission"}, {"path": "docs/readmes/246/raised-switchyard-model-reviewed.fraynix-recipient.json", "title": "Verified recipient export"}, {"path": "docs/readmes/246/independent-replay.json", "title": "Independent replay"}, {"path": "docs/publication246/plan.md", "title": "Reproduction"}, {"path": "docs/readmes/246/FILE_TREE.md", "title": "File tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 25684, "sha256": "8a407e436cb43484016e856356f74cb6514f6e4151f9052744dc5212bcb100ce", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/254-collider-model-routing.canvas", "bytes": 1131, "sha256": "d3834627c940bcbf1222b5b7f4444b7709f781731133142bebc47c9001ebd3b6", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/254-collider-model-routing.md", "bytes": 444, "sha256": "e10e5b2ce2ad7fa1f537cdfd78e6d5c3214e27cbddf8834366737f9272c3e6dd", "hashKind": "utf8-lf"}, {"path": "docs/publication246/plan.md", "bytes": 2323, "sha256": "f9584dbe5f89835a1b03c8086d85ddccf365a2036eb0a4fee9f0c5a221421013", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 135064, "sha256": "52cf8ced85af3d4e0ff21eaaeb433a430b0a9f6a92416ba93880219b33e6019a", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/app.js", "bytes": 45614, "sha256": "d866dd327e339da707de397c8cfa9aad38f51f812c4070b6fe67d83dfa9e3c31", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/recipient-mission.js", "bytes": 6526, "sha256": "d29ea222593c7374355805b064abe0d09306cccd02378e10d9b0539411adc47e", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/recipient-mission-integration.cjs", "bytes": 9523, "sha256": "4b0a042569ef3d172b6d5cf238c9454ba86d75a78d3aac62aa7051ca16720009", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/recipient-model-routing-integration.cjs", "bytes": 10684, "sha256": "d47e2a9a46befa1c4b394ee7d4d044b3c85852eea111a3031ba1938e5d3e0c9d", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ColliderApproachSweep.java", "bytes": 5972, "sha256": "e83cbdaed41c82085077255a38fecc2fecee0e21ec47936450d33df15b58a519", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ColliderRouting.java", "bytes": 8302, "sha256": "770dcbd782868b3c2a27f7ed09598ce3a28b069a50763e0afe69e0376b07ad65", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/RecipientMissionStore.java", "bytes": 5268, "sha256": "f84625b1721cce953fde7c127268a46b9a72b952a89d50e33cf7fdaabca4118e", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 74330, "sha256": "9171849c8e92684bf8a712523984d49478c54546e60460bd3ba42847e26aad7f", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 157595, "sha256": "23ce5a0335bf80d4a51798b6fd81ea541d201261c158d4deb9ab060b77fcbed8", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/ColliderRoutingTest.java", "bytes": 4979, "sha256": "63a6be4bcb5e8f5ef597cd50922470250aee33c0e623730947b1ef9797db6cfe", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>
