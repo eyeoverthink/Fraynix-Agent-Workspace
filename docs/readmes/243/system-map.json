@@ -1,0 +1,71 @@
+{
+  "summary": "Verify five shared launches and display how first contact changes at each one.",
+  "modules": [
+    {
+      "title": "Five ordered approaches and protected receipts",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ColliderApproachSweep.java",
+      "note": "docs/obsidian/251-collider-approach-sweep.md"
+    },
+    {
+      "title": "Exact collider pair and matched trial checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ColliderApproachComparison.java",
+      "note": "docs/obsidian/251-collider-approach-sweep.md"
+    },
+    {
+      "title": "Native planar launch and collisions",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialPlacement.java",
+      "note": "docs/obsidian/251-collider-approach-sweep.md"
+    },
+    {
+      "title": "Archive replay and local comparison state",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PlacementExchange.java",
+      "note": "docs/obsidian/251-collider-approach-sweep.md"
+    },
+    {
+      "title": "Approach picker and timeline",
+      "source": "workspace-desktop/renderer/placement-exchange.js",
+      "note": "docs/obsidian/251-collider-approach-sweep.md"
+    },
+    {
+      "title": "Desktop restart and reordered evidence checks",
+      "source": "workspace-desktop/test/recipient-sweep-integration.cjs",
+      "note": "docs/obsidian/251-collider-approach-sweep.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/243/five-probe-approaches.png",
+      "title": "Five measured approaches and the 25° contact timeline"
+    },
+    {
+      "path": "docs/readmes/243/offset-approach-after-restart.png",
+      "title": "Inspect the 12 cm offset after a desktop restart"
+    },
+    {
+      "path": "docs/readmes/243/altered-approach-refused.png",
+      "title": "The app withholds the result after the case order is altered"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/241/signal-bay-collider.fraynix-recipient.json",
+      "title": "Exact approved Signal Bay input"
+    },
+    {
+      "path": "docs/readmes/243/approach-sweep-evidence.json",
+      "title": "First contacts and recovery summary"
+    },
+    {
+      "path": "docs/readmes/243/approach-sweep-receipt.json",
+      "title": "Native traces for all five approaches"
+    },
+    {
+      "path": "docs/publication243/plan.md",
+      "title": "Reproduction"
+    },
+    {
+      "path": "docs/readmes/243/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 243 · Compare colliders across five probe approaches</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Compare colliders across five probe approaches</h1>
+<p>The resized Signal Bay collider made first contact 3–5 ticks earlier across five shared approaches. The 40 native trials reproduced their paired measurements.</p>
+<nav><a href="../../../README-243.md">App guide</a><a href="../242/index.html">Edition 242</a>
+<a href="../../publication243/plan.md">Implementation</a><a href="approach-sweep-receipt.json" download>Download sweep receipt</a>
+<a href="../241/signal-bay-collider.fraynix-recipient.json" download>Download Signal Bay input</a><a href="#system">System files</a></nav>
+<figure><img src="five-probe-approaches.png" alt="Five measured approaches and the 25° contact timeline"><figcaption>Five measured approaches and the 25° contact timeline</figcaption></figure>
+<figure><img src="offset-approach-after-restart.png" alt="Inspect the 12 cm offset after a desktop restart"><figcaption>Inspect the 12 cm offset after a desktop restart</figcaption></figure>
+<figure><img src="altered-approach-refused.png" alt="The app withholds the result after the case order is altered"><figcaption>The app withholds the result after the case order is altered</figcaption></figure>
+
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Verify five shared launches and display how first contact changes at each one.", "modules": [{"title": "Five ordered approaches and protected receipts", "source": "workspace-engine/src/main/java/fraymus/workspace/ColliderApproachSweep.java", "note": "docs/obsidian/251-collider-approach-sweep.md"}, {"title": "Exact collider pair and matched trial checks", "source": "workspace-engine/src/main/java/fraymus/workspace/ColliderApproachComparison.java", "note": "docs/obsidian/251-collider-approach-sweep.md"}, {"title": "Native planar launch and collisions", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialPlacement.java", "note": "docs/obsidian/251-collider-approach-sweep.md"}, {"title": "Archive replay and local comparison state", "source": "workspace-engine/src/main/java/fraymus/workspace/PlacementExchange.java", "note": "docs/obsidian/251-collider-approach-sweep.md"}, {"title": "Approach picker and timeline", "source": "workspace-desktop/renderer/placement-exchange.js", "note": "docs/obsidian/251-collider-approach-sweep.md"}, {"title": "Desktop restart and reordered evidence checks", "source": "workspace-desktop/test/recipient-sweep-integration.cjs", "note": "docs/obsidian/251-collider-approach-sweep.md"}], "screenshots": [{"path": "docs/readmes/243/five-probe-approaches.png", "title": "Five measured approaches and the 25° contact timeline"}, {"path": "docs/readmes/243/offset-approach-after-restart.png", "title": "Inspect the 12 cm offset after a desktop restart"}, {"path": "docs/readmes/243/altered-approach-refused.png", "title": "The app withholds the result after the case order is altered"}], "evidence": [{"path": "docs/readmes/241/signal-bay-collider.fraynix-recipient.json", "title": "Exact approved Signal Bay input"}, {"path": "docs/readmes/243/approach-sweep-evidence.json", "title": "First contacts and recovery summary"}, {"path": "docs/readmes/243/approach-sweep-receipt.json", "title": "Native traces for all five approaches"}, {"path": "docs/publication243/plan.md", "title": "Reproduction"}, {"path": "docs/readmes/243/FILE_TREE.md", "title": "Edition file tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 23774, "sha256": "744f0cdb10e781fad9864e184be6ce6b0e603efc1757129d4b5d9f8284057db3", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/251-collider-approach-sweep.canvas", "bytes": 1138, "sha256": "6c93f701f8f6ba8b7744c3912d423ae521e06a13c18fb961ed1de099db9f90d4", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/251-collider-approach-sweep.md", "bytes": 396, "sha256": "8a5b293afc6cb65bac74a2e1926db27342b6a4d9caf4f24fc4ea0d0e1a41cbc0", "hashKind": "utf8-lf"}, {"path": "docs/publication243/plan.md", "bytes": 2027, "sha256": "ba13792086f8b9c8425d0a624d1d2a30d92ab4f68a1441c2e92088549eea2502", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 134907, "sha256": "0807c3d0711085a1978229b1b5fb41ca17d359b4f56b7a5871a9c7b46c0eb209", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/placement-exchange.js", "bytes": 24176, "sha256": "7f06bbcd453b6697fa4d964a4dcddcfc7f6010dd74364e15df45f1ec503c2dd4", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial.css", "bytes": 12030, "sha256": "9c5718f56d38148cc26365f8382ae7a911a334bd8660d2706d1b98145c14b21d", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/recipient-sweep-integration.cjs", "bytes": 8990, "sha256": "583604498bba8ed8cc391ba74e846eafbff0c793abc2339d3389c5fcc0313209", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ColliderApproachComparison.java", "bytes": 7480, "sha256": "50b5757dca3f76176dac7c219051819d3120e333963298fadd961e1794b0a01a", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ColliderApproachSweep.java", "bytes": 4381, "sha256": "cc532ee707767b42b716ef42b063e0fe483a941ae8549fe42fbd85f1a8a65f7c", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/PlacementExchange.java", "bytes": 31178, "sha256": "91b0428b17ed3012891eb6973e41b1d77d16104bf2d3d262b2d831cc5bdec35f", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialPlacement.java", "bytes": 19165, "sha256": "5cdf74b5c2ecfa2cb321f302dee1b99463f61980385ec4c940e6a1d59170aee4", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 65412, "sha256": "491b2b94930c08f2274ea5b6d2abfd72b3c133146c58a0436d6e9ea6724981aa", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 156132, "sha256": "850b73295499f3e19b865123e4f4d009c90557d6ecf16ecd5c1d1043e9c921e3", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>
