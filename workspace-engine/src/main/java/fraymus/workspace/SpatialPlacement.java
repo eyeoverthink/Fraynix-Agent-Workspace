@@ -213,24 +213,45 @@ final class SpatialPlacement {
 
     static JSONObject verifyNative(JSONObject scene, JSONObject review, Path nativeDir, JSONObject prop,
                                    boolean checkOtherBodies) throws Exception {
-        JSONObject hit = trial(scene, review, nativeDir, prop, true, checkOtherBodies);
-        JSONObject miss = trial(scene, review, nativeDir, prop, false, checkOtherBodies);
+        return verifyNative(scene,nativeDir,prop,checkOtherBodies,
+                approach(review,ObserverGeometry.v(prop.getJSONArray("size"))));
+    }
+
+    static JSONObject verifyNative(JSONObject scene, Path nativeDir, JSONObject prop, boolean checkOtherBodies,
+                                   ProbeApproach approach) throws Exception {
+        JSONObject hit = trial(scene,nativeDir,prop,true,checkOtherBodies,approach);
+        JSONObject miss = trial(scene,nativeDir,prop,false,checkOtherBodies,approach);
         if (hit.getInt("firstContactTick") < 1 || hit.getDouble("maxPropPlanarSpeedMps") < .02
                 || miss.getInt("firstContactTick") != 0 || miss.getDouble("maxPropPlanarSpeedMps") > .01)
             throw new IllegalStateException("The measured hit and miss did not verify this placement.");
         return new JSONObject().put("passed", true).put("hit", hit).put("miss", miss);
     }
 
-    private static JSONObject trial(JSONObject scene, JSONObject review, Path nativeDir, JSONObject object,
-                                    boolean hit, boolean checkOtherBodies) throws Exception {
-        var size = ObserverGeometry.v(object.getJSONArray("size"));
+    record ProbeApproach(float xM, float yM, float hitZM, float missZM, float radiusM) {
+        Vector3f start(boolean hit) { return new Vector3f(xM,yM,hit ? hitZM : missZM); }
+        Vector3f velocity() { return new Vector3f(SPEED,0,0); }
+
+        JSONObject json() {
+            return contactSpec().put("trialCount",8).put("radiusM",radiusM)
+                    .put("hitStartM",SpatialPhysics.json(start(true))).put("missStartM",SpatialPhysics.json(start(false)))
+                    .put("velocityMps",SpatialPhysics.json(velocity()));
+        }
+    }
+
+    static ProbeApproach approach(JSONObject review, double[] size) {
         var target = ObserverGeometry.v(review.getJSONArray("targetM"));
         double yaw = Math.toRadians(review.getDouble("yawDeg"));
         double dx = (Math.abs(Math.cos(yaw))*size[0] + Math.abs(Math.sin(yaw))*size[2]) / 2;
         double dz = (Math.abs(Math.sin(yaw))*size[0] + Math.abs(Math.cos(yaw))*size[2]) / 2;
         float radius = (float) Math.min(.035, size[1] / 3);
-        var start = new Vector3f((float)(target[0]-dx-.32), (float)target[1],
-                (float)(target[2]+(hit ? 0 : dz+.14)));
+        return new ProbeApproach((float)(target[0]-dx-.32),(float)target[1],
+                (float)target[2],(float)(target[2]+dz+.14),radius);
+    }
+
+    private static JSONObject trial(JSONObject scene, Path nativeDir, JSONObject object, boolean hit,
+                                    boolean checkOtherBodies, ProbeApproach approach) throws Exception {
+        var start = approach.start(hit);
+        float radius = approach.radiusM();
         try (var world = new SpatialPhysics(scene,nativeDir)) {
             var prop = world.bodies.get(object.getString("id"));
             var probe = new PhysicsRigidBody(new SphereCollisionShape(radius), PROBE_MASS);
@@ -239,7 +260,7 @@ final class SpatialPlacement {
             probe.setSleepingThresholds(0,0);
             world.space.addCollisionObject(probe);
             probe.setGravity(Vector3f.ZERO);
-            probe.setLinearVelocity(new Vector3f(SPEED,0,0));
+            probe.setLinearVelocity(approach.velocity());
             int first = 0, contactTicks = 0;
             double maxSpeed = 0, firstSeparation = 0;
             var samples = new JSONArray();

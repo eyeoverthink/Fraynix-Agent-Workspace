@@ -356,6 +356,14 @@ jobs:
         run: |
           xvfb-run -a node workspace-desktop/test/recipient-collider-integration.cjs build/portable-smoke/recipient-collider build/portable-smoke/recipient-handoff/signal-bay-handoff.fraynix-recipient.json
           xvfb-run -a node workspace-desktop/test/placement-exchange-integration.cjs build/portable-smoke/recipient-collider-replay build/portable-smoke/recipient-collider/signal-bay-collider.fraynix-recipient.json
+      - name: Compare both collider sizes with identical probe launches and restore the receipt
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/recipient-comparison-integration.cjs build/portable-smoke/recipient-comparison build/portable-smoke/recipient-collider/signal-bay-collider.fraynix-recipient.json
+      - name: Compare the collider launches and recover the receipt on a virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/recipient-comparison-integration.cjs build/portable-smoke/recipient-comparison build/portable-smoke/recipient-collider/signal-bay-collider.fraynix-recipient.json
       - if: always()
         uses: actions/upload-artifact@v4
         with:

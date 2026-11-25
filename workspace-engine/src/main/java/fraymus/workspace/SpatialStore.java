@@ -478,6 +478,11 @@ public final class SpatialStore implements AutoCloseable {
         return exchange.replay(input);
     }
 
+    synchronized JSONObject comparePlacementColliders(JSONObject input) throws Exception {
+        available();
+        return exchange.compareCollider(input);
+    }
+
     synchronized JSONObject readRecipientEvidence(JSONObject input) throws Exception {
         SpatialScene.keys(input,"sceneId");
         var scene = read(input.getString("sceneId"));

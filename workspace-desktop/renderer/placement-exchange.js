@@ -83,6 +83,38 @@ function drawTrace(canvas, review, archived, local, sample) {
     ctx.fillText('Z ↓',9,17);
 }
 
+function drawImpactTimeline(canvas, original, resized) {
+    const ctx = canvas.getContext('2d');
+    const {width,height} = canvas;
+    const lastTick = Math.ceil((Math.max(original,resized)+8)/10)*10;
+    const x = tick => 95+(width-115)*tick/lastTick;
+    ctx.fillStyle = '#101e27';
+    ctx.fillRect(0,0,width,height);
+    ctx.font = '13px system-ui';
+    ctx.fillStyle = '#a9c3cf';
+    ctx.strokeStyle = '#324b55';
+    for (let tick=0;tick<=lastTick;tick+=10) {
+        ctx.beginPath();
+        ctx.moveTo(x(tick),13);
+        ctx.lineTo(x(tick),height-24);
+        ctx.stroke();
+        ctx.fillText(String(tick),x(tick)-5,height-8);
+    }
+    for (const [label,tick,y,color] of [['Original',original,35,'#8bcde6'],['Resized',resized,76,'#ffbf77']]) {
+        ctx.fillStyle = color;
+        ctx.strokeStyle = color;
+        ctx.fillText(label,12,y+4);
+        ctx.beginPath();
+        ctx.moveTo(x(0),y);
+        ctx.lineTo(x(tick),y);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(x(tick),y,5,0,2*Math.PI);
+        ctx.fill();
+        ctx.fillText('tick '+tick,x(tick)+9,y+4);
+    }
+}
+
 export class PlacementExchangePanel {
     constructor(parent) {
         this.parent = parent;
@@ -107,7 +139,8 @@ export class PlacementExchangePanel {
                     <div class="spatial-task exchange-controls">
                         <label id="exchange-stage-label" hidden>Revision<select id="exchange-stage"></select></label>
                         <label>Trial<select id="exchange-trial"><option value="hit">Hit</option><option value="miss">Lateral miss</option>
-                            <option value="aisle" hidden>Walking aisle</option></select></label>
+                            <option value="aisle" hidden>Walking aisle</option>
+                            <option value="compare" hidden>Same probe comparison</option></select></label>
                     </div>
                     <div class="exchange-key" id="exchange-contact-key"><span>Probe</span><span>Prop</span><span id="exchange-local-key" hidden>Local replay · dashed</span></div>
                     <p class="spatial-note" id="exchange-aisle-key" hidden>Teal aisle · amber placed prop · gray existing colliders</p>
@@ -115,6 +148,28 @@ export class PlacementExchangePanel {
                     <label class="exchange-scrubber" id="exchange-scrubber">Sample <input id="exchange-sample" aria-label="Trace sample" type="range" min="0" value="0"></label>
                     <p id="exchange-reading" aria-live="polite"></p>
                     <p id="exchange-metrics"></p>
+                    <section id="exchange-fixed-approach" aria-label="Same probe comparison" hidden>
+                        <div class="spatial-task exchange-controls">
+                            <button id="exchange-compare" class="primary">Run same-approach trials</button>
+                            <p id="exchange-comparison-status" role="status"></p>
+                        </div>
+                        <div id="exchange-comparison-result" hidden>
+                            <p id="exchange-comparison-verdict"></p>
+                            <canvas id="exchange-comparison-chart" width="640" height="120" role="img"
+                                aria-label="Original and resized first contact on the same timeline"></canvas>
+                            <table>
+                                <thead><tr><th scope="col">Measurement</th><th scope="col">Original</th><th scope="col">Resized</th></tr></thead>
+                                <tbody>
+                                    <tr><th scope="row">Box width × depth</th><td></td><td></td></tr>
+                                    <tr><th scope="row">First contact tick</th><td></td><td></td></tr>
+                                    <tr><th scope="row">Hit contact ticks</th><td></td><td></td></tr>
+                                    <tr><th scope="row">Miss contact ticks</th><td></td><td></td></tr>
+                                    <tr><th scope="row">Walking aisle</th><td></td><td></td></tr>
+                                </tbody>
+                            </table>
+                            <p id="exchange-comparison-launch" class="spatial-note"></p>
+                        </div>
+                    </section>
                 </section>
             </div>`;
         document.body.append(this.dialog);
@@ -126,6 +181,7 @@ export class PlacementExchangePanel {
             if (file) this.parent.action(() => this.load(file));
         };
         this.find('#exchange-replay').onclick = () => this.parent.action(() => this.replay());
+        this.find('#exchange-compare').onclick = () => this.parent.action(() => this.compare());
         this.find('#exchange-fork').onclick = () => this.parent.action(() => this.fork());
         this.find('#exchange-trial').onchange = () => this.draw(true);
         this.find('#exchange-stage').onchange = () => this.draw(true);
@@ -185,6 +241,20 @@ export class PlacementExchangePanel {
         }
     }
 
+    async compare() {
+        const {id,replay} = this.result;
+        const status = this.find('#exchange-comparison-status');
+        status.textContent = 'Running both collider sizes from the same hit and miss starts…';
+        try {
+            const receipt = await this.parent.call('placement-exchange-compare',{id,replaySha256:replay.sha256});
+            this.result = {...this.result,colliderComparison:receipt,colliderComparisonUnavailable:false};
+            this.draw(false);
+            this.parent.notice('The same-approach comparison was saved.');
+        } catch (error) {
+            status.textContent = error.message.replace(/^Error invoking remote method '[^']+': (?:Error: )?/, '');
+        }
+    }
+
     async fork() {
         try {
             const {id,replay} = this.result;
@@ -203,6 +273,7 @@ export class PlacementExchangePanel {
         const busy = Boolean(this.parent.busy);
         this.find('#exchange-file').disabled = busy;
         this.find('#exchange-replay').disabled = busy || !this.result?.id;
+        this.find('#exchange-compare').disabled = busy || !this.result?.colliderComparisonReady;
         const fork = this.find('#exchange-fork');
         fork.hidden = this.attachmentMode || !this.result?.destinationVerified || !this.result.replay;
         fork.textContent = this.result?.recipientRevision ? 'Create editable copy of final revision' : 'Create editable copy';
@@ -220,7 +291,10 @@ export class PlacementExchangePanel {
         this.find('#exchange-scene-title').textContent = result.title;
         const trial = this.find('#exchange-trial');
         trial.querySelector('[value=aisle]').hidden = !result.layout;
-        if (!result.layout && trial.value === 'aisle') trial.value = 'hit';
+        const comparisonOption = trial.querySelector('[value=compare]');
+        comparisonOption.hidden = !result.colliderComparisonReady;
+        if ((!result.layout && trial.value === 'aisle') || (comparisonOption.hidden && trial.value === 'compare'))
+            trial.value = 'hit';
         const provenance = 'Archive reports '+(100*result.sourceOverlap).toFixed(1)
             +'% source-view overlap. Original images stay with the source project.';
         const destination = result.destinationVerified
@@ -252,9 +326,51 @@ export class PlacementExchangePanel {
         this.draw(true);
     }
 
+    drawComparison() {
+        const {colliderComparison:result,colliderComparisonUnavailable:damaged} = this.result;
+        this.find('#exchange-comparison-result').hidden = !result;
+        this.find('#exchange-comparison-status').textContent = result ? 'Verified comparison saved locally.'
+            : damaged ? 'The saved comparison changed. Run a fresh check.'
+            : 'Compare the most recent collider edit with the scene immediately before it.';
+        if (!result) return;
+        const {binding,original,resized,result:metrics} = result;
+        const delta = metrics.resizedEarlierByTicks;
+        const absoluteMs = Math.abs(metrics.resizedEarlierByMs).toFixed(2);
+        this.find('#exchange-comparison-verdict').textContent = delta
+            ? 'Resized collider hit '+Math.abs(delta)+' ticks ('+absoluteMs+' ms) '+(delta>0?'earlier.':'later.')
+            : 'Both colliders hit on the same tick.';
+        const canvas = this.find('#exchange-comparison-chart');
+        canvas.setAttribute('aria-label','First contact, original tick '+original.hit.firstContactTick
+            +' and resized tick '+resized.hit.firstContactTick);
+        drawImpactTimeline(canvas,original.hit.firstContactTick,resized.hit.firstContactTick);
+        const dims = size => size[0].toFixed(2)+' × '+size[2].toFixed(2)+' m';
+        const cells = [
+            [dims(binding.beforeColliderM),dims(binding.afterColliderM)],
+            [original.hit.firstContactTick,resized.hit.firstContactTick],
+            [original.hit.contactTicks,resized.hit.contactTicks],
+            [original.miss.contactTicks,resized.miss.contactTicks],
+            [original.routeLengthM.toFixed(2)+' m clear',resized.routeLengthM.toFixed(2)+' m clear']
+        ].flat();
+        this.find('#exchange-fixed-approach').querySelectorAll('td').forEach((cell,index)=>{cell.textContent=cells[index];});
+        const {approach} = binding;
+        const point = xyz => '('+xyz.map(value=>value.toFixed(3)).join(', ')+') m';
+        this.find('#exchange-comparison-launch').textContent = 'Both used '+approach.probeSpeedMps.toFixed(2)
+            +' m/s along +X · '+(approach.radiusM*1000).toFixed(0)+' mm radius. Hit starts at '
+            +point(approach.hitStartM)+' and the miss starts at '+point(approach.missStartM)+'.';
+    }
+
     draw(reset) {
         if (!this.result?.id) return;
         const kind = this.find('#exchange-trial').value;
+        const compare = kind === 'compare';
+        this.find('#exchange-stage-label').hidden = compare || !this.result.recipientRevision;
+        this.find('#exchange-fixed-approach').hidden = !compare;
+        for (const name of ['canvas','reading','metrics']) this.find('#exchange-'+name).hidden = compare;
+        if (compare) {
+            for (const key of ['contact-key','aisle-key','scrubber']) this.find('#exchange-'+key).hidden = true;
+            this.drawComparison();
+            return;
+        }
         const index = Number(this.find('#exchange-stage').value);
         const previous = index < (this.result.recipientRevision || 0);
         const current = previous ? this.result.previousStages[index] : this.result;

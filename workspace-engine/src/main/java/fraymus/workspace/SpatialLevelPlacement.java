@@ -166,7 +166,14 @@ final class SpatialLevelPlacement {
     }
 
     static JSONObject verifyNative(JSONObject scene, JSONObject review, Path nativeDir, String propKey) throws Exception {
-        var layout = playable(scene,review,propKey);
+        var prop = propByKey(scene,propKey);
+        return verifyNative(scene,review,nativeDir,prop,
+                SpatialPlacement.approach(review,ObserverGeometry.v(prop.getJSONArray("size"))));
+    }
+
+    static JSONObject verifyNative(JSONObject scene, JSONObject review, Path nativeDir, JSONObject prop,
+                                   SpatialPlacement.ProbeApproach approach) throws Exception {
+        var layout = playable(scene,review,prop.getString("sourceId"));
         var route = layout.getJSONArray("route");
         var floor = layout.getJSONArray("floor");
         double startX = route.getDouble(0), startZ = route.getDouble(1);
@@ -184,7 +191,7 @@ final class SpatialLevelPlacement {
                 if (hit[0]) throw new IllegalStateException("The native player envelope intersects a collider.");
             }
         }
-        return SpatialPlacement.verifyNative(scene,review,nativeDir,propByKey(scene,propKey),true)
+        return SpatialPlacement.verifyNative(scene,nativeDir,prop,true,approach)
                 .put("playerEnvelopeClear", true).put("routeLengthM", layout.getDouble("routeLengthM"));
     }
 

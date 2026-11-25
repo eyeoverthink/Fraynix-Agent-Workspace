@@ -74,7 +74,20 @@ final class PlacementExchange {
         byte[] bytes = saved.toString().getBytes(StandardCharsets.UTF_8);
         if (bytes.length > BYTE_LIMIT) throw new IllegalStateException("The local receipt exceeds the exchange limit.");
         SpriteWorkshop.replace(file(original.id,".replay.json"),bytes);
-        return summarize(original).put("replay",saved);
+        return status(original,saved);
+    }
+
+    JSONObject compareCollider(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"id","replaySha256");
+        var bundle = load(input.getString("id"));
+        var replay = localReplay(bundle);
+        if (replay == null || !input.getString("replaySha256").equals(replay.getString("sha256")))
+            throw new IllegalStateException("Replay the exact bundle locally before comparing colliders.");
+        var plan = ColliderApproachComparison.plan(bundle,replay);
+        if (plan == null) throw new IllegalArgumentException("This archive has no reviewed collider edit to compare.");
+        var receipt = plan.run(nativeDir);
+        SpriteWorkshop.replace(file(bundle.id,".comparison.json"),receipt.toString().getBytes(StandardCharsets.UTF_8));
+        return receipt;
     }
 
     private JSONObject verify(Stage stage) throws Exception {
@@ -154,11 +167,26 @@ final class PlacementExchange {
     }
 
     private JSONObject status(Bundle bundle) throws Exception {
+        return status(bundle,localReplay(bundle));
+    }
+
+    private JSONObject status(Bundle bundle, JSONObject receipt) {
         var summary = summarize(bundle);
-        var receipt = localReplay(bundle);
-        if (receipt != null) return summary.put("replay",receipt);
-        if (Files.exists(file(bundle.id,".replay.json"),LinkOption.NOFOLLOW_LINKS))
+        if (receipt != null) {
+            summary.put("replay",receipt);
+            var plan = ColliderApproachComparison.plan(bundle,receipt);
+            if (plan != null) {
+                summary.put("colliderComparisonReady",true);
+                Path comparison = file(bundle.id,".comparison.json");
+                if (Files.exists(comparison,LinkOption.NOFOLLOW_LINKS)) {
+                    var retained = plan.read(comparison);
+                    if (retained == null) summary.put("colliderComparisonUnavailable",true);
+                    else summary.put("colliderComparison",retained);
+                }
+            }
+        } else if (Files.exists(file(bundle.id,".replay.json"),LinkOption.NOFOLLOW_LINKS)) {
             summary.put("replayUnavailable",true);
+        }
         return summary;
     }
 

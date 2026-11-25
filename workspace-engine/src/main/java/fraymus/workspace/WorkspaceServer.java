@@ -629,10 +629,11 @@ public final class WorkspaceServer implements AutoCloseable {
                             default -> spatial.runRecipientEdit(input);
                         };
                     }
-                    case "/api/spatial/placement-exchange-replay" -> {
+                    case "/api/spatial/placement-exchange-replay", "/api/spatial/placement-exchange-compare" -> {
                         if (agency.busy() || sharedBusy043() || goals.workflowReserved() || goals.ownsSpatial())
-                            throw new IllegalStateException("Finish active work before replaying a contact test.");
-                        result=spatial.replayPlacementExchange(input);
+                            throw new IllegalStateException("Finish active work before running a contact test.");
+                        result = route.endsWith("-compare") ? spatial.comparePlacementColliders(input)
+                                : spatial.replayPlacementExchange(input);
                     }
                     case "/api/spatial/prop-review" -> result=spatial.reviewProp(input);
                     case "/api/spatial/prop-copy" -> {

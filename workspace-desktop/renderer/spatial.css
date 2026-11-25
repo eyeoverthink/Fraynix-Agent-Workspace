@@ -168,3 +168,11 @@
 @media (max-width: 510px) {
     .recipient-preview-grid:has(#recipient-collider-figure:not([hidden])) { grid-template-columns: 1fr; }
 }
+
+#exchange-canvas[hidden], #exchange-stage-label[hidden], #exchange-fixed-approach[hidden], #exchange-comparison-result[hidden] { display: none; }
+#exchange-comparison-status { margin: 0; }
+#exchange-comparison-verdict { color: #a2ebcd; font-weight: 600; }
+#exchange-comparison-chart { display: block; width: 100%; height: auto; border: 1px solid #45616a; border-radius: 7px; }
+#exchange-fixed-approach table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+#exchange-fixed-approach th, #exchange-fixed-approach td { padding: 5px; text-align: left; border-bottom: 1px solid #324b55; }
+#exchange-comparison-launch { padding: 0; }
