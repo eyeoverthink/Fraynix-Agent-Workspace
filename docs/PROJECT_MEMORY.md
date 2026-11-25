@@ -1,3 +1,7 @@
+## Edition 247 — Build editable 3D scenes from registered images
+
+2026-11-25. Local registered PNGs now feed the same checked mesh fitter as browser picks. Image assembly maps 2–4 checked props from opaque overhead marker pixels at a declared scale. It preserves separate mesh and box shapes, rejects collisions or out-of-floor placements, and tests ground contact twice before committing. The Windows fixture placed a stepped bracket and perforated plate on a 4 × 3 m floor. Both first contacted at tick 46 and a fresh restart replay matched. Changed source images or layout bytes blocked replay or export. Blender 4.5.17 LTS found 656 and 432 editable triangles and separate colliders. Next test unmarked overhead localization against a withheld registered view. See README-247.md and docs/publication247/plan.md.
+
 ## Edition 246 — Route plain-language collider missions with a local model
 
 2026-11-25. gpt-oss:20b chose comparison from plain wording on Raised Switchyard, asked for clarification on “Try it,” then chose comparison for the saved answer after restart. Java binds the review, asks again if it changes, rejects unsupported calls, and retains the original request, answer and model receipt alongside measured approaches. The preapproval checks refused a commit and export. After explicit approval, the native repeats agreed, with zero miss contacts and a clear aisle. The verified export and mission reopened after a second restart. See README-246.md and docs/publication246/plan.md.

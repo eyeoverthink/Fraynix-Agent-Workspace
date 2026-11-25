@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 247 · Build editable 3D scenes from registered images</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Build editable 3D scenes from registered images</h1>
+<p>Two registered PNG sets produced editable models. A scaled overhead layout placed both on a shared floor, and Java replayed their measured contacts after restart.</p>
+<nav><a href="../../../README-247.md">App guide</a><a href="../246/index.html">Edition 246</a>
+<a href="../../publication247/plan.md">Reproduction</a><a href="image-assembly-evidence.json" download>Download measurements</a>
+<a href="image-workshop.glb" download>Download the GLB</a><a href="#system">System files</a></nav>
+<figure><img src="local-views-checked.png" alt="A local registered image set passes its independent view check"><figcaption>A local registered image set passes its independent view check</figcaption></figure>
+<figure><img src="image-layout-assembled.png" alt="Two separately reconstructed meshes share one 3D scene"><figcaption>Two separately reconstructed meshes share one 3D scene</figcaption></figure>
+<figure><img src="image-scene-restarted.png" alt="Fresh support checks match after desktop restart"><figcaption>Fresh support checks match after desktop restart</figcaption></figure>
+<figure><img src="overlapping-layout-refused.png" alt="An overlapping collider layout is refused before a scene is saved"><figcaption>An overlapping collider layout is refused before a scene is saved</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Local images become editable props and share a scaled, checked 3D scene.", "modules": [{"title": "Registered PNG import and mesh qualification", "source": "workspace-engine/src/main/java/fraymus/workspace/BrowserViewTrace.java", "note": "docs/obsidian/255-image-scene-assembly.md"}, {"title": "Marker geometry and native support checks", "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java", "note": "docs/obsidian/255-image-scene-assembly.md"}, {"title": "Persistent scene and source verification", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "note": "docs/obsidian/255-image-scene-assembly.md"}, {"title": "Layout controls and replay", "source": "workspace-desktop/renderer/image-assembly.js", "note": "docs/obsidian/255-image-scene-assembly.md"}, {"title": "Desktop image assembly and restart", "source": "workspace-desktop/test/image-assembly-integration.cjs", "note": "docs/obsidian/255-image-scene-assembly.md"}, {"title": "Independent Blender readback", "source": "workspace-desktop/test/image-assembly-blender.py", "note": "docs/obsidian/255-image-scene-assembly.md"}], "screenshots": [{"path": "docs/readmes/247/local-views-checked.png", "title": "A local registered image set passes its independent view check"}, {"path": "docs/readmes/247/image-layout-assembled.png", "title": "Two separately reconstructed meshes share one 3D scene"}, {"path": "docs/readmes/247/image-scene-restarted.png", "title": "Fresh support checks match after desktop restart"}, {"path": "docs/readmes/247/overlapping-layout-refused.png", "title": "An overlapping collider layout is refused before a scene is saved"}], "evidence": [{"path": "docs/readmes/247/overhead.png", "title": "Overhead layout"}, {"path": "docs/readmes/247/image-assembly-evidence.json", "title": "Measured evidence"}, {"path": "docs/readmes/247/blender-readback.json", "title": "Checked Blender import"}, {"path": "docs/readmes/247/image-workshop.glb", "title": "GLB"}, {"path": "docs/publication247/plan.md", "title": "Reproduction"}, {"path": "docs/readmes/247/FILE_TREE.md", "title": "File tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 26161, "sha256": "f19cdc3502fe3b191fb3a0828973ce3f741381a35698e06cd26c4645d6e4180a", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/255-image-scene-assembly.canvas", "bytes": 1136, "sha256": "85f2b730d7c96fc65c53dbc9c856027d32ed1d3136ffa8dfdd6e4c702c01e7f0", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/255-image-scene-assembly.md", "bytes": 422, "sha256": "186b765e097ccbe6f43f8439ba53638cec1c23cf71d81d533220b088a373ae7e", "hashKind": "utf8-lf"}, {"path": "docs/publication247/plan.md", "bytes": 1734, "sha256": "0ae542a271ec96408fa420e47696d138f168f209267e49a7f8c46a69b16c21b7", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/main.cjs", "bytes": 135231, "sha256": "54f6d70db29373d81a099a7bf7635ce58ad585ed1cfca784347031874b0cce6f", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/image-assembly.js", "bytes": 5183, "sha256": "0fc7676475bd6a1fd97c08c623c01bf1b46296b268fdd9913f6d5435128e62da", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-panel.js", "bytes": 54640, "sha256": "11390676cba4a83a241dc8a6a82f4845463f499d4e4fef856c75695cd624731b", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/image-assembly-blender.py", "bytes": 2877, "sha256": "c170a969a4b54d322c6ac38c1babf2de1f033d6325a5df335755507dd2b4316e", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/image-assembly-integration.cjs", "bytes": 10015, "sha256": "960fc8fdf9a4f2aa1baf4253a1643ef3a334b286d7b18a2a02c5fc54e51394b4", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/BrowserViewTrace.java", "bytes": 22056, "sha256": "385a9ee4d3da9518b68e10502c52cf699232fafa96e5819b7c5353a1213f0051", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java", "bytes": 10412, "sha256": "8400210a96856c39ac2a8213643087715d389606d5755fd60e3b9f84b7263c15", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 78757, "sha256": "e8906147dfb6f8a55063ea8c081e5dd2921dfdf9fdb264b2b76c0ca0c114860a", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java", "bytes": 158309, "sha256": "6a0d5a43d8289ac675415461dddeb92ea286c07a568b514412505c49c91cdac0", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

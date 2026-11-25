@@ -1,0 +1,79 @@
+{
+  "summary": "Local images become editable props and share a scaled, checked 3D scene.",
+  "modules": [
+    {
+      "title": "Registered PNG import and mesh qualification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/BrowserViewTrace.java",
+      "note": "docs/obsidian/255-image-scene-assembly.md"
+    },
+    {
+      "title": "Marker geometry and native support checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java",
+      "note": "docs/obsidian/255-image-scene-assembly.md"
+    },
+    {
+      "title": "Persistent scene and source verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/255-image-scene-assembly.md"
+    },
+    {
+      "title": "Layout controls and replay",
+      "source": "workspace-desktop/renderer/image-assembly.js",
+      "note": "docs/obsidian/255-image-scene-assembly.md"
+    },
+    {
+      "title": "Desktop image assembly and restart",
+      "source": "workspace-desktop/test/image-assembly-integration.cjs",
+      "note": "docs/obsidian/255-image-scene-assembly.md"
+    },
+    {
+      "title": "Independent Blender readback",
+      "source": "workspace-desktop/test/image-assembly-blender.py",
+      "note": "docs/obsidian/255-image-scene-assembly.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/247/local-views-checked.png",
+      "title": "A local registered image set passes its independent view check"
+    },
+    {
+      "path": "docs/readmes/247/image-layout-assembled.png",
+      "title": "Two separately reconstructed meshes share one 3D scene"
+    },
+    {
+      "path": "docs/readmes/247/image-scene-restarted.png",
+      "title": "Fresh support checks match after desktop restart"
+    },
+    {
+      "path": "docs/readmes/247/overlapping-layout-refused.png",
+      "title": "An overlapping collider layout is refused before a scene is saved"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/247/overhead.png",
+      "title": "Overhead layout"
+    },
+    {
+      "path": "docs/readmes/247/image-assembly-evidence.json",
+      "title": "Measured evidence"
+    },
+    {
+      "path": "docs/readmes/247/blender-readback.json",
+      "title": "Checked Blender import"
+    },
+    {
+      "path": "docs/readmes/247/image-workshop.glb",
+      "title": "GLB"
+    },
+    {
+      "path": "docs/publication247/plan.md",
+      "title": "Reproduction"
+    },
+    {
+      "path": "docs/readmes/247/FILE_TREE.md",
+      "title": "File tree"
+    }
+  ]
+}

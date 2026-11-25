@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 247 — Build editable 3D scenes from registered images](../../README-247.md) · [Walkthrough](247/index.html)
+
 [Edition 246 — Route plain-language collider missions with a local model](../../README-246.md) · [Walkthrough](246/index.html)
 
 [Edition 245 — Keep a Chat collider review in one durable mission](../../README-245.md) · [Walkthrough](245/index.html)
