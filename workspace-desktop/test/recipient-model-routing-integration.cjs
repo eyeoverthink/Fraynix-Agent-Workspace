@@ -121,6 +121,7 @@ async function main() {
         await check('recipient-approach-status','Saved comparison for this exact preview',180000);
         const resumed = await call('recipient-route-latest');
         verifyModel(resumed,'compare');
+        assert.equal(await page.locator('#messages .assistant').filter({hasText:question}).count(),1);
         assert.equal(resumed.originalRequest,ambiguous);
         assert.equal(resumed.request,answer);
         assert.equal(resumed.clarificationOf,clarification.id);

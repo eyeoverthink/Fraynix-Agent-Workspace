@@ -221,9 +221,11 @@ $('chain-recommend').onclick=()=>safe(async()=>{
 });
 let colliderQuestion = null;
 let routingCollider = false;
-function showColliderQuestion(route) {
+function showColliderQuestion(route, restoring = false) {
  colliderQuestion = route.decision === 'clarify' ? route : null;
- if (colliderQuestion) message(colliderQuestion.question);
+ const last = window.workbench099.transcript.at(-1);
+ if (colliderQuestion && (!restoring || last?.role !== 'assistant' || last.text !== colliderQuestion.question))
+  message(colliderQuestion.question);
 }
 async function routeColliderChat(goal, model) {
  const explicit = /\bcolliders?\b|\bcollision box\b/i.test(goal);
@@ -267,6 +269,7 @@ async function routeColliderChat(goal, model) {
  }
 }
 $('run').onclick=()=>safe(async()=>{
+ await colliderRecovery;
  if(routingCollider)return;
  requireSaved();
  const goal=$('goal').value.trim();
@@ -450,7 +453,7 @@ host.onEvent(({type,value})=>{
   if(type==='run'){bodies.controls();files.controls();observers.controls();calibrations.controls();if(!value.active&&$('calibration-panel').open)safe(()=>calibrations.refresh());}
 });
 goalsPanel.dialog.addEventListener('close',updateLayout);
-safe(async()=>{const initial=await request('state');renderState(initial);if(initial.currentArtifact)showArtifact(initial.currentArtifact);for(const entry of initial.log||[])timeline(entry);if(initial.origin)$('address').value=initial.origin+'/welcome';notice('Connected. Your Studio baseline and personal state are separate.');updateLayout();await chartFollowup.refresh();
- showColliderQuestion(await spatial.call('recipient-route-latest'));
-});
+const colliderRecovery = spatial.call('recipient-route-latest')
+ .then(route=>showColliderQuestion(route,true)).catch(error=>notice(error.message));
+safe(async()=>{const initial=await request('state');renderState(initial);if(initial.currentArtifact)showArtifact(initial.currentArtifact);for(const entry of initial.log||[])timeline(entry);if(initial.origin)$('address').value=initial.origin+'/welcome';notice('Connected. Your Studio baseline and personal state are separate.');updateLayout();await chartFollowup.refresh();});
 setInterval(()=>{if(!running)host.request({operation:'state'}).then(renderState).catch(e=>notice(e.message));},12000);
