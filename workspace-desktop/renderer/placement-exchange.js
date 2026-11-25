@@ -140,7 +140,8 @@ export class PlacementExchangePanel {
                         <label id="exchange-stage-label" hidden>Revision<select id="exchange-stage"></select></label>
                         <label>Trial<select id="exchange-trial"><option value="hit">Hit</option><option value="miss">Lateral miss</option>
                             <option value="aisle" hidden>Walking aisle</option>
-                            <option value="compare" hidden>Same probe comparison</option></select></label>
+                            <option value="compare" hidden>Same probe comparison</option>
+                            <option value="sweep" hidden>Five probe approaches</option></select></label>
                     </div>
                     <div class="exchange-key" id="exchange-contact-key"><span>Probe</span><span>Prop</span><span id="exchange-local-key" hidden>Local replay · dashed</span></div>
                     <p class="spatial-note" id="exchange-aisle-key" hidden>Teal aisle · amber placed prop · gray existing colliders</p>
@@ -152,6 +153,15 @@ export class PlacementExchangePanel {
                         <div class="spatial-task exchange-controls">
                             <button id="exchange-compare" class="primary">Run same-approach trials</button>
                             <p id="exchange-comparison-status" role="status"></p>
+                        </div>
+                        <div id="exchange-sweep-overview" hidden>
+                            <p id="exchange-sweep-summary"></p>
+                            <table id="exchange-sweep-table">
+                                <thead><tr><th scope="col">Heading</th><th scope="col">Offset</th>
+                                    <th scope="col">Original hit</th><th scope="col">Resized hit</th></tr></thead>
+                                <tbody></tbody>
+                            </table>
+                            <label>Inspect approach <select id="exchange-sweep-case"></select></label>
                         </div>
                         <div id="exchange-comparison-result" hidden>
                             <p id="exchange-comparison-verdict"></p>
@@ -182,6 +192,7 @@ export class PlacementExchangePanel {
         };
         this.find('#exchange-replay').onclick = () => this.parent.action(() => this.replay());
         this.find('#exchange-compare').onclick = () => this.parent.action(() => this.compare());
+        this.find('#exchange-sweep-case').onchange = () => this.drawComparison(true);
         this.find('#exchange-fork').onclick = () => this.parent.action(() => this.fork());
         this.find('#exchange-trial').onchange = () => this.draw(true);
         this.find('#exchange-stage').onchange = () => this.draw(true);
@@ -243,13 +254,17 @@ export class PlacementExchangePanel {
 
     async compare() {
         const {id,replay} = this.result;
+        const sweep = this.find('#exchange-trial').value === 'sweep';
         const status = this.find('#exchange-comparison-status');
-        status.textContent = 'Running both collider sizes from the same hit and miss starts…';
+        status.textContent = sweep ? 'Running matched hit and miss tests at five approaches…'
+            : 'Running both collider sizes from the same hit and miss starts…';
         try {
-            const receipt = await this.parent.call('placement-exchange-compare',{id,replaySha256:replay.sha256});
-            this.result = {...this.result,colliderComparison:receipt,colliderComparisonUnavailable:false};
+            const command = sweep ? 'placement-exchange-sweep' : 'placement-exchange-compare';
+            const receipt = await this.parent.call(command,{id,replaySha256:replay.sha256});
+            if (sweep) this.result = {...this.result,colliderSweep:receipt,colliderSweepUnavailable:false};
+            else this.result = {...this.result,colliderComparison:receipt,colliderComparisonUnavailable:false};
             this.draw(false);
-            this.parent.notice('The same-approach comparison was saved.');
+            this.parent.notice(sweep ? 'The five-approach comparison was saved.' : 'The same-approach comparison was saved.');
         } catch (error) {
             status.textContent = error.message.replace(/^Error invoking remote method '[^']+': (?:Error: )?/, '');
         }
@@ -291,10 +306,9 @@ export class PlacementExchangePanel {
         this.find('#exchange-scene-title').textContent = result.title;
         const trial = this.find('#exchange-trial');
         trial.querySelector('[value=aisle]').hidden = !result.layout;
-        const comparisonOption = trial.querySelector('[value=compare]');
-        comparisonOption.hidden = !result.colliderComparisonReady;
-        if ((!result.layout && trial.value === 'aisle') || (comparisonOption.hidden && trial.value === 'compare'))
-            trial.value = 'hit';
+        for (const value of ['compare','sweep'])
+            trial.querySelector('[value='+value+']').hidden = !result.colliderComparisonReady;
+        if (trial.selectedOptions[0]?.hidden) trial.value = 'hit';
         const provenance = 'Archive reports '+(100*result.sourceOverlap).toFixed(1)
             +'% source-view overlap. Original images stay with the source project.';
         const destination = result.destinationVerified
@@ -326,13 +340,37 @@ export class PlacementExchangePanel {
         this.draw(true);
     }
 
-    drawComparison() {
-        const {colliderComparison:result,colliderComparisonUnavailable:damaged} = this.result;
-        this.find('#exchange-comparison-result').hidden = !result;
-        this.find('#exchange-comparison-status').textContent = result ? 'Verified comparison saved locally.'
+    sweepCase(receipt) {
+        const {binding, cases, summary} = receipt;
+        this.find('#exchange-sweep-summary').textContent = summary.approaches+' approaches · '+summary.sphereTrials
+            +' trials · Resized hit earlier in '+summary.earlier+', tied in '+summary.tied+', later in '+summary.later+'.';
+        const body = this.find('#exchange-sweep-table tbody');
+        const picker = this.find('#exchange-sweep-case');
+        const index = Number(picker.value || 0);
+        picker.replaceChildren();
+        body.replaceChildren();
+        for (const [i,definition] of binding.cases.entries()) {
+            const label = [definition.headingDeg+'°',(100*definition.lateralOffsetM)+' cm'];
+            picker.add(new Option(label.join(' · '),String(i)));
+            const row = body.insertRow();
+            for (const value of [...label, cases[i].original.hit.firstContactTick, cases[i].resized.hit.firstContactTick])
+                row.insertCell().textContent = value;
+        }
+        picker.value = String(index);
+        return {...cases[index],binding:{...binding.pair,approach:binding.cases[index].approach}};
+    }
+
+    drawComparison(sweep) {
+        const receipt = sweep ? this.result.colliderSweep : this.result.colliderComparison;
+        const damaged = sweep ? this.result.colliderSweepUnavailable : this.result.colliderComparisonUnavailable;
+        this.find('#exchange-compare').textContent = sweep ? 'Run five approaches' : 'Run same-approach trials';
+        this.find('#exchange-sweep-overview').hidden = !sweep || !receipt;
+        this.find('#exchange-comparison-result').hidden = !receipt;
+        this.find('#exchange-comparison-status').textContent = receipt ? 'Verified comparison saved locally.'
             : damaged ? 'The saved comparison changed. Run a fresh check.'
             : 'Compare the most recent collider edit with the scene immediately before it.';
-        if (!result) return;
+        if (!receipt) return;
+        const result = sweep ? this.sweepCase(receipt) : receipt;
         const {binding,original,resized,result:metrics} = result;
         const delta = metrics.resizedEarlierByTicks;
         const absoluteMs = Math.abs(metrics.resizedEarlierByMs).toFixed(2);
@@ -351,24 +389,24 @@ export class PlacementExchangePanel {
             [original.miss.contactTicks,resized.miss.contactTicks],
             [original.routeLengthM.toFixed(2)+' m clear',resized.routeLengthM.toFixed(2)+' m clear']
         ].flat();
-        this.find('#exchange-fixed-approach').querySelectorAll('td').forEach((cell,index)=>{cell.textContent=cells[index];});
+        this.find('#exchange-comparison-result').querySelectorAll('td').forEach((cell,index)=>{cell.textContent=cells[index];});
         const {approach} = binding;
         const point = xyz => '('+xyz.map(value=>value.toFixed(3)).join(', ')+') m';
         this.find('#exchange-comparison-launch').textContent = 'Both used '+approach.probeSpeedMps.toFixed(2)
-            +' m/s along +X · '+(approach.radiusM*1000).toFixed(0)+' mm radius. Hit starts at '
+            +' m/s · '+(approach.radiusM*1000).toFixed(0)+' mm radius. Hit starts at '
             +point(approach.hitStartM)+' and the miss starts at '+point(approach.missStartM)+'.';
     }
 
     draw(reset) {
         if (!this.result?.id) return;
         const kind = this.find('#exchange-trial').value;
-        const compare = kind === 'compare';
+        const compare = kind === 'compare' || kind === 'sweep';
         this.find('#exchange-stage-label').hidden = compare || !this.result.recipientRevision;
         this.find('#exchange-fixed-approach').hidden = !compare;
         for (const name of ['canvas','reading','metrics']) this.find('#exchange-'+name).hidden = compare;
         if (compare) {
             for (const key of ['contact-key','aisle-key','scrubber']) this.find('#exchange-'+key).hidden = true;
-            this.drawComparison();
+            this.drawComparison(kind === 'sweep');
             return;
         }
         const index = Number(this.find('#exchange-stage').value);

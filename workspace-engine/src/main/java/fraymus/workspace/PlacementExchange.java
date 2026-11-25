@@ -77,7 +77,7 @@ final class PlacementExchange {
         return status(original,saved);
     }
 
-    JSONObject compareCollider(JSONObject input) throws Exception {
+    JSONObject compareCollider(JSONObject input, boolean sweep) throws Exception {
         SpatialScene.keys(input,"id","replaySha256");
         var bundle = load(input.getString("id"));
         var replay = localReplay(bundle);
@@ -85,8 +85,9 @@ final class PlacementExchange {
             throw new IllegalStateException("Replay the exact bundle locally before comparing colliders.");
         var plan = ColliderApproachComparison.plan(bundle,replay);
         if (plan == null) throw new IllegalArgumentException("This archive has no reviewed collider edit to compare.");
-        var receipt = plan.run(nativeDir);
-        SpriteWorkshop.replace(file(bundle.id,".comparison.json"),receipt.toString().getBytes(StandardCharsets.UTF_8));
+        var receipt = sweep ? new ColliderApproachSweep(plan).run(nativeDir) : plan.run(nativeDir);
+        SpriteWorkshop.replace(file(bundle.id,sweep ? ".sweep.json" : ".comparison.json"),
+                receipt.toString().getBytes(StandardCharsets.UTF_8));
         return receipt;
     }
 
@@ -182,6 +183,12 @@ final class PlacementExchange {
                     var retained = plan.read(comparison);
                     if (retained == null) summary.put("colliderComparisonUnavailable",true);
                     else summary.put("colliderComparison",retained);
+                }
+                Path sweep = file(bundle.id,".sweep.json");
+                if (Files.exists(sweep,LinkOption.NOFOLLOW_LINKS)) {
+                    var retained = new ColliderApproachSweep(plan).read(sweep);
+                    if (retained == null) summary.put("colliderSweepUnavailable",true);
+                    else summary.put("colliderSweep",retained);
                 }
             }
         } else if (Files.exists(file(bundle.id,".replay.json"),LinkOption.NOFOLLOW_LINKS)) {

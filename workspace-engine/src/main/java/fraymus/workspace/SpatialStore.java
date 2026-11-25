@@ -478,9 +478,9 @@ public final class SpatialStore implements AutoCloseable {
         return exchange.replay(input);
     }
 
-    synchronized JSONObject comparePlacementColliders(JSONObject input) throws Exception {
+    synchronized JSONObject comparePlacementColliders(JSONObject input, boolean sweep) throws Exception {
         available();
-        return exchange.compareCollider(input);
+        return exchange.compareCollider(input,sweep);
     }
 
     synchronized JSONObject readRecipientEvidence(JSONObject input) throws Exception {

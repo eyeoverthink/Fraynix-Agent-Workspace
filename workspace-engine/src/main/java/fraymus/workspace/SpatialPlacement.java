@@ -227,9 +227,13 @@ final class SpatialPlacement {
         return new JSONObject().put("passed", true).put("hit", hit).put("miss", miss);
     }
 
-    record ProbeApproach(float xM, float yM, float hitZM, float missZM, float radiusM) {
-        Vector3f start(boolean hit) { return new Vector3f(xM,yM,hit ? hitZM : missZM); }
-        Vector3f velocity() { return new Vector3f(SPEED,0,0); }
+    record ProbeApproach(float hitXM, float yM, float hitZM, float missXM, float missZM,
+                         float radiusM, float velocityX, float velocityZ) {
+        ProbeApproach(float xM,float yM,float hitZM,float missZM,float radiusM) {
+            this(xM,yM,hitZM,xM,missZM,radiusM,SPEED,0);
+        }
+        Vector3f start(boolean hit) { return new Vector3f(hit ? hitXM : missXM,yM,hit ? hitZM : missZM); }
+        Vector3f velocity() { return new Vector3f(velocityX,0,velocityZ); }
 
         JSONObject json() {
             return contactSpec().put("trialCount",8).put("radiusM",radiusM)
@@ -246,6 +250,19 @@ final class SpatialPlacement {
         float radius = (float) Math.min(.035, size[1] / 3);
         return new ProbeApproach((float)(target[0]-dx-.32),(float)target[1],
                 (float)target[2],(float)(target[2]+dz+.14),radius);
+    }
+
+    static ProbeApproach angledApproach(JSONObject review, double[] envelope, double headingDeg, double offsetM) {
+        var target = ObserverGeometry.v(review.getJSONArray("targetM"));
+        double heading = Math.toRadians(headingDeg);
+        double x = Math.cos(heading), z = Math.sin(heading);
+        double axes = Math.toRadians(review.getDouble("yawDeg"))+heading;
+        double rear = (Math.abs(Math.cos(axes))*envelope[0]+Math.abs(Math.sin(axes))*envelope[2])/2 + .32;
+        double lateral = (Math.abs(Math.sin(axes))*envelope[0]+Math.abs(Math.cos(axes))*envelope[2])/2 + .14;
+        double startX = target[0]-x*rear, startZ = target[2]-z*rear;
+        return new ProbeApproach((float)(startX-z*offsetM),(float)target[1],(float)(startZ+x*offsetM),
+                (float)(startX-z*lateral),(float)(startZ+x*lateral),(float)Math.min(.035,envelope[1]/3),
+                (float)(x*SPEED),(float)(z*SPEED));
     }
 
     private static JSONObject trial(JSONObject scene, Path nativeDir, JSONObject object, boolean hit,

@@ -14,27 +14,30 @@ final class ColliderApproachComparison {
     record Plan(JSONObject binding, PlacementExchange.Stage original, PlacementExchange.Stage resized,
                 SpatialPlacement.ProbeApproach approach) {
         JSONObject run(Path nativeDir) throws Exception {
-            var a = verify(original,nativeDir);
-            var b = verify(resized,nativeDir);
-            var data = new JSONObject().put("binding",binding).put("original",a).put("resized",b)
-                    .put("result",result(a,b));
+            var data = runCase(nativeDir,approach).put("binding",binding);
             return data.put("sha256",WorldFrames.hash(data));
         }
 
-        private JSONObject verify(PlacementExchange.Stage stage, Path nativeDir) throws Exception {
+        JSONObject runCase(Path nativeDir, SpatialPlacement.ProbeApproach shared) throws Exception {
+            var a = verify(original,nativeDir,shared);
+            var b = verify(resized,nativeDir,shared);
+            return new JSONObject().put("original",a).put("resized",b).put("result",result(a,b));
+        }
+
+        private JSONObject verify(PlacementExchange.Stage stage, Path nativeDir,
+                                  SpatialPlacement.ProbeApproach shared) throws Exception {
             var review = stage.evidence().getJSONObject("review");
             var body = SpatialLevelPlacement.propByKey(stage.scene(),stage.propKey());
-            var first = SpatialLevelPlacement.verifyNative(stage.scene(),review,nativeDir,body,approach);
-            var repeat = SpatialLevelPlacement.verifyNative(stage.scene(),review,nativeDir,body,approach);
+            var first = SpatialLevelPlacement.verifyNative(stage.scene(),review,nativeDir,body,shared);
+            var repeat = SpatialLevelPlacement.verifyNative(stage.scene(),review,nativeDir,body,shared);
             if (!first.similar(repeat))
                 throw new IllegalStateException("The two same-approach runs did not agree.");
-            check(first);
+            check(first,shared.json());
             return first;
         }
 
-        private void check(JSONObject trials) {
+        private void check(JSONObject trials, JSONObject launch) {
             PlacementExchange.checkTrials(trials,true);
-            var launch = binding.getJSONObject("approach");
             for (String kind : new String[]{"hit","miss"}) {
                 var trial = trials.getJSONObject(kind);
                 var initial = trial.getJSONArray("samples").getJSONObject(0);
@@ -49,6 +52,14 @@ final class ColliderApproachComparison {
                 throw new IllegalStateException("The protected walking aisle differs.");
         }
 
+        boolean validCase(JSONObject receipt, JSONObject launch) {
+            var a = receipt.getJSONObject("original");
+            var b = receipt.getJSONObject("resized");
+            check(a,launch);
+            check(b,launch);
+            return result(a,b).similar(receipt.getJSONObject("result"));
+        }
+
         JSONObject read(Path path) {
             try {
                 var receipt = new JSONObject(new String(SpriteWorkshop.read(path,PlacementExchange.BYTE_LIMIT),
@@ -58,11 +69,7 @@ final class ColliderApproachComparison {
                 receipt.remove("sha256");
                 if (!WorldFrames.hash(receipt).equals(hash) || !binding.similar(receipt.getJSONObject("binding")))
                     return null;
-                var a = receipt.getJSONObject("original");
-                var b = receipt.getJSONObject("resized");
-                check(a);
-                check(b);
-                return result(a,b).similar(receipt.getJSONObject("result")) ? receipt.put("sha256",hash) : null;
+                return validCase(receipt,binding.getJSONObject("approach")) ? receipt.put("sha256",hash) : null;
             } catch (IOException | RuntimeException changed) {
                 return null;
             }
@@ -96,10 +103,7 @@ final class ColliderApproachComparison {
         if (!prior.similar(next) || !originalBody.getJSONArray("size").similar(box.getJSONArray("previousM")))
             throw new IllegalArgumentException("The compared scenes must differ only by the reviewed collider size.");
 
-        var a = ObserverGeometry.v(box.getJSONArray("previousM"));
-        var b = ObserverGeometry.v(box.getJSONArray("proposedM"));
-        var envelope = new double[]{Math.max(a[0],b[0]),a[1],Math.max(a[2],b[2])};
-        var approach = SpatialPlacement.approach(review,envelope);
+        var approach = SpatialPlacement.approach(review,envelope(box.getJSONArray("previousM"),box.getJSONArray("proposedM")));
         var normalizedOriginal = new PlacementExchange.Stage(original.scene(),original.evidence(),prop,true);
         var binding = new JSONObject().put("format",FORMAT).put("archiveSha256",archive).put("replaySha256",replay)
                 .put("beforeStage",index-1).put("afterStage",index)
@@ -109,6 +113,12 @@ final class ColliderApproachComparison {
                 .put("yawDeg",review.getDouble("yawDeg")).put("aisleM",resized.evidence().getJSONObject("measured").getDouble("routeLengthM"))
                 .put("approach",approach.json());
         return new Plan(binding,normalizedOriginal,resized,approach);
+    }
+
+    static double[] envelope(org.json.JSONArray before, org.json.JSONArray after) {
+        var a = ObserverGeometry.v(before);
+        var b = ObserverGeometry.v(after);
+        return new double[]{Math.max(a[0],b[0]),a[1],Math.max(a[2],b[2])};
     }
 
     private static JSONObject result(JSONObject original, JSONObject resized) {

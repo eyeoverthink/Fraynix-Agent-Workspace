@@ -176,3 +176,7 @@
 #exchange-fixed-approach table { width: 100%; border-collapse: collapse; margin: 10px 0; }
 #exchange-fixed-approach th, #exchange-fixed-approach td { padding: 5px; text-align: left; border-bottom: 1px solid #324b55; }
 #exchange-comparison-launch { padding: 0; }
+
+#exchange-sweep-overview[hidden] { display: none; }
+#exchange-sweep-summary { margin: 0; font-weight: 600; }
+#exchange-sweep-overview select { max-width: 100%; }
