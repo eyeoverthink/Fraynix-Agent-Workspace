@@ -1,0 +1,70 @@
+{
+  "summary": "Run an advisory comparison while the collider edit is still pending.",
+  "modules": [
+    {
+      "title": "Exact pending review and separate approval",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/252-pending-collider-review.md"
+    },
+    {
+      "title": "Matched trials and explicit unverified rows",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ColliderApproachSweep.java",
+      "note": "docs/obsidian/252-pending-collider-review.md"
+    },
+    {
+      "title": "Parent and candidate binding",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ColliderApproachComparison.java",
+      "note": "docs/obsidian/252-pending-collider-review.md"
+    },
+    {
+      "title": "Chat request and review table",
+      "source": "workspace-desktop/renderer/recipient-edit.js",
+      "note": "docs/obsidian/252-pending-collider-review.md"
+    },
+    {
+      "title": "Clean-project review, restart and export",
+      "source": "workspace-desktop/test/recipient-preview-sweep-integration.cjs",
+      "note": "docs/obsidian/252-pending-collider-review.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/244/chat-pending-approaches.png",
+      "title": "Chat ran the comparison on the exact pending proposal"
+    },
+    {
+      "path": "docs/readmes/244/pending-evidence-restored.png",
+      "title": "Reopened comparison and the separate approval action"
+    },
+    {
+      "path": "docs/readmes/244/changed-preview-evidence-refused.png",
+      "title": "An altered result is withheld from the pending review"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/publication244/review.md",
+      "title": "Independent system review"
+    },
+    {
+      "path": "docs/readmes/240/signal-bay-handoff.fraynix-recipient.json",
+      "title": "Starting scene"
+    },
+    {
+      "path": "docs/readmes/244/pending-approach-evidence.json",
+      "title": "Pending results"
+    },
+    {
+      "path": "docs/readmes/244/pending-approach-receipt.json",
+      "title": "Measured pending receipt"
+    },
+    {
+      "path": "docs/publication244/plan.md",
+      "title": "Reproduction"
+    },
+    {
+      "path": "docs/readmes/244/FILE_TREE.md",
+      "title": "File tree"
+    }
+  ]
+}

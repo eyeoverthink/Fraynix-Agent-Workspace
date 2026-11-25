@@ -3,6 +3,10 @@
 
 The current launch path builds the app locally with Java 21 and the locked desktop dependencies. The first preparation needs internet access. After that, the workspace can run offline with its local project data and cached dependencies.
 
+## Try a verified local edit
+
+Download the [Signal Bay starting bundle](https://raw.githubusercontent.com/eyeoverthink/Fraynix-Agent-Workspace/readme-240/docs/readmes/240/signal-bay-handoff.fraynix-recipient.json) during setup. In the app, choose **Spatial → Inspect collision evidence**, replay the bundle, and create an editable copy. The [edition guide](../README-244.md) walks through the pending comparison and approval. This workflow runs without a local model.
+
 ## macOS
 
 Use macOS 13 Ventura or newer, with Apple silicon or an Intel Mac. Install JDK 21 and Node.js 24 LTS for your Mac's architecture. In **About This Mac**, an Apple M-series chip uses ARM64 and an Intel processor uses x64. Electron's macOS minimum applies to the desktop app. [Electron platform requirements](https://www.electronjs.org/blog/electron-44-0#removed-macos-12-support)

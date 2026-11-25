@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 244 · Test a proposed collider before approval</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Test a proposed collider before approval</h1>
+<p>Run a five-approach comparison with a pending proposal, inspect its timing changes, and approve when it fits your goal.</p>
+<nav><a href="../../../README-244.md">App guide</a><a href="../243/index.html">Edition 243</a>
+<a href="../../publication244/review.md">Independent review</a><a href="pending-approach-receipt.json" download>Download pending receipt</a>
+<a href="../240/signal-bay-handoff.fraynix-recipient.json" download>Download Signal Bay input</a><a href="#system">System files</a></nav>
+<figure><img src="chat-pending-approaches.png" alt="Chat ran the comparison on the exact pending proposal"><figcaption>Chat ran the comparison on the exact pending proposal</figcaption></figure>
+<figure><img src="pending-evidence-restored.png" alt="Reopened comparison and the separate approval action"><figcaption>Reopened comparison and the separate approval action</figcaption></figure>
+<figure><img src="changed-preview-evidence-refused.png" alt="An altered result is withheld from the pending review"><figcaption>An altered result is withheld from the pending review</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Run an advisory comparison while the collider edit is still pending.", "modules": [{"title": "Exact pending review and separate approval", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "note": "docs/obsidian/252-pending-collider-review.md"}, {"title": "Matched trials and explicit unverified rows", "source": "workspace-engine/src/main/java/fraymus/workspace/ColliderApproachSweep.java", "note": "docs/obsidian/252-pending-collider-review.md"}, {"title": "Parent and candidate binding", "source": "workspace-engine/src/main/java/fraymus/workspace/ColliderApproachComparison.java", "note": "docs/obsidian/252-pending-collider-review.md"}, {"title": "Chat request and review table", "source": "workspace-desktop/renderer/recipient-edit.js", "note": "docs/obsidian/252-pending-collider-review.md"}, {"title": "Clean-project review, restart and export", "source": "workspace-desktop/test/recipient-preview-sweep-integration.cjs", "note": "docs/obsidian/252-pending-collider-review.md"}], "screenshots": [{"path": "docs/readmes/244/chat-pending-approaches.png", "title": "Chat ran the comparison on the exact pending proposal"}, {"path": "docs/readmes/244/pending-evidence-restored.png", "title": "Reopened comparison and the separate approval action"}, {"path": "docs/readmes/244/changed-preview-evidence-refused.png", "title": "An altered result is withheld from the pending review"}], "evidence": [{"path": "docs/publication244/review.md", "title": "Independent system review"}, {"path": "docs/readmes/240/signal-bay-handoff.fraynix-recipient.json", "title": "Starting scene"}, {"path": "docs/readmes/244/pending-approach-evidence.json", "title": "Pending results"}, {"path": "docs/readmes/244/pending-approach-receipt.json", "title": "Measured pending receipt"}, {"path": "docs/publication244/plan.md", "title": "Reproduction"}, {"path": "docs/readmes/244/FILE_TREE.md", "title": "File tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 24474, "sha256": "9906c395acd9d86631faebdafe26b564a7e55f2c102599080d4f72ccb15bd92f", "hashKind": "utf8-lf"}, {"path": "docs/INSTALL.md", "bytes": 5092, "sha256": "389edaf3fa3631f58dece3a52e08c5b7d236e4de28204b5fc5a5f562c5961b04", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/252-pending-collider-review.canvas", "bytes": 1140, "sha256": "338893708a74163e6147c0f9d4d4b9ceeb16b17556e2acfedd3d35fff33fb251", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/252-pending-collider-review.md", "bytes": 370, "sha256": "83b4d99d45baea96212acda5f66293bb4da20b68a57154874481b00e0491c266", "hashKind": "utf8-lf"}, {"path": "docs/publication244/plan.md", "bytes": 1346, "sha256": "5b5775330647d941a1305e3479cf406a091830b358e94fa9c8470924f0ed0fc4", "hashKind": "utf8-lf"}, {"path": "docs/publication244/review.md", "bytes": 4240, "sha256": "2529139261f8459eb904864f148ec8d2cc4f871676d6f368eb2fba8c907dbb88", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/app.js", "bytes": 43066, "sha256": "6ae3807c663e5a8a9fc8a0671a231e3995c1f9e2a0509364affba8fc194317f4", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/recipient-edit.js", "bytes": 17240, "sha256": "101099b5811f94167d4121790282d0d3299b7293e7efe6db995c11087502b2fc", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial.css", "bytes": 12498, "sha256": "88fb5acf73ef31700f4af99072bbfa498833b6a980d9587c731ecadbd7c7c060", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/recipient-preview-sweep-integration.cjs", "bytes": 8177, "sha256": "5a717cfdf4b75f28f8b766244a9276f978fbd83fbdcde925f5329ac84154e3d7", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ColliderApproachComparison.java", "bytes": 8500, "sha256": "43cdc368931f52b03f1fb51f15500e9510f2c2dab9b8e7a42864dce9d976c935", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ColliderApproachSweep.java", "bytes": 5733, "sha256": "5fc3e1866bd1b7dbc08f983bed80fafb1900ab19068a58e54bf58c2b930d0050", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 67900, "sha256": "34360ffe51c8cc923c06fbcec41eb597703714ac76b17f698d440785c7df5518", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/test/java/fraymus/workspace/PlacementExchangeTest.java", "bytes": 13812, "sha256": "6d9057e988d70a8e9fc14d3dee7c043b3f02fbe62ccb91b7993e50db0f3bc381", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>
