@@ -1,0 +1,42 @@
+{
+  "format": "fraynix.placement-exchange-acceptance-v1",
+  "platform": "win32",
+  "archiveSha256": "b4c4da0a2d90953c93073543cdefc6668a7ab6a0f2a19f225e28540e07b4b1ee",
+  "localReplaySha256": "c2d4753bc136d31b50f34a60c8050c5ec75bfcc23ea650a7c6e6f6b0a56ec33f",
+  "comparison": {
+    "contactTickTolerance": 1,
+    "velocityToleranceMps": 0.05,
+    "contactDurationToleranceTicks": 3,
+    "peakSpeedToleranceMps": 0.015,
+    "hit": {
+      "firstContactTickError": 0,
+      "peakSpeedErrorMps": 0,
+      "firstSeparationErrorM": 0,
+      "maxPositionErrorM": 0,
+      "maxVelocityErrorMps": 0,
+      "contactDurationErrorTicks": 0
+    },
+    "passed": true,
+    "positionToleranceM": 0.01,
+    "miss": {
+      "firstContactTickError": 0,
+      "peakSpeedErrorMps": 0,
+      "firstSeparationErrorM": 0,
+      "maxPositionErrorM": 0,
+      "maxVelocityErrorMps": 0,
+      "contactDurationErrorTicks": 0
+    },
+    "contactSeparationToleranceM": 0.003
+  },
+  "archiveHitTick": 43,
+  "localHitTick": 43,
+  "archiveMissContacts": 0,
+  "localMissContacts": 0,
+  "freshProject": true,
+  "noPlacementAuthorityCreated": true,
+  "restoredAfterRestart": true,
+  "archiveUntouched": true,
+  "refusedChangedArchive": true,
+  "refusedChangedGlb": true,
+  "changedLocalReplayRefusedAndRecovered": true
+}

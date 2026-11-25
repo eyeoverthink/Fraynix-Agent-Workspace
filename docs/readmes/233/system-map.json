@@ -1,0 +1,66 @@
+{
+  "summary": "Open a verified-placement archive, rerun both contact branches and compare the measured paths.",
+  "modules": [
+    {
+      "title": "Portable archive, native replay and tolerances",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/PlacementExchange.java",
+      "note": "docs/obsidian/241-placement-exchange.md"
+    },
+    {
+      "title": "Collision evidence viewer and trace scrubber",
+      "source": "workspace-desktop/renderer/placement-exchange.js",
+      "note": "docs/obsidian/241-placement-exchange.md"
+    },
+    {
+      "title": "Fresh-project import and restart acceptance",
+      "source": "workspace-desktop/test/placement-exchange-integration.cjs",
+      "note": "docs/obsidian/241-placement-exchange.md"
+    },
+    {
+      "title": "Rehashed false traces and missing samples",
+      "source": "workspace-engine/src/test/java/fraymus/workspace/PlacementExchangeTest.java",
+      "note": "docs/obsidian/241-placement-exchange.md"
+    },
+    {
+      "title": "Shared exported geometry verifier",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialGlb.java",
+      "note": "docs/obsidian/241-placement-exchange.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/233/local-hit-replay.png",
+      "title": "The archived and local hit paths coincide"
+    },
+    {
+      "path": "docs/readmes/233/local-miss-replay.png",
+      "title": "The lateral miss records zero contacts"
+    },
+    {
+      "path": "docs/readmes/233/archive-inspected.png",
+      "title": "The archive is checked before running a local replay"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/233/exchange-evidence.json",
+      "title": "Archive and fresh replay comparison"
+    },
+    {
+      "path": "docs/readmes/233/local-replay.json",
+      "title": "Fresh native contact samples"
+    },
+    {
+      "path": "docs/readmes/232/verified-placement.fraynix-placement.json",
+      "title": "Original edition 232 bundle"
+    },
+    {
+      "path": "docs/publication233/plan.md",
+      "title": "Review and verification details"
+    },
+    {
+      "path": "docs/readmes/233/FILE_TREE.md",
+      "title": "Edition file tree"
+    }
+  ]
+}

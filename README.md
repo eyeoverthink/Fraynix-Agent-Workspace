@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md)
 
-[Edition 232 — Approve a chat placement and export measured collision evidence](README-232.md) · [Previous edition](README-231.md) · [Offline walkthrough](docs/readmes/232/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 233 — Replay a collision bundle in a fresh project](README-233.md) · [Previous edition](README-232.md) · [Offline walkthrough](docs/readmes/233/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Ask chat to place a checked 3D prop, approve the exact pose, and export the scene with measured native collision evidence.
+Open an exported collision bundle, replay it in local physics and compare the saved and fresh traces.
