@@ -180,3 +180,10 @@
 #exchange-sweep-overview[hidden] { display: none; }
 #exchange-sweep-summary { margin: 0; font-weight: 600; }
 #exchange-sweep-overview select { max-width: 100%; }
+
+#recipient-approach-review[hidden], #recipient-approach-data[hidden] { display: none; }
+#recipient-approach-review { margin-bottom: 12px; }
+#recipient-approach-status, #recipient-approach-summary { margin: 8px 0; }
+#recipient-approach-summary { font-weight: 600; }
+#recipient-approach-data table { border-collapse: collapse; width: 100%; }
+#recipient-approach-data th, #recipient-approach-data td { padding: 5px; text-align: left; border-bottom: 1px solid #324b55; }

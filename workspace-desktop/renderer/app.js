@@ -32,6 +32,7 @@ import {PerceptionPanel} from './perception-panel.js';
 import {TileEditor} from './media-tile-editor.js';
 import {MediaWorkshop} from './media-workshop.js';
 import {isPlacementRequest} from './spatial-placement.js';
+import {isRecipientApproachRequest} from './recipient-edit.js';
 import {SpatialPanel,isSpatialPropRequest} from './spatial-panel.js';
 import {isSpatialCarryRequest} from './spatial-carry.js';
 import {isSpatialHeightRequest} from './spatial-height.js';
@@ -223,6 +224,7 @@ $('run').onclick=()=>safe(async()=>{
  const goal=$('goal').value.trim();
  if(!goal)return;
  message(goal,'user');
+ if(isRecipientApproachRequest(goal)){await spatial.action(()=>spatial.recipient.compareFromChat());return;}
  if(isSpatialHeightRequest(goal)){await spatial.height.openFromChat(goal);return;}
  if(isSpatialCarryRequest(goal)){await spatial.carry.review(true);return;}
  if(isPlacementRequest(goal)){await spatial.action(()=>spatial.placement.openFromChat(goal));return;}

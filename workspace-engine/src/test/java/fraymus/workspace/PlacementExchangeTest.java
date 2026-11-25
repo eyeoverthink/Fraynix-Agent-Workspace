@@ -179,6 +179,36 @@ public class PlacementExchangeTest {
         assertTrue(refused.getMessage().contains("player aisle is blocked"));
     }
 
+    @Test
+    public void recordsAnInterceptedApproachWithoutClaimingATimingResult() throws Exception {
+        var root = originalRecipientRoot();
+        var link = root.getJSONObject("recipientBranch");
+        link.put("initialYawDeg",35);
+        String key = link.getString("propSourceId");
+        var source = new JSONObject(root.getString("sourceText"));
+        var prop = SpatialLevelPlacement.propByKey(source,key);
+        var angle = Math.toRadians(35)/2;
+        prop.getJSONArray("position").put(0,.72).put(2,.85);
+        prop.put("rotation",new JSONArray(new double[]{0,Math.sin(angle),0,Math.cos(angle)}));
+        source.getJSONArray("objects").put(SpatialReconstruction.box("probe-blocker","Probe blocker",
+                new double[]{.23,.15,.62},new double[]{.09,.30,.08},0));
+        var parent = SpatialScene.parse(source.toString(),root.getString("id")).put("recipientBranch",link);
+        var review = RecipientLevelEdit.plan(parent,colliderRequest(parent,.56,.34));
+        String id = WorldFrames.hash(review);
+        var candidate = RecipientLevelEdit.candidate(parent,review,id);
+        var sweep = new ColliderApproachSweep(ColliderApproachComparison.draft(parent,candidate,review,id));
+        var directory = temp.newFolder().toPath();
+        var receipt = sweep.run(directory,true);
+        assertEquals(1,receipt.getJSONObject("summary").getInt("needsCheck"));
+        assertEquals(4,receipt.getJSONObject("summary").getInt("earlier"));
+        var blocked = receipt.getJSONArray("cases").getJSONObject(2);
+        assertTrue(blocked.getString("reason").contains("Another collider intercepted"));
+        assertFalse(blocked.has("result"));
+        Path saved = directory.resolve("pending.json");
+        Files.writeString(saved,receipt.toString());
+        assertTrue(receipt.similar(sweep.read(saved,true)));
+    }
+
     private static JSONObject colliderRequest(JSONObject parent, double width, double depth) {
         return new JSONObject().put("sceneId",parent.getString("id"))
                 .put("colliderWidthM",width).put("colliderDepthM",depth);

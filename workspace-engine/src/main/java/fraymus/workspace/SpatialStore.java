@@ -524,8 +524,35 @@ public final class SpatialStore implements AutoCloseable {
         return recipientEditStatus(id,review,RecipientLevelEdit.candidate(parent,review,id));
     }
 
+    synchronized JSONObject compareRecipientEdit(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"reviewId");
+        available();
+        String id = input.getString("reviewId");
+        var review = recipientEdits.readReview(id);
+        if (!review.has("collider")) throw new IllegalArgumentException("Choose a collider size review.");
+        var parent = currentRecipient(review.getJSONObject("parent").getString("sceneId"));
+        requireCurrentRecipientReview(id,parent);
+        var candidate = RecipientLevelEdit.candidate(parent,review,id);
+        var comparison = recipientSweep(id,review,parent,candidate).run(nativeDir,true);
+        SpriteWorkshop.replace(recipientSweepPath(id),comparison.toString().getBytes(StandardCharsets.UTF_8));
+        return recipientEditStatus(id,review,candidate);
+    }
+
+    private ColliderApproachSweep recipientSweep(String id, JSONObject review, JSONObject parent, JSONObject candidate) {
+        return new ColliderApproachSweep(ColliderApproachComparison.draft(parent,candidate,review,id));
+    }
+
+    private Path recipientSweepPath(String id) {
+        return file.resolveSibling("recipient-edits").resolve(id+".sweep.json");
+    }
+
+    private void requireCurrentRecipientReview(String id, JSONObject parent) throws Exception {
+        if (!id.equals(recipientEdits.latestId("latest-"+parent.getString("id"))))
+            throw new IllegalStateException("This review was replaced. Open the current preview before comparing or approving its evidence.");
+    }
+
     synchronized JSONObject approveRecipientEdit(JSONObject input) throws Exception {
-        SpatialScene.keys(input,"reviewId","approvalSha256");
+        SpatialScene.keys(input,"reviewId","approvalSha256","comparisonSha256");
         available();
         String id = input.getString("reviewId");
         if (!id.equals(input.getString("approvalSha256")))
@@ -536,6 +563,12 @@ public final class SpatialStore implements AutoCloseable {
         var parent = currentRecipient(review.getJSONObject("parent").getString("sceneId"));
         var candidate = RecipientLevelEdit.candidate(parent,review,id);
         SpatialLevelPlacement.playable(candidate,review,RecipientLevelEdit.propKey(review));
+        if (input.has("comparisonSha256")) {
+            requireCurrentRecipientReview(id,parent);
+            var evidence = review.has("collider") ? recipientSweep(id,review,parent,candidate).read(recipientSweepPath(id),true) : null;
+            if (evidence == null || !input.getString("comparisonSha256").equals(evidence.getString("sha256")))
+                throw new IllegalStateException("The selected comparison changed. Run it again before approving with its evidence.");
+        }
         recipientEdits.approve(id);
         return recipientEditStatus(id,review,candidate);
     }
@@ -584,6 +617,13 @@ public final class SpatialStore implements AutoCloseable {
                 .put("layout",SpatialLevelPlacement.playable(scene,review,RecipientLevelEdit.propKey(review)));
         if (scene.has("recipientEdit")) return result.put("status","verified").put("sceneId",scene.getString("id"))
                 .put("receipt",scene.getJSONObject("recipientEdit")).put("receiptSha256",scene.getString("recipientEditSha256"));
+        Path path = recipientSweepPath(id);
+        if (review.has("collider") && Files.exists(path,LinkOption.NOFOLLOW_LINKS)) {
+            var parent = scenes.get(review.getJSONObject("parent").getString("sceneId"));
+            var evidence = recipientSweep(id,review,parent,scene).read(path,true);
+            if (evidence == null) result.put("comparisonUnavailable",true);
+            else result.put("comparison",evidence);
+        }
         return result.put("status",recipientEdits.approved(id) ? "approved" : "review");
     }
 

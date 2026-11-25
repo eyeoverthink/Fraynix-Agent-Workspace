@@ -372,6 +372,14 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/recipient-sweep-integration.cjs build/portable-smoke/recipient-sweep build/portable-smoke/recipient-collider/signal-bay-collider.fraynix-recipient.json
+      - name: Start a pending collider sweep from Chat and verify the approval handoff
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/recipient-preview-sweep-integration.cjs build/portable-smoke/recipient-preview build/portable-smoke/recipient-handoff/signal-bay-handoff.fraynix-recipient.json
+      - name: Verify pending collider comparison and approval on a virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/recipient-preview-sweep-integration.cjs build/portable-smoke/recipient-preview build/portable-smoke/recipient-handoff/signal-bay-handoff.fraynix-recipient.json
       - if: always()
         uses: actions/upload-artifact@v4
         with:

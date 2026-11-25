@@ -1085,7 +1085,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(['placement-latest','placement-approve','placement-replay','placement-exchange-open',
         'placement-exchange-latest','recipient-evidence','placement-exchange-replay','placement-exchange-compare',
         'placement-exchange-sweep','recipient-edit-latest',
-        'recipient-edit-review','recipient-edit-approve'].includes(input.command))
+        'recipient-edit-review','recipient-edit-compare','recipient-edit-approve'].includes(input.command))
         return api('/api/spatial/'+input.command,input.args||{});
       if(['placement-run','placement-exchange-fork','recipient-edit-run'].includes(input.command)){
         const result=await api('/api/spatial/'+input.command,input.args);

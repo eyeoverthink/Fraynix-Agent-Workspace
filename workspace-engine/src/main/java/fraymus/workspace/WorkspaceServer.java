@@ -619,12 +619,14 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/spatial/recipient-edit-export" -> result = spatial.exportRecipientRevision(input);
                     case "/api/spatial/recipient-edit-latest" -> result = spatial.latestRecipientEdit(input);
                     case "/api/spatial/placement-exchange-fork", "/api/spatial/recipient-edit-review",
-                         "/api/spatial/recipient-edit-approve", "/api/spatial/recipient-edit-run" -> {
+                         "/api/spatial/recipient-edit-compare", "/api/spatial/recipient-edit-approve",
+                         "/api/spatial/recipient-edit-run" -> {
                         if (agency.busy() || sharedBusy043() || goals.workflowReserved() || goals.ownsSpatial())
                             throw new IllegalStateException("Finish active work before editing the recipient scene.");
                         result = switch (route) {
                             case "/api/spatial/placement-exchange-fork" -> spatial.forkPlacementExchange(input);
                             case "/api/spatial/recipient-edit-review" -> spatial.reviewRecipientEdit(input);
+                            case "/api/spatial/recipient-edit-compare" -> spatial.compareRecipientEdit(input);
                             case "/api/spatial/recipient-edit-approve" -> spatial.approveRecipientEdit(input);
                             default -> spatial.runRecipientEdit(input);
                         };

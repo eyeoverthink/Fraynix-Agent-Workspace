@@ -93,6 +93,23 @@ final class ColliderApproachComparison {
 
     private static Plan bind(String archive, String replay, int index, PlacementExchange.Stage original,
                              PlacementExchange.Stage resized, JSONObject review) {
+        var keys = new JSONObject().put("format",FORMAT).put("archiveSha256",archive).put("replaySha256",replay)
+                .put("beforeStage",index-1).put("afterStage",index);
+        return bind(keys,original,resized,review);
+    }
+
+    static Plan draft(JSONObject parent, JSONObject candidate, JSONObject review, String reviewId) {
+        String prop = RecipientLevelEdit.propKey(review);
+        var evidence = new JSONObject().put("review",review);
+        var keys = new JSONObject().put("format","fraynix.pending-collider-comparison-v1")
+                .put("reviewId",reviewId).put("parent",review.getJSONObject("parent"))
+                .put("approachToleranceTicks",1);
+        return bind(keys,new PlacementExchange.Stage(parent,evidence,prop,true),
+                new PlacementExchange.Stage(candidate,evidence,prop,true),review);
+    }
+
+    private static Plan bind(JSONObject keys, PlacementExchange.Stage original,
+                             PlacementExchange.Stage resized, JSONObject review) {
         String prop = resized.propKey();
         var box = review.getJSONObject("collider");
         var prior = new JSONObject(original.scene().getString("sourceText"));
@@ -105,13 +122,13 @@ final class ColliderApproachComparison {
 
         var approach = SpatialPlacement.approach(review,envelope(box.getJSONArray("previousM"),box.getJSONArray("proposedM")));
         var normalizedOriginal = new PlacementExchange.Stage(original.scene(),original.evidence(),prop,true);
-        var binding = new JSONObject().put("format",FORMAT).put("archiveSha256",archive).put("replaySha256",replay)
-                .put("beforeStage",index-1).put("afterStage",index)
-                .put("beforeSceneId",original.scene().getString("id")).put("afterSceneId",resized.scene().getString("id"))
+        var measured = resized.evidence().optJSONObject("measured");
+        double aisleM = measured == null ? SpatialLevelPlacement.playable(resized.scene(),review,prop).getDouble("routeLengthM")
+                : measured.getDouble("routeLengthM");
+        var binding = keys.put("beforeSceneId",original.scene().getString("id")).put("afterSceneId",resized.scene().getString("id"))
                 .put("meshSha256",box.getString("meshSha256")).put("beforeColliderM",box.getJSONArray("previousM"))
                 .put("afterColliderM",box.getJSONArray("proposedM")).put("targetM",review.getJSONArray("targetM"))
-                .put("yawDeg",review.getDouble("yawDeg")).put("aisleM",resized.evidence().getJSONObject("measured").getDouble("routeLengthM"))
-                .put("approach",approach.json());
+                .put("yawDeg",review.getDouble("yawDeg")).put("aisleM",aisleM).put("approach",approach.json());
         return new Plan(binding,normalizedOriginal,resized,approach);
     }
 

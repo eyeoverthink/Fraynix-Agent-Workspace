@@ -38,20 +38,29 @@ final class ColliderApproachSweep {
     }
 
     JSONObject run(Path nativeDir) throws Exception {
+        return run(nativeDir,false);
+    }
+
+    JSONObject run(Path nativeDir, boolean draft) throws Exception {
         var measured = new JSONArray();
         for (var variant : cases) {
             try {
                 measured.put(pair.runCase(nativeDir,variant.approach()));
             } catch (IllegalArgumentException | IllegalStateException failure) {
-                throw new IllegalStateException("Approach at "+variant.headingDeg()+"° and "+variant.lateralOffsetM()
+                if (!draft) throw new IllegalStateException("Approach at "+variant.headingDeg()+"° and "+variant.lateralOffsetM()
                         +" m offset failed verification. "+failure.getMessage(),failure);
+                measured.put(new JSONObject().put("reason",failure.getMessage()));
             }
         }
-        var receipt = new JSONObject().put("binding",binding).put("cases",measured).put("summary",summarize(measured));
+        var receipt = new JSONObject().put("binding",binding).put("cases",measured).put("summary",report(measured,draft));
         return receipt.put("sha256",WorldFrames.hash(receipt));
     }
 
     JSONObject read(Path path) {
+        return read(path,false);
+    }
+
+    JSONObject read(Path path, boolean draft) {
         try {
             var receipt = new JSONObject(new String(SpriteWorkshop.read(path,PlacementExchange.BYTE_LIMIT),StandardCharsets.UTF_8));
             SpatialScene.keys(receipt,"binding","cases","summary","sha256");
@@ -62,13 +71,37 @@ final class ColliderApproachSweep {
             if (measured.length() != cases.size()) return null;
             for (int i=0;i<cases.size();i++) {
                 var trial = measured.getJSONObject(i);
-                SpatialScene.keys(trial,"original","resized","result");
-                if (!pair.validCase(trial,cases.get(i).approach().json())) return null;
+                if (draft && trial.has("reason")) {
+                    SpatialScene.keys(trial,"reason");
+                    SpatialScene.text(trial,"reason",500);
+                } else {
+                    SpatialScene.keys(trial,"original","resized","result");
+                    if (!pair.validCase(trial,cases.get(i).approach().json())) return null;
+                }
             }
-            return summarize(measured).similar(receipt.getJSONObject("summary")) ? receipt.put("sha256",hash) : null;
+            return report(measured,draft).similar(receipt.getJSONObject("summary")) ? receipt.put("sha256",hash) : null;
         } catch (IOException | RuntimeException changed) {
             return null;
         }
+    }
+
+    private JSONObject report(JSONArray measured, boolean draft) {
+        if (!draft) return summarize(measured);
+        int same=0, earlier=0, later=0, needsCheck=0;
+        int tolerance = pair.binding().getInt("approachToleranceTicks");
+        for (Object entry : measured) {
+            var row = (JSONObject) entry;
+            if (row.has("reason")) {
+                needsCheck++;
+                continue;
+            }
+            int delta = row.getJSONObject("result").getInt("resizedEarlierByTicks");
+            if (delta>tolerance) earlier++;
+            else if (delta < -tolerance) later++;
+            else same++;
+        }
+        return new JSONObject().put("withinTolerance",same).put("earlier",earlier)
+                .put("later",later).put("needsCheck",needsCheck).put("toleranceTicks",tolerance);
     }
 
     private static JSONObject summarize(JSONArray measured) {

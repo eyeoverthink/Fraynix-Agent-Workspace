@@ -1,5 +1,8 @@
 import {drawPlacementLayout} from './spatial-placement.js';
 
+export const isRecipientApproachRequest = text =>
+    /^(?:please )?(?:compare|test|check) (?:the )?(?:proposed|pending) collider(?: (?:across|using) (?:the )?five (?:probe )?approaches)?[.!?]?$/i.test(text.trim());
+
 function drawCollider(canvas, geometry, previous, proposed) {
     const ctx = canvas.getContext('2d');
     const {width,height} = canvas;
@@ -70,6 +73,18 @@ export class RecipientEditPanel {
                         <figcaption>Teal walking aisle · amber prop · gray colliders</figcaption>
                     </figure>
                 </div>
+                <div id="recipient-approach-review" hidden>
+                    <button id="recipient-compare">Test five approaches before approval</button>
+                    <p id="recipient-approach-status" role="status"></p>
+                    <div id="recipient-approach-data" hidden>
+                        <p id="recipient-approach-summary"></p>
+                        <table>
+                            <thead><tr><th scope="col">Heading / offset</th><th scope="col">First contact</th>
+                                <th scope="col">Timing check</th></tr></thead>
+                            <tbody id="recipient-approach-rows"></tbody>
+                        </table>
+                    </div>
+                </div>
                 <p id="recipient-edit-status" role="status"></p>
                 <div class="spatial-task">
                     <button id="recipient-edit-approve" class="primary" hidden>Approve and verify local edit</button>
@@ -94,6 +109,7 @@ export class RecipientEditPanel {
             event.preventDefault();
             spatial.action(() => this.review());
         };
+        this.find('#recipient-compare').onclick = () => spatial.action(() => this.compare());
         this.find('#recipient-edit-approve').onclick = () => spatial.action(() => this.approve());
         this.find('#recipient-edit-export').onclick = () => spatial.action(() => this.exportRevision());
         this.find('#recipient-edit-open').onclick = () => spatial.action(async () => {
@@ -173,11 +189,36 @@ export class RecipientEditPanel {
         } catch (error) { this.fail(error); }
     }
 
+    async compareFromChat() {
+        if (!this.spatial.scene?.recipientBranch || this.spatial.worldMode) await this.spatial.open();
+        if (!this.spatial.scene?.recipientBranch || this.spatial.worldMode) {
+            this.spatial.announce('Open an editable recipient copy in Spatial, then save a collider preview to compare.');
+            return;
+        }
+        this.spatial.activate('spatial');
+        await this.open();
+        if (this.result?.status === 'review' && this.result.review?.collider) await this.compare();
+        else this.tell('Save a pending collider preview before comparing it.');
+    }
+
+    async compare() {
+        const status = this.find('#recipient-approach-status');
+        status.textContent = 'Testing the current and proposed boxes in isolated simulations…';
+        try {
+            this.result = await this.spatial.call('recipient-edit-compare',{reviewId:this.result.reviewId});
+            this.render();
+        } catch (error) {
+            status.textContent = error.message.replace(/^Error invoking remote method '[^']+': (?:Error: )?/, '');
+        }
+    }
+
     async approve() {
         const {reviewId,status} = this.result;
         try {
             if (status === 'review') {
-                this.result = await this.spatial.call('recipient-edit-approve',{reviewId,approvalSha256:reviewId});
+                const approval = {reviewId,approvalSha256:reviewId};
+                if (this.result.comparison) approval.comparisonSha256 = this.result.comparison.sha256;
+                this.result = await this.spatial.call('recipient-edit-approve',approval);
                 this.render();
             }
             this.tell('Running the hit, miss and aisle checks twice…');
@@ -208,6 +249,7 @@ export class RecipientEditPanel {
             try { drawCollider(figure.querySelector('canvas'),geometry,collider.previousM,collider.proposedM); }
             finally { geometry.dispose(); }
         }
+        this.renderApproaches(collider,status);
         const approve = this.find('#recipient-edit-approve');
         approve.hidden = !['review','approved'].includes(status);
         approve.textContent = status === 'approved' ? 'Run approved edit checks' : 'Approve and verify local edit';
@@ -228,6 +270,37 @@ export class RecipientEditPanel {
             ? 'Adjust width and depth by up to 0.10 m each. The box must enclose the mesh and preserve the aisle.'
             : 'Set a position and yaw for the placed prop. The floor, colliders and aisle are included in the checks.'));
         this.controls();
+    }
+
+    renderApproaches(collider,status) {
+        const pending = collider && ['review','approved'].includes(status);
+        this.find('#recipient-approach-review').hidden = !pending;
+        this.find('#recipient-compare').hidden = status !== 'review';
+        const comparison = this.result?.comparison;
+        this.find('#recipient-approach-data').hidden = !comparison;
+        this.find('#recipient-approach-status').textContent = comparison ? 'Saved comparison for this exact preview.'
+            : this.result?.comparisonUnavailable ? 'The saved comparison changed. Run a fresh check.'
+            : 'Check whether first-contact timing stays within one tick.';
+        if (!comparison) return;
+        const {summary,binding,cases} = comparison;
+        this.find('#recipient-approach-summary').textContent = summary.withinTolerance+' within one tick · '
+            +summary.earlier+' earlier · '+summary.later+' later · '+summary.needsCheck+' need another check';
+        const rows = this.find('#recipient-approach-rows');
+        rows.replaceChildren();
+        for (const [i,data] of cases.entries()) {
+            const approach = binding.cases[i];
+            const row = rows.insertRow();
+            row.insertCell().textContent = approach.headingDeg+'° / '+Math.round(100*approach.lateralOffsetM)+' cm';
+            if (data.reason) {
+                row.insertCell().textContent = 'Unverified';
+                row.insertCell().textContent = data.reason;
+                continue;
+            }
+            row.insertCell().textContent = data.original.hit.firstContactTick+' → '+data.resized.hit.firstContactTick;
+            const lead = data.result.resizedEarlierByTicks;
+            row.insertCell().textContent = Math.abs(lead)<=summary.toleranceTicks ? 'Within one tick'
+                : Math.abs(lead)+' ticks '+(lead>0 ? 'earlier' : 'later');
+        }
     }
 
     controls() {
