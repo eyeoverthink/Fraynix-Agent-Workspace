@@ -96,19 +96,23 @@ final class SpatialPlacement {
                 .put("trialCount",4).put("policy", "moving-sphere-with-lateral-miss");
     }
 
-    static JSONObject definition(JSONObject source, JSONObject review) {
+    static JSONObject placedBody(JSONObject source, JSONObject review, String key) {
         if (!SpatialPropCopy.binding(source).similar(review.getJSONObject("source")))
             throw new IllegalStateException("The approved model source changed.");
         var body = SpatialScene.object(source, review.getString("objectId"));
-        var raw = new JSONObject(source.getString("sourceText"));
-        JSONObject original = null;
-        for (Object entry : raw.getJSONArray("objects")) {
+        for (Object entry : new JSONObject(source.getString("sourceText")).getJSONArray("objects")) {
             var object = (JSONObject) entry;
-            if (body.getString("sourceId").equals(object.getString("sourceId"))) original = object;
+            if (body.getString("sourceId").equals(object.getString("sourceId"))) {
+                return WorldFrames.copy(object).put("sourceId",key).put("label",body.getString("label"))
+                        .put("position",review.getJSONArray("targetM")).put("rotation",review.getJSONArray("rotation"));
+            }
         }
-        if (original == null) throw new IllegalStateException("The checked model is missing.");
-        var prop = WorldFrames.copy(original).put("sourceId","placed-prop").put("label",body.getString("label"))
-                .put("position",review.getJSONArray("targetM")).put("rotation",review.getJSONArray("rotation"));
+        throw new IllegalStateException("The checked model is missing.");
+    }
+
+    static JSONObject definition(JSONObject source, JSONObject review) {
+        var prop = placedBody(source, review, "placed-prop");
+        var raw = new JSONObject(source.getString("sourceText"));
         var deck = SpatialReconstruction.box("contact-deck", "Contact test deck",
                 new double[]{0,-.10,0}, new double[]{10,.20,10}, 0);
         String mesh = review.getString("meshSha256");
@@ -165,16 +169,21 @@ final class SpatialPlacement {
     }
 
     static JSONObject verifyNative(JSONObject scene, JSONObject review, Path nativeDir) throws Exception {
-        JSONObject hit = trial(scene, review, nativeDir, true);
-        JSONObject miss = trial(scene, review, nativeDir, false);
+        return verifyNative(scene, review, nativeDir, scene.getJSONArray("objects").getJSONObject(1), false);
+    }
+
+    static JSONObject verifyNative(JSONObject scene, JSONObject review, Path nativeDir, JSONObject prop,
+                                   boolean checkOtherBodies) throws Exception {
+        JSONObject hit = trial(scene, review, nativeDir, prop, true, checkOtherBodies);
+        JSONObject miss = trial(scene, review, nativeDir, prop, false, checkOtherBodies);
         if (hit.getInt("firstContactTick") < 1 || hit.getDouble("maxPropPlanarSpeedMps") < .02
                 || miss.getInt("firstContactTick") != 0 || miss.getDouble("maxPropPlanarSpeedMps") > .01)
             throw new IllegalStateException("The measured hit and miss did not verify this placement.");
-        return new JSONObject().put("passed",true).put("hit",hit).put("miss",miss);
+        return new JSONObject().put("passed", true).put("hit", hit).put("miss", miss);
     }
 
-    private static JSONObject trial(JSONObject scene, JSONObject review, Path nativeDir, boolean hit) throws Exception {
-        var object = scene.getJSONArray("objects").getJSONObject(1);
+    private static JSONObject trial(JSONObject scene, JSONObject review, Path nativeDir, JSONObject object,
+                                    boolean hit, boolean checkOtherBodies) throws Exception {
         var size = ObserverGeometry.v(object.getJSONArray("size"));
         var target = ObserverGeometry.v(review.getJSONArray("targetM"));
         double yaw = Math.toRadians(review.getDouble("yawDeg"));
@@ -195,9 +204,11 @@ final class SpatialPlacement {
             int first = 0, contactTicks = 0;
             double maxSpeed = 0, firstSeparation = 0;
             var samples = new JSONArray();
+            if (checkOtherBodies) requireClearProbe(world, probe, prop);
             samples.put(sample(0,probe,prop));
             for (int i=1;i<=TICKS;i++) {
                 world.step();
+                if (checkOtherBodies && (first == 0 || !hit)) requireClearProbe(world, probe, prop);
                 float[] separation = {Float.POSITIVE_INFINITY};
                 world.space.pairTest(probe,prop,event ->
                         separation[0] = Math.min(separation[0],event.getDistance1()));
@@ -218,6 +229,16 @@ final class SpatialPlacement {
                     .put("probeRadiusM",radius).put("probeStartM",SpatialPhysics.json(start))
                     .put("probeIncomingMps",SPEED).put("maxPropPlanarSpeedMps",maxSpeed)
                     .put("sampleIntervalTicks",12).put("samples",samples);
+        }
+    }
+
+    private static void requireClearProbe(SpatialPhysics world, PhysicsRigidBody probe, PhysicsRigidBody prop) {
+        for (var other : world.bodies.values()) {
+            if (other == prop) continue;
+            boolean[] hit = {false};
+            world.space.pairTest(probe, other, event -> hit[0] |= event.getDistance1() <= 0);
+            if (hit[0]) throw new IllegalStateException(
+                    "Another collider intercepted a contact trial. Choose a clear test approach.");
         }
     }
 

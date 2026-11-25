@@ -131,3 +131,15 @@
 #exchange-scene-title { margin: 8px 0 3px; }
 #exchange-provenance { padding: 0; }
 #exchange-reading, #exchange-metrics { margin: 5px 0 0; font-size: 12px; }
+
+#placement-level-fields, #placement-level-preview {
+    margin: 12px 0;
+    border: 1px solid #385055;
+    border-radius: 8px;
+    padding: 10px;
+}
+#placement-level-fields[hidden], #placement-level-preview[hidden] { display: none; }
+#placement-level-fields > p, #placement-level-preview figcaption { color: var(--muted); font-size: 12px; }
+#placement-level-fields .spatial-bind { padding-inline: 0; }
+#placement-level-preview canvas { display: block; width: 100%; height: auto; border-radius: 5px; }
+#placement-level-preview figcaption { margin-top: 6px; }

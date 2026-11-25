@@ -1074,9 +1074,11 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(['carry-review','carry-read','carry-latest','carry-approve'].includes(input.command)){
         return api('/api/spatial/'+input.command,input.args);
       }
-      if(input.command==='placement-review'){
+      if(input.command==='placement-review'||input.command==='placement-level-review'){
         if(!currentSpatial)throw Error('Select a verified reconstructed prop in Spatial first.');
-        return api('/api/spatial/placement-review',{goal:input.args.goal,...currentSpatial});
+        const {goal,destinationId,floorId,targetM,yawDeg,aisle}=input.args;
+        const level=input.command==='placement-level-review'?{destinationId,floorId,targetM,yawDeg,aisle}:{};
+        return api('/api/spatial/'+input.command,{goal,...level,...currentSpatial});
       }
       if(['placement-latest','placement-approve','placement-replay','placement-exchange-open',
         'placement-exchange-latest','placement-exchange-replay'].includes(input.command))
@@ -1088,9 +1090,13 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       }
       if(input.command==='placement-export'){
         const data=await api('/api/spatial/placement-export',input.args);
+        const source={sceneId:data.sceneId,evidenceSha256:data.evidenceSha256};
+        if(input.args.kind==='play') return nativeExports.save('verified-spatial-level','html',
+          Buffer.from(data.base64,'base64'),source,data.sha256);
+        if(input.args.kind==='evidence') return nativeExports.save('verified-spatial-level-evidence','fraynix-level.json',
+          Buffer.from(data.base64,'base64'),source,data.sha256);
         return nativeExports.save('verified-spatial-placement','fraynix-placement.json',
-          Buffer.from(data.base64,'base64'),{sceneId:data.sceneId,evidenceSha256:data.evidenceSha256,
-            glbSha256:data.glbSha256},data.sha256);
+          Buffer.from(data.base64,'base64'),{...source,glbSha256:data.glbSha256},data.sha256);
       }
       if(input.command==='prop-review'){
         if(!currentSpatial)throw Error('Select a dynamic detailed prop in Spatial.');

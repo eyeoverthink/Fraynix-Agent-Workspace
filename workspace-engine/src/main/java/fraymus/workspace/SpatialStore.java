@@ -127,6 +127,7 @@ public final class SpatialStore implements AutoCloseable {
             }
             validate(parent);
         }
+        if (scene.has("levelPlacement")) validateLevelPlacement(scene);
         if (scene.has("glbSha256")) {
             try {
                 Path original=glbFile(scene.getString("id"));
@@ -141,6 +142,39 @@ public final class SpatialStore implements AutoCloseable {
             }
         }
     }
+    private void validateLevelPlacement(JSONObject scene) {
+        var receipt = scene.getJSONObject("levelPlacement");
+        var review = receipt.getJSONObject("review");
+        String id = receipt.getString("reviewId");
+        try {
+            if (!WorldFrames.hash(receipt).equals(scene.getString("levelPlacementSha256"))
+                    || !scene.getString("id").equals(SpatialLevelPlacement.sceneId(id))
+                    || !placements.approved(id) || !placements.readReview(id).similar(review)
+                    || !receipt.getJSONObject("measured").getBoolean("passed")
+                    || !receipt.getJSONObject("measured").getBoolean("playerEnvelopeClear")
+                    || !receipt.getJSONObject("measured").similar(receipt.getJSONObject("repeat")))
+                throw new IllegalStateException("The saved level contact receipt changed.");
+            var parent = olderPlacementScene(scene, review, "source");
+            var destination = olderPlacementScene(scene, review, "destination");
+            if (!SpatialLevelPlacement.definition(parent,destination,review)
+                    .similar(new JSONObject(scene.getString("sourceText"))))
+                throw new IllegalStateException("The approved level edit changed.");
+            SpatialLevelPlacement.playable(scene,review);
+            validate(parent);
+            validate(destination);
+        } catch (Exception error) {
+            throw new IllegalStateException("Cannot recheck the approved level placement.",error);
+        }
+    }
+
+    private JSONObject olderPlacementScene(JSONObject scene, JSONObject review, String role) {
+        var dependency = scenes.get(review.getJSONObject(role).getString("sceneId"));
+        if (dependency == null || !Instant.parse(dependency.getString("importedAt"))
+                .isBefore(Instant.parse(scene.getString("importedAt"))))
+            throw new IllegalStateException("Invalid level edit ancestry: " + role);
+        return dependency;
+    }
+
     private synchronized void persist() throws Exception {Files.createDirectories(file.getParent());var temp=file.resolveSibling("state.pending.json");Files.writeString(temp,new JSONObject().put("scenes",new JSONArray(scenes.values())).put("runs",new JSONArray(runs.values())).toString(),StandardCharsets.UTF_8);try{Files.move(temp,file,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);}catch(AtomicMoveNotSupportedException e){Files.move(temp,file,StandardCopyOption.REPLACE_EXISTING);}}
     public synchronized JSONObject importScene(String text) throws Exception {
         available();
@@ -352,6 +386,42 @@ public final class SpatialStore implements AutoCloseable {
         return placementStatus(placements.saveReview(review));
     }
 
+    synchronized JSONObject reviewLevelPlacement(JSONObject input) throws Exception {
+        available();
+        var source = read(input.getString("sceneId"));
+        var destination = currentPlacementDestination(input.getString("destinationId"));
+        var review = SpatialLevelPlacement.plan(source,destination,input);
+        return placementStatus(placements.saveReview(review));
+    }
+
+    private JSONObject currentPlacementDestination(String id) {
+        for (var scene : scenes.values()) {
+            var saved = scene.optJSONObject("levelPlacement");
+            if (saved != null && id.equals(saved.getJSONObject("review").getJSONObject("destination").getString("sceneId")))
+                throw new IllegalStateException("This destination already has a newer reviewed revision. Select that revision and review again.");
+        }
+        return read(id);
+    }
+
+    private boolean levelPlacement(JSONObject review) {
+        return SpatialLevelPlacement.FORMAT.equals(review.getString("format"));
+    }
+
+    private String placementSceneId(JSONObject review, String id) {
+        return levelPlacement(review) ? SpatialLevelPlacement.sceneId(id) : SpatialPlacement.sceneId(id);
+    }
+
+    private JSONObject placementDefinition(JSONObject source, JSONObject review) {
+        if (!levelPlacement(review)) return SpatialPlacement.definition(source,review);
+        var destination = currentPlacementDestination(review.getJSONObject("destination").getString("sceneId"));
+        return SpatialLevelPlacement.definition(source,destination,review);
+    }
+
+    private JSONObject verifyPlacement(JSONObject scene, JSONObject review) throws Exception {
+        return levelPlacement(review) ? SpatialLevelPlacement.verifyNative(scene,review,nativeDir)
+                : SpatialPlacement.verifyNative(scene,review,nativeDir);
+    }
+
     synchronized JSONObject latestPlacement(JSONObject input) throws Exception {
         SpatialScene.keys(input);
         String id = placements.latestId();
@@ -365,8 +435,9 @@ public final class SpatialStore implements AutoCloseable {
         if (!id.equals(input.getString("approvalSha256")))
             throw new IllegalArgumentException("Approve the exact saved placement review.");
         var review = placements.readReview(id);
+        if (scenes.containsKey(placementSceneId(review,id))) return placementStatus(id);
         var source = read(review.getJSONObject("source").getString("sceneId"));
-        SpatialPlacement.definition(source,review);
+        placementDefinition(source,review);
         placements.approve(id);
         return placementStatus(id);
     }
@@ -377,17 +448,18 @@ public final class SpatialStore implements AutoCloseable {
         String id = input.getString("reviewId");
         var review = placements.readReview(id);
         if (!placements.approved(id)) throw new IllegalStateException("Approve this placement before running contact trials.");
-        String sceneId = SpatialPlacement.sceneId(id);
+        String sceneId = placementSceneId(review,id);
         if (scenes.containsKey(sceneId)) return placementStatus(id);
         if (scenes.size()>=32) throw new IllegalStateException("Spatial import history limit reached (32)");
         var parent = read(review.getJSONObject("source").getString("sceneId"));
-        var scene = SpatialScene.parse(SpatialPlacement.definition(parent,review).toString(),sceneId);
-        var measured = SpatialPlacement.verifyNative(scene,review,nativeDir);
-        var repeat = SpatialPlacement.verifyNative(scene,review,nativeDir);
+        var scene = SpatialScene.parse(placementDefinition(parent,review).toString(),sceneId);
+        var measured = verifyPlacement(scene,review);
+        var repeat = verifyPlacement(scene,review);
         if (!measured.similar(repeat)) throw new IllegalStateException("The independent native contact repeat differs.");
         var receipt = new JSONObject().put("reviewId",id).put("review",review).put("measured",measured).put("repeat",repeat);
-        retainScene(scene.put("importedAt",Instant.now().toString()).put("propPlacement",receipt)
-                .put("propPlacementSha256",WorldFrames.hash(receipt)));
+        String key = levelPlacement(review) ? "levelPlacement" : "propPlacement";
+        retainScene(scene.put("importedAt",Instant.now().toString()).put(key,receipt)
+                .put(key+"Sha256",WorldFrames.hash(receipt)));
         return placementStatus(id);
     }
 
@@ -395,19 +467,22 @@ public final class SpatialStore implements AutoCloseable {
         available();
         SpatialScene.keys(input, "reviewId");
         String id = input.getString("reviewId");
-        var scene = read(SpatialPlacement.sceneId(id));
-        var original = scene.getJSONObject("propPlacement");
-        var fresh = SpatialPlacement.verifyNative(scene,original.getJSONObject("review"),nativeDir);
+        var review = placements.readReview(id);
+        var scene = read(placementSceneId(review,id));
+        var original = scene.getJSONObject(levelPlacement(review) ? "levelPlacement" : "propPlacement");
+        var fresh = verifyPlacement(scene,review);
         if (!fresh.similar(original.getJSONObject("measured"))) throw new IllegalStateException("Native placement replay differs.");
         return placementStatus(id).put("replayed",true);
     }
 
     synchronized JSONObject exportPlacement(JSONObject input) throws Exception {
-        SpatialScene.keys(input, "reviewId");
+        SpatialScene.keys(input, "reviewId", "kind");
         String id = input.getString("reviewId");
         var status = placementStatus(id);
         if (!"verified".equals(status.getString("status"))) throw new IllegalStateException("Verify the collision before exporting.");
         var scene = read(status.getString("sceneId"));
+        if (scene.has("levelPlacement")) return SpatialLevelPlacement.export(scene,input.getString("kind"));
+        if (input.has("kind")) throw new IllegalArgumentException("The contact deck exports a collision bundle.");
         var source = read(status.getJSONObject("review").getJSONObject("source").getString("sceneId"));
         return SpatialPlacement.bundle(scene, source);
     }
@@ -416,12 +491,19 @@ public final class SpatialStore implements AutoCloseable {
         var review = placements.readReview(id);
         var result = new JSONObject().put("reviewId",id).put("review",review)
                 .put("status",placements.approved(id) ? "approved" : "review");
-        String key = SpatialPlacement.sceneId(id);
+        String key = placementSceneId(review,id);
+        if (levelPlacement(review) && !scenes.containsKey(key)) {
+            var source = read(review.getJSONObject("source").getString("sceneId"));
+            var preview = SpatialScene.parse(placementDefinition(source,review).toString(),key);
+            result.put("layout",SpatialLevelPlacement.playable(preview,review));
+        }
         if (scenes.containsKey(key)) {
             var scene = read(key);
+            if (levelPlacement(review)) result.put("layout",SpatialLevelPlacement.playable(scene,review));
+            String receipt = levelPlacement(review) ? "levelPlacement" : "propPlacement";
             result.put("status","verified").put("sceneId",key)
-                    .put("evidence",scene.getJSONObject("propPlacement"))
-                    .put("evidenceSha256",scene.getString("propPlacementSha256"));
+                    .put("evidence",scene.getJSONObject(receipt))
+                    .put("evidenceSha256",scene.getString(receipt+"Sha256"));
         }
         return result;
     }
