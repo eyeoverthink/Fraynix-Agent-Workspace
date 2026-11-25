@@ -908,6 +908,10 @@ public final class SpatialStore implements AutoCloseable {
         return assemblyImage(id,false).resolveSibling(UUID.fromString(id)+".guide.png");
     }
 
+    private Path assemblyAdditional(String id) {
+        return assemblyImage(id,false).resolveSibling(UUID.fromString(id)+".additional.png");
+    }
+
     private boolean assemblySource(JSONObject scene) {
         var proof = scene.optJSONObject("reconstruction");
         return proof!=null && !scene.has("imageAssembly") && BrowserViewTrace.POLICY.equals(proof.optString("policy"));
@@ -929,14 +933,17 @@ public final class SpatialStore implements AutoCloseable {
     }
 
     synchronized JSONObject createImageAssembly(JSONObject input) throws Exception {
-        SpatialScene.keys(input,"layoutPng","guidePng","witnessPng","title","widthM","props","recoverYaw","cameraAngles");
+        SpatialScene.keys(input,"layoutPng","guidePng","additionalPng","witnessPng","title","widthM","props","recoverYaw","cameraAngles","additionalCamera");
         available();
         var png = SpriteWorkshop.decode(input.getString("layoutPng"),ImageSceneAssembly.PNG_LIMIT);
         byte[] witness = input.has("witnessPng")
                 ? SpriteWorkshop.decode(input.getString("witnessPng"),ImageSceneAssembly.PNG_LIMIT) : null;
         byte[] guide = input.has("guidePng")
                 ? SpriteWorkshop.decode(input.getString("guidePng"),ImageSceneAssembly.PNG_LIMIT) : null;
-        var plan = ImageSceneAssembly.plan(new JSONObject(input,"title","widthM","props","recoverYaw","cameraAngles"),png,guide,witness,this::readAssemblySource);
+        byte[] additional = input.has("additionalPng")
+                ? SpriteWorkshop.decode(input.getString("additionalPng"),ImageSceneAssembly.PNG_LIMIT) : null;
+        var plan = ImageSceneAssembly.plan(new JSONObject(input,"title","widthM","props","recoverYaw","cameraAngles","additionalCamera"),
+                png,guide,additional,witness,this::readAssemblySource);
         String id = plan.id();
         if (scenes.containsKey(id)) return read(id);
         if (scenes.size()>=32) throw new IllegalStateException("Spatial import history limit reached (32)");
@@ -949,6 +956,7 @@ public final class SpatialStore implements AutoCloseable {
         retainAssemblyImage(assemblyImage(id,false),png);
         if (witness!=null) retainAssemblyImage(assemblyImage(id,true),witness);
         if (guide!=null) retainAssemblyImage(assemblyGuide(id),guide);
+        if (additional!=null) retainAssemblyImage(assemblyAdditional(id),additional);
         var saved = retainScene(scene.put("importedAt",Instant.now().toString()).put("imageAssembly",receipt)
                 .put("imageAssemblySha256",WorldFrames.hash(receipt)));
         if (guide!=null) verifiedTiltPlans.put(id,plan);
@@ -975,8 +983,10 @@ public final class SpatialStore implements AutoCloseable {
                         registration.getString("witnessSha256")) : null;
             byte[] guide = registration!=null && registration.has("guideSha256")
                     ? SpriteWorkshop.read(assemblyGuide(id),ImageSceneAssembly.PNG_LIMIT,registration.getString("guideSha256")) : null;
+            byte[] additional = registration!=null && registration.has("additionalSha256")
+                    ? SpriteWorkshop.read(assemblyAdditional(id),ImageSceneAssembly.PNG_LIMIT,registration.getString("additionalSha256")) : null;
             var plan = guide==null?null:verifiedTiltPlans.get(id);
-            if (plan==null) plan=ImageSceneAssembly.plan(binding.getJSONObject("input"),png,guide,witness,this::readAssemblySource);
+            if (plan==null) plan=ImageSceneAssembly.plan(binding.getJSONObject("input"),png,guide,additional,witness,this::readAssemblySource);
             else for (Object value : plan.binding().getJSONArray("props")) {
                 var expected = ((JSONObject)value).getJSONObject("source");
                 var original = readAssemblySource(expected.getString("sceneId"));

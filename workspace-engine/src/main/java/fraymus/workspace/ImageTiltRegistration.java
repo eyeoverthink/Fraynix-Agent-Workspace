@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.BitSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.function.Consumer;
@@ -16,6 +17,7 @@ import static fraymus.workspace.ImageSceneRegistration.*;
 final class ImageTiltRegistration {
     static final String POLICY = "registered-silhouettes-tilt-v3";
     static final String CALIBRATED_POLICY = "registered-silhouettes-tilt-v4";
+    static final String OCCLUSION_POLICY = "registered-silhouettes-tilt-v5";
     static final int TILT_LIMIT = 30;
     private static final double D = Math.sqrt(.5);
     private static final double FIT_AWAY = Math.sqrt(.75);
@@ -24,6 +26,11 @@ final class ImageTiltRegistration {
     private static final double MIN_POSE_GAP = .022;
     private static final double MAX_WITNESS_ANGLE = 8;
     private static final double MIN_WITNESS_ROTATION_GAIN = .022;
+    private static final double MIN_CAMERA_SEPARATION = 25;
+    private static final double MIN_COMPOSITE_IOU = .90;
+    private static final double MIN_EXCLUSIVE_FRACTION = .35;
+    private static final double MIN_EXCLUSIVE_SUPPORT = .85;
+    private static final double MIN_OVERLAP_FRACTION = .03;
 
     private record Camera(double heading, double elevation, double sine, double cosine,
                           double rise, double run, boolean legacy) {
@@ -62,7 +69,7 @@ final class ImageTiltRegistration {
                     SpatialScene.number(angles,"sideElevationDeg",25,70));
             var witness = Camera.calibrated(SpatialScene.number(angles,"witnessHeadingDeg",-180,180),
                     SpatialScene.number(angles,"witnessElevationDeg",25,70));
-            if (side.separation(witness)<25)
+            if (side.separation(witness)<MIN_CAMERA_SEPARATION)
                 throw new IllegalArgumentException("Fitting and held-out cameras must be at least 25° apart.");
             return new Cameras(side,witness,true);
         }
@@ -226,18 +233,31 @@ final class ImageTiltRegistration {
             }
     }
 
-    static Result locate(BufferedImage overhead, byte[] guideBytes, byte[] witnessBytes, double cell,
-                         List<Prop> props, JSONObject cameraAngles) throws Exception {
+    static Result locate(BufferedImage overhead, byte[] guideBytes, byte[] additionalBytes, byte[] witnessBytes,
+                         double cell, List<Prop> props, JSONObject cameraAngles, JSONObject additionalAngles) throws Exception {
         var cameras = Cameras.read(cameraAngles);
+        Camera additionalCamera = null;
+        if (additionalAngles!=null) {
+            SpatialScene.keys(additionalAngles,"headingDeg","elevationDeg");
+            additionalCamera = Camera.calibrated(SpatialScene.number(additionalAngles,"headingDeg",-180,180),
+                    SpatialScene.number(additionalAngles,"elevationDeg",25,70));
+            if (additionalCamera.separation(cameras.side)<MIN_CAMERA_SEPARATION ||
+                    additionalCamera.separation(cameras.witness)<MIN_CAMERA_SEPARATION)
+                throw new IllegalArgumentException("The extra fitting camera must be at least 25° from the side and held-out cameras.");
+        }
+        Camera fittingCamera = additionalCamera==null ? cameras.side : additionalCamera;
         int w=overhead.getWidth(), h=overhead.getHeight(), n=props.size();
         if (cell>.025) throw new IllegalArgumentException("Use at least 40 pixels per metre in the registered views.");
         var first=components(overhead,n,"Overhead");
-        var second=readParts(guideBytes,w,h,n,"Fitting side");
-        if (sameParts(first,second)) throw new IllegalArgumentException("The fitting side view repeats the overhead silhouettes.");
+        String fittingLabel = additionalBytes==null ? "Fitting side" : "Extra fitting view";
+        var second = readParts(additionalBytes==null ? guideBytes : additionalBytes,w,h,n,fittingLabel);
+        if (sameParts(first,second))
+            throw new IllegalArgumentException("The "+(additionalBytes==null ? "fitting side view" : "extra fitting view")+
+                    " repeats the overhead silhouettes.");
         var fit=new Fit[n];
         var choices=new Candidate[n][];
         for (int i=0;i<n;i++) {
-            fit[i]=new Fit(w,h,cell,props.get(i),first,second,cameras.side);
+            fit[i]=new Fit(w,h,cell,props.get(i),first,second,fittingCamera);
             choices[i]=fit[i].solve();
         }
         var assignment=new JointAssignment();
@@ -259,6 +279,9 @@ final class ImageTiltRegistration {
                 throw new IllegalArgumentException("The fitting views leave "+props.get(i).label()+"'s tilt or heading ambiguous.");
             poses.add(candidate.pose);
         }
+
+        JSONObject occlusion = additionalBytes==null ? null : checkOccludedSide(
+                guideBytes,w,h,cell,props,poses,cameras.side);
 
         // The withheld camera cannot select, move or rotate any fitted prop.
         var witness=readParts(witnessBytes,w,h,n,"Held-out view");
@@ -299,12 +322,13 @@ final class ImageTiltRegistration {
             var measured=assignment.best[i];
             proof.put(new JSONObject().put("sourceId","image-prop-"+(i+1)).put("label",target.label())
                     .put("positionM",fixed.position()).put("anglesDeg",fixed.angles.values())
-                    .put("overheadIou",measured.top.iou()).put("guideIou",measured.guide.iou())
+                    .put("overheadIou",measured.top.iou()).put(occlusion==null?"guideIou":"additionalIou",measured.guide.iou())
                     .put("poseGap",gaps[i]).put("witnessIou",match.iou()).put("witnessCenterErrorPx",match.centerErrorPx())
                     .put("witnessEstimatedAnglesDeg",head[0].values()).put("witnessCorrectionDeg",angularDifference)
                     .put("witnessCorrectionGain",gain));
         }
-        return new Result(poses,new JSONObject().put("policy",cameras.calibrated?CALIBRATED_POLICY:POLICY).put("guideSha256",MapDefinition.sha(guideBytes))
+        String policy = occlusion!=null ? OCCLUSION_POLICY : cameras.calibrated ? CALIBRATED_POLICY : POLICY;
+        var evidence = new JSONObject().put("policy",policy).put("guideSha256",MapDefinition.sha(guideBytes))
                 .put("witnessSha256",MapDefinition.sha(witnessBytes)).put("tiltLimitDeg",TILT_LIMIT)
                 .put("assignmentGap",Double.isFinite(assignment.runner)?assignment.score-assignment.runner:JSONObject.NULL)
                 .put("minimumPoseGap",MIN_POSE_GAP)
@@ -312,14 +336,78 @@ final class ImageTiltRegistration {
                 .put("witnessHeadingDeg",cameras.witness.heading).put("witnessElevationDeg",cameras.witness.elevation)
                 .put("minimumWitnessIou",MIN_WITNESS_IOU).put("maximumWitnessCenterErrorPx",MAX_WITNESS_CENTER_PX)
                 .put("maximumWitnessCorrectionDeg",MAX_WITNESS_ANGLE).put("minimumWitnessRotationGain",MIN_WITNESS_ROTATION_GAIN)
-                .put("props",proof));
+                .put("props",proof);
+        if (occlusion!=null)
+            evidence.put("additionalSha256",MapDefinition.sha(additionalBytes))
+                    .put("additionalHeadingDeg",fittingCamera.heading).put("additionalElevationDeg",fittingCamera.elevation)
+                    .put("occludedSide",occlusion);
+        return new Result(poses,evidence);
+    }
+
+    private static JSONObject checkOccludedSide(byte[] bytes, int w, int h, double cell,
+                                                List<Prop> props, List<Pose> poses, Camera camera) throws Exception {
+        var observed = foreground(readView(bytes,w,h),"Occluded side view");
+        for (int pixel=observed.nextSetBit(0); pixel>=0; pixel=observed.nextSetBit(pixel+1)) {
+            int column = pixel%w, row = pixel/w;
+            if (column==0 || column==w-1 || row==0 || row==h-1)
+                throw new IllegalArgumentException("Occluded side view clips a silhouette at the frame edge.");
+        }
+        var projected = new ArrayList<Silhouette>();
+        var composite = new BitSet();
+        var overlap = new BitSet();
+        for (int i=0; i<props.size(); i++) {
+            var silhouette = project(w,h,cell,props.get(i).mesh(),poses.get(i),camera);
+            if (silhouette==null) throw new IllegalArgumentException("Keep every prop inside the occluded camera frame.");
+            var shared = (BitSet) silhouette.mask.clone();
+            shared.and(composite);
+            overlap.or(shared);
+            composite.or(silhouette.mask);
+            projected.add(silhouette);
+        }
+
+        var intersection = (BitSet) composite.clone();
+        intersection.and(observed);
+        double iou = intersection.cardinality() /
+                (double)(composite.cardinality()+observed.cardinality()-intersection.cardinality());
+        if (iou<MIN_COMPOSITE_IOU) throw new IllegalArgumentException(String.format(java.util.Locale.ROOT,
+                "Occluded side view refused the combined silhouettes (%.1f%% overlap, need %.0f%%).",
+                iou*100,MIN_COMPOSITE_IOU*100));
+
+        double maxHiddenFraction = 0;
+        var support = new JSONArray();
+        for (int i=0; i<projected.size(); i++) {
+            var silhouette = projected.get(i);
+            var exclusive = (BitSet) silhouette.mask.clone();
+            exclusive.andNot(overlap);
+            int exclusivePixels = exclusive.cardinality();
+            double exclusiveFraction = exclusivePixels/(double)silhouette.count;
+            maxHiddenFraction = Math.max(maxHiddenFraction,1-exclusiveFraction);
+            if (exclusiveFraction<MIN_EXCLUSIVE_FRACTION)
+                throw new IllegalArgumentException("Too much of "+props.get(i).label()+" overlaps in the side view.");
+            exclusive.and(observed);
+            double exclusiveSupport = exclusive.cardinality()/(double)exclusivePixels;
+            if (exclusiveSupport<MIN_EXCLUSIVE_SUPPORT)
+                throw new IllegalArgumentException("Occluded side view lacks visible support for "+props.get(i).label()+".");
+            support.put(new JSONObject().put("sourceId","image-prop-"+(i+1)).put("label",props.get(i).label())
+                    .put("exclusiveFraction",exclusiveFraction).put("exclusiveSupport",exclusiveSupport));
+        }
+        if (maxHiddenFraction<MIN_OVERLAP_FRACTION)
+            throw new IllegalArgumentException("The side view shows no meaningful prop overlap. Use regular full-pose mode.");
+        return new JSONObject().put("compositeIou",iou).put("minimumCompositeIou",MIN_COMPOSITE_IOU)
+                .put("minimumExclusiveFraction",MIN_EXCLUSIVE_FRACTION).put("minimumExclusiveSupport",MIN_EXCLUSIVE_SUPPORT)
+                .put("minimumOverlapFraction",MIN_OVERLAP_FRACTION).put("overlapPixels",overlap.cardinality())
+                .put("props",support);
     }
 
     private static List<Silhouette> readParts(byte[] bytes, int w, int h, int count, String label) throws Exception {
+        return components(readView(bytes,w,h),count,label);
+    }
+
+    private static BufferedImage readView(byte[] bytes, int w, int h) throws Exception {
         var image=BrowserShapeTrace.decode(bytes);
         if (image.getWidth()!=w || image.getHeight()!=h)
             throw new IllegalArgumentException("All registered views need the same image dimensions and scale.");
-        return components(image,count,label);
+        return image;
     }
 
     private static boolean sameParts(List<Silhouette> a, List<Silhouette> b) {

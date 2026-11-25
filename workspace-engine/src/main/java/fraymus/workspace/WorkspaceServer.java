@@ -141,7 +141,16 @@ public final class WorkspaceServer implements AutoCloseable {
                 if(!("Bearer "+token).equals(exchange.getRequestHeaders().getFirst("Authorization"))){send(exchange,403,new JSONObject().put("error","Not authorized"));return;}
                 if(exchange.getRequestMethod().equals("GET")&&exchange.getRequestURI().getPath().equals("/api/state")){send(exchange,200,state());return;}
                 if(!exchange.getRequestMethod().equals("POST")){send(exchange,405,new JSONObject().put("error","POST required"));return;}
-                int bodyLimit=exchange.getRequestURI().getPath().equals("/api/media-tiles/import")?8_700_000:exchange.getRequestURI().getPath().equals("/api/game/import-reference")?4_000_100:exchange.getRequestURI().getPath().equals("/api/goals/ack")?24_000_000:exchange.getRequestURI().getPath().equals("/api/agency043/frame")?8_100_000:2_100_000;byte[] body=exchange.getRequestBody().readNBytes(bodyLimit+1);if(body.length>bodyLimit)throw new IllegalArgumentException("Request too large");
+                int bodyLimit = switch (exchange.getRequestURI().getPath()) {
+                    case "/api/media-tiles/import" -> 8_700_000;
+                    case "/api/game/import-reference" -> 4_000_100;
+                    case "/api/goals/ack" -> 24_000_000;
+                    case "/api/agency043/frame" -> 8_100_000;
+                    case "/api/spatial/image-assembly" -> 2_900_000;
+                    default -> 2_100_000;
+                };
+                byte[] body = exchange.getRequestBody().readNBytes(bodyLimit+1);
+                if (body.length>bodyLimit) throw new IllegalArgumentException("Request too large");
                 JSONObject input=new JSONObject(new String(body,StandardCharsets.UTF_8));String route=exchange.getRequestURI().getPath();JSONObject result;
                 
                 if(route.equals("/api/goals/ack")&&body.length>8_100_000){var receiptGoal=goals.read(input.getString("goalId"));if(!receiptGoal.optBoolean("payloadDesign058")||!receiptGoal.has("report")||!receiptGoal.getString("status").equals("waiting-host")||!receiptGoal.getJSONObject("hostEffect").getString("kind").equals("canvas.verify-report"))throw new IllegalArgumentException("Large receipt requires the current edition058 report");}

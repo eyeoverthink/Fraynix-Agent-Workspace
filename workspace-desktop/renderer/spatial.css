@@ -184,9 +184,11 @@
 #recipient-approach-review[hidden], #recipient-approach-data[hidden] { display: none; }
 
 .spatial-task .assembly-color[hidden], #image-assembly-guide-fields[hidden],
-#image-assembly-camera-fields[hidden], #image-assembly-camera-angles[hidden] { display: none; }
-#image-assembly-camera-fields .spatial-note { display: inline-flex; align-items: center; gap: .35rem; }
-#image-assembly-camera-angles input { width: 5rem; }
+#image-assembly-camera-fields[hidden], #image-assembly-camera-angles[hidden],
+#image-assembly-custom-control[hidden], #image-assembly-additional-file[hidden],
+#image-assembly-additional-angles[hidden] { display: none; }
+#image-assembly-custom-control:not([hidden]) { display: inline-flex; align-items: center; gap: .35rem; }
+#image-assembly-camera-angles input, #image-assembly-additional-angles input { width: 5rem; }
 #recipient-approach-review { margin-bottom: 12px; }
 #recipient-approach-status, #recipient-approach-summary { margin: 8px 0; }
 #recipient-approach-summary { font-weight: 600; }

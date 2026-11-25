@@ -60,23 +60,28 @@ export class SpatialPanel {
     <p class="spatial-note">Fit each prop under Model from registered images first. Choose a marked layout or use registered views to locate the props by their silhouettes.</p>
     <form>
      <div class="spatial-task"><label>Scene name<input name="title" value="Image scene" maxlength="90" required></label>
-      <label>Placement method<select name="mode"><option value="markers">Color markers</option><option value="views">Unmarked views · position</option><option value="yaw">Unmarked views · position &amp; heading</option><option value="tilt">Unmarked views · full pose</option></select></label>
+      <label>Placement method<select name="mode"><option value="markers">Color markers</option><option value="views">Unmarked views · position</option><option value="yaw">Unmarked views · position &amp; heading</option><option value="tilt">Unmarked views · full pose</option><option value="occluded">Unmarked views · overlapping props</option></select></label>
       <label>Layout width · m<input name="widthM" type="number" min=".5" max="20" step="any" value="4" required></label>
       <label class="spatial-file"><span id="image-assembly-layout-label">Layout PNG</span><input name="layout" type="file" accept="image/png,.png" required></label></div>
      <div id="image-assembly-witness-fields" hidden>
       <p class="spatial-note" id="image-assembly-camera-hint">Use an opaque overhead image with separated silhouettes on a plain background. The second camera is 45° left of the front and 60° above the floor. Match the frame, center and metres per pixel. For heading, use upright props with distinct silhouettes.</p>
       <div class="spatial-task">
-       <label class="spatial-file" id="image-assembly-guide-fields" hidden>Fitting side PNG<input name="guide" type="file" accept="image/png,.png"></label>
+       <label class="spatial-file" id="image-assembly-guide-fields" hidden><span id="image-assembly-guide-label">Fitting side PNG</span><input name="guide" type="file" accept="image/png,.png"></label>
+       <label class="spatial-file" id="image-assembly-additional-file" hidden>Extra fitting PNG<input name="additional" type="file" accept="image/png,.png"></label>
        <label class="spatial-file"><span id="image-assembly-witness-label">Second-angle PNG</span><input name="witness" type="file" accept="image/png,.png"></label>
       </div>
      </div>
      <div id="image-assembly-camera-fields" hidden>
-      <label class="spatial-note"><input name="customAngles" type="checkbox"> Use custom camera angles</label>
+      <label class="spatial-note" id="image-assembly-custom-control"><input name="customAngles" type="checkbox"> Use custom camera angles</label>
       <div class="spatial-task" id="image-assembly-camera-angles" hidden>
-       <label>Fitting heading · °<input name="sideHeadingDeg" type="number" min="-180" max="180" step="any" value="-45" required></label>
-       <label>Fitting elevation · °<input name="sideElevationDeg" type="number" min="25" max="70" step="any" value="60" required></label>
+       <label><span id="image-assembly-side-heading-label">Fitting heading · °</span><input name="sideHeadingDeg" type="number" min="-180" max="180" step="any" value="-45" required></label>
+       <label><span id="image-assembly-side-elevation-label">Fitting elevation · °</span><input name="sideElevationDeg" type="number" min="25" max="70" step="any" value="60" required></label>
        <label>Held-out heading · °<input name="witnessHeadingDeg" type="number" min="-180" max="180" step="any" value="45" required></label>
        <label>Held-out elevation · °<input name="witnessElevationDeg" type="number" min="25" max="70" step="any" value="45" required></label>
+      </div>
+      <div class="spatial-task" id="image-assembly-additional-angles" hidden>
+       <label>Extra fitting heading · °<input name="additionalHeadingDeg" type="number" min="-180" max="180" step="any" value="0" required></label>
+       <label>Extra fitting elevation · °<input name="additionalElevationDeg" type="number" min="25" max="70" step="any" value="45" required></label>
       </div>
      </div>
      <div class="spatial-assembly-props"></div>

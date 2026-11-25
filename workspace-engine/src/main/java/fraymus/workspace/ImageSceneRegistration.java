@@ -326,7 +326,7 @@ final class ImageSceneRegistration {
         return result;
     }
 
-    static List<Silhouette> components(BufferedImage img, int limit, String label) {
+    static BitSet foreground(BufferedImage img, String label) {
         int w=img.getWidth(), h=img.getHeight();
         var pixels=img.getRGB(0,0,w,h,null,0,w);
         int bg=pixels[0];
@@ -338,7 +338,13 @@ final class ImageSceneRegistration {
             if (pixels[i]>>>24!=255) throw new IllegalArgumentException(label+" must be opaque.");
             if (contrast(pixels[i],bg)>=FOREGROUND_CONTRAST) foreground.set(i);
         }
-        int[] queue=new int[pixels.length];
+        return foreground;
+    }
+
+    static List<Silhouette> components(BufferedImage img, int limit, String label) {
+        int w=img.getWidth(), h=img.getHeight();
+        var foreground=foreground(img,label);
+        int[] queue=new int[w*h];
         var parts=new ArrayList<Silhouette>();
         for (int first=foreground.nextSetBit(0);first>=0;first=foreground.nextSetBit(0)) {
             int head=0, tail=enqueue(foreground,queue,0,first);

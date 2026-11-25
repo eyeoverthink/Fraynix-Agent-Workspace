@@ -45,8 +45,12 @@ final class ImageSceneAssembly {
 
     private record Asset(JSONObject slot, JSONObject original, JSONObject proof, JSONObject body, String mesh, double[] size) {}
 
-    static Plan plan(JSONObject input, byte[] png, byte[] guide, byte[] witness, Function<String,JSONObject> source) throws Exception {
-        SpatialScene.keys(input,"title","widthM","props","recoverYaw","cameraAngles");
+    static Plan plan(JSONObject input, byte[] png, byte[] guide, byte[] additional,
+                     byte[] witness, Function<String,JSONObject> source) throws Exception {
+        SpatialScene.keys(input,"title","widthM","props","recoverYaw","cameraAngles","additionalCamera");
+        if ((additional!=null)!=input.has("additionalCamera") ||
+                (additional!=null && (guide==null || witness==null || !input.has("cameraAngles"))))
+            throw new IllegalArgumentException("Occluded recovery needs four registered images and all three side camera angles.");
         if (input.has("cameraAngles") && guide==null)
             throw new IllegalArgumentException("Custom camera angles require full-pose recovery.");
         boolean recoverYaw = input.has("recoverYaw");
@@ -91,7 +95,9 @@ final class ImageSceneAssembly {
                 registration = ImageSceneRegistration.locate(image,witness,cell,props,recoverYaw);
                 centers = registration.centersPx();
             } else {
-                tilt = ImageTiltRegistration.locate(image,guide,witness,cell,props,input.has("cameraAngles")?input.getJSONObject("cameraAngles"):null);
+                tilt = ImageTiltRegistration.locate(image,guide,additional,witness,cell,props,
+                        input.has("cameraAngles")?input.getJSONObject("cameraAngles"):null,
+                        input.has("additionalCamera")?input.getJSONObject("additionalCamera"):null);
                 centers = tilt.poses().stream().map(pose->new double[]{cols/2.0+pose.x()/cell,rows/2.0+pose.z()/cell}).toList();
             }
         }
@@ -157,7 +163,9 @@ final class ImageSceneAssembly {
         String note = witness==null
                 ? "Orthographic colour layout "+layoutSha+". Declared width, axis-aligned props and a flat support floor."
                 : "Unmarked overhead view "+layoutSha+". "+(tilt!=null
-                    ? "Full poses fitted from overhead and a registered side, then checked against a held-out angle. Declared scale."
+                    ? additional==null
+                      ? "Full poses fitted from overhead and a registered side, then checked against a held-out angle. Declared scale."
+                      : "Full poses fitted from overhead and an extra registered side. Occluded silhouette and separate held-out angle checked. Declared scale."
                     : recoverYaw
                       ? "Positions and upright orientations checked against a registered second angle. Declared width and a flat support floor."
                       : "Positions cross-checked against a registered second angle. Declared width, axis-aligned props and a flat support floor.");

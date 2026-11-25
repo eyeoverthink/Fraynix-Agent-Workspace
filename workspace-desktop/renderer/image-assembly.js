@@ -13,6 +13,9 @@ export class ImageAssemblyPanel {
         this.witness = this.form.elements.namedItem('witness');
         this.guide = this.form.elements.namedItem('guide');
         this.customAngles = this.form.elements.namedItem('customAngles');
+        this.additional = this.form.elements.namedItem('additional');
+        this.additionalHeading = this.form.elements.namedItem('additionalHeadingDeg');
+        this.additionalElevation = this.form.elements.namedItem('additionalElevationDeg');
         this.add = this.root.querySelector('#image-assembly-add');
         this.replay = this.root.querySelector('#image-assembly-replay');
         this.assets = [];
@@ -72,32 +75,48 @@ export class ImageAssemblyPanel {
         const receipt = scene?.imageAssembly;
         if (this.sceneId !== scene?.id) {
             this.sceneId = scene?.id;
-            if (receipt) this.mode.value = receipt.binding.registration?.guideSha256?'tilt':
-                receipt.binding.input.recoverYaw?'yaw':receipt.binding.registration?'views':'markers';
             if (receipt) {
+                const registration = receipt.binding.registration;
+                this.mode.value = registration?.additionalSha256?'occluded':registration?.guideSha256?'tilt':
+                    receipt.binding.input.recoverYaw?'yaw':registration?'views':'markers';
                 const angles = receipt.binding.input.cameraAngles;
-                this.customAngles.checked = Boolean(angles);
+                const extra = receipt.binding.input.additionalCamera;
+                this.customAngles.checked = Boolean(angles) && !extra;
+                this.additionalHeading.value = extra?.headingDeg ?? this.additionalHeading.defaultValue;
+                this.additionalElevation.value = extra?.elevationDeg ?? this.additionalElevation.defaultValue;
                 for (const [key,value] of Object.entries(angles ?? CAMERA_ANGLES))
                     this.form.elements.namedItem(key).value = value;
             }
             this.status.textContent = receipt ? this.receiptSummary(receipt) : '';
         }
         const views = this.mode.value!=='markers';
-        const tilt = this.mode.value==='tilt';
+        const occluded = this.mode.value==='occluded';
+        const tilt = this.mode.value==='tilt' || occluded;
         this.root.querySelector('#image-assembly-layout-label').textContent = views?'Overhead PNG':'Layout PNG';
         this.witness.required = views;
         this.witness.disabled = !views;
         this.guide.required = tilt;
         this.guide.disabled = !tilt;
         this.root.querySelector('#image-assembly-guide-fields').hidden = !tilt;
-        const custom = tilt && this.customAngles.checked;
-        this.customAngles.disabled = !tilt;
+        const custom = occluded || (tilt && this.customAngles.checked);
+        this.customAngles.disabled = !tilt || occluded;
+        this.root.querySelector('#image-assembly-custom-control').hidden = occluded;
+        this.root.querySelector('#image-assembly-additional-file').hidden = !occluded;
+        this.root.querySelector('#image-assembly-additional-angles').hidden = !occluded;
+        this.additional.disabled = !occluded;
+        this.additional.required = occluded;
+        this.additionalHeading.disabled = !occluded;
+        this.additionalElevation.disabled = !occluded;
+        this.root.querySelector('#image-assembly-guide-label').textContent = occluded?'Occluded side PNG':'Fitting side PNG';
+        this.root.querySelector('#image-assembly-side-heading-label').textContent = occluded?'Occluded heading · °':'Fitting heading · °';
+        this.root.querySelector('#image-assembly-side-elevation-label').textContent = occluded?'Occluded elevation · °':'Fitting elevation · °';
         this.root.querySelector('#image-assembly-camera-fields').hidden = !tilt;
         this.root.querySelector('#image-assembly-camera-angles').hidden = !custom;
         for (const key of Object.keys(CAMERA_ANGLES)) this.form.elements.namedItem(key).disabled = !custom;
         this.root.querySelector('#image-assembly-witness-label').textContent = tilt?'Held-out angle PNG':'Second-angle PNG';
-        this.root.querySelector('#image-assembly-camera-hint').textContent = tilt
-            ? (custom
+        this.root.querySelector('#image-assembly-camera-hint').textContent = occluded
+            ? 'Use one side image with partially overlapping props. Keep each prop separated in overhead, the extra fitting image and the held-out image. Match center and scale. Keep the three side cameras at least 25° apart.'
+            : tilt ? (custom
                 ? 'Use the same center and metres per pixel in all views. Negative heading is left of front. Keep the fitting and held-out cameras at least 25° apart and silhouettes separated.'
                 : 'Use overhead, a fitting side at 45° left / 60° above, and a held-out angle at 45° right / 45° above. Match the frame, center and metres per pixel. Keep props separated on a plain background.')
             : 'Use an opaque overhead image with separated silhouettes on a plain background. The second camera is 45° left of the front and 60° above the floor. Match the frame, center and metres per pixel.';
@@ -112,6 +131,10 @@ export class ImageAssemblyPanel {
     receiptSummary(receipt) {
         const registered = receipt.binding.registration;
         if (!registered) return receipt.measured.length+' props · floor contact verified twice';
+        if (registered.occludedSide) {
+            const overlap = Math.round(100*registered.occludedSide.compositeIou);
+            return receipt.measured.length+' full poses verified · occluded side '+overlap+'% match · '+this.poseLabels(registered);
+        }
         if (registered.guideSha256)
             return receipt.measured.length+' full poses verified · '+this.poseLabels(registered)+' · floor contact verified twice';
         if (receipt.binding.input.recoverYaw)
@@ -150,11 +173,17 @@ export class ImageAssemblyPanel {
             const request = {layoutPng:await this.readPng(fields.namedItem('layout').files[0]),
                 title:fields.namedItem('title').value,widthM:fields.namedItem('widthM').valueAsNumber,props};
             if (views) request.witnessPng = await this.readPng(this.witness.files[0]);
-            if (this.mode.value==='tilt') {
+            const occluded = this.mode.value==='occluded';
+            if (this.mode.value==='tilt' || occluded) {
                 request.guidePng = await this.readPng(this.guide.files[0]);
-                if (this.customAngles.checked)
+                if (occluded || this.customAngles.checked)
                     request.cameraAngles = Object.fromEntries(Object.keys(CAMERA_ANGLES)
                         .map(key=>[key,fields.namedItem(key).valueAsNumber]));
+            }
+            if (occluded) {
+                request.additionalPng = await this.readPng(this.additional.files[0]);
+                request.additionalCamera = {headingDeg:this.additionalHeading.valueAsNumber,
+                    elevationDeg:this.additionalElevation.valueAsNumber};
             }
             if (recoverYaw) request.recoverYaw = true;
             const scene = await this.spatial.call('image-assembly',request);
@@ -171,7 +200,8 @@ export class ImageAssemblyPanel {
             const result = await this.spatial.call('image-assembly-replay',{id:this.spatial.scene.id});
             const binding = this.spatial.scene.imageAssembly.binding;
             const tilt = binding.registration?.guideSha256;
-            const rechecked = tilt?'Full poses rechecked. ':binding.input.recoverYaw?'Positions and rotations rechecked. '
+            const rechecked = binding.registration?.occludedSide?'Full poses and occluded side rechecked. ':
+                tilt?'Full poses rechecked. ':binding.input.recoverYaw?'Positions and rotations rechecked. '
                 :binding.registration?'Both registered views rechecked. ':'';
             const headings = tilt?' '+this.poseLabels(binding.registration):binding.input.recoverYaw?' '+this.headingLabels(binding.registration):'';
             this.status.textContent = rechecked+'Fresh floor contacts matched for all '+result.measured.length+' props.'+headings;
