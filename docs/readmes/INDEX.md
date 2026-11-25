@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 249 — Recover and verify prop rotation from unmarked images](../../README-249.md) · [Walkthrough](249/index.html)
+
 [Edition 248 — Locate unmarked props and verify their positions from a second view](../../README-248.md) · [Walkthrough](248/index.html)
 
 [Edition 247 — Build editable 3D scenes from registered images](../../README-247.md) · [Walkthrough](247/index.html)

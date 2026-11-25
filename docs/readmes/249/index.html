@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 249 · Recover and verify prop rotation from unmarked images</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Recover and verify prop rotation from unmarked images</h1>
+<p>Fraynix fitted floor positions and upright headings from overhead. A second view agreed with the saved angles and refused a rotation-only change.</p>
+<nav><a href="../../../README-249.md">App guide</a><a href="../248/index.html">Edition 248</a>
+<a href="../../publication249/plan.md">Reproduction</a><a href="image-assembly-evidence.json" download>Download measurements</a>
+<a href="image-workshop.glb" download>Download the GLB</a><a href="#system">System files</a></nav>
+<figure><img src="image-layout-assembled.png" alt="Two recovered prop angles in the assembled top-down scene"><figcaption>Two recovered prop angles in the assembled top-down scene</figcaption></figure>
+<figure><img src="rotated-second-view-refused.png" alt="A rotation-only change is refused at the fixed overhead position"><figcaption>A rotation-only change is refused at the fixed overhead position</figcaption></figure>
+<figure><img src="image-scene-restarted.png" alt="The desktop reopens both angles and reruns native contacts"><figcaption>The desktop reopens both angles and reruns native contacts</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "The overhead image locates upright props and their headings. A separate view verifies the frozen poses.", "modules": [{"title": "Heading search, position fit and second-view verification", "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneRegistration.java", "note": "docs/obsidian/257-image-pose-registration.md"}, {"title": "Rotated boxes and native checks", "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java", "note": "docs/obsidian/257-image-pose-registration.md"}, {"title": "Saved pose and restart verification", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "note": "docs/obsidian/257-image-pose-registration.md"}, {"title": "Desktop pose controls and replay", "source": "workspace-desktop/renderer/image-assembly.js", "note": "docs/obsidian/257-image-pose-registration.md"}, {"title": "Desktop pose, refusal and restart tests", "source": "workspace-desktop/test/image-assembly-integration.cjs", "note": "docs/obsidian/257-image-pose-registration.md"}, {"title": "Independent Blender fixture generator", "source": "workspace-desktop/test/image-yaw-fixtures.py", "note": "docs/obsidian/257-image-pose-registration.md"}, {"title": "Independent Blender GLB verification", "source": "workspace-desktop/test/image-assembly-blender.py", "note": "docs/obsidian/257-image-pose-registration.md"}], "screenshots": [{"path": "docs/readmes/249/image-layout-assembled.png", "title": "Two recovered prop angles in the assembled top-down scene"}, {"path": "docs/readmes/249/rotated-second-view-refused.png", "title": "A rotation-only change is refused at the fixed overhead position"}, {"path": "docs/readmes/249/image-scene-restarted.png", "title": "The desktop reopens both angles and reruns native contacts"}], "evidence": [{"path": "docs/readmes/249/overhead.png", "title": "Unmarked overhead"}, {"path": "docs/readmes/249/second-angle.png", "title": "Second view"}, {"path": "docs/readmes/249/rotated-second-angle.png", "title": "Rotation-only control"}, {"path": "docs/readmes/249/shifted-second-angle.png", "title": "Translation-only control"}, {"path": "docs/readmes/249/image-assembly-evidence.json", "title": "Measured evidence"}, {"path": "docs/readmes/249/blender-readback.json", "title": "Blender readback"}, {"path": "docs/readmes/249/image-workshop.glb", "title": "GLB"}, {"path": "docs/publication249/plan.md", "title": "Reproduction"}, {"path": "docs/readmes/249/FILE_TREE.md", "title": "File tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 27160, "sha256": "d62db7366317b11d41068789973768ef42f8be14b014c9b56a7f81cd990ff81d", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/257-image-pose-registration.canvas", "bytes": 1139, "sha256": "230f270ad3883a07ba7ffb9fe95ece477c67d4a78a5d2cb35dfe40677389021a", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/257-image-pose-registration.md", "bytes": 435, "sha256": "63eaa04ccced474a669f008c5fad188d786b0d07d45fa7fffbe7ea7bd1c0e339", "hashKind": "utf8-lf"}, {"path": "docs/publication249/plan.md", "bytes": 2119, "sha256": "bf6913c82523ab02f538646db6470dca97ac69619d275112b834b0b6236dc03e", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/image-assembly.js", "bytes": 7361, "sha256": "3296007e4a54feda9fa9a7c3745e00894c9fba47c64c941aa9058cf99f3e62b2", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-panel.js", "bytes": 55299, "sha256": "cb82a330342e44b3a7d952cdea4cdfa58d6e08a0faa0a17fb0ebb2623deaf41b", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/image-assembly-blender.py", "bytes": 3596, "sha256": "a422c98b2a0cc3b6e0afe1343f5db0fa83270e9849fd0b92c360190431b5e4a4", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/image-assembly-integration.cjs", "bytes": 19258, "sha256": "de26e9d32e71cc16d3c77e65844519edaf038e4b5c512c95e103e61e4e25a6ef", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/image-yaw-fixtures.py", "bytes": 3383, "sha256": "d59f38a2256ecdff64b9d02d76f4d8563440b1222a4ee9ff4afde65f8aa9d74b", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java", "bytes": 14593, "sha256": "6d2f6ab379a9fff731d277d99d11a0e6a7bd1c2d51d668c626d2a846dc9455a2", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneRegistration.java", "bytes": 18353, "sha256": "77ebc93348df383f267d4c6653f9165246dbf23e09a77cc403fc44346d6bea77", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 79665, "sha256": "f02430b4533c6df20e45c9bcaf097e040fe0df4477bf19db9b88b1b6e2547d26", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

@@ -1,0 +1,183 @@
+{
+  "platform": "win32",
+  "layoutSha256": "164c86f0d02b410a6ae8788779f37cd2115a31930597c7121fc2e72ec4817fd0",
+  "sceneSha256": "49d3cef9cac377a17901d058254a6620190f21b0b8dcdd4ebd30e0ea33b1f6c3",
+  "glbSha256": "d75704f842370ca71c921d19423f166b11e0d1331f90a214ab2daf415ad73584",
+  "props": [
+    {
+      "sourceId": "image-prop-1",
+      "positionM": [
+        0.79,
+        0.15000000000000002,
+        0.8300000000000001
+      ],
+      "originalImageSha256": "ae87c32c23db5c3bb6944bbea2763504303b4eb83afb54f8b51faa008c8a0790",
+      "meshSha256": "0d6f82e475db8c86084cc07de0be43fc6f0bf760e6877a4c9be3497f4fa78223",
+      "colliderSizeM": [
+        0.5,
+        0.30000000000000004,
+        0.4
+      ],
+      "source": {
+        "sourceSha256": "4082c93a781c7226158ac06e1c9c426176633117fd39a4da95cbb2d0e8262a07",
+        "definitionSha256": "95a05f9e4b35f6b20469b607f040c19fc38a5abaa4b949d719fcdd20d8d40466",
+        "sceneId": "395183f8-e331-3d6b-9945-bd64613ae45e"
+      },
+      "overheadCenterPx": [
+        279,
+        233
+      ],
+      "heldOutIou": 0.9825755309602153,
+      "yawDeg": -56
+    },
+    {
+      "sourceId": "image-prop-2",
+      "positionM": [
+        -0.92,
+        0.1,
+        -0.49
+      ],
+      "originalImageSha256": "d9998878397d9e3c923843d9f865d02830c8cafdba9909a314eabe1b84a3774a",
+      "meshSha256": "44880a93ed9294728180f969ce23fc79b3edf95a34e63df596b67821ebe12898",
+      "colliderSizeM": [
+        0.5,
+        0.2,
+        0.4
+      ],
+      "source": {
+        "sourceSha256": "64353258ece27c61df3615b3ffa6c636cba7a48a679fb0397385b7c87112f71b",
+        "definitionSha256": "8dce6742bb733b4b5e0f629583d1dcfb7da72abf5cc6d84d9f524e1e2cbec3ac",
+        "sceneId": "7d1efb99-ec7e-3aa1-9099-f421ff0612f1"
+      },
+      "overheadCenterPx": [
+        108,
+        101
+      ],
+      "heldOutIou": 0.9707788382231648,
+      "yawDeg": 30
+    }
+  ],
+  "measurements": [
+    {
+      "sourceId": "image-prop-1",
+      "contactTick": 46,
+      "centerMm": [
+        790,
+        150,
+        830
+      ],
+      "ticks": 240,
+      "speedMmps": 0,
+      "rotationErrorMilliDeg": 0
+    },
+    {
+      "sourceId": "image-prop-2",
+      "contactTick": 46,
+      "centerMm": [
+        -920,
+        100,
+        -490
+      ],
+      "ticks": 240,
+      "speedMmps": 0,
+      "rotationErrorMilliDeg": 28
+    }
+  ],
+  "localPngImports": 8,
+  "didRestart": true,
+  "glbGeometryRoundTrip": true,
+  "glbVertexDeltaM": 9.8879238130678e-17,
+  "sourceScenesPreserved": true,
+  "refusedChangedLayout": true,
+  "refusedChangedViewSet": true,
+  "registration": {
+    "witnessElevationDeg": 60,
+    "minimumWitnessIou": 0.83,
+    "minimumAssignmentGap": 0.06,
+    "yawResolutionDeg": 2,
+    "minimumOverheadIou": 0.82,
+    "props": [
+      {
+        "sourceId": "image-prop-1",
+        "witnessCenterErrorPx": 0.1481556865068532,
+        "witnessYawDeg": -56,
+        "witnessYawGap": 0.21879882254315441,
+        "witnessIou": 0.9715162138475022,
+        "witnessYawErrorDeg": 0,
+        "overheadYawDeg": -56,
+        "overheadYawGap": 0.2648779403609246,
+        "label": "Offset step",
+        "overheadIou": 0.9533771667662881
+      },
+      {
+        "sourceId": "image-prop-2",
+        "witnessCenterErrorPx": 0.15011175142854857,
+        "witnessYawDeg": 30,
+        "witnessYawGap": 0.4362255681032754,
+        "witnessIou": 0.9510439164866811,
+        "witnessYawErrorDeg": 0,
+        "overheadYawDeg": 30,
+        "overheadYawGap": 0.44513477975016436,
+        "label": "Elbow bracket",
+        "overheadIou": 0.9111111111111111
+      }
+    ],
+    "witnessSha256": "c2e274139241576f38df620e6ca5a928aa1a3773335476aafa75ba3f634cae79",
+    "maximumWitnessYawErrorDeg": 6,
+    "assignmentGap": 0.8891030083175601,
+    "minimumYawGap": 0.035,
+    "alternateYawDistanceDeg": 24,
+    "witnessAzimuthFromFrontDeg": 45,
+    "policy": "registered-silhouettes-yaw-v2",
+    "maximumWitnessCenterErrorPx": 2.5
+  },
+  "truth": {
+    "blenderVersion": "4.5.17 LTS",
+    "widthM": 4,
+    "imagePixels": [
+      400,
+      300
+    ],
+    "samples": [
+      {
+        "model": "elbow",
+        "positionXZ": [
+          -0.924,
+          -0.487
+        ],
+        "yawDeg": 31,
+        "modelWidthM": 0.5
+      },
+      {
+        "model": "step",
+        "positionXZ": [
+          0.793,
+          0.834
+        ],
+        "yawDeg": -55,
+        "modelWidthM": 0.5
+      }
+    ],
+    "yawOnlyControlDeltaDeg": 10,
+    "shiftOnlyControlXM": 0.14
+  },
+  "labels": [
+    "Offset step",
+    "Elbow bracket"
+  ],
+  "positionErrorsM": [
+    0.004999999999999915,
+    0.0050000000000000044
+  ],
+  "yawErrorsDeg": [
+    1,
+    1
+  ],
+  "yawOnlyRefusal": "Second view refused Offset step orientation at its fixed position (10° difference).",
+  "refusedShiftOnly": true,
+  "refusedSymmetricHeading": true,
+  "detectedInReverseInputOrder": true,
+  "refusedReusedView": true,
+  "refusedAmbiguousIdentity": true,
+  "refusedChangedWitness": true
+}

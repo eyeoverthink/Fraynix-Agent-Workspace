@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "guide",
+      "type": "file",
+      "file": "README-249.md",
+      "x": 0,
+      "y": 0,
+      "width": 350,
+      "height": 310
+    },
+    {
+      "id": "plan",
+      "type": "file",
+      "file": "docs/publication249/plan.md",
+      "x": 420,
+      "y": 0,
+      "width": 390,
+      "height": 350
+    },
+    {
+      "id": "receipt",
+      "type": "file",
+      "file": "docs/readmes/249/image-assembly-evidence.json",
+      "x": 870,
+      "y": 0,
+      "width": 350,
+      "height": 330
+    },
+    {
+      "id": "note",
+      "type": "file",
+      "file": "docs/obsidian/257-image-pose-registration.md",
+      "x": 420,
+      "y": 430,
+      "width": 390,
+      "height": 230
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "guide",
+      "toNode": "plan",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "plan",
+      "toNode": "receipt",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "plan",
+      "toNode": "note",
+      "fromSide": "bottom",
+      "toSide": "top"
+    }
+  ]
+}

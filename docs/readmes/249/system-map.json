@@ -1,0 +1,92 @@
+{
+  "summary": "The overhead image locates upright props and their headings. A separate view verifies the frozen poses.",
+  "modules": [
+    {
+      "title": "Heading search, position fit and second-view verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneRegistration.java",
+      "note": "docs/obsidian/257-image-pose-registration.md"
+    },
+    {
+      "title": "Rotated boxes and native checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java",
+      "note": "docs/obsidian/257-image-pose-registration.md"
+    },
+    {
+      "title": "Saved pose and restart verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/257-image-pose-registration.md"
+    },
+    {
+      "title": "Desktop pose controls and replay",
+      "source": "workspace-desktop/renderer/image-assembly.js",
+      "note": "docs/obsidian/257-image-pose-registration.md"
+    },
+    {
+      "title": "Desktop pose, refusal and restart tests",
+      "source": "workspace-desktop/test/image-assembly-integration.cjs",
+      "note": "docs/obsidian/257-image-pose-registration.md"
+    },
+    {
+      "title": "Independent Blender fixture generator",
+      "source": "workspace-desktop/test/image-yaw-fixtures.py",
+      "note": "docs/obsidian/257-image-pose-registration.md"
+    },
+    {
+      "title": "Independent Blender GLB verification",
+      "source": "workspace-desktop/test/image-assembly-blender.py",
+      "note": "docs/obsidian/257-image-pose-registration.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/249/image-layout-assembled.png",
+      "title": "Two recovered prop angles in the assembled top-down scene"
+    },
+    {
+      "path": "docs/readmes/249/rotated-second-view-refused.png",
+      "title": "A rotation-only change is refused at the fixed overhead position"
+    },
+    {
+      "path": "docs/readmes/249/image-scene-restarted.png",
+      "title": "The desktop reopens both angles and reruns native contacts"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/249/overhead.png",
+      "title": "Unmarked overhead"
+    },
+    {
+      "path": "docs/readmes/249/second-angle.png",
+      "title": "Second view"
+    },
+    {
+      "path": "docs/readmes/249/rotated-second-angle.png",
+      "title": "Rotation-only control"
+    },
+    {
+      "path": "docs/readmes/249/shifted-second-angle.png",
+      "title": "Translation-only control"
+    },
+    {
+      "path": "docs/readmes/249/image-assembly-evidence.json",
+      "title": "Measured evidence"
+    },
+    {
+      "path": "docs/readmes/249/blender-readback.json",
+      "title": "Blender readback"
+    },
+    {
+      "path": "docs/readmes/249/image-workshop.glb",
+      "title": "GLB"
+    },
+    {
+      "path": "docs/publication249/plan.md",
+      "title": "Reproduction"
+    },
+    {
+      "path": "docs/readmes/249/FILE_TREE.md",
+      "title": "File tree"
+    }
+  ]
+}
