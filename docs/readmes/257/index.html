@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 257 · Turn a Nexus design into a playable level</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Turn a Nexus design into a playable level</h1>
+<p>Twilight Relay brings a character, painted backdrop and semantic tile grid into an offline platform level.</p>
+<nav><a href="../../../README-257.md">App guide</a><a href="../256/index.html">Edition 256</a>
+<a href="../../publication257/plan.md">Reproduction</a><a href="twilight-relay.html" download>Download playable HTML</a>
+<a href="twilight-source.scene.json" download>Download source design</a><a href="#system">System files</a></nav>
+<figure><img src="nexus-level-editor.png" alt="Twilight Relay opens as editable tiles with spawn and goal coordinates"><figcaption>Twilight Relay opens as editable tiles with spawn and goal coordinates</figcaption></figure>
+<figure><img src="nexus-in-play.png" alt="The imported hero and backdrop appear in the playable level"><figcaption>The imported hero and backdrop appear in the playable level</figcaption></figure>
+<figure><img src="nexus-standalone-complete.png" alt="The offline export reaches the goal after the pickup and spring"><figcaption>The offline export reaches the goal after the pickup and spring</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "Convert an authored grid and character design to the same playable level on desktop and offline.",
+  "modules": [
+    {
+      "title": "Bounded scene decoder",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/NexusSceneLevel.java",
+      "note": "docs/obsidian/265-nexus-design-to-level.md"
+    },
+    {
+      "title": "Verified asset and level storage",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java",
+      "note": "docs/obsidian/265-nexus-design-to-level.md"
+    },
+    {
+      "title": "Desktop tile editor",
+      "source": "workspace-desktop/renderer/media-tile-editor.js",
+      "note": "docs/obsidian/265-nexus-design-to-level.md"
+    },
+    {
+      "title": "Shared picture and play runtime",
+      "source": "workspace-desktop/renderer/media-tile-play.js",
+      "note": "docs/obsidian/265-nexus-design-to-level.md"
+    },
+    {
+      "title": "Offline desktop and standalone checks",
+      "source": "workspace-desktop/test/nexus-level-integration.cjs",
+      "note": "docs/obsidian/265-nexus-design-to-level.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Twilight Relay opens as editable tiles with spawn and goal coordinates",
+      "path": "docs/readmes/257/nexus-level-editor.png"
+    },
+    {
+      "title": "The imported hero and backdrop appear in the playable level",
+      "path": "docs/readmes/257/nexus-in-play.png"
+    },
+    {
+      "title": "The offline export reaches the goal after the pickup and spring",
+      "path": "docs/readmes/257/nexus-standalone-complete.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Measured evidence",
+      "path": "docs/readmes/257/nexus-evidence.json"
+    },
+    {
+      "title": "Source design",
+      "path": "docs/readmes/257/twilight-source.scene.json"
+    },
+    {
+      "title": "Editable level",
+      "path": "docs/readmes/257/twilight-relay.json"
+    },
+    {
+      "title": "Offline game",
+      "path": "docs/readmes/257/twilight-relay.html"
+    },
+    {
+      "title": "Reproduction",
+      "path": "docs/publication257/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": ".github/workflows/portable-workspace.yml",
+    "bytes": 30977,
+    "sha256": "03642706e402b9272e9ab7e1da7dbf57b35a328b76339a0ab2a11fdce8e4ac50",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/265-nexus-design-to-level.canvas",
+    "bytes": 1128,
+    "sha256": "87110b1f67b6114eed4a329e7f3fb0748dda87a425c541644726ba4c8492a1d5",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/265-nexus-design-to-level.md",
+    "bytes": 353,
+    "sha256": "5f2463e6f1beca67242bf6b456d8fb93633856576e0e5f6fd262352c10e08222",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication257/plan.md",
+    "bytes": 3128,
+    "sha256": "8de9face8312591562c830fdee64ffbbb0de0a9db2db8a67ddbe8d585a39d219",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/main.cjs",
+    "bytes": 137158,
+    "sha256": "b9ccb5cc4213ae082d2fae1e30dcd714be5931b9e9b145cd9cca446285920bc3",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/media-tile-editor.js",
+    "bytes": 25757,
+    "sha256": "821327678cd17a6e62186f4f649500a31527085792c0a1ec935d070595e1aad3",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/media-tile-play.js",
+    "bytes": 12872,
+    "sha256": "7dc013941ecaf5f09a991e96e5a9ce4ae63e2c42f137b464b6eba5091c781a7a",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/media-workshop.css",
+    "bytes": 8212,
+    "sha256": "30a7d1d6322c9c4c2a8af5a719d6b74b6fb04b86a21e8f8fe7a2d40dcd285cd1",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/nexus-level-integration.cjs",
+    "bytes": 15772,
+    "sha256": "a74ef8deb9aeaa308a8da98605c77b024b7a4d27308c70cc8b98df4cd8bef194",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/NexusSceneLevel.java",
+    "bytes": 13170,
+    "sha256": "65735470c8c6cbf6c6dc61c879df452d54089ac487450b63af4b10bb204b2924",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java",
+    "bytes": 19488,
+    "sha256": "3230fde3530fb3313589bbc79ab0fda006df9c63d9266408ec9c80fab0318dcb",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+    "bytes": 160315,
+    "sha256": "280667fe62fa038a31df45efc4a04415b185e877ddb0206cdace0151bee5117b",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

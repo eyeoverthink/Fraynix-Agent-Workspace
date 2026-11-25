@@ -1,0 +1,66 @@
+{
+  "summary": "Convert an authored grid and character design to the same playable level on desktop and offline.",
+  "modules": [
+    {
+      "title": "Bounded scene decoder",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/NexusSceneLevel.java",
+      "note": "docs/obsidian/265-nexus-design-to-level.md"
+    },
+    {
+      "title": "Verified asset and level storage",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java",
+      "note": "docs/obsidian/265-nexus-design-to-level.md"
+    },
+    {
+      "title": "Desktop tile editor",
+      "source": "workspace-desktop/renderer/media-tile-editor.js",
+      "note": "docs/obsidian/265-nexus-design-to-level.md"
+    },
+    {
+      "title": "Shared picture and play runtime",
+      "source": "workspace-desktop/renderer/media-tile-play.js",
+      "note": "docs/obsidian/265-nexus-design-to-level.md"
+    },
+    {
+      "title": "Offline desktop and standalone checks",
+      "source": "workspace-desktop/test/nexus-level-integration.cjs",
+      "note": "docs/obsidian/265-nexus-design-to-level.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Twilight Relay opens as editable tiles with spawn and goal coordinates",
+      "path": "docs/readmes/257/nexus-level-editor.png"
+    },
+    {
+      "title": "The imported hero and backdrop appear in the playable level",
+      "path": "docs/readmes/257/nexus-in-play.png"
+    },
+    {
+      "title": "The offline export reaches the goal after the pickup and spring",
+      "path": "docs/readmes/257/nexus-standalone-complete.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Measured evidence",
+      "path": "docs/readmes/257/nexus-evidence.json"
+    },
+    {
+      "title": "Source design",
+      "path": "docs/readmes/257/twilight-source.scene.json"
+    },
+    {
+      "title": "Editable level",
+      "path": "docs/readmes/257/twilight-relay.json"
+    },
+    {
+      "title": "Offline game",
+      "path": "docs/readmes/257/twilight-relay.html"
+    },
+    {
+      "title": "Reproduction",
+      "path": "docs/publication257/plan.md"
+    }
+  ]
+}

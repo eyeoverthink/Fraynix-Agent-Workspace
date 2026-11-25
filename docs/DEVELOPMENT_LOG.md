@@ -1,3 +1,7 @@
+## Edition 257 — Turn a Nexus design into a playable level
+
+2026-11-25. The tile editor reads a Nexus Scene to Game runner or a scene graph with a grid. Java binds the source bytes and converts the palette, backdrop, playable character, collisions and tile triggers. Twilight Relay reached the goal in the desktop, after restart and in standalone HTML with networking blocked. Each run recorded one hazard reset, one pickup and one spring boost. A palette change preserved the same mechanics, and a clean project reproduced the exact standalone build. See README-257.md and docs/publication257/plan.md.
+
 ## Edition 256 — Resume a project, teach pacing and prepare an audience copy
 
 2026-11-25. Media Timeline resumes an approved project, a pending draft and the next intention. Java derives a new two-shot cut from fresh sources with a project-scoped opening choice taught during review. Independent FFmpeg checks measured the same cut at frame 10 without memory and 14 with it. A one-off correction stayed in its cut. Saving the shorter opening changed the next cut to frame 6 after restart. Undo restored frame 14 and a sibling project used its own reference. A changed audience or changed source bytes refused export. The approved family AVI retained its exact video and audio without private source metadata, and the master reopened. See README-256.md and docs/publication256/plan.md.

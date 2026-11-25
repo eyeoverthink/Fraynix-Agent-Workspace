@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md) · [Independent system review](docs/publication244/review.md)
 
-[Edition 256 — Resume a project, teach pacing and prepare an audience copy](README-256.md) · [Previous edition](README-255.md) · [Offline walkthrough](docs/readmes/256/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 257 — Turn a Nexus design into a playable level](README-257.md) · [Previous edition](README-256.md) · [Offline walkthrough](docs/readmes/257/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Resume creative work with its approved cuts, remembered editing choices and next intention. Ask for a new cut from fresh footage and review a local copy for a chosen audience.
+Turn an authored scene grid, palette, backdrop and character cutout into an editable platform level. Play it in the desktop or export it as standalone HTML.
