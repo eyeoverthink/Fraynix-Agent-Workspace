@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 253 · Recover overlapping props with noisy side masks</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Recover overlapping props with noisy side masks</h1>
+<p>Four known scenes test varied depth order and isolated noise. A separate angle verifies each pose before saving.</p>
+<nav><a href="../../../README-253.md">App guide</a><a href="../252/index.html">Edition 252</a>
+<a href="../../publication253/plan.md">Reproduction</a><a href="noisy-occlusion-evidence.json" download>Download measurements</a>
+<a href="step-behind-elbow/image-workshop.glb" download>Download the GLB</a><a href="#system">System files</a></nav>
+<figure><img src="noisy-side-recovered.png" alt="The workspace recovers a scene after correcting isolated mask noise"><figcaption>The workspace recovers a scene after correcting isolated mask noise</figcaption></figure>
+<figure><img src="uncleaned-mask-refused.png" alt="The same noisy side is refused with cleanup turned off"><figcaption>The same noisy side is refused with cleanup turned off</figcaption></figure>
+<figure><img src="noisy-side-after-restart.png" alt="The recovered scene and original mask are rechecked after restart"><figcaption>The recovered scene and original mask are rechecked after restart</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Recover overlapping props in four scenes and replay the evidence after restart.", "modules": [{"title": "Noise correction, fitting and independent verification", "source": "workspace-engine/src/main/java/fraymus/workspace/ImageTiltRegistration.java", "note": "docs/obsidian/261-noisy-occlusion-validation.md"}, {"title": "Scene binding and native floor contacts", "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java", "note": "docs/obsidian/261-noisy-occlusion-validation.md"}, {"title": "Retained images and replay", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "note": "docs/obsidian/261-noisy-occlusion-validation.md"}, {"title": "Side mask cleanup controls", "source": "workspace-desktop/renderer/image-assembly.js", "note": "docs/obsidian/261-noisy-occlusion-validation.md"}, {"title": "Four-scene desktop and restart test", "source": "workspace-desktop/test/image-occlusion-noise-integration.cjs", "note": "docs/obsidian/261-noisy-occlusion-validation.md"}, {"title": "Blender depth and noise references", "source": "workspace-desktop/test/image-occlusion-noise-fixtures.py", "note": "docs/obsidian/261-noisy-occlusion-validation.md"}, {"title": "Independent Blender export verification", "source": "workspace-desktop/test/image-assembly-blender.py", "note": "docs/obsidian/261-noisy-occlusion-validation.md"}], "screenshots": [{"title": "The workspace recovers a scene after correcting isolated mask noise", "path": "docs/readmes/253/noisy-side-recovered.png"}, {"title": "The same noisy side is refused with cleanup turned off", "path": "docs/readmes/253/uncleaned-mask-refused.png"}, {"title": "The recovered scene and original mask are rechecked after restart", "path": "docs/readmes/253/noisy-side-after-restart.png"}], "evidence": [{"title": "Original side mask", "path": "docs/readmes/253/occluded-clean.png"}, {"title": "Noisy side mask", "path": "docs/readmes/253/occluded-noisy.png"}, {"title": "Extra fitting image", "path": "docs/readmes/253/extra-fitting.png"}, {"title": "Held-out image", "path": "docs/readmes/253/held-out.png"}, {"title": "Held-out noise control", "path": "docs/readmes/253/held-out-isolated-speck.png"}, {"title": "Measured evidence", "path": "docs/readmes/253/noisy-occlusion-evidence.json"}, {"title": "Sample GLB", "path": "docs/readmes/253/step-behind-elbow/image-workshop.glb"}, {"title": "Sample Blender readback", "path": "docs/readmes/253/step-behind-elbow/blender-readback.json"}, {"title": "File tree", "path": "docs/readmes/253/FILE_TREE.md"}, {"title": "Reproduction", "path": "docs/publication253/plan.md"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 29083, "sha256": "f51d3256a8b715a2adffebd0461c3efa0b6ad8412c0d130b42838792aaefe572", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/261-noisy-occlusion-validation.canvas", "bytes": 1143, "sha256": "54acd8f49c20ee1f170b4a6dbbb5427fd6bdb1ad83c3dbb5b4905e3bd976d1de", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/261-noisy-occlusion-validation.md", "bytes": 416, "sha256": "4f841c29e477c264955b8bafe0239bf5ce523d3364d212ae4187ed2769366838", "hashKind": "utf8-lf"}, {"path": "docs/publication253/plan.md", "bytes": 3210, "sha256": "4b803080aaa64aedec676624a56428be3d69540bcbdc09c83d76baf63ee5c470", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/image-assembly.js", "bytes": 13523, "sha256": "7a15e32f4f413a86baef39c93dbb496c0383c8595052f84251c1a6e920760e3d", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-panel.js", "bytes": 57455, "sha256": "26b47f73614c02faed0c8c2af5342d07e33e68423686d1b04352999f873a6566", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/image-assembly-blender.py", "bytes": 3596, "sha256": "a422c98b2a0cc3b6e0afe1343f5db0fa83270e9849fd0b92c360190431b5e4a4", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/image-occlusion-noise-fixtures.py", "bytes": 7997, "sha256": "6cf22def2f1f2cc299b63e4c3c1b4928a06c32d3cf34ee200a5999b5b1f7dd51", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/image-occlusion-noise-integration.cjs", "bytes": 12765, "sha256": "0482b31f1446e13e978ac8933e00e95cacea7a26db07aa3b2b88e33ed0b7a3a2", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java", "bytes": 20130, "sha256": "87718f6956b697a37f9a063ea44ea8205d0f0293d68b60857d9a8b331df46747", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ImageTiltRegistration.java", "bytes": 31600, "sha256": "7d84e79b35ed5d0a7c4499af20719d22abff51da96f5ea882d7853b4612bef09", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 82254, "sha256": "0fd12c31d5453a24e6f4792db541531532cb424fcac5376ee598865e61ea10ca", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

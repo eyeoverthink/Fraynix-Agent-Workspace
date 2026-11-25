@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 252,
+  "latest": 253,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -269529,6 +269529,145 @@
         {
           "path": "docs/readmes/252/wrong-held-out.png",
           "sha256": "9c1b53eab53555c2532f8a8ea5bc52d6f26f8791f84785f50c3a1e667f23d00c",
+          "kind": "binary"
+        }
+      ]
+    },
+    {
+      "number": 253,
+      "date": "2026-11-25",
+      "title": "Recover overlapping props with noisy side masks",
+      "status": "published",
+      "markdown": "README-253.md",
+      "markdownSha256": "1b9acb621fc1b40c64a2fab229dca72127b24f14d54320ef866a9991db6a4dae",
+      "snapshotDirectory": "docs/readmes/253",
+      "companion": "docs/readmes/253/index.html",
+      "tag": "readme-253",
+      "sourceBaseline": "3e5d7b85a2cc1ed351a503cb88f628b9b5857910",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/253/elbow-behind-step/blender-readback.json",
+          "sha256": "9a754092bb33be5a7a8cbfebb4ed4931db9b6b6f10682c8c506e0a3a8d9639e9",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/253/elbow-behind-step/image-workshop.glb",
+          "sha256": "a0c44be0347e2471317313dae5cac21304caccc23aaf431d2eee361ff3285ecb",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/253/elbow-behind-step/image-workshop.json",
+          "sha256": "6345e273c54e910bcab70e6f0b92c9907dcccb657f661a8c20b39802cce3b478",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/253/extra-fitting.png",
+          "sha256": "1eceb5ec87dad10c39f3b31e201ada8eeee7fc2cbff6e20decbf10b12cc234c1",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/253/file-inventory.json",
+          "sha256": "7c79a93c16c3548ae357893755ffc9480c1b50e0ee8de9e1e1f734873f8c9685",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/253/FILE_TREE.md",
+          "sha256": "bae308f357f06d58be690ebb96f18863974c4f5ed4231e98cd0663620ef3ed3b",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/253/fork-behind-elbow/blender-readback.json",
+          "sha256": "d9d833b2e419bfd015c27f3ef93e5d390bfbaf25bed40478f62c9592617f5f7b",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/253/fork-behind-elbow/image-workshop.glb",
+          "sha256": "bfa1cab56dbc10cc2f6e94f96681110fcb161eb9ebe4aa831ffb0a5a321ef111",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/253/fork-behind-elbow/image-workshop.json",
+          "sha256": "aae5d38bb9ae9ea0d5e41a6a4d1a1c39b320089b0f8b71d01454b43eb75af6ec",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/253/held-out-isolated-speck.png",
+          "sha256": "00f5ba590afca10a3d14da564f76fe3fede83d844e66b67926dcc454a5053d6a",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/253/held-out.png",
+          "sha256": "025e14136c9be4e72c613f3707884343a4b34a6b9daaf8b9c7a1d509f2b6c59f",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/253/index.html",
+          "sha256": "a0a94da5017969595816278b095a1511d64254ee66eb22d5e3a024df20de8767",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/253/noisy-occlusion-evidence.json",
+          "sha256": "fcd7083b39108d2505f5c4719e239012bb85083fad3a0d018471ffcfce368c40",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/253/noisy-side-after-restart.png",
+          "sha256": "7427faea0010b24dc6854d5bc7e9567df34f7704e1ea1f388697a91e6d936d71",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/253/noisy-side-recovered.png",
+          "sha256": "06f6ffa822bab4c19ba9fd4754e6c7af6dfedfda0eb64c1cf5954ceea384b4f1",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/253/occluded-clean.png",
+          "sha256": "dc6f565ffff9fc08dd9a76023283da863cd448f0655230ce576042987086bfef",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/253/occluded-noisy.png",
+          "sha256": "c49b0e15f27a964af6fd4d9177aaaa1b776caf1ac6718c4804daec7d72a853b1",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/253/step-behind-elbow/blender-readback.json",
+          "sha256": "0b2c2fcb60b6b51cdab95155f0759d7d9b0de83c9ebd357ed27be830a14d3f8d",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/253/step-behind-elbow/image-workshop.glb",
+          "sha256": "2064d13293d977953f4936aa9a927ed28de695b567977224ba65b83fe9735139",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/253/step-behind-elbow/image-workshop.json",
+          "sha256": "2021430e68b1a34064d9c4d3f4ea41296ece28c5789ae32a6f7e941989e3d764",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/253/step-behind-fork/blender-readback.json",
+          "sha256": "deace09b8f8eb8f7411ca3f30d51bd0277fcc23d2defb7b5d6318e6713fa8d2a",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/253/step-behind-fork/image-workshop.glb",
+          "sha256": "3a7b9597405e4c42891729a7199efcd478d7d90dc71011af7ba38a2451004061",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/253/step-behind-fork/image-workshop.json",
+          "sha256": "4fee5b2af2f75a1a47d9adaf81ad170c95318c0721985fcb94c5eaaa74d1abf5",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/253/system-map.json",
+          "sha256": "3dab12d1d546efd91f94e7bfed7c73a85ad6b0df9879cd9d8bcb619b17e42777",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/253/uncleaned-mask-refused.png",
+          "sha256": "8220092571f27bd33c9f7c2e991e4118beb721fcdaadd178d2ef67b541c92a96",
           "kind": "binary"
         }
       ]

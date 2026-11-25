@@ -1,3 +1,7 @@
+## Edition 253 — Recover overlapping props with noisy side masks
+
+2026-11-25. Four controlled Blender scenes covered three prop pairs and one reversed depth order. Optional isolated-pixel cleanup records the raw mask and every correction count. Pose refinement uses clear fitting images and visible side support. Each untouched held-out view refused its displaced control. Maximum error across 12 poses was 8.3 mm and 1.41°. Restart reproduced exact pose and physics evidence and GLBs, and Blender reopened each scene. Edition 252 still reproduces its published scene and GLB. See README-253.md and docs/publication253/plan.md.
+
 ## Edition 252 — Recover partly occluded props with an extra view
 
 2026-11-25. Spatial uses a clear extra side view plus overhead to fit full poses. It checks the frozen poses against the partly occluded side composite and a separate held-out angle. Blender measured 42.2% occlusion of the rear step. The recovered side mask matched 96.0% and the largest errors across three props were 3.5 mm and 5.10°. The desktop restored camera settings, checked all four image bindings and reproduced native contacts and exact GLB after restart. The edition 251 fixture still produces its published scene and GLB. See README-252.md and docs/publication252/plan.md.

@@ -1,0 +1,96 @@
+{
+  "summary": "Recover overlapping props in four scenes and replay the evidence after restart.",
+  "modules": [
+    {
+      "title": "Noise correction, fitting and independent verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ImageTiltRegistration.java",
+      "note": "docs/obsidian/261-noisy-occlusion-validation.md"
+    },
+    {
+      "title": "Scene binding and native floor contacts",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java",
+      "note": "docs/obsidian/261-noisy-occlusion-validation.md"
+    },
+    {
+      "title": "Retained images and replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/261-noisy-occlusion-validation.md"
+    },
+    {
+      "title": "Side mask cleanup controls",
+      "source": "workspace-desktop/renderer/image-assembly.js",
+      "note": "docs/obsidian/261-noisy-occlusion-validation.md"
+    },
+    {
+      "title": "Four-scene desktop and restart test",
+      "source": "workspace-desktop/test/image-occlusion-noise-integration.cjs",
+      "note": "docs/obsidian/261-noisy-occlusion-validation.md"
+    },
+    {
+      "title": "Blender depth and noise references",
+      "source": "workspace-desktop/test/image-occlusion-noise-fixtures.py",
+      "note": "docs/obsidian/261-noisy-occlusion-validation.md"
+    },
+    {
+      "title": "Independent Blender export verification",
+      "source": "workspace-desktop/test/image-assembly-blender.py",
+      "note": "docs/obsidian/261-noisy-occlusion-validation.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The workspace recovers a scene after correcting isolated mask noise",
+      "path": "docs/readmes/253/noisy-side-recovered.png"
+    },
+    {
+      "title": "The same noisy side is refused with cleanup turned off",
+      "path": "docs/readmes/253/uncleaned-mask-refused.png"
+    },
+    {
+      "title": "The recovered scene and original mask are rechecked after restart",
+      "path": "docs/readmes/253/noisy-side-after-restart.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Original side mask",
+      "path": "docs/readmes/253/occluded-clean.png"
+    },
+    {
+      "title": "Noisy side mask",
+      "path": "docs/readmes/253/occluded-noisy.png"
+    },
+    {
+      "title": "Extra fitting image",
+      "path": "docs/readmes/253/extra-fitting.png"
+    },
+    {
+      "title": "Held-out image",
+      "path": "docs/readmes/253/held-out.png"
+    },
+    {
+      "title": "Held-out noise control",
+      "path": "docs/readmes/253/held-out-isolated-speck.png"
+    },
+    {
+      "title": "Measured evidence",
+      "path": "docs/readmes/253/noisy-occlusion-evidence.json"
+    },
+    {
+      "title": "Sample GLB",
+      "path": "docs/readmes/253/step-behind-elbow/image-workshop.glb"
+    },
+    {
+      "title": "Sample Blender readback",
+      "path": "docs/readmes/253/step-behind-elbow/blender-readback.json"
+    },
+    {
+      "title": "File tree",
+      "path": "docs/readmes/253/FILE_TREE.md"
+    },
+    {
+      "title": "Reproduction",
+      "path": "docs/publication253/plan.md"
+    }
+  ]
+}

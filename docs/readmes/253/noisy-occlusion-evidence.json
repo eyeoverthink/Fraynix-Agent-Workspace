@@ -1,0 +1,1248 @@
+{
+  "platform": "win32",
+  "truth": {
+    "blenderVersion": "4.5.17 LTS",
+    "widthM": 4,
+    "imagePixels": [
+      600,
+      450
+    ],
+    "cases": [
+      {
+        "id": "step-behind-elbow",
+        "order": [
+          "elbow",
+          "step",
+          "fork"
+        ],
+        "samples": [
+          {
+            "model": "elbow",
+            "positionM": [
+              -0.475,
+              1.0915946041215714,
+              0.628
+            ],
+            "anglesDeg": [
+              -32,
+              -13,
+              19
+            ],
+            "quaternion": [
+              -0.1525263488292694,
+              -0.25214946269989014,
+              0.12685902416706085,
+              0.9471341967582703
+            ]
+          },
+          {
+            "model": "step",
+            "positionM": [
+              0.321,
+              0.443,
+              -0.391
+            ],
+            "anglesDeg": [
+              68,
+              15,
+              -21
+            ],
+            "quaternion": [
+              0.005366064608097076,
+              0.5648452639579773,
+              -0.221554696559906,
+              0.794880211353302
+            ]
+          },
+          {
+            "model": "fork",
+            "positionM": [
+              0.887,
+              0.409,
+              0.664
+            ],
+            "anglesDeg": [
+              120,
+              -9,
+              15
+            ],
+            "quaternion": [
+              0.07379656285047531,
+              0.8610900640487671,
+              0.13242819905281067,
+              0.4853253960609436
+            ]
+          }
+        ],
+        "cameraAngles": {
+          "sideHeadingDeg": -45,
+          "sideElevationDeg": 30,
+          "witnessHeadingDeg": 75,
+          "witnessElevationDeg": 38
+        },
+        "additionalCamera": {
+          "headingDeg": 4,
+          "elevationDeg": 55
+        },
+        "rearHiddenFraction": 0.4310160427807487,
+        "overlapPixels": 1612,
+        "cleanForegroundPixels": 9069,
+        "noise": {
+          "injectedSpecks": 562,
+          "injectedHoles": 181
+        },
+        "heldOutTranslationControlM": 0.14
+      },
+      {
+        "id": "elbow-behind-step",
+        "order": [
+          "step",
+          "elbow",
+          "fork"
+        ],
+        "samples": [
+          {
+            "model": "step",
+            "positionM": [
+              -0.493,
+              1.103207232655267,
+              0.629
+            ],
+            "anglesDeg": [
+              68,
+              15,
+              -20
+            ],
+            "quaternion": [
+              0.01029503345489502,
+              0.5647768974304199,
+              -0.21460966765880585,
+              0.7967833280563354
+            ]
+          },
+          {
+            "model": "elbow",
+            "positionM": [
+              0.319,
+              0.43,
+              -0.389
+            ],
+            "anglesDeg": [
+              -32,
+              -12,
+              19
+            ],
+            "quaternion": [
+              -0.1443452686071396,
+              -0.25378403067588806,
+              0.12936802208423615,
+              0.9476402401924133
+            ]
+          },
+          {
+            "model": "fork",
+            "positionM": [
+              0.868,
+              0.395,
+              0.681
+            ],
+            "anglesDeg": [
+              122,
+              -10,
+              15
+            ],
+            "quaternion": [
+              0.07183390855789185,
+              0.8693528175354004,
+              0.13861551880836487,
+              0.4688831567764282
+            ]
+          }
+        ],
+        "cameraAngles": {
+          "sideHeadingDeg": -46,
+          "sideElevationDeg": 31,
+          "witnessHeadingDeg": 76,
+          "witnessElevationDeg": 39
+        },
+        "additionalCamera": {
+          "headingDeg": 4,
+          "elevationDeg": 55
+        },
+        "rearHiddenFraction": 0.43048740595354923,
+        "overlapPixels": 1316,
+        "cleanForegroundPixels": 9504,
+        "noise": {
+          "injectedSpecks": 598,
+          "injectedHoles": 190
+        },
+        "heldOutTranslationControlM": 0.14
+      },
+      {
+        "id": "step-behind-fork",
+        "order": [
+          "fork",
+          "step",
+          "elbow"
+        ],
+        "samples": [
+          {
+            "model": "fork",
+            "positionM": [
+              -0.475,
+              1.1271466891767317,
+              0.636
+            ],
+            "anglesDeg": [
+              122,
+              -11,
+              16
+            ],
+            "quaternion": [
+              0.07514843344688416,
+              0.8685874938964844,
+              0.15017466247081757,
+              0.46621450781822205
+            ]
+          },
+          {
+            "model": "step",
+            "positionM": [
+              0.34,
+              0.431,
+              -0.375
+            ],
+            "anglesDeg": [
+              69,
+              14,
+              -21
+            ],
+            "quaternion": [
+              -0.003696046769618988,
+              0.5710734724998474,
+              -0.21693731844425201,
+              0.7917068004608154
+            ]
+          },
+          {
+            "model": "elbow",
+            "positionM": [
+              0.878,
+              0.402,
+              0.657
+            ],
+            "anglesDeg": [
+              -32,
+              -13,
+              19
+            ],
+            "quaternion": [
+              -0.1525263488292694,
+              -0.25214946269989014,
+              0.12685902416706085,
+              0.9471341967582703
+            ]
+          }
+        ],
+        "cameraAngles": {
+          "sideHeadingDeg": -43,
+          "sideElevationDeg": 32,
+          "witnessHeadingDeg": 77,
+          "witnessElevationDeg": 40
+        },
+        "additionalCamera": {
+          "headingDeg": 4,
+          "elevationDeg": 55
+        },
+        "rearHiddenFraction": 0.53860103626943,
+        "overlapPixels": 2079,
+        "cleanForegroundPixels": 8735,
+        "noise": {
+          "injectedSpecks": 559,
+          "injectedHoles": 174
+        },
+        "heldOutTranslationControlM": 0.14
+      },
+      {
+        "id": "fork-behind-elbow",
+        "order": [
+          "elbow",
+          "fork",
+          "step"
+        ],
+        "samples": [
+          {
+            "model": "elbow",
+            "positionM": [
+              -0.468,
+              1.0072786184210893,
+              0.646
+            ],
+            "anglesDeg": [
+              -33,
+              -14,
+              19
+            ],
+            "quaternion": [
+              -0.1617748737335205,
+              -0.2587463855743408,
+              0.12293325364589691,
+              0.9443340301513672
+            ]
+          },
+          {
+            "model": "fork",
+            "positionM": [
+              0.325,
+              0.421,
+              -0.369
+            ],
+            "anglesDeg": [
+              120,
+              -10,
+              15
+            ],
+            "quaternion": [
+              0.06940377503633499,
+              0.8610372543334961,
+              0.13984808325767517,
+              0.4839841425418854
+            ]
+          },
+          {
+            "model": "step",
+            "positionM": [
+              0.886,
+              0.42,
+              0.671
+            ],
+            "anglesDeg": [
+              68,
+              16,
+              -21
+            ],
+            "quaternion": [
+              0.01253461092710495,
+              0.5655046105384827,
+              -0.22613129019737244,
+              0.7930397987365723
+            ]
+          }
+        ],
+        "cameraAngles": {
+          "sideHeadingDeg": -47,
+          "sideElevationDeg": 29,
+          "witnessHeadingDeg": 78,
+          "witnessElevationDeg": 41
+        },
+        "additionalCamera": {
+          "headingDeg": 4,
+          "elevationDeg": 55
+        },
+        "rearHiddenFraction": 0.41628145865434,
+        "overlapPixels": 1621,
+        "cleanForegroundPixels": 8972,
+        "noise": {
+          "injectedSpecks": 583,
+          "injectedHoles": 179
+        },
+        "heldOutTranslationControlM": 0.14
+      }
+    ]
+  },
+  "negatives": {
+    "uncleaned": "Occluded side view refused the combined silhouettes (87.8% overlap, need 90%).",
+    "excess": "Too many isolated changes are needed in the occluded side mask. Use a clearer side image.",
+    "missingRear": "Occluded side view refused the combined silhouettes (75.2% overlap, need 90%).",
+    "noisyWitness": "Held-out view contains detached pixels or props too small to measure.",
+    "reusedWitness": "Choose a separate held-out camera image."
+  },
+  "results": [
+    {
+      "id": "step-behind-elbow",
+      "sceneId": "be5cde75-edd9-3373-90f5-cb43c5b2167b",
+      "sourceSha256": "2021430e68b1a34064d9c4d3f4ea41296ece28c5789ae32a6f7e941989e3d764",
+      "glbSha256": "2064d13293d977953f4936aa9a927ed28de695b567977224ba65b83fe9735139",
+      "measured": [
+        {
+          "model": "fork",
+          "label": "Fork bracket",
+          "positionErrorM": 0.006450850423709438,
+          "angularErrorDeg": 1.4141997915549414
+        },
+        {
+          "model": "elbow",
+          "label": "Elbow bracket",
+          "positionErrorM": 0.0023661455462536223,
+          "angularErrorDeg": 0.000006830189170012752
+        },
+        {
+          "model": "step",
+          "label": "Offset step",
+          "positionErrorM": 0.0012328015791034442,
+          "angularErrorDeg": 1.000004114902653
+        }
+      ],
+      "registration": {
+        "witnessElevationDeg": 38,
+        "minimumWitnessIou": 0.83,
+        "tiltLimitDeg": 30,
+        "minimumWitnessRotationGain": 0.022,
+        "witnessHeadingDeg": 75,
+        "additionalSha256": "1eceb5ec87dad10c39f3b31e201ada8eeee7fc2cbff6e20decbf10b12cc234c1",
+        "minimumPoseGap": 0.022,
+        "props": [
+          {
+            "sourceId": "image-prop-1",
+            "poseGap": 0.09782835711749027,
+            "positionM": [
+              0.8866666666666667,
+              0.4154268833203788,
+              0.6644444444444445
+            ],
+            "witnessCenterErrorPx": 0.5716665411701224,
+            "witnessEstimatedAnglesDeg": [
+              122,
+              -8,
+              14
+            ],
+            "additionalIou": 0.9712062256809338,
+            "anglesDeg": [
+              120,
+              -10,
+              14
+            ],
+            "witnessIou": 0.9650265315967197,
+            "label": "Fork bracket",
+            "overheadIou": 0.9711440245148111,
+            "witnessCorrectionDeg": 2.8283553219044113,
+            "witnessCorrectionGain": 0.002111870897883339
+          },
+          {
+            "sourceId": "image-prop-2",
+            "poseGap": 0.34471051036549616,
+            "positionM": [
+              -0.47555555555555556,
+              1.0897205110094317,
+              0.6266666666666667
+            ],
+            "witnessCenterErrorPx": 0.3195956709905272,
+            "witnessEstimatedAnglesDeg": [
+              -32,
+              -13,
+              19
+            ],
+            "additionalIou": 0.9752650176678446,
+            "anglesDeg": [
+              -32,
+              -13,
+              19
+            ],
+            "witnessIou": 0.9678152215070049,
+            "label": "Elbow bracket",
+            "overheadIou": 0.9694364851957975,
+            "witnessCorrectionDeg": 0,
+            "witnessCorrectionGain": 0
+          },
+          {
+            "sourceId": "image-prop-3",
+            "poseGap": 0.13697747681202288,
+            "positionM": [
+              0.32222222222222224,
+              0.44288326571226183,
+              -0.39111111111111113
+            ],
+            "witnessCenterErrorPx": 0.26556617229163243,
+            "witnessEstimatedAnglesDeg": [
+              68,
+              17,
+              -22
+            ],
+            "additionalIou": 0.9769180039569136,
+            "anglesDeg": [
+              68,
+              15,
+              -20
+            ],
+            "witnessIou": 0.9738180448295347,
+            "label": "Offset step",
+            "overheadIou": 0.9741515390686661,
+            "witnessCorrectionDeg": 2.828355321903896,
+            "witnessCorrectionGain": 0.00790420879775
+          }
+        ],
+        "witnessSha256": "025e14136c9be4e72c613f3707884343a4b34a6b9daaf8b9c7a1d509f2b6c59f",
+        "assignmentGap": 0.6316513540527913,
+        "guideHeadingDeg": -45,
+        "maximumWitnessCorrectionDeg": 8,
+        "additionalElevationDeg": 55,
+        "guideSha256": "c49b0e15f27a964af6fd4d9177aaaa1b776caf1ac6718c4804daec7d72a853b1",
+        "occludedSide": {
+          "minimumOverlapFraction": 0.03,
+          "maskCleanup": {
+            "filledHoles": 181,
+            "rawCompositeIou": 0.8987289449209466,
+            "rawForegroundPixels": 9450,
+            "maximumChangedPixels": 850,
+            "removedSpecks": 562,
+            "maximumChangedFraction": 0.09
+          },
+          "minimumExclusiveSupport": 0.85,
+          "compositeIou": 0.9739989029072956,
+          "minimumCompositeIou": 0.9,
+          "minimumExclusiveFraction": 0.35,
+          "overlapPixels": 1568,
+          "props": [
+            {
+              "sourceId": "image-prop-1",
+              "exclusiveSupport": 0.9911985503494694,
+              "label": "Fork bracket",
+              "exclusiveFraction": 1
+            },
+            {
+              "sourceId": "image-prop-2",
+              "exclusiveSupport": 0.9992587101556709,
+              "label": "Elbow bracket",
+              "exclusiveFraction": 0.4624614329790881
+            },
+            {
+              "sourceId": "image-prop-3",
+              "exclusiveSupport": 0.9948694029850746,
+              "label": "Offset step",
+              "exclusiveFraction": 0.5775862068965517
+            }
+          ]
+        },
+        "guideElevationDeg": 30,
+        "additionalHeadingDeg": 4,
+        "policy": "registered-silhouettes-tilt-v6",
+        "maximumWitnessCenterErrorPx": 2.5
+      },
+      "refusedWitness": "Held-out view refused Offset step's fixed pose (61.3% overlap, 13.41 px center error).",
+      "physics": [
+        {
+          "sourceId": "image-prop-1",
+          "initialRotationErrorMilliDeg": 0,
+          "contactTick": 63,
+          "centerMm": [
+            895,
+            100,
+            674
+          ],
+          "ticks": 960,
+          "initialCenterM": [
+            0.8866666666666667,
+            0.4154268833203788,
+            0.6644444444444445
+          ],
+          "speedMmps": 0,
+          "terminalSupport": "native-pair",
+          "rotationErrorMilliDeg": 17567
+        },
+        {
+          "sourceId": "image-prop-2",
+          "initialRotationErrorMilliDeg": 0,
+          "contactTick": 110,
+          "centerMm": [
+            -468,
+            100,
+            608
+          ],
+          "ticks": 960,
+          "initialCenterM": [
+            -0.47555555555555556,
+            1.0897205110094317,
+            0.6266666666666667
+          ],
+          "speedMmps": 0,
+          "terminalSupport": "native-pair",
+          "rotationErrorMilliDeg": 23031
+        },
+        {
+          "sourceId": "image-prop-3",
+          "initialRotationErrorMilliDeg": 0,
+          "contactTick": 65,
+          "centerMm": [
+            305,
+            150,
+            -399
+          ],
+          "ticks": 960,
+          "initialCenterM": [
+            0.32222222222222224,
+            0.44288326571226183,
+            -0.39111111111111113
+          ],
+          "speedMmps": 0,
+          "terminalSupport": "resting-box",
+          "rotationErrorMilliDeg": 25124
+        }
+      ]
+    },
+    {
+      "id": "elbow-behind-step",
+      "sceneId": "3c9702da-6608-3ae2-b8c0-90d8023e6026",
+      "sourceSha256": "6345e273c54e910bcab70e6f0b92c9907dcccb657f661a8c20b39802cce3b478",
+      "glbSha256": "a0c44be0347e2471317313dae5cac21304caccc23aaf431d2eee361ff3285ecb",
+      "measured": [
+        {
+          "model": "fork",
+          "label": "Fork bracket",
+          "positionErrorM": 0.003491478878649595,
+          "angularErrorDeg": 0.000006830189170012752
+        },
+        {
+          "model": "elbow",
+          "label": "Elbow bracket",
+          "positionErrorM": 0.004451389370834524,
+          "angularErrorDeg": 0.9999981944738148
+        },
+        {
+          "model": "step",
+          "label": "Offset step",
+          "positionErrorM": 0.0016713233755308889,
+          "angularErrorDeg": 0.000006830189170012752
+        }
+      ],
+      "registration": {
+        "witnessElevationDeg": 39,
+        "minimumWitnessIou": 0.83,
+        "tiltLimitDeg": 30,
+        "minimumWitnessRotationGain": 0.022,
+        "witnessHeadingDeg": 76,
+        "additionalSha256": "384019014f25a136ed459ba408d1eb9a5ef636fa3aa0d1620eeb220b648c5615",
+        "minimumPoseGap": 0.022,
+        "props": [
+          {
+            "sourceId": "image-prop-1",
+            "poseGap": 0.11947212120300943,
+            "positionM": [
+              0.8666666666666667,
+              0.39482699441368635,
+              0.6777777777777778
+            ],
+            "witnessCenterErrorPx": 0.5578828386683784,
+            "witnessEstimatedAnglesDeg": [
+              124,
+              -8,
+              15
+            ],
+            "additionalIou": 0.9745586708203531,
+            "anglesDeg": [
+              122,
+              -10,
+              15
+            ],
+            "witnessIou": 0.9664268585131894,
+            "label": "Fork bracket",
+            "overheadIou": 0.9700583608221264,
+            "witnessCorrectionDeg": 2.828355321904927,
+            "witnessCorrectionGain": 0.009364129022764511
+          },
+          {
+            "sourceId": "image-prop-2",
+            "poseGap": 0.270530016451372,
+            "positionM": [
+              0.3155555555555556,
+              0.43186919225240683,
+              -0.39111111111111113
+            ],
+            "witnessCenterErrorPx": 0.47793785859666355,
+            "witnessEstimatedAnglesDeg": [
+              -32,
+              -12,
+              20
+            ],
+            "additionalIou": 0.9688262401734887,
+            "anglesDeg": [
+              -32,
+              -12,
+              20
+            ],
+            "witnessIou": 0.9588431590656284,
+            "label": "Elbow bracket",
+            "overheadIou": 0.9743260590500642,
+            "witnessCorrectionDeg": 0,
+            "witnessCorrectionGain": 0
+          },
+          {
+            "sourceId": "image-prop-3",
+            "poseGap": 0.13358507490831006,
+            "positionM": [
+              -0.49333333333333335,
+              1.101573260490427,
+              0.6288888888888889
+            ],
+            "witnessCenterErrorPx": 0.26848596750511117,
+            "witnessEstimatedAnglesDeg": [
+              70,
+              15,
+              -22
+            ],
+            "additionalIou": 0.9745725558965366,
+            "anglesDeg": [
+              68,
+              15,
+              -20
+            ],
+            "witnessIou": 0.9776557470176103,
+            "label": "Offset step",
+            "overheadIou": 0.9786180954266482,
+            "witnessCorrectionDeg": 3.1733536500412534,
+            "witnessCorrectionGain": 0.0016130053382132914
+          }
+        ],
+        "witnessSha256": "178f9cad6845fc59b87774a0f4a1e1bdeba840ea67ba294cc86db75e671813a0",
+        "assignmentGap": 0.6489112936414703,
+        "guideHeadingDeg": -46,
+        "maximumWitnessCorrectionDeg": 8,
+        "additionalElevationDeg": 55,
+        "guideSha256": "07549f6965e6b6539cd9ffbd9fd9ea8579c5765caf05aa89981ca0b04871d175",
+        "occludedSide": {
+          "minimumOverlapFraction": 0.03,
+          "maskCleanup": {
+            "filledHoles": 190,
+            "rawCompositeIou": 0.9057032717208658,
+            "rawForegroundPixels": 9912,
+            "maximumChangedPixels": 892,
+            "removedSpecks": 598,
+            "maximumChangedFraction": 0.09
+          },
+          "minimumExclusiveSupport": 0.85,
+          "compositeIou": 0.9825611934026683,
+          "minimumCompositeIou": 0.9,
+          "minimumExclusiveFraction": 0.35,
+          "overlapPixels": 1207,
+          "props": [
+            {
+              "sourceId": "image-prop-1",
+              "exclusiveSupport": 0.9997367728349565,
+              "label": "Fork bracket",
+              "exclusiveFraction": 1
+            },
+            {
+              "sourceId": "image-prop-2",
+              "exclusiveSupport": 0.9931895573212258,
+              "label": "Elbow bracket",
+              "exclusiveFraction": 0.5934658134051869
+            },
+            {
+              "sourceId": "image-prop-3",
+              "exclusiveSupport": 0.9992307692307693,
+              "label": "Offset step",
+              "exclusiveFraction": 0.6829524560021014
+            }
+          ]
+        },
+        "guideElevationDeg": 31,
+        "additionalHeadingDeg": 4,
+        "policy": "registered-silhouettes-tilt-v6",
+        "maximumWitnessCenterErrorPx": 2.5
+      },
+      "refusedWitness": "Held-out view refused Elbow bracket's fixed pose (46.4% overlap, 14.10 px center error).",
+      "physics": [
+        {
+          "sourceId": "image-prop-1",
+          "initialRotationErrorMilliDeg": 0,
+          "contactTick": 59,
+          "centerMm": [
+            870,
+            100,
+            679
+          ],
+          "ticks": 960,
+          "initialCenterM": [
+            0.8666666666666667,
+            0.39482699441368635,
+            0.6777777777777778
+          ],
+          "speedMmps": 0,
+          "terminalSupport": "native-pair",
+          "rotationErrorMilliDeg": 18083
+        },
+        {
+          "sourceId": "image-prop-2",
+          "initialRotationErrorMilliDeg": 0,
+          "contactTick": 67,
+          "centerMm": [
+            314,
+            100,
+            -392
+          ],
+          "ticks": 960,
+          "initialCenterM": [
+            0.3155555555555556,
+            0.43186919225240683,
+            -0.39111111111111113
+          ],
+          "speedMmps": 0,
+          "terminalSupport": "native-pair",
+          "rotationErrorMilliDeg": 23228
+        },
+        {
+          "sourceId": "image-prop-3",
+          "initialRotationErrorMilliDeg": 0,
+          "contactTick": 109,
+          "centerMm": [
+            -519,
+            150,
+            614
+          ],
+          "ticks": 960,
+          "initialCenterM": [
+            -0.49333333333333335,
+            1.101573260490427,
+            0.6288888888888889
+          ],
+          "speedMmps": 0,
+          "terminalSupport": "native-pair",
+          "rotationErrorMilliDeg": 25920
+        }
+      ]
+    },
+    {
+      "id": "step-behind-fork",
+      "sceneId": "d2ae55a7-bb8b-3a9e-a82c-c4682670f816",
+      "sourceSha256": "4fee5b2af2f75a1a47d9adaf81ad170c95318c0721985fcb94c5eaaa74d1abf5",
+      "glbSha256": "3a7b9597405e4c42891729a7199efcd478d7d90dc71011af7ba38a2451004061",
+      "measured": [
+        {
+          "model": "fork",
+          "label": "Fork bracket",
+          "positionErrorM": 0.008264710716407178,
+          "angularErrorDeg": 0.9999937044294679
+        },
+        {
+          "model": "elbow",
+          "label": "Elbow bracket",
+          "positionErrorM": 0.0024705062195322608,
+          "angularErrorDeg": 1.414206367543823
+        },
+        {
+          "model": "step",
+          "label": "Offset step",
+          "positionErrorM": 0.004555764800065514,
+          "angularErrorDeg": 1.4142070094685717
+        }
+      ],
+      "registration": {
+        "witnessElevationDeg": 40,
+        "minimumWitnessIou": 0.83,
+        "tiltLimitDeg": 30,
+        "minimumWitnessRotationGain": 0.022,
+        "witnessHeadingDeg": 77,
+        "additionalSha256": "3e97be23fe4b8bf70b8b91d56223e7237dd91852f0a76c26c3fc44a5a7d8dbc9",
+        "minimumPoseGap": 0.022,
+        "props": [
+          {
+            "sourceId": "image-prop-1",
+            "poseGap": 0.13543108552788796,
+            "positionM": [
+              -0.4733333333333334,
+              1.1341842786396172,
+              0.64
+            ],
+            "witnessCenterErrorPx": 0.6357537257770398,
+            "witnessEstimatedAnglesDeg": [
+              122,
+              -12,
+              16
+            ],
+            "additionalIou": 0.9625850340136054,
+            "anglesDeg": [
+              122,
+              -12,
+              16
+            ],
+            "witnessIou": 0.9701492537313433,
+            "label": "Fork bracket",
+            "overheadIou": 0.9704482844978712,
+            "witnessCorrectionDeg": 0,
+            "witnessCorrectionGain": 0
+          },
+          {
+            "sourceId": "image-prop-2",
+            "poseGap": 0.36606791316062637,
+            "positionM": [
+              0.8777777777777779,
+              0.40399188315711837,
+              0.6555555555555556
+            ],
+            "witnessCenterErrorPx": 0.17122063109206284,
+            "witnessEstimatedAnglesDeg": [
+              -32,
+              -12,
+              20
+            ],
+            "additionalIou": 0.9677331887201736,
+            "anglesDeg": [
+              -32,
+              -14,
+              20
+            ],
+            "witnessIou": 0.9540778839088905,
+            "label": "Elbow bracket",
+            "overheadIou": 0.9771790808240888,
+            "witnessCorrectionDeg": 2.0000000000019873,
+            "witnessCorrectionGain": 0.0041332597861242215
+          },
+          {
+            "sourceId": "image-prop-3",
+            "poseGap": 0.13786079157007625,
+            "positionM": [
+              0.34,
+              0.4273890522669526,
+              -0.37777777777777777
+            ],
+            "witnessCenterErrorPx": 0.7387338328416474,
+            "witnessEstimatedAnglesDeg": [
+              69,
+              15,
+              -22
+            ],
+            "additionalIou": 0.984409310496267,
+            "anglesDeg": [
+              69,
+              13,
+              -20
+            ],
+            "witnessIou": 0.9691206929015251,
+            "label": "Offset step",
+            "overheadIou": 0.9676394679372643,
+            "witnessCorrectionDeg": 2.828355321904927,
+            "witnessCorrectionGain": 0.006222804181102326
+          }
+        ],
+        "witnessSha256": "0e0b8f3aabab941d5dd03a6adb8cbfd0cec870ade4844cfd27fd8be4c7a06359",
+        "assignmentGap": 0.6564737535309124,
+        "guideHeadingDeg": -43,
+        "maximumWitnessCorrectionDeg": 8,
+        "additionalElevationDeg": 55,
+        "guideSha256": "ad3195611eb09d714f90c868e9949f540a5b0d989d5cf56e5b1869db53798778",
+        "occludedSide": {
+          "minimumOverlapFraction": 0.03,
+          "maskCleanup": {
+            "filledHoles": 174,
+            "rawCompositeIou": 0.8919759708217121,
+            "rawForegroundPixels": 9120,
+            "maximumChangedPixels": 820,
+            "removedSpecks": 559,
+            "maximumChangedFraction": 0.09
+          },
+          "minimumExclusiveSupport": 0.85,
+          "compositeIou": 0.9687321693483967,
+          "minimumCompositeIou": 0.9,
+          "minimumExclusiveFraction": 0.35,
+          "overlapPixels": 2080,
+          "props": [
+            {
+              "sourceId": "image-prop-1",
+              "exclusiveSupport": 0.9882220975883342,
+              "label": "Fork bracket",
+              "exclusiveFraction": 0.4615583743204763
+            },
+            {
+              "sourceId": "image-prop-2",
+              "exclusiveSupport": 0.9989590562109646,
+              "label": "Elbow bracket",
+              "exclusiveFraction": 1
+            },
+            {
+              "sourceId": "image-prop-3",
+              "exclusiveSupport": 0.9977426636568849,
+              "label": "Offset step",
+              "exclusiveFraction": 0.46002076843198336
+            }
+          ]
+        },
+        "guideElevationDeg": 32,
+        "additionalHeadingDeg": 4,
+        "policy": "registered-silhouettes-tilt-v6",
+        "maximumWitnessCenterErrorPx": 2.5
+      },
+      "refusedWitness": "Held-out view refused Offset step's fixed pose (61.3% overlap, 13.36 px center error).",
+      "physics": [
+        {
+          "sourceId": "image-prop-1",
+          "initialRotationErrorMilliDeg": 0,
+          "contactTick": 111,
+          "centerMm": [
+            -458,
+            100,
+            657
+          ],
+          "ticks": 960,
+          "initialCenterM": [
+            -0.4733333333333334,
+            1.1341842786396172,
+            0.64
+          ],
+          "speedMmps": 0,
+          "terminalSupport": "native-pair",
+          "rotationErrorMilliDeg": 20121
+        },
+        {
+          "sourceId": "image-prop-2",
+          "initialRotationErrorMilliDeg": 0,
+          "contactTick": 64,
+          "centerMm": [
+            885,
+            100,
+            659
+          ],
+          "ticks": 960,
+          "initialCenterM": [
+            0.8777777777777779,
+            0.40399188315711837,
+            0.6555555555555556
+          ],
+          "speedMmps": 0,
+          "terminalSupport": "native-pair",
+          "rotationErrorMilliDeg": 24284
+        },
+        {
+          "sourceId": "image-prop-3",
+          "initialRotationErrorMilliDeg": 0,
+          "contactTick": 63,
+          "centerMm": [
+            324,
+            150,
+            -382
+          ],
+          "ticks": 960,
+          "initialCenterM": [
+            0.34,
+            0.4273890522669526,
+            -0.37777777777777777
+          ],
+          "speedMmps": 0,
+          "terminalSupport": "native-pair",
+          "rotationErrorMilliDeg": 24195
+        }
+      ]
+    },
+    {
+      "id": "fork-behind-elbow",
+      "sceneId": "811d82ab-01e2-38b0-8381-3940bc6f50ff",
+      "sourceSha256": "aae5d38bb9ae9ea0d5e41a6a4d1a1c39b320089b0f8b71d01454b43eb75af6ec",
+      "glbSha256": "bfa1cab56dbc10cc2f6e94f96681110fcb161eb9ebe4aa831ffb0a5a321ef111",
+      "measured": [
+        {
+          "model": "fork",
+          "label": "Fork bracket",
+          "positionErrorM": 0.004666695418443469,
+          "angularErrorDeg": 1.4142026867509578
+        },
+        {
+          "model": "elbow",
+          "label": "Elbow bracket",
+          "positionErrorM": 0.0031149739190048926,
+          "angularErrorDeg": 1.0000006511998083
+        },
+        {
+          "model": "step",
+          "label": "Offset step",
+          "positionErrorM": 0.0015598395790374958,
+          "angularErrorDeg": 1.000005877923915
+        }
+      ],
+      "registration": {
+        "witnessElevationDeg": 41,
+        "minimumWitnessIou": 0.83,
+        "tiltLimitDeg": 30,
+        "minimumWitnessRotationGain": 0.022,
+        "witnessHeadingDeg": 78,
+        "additionalSha256": "f6bd90a97ff0ff333ac8fe091a62d79e64397c7b0edfd563b83c0dd99c0e4308",
+        "minimumPoseGap": 0.022,
+        "props": [
+          {
+            "sourceId": "image-prop-1",
+            "poseGap": 0.06397842466425807,
+            "positionM": [
+              0.32222222222222224,
+              0.4239355667768526,
+              -0.3666666666666667
+            ],
+            "witnessCenterErrorPx": 0.5457728090394326,
+            "witnessEstimatedAnglesDeg": [
+              121,
+              -9,
+              15
+            ],
+            "additionalIou": 0.9647058823529412,
+            "anglesDeg": [
+              119,
+              -11,
+              15
+            ],
+            "witnessIou": 0.9691640568537702,
+            "label": "Fork bracket",
+            "overheadIou": 0.959909228441755,
+            "witnessCorrectionDeg": 2.8283553219044113,
+            "witnessCorrectionGain": 0.003705090805293465
+          },
+          {
+            "sourceId": "image-prop-2",
+            "poseGap": 0.36829594213337646,
+            "positionM": [
+              -0.4688888888888889,
+              1.0098267914868113,
+              0.6444444444444445
+            ],
+            "witnessCenterErrorPx": 0.34515761928361255,
+            "witnessEstimatedAnglesDeg": [
+              -33,
+              -14,
+              20
+            ],
+            "additionalIou": 0.9671997831390621,
+            "anglesDeg": [
+              -33,
+              -14,
+              20
+            ],
+            "witnessIou": 0.9598553345388788,
+            "label": "Elbow bracket",
+            "overheadIou": 0.9716446124763705,
+            "witnessCorrectionDeg": 0,
+            "witnessCorrectionGain": 0
+          },
+          {
+            "sourceId": "image-prop-3",
+            "poseGap": 0.13092404721497308,
+            "positionM": [
+              0.8844444444444445,
+              0.41996836541607896,
+              0.6711111111111111
+            ],
+            "witnessCenterErrorPx": 0.1725006513400722,
+            "witnessEstimatedAnglesDeg": [
+              70,
+              14,
+              -22
+            ],
+            "additionalIou": 0.9758207630878438,
+            "anglesDeg": [
+              68,
+              16,
+              -20
+            ],
+            "witnessIou": 0.975057121096725,
+            "label": "Offset step",
+            "overheadIou": 0.9746909947027663,
+            "witnessCorrectionDeg": 3.7509287087197114,
+            "witnessCorrectionGain": 0.009359450549036974
+          }
+        ],
+        "witnessSha256": "6dc0edade5b38e0930cca5a4a1b799f970d8a7de9231a6f1cb0f4ba866813c61",
+        "assignmentGap": 0.5875434923308696,
+        "guideHeadingDeg": -47,
+        "maximumWitnessCorrectionDeg": 8,
+        "additionalElevationDeg": 55,
+        "guideSha256": "d8f8cd2e8e04cd461c0a0c38613baa42e04982f8bf52bea346ccb2dee64b5032",
+        "occludedSide": {
+          "minimumOverlapFraction": 0.03,
+          "maskCleanup": {
+            "filledHoles": 179,
+            "rawCompositeIou": 0.9006677796327212,
+            "rawForegroundPixels": 9376,
+            "maximumChangedPixels": 843,
+            "removedSpecks": 583,
+            "maximumChangedFraction": 0.09
+          },
+          "minimumExclusiveSupport": 0.85,
+          "compositeIou": 0.9788912343072992,
+          "minimumCompositeIou": 0.9,
+          "minimumExclusiveFraction": 0.35,
+          "overlapPixels": 1573,
+          "props": [
+            {
+              "sourceId": "image-prop-1",
+              "exclusiveSupport": 0.9991158267020336,
+              "label": "Fork bracket",
+              "exclusiveFraction": 0.5898305084745763
+            },
+            {
+              "sourceId": "image-prop-2",
+              "exclusiveSupport": 0.9977272727272727,
+              "label": "Elbow bracket",
+              "exclusiveFraction": 0.45627376425855515
+            },
+            {
+              "sourceId": "image-prop-3",
+              "exclusiveSupport": 0.9934871099050203,
+              "label": "Offset step",
+              "exclusiveFraction": 1
+            }
+          ]
+        },
+        "guideElevationDeg": 29,
+        "additionalHeadingDeg": 4,
+        "policy": "registered-silhouettes-tilt-v6",
+        "maximumWitnessCenterErrorPx": 2.5
+      },
+      "refusedWitness": "Held-out view refused Fork bracket's fixed pose (54.7% overlap, 14.67 px center error).",
+      "physics": [
+        {
+          "sourceId": "image-prop-1",
+          "initialRotationErrorMilliDeg": 0,
+          "contactTick": 64,
+          "centerMm": [
+            330,
+            100,
+            -362
+          ],
+          "ticks": 960,
+          "initialCenterM": [
+            0.32222222222222224,
+            0.4239355667768526,
+            -0.3666666666666667
+          ],
+          "speedMmps": 0,
+          "terminalSupport": "native-pair",
+          "rotationErrorMilliDeg": 18691
+        },
+        {
+          "sourceId": "image-prop-2",
+          "initialRotationErrorMilliDeg": 0,
+          "contactTick": 103,
+          "centerMm": [
+            -448,
+            100,
+            636
+          ],
+          "ticks": 960,
+          "initialCenterM": [
+            -0.4688888888888889,
+            1.0098267914868113,
+            0.6444444444444445
+          ],
+          "speedMmps": 0,
+          "terminalSupport": "native-pair",
+          "rotationErrorMilliDeg": 24266
+        },
+        {
+          "sourceId": "image-prop-3",
+          "initialRotationErrorMilliDeg": 0,
+          "contactTick": 63,
+          "centerMm": [
+            854,
+            150,
+            669
+          ],
+          "ticks": 960,
+          "initialCenterM": [
+            0.8844444444444445,
+            0.41996836541607896,
+            0.6711111111111111
+          ],
+          "speedMmps": 0,
+          "terminalSupport": "resting-box",
+          "rotationErrorMilliDeg": 25554
+        }
+      ]
+    }
+  ],
+  "exactReplayAfterRestart": true,
+  "refusedChangedOriginal": true
+}
