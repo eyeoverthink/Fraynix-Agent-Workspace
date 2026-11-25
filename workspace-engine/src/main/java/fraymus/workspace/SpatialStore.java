@@ -12,14 +12,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class SpatialStore implements AutoCloseable {
     private final SpatialCarryStore carries;
     private final TileWorkshop library;
-    private final SpatialPlacement placements;
+    private final SpatialPlacement placements, recipientEdits;
     private final PlacementExchange exchange;
     final HeightStudyStore heightStudies;
     private final Path file,nativeDir;private final LinkedHashMap<String,JSONObject> scenes=new LinkedHashMap<>(),runs=new LinkedHashMap<>();
     private final ExecutorService worker=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"spatial-native-owner");t.setDaemon(true);return t;});
     private final AtomicBoolean cancelled=new AtomicBoolean();private String active="";private JSONObject current;private volatile boolean closed;
     public SpatialStore(Path project) throws Exception { this(project, new TileWorkshop(project)); }
-    SpatialStore(Path project, TileWorkshop library) throws Exception {this.library=library;placements=new SpatialPlacement(project);exchange=new PlacementExchange(project);carries=new SpatialCarryStore(project);heightStudies=new HeightStudyStore(project);file=project.resolve("spatial/state.json");nativeDir=project.resolve("native");if(Files.exists(file)){var data=new JSONObject(Files.readString(file));for(Object raw:data.getJSONArray("scenes")){var s=(JSONObject)raw;validateDefinition(s);scenes.put(s.getString("id"),s);}for(Object raw:data.getJSONArray("runs")){var r=(JSONObject)raw;if(Set.of("executing","prepared").contains(r.getString("status")))r.put("status","interrupted").put("reason","Process ended; resume creates a separate native attempt from the immutable import");runs.put(r.getString("id"),r);}persist();}}
+    SpatialStore(Path project, TileWorkshop library) throws Exception {this.library=library;placements=new SpatialPlacement(project);recipientEdits=new SpatialPlacement(project,"recipient-edits");exchange=new PlacementExchange(project);carries=new SpatialCarryStore(project);heightStudies=new HeightStudyStore(project);file=project.resolve("spatial/state.json");nativeDir=project.resolve("native");if(Files.exists(file)){var data=new JSONObject(Files.readString(file));for(Object raw:data.getJSONArray("scenes")){var s=(JSONObject)raw;validateDefinition(s);scenes.put(s.getString("id"),s);}for(Object raw:data.getJSONArray("runs")){var r=(JSONObject)raw;if(Set.of("executing","prepared").contains(r.getString("status")))r.put("status","interrupted").put("reason","Process ended; resume creates a separate native attempt from the immutable import");runs.put(r.getString("id"),r);}persist();}}
     private static JSONObject copy(JSONObject x){return new JSONObject(x.toString());}
     private Path glbFile(String id) {
         if (!UUID.fromString(id).toString().equals(id)) throw new IllegalArgumentException("Invalid spatial import identity.");
@@ -129,6 +129,7 @@ public final class SpatialStore implements AutoCloseable {
             validate(parent);
         }
         if (scene.has("levelPlacement")) validateLevelPlacement(scene);
+        if (scene.has("recipientBranch")) validateRecipient(scene);
         if (scene.has("glbSha256")) {
             try {
                 Path original=glbFile(scene.getString("id"));
@@ -189,6 +190,40 @@ public final class SpatialStore implements AutoCloseable {
             validate(destination);
         } catch (Exception error) {
             throw new IllegalStateException("Cannot recheck the approved level placement.",error);
+        }
+    }
+
+    private void validateRecipient(JSONObject scene) {
+        var link = scene.getJSONObject("recipientBranch");
+        try {
+            int revision = scene.getInt("recipientRevision");
+            if (revision == 0) {
+                var replay = scene.getJSONObject("recipientBaseReplay");
+                var bundle = exchange.checkForkSource(link.getString("archiveSha256"),replay);
+                if (!scene.getString("id").equals(link.getString("rootId"))
+                        || !RecipientLevelEdit.provenance(bundle,replay).similar(link)
+                        || !scene.getString("sourceText").equals(bundle.scene().getString("sourceText")))
+                    throw new IllegalStateException("The editable copy differs from its original archive.");
+                return;
+            }
+            var receipt = scene.getJSONObject("recipientEdit");
+            var review = receipt.getJSONObject("review");
+            var parent = olderScene(scene,review,"parent");
+            String reviewId = receipt.getString("reviewId");
+            if (!scene.getString("id").equals(RecipientLevelEdit.revisionId(reviewId))
+                    || !WorldFrames.hash(receipt).equals(scene.getString("recipientEditSha256"))
+                    || revision != parent.getInt("recipientRevision")+1
+                    || !parent.getJSONObject("recipientBranch").similar(link)
+                    || !recipientEdits.approved(reviewId) || !recipientEdits.readReview(reviewId).similar(review)
+                    || !receipt.getJSONObject("measured").getBoolean("passed")
+                    || !receipt.getJSONObject("measured").getBoolean("playerEnvelopeClear")
+                    || !receipt.getJSONObject("measured").similar(receipt.getJSONObject("repeat"))
+                    || !RecipientLevelEdit.definition(parent,review).similar(new JSONObject(scene.getString("sourceText"))))
+                throw new IllegalStateException("The reviewed local edit or receipt changed.");
+            SpatialLevelPlacement.playable(scene,review,RecipientLevelEdit.propKey(review));
+            validate(parent);
+        } catch (Exception error) {
+            throw new IllegalStateException("Cannot recheck the recipient branch and its attached evidence.",error);
         }
     }
 
@@ -283,6 +318,7 @@ public final class SpatialStore implements AutoCloseable {
 
     private MeshChange meshChange(JSONObject input) {
         var parent = read(input.getString("id"));
+        requireStandardEditor(parent);
         var body = SpatialScene.object(parent, input.getString("objectId"));
         if (!body.has("visualMesh")) throw new IllegalArgumentException("Select a triangle prop first.");
         var source = SpatialGlb.asset(parent, body);
@@ -352,6 +388,7 @@ public final class SpatialStore implements AutoCloseable {
     synchronized JSONObject saveAnimation(JSONObject input) throws Exception {
         SpatialScene.keys(input,"id","sourceId","keys");
         var parent=read(input.getString("id"));
+        requireStandardEditor(parent);
         var animation=TranslationTimeline.edit(parent,input.getString("sourceId"),input.getJSONArray("keys"));
         var definition=new JSONObject(parent.getString("sourceText")).put("translationAnimation",animation);
         var source=definition.getJSONObject("source");
@@ -401,13 +438,16 @@ public final class SpatialStore implements AutoCloseable {
 
     synchronized JSONObject reviewProp(JSONObject args) {
         available();
-        var review=SpatialPropCopy.review(read(args.getString("sceneId")),args);
+        var parent=read(args.getString("sceneId"));
+        requireStandardEditor(parent);
+        var review=SpatialPropCopy.review(parent,args);
         return new JSONObject().put("review",review).put("approvalSha256",WorldFrames.hash(review));
     }
     synchronized JSONObject copyProp(JSONObject input) throws Exception {
         SpatialScene.keys(input,"args","approvalSha256");
         var args=input.getJSONObject("args");
         var parent=read(args.getString("sceneId"));
+        requireStandardEditor(parent);
         var review=SpatialPropCopy.review(parent,args);
         String digest=WorldFrames.hash(review);
         if (!digest.equals(input.getString("approvalSha256")))
@@ -438,6 +478,129 @@ public final class SpatialStore implements AutoCloseable {
         return exchange.replay(input);
     }
 
+    synchronized JSONObject readRecipientEvidence(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"sceneId");
+        var scene = read(input.getString("sceneId"));
+        var link = scene.getJSONObject("recipientBranch");
+        var root = scenes.get(link.getString("rootId"));
+        return exchange.attached(link.getString("archiveSha256"),root.getJSONObject("recipientBaseReplay"));
+    }
+
+    synchronized JSONObject forkPlacementExchange(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"id","replaySha256");
+        available();
+        var checked = exchange.forkSource(input.getString("id"),input.getString("replaySha256"));
+        var link = RecipientLevelEdit.provenance(checked.bundle(),checked.replay());
+        String root = link.getString("rootId");
+        if (scenes.containsKey(root)) return read(recipientHead(root));
+        requireRecipientSpace();
+        return retainScene(SpatialScene.parse(checked.bundle().scene().getString("sourceText"),root)
+                .put("importedAt",Instant.now().toString()).put("recipientBranch",link)
+                .put("recipientRevision",0).put("recipientBaseReplay",checked.replay()));
+    }
+
+    synchronized JSONObject reviewRecipientEdit(JSONObject input) throws Exception {
+        available();
+        var parent = currentRecipient(input.getString("sceneId"));
+        var review = RecipientLevelEdit.plan(parent,input);
+        var candidate = candidateRecipient(parent,review,WorldFrames.hash(review));
+        SpatialLevelPlacement.playable(candidate,review,RecipientLevelEdit.propKey(review));
+        String id = recipientEdits.saveReview(review,"latest-"+parent.getString("id"));
+        return recipientEditStatus(id,review,candidate);
+    }
+
+    synchronized JSONObject latestRecipientEdit(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"sceneId");
+        var parent = read(input.getString("sceneId"));
+        String root = parent.getJSONObject("recipientBranch").getString("rootId");
+        String head = recipientHead(root);
+        if (!head.equals(parent.getString("id"))) return new JSONObject().put("status","superseded").put("sceneId",head);
+        String id = recipientEdits.latestId("latest-"+head);
+        if (id.isEmpty()) return new JSONObject();
+        var review = recipientEdits.readReview(id);
+        return recipientEditStatus(id,review,candidateRecipient(parent,review,id));
+    }
+
+    synchronized JSONObject approveRecipientEdit(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"reviewId","approvalSha256");
+        available();
+        String id = input.getString("reviewId");
+        if (!id.equals(input.getString("approvalSha256")))
+            throw new IllegalArgumentException("Approve the exact saved local edit.");
+        var review = recipientEdits.readReview(id);
+        String revision = RecipientLevelEdit.revisionId(id);
+        if (scenes.containsKey(revision)) return recipientEditStatus(id,review,read(revision));
+        var parent = currentRecipient(review.getJSONObject("parent").getString("sceneId"));
+        var candidate = candidateRecipient(parent,review,id);
+        SpatialLevelPlacement.playable(candidate,review,RecipientLevelEdit.propKey(review));
+        recipientEdits.approve(id);
+        return recipientEditStatus(id,review,candidate);
+    }
+
+    synchronized JSONObject runRecipientEdit(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"reviewId");
+        available();
+        String id = input.getString("reviewId");
+        var review = recipientEdits.readReview(id);
+        if (!recipientEdits.approved(id))
+            throw new IllegalStateException("Approve this exact local edit before running it.");
+        String revision = RecipientLevelEdit.revisionId(id);
+        if (scenes.containsKey(revision)) return recipientEditStatus(id,review,read(revision));
+        var parent = currentRecipient(review.getJSONObject("parent").getString("sceneId"));
+        var candidate = candidateRecipient(parent,review,id);
+        requireRecipientSpace();
+        String prop = RecipientLevelEdit.propKey(review);
+        var verified = SpatialLevelPlacement.verifyNative(candidate,review,nativeDir,prop);
+        var repeat = SpatialLevelPlacement.verifyNative(candidate,review,nativeDir,prop);
+        if (!verified.similar(repeat)) throw new IllegalStateException("The independent local edit runs did not agree.");
+        var receipt = new JSONObject().put("reviewId",id).put("review",review).put("measured",verified).put("repeat",repeat);
+        var saved = retainScene(candidate.put("importedAt",Instant.now().toString())
+                .put("recipientBranch",parent.getJSONObject("recipientBranch"))
+                .put("recipientRevision",parent.getInt("recipientRevision")+1)
+                .put("recipientEdit",receipt).put("recipientEditSha256",WorldFrames.hash(receipt)));
+        return recipientEditStatus(id,review,saved);
+    }
+
+    private static JSONObject candidateRecipient(JSONObject parent, JSONObject review, String id) {
+        return SpatialScene.parse(RecipientLevelEdit.definition(parent,review).toString(),RecipientLevelEdit.revisionId(id));
+    }
+
+    private JSONObject recipientEditStatus(String id, JSONObject review, JSONObject scene) throws Exception {
+        var result = new JSONObject().put("reviewId",id).put("review",review)
+                .put("layout",SpatialLevelPlacement.playable(scene,review,RecipientLevelEdit.propKey(review)));
+        if (scene.has("recipientEdit")) return result.put("status","verified").put("sceneId",scene.getString("id"))
+                .put("receipt",scene.getJSONObject("recipientEdit")).put("receiptSha256",scene.getString("recipientEditSha256"));
+        return result.put("status",recipientEdits.approved(id) ? "approved" : "review");
+    }
+
+    private String recipientHead(String root) {
+        String current = root;
+        for (var scene : scenes.values()) {
+            var receipt = scene.optJSONObject("recipientEdit");
+            if (receipt != null && current.equals(receipt.getJSONObject("review").getJSONObject("parent").getString("sceneId")))
+                current = scene.getString("id");
+        }
+        return current;
+    }
+
+    private JSONObject currentRecipient(String id) {
+        var scene = read(id);
+        var link = scene.optJSONObject("recipientBranch");
+        if (link == null) throw new IllegalArgumentException("Choose a recipient copy of a replayed authored level.");
+        if (!id.equals(recipientHead(link.getString("rootId"))))
+            throw new IllegalStateException("A newer local revision exists. Review the edit on that revision.");
+        return scene;
+    }
+
+    private void requireRecipientSpace() {
+        if (scenes.size() >= 32) throw new IllegalStateException("Spatial import history limit reached (32)");
+    }
+
+    private static void requireStandardEditor(JSONObject scene) {
+        if (scene.has("recipientBranch"))
+            throw new IllegalStateException("Use the reviewed local pose editor for this recipient copy.");
+    }
+
     synchronized JSONObject reviewPlacement(JSONObject input) throws Exception {
         available();
         var source = read(input.getString("sceneId"));
@@ -459,7 +622,9 @@ public final class SpatialStore implements AutoCloseable {
             if (saved != null && id.equals(saved.getJSONObject("review").getJSONObject("destination").getString("sceneId")))
                 throw new IllegalStateException("This destination already has a newer reviewed revision. Select that revision and review again.");
         }
-        return read(id);
+        var destination = read(id);
+        requireStandardEditor(destination);
+        return destination;
     }
 
     private boolean levelPlacement(JSONObject review) {
@@ -682,7 +847,7 @@ public final class SpatialStore implements AutoCloseable {
                 .put("current",new JSONObject().put("tick",0).put("objects",scene.getJSONArray("objects")).put("gripping",false));
         return copy(scene);
     }
-    public synchronized JSONArray list(){var out=new JSONArray();for(var s:scenes.values())out.put(new JSONObject().put("id",s.getString("id")).put("version",1).put("title",s.getString("title")).put("source",s.getJSONObject("source")).put("sourceSha256",s.getString("sourceSha256")));return out;}
+    public synchronized JSONArray list(){var out=new JSONArray();for(var s:scenes.values())out.put(new JSONObject().put("id",s.getString("id")).put("version",1).put("title",s.getString("title")).put("source",s.getJSONObject("source")).put("sourceSha256",s.getString("sourceSha256")).put("recipientRevision",s.opt("recipientRevision")));return out;}
     public synchronized JSONObject read(String id){UUID.fromString(id);var s=scenes.get(id);if(s==null)throw new IllegalArgumentException("Unknown spatial scene");validate(s);return copy(s);}
     public synchronized JSONObject snapshot(){return current==null?new JSONObject().put("status","idle"):copy(current);}
     public synchronized JSONObject stateForScene(String id){var s=read(id);if(current!=null&&current.optString("sceneId").equals(id))return copy(current);JSONObject last=null;for(var r:runs.values())if(r.getString("sceneId").equals(id)&&r.getString("status").equals("completed"))last=r;if(last!=null)return new JSONObject().put("id",last.getString("id")).put("sceneId",id).put("status","completed").put("current",last.getJSONObject("actual").getJSONObject("final")).put("verification",last.getJSONObject("verification"));return new JSONObject().put("sceneId",id).put("status","authored").put("current",new JSONObject().put("tick",0).put("objects",s.getJSONArray("objects")).put("gripping",false));}

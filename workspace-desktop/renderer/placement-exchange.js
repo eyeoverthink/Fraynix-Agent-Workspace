@@ -97,6 +97,7 @@ export class PlacementExchangePanel {
                     <label class="media-file">Open evidence bundle
                         <input id="exchange-file" aria-label="Open evidence bundle" type="file" accept=".json,application/json"></label>
                     <button id="exchange-replay" class="primary" disabled>Replay in local physics</button>
+                    <button id="exchange-fork" hidden>Create editable copy</button>
                 </div>
                 <p id="exchange-status" role="status"></p>
                 <section id="exchange-study" hidden>
@@ -123,6 +124,7 @@ export class PlacementExchangePanel {
             if (file) this.parent.action(() => this.load(file));
         };
         this.find('#exchange-replay').onclick = () => this.parent.action(() => this.replay());
+        this.find('#exchange-fork').onclick = () => this.parent.action(() => this.fork());
         this.find('#exchange-trial').onchange = () => this.draw(true);
         this.find('#exchange-sample').oninput = () => this.draw(false);
     }
@@ -135,14 +137,16 @@ export class PlacementExchangePanel {
         this.find('#exchange-status').textContent = text;
     }
 
-    async open() {
+    async open(recipientSceneId) {
+        this.attachmentMode = Boolean(recipientSceneId);
         if (!this.dialog.open) this.dialog.showModal();
         this.parent.layout();
         this.result = null;
         this.render();
-        this.tell('Checking the last opened bundle…');
+        this.tell(recipientSceneId ? 'Checking the attached archive and replay…' : 'Checking the last opened bundle…');
         try {
-            this.result = await this.parent.call('placement-exchange-latest');
+            this.result = recipientSceneId ? await this.parent.call('recipient-evidence',{sceneId:recipientSceneId})
+                : await this.parent.call('placement-exchange-latest');
             this.render();
         } catch (error) {
             this.fail(error);
@@ -153,6 +157,7 @@ export class PlacementExchangePanel {
         this.tell('Checking the exported scene and archived evidence…');
         try {
             this.result = await this.parent.call('placement-exchange-open',{base64:await readBase64(file,1_200_000)});
+            this.attachmentMode = false;
             this.render();
             this.parent.notice('Collision evidence bundle opened.');
         } catch (error) {
@@ -176,6 +181,16 @@ export class PlacementExchangePanel {
         }
     }
 
+    async fork() {
+        try {
+            const {id,replay} = this.result;
+            const scene = await this.parent.call('placement-exchange-fork',{id,replaySha256:replay.sha256});
+            this.dialog.close();
+            await this.parent.open(scene.id);
+            await this.parent.recipient.open();
+        } catch (error) { this.fail(error); }
+    }
+
     fail(error) {
         this.tell(error.message.replace(/^Error invoking remote method '[^']+': (?:Error: )?/, ''));
     }
@@ -184,6 +199,9 @@ export class PlacementExchangePanel {
         const busy = Boolean(this.parent.busy);
         this.find('#exchange-file').disabled = busy;
         this.find('#exchange-replay').disabled = busy || !this.result?.id;
+        const fork = this.find('#exchange-fork');
+        fork.hidden = this.attachmentMode || !this.result?.destinationVerified || !this.result.replay;
+        fork.disabled = busy || fork.hidden;
     }
 
     render() {

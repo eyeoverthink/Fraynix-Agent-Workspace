@@ -154,3 +154,8 @@
 #mesh-witness-tools[hidden], #mesh-witness-tools [hidden] { display: none; }
 
 #exchange-contact-key[hidden], #exchange-aisle-key[hidden], #exchange-scrubber[hidden] { display: none; }
+
+#recipient-edit-dialog { width: min(570px, calc(100vw - 24px)); }
+#recipient-edit-form { margin-top: 12px; }
+#recipient-edit-preview { display: block; width: 100%; height: auto; border: 1px solid #45616a; border-radius: 7px; }
+#recipient-edit-form[hidden], #recipient-edit-preview[hidden] { display: none; }

@@ -68,6 +68,39 @@ final class PlacementExchange {
                 : SpatialPlacement.verifyNative(bundle.scene,review,nativeDir);
     }
 
+    record ForkSource(Bundle bundle, JSONObject replay) {}
+
+    ForkSource forkSource(String archive, String replayHash) throws Exception {
+        var bundle = load(archive);
+        if (!bundle.authored() || !bundle.destinationVerified())
+            throw new IllegalArgumentException("Create a local copy from an authored bundle with its checked original destination.");
+        var checked = status(bundle).optJSONObject("replay");
+        if (checked == null || !replayHash.equals(checked.getString("sha256")))
+            throw new IllegalStateException("Replay this exact bundle locally before creating an editable copy.");
+        return new ForkSource(bundle,checked);
+    }
+
+    Bundle checkForkSource(String archive, JSONObject replay) throws Exception {
+        var bundle = load(archive);
+        if (!bundle.destinationVerified() || !validReplay(bundle,replay))
+            throw new IllegalStateException("The original bundle or attached local replay changed.");
+        return bundle;
+    }
+
+    JSONObject attached(String archive, JSONObject replay) throws Exception {
+        return summarize(checkForkSource(archive,replay)).put("replay",replay);
+    }
+
+    private static boolean validReplay(Bundle bundle, JSONObject receipt) {
+        SpatialScene.keys(receipt,"bundleSha256","trials","comparison","sha256");
+        var sealed = WorldFrames.copy(receipt);
+        String hash = receipt.getString("sha256");
+        sealed.remove("sha256");
+        return bundle.id.equals(receipt.getString("bundleSha256")) && WorldFrames.hash(sealed).equals(hash)
+                && compare(bundle.evidence.getJSONObject("measured"),receipt.getJSONObject("trials"),bundle.authored())
+                   .similar(receipt.getJSONObject("comparison"));
+    }
+
     private Bundle load(String id) throws Exception {
         return inspect(SpriteWorkshop.read(file(id,".json"),BYTE_LIMIT,id));
     }
@@ -83,13 +116,7 @@ final class PlacementExchange {
         if (!Files.exists(path,LinkOption.NOFOLLOW_LINKS)) return summary;
         try {
             var receipt = new JSONObject(new String(SpriteWorkshop.read(path,BYTE_LIMIT),StandardCharsets.UTF_8));
-            SpatialScene.keys(receipt,"bundleSha256","trials","comparison","sha256");
-            String digest = receipt.getString("sha256");
-            receipt.remove("sha256");
-            if (bundle.id.equals(receipt.getString("bundleSha256")) && WorldFrames.hash(receipt).equals(digest)
-                    && compare(bundle.evidence.getJSONObject("measured"),receipt.getJSONObject("trials"),bundle.authored())
-                    .similar(receipt.getJSONObject("comparison")))
-                return summary.put("replay",receipt.put("sha256",digest));
+            if (validReplay(bundle,receipt)) return summary.put("replay",receipt);
         } catch (java.io.IOException | RuntimeException changed) {
             // The original archive was already checked. The user can regenerate this local replay.
         }

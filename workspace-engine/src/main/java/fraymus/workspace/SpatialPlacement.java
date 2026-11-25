@@ -37,7 +37,11 @@ final class SpatialPlacement {
     private final Path directory;
 
     SpatialPlacement(Path project) {
-        directory = project.resolve("spatial/placement-reviews");
+        this(project,"placement-reviews");
+    }
+
+    SpatialPlacement(Path project, String folder) {
+        directory = project.resolve("spatial").resolve(folder);
     }
 
     static JSONObject plan(JSONObject source, JSONObject input) {
@@ -141,17 +145,25 @@ final class SpatialPlacement {
     }
 
     String saveReview(JSONObject review) throws IOException {
+        return saveReview(review,"latest");
+    }
+
+    String saveReview(JSONObject review, String pointer) throws IOException {
         Files.createDirectories(directory);
         String id = WorldFrames.hash(review);
         Path file = file(id, ".json");
         if (Files.exists(file, LinkOption.NOFOLLOW_LINKS)) readReview(id);
         else SpriteWorkshop.replace(file, review.toString().getBytes(StandardCharsets.UTF_8));
-        SpriteWorkshop.replace(directory.resolve("latest"), id.getBytes(StandardCharsets.US_ASCII));
+        SpriteWorkshop.replace(directory.resolve(pointer), id.getBytes(StandardCharsets.US_ASCII));
         return id;
     }
 
     String latestId() throws IOException {
-        Path latest = directory.resolve("latest");
+        return latestId("latest");
+    }
+
+    String latestId(String pointer) throws IOException {
+        Path latest = directory.resolve(pointer);
         if (!Files.exists(latest, LinkOption.NOFOLLOW_LINKS)) return "";
         return new String(SpriteWorkshop.read(latest, 64), StandardCharsets.US_ASCII);
     }

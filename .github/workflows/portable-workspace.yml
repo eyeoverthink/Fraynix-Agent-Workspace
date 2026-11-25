@@ -316,6 +316,14 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/placement-exchange-integration.cjs build/portable-smoke/authored-replay workspace-desktop/test/fixtures/authored-level-exchange/edited-signal-bay.fraynix-level.json
+      - name: Verify editable recipient branch and fresh local approvals
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/recipient-edit-integration.cjs build/portable-smoke/recipient-edit
+      - name: Verify recipient edit and approval recovery on a virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/recipient-edit-integration.cjs build/portable-smoke/recipient-edit
       - if: always()
         uses: actions/upload-artifact@v4
         with:

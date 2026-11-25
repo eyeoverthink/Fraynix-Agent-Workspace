@@ -104,8 +104,11 @@ final class SpatialLevelPlacement {
 
     /** A conservative swept rectangle for an axis-aligned aisle on the selected floor. */
     static JSONObject playable(JSONObject scene, JSONObject review) {
+        return playable(scene,review,propKey(review));
+    }
+
+    static JSONObject playable(JSONObject scene, JSONObject review, String propKey) {
         String floorKey = review.getString("floor");
-        String propKey = propKey(review);
         var objects = scene.getJSONArray("objects");
         JSONObject floor = null, prop = null;
         for (Object raw : objects) {
@@ -147,15 +150,23 @@ final class SpatialLevelPlacement {
     }
 
     static JSONObject prop(JSONObject scene, JSONObject review) {
+        return propByKey(scene,propKey(review));
+    }
+
+    static JSONObject propByKey(JSONObject scene, String propKey) {
         for (Object raw : scene.getJSONArray("objects")) {
             var body = (JSONObject) raw;
-            if (propKey(review).equals(body.getString("sourceId"))) return body;
+            if (propKey.equals(body.getString("sourceId"))) return body;
         }
         throw new IllegalStateException("The reviewed level prop is missing.");
     }
 
     static JSONObject verifyNative(JSONObject scene, JSONObject review, Path nativeDir) throws Exception {
-        var layout = playable(scene, review);
+        return verifyNative(scene,review,nativeDir,propKey(review));
+    }
+
+    static JSONObject verifyNative(JSONObject scene, JSONObject review, Path nativeDir, String propKey) throws Exception {
+        var layout = playable(scene,review,propKey);
         var route = layout.getJSONArray("route");
         var floor = layout.getJSONArray("floor");
         double startX = route.getDouble(0), startZ = route.getDouble(1);
@@ -173,7 +184,7 @@ final class SpatialLevelPlacement {
                 if (hit[0]) throw new IllegalStateException("The native player envelope intersects a collider.");
             }
         }
-        return SpatialPlacement.verifyNative(scene, review, nativeDir, prop(scene, review), true)
+        return SpatialPlacement.verifyNative(scene,review,nativeDir,propByKey(scene,propKey),true)
                 .put("playerEnvelopeClear", true).put("routeLengthM", layout.getDouble("routeLengthM"));
     }
 

@@ -1083,10 +1083,11 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         return api('/api/spatial/'+input.command,{goal,...level,...currentSpatial});
       }
       if(['placement-latest','placement-approve','placement-replay','placement-exchange-open',
-        'placement-exchange-latest','placement-exchange-replay'].includes(input.command))
+        'placement-exchange-latest','recipient-evidence','placement-exchange-replay','recipient-edit-latest',
+        'recipient-edit-review','recipient-edit-approve'].includes(input.command))
         return api('/api/spatial/'+input.command,input.args||{});
-      if(input.command==='placement-run'){
-        const result=await api('/api/spatial/placement-run',input.args);
+      if(['placement-run','placement-exchange-fork','recipient-edit-run'].includes(input.command)){
+        const result=await api('/api/spatial/'+input.command,input.args);
         await refresh();
         return result;
       }
