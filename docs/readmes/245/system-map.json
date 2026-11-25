@@ -1,0 +1,70 @@
+{
+  "summary": "A local mission binds a Chat request to measured collider evidence, explicit approval and a verified export.",
+  "modules": [
+    {
+      "title": "Durable request, evidence and export file",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RecipientMissionStore.java",
+      "note": "docs/obsidian/253-collider-mission.md"
+    },
+    {
+      "title": "Scene authority and mission recovery",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/253-collider-mission.md"
+    },
+    {
+      "title": "Collider mission record and actions",
+      "source": "workspace-desktop/renderer/recipient-mission.js",
+      "note": "docs/obsidian/253-collider-mission.md"
+    },
+    {
+      "title": "Chat to the selected collider preview",
+      "source": "workspace-desktop/renderer/recipient-edit.js",
+      "note": "docs/obsidian/253-collider-mission.md"
+    },
+    {
+      "title": "Held-out mission, restart and artifact recovery",
+      "source": "workspace-desktop/test/recipient-mission-integration.cjs",
+      "note": "docs/obsidian/253-collider-mission.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/245/held-out-mission-pending.png",
+      "title": "The held-out comparison linked to the exact Chat request before approval"
+    },
+    {
+      "path": "docs/readmes/245/held-out-approval-after-restart.png",
+      "title": "The original approval and evidence reopened before the native commit"
+    },
+    {
+      "path": "docs/readmes/245/held-out-export-after-restart.png",
+      "title": "The complete mission and verified export reopened together"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/245/raised-switchyard.fraynix-level.json",
+      "title": "Held-out source"
+    },
+    {
+      "path": "docs/readmes/245/collider-mission.json",
+      "title": "Windows mission"
+    },
+    {
+      "path": "docs/readmes/245/raised-switchyard-reviewed.fraynix-recipient.json",
+      "title": "Verified recipient export"
+    },
+    {
+      "path": "docs/readmes/245/independent-replay.json",
+      "title": "Independent replay"
+    },
+    {
+      "path": "docs/publication245/plan.md",
+      "title": "Reproduction"
+    },
+    {
+      "path": "docs/readmes/245/FILE_TREE.md",
+      "title": "File tree"
+    }
+  ]
+}
