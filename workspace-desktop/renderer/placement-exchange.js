@@ -1,5 +1,6 @@
 
 import {readBase64} from './media-workshop.js';
+import {drawPlacementLayout} from './spatial-placement.js';
 
 const styles = {
     probe:['probeM','#8bcde6'],
@@ -102,11 +103,13 @@ export class PlacementExchangePanel {
                     <h3 id="exchange-scene-title"></h3>
                     <p id="exchange-provenance" class="spatial-note"></p>
                     <div class="spatial-task exchange-controls">
-                        <label>Trial<select id="exchange-trial"><option value="hit">Hit</option><option value="miss">Lateral miss</option></select></label>
+                        <label>Trial<select id="exchange-trial"><option value="hit">Hit</option><option value="miss">Lateral miss</option>
+                            <option value="aisle" hidden>Walking aisle</option></select></label>
                     </div>
-                    <div class="exchange-key"><span>Probe</span><span>Prop</span><span id="exchange-local-key" hidden>Local replay · dashed</span></div>
+                    <div class="exchange-key" id="exchange-contact-key"><span>Probe</span><span>Prop</span><span id="exchange-local-key" hidden>Local replay · dashed</span></div>
+                    <p class="spatial-note" id="exchange-aisle-key" hidden>Teal aisle · amber placed prop · gray existing colliders</p>
                     <canvas id="exchange-canvas" width="640" height="246" aria-label="Top-down probe and prop paths"></canvas>
-                    <label class="exchange-scrubber">Sample <input id="exchange-sample" aria-label="Trace sample" type="range" min="0" value="0"></label>
+                    <label class="exchange-scrubber" id="exchange-scrubber">Sample <input id="exchange-sample" aria-label="Trace sample" type="range" min="0" value="0"></label>
                     <p id="exchange-reading" aria-live="polite"></p>
                     <p id="exchange-metrics"></p>
                 </section>
@@ -149,7 +152,7 @@ export class PlacementExchangePanel {
     async load(file) {
         this.tell('Checking the exported scene and archived evidence…');
         try {
-            this.result = await this.parent.call('placement-exchange-open',{base64:await readBase64(file,1_000_000)});
+            this.result = await this.parent.call('placement-exchange-open',{base64:await readBase64(file,1_200_000)});
             this.render();
             this.parent.notice('Collision evidence bundle opened.');
         } catch (error) {
@@ -158,7 +161,9 @@ export class PlacementExchangePanel {
     }
 
     async replay() {
-        this.tell('Running the hit and miss twice in local physics…');
+        this.tell(this.result.layout
+            ? 'Running both contact trials and aisle clearance twice in local physics…'
+            : 'Running the hit and miss twice in local physics…');
         try {
             this.result = await this.parent.call('placement-exchange-replay',{id:this.result.id});
             this.render();
@@ -190,8 +195,15 @@ export class PlacementExchangePanel {
             return;
         }
         this.find('#exchange-scene-title').textContent = result.title;
-        this.find('#exchange-provenance').textContent =
-            'Archive reports '+(100*result.sourceOverlap).toFixed(1)+'% source-view overlap. Original images stay with the source project.';
+        const trial = this.find('#exchange-trial');
+        trial.querySelector('[value=aisle]').hidden = !result.layout;
+        if (!result.layout && trial.value === 'aisle') trial.value = 'hit';
+        const provenance = 'Archive reports '+(100*result.sourceOverlap).toFixed(1)
+            +'% source-view overlap. Original images stay with the source project.';
+        const destination = result.destinationVerified
+            ? ' Original destination and existing colliders match the reviewed source.'
+            : result.layout ? ' This older bundle supplies the finished scene and aisle.' : '';
+        this.find('#exchange-provenance').textContent = provenance+destination;
         this.find('#exchange-local-key').hidden = !result.replay;
         this.tell(result.replay ? 'Saved local replay matches the archive.'
             : result.replayUnavailable ? 'The saved local replay changed. Run a fresh check.'
@@ -202,6 +214,22 @@ export class PlacementExchangePanel {
     draw(reset) {
         if (!this.result?.id) return;
         const kind = this.find('#exchange-trial').value;
+        const aisle = kind === 'aisle';
+        this.find('#exchange-contact-key').hidden = aisle;
+        this.find('#exchange-scrubber').hidden = aisle;
+        this.find('#exchange-aisle-key').hidden = !aisle;
+        const canvas = this.find('#exchange-canvas');
+        canvas.setAttribute('aria-label',aisle ? 'Top-down checked walking aisle and level colliders' : 'Top-down probe and prop paths');
+        if (aisle) {
+            const {layout, replay} = this.result;
+            this.find('#exchange-reading').textContent = layout.routeLengthM.toFixed(2)+' m route · '
+                +(layout.radius*2).toFixed(2)+' m wide · '+layout.heightM.toFixed(2)+' m tall';
+            this.find('#exchange-metrics').textContent = replay?.comparison.aisle.passed
+                ? 'Archived clearance passed · local clearance passed in both runs.'
+                : 'Archived clearance passed · local clearance pending.';
+            drawPlacementLayout(canvas,layout);
+            return;
+        }
         const archived = this.result.archived[kind], fresh = this.result.replay?.trials[kind];
         const slider = this.find('#exchange-sample');
         slider.max = archived.samples.length-1;
@@ -220,6 +248,6 @@ export class PlacementExchangePanel {
                 +' mm · largest velocity difference '+comparison.maxVelocityErrorMps.toFixed(3)+' m/s · contacts '
                 +archived.contactTicks+' archived / '+fresh.contactTicks+' local'
             : 'Archived contact steps '+archived.contactTicks+' · maximum prop speed '+archived.maxPropPlanarSpeedMps.toFixed(3)+' m/s';
-        drawTrace(this.find('#exchange-canvas'),this.result.review,archived,fresh,sample);
+        drawTrace(canvas,this.result.review,archived,fresh,sample);
     }
 }

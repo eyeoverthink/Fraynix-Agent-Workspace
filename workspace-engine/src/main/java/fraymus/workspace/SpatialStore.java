@@ -540,7 +540,15 @@ public final class SpatialStore implements AutoCloseable {
         var status = placementStatus(id);
         if (!"verified".equals(status.getString("status"))) throw new IllegalStateException("Verify the collision before exporting.");
         var scene = read(status.getString("sceneId"));
-        if (scene.has("levelPlacement")) return SpatialLevelPlacement.export(scene,input.getString("kind"));
+        if (scene.has("levelPlacement")) {
+            String kind = input.getString("kind");
+            String destinationText = null;
+            if ("evidence".equals(kind)) {
+                var destination = status.getJSONObject("review").getJSONObject("destination");
+                destinationText = read(destination.getString("sceneId")).getString("sourceText");
+            }
+            return SpatialLevelPlacement.export(scene,kind,destinationText);
+        }
         if (input.has("kind")) throw new IllegalArgumentException("The contact deck exports a collision bundle.");
         var source = read(status.getJSONObject("review").getJSONObject("source").getString("sceneId"));
         return SpatialPlacement.bundle(scene, source);

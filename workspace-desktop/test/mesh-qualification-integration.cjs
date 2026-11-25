@@ -147,6 +147,13 @@ async function verifyQualification({app,page,pick,status,api,project,output,extr
         const glb=Buffer.from(exported.base64,'base64');
         assert.equal(digest(glb),exported.sha256);
         await fs.writeFile(path.join(output,'qualified-edit.glb'),glb);
+        const evidence=await call('placement-export',{...args,kind:'evidence'});
+        const archive=Buffer.from(evidence.base64,'base64');
+        const document=JSON.parse(archive);
+        assert.equal(digest(archive),evidence.sha256);
+        assert.equal(document.glbSha256,exported.sha256);
+        assert.equal(document.destinationSourceText,destination.sourceText);
+        await fs.writeFile(path.join(output,'qualified-edit.fraynix-level.json'),archive);
         const saved=await call('read',{id:result.sceneId});
         assert.equal(saved.objects.at(-1).visualMesh,editedBody.visualMesh);
         assert.deepEqual(await call('read',{id:destination.id}),destination);

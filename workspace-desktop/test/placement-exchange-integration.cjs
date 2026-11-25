@@ -9,7 +9,7 @@ const path = require('node:path');
 const {launch} = require('./calibration-integration.cjs');
 
 const sha = value => createHash('sha256').update(value).digest('hex');
-const frozen = path.join(__dirname,'fixtures','placement-exchange','edition232.fraynix-placement.json');
+const frozen = path.resolve(process.argv[3] || path.join(__dirname,'fixtures','placement-exchange','edition232.fraynix-placement.json'));
 
 async function main() {
     process.env.FRAYNIX_WORKSPACE_NO_MODELS = '1';
@@ -18,6 +18,9 @@ async function main() {
     await fs.mkdir(output,{recursive:true});
     const original = await fs.readFile(frozen);
     const id = sha(original);
+    const document = JSON.parse(original);
+    const isLevel = document.format.startsWith('fraynix.verified-spatial-level-');
+    const exactDestination = document.format === 'fraynix.verified-spatial-level-v2';
     const args = process.platform === 'linux' ? ['--no-sandbox','--disable-dev-shm-usage'] : [];
     let {app,page} = await launch(project,args);
     const call = (route,input={}) => app.evaluate((_,request) =>
@@ -45,10 +48,21 @@ async function main() {
         const archive = await call('placement-exchange-latest');
         assert.equal(archive.id,id);
         assert.equal(archive.replay,undefined);
-        assert.equal(archive.archived.hit.firstContactTick,43);
+        assert.equal(archive.archived.hit.firstContactTick,
+            isLevel ? document.evidence.measured.hit.firstContactTick : 43);
         assert.equal(archive.archived.miss.contactTicks,0);
         assert.deepEqual(await call('placement-latest'),{});
         assert.equal((await call('list')).scenes.length,0);
+        if (isLevel) {
+            assert.equal(archive.destinationVerified,exactDestination);
+            assert.equal(archive.layout.routeLengthM,document.evidence.measured.routeLengthM);
+            assert(archive.layout.blockers.some(item=>item.id===archive.layout.prop));
+            assert(archive.layout.blockers.some(item=>item.id!==archive.layout.prop));
+            if (exactDestination) assert.match(await page.locator('#exchange-provenance').textContent(),/Existing colliders|existing colliders/);
+            await page.locator('#exchange-trial').selectOption('aisle');
+            assert.match(await page.locator('#exchange-metrics').textContent(),/local clearance pending/);
+            assert(await page.locator('#exchange-sample').isHidden());
+        }
         await render('archive-inspected.png');
 
         const bad = JSON.parse(original);
@@ -71,6 +85,13 @@ async function main() {
         assert(report.hit.maxPositionErrorM <= report.positionToleranceM);
         assert(report.hit.maxVelocityErrorMps <= report.velocityToleranceMps);
         assert.equal(restored.replay.trials.miss.contactTicks,0);
+        if (isLevel) {
+            assert.equal(restored.replay.trials.playerEnvelopeClear,true);
+            assert.equal(report.aisle.routeLengthErrorM,0);
+            assert.match(await page.locator('#exchange-metrics').textContent(),/local clearance passed in both runs/);
+            await render('local-aisle-replay.png');
+            await page.locator('#exchange-trial').selectOption('hit');
+        }
         await render('local-hit-replay.png');
 
         await page.locator('#exchange-trial').selectOption('miss');
@@ -107,6 +128,10 @@ async function main() {
             archiveMissContacts:archive.archived.miss.contactTicks,localMissContacts:restored.replay.trials.miss.contactTicks,
             freshProject:true,noPlacementAuthorityCreated:true,restoredAfterRestart:true,archiveUntouched:true,
             refusedChangedArchive:true,refusedChangedGlb:true,changedLocalReplayRefusedAndRecovered:true};
+        if (isLevel) Object.assign(evidence,{destinationVerified:archive.destinationVerified,
+            routeLengthM:archive.layout.routeLengthM,playerEnvelopeClear:restored.replay.trials.playerEnvelopeClear,
+            editedMesh:Boolean(archive.review.editReference),
+            archiveHitContacts:archive.archived.hit.contactTicks,localHitContacts:restored.replay.trials.hit.contactTicks});
         await fs.writeFile(path.join(output,'exchange-evidence.json'),JSON.stringify(evidence,null,2)+'\n');
         console.log(JSON.stringify(evidence));
     } finally {

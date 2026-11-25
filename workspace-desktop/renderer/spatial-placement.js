@@ -6,6 +6,27 @@ const existingLevelRequest = text => propReference.test(levelRequest.exec(text.t
 export const isPlacementRequest = text => existingLevelRequest(text)
     || /^(?:please )?place (?:the )?(?:selected |verified )?(?:3d )?prop\b/i.test(text.trim());
 
+export function drawPlacementLayout(canvas, layout) {
+    const ctx = canvas.getContext('2d');
+    const {floor,route,blockers,prop,radius} = layout;
+    const w = floor[3]-floor[0], d = floor[5]-floor[2];
+    const {width,height} = canvas;
+    const scale = Math.min((width-30)/w,(height-28)/d);
+    const x = value => (width-w*scale)/2+(value-floor[0])*scale;
+    const z = value => (height-d*scale)/2+(value-floor[2])*scale;
+    ctx.fillStyle = '#102429';
+    ctx.fillRect(0,0,width,height);
+    ctx.fillStyle = '#29434b';
+    ctx.fillRect(x(floor[0]),z(floor[2]),w*scale,d*scale);
+    ctx.fillStyle = '#4da78c';
+    ctx.fillRect(x(Math.min(route[0],route[2])-radius),z(Math.min(route[1],route[3])-radius),
+        (Math.abs(route[2]-route[0])+2*radius)*scale,(Math.abs(route[3]-route[1])+2*radius)*scale);
+    for (const {id,box} of blockers) {
+        ctx.fillStyle = id === prop ? '#f0b176' : '#8495aa';
+        ctx.fillRect(x(box[0]),z(box[2]),(box[3]-box[0])*scale,(box[5]-box[2])*scale);
+    }
+}
+
 export class SpatialPlacementPanel {
     constructor(parent) {
         this.parent = parent;
@@ -188,23 +209,7 @@ export class SpatialPlacementPanel {
         figure.hidden = !layout;
         if (!layout) return;
         const canvas = figure.querySelector('canvas');
-        const ctx = canvas.getContext('2d');
-        const {floor,route,blockers,prop,radius} = layout;
-        const w = floor[3]-floor[0], d = floor[5]-floor[2];
-        const scale = Math.min(450/w,192/d);
-        const x = value => (480-w*scale)/2+(value-floor[0])*scale;
-        const z = value => (220-d*scale)/2+(value-floor[2])*scale;
-        ctx.fillStyle = '#102429';
-        ctx.fillRect(0,0,480,220);
-        ctx.fillStyle = '#29434b';
-        ctx.fillRect(x(floor[0]),z(floor[2]),w*scale,d*scale);
-        ctx.fillStyle = '#4da78c';
-        ctx.fillRect(x(Math.min(route[0],route[2])-radius),z(Math.min(route[1],route[3])-radius),
-            (Math.abs(route[2]-route[0])+2*radius)*scale,(Math.abs(route[3]-route[1])+2*radius)*scale);
-        for (const {id,box} of blockers) {
-            ctx.fillStyle = id === prop ? '#f0b176' : '#8495aa';
-            ctx.fillRect(x(box[0]),z(box[2]),(box[3]-box[0])*scale,(box[5]-box[2])*scale);
-        }
+        drawPlacementLayout(canvas,layout);
     }
 
     async openLatest() {

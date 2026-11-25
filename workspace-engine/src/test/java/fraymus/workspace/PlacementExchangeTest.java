@@ -1,6 +1,7 @@
 
 package fraymus.workspace;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Rule;
 import org.junit.Test;
@@ -50,6 +51,71 @@ public class PlacementExchangeTest {
         var wrongGeometry = original.getJSONObject("scene").getJSONArray("objects").getJSONObject(1);
         wrongGeometry.put("massKg",2);
         assertThrows(IllegalStateException.class, () -> PlacementExchange.inspect(encoded(original)));
+    }
+
+    @Test
+    public void refusesChangedDestinationEvenWithMatchingFinalGlb() throws Exception {
+        var bundle = authored();
+        var raw = bundle.getJSONObject("scene");
+        raw.getJSONArray("objects").getJSONObject(2).put("massKg", 3);
+        var scene = SpatialScene.parse(raw.toString(), bundle.getString("sceneId"));
+        byte[] glb = SpatialGlb.verifiedExport(scene);
+        bundle.put("glbSha256", MapDefinition.sha(glb))
+                .put("glbBase64", Base64.getEncoder().encodeToString(glb));
+        var mismatch = assertThrows(IllegalArgumentException.class, () -> PlacementExchange.inspect(encoded(bundle)));
+        assertTrue(mismatch.getMessage(), mismatch.getMessage().contains("Existing destination geometry"));
+    }
+
+    @Test
+    public void refusesBlockedAisleEvenWhenReviewAndSceneIdentifiersAreRehashed() throws Exception {
+        var bundle = authored();
+        var review = bundle.getJSONObject("evidence").getJSONObject("review");
+        review.put("aisle", new JSONArray(new double[]{-2.15,-1.1,-2.15,1.1}));
+        sealReview(bundle,review);
+        var mismatch = assertThrows(IllegalArgumentException.class, () -> PlacementExchange.inspect(encoded(bundle)));
+        assertTrue(mismatch.getMessage(), mismatch.getMessage().contains("player aisle is blocked"));
+    }
+
+    @Test
+    public void rejectsAuthoredTraceWithRehashedButFalseMotion() throws Exception {
+        var bundle = authored();
+        var evidence = bundle.getJSONObject("evidence");
+        var measured = evidence.getJSONObject("measured");
+        measured.getJSONObject("hit").getJSONArray("samples").getJSONObject(2).getJSONArray("propM").put(0, 3);
+        evidence.put("repeat", WorldFrames.copy(measured));
+        bundle.put("evidenceSha256", WorldFrames.hash(evidence));
+        var exchange = new PlacementExchange(temp.newFolder().toPath());
+        String id = exchange.open(request(bundle)).getString("id");
+        var difference = assertThrows(IllegalStateException.class,
+                () -> exchange.replay(new JSONObject().put("id",id)));
+        assertTrue(difference.getMessage(), difference.getMessage().contains("hit replay differs"));
+        assertFalse(exchange.latest(new JSONObject()).has("replay"));
+    }
+
+    @Test
+    public void acceptsOlderAuthoredSceneWithFinishedGeometryScope() throws Exception {
+        var bundle = authored();
+        bundle.put("format",SpatialLevelPlacement.LEGACY_ARCHIVE);
+        bundle.remove("destinationSourceText");
+        var parsed = PlacementExchange.inspect(encoded(bundle));
+        assertTrue(parsed.authored());
+        assertFalse(parsed.destinationVerified());
+        assertEquals(4.35, parsed.layout().getDouble("routeLengthM"), 1e-10);
+    }
+
+    private static void sealReview(JSONObject bundle, JSONObject review) {
+        var evidence = bundle.getJSONObject("evidence");
+        String reviewId = WorldFrames.hash(review);
+        evidence.put("reviewId",reviewId);
+        bundle.put("evidenceSha256",WorldFrames.hash(evidence)).put("sceneId",SpatialLevelPlacement.sceneId(reviewId));
+        var objects = bundle.getJSONObject("scene").getJSONArray("objects");
+        objects.getJSONObject(objects.length()-1).put("sourceId",SpatialLevelPlacement.propKey(review));
+    }
+
+    private static JSONObject authored() throws Exception {
+        Path fixture = Path.of("..","workspace-desktop","test","fixtures","authored-level-exchange",
+                "edited-signal-bay.fraynix-level.json");
+        return new JSONObject(Files.readString(fixture));
     }
 
     private static Path frozen() {

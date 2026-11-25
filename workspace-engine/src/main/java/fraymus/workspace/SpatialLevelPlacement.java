@@ -13,6 +13,8 @@ import java.util.UUID;
 /** A source-bound prop addition to an authored floor, with an explicit walking route. */
 final class SpatialLevelPlacement {
     static final String FORMAT = "fraynix.spatial-level-placement-v1";
+    static final String ARCHIVE = "fraynix.verified-spatial-level-v2";
+    static final String LEGACY_ARCHIVE = "fraynix.verified-spatial-level-v1";
     static final double PLAYER_RADIUS = .18;
     static final double PLAYER_HEIGHT = 1.7;
 
@@ -32,11 +34,7 @@ final class SpatialLevelPlacement {
                 .put("sceneId", input.getString("sceneId")).put("objectId", input.getString("objectId")),
                 source.optJSONObject("meshQualification"));
         var floor = SpatialScene.object(destination, input.getString("floorId"));
-        var r = floor.getJSONArray("rotation");
-        if (floor.getDouble("massKg") != 0 || Math.abs(r.getDouble(0)) > 1e-8
-                || Math.abs(r.getDouble(1)) > 1e-8 || Math.abs(r.getDouble(2)) > 1e-8)
-            throw new IllegalArgumentException("Select a flat, axis-aligned static floor.");
-        var floorBounds = bounds(floor);
+        var floorBounds = floorBounds(floor);
         double height = floorBounds[4];
         double angle = Math.toRadians(yaw) / 2;
         review.put("format", FORMAT).put("goal", goal)
@@ -117,7 +115,9 @@ final class SpatialLevelPlacement {
         }
         if (floor == null || prop == null) throw new IllegalStateException("The reviewed floor or prop is missing.");
 
-        double[] base = bounds(floor), placed = bounds(prop);
+        double[] base = floorBounds(floor), placed = bounds(prop);
+        if (Math.abs(placed[1] - base[4]) > 1e-8)
+            throw new IllegalArgumentException("The prop bottom must meet the reviewed floor.");
         if (!inside(base, placed)) throw new IllegalArgumentException("The whole prop must rest on the reviewed floor.");
         double[] route = coordinates(review.getJSONArray("aisle"), 4);
         double distance = Math.hypot(route[2] - route[0], route[3] - route[1]);
@@ -177,7 +177,7 @@ final class SpatialLevelPlacement {
                 .put("playerEnvelopeClear", true).put("routeLengthM", layout.getDouble("routeLengthM"));
     }
 
-    static JSONObject export(JSONObject scene, String kind) throws Exception {
+    static JSONObject export(JSONObject scene, String kind, String destinationSourceText) throws Exception {
         var evidence = scene.getJSONObject("levelPlacement");
         var review = evidence.getJSONObject("review");
         String receipt = scene.getString("levelPlacementSha256");
@@ -190,11 +190,14 @@ final class SpatialLevelPlacement {
             bytes = SpatialGlb.verifiedExport(scene);
         } else if ("evidence".equals(kind)) {
             byte[] glb = SpatialGlb.verifiedExport(scene);
-            var document = new JSONObject().put("format", "fraynix.verified-spatial-level-v1")
+            var document = new JSONObject().put("format", ARCHIVE)
                     .put("sceneId", scene.getString("id")).put("scene", new JSONObject(scene.getString("sourceText")))
+                    .put("destinationSourceText", destinationSourceText)
                     .put("evidence", evidence).put("evidenceSha256", receipt)
                     .put("glbSha256", MapDefinition.sha(glb)).put("glbBase64", Base64.getEncoder().encodeToString(glb));
             bytes = document.toString().getBytes(StandardCharsets.UTF_8);
+            if (bytes.length > PlacementExchange.BYTE_LIMIT)
+                throw new IllegalArgumentException("The authored level evidence exceeds the 1.2 MB exchange limit.");
         } else {
             throw new IllegalArgumentException("Choose a playable level, GLB, or an evidence bundle.");
         }
@@ -211,6 +214,14 @@ final class SpatialLevelPlacement {
             RampDefinition.range(values[i], -20, 20, "coordinate in metres");
         }
         return values;
+    }
+
+    private static double[] floorBounds(JSONObject floor) {
+        var rotation = floor.getJSONArray("rotation");
+        if (floor.getDouble("massKg") != 0 || Math.abs(rotation.getDouble(0)) > 1e-8
+                || Math.abs(rotation.getDouble(1)) > 1e-8 || Math.abs(rotation.getDouble(2)) > 1e-8)
+            throw new IllegalArgumentException("Select a flat, axis-aligned static floor.");
+        return bounds(floor);
     }
 
     private static double[] bounds(JSONObject object) {
