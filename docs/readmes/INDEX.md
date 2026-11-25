@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 254 — Create verified motion media without a language model](../../README-254.md) · [Walkthrough](254/index.html)
+
 [Edition 253 — Recover overlapping props with noisy side masks](../../README-253.md) · [Walkthrough](253/index.html)
 
 [Edition 252 — Recover partly occluded props with an extra view](../../README-252.md) · [Walkthrough](252/index.html)

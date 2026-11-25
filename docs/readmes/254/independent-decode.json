@@ -1,0 +1,35 @@
+{
+  "decoder": "ffprobe version 9.0.2-full_build-www.gyan.dev Copyright (c) 2007-2026 the FFmpeg developers",
+  "results": [
+    {
+      "name": "shallow",
+      "videoFrames": 19,
+      "fps": 24,
+      "audioSamples": 19000,
+      "audioHz": 24000,
+      "decodedPcmSha256": "894f4bf7e1b54690989cf9ccfc6c17b95d412d44e310b7b117f84803ffd1a08b",
+      "pcmMatchesStandaloneWav": true,
+      "decodedMarkerTravelPx": 56.89974528359943,
+      "independentlyDecodedPoster": [
+        640,
+        360
+      ],
+      "videoSha256": "4d4bc8716a52b598da4400ad0dcd97b52318ab3287353f42279fb92d3bf1f9f1"
+    },
+    {
+      "name": "steep",
+      "videoFrames": 35,
+      "fps": 24,
+      "audioSamples": 35000,
+      "audioHz": 24000,
+      "decodedPcmSha256": "6416d21d521da3a191c2b35ec0851c121e5346a3d5cd727dde52d49639295575",
+      "pcmMatchesStandaloneWav": true,
+      "decodedMarkerTravelPx": 191.99272202998847,
+      "independentlyDecodedPoster": [
+        640,
+        360
+      ],
+      "videoSha256": "b4c529e6fc6c890c516a1942440ee8fda22c0485a9f5e6e9b85d39a7b04a062c"
+    }
+  ]
+}

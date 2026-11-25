@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 253,
+  "latest": 254,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -269669,6 +269669,125 @@
           "path": "docs/readmes/253/uncleaned-mask-refused.png",
           "sha256": "8220092571f27bd33c9f7c2e991e4118beb721fcdaadd178d2ef67b541c92a96",
           "kind": "binary"
+        }
+      ]
+    },
+    {
+      "number": 254,
+      "date": "2026-11-25",
+      "title": "Create verified motion media without a language model",
+      "status": "published",
+      "markdown": "README-254.md",
+      "markdownSha256": "b5a2c032685125ae88d7c2bf5d1a94ad500d799976e1ed08771d91e0036384c5",
+      "snapshotDirectory": "docs/readmes/254",
+      "companion": "docs/readmes/254/index.html",
+      "tag": "readme-254",
+      "sourceBaseline": "958d07c127ee51eec67f985e8abde6e17983cd30",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/254/blender-timeline.json",
+          "sha256": "7aa4cd0e9b9cfef129045a3c183f888e23f0e85e3f38414daf16164ede42f887",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/254/file-inventory.json",
+          "sha256": "26c9e540ab7a37723775ec6c6e0d05370cc22245c0f08219d15809c571e69660",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/254/FILE_TREE.md",
+          "sha256": "10fdfdea89b2f721a4dfede02fffe3cc44d5f2a448f44d66bc52acb6637cc69c",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/254/independent-decode.json",
+          "sha256": "6d803199ef414ce1a9a77ee202f46a4a4c03bb04f09e4b685bde9c5d6a2c1411",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/254/index.html",
+          "sha256": "987782ea74d9c477527dc3e00e47e9f1c23fc2719bd6f8f83ddd633b301367d9",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/254/media-after-restart.png",
+          "sha256": "a5274cd91dd25baaa4b0fdf8a07a0d4f40160baf4fbca8cccd31b11d1d86da21",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/254/media-built-offline.png",
+          "sha256": "de7bf37f2f242f10ba93a3b8c6e55888f363d10335d6d23254684d0ad0043988",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/254/media-evidence.json",
+          "sha256": "d944c3410442b18b335057b1ed8fdf8134158efd1f0e0d53251fa9503d13cb0f",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/254/shallow/motion.avi",
+          "sha256": "4d4bc8716a52b598da4400ad0dcd97b52318ab3287353f42279fb92d3bf1f9f1",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/254/shallow/motion.json",
+          "sha256": "9c4c235bdb9bc96c6911cc5e0c2ead97b8425b22c475ba063f53bd60249ba630",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/254/shallow/motion.png",
+          "sha256": "b9891357491a1bc3f9c3cac2231fd13d51a5aed7fda6917be4ec81e603e0d6cb",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/254/shallow/motion.wav",
+          "sha256": "77a07a68570b25e815bcde4c90743d6859ecb4363edcd91a77c196bbea87ff76",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/254/shallow/native-source.json",
+          "sha256": "9c14b87860139c669471029a13a4ca1882ff25c3aa661388c867ef1e6dc894f5",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/254/shallow/receipt.json",
+          "sha256": "6b1df9334e959718b106920e8dc39e032e21797680372efd6e55a864d61968ee",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/254/steep/motion.avi",
+          "sha256": "b4c529e6fc6c890c516a1942440ee8fda22c0485a9f5e6e9b85d39a7b04a062c",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/254/steep/motion.json",
+          "sha256": "c6b5c20af2d9b21114820fa0f239f11060335693cdf9aa8c4a8459d1f3c04b4c",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/254/steep/motion.png",
+          "sha256": "2f68a5b5fa0804f2d347f648de892322d043e52ce95cc864c62aa80f64d008dd",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/254/steep/motion.wav",
+          "sha256": "0cc46e4392194d12e5327ce2e1f3ccd91680fdbb501c323ef4af4bb9cb5adcbb",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/254/steep/native-source.json",
+          "sha256": "290e501e374e3ea7f5c8abfd36d1d1e0caaa821b05c24f122a59e7153b18caff",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/254/steep/receipt.json",
+          "sha256": "81340b57c4048ae9291d444162b04d5e3ffd4bc96f84744e16ede051b0e205b9",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/254/system-map.json",
+          "sha256": "6c8773bd8cc15f29cd645353d4ffbba4369e4ddb6c02ef4d88f05449a6c05855",
+          "kind": "text"
         }
       ]
     }

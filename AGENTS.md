@@ -1,3 +1,7 @@
+## Edition 254 — Create verified motion media without a language model
+
+2026-11-25. A selected native recording can drive a deterministic local media procedure from chat or the Motion media panel. Java renders video, normalizes speed sonification, and exports indexed AVI, exact WAV, PNG and a bound timeline. A verified JPEG setting survived restart and passed fresh decoded probes on a different run in one trial after the first took two. FFmpeg decoded both products and Blender reopened synchronized editable strips. Byte changes refused export and restart preserved exact artifacts. See README-254.md and docs/publication254/plan.md.
+
 ## Edition 253 — Recover overlapping props with noisy side masks
 
 2026-11-25. Four controlled Blender scenes covered three prop pairs and one reversed depth order. Optional isolated-pixel cleanup records the raw mask and every correction count. Pose refinement uses clear fitting images and visible side support. Each untouched held-out view refused its displaced control. Maximum error across 12 poses was 8.3 mm and 1.41°. Restart reproduced exact pose and physics evidence and GLBs, and Blender reopened each scene. Edition 252 still reproduces its published scene and GLB. See README-253.md and docs/publication253/plan.md.

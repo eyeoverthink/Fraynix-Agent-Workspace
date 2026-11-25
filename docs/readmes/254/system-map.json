@@ -1,0 +1,88 @@
+{
+  "summary": "A native recording becomes independently verified video, audio, image and timeline files.",
+  "modules": [
+    {
+      "title": "Native timeline, video and sound decisions",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MotionTimeline.java",
+      "note": "docs/obsidian/262-offline-motion-media.md"
+    },
+    {
+      "title": "RIFF containers and output checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MotionMediaContainers.java",
+      "note": "docs/obsidian/262-offline-motion-media.md"
+    },
+    {
+      "title": "Bound media receipts and restart",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MotionMedia.java",
+      "note": "docs/obsidian/262-offline-motion-media.md"
+    },
+    {
+      "title": "Motion media panel and chat request",
+      "source": "workspace-desktop/renderer/motion-media.js",
+      "note": "docs/obsidian/262-offline-motion-media.md"
+    },
+    {
+      "title": "Model-free desktop, export and restart test",
+      "source": "workspace-desktop/test/motion-media-integration.cjs",
+      "note": "docs/obsidian/262-offline-motion-media.md"
+    },
+    {
+      "title": "Independent FFmpeg decoder test",
+      "source": "workspace-desktop/test/motion-media-ffmpeg.cjs",
+      "note": "docs/obsidian/262-offline-motion-media.md"
+    },
+    {
+      "title": "Independent Blender timeline test",
+      "source": "workspace-desktop/test/motion-media-blender.py",
+      "note": "docs/obsidian/262-offline-motion-media.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Chat builds four verified media files with zero local models",
+      "path": "docs/readmes/254/media-built-offline.png"
+    },
+    {
+      "title": "The saved motion media reopens with its original receipt and exports",
+      "path": "docs/readmes/254/media-after-restart.png"
+    },
+    {
+      "title": "The actual PNG poster rendered from the steep recording",
+      "path": "docs/readmes/254/steep/motion.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Measured evidence",
+      "path": "docs/readmes/254/media-evidence.json"
+    },
+    {
+      "title": "FFmpeg decode",
+      "path": "docs/readmes/254/independent-decode.json"
+    },
+    {
+      "title": "Blender timeline",
+      "path": "docs/readmes/254/blender-timeline.json"
+    },
+    {
+      "title": "Video AVI",
+      "path": "docs/readmes/254/steep/motion.avi"
+    },
+    {
+      "title": "Audio WAV",
+      "path": "docs/readmes/254/steep/motion.wav"
+    },
+    {
+      "title": "Timeline JSON",
+      "path": "docs/readmes/254/steep/motion.json"
+    },
+    {
+      "title": "File tree",
+      "path": "docs/readmes/254/FILE_TREE.md"
+    },
+    {
+      "title": "Reproduction",
+      "path": "docs/publication254/plan.md"
+    }
+  ]
+}

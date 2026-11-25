@@ -1,0 +1,64 @@
+{
+  "frames": 19,
+  "sound": {
+    "note": "Synthesized tone follows measured speed. No microphone audio.",
+    "exportPeak": 0.7199926755577257,
+    "rawPeak": 1.1111537552084925,
+    "exportClippedSamples": 0,
+    "rawClippedSamples": 1444,
+    "samples": 19000,
+    "gain": 0.6479751309168749
+  },
+  "width": 640,
+  "files": {
+    "avi": {
+      "sha256": "4d4bc8716a52b598da4400ad0dcd97b52318ab3287353f42279fb92d3bf1f9f1",
+      "bytes": 439134
+    },
+    "png": {
+      "sha256": "b9891357491a1bc3f9c3cac2231fd13d51a5aed7fda6917be4ec81e603e0d6cb",
+      "bytes": 15366
+    },
+    "json": {
+      "sha256": "9c4c235bdb9bc96c6911cc5e0c2ead97b8425b22c475ba063f53bd60249ba630",
+      "bytes": 4970
+    },
+    "wav": {
+      "sha256": "77a07a68570b25e815bcde4c90743d6859ecb4363edcd91a77c196bbea87ff76",
+      "bytes": 38044
+    }
+  },
+  "durationS": 0.7916666666666666,
+  "id": "c7427bfe51c9601fdce0180f09cb29f4ab840a9f0495cf646a72830c20ed565d",
+  "source": {
+    "recipe": "fraynix.motion-media-v1",
+    "sceneVersion": 1,
+    "runId": "b11b82e3-c0aa-4444-b2e5-3be67c000aed",
+    "runSha256": "14bfade5e04af0477bc040bb833845040f17b893619e03aba4c1e869427bd6ce",
+    "title": "Shallow ramp experiment"
+  },
+  "encoder": {
+    "tested": [
+      {
+        "worstPsnrDb": 35.1720449197789,
+        "passed": false,
+        "quality": 0.5,
+        "probeBytes": 43157
+      },
+      {
+        "worstPsnrDb": 38.10293363302823,
+        "passed": true,
+        "quality": 0.76,
+        "probeBytes": 63158
+      }
+    ],
+    "probeFrames": [
+      0,
+      9,
+      18
+    ],
+    "minimumPsnrDb": 36,
+    "quality": 0.76
+  },
+  "height": 360
+}
