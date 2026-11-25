@@ -1,0 +1,75 @@
+{
+  "summary": "Author layers and scores, then read the saved simulation and exact rendered pixels.",
+  "modules": [
+    {
+      "title": "Validated level and asset storage",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java",
+      "note": "docs/obsidian/266-tile-playtest-evidence.md"
+    },
+    {
+      "title": "Content-addressed tick records",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TilePlayRecords.java",
+      "note": "docs/obsidian/266-tile-playtest-evidence.md"
+    },
+    {
+      "title": "Layer selection and score editor",
+      "source": "workspace-desktop/renderer/tile-layer-panel.js",
+      "note": "docs/obsidian/266-tile-playtest-evidence.md"
+    },
+    {
+      "title": "Fixed-step play and image reconstruction",
+      "source": "workspace-desktop/renderer/media-tile-play.js",
+      "note": "docs/obsidian/266-tile-playtest-evidence.md"
+    },
+    {
+      "title": "Agent level, tick and pixel reads",
+      "source": "workspace-desktop/tile-evidence.cjs",
+      "note": "docs/obsidian/266-tile-playtest-evidence.md"
+    },
+    {
+      "title": "Desktop and standalone acceptance",
+      "source": "workspace-desktop/test/tile-evidence-integration.cjs",
+      "note": "docs/obsidian/266-tile-playtest-evidence.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Edit a named layer and select multiple objects",
+      "path": "docs/readmes/258/layers-editor.png"
+    },
+    {
+      "title": "The scored Twilight Relay reaches the goal",
+      "path": "docs/readmes/258/scored-playtest.png"
+    },
+    {
+      "title": "Fraynix reads a pixel from the saved tick in chat",
+      "path": "docs/readmes/258/chat-pixel-evidence.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Measured evidence",
+      "path": "docs/readmes/258/evidence.json"
+    },
+    {
+      "title": "Complete trace",
+      "path": "docs/readmes/258/playtest.json"
+    },
+    {
+      "title": "Offline game",
+      "path": "docs/readmes/258/layered-relay.html"
+    },
+    {
+      "title": "Editable level",
+      "path": "docs/readmes/258/layered-relay.json"
+    },
+    {
+      "title": "Verified final frame",
+      "path": "docs/readmes/258/verified-final-frame.png"
+    },
+    {
+      "title": "Reproduction",
+      "path": "docs/publication258/plan.md"
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 258 · Layer, score and inspect playable scenes at every tick</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Layer, score and inspect playable scenes at every tick</h1>
+<p>Look at the layers and score, then open the exact playtest rows and rendered frame.</p>
+<nav><a href="../../../README-258.md">App guide</a><a href="../257/index.html">Edition 257</a>
+<a href="../../publication258/plan.md">Reproduction</a><a href="layered-relay.html" download>Download playable HTML</a>
+<a href="playtest.json" download>Download playtest</a><a href="#system">System files</a></nav>
+<figure><img src="layers-editor.png" alt="Edit a named layer and select multiple objects"><figcaption>Edit a named layer and select multiple objects</figcaption></figure>
+<figure><img src="scored-playtest.png" alt="The scored Twilight Relay reaches the goal"><figcaption>The scored Twilight Relay reaches the goal</figcaption></figure>
+<figure><img src="chat-pixel-evidence.png" alt="Fraynix reads a pixel from the saved tick in chat"><figcaption>Fraynix reads a pixel from the saved tick in chat</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "Author layers and scores, then read the saved simulation and exact rendered pixels.",
+  "modules": [
+    {
+      "title": "Validated level and asset storage",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java",
+      "note": "docs/obsidian/266-tile-playtest-evidence.md"
+    },
+    {
+      "title": "Content-addressed tick records",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TilePlayRecords.java",
+      "note": "docs/obsidian/266-tile-playtest-evidence.md"
+    },
+    {
+      "title": "Layer selection and score editor",
+      "source": "workspace-desktop/renderer/tile-layer-panel.js",
+      "note": "docs/obsidian/266-tile-playtest-evidence.md"
+    },
+    {
+      "title": "Fixed-step play and image reconstruction",
+      "source": "workspace-desktop/renderer/media-tile-play.js",
+      "note": "docs/obsidian/266-tile-playtest-evidence.md"
+    },
+    {
+      "title": "Agent level, tick and pixel reads",
+      "source": "workspace-desktop/tile-evidence.cjs",
+      "note": "docs/obsidian/266-tile-playtest-evidence.md"
+    },
+    {
+      "title": "Desktop and standalone acceptance",
+      "source": "workspace-desktop/test/tile-evidence-integration.cjs",
+      "note": "docs/obsidian/266-tile-playtest-evidence.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Edit a named layer and select multiple objects",
+      "path": "docs/readmes/258/layers-editor.png"
+    },
+    {
+      "title": "The scored Twilight Relay reaches the goal",
+      "path": "docs/readmes/258/scored-playtest.png"
+    },
+    {
+      "title": "Fraynix reads a pixel from the saved tick in chat",
+      "path": "docs/readmes/258/chat-pixel-evidence.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Measured evidence",
+      "path": "docs/readmes/258/evidence.json"
+    },
+    {
+      "title": "Complete trace",
+      "path": "docs/readmes/258/playtest.json"
+    },
+    {
+      "title": "Offline game",
+      "path": "docs/readmes/258/layered-relay.html"
+    },
+    {
+      "title": "Editable level",
+      "path": "docs/readmes/258/layered-relay.json"
+    },
+    {
+      "title": "Verified final frame",
+      "path": "docs/readmes/258/verified-final-frame.png"
+    },
+    {
+      "title": "Reproduction",
+      "path": "docs/publication258/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": ".github/workflows/portable-workspace.yml",
+    "bytes": 31466,
+    "sha256": "02c527e506c543993d71a1693b95ea7b9c2650e59ec91a513a0bdac3877b4e99",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/266-tile-playtest-evidence.canvas",
+    "bytes": 1123,
+    "sha256": "a06e543e9e591916512c50febbd35d7ecce10fb76a5ee13ca5ba53773cdb7062",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/266-tile-playtest-evidence.md",
+    "bytes": 317,
+    "sha256": "7eb6079ca0982894bcfe14afcd049e6f9b703314a7c13e5ba5a2622bd909bbcf",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication258/plan.md",
+    "bytes": 3126,
+    "sha256": "ab20221dc038740cca13213f422f4dd8dadfa33d90a3f5a741f216a8c5801ad7",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/main.cjs",
+    "bytes": 138468,
+    "sha256": "3180e0dc0c24f559f987a446ef19cd637a1f31c694a3d50d8b22057e7d49220b",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/policy.cjs",
+    "bytes": 45285,
+    "sha256": "001211fdda34e2ce08e02907d74d8d630e51f1c109330ac2c54cb584a053201d",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/app.js",
+    "bytes": 49505,
+    "sha256": "019983abd0e1b521b876eb2782b3e642baedcb7ecf80a06501fa0d71e18085f7",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/media-tile-editor.js",
+    "bytes": 28386,
+    "sha256": "ee681abe92c72c12c0de50e4c58f232104ead8c918566b93e020ba11fce934ae",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/media-tile-play.js",
+    "bytes": 17840,
+    "sha256": "326ef4a6e5f9737a7d7b3fff8454279f33b52deb23c72d4b97583e60e40e2522",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/tile-layer-panel.js",
+    "bytes": 8397,
+    "sha256": "25e97801712839b2fbb5508f3a7b9530aaff588076913522c90b801fbf4a0a9e",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/tile-evidence-integration.cjs",
+    "bytes": 12824,
+    "sha256": "7633f5de6e6462a022b690c1b431553afb9fd822092cdf8db91e0ba90c5a915d",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/tile-evidence.cjs",
+    "bytes": 4717,
+    "sha256": "cb76cc7249526c32c35cc25823c114099636716d984597c1aa88234dd0421e85",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/TilePlayRecords.java",
+    "bytes": 10336,
+    "sha256": "a91d136a24eb9731991b0ea2ec65d2e124f07d88bba1489e38e901c1a38a6a31",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java",
+    "bytes": 22611,
+    "sha256": "f114529968c50ddbba561e483bfd1e277937c85d572a3d25924e4bb7e38893e3",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+    "bytes": 160736,
+    "sha256": "67215fe44a6c7d93e4032da6bf14863c6deedc60965f14d1a4d23e232bb79312",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/resources/tools-044.json",
+    "bytes": 73965,
+    "sha256": "686724b5be7b2975b4b04c58401fa17d114711dac403224bd225826b66f48654",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

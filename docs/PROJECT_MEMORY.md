@@ -1,3 +1,7 @@
+## Edition 258 — Layer, score and inspect playable scenes at every tick
+
+2026-11-25. Tile Workshop adds named visual layers, opacity, visibility, object Z order, multi-selection and scoring. The desktop retains 120 Hz tick state, contact and score events in Java. Registered read tools expose levels, rows, PNG images and RGBA pixels, and offline chat supports direct evidence questions. The sample run scored 295 with one penalized reset and zero repeat credit. Restart reconstructed the exact final PNG. The network-blocked standalone game scored 325 on a clean run. See README-258.md and docs/publication258/plan.md.
+
 ## Edition 257 — Turn a Nexus design into a playable level
 
 2026-11-25. The tile editor reads a Nexus Scene to Game runner or a scene graph with a grid. Java binds the source bytes and converts the palette, backdrop, playable character, collisions and tile triggers. Twilight Relay reached the goal in the desktop, after restart and in standalone HTML with networking blocked. Each run recorded one hazard reset, one pickup and one spring boost. A palette change preserved the same mechanics, and a clean project reproduced the exact standalone build. See README-257.md and docs/publication257/plan.md.
