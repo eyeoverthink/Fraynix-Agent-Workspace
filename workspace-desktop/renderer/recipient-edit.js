@@ -170,7 +170,9 @@ export class RecipientEditPanel {
         const sceneId = this.result?.status === 'verified' ? this.result.sceneId : this.source.id;
         const output = this.find('#recipient-edit-export-path');
         try {
-            const saved = await this.spatial.call('recipient-edit-export',{sceneId});
+            const mission = this.result?.missionId;
+            const saved = mission ? await this.spatial.call('recipient-mission-export',{reviewId:mission})
+                : await this.spatial.call('recipient-edit-export',{sceneId});
             const filename = saved.path.split(/[\\/]/).at(-1);
             output.textContent = 'Saved '+filename+' in this project’s exports folder.';
             output.title = saved.path;
@@ -189,7 +191,7 @@ export class RecipientEditPanel {
         } catch (error) { this.fail(error); }
     }
 
-    async compareFromChat() {
+    async compareFromChat(request) {
         if (!this.spatial.scene?.recipientBranch || this.spatial.worldMode) await this.spatial.open();
         if (!this.spatial.scene?.recipientBranch || this.spatial.worldMode) {
             this.spatial.announce('Open an editable recipient copy in Spatial, then save a collider preview to compare.');
@@ -197,15 +199,17 @@ export class RecipientEditPanel {
         }
         this.spatial.activate('spatial');
         await this.open();
-        if (this.result?.status === 'review' && this.result.review?.collider) await this.compare();
+        if (this.result?.status === 'review' && this.result.review?.collider) await this.compare(request);
         else this.tell('Save a pending collider preview before comparing it.');
     }
 
-    async compare() {
+    async compare(request) {
         const status = this.find('#recipient-approach-status');
         status.textContent = 'Testing the current and proposed boxes in isolated simulations…';
         try {
-            this.result = await this.spatial.call('recipient-edit-compare',{reviewId:this.result.reviewId});
+            const input = {reviewId:this.result.reviewId};
+            this.result = request ? await this.spatial.call('recipient-mission-start',{...input,request})
+                : await this.spatial.call('recipient-edit-compare',input);
             this.render();
         } catch (error) {
             status.textContent = error.message.replace(/^Error invoking remote method '[^']+': (?:Error: )?/, '');

@@ -63,10 +63,19 @@ final class ColliderApproachSweep {
     JSONObject read(Path path, boolean draft) {
         try {
             var receipt = new JSONObject(new String(SpriteWorkshop.read(path,PlacementExchange.BYTE_LIMIT),StandardCharsets.UTF_8));
+            return validated(receipt,draft);
+        } catch (IOException | RuntimeException changed) {
+            return null;
+        }
+    }
+
+    JSONObject validated(JSONObject receipt, boolean draft) {
+        try {
             SpatialScene.keys(receipt,"binding","cases","summary","sha256");
             String hash = receipt.getString("sha256");
-            receipt.remove("sha256");
-            if (!WorldFrames.hash(receipt).equals(hash) || !binding.similar(receipt.getJSONObject("binding"))) return null;
+            var sealed = WorldFrames.copy(receipt);
+            sealed.remove("sha256");
+            if (!WorldFrames.hash(sealed).equals(hash) || !binding.similar(receipt.getJSONObject("binding"))) return null;
             var measured = receipt.getJSONArray("cases");
             if (measured.length() != cases.size()) return null;
             for (int i=0;i<cases.size();i++) {
@@ -79,8 +88,8 @@ final class ColliderApproachSweep {
                     if (!pair.validCase(trial,cases.get(i).approach().json())) return null;
                 }
             }
-            return report(measured,draft).similar(receipt.getJSONObject("summary")) ? receipt.put("sha256",hash) : null;
-        } catch (IOException | RuntimeException changed) {
+            return report(measured,draft).similar(receipt.getJSONObject("summary")) ? receipt : null;
+        } catch (RuntimeException changed) {
             return null;
         }
     }

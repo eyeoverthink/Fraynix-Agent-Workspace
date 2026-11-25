@@ -224,7 +224,7 @@ $('run').onclick=()=>safe(async()=>{
  const goal=$('goal').value.trim();
  if(!goal)return;
  message(goal,'user');
- if(isRecipientApproachRequest(goal)){await spatial.action(()=>spatial.recipient.compareFromChat());return;}
+ if(isRecipientApproachRequest(goal)){await spatial.action(()=>spatial.recipient.compareFromChat(goal));return;}
  if(isSpatialHeightRequest(goal)){await spatial.height.openFromChat(goal);return;}
  if(isSpatialCarryRequest(goal)){await spatial.carry.review(true);return;}
  if(isPlacementRequest(goal)){await spatial.action(()=>spatial.placement.openFromChat(goal));return;}

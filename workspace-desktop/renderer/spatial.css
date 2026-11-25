@@ -187,3 +187,10 @@
 #recipient-approach-summary { font-weight: 600; }
 #recipient-approach-data table { border-collapse: collapse; width: 100%; }
 #recipient-approach-data th, #recipient-approach-data td { padding: 5px; text-align: left; border-bottom: 1px solid #324b55; }
+
+#recipient-mission-dialog { width: min(645px, calc(100vw - 24px)); }
+#recipient-mission-dialog dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px 15px; }
+#recipient-mission-dialog dd { margin: 0; overflow-wrap: anywhere; }
+#recipient-mission-dialog dt { color: var(--muted); }
+#recipient-mission-dialog details { margin-bottom: 12px; }
+@media (max-width: 540px) { #recipient-mission-dialog dl { grid-template-columns: 1fr; } }

@@ -192,6 +192,8 @@ async function main() {
         assert.equal(raisedResult.evidence.measured.miss.contactTicks,0);
         const raisedScene = await api('read',{id:raisedResult.sceneId});
         assert.deepEqual(JSON.parse(raisedScene.sourceText).objects.slice(0,-1),secondDefinition.objects);
+        const raisedExport = await api('placement-export',{reviewId:raised.reviewId,kind:'evidence'});
+        await fs.writeFile(path.join(out,'raised-switchyard.fraynix-level.json'),Buffer.from(raisedExport.base64,'base64'));
 
         await app.close();
         const stateFile = path.join(project,'spatial','state.json');

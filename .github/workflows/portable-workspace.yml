@@ -380,6 +380,18 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/recipient-preview-sweep-integration.cjs build/portable-smoke/recipient-preview build/portable-smoke/recipient-handoff/signal-bay-handoff.fraynix-recipient.json
+      - name: Reopen the held-out collider mission and replay its verified export
+        if: runner.os != 'Linux'
+        run: |
+          node workspace-desktop/test/recipient-mission-integration.cjs build/portable-smoke/recipient-mission build/portable-smoke/spatial-level/raised-switchyard.fraynix-level.json
+          node workspace-desktop/test/placement-exchange-integration.cjs build/portable-smoke/recipient-mission-replay build/portable-smoke/recipient-mission/raised-switchyard-reviewed.fraynix-recipient.json
+      - name: Verify the held-out collider mission and export on a virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: |
+          xvfb-run -a node workspace-desktop/test/recipient-mission-integration.cjs build/portable-smoke/recipient-mission build/portable-smoke/spatial-level/raised-switchyard.fraynix-level.json
+          xvfb-run -a node workspace-desktop/test/placement-exchange-integration.cjs build/portable-smoke/recipient-mission-replay build/portable-smoke/recipient-mission/raised-switchyard-reviewed.fraynix-recipient.json
       - if: always()
         uses: actions/upload-artifact@v4
         with:

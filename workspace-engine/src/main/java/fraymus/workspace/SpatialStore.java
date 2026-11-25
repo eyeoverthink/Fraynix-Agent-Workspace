@@ -14,12 +14,13 @@ public final class SpatialStore implements AutoCloseable {
     private final TileWorkshop library;
     private final SpatialPlacement placements, recipientEdits;
     private final PlacementExchange exchange;
+    private final RecipientMissionStore recipientMissions;
     final HeightStudyStore heightStudies;
     private final Path file,nativeDir;private final LinkedHashMap<String,JSONObject> scenes=new LinkedHashMap<>(),runs=new LinkedHashMap<>();
     private final ExecutorService worker=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"spatial-native-owner");t.setDaemon(true);return t;});
     private final AtomicBoolean cancelled=new AtomicBoolean();private String active="";private JSONObject current;private volatile boolean closed;
     public SpatialStore(Path project) throws Exception { this(project, new TileWorkshop(project)); }
-    SpatialStore(Path project, TileWorkshop library) throws Exception {this.library=library;placements=new SpatialPlacement(project);recipientEdits=new SpatialPlacement(project,"recipient-edits");exchange=new PlacementExchange(project);carries=new SpatialCarryStore(project);heightStudies=new HeightStudyStore(project);file=project.resolve("spatial/state.json");nativeDir=project.resolve("native");if(Files.exists(file)){var data=new JSONObject(Files.readString(file));for(Object raw:data.getJSONArray("scenes")){var s=(JSONObject)raw;validateDefinition(s);scenes.put(s.getString("id"),s);}for(Object raw:data.getJSONArray("runs")){var r=(JSONObject)raw;if(Set.of("executing","prepared").contains(r.getString("status")))r.put("status","interrupted").put("reason","Process ended; resume creates a separate native attempt from the immutable import");runs.put(r.getString("id"),r);}persist();}}
+    SpatialStore(Path project, TileWorkshop library) throws Exception {this.library=library;recipientMissions=new RecipientMissionStore(project);placements=new SpatialPlacement(project);recipientEdits=new SpatialPlacement(project,"recipient-edits");exchange=new PlacementExchange(project);carries=new SpatialCarryStore(project);heightStudies=new HeightStudyStore(project);file=project.resolve("spatial/state.json");nativeDir=project.resolve("native");if(Files.exists(file)){var data=new JSONObject(Files.readString(file));for(Object raw:data.getJSONArray("scenes")){var s=(JSONObject)raw;validateDefinition(s);scenes.put(s.getString("id"),s);}for(Object raw:data.getJSONArray("runs")){var r=(JSONObject)raw;if(Set.of("executing","prepared").contains(r.getString("status")))r.put("status","interrupted").put("reason","Process ended; resume creates a separate native attempt from the immutable import");runs.put(r.getString("id"),r);}persist();}}
     private static JSONObject copy(JSONObject x){return new JSONObject(x.toString());}
     private Path glbFile(String id) {
         if (!UUID.fromString(id).toString().equals(id)) throw new IllegalArgumentException("Invalid spatial import identity.");
@@ -524,6 +525,84 @@ public final class SpatialStore implements AutoCloseable {
         return recipientEditStatus(id,review,RecipientLevelEdit.candidate(parent,review,id));
     }
 
+    synchronized JSONObject startRecipientMission(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"reviewId","request");
+        available();
+        String id = input.getString("reviewId");
+        var review = recipientEdits.readReview(id);
+        if (!review.has("collider")) throw new IllegalArgumentException("Choose a collider size review.");
+        var parent = currentRecipient(review.getJSONObject("parent").getString("sceneId"));
+        requireCurrentRecipientReview(id,parent);
+        if (recipientEdits.approved(id)) throw new IllegalStateException("Choose a collider review that is still pending approval.");
+        recipientMissions.start(id,parent,review,SpatialScene.text(input,"request",300));
+        return compareRecipientEdit(new JSONObject().put("reviewId",id));
+    }
+
+    synchronized JSONObject latestRecipientMission(JSONObject input) throws Exception {
+        SpatialScene.keys(input);
+        var mission = recipientMissions.latest();
+        if (mission == null) return new JSONObject();
+        String id = mission.getString("reviewId");
+        var review = recipientEdits.readReview(id);
+        var parent = read(mission.getString("parentSceneId"));
+        if (!mission.getJSONObject("parent").similar(SpatialPropCopy.binding(parent))
+                || !mission.getJSONObject("review").similar(review))
+            throw new IllegalStateException("The mission source or saved review changed.");
+        var candidate = RecipientLevelEdit.candidate(parent,review,id);
+        var result = WorldFrames.copy(mission);
+        var comparison = result.optJSONObject("comparison");
+        if (comparison != null && recipientSweep(id,review,parent,candidate).validated(comparison,true) == null)
+            throw new IllegalStateException("The mission comparison changed.");
+        result.put("sceneTitle",parent.getString("title"));
+        var approval = result.optJSONObject("approval");
+        boolean approved = recipientEdits.approved(id);
+        if (approval != null)
+            result.put("approvalConfirmed",approved && comparison != null
+                    && id.equals(approval.getString("reviewId"))
+                    && comparison.getString("sha256").equals(approval.getString("comparisonSha256")));
+        String revision = RecipientLevelEdit.revisionId(id);
+        if (scenes.containsKey(revision)) {
+            var committed = read(revision);
+            result.put("revision",new JSONObject().put("sceneId",revision)
+                    .put("receiptSha256",committed.getString("recipientEditSha256"))
+                    .put("receipt",committed.getJSONObject("recipientEdit")));
+        } else if (!parent.getString("id").equals(recipientHead(parent.getJSONObject("recipientBranch").getString("rootId")))
+                || !id.equals(recipientEdits.latestId("latest-"+parent.getString("id")))) {
+            result.put("superseded",true);
+        }
+        var export = result.optJSONObject("export");
+        if (export != null) {
+            boolean exact = result.optBoolean("approvalConfirmed") && result.has("revision")
+                    && revision.equals(export.getString("sceneId"));
+            result.put("exportAvailable",exact && recipientMissions.available(id,export));
+        }
+        return result;
+    }
+
+    synchronized JSONObject exportRecipientMission(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"reviewId");
+        available();
+        String id = input.getString("reviewId");
+        var mission = recipientMissions.read(id);
+        if (mission == null) throw new IllegalArgumentException("Choose a saved collider mission.");
+        var comparison = mission.optJSONObject("comparison");
+        var approval = mission.optJSONObject("approval");
+        if (comparison == null || approval == null || !recipientEdits.approved(id)
+                || !comparison.getString("sha256").equals(approval.getString("comparisonSha256")))
+            throw new IllegalStateException("Approve the verified comparison in this mission before exporting.");
+        var review = recipientEdits.readReview(id);
+        var parent = read(mission.getString("parentSceneId"));
+        var candidate = RecipientLevelEdit.candidate(parent,review,id);
+        if (!mission.getJSONObject("parent").similar(SpatialPropCopy.binding(parent))
+                || !mission.getJSONObject("review").similar(review) || !id.equals(approval.getString("reviewId"))
+                || recipientSweep(id,review,parent,candidate).validated(comparison,true) == null)
+            throw new IllegalStateException("The mission evidence changed.");
+        String sceneId = RecipientLevelEdit.revisionId(id);
+        if (!scenes.containsKey(sceneId)) throw new IllegalStateException("Run the approved native checks before exporting.");
+        var data = exportRecipientRevision(new JSONObject().put("sceneId",sceneId));
+        return recipientMissions.export(id,data);
+    }
+
     synchronized JSONObject compareRecipientEdit(JSONObject input) throws Exception {
         SpatialScene.keys(input,"reviewId");
         available();
@@ -534,6 +613,7 @@ public final class SpatialStore implements AutoCloseable {
         requireCurrentRecipientReview(id,parent);
         var candidate = RecipientLevelEdit.candidate(parent,review,id);
         var comparison = recipientSweep(id,review,parent,candidate).run(nativeDir,true);
+        recipientMissions.compared(id,comparison);
         SpriteWorkshop.replace(recipientSweepPath(id),comparison.toString().getBytes(StandardCharsets.UTF_8));
         return recipientEditStatus(id,review,candidate);
     }
@@ -568,6 +648,7 @@ public final class SpatialStore implements AutoCloseable {
             var evidence = review.has("collider") ? recipientSweep(id,review,parent,candidate).read(recipientSweepPath(id),true) : null;
             if (evidence == null || !input.getString("comparisonSha256").equals(evidence.getString("sha256")))
                 throw new IllegalStateException("The selected comparison changed. Run it again before approving with its evidence.");
+            recipientMissions.approve(id,evidence);
         }
         recipientEdits.approve(id);
         return recipientEditStatus(id,review,candidate);
@@ -615,6 +696,8 @@ public final class SpatialStore implements AutoCloseable {
     private JSONObject recipientEditStatus(String id, JSONObject review, JSONObject scene) throws Exception {
         var result = new JSONObject().put("reviewId",id).put("review",review)
                 .put("layout",SpatialLevelPlacement.playable(scene,review,RecipientLevelEdit.propKey(review)));
+        var mission = recipientMissions.read(id);
+        if (mission != null && mission.has("approval")) result.put("missionId",id);
         if (scene.has("recipientEdit")) return result.put("status","verified").put("sceneId",scene.getString("id"))
                 .put("receipt",scene.getJSONObject("recipientEdit")).put("receiptSha256",scene.getString("recipientEditSha256"));
         Path path = recipientSweepPath(id);
