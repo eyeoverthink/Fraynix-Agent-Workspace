@@ -1,0 +1,88 @@
+{
+  "summary": "An unmarked overhead image locates checked meshes and a separate registered view verifies the fixed positions.",
+  "modules": [
+    {
+      "title": "Silhouette association and second-angle checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneRegistration.java",
+      "note": "docs/obsidian/256-unmarked-image-registration.md"
+    },
+    {
+      "title": "Scene composition and native checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java",
+      "note": "docs/obsidian/256-unmarked-image-registration.md"
+    },
+    {
+      "title": "Binding and restart verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/256-unmarked-image-registration.md"
+    },
+    {
+      "title": "Dual-view desktop controls",
+      "source": "workspace-desktop/renderer/image-assembly.js",
+      "note": "docs/obsidian/256-unmarked-image-registration.md"
+    },
+    {
+      "title": "Desktop assembly, refusal and restart",
+      "source": "workspace-desktop/test/image-assembly-integration.cjs",
+      "note": "docs/obsidian/256-unmarked-image-registration.md"
+    },
+    {
+      "title": "Independent Blender fixture generator",
+      "source": "workspace-desktop/test/image-registration-fixtures.py",
+      "note": "docs/obsidian/256-unmarked-image-registration.md"
+    },
+    {
+      "title": "Media smoke test selector correction",
+      "source": "workspace-desktop/test/media-workshop-integration.cjs",
+      "note": "docs/obsidian/256-unmarked-image-registration.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/readmes/248/image-layout-assembled.png",
+      "title": "Two props placed from an unmarked overhead image"
+    },
+    {
+      "path": "docs/readmes/248/shifted-second-view-refused.png",
+      "title": "A shifted plate is refused at its unchanged overhead position"
+    },
+    {
+      "path": "docs/readmes/248/image-scene-restarted.png",
+      "title": "Both original views and floor contacts rechecked after restart"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/readmes/248/overhead.png",
+      "title": "Unmarked overhead"
+    },
+    {
+      "path": "docs/readmes/248/second-angle.png",
+      "title": "Separate view"
+    },
+    {
+      "path": "docs/readmes/248/shifted-second-angle.png",
+      "title": "Shifted control"
+    },
+    {
+      "path": "docs/readmes/248/image-assembly-evidence.json",
+      "title": "Measured evidence"
+    },
+    {
+      "path": "docs/readmes/248/blender-readback.json",
+      "title": "Blender readback"
+    },
+    {
+      "path": "docs/readmes/248/image-workshop.glb",
+      "title": "GLB"
+    },
+    {
+      "path": "docs/publication248/plan.md",
+      "title": "Reproduction"
+    },
+    {
+      "path": "docs/readmes/248/FILE_TREE.md",
+      "title": "File tree"
+    }
+  ]
+}

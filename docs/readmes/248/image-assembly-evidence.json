@@ -1,0 +1,155 @@
+{
+  "platform": "win32",
+  "layoutSha256": "2f40704301110ba29b9eaa361bcfb96b678744d4d6eb4a85cdde119d2501726f",
+  "sceneSha256": "9b43aa8fc81e4abf92b874cc5b1f66489bb4b342b66b0f5eec0b02890305c596",
+  "glbSha256": "1eac4b31e452570c2501942a4cc0ea02581d7053ac35403f5bda6d860df9056c",
+  "props": [
+    {
+      "sourceId": "image-prop-1",
+      "positionM": [
+        0.74,
+        0.05,
+        0.91
+      ],
+      "originalImageSha256": "22fac18f3708b78ba6744adcde496fc73dccbc289ee4f1ec04638b3743e4bb75",
+      "meshSha256": "3e98c41a3933a5644bcc070a7aa80e7bba3a9d69750bf4bfa377438b49a64092",
+      "colliderSizeM": [
+        0.5,
+        0.1,
+        0.4
+      ],
+      "source": {
+        "sourceSha256": "0bbc94fe194ebc479143e6370674aa1d79570c1616f580ba772cee3a002f53ff",
+        "definitionSha256": "875c003348f47b7524f48be418e1a417d386c244a613b46a2aa45dcde7a31eff",
+        "sceneId": "002cba0b-ae76-309d-80bf-cba76c369c47"
+      },
+      "overheadCenterPx": [
+        274,
+        241
+      ],
+      "heldOutIou": 0.9322554236594351
+    },
+    {
+      "sourceId": "image-prop-2",
+      "positionM": [
+        -0.84,
+        0.2,
+        -0.54
+      ],
+      "originalImageSha256": "b351308c9c2e811981073e4affa95ed456a43ce2de09b97454b2055beef1f82a",
+      "meshSha256": "693934b66dddf8a46bd62029bafe468176127f3361f2e5fc94509b699bfa771f",
+      "colliderSizeM": [
+        0.5,
+        0.4,
+        0.30000000000000004
+      ],
+      "source": {
+        "sourceSha256": "941c2d636c323da327ede3a47fb87455293e862e983ed2e1262d3835d6cef3eb",
+        "definitionSha256": "bdfba672a05fd2adc5f0b794cb1d31c02757d71ea4c7b5a12c576cdabed65336",
+        "sceneId": "386e8a56-78c4-3248-a470-314a275a5090"
+      },
+      "overheadCenterPx": [
+        116,
+        96
+      ],
+      "heldOutIou": 0.9575625680087051
+    }
+  ],
+  "measurements": [
+    {
+      "sourceId": "image-prop-1",
+      "contactTick": 46,
+      "centerMm": [
+        740,
+        50,
+        910
+      ],
+      "ticks": 240,
+      "speedMmps": 0
+    },
+    {
+      "sourceId": "image-prop-2",
+      "contactTick": 46,
+      "centerMm": [
+        -840,
+        200,
+        -540
+      ],
+      "ticks": 240,
+      "speedMmps": 0
+    }
+  ],
+  "localPngImports": 7,
+  "didRestart": true,
+  "exactGlbRoundTrip": true,
+  "sourceScenesPreserved": true,
+  "refusedChangedLayout": true,
+  "refusedChangedViewSet": true,
+  "registration": {
+    "witnessSha256": "ac29faf695458dea43ceeb7ac32b2a467c1bbe528a05a749f534c9db6336de84",
+    "witnessElevationDeg": 60,
+    "assignmentGap": 1.0057734997917822,
+    "minimumWitnessIou": 0.83,
+    "minimumAssignmentGap": 0.06,
+    "witnessAzimuthFromFrontDeg": 45,
+    "minimumOverheadIou": 0.82,
+    "policy": "registered-silhouettes-v1",
+    "maximumWitnessCenterErrorPx": 2.5,
+    "props": [
+      {
+        "sourceId": "image-prop-1",
+        "witnessCenterErrorPx": 0.04072717088713814,
+        "witnessIou": 0.9238429994141769,
+        "label": "Perforated plate",
+        "overheadIou": 0.896700143472023
+      },
+      {
+        "sourceId": "image-prop-2",
+        "witnessCenterErrorPx": 1.255979389022589,
+        "witnessIou": 0.9237819585142306,
+        "label": "Stepped bracket",
+        "overheadIou": 0.9499683343888538
+      }
+    ]
+  },
+  "truth": {
+    "blenderVersion": "4.5.17 LTS",
+    "imagePixels": [
+      400,
+      300
+    ],
+    "widthM": 4,
+    "propsXZ": [
+      [
+        -0.83,
+        -0.53
+      ],
+      [
+        0.74,
+        0.91
+      ]
+    ],
+    "shiftInWrongViewXZ": [
+      0.16,
+      -0.04
+    ],
+    "eastRightInOverhead": true,
+    "secondCamera": {
+      "azimuthFromFrontDeg": 45,
+      "elevationDeg": 60
+    }
+  },
+  "labels": [
+    "Perforated plate",
+    "Stepped bracket"
+  ],
+  "positionErrorsM": [
+    0,
+    0.014142135623730965
+  ],
+  "shiftedViewRefusal": "Second view refused Perforated plate at its overhead position (24.5% overlap, 14.93 px center error).",
+  "detectedInReverseInputOrder": true,
+  "refusedReusedView": true,
+  "refusedAmbiguousIdentity": true,
+  "refusedChangedWitness": true
+}

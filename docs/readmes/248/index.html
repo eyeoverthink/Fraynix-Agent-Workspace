@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 248 · Locate unmarked props and verify their positions from a second view</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Locate unmarked props and verify their positions from a second view</h1>
+<p>The overhead image supplied the layout. A registered second angle checked both positions and refused a deliberately shifted plate.</p>
+<nav><a href="../../../README-248.md">App guide</a><a href="../247/index.html">Edition 247</a>
+<a href="../../publication248/plan.md">Reproduction</a><a href="image-assembly-evidence.json" download>Download measurements</a>
+<a href="image-workshop.glb" download>Download the GLB</a><a href="#system">System files</a></nav>
+<figure><img src="image-layout-assembled.png" alt="Two props placed from an unmarked overhead image"><figcaption>Two props placed from an unmarked overhead image</figcaption></figure>
+<figure><img src="shifted-second-view-refused.png" alt="A shifted plate is refused at its unchanged overhead position"><figcaption>A shifted plate is refused at its unchanged overhead position</figcaption></figure>
+<figure><img src="image-scene-restarted.png" alt="Both original views and floor contacts rechecked after restart"><figcaption>Both original views and floor contacts rechecked after restart</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "An unmarked overhead image locates checked meshes and a separate registered view verifies the fixed positions.", "modules": [{"title": "Silhouette association and second-angle checks", "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneRegistration.java", "note": "docs/obsidian/256-unmarked-image-registration.md"}, {"title": "Scene composition and native checks", "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java", "note": "docs/obsidian/256-unmarked-image-registration.md"}, {"title": "Binding and restart verification", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "note": "docs/obsidian/256-unmarked-image-registration.md"}, {"title": "Dual-view desktop controls", "source": "workspace-desktop/renderer/image-assembly.js", "note": "docs/obsidian/256-unmarked-image-registration.md"}, {"title": "Desktop assembly, refusal and restart", "source": "workspace-desktop/test/image-assembly-integration.cjs", "note": "docs/obsidian/256-unmarked-image-registration.md"}, {"title": "Independent Blender fixture generator", "source": "workspace-desktop/test/image-registration-fixtures.py", "note": "docs/obsidian/256-unmarked-image-registration.md"}, {"title": "Media smoke test selector correction", "source": "workspace-desktop/test/media-workshop-integration.cjs", "note": "docs/obsidian/256-unmarked-image-registration.md"}], "screenshots": [{"path": "docs/readmes/248/image-layout-assembled.png", "title": "Two props placed from an unmarked overhead image"}, {"path": "docs/readmes/248/shifted-second-view-refused.png", "title": "A shifted plate is refused at its unchanged overhead position"}, {"path": "docs/readmes/248/image-scene-restarted.png", "title": "Both original views and floor contacts rechecked after restart"}], "evidence": [{"path": "docs/readmes/248/overhead.png", "title": "Unmarked overhead"}, {"path": "docs/readmes/248/second-angle.png", "title": "Separate view"}, {"path": "docs/readmes/248/shifted-second-angle.png", "title": "Shifted control"}, {"path": "docs/readmes/248/image-assembly-evidence.json", "title": "Measured evidence"}, {"path": "docs/readmes/248/blender-readback.json", "title": "Blender readback"}, {"path": "docs/readmes/248/image-workshop.glb", "title": "GLB"}, {"path": "docs/publication248/plan.md", "title": "Reproduction"}, {"path": "docs/readmes/248/FILE_TREE.md", "title": "File tree"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 26674, "sha256": "10250f69ebc6a691e247986966e50c790c457b7c4800417df26a64baedc48fd0", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/256-unmarked-image-registration.canvas", "bytes": 1143, "sha256": "a8c0b02b418f287cb7f9f9255299f33f0524134001fb34831608832c78ff5bda", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/256-unmarked-image-registration.md", "bytes": 426, "sha256": "f19f8b0723776ee569ce12cb928cf398c465a762e85382c4523c24f4d9e10bc2", "hashKind": "utf8-lf"}, {"path": "docs/publication248/plan.md", "bytes": 2197, "sha256": "13ea7ad30a1eb37f73c2a0d6db5e9c58b3e707df9411dcad5c2c6a7f1a1518cd", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/image-assembly.js", "bytes": 6751, "sha256": "e5374c3b0fc2065a5cf8399c3e9d382a3b13264946716cf7036276a1a3715a66", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-panel.js", "bytes": 55216, "sha256": "6f18b2b590888eeb2b364b0f6427bd2992c0c7ff16c5dd3ce5a4b4ca77f1870a", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial.css", "bytes": 13014, "sha256": "7b2e94b90a99625910c2a3d1d584eb750a6da4bc07208fbb21c0b4b829b606fa", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/image-assembly-blender.py", "bytes": 2877, "sha256": "c170a969a4b54d322c6ac38c1babf2de1f033d6325a5df335755507dd2b4316e", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/image-assembly-integration.cjs", "bytes": 13825, "sha256": "b0f8d1f507fe0455708cebecde0886ad815a22d976852acb48b026b37214c228", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/image-registration-fixtures.py", "bytes": 2082, "sha256": "30ef3dbd542a4288a8f7b6d06ffe3b767a80dbe70420034b6a14018a76cac888", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/media-workshop-integration.cjs", "bytes": 13434, "sha256": "b11c22939815f98a9ad737432127ae8e95704117ffb730b2462b8e9e638ee668", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java", "bytes": 12451, "sha256": "330b373cb03054c49be619fdaf19fad6fadc4ea3b80ebac23bd9a517bd339fcb", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneRegistration.java", "bytes": 12284, "sha256": "3b031822d4baa625e59c19962145d0054b9e1359840d95ed14e5f1e051912836", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 79428, "sha256": "4b1b3e346f11144580d3e21a99772665eac2bdf53aef63ab04e6db63c2432a9d", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md) · [Independent system review](docs/publication244/review.md)
 
-[Edition 247 — Build editable 3D scenes from registered images](README-247.md) · [Previous edition](README-246.md) · [Offline walkthrough](docs/readmes/247/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 248 — Locate unmarked props and verify their positions from a second view](README-248.md) · [Previous edition](README-247.md) · [Offline walkthrough](docs/readmes/248/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Reconstruct editable props from local PNGs or browser captures, then place them from an overhead image in one 3D scene with verified floor contacts and GLB export.
+Locate checked 3D props in an unmarked overhead image. A second registered angle checks the proposed locations before Fraynix builds the editable scene.
