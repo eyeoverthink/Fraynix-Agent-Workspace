@@ -5,7 +5,7 @@ export function isMotionMediaRequest(text) {
 }
 
 export class MotionMediaPanel {
-    constructor(request,back) {
+    constructor(request,back,edit) {
         this.request=request;
         this.root=document.createElement('section');
         this.root.id='motion-media';
@@ -42,6 +42,11 @@ export class MotionMediaPanel {
         listen.textContent='Listen to WAV';
         listen.onclick=()=>this.action(()=>this.listen());
         exports.append(listen);
+        const editButton=document.createElement('button');
+        editButton.id='motion-edit-timeline';
+        editButton.textContent='Edit on timeline';
+        editButton.onclick=()=>edit(this.media.id);
+        exports.append(editButton);
         this.source.onchange=()=>this.controls();
         this.controls();
     }

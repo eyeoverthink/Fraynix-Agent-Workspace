@@ -25,6 +25,7 @@ export class TileEditor {
                 <button id="tile-model-3d">Model sprites in 3D</button>
                 <button id="media-legacy-mode" class="quiet">Single sprite</button>
                 <button id="media-motion-mode">Motion media</button>
+                <button id="media-timeline-mode">Timeline</button>
             </div>
             <div class="tile-library">
                 <div class="tile-bar">

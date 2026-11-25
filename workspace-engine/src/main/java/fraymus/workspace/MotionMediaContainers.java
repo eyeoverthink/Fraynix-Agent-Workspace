@@ -2,12 +2,14 @@ package fraymus.workspace;
 
 import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioSystem;
+import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -111,6 +113,119 @@ final class MotionMediaContainers {
         require(!movi.hasRemaining() && !index.hasRemaining(),"AVI contains unexpected samples");
     }
 
+    record ImportedClip(List<byte[]> frames, byte[] pcm, int width, int height) {}
+
+    static ImportedClip readClip(byte[] bytes, int maxFrames) throws IOException {
+        return readClip(bytes,maxFrames,true);
+    }
+
+    static ImportedClip readClip(byte[] bytes, int maxFrames, boolean validateFrames) throws IOException {
+        var file=ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN);
+        var riff=section(block(file,"RIFF"),"AVI ");
+        ByteBuffer header=null, movie=null;
+        while (riff.hasRemaining()) {
+            var child=next(riff);
+            if (!child.name.equals("LIST")) continue;
+            String name=tag(child.payload);
+            if (name.equals("hdrl")) header=child.payload;
+            if (name.equals("movi")) movie=child.payload;
+        }
+        require(!file.hasRemaining() && header!=null && movie!=null,"AVI needs header and movie data.");
+        int streamCount=0, width=0, height=0, videoStream=-1, audioStream=-1, declaredFrames=-1;
+        while (header.hasRemaining()) {
+            var child=next(header);
+            if (!child.name.equals("LIST") || !tag(child.payload).equals("strl")) continue;
+            ByteBuffer strh=null, strf=null;
+            while (child.payload.hasRemaining()) {
+                var field=next(child.payload);
+                if (field.name.equals("strh")) strh=field.payload;
+                if (field.name.equals("strf")) strf=field.payload;
+            }
+            require(strh!=null && strf!=null && strh.remaining()>=48,"Invalid AVI track header.");
+            String type=tag(strh), codec=tag(strh);
+            if (type.equals("vids")) {
+                require(videoStream<0 && codec.equals("MJPG") && strh.getInt(20)>0
+                        && (long)strh.getInt(24)==(long)FPS*strh.getInt(20) && strf.remaining()>=40
+                        && strf.getInt(16)==fourcc("MJPG"),"Use a 24 fps Motion JPEG AVI.");
+                width=strf.getInt(4);
+                height=strf.getInt(8);
+                require(width>=16 && width<=1280 && height>=16 && height<=720,"AVI dimensions exceed the timeline limit.");
+                videoStream=streamCount;
+                declaredFrames=strh.getInt(32);
+            } else if (type.equals("auds")) {
+                require(audioStream<0 && strf.remaining()>=16 && strf.getShort(0)==1 && strf.getShort(2)==1
+                        && strf.getInt(4)==HZ && strf.getShort(12)==2 && strf.getShort(14)==16,
+                        "AVI audio must be 24 kHz mono 16-bit PCM.");
+                audioStream=streamCount;
+            } else throw new IOException("AVI contains an unsupported track.");
+            streamCount++;
+        }
+        require(videoStream>=0 && declaredFrames>0 && declaredFrames<=maxFrames,"AVI is missing video or exceeds the clip duration.");
+        var video=new ArrayList<byte[]>();
+        var sound=new ByteArrayOutputStream();
+        collectMovie(movie,"0"+videoStream,audioStream<0?"":"0"+audioStream,video,sound,maxFrames,true);
+        require(video.size()==declaredFrames,"AVI frames differ from its declared timeline.");
+        require((sound.size()&1)==0 && sound.size()<=maxFrames*PCM_PER_FRAME,"AVI audio exceeds the duration limit.");
+        if (validateFrames) for (var bytesFrame:video) decodeFrame(bytesFrame,width,height);
+        return new ImportedClip(video,sound.toByteArray(),width,height);
+    }
+
+    private static void collectMovie(ByteBuffer movie,String videos,String sounds,List<byte[]> video,
+                                     ByteArrayOutputStream sound,int maxFrames,boolean allowLists) throws IOException {
+        while (movie.hasRemaining()) {
+            var part=next(movie);
+            if (part.name.equals("LIST") && allowLists && tag(part.payload).equals("rec ")) {
+                collectMovie(part.payload,videos,sounds,video,sound,maxFrames,false);
+            } else if (part.name.equals(videos+"dc") || part.name.equals(videos+"db")) {
+                require(video.size()<maxFrames && part.payload.remaining()<=1_000_000,"AVI video exceeds the clip budget.");
+                var bytes=new byte[part.payload.remaining()];
+                part.payload.get(bytes);
+                video.add(bytes);
+            } else if (!sounds.isEmpty() && part.name.equals(sounds+"wb")) {
+                require((long)sound.size()+part.payload.remaining()<=maxFrames*PCM_PER_FRAME,"AVI audio exceeds the clip duration.");
+                var bytes=new byte[part.payload.remaining()];
+                part.payload.get(bytes);
+                sound.writeBytes(bytes);
+            }
+        }
+    }
+
+    static BufferedImage decodeFrame(byte[] bytes,int width,int height) throws IOException {
+        try (var stream=ImageIO.createImageInputStream(new ByteArrayInputStream(bytes))) {
+            var reader=ImageIO.getImageReaders(stream);
+            require(reader.hasNext(),"A video frame could not be read.");
+            var jpeg=reader.next();
+            try {
+                jpeg.setInput(stream,true,true);
+                require(jpeg.getFormatName().equalsIgnoreCase("jpeg") && jpeg.getWidth(0)==width && jpeg.getHeight(0)==height,
+                        "AVI frame format or dimensions differ from its header.");
+                return jpeg.read(0);
+            } finally {
+                jpeg.dispose();
+            }
+        }
+    }
+
+    static byte[] readPcmWav(byte[] bytes,int maxFrames) throws Exception {
+        try (var stream=AudioSystem.getAudioInputStream(new ByteArrayInputStream(bytes))) {
+            var format=stream.getFormat();
+            require(format.getEncoding().equals(javax.sound.sampled.AudioFormat.Encoding.PCM_SIGNED)
+                    && format.getSampleRate()==HZ && format.getChannels()==1 && format.getSampleSizeInBits()==16
+                    && !format.isBigEndian() && stream.getFrameLength()>0 && stream.getFrameLength()<=maxFrames*(long)(HZ/FPS),
+                    "Use a 24 kHz mono 16-bit PCM WAV within the timeline duration.");
+            var pcm=stream.readNBytes(maxFrames*PCM_PER_FRAME+1);
+            require(pcm.length==stream.getFrameLength()*2 && pcm.length%2==0,"WAV PCM differs from its declared length.");
+            return pcm;
+        }
+    }
+
+    private record Child(String name,ByteBuffer payload) {}
+    private static Child next(ByteBuffer buffer) throws IOException {
+        require(buffer.remaining()>=8,"Truncated RIFF chunk.");
+        String name=tag(buffer);
+        return new Child(name,payload(buffer));
+    }
+
     private static void require(boolean ok,String error) throws IOException {
         if (!ok) throw new IOException(error);
     }
@@ -132,6 +247,10 @@ final class MotionMediaContainers {
 
     private static ByteBuffer block(ByteBuffer parent,String name) throws IOException {
         require(parent.remaining()>=8 && tag(parent).equals(name),"Missing RIFF chunk "+name);
+        return payload(parent);
+    }
+
+    private static ByteBuffer payload(ByteBuffer parent) throws IOException {
         int length=parent.getInt();
         require(length>=0 && (long)length+(length&1)<=parent.remaining(),"Invalid RIFF chunk size");
         var bytes=parent.slice(parent.position(),length).order(ByteOrder.LITTLE_ENDIAN);

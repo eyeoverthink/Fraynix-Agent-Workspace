@@ -101,3 +101,22 @@
 #motion-media img { width: min(100%, 640px); display: block; border: 1px solid #385055; border-radius: 8px; }
 #motion-media figcaption, #motion-status { margin: 7px 0; color: #a8dfcc; overflow-wrap: anywhere; font-size: 12px; }
 #motion-audio { margin: 10px 0; max-width: 100%; }
+#timeline-editor { min-height: 0; flex: 1; overflow: auto; padding: 14px 16px; background: #142125; }
+#timeline-editor form, .timeline-strip { display: flex; align-items: end; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+#timeline-editor label { display: grid; gap: 4px; font-size: 12px; }
+#timeline-editor select { min-width: 0; max-width: min(100%, 40ch); }
+#timeline-tracks { display: grid; gap: 5px; }
+.timeline-track { padding: 6px 8px; border: 1px solid #344c53; border-radius: 8px; }
+.timeline-track h3 { margin: 0 0 4px; font-size: 12px; }
+.timeline-bars { position: relative; height: 20px; background: #0e1a20; border-radius: 3px; overflow: hidden; }
+.timeline-bars span { position: absolute; height: 20px; background: #2e6057; color: #effff9; line-height: 20px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 11px; padding-left: 3px; }
+.timeline-track[data-lane=OVERLAY] .timeline-bars span { background: #665078; }
+.timeline-track[data-lane^=AUDIO] .timeline-bars span { background: #3c567e; }
+.timeline-strip { margin: 5px 0; gap: 5px; }
+.timeline-strip strong { font-size: 12px; font-weight: 500; min-width: 120px; align-self: center; }
+.timeline-strip input { width: 57px; }
+#timeline-picture { width: min(100%, 640px); display: block; border: 1px solid #385055; border-radius: 8px; }
+#timeline-scrub-label { max-width: 640px; margin: 8px 0; }
+#timeline-status { color: #a8dfcc; overflow-wrap: anywhere; font-size: 12px; }
+#timeline-audio { margin: 10px 0; max-width: 100%; }

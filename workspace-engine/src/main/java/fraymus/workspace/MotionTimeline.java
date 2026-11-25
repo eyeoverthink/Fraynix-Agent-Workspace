@@ -255,7 +255,7 @@ final class MotionTimeline {
         return image;
     }
 
-    private static byte[] jpeg(BufferedImage image,float quality) throws IOException {
+    static byte[] jpeg(BufferedImage image,float quality) throws IOException {
         var writer=ImageIO.getImageWritersByFormatName("JPEG").next();
         var bytes=new ByteArrayOutputStream();
         try (var stream=ImageIO.createImageOutputStream(bytes)) {

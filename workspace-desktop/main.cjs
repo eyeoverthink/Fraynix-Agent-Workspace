@@ -1034,6 +1034,20 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='export'){const result=await api('/api/maps/export',{id:input.args.id});return nativeExports.save('playable-map','json',result.text,{id:input.args.id});}
       if(!['example','reference-cases','reference-example','dungeons','inspect-image','import-image','reference','list','read','run','snapshot','manual','control','stop','pause','resume','from-procedural','import-package'].includes(input.command))throw Error('Unknown map operation');return api('/api/maps/'+input.command,input.args||{});
     }
+    case 'timeline': {
+      const args=input.args||{};
+      const command=input.command;
+      if (['assets','import','attach','render','latest','open','frame'].includes(command)) {
+        const result=await api('/api/timeline/'+command,args);
+        if (command==='render') activity('media','Verified a timeline revision',{id:result.id,frames:result.metrics.frames});
+        return result;
+      }
+      if (command==='preview-audio') return api('/api/timeline/export',{id:args.id,format:'wav'});
+      if (command!=='export' || !['avi','wav','png','json'].includes(args.format)) throw Error('Choose a supported timeline export.');
+      const data=await api('/api/timeline/export',args);
+      return nativeExports.save('verified-timeline',args.format,Buffer.from(data.base64,'base64'),
+        {id:args.id},data.sha256);
+    }
     case 'motion-media': {
       const args=input.args||{};
       const command=input.command;

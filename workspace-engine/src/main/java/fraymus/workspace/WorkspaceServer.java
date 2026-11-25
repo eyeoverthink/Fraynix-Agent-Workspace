@@ -40,6 +40,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final ColliderRouting colliderRouting;
     private final SpriteWorkshop media;
     private final MotionMedia motionMedia;
+    private final MediaEditStore mediaEdit;
     private final TileWorkshop tiles;
     private final MapStore maps;
     private final PerceptionStore perception;
@@ -110,6 +111,7 @@ public final class WorkspaceServer implements AutoCloseable {
             runtime040=new SpatialRuntime040(project,goals.worlds(),goals.worldNative(),tabletop,knowledge,game);alignment041=new Alignment041Store(project,goals.worlds());workflows.install159(new CalibratedPlane159(project,alignment041,goals.worlds()));accuracy160=new PlaneAccuracyStore160(project,alignment041,goals.worlds(),store);small161=new SmallStore161(project,store);workflows.install162(new RecordedSmall162(project,alignment041,goals.worlds(),small161));smallObjectRoutes=new SmallObjectRoutes(small161,spatial,workflows);}catch(Exception e){throw new IOException("Experiment stores could not start",e);}
         try{agentRuntime=new AgentRuntime042(project,brain,this::agentFacts042,this::detachHost042,persistentHost);agency=new Agency043(project,store,learning,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();},(kind,evidence)->agentRuntime.record043(kind,evidence),this::sharedBusy043,true);var domain=new Domain044(this::call044,store);agency.install044(domain);agency.installRelayArchive(domain::relayArchive);agency.installArchive112(task->{var bound=task.getJSONObject("completion044").getJSONObject("javaWorkflow");String id=task.getJSONObject("context044").getString("ownedWorkflowId");if(!id.equals(bound.getString("id")))throw new IllegalStateException("Original chat/workflow owner changed");var proof=workflows.verifyArchive110(id);var current=workflows.read(id);for(String k:List.of("status","audit","report","savedSkill","dataBinding"))if(bound.has(k)&&(!current.has(k)||!new JSONObject().put("v",bound.get(k)).similar(new JSONObject().put("v",current.get(k)))))throw new IllegalStateException("Original chat workflow completion changed: "+k);proof.remove("verificationNanos");return proof;});agency.installRampArchive(rampMission::historyEvidence);creation044=new CreationPlanner044(project,goals,request->{String id=request.getString("requestId");durableRequests043.add(id);try{return plan(request,true);}finally{durableRequests043.remove(id);}},id->{var c=requests.get(id);if(c!=null)c.cancel();});}catch(Exception e){close();throw new IOException("Java agent state needs attention; originals retained",e);}
         motionMedia = new MotionMedia(project,scenes);
+        mediaEdit = new MediaEditStore(project,motionMedia);
         colliderRouting = new ColliderRouting(project,this::proposeExperiment,spatial);
         referenceChart = new ReferenceChart(project, store, measurements, agency);
         costs087=new CalibrationCosts087(project,goals);
@@ -144,7 +146,7 @@ public final class WorkspaceServer implements AutoCloseable {
                 if(exchange.getRequestMethod().equals("GET")&&exchange.getRequestURI().getPath().equals("/api/state")){send(exchange,200,state());return;}
                 if(!exchange.getRequestMethod().equals("POST")){send(exchange,405,new JSONObject().put("error","POST required"));return;}
                 int bodyLimit = switch (exchange.getRequestURI().getPath()) {
-                    case "/api/media-tiles/import" -> 8_700_000;
+                    case "/api/media-tiles/import", "/api/timeline/import" -> 8_700_000;
                     case "/api/game/import-reference" -> 4_000_100;
                     case "/api/goals/ack" -> 24_000_000;
                     case "/api/agency043/frame" -> 8_100_000;
@@ -733,6 +735,14 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/media-tiles/save" -> result = tiles.save(input);
                     case "/api/media-tiles/import" -> result = tiles.importLevel(input);
                     case "/api/media-tiles/export" -> result = tiles.export(input);
+                    case "/api/timeline/assets" -> result = mediaEdit.list(input);
+                    case "/api/timeline/import" -> result = mediaEdit.importAsset(input);
+                    case "/api/timeline/attach" -> result = mediaEdit.attach(input);
+                    case "/api/timeline/render" -> result = mediaEdit.render(input);
+                    case "/api/timeline/latest" -> result = mediaEdit.latest(input);
+                    case "/api/timeline/open" -> result = mediaEdit.open(input);
+                    case "/api/timeline/frame" -> result = mediaEdit.frame(input);
+                    case "/api/timeline/export" -> result = mediaEdit.export(input);
                     case "/api/motion-media/sources" -> result = motionMedia.sources(input);
                     case "/api/motion-media/build" -> result = motionMedia.build(input);
                     case "/api/motion-media/latest" -> result = motionMedia.latest(input);
