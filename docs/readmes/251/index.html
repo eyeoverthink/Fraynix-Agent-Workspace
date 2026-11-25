@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 251 · Verify three prop poses with custom camera angles</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Verify three prop poses with custom camera angles</h1>
+<p>Two fitting images recover three props at custom orthographic camera angles. A separate view checks each fixed pose.</p>
+<nav><a href="../../../README-251.md">App guide</a><a href="../250/index.html">Edition 250</a>
+<a href="../../publication251/plan.md">Reproduction</a><a href="pose-survey.json" download>Download measurements</a>
+<a href="image-workshop.glb" download>Download the GLB</a><a href="#system">System files</a></nav>
+<figure><img src="three-prop-scene.png" alt="Three editable Blender-derived props at their recovered poses"><figcaption>Three editable Blender-derived props at their recovered poses</figcaption></figure>
+<figure><img src="overlapping-props-refused.png" alt="Spatial refuses an overhead image with two merged silhouettes"><figcaption>Spatial refuses an overhead image with two merged silhouettes</figcaption></figure>
+<figure><img src="camera-angles-after-restart.png" alt="Custom camera settings and all three native checks restored after restart"><figcaption>Custom camera settings and all three native checks restored after restart</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{"summary": "Register custom camera angles, verify three fixed poses, and replay the editable scene.", "modules": [{"title": "Custom camera projection and fixed-pose checks", "source": "workspace-engine/src/main/java/fraymus/workspace/ImageTiltRegistration.java", "note": "docs/obsidian/259-custom-camera-pose.md"}, {"title": "Rotation, collider geometry and native replay", "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java", "note": "docs/obsidian/259-custom-camera-pose.md"}, {"title": "Retained source files and calibration", "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "note": "docs/obsidian/259-custom-camera-pose.md"}, {"title": "Camera controls in Spatial", "source": "workspace-desktop/renderer/image-assembly.js", "note": "docs/obsidian/259-custom-camera-pose.md"}, {"title": "Three-prop desktop and refusal test", "source": "workspace-desktop/test/image-pose-survey-integration.cjs", "note": "docs/obsidian/259-custom-camera-pose.md"}, {"title": "Independent Blender reference generator", "source": "workspace-desktop/test/image-pose-survey-fixtures.py", "note": "docs/obsidian/259-custom-camera-pose.md"}, {"title": "Independent Blender export verification", "source": "workspace-desktop/test/image-assembly-blender.py", "note": "docs/obsidian/259-custom-camera-pose.md"}], "screenshots": [{"title": "Three editable Blender-derived props at their recovered poses", "path": "docs/readmes/251/three-prop-scene.png"}, {"title": "Spatial refuses an overhead image with two merged silhouettes", "path": "docs/readmes/251/overlapping-props-refused.png"}, {"title": "Custom camera settings and all three native checks restored after restart", "path": "docs/readmes/251/camera-angles-after-restart.png"}], "evidence": [{"title": "Overhead source", "path": "docs/readmes/251/overhead.png"}, {"title": "Fitting side", "path": "docs/readmes/251/fitting-side.png"}, {"title": "Held-out angle", "path": "docs/readmes/251/held-out.png"}, {"title": "Occluded input", "path": "docs/readmes/251/overhead-occluded.png"}, {"title": "Wrong camera", "path": "docs/readmes/251/wrong-held-out-angle.png"}, {"title": "Ambiguous overhead", "path": "docs/readmes/251/overhead-ambiguous.png"}, {"title": "Ambiguous fitting side", "path": "docs/readmes/251/fitting-side-ambiguous.png"}, {"title": "Ambiguous held-out angle", "path": "docs/readmes/251/held-out-ambiguous.png"}, {"title": "Measured evidence", "path": "docs/readmes/251/pose-survey.json"}, {"title": "Blender readback", "path": "docs/readmes/251/blender-readback.json"}, {"title": "GLB", "path": "docs/readmes/251/image-workshop.glb"}, {"title": "Scene JSON", "path": "docs/readmes/251/image-workshop.json"}, {"title": "File tree", "path": "docs/readmes/251/FILE_TREE.md"}, {"title": "Reproduction", "path": "docs/publication251/plan.md"}]}</script>
+<script id="inventory-data" type="application/json">[{"path": ".github/workflows/portable-workspace.yml", "bytes": 28107, "sha256": "3b6409013aef50a3b057aaabc6b5fd892bc12b5248d36a074c9a91215b3067dc", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/259-custom-camera-pose.canvas", "bytes": 1122, "sha256": "a1033cab0b0862e7a68cd0755094db446d06119ad4001c561907476ee695cd46", "hashKind": "utf8-lf"}, {"path": "docs/obsidian/259-custom-camera-pose.md", "bytes": 454, "sha256": "7d68bfcd8d992d55fb6f0aa0d041985950baae24c157a2a1cfd407a19c8970b9", "hashKind": "utf8-lf"}, {"path": "docs/publication251/plan.md", "bytes": 2903, "sha256": "ad69e7d1c1a29ea57122ed7dd8516b86e30e4114fbeeef469435c42db6ac1f0b", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/image-assembly.js", "bytes": 10348, "sha256": "7ae24875e0db7f65ffaaac0d93edecf545afa2829421da6b5cbf2aeca203fc5b", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/renderer/spatial-panel.js", "bytes": 56452, "sha256": "b6264860a63b83c960e25220053cd18175802762fae1d12966af0dff617de2de", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/image-assembly-blender.py", "bytes": 3596, "sha256": "a422c98b2a0cc3b6e0afe1343f5db0fa83270e9849fd0b92c360190431b5e4a4", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/image-pose-survey-fixtures.py", "bytes": 3975, "sha256": "367e34a6787b5713fce48e4e8b8682210e886f250f8149d16b3d7469567c0f50", "hashKind": "utf8-lf"}, {"path": "workspace-desktop/test/image-pose-survey-integration.cjs", "bytes": 11323, "sha256": "a512c12d556dff9543e779b9a0df9f0aad5ee78f6606e25e3f889b3a989704d0", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java", "bytes": 17374, "sha256": "11c1d2f1a6023601239ae7a0c818459a9b45a2e2b9164f9660f75b4c7d2db9de", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/ImageTiltRegistration.java", "bytes": 18773, "sha256": "6caa42c2507272baef3bcdb0956547c16eb8b25fef7d0774b592a01aa2c98102", "hashKind": "utf8-lf"}, {"path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java", "bytes": 81323, "sha256": "5d45e7765b08b2bc314bd39d6554a8a65029e3077930914a999f2ed3f789d832", "hashKind": "utf8-lf"}]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 251 — Verify three prop poses with custom camera angles](../../README-251.md) · [Walkthrough](251/index.html)
+
 [Edition 250 — Recover full prop poses from unmarked images](../../README-250.md) · [Walkthrough](250/index.html)
 
 [Edition 249 — Recover and verify prop rotation from unmarked images](../../README-249.md) · [Walkthrough](249/index.html)

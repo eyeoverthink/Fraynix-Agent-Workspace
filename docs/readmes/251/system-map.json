@@ -1,0 +1,112 @@
+{
+  "summary": "Register custom camera angles, verify three fixed poses, and replay the editable scene.",
+  "modules": [
+    {
+      "title": "Custom camera projection and fixed-pose checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ImageTiltRegistration.java",
+      "note": "docs/obsidian/259-custom-camera-pose.md"
+    },
+    {
+      "title": "Rotation, collider geometry and native replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/ImageSceneAssembly.java",
+      "note": "docs/obsidian/259-custom-camera-pose.md"
+    },
+    {
+      "title": "Retained source files and calibration",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+      "note": "docs/obsidian/259-custom-camera-pose.md"
+    },
+    {
+      "title": "Camera controls in Spatial",
+      "source": "workspace-desktop/renderer/image-assembly.js",
+      "note": "docs/obsidian/259-custom-camera-pose.md"
+    },
+    {
+      "title": "Three-prop desktop and refusal test",
+      "source": "workspace-desktop/test/image-pose-survey-integration.cjs",
+      "note": "docs/obsidian/259-custom-camera-pose.md"
+    },
+    {
+      "title": "Independent Blender reference generator",
+      "source": "workspace-desktop/test/image-pose-survey-fixtures.py",
+      "note": "docs/obsidian/259-custom-camera-pose.md"
+    },
+    {
+      "title": "Independent Blender export verification",
+      "source": "workspace-desktop/test/image-assembly-blender.py",
+      "note": "docs/obsidian/259-custom-camera-pose.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Three editable Blender-derived props at their recovered poses",
+      "path": "docs/readmes/251/three-prop-scene.png"
+    },
+    {
+      "title": "Spatial refuses an overhead image with two merged silhouettes",
+      "path": "docs/readmes/251/overlapping-props-refused.png"
+    },
+    {
+      "title": "Custom camera settings and all three native checks restored after restart",
+      "path": "docs/readmes/251/camera-angles-after-restart.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Overhead source",
+      "path": "docs/readmes/251/overhead.png"
+    },
+    {
+      "title": "Fitting side",
+      "path": "docs/readmes/251/fitting-side.png"
+    },
+    {
+      "title": "Held-out angle",
+      "path": "docs/readmes/251/held-out.png"
+    },
+    {
+      "title": "Occluded input",
+      "path": "docs/readmes/251/overhead-occluded.png"
+    },
+    {
+      "title": "Wrong camera",
+      "path": "docs/readmes/251/wrong-held-out-angle.png"
+    },
+    {
+      "title": "Ambiguous overhead",
+      "path": "docs/readmes/251/overhead-ambiguous.png"
+    },
+    {
+      "title": "Ambiguous fitting side",
+      "path": "docs/readmes/251/fitting-side-ambiguous.png"
+    },
+    {
+      "title": "Ambiguous held-out angle",
+      "path": "docs/readmes/251/held-out-ambiguous.png"
+    },
+    {
+      "title": "Measured evidence",
+      "path": "docs/readmes/251/pose-survey.json"
+    },
+    {
+      "title": "Blender readback",
+      "path": "docs/readmes/251/blender-readback.json"
+    },
+    {
+      "title": "GLB",
+      "path": "docs/readmes/251/image-workshop.glb"
+    },
+    {
+      "title": "Scene JSON",
+      "path": "docs/readmes/251/image-workshop.json"
+    },
+    {
+      "title": "File tree",
+      "path": "docs/readmes/251/FILE_TREE.md"
+    },
+    {
+      "title": "Reproduction",
+      "path": "docs/publication251/plan.md"
+    }
+  ]
+}

@@ -1,3 +1,7 @@
+## Edition 251 — Verify three prop poses with custom camera angles
+
+2026-11-25. The optional full-pose camera controls bind four calibrated angles to the source images and replay. The fresh three-prop Blender study measured up to 5.3 mm position error and 3.37° full-rotation error. Merged silhouettes, a symmetric orientation, insufficient camera separation and an incorrect held-out view were refused. Native checks and exact GLB export reproduced after restart. Independent Blender readback passed. The edition 250 preset still generates its published JSON and GLB. See README-251.md and docs/publication251/plan.md.
+
 ## Edition 250 — Recover full prop poses from unmarked images
 
 2026-11-25. Java fits XYZ, heading, pitch and roll using overhead and a registered side view. A third fixed camera verifies the retained poses. On the two independent Blender reference props, the largest 3D position error was 5.4 mm and the largest full rotation error was 2.24°. Tilt-only and height-only changes refused. Windows replayed the complete checks after restart, refused changed inputs and reproduced the exact GLB. Blender reopened the fitted visual meshes and distinct collider boxes. The study uses rendered reference views. See README-250.md and docs/publication250/plan.md.

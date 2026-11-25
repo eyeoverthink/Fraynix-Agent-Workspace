@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 250,
+  "latest": 251,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -269311,6 +269311,120 @@
         {
           "path": "docs/readmes/250/wrong-tilt.png",
           "sha256": "1f05a0fdd429060daba5e1cd430fbc7e7eb7e6e7d73cf3f41366e1a7403ec62f",
+          "kind": "binary"
+        }
+      ]
+    },
+    {
+      "number": 251,
+      "date": "2026-11-25",
+      "title": "Verify three prop poses with custom camera angles",
+      "status": "published",
+      "markdown": "README-251.md",
+      "markdownSha256": "86364862c55601d0425651dd06d386f14e94163ab00fdbbf0c04f1c390b393b7",
+      "snapshotDirectory": "docs/readmes/251",
+      "companion": "docs/readmes/251/index.html",
+      "tag": "readme-251",
+      "sourceBaseline": "02fe879ac9748f0d94b84107d6863359c91fa1d6",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/251/blender-readback.json",
+          "sha256": "06e050e3cfbc5658a696faea1af71be9963ae619aa4a575dd031a9415d7f4e36",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/251/camera-angles-after-restart.png",
+          "sha256": "538f842e748dca50a4827dbd521b7b4b867cace64a9fa8ff01542a8296fec12c",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/251/file-inventory.json",
+          "sha256": "c3eca64ff9639db1080204f6d6b3d7c8bb00fd56ad4c66c12917b00130bad187",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/251/FILE_TREE.md",
+          "sha256": "94652db7d1976d7a2efb17d0d8aa2352fc96e96d6d9473983004e182cecc8366",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/251/fitting-side-ambiguous.png",
+          "sha256": "6e6d7d596f2070da0639feba172445cf99787d8794059f08265096b6dcaf403d",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/251/fitting-side.png",
+          "sha256": "c45e517e19f33e99d9440371abdb07822974fc1bed94e1b05d1f284069c0d0ec",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/251/held-out-ambiguous.png",
+          "sha256": "9117486617da55f6edd9c5ccada048eb41cdae7458f63e7b60574aefb9492cda",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/251/held-out.png",
+          "sha256": "d872d951e11cd486b15ef55706a5369c4bf54fac3290ce87c309c61a66935fcf",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/251/image-workshop.glb",
+          "sha256": "ef50f64f1ee066e2fa908c20301a788bb9a4e585c311f125ac5b79fe0f066417",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/251/image-workshop.json",
+          "sha256": "356af97be13d3507f5c3df2d1c88b92944cc8e91ba5fd1b76e6909229e47f22c",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/251/index.html",
+          "sha256": "941b2e1e851b4311eb3ffaabf6da2e2d1d97cb11762c7d4b708b1b990e750a05",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/251/overhead-ambiguous.png",
+          "sha256": "2bd1d0890c975a239a9bbc7c676f50f3d973138d4d25a14e17dda0c53b65ca00",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/251/overhead-occluded.png",
+          "sha256": "884227fb7e94333de5553e9aaecc4d50e877ef467dbe3d89ff24c493c71f1c48",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/251/overhead.png",
+          "sha256": "c0503e5c77e1b919071a0075ca34eff53590ea154497691bdf6efdc65b857097",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/251/overlapping-props-refused.png",
+          "sha256": "5e4108e5b472d2724634eeea92911e3c97f38b62d14a63a0f1f561ab6d5e0e15",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/251/pose-survey.json",
+          "sha256": "c1ce11da9e3e506e4581ca2806e82889039dbe5882a135c8465bb615f9f4b7ae",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/251/system-map.json",
+          "sha256": "029bb9aad77c12caebcbf764e7f374ad51b0b3691bd94629de8829e0cbb9f22e",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/251/three-prop-scene.png",
+          "sha256": "68d300ad2f0361ee22d0a22f78d0c75115585e5ab08d1e8518b46711d16cbc6a",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/251/truth.json",
+          "sha256": "896c01d354722d6fe3402762c0e9b87557e70f9db63e96aab00afdd2f3088795",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/251/wrong-held-out-angle.png",
+          "sha256": "5aee71dced4c36b9067333e10f36fee6f07f219851e0d2be1e467960b2c7c499",
           "kind": "binary"
         }
       ]

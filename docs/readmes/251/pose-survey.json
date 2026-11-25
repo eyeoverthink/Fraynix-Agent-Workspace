@@ -1,0 +1,318 @@
+{
+  "platform": "win32",
+  "layoutSha256": "c0503e5c77e1b919071a0075ca34eff53590ea154497691bdf6efdc65b857097",
+  "sceneSha256": "356af97be13d3507f5c3df2d1c88b92944cc8e91ba5fd1b76e6909229e47f22c",
+  "glbSha256": "ef50f64f1ee066e2fa908c20301a788bb9a4e585c311f125ac5b79fe0f066417",
+  "validation": {
+    "witnessElevationDeg": 37,
+    "minimumWitnessIou": 0.83,
+    "tiltLimitDeg": 30,
+    "minimumWitnessRotationGain": 0.022,
+    "witnessHeadingDeg": 65,
+    "minimumPoseGap": 0.022,
+    "props": [
+      {
+        "sourceId": "image-prop-1",
+        "poseGap": 0.1533191060550554,
+        "positionM": [
+          0.05333333333333334,
+          0.3843862361599554,
+          -0.8533333333333334
+        ],
+        "witnessCenterErrorPx": 0.6149158193961248,
+        "witnessEstimatedAnglesDeg": [
+          126,
+          11,
+          -15
+        ],
+        "anglesDeg": [
+          128,
+          11,
+          -15
+        ],
+        "witnessIou": 0.9488132685158708,
+        "label": "Fork bracket",
+        "overheadIou": 0.9607303651825913,
+        "guideIou": 0.9848879624804586,
+        "witnessCorrectionDeg": 1.9999999999998004,
+        "witnessCorrectionGain": 0.016506307293816858
+      },
+      {
+        "sourceId": "image-prop-2",
+        "poseGap": 0.2591593876464917,
+        "positionM": [
+          -0.92,
+          0.41786646138573874,
+          -0.66
+        ],
+        "witnessCenterErrorPx": 1.0615318644472005,
+        "witnessEstimatedAnglesDeg": [
+          -38,
+          13,
+          22
+        ],
+        "anglesDeg": [
+          -38,
+          13,
+          26
+        ],
+        "witnessIou": 0.8914081145584726,
+        "label": "Elbow bracket",
+        "overheadIou": 0.9558457711442786,
+        "guideIou": 0.9666206896551724,
+        "witnessCorrectionDeg": 4.000000000000259,
+        "witnessCorrectionGain": 0.07257747967922246
+      },
+      {
+        "sourceId": "image-prop-3",
+        "poseGap": 0.16092985943488447,
+        "positionM": [
+          0.9733333333333334,
+          0.4077984844275896,
+          0.64
+        ],
+        "witnessCenterErrorPx": 0.2029839820220506,
+        "witnessEstimatedAnglesDeg": [
+          82,
+          -20,
+          -7
+        ],
+        "anglesDeg": [
+          80,
+          -22,
+          -5
+        ],
+        "witnessIou": 0.9717875247961207,
+        "label": "Offset step",
+        "overheadIou": 0.9693027038015857,
+        "guideIou": 0.9798082806445033,
+        "witnessCorrectionDeg": 3.021877653826901,
+        "witnessCorrectionGain": 0.01283461931635732
+      }
+    ],
+    "witnessSha256": "d872d951e11cd486b15ef55706a5369c4bf54fac3290ce87c309c61a66935fcf",
+    "assignmentGap": 0.6808250745429847,
+    "guideHeadingDeg": -20,
+    "maximumWitnessCorrectionDeg": 8,
+    "guideSha256": "c45e517e19f33e99d9440371abdb07822974fc1bed94e1b05d1f284069c0d0ec",
+    "guideElevationDeg": 48,
+    "policy": "registered-silhouettes-tilt-v4",
+    "maximumWitnessCenterErrorPx": 2.5
+  },
+  "measured": [
+    {
+      "label": "Fork bracket",
+      "positionErrorM": 0.005166122100106781,
+      "angleErrorDeg": 2.0583131135823107,
+      "reference": {
+        "model": "fork",
+        "positionM": [
+          0.057,
+          0.381,
+          -0.852
+        ],
+        "anglesDeg": [
+          127,
+          11,
+          -17
+        ],
+        "quaternion": [
+          -0.08937427401542664,
+          0.8873506784439087,
+          -0.15048211812973022,
+          0.4265865981578827
+        ]
+      }
+    },
+    {
+      "label": "Elbow bracket",
+      "positionErrorM": 0.005274378091023274,
+      "angleErrorDeg": 3.3689111118398256,
+      "reference": {
+        "model": "elbow",
+        "positionM": [
+          -0.917,
+          0.421,
+          -0.657
+        ],
+        "anglesDeg": [
+          -37,
+          13,
+          23
+        ],
+        "quaternion": [
+          0.04234439134597778,
+          -0.3303386867046356,
+          0.22304871678352356,
+          0.9161509871482849
+        ]
+      }
+    },
+    {
+      "label": "Offset step",
+      "positionErrorM": 0.0035136387616534143,
+      "angleErrorDeg": 2.1292619373180353,
+      "reference": {
+        "model": "step",
+        "positionM": [
+          0.973,
+          0.406,
+          0.637
+        ],
+        "anglesDeg": [
+          81,
+          -21,
+          -7
+        ],
+        "quaternion": [
+          -0.17729850113391876,
+          0.628922164440155,
+          0.07248739898204803,
+          0.753503680229187
+        ]
+      }
+    }
+  ],
+  "truth": {
+    "blenderVersion": "4.5.17 LTS",
+    "widthM": 3.6,
+    "imagePixels": [
+      540,
+      405
+    ],
+    "cameraAngles": {
+      "sideHeadingDeg": -20,
+      "sideElevationDeg": 48,
+      "witnessHeadingDeg": 65,
+      "witnessElevationDeg": 37
+    },
+    "samples": [
+      {
+        "model": "elbow",
+        "positionM": [
+          -0.917,
+          0.421,
+          -0.657
+        ],
+        "anglesDeg": [
+          -37,
+          13,
+          23
+        ],
+        "quaternion": [
+          0.04234439134597778,
+          -0.3303386867046356,
+          0.22304871678352356,
+          0.9161509871482849
+        ]
+      },
+      {
+        "model": "step",
+        "positionM": [
+          0.973,
+          0.406,
+          0.637
+        ],
+        "anglesDeg": [
+          81,
+          -21,
+          -7
+        ],
+        "quaternion": [
+          -0.17729850113391876,
+          0.628922164440155,
+          0.07248739898204803,
+          0.753503680229187
+        ]
+      },
+      {
+        "model": "fork",
+        "positionM": [
+          0.057,
+          0.381,
+          -0.852
+        ],
+        "anglesDeg": [
+          127,
+          11,
+          -17
+        ],
+        "quaternion": [
+          -0.08937427401542664,
+          0.8873506784439087,
+          -0.15048211812973022,
+          0.4265865981578827
+        ]
+      }
+    ],
+    "wrongHeldOutCamera": {
+      "headingDeg": 45,
+      "elevationDeg": 30
+    }
+  },
+  "refusals": {
+    "occlusion": "Overhead needs one separated silhouette per selected prop.",
+    "insufficientSeparation": "Fitting and held-out cameras must be at least 25° apart.",
+    "wrongHeldOutCamera": "Held-out view refused Fork bracket's fixed pose (30.7% overlap, 26.80 px center error).",
+    "ambiguousHalfTurn": "The fitting views leave Symmetric block's tilt or heading ambiguous."
+  },
+  "physics": [
+    {
+      "sourceId": "image-prop-1",
+      "initialRotationErrorMilliDeg": 0,
+      "contactTick": 58,
+      "centerMm": [
+        50,
+        100,
+        -853
+      ],
+      "ticks": 480,
+      "initialCenterM": [
+        0.05333333333333334,
+        0.3843862361599554,
+        -0.8533333333333334
+      ],
+      "speedMmps": 0,
+      "rotationErrorMilliDeg": 18633
+    },
+    {
+      "sourceId": "image-prop-2",
+      "initialRotationErrorMilliDeg": 0,
+      "contactTick": 68,
+      "centerMm": [
+        -905,
+        100,
+        -672
+      ],
+      "ticks": 480,
+      "initialCenterM": [
+        -0.92,
+        0.41786646138573874,
+        -0.66
+      ],
+      "speedMmps": 0,
+      "rotationErrorMilliDeg": 28961
+    },
+    {
+      "sourceId": "image-prop-3",
+      "initialRotationErrorMilliDeg": 0,
+      "contactTick": 63,
+      "centerMm": [
+        981,
+        150,
+        659
+      ],
+      "ticks": 480,
+      "initialCenterM": [
+        0.9733333333333334,
+        0.4077984844275896,
+        0.64
+      ],
+      "speedMmps": 0,
+      "rotationErrorMilliDeg": 22576
+    }
+  ],
+  "restoredAnglesAndGlbAfterRestart": true,
+  "refusedChangedWitness": true,
+  "maxVertexDeltaM": 1.1796119636642288e-16
+}
