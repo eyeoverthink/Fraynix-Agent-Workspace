@@ -15,6 +15,7 @@ public final class SpatialStore implements AutoCloseable {
     private final SpatialPlacement placements, recipientEdits;
     private final PlacementExchange exchange;
     private final RecipientMissionStore recipientMissions;
+    private final Map<String,ImageSceneAssembly.Plan> verifiedTiltPlans = new HashMap<>();
     final HeightStudyStore heightStudies;
     private final Path file,nativeDir;private final LinkedHashMap<String,JSONObject> scenes=new LinkedHashMap<>(),runs=new LinkedHashMap<>();
     private final ExecutorService worker=Executors.newSingleThreadExecutor(r->{var t=new Thread(r,"spatial-native-owner");t.setDaemon(true);return t;});
@@ -903,6 +904,10 @@ public final class SpatialStore implements AutoCloseable {
         return file.resolveSibling("image-assemblies").resolve(UUID.fromString(id)+(witness?".witness.png":".png"));
     }
 
+    private Path assemblyGuide(String id) {
+        return assemblyImage(id,false).resolveSibling(UUID.fromString(id)+".guide.png");
+    }
+
     private boolean assemblySource(JSONObject scene) {
         var proof = scene.optJSONObject("reconstruction");
         return proof!=null && !scene.has("imageAssembly") && BrowserViewTrace.POLICY.equals(proof.optString("policy"));
@@ -924,25 +929,30 @@ public final class SpatialStore implements AutoCloseable {
     }
 
     synchronized JSONObject createImageAssembly(JSONObject input) throws Exception {
-        SpatialScene.keys(input,"layoutPng","witnessPng","title","widthM","props","recoverYaw");
+        SpatialScene.keys(input,"layoutPng","guidePng","witnessPng","title","widthM","props","recoverYaw");
         available();
         var png = SpriteWorkshop.decode(input.getString("layoutPng"),ImageSceneAssembly.PNG_LIMIT);
         byte[] witness = input.has("witnessPng")
                 ? SpriteWorkshop.decode(input.getString("witnessPng"),ImageSceneAssembly.PNG_LIMIT) : null;
-        var plan = ImageSceneAssembly.plan(new JSONObject(input,"title","widthM","props","recoverYaw"),png,witness,this::readAssemblySource);
+        byte[] guide = input.has("guidePng")
+                ? SpriteWorkshop.decode(input.getString("guidePng"),ImageSceneAssembly.PNG_LIMIT) : null;
+        var plan = ImageSceneAssembly.plan(new JSONObject(input,"title","widthM","props","recoverYaw"),png,guide,witness,this::readAssemblySource);
         String id = plan.id();
         if (scenes.containsKey(id)) return read(id);
         if (scenes.size()>=32) throw new IllegalStateException("Spatial import history limit reached (32)");
         var scene = SpatialScene.parse(plan.definition().toString(),id);
-        boolean verifyRotation = input.has("recoverYaw");
-        var measured = ImageSceneAssembly.verify(scene,nativeDir,verifyRotation);
-        var repeat = ImageSceneAssembly.verify(scene,nativeDir,verifyRotation);
+        boolean verifyRotation = input.has("recoverYaw") || guide!=null;
+        var measured = ImageSceneAssembly.verify(scene,nativeDir,verifyRotation,guide!=null);
+        var repeat = ImageSceneAssembly.verify(scene,nativeDir,verifyRotation,guide!=null);
         if (!measured.similar(repeat)) throw new IllegalStateException("The repeated native floor checks disagree.");
         var receipt = new JSONObject().put("binding",plan.binding()).put("measured",measured).put("repeat",repeat);
         retainAssemblyImage(assemblyImage(id,false),png);
         if (witness!=null) retainAssemblyImage(assemblyImage(id,true),witness);
-        return retainScene(scene.put("importedAt",Instant.now().toString()).put("imageAssembly",receipt)
+        if (guide!=null) retainAssemblyImage(assemblyGuide(id),guide);
+        var saved = retainScene(scene.put("importedAt",Instant.now().toString()).put("imageAssembly",receipt)
                 .put("imageAssemblySha256",WorldFrames.hash(receipt)));
+        if (guide!=null) verifiedTiltPlans.put(id,plan);
+        return saved;
     }
 
     private void retainAssemblyImage(Path path, byte[] bytes) throws Exception {
@@ -959,15 +969,26 @@ public final class SpatialStore implements AutoCloseable {
             String id = scene.getString("id");
             var png = SpriteWorkshop.read(assemblyImage(id,false),ImageSceneAssembly.PNG_LIMIT,
                     binding.getString("layoutSha256"));
-            byte[] witness = binding.has("registration")
+            var registration = binding.optJSONObject("registration");
+            byte[] witness = registration!=null
                     ? SpriteWorkshop.read(assemblyImage(id,true),ImageSceneAssembly.PNG_LIMIT,
-                        binding.getJSONObject("registration").getString("witnessSha256")) : null;
-            var plan = ImageSceneAssembly.plan(binding.getJSONObject("input"),png,witness,this::readAssemblySource);
+                        registration.getString("witnessSha256")) : null;
+            byte[] guide = registration!=null && registration.has("guideSha256")
+                    ? SpriteWorkshop.read(assemblyGuide(id),ImageSceneAssembly.PNG_LIMIT,registration.getString("guideSha256")) : null;
+            var plan = guide==null?null:verifiedTiltPlans.get(id);
+            if (plan==null) plan=ImageSceneAssembly.plan(binding.getJSONObject("input"),png,guide,witness,this::readAssemblySource);
+            else for (Object value : plan.binding().getJSONArray("props")) {
+                var expected = ((JSONObject)value).getJSONObject("source");
+                var original = readAssemblySource(expected.getString("sceneId"));
+                if (!SpatialPropCopy.binding(original).similar(expected))
+                    throw new IllegalStateException("A fitted prop's original model or images changed.");
+            }
             if (!plan.id().equals(id) || !plan.binding().similar(binding)
                     || !plan.definition().similar(new JSONObject(scene.getString("sourceText")))
                     || !WorldFrames.hash(receipt).equals(scene.getString("imageAssemblySha256"))
                     || !receipt.getJSONArray("measured").similar(receipt.getJSONArray("repeat")))
                 throw new IllegalStateException("The image-layout definition or measured evidence changed.");
+            if (guide!=null) verifiedTiltPlans.put(id,plan);
         } catch (Exception error) {
             throw new IllegalStateException("Cannot recheck the layout PNG, registered views, source images and assembled scene.",error);
         }
@@ -978,8 +999,11 @@ public final class SpatialStore implements AutoCloseable {
         available();
         var scene = read(input.getString("id"));
         var receipt = scene.getJSONObject("imageAssembly");
-        boolean verifyRotation = receipt.getJSONObject("binding").getJSONObject("input").has("recoverYaw");
-        var local = ImageSceneAssembly.verify(scene,nativeDir,verifyRotation);
+        var binding = receipt.getJSONObject("binding");
+        var registration = binding.optJSONObject("registration");
+        boolean releaseTilt = registration!=null && registration.has("guideSha256");
+        boolean verifyRotation = binding.getJSONObject("input").has("recoverYaw") || releaseTilt;
+        var local = ImageSceneAssembly.verify(scene,nativeDir,verifyRotation,releaseTilt);
         if (!local.similar(receipt.getJSONArray("measured")))
             throw new IllegalStateException("The fresh native support check differs from the retained evidence.");
         return new JSONObject().put("id",scene.getString("id")).put("matched",true).put("measured",local);

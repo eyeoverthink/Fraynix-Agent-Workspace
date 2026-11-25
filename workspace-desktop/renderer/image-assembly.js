@@ -10,6 +10,7 @@ export class ImageAssemblyPanel {
         this.status = this.root.querySelector('[role=status]');
         this.mode = this.form.elements.namedItem('mode');
         this.witness = this.form.elements.namedItem('witness');
+        this.guide = this.form.elements.namedItem('guide');
         this.add = this.root.querySelector('#image-assembly-add');
         this.replay = this.root.querySelector('#image-assembly-replay');
         this.assets = [];
@@ -68,13 +69,22 @@ export class ImageAssemblyPanel {
         const receipt = scene?.imageAssembly;
         if (this.sceneId !== scene?.id) {
             this.sceneId = scene?.id;
-            if (receipt) this.mode.value = receipt.binding.input.recoverYaw?'yaw':receipt.binding.registration?'views':'markers';
+            if (receipt) this.mode.value = receipt.binding.registration?.guideSha256?'tilt':
+                receipt.binding.input.recoverYaw?'yaw':receipt.binding.registration?'views':'markers';
             this.status.textContent = receipt ? this.receiptSummary(receipt) : '';
         }
         const views = this.mode.value!=='markers';
+        const tilt = this.mode.value==='tilt';
         this.root.querySelector('#image-assembly-layout-label').textContent = views?'Overhead PNG':'Layout PNG';
         this.witness.required = views;
         this.witness.disabled = !views;
+        this.guide.required = tilt;
+        this.guide.disabled = !tilt;
+        this.root.querySelector('#image-assembly-guide-fields').hidden = !tilt;
+        this.root.querySelector('#image-assembly-witness-label').textContent = tilt?'Held-out angle PNG':'Second-angle PNG';
+        this.root.querySelector('#image-assembly-camera-hint').textContent = tilt
+            ? 'Use overhead, a fitting side at 45° left / 60° above, and a held-out angle at 45° right / 45° above. Match the frame, center and metres per pixel. Keep props separated on a plain background.'
+            : 'Use an opaque overhead image with separated silhouettes on a plain background. The second camera is 45° left of the front and 60° above the floor. Match the frame, center and metres per pixel.';
         this.root.querySelector('#image-assembly-witness-fields').hidden = !views;
         for (const label of this.rows.querySelectorAll('.assembly-color')) label.hidden = views;
         this.replay.hidden = !receipt;
@@ -86,6 +96,8 @@ export class ImageAssemblyPanel {
     receiptSummary(receipt) {
         const registered = receipt.binding.registration;
         if (!registered) return receipt.measured.length+' props · floor contact verified twice';
+        if (registered.guideSha256)
+            return receipt.measured.length+' full poses verified · '+this.poseLabels(registered)+' · floor contact verified twice';
         if (receipt.binding.input.recoverYaw)
             return receipt.measured.length+' positions and rotations verified · '+this.headingLabels(registered)+' · floor contact verified twice';
         const scores = registered.props.map(prop=>Math.round(100*prop.witnessIou)+'%');
@@ -94,6 +106,11 @@ export class ImageAssemblyPanel {
 
     headingLabels(registration) {
         return registration.props.map(prop=>prop.label+' '+prop.overheadYawDeg+'°').join(' / ');
+    }
+
+    poseLabels(registration) {
+        return registration.props.map(prop=>prop.label+' '+prop.anglesDeg.map(angle=>angle+'°').join(', '))
+            .join(' / ')+' (heading, pitch, roll)';
     }
 
     async readPng(file) {
@@ -117,6 +134,7 @@ export class ImageAssemblyPanel {
             const request = {layoutPng:await this.readPng(fields.namedItem('layout').files[0]),
                 title:fields.namedItem('title').value,widthM:fields.namedItem('widthM').valueAsNumber,props};
             if (views) request.witnessPng = await this.readPng(this.witness.files[0]);
+            if (this.mode.value==='tilt') request.guidePng = await this.readPng(this.guide.files[0]);
             if (recoverYaw) request.recoverYaw = true;
             const scene = await this.spatial.call('image-assembly',request);
             await this.spatial.open(scene.id);
@@ -131,8 +149,10 @@ export class ImageAssemblyPanel {
         try {
             const result = await this.spatial.call('image-assembly-replay',{id:this.spatial.scene.id});
             const binding = this.spatial.scene.imageAssembly.binding;
-            const rechecked = binding.input.recoverYaw?'Positions and rotations rechecked. ':binding.registration?'Both registered views rechecked. ':'';
-            const headings = binding.input.recoverYaw?' '+this.headingLabels(binding.registration):'';
+            const tilt = binding.registration?.guideSha256;
+            const rechecked = tilt?'Full poses rechecked. ':binding.input.recoverYaw?'Positions and rotations rechecked. '
+                :binding.registration?'Both registered views rechecked. ':'';
+            const headings = tilt?' '+this.poseLabels(binding.registration):binding.input.recoverYaw?' '+this.headingLabels(binding.registration):'';
             this.status.textContent = rechecked+'Fresh floor contacts matched for all '+result.measured.length+' props.'+headings;
         } catch (error) {
             this.status.textContent = error.message.replace(/^Error invoking remote method '[^']+': (?:Error: )?/,'');

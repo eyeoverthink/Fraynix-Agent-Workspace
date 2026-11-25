@@ -332,6 +332,14 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/image-assembly-integration.cjs build/portable-smoke/image-yaw yaw
+      - name: Verify registered full poses and restart
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/image-tilt-integration.cjs build/portable-smoke/image-tilt
+      - name: Verify registered full poses on a virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/image-tilt-integration.cjs build/portable-smoke/image-tilt
       - name: Independently replay reviewed authored-level evidence
         if: runner.os != 'Linux'
         run: node workspace-desktop/test/placement-exchange-integration.cjs build/portable-smoke/authored-replay workspace-desktop/test/fixtures/authored-level-exchange/edited-signal-bay.fraynix-level.json

@@ -19,10 +19,10 @@ final class ImageSceneRegistration {
     private static final double DIAGONAL = Math.sqrt(.5);
     private static final double WITNESS_UP = .5;
     private static final double WITNESS_AWAY = Math.sqrt(.75);
-    private static final double MIN_OVERHEAD_IOU = .82;
-    private static final double MIN_WITNESS_IOU = .83;
-    private static final double MIN_ASSIGNMENT_GAP = .06;
-    private static final double MAX_WITNESS_CENTER_PX = 2.5;
+    static final double MIN_OVERHEAD_IOU = .82;
+    static final double MIN_WITNESS_IOU = .83;
+    static final double MIN_ASSIGNMENT_GAP = .06;
+    static final double MAX_WITNESS_CENTER_PX = 2.5;
     private static final int RASTER_SAMPLES = 3;
     private static final int FOREGROUND_CONTRAST = 64;
     private static final int COARSE_YAW_STEP = 12;
@@ -33,10 +33,10 @@ final class ImageSceneRegistration {
 
     record Prop(String label, SpatialVisualMesh mesh, double heightM) {}
     record Result(List<double[]> centersPx, int[] yawDeg, JSONObject evidence) {}
-    private record Match(int dx, int dy, double iou, double centerErrorPx) {}
+    record Match(int dx, int dy, double iou, double centerErrorPx) {}
     private record Heading(int yaw, Match match, double gap) {}
 
-    private static final class Silhouette {
+    static final class Silhouette {
         final BitSet mask = new BitSet();
         final int width;
         int count, minX, maxX=-1, minY, maxY=-1;
@@ -60,7 +60,7 @@ final class ImageSceneRegistration {
         double centerY() { return sumY/(double)count+.5; }
     }
 
-    private static final class Assignment {
+    static final class Assignment {
         int[] best;
         double score=Double.NEGATIVE_INFINITY, runner=Double.NEGATIVE_INFINITY;
 
@@ -227,17 +227,21 @@ final class ImageSceneRegistration {
     private static int wrap(int degrees) { return Math.floorMod(degrees+180,360)-180; }
     private static int angleDistance(int a,int b) { return Math.abs(wrap(a-b)); }
 
-    private static Assignment assign(Match[][] scores) {
+    static Assignment assign(Match[][] scores) {
         var assignment=new Assignment();
         assignment.search(scores,0,0,new int[scores.length],0);
         return assignment;
     }
 
     private static Match fit(Silhouette a, Silhouette b, int w, int h) {
+        return fit(a,b,w,h,2);
+    }
+
+    static Match fit(Silhouette a, Silhouette b, int w, int h, int radius) {
         int x=(int)Math.round((b.minX+b.maxX-a.minX-a.maxX)/2.0);
         int y=(int)Math.round((b.minY+b.maxY-a.minY-a.maxY)/2.0);
         Match best=null;
-        for (int dy=y-2;dy<=y+2;dy++) for (int dx=x-2;dx<=x+2;dx++) {
+        for (int dy=y-radius;dy<=y+radius;dy++) for (int dx=x-radius;dx<=x+radius;dx++) {
             var match=compare(a,b,w,h,dx,dy);
             if (best==null || match.iou>best.iou || match.iou==best.iou && match.centerErrorPx<best.centerErrorPx)
                 best=match;
@@ -245,7 +249,7 @@ final class ImageSceneRegistration {
         return best;
     }
 
-    private static Match compare(Silhouette a, Silhouette b, int w, int h, int dx, int dy) {
+    static Match compare(Silhouette a, Silhouette b, int w, int h, int dx, int dy) {
         int common=0;
         if (a.minX+dx<=b.maxX && a.maxX+dx>=b.minX && a.minY+dy<=b.maxY && a.maxY+dy>=b.minY) {
             for (int bit=a.mask.nextSetBit(0);bit>=0;bit=a.mask.nextSetBit(bit+1)) {
@@ -262,19 +266,26 @@ final class ImageSceneRegistration {
         var mesh=prop.mesh;
         double angle=Math.toRadians(yaw), sin=Math.sin(angle), cos=Math.cos(angle);
         double[][] projected=new double[mesh.vertexCount()][2];
-        int left=w, right=0, top=h, bottom=0;
         for (int i=0;i<projected.length;i++) {
             double lx=mesh.positions()[3*i], lz=mesh.positions()[3*i+2];
             double vx=cos*lx+sin*lz+x, vy=mesh.positions()[3*i+1]+prop.heightM/2, vz=-sin*lx+cos*lz+z;
             double u=witness?(vx+vz)*DIAGONAL:vx;
             double v=witness?(vz-vx)*DIAGONAL*WITNESS_AWAY-vy*WITNESS_UP:vz;
             double col=w/2.0+u/cellM, row=h/2.0+v/cellM;
+            projected[i][0]=col;
+            projected[i][1]=row;
+        }
+        return raster(w,h,mesh,projected,crop);
+    }
+
+    static Silhouette raster(int w, int h, SpatialVisualMesh mesh, double[][] projected, boolean crop) {
+        int left=w, right=0, top=h, bottom=0;
+        for (var pixel:projected) {
+            double col=pixel[0], row=pixel[1];
             if (col<1 || col>=w-1 || row<1 || row>=h-1) {
                 if (crop) return null;
                 throw new IllegalArgumentException("Keep every projected model fully inside the registered image frame.");
             }
-            projected[i][0]=col;
-            projected[i][1]=row;
             left=Math.min(left,(int)Math.floor(col));
             top=Math.min(top,(int)Math.floor(row));
             right=Math.max(right,(int)Math.ceil(col));
@@ -315,7 +326,7 @@ final class ImageSceneRegistration {
         return result;
     }
 
-    private static List<Silhouette> components(BufferedImage img, int limit, String label) {
+    static List<Silhouette> components(BufferedImage img, int limit, String label) {
         int w=img.getWidth(), h=img.getHeight();
         var pixels=img.getRGB(0,0,w,h,null,0,w);
         int bg=pixels[0];

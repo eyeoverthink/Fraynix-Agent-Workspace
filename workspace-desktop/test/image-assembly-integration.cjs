@@ -38,6 +38,35 @@ function checkRotatedRoundTrip(authored, imported, source) {
     return vertexDeltaM;
 }
 
+async function fitRegisteredViews(page,call,folder,files,elevation) {
+    const clear = page.locator('#browser-views-clear');
+    if (await clear.isEnabled()) await clear.click();
+    const labels = {front:'front',side:'side',top:'top',heldOut:'held-out 45°'};
+    for (const [role,file] of Object.entries(files)) {
+        await page.locator('#registered-png-role').selectOption(role);
+        await page.locator('#registered-png-file').setInputFiles(path.join(fixtures,folder,file));
+        await page.waitForFunction(text=>document.querySelector('#browser-views-status').textContent.startsWith(text),
+            'Loaded '+labels[role]);
+    }
+    await page.locator('#browser-views-elevation').selectOption(String(elevation));
+    const before = (await call('list')).scenes.length;
+    await page.locator('#browser-views-build').click();
+    await page.waitForFunction(count=>{
+        const select = document.querySelector('#spatial-scenes');
+        const status = document.querySelector('#browser-views-status').textContent;
+        if (status.includes('refused') || status.includes('could not be reproduced')) throw Error(status);
+        return select.options.length===count+1 && select.value===select.options[count].value;
+    },before,{timeout:12000});
+    const id = await page.locator('#spatial-scenes').inputValue();
+    const source = await call('read',{id});
+    for (const [role,name] of Object.entries(files)) {
+        const view = source.reconstruction.views[role];
+        assert.equal(view.fileName,name);
+        assert.equal(view.pngSha256,hash(await fs.readFile(path.join(fixtures,folder,name))));
+    }
+    return source;
+}
+
 async function main() {
     process.env.FRAYNIX_WORKSPACE_NO_MODELS = '1';
     const recoverYaw = process.argv[3]==='yaw';
@@ -71,34 +100,7 @@ async function main() {
         ({app,page} = await launch(project,extraArgs));
         await open();
     };
-    const fit = async (folder,files,elevation) => {
-        const clear = page.locator('#browser-views-clear');
-        if (await clear.isEnabled()) await clear.click();
-        const labels = {front:'front',side:'side',top:'top',heldOut:'held-out 45°'};
-        for (const [role,file] of Object.entries(files)) {
-            await page.locator('#registered-png-role').selectOption(role);
-            await page.locator('#registered-png-file').setInputFiles(path.join(fixtures,folder,file));
-            await page.waitForFunction(text=>document.querySelector('#browser-views-status').textContent.startsWith(text),
-                'Loaded '+labels[role]);
-        }
-        await page.locator('#browser-views-elevation').selectOption(String(elevation));
-        const before = (await call('list')).scenes.length;
-        await page.locator('#browser-views-build').click();
-        await page.waitForFunction(count=>{
-            const select = document.querySelector('#spatial-scenes');
-            const status = document.querySelector('#browser-views-status').textContent;
-            if (status.includes('refused') || status.includes('could not be reproduced')) throw Error(status);
-            return select.options.length===count+1 && select.value===select.options[count].value;
-        },before,{timeout:12000});
-        const id = await page.locator('#spatial-scenes').inputValue();
-        const source = await call('read',{id});
-        for (const [role,name] of Object.entries(files)) {
-            const view = source.reconstruction.views[role];
-            assert.equal(view.fileName,name);
-            assert.equal(view.pngSha256,hash(await fs.readFile(path.join(fixtures,folder,name))));
-        }
-        return source;
-    };
+    const fit = (folder,files,elevation) => fitRegisteredViews(page,call,folder,files,elevation);
 
     try {
         await page.locator('#spatial-tab').click();
@@ -297,4 +299,5 @@ async function main() {
     }
 }
 
-main().catch(error=>{console.error(error);process.exitCode=1;});
+if (require.main===module) main().catch(error=>{console.error(error);process.exitCode=1;});
+module.exports={fitRegisteredViews,checkRotatedRoundTrip};
