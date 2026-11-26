@@ -1,0 +1,67 @@
+{
+  "summary": "Discover tools and run requests from one shared conversation and stage.",
+  "modules": [
+    {
+      "title": "Unified workspace shell",
+      "source": "workspace-desktop/renderer/workspace-shell.js",
+      "note": "docs/obsidian/272-unified-workspace.md"
+    },
+    {
+      "title": "Workspace appearance",
+      "source": "workspace-desktop/renderer/workspace-shell.css",
+      "note": "docs/obsidian/272-unified-workspace.md"
+    },
+    {
+      "title": "Workspace action registry",
+      "source": "workspace-desktop/renderer/workspace-capabilities.mjs",
+      "note": "docs/obsidian/272-unified-workspace.md"
+    },
+    {
+      "title": "Chat and workspace routing",
+      "source": "workspace-desktop/renderer/app.js",
+      "note": "docs/obsidian/272-unified-workspace.md"
+    },
+    {
+      "title": "Native surfaces and input gates",
+      "source": "workspace-desktop/main.cjs",
+      "note": "docs/obsidian/272-unified-workspace.md"
+    },
+    {
+      "title": "Desktop integration",
+      "source": "workspace-desktop/test/workspace-shell-integration.cjs",
+      "note": "docs/obsidian/272-unified-workspace.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Start in one workspace with conversation and task suggestions",
+      "path": "docs/readmes/264/workspace-home.png"
+    },
+    {
+      "title": "Search actions and registered Java tools from the launcher",
+      "path": "docs/readmes/264/workspace-tools.png"
+    },
+    {
+      "title": "Resume a request with a selected model and see the result beside chat",
+      "path": "docs/readmes/264/workspace-floor-plan.png"
+    },
+    {
+      "title": "Keep the composer within reach in the compact layout",
+      "path": "docs/readmes/264/workspace-compact.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Two-room pavilion model",
+      "path": "docs/readmes/264/two-room-pavilion.glb"
+    },
+    {
+      "title": "Desktop acceptance evidence",
+      "path": "docs/readmes/264/workspace-shell-evidence.json"
+    },
+    {
+      "title": "Implementation and reproduction",
+      "path": "docs/publication264/plan.md"
+    }
+  ]
+}

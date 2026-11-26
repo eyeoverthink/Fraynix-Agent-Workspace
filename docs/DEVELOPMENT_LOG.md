@@ -1,3 +1,7 @@
+## Edition 264 — One workspace for chat, tools and results
+
+2026-11-25. Start with one conversation and one active workspace. Known chat requests open their existing panes and carry required input through the same request. The launcher searches real workspace actions and Java tools. Compact windows keep the composer visible. Existing draft protection, execution and verification remain in charge. Independent design, routing and implementation reviewers tested the approach. The Windows desktop checks cover an offline browser read, floor-plan and ramp continuation, dirty-source protection and restart. See README-264.md and docs/publication264/plan.md.
+
 ## Edition 263 — Resume a desk recording, preview and calendar draft
 
 2026-11-25. One Environment mission retains the exact clip, samples, room model and selected frame. Java verifies excluded landmark points, model rays, video and calendar bytes. The public studio resumed after restart and a shifted witness refused. The real apartment clip and tentative calendar draft were retained after restart with the camera anchor unresolved. The held-out discrepancy was 32.8 px at a 5 px limit. Public screenshots and fixtures use independently authored test data. See README-263.md and docs/publication263/plan.md.
