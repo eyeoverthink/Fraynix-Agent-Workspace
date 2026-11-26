@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md) · [Independent system review](docs/publication244/review.md)
 
-[Edition 264 — One workspace for chat, tools and results](README-264.md) · [Previous edition](README-263.md) · [Offline walkthrough](docs/readmes/264/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 265 — Make a talking avatar and game character from an image](README-265.md) · [Previous edition](README-264.md) · [Offline walkthrough](docs/readmes/265/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Start a request in chat, review the result in the same workspace, and discover available tools as you work.
+Create a talking portrait and a game character inside the unified workspace, then reopen or export the editable source.

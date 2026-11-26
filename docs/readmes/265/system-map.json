@@ -1,0 +1,79 @@
+{
+  "summary": "Build a reusable offline avatar, animated portrait and transparent game sprite.",
+  "modules": [
+    {
+      "title": "Java avatar renderer and recipe store",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AvatarWorkshop.java",
+      "note": "docs/obsidian/273-avatar-studio.md"
+    },
+    {
+      "title": "Java RIFF video and audio checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MotionMediaContainers.java",
+      "note": "docs/obsidian/273-avatar-studio.md"
+    },
+    {
+      "title": "Avatar Studio controls",
+      "source": "workspace-desktop/renderer/avatar-panel.js",
+      "note": "docs/obsidian/273-avatar-studio.md"
+    },
+    {
+      "title": "Avatar Studio appearance",
+      "source": "workspace-desktop/renderer/avatar-panel.css",
+      "note": "docs/obsidian/273-avatar-studio.md"
+    },
+    {
+      "title": "Chat and workspace routing",
+      "source": "workspace-desktop/renderer/app.js",
+      "note": "docs/obsidian/273-avatar-studio.md"
+    },
+    {
+      "title": "Desktop avatar integration",
+      "source": "workspace-desktop/test/avatar-integration.cjs",
+      "note": "docs/obsidian/273-avatar-studio.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Avatar Studio with a marked portrait, an animated mouth pose and a game sprite",
+      "path": "docs/readmes/265/avatar-studio.png"
+    },
+    {
+      "title": "Four transparent walk frames from the same source",
+      "path": "docs/readmes/265/walk-sheet.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Sample portrait",
+      "path": "docs/readmes/265/sample-portrait.png"
+    },
+    {
+      "title": "Timed audio fixture",
+      "path": "docs/readmes/265/sample-voice-timing.wav"
+    },
+    {
+      "title": "Transparent sprite",
+      "path": "docs/readmes/265/character.png"
+    },
+    {
+      "title": "Editable avatar",
+      "path": "docs/readmes/265/editable-avatar.avatar.json"
+    },
+    {
+      "title": "Sample talking portrait (AVI)",
+      "path": "docs/readmes/265/talking-portrait.avi"
+    },
+    {
+      "title": "Asset manifest",
+      "path": "docs/readmes/265/asset-manifest.json"
+    },
+    {
+      "title": "Restart and import evidence",
+      "path": "docs/readmes/265/avatar-test-evidence.json"
+    },
+    {
+      "title": "Implementation and reproduction",
+      "path": "docs/publication265/plan.md"
+    }
+  ]
+}

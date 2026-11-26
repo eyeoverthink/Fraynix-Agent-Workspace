@@ -1,3 +1,7 @@
+## Edition 265 — Make a talking avatar and game character from an image
+
+2026-11-26. Avatar Studio opens from chat or Tools. Desktop accepts a local image or video frame and optional user-provided audio. Java saves a reusable crop, mouth point, five audio-reactive poses, a transparent character, four walking frames and verified AVI export. The public robot test checked restart, clean-project import, changed-source refusal and sprite library intake. Use the public robot for documentation and keep personal portraits, projects and audio local. See README-265.md and docs/publication265/plan.md.
+
 ## Edition 264 — One workspace for chat, tools and results
 
 2026-11-25. Start with one conversation and one active workspace. Known chat requests open their existing panes and carry required input through the same request. The launcher searches real workspace actions and Java tools. Compact windows keep the composer visible. Existing draft protection, execution and verification remain in charge. Independent design, routing and implementation reviewers tested the approach. The Windows desktop checks cover an offline browser read, floor-plan and ramp continuation, dirty-source protection and restart. See README-264.md and docs/publication264/plan.md.

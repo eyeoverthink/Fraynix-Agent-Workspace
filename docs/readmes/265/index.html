@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 265 · Make a talking avatar and game character from an image</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Make a talking avatar and game character from an image</h1>
+<p>Reopen the original robot example in Avatar Studio, or build it from a portrait and an audio fixture.</p>
+<nav><a href="../../../README-265.md">App guide</a><a href="../264/index.html">Edition 264</a>
+<a href="../../publication265/plan.md">Reproduction</a><a href="editable-avatar.avatar.json" download>Download editable robot</a>
+<a href="avatar-test-evidence.json" download>Download desktop evidence</a><a href="#system">System files</a></nav>
+<figure><img src="avatar-studio.png" alt="Avatar Studio with a marked portrait, an animated mouth pose and a game sprite"><figcaption>Avatar Studio with a marked portrait, an animated mouth pose and a game sprite</figcaption></figure>
+<figure><img src="walk-sheet.png" alt="Four transparent walk frames from the same source"><figcaption>Four transparent walk frames from the same source</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "Build a reusable offline avatar, animated portrait and transparent game sprite.",
+  "modules": [
+    {
+      "title": "Java avatar renderer and recipe store",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AvatarWorkshop.java",
+      "note": "docs/obsidian/273-avatar-studio.md"
+    },
+    {
+      "title": "Java RIFF video and audio checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MotionMediaContainers.java",
+      "note": "docs/obsidian/273-avatar-studio.md"
+    },
+    {
+      "title": "Avatar Studio controls",
+      "source": "workspace-desktop/renderer/avatar-panel.js",
+      "note": "docs/obsidian/273-avatar-studio.md"
+    },
+    {
+      "title": "Avatar Studio appearance",
+      "source": "workspace-desktop/renderer/avatar-panel.css",
+      "note": "docs/obsidian/273-avatar-studio.md"
+    },
+    {
+      "title": "Chat and workspace routing",
+      "source": "workspace-desktop/renderer/app.js",
+      "note": "docs/obsidian/273-avatar-studio.md"
+    },
+    {
+      "title": "Desktop avatar integration",
+      "source": "workspace-desktop/test/avatar-integration.cjs",
+      "note": "docs/obsidian/273-avatar-studio.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Avatar Studio with a marked portrait, an animated mouth pose and a game sprite",
+      "path": "docs/readmes/265/avatar-studio.png"
+    },
+    {
+      "title": "Four transparent walk frames from the same source",
+      "path": "docs/readmes/265/walk-sheet.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Sample portrait",
+      "path": "docs/readmes/265/sample-portrait.png"
+    },
+    {
+      "title": "Timed audio fixture",
+      "path": "docs/readmes/265/sample-voice-timing.wav"
+    },
+    {
+      "title": "Transparent sprite",
+      "path": "docs/readmes/265/character.png"
+    },
+    {
+      "title": "Editable avatar",
+      "path": "docs/readmes/265/editable-avatar.avatar.json"
+    },
+    {
+      "title": "Sample talking portrait (AVI)",
+      "path": "docs/readmes/265/talking-portrait.avi"
+    },
+    {
+      "title": "Asset manifest",
+      "path": "docs/readmes/265/asset-manifest.json"
+    },
+    {
+      "title": "Restart and import evidence",
+      "path": "docs/readmes/265/avatar-test-evidence.json"
+    },
+    {
+      "title": "Implementation and reproduction",
+      "path": "docs/publication265/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": "docs/obsidian/273-avatar-studio.canvas",
+    "bytes": 1126,
+    "sha256": "ecbc2759a468ad83425db317fb7ddb20500c9842fc36d8181e33f56e5e21b878",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/273-avatar-studio.md",
+    "bytes": 350,
+    "sha256": "0fcf403021849e7f982bc16aa37fdafd1a366ba18c3b562a787e5c6c6e59948f",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication265/plan.md",
+    "bytes": 2667,
+    "sha256": "7eacc655668cbf5caefccfe6366cb173e81c2c2666339a22a33cbdac0aa47f24",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/main.cjs",
+    "bytes": 143809,
+    "sha256": "20d6747e22263be3151808c401d7fdf8a038f1b4940282f1052605923fd129b2",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/app.js",
+    "bytes": 62853,
+    "sha256": "26792b97c4a8f1727265615816c2255f172183e713515d07b667c5d2e4c0ce12",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/avatar-panel.css",
+    "bytes": 2035,
+    "sha256": "35107b048a3b5c6ad6be08240646bd5ae49bea02aa2355b94553699226bda6d6",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/avatar-panel.js",
+    "bytes": 20946,
+    "sha256": "8e3e4308c86ad22deb18c256858ad20de0cb308677d91a980eba37f63ace4940",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/workspace-capabilities.mjs",
+    "bytes": 12641,
+    "sha256": "b0ecfad64875291d524b6b5b137405c9b25ec4558180990b9c83f9d15088da1e",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/avatar-integration.cjs",
+    "bytes": 11948,
+    "sha256": "2a87bc5b78a531b1cb54fda48d597c8ba625b96b8b86e7ccb5039cf66744cdb3",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/AvatarWorkshop.java",
+    "bytes": 19117,
+    "sha256": "2a4368d16ecc3db2a1e667061c944208e4a7a49eb7a9f5e49b9af878b4eab791",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/MotionMediaContainers.java",
+    "bytes": 15422,
+    "sha256": "4ad10b8e836d6adaa70890ea795460d461f6b830a28d4110cc8c19fbf735fefc",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+    "bytes": 163807,
+    "sha256": "af6cd4f3d6b35b4f6fe63da3ec10f97de0de0ad89a40aebccdc5fb6c3afc927f",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>
