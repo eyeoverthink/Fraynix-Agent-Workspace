@@ -1,0 +1,210 @@
+{
+  "sourceId": "f640458f4590799cc41cb0e617ec5985ca29dd88a3a16e04cd60149a7abe83af",
+  "auditId": "e1e0fbd09cac5a351c24b55672e9a211d95e11102d71d60a2e1fc9efe42da8d5",
+  "requestedCellM": 0.05,
+  "grid": {
+    "depth": 4,
+    "width": 120,
+    "originXM": -3,
+    "cellM": 0.05,
+    "originZM": -0.1
+  },
+  "scope": "Agreement at three samples per band. Thin or unsampled features and open surfaces remain unresolved.",
+  "format": "fraynix.height-layers-v1",
+  "boundsM": [
+    0,
+    0.9,
+    2.1,
+    2.6
+  ],
+  "solidBandCells": 1160,
+  "varyingBandCells": 0,
+  "bands": [
+    {
+      "solidRows": [
+        [
+          0,
+          25,
+          45,
+          120
+        ],
+        [
+          0,
+          25,
+          45,
+          120
+        ],
+        [
+          0,
+          25,
+          45,
+          120
+        ],
+        [
+          0,
+          25,
+          45,
+          120
+        ]
+      ],
+      "varyingRows": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "varyingCells": 0,
+      "bottomM": 0,
+      "openEdgesAcrossSamples": 0,
+      "solidCells": 400,
+      "topM": 0.9,
+      "samples": [
+        {
+          "role": "witness",
+          "planSha256": "647b365999113b8e9eaf3e2d13a5d13c52654d525df75b5abecbc5575f4a719f",
+          "filledCells": 400,
+          "openEdges": 0,
+          "heightM": 0.225
+        },
+        {
+          "role": "reference",
+          "planSha256": "647b365999113b8e9eaf3e2d13a5d13c52654d525df75b5abecbc5575f4a719f",
+          "filledCells": 400,
+          "openEdges": 0,
+          "heightM": 0.45
+        },
+        {
+          "role": "witness",
+          "planSha256": "647b365999113b8e9eaf3e2d13a5d13c52654d525df75b5abecbc5575f4a719f",
+          "filledCells": 400,
+          "openEdges": 0,
+          "heightM": 0.675
+        }
+      ]
+    },
+    {
+      "solidRows": [
+        [
+          0,
+          25,
+          45,
+          75,
+          105,
+          120
+        ],
+        [
+          0,
+          25,
+          45,
+          75,
+          105,
+          120
+        ],
+        [
+          0,
+          25,
+          45,
+          75,
+          105,
+          120
+        ],
+        [
+          0,
+          25,
+          45,
+          75,
+          105,
+          120
+        ]
+      ],
+      "varyingRows": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "varyingCells": 0,
+      "bottomM": 0.9,
+      "openEdgesAcrossSamples": 0,
+      "solidCells": 280,
+      "topM": 2.1,
+      "samples": [
+        {
+          "role": "witness",
+          "planSha256": "25ae156b208c0b25c5c55265dd48330d733ab3f8e7cf15b5310292ccc16ea525",
+          "filledCells": 280,
+          "openEdges": 0,
+          "heightM": 1.2000000000000002
+        },
+        {
+          "role": "reference",
+          "planSha256": "25ae156b208c0b25c5c55265dd48330d733ab3f8e7cf15b5310292ccc16ea525",
+          "filledCells": 280,
+          "openEdges": 0,
+          "heightM": 1.5
+        },
+        {
+          "role": "witness",
+          "planSha256": "25ae156b208c0b25c5c55265dd48330d733ab3f8e7cf15b5310292ccc16ea525",
+          "filledCells": 280,
+          "openEdges": 0,
+          "heightM": 1.8000000000000003
+        }
+      ]
+    },
+    {
+      "solidRows": [
+        [
+          0,
+          120
+        ],
+        [
+          0,
+          120
+        ],
+        [
+          0,
+          120
+        ],
+        [
+          0,
+          120
+        ]
+      ],
+      "varyingRows": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "varyingCells": 0,
+      "bottomM": 2.1,
+      "openEdgesAcrossSamples": 0,
+      "solidCells": 480,
+      "topM": 2.6,
+      "samples": [
+        {
+          "role": "witness",
+          "planSha256": "15f9ec0c1fee76f974f60f5eaaa2f7b5841ff28b3fc1232901860e1b65c6a020",
+          "filledCells": 480,
+          "openEdges": 0,
+          "heightM": 2.225
+        },
+        {
+          "role": "reference",
+          "planSha256": "15f9ec0c1fee76f974f60f5eaaa2f7b5841ff28b3fc1232901860e1b65c6a020",
+          "filledCells": 480,
+          "openEdges": 0,
+          "heightM": 2.35
+        },
+        {
+          "role": "witness",
+          "planSha256": "15f9ec0c1fee76f974f60f5eaaa2f7b5841ff28b3fc1232901860e1b65c6a020",
+          "filledCells": 480,
+          "openEdges": 0,
+          "heightM": 2.475
+        }
+      ]
+    }
+  ]
+}

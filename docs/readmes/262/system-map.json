@@ -1,0 +1,70 @@
+{
+  "summary": "Measure height changes and preserve tested open spaces in an editable GLB.",
+  "modules": [
+    {
+      "title": "Height audit and verified rebuild",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/EnvironmentHeightLayers.java",
+      "note": "docs/obsidian/270-height-layer-evidence.md"
+    },
+    {
+      "title": "Horizontal geometry measurement",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GlbSection.java",
+      "note": "docs/obsidian/270-height-layer-evidence.md"
+    },
+    {
+      "title": "Layer review controls",
+      "source": "workspace-desktop/renderer/height-layers.js",
+      "note": "docs/obsidian/270-height-layer-evidence.md"
+    },
+    {
+      "title": "Aperture and restart tests",
+      "source": "workspace-desktop/test/height-layers-integration.cjs",
+      "note": "docs/obsidian/270-height-layer-evidence.md"
+    },
+    {
+      "title": "Independent Blender rays",
+      "source": "workspace-desktop/test/height-layers-blender.py",
+      "note": "docs/obsidian/270-height-layer-evidence.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The editable rebuild preserves the doorway, window, sill and headers",
+      "path": "docs/readmes/262/layered-model.png"
+    },
+    {
+      "title": "A wide band marks the changing positions in orange",
+      "path": "docs/readmes/262/varying-layer.png"
+    },
+    {
+      "title": "The middle band from the three-band audit",
+      "path": "docs/readmes/262/reviewed-layers.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Source facade",
+      "path": "docs/readmes/262/door-window-source.glb"
+    },
+    {
+      "title": "Saved height audit",
+      "path": "docs/readmes/262/door-window-audit.json"
+    },
+    {
+      "title": "Rebuilt facade",
+      "path": "docs/readmes/262/door-window-rebuilt.glb"
+    },
+    {
+      "title": "Desktop verification",
+      "path": "docs/readmes/262/height-layer-evidence.json"
+    },
+    {
+      "title": "Independent Blender verification",
+      "path": "docs/readmes/262/blender-height-readback.json"
+    },
+    {
+      "title": "Research and reproduction",
+      "path": "docs/publication262/plan.md"
+    }
+  ]
+}

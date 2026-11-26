@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 261,
+  "latest": 262,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -270361,6 +270361,80 @@
           "path": "docs/readmes/261/two-room-plan.json",
           "sha256": "3389ec181746b7413271808718ed5d99a77bedee8a6d822d2c02b3f63afd5d83",
           "kind": "text"
+        }
+      ]
+    },
+    {
+      "number": 262,
+      "date": "2026-11-25",
+      "title": "Recover openings from measured height layers",
+      "status": "published",
+      "markdown": "README-262.md",
+      "markdownSha256": "bbcb6a65277e317799558862a9480b370ee64891262a40dcef0f77dc0e76d47f",
+      "snapshotDirectory": "docs/readmes/262",
+      "companion": "docs/readmes/262/index.html",
+      "tag": "readme-262",
+      "sourceBaseline": "2f8b7b0a77e7851e65dfa595e1f538bd96317086",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/262/blender-height-readback.json",
+          "sha256": "1507ce92f42c08ec4b69fec70535b1139f87cf9032fcc7e045e6917f0217aeda",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/262/door-window-audit.json",
+          "sha256": "badaa338cb56a470dbc846cdcade2d3bd27efedcba31fb8a7f0bad4030bec365",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/262/door-window-rebuilt.glb",
+          "sha256": "5a705bb86ce0ebb219465750ccb80968642504cc4cdee032f37844b36fd270c4",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/262/door-window-source.glb",
+          "sha256": "f640458f4590799cc41cb0e617ec5985ca29dd88a3a16e04cd60149a7abe83af",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/262/file-inventory.json",
+          "sha256": "bdce747679b77e7b80c1f6ebbeedbc45e7c1c4d80822b69745b771103203b00c",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/262/FILE_TREE.md",
+          "sha256": "cdb14139c95be3bd7122b2e56a916f7a852622aefca9bb2fd9876ee667ac039b",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/262/height-layer-evidence.json",
+          "sha256": "94d86d1c6216edc07bf6472b11ee5dd86f73bcd20a3b14d4f73bb157233e9b9f",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/262/index.html",
+          "sha256": "1bb45731590f3714cabf2a56cb53b7d11f206feba8016c57d3d8fad8b6144ba0",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/262/layered-model.png",
+          "sha256": "6f8c87ff26f00b0742eb159a156b33120120452ff8a7f1373b142e0d186cce73",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/262/reviewed-layers.png",
+          "sha256": "3753abd9e5ed0aba95c23197058a41d361175e9cdfb5371af47e7bf049a5d7d3",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/262/system-map.json",
+          "sha256": "a5d0758b69b0062d17926121db2422146f8b91c8fcfc6c4fd38e35f910a7ac19",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/262/varying-layer.png",
+          "sha256": "21a2b9f965406d354bd91abaf2a8cdb53794e1dca148c1eb88729d9fce4f693b",
+          "kind": "binary"
         }
       ]
     }

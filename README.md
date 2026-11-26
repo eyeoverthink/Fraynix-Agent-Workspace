@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md) · [Independent system review](docs/publication244/review.md)
 
-[Edition 261 — Turn floor plans into 3D and back](README-261.md) · [Previous edition](README-260.md) · [Offline walkthrough](docs/readmes/261/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 262 — Recover openings from measured height layers](README-262.md) · [Previous edition](README-261.md) · [Offline walkthrough](docs/readmes/262/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Raise a scaled floor plan as editable 3D walls, measure a horizontal cut from a Blender scene, and rebuild the cut.
+Compare a 3D scene at multiple heights, see where its geometry changes, and rebuild editable openings with linked evidence.

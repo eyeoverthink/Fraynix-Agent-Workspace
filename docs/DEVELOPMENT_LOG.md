@@ -1,3 +1,7 @@
+## Edition 262 — Recover openings from measured height layers
+
+2026-11-25. Java measures a reference and two witnesses per height band and saves a replayable audit. Rebuilding a changing band requires approval to omit changing cells. The public facade retained door, window, sill and headers across six independently checked rays. The apartment measured 2,987 agreed and 1,490 varying positions. The rebuild links to its exact original. The geometry and export paths passed with WebGL deliberately unavailable. See README-262.md and docs/publication262/plan.md.
+
 ## Edition 261 — Turn floor plans into 3D and back
 
 2026-11-25. Environment converts a scaled PNG wall mask or metric plan JSON to editable GLB. It also measures a world-height cut through retained GLB triangles, exports SVG and JSON, and rebuilds the occupied section. The two-room case preserved all 4,800 cells and the doorway, with independent Blender hits at every cell. The apartment case reproduced 2,893 filled cells at 5 cm resolution after rebuilding. The original model remained available by its retained source identity. The desktop verified refusal after tampering and exact SVG after restart. See README-261.md and docs/publication261/plan.md.
