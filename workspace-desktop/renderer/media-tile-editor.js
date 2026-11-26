@@ -1,6 +1,6 @@
 
 import {readBase64} from './media-workshop.js';
-import {drawTileLevel, mountTileGame, renderTileEvidence, tileDrawingOrder, tileImages, tileWorld} from './media-tile-play.js';
+import {drawTileLevel, mountTileGame, renderTileEvidence, replayTileInputs, tileDrawingOrder, tileImages, tileWorld} from './media-tile-play.js';
 import {TileLayerPanel} from './tile-layer-panel.js';
 
 const {width, height, floor, tile} = tileWorld;
@@ -73,6 +73,17 @@ export class TileEditor {
                 </div>
             </details>
             <p id="tile-run-summary" role="status"></p>
+            <details id="tile-replay" hidden>
+                <summary>Compare a recorded jump</summary>
+                <div class="tile-bar">
+                    <label>Recorded jump<select id="tile-jump-tick"></select></label>
+                    <label>Move to tick (optional)<input id="tile-replacement-tick" type="number" min="1" max="7200" step="1"></label>
+                    <button id="tile-compare-run">Run comparison</button>
+                    <button id="tile-export-comparison" disabled>Export comparison JSON</button>
+                </div>
+                <p>Leave the replacement blank to omit the selected jump.</p>
+                <p id="tile-comparison-result" role="status"></p>
+            </details>
             <p id="tile-status" role="status">Import a sprite to begin. Place at least one pickup before saving.</p>
             <canvas id="tile-canvas" width="720" height="336" tabindex="-1" aria-label="Tile level stage" aria-describedby="tile-progress"></canvas>
             <div class="tile-bar">
@@ -102,6 +113,19 @@ export class TileEditor {
         this.saved = this.find('#tile-saved');
         this.layerTools = new TileLayerPanel(this);
         this.find('#tile-stage').before(this.layerTools.root);
+        this.find('#tile-compare-run').onclick = () => this.run(async () => {
+            const replacement = this.find('#tile-replacement-tick');
+            if (!replacement.reportValidity()) return;
+            const result = await this.request('tile-evidence',{tool:'tile.replay',args:{
+                runId:this.lastRun.id,jumpTick:Number(this.find('#tile-jump-tick').value),
+                ...(replacement.value?{replacementTick:replacement.valueAsNumber}:{})
+            }});
+            this.showComparison(result);
+        });
+        this.find('#tile-export-comparison').onclick = () => this.run(async () => {
+            const receipt = await this.call('export-comparison',{id:this.comparison.id});
+            this.tell('Saved '+receipt.path);
+        });
         this.find('#tile-points').onchange = event => {
             const input = event.target;
             if (!input.reportValidity()) return;
@@ -260,6 +284,11 @@ export class TileEditor {
                     this.showRun(await this.call('read-run',{limit:1}));
                 } catch (error) {
                     this.find('#tile-run-summary').textContent='Could not reopen the playtest. '+error.message;
+                }
+                try {
+                    this.showComparison(await this.call('read-comparison'));
+                } catch (error) {
+                    this.find('#tile-comparison-result').textContent='Could not reopen comparison. '+error.message;
                 }
                 const level = await this.call('open');
                 if (level.id) {
@@ -543,6 +572,9 @@ export class TileEditor {
         }
         this.layerTools.refresh(busy);
         this.find('#tile-export-run').disabled = busy || !this.lastRun?.id;
+        this.find('#tile-replay').hidden = !this.comparison && !this.lastRun?.jumpTicks?.length || Boolean(this.game);
+        this.find('#tile-compare-run').disabled = busy || this.lastRun?.format!=='fraynix.tile-playtest-v2' || !this.lastRun.jumpTicks.length;
+        this.find('#tile-export-comparison').disabled = busy || !this.comparison;
         this.refreshInspector(busy);
     }
 
@@ -592,6 +624,7 @@ export class TileEditor {
 
     liveEvidence({start,limit}) {return this.game?.evidence(start,limit)||null;}
     renderEvidence({level,row,region,assetId}) {return renderTileEvidence(level,row,region,assetId);}
+    replay({level,inputs}) {return replayTileInputs(level,inputs);}
 
     rememberRun(record) {
         this.pendingRun = this.call('save-run',record).then(run=>this.showRun(run)).catch(error=>{
@@ -602,9 +635,25 @@ export class TileEditor {
     showRun(run) {
         if (!run.id) return;
         this.lastRun=run;
+        const ticks=this.find('#tile-jump-tick');
+        ticks.replaceChildren(...(run.jumpTicks||[]).map(tick=>new Option('Tick '+tick,tick)));
         const summary=this.find('#tile-run-summary');
         summary.dataset.runId=run.id;
         summary.textContent='Saved playtest · '+run.tickCount+' ticks · '+run.score+' points';
+        this.refresh();
+    }
+
+    showComparison(result) {
+        if (!result.id) return;
+        this.comparison=result;
+        const {source,variant}=result;
+        const describe=run=>run.score+' points, '+run.resets+' resets, '+(run.won?'goal reached':'goal pending');
+        const difference=result.firstOutcomeDifference;
+        const view=this.find('#tile-comparison-result');
+        view.dataset.comparisonId=result.id;
+        view.textContent='Original: '+describe(source)+'. Variant: '+describe(variant)+
+            '. '+(difference<0?'No observed outcome changed.':'First outcome difference at tick '+difference+'.');
+        this.find('#tile-replay').open=true;
         this.refresh();
     }
 

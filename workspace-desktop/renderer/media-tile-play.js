@@ -5,7 +5,7 @@ const overlaps = (a, sizeA, b, sizeB) => a < b + sizeB && a + sizeA > b;
 const defaultDepth = {backdrop:-300,terrain:-200,pickup:-100,foreground:100};
 const maxPlayTicks = 7200;
 export const tileFields = ['tick','x','y','vx','vy','support','wall','collectedHex','won','direction',
-    'facing','animationTimeS','resets','bounces','spring','score','jumpPressed','events'];
+    'facing','animationTimeS','resets','bounces','spring','score','jumpPressed','events','inputDirection'];
 export const tileScoreDefaults = {pickup:100,goal:500,resetPenalty:25};
 
 export function tileDrawingOrder(layout) {
@@ -200,6 +200,106 @@ export function drawTileLevel(canvas, layout, images, state = spawn(layout), edi
 }
 
 export function mountTileGame(canvas, status, level, onRun=null) {
+    const {width,height}=tileWorld;
+    const {layout}=level;
+    const keys = new Set();
+    const events = new AbortController();
+    const options = {signal:events.signal};
+    let simulation, jump=false, frame=0, previous=0, accumulator=0;
+    let rows=[], sealed=false;
+    function seal(reason) {
+        if (!onRun || sealed) return;
+        sealed=true;
+        onRun({levelId:level.id,reason,rows});
+    }
+    canvas.width = width;
+    canvas.height = height;
+    const images = tileImages(level.sprites, draw);
+
+    function draw() {
+        const {state,tick}=simulation;
+        drawTileLevel(canvas, layout, images, state);
+        Object.assign(canvas.dataset, {playerX:state.x.toFixed(2), playerY:state.y.toFixed(2),
+            support:state.support, wall:state.wall, collected:String(state.collected.size),
+            required:String(simulation.pickupCount), won:String(state.won), tick:String(tick), score:String(state.score)});
+        status.dataset.score=String(state.score);
+        if (layout.stage) Object.assign(canvas.dataset,{bounces:String(state.bounces),resets:String(state.resets),
+            hero:layout.stage.hero?.name||'',phase:state.won?'complete':'playing'});
+        else for (const key of ['bounces','resets','hero','phase']) delete canvas.dataset[key];
+    }
+
+    function restart() {
+        simulation=createTileSimulation(level);
+        sealed=false;
+        rows=onRun?[simulation.first()]:[];
+        keys.clear();
+        jump=false;
+        previous=0;
+        accumulator=0;
+        status.textContent=simulation.status;
+        draw();
+    }
+
+    function advance(now) {
+        accumulator += previous ? Math.min((now - previous) / 1000, .05) : 0;
+        previous = now;
+        let dirty = false;
+        while (accumulator>=STEP && !simulation.state.won && (!onRun || simulation.tick<maxPlayTicks)) {
+            const direction=Number(keys.has('ArrowRight'))-Number(keys.has('ArrowLeft'));
+            const resets=simulation.state.resets;
+            const row=simulation.step(direction,jump,Boolean(onRun));
+            if (resets!==simulation.state.resets) keys.clear();
+            jump=false;
+            if (onRun) rows.push(row);
+            accumulator-=STEP;
+            dirty=true;
+        }
+        if (dirty && status.textContent!==simulation.status) status.textContent=simulation.status;
+        if (dirty) draw();
+        if (simulation.state.won) seal('won');
+        else if (onRun && simulation.tick===maxPlayTicks) {
+            status.textContent='The 60-second playtest is complete.';
+            seal('limit');
+        } else {
+            frame = requestAnimationFrame(advance);
+            return;
+        }
+        frame=0;
+    }
+
+    function release() {
+        keys.clear();
+        jump = false;
+    }
+
+    canvas.addEventListener('keydown', event => {
+        if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'Space'].includes(event.code)) return;
+        event.preventDefault();
+        if (event.code === 'ArrowUp' || event.code === 'Space') {
+            if (!event.repeat) jump = true;
+        } else keys.add(event.code);
+    }, options);
+    canvas.addEventListener('keyup', event => keys.delete(event.code), options);
+    canvas.addEventListener('blur', release, options);
+    function start() {
+        restart();
+        cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(advance);
+    }
+    start();
+    return {
+        restart:start,
+        evidence(start,limit) {return {levelId:level.id,hz:120,fields:tileFields,lastTick:simulation.tick,score:simulation.state.score,sealed,
+            rows:rows.slice(start,start+limit),start,next:start+limit<rows.length?start+limit:null};},
+        close() {
+            seal(simulation.state.won?'won':'stopped');
+            cancelAnimationFrame(frame);
+            events.abort();
+        }
+    };
+}
+
+function createTileSimulation(level) {
     const {width, height, floor, exit} = tileWorld;
     const {layout}=level;
     const stage=layout.stage;
@@ -212,65 +312,26 @@ export function mountTileGame(canvas, status, level, onRun=null) {
     const touches=item=>overlaps(state.x,PLAYER_W,item.x,item.size)&&overlaps(state.y,PLAYER_H,item.y,item.size);
     const solids = level.layout.objects.filter(item => item.collider).map(({id,x,y,collider:c}) =>
         ({id, x:x+c.x, y:y+c.y, w:c.w, h:c.h}));
-    const keys = new Set();
-    const events = new AbortController();
-    const options = {signal:events.signal};
-    let state, jump = false, frame = 0, previous = 0, accumulator = 0;
-    let tick=0, rows=[], earned=new Set(), sealed=false, notes=[];
+    let state=spawn(layout), status=stage
+        ? 'Move with ← and →. Jump with ↑ or Space. Reach the gate.'
+        : 'Move with ← and →. Jump with ↑ or Space. Collect all pickups.';
+    let tick=0, notes=[];
+    const earned=new Set();
     const award=(type,id,delta=0)=>{
         const changed=Math.max(0,state.score+delta)-state.score;
         state.score+=changed;
         notes.push([type,id,changed]);
     };
-    const sample=jumpPressed=>[tick,state.x,state.y,state.vx,state.vy,state.support,state.wall,
+    const sample=(jumpPressed,inputDirection)=>[tick,state.x,state.y,state.vx,state.vy,state.support,state.wall,
         pickupMask(pickups,state.collected),state.won,state.direction,state.facing,state.time,
-        state.resets,state.bounces,state.spring,state.score,jumpPressed,notes];
-    function seal(reason) {
-        if (!onRun || sealed) return;
-        sealed=true;
-        onRun({levelId:level.id,reason,rows});
-    }
-    canvas.width = width;
-    canvas.height = height;
-    const images = tileImages(level.sprites, draw);
-
-    function draw() {
-        drawTileLevel(canvas, level.layout, images, state);
-        Object.assign(canvas.dataset, {playerX:state.x.toFixed(2), playerY:state.y.toFixed(2),
-            support:state.support, wall:state.wall, collected:String(state.collected.size),
-            required:String(pickups.length), won:String(state.won), tick:String(tick), score:String(state.score)});
-        status.dataset.score=String(state.score);
-        if (stage) Object.assign(canvas.dataset,{bounces:String(state.bounces),resets:String(state.resets),
-            hero:stage.hero?.name||'',phase:state.won?'complete':'playing'});
-        else for (const key of ['bounces','resets','hero','phase']) delete canvas.dataset[key];
-    }
-
-    function restart() {
-        state = spawn(layout);
-        tick=0;
-        earned=new Set();
-        sealed=false;
-        notes=[];
-        rows=onRun?[sample(false)]:[];
-        keys.clear();
-        jump = false;
-        previous = 0;
-        accumulator = 0;
-        status.textContent = stage
-            ? 'Move with ← and →. Jump with ↑ or Space. Reach the gate.'
-            : 'Move with ← and →. Jump with ↑ or Space. Collect all pickups.';
-        draw();
-    }
-
-    function step() {
+        state.resets,state.bounces,state.spring,state.score,jumpPressed,notes,inputDirection];
+    function update(direction, jump) {
         if (state.won) return;
         if (jump && state.support) {
             state.vy = -lift;
             award('jump','');
         }
         const lastX=state.x;
-        jump = false;
-        const direction = Number(keys.has('ArrowRight')) - Number(keys.has('ArrowLeft'));
         state.direction=direction;
         if (direction) state.facing=direction;
         state.time+=STEP;
@@ -317,8 +378,7 @@ export function mountTileGame(canvas, status, level, onRun=null) {
                 state.bounces=bounces;
                 state.score=score;
                 award('reset',hazard?.id||'',-rules.resetPenalty);
-                keys.clear();
-                status.textContent=hazard?'Hit a hazard. Returned to spawn.':'Fell below the level. Returned to spawn.';
+                status=hazard?'Hit a hazard. Returned to spawn.':'Fell below the level. Returned to spawn.';
                 return;
             }
             const spring=springs.find(touches);
@@ -327,7 +387,7 @@ export function mountTileGame(canvas, status, level, onRun=null) {
                 state.support='';
                 state.bounces++;
                 award('spring',spring.id);
-                status.textContent='Spring boost.';
+                status='Spring boost.';
             }
             state.spring=spring?.id||'';
         }
@@ -337,7 +397,7 @@ export function mountTileGame(canvas, status, level, onRun=null) {
                 state.collected.add(item.id);
                 award('pickup',item.id,earned.has(item.id)?0:item.points??rules.pickup);
                 earned.add(item.id);
-                status.textContent = stage ? state.collected.size+' picked up.' : state.collected.size === pickups.length
+                status = stage ? state.collected.size+' picked up.' : state.collected.size === pickups.length
                     ? 'All sprites collected. The exit is open.'
                     : state.collected.size + ' of ' + pickups.length + ' sprites collected.';
             }
@@ -346,7 +406,7 @@ export function mountTileGame(canvas, status, level, onRun=null) {
             if (touches({...stage.goal,size:tileWorld.tile})) {
                 state.won=true;
                 award('goal','',rules.goal);
-                status.textContent='Level complete.';
+                status='Level complete.';
             }
             return;
         }
@@ -354,68 +414,37 @@ export function mountTileGame(canvas, status, level, onRun=null) {
             if (state.collected.size === pickups.length) {
                 state.won = true;
                 award('goal','',rules.goal);
-                status.textContent = 'Level complete.';
+                status = 'Level complete.';
             } else {
                 state.x = Math.min(state.x, exit - PLAYER_W);
                 state.vx=(state.x-lastX)/STEP;
-                status.textContent = 'The exit is locked. Collect every pickup.';
+                status = 'The exit is locked. Collect every pickup.';
             }
         }
     }
 
-    function advance(now) {
-        accumulator += previous ? Math.min((now - previous) / 1000, .05) : 0;
-        previous = now;
-        let dirty = false;
-        while (accumulator >= STEP && !state.won && (!onRun || tick<maxPlayTicks)) {
-            const pressed=jump;
+    return {
+        get state() {return state;},
+        get status() {return status;},
+        get tick() {return tick;},
+        get pickupCount() {return pickups.length;},
+        first:()=>sample(false,0),
+        step(direction,jump,capture=true) {
             tick++;
             notes=[];
-            step();
-            if (onRun) rows.push(sample(pressed));
-            accumulator -= STEP;
-            dirty = true;
-        }
-        if (dirty) draw();
-        if (state.won) seal('won');
-        else if (onRun && tick===maxPlayTicks) {
-            status.textContent='The 60-second playtest is complete.';
-            seal('limit');
-        } else {
-            frame = requestAnimationFrame(advance);
-            return;
-        }
-        frame=0;
-    }
-
-    function release() {
-        keys.clear();
-        jump = false;
-    }
-
-    canvas.addEventListener('keydown', event => {
-        if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'Space'].includes(event.code)) return;
-        event.preventDefault();
-        if (event.code === 'ArrowUp' || event.code === 'Space') {
-            if (!event.repeat) jump = true;
-        } else keys.add(event.code);
-    }, options);
-    canvas.addEventListener('keyup', event => keys.delete(event.code), options);
-    canvas.addEventListener('blur', release, options);
-    function start() {
-        restart();
-        cancelAnimationFrame(frame);
-        frame = requestAnimationFrame(advance);
-    }
-    start();
-    return {
-        restart:start,
-        evidence(start,limit) {return {levelId:level.id,hz:120,fields:tileFields,lastTick:tick,score:state.score,sealed,
-            rows:rows.slice(start,start+limit),start,next:start+limit<rows.length?start+limit:null};},
-        close() {
-            seal(state.won?'won':'stopped');
-            cancelAnimationFrame(frame);
-            events.abort();
+            update(direction,jump);
+            if (capture) return sample(jump,direction);
         }
     };
+}
+
+export function replayTileInputs(level, inputs) {
+    const simulation=createTileSimulation(level);
+    const rows=[simulation.first()];
+    for (const [direction,jump] of inputs) {
+        if (simulation.state.won) break;
+        rows.push(simulation.step(direction,jump));
+    }
+    const reason=simulation.state.won?'won':simulation.tick===maxPlayTicks?'limit':'stopped';
+    return {levelId:level.id,reason,rows};
 }

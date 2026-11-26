@@ -2787,5 +2787,53 @@
         "additionalProperties": false
       }
     }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "tile_replay",
+      "description": "Recreate the exact saved tick inputs and compare it to omitting or moving one recorded jump. Restricted to the same saved level and input window.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "runId": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "jumpTick": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 7200
+          },
+          "replacementTick": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 7200
+          }
+        },
+        "required": [
+          "jumpTick"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "tile_comparison",
+      "description": "Read a saved tile playtest comparison and its source-bound measured outcomes.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    }
   }
 ]

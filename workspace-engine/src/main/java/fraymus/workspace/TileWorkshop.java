@@ -104,9 +104,16 @@ final class TileWorkshop {
         return checkedLevel(id, layout(read(levels, id, MAX_LAYOUT)));
     }
 
-    synchronized JSONObject saveRun(JSONObject input) throws Exception {
+    synchronized JSONObject saveRun(JSONObject input, boolean publish) throws Exception {
         String id = input.getString("levelId");
-        return playtests.save(input, inspect(new JSONObject().put("id", id)).getJSONObject("layout"));
+        return playtests.save(input, inspect(new JSONObject().put("id", id)).getJSONObject("layout"), publish);
+    }
+
+    synchronized JSONObject compareRun(JSONObject input, boolean save) throws Exception {
+        if (save) run(new JSONObject().put("runId", input.getString("sourceId")).put("limit", 1), false);
+        var result = playtests.compare(input, save);
+        if (result.has("levelId")) inspect(new JSONObject().put("id", result.getString("levelId")));
+        return result;
     }
 
     synchronized JSONObject run(JSONObject input, boolean all) throws Exception {

@@ -157,3 +157,8 @@
 #tile-selection-list label { display: flex; align-items: center; gap: 5px; margin: 0; }
 #tile-run-summary { font-size: 12px; color: #a4dcc7; }
 #tile-progress[data-score]::after { content: ' · Score ' attr(data-score); font-weight: 700; }
+#tile-replay { margin: 7px 0; padding: 8px 10px; border: 1px solid #39565e; border-radius: 8px; }
+#tile-replay summary { cursor: pointer; font-weight: 600; }
+#tile-replay p { margin: 6px 0; font-size: 12px; }
+#tile-replay input { width: 110px; }
+#tile-comparison-result { color: #a4dcc7; }

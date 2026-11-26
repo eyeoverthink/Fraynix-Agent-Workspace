@@ -100,6 +100,7 @@ window.tileEvidence=Object.freeze({
   levelId:()=>tileEditor.levelId||'',
   live:options=>tileEditor.liveEvidence(options),
   render:options=>tileEditor.renderEvidence(options),
+  replay:options=>tileEditor.replay(options),
   settle:()=>tileEditor.pendingRun
 });
 let mediaMode='tiles';
@@ -287,6 +288,18 @@ async function routeColliderChat(goal, model) {
 }
 async function answerTileQuestion(goal) {
  const names=/\b(tile (workshop|level|editor)|nexus|playtest)\b/i;
+ const change=/\b(?:without|omit|remove) (?:the )?jump at tick (\d+)\b/i.exec(goal);
+ if (names.test(goal)&&/^compare\b/i.test(goal)&&change) {
+   try {
+     const result=await request('tile-evidence',{tool:'tile.replay',args:{jumpTick:Number(change[1])}});
+     tileEditor.showComparison(result);
+     message('The unchanged inputs matched the saved playtest. Without the jump at tick '+result.jumpTick+
+       ', the score changed from '+result.source.score+' to '+result.variant.score+
+       (result.firstOutcomeDifference<0?'. The observed playtest did not change.':
+        ' and the first outcome difference was at tick '+result.firstOutcomeDifference+'.'));
+   } catch (error) {message('I could not compare the tile playtest. '+error.message.replace(/^Error invoking remote method '[^']+': (?:Error: )?/,''));}
+   return true;
+ }
  if (!names.test(goal)||!/^(show|read|inspect|report|export|what|which|how)\b/i.test(goal)
      ||!/\b(ticks?|pixels?|image|score|layers?|objects?|playtest)\b/i.test(goal)) return false;
  const tick=/\btick\s+(\d+)/i.exec(goal);

@@ -7,7 +7,7 @@ const os=require('node:os');
 const {pathToFileURL}=require('node:url');
 const {launch}=require('./calibration-integration.cjs');
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
-const fixture=path.resolve(__dirname,'..','..','docs','readmes','257','twilight-source.scene.json');
+const fixture=path.join(__dirname,'fixtures','tile-workshop','twilight-source.scene.json');
 
 async function main() {
     process.env.FRAYNIX_WORKSPACE_NO_MODELS='1';
@@ -150,6 +150,10 @@ async function main() {
         const modified=structuredClone(all.rows);
         modified.at(-1)[15]++;
         await assert.rejects(api('save-run',{levelId:saved.id,reason:'won',rows:modified,rendererSha256:all.rendererSha256}),/score differs/);
+        assert.equal(all.fields.at(-1),'inputDirection');
+        const resetRow=all.rows.find(row=>row[17].some(event=>event[0]==='reset'));
+        assert.equal(resetRow[9],0);
+        assert.equal(resetRow[18],-1);
         const full=await tool('tile.image',{runId,tick:all.lastTick});
 
         assert.equal(full.file.sha256,sha(livePng));
@@ -160,6 +164,41 @@ async function main() {
         assert.deepEqual(sample.rgba,[57,130,243,255]);
         await assert.rejects(tool('tile.pixels',{runId,tick:0,x:719,y:335,width:2}),/outside the image/);
         await q('tile-stop').click();
+        const jumpTick=all.rows.find(row=>row[17].some(event=>event[0]==='jump'))[0];
+        await assert.rejects(tool('tile.replay',{runId,jumpTick:1}),/Choose a recorded jump/);
+        await q('tile-replay').locator('summary').click();
+        await q('tile-jump-tick').selectOption(String(jumpTick));
+        await q('tile-compare-run').click();
+        await page.waitForFunction(()=>document.querySelector('#tile-comparison-result')?.dataset.comparisonId);
+        const comparisonId=await q('tile-comparison-result').getAttribute('data-comparison-id');
+        const comparison=await tool('tile.comparison',{id:comparisonId});
+        assert.equal(comparison.sourceId,runId);
+        assert.equal(comparison.source.score,295);
+        assert.equal(comparison.source.won,true);
+        assert.equal(comparison.firstOutcomeDifference,jumpTick);
+        assert.notEqual(comparison.variant.score,comparison.source.score);
+        const variant=await api('export-run',{runId:comparison.variantId});
+        assert(variant.rows.every((row,index)=>row[18]===all.rows[index][18]));
+        assert(variant.rows.every((row,index)=>row[16]===(index===jumpTick?false:all.rows[index][16])));
+        const repeated=await tool('tile.replay',{runId,jumpTick});
+        assert.equal(repeated.id,comparison.id);
+        const shifted=await tool('tile.replay',{runId,jumpTick,replacementTick:jumpTick+1});
+        assert.notEqual(shifted.id,comparison.id);
+        const shiftedRows=await api('export-run',{runId:shifted.variantId});
+        assert.equal(shiftedRows.rows[jumpTick][16],false);
+        assert.equal(shiftedRows.rows[jumpTick+1][16],true);
+        await assert.rejects(api('compare-run',{sourceId:runId,variantId:shifted.variantId,jumpTick,replacementTick:0}),/changed input beyond/);
+        assert.equal((await api('read-run',{limit:1})).id,runId);
+        const comparedImage=await tool('tile.image',{runId:variant.id,tick:jumpTick});
+        const sourceImage=await tool('tile.image',{runId,tick:jumpTick});
+        assert.notEqual(comparedImage.file.sha256,sourceImage.file.sha256);
+        await fs.copyFile(comparedImage.file.path,path.join(out,'omit-jump-frame.png'));
+        await fs.copyFile(sourceImage.file.path,path.join(out,'original-jump-frame.png'));
+        await q('tile-replay').evaluate(panel=>panel.scrollIntoView({block:'center'}));
+        await capture('jump-comparison.png');
+        await fs.writeFile(path.join(out,'jump-comparison.json'),JSON.stringify(comparison,null,2)+'\n');
+        await fs.writeFile(path.join(out,'variant-playtest.json'),JSON.stringify(variant)+'\n');
+        await fs.writeFile(path.join(out,'shifted-comparison.json'),JSON.stringify(shifted,null,2)+'\n');
         await q('tile-export-run').click();
         await page.waitForFunction(()=>document.querySelector('#tile-status')?.textContent.endsWith('.json'));
         const filename=(await q('tile-status').textContent()).slice('Saved '.length);
@@ -182,6 +221,24 @@ async function main() {
         await q('run').click();
         await page.getByText('RGBA 57, 130, 243, 255.',{exact:false}).waitFor();
         await capture('chat-pixel-evidence.png');
+        const replayed=await tool('tile.comparison',{id:comparison.id});
+        assert.deepEqual(replayed,comparison);
+        await q('goal').fill('Compare Nexus playtest without jump at tick '+jumpTick);
+        await q('run').click();
+        await page.getByText('The unchanged inputs matched the saved playtest.',{exact:false}).waitFor();
+        await capture('chat-jump-comparison.png');
+
+        const legacyRoot=path.dirname(fixture);
+        const legacyBytes=await fs.readFile(path.join(legacyRoot,'edition258-playtest.json'));
+        const legacy=JSON.parse(legacyBytes.toString('utf8'));
+        const legacyLevel=await fs.readFile(path.join(legacyRoot,'edition258-level.json'));
+        await api('import',{base64:legacyLevel.toString('base64')});
+        await fs.writeFile(path.join(project,'media','tile-playtests',legacy.sha256+'.json'),legacyBytes);
+        const historic=await tool('tile.ticks',{runId:legacy.sha256,start:273,limit:1});
+        assert.equal(historic.format,'fraynix.tile-playtest-v1');
+        const legacyPixel=await tool('tile.pixels',{runId:legacy.sha256,tick:273,x:70,y:55});
+        assert.deepEqual(legacyPixel.rgba,[57,130,243,255]);
+        await assert.rejects(tool('tile.replay',{runId:legacy.sha256,jumpTick:3}),/input-recording renderer/);
 
         const url=pathToFileURL(path.join(out,'layered-relay.html')).href;
         await app.evaluate(async ({BrowserWindow},url)=>{
@@ -206,9 +263,9 @@ async function main() {
         await fs.writeFile(path.join(out,'evidence.json'),JSON.stringify({
             levelId:saved.id,runId,score:all.score,scoreEvents,fields:all.fields,hz:all.hz,ticks:all.tickCount,
             rendererSha256:all.rendererSha256,imageSha256:full.file.sha256,rgba:sample.rgba,exactPixelAndPngAfterRestart:true,
-            contiguous:true,corruptedScoreRefused:true,chatRead:true,standaloneScore:325,offline:true
+            contiguous:true,corruptedScoreRefused:true,chatRead:true,comparisonId,variantScore:comparison.variant.score,jumpTick,shiftedId:shifted.id,legacyPixel:legacyPixel.rgba,standaloneScore:325,offline:true
         },null,2)+'\n');
-        console.log('Verified layer order, multiple selections, the exact score ledger and agent pixel replay after restart.');
+        console.log('Verified exact input replay, one-input variants and reopened comparisons alongside layers, scoring and pixel evidence.');
     } catch (error) {
         if (page) {
             console.error('Tile status',await q('tile-status').textContent().catch(()=>null),

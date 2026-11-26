@@ -3,6 +3,8 @@ const { randomUUID } = require('node:crypto');
 const catalog = [
  ['experiment.rehearse','Rebuild a verified initial-at-rest experiment, change one friction or dynamic mass, compare bounded alternatives and verify a separate persistent world. Review pauses before action.','{episodeId?,sourceId,property,value,review?}'],
  ['construction.start','Assemble declared bridge stock with checked routes, optional direct-first comparison and independent load experiments. Optional dynamic payload tests drop actual bodies at declared positions and retain unstable cases. Measured load design optionally sweeps off-centre forces and widens supports only after actual failure. Native motion, released support and report verification precede world commit; overload failures are retained, not structural-strength certification.','{centerX?,centerZ?,forceLimitN?,torqueLimitNm?,saveSkillName?,design053?,directFirst055?,loadTests055?,payloadTests057?,payloadDesign058?,asymmetricSupports059?,independentSupports060?,allowPayloadRedesign058?,loadDesign056?,requiredLoadN?,allowRedesign056?,reviewCounterfactual045?}'],
+ ['tile.replay','Recreate the exact saved tick inputs and compare it to omitting or moving one recorded jump. Restricted to the same saved level and input window.','{runId?,jumpTick,replacementTick?}'],
+ ['tile.comparison','Read a saved tile playtest comparison and its source-bound measured outcomes.','{id?}'],
  ['tile.level','Inspect the selected saved tile level, layer depths, score rules, source image IDs and object geometry.','{start?,limit?}'],
  ['tile.ticks','Read exact 120 Hz Tile Workshop rows and score events from a live or saved playtest.','{runId?,start?,limit?}'],
  ['tile.image','Save the exact PNG of a replayed tile tick or a verified level asset.','{runId?,tick?,assetId?}'],
@@ -144,6 +146,8 @@ const range=(minimum,maximum)=>({type:'integer',minimum,maximum});
 const hash={type:'string',pattern:'^[a-f0-9]{64}$'};
 const tileRaster={runId:hash,tick:range(0,7200),assetId:hash};
 const argumentSchemas={
+ 'tile.replay':object({runId:hash,jumpTick:range(1,7200),replacementTick:range(0,7200)},['jumpTick']),
+ 'tile.comparison':object({id:hash},[]),
  'tile.level':object({start:range(0,390),limit:range(1,24)},[]),
  'tile.ticks':object({runId:hash,start:range(0,7200),limit:range(1,60)},[]),
  'tile.image':object(tileRaster,[]),

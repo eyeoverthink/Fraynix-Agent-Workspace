@@ -70,9 +70,14 @@ async function api(route,input){
   const response=await fetch(origin+route,{method:input===undefined?'GET':'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json','X-Fraynix-Interface':selfHostSession,...(agencyAuthority043?{'X-Fraynix-Task':agencyAuthority043.taskId,'X-Fraynix-Effect':agencyAuthority043.nonce}:{})},body:input===undefined?undefined:JSON.stringify(input)});
   const data=await response.json();if(!response.ok)throw Error(data.error||`Engine HTTP ${response.status}`);return data;
 }
-const tileRendererSha256=createHash('sha256').update(fs.readFileSync(path.join(__dirname,'renderer','media-tile-play.js'))).digest('hex');
+const tileRuntimeSource=fs.readFileSync(path.join(__dirname,'renderer','media-tile-play.js'));
+const tileRendererSha256=createHash('sha256').update(tileRuntimeSource).digest('hex');
+const rasterSource=tileRuntimeSource.toString('utf8').replace(/\r\n/g,'\n')
+  .split('export function mountTileGame')[0].replace(",'inputDirection'","");
+const rasterSha256=createHash('sha256').update(rasterSource).digest('hex');
 const tileEvidence=createTileEvidence({
   rendererSha256:tileRendererSha256,
+  legacyRaster:rasterSha256==='35eab96d8fa510a940cf25b70790f515af2b1dc02ee12ad0aa138d250e1fe6e0',
   api,
   surface:(method,args)=>window.webContents.executeJavaScript('window.tileEvidence['+JSON.stringify(method)+']('+JSON.stringify(args??null)+')'),
   save:(...args)=>nativeExports.save(...args)
@@ -125,7 +130,7 @@ async function executeRaw(tool,args={}){
   }
   let result;
   switch(tool){
-    case 'tile.level':case 'tile.ticks':case 'tile.image':case 'tile.pixels':
+    case 'tile.level':case 'tile.ticks':case 'tile.image':case 'tile.pixels':case 'tile.replay':case 'tile.comparison':
       result=await tileEvidence.read(tool,args);break;
     case 'screen.read':case 'screen.report':result=await agency043.action(tool,args);break;
     case 'agent.report':if((await api('/api/goals/list',{})).goals.some(g=>['running','waiting-host'].includes(g.status))||(await api('/api/workflows/list',{})).workflows.some(g=>['running','waiting-host','queued'].includes(g.status)))throw Error('Finish or stop the active goal before opening another canvas report');
@@ -1078,11 +1083,16 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         {id:args.id,...data.source},data.sha256);
     }
     case 'tile-evidence':
-      if (!['tile.level','tile.ticks','tile.image','tile.pixels'].includes(input.tool)) throw Error('Unknown tile evidence tool.');
+      if (!['tile.level','tile.ticks','tile.image','tile.pixels','tile.replay','tile.comparison'].includes(input.tool)) throw Error('Unknown tile evidence tool.');
       return execute(input.tool,input.args||{});
     case 'media-tiles': {
       if (input.command === 'save-run')
         return api('/api/media-tiles/save-run',{...input.args,rendererSha256:tileRendererSha256});
+      if (input.command === 'export-comparison') {
+        const report=await api('/api/media-tiles/read-comparison',input.args||{});
+        if (!report.id) throw Error('Run a playtest comparison before exporting.');
+        return nativeExports.save('tile-playtest-comparison','json',JSON.stringify(report),{id:report.id,levelId:report.levelId});
+      }
       if (input.command === 'export-run') {
         const recording=await api('/api/media-tiles/export-run',input.args||{});
         if (!recording.id) throw Error('Play a tile level before exporting.');
@@ -1092,7 +1102,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         if (!surfacesVisible.browser) throw Error('Show the in-app browser to pick a graphic.');
         return api('/api/media-tiles/add', {source:await browser.pickGraphic()});
       }
-      if (['add', 'library', 'sprite', 'list', 'open', 'save', 'import', 'import-nexus', 'read-run'].includes(input.command))
+      if (['add', 'library', 'sprite', 'list', 'open', 'save', 'import', 'import-nexus', 'read-run', 'read-comparison'].includes(input.command))
         return api('/api/media-tiles/' + input.command, input.args || {});
       if (input.command !== 'export') throw Error('Unknown tile editor command.');
       const {id, format} = input.args;
