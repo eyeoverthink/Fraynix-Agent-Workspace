@@ -1,0 +1,53 @@
+{
+  "summary": "Load and inspect source-backed Blender environments.",
+  "modules": [
+    {
+      "title": "Retained source and catalogue validation",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/EnvironmentStore.java",
+      "note": "docs/obsidian/268-retained-3d-environments.md"
+    },
+    {
+      "title": "Environment viewport and geometry",
+      "source": "workspace-desktop/renderer/environment.js",
+      "note": "docs/obsidian/268-retained-3d-environments.md"
+    },
+    {
+      "title": "Typed agent evidence",
+      "source": "workspace-desktop/environment-evidence.cjs",
+      "note": "docs/obsidian/268-retained-3d-environments.md"
+    },
+    {
+      "title": "Two-room environment and restart test",
+      "source": "workspace-desktop/test/environment-integration.cjs",
+      "note": "docs/obsidian/268-retained-3d-environments.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Section view of the test pavilion with its room and furniture inventory",
+      "path": "docs/readmes/260/environment-section.png"
+    },
+    {
+      "title": "Offline chat reads the retained environment",
+      "path": "docs/readmes/260/environment-chat.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Two-room pavilion",
+      "path": "docs/readmes/260/two-room-pavilion.glb"
+    },
+    {
+      "title": "Measured scene and ray report",
+      "path": "docs/readmes/260/environment-evidence.json"
+    },
+    {
+      "title": "Exported inventory",
+      "path": "docs/readmes/260/pavilion-inventory.json"
+    },
+    {
+      "title": "Reproduction",
+      "path": "docs/publication260/plan.md"
+    }
+  ]
+}

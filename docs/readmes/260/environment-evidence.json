@@ -1,0 +1,97 @@
+{
+  "sourceId": "c5fac530a7c1c4f37345dcffcf381d9a67e5cd35abf54ec8ba79259fa8c04659",
+  "total": 11,
+  "meshes": 7,
+  "triangles": 84,
+  "images": 1,
+  "markers": 1,
+  "bench": {
+    "triangles": 12,
+    "parent": 5,
+    "name": "Mosaic bench",
+    "index": 9,
+    "mesh": 2,
+    "position": [
+      -2,
+      0.35,
+      -1.6
+    ],
+    "dimensions": [
+      1.4000000000000001,
+      0.7,
+      0.6000000000000001
+    ],
+    "bounds": {
+      "min": [
+        -2.7,
+        0,
+        -1.9000000000000001
+      ],
+      "max": [
+        -1.3,
+        0.7,
+        -1.3
+      ]
+    }
+  },
+  "marker": {
+    "triangles": 0,
+    "parent": 0,
+    "marker": "Inspect mosaic bench",
+    "name": "INTERACT_inspect_bench",
+    "index": 10,
+    "position": [
+      -2,
+      0.9,
+      -1.6
+    ],
+    "dimensions": null,
+    "bounds": null
+  },
+  "openDoor": {
+    "id": "c5fac530a7c1c4f37345dcffcf381d9a67e5cd35abf54ec8ba79259fa8c04659",
+    "origin": [
+      0,
+      1.2,
+      2
+    ],
+    "direction": [
+      0,
+      0,
+      -1
+    ],
+    "maxDistanceM": 3,
+    "hit": null,
+    "kind": "visual-triangle-ray",
+    "units": "glTF metres"
+  },
+  "partition": {
+    "id": "c5fac530a7c1c4f37345dcffcf381d9a67e5cd35abf54ec8ba79259fa8c04659",
+    "origin": [
+      1.5,
+      1.2,
+      2
+    ],
+    "direction": [
+      0,
+      0,
+      -1
+    ],
+    "maxDistanceM": 3,
+    "hit": {
+      "node": 4,
+      "distanceM": 1.9,
+      "point": [
+        1.4999999999999998,
+        1.2,
+        0.1
+      ],
+      "name": "East doorway wall"
+    },
+    "kind": "visual-triangle-ray",
+    "units": "glTF metres"
+  },
+  "persistedSelection": true,
+  "changedBytesRefused": true,
+  "offline": true
+}

@@ -1,3 +1,7 @@
+## Edition 260 — Open and inspect textured 3D environments
+
+2026-11-25. Environment opens retained self-contained Blender GLBs, preserves named meshes, materials, embedded textures and markers, and measures world-space geometry through the same offline tools used in chat. The user’s apartment opened locally with 394 nodes and eight markers. A publication-safe pavilion proved the doorway ray stayed clear and the partition registered at 1.9 m. Source tampering was refused, and selection and reads worked after restart. Use this source-preserving view for the next reviewed room-collision work. See README-260.md and docs/publication260/plan.md.
+
 ## Edition 259 — Replay saved controls and compare one change
 
 2026-11-25. Tile Workshop records intended direction at each tick and reruns the original inputs before comparing one omitted or moved jump. In Twilight Relay the 273-row original scored 295, while omission scored 75. The one-tick delay scored 295. The exact comparison reopened after restart. Edition 258 numeric and pixel reads passed with the frozen raster source. The portable test takes its fixtures from the test tree after prior hosted checks caught a missing documentation file. See README-259.md and docs/publication259/plan.md.
