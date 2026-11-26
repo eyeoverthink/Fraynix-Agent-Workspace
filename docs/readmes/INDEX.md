@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 261 — Turn floor plans into 3D and back](../../README-261.md) · [Walkthrough](261/index.html)
+
 [Edition 260 — Open and inspect textured 3D environments](../../README-260.md) · [Walkthrough](260/index.html)
 
 [Edition 259 — Replay saved controls and compare one change](../../README-259.md) · [Walkthrough](259/index.html)

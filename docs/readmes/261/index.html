@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 261 · Turn floor plans into 3D and back</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Turn floor plans into 3D and back</h1>
+<p>Import a wall mask, open the model in Blender, and measure its floor plan again.</p>
+<nav><a href="../../../README-261.md">App guide</a><a href="../260/index.html">Edition 260</a>
+<a href="../../publication261/plan.md">Reproduction</a><a href="two-room-mask.png" download>Download wall mask</a>
+<a href="two-room-generated.glb" download>Download 3D model</a><a href="two-room-cut.svg" download>Download section SVG</a><a href="#system">System files</a></nav>
+<figure><img src="plan-to-3d.png" alt="Fraynix raises a scaled wall mask as an editable room model"><figcaption>Fraynix raises a scaled wall mask as an editable room model</figcaption></figure>
+<figure><img src="3d-to-plan.png" alt="A chat request produces a measured horizontal section with the doorway still open"><figcaption>A chat request produces a measured horizontal section with the doorway still open</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "Turn a scaled floor plan into a 3D scene and measure its geometry back into a plan.",
+  "modules": [
+    {
+      "title": "Metric plan and conversion",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/EnvironmentFloorPlan.java",
+      "note": "docs/obsidian/269-floor-plan-round-trip.md"
+    },
+    {
+      "title": "Horizontal triangle intersections",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GlbSection.java",
+      "note": "docs/obsidian/269-floor-plan-round-trip.md"
+    },
+    {
+      "title": "Floor plan controls",
+      "source": "workspace-desktop/renderer/floor-plan.js",
+      "note": "docs/obsidian/269-floor-plan-round-trip.md"
+    },
+    {
+      "title": "Measured room and restart test",
+      "source": "workspace-desktop/test/floor-plan-integration.cjs",
+      "note": "docs/obsidian/269-floor-plan-round-trip.md"
+    },
+    {
+      "title": "Independent Blender readback",
+      "source": "workspace-desktop/test/floor-plan-blender.py",
+      "note": "docs/obsidian/269-floor-plan-round-trip.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Fraynix raises a scaled wall mask as an editable room model",
+      "path": "docs/readmes/261/plan-to-3d.png"
+    },
+    {
+      "title": "A chat request produces a measured horizontal section with the doorway still open",
+      "path": "docs/readmes/261/3d-to-plan.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Input wall mask",
+      "path": "docs/readmes/261/two-room-mask.png"
+    },
+    {
+      "title": "Rebuildable plan JSON",
+      "path": "docs/readmes/261/two-room-plan.json"
+    },
+    {
+      "title": "Measured floor plan SVG",
+      "path": "docs/readmes/261/two-room-cut.svg"
+    },
+    {
+      "title": "Editable GLB",
+      "path": "docs/readmes/261/two-room-generated.glb"
+    },
+    {
+      "title": "Desktop evidence",
+      "path": "docs/readmes/261/floor-plan-evidence.json"
+    },
+    {
+      "title": "Blender readback",
+      "path": "docs/readmes/261/blender-readback.json"
+    },
+    {
+      "title": "Reproduction",
+      "path": "docs/publication261/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": "docs/obsidian/269-floor-plan-round-trip.canvas",
+    "bytes": 1133,
+    "sha256": "e07e15b0f0e34d86fd96cf31c3f662693a0fdd65b0f7c8d17ea0540f681e52bf",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/269-floor-plan-round-trip.md",
+    "bytes": 350,
+    "sha256": "ea72cc0624f50a8b22bac707916a40ecdebf0a53a3420bb6180f434809e9719a",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication261/plan.md",
+    "bytes": 3329,
+    "sha256": "abc4dd96799187ed0f2055381758addcc1bc738cca4df9a6f10b9768160453d0",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/main.cjs",
+    "bytes": 141487,
+    "sha256": "e93a805aa2b45b60f408f30377ae943263446efd928398a122cebf98f1bc8983",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/app.js",
+    "bytes": 52260,
+    "sha256": "01caaf8d6d9a2283f49b498bfa03e1f35bbb3f28c3e2a025f131fc6052052ae0",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/environment.js",
+    "bytes": 14488,
+    "sha256": "62e21c61dd6ab0fdcd9c6cbcaf40d8a59493277d8e9c3e2f5f1aa692fa4cdb83",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/floor-plan.js",
+    "bytes": 5600,
+    "sha256": "edc0655aa8eadf2c11c99424bf306eb84f29f0ea9ba6041edffc7c090bbda436",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/floor-plan-blender.py",
+    "bytes": 1444,
+    "sha256": "8a4fd910c21f6696c7386db4d5030fd66a27e3f391834f6c5ea7a388861cb98b",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/floor-plan-integration.cjs",
+    "bytes": 8902,
+    "sha256": "fc8abc7edb22211d29d1cf2f8d8917fca19c1a322e98d0b49e766a5d3bb06139",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/EnvironmentFloorPlan.java",
+    "bytes": 19665,
+    "sha256": "1fb53a24bfde0c6b5e6620b2ecd7610aa465dac981e12e93bb11c50bca0799e3",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/GlbSection.java",
+    "bytes": 8457,
+    "sha256": "004263514b9763b48569b5a53dce10374602c27bc5aa6d9437951d99471237a2",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/SpatialGlb.java",
+    "bytes": 33528,
+    "sha256": "89e278202caf655e29c6876ae664ed7cbe2880e9c4501c89035ea0b22c7f7f8e",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+    "bytes": 162100,
+    "sha256": "27dd7688ecaf0e50d3fe4d4a69b22a5f5540cc85b2b500507c74603e519b182b",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

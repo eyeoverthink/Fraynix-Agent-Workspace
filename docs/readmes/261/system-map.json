@@ -1,0 +1,70 @@
+{
+  "summary": "Turn a scaled floor plan into a 3D scene and measure its geometry back into a plan.",
+  "modules": [
+    {
+      "title": "Metric plan and conversion",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/EnvironmentFloorPlan.java",
+      "note": "docs/obsidian/269-floor-plan-round-trip.md"
+    },
+    {
+      "title": "Horizontal triangle intersections",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GlbSection.java",
+      "note": "docs/obsidian/269-floor-plan-round-trip.md"
+    },
+    {
+      "title": "Floor plan controls",
+      "source": "workspace-desktop/renderer/floor-plan.js",
+      "note": "docs/obsidian/269-floor-plan-round-trip.md"
+    },
+    {
+      "title": "Measured room and restart test",
+      "source": "workspace-desktop/test/floor-plan-integration.cjs",
+      "note": "docs/obsidian/269-floor-plan-round-trip.md"
+    },
+    {
+      "title": "Independent Blender readback",
+      "source": "workspace-desktop/test/floor-plan-blender.py",
+      "note": "docs/obsidian/269-floor-plan-round-trip.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Fraynix raises a scaled wall mask as an editable room model",
+      "path": "docs/readmes/261/plan-to-3d.png"
+    },
+    {
+      "title": "A chat request produces a measured horizontal section with the doorway still open",
+      "path": "docs/readmes/261/3d-to-plan.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Input wall mask",
+      "path": "docs/readmes/261/two-room-mask.png"
+    },
+    {
+      "title": "Rebuildable plan JSON",
+      "path": "docs/readmes/261/two-room-plan.json"
+    },
+    {
+      "title": "Measured floor plan SVG",
+      "path": "docs/readmes/261/two-room-cut.svg"
+    },
+    {
+      "title": "Editable GLB",
+      "path": "docs/readmes/261/two-room-generated.glb"
+    },
+    {
+      "title": "Desktop evidence",
+      "path": "docs/readmes/261/floor-plan-evidence.json"
+    },
+    {
+      "title": "Blender readback",
+      "path": "docs/readmes/261/blender-readback.json"
+    },
+    {
+      "title": "Reproduction",
+      "path": "docs/publication261/plan.md"
+    }
+  ]
+}
