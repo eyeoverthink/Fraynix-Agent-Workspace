@@ -12,6 +12,7 @@ test('explicit requests find a workspace surface without changing existing task 
         ['Can you pull up the browser?', 'browser'],
         ['Let me see my saved skills.', 'project-skills'],
         ['Open media timeline', 'media-timeline'],
+        ['Open Avatar Studio', 'avatar-studio'],
         ['Open my files', 'project'],
         ['Show capabilities!', 'help'],
         ['What can Fraynix do?', 'help'],
@@ -27,6 +28,7 @@ test('explicit requests find a workspace surface without changing existing task 
     for (const [prompt,id] of commands) assert.equal(matchWorkspaceIntent(prompt),id,prompt);
     const tasks = [
         'Make a floor plan at 1.2 m.',
+        'Make an avatar from this photo.',
         'Show the floor plan',
         'Show the imported environment',
         'Show the 3D environment',

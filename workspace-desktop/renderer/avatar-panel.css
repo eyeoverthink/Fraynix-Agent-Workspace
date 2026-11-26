@@ -1,0 +1,58 @@
+#avatar-studio {
+    min-height: 0;
+    flex: 1;
+    overflow: auto;
+    padding: 12px;
+    color: inherit;
+}
+#avatar-studio [hidden], #avatar-studio[hidden] { display: none; }
+#avatar-studio h3 { font-size: 1rem; margin: 0; }
+#avatar-studio p { margin: 0; }
+.avatar-toolbar, .avatar-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; }
+.avatar-toolbar { margin-bottom: 12px; }
+.avatar-toolbar label, #avatar-video-controls label, .avatar-rig label {
+    display: grid;
+    gap: 4px;
+    font-size: .83rem;
+}
+.avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%),1fr));
+    align-items: start;
+    gap: 12px;
+}
+.avatar-card {
+    display: grid;
+    gap: 10px;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #344a5d;
+    border-radius: 11px;
+    background: #121f2d;
+}
+.avatar-card > p { font-size: .83rem; color: #b6cadd; }
+#avatar-studio #avatar-status { padding: 10px 0; overflow-wrap: anywhere; }
+#avatar-source, #avatar-video, #avatar-portrait, #avatar-play {
+    display: block;
+    width: 100%;
+    border-radius: 7px;
+}
+#avatar-source { cursor: crosshair; touch-action: none; }
+#avatar-video-controls { display: grid; gap: 5px; }
+#avatar-video { max-height: 245px; background: #101925; }
+#avatar-time { width: 7em; }
+.avatar-rig { display: grid; grid-template-columns: repeat(auto-fit,minmax(72px,1fr)); gap: 6px; margin-top: 8px; }
+.avatar-rig input { width: 100%; min-width: 0; }
+#avatar-assets { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2.5fr); gap: 8px; }
+#avatar-assets figure { min-width: 0; margin: 0; text-align: center; }
+#avatar-assets img {
+    display: block;
+    width: 100%;
+    height: 104px;
+    object-fit: contain;
+    border: 1px solid #344a5d;
+    border-radius: 7px;
+    background: repeating-conic-gradient(#192b3d 0% 25%, #23374a 0% 50%) 0 / 16px 16px;
+}
+#avatar-assets figcaption { color: #b6cadd; font-size: .78rem; margin-top: 4px; }
+#avatar-studio [aria-pressed="true"] { border-color: #a8f8de; }

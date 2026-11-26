@@ -1154,6 +1154,17 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       return nativeExports.save(kinds[format], format, Buffer.from(data.base64, 'base64'),
         {id, assets:data.assets}, data.sha256);
     }
+    case 'avatar': {
+      if (['save','open','library','tile','import'].includes(input.command))
+        return api('/api/avatar/'+input.command,input.args||{});
+      if (input.command !== 'export') throw Error('Unknown avatar command.');
+      const {id, kind} = input.args;
+      const formats = {sprite:'png',walk:'png',portrait:'png',manifest:'json',project:'avatar.json',avi:'avi'};
+      if (!Object.hasOwn(formats,kind)) throw Error('Unknown avatar export.');
+      const data = await api('/api/avatar/export',{id,kind});
+      return nativeExports.save('avatar-'+kind,formats[kind],Buffer.from(data.base64,'base64'),
+        {id,sourceSha256:data.sourceSha256},data.sha256);
+    }
     case 'media': {
       if (input.command === 'pick') {
         if (!surfacesVisible.browser) throw Error('Show the in-app browser to pick a graphic.');

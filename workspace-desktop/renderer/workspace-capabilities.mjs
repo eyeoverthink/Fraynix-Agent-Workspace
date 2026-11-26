@@ -139,6 +139,11 @@ export const CAPABILITIES = [
         target:'#media-timeline-mode',
     },
     {
+        id:'avatar-studio', title:'Avatar Studio', group:'Media and evidence',
+        description:'Turn an image into a talking portrait, game character and walk sheet.',
+        keywords:['portrait','face','avatar','talking head','voice','animation','sprite','character','video'],
+    },
+    {
         id:'sprite-editor', title:'Sprite editor', group:'Media and evidence',
         description:'Isolate a sprite and build a playable 2D scene.',
         keywords:['sprite','image','platformer','game','pixel','2d'],
@@ -213,6 +218,7 @@ const SURFACE_NAMES = {
     world:/^world model$/,
     brain:/^(?:java brain|brain|local controller)$/,
     'media-timeline':/^(?:media|video|editing) timeline$/,
+    'avatar-studio':/^(?:the )?(?:avatar studio|character studio)$/,
     'sprite-editor':/^(?:single )?sprite editor$/,
     'task-history':/^(?:task |mission |project )?history$/,
     'ramp-input':/^(?:ramp setup|ramp inputs?)$/,

@@ -32,6 +32,7 @@ import {TrackingPanel} from './tracking-panel.js';
 import {PerceptionPanel} from './perception-panel.js';
 import {TileEditor} from './media-tile-editor.js';
 import {MediaWorkshop} from './media-workshop.js';
+import {AvatarPanel,isAvatarRequest} from './avatar-panel.js';
 import {isMotionMediaRequest, MotionMediaPanel} from './motion-media.js';
 import {TimelinePanel} from './timeline-editor.js';
 import {isPlacementRequest} from './spatial-placement.js';
@@ -109,6 +110,11 @@ window.tileEvidence=Object.freeze({
 });
 let mediaMode='tiles';
 function showMedia(mode) { mediaMode=mode; setCanvasMode('media'); }
+const avatars=new AvatarPanel(request,async sprite=>{
+ showMedia('tiles');
+ await tileEditor.pending;
+ await tileEditor.addSprite(sprite);
+});
 const timelineEditor=new TimelinePanel(request,()=>showMedia('tiles'));
 const motionMedia=new MotionMediaPanel(request,()=>showMedia('tiles'),async id=>{
  showMedia('timeline');
@@ -119,6 +125,7 @@ $('media-legacy-mode').onclick=()=>showMedia('sprite');
 $('media-tiles-mode').onclick=()=>showMedia('tiles');
 $('media-motion-mode').onclick=()=>showMedia('motion');
 $('media-timeline-mode').onclick=()=>showMedia('timeline');
+$('media-avatar-mode').onclick=()=>showMedia('avatar');
 $('media-tab').onclick=()=>setCanvasMode('media');
 const spatial=new SpatialPanel({call:(command,args={})=>request('spatial',{command,args}),pushCall:(command,args={})=>request('push',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g),announce:text=>message(text),layout:updateLayout});
 const environment=new EnvironmentPanel({request,activate:setCanvasMode});
@@ -172,6 +179,7 @@ function setCanvasMode(mode) {
  const activeMedia=mode==='media';
  environment.show(mode==='environment');
  mediaWorkshop.show(activeMedia&&mediaMode==='sprite');
+ avatars.show(activeMedia&&mediaMode==='avatar');
  tileEditor.show(activeMedia&&mediaMode==='tiles');
  motionMedia.show(activeMedia&&mediaMode==='motion');
  timelineEditor.show(activeMedia&&mediaMode==='timeline');
@@ -200,8 +208,8 @@ function setCanvasMode(mode) {
   spatial:['Spatial workspace','Models, placement and measured geometry','3D · scene evidence'],
   game:['Integrated Java game','Original renderer and runtime controls','Game · XY simulation'],
   media:['Media Workshop',
-   {timeline:'Picture, overlay and audio tracks',motion:'Native recording and verified media',sprite:'Single-sprite level',tiles:'Sprite library and tile editor'}[mediaMode],
-   ['timeline','motion'].includes(mediaMode)?'Video · WAV · PNG · timeline':'2D · browser game']
+   {avatar:'Talking portraits and game sprites',timeline:'Picture, overlay and audio tracks',motion:'Native recording and verified media',sprite:'Single-sprite level',tiles:'Sprite library and tile editor'}[mediaMode],
+   mediaMode==='avatar'?'PNG · sprite sheet · AVI': ['timeline','motion'].includes(mediaMode)?'Video · WAV · PNG · timeline':'2D · browser game']
  };
  if(sceneMode) {
   libraryTab='scenes';
@@ -428,6 +436,7 @@ async function openWorkspaceCapability(id) {
  if(id==='tile-workshop'){showMedia('tiles');return;}
  if(id==='media-timeline'){showMedia('timeline');return;}
  if(id==='sprite-editor'){showMedia('sprite');return;}
+ if(id==='avatar-studio'){showMedia('avatar');await avatars.pending;return;}
  if(id==='preview'||id==='source'){setCanvasMode(id);return;}
  if(id==='game'){ $('game-tab').click(); return; }
  if(id==='knowledge'){await window.knowledgeView.open();return;}
@@ -497,6 +506,14 @@ async function resumeDeskRecording() {
  message(mission.anchorFailure?
   'The preview and local calendar draft are open. The camera anchor still needs review.':
   'The desk recording, checked preview and local calendar draft are open.');
+}
+
+async function buildAvatarFromChat() {
+ const result=await avatars.run(()=>avatars.build());
+ if(result){
+  shell.setStageStatus('Saved');
+  message('Avatar portrait, transparent character and walk sheet are ready.');
+ }else message(avatars.find('status').textContent);
 }
 
 async function buildWorkspaceMotionMedia() {
@@ -586,6 +603,22 @@ async function submitWorkspaceChat() {
     result.environment.name+' has '+result.total+' objects, '+result.environment.triangleCount+
     ' triangles, '+result.environment.imageCount+' embedded images and '+result.environment.markerCount+' interaction markers.');
   } catch (error) {message('I could not read the environment. '+error.message);}
+  return;
+ }
+ if(isAvatarRequest(phrasing)){
+  await openWorkspaceCapability('avatar-studio');
+  if(!avatars.hasSource){
+   message('Choose a portrait image or a frame from a clip. You can adjust the head crop and mark the mouth before building.');
+   shell.needInput({title:'Portrait source needed',description:'Choose a still image or use the video frame picker in Avatar Studio.',
+    choose:{label:'Choose portrait image',action:()=>avatars.chooseImage()},
+    canContinue:()=>avatars.hasSource,resume:async()=>{
+     await openWorkspaceCapability('avatar-studio');
+     await buildAvatarFromChat();
+    }});
+   avatars.onSource=()=>shell.syncFollowup();
+  }else{
+   await buildAvatarFromChat();
+  }
   return;
  }
  if(await answerTileQuestion(phrasing))return;

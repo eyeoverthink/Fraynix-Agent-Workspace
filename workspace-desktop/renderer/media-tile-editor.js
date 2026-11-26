@@ -32,6 +32,7 @@ export class TileEditor {
                 <button id="media-legacy-mode" class="quiet">Single sprite</button>
                 <button id="media-motion-mode">Motion media</button>
                 <button id="media-timeline-mode">Timeline</button>
+                <button id="media-avatar-mode">Avatar Studio</button>
             </div>
             <div class="tile-library">
                 <div class="tile-bar">

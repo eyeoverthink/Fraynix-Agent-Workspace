@@ -47,6 +47,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final MediaEditStore mediaEdit;
     private final CreativeProjects creativeProjects;
     private final TileWorkshop tiles;
+    private final AvatarWorkshop avatars;
     private final MapStore maps;
     private final PerceptionStore perception;
     private final MeasurementStore measurements;
@@ -100,6 +101,7 @@ public final class WorkspaceServer implements AutoCloseable {
     WorkspaceServer(Path project,String token,boolean persistentHost) throws IOException {
         media = new SpriteWorkshop(project);
         tiles = new TileWorkshop(project);
+        avatars = new AvatarWorkshop(project, tiles);
         environments = new EnvironmentStore(project);
         floorPlans = new EnvironmentFloorPlan(environments);
         heightLayers = new EnvironmentHeightLayers(project, environments);
@@ -158,6 +160,8 @@ public final class WorkspaceServer implements AutoCloseable {
                 int bodyLimit = switch (exchange.getRequestURI().getPath()) {
                     case "/api/media-tiles/import", "/api/media-tiles/import-nexus", "/api/timeline/import" -> 8_700_000;
                     case "/api/media-tiles/save-run", "/api/media-tiles/save-variant" -> 4_000_000;
+                    case "/api/avatar/save" -> 4_500_000;
+                    case "/api/avatar/import" -> 6_001_000;
                     case "/api/environment/import" -> 22_500_000;
                     case "/api/environment/desk-prepare" -> 45_000_000;
                     case "/api/environment/floor-plan-build" -> 5_600_000;
@@ -788,6 +792,12 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/motion-media/latest" -> result = motionMedia.latest(input);
                     case "/api/motion-media/open" -> result = motionMedia.open(input);
                     case "/api/motion-media/export" -> result = motionMedia.export(input);
+                    case "/api/avatar/save" -> result = avatars.save(input);
+                    case "/api/avatar/import" -> result = avatars.importRecipe(input);
+                    case "/api/avatar/open" -> result = avatars.open(input);
+                    case "/api/avatar/library" -> result = avatars.library(input);
+                    case "/api/avatar/tile" -> result = avatars.tile(input);
+                    case "/api/avatar/export" -> result = avatars.export(input);
                     case "/api/media/isolate" -> result = media.isolate(input);
                     case "/api/media/save" -> result = media.save(input);
                     case "/api/media/import" -> result = media.importLevel(input);
