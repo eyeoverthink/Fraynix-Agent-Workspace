@@ -1,0 +1,70 @@
+{
+  "summary": "Run and verify a single local desk recording mission with restart recovery.",
+  "modules": [
+    {
+      "title": "Durable desk mission",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DeskRecordingMission.java",
+      "note": "docs/obsidian/271-desk-recording-mission.md"
+    },
+    {
+      "title": "Camera fitting and witness checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DeskCameraAnchor.java",
+      "note": "docs/obsidian/271-desk-recording-mission.md"
+    },
+    {
+      "title": "Geometry queries",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GlbSection.java",
+      "note": "docs/obsidian/271-desk-recording-mission.md"
+    },
+    {
+      "title": "Desk mission controls and playback",
+      "source": "workspace-desktop/renderer/desk-recording.js",
+      "note": "docs/obsidian/271-desk-recording-mission.md"
+    },
+    {
+      "title": "Mission and restart test",
+      "source": "workspace-desktop/test/desk-recording-integration.cjs",
+      "note": "docs/obsidian/271-desk-recording-mission.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The test camera anchor and confirmed desk and doorway checks",
+      "path": "docs/readmes/263/anchored.png"
+    },
+    {
+      "title": "Chat resumes the recording mission and the verified preview plays",
+      "path": "docs/readmes/263/completed.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Studio GLB",
+      "path": "docs/readmes/263/recording-studio.glb"
+    },
+    {
+      "title": "Recorded studio fixture",
+      "path": "docs/readmes/263/studio-observation.webm"
+    },
+    {
+      "title": "Studio setup",
+      "path": "docs/readmes/263/studio-setup.json"
+    },
+    {
+      "title": "Mission evidence",
+      "path": "docs/readmes/263/desk-mission-evidence.json"
+    },
+    {
+      "title": "Example calendar draft",
+      "path": "docs/readmes/263/calendar-draft.ics"
+    },
+    {
+      "title": "Independent video check",
+      "path": "docs/readmes/263/ffprobe-readback.json"
+    },
+    {
+      "title": "Implementation and reproduction",
+      "path": "docs/publication263/plan.md"
+    }
+  ]
+}

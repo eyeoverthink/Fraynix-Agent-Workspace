@@ -1,0 +1,25 @@
+{
+    "programs": [
+
+    ],
+    "stream_groups": [
+
+    ],
+    "streams": [
+        {
+            "codec_name": "mjpeg",
+            "width": 640,
+            "height": 360,
+            "r_frame_rate": "24/1",
+            "nb_frames": "240"
+        },
+        {
+            "codec_name": "pcm_s16le",
+            "r_frame_rate": "0/0",
+            "nb_frames": "240000"
+        }
+    ],
+    "format": {
+        "duration": "10.000000"
+    }
+}

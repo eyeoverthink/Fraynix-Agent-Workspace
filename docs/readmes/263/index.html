@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 263 · Resume a desk recording, preview and calendar draft</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Resume a desk recording, preview and calendar draft</h1>
+<p>Open the sample room, review its recorded observation, and replay the complete mission offline.</p>
+<nav><a href="../../../README-263.md">App guide</a><a href="../262/index.html">Edition 262</a>
+<a href="../../publication263/plan.md">Reproduction</a><a href="recording-studio.glb" download>Download studio GLB</a>
+<a href="studio-observation.webm" download>Download studio recording</a><a href="studio-setup.json" download>Download studio setup</a><a href="#system">System files</a></nav>
+<figure><img src="anchored.png" alt="The test camera anchor and confirmed desk and doorway checks"><figcaption>The test camera anchor and confirmed desk and doorway checks</figcaption></figure>
+<figure><img src="completed.png" alt="Chat resumes the recording mission and the verified preview plays"><figcaption>Chat resumes the recording mission and the verified preview plays</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "Run and verify a single local desk recording mission with restart recovery.",
+  "modules": [
+    {
+      "title": "Durable desk mission",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DeskRecordingMission.java",
+      "note": "docs/obsidian/271-desk-recording-mission.md"
+    },
+    {
+      "title": "Camera fitting and witness checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/DeskCameraAnchor.java",
+      "note": "docs/obsidian/271-desk-recording-mission.md"
+    },
+    {
+      "title": "Geometry queries",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/GlbSection.java",
+      "note": "docs/obsidian/271-desk-recording-mission.md"
+    },
+    {
+      "title": "Desk mission controls and playback",
+      "source": "workspace-desktop/renderer/desk-recording.js",
+      "note": "docs/obsidian/271-desk-recording-mission.md"
+    },
+    {
+      "title": "Mission and restart test",
+      "source": "workspace-desktop/test/desk-recording-integration.cjs",
+      "note": "docs/obsidian/271-desk-recording-mission.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The test camera anchor and confirmed desk and doorway checks",
+      "path": "docs/readmes/263/anchored.png"
+    },
+    {
+      "title": "Chat resumes the recording mission and the verified preview plays",
+      "path": "docs/readmes/263/completed.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Studio GLB",
+      "path": "docs/readmes/263/recording-studio.glb"
+    },
+    {
+      "title": "Recorded studio fixture",
+      "path": "docs/readmes/263/studio-observation.webm"
+    },
+    {
+      "title": "Studio setup",
+      "path": "docs/readmes/263/studio-setup.json"
+    },
+    {
+      "title": "Mission evidence",
+      "path": "docs/readmes/263/desk-mission-evidence.json"
+    },
+    {
+      "title": "Example calendar draft",
+      "path": "docs/readmes/263/calendar-draft.ics"
+    },
+    {
+      "title": "Independent video check",
+      "path": "docs/readmes/263/ffprobe-readback.json"
+    },
+    {
+      "title": "Implementation and reproduction",
+      "path": "docs/publication263/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": "docs/obsidian/271-desk-recording-mission.canvas",
+    "bytes": 1136,
+    "sha256": "9cd3d735d3aec75461179f89c6e4c31c972459f300bfbd60e237eb0353233449",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/271-desk-recording-mission.md",
+    "bytes": 336,
+    "sha256": "ef24f2c1e5d9c9d85387fb31e9c0fc7138389f80040e36b816ff25c091e0e2dd",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication263/plan.md",
+    "bytes": 3583,
+    "sha256": "54811ac206a6dca743ee465dc91110f1456fcf26dde2d887c9453a596dcf5468",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/main.cjs",
+    "bytes": 142274,
+    "sha256": "2a072738c79cf7060ed27298a2b27edce4db9a2e0c611d6ba8060be990a56cff",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/app.js",
+    "bytes": 53283,
+    "sha256": "4cf9aa6999da3ed0b3e98d709f06221dc720a605a1a0133d4bf50bb7d3b96a5e",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/desk-recording.js",
+    "bytes": 11616,
+    "sha256": "de358f2b3e9f31fa8395e974ff5ced9ff1667638527a5d7f9c9a2832517f92b8",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/environment.js",
+    "bytes": 15405,
+    "sha256": "17e9bdbbe81068ddcbe93f906ec56deffafa0d8b0eaa85fb6510a5f95e96004e",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/desk-recording-integration.cjs",
+    "bytes": 8951,
+    "sha256": "524322911a4ff6b79905a54facb6963f75dea86c099b43af4d094edd594c5fce",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/DeskCameraAnchor.java",
+    "bytes": 7656,
+    "sha256": "b2abab3c9427c2af5e5e0ed707eb5ee6a16df7599eabd34ff35b359d983c2960",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/DeskRecordingMission.java",
+    "bytes": 18608,
+    "sha256": "0834f7c25dd2f37619ba88263fd7cd1c7c34559b46c94862a3a095705cde514b",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/GlbSection.java",
+    "bytes": 9849,
+    "sha256": "3c569d95020fd0b57ad09cfe96892a462dd3116a029d8e89e1ba723159746349",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+    "bytes": 163111,
+    "sha256": "245b89e317da4b1608f7af12d285b6f686e735f0a9aa58a52069de772e81341f",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

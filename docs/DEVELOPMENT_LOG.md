@@ -1,3 +1,7 @@
+## Edition 263 — Resume a desk recording, preview and calendar draft
+
+2026-11-25. One Environment mission retains the exact clip, samples, room model and selected frame. Java verifies excluded landmark points, model rays, video and calendar bytes. The public studio resumed after restart and a shifted witness refused. The real apartment clip and tentative calendar draft were retained after restart with the camera anchor unresolved. The held-out discrepancy was 32.8 px at a 5 px limit. Public screenshots and fixtures use independently authored test data. See README-263.md and docs/publication263/plan.md.
+
 ## Edition 262 — Recover openings from measured height layers
 
 2026-11-25. Java measures a reference and two witnesses per height band and saves a replayable audit. Rebuilding a changing band requires approval to omit changing cells. The public facade retained door, window, sill and headers across six independently checked rays. The apartment measured 2,987 agreed and 1,490 varying positions. The rebuild links to its exact original. The geometry and export paths passed with WebGL deliberately unavailable. See README-262.md and docs/publication262/plan.md.

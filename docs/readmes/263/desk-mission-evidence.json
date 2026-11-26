@@ -1,0 +1,213 @@
+{
+  "mission": {
+    "preview": {
+      "sha256": "44078c5a581c7bdb6c3e435f8f45fb787630d14d4b80f149d6803350a2b04eae",
+      "sourceSamples": 80,
+      "fps": 24,
+      "durationS": 10,
+      "outputFrames": 240
+    },
+    "environmentId": "8d66cbcab3072afe424e6be10ae70b0539e4708d0a7cf739d7423658ae870331",
+    "stage": "draft-ready",
+    "anchor": {
+      "normalizedProjection": [
+        [
+          0.2825620228528197,
+          2.6645352591003757e-15,
+          -0.3287994447741964,
+          0.4917763157894736
+        ],
+        [
+          -7.650130529057719e-16,
+          -0.5023324850716784,
+          -0.3287994447741972,
+          0.48903508771929755
+        ],
+        [
+          -9.13331910101789e-16,
+          4.524158825347513e-15,
+          -0.6575988895483935,
+          1
+        ]
+      ],
+      "doorwayProbes": 3,
+      "tolerancePx": 5,
+      "anchorSample": 8,
+      "deskPixel": [
+        415.40816326530626,
+        250.7142857142855
+      ],
+      "doorwayLengthM": 2.8,
+      "normalizationScaleM": 1.9634023987944593,
+      "anchorTimeS": 1,
+      "deskSightlineM": 2.668688816628828,
+      "normalizationCenterM": [
+        -0.057142857142857176,
+        1.3928571428571428,
+        0.5142857142857142
+      ],
+      "anchorFrameSha256": "d21bdc9af1a66c09a6b2f78568d79e80a16125e84161f2dd97ff9f3275ef9a29",
+      "doorwayProbeWidthM": 0.7,
+      "basis": "Source GLB model units and labelled pixels in the selected recording frame. Doorway rays test clearance at one declared height.",
+      "fit": {
+        "maxPx": 5.147390503530811e-13,
+        "count": 7,
+        "rmsPx": 3.9058620696571125e-13,
+        "rows": [
+          {
+            "projectedPx": [
+              154.9999999999995,
+              295.50000000000006
+            ],
+            "name": "Studio marker 1",
+            "errorPx": 5.147390503530811e-13,
+            "observedPx": [
+              155,
+              295.5
+            ]
+          },
+          {
+            "projectedPx": [
+              485.00000000000045,
+              295.5
+            ],
+            "name": "Studio marker 2",
+            "errorPx": 4.547473508864641e-13,
+            "observedPx": [
+              485,
+              295.5
+            ]
+          },
+          {
+            "projectedPx": [
+              199.00000000000037,
+              108.49999999999982
+            ],
+            "name": "Studio marker 3",
+            "errorPx": 4.196415108092822e-13,
+            "observedPx": [
+              199,
+              108.50000000000001
+            ]
+          },
+          {
+            "projectedPx": [
+              438.53448275862036,
+              104.13793103448263
+            ],
+            "name": "Studio marker 4",
+            "errorPx": 3.694822225952521e-13,
+            "observedPx": [
+              438.5344827586207,
+              104.13793103448278
+            ]
+          },
+          {
+            "projectedPx": [
+              272.17391304347836,
+              207.89855072463737
+            ],
+            "name": "Studio marker 5",
+            "errorPx": 3.3266757983254893e-13,
+            "observedPx": [
+              272.17391304347825,
+              207.8985507246377
+            ]
+          },
+          {
+            "projectedPx": [
+              367.8260869565215,
+              136.15942028985506
+            ],
+            "name": "Studio marker 6",
+            "errorPx": 2.2914314707516465e-13,
+            "observedPx": [
+              367.82608695652175,
+              136.1594202898551
+            ]
+          },
+          {
+            "projectedPx": [
+              277.98611111111137,
+              122.70833333333354
+            ],
+            "name": "Studio marker 7",
+            "errorPx": 3.4693117685644956e-13,
+            "observedPx": [
+              277.9861111111111,
+              122.70833333333334
+            ]
+          }
+        ]
+      },
+      "cameraM": [
+        -3.164135620181696e-15,
+        1.349999999999995,
+        3.499999999999954
+      ],
+      "heldOut": {
+        "maxPx": 6.65941940602578e-13,
+        "count": 2,
+        "rmsPx": 5.828183206634173e-13,
+        "rows": [
+          {
+            "projectedPx": [
+              366.42857142857093,
+              240.7142857142853
+            ],
+            "name": "Studio marker 8",
+            "errorPx": 6.65941940602578e-13,
+            "observedPx": [
+              366.42857142857144,
+              240.71428571428572
+            ]
+          },
+          {
+            "projectedPx": [
+              222.0547945205484,
+              191.30136986301355
+            ],
+            "name": "Studio marker 9",
+            "errorPx": 4.856703836433968e-13,
+            "observedPx": [
+              222.05479452054794,
+              191.30136986301372
+            ]
+          }
+        ]
+      }
+    },
+    "draft": {
+      "sha256": "e2f3a8e3e36f8671ade5e09017843ba9148b00e2ac1890bc647fcc3f7c91ca5b",
+      "timezone": "America/Los_Angeles",
+      "start": "2034-11-27T18:00:00Z",
+      "availabilityReadAt": "2034-11-26T23:25:00Z",
+      "end": "2034-11-27T18:30:00Z",
+      "state": "local-calendar-draft",
+      "availabilitySource": "Public test calendar"
+    },
+    "format": "fraynix.desk-recording-mission-v1",
+    "recording": {
+      "frameCount": 80,
+      "description": "Ten-second excerpt from the existing recording.",
+      "framesPerSecond": 8,
+      "durationS": 10,
+      "audio": "silent preview",
+      "anchorFrame": 8
+    },
+    "id": "648d148bf996bb4c5ac36e022e12528f708758c6d687ffc926cf97dc38212547",
+    "source": {
+      "anchorSample": 8,
+      "name": "studio-observation.webm",
+      "videoSha256": "e26a48721d8cd04b1b740fc3d040a38fecc775ef11920bce06a2f356c2147270",
+      "durationS": 10,
+      "startS": 0,
+      "samplesPerSecond": 8
+    }
+  },
+  "shiftedWitnessRefused": true,
+  "resumedStage": "anchored",
+  "exactArtifactsAfterRestart": true,
+  "tamperRefused": true,
+  "partialKeptUnverified": true
+}
