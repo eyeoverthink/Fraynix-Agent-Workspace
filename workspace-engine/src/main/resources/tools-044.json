@@ -2835,5 +2835,80 @@
         "additionalProperties": false
       }
     }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "environment_read",
+      "description": "Read the retained GLB environment counts, object hierarchy, markers and selected world-space bounds.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4096
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50
+          },
+          "filter": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "node": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4095
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "environment_probe",
+      "description": "Intersect a ray with actual imported visual triangles. This returns a visual hit in metres.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "origin": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            }
+          },
+          "direction": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "number",
+              "minimum": -100000,
+              "maximum": 100000
+            }
+          },
+          "maxDistanceM": {
+            "type": "number",
+            "minimum": 0.01,
+            "maximum": 500
+          }
+        },
+        "required": [
+          "origin",
+          "direction"
+        ],
+        "additionalProperties": false
+      }
+    }
   }
 ]

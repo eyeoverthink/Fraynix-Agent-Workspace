@@ -19,6 +19,7 @@ const {createAgency043}=require('./agency043.cjs');const {AsyncLocalStorage}=req
 const {createAgent042}=require('./agent042.cjs');let agent042,runtimeConnection042;
 const {NativeExports}=require('./exports.cjs');
 const {createTileEvidence}=require('./tile-evidence.cjs');
+const {createEnvironmentEvidence}=require('./environment-evidence.cjs');
 const {javaExecutable,gameJvmFlags}=require('./java-launch.cjs');
 const {bodyReport}=require('./body-result.cjs');
 const {createGoals}=require('./goals.cjs');
@@ -70,6 +71,8 @@ async function api(route,input){
   const response=await fetch(origin+route,{method:input===undefined?'GET':'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json','X-Fraynix-Interface':selfHostSession,...(agencyAuthority043?{'X-Fraynix-Task':agencyAuthority043.taskId,'X-Fraynix-Effect':agencyAuthority043.nonce}:{})},body:input===undefined?undefined:JSON.stringify(input)});
   const data=await response.json();if(!response.ok)throw Error(data.error||`Engine HTTP ${response.status}`);return data;
 }
+const measureEnvironment=args=>window.webContents.executeJavaScript('window.environmentEvidence('+JSON.stringify(args)+')');
+const environmentEvidence=createEnvironmentEvidence({api,measure:measureEnvironment});
 const tileRuntimeSource=fs.readFileSync(path.join(__dirname,'renderer','media-tile-play.js'));
 const tileRendererSha256=createHash('sha256').update(tileRuntimeSource).digest('hex');
 const rasterSource=tileRuntimeSource.toString('utf8').replace(/\r\n/g,'\n')
@@ -130,6 +133,8 @@ async function executeRaw(tool,args={}){
   }
   let result;
   switch(tool){
+    case 'environment.read':case 'environment.probe':
+      result=await environmentEvidence(tool,args);break;
     case 'tile.level':case 'tile.ticks':case 'tile.image':case 'tile.pixels':case 'tile.replay':case 'tile.comparison':
       result=await tileEvidence.read(tool,args);break;
     case 'screen.read':case 'screen.report':result=await agency043.action(tool,args);break;
@@ -1082,6 +1087,21 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       return nativeExports.save('verified-motion-media',args.format,Buffer.from(data.base64,'base64'),
         {id:args.id,...data.source},data.sha256);
     }
+    case 'environment-evidence':
+      if (!['environment.read','environment.probe'].includes(input.tool)) throw Error('Unknown environment evidence tool.');
+      return execute(input.tool,input.args||{});
+    case 'environment':
+      if (input.command==='export-inventory') {
+        const {id}=input.args||{};
+        if (typeof id!=='string'||!/^[a-f0-9]{64}$/.test(id)) throw Error('Choose the loaded environment.');
+        const {nodes,...asset}=await api('/api/environment/read',{id});
+        const inventory=await measureEnvironment({id,inventory:true});
+        if (nodes.length!==inventory.length || nodes.some((node,i)=>node.index!==inventory[i]?.index))
+          throw Error('The measured hierarchy differs from its retained source.');
+        return nativeExports.save('environment-inventory','json',JSON.stringify({...asset,nodes:inventory},null,2),{id});
+      }
+      if (!['import','open','activate','select'].includes(input.command)) throw Error('Unknown environment operation.');
+      return api('/api/environment/'+input.command,input.args||{});
     case 'tile-evidence':
       if (!['tile.level','tile.ticks','tile.image','tile.pixels','tile.replay','tile.comparison'].includes(input.tool)) throw Error('Unknown tile evidence tool.');
       return execute(input.tool,input.args||{});

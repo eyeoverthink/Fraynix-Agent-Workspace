@@ -201,3 +201,18 @@
 #recipient-mission-dialog dt { color: var(--muted); }
 #recipient-mission-dialog details { margin-bottom: 12px; }
 @media (max-width: 540px) { #recipient-mission-dialog dl { grid-template-columns: 1fr; } }
+#environment-view[hidden] { display: none; }
+#environment-view { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 8px; padding: 12px; overflow: auto; }
+.environment-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+#environment-status { margin: 0; font-size: 12px; color: #a4dcc7; overflow-wrap: anywhere; }
+.environment-layout { min-height: 370px; flex: 1 0 350px; display: grid; grid-template-columns: minmax(230px,1fr) minmax(155px,27%); gap: 9px; }
+#environment-stage { position: relative; min-height: 320px; min-width: 0; border: 1px solid #35494c; border-radius: 8px; overflow: hidden; background: #17272e; }
+#environment-stage canvas { display: block; position: absolute; inset: 0; }
+.environment-layout aside { display: flex; flex-direction: column; min-height: 0; gap: 6px; }
+.environment-layout aside input[type=search] { width: 100%; }
+#environment-nodes { display: flex; flex-direction: column; gap: 4px; min-height: 105px; overflow: auto; flex: 1 1 auto; }
+#environment-nodes button { text-align: left; font-size: 11px; padding: 6px; }
+#environment-nodes button[aria-pressed=true] { background: #286052; color: #fff; }
+#environment-properties { margin: 0; font-size: 11px; max-height: 165px; overflow: auto; overflow-wrap: anywhere; }
+#environment-properties dt { font-weight: bold; margin-top: 5px; }
+#environment-properties dd { margin: 2px 0; }

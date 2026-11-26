@@ -37,6 +37,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final LearningStore learning;
     private final SceneStore scenes;
     private final SpatialStore spatial;
+    private final EnvironmentStore environments;
     private final ColliderRouting colliderRouting;
     private final SpriteWorkshop media;
     private final MotionMedia motionMedia;
@@ -96,6 +97,7 @@ public final class WorkspaceServer implements AutoCloseable {
     WorkspaceServer(Path project,String token,boolean persistentHost) throws IOException {
         media = new SpriteWorkshop(project);
         tiles = new TileWorkshop(project);
+        environments = new EnvironmentStore(project);
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;this.persistentHost=persistentHost;store=new WorkspaceStore(project);requestWorkbench=new RequestWorkbench(project,store);learning=new LearningStore(project);
         classificationRouting = new ClassifiedProcedurePlan(project, requestWorkbench);
@@ -150,6 +152,7 @@ public final class WorkspaceServer implements AutoCloseable {
                 int bodyLimit = switch (exchange.getRequestURI().getPath()) {
                     case "/api/media-tiles/import", "/api/media-tiles/import-nexus", "/api/timeline/import" -> 8_700_000;
                     case "/api/media-tiles/save-run", "/api/media-tiles/save-variant" -> 4_000_000;
+                    case "/api/environment/import" -> 22_500_000;
                     case "/api/game/import-reference" -> 4_000_100;
                     case "/api/goals/ack" -> 24_000_000;
                     case "/api/agency043/frame" -> 8_100_000;
@@ -678,6 +681,11 @@ public final class WorkspaceServer implements AutoCloseable {
                         if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before copying a prop.");
                         result=spatial.copyProp(input);
                     }
+                    case "/api/environment/import" -> result = environments.importFile(input);
+                    case "/api/environment/open" -> result = environments.open(input, true);
+                    case "/api/environment/activate" -> result = environments.activate(input);
+                    case "/api/environment/read" -> result = environments.open(input, false);
+                    case "/api/environment/select" -> result = environments.select(input);
                     case "/api/spatial/import-glb" -> {
                         SpatialScene.keys(input, "base64");
                         if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before importing a scene.");

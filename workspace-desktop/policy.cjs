@@ -3,6 +3,8 @@ const { randomUUID } = require('node:crypto');
 const catalog = [
  ['experiment.rehearse','Rebuild a verified initial-at-rest experiment, change one friction or dynamic mass, compare bounded alternatives and verify a separate persistent world. Review pauses before action.','{episodeId?,sourceId,property,value,review?}'],
  ['construction.start','Assemble declared bridge stock with checked routes, optional direct-first comparison and independent load experiments. Optional dynamic payload tests drop actual bodies at declared positions and retain unstable cases. Measured load design optionally sweeps off-centre forces and widens supports only after actual failure. Native motion, released support and report verification precede world commit; overload failures are retained, not structural-strength certification.','{centerX?,centerZ?,forceLimitN?,torqueLimitNm?,saveSkillName?,design053?,directFirst055?,loadTests055?,payloadTests057?,payloadDesign058?,asymmetricSupports059?,independentSupports060?,allowPayloadRedesign058?,loadDesign056?,requiredLoadN?,allowRedesign056?,reviewCounterfactual045?}'],
+ ['environment.read','Read the retained GLB environment counts, object hierarchy, markers and selected world-space bounds.','{start?,limit?,filter?,node?}'],
+ ['environment.probe','Intersect a ray with actual imported visual triangles. This returns a visual hit in metres.','{origin:[x,y,z],direction:[x,y,z],maxDistanceM?}'],
  ['tile.replay','Recreate the exact saved tick inputs and compare it to omitting or moving one recorded jump. Restricted to the same saved level and input window.','{runId?,jumpTick,replacementTick?}'],
  ['tile.comparison','Read a saved tile playtest comparison and its source-bound measured outcomes.','{id?}'],
  ['tile.level','Inspect the selected saved tile level, layer depths, score rules, source image IDs and object geometry.','{start?,limit?}'],
@@ -145,7 +147,10 @@ const mapOptions={materials:{type:'array',minItems:1,maxItems:8,items:object({ti
 const range=(minimum,maximum)=>({type:'integer',minimum,maximum});
 const hash={type:'string',pattern:'^[a-f0-9]{64}$'};
 const tileRaster={runId:hash,tick:range(0,7200),assetId:hash};
+const environmentVector={type:'array',minItems:3,maxItems:3,items:{type:'number',minimum:-100000,maximum:100000}};
 const argumentSchemas={
+ 'environment.read':object({start:range(0,4096),limit:range(1,50),filter:{type:'string',maxLength:80},node:range(0,4095)},[]),
+ 'environment.probe':object({origin:environmentVector,direction:environmentVector,maxDistanceM:{type:'number',minimum:.01,maximum:500}},['origin','direction']),
  'tile.replay':object({runId:hash,jumpTick:range(1,7200),replacementTick:range(0,7200)},['jumpTick']),
  'tile.comparison':object({id:hash},[]),
  'tile.level':object({start:range(0,390),limit:range(1,24)},[]),
