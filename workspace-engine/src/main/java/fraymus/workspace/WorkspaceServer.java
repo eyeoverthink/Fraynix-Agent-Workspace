@@ -40,6 +40,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final EnvironmentStore environments;
     private final EnvironmentFloorPlan floorPlans;
     private final EnvironmentHeightLayers heightLayers;
+    private final DeskRecordingMission deskRecording;
     private final ColliderRouting colliderRouting;
     private final SpriteWorkshop media;
     private final MotionMedia motionMedia;
@@ -102,6 +103,7 @@ public final class WorkspaceServer implements AutoCloseable {
         environments = new EnvironmentStore(project);
         floorPlans = new EnvironmentFloorPlan(environments);
         heightLayers = new EnvironmentHeightLayers(project, environments);
+        deskRecording = new DeskRecordingMission(project,environments);
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;this.persistentHost=persistentHost;store=new WorkspaceStore(project);requestWorkbench=new RequestWorkbench(project,store);learning=new LearningStore(project);
         classificationRouting = new ClassifiedProcedurePlan(project, requestWorkbench);
@@ -157,6 +159,7 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/media-tiles/import", "/api/media-tiles/import-nexus", "/api/timeline/import" -> 8_700_000;
                     case "/api/media-tiles/save-run", "/api/media-tiles/save-variant" -> 4_000_000;
                     case "/api/environment/import" -> 22_500_000;
+                    case "/api/environment/desk-prepare" -> 45_000_000;
                     case "/api/environment/floor-plan-build" -> 5_600_000;
                     case "/api/game/import-reference" -> 4_000_100;
                     case "/api/goals/ack" -> 24_000_000;
@@ -696,6 +699,10 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/environment/height-audit" -> result = heightLayers.analyze(input);
                     case "/api/environment/height-read" -> result = heightLayers.read(input);
                     case "/api/environment/height-rebuild" -> result = heightLayers.rebuild(input);
+                    case "/api/environment/desk-prepare" -> result = deskRecording.start(input);
+                    case "/api/environment/desk-read" -> result = deskRecording.read(input);
+                    case "/api/environment/desk-advance" -> result = deskRecording.advance(input);
+                    case "/api/environment/desk-artifact" -> result = deskRecording.artifact(input);
                     case "/api/spatial/import-glb" -> {
                         SpatialScene.keys(input, "base64");
                         if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before importing a scene.");

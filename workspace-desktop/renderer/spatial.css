@@ -232,3 +232,12 @@
 #layers-confirm { margin-right: 10px; }
 #layers-bounds { width: 13em; }
 .environment-render-note { padding: 12px; color: #aed0c6; margin: 0; }
+
+#environment-desk { order: -1; border: 1px solid #35494c; padding: 8px 10px; border-radius: 8px; font-size: 12px; }
+#environment-desk summary { cursor: pointer; font-weight: 600; }
+.desk-setup-label { display: grid; gap: 4px; }
+#desk-setup { width: 100%; }
+#desk-frame { width: min(100%,640px); max-height: 38vh; object-fit: contain; object-position: left; display: block; margin-top: 8px; border-radius: 5px; }
+#desk-inputs { margin-top: 8px; }
+#desk-frame[hidden] { display: none; }
+#desk-status { color: #a4dcc7; }

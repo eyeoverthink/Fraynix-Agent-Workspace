@@ -1091,6 +1091,12 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if (!['environment.read','environment.probe'].includes(input.tool)) throw Error('Unknown environment evidence tool.');
       return execute(input.tool,input.args||{});
     case 'environment':
+      if(input.command==='desk-export') {
+        const {id,format}=input.args||{};
+        if(!['avi','ics'].includes(format))throw Error('Choose the AVI or calendar draft.');
+        const data=await api('/api/environment/desk-artifact',{id,format});
+        return nativeExports.save('desk-recording-'+format,format,Buffer.from(data.base64,'base64'),{missionId:id},data.sha256);
+      }
       if (input.command==='height-export') {
         const data=await api('/api/environment/height-read',{auditId:input.args?.auditId});
         return nativeExports.save('height-layer-audit','json',JSON.stringify(data,null,2)+'\n',
@@ -1116,7 +1122,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
           throw Error('The measured hierarchy differs from its retained source.');
         return nativeExports.save('environment-inventory','json',JSON.stringify({...asset,nodes:inventory},null,2),{id});
       }
-      if (!['import','open','activate','select','floor-plan-build','floor-plan-section','height-audit','height-read','height-rebuild'].includes(input.command)) throw Error('Unknown environment operation.');
+      if (!['import','open','activate','select','floor-plan-build','floor-plan-section','height-audit','height-read','height-rebuild','desk-prepare','desk-read','desk-advance','desk-artifact'].includes(input.command)) throw Error('Unknown environment operation.');
       return api('/api/environment/'+input.command,input.args||{});
     case 'tile-evidence':
       if (!['tile.level','tile.ticks','tile.image','tile.pixels','tile.replay','tile.comparison'].includes(input.tool)) throw Error('Unknown tile evidence tool.');

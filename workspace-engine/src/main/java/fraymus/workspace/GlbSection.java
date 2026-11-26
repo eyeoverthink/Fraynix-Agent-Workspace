@@ -55,7 +55,61 @@ final class GlbSection {
 
     private GlbSection() {}
 
+    record Ray(double[] origin, double[] direction, double length) {}
+
+    record Hit(int node, double distance) {}
+
+    @FunctionalInterface
+    private interface Triangle {
+        void accept(int node, Vertex a, Vertex b, Vertex c);
+    }
+
     static Result cut(byte[] glb, JSONArray catalog, double height) {
+        var lines = new LinkedHashMap<Integer, Set<Line>>();
+        int[] count = {0};
+        var document = visit(glb, catalog, (node, a, b, c) -> {
+            double sample = height + QUANTUM / 8;
+            Point ab = edge(a, b, sample), bc = edge(b, c, sample), ca = edge(c, a, sample);
+            Point start = ab == null ? bc : ab;
+            Point end = ca == null ? bc : ca;
+            if (start != null && end != null && !start.equals(end)
+                    && lines.computeIfAbsent(node, ignored -> new LinkedHashSet<>()).add(Line.between(start, end))) {
+                require(++count[0] <= CAP, "This section exceeds 50,000 edges. Try another section height.");
+            }
+        });
+        var extras = document.optJSONObject("extras", new JSONObject());
+        return new Result(lines, extras.optJSONObject("fraynixFloorPlanGrid"));
+    }
+
+    static Hit[] probe(byte[] glb, JSONArray catalog, Ray... rays) {
+        var hits = new Hit[rays.length];
+        visit(glb, catalog, (node, a, b, c) -> {
+            for (int i = 0; i < rays.length; i++) {
+                double distance = intersect(rays[i], a, b, c);
+                if (distance > 1e-6 && distance <= rays[i].length
+                        && (hits[i] == null || distance < hits[i].distance)) hits[i] = new Hit(node, distance);
+            }
+        });
+        return hits;
+    }
+
+    private static double intersect(Ray ray, Vertex a, Vertex b, Vertex c) {
+        double ux = b.x - a.x, uy = b.y - a.y, uz = b.z - a.z;
+        double vx = c.x - a.x, vy = c.y - a.y, vz = c.z - a.z;
+        double dx = ray.direction[0], dy = ray.direction[1], dz = ray.direction[2];
+        double px = dy*vz - dz*vy, py = dz*vx - dx*vz, pz = dx*vy - dy*vx;
+        double det = ux*px + uy*py + uz*pz;
+        if (Math.abs(det) < 1e-12) return -1;
+        double tx = ray.origin[0] - a.x, ty = ray.origin[1] - a.y, tz = ray.origin[2] - a.z;
+        double u = (tx*px + ty*py + tz*pz) / det;
+        if (u < -1e-9 || u > 1 + 1e-9) return -1;
+        double qx = ty*uz - tz*uy, qy = tz*ux - tx*uz, qz = tx*uy - ty*ux;
+        double v = (dx*qx + dy*qy + dz*qz) / det;
+        if (v < -1e-9 || u + v > 1 + 1e-9) return -1;
+        return (vx*qx + vy*qy + vz*qz) / det;
+    }
+
+    private static JSONObject visit(byte[] glb, JSONArray catalog, Triangle visitor) {
         // EnvironmentStore already validated the exact retained container and catalogue.
         var bin = ByteBuffer.wrap(glb).order(ByteOrder.LITTLE_ENDIAN);
         int jsonLength = bin.getInt(12);
@@ -63,50 +117,29 @@ final class GlbSection {
         var definitions = document.getJSONArray("nodes");
         var meshes = document.getJSONArray("meshes");
         var matrices = new double[definitions.length()][];
-        var lines = new LinkedHashMap<Integer, Set<Line>>();
-        int count = 0;
         for (Object value : catalog) {
             var row = (JSONObject)value;
             int index = row.getInt("index"), parent = row.getInt("parent");
-            JSONObject definition = definitions.getJSONObject(index);
-            double[] local = transform(definition);
+            double[] local = transform(definitions.getJSONObject(index));
             matrices[index] = parent < 0 ? local : multiply(matrices[parent], local);
             if (!row.has("mesh")) continue;
-            var segments = new LinkedHashSet<Line>();
-            for (Object primitive : meshes.getJSONObject(row.getInt("mesh")).getJSONArray("primitives")) {
-                addPrimitive(segments, bin, jsonLength + 28, document, (JSONObject)primitive, matrices[index],
-                        height + QUANTUM / 8);
-                require(count + segments.size() <= CAP, "This section exceeds 50,000 edges. Try another section height.");
-            }
-            if (!segments.isEmpty()) {
-                lines.put(index, segments);
-                count += segments.size();
-            }
+            for (Object primitive : meshes.getJSONObject(row.getInt("mesh")).getJSONArray("primitives"))
+                visitPrimitive(index, bin, jsonLength + 28, document, (JSONObject)primitive, matrices[index], visitor);
         }
-        JSONObject extras = document.optJSONObject("extras", new JSONObject());
-        return new Result(lines, extras.optJSONObject("fraynixFloorPlanGrid"));
+        return document;
     }
 
-    private static void addPrimitive(Set<Line> segments, ByteBuffer bin, int base, JSONObject doc,
-                                     JSONObject primitive, double[] matrix, double height) {
+    private static void visitPrimitive(int node, ByteBuffer bin, int base, JSONObject doc,
+                                       JSONObject primitive, double[] matrix, Triangle visitor) {
         var position = access(bin, base, doc, primitive.getJSONObject("attributes").getInt("POSITION"), 12);
         Access indices = primitive.has("indices") ? access(bin, base, doc, primitive.getInt("indices"), 0) : null;
-        // Transform each accessor position once, including shared vertices reused by many triangles.
         var vertices = new Vertex[position.count()];
         for (int i = 0; i < vertices.length; i++) vertices[i] = position.vertex(i, matrix);
         int size = indices == null ? vertices.length : indices.count();
-        for (int i = 0; i < size; i += 3) {
-            Vertex a = vertices[indices == null ? i : indices.index(i)];
-            Vertex b = vertices[indices == null ? i + 1 : indices.index(i + 1)];
-            Vertex c = vertices[indices == null ? i + 2 : indices.index(i + 2)];
-            Point ab = edge(a, b, height), bc = edge(b, c, height), ca = edge(c, a, height);
-            Point start = ab == null ? bc : ab;
-            Point end = ca == null ? bc : ca;
-            if (start != null && end != null && !start.equals(end)) {
-                segments.add(Line.between(start, end));
-                require(segments.size() <= CAP, "This section exceeds 50,000 edges. Try another section height.");
-            }
-        }
+        for (int i = 0; i < size; i += 3)
+            visitor.accept(node, vertices[indices == null ? i : indices.index(i)],
+                    vertices[indices == null ? i + 1 : indices.index(i + 1)],
+                    vertices[indices == null ? i + 2 : indices.index(i + 2)]);
     }
 
     private static Point edge(Vertex a, Vertex b, double height) {

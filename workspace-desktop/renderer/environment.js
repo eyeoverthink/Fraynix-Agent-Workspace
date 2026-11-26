@@ -4,6 +4,7 @@ import {OrbitControls} from '../node_modules/three/examples/jsm/controls/OrbitCo
 import {readBase64} from './media-workshop.js';
 import {FloorPlanPanel} from './floor-plan.js';
 import {HeightLayersPanel} from './height-layers.js';
+import {DeskRecordingPanel} from './desk-recording.js';
 
 const MAX_BYTES=16*1024*1024;
 const measured=vector=>vector.toArray().map(value=>Object.is(value,-0)?0:value);
@@ -35,7 +36,8 @@ export class EnvironmentPanel {
             </aside>
           </div>
           <details id="environment-plans"></details>
-          <details id="environment-height-layers"></details>`;
+          <details id="environment-height-layers"></details>
+          <details id="environment-desk"></details>`;
         document.querySelector('#canvas-surface').before(this.root);
         const tab=document.createElement('button');
         tab.id='environment-tab';
@@ -44,6 +46,7 @@ export class EnvironmentPanel {
         tab.onclick=()=>this.activate('environment');
         this.floorPlan=new FloorPlanPanel(this);
         this.heightLayers=new HeightLayersPanel(this);
+        this.desk=new DeskRecordingPanel(this);
         this.filter=this.find('environment-filter');
         this.markers=this.find('environment-markers');
         this.filter.oninput=this.markers.onchange=()=>this.list();
@@ -58,11 +61,11 @@ export class EnvironmentPanel {
         this.find('environment-file').onchange=event=>{
             const input=event.target, file=input.files[0];
             input.value='';
-            if (file) this.run(async()=>{
+            if (file) Promise.resolve(this.pending).then(()=>this.run(async()=>{
                 this.tell('Checking the GLB and embedded images…');
                 const info=await this.call('import',{filename:file.name,base64:await readBase64(file,MAX_BYTES)});
                 await this.load(info.id,true);
-            });
+            }));
         };
     }
 

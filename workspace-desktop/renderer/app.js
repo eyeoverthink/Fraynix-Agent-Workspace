@@ -341,6 +341,16 @@ $('run').onclick=()=>safe(async()=>{
  const goal=$('goal').value.trim();
  if(!goal)return;
  message(goal,'user');
+ if (/^(?:plan|run|resume|finish|continue)\b.*\bdesk recording\b/i.test(goal)) {
+  try {
+   setCanvasMode('environment');
+   await environment.pending;
+   environment.desk.root.open=true;
+   const mission=await environment.desk.finish();
+   message('The desk mission is '+mission.stage+'. The recording, preview and calendar draft are in Environment.');
+  } catch (error) {message('Desk recording: '+error.message);}
+  return;
+ }
  if (/^(?:measure|audit|compare)\s+(?:the\s+)?(?:environment\s+)?height (?:layers|bands)\b/i.test(goal)) {
   try {
    setCanvasMode('environment');

@@ -284,6 +284,14 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/height-layers-integration.cjs build/portable-smoke/height-layers
+      - name: Resume a local desk recording and calendar draft from checked evidence
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/desk-recording-integration.cjs build/portable-smoke/desk-recording
+      - name: Resume an offline desk recording on a virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/desk-recording-integration.cjs build/portable-smoke/desk-recording
       - name: Convert Nexus designs to playable offline levels
         if: runner.os != 'Linux'
         run: node workspace-desktop/test/nexus-level-integration.cjs build/portable-smoke/nexus-level
