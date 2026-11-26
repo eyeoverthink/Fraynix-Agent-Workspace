@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 259 · Replay saved controls and compare one change</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Replay saved controls and compare one change</h1>
+<p>Compare the stored original with a variant that changes just one jump.</p>
+<nav><a href="../../../README-259.md">App guide</a><a href="../258/index.html">Edition 258</a>
+<a href="../../publication259/plan.md">Reproduction</a><a href="layered-relay.html" download>Download playable HTML</a>
+<a href="jump-comparison.json" download>Download comparison</a><a href="#system">System files</a></nav>
+<figure><img src="jump-comparison.png" alt="Compare a saved jump and read both outcomes in the Media editor"><figcaption>Compare a saved jump and read both outcomes in the Media editor</figcaption></figure>
+<figure><img src="chat-jump-comparison.png" alt="Offline chat repeats the same measured comparison"><figcaption>Offline chat repeats the same measured comparison</figcaption></figure>
+<figure><img src="original-jump-frame.png" alt="Original view at the first changed tick"><figcaption>Original view at the first changed tick</figcaption></figure>
+<figure><img src="omit-jump-frame.png" alt="Variant view at the same tick with the jump omitted"><figcaption>Variant view at the same tick with the jump omitted</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "Repeat a recorded playtest and compare one reviewed control change.",
+  "modules": [
+    {
+      "title": "Shared fixed-step simulation",
+      "source": "workspace-desktop/renderer/media-tile-play.js",
+      "note": "docs/obsidian/267-tile-input-replay.md"
+    },
+    {
+      "title": "Agent tool and exact replay check",
+      "source": "workspace-desktop/tile-evidence.cjs",
+      "note": "docs/obsidian/267-tile-input-replay.md"
+    },
+    {
+      "title": "Stored input and outcome verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TilePlayRecords.java",
+      "note": "docs/obsidian/267-tile-input-replay.md"
+    },
+    {
+      "title": "Desktop comparison controls",
+      "source": "workspace-desktop/renderer/media-tile-editor.js",
+      "note": "docs/obsidian/267-tile-input-replay.md"
+    },
+    {
+      "title": "Replay and archived-input checks",
+      "source": "workspace-desktop/test/tile-evidence-integration.cjs",
+      "note": "docs/obsidian/267-tile-input-replay.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Compare a saved jump and read both outcomes in the Media editor",
+      "path": "docs/readmes/259/jump-comparison.png"
+    },
+    {
+      "title": "Offline chat repeats the same measured comparison",
+      "path": "docs/readmes/259/chat-jump-comparison.png"
+    },
+    {
+      "title": "Original view at the first changed tick",
+      "path": "docs/readmes/259/original-jump-frame.png"
+    },
+    {
+      "title": "Variant view at the same tick with the jump omitted",
+      "path": "docs/readmes/259/omit-jump-frame.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Omitted jump comparison",
+      "path": "docs/readmes/259/jump-comparison.json"
+    },
+    {
+      "title": "Delayed jump comparison",
+      "path": "docs/readmes/259/shifted-comparison.json"
+    },
+    {
+      "title": "Original trace",
+      "path": "docs/readmes/259/playtest.json"
+    },
+    {
+      "title": "Variant trace",
+      "path": "docs/readmes/259/variant-playtest.json"
+    },
+    {
+      "title": "Standalone game",
+      "path": "docs/readmes/259/layered-relay.html"
+    },
+    {
+      "title": "Reproduction",
+      "path": "docs/publication259/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": "docs/obsidian/267-tile-input-replay.canvas",
+    "bytes": 1125,
+    "sha256": "9e642e71fb7ebec705843ba66294049eff45232b836d5a3826474e8bae4f243b",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/267-tile-input-replay.md",
+    "bytes": 284,
+    "sha256": "1e5e90c2b1190b9a53812acd9f85b337e6377dd03ad79caeb0374f6be19ca0bb",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication259/plan.md",
+    "bytes": 2671,
+    "sha256": "d5bbb04ebb4e4f590b74be0d6ffbf0b7e8c579e52a71a77f6eb83a96a490c207",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/main.cjs",
+    "bytes": 139289,
+    "sha256": "0a668d8e5d39c752913999aebeaa983c04586b25ed058e575d9965a916bc7ea2",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/policy.cjs",
+    "bytes": 45742,
+    "sha256": "bde772db3a8c022aeba98d4ae4160dcf8c037e815d70ee6821b8149ce8a0d36a",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/app.js",
+    "bytes": 50389,
+    "sha256": "16bb5ced9afd5fa871ce3aff8a2d5a77f9247afbae0d1145f31bce5b474e4522",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/media-tile-editor.js",
+    "bytes": 31408,
+    "sha256": "336fff81e76d4668addb610f4eeed64ddefe028eeff7c3d50cfb8ab23ce0879a",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/media-tile-play.js",
+    "bytes": 19056,
+    "sha256": "ba901b0fb8c990a83cfeadabac3fb5a8ba93e79007d85cd9847e388c14c27ab3",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/tile-evidence-integration.cjs",
+    "bytes": 17166,
+    "sha256": "c26c30fa6eba048874ed145dd60b672fff0d73fc55d69716888166dc01e3e76d",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/tile-evidence.cjs",
+    "bytes": 6613,
+    "sha256": "6356856e7312a15cd23d0a51668278c0928d7380fcfa73c5b63f5a36306973c7",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/TilePlayRecords.java",
+    "bytes": 15428,
+    "sha256": "87e1214f8ba48ecb30a198336cc88a7da1bd43db5a8d81d0429fcaf14a8e71f9",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+    "bytes": 161076,
+    "sha256": "3ddc496ae9883e16c3373d6c109c787b812c6693f47c8a905cf99050b290050d",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

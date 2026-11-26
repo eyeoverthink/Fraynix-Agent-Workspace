@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 259 — Replay saved controls and compare one change](../../README-259.md) · [Walkthrough](259/index.html)
+
 [Edition 258 — Layer, score and inspect playable scenes at every tick](../../README-258.md) · [Walkthrough](258/index.html)
 
 [Edition 257 — Turn a Nexus design into a playable level](../../README-257.md) · [Walkthrough](257/index.html)

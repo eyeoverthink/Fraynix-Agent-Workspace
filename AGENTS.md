@@ -1,3 +1,7 @@
+## Edition 259 — Replay saved controls and compare one change
+
+2026-11-25. Tile Workshop records intended direction at each tick and reruns the original inputs before comparing one omitted or moved jump. In Twilight Relay the 273-row original scored 295, while omission scored 75. The one-tick delay scored 295. The exact comparison reopened after restart. Edition 258 numeric and pixel reads passed with the frozen raster source. The portable test takes its fixtures from the test tree after prior hosted checks caught a missing documentation file. See README-259.md and docs/publication259/plan.md.
+
 ## Edition 258 — Layer, score and inspect playable scenes at every tick
 
 2026-11-25. Tile Workshop adds named visual layers, opacity, visibility, object Z order, multi-selection and scoring. The desktop retains 120 Hz tick state, contact and score events in Java. Registered read tools expose levels, rows, PNG images and RGBA pixels, and offline chat supports direct evidence questions. The sample run scored 295 with one penalized reset and zero repeat credit. Restart reconstructed the exact final PNG. The network-blocked standalone game scored 325 on a clean run. See README-258.md and docs/publication258/plan.md.

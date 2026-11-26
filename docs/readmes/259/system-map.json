@@ -1,0 +1,74 @@
+{
+  "summary": "Repeat a recorded playtest and compare one reviewed control change.",
+  "modules": [
+    {
+      "title": "Shared fixed-step simulation",
+      "source": "workspace-desktop/renderer/media-tile-play.js",
+      "note": "docs/obsidian/267-tile-input-replay.md"
+    },
+    {
+      "title": "Agent tool and exact replay check",
+      "source": "workspace-desktop/tile-evidence.cjs",
+      "note": "docs/obsidian/267-tile-input-replay.md"
+    },
+    {
+      "title": "Stored input and outcome verification",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TilePlayRecords.java",
+      "note": "docs/obsidian/267-tile-input-replay.md"
+    },
+    {
+      "title": "Desktop comparison controls",
+      "source": "workspace-desktop/renderer/media-tile-editor.js",
+      "note": "docs/obsidian/267-tile-input-replay.md"
+    },
+    {
+      "title": "Replay and archived-input checks",
+      "source": "workspace-desktop/test/tile-evidence-integration.cjs",
+      "note": "docs/obsidian/267-tile-input-replay.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Compare a saved jump and read both outcomes in the Media editor",
+      "path": "docs/readmes/259/jump-comparison.png"
+    },
+    {
+      "title": "Offline chat repeats the same measured comparison",
+      "path": "docs/readmes/259/chat-jump-comparison.png"
+    },
+    {
+      "title": "Original view at the first changed tick",
+      "path": "docs/readmes/259/original-jump-frame.png"
+    },
+    {
+      "title": "Variant view at the same tick with the jump omitted",
+      "path": "docs/readmes/259/omit-jump-frame.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Omitted jump comparison",
+      "path": "docs/readmes/259/jump-comparison.json"
+    },
+    {
+      "title": "Delayed jump comparison",
+      "path": "docs/readmes/259/shifted-comparison.json"
+    },
+    {
+      "title": "Original trace",
+      "path": "docs/readmes/259/playtest.json"
+    },
+    {
+      "title": "Variant trace",
+      "path": "docs/readmes/259/variant-playtest.json"
+    },
+    {
+      "title": "Standalone game",
+      "path": "docs/readmes/259/layered-relay.html"
+    },
+    {
+      "title": "Reproduction",
+      "path": "docs/publication259/plan.md"
+    }
+  ]
+}
