@@ -14,6 +14,7 @@ const json=value=>JSON.stringify(value,null,2)+'\n';
 
 async function test() {
     process.env.FRAYNIX_WORKSPACE_NO_MODELS='1';
+    process.env.FRAYNIX_UNIFIED_TEST='1';
     const output=path.resolve(process.argv[2]||'build/motion-media254');
     const project=await fs.mkdtemp(path.join(os.tmpdir(),'Fraynix motion media '));
     const args=process.platform==='linux'?['--no-sandbox','--disable-dev-shm-usage']:[];
@@ -37,8 +38,9 @@ async function test() {
     }
 
     async function enter() {
-        await page.locator('#media-tab').click();
-        await page.locator('#media-motion-mode').click();
+        await page.locator('#goal').fill('Open motion media.');
+        await page.locator('#run').click();
+        await page.locator('#motion-media').waitFor();
     }
 
     function verifyTimeline(timeline,run,receipt) {
@@ -105,14 +107,16 @@ async function test() {
         await page.waitForFunction(()=>document.querySelector('#engine-state')?.textContent.includes('0 local models'));
         await page.locator('#goal').fill(brief);
         await page.locator('#run').click();
-        await page.getByText('Choose a completed native motion recording in Media, then send the request again.',{exact:true}).waitFor();
+        await page.getByText('This request needs a completed motion recording.',{exact:true}).waitFor();
         assert.deepEqual(await media('latest'),{});
 
         const gentle=await nativeRun('Shallow ramp',9,.72);
         const steep=await nativeRun('Steep ramp',38,1.38);
         await page.locator('#motion-refresh').click();
         await page.locator('#motion-source').selectOption(gentle.id);
-        await page.locator('#motion-build').click();
+        await page.locator('#workspace-next-continue:not([disabled])').waitFor();
+        await page.locator('#workspace-next-continue').click();
+        assert.equal(await page.locator('#messages .user').filter({hasText:brief}).count(),1);
         await status('Motion media verified and saved.');
         const first=await collect('shallow',gentle,false);
 
@@ -123,7 +127,7 @@ async function test() {
         await page.locator('#motion-source').selectOption(steep.id);
         await page.locator('#goal').fill(brief);
         await page.locator('#run').click();
-        await page.getByText('I verified and saved the video, WAV, poster and timeline. Open Motion media to export them.',{exact:true}).waitFor();
+        await page.getByText('The verified video, audio, poster and timeline are open for review and export.',{exact:true}).waitFor();
         await status('Motion media verified and saved.');
         await page.waitForFunction(()=>document.querySelector('#motion-poster')?.naturalWidth===640);
         await capture('media-built-offline.png');

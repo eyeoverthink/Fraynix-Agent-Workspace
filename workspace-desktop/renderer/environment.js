@@ -177,6 +177,7 @@ export class EnvironmentPanel {
         this.properties();
         this.floorPlan.bind();
         this.heightLayers.bind(catalog);
+        this.onCatalog?.(catalog);
         this.fit(box);
         this.resize();
         this.tell(catalog.name+' · '+catalog.nodes.length+' objects · '+catalog.imageCount+' images · '+catalog.markerCount+' interaction markers');

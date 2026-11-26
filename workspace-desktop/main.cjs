@@ -1458,7 +1458,24 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(!a||Object.keys(a).some(k=>!['evidenceId','browserContract126'].includes(k))||!/^[a-f0-9]{64}$/.test(a.evidenceId)||!a.browserContract126)throw Error('Select verified evidence and browser criteria');
       currentObservation158=JSON.parse(JSON.stringify(a));return {selected:true,evidenceId:a.evidenceId};
     }
-    case 'agent':startAgent(input.goal,input.model,{...(input.chainRecommendation?{chainRecommendation:true}:{}),...(input.planWorld099===undefined?{}:{planWorld099:input.planWorld099}),...(input.browserContract126?{browserContract126:input.browserContract126}:{})},input.plainOnly===true).catch(error=>{activity('error',error.message);emit('answer',error.message);});return {started:true};
+    case 'workspace-interface':
+      return process.env.FRAYNIX_WORKSPACE_TEST?(process.env.FRAYNIX_UNIFIED_TEST==='1'?'unified':'expert'):'';
+    case 'agent': {
+      if (input.offerRampInput===true && !input.chainRecommendation && typeof input.goal==='string'
+          && input.goal.length<=1200 && !rampPath(browser.view.webContents.getURL(),origin)) {
+        const needsRamp=rampRequest(input.goal)
+          || !localWorkflowRequest(input.goal) && (await api('/api/requests/plain-workflow-intent',{request:input.goal})).needsRampInput;
+        if(needsRamp)return {needsRampInput:true};
+      }
+      const options={
+        ...(input.chainRecommendation?{chainRecommendation:true}:{}),
+        ...(input.planWorld099===undefined?{}:{planWorld099:input.planWorld099}),
+        ...(input.browserContract126?{browserContract126:input.browserContract126}:{})
+      };
+      startAgent(input.goal,input.model,options,input.plainOnly===true)
+        .catch(error=>{activity('error',error.message);emit('answer',error.message);});
+      return {started:true};
+    }
     case 'stop':await stopAgent();return {stopped:true};
     case 'proof':return guidedProof();
     case 'learningProof':return learnFromEpisodes({proof:true});
@@ -1479,7 +1496,7 @@ if(!app.requestSingleInstanceLock())app.quit();
 else app.whenReady().then(async()=>{
   try{
     verifyRendererSources(path.join(__dirname,'renderer'));await engineStart();Menu.setApplicationMenu(null);
-    window=new BrowserWindow({width:1600,height:1040,minWidth:1100,minHeight:760,title:'Fraynix Agent Workspace',backgroundColor:'#10191c',webPreferences:{preload:path.join(__dirname,'preload.cjs'),nodeIntegration:false,contextIsolation:true,sandbox:true}});
+    window=new BrowserWindow({width:1600,height:1040,minWidth:740,minHeight:620,title:'Fraynix Agent Workspace',backgroundColor:'#10191c',webPreferences:{preload:path.join(__dirname,'preload.cjs'),nodeIntegration:false,contextIsolation:true,sandbox:true}});
     browser=new Surface('browser',window,(type,value)=>emit(type,value),{networkPolicy});canvas=new Surface('canvas',window,(type,value)=>emit(type,value),{networkPolicy});reportCosts164.attach(canvas);perceptionBridge=new BrowserPerception({browser,api,emit});trackingBridge=createTracking({api,openArtifact,execute,origin,activity,emit});observationBridge=createObservations({api,openArtifact,execute,activity,emit});tabletopBridge=createTabletop({api,openArtifact,execute,emit});researchWorker=new ResearchWorker({api,networkPolicy,activity,emit,withAuthority:(a,fn)=>a?agencyScope043.run(a,fn):fn()});knowledgeBridge=createKnowledge({api,execute,openArtifact,emit,activity,worker:researchWorker});runtime040=createRuntime040({api,execute,openArtifact,emit});alignment041=createAlignment041({api,execute,openArtifact,emit});window.on('close',()=>researchWorker.stop());
     // Only the trusted application top frame may request video. Other surfaces remain denied.
     const trustedMedia=(contents,permission,details={})=>contents===window.webContents&&permission==='media'&&details.isMainFrame!==false&&contents.getURL()===require('node:url').pathToFileURL(path.join(__dirname,'renderer','index.html')).href&&(!details.mediaTypes||details.mediaTypes.length===1&&details.mediaTypes[0]==='video')&&(!details.mediaType||details.mediaType==='video');
@@ -1496,7 +1513,7 @@ else app.whenReady().then(async()=>{
     workflowBridge=createWorkflows({browser,api,withAuthority:(a,fn)=>a?agencyScope043.run(a,fn):fn(),canvas,openArtifact,emit,refresh,activity,getDataset:()=>currentDataset,getScene:()=>currentScene,getGoals:()=>goalBridge,onAudit:async w=>{if(w.profile162&&w.report&&currentArtifact?.id===w.report.id&&currentArtifact?.version===w.report.version){const checked=await api("/api/artifact/read",{id:w.report.id});if(checked.version===w.report.version){currentArtifact=checked;emit("artifact",checked);}}if(captureContext?.ownedWorkflowId===w.id&&w.report)await episodeStep(captureContext,{tool:'workflow.audit',ok:!!w.audit?.passed,failure:w.audit?.passed?'none':'test-failed',elapsedMs:0,artifactId:w.report.id,artifactVersion:w.report.version});}});
     creationBridge=createCreation({api,activity});goalBridge=createGoals({api,withAuthority:(a,fn)=>a?agencyScope043.run(a,fn):fn(),browser,canvas,openArtifact,emit,refresh,activity,getScene:()=>currentScene,getDataset:()=>currentDataset,getSpatial:()=>currentSpatial,getPose:()=>currentPose,getWorld:()=>currentPersistentWorld,getPush:pushSelection,getMapping:()=>currentMapSelection,perception:perceptionBridge,creation:creationBridge,workflow:workflowBridge,getCreationSource:()=>creationSelection(),onScene:async scene=>{currentScene=scene;emit('scene',scene);emit('view','scene');},onTest:async(effect,receipt)=>{if(captureContext?.ownedGoalId===effect.goalId||effect.workflowId&&captureContext?.ownedWorkflowId===effect.workflowId)await episodeStep(captureContext,{tool:'canvas.test',ok:true,failure:receipt.passed?'none':'test-failed',elapsedMs:0,artifactId:receipt.id,artifactVersion:receipt.version,testPassed:receipt.passed});}});goalBridge.start();workflowBridge.start();await agency043.start(createHash('sha256').update(fs.readFileSync(path.join(__dirname,'policy.cjs'))).digest('hex'));
     if(process.env.FRAYNIX_WORKSPACE_CAPTURE){setTimeout(async()=>{await fsp.writeFile(process.env.FRAYNIX_WORKSPACE_CAPTURE,Buffer.from(await captureComposite(),'base64'));},1600);}
-    if(process.env.FRAYNIX_WORKSPACE_TEST)global.workspaceTest={surfaceClass102:Surface,sessionId043:selfHostSession,agency043,activityTrace:()=>log,crashEngine:()=>engine?.kill(),canvasChecks:steps=>canvas.test(steps),canvasRead:code=>canvas.isolated(code),execute,controlledExecute,guidedProof,api,capture:captureComposite,launchGame,stopTestGame:()=>gameProcess?.kill(),origin:()=>origin,surfaces:()=>({browser:browser.view.webContents.id,canvas:canvas.view.webContents.id}),network:()=>networkPolicy.status(),knowledge:knowledgeBridge,runtime040,alignment041,research:researchWorker,stopAgent,startAgent,learnFromEpisodes,replay,project,goals:goalBridge,workflows:workflowBridge};
+    if(process.env.FRAYNIX_WORKSPACE_TEST)global.workspaceTest={surfaceClass102:Surface,sessionId043:selfHostSession,agency043,activityTrace:()=>log,crashEngine:()=>engine?.kill(),canvasChecks:steps=>canvas.test(steps),canvasRead:code=>canvas.isolated(code),execute,controlledExecute,guidedProof,api,capture:captureComposite,surfaceLayout:()=>({browser:{visible:surfacesVisible.browser,bounds:browser.view.getBounds()},canvas:{visible:surfacesVisible.canvas,bounds:canvas.view.getBounds()}}),launchGame,stopTestGame:()=>gameProcess?.kill(),origin:()=>origin,surfaces:()=>({browser:browser.view.webContents.id,canvas:canvas.view.webContents.id}),network:()=>networkPolicy.status(),knowledge:knowledgeBridge,runtime040,alignment041,research:researchWorker,stopAgent,startAgent,learnFromEpisodes,replay,project,goals:goalBridge,workflows:workflowBridge};
   } catch (error) {
     const diagnostic = error instanceof Error ? error.stack || error.message : String(error);
     try {

@@ -284,6 +284,14 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/height-layers-integration.cjs build/portable-smoke/height-layers
+      - name: Exercise the unified workspace, natural requests and native surface bounds
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/workspace-shell-integration.cjs build/portable-smoke/workspace-ui
+      - name: Exercise the unified workspace on a virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/workspace-shell-integration.cjs build/portable-smoke/workspace-ui
       - name: Resume a local desk recording and calendar draft from checked evidence
         if: runner.os != 'Linux'
         run: node workspace-desktop/test/desk-recording-integration.cjs build/portable-smoke/desk-recording

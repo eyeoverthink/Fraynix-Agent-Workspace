@@ -1,7 +1,7 @@
 const formats = {avi:'Export video · AVI',wav:'Export audio · WAV',png:'Export poster · PNG',json:'Export timeline · JSON'};
 
 export function isMotionMediaRequest(text) {
-    return /^(?:(?:make|create|build) (?:a )?(?:motion media package|video with sound and a poster) from (?:this|the selected) run|turn (?:this|the selected) run into (?:a )?(?:motion media package|video with sound and a poster))[.!]?$/i.test(text.trim());
+    return /^(?:(?:make|create|build) (?:a )?(?:motion media package|video with (?:sound|audio) and a poster) from (?:this|the selected) (?:run|recording)|turn (?:this|the selected) (?:run|recording) into (?:a )?(?:motion media package|video with (?:sound|audio) and a poster))[.!]?$/i.test(text.trim());
 }
 
 export class MotionMediaPanel {
@@ -74,6 +74,7 @@ export class MotionMediaPanel {
             if (!this.source.value && runs.some(run=>run.id===latest.source.runId)) this.source.value=latest.source.runId;
             this.present(latest,'Reopened and verified the four saved files.');
         }
+        this.onSources?.();
     }
 
     async build() {
