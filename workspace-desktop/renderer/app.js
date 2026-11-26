@@ -341,6 +341,17 @@ $('run').onclick=()=>safe(async()=>{
  const goal=$('goal').value.trim();
  if(!goal)return;
  message(goal,'user');
+ if (/^(?:measure|audit|compare)\s+(?:the\s+)?(?:environment\s+)?height (?:layers|bands)\b/i.test(goal)) {
+  try {
+   setCanvasMode('environment');
+   await environment.pending;
+   environment.heightLayers.root.open=true;
+   const result=await environment.heightLayers.measure();
+   message('I measured '+result.bands.length+' height bands. '+result.solidBandCells+' filled cells agree across their cuts and '+
+    result.varyingBandCells+' vary. The Height layers panel shows the evidence.');
+  } catch (error) {message('I could not measure the height layers. '+error.message);}
+  return;
+ }
  if (/^(?:make|draw|show|create|extract|convert|turn)\b.*\bfloor[ -]?plan\b/i.test(goal)
      && !/\b(?:into|to)\s+(?:a\s+)?3d\b/i.test(goal)) {
   try {

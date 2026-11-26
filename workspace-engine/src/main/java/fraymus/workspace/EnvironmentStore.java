@@ -69,7 +69,7 @@ final class EnvironmentStore {
             id = new String(SpriteWorkshop.read(latest,64), StandardCharsets.US_ASCII);
         }
         var catalog = retained(id);
-        byte[] bytes = SpriteWorkshop.read(file(id),MAX_BYTES,id);
+        byte[] bytes = retainedBytes(id);
         if (includeBytes) catalog.put("base64", Base64.getEncoder().encodeToString(bytes));
         Path cursor = root.resolve(id + ".selection");
         if (Files.exists(cursor, LinkOption.NOFOLLOW_LINKS)) {
@@ -104,6 +104,10 @@ final class EnvironmentStore {
         var catalog = AgentFiles042.loadChecked(root.resolve(id + ".json"));
         if (!id.equals(catalog.getString("id"))) throw new IOException("Environment identity changed.");
         return catalog;
+    }
+
+    private byte[] retainedBytes(String id) throws IOException {
+        return SpriteWorkshop.read(file(id), MAX_BYTES, id);
     }
 
     private Path file(String id) {
@@ -239,10 +243,15 @@ final class EnvironmentStore {
             require(triangles<=750_000,"The default scene exceeds 750,000 triangles.");
         }
         require(meshNodes>0,"The default scene contains no triangle meshes.");
-        return new JSONObject().put("format","fraynix.environment-glb-v1")
+        var catalog = new JSONObject().put("format","fraynix.environment-glb-v1")
                 .put("units","glTF metres").put("frame","right-handed-y-up")
                 .put("triangleCount",triangles).put("meshNodes",meshNodes).put("markerCount",markers)
                 .put("imageCount",images.length()).put("textureCount",textures.length()).put("nodes",rows);
+        var layerSource = data.optJSONObject("extras", new JSONObject()).optJSONObject("fraynixLayerSource");
+        if (layerSource != null && layerSource.optString("id").matches("[a-f0-9]{64}")
+                && layerSource.optString("auditId").matches("[a-f0-9]{64}"))
+            catalog.put("layerSource",new JSONObject().put("id",layerSource.getString("id")).put("auditId",layerSource.getString("auditId")));
+        return catalog;
     }
 
     private static void walk(JSONArray nodes, ArrayList<Integer> meshes,int index,int parent,int depth,

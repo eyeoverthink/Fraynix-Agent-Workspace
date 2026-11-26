@@ -84,6 +84,16 @@ function environmentGraphics() {
     return [];
 }
 
+async function forceGraphicsFailure(page) {
+    if (process.env.FRAYNIX_TEST_NO_WEBGL!=='1') return;
+    await page.evaluate(()=>{
+        const getContext=HTMLCanvasElement.prototype.getContext;
+        HTMLCanvasElement.prototype.getContext=function(kind,...args) {
+            return /webgl/.test(kind)?null:getContext.call(this,kind,...args);
+        };
+    });
+}
+
 async function main() {
     process.env.FRAYNIX_WORKSPACE_NO_MODELS='1';
     const out=path.resolve(process.argv[2]||'build/env260');
@@ -93,6 +103,7 @@ async function main() {
     let app,page;
     const start=async()=>{
         ({app,page}=await launch(project,flags));
+        await forceGraphicsFailure(page);
         await page.waitForFunction(()=>document.querySelector('#engine-state')?.textContent.includes('0 local models'));
         await page.locator('#environment-tab').click();
     };
@@ -126,8 +137,11 @@ async function main() {
         assert.equal(manifest.triangleCount,84);
         assert.equal(manifest.imageCount,1);
         assert.equal(manifest.markerCount,1);
-        await page.locator('#environment-cut').check();
-        await page.locator('#environment-cut-height').fill('1.72');
+        const graphics=await page.locator('#environment-stage').getAttribute('data-graphics');
+        if (graphics==='webgl') {
+            await page.locator('#environment-cut').check();
+            await page.locator('#environment-cut-height').fill('1.72');
+        }
         await page.locator('#environment-filter').fill('mosaic');
         assert.equal(await page.locator('[data-environment-node]').count(),2);
         await node(9).click();
@@ -136,15 +150,25 @@ async function main() {
         assert.equal(bench.details.parent,5);
         assert.deepEqual(bench.details.position,[-2,.35,-1.6]);
         assert(bench.details.dimensions.every((size,i)=>Math.abs(size-[1.4,.7,.6][i])<1e-7));
-        await page.waitForFunction(()=>{
-            const canvas=document.querySelector('#environment-stage canvas');
-            const ctx=canvas.getContext('webgl2');
-            const pixels=new Uint8Array(canvas.width*canvas.height*4);
-            ctx.readPixels(0,0,canvas.width,canvas.height,ctx.RGBA,ctx.UNSIGNED_BYTE,pixels);
-            const colors=new Set();
-            for (let i=0;i<pixels.length;i+=64) colors.add(pixels[i]+','+pixels[i+1]+','+pixels[i+2]);
-            return colors.size>30;
-        });
+        const noWebGl=process.env.FRAYNIX_TEST_NO_WEBGL==='1';
+        if (noWebGl) assert.equal(graphics,'geometry');
+        if (graphics==='geometry') {
+            assert(noWebGl||(process.env.CI&&process.platform==='darwin'&&process.arch==='x64'));
+            await page.getByText('3D viewport unavailable on this display.',{exact:false}).waitFor();
+            assert.equal(await page.locator('#environment-cut').isDisabled(),true);
+            console.log('WebGL unavailable. Testing decoded geometry, exports and rays with the viewport disabled.');
+        } else {
+            assert.equal(graphics,'webgl');
+            await page.waitForFunction(()=>{
+                const canvas=document.querySelector('#environment-stage canvas');
+                const ctx=canvas.getContext('webgl2');
+                const pixels=new Uint8Array(canvas.width*canvas.height*4);
+                ctx.readPixels(0,0,canvas.width,canvas.height,ctx.RGBA,ctx.UNSIGNED_BYTE,pixels);
+                const colors=new Set();
+                for (let i=0;i<pixels.length;i+=64) colors.add(pixels[i]+','+pixels[i+1]+','+pixels[i+2]);
+                return colors.size>30;
+            });
+        }
         await capture('environment-section.png');
 
         const openDoor=await tool('environment.probe',{origin:[0,1.2,2],direction:[0,0,-1],maxDistanceM:3});
@@ -205,4 +229,4 @@ async function main() {
     }
 }
 if (require.main===module) main().catch(error=>{console.error(error);process.exitCode=1;});
-module.exports={fixture,environmentGraphics};
+module.exports={fixture,environmentGraphics,forceGraphicsFailure};

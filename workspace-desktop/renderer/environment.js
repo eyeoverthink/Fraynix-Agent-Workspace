@@ -3,6 +3,7 @@ import {GLTFLoader} from '../node_modules/three/examples/jsm/loaders/GLTFLoader.
 import {OrbitControls} from '../node_modules/three/examples/jsm/controls/OrbitControls.js';
 import {readBase64} from './media-workshop.js';
 import {FloorPlanPanel} from './floor-plan.js';
+import {HeightLayersPanel} from './height-layers.js';
 
 const MAX_BYTES=16*1024*1024;
 const measured=vector=>vector.toArray().map(value=>Object.is(value,-0)?0:value);
@@ -33,7 +34,8 @@ export class EnvironmentPanel {
               <dl id="environment-properties"></dl>
             </aside>
           </div>
-          <details id="environment-plans"></details>`;
+          <details id="environment-plans"></details>
+          <details id="environment-height-layers"></details>`;
         document.querySelector('#canvas-surface').before(this.root);
         const tab=document.createElement('button');
         tab.id='environment-tab';
@@ -41,6 +43,7 @@ export class EnvironmentPanel {
         document.querySelector('#spatial-tab').after(tab);
         tab.onclick=()=>this.activate('environment');
         this.floorPlan=new FloorPlanPanel(this);
+        this.heightLayers=new HeightLayersPanel(this);
         this.filter=this.find('environment-filter');
         this.markers=this.find('environment-markers');
         this.filter.oninput=this.markers.onchange=()=>this.list();
@@ -74,14 +77,24 @@ export class EnvironmentPanel {
     }
 
     initialize() {
-        if (this.renderer) return;
+        if (this.scene) return;
         const stage=this.find('environment-stage');
-        this.renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+        this.scene=new THREE.Scene();
+        try {
+            this.renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+        } catch {
+            stage.dataset.graphics='geometry';
+            const note=document.createElement('p');
+            note.className='environment-render-note';
+            note.textContent='3D viewport unavailable on this display. Object measurements, floor plans and GLB export are available.';
+            stage.append(note);
+            return;
+        }
+        stage.dataset.graphics='webgl';
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.5));
         this.renderer.outputColorSpace=THREE.SRGBColorSpace;
         this.renderer.setClearColor(0x17272e);
         stage.prepend(this.renderer.domElement);
-        this.scene=new THREE.Scene();
         this.scene.add(new THREE.HemisphereLight(0xe8f4ff,0x726156,2));
         const key=new THREE.DirectionalLight(0xffeedc,1.7);
         key.position.set(8,13,6);
@@ -147,19 +160,20 @@ export class EnvironmentPanel {
         this.rows=catalogRows;
         this.box=box;
         this.scene.add(next);
-        this.find('environment-fit').disabled=false;
+        this.find('environment-fit').disabled=!this.renderer;
         this.find('environment-export').disabled=false;
         const slider=this.find('environment-cut-height');
         slider.min=box.min.y;
         slider.max=box.max.y;
         slider.value=box.min.y+(box.max.y-box.min.y)*.62;
-        this.find('environment-cut').disabled=false;
+        this.find('environment-cut').disabled=!this.renderer;
         this.find('environment-cut').checked=false;
         this.section();
         this.selected=catalog.selected;
         this.list();
         this.properties();
         this.floorPlan.bind();
+        this.heightLayers.bind(catalog);
         this.fit(box);
         this.resize();
         this.tell(catalog.name+' · '+catalog.nodes.length+' objects · '+catalog.imageCount+' images · '+catalog.markerCount+' interaction markers');
@@ -195,7 +209,7 @@ export class EnvironmentPanel {
     }
 
     fit(box) {
-        if (!box || box.isEmpty()) return;
+        if (!this.camera || !box || box.isEmpty()) return;
         const center=box.getCenter(new THREE.Vector3());
         const sphere=box.getBoundingSphere(new THREE.Sphere());
         const distance=Math.max(1,sphere.radius*2.9);
@@ -213,6 +227,7 @@ export class EnvironmentPanel {
         const slider=this.find('environment-cut-height');
         slider.disabled=!on;
         this.cut=on?slider.valueAsNumber:null;
+        if (!this.renderer) return;
         this.renderer.clippingPlanes=on?[new THREE.Plane(new THREE.Vector3(0,-1,0),this.cut)]:[];
         this.draw();
     }
@@ -265,7 +280,7 @@ export class EnvironmentPanel {
 
     properties() {
         const selected=this.node(this.selected);
-        this.find('environment-focus').disabled=!selected;
+        this.find('environment-focus').disabled=!this.renderer||!selected;
         const fmt=value=>value?.map(number=>number.toFixed(3)).join(', ');
         const properties=this.find('environment-properties');
         properties.replaceChildren();

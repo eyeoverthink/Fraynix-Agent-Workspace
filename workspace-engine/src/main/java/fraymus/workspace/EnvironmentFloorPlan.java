@@ -36,7 +36,7 @@ final class EnvironmentFloorPlan {
         this.environments = environments;
     }
 
-    private record Grid(int width, int depth, double originX, double originZ, double cell) {
+    record Grid(int width, int depth, double originX, double originZ, double cell) {
         JSONObject json() {
             return new JSONObject().put("width", width).put("depth", depth).put("originXM", originX)
                     .put("originZM", originZ).put("cellM", cell);
@@ -57,7 +57,7 @@ final class EnvironmentFloorPlan {
         int firstRow(double z) { return (int)Math.ceil((z - originZ) / cell - .5); }
     }
 
-    private record Plan(Grid grid, BitSet[] walls) {
+    record Plan(Grid grid, BitSet[] walls) {
         int occupied() { return Arrays.stream(walls).mapToInt(BitSet::cardinality).sum(); }
 
         JSONObject json() {
@@ -73,8 +73,8 @@ final class EnvironmentFloorPlan {
         }
     }
 
-    private record Span(int start, int end) {}
-    private record Wall(Span span, int firstRow, int endRow) {}
+    record Span(int start, int end) {}
+    record Wall(Span span, int firstRow, int endRow) {}
     private record Contours(Set<Line> closed, Set<Line> open) {}
 
     JSONObject build(JSONObject input) throws Exception {
@@ -188,7 +188,7 @@ final class EnvironmentFloorPlan {
         return ((Number)value).intValue();
     }
 
-    private static List<Wall> merge(Plan plan) {
+    static List<Wall> merge(Plan plan) {
         var done = new ArrayList<Wall>();
         Map<Span, Integer> startingRows = new LinkedHashMap<>();
         for (int z = 0; z <= plan.grid.depth; z++) {
@@ -208,18 +208,22 @@ final class EnvironmentFloorPlan {
         return done;
     }
 
-    private static JSONObject box(String name, double x, double y, double z, double w, double h, double d, int mesh) {
+    static JSONObject box(String name, double x, double y, double z, double w, double h, double d, int mesh) {
         return new JSONObject().put("name", name).put("mesh", mesh).put("translation", new double[]{x,y,z})
                 .put("scale", new double[]{w,h,d});
     }
 
-    private record Section(Plan plan, Set<Line> closed, Set<Line> open) {}
+    record Section(Plan plan, Set<Line> closed, Set<Line> open) {}
 
-    private static Section measure(GlbSection.Result cut, double cell) {
+    static Section measure(GlbSection.Result cut, double cell) {
         require(!cut.lines().isEmpty(), "No triangles cross that height. Try a height inside the model.");
         Grid grid = cut.grid() == null ? fit(cut.lines(), cell) : Grid.read(cut.grid());
         if (cut.grid() != null) for (Set<Line> lines : cut.lines().values()) for (Line line : lines)
             require(onGrid(grid, line.a()) && onGrid(grid, line.b()), "The saved floor-plan grid does not cover this section.");
+        return measure(cut, grid);
+    }
+
+    static Section measure(GlbSection.Result cut, Grid grid) {
         var walls = empty(grid);
         var closed = new LinkedHashSet<Line>();
         var open = new LinkedHashSet<Line>();
@@ -233,13 +237,13 @@ final class EnvironmentFloorPlan {
         return new Section(new Plan(grid, walls), closed, open);
     }
 
-    private static boolean onGrid(Grid grid, Point point) {
+    static boolean onGrid(Grid grid, Point point) {
         double tolerance = 2e-6;
         return point.xm() >= grid.originX - tolerance && point.xm() <= grid.x(grid.width) + tolerance
                 && point.zm() >= grid.originZ - tolerance && point.zm() <= grid.z(grid.depth) + tolerance;
     }
 
-    private static Grid fit(Map<Integer, Set<Line>> lines, double cell) {
+    static Grid fit(Map<Integer, Set<Line>> lines, double cell) {
         double minX = Double.POSITIVE_INFINITY, minZ = minX;
         double maxX = Double.NEGATIVE_INFINITY, maxZ = maxX;
         for (Set<Line> mesh : lines.values()) for (Line line : mesh) {
@@ -332,12 +336,19 @@ final class EnvironmentFloorPlan {
         return work;
     }
 
-    private static BitSet[] empty(Grid grid) {
+    static BitSet[] empty(Grid grid) {
         return java.util.stream.IntStream.range(0, grid.depth).mapToObj(i -> new BitSet(grid.width)).toArray(BitSet[]::new);
     }
 
     private static String svg(Section result) {
-        Grid grid = result.plan.grid;
+        return diagram(result.plan, null, result.plan.grid, result.closed, result.open);
+    }
+
+    static String layerSvg(Plan plan, Plan varying, Grid frame) {
+        return diagram(plan, varying, frame, Set.of(), Set.of());
+    }
+
+    private static String diagram(Plan plan, Plan varying, Grid grid, Set<Line> closed, Set<Line> open) {
         double margin = Math.max(grid.width, grid.depth) * grid.cell * .05;
         double width = grid.width * grid.cell, depth = grid.depth * grid.cell;
         var svg = new StringBuilder("<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"")
@@ -346,17 +357,23 @@ final class EnvironmentFloorPlan {
         svg.append("<rect x=\"").append(grid.originX - margin).append("\" y=\"").append(grid.originZ - margin)
                 .append("\" width=\"").append(width + 2 * margin).append("\" height=\"").append(depth + 2 * margin)
                 .append("\" fill=\"#f2f6f2\"/>");
-        svg.append("<path fill=\"#a7c8b6\" d=\"");
-        for (Wall wall : svgRuns(result.plan)) {
+        svgCells(svg,plan,"#a7c8b6");
+        if (varying != null) svgCells(svg,varying,"#e38f54");
+        svgLines(svg,closed, "#173f3a", margin / 38);
+        svgLines(svg,open, "#ba663d", margin / 42);
+        return svg.append("</svg>").toString();
+    }
+
+    private static void svgCells(StringBuilder svg, Plan plan, String color) {
+        Grid grid = plan.grid;
+        svg.append("<path fill=\"").append(color).append("\" d=\"");
+        for (Wall wall : svgRuns(plan)) {
             double length = (wall.span.end - wall.span.start) * grid.cell;
             double height = (wall.endRow - wall.firstRow) * grid.cell;
             svg.append('M').append(grid.x(wall.span.start)).append(' ').append(grid.z(wall.firstRow))
                     .append('h').append(length).append('v').append(height).append('h').append(-length).append('z');
         }
         svg.append("\"/>");
-        svgLines(svg, result.closed, "#173f3a", margin / 38);
-        svgLines(svg, result.open, "#ba663d", margin / 42);
-        return svg.append("</svg>").toString();
     }
 
     private static List<Wall> svgRuns(Plan plan) {

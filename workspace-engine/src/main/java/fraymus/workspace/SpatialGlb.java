@@ -81,6 +81,10 @@ final class SpatialGlb {
     }
 
     static byte[] environmentBoxes(JSONArray nodes, JSONObject grid, String sourceSha256) {
+        return environmentBoxes(nodes, grid, sourceSha256, null);
+    }
+
+    static byte[] environmentBoxes(JSONArray nodes, JSONObject grid, String sourceSha256, JSONObject layerSource) {
         var payload = buffer(8 * 12 + INDICES.length * 2);
         var views = new JSONArray();
         var accessors = new JSONArray();
@@ -96,11 +100,13 @@ final class SpatialGlb {
                 .put(planMaterial("Wall", .54, .72, .62));
         var roots = new JSONArray();
         for (int i = 0; i < nodes.length(); i++) roots.put(i);
+        var extras = new JSONObject().put("fraynixFloorPlanGrid", grid).put("sourceSha256", sourceSha256);
+        if (layerSource != null) extras.put("fraynixLayerSource", layerSource);
         var json = new JSONObject().put("asset", new JSONObject().put("version", "2.0").put("generator", "Fraynix Floor Plan"))
                 .put("scene", 0).put("scenes", new JSONArray().put(new JSONObject().put("nodes", roots)))
                 .put("nodes", nodes).put("buffers", new JSONArray().put(new JSONObject().put("byteLength", payload.capacity())))
                 .put("bufferViews", views).put("accessors", accessors).put("meshes", meshes).put("materials", materials)
-                .put("extras", new JSONObject().put("fraynixFloorPlanGrid", grid).put("sourceSha256", sourceSha256));
+                .put("extras", extras);
         return pack(json, payload);
     }
 

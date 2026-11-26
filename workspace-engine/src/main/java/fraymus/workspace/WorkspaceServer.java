@@ -39,6 +39,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final SpatialStore spatial;
     private final EnvironmentStore environments;
     private final EnvironmentFloorPlan floorPlans;
+    private final EnvironmentHeightLayers heightLayers;
     private final ColliderRouting colliderRouting;
     private final SpriteWorkshop media;
     private final MotionMedia motionMedia;
@@ -100,6 +101,7 @@ public final class WorkspaceServer implements AutoCloseable {
         tiles = new TileWorkshop(project);
         environments = new EnvironmentStore(project);
         floorPlans = new EnvironmentFloorPlan(environments);
+        heightLayers = new EnvironmentHeightLayers(project, environments);
         if(token==null||token.length()<32)throw new IllegalArgumentException("A private session capability is required");
         this.token=token;this.persistentHost=persistentHost;store=new WorkspaceStore(project);requestWorkbench=new RequestWorkbench(project,store);learning=new LearningStore(project);
         classificationRouting = new ClassifiedProcedurePlan(project, requestWorkbench);
@@ -691,6 +693,9 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/environment/select" -> result = environments.select(input);
                     case "/api/environment/floor-plan-build" -> result = floorPlans.build(input);
                     case "/api/environment/floor-plan-section" -> result = floorPlans.section(input);
+                    case "/api/environment/height-audit" -> result = heightLayers.analyze(input);
+                    case "/api/environment/height-read" -> result = heightLayers.read(input);
+                    case "/api/environment/height-rebuild" -> result = heightLayers.rebuild(input);
                     case "/api/spatial/import-glb" -> {
                         SpatialScene.keys(input, "base64");
                         if (agency.busy() || sharedBusy043()) throw new IllegalStateException("Finish active work before importing a scene.");
