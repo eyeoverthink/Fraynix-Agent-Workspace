@@ -77,12 +77,19 @@ async function fixture() {
     return {document,encode};
 }
 
+function environmentGraphics() {
+    if (process.platform==='linux') return ['--no-sandbox','--disable-dev-shm-usage','--use-angle=swiftshader','--enable-unsafe-swiftshader'];
+    if (process.env.CI && process.platform==='darwin' && process.arch==='x64')
+        return ['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'];
+    return [];
+}
+
 async function main() {
     process.env.FRAYNIX_WORKSPACE_NO_MODELS='1';
     const out=path.resolve(process.argv[2]||'build/env260');
     await fs.mkdir(out,{recursive:true});
     const project=await fs.mkdtemp(path.join(os.tmpdir(),'Fraynix environments '));
-    const flags=process.platform==='linux'?['--no-sandbox','--disable-dev-shm-usage','--use-angle=swiftshader']:[];
+    const flags=environmentGraphics();
     let app,page;
     const start=async()=>{
         ({app,page}=await launch(project,flags));
@@ -197,4 +204,5 @@ async function main() {
             await fs.rm(actual,{recursive:true,force:true,maxRetries:3}).catch(()=>{});
     }
 }
-main().catch(error=>{console.error(error);process.exitCode=1;});
+if (require.main===module) main().catch(error=>{console.error(error);process.exitCode=1;});
+module.exports={fixture,environmentGraphics};

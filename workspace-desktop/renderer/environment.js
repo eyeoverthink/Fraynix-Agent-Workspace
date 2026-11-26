@@ -2,6 +2,7 @@ import * as THREE from '../node_modules/three/build/three.module.js';
 import {GLTFLoader} from '../node_modules/three/examples/jsm/loaders/GLTFLoader.js';
 import {OrbitControls} from '../node_modules/three/examples/jsm/controls/OrbitControls.js';
 import {readBase64} from './media-workshop.js';
+import {FloorPlanPanel} from './floor-plan.js';
 
 const MAX_BYTES=16*1024*1024;
 const measured=vector=>vector.toArray().map(value=>Object.is(value,-0)?0:value);
@@ -31,13 +32,15 @@ export class EnvironmentPanel {
               <div id="environment-nodes" aria-label="Scene objects"></div>
               <dl id="environment-properties"></dl>
             </aside>
-          </div>`;
+          </div>
+          <details id="environment-plans"></details>`;
         document.querySelector('#canvas-surface').before(this.root);
         const tab=document.createElement('button');
         tab.id='environment-tab';
         tab.textContent='Environment';
         document.querySelector('#spatial-tab').after(tab);
         tab.onclick=()=>this.activate('environment');
+        this.floorPlan=new FloorPlanPanel(this);
         this.filter=this.find('environment-filter');
         this.markers=this.find('environment-markers');
         this.filter.oninput=this.markers.onchange=()=>this.list();
@@ -156,6 +159,7 @@ export class EnvironmentPanel {
         this.selected=catalog.selected;
         this.list();
         this.properties();
+        this.floorPlan.bind();
         this.fit(box);
         this.resize();
         this.tell(catalog.name+' · '+catalog.nodes.length+' objects · '+catalog.imageCount+' images · '+catalog.markerCount+' interaction markers');

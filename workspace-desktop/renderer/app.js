@@ -341,6 +341,19 @@ $('run').onclick=()=>safe(async()=>{
  const goal=$('goal').value.trim();
  if(!goal)return;
  message(goal,'user');
+ if (/^(?:make|draw|show|create|extract|convert|turn)\b.*\bfloor[ -]?plan\b/i.test(goal)
+     && !/\b(?:into|to)\s+(?:a\s+)?3d\b/i.test(goal)) {
+  try {
+   setCanvasMode('environment');
+   await environment.pending;
+   environment.floorPlan.root.open=true;
+   const height=goal.match(/(-?\d+(?:\.\d+)?)\s*(?:m\b|metres\b|meters\b)/i);
+   const section=await environment.floorPlan.section(height?Number(height[1]):undefined);
+   message('I made a horizontal floor plan at '+section.heightM+' m. It has '+section.occupiedCells+
+    ' filled cells and '+section.openEdges+' open edges. You can save it or rebuild the filled areas in Environment.');
+  } catch (error) {message('I could not make the floor plan. '+error.message);}
+  return;
+ }
  if (/^(inspect|read|measure|describe|show)\b.*\b(imported environment|environment object|environment objects|environment)\b/i.test(goal)) {
   try {
    const result=await request('environment-evidence',{tool:'environment.read',args:{limit:1}});

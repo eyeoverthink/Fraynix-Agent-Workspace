@@ -77,6 +77,39 @@ final class SpatialGlb {
                 .put("scene", 0).put("scenes", new JSONArray().put(new JSONObject().put("nodes", roots)))
                 .put("nodes", nodes).put("buffers", new JSONArray().put(new JSONObject().put("byteLength", bin.capacity())))
                 .put("bufferViews", views).put("accessors",accessors).put("meshes",meshes);
+        return pack(json, bin);
+    }
+
+    static byte[] environmentBoxes(JSONArray nodes, JSONObject grid, String sourceSha256) {
+        var payload = buffer(8 * 12 + INDICES.length * 2);
+        var views = new JSONArray();
+        var accessors = new JSONArray();
+        var meshes = new JSONArray();
+        float[] cube = new float[24];
+        for (int corner = 0; corner < 8; corner++) for (int axis = 0; axis < 3; axis++)
+            cube[corner * 3 + axis] = (corner & (1 << axis)) == 0 ? -.5f : .5f;
+        appendMesh(payload, views, accessors, meshes, new SpatialVisualMesh(cube, INDICES));
+        var attributes = meshes.getJSONObject(0).getJSONArray("primitives").getJSONObject(0);
+        attributes.put("material", 0);
+        meshes.put(new JSONObject().put("primitives", new JSONArray().put(new JSONObject(attributes.toString()).put("material", 1))));
+        var materials = new JSONArray().put(planMaterial("Floor", .21, .37, .35))
+                .put(planMaterial("Wall", .54, .72, .62));
+        var roots = new JSONArray();
+        for (int i = 0; i < nodes.length(); i++) roots.put(i);
+        var json = new JSONObject().put("asset", new JSONObject().put("version", "2.0").put("generator", "Fraynix Floor Plan"))
+                .put("scene", 0).put("scenes", new JSONArray().put(new JSONObject().put("nodes", roots)))
+                .put("nodes", nodes).put("buffers", new JSONArray().put(new JSONObject().put("byteLength", payload.capacity())))
+                .put("bufferViews", views).put("accessors", accessors).put("meshes", meshes).put("materials", materials)
+                .put("extras", new JSONObject().put("fraynixFloorPlanGrid", grid).put("sourceSha256", sourceSha256));
+        return pack(json, payload);
+    }
+
+    private static JSONObject planMaterial(String name, double red, double green, double blue) {
+        return new JSONObject().put("name", name).put("pbrMetallicRoughness", new JSONObject()
+                .put("baseColorFactor", new double[]{red, green, blue, 1}).put("metallicFactor", 0).put("roughnessFactor", .85));
+    }
+
+    private static byte[] pack(JSONObject json, ByteBuffer bin) {
         byte[] text = json.toString().getBytes(StandardCharsets.UTF_8);
         int padded = (text.length + 3) & ~3;
         var output = buffer(28 + padded + bin.capacity()).putInt(MAGIC).putInt(2).putInt(28 + padded + bin.capacity())

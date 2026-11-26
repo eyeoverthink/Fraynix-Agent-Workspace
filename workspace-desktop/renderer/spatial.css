@@ -216,3 +216,13 @@
 #environment-properties { margin: 0; font-size: 11px; max-height: 165px; overflow: auto; overflow-wrap: anywhere; }
 #environment-properties dt { font-weight: bold; margin-top: 5px; }
 #environment-properties dd { margin: 2px 0; }
+
+#environment-plans { order: -1; border: 1px solid #35494c; padding: 8px 10px; border-radius: 8px; font-size: 12px; }
+#environment-plans summary { cursor: pointer; font-weight: 600; }
+#environment-plans p { margin: 6px 0; }
+.environment-plan-fields { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 8px; }
+.environment-plan-fields label { display: inline-flex; align-items: center; gap: 5px; }
+.environment-plan-fields input[type=number] { width: 6em; }
+#plan-result { color: #a4dcc7; overflow-wrap: anywhere; }
+#plan-preview[hidden] { display: none; }
+#plan-diagram { display: block; width: 100%; height: min(32vw,270px); object-fit: contain; background: #f2f6f2; border-radius: 5px; }
