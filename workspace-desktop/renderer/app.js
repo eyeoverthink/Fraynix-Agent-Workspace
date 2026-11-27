@@ -34,6 +34,7 @@ import {TileEditor} from './media-tile-editor.js';
 import {renderTileEvidence as renderLegacyTiles,replayTileInputs as replayLegacyTiles} from './media-tile-play-legacy.js';
 import {MediaWorkshop} from './media-workshop.js';
 import {AvatarPanel,isAvatarRequest} from './avatar-panel.js';
+import {AvatarLevelPanel,avatarLevelIntent} from './avatar-level-panel.mjs';
 import {isMotionMediaRequest, MotionMediaPanel} from './motion-media.js';
 import {TimelinePanel} from './timeline-editor.js';
 import {isPlacementRequest} from './spatial-placement.js';
@@ -120,6 +121,19 @@ const avatars=new AvatarPanel(request,async sprite=>{
  await tileEditor.pending;
  await tileEditor.usePlayer(player);
 });
+const avatarLevel=new AvatarLevelPanel({avatar:avatars,request,shell:()=>shell,requireSaved,announce:message,notify:notice,
+ review:async id=>{
+  requireSaved();
+  if(tileEditor.dirty)throw Error('Save or discard the current tile level changes before opening the verified level.');
+  showMedia('tiles');
+  await tileEditor.pending;
+  const checked=await tileEditor.call('open',{id});
+  await tileEditor.loadLevels();
+  await tileEditor.loadLibrary();
+  tileEditor.setLevel(checked);
+  tileEditor.tell('Opened the verified level. Choose Play level to try it.');
+ }
+});
 const timelineEditor=new TimelinePanel(request,()=>showMedia('tiles'));
 const motionMedia=new MotionMediaPanel(request,()=>showMedia('tiles'),async id=>{
  showMedia('timeline');
@@ -130,7 +144,7 @@ $('media-legacy-mode').onclick=()=>showMedia('sprite');
 $('media-tiles-mode').onclick=()=>showMedia('tiles');
 $('media-motion-mode').onclick=()=>showMedia('motion');
 $('media-timeline-mode').onclick=()=>showMedia('timeline');
-$('media-avatar-mode').onclick=()=>showMedia('avatar');
+$('media-avatar-mode').onclick=()=>safe(()=>openWorkspaceCapability('avatar-studio'));
 $('media-tab').onclick=()=>setCanvasMode('media');
 const spatial=new SpatialPanel({call:(command,args={})=>request('spatial',{command,args}),pushCall:(command,args={})=>request('push',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g),announce:text=>message(text),layout:updateLayout});
 const environment=new EnvironmentPanel({request,activate:setCanvasMode});
@@ -441,7 +455,11 @@ async function openWorkspaceCapability(id) {
  if(id==='tile-workshop'){showMedia('tiles');return;}
  if(id==='media-timeline'){showMedia('timeline');return;}
  if(id==='sprite-editor'){showMedia('sprite');return;}
- if(id==='avatar-studio'){showMedia('avatar');await avatars.pending;return;}
+ if(id==='avatar-studio'||id==='avatar-level'){
+  showMedia('avatar');await avatars.pending;
+  await avatarLevel.load({show:id==='avatar-level'});
+  return;
+ }
  if(id==='preview'||id==='source'){setCanvasMode(id);return;}
  if(id==='game'){ $('game-tab').click(); return; }
  if(id==='knowledge'){await window.knowledgeView.open();return;}
@@ -614,6 +632,13 @@ async function submitWorkspaceChat() {
   await openWorkspaceCapability('avatar-studio');
   const player=await avatars.run(()=>avatars.sendPlayer());
   message(player?player.name+' is the player in Tile Workshop. Save the level to play.':avatars.find('status').textContent);
+  return;
+ }
+ const avatarLevelRequest=avatarLevelIntent(goal);
+ if(avatarLevelRequest){
+  await openWorkspaceCapability('avatar-level');
+  if(avatarLevelRequest.resume)await avatarLevel.run(()=>avatarLevel.resume());
+  else await avatarLevel.start(avatarLevelRequest);
   return;
  }
  if(isAvatarRequest(phrasing)){
@@ -840,6 +865,7 @@ host.onEvent(({type,value})=>{
   else if(type==='dataset'){dataPanel.selected=value;dataPanel.binding();}
   else if(type==='knowledgeResearch'&&window.knowledgeView.root.open)window.knowledgeView.refresh().catch(e=>notice(e.message));
   else if(type==='agency043')window.agency043View.accept(value);
+  else if(type==='avatarLevelProgress')avatarLevel.progress(value);
   else if(type==='activity')timeline(value);
   else if(type==='answer')message(value);
   else if(type==='error')notice(value);

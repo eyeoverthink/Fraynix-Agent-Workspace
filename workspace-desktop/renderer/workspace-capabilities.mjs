@@ -144,6 +144,11 @@ export const CAPABILITIES = [
         keywords:['portrait','face','avatar','talking head','voice','animation','sprite','character','video'],
     },
     {
+        id:'avatar-level', title:'Image to playable level', group:'Media and evidence',
+        description:'Build a playable course with the imported character, test it and export offline.',
+        keywords:['image','avatar','sprite','level','game','platformer','test','export','mission'],
+    },
+    {
         id:'sprite-editor', title:'Sprite editor', group:'Media and evidence',
         description:'Isolate a sprite and build a playable 2D scene.',
         keywords:['sprite','image','platformer','game','pixel','2d'],
@@ -218,6 +223,7 @@ const SURFACE_NAMES = {
     world:/^world model$/,
     brain:/^(?:java brain|brain|local controller)$/,
     'media-timeline':/^(?:media|video|editing) timeline$/,
+    'avatar-level':/^(?:my )?(?:avatar level|image to playable level|avatar level mission)$/,
     'avatar-studio':/^(?:the )?(?:avatar studio|character studio)$/,
     'sprite-editor':/^(?:single )?sprite editor$/,
     'task-history':/^(?:task |mission |project )?history$/,

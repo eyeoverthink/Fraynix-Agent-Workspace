@@ -242,6 +242,10 @@ final class SpriteWorkshop {
     }
 
     static byte[] portableGame(JSONObject game, String runtime, String entryPoint) throws Exception {
+        return portableGame(game,runtime,entryPoint,"");
+    }
+
+    static byte[] portableGame(JSONObject game, String runtime, String entryPoint, String boot) throws Exception {
         String data = Base64.getEncoder().encodeToString(game.toString().getBytes(StandardCharsets.UTF_8));
         String script = "\n" + resource(runtime).replace("\r\n", "\n") + """
 
@@ -251,7 +255,7 @@ final class SpriteWorkshop {
                 document.querySelector('h1').textContent = level.layout.title;
                 const game = %s(document.querySelector('canvas'), document.querySelector('#progress'), level);
                 document.querySelector('#restart').onclick = () => { game.restart(); document.querySelector('canvas').focus(); };
-                """.formatted(entryPoint);
+                """.formatted(entryPoint) + boot;
         String hash = Base64.getEncoder().encodeToString(java.security.MessageDigest.getInstance("SHA-256")
                 .digest(script.getBytes(StandardCharsets.UTF_8)));
         return resource("media-play.html").replace("@@SCRIPT_HASH@@", hash).replace("@@LEVEL_DATA@@", data)

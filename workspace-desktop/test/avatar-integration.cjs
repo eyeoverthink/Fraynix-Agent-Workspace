@@ -114,13 +114,13 @@ async function main(){
             :{x:34,y:12,w:32,h:71,mouthX:50,mouthY:65};
         await page.locator('#avatar-source').waitFor();
         await page.locator('#avatar-name').fill(clip?'Vaughn · Studio Character':'Studio Robot');
-        await page.locator('#avatar-studio details > summary').click();
+        await page.getByText('Adjust crop and mouth numerically',{exact:true}).click();
         for(const [field,value] of Object.entries(marks)){
             const input=page.locator('#avatar-studio input[data-rig='+field+']');
             await input.fill(String(value));
             await input.press('Tab');
         }
-        await page.locator('#avatar-studio details > summary').click();
+        await page.getByText('Adjust crop and mouth numerically',{exact:true}).click();
         if(clip)await page.locator('#avatar-build').click();
         else await page.locator('#workspace-next-continue').click();
         await page.locator('#avatar-assets').waitFor();

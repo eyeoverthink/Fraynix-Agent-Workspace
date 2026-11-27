@@ -48,6 +48,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final CreativeProjects creativeProjects;
     private final TileWorkshop tiles;
     private final AvatarWorkshop avatars;
+    private final AvatarLevelMission avatarLevels;
     private final MapStore maps;
     private final PerceptionStore perception;
     private final MeasurementStore measurements;
@@ -102,6 +103,7 @@ public final class WorkspaceServer implements AutoCloseable {
         media = new SpriteWorkshop(project);
         tiles = new TileWorkshop(project);
         avatars = new AvatarWorkshop(project, tiles);
+        avatarLevels = new AvatarLevelMission(project, avatars, tiles);
         environments = new EnvironmentStore(project);
         floorPlans = new EnvironmentFloorPlan(environments);
         heightLayers = new EnvironmentHeightLayers(project, environments);
@@ -792,6 +794,12 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/motion-media/latest" -> result = motionMedia.latest(input);
                     case "/api/motion-media/open" -> result = motionMedia.open(input);
                     case "/api/motion-media/export" -> result = motionMedia.export(input);
+                    case "/api/avatar-level/start" -> result = avatarLevels.start(input);
+                    case "/api/avatar-level/read" -> result = avatarLevels.read(input);
+                    case "/api/avatar-level/build" -> result = avatarLevels.build(input);
+                    case "/api/avatar-level/prepare" -> result = avatarLevels.prepare(input);
+                    case "/api/avatar-level/verify" -> result = avatarLevels.verify(input);
+                    case "/api/avatar-level/finish" -> result = avatarLevels.finish(input);
                     case "/api/avatar/save" -> result = avatars.save(input);
                     case "/api/avatar/import" -> result = avatars.importRecipe(input);
                     case "/api/avatar/open" -> result = avatars.open(input);

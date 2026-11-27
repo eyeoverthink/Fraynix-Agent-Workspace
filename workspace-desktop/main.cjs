@@ -19,6 +19,7 @@ const {createAgency043}=require('./agency043.cjs');const {AsyncLocalStorage}=req
 const {createAgent042}=require('./agent042.cjs');let agent042,runtimeConnection042;
 const {NativeExports}=require('./exports.cjs');
 const {createTileEvidence}=require('./tile-evidence.cjs');
+const {createAvatarLevelRunner}=require('./avatar-level-run.cjs');
 const {createEnvironmentEvidence}=require('./environment-evidence.cjs');
 const {javaExecutable,gameJvmFlags}=require('./java-launch.cjs');
 const {bodyReport}=require('./body-result.cjs');
@@ -87,6 +88,13 @@ const tileEvidence=createTileEvidence({
   api,
   surface:(method,args)=>window.webContents.executeJavaScript('window.tileEvidence['+JSON.stringify(method)+']('+JSON.stringify(args??null)+')'),
   save:(...args)=>nativeExports.save(...args)
+});
+const tileRendererCall=(method,inputs)=>window.webContents.executeJavaScript(
+  'window.tileEvidence['+JSON.stringify(method)+']('+JSON.stringify(inputs)+')');
+const avatarLevelRunner=createAvatarLevelRunner({api,rendererSha256:tileRendererSha256,
+  replay:(level,inputs)=>tileRendererCall('replay',{level,inputs}),
+  render:(level,row)=>tileRendererCall('render',{level,row}),
+  progress:status=>emit('avatarLevelProgress',status)
 });
 async function refresh(){state={...await api('/api/state'),network:networkPolicy.status()};emit('state',state);return state;}
 async function engineStart(){
@@ -806,7 +814,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     while(manualBusy&&!learningJob&&Date.now()<deadline)await new Promise(r=>setTimeout(r,100));
   }
   if((['brain','gameRuntime','memory'].includes(input.operation))&&!['state','read','frame','context','cancel'].includes(input.command)&&(run||learningJob||manualBusy))throw Error('Wait for the current operation, or take over from the agent first');
-  const manual=(input.operation==='requestWorkbench')||(input.operation==='chartFollowup'&&input.command!=='state')||(input.operation==='history113')||(input.operation==='inputs100'&&input.command!=='state')||(input.operation==='agency043'&&['report','mission-open','mission-open-comparison','mission-open-playtest','archive','verify'].includes(input.command))||(input.operation==='agent042'&&['report','stop'].includes(input.command))||(input.operation==='alignment041'&&!['state','trial','capture','view','image','frame','stop','finish'].includes(input.command))||(input.operation==='runtime040'&&!['state','read','view','raster','summary'].includes(input.command))||(input.operation==='knowledge'&&['bind','report','open-source'].includes(input.command))||(input.operation==='tabletop'&&!['state','read','image','understanding','frame','stop'].includes(input.command))||(input.operation==='metrics'&&!['state','view'].includes(input.command))||(input.operation==='observations'&&!['state','read','frame','native'].includes(input.command))||(input.operation==='persistentWorld'&&!['list','read','observe','visibility','run','suite','counter-start','counter-status','rehearsal-goals','rehearsal-start','rehearsal-list','rehearsal-read','rehearsal-replay'].includes(input.command))||(input.operation==='pose'&&!['snapshot','run','observe'].includes(input.command))||(input.operation==='poseStudy'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='contactStudy'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='forceLearning'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='tracking'&&!['state','read','dataset','frame'].includes(input.command))||(input.operation==='perception'&&!['catalog','state','models','read','frame-preview'].includes(input.command))||(input.operation==='maps'&&!['select','snapshot','reference','read','list','dungeons','example','reference-cases','reference-example','inspect-image','run'].includes(input.command))||(input.operation==='spatial'&&!['snapshot','read','list','example','observe','run','blueprint-list'].includes(input.command))||(input.operation==='data'&&!['list','inspect'].includes(input.command))||(input.operation==='javaGoal'&&!['goal.read','procedures.list'].includes(input.command))||(input.operation==='body'&&input.command!=='cancel')||input.operation==='transfer'||input.operation==='rampInput'||['tool','new','sourceSave','proof','back','forward','learningProof','learningEvaluate','learningRollback'].includes(input.operation)||(input.operation==='scene'&&!['snapshot','read','runs'].includes(input.command))||(input.operation==='measurement'&&!['read','list','comparison'].includes(input.command))||(input.operation==='calibration'&&!['read','list'].includes(input.command))||(input.operation==='observer'&&!['observe','history'].includes(input.command));
+  const manual=(input.operation==='avatar-level'&&['start','advance'].includes(input.command))||(input.operation==='requestWorkbench')||(input.operation==='chartFollowup'&&input.command!=='state')||(input.operation==='history113')||(input.operation==='inputs100'&&input.command!=='state')||(input.operation==='agency043'&&['report','mission-open','mission-open-comparison','mission-open-playtest','archive','verify'].includes(input.command))||(input.operation==='agent042'&&['report','stop'].includes(input.command))||(input.operation==='alignment041'&&!['state','trial','capture','view','image','frame','stop','finish'].includes(input.command))||(input.operation==='runtime040'&&!['state','read','view','raster','summary'].includes(input.command))||(input.operation==='knowledge'&&['bind','report','open-source'].includes(input.command))||(input.operation==='tabletop'&&!['state','read','image','understanding','frame','stop'].includes(input.command))||(input.operation==='metrics'&&!['state','view'].includes(input.command))||(input.operation==='observations'&&!['state','read','frame','native'].includes(input.command))||(input.operation==='persistentWorld'&&!['list','read','observe','visibility','run','suite','counter-start','counter-status','rehearsal-goals','rehearsal-start','rehearsal-list','rehearsal-read','rehearsal-replay'].includes(input.command))||(input.operation==='pose'&&!['snapshot','run','observe'].includes(input.command))||(input.operation==='poseStudy'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='contactStudy'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='forceLearning'&&!['state','suite','read','run','live','goal'].includes(input.command))||(input.operation==='tracking'&&!['state','read','dataset','frame'].includes(input.command))||(input.operation==='perception'&&!['catalog','state','models','read','frame-preview'].includes(input.command))||(input.operation==='maps'&&!['select','snapshot','reference','read','list','dungeons','example','reference-cases','reference-example','inspect-image','run'].includes(input.command))||(input.operation==='spatial'&&!['snapshot','read','list','example','observe','run','blueprint-list'].includes(input.command))||(input.operation==='data'&&!['list','inspect'].includes(input.command))||(input.operation==='javaGoal'&&!['goal.read','procedures.list'].includes(input.command))||(input.operation==='body'&&input.command!=='cancel')||input.operation==='transfer'||input.operation==='rampInput'||['tool','new','sourceSave','proof','back','forward','learningProof','learningEvaluate','learningRollback'].includes(input.operation)||(input.operation==='scene'&&!['snapshot','read','runs'].includes(input.command))||(input.operation==='measurement'&&!['read','list','comparison'].includes(input.command))||(input.operation==='calibration'&&!['read','list'].includes(input.command))||(input.operation==='observer'&&!['observe','history'].includes(input.command));
   if(manual&&workflowBridge?.reserved()&&!(input.operation==='javaGoal'&&['workflow.cancel','workflow.resume'].includes(input.command)))throw Error('Resume or Stop the evidence workflow before changing its workspace');
   if(manual&&goalBridge?.latest()?.procedure==='creation-web-v1'&&['running','waiting-host'].includes(goalBridge.latest().status)&&!(input.operation==='javaGoal'&&input.command==='goal.cancel'))throw Error('The creation goal owns the canvas; stop it before editing or starting another operation');
   if(manual&&(run||learningJob||manualBusy||pendingAgency043||agency043?.busy()))throw Error('Wait for the current operation, or take over from the agent first');
@@ -1156,6 +1164,19 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       const data = await api('/api/media-tiles/export', {id, format});
       return nativeExports.save(kinds[format], format, Buffer.from(data.base64, 'base64'),
         {id, assets:data.assets}, data.sha256);
+    }
+    case 'avatar-level': {
+      if (input.command==='start'||input.command==='read')
+        return api('/api/avatar-level/'+input.command,input.args||{});
+      if (input.command==='advance') return avatarLevelRunner.advance(input.args||{});
+      if (input.command==='reveal') {
+        const mission=await api('/api/avatar-level/read',{id:input.args.id});
+        if (mission.stage!=='exported') throw Error('Export the verified level first.');
+        const checked=await api('/api/avatar-level/finish',{id:mission.id});
+        shell.showItemInFolder(checked.files.html.path);
+        return checked.files;
+      }
+      throw Error('Unknown avatar level command.');
     }
     case 'avatar': {
       if (['save','open','library','tile','player','import'].includes(input.command))

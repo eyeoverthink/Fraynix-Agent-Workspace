@@ -6,6 +6,10 @@
     color: inherit;
 }
 #avatar-studio [hidden], #avatar-studio[hidden] { display: none; }
+#avatar-level-workflow { margin-bottom: 12px; }
+#avatar-level-details { display: grid; grid-template-columns: max-content 1fr; gap: 5px 8px; margin: 8px 0; }
+#avatar-level-details dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+#avatar-level-details dt { font-weight: 600; }
 #avatar-studio h3 { font-size: 1rem; margin: 0; }
 #avatar-studio p { margin: 0; }
 .avatar-toolbar, .avatar-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; }

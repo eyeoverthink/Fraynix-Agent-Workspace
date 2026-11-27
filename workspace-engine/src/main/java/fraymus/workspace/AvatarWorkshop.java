@@ -105,6 +105,12 @@ final class AvatarWorkshop {
         return tiles.add(new JSONObject().put("source", source));
     }
 
+    synchronized JSONObject sourceProof(String id) throws Exception {
+        var saved = load(id);
+        return new JSONObject().put("avatarId",id).put("name",saved.recipe.getString("name"))
+                .put("imageSha256",saved.portrait.imageSha).put("hashes",saved.recipe.getJSONObject("hashes"));
+    }
+
     synchronized JSONObject player(JSONObject input) throws Exception {
         SpatialScene.keys(input, "id");
         String id = input.getString("id");

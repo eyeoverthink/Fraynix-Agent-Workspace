@@ -148,10 +148,16 @@ final class TileWorkshop {
 
     synchronized JSONObject save(JSONObject input) throws Exception {
         SpatialScene.keys(input, "layout");
-        var layout = layout(input.getJSONObject("layout"));
+        var level = saveMissionLayout(input.getJSONObject("layout"));
+        commitLevel(level.getString("id"), level.getJSONObject("layout"));
+        return level;
+    }
+
+    synchronized JSONObject saveMissionLayout(JSONObject value) throws Exception {
+        var layout = layout(value);
         String id = MapDefinition.sha(encoded(layout));
         var checked = checkedLevel(id, layout);
-        commitLevel(id, layout);
+        store(levels,id,encoded(layout),MAX_LAYOUT);
         return checked;
     }
 
@@ -224,13 +230,23 @@ final class TileWorkshop {
         byte[] bytes = switch (format) {
             case "json" -> encoded(new JSONObject().put("format", FORMAT).put("layout", layout).put("assets", originals));
             case "html" -> SpriteWorkshop.portableGame(new JSONObject().put("layout", layout).put("sprites", sprites),
-                    "media-tile-play.js", "mountTileGame");
+                    "media-tile-play.js", "mountTileGame", layout.has("course") ? AVATAR_REPLAY : "");
             default -> throw new IllegalArgumentException("Choose playable HTML or editable level.");
         };
         if ("json".equals(format) && bytes.length > MAX_PACKAGE)
             throw new IllegalArgumentException("The editable bundle exceeds the package limit.");
         return receipt(bytes, proof);
     }
+
+    private static final String AVATAR_REPLAY = """
+            globalThis.fraynixAvatarReplay = (inputs) => {
+                if (!Array.isArray(inputs) || inputs.length > 620 || inputs.some(row =>
+                    !Array.isArray(row) || ![-1,0,1].includes(row[0]) || typeof row[1] !== 'boolean')) {
+                    throw new Error('Use up to 620 direction and jump inputs.');
+                }
+                return replayTileInputs(level, inputs);
+            };
+            """;
 
     private JSONObject checkedLevel(String id, JSONObject layout) throws Exception {
         var sprites = new JSONObject();
@@ -427,7 +443,7 @@ final class TileWorkshop {
     }
 
     private static JSONObject layout(JSONObject input) {
-        SpatialScene.keys(input, "title", "objects", "stage", "planes", "scoring", "player");
+        SpatialScene.keys(input, "title", "objects", "stage", "planes", "scoring", "player", "course");
         String title = SpatialScene.text(input, "title", 70).strip();
         var stage = input.has("stage") ? NexusSceneLevel.validatedStage(input.getJSONObject("stage")) : null;
         var objects = input.getJSONArray("objects");
@@ -484,6 +500,7 @@ final class TileWorkshop {
         var output = new JSONObject().put("title", title).put("objects", result);
         if (stage != null) output.put("stage", stage);
         if (input.has("player")) output.put("player",player(input.getJSONObject("player")));
+        if (input.has("course")) output.put("course",AvatarLevelMission.course(input.getString("course")));
         if (planes != null) output.put("planes", planes);
         if (input.has("scoring")) {
             var rules = input.getJSONObject("scoring");

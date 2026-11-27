@@ -13,6 +13,7 @@ test('explicit requests find a workspace surface without changing existing task 
         ['Let me see my saved skills.', 'project-skills'],
         ['Open media timeline', 'media-timeline'],
         ['Open Avatar Studio', 'avatar-studio'],
+        ['Open image to playable level', 'avatar-level'],
         ['Open my files', 'project'],
         ['Show capabilities!', 'help'],
         ['What can Fraynix do?', 'help'],
@@ -55,4 +56,15 @@ test('catalog search uses all query terms across supported actions and aliases',
     assert.deepEqual(searchCapabilities('does-not-exist'),[]);
     const source = CAPABILITIES.filter(({id})=>id==='source');
     assert.deepEqual(searchCapabilities('javascript',source),source);
+});
+
+test('plain language distinguishes the verified avatar level workflow from other media work', async () => {
+    const {avatarLevelIntent}=await import('../renderer/avatar-level-panel.mjs');
+    const jump='Could you take my photo and build a playable platformer with hurdles named “First Jump”, then test it and export offline?';
+    assert.deepEqual(avatarLevelIntent(jump),{request:jump,title:'First Jump',course:'jump',pause:false});
+    const relay='Make a playable level from the image with no jumps and pause before export.';
+    assert.deepEqual(avatarLevelIntent(relay),{request:relay,title:'',course:'relay',pause:true});
+    assert.deepEqual(avatarLevelIntent('Resume my avatar level.'),{resume:true});
+    assert.equal(avatarLevelIntent('Make this portrait into a talking avatar.'),null);
+    assert.equal(avatarLevelIntent('How do I export a playable level with an avatar?'),null);
 });
