@@ -139,6 +139,14 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/avatar-level-mission-integration.cjs build/portable-smoke/avatar/sample-portrait.png build/portable-smoke/avatar-level
+      - name: Diagnose and repair a generated level after restart
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/avatar-course-repair-integration.cjs build/portable-smoke/avatar/sample-portrait.png build/portable-smoke/avatar-repair
+      - name: Diagnose and repair generated levels on a virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/avatar-course-repair-integration.cjs build/portable-smoke/avatar/sample-portrait.png build/portable-smoke/avatar-repair
       - name: Verify a reviewed hypothesis with original Game Lab replays on Windows
         if: runner.os == 'Windows'
         shell: pwsh

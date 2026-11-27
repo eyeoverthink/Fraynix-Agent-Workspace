@@ -1,18 +1,46 @@
 import {workspaceRequestText} from './workspace-capabilities.mjs';
 
+const words={zero:0,no:0,one:1,single:1,a:1,an:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10};
+
+function mentionedCount(text,nouns){
+    const match=new RegExp('\\b(\\d{1,3}|'+Object.keys(words).join('|')+')\\s+(?:regular\\s+)?(?:'+nouns+')\\b','i').exec(text);
+    if(!match)return undefined;
+    return words[match[1].toLowerCase()]??Number(match[1]);
+}
+
+function courseBrief(text, jump){
+    const hurdles=mentionedCount(text,'(?:hurdles?|obstacles?|barriers?|oversized (?:first )?hurdle)');
+    const pickups=mentionedCount(text,'pickups?|coins?|tokens?');
+    const statedSpacing=text.match(/\b(staggered|evenly spaced|even spacing)\b/i);
+    const oversized=/\b(?:oversized|giant|extra tall)(?:\s+first)?\s+(?:hurdle|barrier|obstacle)s?\b/i.test(text);
+    const elevated=/\b(?:elevated|high|floating)\s+(?:pickup|coin|token)s?\b/i.test(text);
+    const locked=/\b(?:keep (?:the )?(?:layout|geometry|positions|sizes) fixed|do not (?:repair|change (?:the )?(?:layout|geometry))|don't repair|no repairs)\b/i.test(text);
+    const pauseRepair=/\b(?:pause|stop|wait) (?:before (?:the )?(?:first )?repair|after (?:the )?diagnosis)\b/i.test(text);
+    if(hurdles===undefined&&pickups===undefined&&!statedSpacing&&!oversized&&!elevated&&!locked&&!pauseRepair)return null;
+    return {hurdles:hurdles??(jump?2:0),pickups:pickups??3,
+        spacing:statedSpacing?.[1]?.toLowerCase()==='staggered'?'staggered':'even',oversized,elevated,locked,pauseRepair};
+}
+
+function issueText(issue){
+    if(issue.kind==='blocked-hurdle')return issue.objectId+' held the player in place with '+issue.contacts+' final wall-contact ticks.';
+    if(issue.kind==='missed-pickup')return issue.objectId+' was never collected, so the exit stayed locked.';
+    return 'The run stopped at x='+Number(issue.lastX).toFixed(1)+' without a confirmed cause.';
+}
+
 export function avatarLevelIntent(request) {
     const text=workspaceRequestText(request);
     if (/^(?:resume|continue|finish|reopen|export)\s+(?:my |the |last |saved )*(?:avatar|portrait|character)[ -](?:level|game|mission|course)(?:\s+mission)?[.!?]*$/i.test(text))
         return {resume:true};
     if (text.length>1200 || !/^(?:take|use|turn|convert|make|build|create|put|design|generate)\b/i.test(text)
             || !/\b(?:image|photo|picture|portrait|avatar|character|sprite)\b/i.test(text)
-            || !/\b(?:level|platformer|playable game|browser game)\b/i.test(text)
+            || !/\b(?:level|platformer|playable (?:game|relay|course)|browser game|(?:relay|jump) course)\b/i.test(text)
             || !/\b(?:offline|export|standalone|playable|playtest|test)\b/i.test(text))
         return null;
     const title=text.match(/\b(?:called|named|titled)\s+["“]([^"”]{1,70})["”]/i)?.[1]?.trim()||'';
     const jump=/\b(?:jump(?:s|ing)?|obstacle(?:s)?|hurdle(?:s)?|platforms|platformer)\b/i.test(text)
         && !/\b(?:no|without)\s+(?:jumps|jumping|obstacles|hurdles)\b/i.test(text);
-    return {request,title,course:jump?'jump':'relay',
+    const brief=courseBrief(text,jump);
+    return {request,title,course:(brief?brief.hurdles>0:jump)?'jump':'relay',...(brief?{brief}:{}),
         pause:/\b(?:(?:pause|stop|wait)\s+before\s+(?:the\s+)?export(?:ing)?|without exporting|(?:do not|don't) export)\b/i.test(text)};
 }
 
@@ -104,8 +132,17 @@ export class AvatarLevelPanel {
             avatarId=avatar.id;
         }
         this.progress(mission.stage==='verified'?'Checking export files':'Preparing the playable level');
-        const result=await this.call('advance',{id:mission.id,avatarId,release:mission.stage==='verified'});
+        const result=await this.call('advance',{id:mission.id,avatarId,release:mission.stage==='verified',
+            releaseRepair:mission.stage==='diagnosed'});
         this.accept(result);
+        if(result.stage==='diagnosed'){
+            this.shell().setStageStatus('Repair ready');
+            this.announce(issueText(result.diagnosis)+' Continue the mission to apply and retest the repair.');
+        }
+        if(result.stage==='needs-review'){
+            this.shell().setStageStatus('Needs review','needs-input');
+            this.announce(issueText(result.diagnosis)+' '+result.refusal);
+        }
         if(result.stage==='verified'){
             this.shell().setStageStatus('Verified');
             this.announce(result.title+' passed its offline playtest at '+result.evidence.score+
@@ -116,7 +153,8 @@ export class AvatarLevelPanel {
             this.notify('Verified offline export saved.');
             this.announce(result.title+' is ready. The playtest collected '+result.evidence.pickups+
                 ' pickups, cleared '+result.evidence.hurdles+' hurdles and scored '+result.evidence.score+
-                '. The offline game, editable level and evidence are saved.');
+                '. '+(result.repairs?.length?'Passed after '+result.repairs.length+' recorded repair'+(result.repairs.length===1?'':'s')+'. ':'')+
+                'The offline game, editable level and evidence are saved.');
         }
     }
 
@@ -145,17 +183,33 @@ export class AvatarLevelPanel {
         this.status.textContent={
             'awaiting-image':'Waiting for the portrait',
             built:'Level built. Ready to playtest',
+            diagnosed:'Failed playtest diagnosed. Repair is ready',
+            'needs-review':'Needs review. Export is blocked',
             verified:'Playtest passed. Export is ready',
             exported:'Offline game and editable level saved'
         }[mission.stage]||'Ask “Turn this image into a character, build a playable level, then test and export it offline.”';
-        this.evidence.hidden=!proof;
+        this.evidence.hidden=!proof&&!mission.diagnosis&&!mission.repairs?.length;
         this.details.replaceChildren();
+        if(mission.diagnosis)this.detail('Diagnosis',issueText(mission.diagnosis));
+        if(mission.refusal)this.detail('Review',mission.refusal);
+        for(const item of mission.repairs||[]){
+            const before=item.diagnosis.before, after=item.after;
+            const change=item.diagnosis.kind==='blocked-hurdle'
+                ?before.size+' px → '+after.size+' px'
+                :'('+before.x+', '+before.y+') → ('+after.x+', '+after.y+')';
+            this.detail('Repair '+item.diagnosis.objectId,change);
+        }
         if(proof){
             this.detail('Level',mission.title);
             this.detail('Playtest',proof.score+' points · '+proof.pickups+' pickups · '+proof.hurdles+' hurdles');
             this.detail('Checks','Desktop and offline replay agreed');
             if(proof.straightWalkBlocked)this.detail('Straight-walk comparison','Blocked at the first hurdle');
-            for(const [kind,file] of Object.entries(mission.files||{}))this.detail(kind,file.path);
+            const labels={html:'Offline game',level:'Editable level',playtest:'Winning playtest',
+                repairs:'Repair history',evidence:'Verification receipt'};
+            for(const [kind,label] of Object.entries(labels)){
+                const file=mission.files?.[kind];
+                if(file)this.detail(label,file.path.split(/[\\/]/).at(-1));
+            }
         }
         this.controls();
     }
@@ -169,7 +223,7 @@ export class AvatarLevelPanel {
 
     controls(){
         const stage=this.mission?.stage;
-        this.resumeButton.hidden=!stage||stage==='exported';
+        this.resumeButton.hidden=!stage||stage==='exported'||stage==='needs-review';
         this.resumeButton.disabled=Boolean(this.pending);
         this.reviewButton.hidden=stage!=='verified'&&stage!=='exported';
         this.reviewButton.disabled=Boolean(this.pending);

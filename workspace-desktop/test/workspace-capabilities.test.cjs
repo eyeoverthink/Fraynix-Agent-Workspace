@@ -68,3 +68,16 @@ test('plain language distinguishes the verified avatar level workflow from other
     assert.equal(avatarLevelIntent('Make this portrait into a talking avatar.'),null);
     assert.equal(avatarLevelIntent('How do I export a playable level with an avatar?'),null);
 });
+
+test('avatar level briefs retain counts, spacing, repair review and geometry constraints', async () => {
+    const {avatarLevelIntent}=await import('../renderer/avatar-level-panel.mjs');
+    const request='Build a playable level from this image with three hurdles and six coins, staggered, an oversized first hurdle and an elevated pickup. Pause before repair.';
+    assert.deepEqual(avatarLevelIntent(request),{request,title:'',course:'jump',pause:false,
+        brief:{hurdles:3,pickups:6,spacing:'staggered',oversized:true,elevated:true,locked:false,pauseRepair:true}});
+    const relay=avatarLevelIntent('Make a playable relay from this portrait with no obstacles, five pickups and keep the layout fixed.');
+    assert.equal(relay.course,'relay');
+    assert.equal(relay.brief.hurdles,0);
+    assert.equal(relay.brief.pickups,5);
+    assert.equal(relay.brief.locked,true);
+    assert.equal(avatarLevelIntent('Make a playable platformer from this image with 9 hurdles.').brief.hurdles,9);
+});

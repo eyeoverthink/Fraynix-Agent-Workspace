@@ -34,6 +34,34 @@ async function planControls(level, maxTicks, replay) {
     throw Error('No tested jump timing finished the course. The level remains unverified.');
 }
 
+function* timings(count, offsets, prefix=[]) {
+    if (prefix.length===count) { yield prefix; return; }
+    for (const offset of offsets) yield* timings(count,offsets,[...prefix,offset]);
+}
+
+async function planDesignedControls(level,maxTicks,replay) {
+    const flat=Array.from({length:maxTicks},()=>[1,false]);
+    const baseline=await replay(level,flat);
+    if (baseline.reason==='won') return {run:baseline};
+    const hurdles=level.layout.objects.filter(item=>item.collider);
+    let best=baseline;
+    const contact=hurdles.map(item=>Math.ceil((item.x-48-24)/(215/120)));
+    const closer=(candidate,prior)=>{
+        const a=candidate.rows.at(-1), b=prior.rows.at(-1);
+        return a[1]>b[1] || a[1]===b[1] && a[15]>b[15];
+    };
+    if (hurdles.length) {
+        for (const leads of timings(hurdles.length,[24,30,18,35])) {
+            const inputs=flat.map(row=>row.slice());
+            leads.forEach((lead,index)=>{inputs[contact[index]-lead][1]=true;});
+            const attempt=await replay(level,inputs);
+            if (attempt.reason==='won') return {baseline,run:attempt};
+            if (closer(attempt,best)) best=attempt;
+        }
+    }
+    return {failure:best};
+}
+
 async function auditOffline(candidate, expectedLevel, inputs, initialPng) {
     const folder = await fs.mkdtemp(path.join(os.tmpdir(),'fraynix-avatar-audit-'));
     const file = path.join(folder,'playable.html');
@@ -97,27 +125,44 @@ async function auditOffline(candidate, expectedLevel, inputs, initialPng) {
 
 function createAvatarLevelRunner({api,replay,render,rendererSha256,progress}) {
     const call=(action,body)=>api('/api/avatar-level/'+action,body);
-    async function advance({id,avatarId,release=false}) {
-        let mission = await call('read',{id});
+    async function verifyBuilt(mission) {
+        const {id}=mission;
+        progress('Playtesting the level');
+        const {level,candidate,maxTicks}=await call('prepare',{id});
+        const save=record=>api('/api/media-tiles/save-variant',{...record,rendererSha256});
+        const planned=mission.brief ? await planDesignedControls(level,maxTicks,replay) : await planControls(level,maxTicks,replay);
+        if (planned.failure) {
+            const failed=await save(planned.failure);
+            return call('diagnose',{id,runId:failed.id});
+        }
+        const {run,baseline}=planned;
+        const inputs=run.rows.slice(1).map(row=>[row[18],row[16]]);
+        const {png}=await render(level,run.rows[0]);
+        progress('Checking the offline player');
+        const {witness,frameSha256}=await auditOffline(candidate,level,inputs,png);
+        if (witness.reason!==run.reason || JSON.stringify(witness.rows)!==JSON.stringify(run.rows))
+            throw Error('The standalone level played differently from the desktop.');
+        const saved=await save(run), control=baseline ? await save(baseline) : null;
+        return call('verify',{id,runId:saved.id,baselineId:control?.id||'',
+            htmlSha256:candidate.sha256,frameSha256,witnessRows:witness.rows});
+    }
+
+    async function advance({id,avatarId,release=false,releaseRepair=false}) {
+        let mission=await call('read',{id});
         if (mission.stage==='awaiting-image') {
             if (!avatarId) throw Error('Choose an imported portrait before building this level.');
-            mission = await call('build',{id,avatarId});
+            mission=await call('build',{id,avatarId});
         }
-        if (mission.stage==='built') {
-            progress('Playtesting the level');
-            const {level,candidate,maxTicks} = await call('prepare',{id});
-            const {run,baseline} = await planControls(level,maxTicks,replay);
-            const inputs = run.rows.slice(1).map(row=>[row[18],row[16]]);
-            const {png} = await render(level,run.rows[0]);
-            progress('Checking the offline player');
-            const {witness,frameSha256} = await auditOffline(candidate,level,inputs,png);
-            if (witness.reason!==run.reason || JSON.stringify(witness.rows)!==JSON.stringify(run.rows))
-                throw Error('The standalone level played differently from the desktop.');
-            const save=record=>api('/api/media-tiles/save-variant',{...record,rendererSha256});
-            const saved = await save(run), control = baseline ? await save(baseline) : null;
-            mission = await call('verify',{id,runId:saved.id,baselineId:control?.id||'',
-                htmlSha256:candidate.sha256,frameSha256,witnessRows:witness.rows});
+        while (mission.stage==='built' || mission.stage==='diagnosed') {
+            if (mission.stage==='built') {
+                mission=await verifyBuilt(mission);
+                continue;
+            }
+            if (mission.brief.pauseRepair && mission.repairs.length===0 && !releaseRepair) return mission;
+            progress('Repairing '+mission.diagnosis.objectId+' from the failed playtest');
+            mission=await call('repair',{id});
         }
+        if (mission.stage==='needs-review') return mission;
         if (mission.stage==='verified' && mission.pause && !release) return mission;
         progress('Checking export files');
         return call('finish',{id});

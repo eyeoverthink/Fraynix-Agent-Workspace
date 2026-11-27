@@ -798,6 +798,8 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/avatar-level/read" -> result = avatarLevels.read(input);
                     case "/api/avatar-level/build" -> result = avatarLevels.build(input);
                     case "/api/avatar-level/prepare" -> result = avatarLevels.prepare(input);
+                    case "/api/avatar-level/diagnose" -> result = avatarLevels.diagnose(input);
+                    case "/api/avatar-level/repair" -> result = avatarLevels.repair(input);
                     case "/api/avatar-level/verify" -> result = avatarLevels.verify(input);
                     case "/api/avatar-level/finish" -> result = avatarLevels.finish(input);
                     case "/api/avatar/save" -> result = avatars.save(input);

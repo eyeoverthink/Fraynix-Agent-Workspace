@@ -33,7 +33,7 @@ final class AvatarLevelMission {
     }
 
     synchronized JSONObject start(JSONObject input) throws IOException {
-        SpatialScene.keys(input,"request","title","course","pause");
+        SpatialScene.keys(input,"request","title","course","pause","brief");
         String course = course(input.getString("course"));
         String request = SpatialScene.text(input,"request",1200).strip();
         String title = input.optString("title");
@@ -44,6 +44,8 @@ final class AvatarLevelMission {
         var mission = new JSONObject().put("format",FORMAT).put("id",id).put("request",request)
                 .put("title",title.strip()).put("course",course).put("pause",input.getBoolean("pause"))
                 .put("stage","awaiting-image");
+        if (input.has("brief"))
+            mission.put("brief",AvatarCourseDesign.checked(input.getJSONObject("brief"),course)).put("repairs",new JSONArray());
         save(mission);
         SpriteWorkshop.replace(root.resolve("latest"),id.getBytes(StandardCharsets.US_ASCII));
         return mission;
@@ -71,7 +73,8 @@ final class AvatarLevelMission {
         var player = avatars.player(new JSONObject().put("id",avatarId)).getJSONObject("player");
         String title = mission.getString("title");
         if (title.isEmpty()) title = mission.getString("course").equals(JUMP) ? "Avatar Jump Run" : "Avatar Relay";
-        var level = tiles.saveMissionLayout(courseLayout(title,mission.getString("course"),player));
+        var level = tiles.saveMissionLayout(courseLayout(title,mission.getString("course"),player,mission.optJSONObject("brief")));
+        if (mission.has("brief")) mission.put("originalLevelId",level.getString("id"));
         return save(mission.put("title",title).put("avatarId",avatarId).put("source",source)
                 .put("levelId",level.getString("id")).put("stage","built"));
     }
@@ -84,6 +87,74 @@ final class AvatarLevelMission {
         return new JSONObject().put("mission",mission).put("level",level)
                 .put("candidate",tiles.export(new JSONObject().put("id",mission.getString("levelId")).put("format","html")))
                 .put("maxTicks",MAX_PLAY_TICKS);
+    }
+
+    synchronized JSONObject diagnose(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"id","runId");
+        var mission = load(input.getString("id"));
+        if (!mission.has("brief") || !"built".equals(mission.getString("stage")))
+            throw new IllegalArgumentException("Only a built design can diagnose a failed playtest.");
+        var run = failedRun(input.getString("runId"),mission.getString("levelId"));
+        var diagnosis = AvatarCourseDesign.diagnose(checkedLevel(mission).getJSONObject("layout"),run)
+                .put("runId",run.getString("id")).put("levelId",mission.getString("levelId"));
+        boolean locked = mission.getJSONObject("brief").getBoolean("locked");
+        boolean limited = mission.getJSONArray("repairs").length()>=AvatarCourseDesign.MAX_REPAIRS;
+        if (locked || limited || diagnosis.getString("kind").equals("unresolved")) {
+            String reason=locked?"The requested layout is locked.":limited?"The repair limit was reached.":"The playtest did not isolate a repairable cause.";
+            return save(mission.put("diagnosis",diagnosis).put("refusal",reason).put("stage","needs-review"));
+        }
+        return save(mission.put("diagnosis",diagnosis).put("stage","diagnosed"));
+    }
+
+    synchronized JSONObject repair(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"id");
+        var mission = load(input.getString("id"));
+        if (!"diagnosed".equals(mission.getString("stage")))
+            throw new IllegalArgumentException("Diagnose a failed episode before editing a level.");
+        var diagnosis=mission.getJSONObject("diagnosis");
+        var run=failedRun(diagnosis.getString("runId"),mission.getString("levelId"));
+        var layout=checkedLevel(mission).getJSONObject("layout");
+        var change=AvatarCourseDesign.repair(layout,diagnosis,run.getJSONArray("rows"));
+        if (change==null)
+            return save(mission.put("refusal","No safe adjustment was found on the observed route.").put("stage","needs-review"));
+        var result=tiles.saveMissionLayout(change.getJSONObject("layout"));
+        String next=result.getString("id");
+        if (next.equals(mission.getString("levelId"))) throw new IllegalStateException("The repair must change the level.");
+        mission.getJSONArray("repairs").put(new JSONObject().put("diagnosis",diagnosis)
+                .put("after",change.getJSONObject("after")).put("nextLevelId",next));
+        mission.remove("diagnosis");
+        return save(mission.put("levelId",next).put("stage","built"));
+    }
+
+    private JSONObject failedRun(String id,String levelId) throws Exception {
+        var run=tiles.run(new JSONObject().put("runId",id),true);
+        if (!run.getString("levelId").equals(levelId) || !"stopped".equals(run.getString("reason"))
+                || run.getJSONArray("rows").length()!=MAX_PLAY_TICKS+1)
+            throw new IllegalArgumentException("The diagnosis needs a complete failed playtest of the exact level.");
+        return run;
+    }
+
+    private JSONArray checkedRepairs(JSONObject mission,boolean full) throws Exception {
+        var history = new JSONArray();
+        if (!mission.has("brief")) return history;
+        String previous=mission.getString("originalLevelId");
+        for (Object raw : mission.getJSONArray("repairs")) {
+            var step=(JSONObject)raw;
+            var diagnosis=step.getJSONObject("diagnosis");
+            if (!previous.equals(diagnosis.getString("levelId"))) throw new IllegalArgumentException("The repair history contains an unrelated revision.");
+            var failed=failedRun(diagnosis.getString("runId"),previous);
+            var before=tiles.inspect(new JSONObject().put("id",previous)).getJSONObject("layout");
+            var measured=AvatarCourseDesign.diagnose(before,failed).put("runId",failed.getString("id")).put("levelId",previous);
+            if (!measured.similar(diagnosis)) throw new IllegalArgumentException("The measured cause of the failure changed.");
+            var change=AvatarCourseDesign.repair(before,measured,failed.getJSONArray("rows"));
+            previous=step.getString("nextLevelId");
+            var after=tiles.inspect(new JSONObject().put("id",previous)).getJSONObject("layout");
+            if (change==null || !change.getJSONObject("layout").similar(after) || !change.getJSONObject("after").similar(step.getJSONObject("after")))
+                throw new IllegalArgumentException("The repaired revision differs from its verified adjustment.");
+            history.put(full?new JSONObject().put("repair",step).put("failedLayout",before).put("failedPlaytest",failed):step);
+        }
+        if (!previous.equals(mission.getString("levelId"))) throw new IllegalArgumentException("The final revision differs from the repair history.");
+        return history;
     }
 
     synchronized JSONObject verify(JSONObject input) throws Exception {
@@ -119,6 +190,7 @@ final class AvatarLevelMission {
             if (!hit) throw new IllegalArgumentException("The straight-walk comparison did not show the first hurdle blocking travel.");
             verdict.put("baselineRunId",baseline.getString("id")).put("straightWalkBlocked",true);
         }
+        if (mission.has("brief")) verdict.put("repairs",checkedRepairs(mission,false)).put("brief",mission.getJSONObject("brief"));
         verdict.put("runId",run.getString("id")).put("htmlSha256",candidate.getString("sha256"))
                 .put("standaloneFrameSha256",frame).put("rendererSha256",run.getString("rendererSha256"));
         return save(mission.put("evidence",verdict).put("stage","verified"));
@@ -140,10 +212,18 @@ final class AvatarLevelMission {
         if (!html.getString("sha256").equals(proof.getString("htmlSha256")))
             throw new IllegalArgumentException("Level or renderer changed. Start a new mission and test that export.");
         Path folder = exports.resolve(mission.getString("id"));
+        JSONArray repairHistory=checkedRepairs(mission,true);
         var files = new JSONObject()
                 .put("html",publish(folder.resolve("playable.html"),Base64.getDecoder().decode(html.getString("base64"))))
                 .put("level",publish(folder.resolve("editable-level.json"),Base64.getDecoder().decode(json.getString("base64"))))
                 .put("playtest",publish(folder.resolve("playtest.json"),MapCheckpoint.canonical(run).getBytes(StandardCharsets.UTF_8)));
+        if (mission.has("brief")) {
+            if (repairHistory.length()>0) {
+                var record=new JSONObject().put("originalLevelId",mission.getString("originalLevelId")).put("finalLevelId",levelId)
+                        .put("brief",mission.getJSONObject("brief")).put("history",repairHistory);
+                files.put("repairs",publish(folder.resolve("repair-history.json"),MapCheckpoint.canonical(record).getBytes(StandardCharsets.UTF_8)));
+            }
+        }
         var receipt = new JSONObject().put("format",FORMAT).put("id",mission.getString("id"))
                 .put("course",mission.getString("course")).put("title",mission.getString("title"))
                 .put("levelId",levelId).put("source",mission.getJSONObject("source")).put("checks",proof);
@@ -219,23 +299,20 @@ final class AvatarLevelMission {
                 .put("standaloneReplay",true);
     }
 
-    private JSONObject courseLayout(String title,String course,JSONObject player) throws Exception {
-        var assets = new JSONArray();
+    private JSONObject courseLayout(String title,String course,JSONObject player,JSONObject brief) throws Exception {
         String token = tiles.add(new JSONObject().put("source",source("Avatar coin.png",true))).getString("id");
+        String rail = JUMP.equals(course) ? tiles.add(new JSONObject().put("source",source("Avatar hurdle.png",false))).getString("id") : "";
+        if (brief!=null) return new JSONObject().put("title",title).put("player",player).put("course",course)
+                .put("objects",AvatarCourseDesign.objects(brief,token,rail));
+        var assets = new JSONArray();
         int[] coins = JUMP.equals(course) ? new int[]{150,405,594} : new int[]{144,352,558};
         for (int i=0;i<coins.length;i++) assets.put(item("coin-"+(i+1),token,"pickup",coins[i],287,24));
-        if (JUMP.equals(course)) {
-            String rail = tiles.add(new JSONObject().put("source",source("Avatar hurdle.png",false))).getString("id");
-            assets.put(hurdle("hurdle-1",rail,258)).put(hurdle("hurdle-2",rail,480));
-        }
+        if (JUMP.equals(course))
+            assets.put(AvatarCourseDesign.hurdle("hurdle-1",rail,258,48)).put(AvatarCourseDesign.hurdle("hurdle-2",rail,480,48));
         return new JSONObject().put("title",title).put("player",player).put("course",course).put("objects",assets);
     }
 
-    private static JSONObject hurdle(String id,String asset,int x) {
-        return item(id,asset,"terrain",x,264,48).put("collider",new JSONObject().put("x",0).put("y",0).put("w",48).put("h",48));
-    }
-
-    private static JSONObject item(String id,String asset,String layer,int x,int y,int size) {
+    static JSONObject item(String id,String asset,String layer,int x,int y,int size) {
         return new JSONObject().put("id",id).put("assetId",asset).put("kind","sprite")
                 .put("layer",layer).put("x",x).put("y",y).put("size",size);
     }
