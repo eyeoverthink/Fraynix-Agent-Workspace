@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 268 · Design varied levels and repair failed playtests</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Design varied levels and repair failed playtests</h1>
+<p>See why a level failed, what changed, and how the repaired game plays offline.</p>
+<nav><a href="../../../README-268.md">App guide</a><a href="../267/index.html">Edition 267</a>
+<a href="../../publication268/plan.md">Reproduction</a><a href="repair-circuit-playable.html" download>Download playable level</a>
+<a href="repair-circuit-repair-history.json" download>Download repair history</a><a href="#system">System files</a></nav>
+<figure><img src="diagnosed-course.png" alt="The retained wall-contact diagnosis before repair"><figcaption>The retained wall-contact diagnosis before repair</figcaption></figure>
+<figure><img src="repaired-course.png" alt="The revised hurdle, passing playtest and checked exports"><figcaption>The revised hurdle, passing playtest and checked exports</figcaption></figure>
+<figure><img src="triple-trail.png" alt="The verified three-hurdle course in Tile Workshop"><figcaption>The verified three-hurdle course in Tile Workshop</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "Generate varied avatar levels, measure playtest failure and verify bounded repairs.",
+  "modules": [
+    {
+      "title": "Course layout and repair rules",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AvatarCourseDesign.java",
+      "note": "docs/obsidian/276-repair-playtests.md"
+    },
+    {
+      "title": "Durable mission and export",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AvatarLevelMission.java",
+      "note": "docs/obsidian/276-repair-playtests.md"
+    },
+    {
+      "title": "Playtest controller",
+      "source": "workspace-desktop/avatar-level-run.cjs",
+      "note": "docs/obsidian/276-repair-playtests.md"
+    },
+    {
+      "title": "Plain-language and mission interface",
+      "source": "workspace-desktop/renderer/avatar-level-panel.mjs",
+      "note": "docs/obsidian/276-repair-playtests.md"
+    },
+    {
+      "title": "Repair integration test",
+      "source": "workspace-desktop/test/avatar-course-repair-integration.cjs",
+      "note": "docs/obsidian/276-repair-playtests.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The retained wall-contact diagnosis before repair",
+      "path": "docs/readmes/268/diagnosed-course.png"
+    },
+    {
+      "title": "The revised hurdle, passing playtest and checked exports",
+      "path": "docs/readmes/268/repaired-course.png"
+    },
+    {
+      "title": "The verified three-hurdle course in Tile Workshop",
+      "path": "docs/readmes/268/triple-trail.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Playable Repair Circuit",
+      "path": "docs/readmes/268/repair-circuit-playable.html"
+    },
+    {
+      "title": "Editable Repair Circuit",
+      "path": "docs/readmes/268/repair-circuit-editable-level.json"
+    },
+    {
+      "title": "Winning Repair Circuit playtest",
+      "path": "docs/readmes/268/repair-circuit-playtest.json"
+    },
+    {
+      "title": "Failed run and Repair Circuit geometry changes",
+      "path": "docs/readmes/268/repair-circuit-repair-history.json"
+    },
+    {
+      "title": "Repair Circuit verification receipt",
+      "path": "docs/readmes/268/repair-circuit-evidence.json"
+    },
+    {
+      "title": "Playable Pickup Rescue",
+      "path": "docs/readmes/268/pickup-rescue-playable.html"
+    },
+    {
+      "title": "Editable Pickup Rescue",
+      "path": "docs/readmes/268/pickup-rescue-editable-level.json"
+    },
+    {
+      "title": "Winning Pickup Rescue playtest",
+      "path": "docs/readmes/268/pickup-rescue-playtest.json"
+    },
+    {
+      "title": "Pickup Rescue repair evidence",
+      "path": "docs/readmes/268/pickup-rescue-repair-history.json"
+    },
+    {
+      "title": "Pickup Rescue verification receipt",
+      "path": "docs/readmes/268/pickup-rescue-evidence.json"
+    },
+    {
+      "title": "Playable Triple Trail",
+      "path": "docs/readmes/268/triple-trail-playable.html"
+    },
+    {
+      "title": "Editable Triple Trail",
+      "path": "docs/readmes/268/triple-trail-editable-level.json"
+    },
+    {
+      "title": "Winning Triple Trail playtest",
+      "path": "docs/readmes/268/triple-trail-playtest.json"
+    },
+    {
+      "title": "Triple Trail verification receipt",
+      "path": "docs/readmes/268/triple-trail-evidence.json"
+    },
+    {
+      "title": "Four-brief acceptance evidence",
+      "path": "docs/readmes/268/course-repair-evidence.json"
+    },
+    {
+      "title": "Implementation and reproduction",
+      "path": "docs/publication268/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": "docs/obsidian/276-repair-playtests.canvas",
+    "bytes": 1131,
+    "sha256": "ab99d013d9cd8cb5cb9528ab5aa20839f56035a5fc614e77e9b6bc22c6b842de",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/276-repair-playtests.md",
+    "bytes": 345,
+    "sha256": "f626a14c1643ccbb7b831589d1dc970d554a1df12594fc0bd296e41c705a9ed9",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication268/plan.md",
+    "bytes": 2942,
+    "sha256": "44840d1297067f2d750d5dd17fe3c8e070d0969f0064639536e855f6f1eaac96",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/avatar-level-run.cjs",
+    "bytes": 9098,
+    "sha256": "64526bd6edc9dc1e4c1366182b112b461fd0789825dc8c9398458c678c8e178e",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/avatar-level-panel.mjs",
+    "bytes": 12153,
+    "sha256": "24c05405311525a3519a88ae88ac0d86e9e4d066e7ec1d077fca5a16adf0a33f",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/avatar-course-repair-integration.cjs",
+    "bytes": 11175,
+    "sha256": "f15e1c99b57751c6c8236b0acec30cdabe538d6cebd0b639923a0c635f7419c0",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/workspace-capabilities.test.cjs",
+    "bytes": 4644,
+    "sha256": "cd36ee2c94fff76c8ba6724d2cf6200e2167bb522d2894357328c8d4d227edf1",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/AvatarCourseDesign.java",
+    "bytes": 7644,
+    "sha256": "a8f94bea44aceb6a8d9f717a1c6c192f5df023eaacf09ed5d30e175bf44b10b1",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/AvatarLevelMission.java",
+    "bytes": 22417,
+    "sha256": "21c03917bee712641f8122bd76be664fc3b8b83fa3f1d000455f2b1c1604a2e9",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/WorkspaceServer.java",
+    "bytes": 164745,
+    "sha256": "593ccaaf25fb63477324ccfdc1c210728d0c778ab30ea55787f9d947a1cd72ad",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

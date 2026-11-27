@@ -1,0 +1,18 @@
+# Edition 268 playable courses and repair evidence
+
+- [Playable Repair Circuit](repair-circuit-playable.html)
+- [Editable Repair Circuit](repair-circuit-editable-level.json)
+- [Winning Repair Circuit playtest](repair-circuit-playtest.json)
+- [Failed run and Repair Circuit geometry changes](repair-circuit-repair-history.json)
+- [Repair Circuit verification receipt](repair-circuit-evidence.json)
+- [Playable Pickup Rescue](pickup-rescue-playable.html)
+- [Editable Pickup Rescue](pickup-rescue-editable-level.json)
+- [Winning Pickup Rescue playtest](pickup-rescue-playtest.json)
+- [Pickup Rescue repair evidence](pickup-rescue-repair-history.json)
+- [Pickup Rescue verification receipt](pickup-rescue-evidence.json)
+- [Playable Triple Trail](triple-trail-playable.html)
+- [Editable Triple Trail](triple-trail-editable-level.json)
+- [Winning Triple Trail playtest](triple-trail-playtest.json)
+- [Triple Trail verification receipt](triple-trail-evidence.json)
+- [Four-brief acceptance evidence](course-repair-evidence.json)
+- [Edition 268](../../../README-268.md)

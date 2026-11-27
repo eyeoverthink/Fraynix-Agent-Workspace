@@ -1,0 +1,203 @@
+{
+  "restartBeforeRepair": true,
+  "tamperedFailureRefused": true,
+  "exactExportsAfterRestart": true,
+  "offlineKeyboardWin": true,
+  "lockedRefusalAfterRestart": true,
+  "shots": [
+    "diagnosed-course.png",
+    "repaired-course.png",
+    "triple-trail.png"
+  ],
+  "hurdle": {
+    "brief": {
+      "spacing": "staggered",
+      "oversized": true,
+      "pauseRepair": true,
+      "elevated": false,
+      "pickups": 4,
+      "locked": false,
+      "hurdles": 2
+    },
+    "ticks": 335,
+    "baselineRunId": "169ab51005a575a07a10cba07c6a2917302849977a4435111f461ccee1f65842",
+    "jumps": 2,
+    "standaloneReplay": true,
+    "score": 900,
+    "repairs": [
+      {
+        "nextLevelId": "e143e3335dc9941b7bb00c529d0c7a3245728a73ca3244c159ec4af35b3f82d1",
+        "diagnosis": {
+          "before": {
+            "size": 144,
+            "x": 205,
+            "y": 168
+          },
+          "kind": "blocked-hurdle",
+          "levelId": "772ba2e779f5c6bfdb2d4fa6bf096da9bdf6b676622c21c1c74c092de9ef182a",
+          "runId": "4605510504713470e6851f2514ef1cf0e8eaf86f3372feee5425f0da7dd5c072",
+          "lastX": 181,
+          "objectId": "hurdle-1",
+          "contacts": 90
+        },
+        "after": {
+          "size": 48,
+          "x": 205,
+          "y": 264
+        }
+      }
+    ],
+    "htmlSha256": "b6d8653e86cc63d1230a6b820ce9bf16d3e9ee3712e98ae955aa5f627ce2fd4b",
+    "rendererSha256": "ceefde5c3587a92000b89013a84f84ae63c8627303f2792bb372942e8ba2d2fa",
+    "straightWalkBlocked": true,
+    "won": true,
+    "pickups": 4,
+    "runId": "6f6aae5130895559f14d704a57f75b6a19da40a2563fe2219ba2c9b5a7627e44",
+    "standaloneFrameSha256": "e943949616a3ac411b505f4ff06598901e97048ebe90b43e1210c5ba6635e03d",
+    "hurdles": 2,
+    "files": {
+      "repairs": {
+        "name": "repair-circuit-repair-history.json",
+        "sha256": "32692b162332f08ff7bfa73a021c307bc67c8b6c15a93bb4ba35eb6bec5a61e9"
+      },
+      "evidence": {
+        "name": "repair-circuit-evidence.json",
+        "sha256": "7e9da23be4a8f1b48b39a0dec572d41925e64af7e585bd51db3c5a08019f9ce2"
+      },
+      "level": {
+        "name": "repair-circuit-editable-level.json",
+        "sha256": "beb62c34647b8f9578fe70c4798177f61d5ba8b80ac695758b14788702a8d1c5"
+      },
+      "html": {
+        "name": "repair-circuit-playable.html",
+        "sha256": "b6d8653e86cc63d1230a6b820ce9bf16d3e9ee3712e98ae955aa5f627ce2fd4b"
+      },
+      "playtest": {
+        "name": "repair-circuit-playtest.json",
+        "sha256": "a774601881565a3b66e3f06a7a2d607fe326e0d430df9e657dbe3796f9fffaf9"
+      }
+    }
+  },
+  "pickup": {
+    "brief": {
+      "spacing": "even",
+      "oversized": false,
+      "pauseRepair": false,
+      "elevated": true,
+      "pickups": 5,
+      "locked": false,
+      "hurdles": 0
+    },
+    "ticks": 335,
+    "jumps": 0,
+    "standaloneReplay": true,
+    "score": 1000,
+    "repairs": [
+      {
+        "nextLevelId": "9b0af0ab2e19aac5c392326fb3cfd9fa729a069d8d8282afec9f183f81505bc0",
+        "diagnosis": {
+          "before": {
+            "size": 24,
+            "x": 402,
+            "y": 54
+          },
+          "kind": "missed-pickup",
+          "levelId": "0bc1750efea6eb6bef2c0d90753cbc90d8a15c4ad5a1ff5582dd3b60bd2ea2d9",
+          "runId": "d700c62f12ed40c3215144de4db3886ead576003e0b00df4db531cfaf0e1b33a",
+          "lastX": 648,
+          "objectId": "coin-3"
+        },
+        "after": {
+          "size": 24,
+          "x": 401,
+          "y": 287
+        }
+      }
+    ],
+    "htmlSha256": "88412394df848d0a769aa5cc967e6189753bda274b52de8816837543ff91ed90",
+    "rendererSha256": "ceefde5c3587a92000b89013a84f84ae63c8627303f2792bb372942e8ba2d2fa",
+    "won": true,
+    "pickups": 5,
+    "runId": "f3b53a2059f9e757a9e4b841d7b26950ad15b1eb7bd022ccfa03136f5a0658a3",
+    "standaloneFrameSha256": "cd88d441ff55342031d4e0779d6ba5d45aa3cee1c74471b1fbea7f9a1759c6be",
+    "hurdles": 0,
+    "files": {
+      "repairs": {
+        "name": "pickup-rescue-repair-history.json",
+        "sha256": "c900feb811f2bf3535089a0dbb4689f9c57d2939682df9c8e4ea955277a42623"
+      },
+      "evidence": {
+        "name": "pickup-rescue-evidence.json",
+        "sha256": "1e5579e25134809047739c16b98d52adc8be509922f2a80f9b273f23d61a659e"
+      },
+      "level": {
+        "name": "pickup-rescue-editable-level.json",
+        "sha256": "8ce52b0ed21faa235a15ed919a4eb76389f79b11aeaf82f044cdd9d12afebd99"
+      },
+      "html": {
+        "name": "pickup-rescue-playable.html",
+        "sha256": "88412394df848d0a769aa5cc967e6189753bda274b52de8816837543ff91ed90"
+      },
+      "playtest": {
+        "name": "pickup-rescue-playtest.json",
+        "sha256": "f0d7f97f68a4ce49ee3f7b90a06af1e31091c3dd6e63e84af014854ac08c3cfe"
+      }
+    }
+  },
+  "varied": {
+    "brief": {
+      "spacing": "even",
+      "oversized": false,
+      "pauseRepair": false,
+      "elevated": false,
+      "pickups": 6,
+      "locked": false,
+      "hurdles": 3
+    },
+    "ticks": 335,
+    "baselineRunId": "e356241715ed45919c52bac89080f95ca79e0d84166bb09de3834e164395ab34",
+    "jumps": 3,
+    "standaloneReplay": true,
+    "score": 1100,
+    "repairs": [],
+    "htmlSha256": "f6b7368fb10114718975833141b8e18e0e9b7554de1c2d077396952536a28dd9",
+    "rendererSha256": "ceefde5c3587a92000b89013a84f84ae63c8627303f2792bb372942e8ba2d2fa",
+    "straightWalkBlocked": true,
+    "won": true,
+    "pickups": 6,
+    "runId": "c0c55ac001972bce0614cccf03dc3529d17abca94aff4fec667b59e4043b3a6e",
+    "standaloneFrameSha256": "8de5e81fa47ebb5c405974f8a5c22bcfd95c2fce542480afc3f183c47d35aab2",
+    "hurdles": 3,
+    "files": {
+      "evidence": {
+        "name": "triple-trail-evidence.json",
+        "sha256": "dcbe1081e2b50db3133471621ab9e0d0a5ebecb74ef3dad6e0bca043c0dc14a2"
+      },
+      "level": {
+        "name": "triple-trail-editable-level.json",
+        "sha256": "f16666e471349bf5ff509d7eae271e92a1471cea7d4885198eb8ccc74c65377a"
+      },
+      "html": {
+        "name": "triple-trail-playable.html",
+        "sha256": "f6b7368fb10114718975833141b8e18e0e9b7554de1c2d077396952536a28dd9"
+      },
+      "playtest": {
+        "name": "triple-trail-playtest.json",
+        "sha256": "909de63519d6dd6f0a2de57896c741dafc977d4911ea2de34111ef6bbd2e8eec"
+      }
+    }
+  },
+  "locked": {
+    "before": {
+      "size": 144,
+      "x": 320,
+      "y": 168
+    },
+    "kind": "blocked-hurdle",
+    "levelId": "2b6fe206eaa7e84fb88001b55e9d4567500142b7e27230aca6ff5d7fa0e81376",
+    "runId": "16120fdcfb97d016cc7cdd0b50c4ad96f2d7d34a1f82c3a9eda5ea5a8e1bcce5",
+    "lastX": 296,
+    "objectId": "hurdle-1",
+    "contacts": 90
+  }
+}

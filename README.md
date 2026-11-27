@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md) · [Independent system review](docs/publication244/review.md)
 
-[Edition 267 — Build and verify an offline game level from chat](README-267.md) · [Previous edition](README-266.md) · [Offline walkthrough](docs/readmes/267/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 268 — Design varied levels and repair failed playtests](README-268.md) · [Previous edition](README-267.md) · [Offline walkthrough](docs/readmes/268/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Ask Fraynix to turn a local image into a character, build a playable course and verify the offline export.
+Ask for a character level with your choice of hurdles, pickups and spacing. Fraynix diagnoses failed runs, repairs the measured cause and verifies the offline export.

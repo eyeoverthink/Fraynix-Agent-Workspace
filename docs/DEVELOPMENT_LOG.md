@@ -1,3 +1,7 @@
+## Edition 268 — Design varied levels and repair failed playtests
+
+2026-11-27. Chat accepts a bounded design brief for counts and spacing. Java binds each failure to the exact level and records one measured geometry change per repair. On Windows, the oversized hurdle and elevated pickup recovered, a fresh three-hurdle course passed, and a locked layout refused export after restart. A tampered failure trace refused repair. Published artifacts include playable files, repair history and screenshots. See README-268.md and docs/publication268/plan.md.
+
 ## Edition 267 — Build and verify an offline game level from chat
 
 2026-11-27. A single plain-language request leads from a local portrait to an editable tile level and verified offline HTML. Java retains the source, request, draft, verification and exact exports through restart. The tested hurdle route collected three pickups, cleared two hurdles and scored 800 while walking alone stopped at the first hurdle. A separate walking relay accepted a different image. Changed source bytes refused export. See README-267.md and docs/publication267/plan.md.

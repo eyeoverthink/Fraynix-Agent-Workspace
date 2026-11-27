@@ -1,0 +1,110 @@
+{
+  "summary": "Generate varied avatar levels, measure playtest failure and verify bounded repairs.",
+  "modules": [
+    {
+      "title": "Course layout and repair rules",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AvatarCourseDesign.java",
+      "note": "docs/obsidian/276-repair-playtests.md"
+    },
+    {
+      "title": "Durable mission and export",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AvatarLevelMission.java",
+      "note": "docs/obsidian/276-repair-playtests.md"
+    },
+    {
+      "title": "Playtest controller",
+      "source": "workspace-desktop/avatar-level-run.cjs",
+      "note": "docs/obsidian/276-repair-playtests.md"
+    },
+    {
+      "title": "Plain-language and mission interface",
+      "source": "workspace-desktop/renderer/avatar-level-panel.mjs",
+      "note": "docs/obsidian/276-repair-playtests.md"
+    },
+    {
+      "title": "Repair integration test",
+      "source": "workspace-desktop/test/avatar-course-repair-integration.cjs",
+      "note": "docs/obsidian/276-repair-playtests.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The retained wall-contact diagnosis before repair",
+      "path": "docs/readmes/268/diagnosed-course.png"
+    },
+    {
+      "title": "The revised hurdle, passing playtest and checked exports",
+      "path": "docs/readmes/268/repaired-course.png"
+    },
+    {
+      "title": "The verified three-hurdle course in Tile Workshop",
+      "path": "docs/readmes/268/triple-trail.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Playable Repair Circuit",
+      "path": "docs/readmes/268/repair-circuit-playable.html"
+    },
+    {
+      "title": "Editable Repair Circuit",
+      "path": "docs/readmes/268/repair-circuit-editable-level.json"
+    },
+    {
+      "title": "Winning Repair Circuit playtest",
+      "path": "docs/readmes/268/repair-circuit-playtest.json"
+    },
+    {
+      "title": "Failed run and Repair Circuit geometry changes",
+      "path": "docs/readmes/268/repair-circuit-repair-history.json"
+    },
+    {
+      "title": "Repair Circuit verification receipt",
+      "path": "docs/readmes/268/repair-circuit-evidence.json"
+    },
+    {
+      "title": "Playable Pickup Rescue",
+      "path": "docs/readmes/268/pickup-rescue-playable.html"
+    },
+    {
+      "title": "Editable Pickup Rescue",
+      "path": "docs/readmes/268/pickup-rescue-editable-level.json"
+    },
+    {
+      "title": "Winning Pickup Rescue playtest",
+      "path": "docs/readmes/268/pickup-rescue-playtest.json"
+    },
+    {
+      "title": "Pickup Rescue repair evidence",
+      "path": "docs/readmes/268/pickup-rescue-repair-history.json"
+    },
+    {
+      "title": "Pickup Rescue verification receipt",
+      "path": "docs/readmes/268/pickup-rescue-evidence.json"
+    },
+    {
+      "title": "Playable Triple Trail",
+      "path": "docs/readmes/268/triple-trail-playable.html"
+    },
+    {
+      "title": "Editable Triple Trail",
+      "path": "docs/readmes/268/triple-trail-editable-level.json"
+    },
+    {
+      "title": "Winning Triple Trail playtest",
+      "path": "docs/readmes/268/triple-trail-playtest.json"
+    },
+    {
+      "title": "Triple Trail verification receipt",
+      "path": "docs/readmes/268/triple-trail-evidence.json"
+    },
+    {
+      "title": "Four-brief acceptance evidence",
+      "path": "docs/readmes/268/course-repair-evidence.json"
+    },
+    {
+      "title": "Implementation and reproduction",
+      "path": "docs/publication268/plan.md"
+    }
+  ]
+}
