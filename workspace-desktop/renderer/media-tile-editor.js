@@ -581,6 +581,7 @@ export class TileEditor {
         const stagePanel = this.find('#tile-stage');
         stagePanel.hidden = !stage || Boolean(this.game);
         if (stage) {
+            stagePanel.querySelector('summary').textContent=this.layout.traversal?'Gap and hazard stage':'Nexus stage and playable character';
             this.find('#tile-stage-hero').textContent = stage.hero
                 ? stage.hero.name + ' · ' + stage.hero.animation + ' animation' : 'Default player';
             const style = this.find('#tile-stage-style');

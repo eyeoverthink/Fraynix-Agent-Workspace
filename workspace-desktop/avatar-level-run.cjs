@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('node:assert/strict');
-const {BrowserWindow,session} = require('electron');
+const {BrowserWindow,nativeImage,session} = require('electron');
 const {createHash} = require('node:crypto');
 const fs = require('node:fs/promises');
 const os = require('node:os');
@@ -62,7 +62,58 @@ async function planDesignedControls(level,maxTicks,replay) {
     return {failure:best};
 }
 
-async function auditOffline(candidate, expectedLevel, inputs, initialPng) {
+async function planTraversalControls(level,maxTicks,replay) {
+    const flat=Array.from({length:maxTicks},()=>[1,false]);
+    const baseline=await replay(level,flat);
+    const obstacles=[
+        ...level.layout.traversal.gaps.map(gap=>({x:gap.x,takeoff:[9,15,22,29,36]})),
+        ...level.layout.objects.filter(item=>item.effect==='hazard'||item.effect==='brick')
+            .map(item=>({x:item.x-24,takeoff:[20,27,13,34,41]}))
+    ].sort((a,b)=>a.x-b.x);
+    const expected=500+level.layout.objects.filter(item=>item.layer==='pickup').length*100;
+    const good=attempt=>{
+        const row=attempt.rows.at(-1);
+        return attempt.reason==='won' && row[12]===0 && row[15]===expected && row[5].startsWith('bank-');
+    };
+    const distance=attempt=>{
+        const reset=attempt.rows.findIndex(row=>row[12]>0);
+        const valid=reset<0?attempt.rows:attempt.rows.slice(0,reset);
+        const row=valid.at(-1);
+        return row[1]+row[15]/100000+(valid.some(tick=>tick[17].some(event=>event[0]==='jump')) ? .001 : 0);
+    };
+    let best=baseline, bestDistance=distance(baseline);
+    for (const leads of timingOptions(obstacles)) {
+        const inputs=flat.map(row=>row.slice());
+        obstacles.forEach((feature,index)=>{
+            const contact=Math.ceil((feature.x-48)/(215/120));
+            inputs[Math.max(0,contact-leads[index])][1]=true;
+        });
+        const attempt=await replay(level,inputs);
+        if (good(attempt)) return {baseline,run:attempt};
+        const progress=distance(attempt);
+        if (progress>bestDistance) {best=attempt;bestDistance=progress;}
+    }
+    return {failure:best};
+}
+
+function* timingOptions(features, prefix=[]) {
+    if(prefix.length===features.length){yield prefix;return;}
+    for(const lead of features[prefix.length].takeoff)yield* timingOptions(features,[...prefix,lead]);
+}
+
+function compareStartFrame(expected, observed) {
+    if (expected===observed) return {maxColorDelta:0,changedPixels:0};
+    const a=nativeImage.createFromBuffer(Buffer.from(expected,'base64'));
+    const b=nativeImage.createFromBuffer(Buffer.from(observed,'base64'));
+    if(a.isEmpty()||b.isEmpty()||a.getSize().width!==b.getSize().width||a.getSize().height!==b.getSize().height)return null;
+    return comparePixelBuffers(a.toBitmap(),b.toBitmap());
+}
+
+function comparePixelBuffers(x,y) {
+    return x.length===y.length && x.length%4===0 && x.equals(y) ? {maxColorDelta:0,changedPixels:0} : null;
+}
+
+async function auditOffline(candidate, expectedLevel, inputs, initialPng, idlePng) {
     const folder = await fs.mkdtemp(path.join(os.tmpdir(),'fraynix-avatar-audit-'));
     const file = path.join(folder,'playable.html');
     const url = pathToFileURL(file).href;
@@ -90,7 +141,8 @@ async function auditOffline(candidate, expectedLevel, inputs, initialPng) {
             navigationTimer=setTimeout(()=>reject(Error('The standalone level took too long to open.')),10000);
         })]);
         clearTimeout(navigationTimer);
-        let observation;
+        const needsSettled=initialPng!==idlePng;
+        let observation, frameComparison;
         for (let i=0;i<60;i++) {
             observation = await wc.executeJavaScript(`(() => {
                 const canvas = document.querySelector('canvas');
@@ -98,13 +150,22 @@ async function auditOffline(candidate, expectedLevel, inputs, initialPng) {
                 const data = document.querySelector('#level-data').content.textContent;
                 const heading = document.querySelector('h1').textContent;
                 return {data,heading,hero:canvas.dataset.hero,width:canvas.width,height:canvas.height,
-                    png:canvas.toDataURL('image/png').split(',')[1]};
+                    tick:Number(canvas.dataset.tick),png:canvas.toDataURL('image/png').split(',')[1]};
             })()`);
-            if (observation?.png===initialPng) break;
+            if (observation?.png && Number.isInteger(observation.tick) && observation.tick>=0) {
+                const referenceTick=observation.tick===0?0:3;
+                if ((!needsSettled && observation.tick===0) || observation.tick>=3) {
+                    const match=compareStartFrame(referenceTick===0?initialPng:idlePng,observation.png);
+                    if (match) {
+                        frameComparison={...match,referenceTick,observedTick:observation.tick};
+                        break;
+                    }
+                }
+            }
             await delay(55);
         }
-        if (!observation || observation.png!==initialPng || observation.width!==720 || observation.height!==336)
-            throw Error('The offline player did not render the same starting frame as the desktop.');
+        if (!observation || !frameComparison || observation.width!==720 || observation.height!==336)
+            throw Error('The offline player did not render the same starting or settled idle frame as the desktop.');
         const embedded = JSON.parse(Buffer.from(observation.data,'base64').toString('utf8'));
         assert.deepEqual(embedded.layout,expectedLevel.layout,'Offline layout differs from the Java level');
         for (const [id,sprite] of Object.entries(expectedLevel.sprites)) {
@@ -114,7 +175,7 @@ async function auditOffline(candidate, expectedLevel, inputs, initialPng) {
             throw Error('The offline player did not show the expected avatar and title.');
         const witness = await wc.executeJavaScript('globalThis.fraynixAvatarReplay('+JSON.stringify(inputs)+')');
         if (blocked) throw Error('The standalone level attempted an external request.');
-        return {witness,frameSha256:sha(Buffer.from(observation.png,'base64'))};
+        return {witness,frameComparison,frameSha256:sha(Buffer.from(observation.png,'base64'))};
     } finally {
         clearTimeout(navigationTimer);
         if (window && !window.isDestroyed()) window.destroy();
@@ -130,21 +191,23 @@ function createAvatarLevelRunner({api,replay,render,rendererSha256,progress}) {
         progress('Playtesting the level');
         const {level,candidate,maxTicks}=await call('prepare',{id});
         const save=record=>api('/api/media-tiles/save-variant',{...record,rendererSha256});
-        const planned=mission.brief ? await planDesignedControls(level,maxTicks,replay) : await planControls(level,maxTicks,replay);
+        const plan=level.layout.traversal ? planTraversalControls : mission.brief ? planDesignedControls : planControls;
+        const planned=await plan(level,maxTicks,replay);
         if (planned.failure) {
             const failed=await save(planned.failure);
             return call('diagnose',{id,runId:failed.id});
         }
         const {run,baseline}=planned;
         const inputs=run.rows.slice(1).map(row=>[row[18],row[16]]);
-        const {png}=await render(level,run.rows[0]);
+        const idle=await replay(level,[[0,false],[0,false],[0,false]]);
+        const [initial,settled]=await Promise.all([render(level,run.rows[0]),render(level,idle.rows.at(-1))]);
         progress('Checking the offline player');
-        const {witness,frameSha256}=await auditOffline(candidate,level,inputs,png);
+        const {witness,frameComparison,frameSha256}=await auditOffline(candidate,level,inputs,initial.png,settled.png);
         if (witness.reason!==run.reason || JSON.stringify(witness.rows)!==JSON.stringify(run.rows))
             throw Error('The standalone level played differently from the desktop.');
         const saved=await save(run), control=baseline ? await save(baseline) : null;
         return call('verify',{id,runId:saved.id,baselineId:control?.id||'',
-            htmlSha256:candidate.sha256,frameSha256,witnessRows:witness.rows});
+            htmlSha256:candidate.sha256,frameSha256,frameComparison,witnessRows:witness.rows});
     }
 
     async function advance({id,avatarId,release=false,releaseRepair=false}) {
@@ -170,4 +233,4 @@ function createAvatarLevelRunner({api,replay,render,rendererSha256,progress}) {
     return {advance};
 }
 
-module.exports = {createAvatarLevelRunner};
+module.exports = {createAvatarLevelRunner,comparePixelBuffers};

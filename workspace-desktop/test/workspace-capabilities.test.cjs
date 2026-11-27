@@ -81,3 +81,27 @@ test('avatar level briefs retain counts, spacing, repair review and geometry con
     assert.equal(relay.brief.locked,true);
     assert.equal(avatarLevelIntent('Make a playable platformer from this image with 9 hurdles.').brief.hurdles,9);
 });
+
+test('avatar jump briefs recognize gaps, spikes and distinct failed-jump options', async () => {
+    const {avatarLevelIntent}=await import('../renderer/avatar-level-panel.mjs');
+    const jump=avatarLevelIntent('Build a playable level from this portrait with two gaps, a tall hazard and four pickups. Pause before repair.');
+    assert.equal(jump.course,'jump');
+    assert.equal(jump.brief.hurdles,0);
+    assert.equal(jump.brief.gaps,2);
+    assert.equal(jump.brief.hazards,1);
+    assert.equal(jump.brief.tallHazard,true);
+    assert.equal(jump.brief.pauseRepair,true);
+    const gap=avatarLevelIntent('Build a playable level from my image with a wide gap, no spikes and keep the layout fixed.');
+    assert.equal(gap.brief.wideGap,true);
+    assert.equal(gap.brief.hazards,0);
+    assert.equal(gap.brief.locked,true);
+});
+
+test('standalone raster check compares exact decoded pixels and refuses changed colors and alpha', () => {
+    const {comparePixelBuffers}=require('../avatar-level-run.cjs');
+    const expected=Buffer.from([10,10,10,255,80,80,80,255]);
+    assert.deepEqual(comparePixelBuffers(expected,expected),{maxColorDelta:0,changedPixels:0});
+    assert.equal(comparePixelBuffers(expected,Buffer.from([10,11,10,255,80,80,80,255])),null);
+    assert.equal(comparePixelBuffers(expected,Buffer.from([10,13,10,255,80,80,80,255])),null);
+    assert.equal(comparePixelBuffers(expected,Buffer.from([10,10,10,254,80,80,80,255])),null);
+});

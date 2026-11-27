@@ -128,8 +128,19 @@ final class AvatarLevelMission {
 
     private JSONObject failedRun(String id,String levelId) throws Exception {
         var run=tiles.run(new JSONObject().put("runId",id),true);
-        if (!run.getString("levelId").equals(levelId) || !"stopped".equals(run.getString("reason"))
-                || run.getJSONArray("rows").length()!=MAX_PLAY_TICKS+1)
+        var rows=run.getJSONArray("rows");
+        boolean completeFailure="stopped".equals(run.getString("reason")) && rows.length()==MAX_PLAY_TICKS+1;
+        if (!completeFailure && "won".equals(run.getString("reason"))) {
+            var layout=tiles.inspect(new JSONObject().put("id",levelId)).getJSONObject("layout");
+            if (layout.has("traversal")) {
+                var last=rows.getJSONArray(rows.length()-1);
+                int score=500;
+                for (Object item:layout.getJSONArray("objects"))
+                    if ("pickup".equals(((JSONObject)item).getString("layer"))) score+=100;
+                completeFailure=last.getInt(12)>0 || last.getInt(15)!=score || !AvatarTraversal.supported(last);
+            }
+        }
+        if (!run.getString("levelId").equals(levelId) || !completeFailure)
             throw new IllegalArgumentException("The diagnosis needs a complete failed playtest of the exact level.");
         return run;
     }
@@ -158,7 +169,7 @@ final class AvatarLevelMission {
     }
 
     synchronized JSONObject verify(JSONObject input) throws Exception {
-        SpatialScene.keys(input,"id","runId","baselineId","htmlSha256","frameSha256","witnessRows");
+        SpatialScene.keys(input,"id","runId","baselineId","htmlSha256","frameSha256","witnessRows","frameComparison");
         var mission = load(input.getString("id"));
         if (!"built".equals(mission.getString("stage"))) throw new IllegalArgumentException("This level is outside its testing stage.");
         var level = checkedLevel(mission);
@@ -180,15 +191,28 @@ final class AvatarLevelMission {
                     || baseline.getJSONArray("rows").length()!=MAX_PLAY_TICKS+1)
                 throw new IllegalArgumentException("The jump route needs a blocked straight-walk comparison.");
             var flat = baseline.getJSONArray("rows");
+            boolean traversal=level.getJSONObject("layout").has("traversal");
             boolean hit = false;
             for (int i=1;i<flat.length();i++) {
                 var row = flat.getJSONArray(i);
                 if (row.getInt(18)!=1 || row.getBoolean(16))
                     throw new IllegalArgumentException("The comparison must use a continuous right input without jumping.");
-                hit |= row.getString(6).equals("hurdle-1");
+                hit |= row.getString(6).equals("hurdle-1") || traversal && row.getInt(12)>0;
             }
             if (!hit) throw new IllegalArgumentException("The straight-walk comparison did not show the first hurdle blocking travel.");
             verdict.put("baselineRunId",baseline.getString("id")).put("straightWalkBlocked",true);
+            if (traversal) verdict.put("straightWalkDiagnosis",AvatarCourseDesign.diagnose(level.getJSONObject("layout"),baseline));
+        }
+        if (input.has("frameComparison")) {
+            var match=input.getJSONObject("frameComparison");
+            SpatialScene.keys(match,"maxColorDelta","changedPixels","referenceTick","observedTick");
+            SpriteWorkshop.integer(match,"maxColorDelta",0,0);
+            SpriteWorkshop.integer(match,"changedPixels",0,0);
+            int reference=SpriteWorkshop.integer(match,"referenceTick",0,3);
+            int observed=SpriteWorkshop.integer(match,"observedTick",0,TilePlayRecords.LIMIT);
+            if (!(reference==0 && observed==0 || reference==3 && observed>=3))
+                throw new IllegalArgumentException("The standalone frame does not match the checked startup phase.");
+            verdict.put("frameComparison",match);
         }
         if (mission.has("brief")) verdict.put("repairs",checkedRepairs(mission,false)).put("brief",mission.getJSONObject("brief"));
         verdict.put("runId",run.getString("id")).put("htmlSha256",candidate.getString("sha256"))
@@ -264,12 +288,13 @@ final class AvatarLevelMission {
             throw new IllegalArgumentException("The avatar did not finish this level.");
         var rows = run.getJSONArray("rows");
         var last = rows.getJSONArray(rows.length()-1);
+        boolean traversal=layout.has("traversal");
         var required = new HashSet<String>();
         var hurdles = new JSONArray();
         for (Object value : layout.getJSONArray("objects")) {
             var item=(JSONObject)value;
             if (item.getString("layer").equals("pickup")) required.add(item.getString("id"));
-            if (item.has("collider")) hurdles.put(item);
+            if (item.has("collider") && !"ground".equals(item.optString("effect"))) hurdles.put(item);
         }
         int expectedScore = 500+100*required.size();
         var picked = new HashSet<String>();
@@ -292,16 +317,22 @@ final class AvatarLevelMission {
             }
         }
         if (!picked.equals(required) || cleared.size()!=hurdles.length() || last.getInt(15)!=expectedScore
-                || last.getDouble(1)+24<672 || !"floor".equals(last.getString(5)))
+                || last.getDouble(1)+24<672 || !(traversal?AvatarTraversal.supported(last):"floor".equals(last.getString(5))))
             throw new IllegalArgumentException("The course proof must show each pickup, hurdle clearance and a grounded finish.");
-        return new JSONObject().put("won",true).put("score",expectedScore).put("ticks",rows.length()-1)
+        var proof=new JSONObject().put("won",true).put("score",expectedScore).put("ticks",rows.length()-1)
                 .put("pickups",picked.size()).put("hurdles",cleared.size()).put("jumps",previousJumps)
                 .put("standaloneReplay",true);
+        if (traversal) proof.put("crossings",AvatarTraversal.crossings(layout,rows));
+        return proof;
     }
 
     private JSONObject courseLayout(String title,String course,JSONObject player,JSONObject brief) throws Exception {
         String token = tiles.add(new JSONObject().put("source",source("Avatar coin.png",true))).getString("id");
         String rail = JUMP.equals(course) ? tiles.add(new JSONObject().put("source",source("Avatar hurdle.png",false))).getString("id") : "";
+        if (AvatarTraversal.requested(brief)) {
+            String ground=tiles.add(new JSONObject().put("source",source("Avatar bank.png",false))).getString("id");
+            return AvatarTraversal.design(title,player,brief,token,ground,rail);
+        }
         if (brief!=null) return new JSONObject().put("title",title).put("player",player).put("course",course)
                 .put("objects",AvatarCourseDesign.objects(brief,token,rail));
         var assets = new JSONArray();

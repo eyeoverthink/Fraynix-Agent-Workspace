@@ -443,7 +443,7 @@ final class TileWorkshop {
     }
 
     private static JSONObject layout(JSONObject input) {
-        SpatialScene.keys(input, "title", "objects", "stage", "planes", "scoring", "player", "course");
+        SpatialScene.keys(input, "title", "objects", "stage", "planes", "scoring", "player", "course", "traversal");
         String title = SpatialScene.text(input, "title", 70).strip();
         var stage = input.has("stage") ? NexusSceneLevel.validatedStage(input.getJSONObject("stage")) : null;
         var objects = input.getJSONArray("objects");
@@ -499,6 +499,7 @@ final class TileWorkshop {
         if (stage == null && pickups == 0) throw new IllegalArgumentException("Place at least one pickup to unlock the exit.");
         var output = new JSONObject().put("title", title).put("objects", result);
         if (stage != null) output.put("stage", stage);
+        if (input.has("traversal")) output.put("traversal",AvatarTraversal.checked(input.getJSONObject("traversal"),stage,result));
         if (input.has("player")) output.put("player",player(input.getJSONObject("player")));
         if (input.has("course")) output.put("course",AvatarLevelMission.course(input.getString("course")));
         if (planes != null) output.put("planes", planes);

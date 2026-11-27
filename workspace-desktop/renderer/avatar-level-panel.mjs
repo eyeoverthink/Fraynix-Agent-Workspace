@@ -16,13 +16,30 @@ function courseBrief(text, jump){
     const elevated=/\b(?:elevated|high|floating)\s+(?:pickup|coin|token)s?\b/i.test(text);
     const locked=/\b(?:keep (?:the )?(?:layout|geometry|positions|sizes) fixed|do not (?:repair|change (?:the )?(?:layout|geometry))|don't repair|no repairs)\b/i.test(text);
     const pauseRepair=/\b(?:pause|stop|wait) (?:before (?:the )?(?:first )?repair|after (?:the )?diagnosis)\b/i.test(text);
-    if(hurdles===undefined&&pickups===undefined&&!statedSpacing&&!oversized&&!elevated&&!locked&&!pauseRepair)return null;
-    return {hurdles:hurdles??(jump?2:0),pickups:pickups??3,
+    const gaps=mentionedCount(text,'(?:wide |oversized )?(?:gaps?|pits?)')??(/\b(?:gap|pit)s?\b/i.test(text)?1:0);
+    const hazards=mentionedCount(text,'(?:tall |oversized |spike )?(?:hazards?|spikes?)')??(/\b(?:hazard|spike)s?\b/i.test(text)?1:0);
+    const traversal=gaps+hazards>0;
+    if(hurdles===undefined&&pickups===undefined&&!statedSpacing&&!oversized&&!elevated&&!locked&&!pauseRepair&&!traversal)return null;
+    const brief={hurdles:hurdles??(traversal?(oversized?1:0):(jump?2:0)),pickups:pickups??3,
         spacing:statedSpacing?.[1]?.toLowerCase()==='staggered'?'staggered':'even',oversized,elevated,locked,pauseRepair};
+    if(traversal){
+        Object.assign(brief,{gaps,hazards,
+            wideGap:/\b(?:wide|oversized)(?: first)? (?:gap|pit)\b/i.test(text),
+            tallHazard:/\b(?:tall|oversized)(?: first)? (?:hazard|spikes?)\b/i.test(text)});
+    }
+    return brief;
+}
+
+function countLabel(count,word){
+    return count+' '+word+(count===1?'':'s');
 }
 
 function issueText(issue){
     if(issue.kind==='blocked-hurdle')return issue.objectId+' held the player in place with '+issue.contacts+' final wall-contact ticks.';
+    if(issue.kind==='fell-in-gap')return 'The avatar fell in '+issue.objectId+' at tick '+issue.fallTick+
+        (issue.takeoffTick?' after taking off at tick '+issue.takeoffTick:'')+'.';
+    if(issue.kind==='hit-hazard')return 'The avatar touched '+issue.objectId+' and reset at tick '+issue.resetTick+
+        (issue.takeoffTick?' after taking off at tick '+issue.takeoffTick:'')+'.';
     if(issue.kind==='missed-pickup')return issue.objectId+' was never collected, so the exit stayed locked.';
     return 'The run stopped at x='+Number(issue.lastX).toFixed(1)+' without a confirmed cause.';
 }
@@ -40,7 +57,7 @@ export function avatarLevelIntent(request) {
     const jump=/\b(?:jump(?:s|ing)?|obstacle(?:s)?|hurdle(?:s)?|platforms|platformer)\b/i.test(text)
         && !/\b(?:no|without)\s+(?:jumps|jumping|obstacles|hurdles)\b/i.test(text);
     const brief=courseBrief(text,jump);
-    return {request,title,course:(brief?brief.hurdles>0:jump)?'jump':'relay',...(brief?{brief}:{}),
+    return {request,title,course:(brief?brief.hurdles+(brief.gaps??0)+(brief.hazards??0)>0:jump)?'jump':'relay',...(brief?{brief}:{}),
         pause:/\b(?:(?:pause|stop|wait)\s+before\s+(?:the\s+)?export(?:ing)?|without exporting|(?:do not|don't) export)\b/i.test(text)};
 }
 
@@ -151,8 +168,11 @@ export class AvatarLevelPanel {
         if(result.stage==='exported'){
             this.shell().setStageStatus('Exported');
             this.notify('Verified offline export saved.');
-            this.announce(result.title+' is ready. The playtest collected '+result.evidence.pickups+
-                ' pickups, cleared '+result.evidence.hurdles+' hurdles and scored '+result.evidence.score+
+            const crossings=result.evidence.crossings;
+            const route=crossings ? 'crossed '+countLabel(crossings.gaps.length,'gap')+' and cleared '+countLabel(crossings.hazards.length,'hazard')
+                : 'cleared '+countLabel(result.evidence.hurdles,'hurdle');
+            this.announce(result.title+' is ready. The playtest collected '+countLabel(result.evidence.pickups,'pickup')+
+                ', '+route+' and scored '+result.evidence.score+
                 '. '+(result.repairs?.length?'Passed after '+result.repairs.length+' recorded repair'+(result.repairs.length===1?'':'s')+'. ':'')+
                 'The offline game, editable level and evidence are saved.');
         }
@@ -194,8 +214,9 @@ export class AvatarLevelPanel {
         if(mission.refusal)this.detail('Review',mission.refusal);
         for(const item of mission.repairs||[]){
             const before=item.diagnosis.before, after=item.after;
-            const change=item.diagnosis.kind==='blocked-hurdle'
-                ?before.size+' px → '+after.size+' px'
+            const kind=item.diagnosis.kind;
+            const change=kind==='fell-in-gap'?before.width+' px → '+after.width+' px'
+                :kind==='blocked-hurdle'||kind==='hit-hazard'?before.size+' px → '+after.size+' px'
                 :'('+before.x+', '+before.y+') → ('+after.x+', '+after.y+')';
             this.detail('Repair '+item.diagnosis.objectId,change);
         }
@@ -203,7 +224,9 @@ export class AvatarLevelPanel {
             this.detail('Level',mission.title);
             this.detail('Playtest',proof.score+' points · '+proof.pickups+' pickups · '+proof.hurdles+' hurdles');
             this.detail('Checks','Desktop and offline replay agreed');
-            if(proof.straightWalkBlocked)this.detail('Straight-walk comparison','Blocked at the first hurdle');
+            if(proof.crossings)this.detail('Jump evidence',countLabel(proof.crossings.gaps.length,'far-bank landing')+' · '+countLabel(proof.crossings.hazards.length,'hazard clearance'));
+            if(proof.straightWalkBlocked)this.detail('Straight-walk comparison',proof.straightWalkDiagnosis?
+                issueText(proof.straightWalkDiagnosis):'Blocked at the first hurdle');
             const labels={html:'Offline game',level:'Editable level',playtest:'Winning playtest',
                 repairs:'Repair history',evidence:'Verification receipt'};
             for(const [kind,label] of Object.entries(labels)){
