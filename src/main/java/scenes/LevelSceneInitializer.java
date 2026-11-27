@@ -20,6 +20,10 @@ public class LevelSceneInitializer extends SceneInitializer {
 
     @Override
     public void init(Scene scene) {
+        if (runtime.CourierCrateTrial.selected()) {
+            runtime.CourierCrateTrial.attach(scene);
+            return;
+        }
         GameObject cameraObject = scene.createGameObject("GameCamera");
         cameraObject.setNoSerialize();
         cameraObject.addComponent(new GameCamera(scene.camera()));

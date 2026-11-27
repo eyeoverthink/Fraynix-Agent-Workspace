@@ -146,4 +146,9 @@ public abstract class Component {
     public void preSolve(GameObject other, org.jbox2d.dynamics.contacts.Contact contact, Vector2f normal) {}
     public void postSolve(GameObject other, org.jbox2d.dynamics.contacts.Contact contact, Vector2f normal) {}
 
+    public void postSolve(GameObject other, org.jbox2d.dynamics.contacts.Contact contact, Vector2f normal,
+                          org.jbox2d.callbacks.ContactImpulse impulse) {
+        postSolve(other, contact, normal);
+    }
+
 }

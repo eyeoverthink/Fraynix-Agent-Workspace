@@ -71,6 +71,7 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
             if (rail != null) value.put("railNavigation", rail);
         }
         if(player!=null)value.put("contact117",agent.GameContact117.observe(player));
+        if (CourierCrateTrial.selected()) value.put("courierCrate", CourierCrateTrial.current().live());
         value.put("threats118",agent.GameThreat118.observe(scene));value.put("controller",agent.GameInput.observation116());value.put("renderer",Map.of("vendor",glGetString(GL_VENDOR),"name",glGetString(GL_RENDERER),"version",glGetString(GL_VERSION)));
         value.put("neural",Map.of("sharedCore",true,"ready",nervous.BrainRuntime.core()!=null,"ticks",nervous.BrainRuntime.core()==null?0:nervous.BrainRuntime.core().ticks()));
         return value;
@@ -100,6 +101,12 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
             if (action.equals("ai") || action.equals("ai-step")) allowed.add("railPace");
             if(!allowed.containsAll(args.keySet()))throw new IllegalArgumentException("Unsupported game command field");
             switch(action){
+                case "courier-test" -> {
+                    CourierCrateTrial.current();
+                    continuous = false;
+                    aiBounded = false;
+                    outcome = CourierCrateTrial.runPair();
+                }
                 case "spatial"->spatialRead=true;
                 case "overview"->{if(continuous)throw new IllegalStateException("Pause before capturing a reference overview");overview=true;}
                 case "step"->step(args.get("ticks").getAsInt(),args.has("horizontal")?args.get("horizontal").getAsFloat():0,args.has("jump")&&args.get("jump").getAsBoolean());

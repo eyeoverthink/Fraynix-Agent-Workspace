@@ -74,11 +74,11 @@ public class JadeContactListener implements ContactListener {
         Vector2f bNormal = new Vector2f(aNormal).negate();
 
         for (Component c : objA.getAllComponents()) {
-            c.postSolve(objB, contact, aNormal);
+            c.postSolve(objB, contact, aNormal, contactImpulse);
         }
 
         for (Component c : objB.getAllComponents()) {
-            c.postSolve(objA, contact, bNormal);
+            c.postSolve(objA, contact, bNormal, contactImpulse);
         }
     }
 }

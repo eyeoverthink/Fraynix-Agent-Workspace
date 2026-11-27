@@ -12,6 +12,7 @@ import java.util.concurrent.*;
 
 /** Java-owned lifecycle and capability for the original renderer's hidden runtime. */
 public final class EmbeddedGameClient implements AutoCloseable {
+    private static final String COURIER_CRATE = "courier-crate-v1";
     private final Path repo,project;private final GameLevels114 levels;private String levelId;private Path activeProject;private Process process;private String token,origin;
     private final HttpClient http=HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(3)).build();
     public EmbeddedGameClient(Path repo,Path project){this.repo=repo.toAbsolutePath();this.project=project.resolve("embedded-game");this.levels=new GameLevels114(repo,project);this.activeProject=this.project;}
@@ -32,6 +33,28 @@ public final class EmbeddedGameClient implements AutoCloseable {
         close();levelId=id;return start(project.resolve("candidates").resolve(id).resolve(UUID.randomUUID().toString()),level,sha,null);
     }
     public synchronized JSONObject openRelay() throws Exception { return openCourse(RelayCourse.GARDEN); }
+
+    public synchronized JSONObject openCourierCrate() throws Exception {
+        var course = RelayCourse.GARDEN;
+        var pack = new GameContentPack(repo).verify(course);
+        close();
+        levelId = COURIER_CRATE;
+        return start(project.resolve("courier-crate").resolve(UUID.randomUUID().toString()),
+                repo.resolve(course.level()), pack.getJSONObject("files").getString(course.level()), pack);
+    }
+
+    synchronized JSONObject testCourierCrate() throws Exception {
+        if (!COURIER_CRATE.equals(levelId)) throw new IllegalStateException("Open Courier crate test first.");
+        verifyCourierGarden();
+        return request("/command", new JSONObject().put("action", "courier-test"))
+                .put("manifestSha256", originalManifestSha);
+    }
+
+    private void verifyCourierGarden() throws Exception {
+        var pack = new GameContentPack(repo).verify(RelayCourse.GARDEN);
+        if (!pack.getString("manifestSha256").equals(originalManifestSha))
+            throw new IllegalStateException("The Courier trial's original scene changed.");
+    }
 
     public synchronized JSONObject openCourse(RelayCourse course) throws Exception {
         JSONObject pack = new GameContentPack(repo).verify(course);
@@ -80,6 +103,7 @@ public final class EmbeddedGameClient implements AutoCloseable {
             command.add("-Dfraynix.content=" + pack.getString("id"));
             command.add("-Dfraynix.content.sha256=" + originalManifestSha);
         }
+        if (COURIER_CRATE.equals(levelId)) command.add("-Dfraynix.courierCrate=true");
         command.addAll(List.of("-cp",lib.toString()+File.separator+"*","Main","--mario"));var builder=new ProcessBuilder(command);
         builder.directory(repo.resolve("build/install/Fraynix-Studio").toFile());builder.environment().put("FRAYNIX_GAME_TOKEN",token);builder.environment().put("FRAYNIX_GAME_PARENT_PID",String.valueOf(ProcessHandle.current().pid()));builder.redirectError(runtimeProject.resolve("runtime-errors.log").toFile());
         process=builder.start();var ready=new CompletableFuture<String>();var owned=process;
@@ -132,7 +156,14 @@ public final class EmbeddedGameClient implements AutoCloseable {
     }
 
     public synchronized JSONObject command(JSONObject input) throws Exception {
+        if ("courier-test".equals(input.optString("action")))
+            throw new IllegalArgumentException("Use the checked Courier trial operation.");
         if (levelId != null && "reset".equals(input.optString("action"))) {
+            if (COURIER_CRATE.equals(levelId)) {
+                verifyCourierGarden();
+                request("/command", input);
+                return frame();
+            }
             RelayCourse course = candidateCourse != null ? candidateCourse : RelayCourse.find(levelId);
             if (candidateFile != null && !candidateSha.equals(GameLevels114.hash(candidateFile)))
                 throw new IllegalStateException("The imported candidate changed since it was opened");

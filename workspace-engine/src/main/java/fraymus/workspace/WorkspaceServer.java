@@ -48,6 +48,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final CreativeProjects creativeProjects;
     private final TileWorkshop tiles;
     private final AvatarWorkshop avatars;
+    private final CourierCrateEvidence courierCrate;
     private final AvatarLevelMission avatarLevels;
     private final MapStore maps;
     private final PerceptionStore perception;
@@ -103,6 +104,7 @@ public final class WorkspaceServer implements AutoCloseable {
         media = new SpriteWorkshop(project);
         tiles = new TileWorkshop(project);
         avatars = new AvatarWorkshop(project, tiles);
+        courierCrate = new CourierCrateEvidence(project);
         avatarLevels = new AvatarLevelMission(project, avatars, tiles);
         environments = new EnvironmentStore(project);
         floorPlans = new EnvironmentFloorPlan(environments);
@@ -941,6 +943,21 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/game/analyze-levels", "/api/game/levels", "/api/game/create-level", "/api/game/open-level" -> result=game.levels(route.substring("/api/game/".length()),input);
                     case "/api/game/open" -> result=game.open();
                     case "/api/game/open-relay" -> {SpatialScene.keys(input);result=game.openRelay();}
+                    case "/api/game/courier-open", "/api/game/courier-test", "/api/game/courier-replay" -> {
+                        if (agency.busy() || sharedBusy043() || observations.busy() || tabletop.busy()
+                                || alignment041.busy())
+                            throw new IllegalStateException("Finish active work before opening or testing the Courier.");
+                        if (route.endsWith("-replay")) {
+                            SpatialScene.keys(input, "id");
+                            result = courierCrate.replay(input.getString("id"), game);
+                        } else {
+                            SpatialScene.keys(input);
+                            result = route.endsWith("-open") ? game.openCourierCrate()
+                                    : courierCrate.save(game.testCourierCrate());
+                        }
+                    }
+                    case "/api/game/courier-latest" -> {SpatialScene.keys(input);result=courierCrate.latest();}
+                    case "/api/game/courier-read" -> {SpatialScene.keys(input,"id");result=courierCrate.read(input.getString("id"));}
                     case "/api/game/open-course" -> {
                         SpatialScene.keys(input,"id");
                         var course = fraymus.neural.RelayCourse.find(input.getString("id"));

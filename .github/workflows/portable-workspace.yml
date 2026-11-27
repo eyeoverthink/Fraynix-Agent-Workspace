@@ -10,6 +10,7 @@ on:
       - 'gradle.lockfile'
       - '**/build.gradle'
       - 'src/main/**'
+      - 'assets/characters/**'
       - 'workspace-engine/src/main/**'
       - 'workspace-desktop/**'
       - 'scripts/Verify-Desktop-Cache.cjs'
@@ -21,6 +22,7 @@ on:
       - 'gradle/**'
       - 'gradle.lockfile'
       - 'src/main/**'
+      - 'assets/characters/**'
       - 'workspace-engine/src/main/**'
       - 'workspace-desktop/**'
   workflow_dispatch:
@@ -118,6 +120,16 @@ jobs:
       - name: Verify the offline avatar, sprite and editable project
         if: runner.os != 'Linux'
         run: node workspace-desktop/test/avatar-integration.cjs build/portable-smoke/avatar
+      - name: Verify the native Courier push and offline restart
+        if: runner.os != 'Linux'
+        env:
+          FRAYNIX_CI_MAC_DISPLAY: ${{ runner.os == 'macOS' && '1' || '0' }}
+        run: node workspace-desktop/test/courier-crate-integration.cjs build/portable-smoke/courier-crate
+      - name: Verify the Courier push on a Linux virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/courier-crate-integration.cjs build/portable-smoke/courier-crate
       - name: Verify the offline avatar in a virtual display
         if: runner.os == 'Linux'
         env:

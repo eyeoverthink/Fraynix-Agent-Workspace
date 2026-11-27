@@ -1378,6 +1378,12 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     case 'brain':{if(!['useful-trace','uncertain-trace','later-trace','adaptive-trace','calibration-trace','recovery-trace','temporal-trace','decision-plan','decision-trace','contact-predict','contact-trace','stopping-predict','stopping-trace','residual-predict','outcome-predict','state','start','read','cancel','rollback','run','feedback-start','feedback-kick','feedback-cancel','feedback-rollback','world-prepare','world-preview','world-kick','world-cancel','world-rollback'].includes(input.command))throw Error('Unknown brain command');const value=await api('/api/brain/'+input.command,input.args||{});if(['run','feedback-start','feedback-kick','feedback-cancel','world-prepare','world-kick','world-cancel'].includes(input.command)){emit('experiment',await api('/api/scene/snapshot',{}));activity('brain',{'run':'Java controller completed a native impulse run','feedback-start':'Live feedback run started','feedback-kick':'Native disturbance applied','feedback-cancel':'Feedback run cancelled','world-prepare':'World-model run prepared without physical actuation','world-kick':'Native world disturbance applied','world-cancel':'World-model run cancelled'}[input.command],{runId:value.id||input.args?.runId,tick:value.tick,deltaVelocityMps:value.deltaVelocityMps,controller:value.controller,goalEvaluation:value.goalEvaluation});}return value;}
     case 'gameTasks115':{if(!['read','list','verify','review','review-latest','review-verify'].includes(input.command))throw Error('Unknown level task read');return api('/api/game-tasks115/'+input.command,input.args||{});}
     case 'gameRuntime':{
+      if(input.command==='courier-export'){
+        const proof=await api('/api/game/courier-read',input.args||{});
+        return nativeExports.save('courier-crate-trial','json',JSON.stringify(proof,null,2)+'\n',{id:proof.id});
+      }
+      if(['courier-open','courier-test','courier-replay','courier-latest'].includes(input.command))
+        return api('/api/game/'+input.command,input.args||{});
       if(input.command==='blender-import'){
         const picked=await dialog.showOpenDialog(window,{properties:['openFile'],filters:[{name:'Blender scene',extensions:['blend']}]});
         if(picked.canceled)return null;

@@ -30,3 +30,16 @@
 #game-reference-preview{width:100%;max-height:200px;object-fit:contain;image-rendering:pixelated;background:#152b31}
 #game-view .runtime-controls[hidden] { display: none; }
 #game-course-progress { font-size: 0.8rem; color: var(--muted); }
+
+#courier-crate {
+    margin-bottom: 10px;
+    padding: 10px 12px;
+    border: 1px solid #43776d;
+    border-radius: 10px;
+    background: #182f34;
+}
+#courier-crate summary { cursor: pointer; font-weight: 600; }
+#courier-crate .runtime-controls { margin: 8px 0 0; }
+#courier-crate p { margin: 6px 0 0; font-size: .83rem; overflow-wrap: anywhere; }
+#courier-crate-live { color: #a9d5cb; }
+#game-frame[data-courier] { max-height: min(45vh, 540px); }

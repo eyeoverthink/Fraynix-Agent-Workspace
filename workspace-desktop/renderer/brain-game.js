@@ -11,6 +11,7 @@ import {Stopping063} from './stopping063.js';
 import {Residual062} from './residual062.js';
 import {Cortex061} from './cortex061.js';
 import {EvidenceBench049} from './evidence049.js';
+import {CourierCratePanel} from './courier-crate.mjs';
 const $=id=>document.getElementById(id);
 export class BrainGame {
  async openIntegrated(){this.requireSaved();this.activate('game');this.watching=true;if(!this.running){const state=await this.call('gameRuntime','state');if(state.running){this.show(await this.call('gameRuntime','frame'));return;}const tasks=await this.call('gameTasks115','list',{});if(tasks.tasks.some(t=>t.status==='running')){$('game-frame').hidden=true;$('game-status').textContent='Waiting for the active level task to open its runtime…';return;}try{this.show(await this.call('gameRuntime','open'));}catch(error){if(!String(error.message).includes('The active Java task owns execution'))throw error;$('game-status').textContent='The active task owns the game; waiting for its next frame…';this.notice($('game-status').textContent);}}}
@@ -19,6 +20,7 @@ export class BrainGame {
   this.addSkillMemory();
   this.addLevelBuilder();
   this.addBlenderCandidates();
+  this.courierCrate = new CourierCratePanel(this, $('game-frame'));
   this.cortex061=new Cortex061(call,notice);
   this.residual062=new Residual062(call,notice);
   this.stopping063=new Stopping063(call,notice);
@@ -31,7 +33,7 @@ export class BrainGame {
   $('brain-close').onclick=()=>{$('brain-dialog').close();this.layout();};$('brain-dialog').addEventListener('close',this.layout);
   $('game-tab').onclick=safe(()=>this.openIntegrated());
   for(const id of ['left','right','jump','step','play','pause','ai','reset'])$('game-'+id).onclick=safe(async()=>{const args=id==='left'||id==='right'||id==='jump'||id==='step'?{action:'step',ticks:this.lastFrame?.state.courseProgress && ['left','right'].includes(id) ? Number(this.courseStride.value) : 30,horizontal:id==='left'?-1:id==='right'?1:0,jump:id==='jump'}:id==='ai'?this.aiInput():{action:id};this.show(await this.call('gameRuntime','command',args));});
-  $('game-close').onclick=safe(async()=>{await this.call('gameRuntime','close');this.running=false;this.watching=false;this.courseControls.hidden=true;this.showMovementLabels(false);$('game-status').textContent='Runtime closed. Reopen with Start game.';});
+  $('game-close').onclick=safe(async()=>{await this.call('gameRuntime','close');this.running=false;this.watching=false;this.courierCrate.frame(null);this.courseControls.hidden=true;this.showMovementLabels(false);$('game-status').textContent='Runtime closed. Reopen with Start game.';});
   $('game-open').onclick=safe(async()=>this.show(await this.call('gameRuntime','open')));
   const relayButton = document.createElement('button');
   relayButton.id = 'game-relay'; relayButton.textContent = 'Play Relay Garden';
@@ -375,6 +377,7 @@ export class BrainGame {
   $('game-right').textContent = ticks + ' ticks →';
  }
  show(frame){
+  this.courierCrate.frame(frame);
   const course = frame.state.courseProgress;
   if (this.courseControls) {
    this.courseControls.hidden = !course;
