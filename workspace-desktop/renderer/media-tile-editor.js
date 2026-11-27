@@ -8,7 +8,8 @@ const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 const spriteLayers = ['foreground', 'pickup', 'terrain', 'backdrop'];
 const modes = ['select', 'paint', 'erase'];
 const layoutAssets = layout => new Set([
-    ...layout.objects.map(item => item.assetId), layout.stage?.hero?.assetId, layout.stage?.backdropAsset
+    ...layout.objects.map(item => item.assetId), layout.stage?.hero?.assetId, layout.stage?.backdropAsset,
+    layout.player?.idleAssetId, layout.player?.walkAssetId
 ].filter(Boolean));
 
 export class TileEditor {
@@ -50,6 +51,10 @@ export class TileEditor {
                 <button id="tile-html">Export offline HTML</button>
                 <button id="tile-json">Export editable JSON</button>
                 <button id="tile-export-run" disabled>Export playtest JSON</button>
+            </div>
+            <div id="tile-player" class="tile-bar" hidden>
+                <span id="tile-player-name"></span>
+                <button id="tile-clear-player" type="button">Use original player</button>
             </div>
             <div class="tile-bar">
                 <div id="tile-modes" class="tile-bar" role="group" aria-label="Canvas tools">
@@ -163,6 +168,11 @@ export class TileEditor {
             await this.loadLevels();
             this.tell('Saved level. Sprite sources and collider bounds checked.');
         });
+        this.find('#tile-clear-player').onclick=()=>{
+            delete this.layout.player;
+            this.changed();
+            this.tell('Original player restored. Save the level to keep this change.');
+        };
         this.find('#tile-pick').onclick = () => this.run(async () => {
             this.tell('Click a graphic in the in-app browser.');
             await this.addSprite(await this.call('pick'));
@@ -246,18 +256,16 @@ export class TileEditor {
         this.find('#tile-status').textContent = text;
     }
 
-    async run(action) {
-        if (this.busy) return;
+    run(action) {
+        if (this.pending) return this.pending;
         this.busy = true;
         this.refresh();
-        try {
-            await action();
-        } catch (error) {
-            this.tell(error.message);
-        } finally {
-            this.busy = false;
+        this.pending=Promise.resolve().then(action).catch(error=>this.tell(error.message)).finally(()=>{
+            this.pending=null;
+            this.busy=false;
             this.refresh();
-        }
+        });
+        return this.pending;
     }
 
     file(event, read) {
@@ -359,6 +367,16 @@ export class TileEditor {
         this.active = sprite.id;
         await this.loadLibrary();
         this.tell('Added ' + sprite.label + ' to the reusable sprite library.');
+    }
+
+    async usePlayer({player,sprites}) {
+        for (const sprite of Object.values(sprites)) this.addImage(sprite);
+        await this.loadLibrary();
+        this.layout.player=player;
+        this.changed();
+        const canSave=this.layout.stage || this.layout.objects.some(item=>item.layer==='pickup');
+        this.tell(canSave ? player.name+' is the player. Save the level to play.'
+            : player.name+' is the player. Add a pickup before saving this new level.');
     }
 
     setLevel(level, selected = null) {
@@ -539,6 +557,9 @@ export class TileEditor {
             this.find(selector).disabled = busy;
         this.find('#tile-modes').hidden = Boolean(this.game);
         this.find('#tile-place').disabled = busy || !this.active;
+        this.find('#tile-player').hidden = !this.layout.player || Boolean(this.game);
+        this.find('#tile-player-name').textContent = this.layout.player ? 'Player · '+this.layout.player.name : '';
+        this.find('#tile-clear-player').disabled = busy;
         this.find('#tile-export-png').disabled = busy || !this.active;
         const canPlay = this.levelId && !this.dirty && !busy;
         this.find('#tile-play').disabled = !canPlay;

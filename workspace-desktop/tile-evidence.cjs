@@ -8,7 +8,7 @@ function integer(value,min,max,name) {
     return value;
 }
 
-function createTileEvidence({api,surface,save,rendererSha256,legacyRaster=false}) {
+function createTileEvidence({api,surface,save,rendererSha256,legacyRendererSha256,legacyRaster=false}) {
     const call=(operation,args={})=>api('/api/media-tiles/'+operation,args);
     async function selectedLevel() {
         const id=await surface('levelId');
@@ -33,21 +33,23 @@ function createTileEvidence({api,surface,save,rendererSha256,legacyRaster=false}
 
     async function replay(args) {
         const source=await call('export-run',args.runId?{runId:args.runId}:{});
-        if (source.format!=='fraynix.tile-playtest-v2' || source.rendererSha256!==rendererSha256)
-            throw Error('Record a playtest with this input-recording renderer to compare controls.');
+        const legacy=source.rendererSha256===legacyRendererSha256;
+        if (source.format!=='fraynix.tile-playtest-v2' || (!legacy&&source.rendererSha256!==rendererSha256))
+            throw Error('Record a playtest with a supported input-recording renderer to compare controls.');
         const jump=integer(args.jumpTick,1,source.lastTick,'recorded jump tick');
         const replacement=integer(args.replacementTick??0,0,source.lastTick,'replacement tick');
         if (!source.rows[jump][16] || replacement && (Math.abs(replacement-jump)>30||source.rows[replacement][16]))
             throw Error('Choose a recorded jump and a free replacement tick within 30 steps.');
         const inputs=source.rows.slice(1).map(row=>[row[18],row[16]]);
         const level=await call('inspect',{id:source.levelId});
-        const verified=await surface('replay',{level,inputs});
+        if (legacy&&level.layout.player) throw Error('The saved renderer predates animated players.');
+        const verified=await surface('replay',{level,inputs,legacy});
         if (verified.reason!==source.reason || JSON.stringify(verified.rows)!==JSON.stringify(source.rows))
             throw Error('The unchanged inputs did not reconstruct the exact saved playtest.');
         inputs[jump-1][1]=false;
         if (replacement) inputs[replacement-1][1]=true;
-        const result=await surface('replay',{level,inputs});
-        const variant=await call('save-variant',{...result,rendererSha256});
+        const result=await surface('replay',{level,inputs,legacy});
+        const variant=await call('save-variant',{...result,rendererSha256:source.rendererSha256});
         return call('compare-run',{sourceId:source.id,variantId:variant.id,jumpTick:jump,replacementTick:replacement});
     }
 
@@ -83,7 +85,7 @@ function createTileEvidence({api,surface,save,rendererSha256,legacyRaster=false}
                 x:integer(args.x,0,1023,'pixel x'),y:integer(args.y,0,1023,'pixel y'),
                 width:integer(args.width??1,1,16,'sample width'),height:integer(args.height??1,1,16,'sample height')
             }:undefined;
-            let level,row,runId,tick;
+            let level,row,runId,tick,legacy=false;
             if (args.assetId) {
                 if (args.runId!==undefined || args.tick!==undefined) throw Error('Choose either a level asset or a playtest frame.');
                 level=await selectedLevel();
@@ -94,12 +96,14 @@ function createTileEvidence({api,surface,save,rendererSha256,legacyRaster=false}
                 [row]=page.rows;
                 if (!row || row[0]!==tick) throw Error('This playtest has no such tick.');
                 runId=page.id;
-                if (page.rendererSha256!==rendererSha256 && !(legacyRaster &&
-                    page.rendererSha256==='326ef4a6e5f9737a7d7b3fff8454279f33b52deb23c72d4b97583e60e40e2522'))
+                legacy=page.rendererSha256===legacyRendererSha256 || (legacyRaster&&
+                    page.rendererSha256==='326ef4a6e5f9737a7d7b3fff8454279f33b52deb23c72d4b97583e60e40e2522');
+                if (!legacy&&page.rendererSha256!==rendererSha256)
                     throw Error('Use the recorded renderer version to reconstruct this playtest image.');
                 level=await call('inspect',{id:page.levelId});
+                if (legacy&&level.layout.player) throw Error('The saved renderer predates animated players.');
             }
-            const result=await surface('render',{level,row,region,assetId:args.assetId});
+            const result=await surface('render',{level,row,region,assetId:args.assetId,legacy});
             const source={levelId:level.id,...(args.assetId?{assetId:args.assetId}:{tick,...(runId?{runId}:{live:true})})};
             if (region) return {...source,...result,order:'row-major RGBA8 from top-left'};
             const {png,width,height}=result;

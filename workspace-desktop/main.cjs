@@ -75,11 +75,14 @@ const measureEnvironment=args=>window.webContents.executeJavaScript('window.envi
 const environmentEvidence=createEnvironmentEvidence({api,measure:measureEnvironment});
 const tileRuntimeSource=fs.readFileSync(path.join(__dirname,'renderer','media-tile-play.js'));
 const tileRendererSha256=createHash('sha256').update(tileRuntimeSource).digest('hex');
-const rasterSource=tileRuntimeSource.toString('utf8').replace(/\r\n/g,'\n')
+const legacyTileRuntime=fs.readFileSync(path.join(__dirname,'renderer','media-tile-play-legacy.js'));
+const legacyTileHash=createHash('sha256').update(legacyTileRuntime).digest('hex');
+const rasterSource=legacyTileRuntime.toString('utf8').replace(/\r\n/g,'\n')
   .split('export function mountTileGame')[0].replace(",'inputDirection'","");
 const rasterSha256=createHash('sha256').update(rasterSource).digest('hex');
 const tileEvidence=createTileEvidence({
   rendererSha256:tileRendererSha256,
+  legacyRendererSha256:legacyTileHash,
   legacyRaster:rasterSha256==='35eab96d8fa510a940cf25b70790f515af2b1dc02ee12ad0aa138d250e1fe6e0',
   api,
   surface:(method,args)=>window.webContents.executeJavaScript('window.tileEvidence['+JSON.stringify(method)+']('+JSON.stringify(args??null)+')'),
@@ -1155,7 +1158,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         {id, assets:data.assets}, data.sha256);
     }
     case 'avatar': {
-      if (['save','open','library','tile','import'].includes(input.command))
+      if (['save','open','library','tile','player','import'].includes(input.command))
         return api('/api/avatar/'+input.command,input.args||{});
       if (input.command !== 'export') throw Error('Unknown avatar command.');
       const {id, kind} = input.args;

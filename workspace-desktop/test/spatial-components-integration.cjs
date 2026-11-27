@@ -10,7 +10,7 @@ const { execFile } = require('node:child_process');
 const { promisify } = require('node:util');
 const { launch } = require('./calibration-integration.cjs');
 
-const markup = '<!doctype html><title>Workshop bracket graphic</title><style>body{margin:0;background:white}svg{display:block;width:120px;height:auto}@media(max-width:119px){svg{width:100px}}@media(max-width:99px){svg{width:80px}}@media(max-width:79px){svg{width:60px}}</style>' +
+const markup = '<!doctype html><title>Workshop bracket graphic</title><style>body{margin:0;background:white}body{overflow:hidden}svg{display:block;width:min(120px,100vw,100vh);height:auto}</style>' +
   '<svg id="bracket-graphic" width="120" height="120" viewBox="0 0 160 160">' +
   '<path fill="#173d6a" fill-rule="evenodd" d="M32 24H120V48H136V128H56V112H24V56H32Z M64 64H96V96H64Z"/></svg>';
 const closeTo = (actual, expected) => assert(Math.abs(actual - expected) < 2e-6, [actual, expected]);
@@ -138,6 +138,16 @@ async function main() {
     closeTo(rotatedCopy.translationAnimation.tracks.surface[1].positionM[2],.1);
 
     await app.evaluate((_, url) => global.workspaceTest.execute('browser.navigate', { url }), url);
+    await app.evaluate(async({webContents})=>{
+      const {browser:browserId}=global.workspaceTest.surfaces();
+      const browser=webContents.fromId(browserId);
+      for(let i=0;i<40;i++){
+        const ready=await browser.executeJavaScript('(()=>{const svg=document.querySelector("#bracket-graphic");if(!svg)return false;const r=svg.getBoundingClientRect();return r.width>=16&&r.height>=16&&Math.ceil(r.right)<=innerWidth&&Math.ceil(r.bottom)<=innerHeight;})()');
+        if(ready)return;
+        await new Promise(resolve=>setTimeout(resolve,50));
+      }
+      throw Error('The bracket fixture did not fit in the browser viewport.');
+    });
     await page.locator('#spatial-mesh-edit summary').click();
     await page.locator('#spatial-browser-trace summary').click();
     await page.locator('#spatial-trace-selector').fill('#missing');

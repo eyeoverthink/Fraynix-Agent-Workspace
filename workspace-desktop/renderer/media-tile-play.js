@@ -30,7 +30,7 @@ function pickupMask(pickups, collected) {
 function restoreTick(layout, row) {
     const pickups=layout.objects.filter(item=>item.layer==='pickup');
     const collected=new Set(pickups.filter((_,i)=>Number.parseInt(row[7][i>>2],16)&(1<<(i%4))).map(item=>item.id));
-    return {x:row[1],y:row[2],vy:row[4],support:row[5],wall:row[6],collected,won:row[8],
+    return {x:row[1],y:row[2],vx:row[3],vy:row[4],support:row[5],wall:row[6],collected,won:row[8],
         direction:row[9],facing:row[10],time:row[11],resets:row[12],bounces:row[13],spring:row[14],score:row[15]};
 }
 
@@ -100,6 +100,28 @@ function drawHero(g, image, hero, state) {
     g.restore();
 }
 
+function playerFrame(state) {
+    return state.support && Math.abs(state.vx)>.01 ? Math.floor(Math.round(state.time*120)/12)%4 : -1;
+}
+
+function drawAnimatedPlayer(g, images, player, state, scale) {
+    const idle=images.get(player.idleAssetId), walk=images.get(player.walkAssetId);
+    if (!idle?.complete || !idle.naturalWidth) return false;
+    const frame=walk?.complete&&walk.naturalWidth ? playerFrame(state) : -1;
+    const h=PLAYER_H*scale, w=h*idle.naturalWidth/idle.naturalHeight;
+    g.save();
+    g.imageSmoothingEnabled=false;
+    g.translate(state.x+PLAYER_W/2,state.y+PLAYER_H);
+    g.scale(state.facing,1);
+    if (frame<0) g.drawImage(idle,-w/2,-h,w,h);
+    else {
+        const cell=walk.naturalWidth/4;
+        g.drawImage(walk,frame*cell,0,cell,walk.naturalHeight,-w/2,-h,w,h);
+    }
+    g.restore();
+    return true;
+}
+
 export function tileImages(sprites, invalidate, images = new Map()) {
     for (const [id, sprite] of Object.entries(sprites)) {
         if (images.has(id)) continue;
@@ -152,6 +174,7 @@ export function drawTileLevel(canvas, layout, images, state = spawn(layout), edi
     if (stage) rect(gate,goal.x+tile-5,goal.y,5,tile);
     const actor=()=>{
         const hero=stage?.hero;
+        if (layout.player && drawAnimatedPlayer(g,images,layout.player,state,hero?.scale??1)) return;
         const image=hero&&images.get(hero.assetId);
         if (image?.complete&&image.naturalWidth) drawHero(g,image,hero,state);
         else {
@@ -226,6 +249,11 @@ export function mountTileGame(canvas, status, level, onRun=null) {
         if (layout.stage) Object.assign(canvas.dataset,{bounces:String(state.bounces),resets:String(state.resets),
             hero:layout.stage.hero?.name||'',phase:state.won?'complete':'playing'});
         else for (const key of ['bounces','resets','hero','phase']) delete canvas.dataset[key];
+        if (layout.player) {
+            canvas.dataset.hero=layout.player.name;
+            const frame=playerFrame(state);
+            canvas.dataset.playerFrame=frame<0?'idle':String(frame);
+        } else delete canvas.dataset.playerFrame;
     }
 
     function restart() {

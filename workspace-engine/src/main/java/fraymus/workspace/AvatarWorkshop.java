@@ -105,6 +105,13 @@ final class AvatarWorkshop {
         return tiles.add(new JSONObject().put("source", source));
     }
 
+    synchronized JSONObject player(JSONObject input) throws Exception {
+        SpatialScene.keys(input, "id");
+        String id = input.getString("id");
+        var saved = load(id);
+        return tiles.addPlayer(id, saved.recipe.getString("name"), saved.portrait.sprite, saved.portrait.walk);
+    }
+
     synchronized JSONObject export(JSONObject input) throws Exception {
         SpatialScene.keys(input, "id", "kind");
         String id = input.getString("id");

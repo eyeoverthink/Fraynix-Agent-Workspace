@@ -31,6 +31,7 @@ import {CreationPanel} from './creation-panel.js';
 import {TrackingPanel} from './tracking-panel.js';
 import {PerceptionPanel} from './perception-panel.js';
 import {TileEditor} from './media-tile-editor.js';
+import {renderTileEvidence as renderLegacyTiles,replayTileInputs as replayLegacyTiles} from './media-tile-play-legacy.js';
 import {MediaWorkshop} from './media-workshop.js';
 import {AvatarPanel,isAvatarRequest} from './avatar-panel.js';
 import {isMotionMediaRequest, MotionMediaPanel} from './motion-media.js';
@@ -104,8 +105,8 @@ const tileEditor=new TileEditor(request);
 window.tileEvidence=Object.freeze({
   levelId:()=>tileEditor.levelId||'',
   live:options=>tileEditor.liveEvidence(options),
-  render:options=>tileEditor.renderEvidence(options),
-  replay:options=>tileEditor.replay(options),
+  render:options=>options.legacy ? renderLegacyTiles(options.level,options.row,options.region,options.assetId) : tileEditor.renderEvidence(options),
+  replay:options=>options.legacy ? replayLegacyTiles(options.level,options.inputs) : tileEditor.replay(options),
   settle:()=>tileEditor.pendingRun
 });
 let mediaMode='tiles';
@@ -114,6 +115,10 @@ const avatars=new AvatarPanel(request,async sprite=>{
  showMedia('tiles');
  await tileEditor.pending;
  await tileEditor.addSprite(sprite);
+},async player=>{
+ showMedia('tiles');
+ await tileEditor.pending;
+ await tileEditor.usePlayer(player);
 });
 const timelineEditor=new TimelinePanel(request,()=>showMedia('tiles'));
 const motionMedia=new MotionMediaPanel(request,()=>showMedia('tiles'),async id=>{
@@ -603,6 +608,12 @@ async function submitWorkspaceChat() {
     result.environment.name+' has '+result.total+' objects, '+result.environment.triangleCount+
     ' triangles, '+result.environment.imageCount+' embedded images and '+result.environment.markerCount+' interaction markers.');
   } catch (error) {message('I could not read the environment. '+error.message);}
+  return;
+ }
+ if(/^(?:use|set|make)\s+(?:my|the|this|saved)\s+(?:saved )?avatar\s+(?:as|the)\s+(?:the )?(?:playable character|player)[.!]?$/i.test(phrasing)){
+  await openWorkspaceCapability('avatar-studio');
+  const player=await avatars.run(()=>avatars.sendPlayer());
+  message(player?player.name+' is the player in Tile Workshop. Save the level to play.':avatars.find('status').textContent);
   return;
  }
  if(isAvatarRequest(phrasing)){

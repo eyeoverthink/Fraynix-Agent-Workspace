@@ -20,6 +20,7 @@ final class TileWorkshop {
     private static final int MAX_PACKAGE = 6_500_000;
     private static final int MAX_LIBRARY = 64;
     private static final int MAX_USED = 6;
+    private static final int PLAYER_WIDTH = 96, PLAYER_HEIGHT = 112, WALK_FRAMES = 4;
     private static final int WIDTH = 720, FLOOR = 312, TILE = 24;
     private final Path root, assets, levels;
     private final TilePlayRecords playtests;
@@ -40,6 +41,26 @@ final class TileWorkshop {
         String id = MapDefinition.sha(bytes);
         store(assets, id, bytes, MAX_ASSET);
         return sprite.put("id", id).put("label", label(source));
+    }
+
+    synchronized JSONObject addPlayer(String avatarId, String name, byte[] idle, byte[] walk) throws Exception {
+        var recipes = new JSONObject();
+        String idleId = framedAsset(recipes, avatarId, "idle", idle);
+        String walkId = framedAsset(recipes, avatarId, "walk", walk);
+        var sprites = checkPackageAssets(recipes, recipes.keySet());
+        storePackageAssets(recipes, recipes.keySet());
+        var player = new JSONObject().put("name",name).put("avatarId",avatarId).put("idleAssetId",idleId).put("walkAssetId",walkId);
+        return new JSONObject().put("player",player).put("sprites",sprites);
+    }
+
+    private static String framedAsset(JSONObject recipes, String avatarId, String framing, byte[] bytes) throws Exception {
+        var source = SpriteWorkshop.source(new JSONObject()
+                .put("filename","Avatar " + avatarId.substring(0,12) + " " + framing + ".png")
+                .put("png",java.util.Base64.getEncoder().encodeToString(bytes)));
+        var recipe = assetRecipe(source, framedSprite(source, framing)).put("framing",framing).put("avatarId",avatarId);
+        String id = assetIdentity(recipe);
+        recipes.put(id, recipe);
+        return id;
     }
 
     static JSONObject assetRecipe(JSONObject source, JSONObject sprite) {
@@ -152,19 +173,29 @@ final class TileWorkshop {
         var files = bundle.getJSONObject("assets");
         var used = used(layout);
         if (!files.keySet().equals(used)) throw new IllegalArgumentException("Level and bundled sprite references differ.");
+        var checked = checkPackageAssets(files, used);
+        checkPlayerAssets(layout, checked);
+        storePackageAssets(files, used);
+        String id = MapDefinition.sha(encoded(layout));
+        commitLevel(id, layout);
+        return level(id, layout, checked);
+    }
+
+    private static JSONObject checkPackageAssets(JSONObject files, Set<String> used) throws Exception {
         var checked = new JSONObject();
         for (String id : used) {
             var asset = files.getJSONObject(id);
             if (encoded(asset).length > MAX_ASSET) throw new IllegalArgumentException("Bundled sprite exceeds the limit.");
             checked.put(id, checkAsset(id, asset));
         }
+        return checked;
+    }
+
+    private void storePackageAssets(JSONObject files, Set<String> used) throws IOException {
         int available = MAX_LIBRARY - ids(assets, MAX_LIBRARY).size();
         long fresh = used.stream().filter(id -> !Files.exists(file(assets, id), LinkOption.NOFOLLOW_LINKS)).count();
         if (fresh > available) throw new IllegalArgumentException("The sprite library has room for up to 64 sprites.");
         for (String id : used) store(assets, id, encoded(files.getJSONObject(id)), MAX_ASSET);
-        String id = MapDefinition.sha(encoded(layout));
-        commitLevel(id, layout);
-        return level(id, layout, checked);
     }
 
     synchronized JSONObject export(JSONObject input) throws Exception {
@@ -180,13 +211,16 @@ final class TileWorkshop {
         var originals = new JSONObject();
         var sprites = new JSONObject();
         var proof = new JSONObject();
+        var checked = new JSONObject();
         for (String key : used(layout)) {
             var original = read(assets, key, MAX_ASSET);
             var sprite = checkAsset(key, original);
+            checked.put(key,sprite);
             originals.put(key, original);
             sprites.put(key, new JSONObject().put("png", sprite.getString("png")));
             proof.put(key, hashes(sprite));
         }
+        checkPlayerAssets(layout, checked);
         byte[] bytes = switch (format) {
             case "json" -> encoded(new JSONObject().put("format", FORMAT).put("layout", layout).put("assets", originals));
             case "html" -> SpriteWorkshop.portableGame(new JSONObject().put("layout", layout).put("sprites", sprites),
@@ -201,6 +235,7 @@ final class TileWorkshop {
     private JSONObject checkedLevel(String id, JSONObject layout) throws Exception {
         var sprites = new JSONObject();
         for (String key : used(layout)) sprites.put(key, checkAsset(key, read(assets, key, MAX_ASSET)));
+        checkPlayerAssets(layout,sprites);
         return level(id, layout, sprites);
     }
 
@@ -293,14 +328,71 @@ final class TileWorkshop {
     }
 
     private static JSONObject checkAsset(String id, JSONObject recipe) throws Exception {
-        SpatialScene.keys(recipe, "source", "sourceSha256", "spriteSha256");
+        SpatialScene.keys(recipe, "source", "sourceSha256", "spriteSha256", "framing", "avatarId");
         if (!MapDefinition.sha(encoded(recipe)).equals(id)) throw new IllegalArgumentException("The sprite record changed.");
         var source = recipe.getJSONObject("source");
-        var sprite = SpriteWorkshop.sprite(source);
+        boolean framed = recipe.has("framing");
+        if (framed != recipe.has("avatarId"))
+            throw new IllegalArgumentException("A framed sprite requires its avatar reference.");
+        var sprite = framed ? framedSprite(source, recipe.getString("framing"))
+                .put("avatarId", mediaId(recipe, "avatarId")) : SpriteWorkshop.sprite(source);
         if (!sprite.getString("sourceSha256").equals(recipe.getString("sourceSha256"))
                 || !sprite.getString("sha256").equals(recipe.getString("spriteSha256")))
             throw new IllegalArgumentException("The original image or isolated pixels changed.");
         return sprite.put("id", id).put("label", label(source));
+    }
+
+    private static JSONObject framedSprite(JSONObject source, String framing) throws Exception {
+        int width = switch (framing) {
+            case "idle" -> PLAYER_WIDTH;
+            case "walk" -> PLAYER_WIDTH * WALK_FRAMES;
+            default -> throw new IllegalArgumentException("Unknown character frame format.");
+        };
+        String png = source.getString("png");
+        byte[] bytes = SpriteWorkshop.decode(png,750_000);
+        var image = BrowserShapeTrace.decode(bytes,8);
+        if (image.getWidth()!=width || image.getHeight()!=PLAYER_HEIGHT || !image.getColorModel().hasAlpha())
+            throw new IllegalArgumentException("The avatar sprite has unexpected frame dimensions or transparency.");
+        int frameCount = framing.equals("idle") ? 1 : WALK_FRAMES;
+        for (int frame = 0; frame < frameCount; frame++) {
+            var pixels = image.getRGB(frame*PLAYER_WIDTH,0,PLAYER_WIDTH,PLAYER_HEIGHT,null,0,PLAYER_WIDTH);
+            int transparent = 0, visible = 0;
+            for (int pixel : pixels) {
+                if ((pixel >>> 24) == 0) transparent++;
+                else visible++;
+            }
+            if (transparent < 16 || visible < 16)
+                throw new IllegalArgumentException("Every avatar frame needs visible pixels and a transparent margin.");
+        }
+        String digest = MapDefinition.sha(bytes);
+        return new JSONObject().put("png",png).put("width",width).put("height",PLAYER_HEIGHT)
+                .put("sourceSha256",MapDefinition.sha(encoded(source))).put("sha256",digest).put("imageSha256",digest)
+                .put("isolation","framed-alpha").put("framing",framing);
+    }
+
+    private static void checkPlayerAssets(JSONObject layout, JSONObject sprites) {
+        var player = layout.optJSONObject("player");
+        if (player == null) return;
+        for (String role : java.util.List.of("idle", "walk")) {
+            var sprite = sprites.getJSONObject(player.getString(role+"AssetId"));
+            if (!role.equals(sprite.optString("framing"))
+                    || !player.getString("avatarId").equals(sprite.optString("avatarId")))
+                throw new IllegalArgumentException("The playable character needs checked idle and walk images.");
+        }
+    }
+
+    private static JSONObject player(JSONObject value) {
+        SpatialScene.keys(value, "name", "avatarId", "idleAssetId", "walkAssetId");
+        String idle = mediaId(value,"idleAssetId"), walk = mediaId(value,"walkAssetId");
+        if (idle.equals(walk)) throw new IllegalArgumentException("Choose distinct idle and walk sprite references.");
+        return new JSONObject().put("name",SpatialScene.text(value,"name",70)).put("avatarId",mediaId(value,"avatarId"))
+                .put("idleAssetId",idle).put("walkAssetId",walk);
+    }
+
+    private static String mediaId(JSONObject value, String field) {
+        String id = value.getString(field);
+        if (!id.matches("[a-f0-9]{64}")) throw new IllegalArgumentException("Invalid " + field + " reference.");
+        return id;
     }
 
     private static String label(JSONObject source) {
@@ -326,11 +418,16 @@ final class TileWorkshop {
         for (Object entry : layout.getJSONArray("objects")) ids.add(((JSONObject) entry).getString("assetId"));
         if (layout.has("stage")) NexusSceneLevel.addStageAssets(layout.getJSONObject("stage"), ids);
         if (ids.size() > MAX_USED) throw new IllegalArgumentException("Use up to six different sprites per level.");
+        if (layout.has("player")) {
+            var player = layout.getJSONObject("player");
+            ids.add(player.getString("idleAssetId"));
+            ids.add(player.getString("walkAssetId"));
+        }
         return ids;
     }
 
     private static JSONObject layout(JSONObject input) {
-        SpatialScene.keys(input, "title", "objects", "stage", "planes", "scoring");
+        SpatialScene.keys(input, "title", "objects", "stage", "planes", "scoring", "player");
         String title = SpatialScene.text(input, "title", 70).strip();
         var stage = input.has("stage") ? NexusSceneLevel.validatedStage(input.getJSONObject("stage")) : null;
         var objects = input.getJSONArray("objects");
@@ -386,6 +483,7 @@ final class TileWorkshop {
         if (stage == null && pickups == 0) throw new IllegalArgumentException("Place at least one pickup to unlock the exit.");
         var output = new JSONObject().put("title", title).put("objects", result);
         if (stage != null) output.put("stage", stage);
+        if (input.has("player")) output.put("player",player(input.getJSONObject("player")));
         if (planes != null) output.put("planes", planes);
         if (input.has("scoring")) {
             var rules = input.getJSONObject("scoring");

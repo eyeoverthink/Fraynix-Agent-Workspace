@@ -74,9 +74,10 @@ function wavUrl(encoded) {
 }
 
 export class AvatarPanel {
-    constructor(request,useTile) {
+    constructor(request,useTile,usePlayer) {
         this.request=request;
         this.useTile=useTile;
+        this.usePlayer=usePlayer;
         this.root=document.createElement('section');
         this.root.id='avatar-studio';
         this.root.hidden=true;
@@ -140,7 +141,8 @@ export class AvatarPanel {
                 <button data-export="avi">Export talking video</button>
                 <button data-export="manifest">Export asset manifest</button>
                 <button data-export="project">Export editable avatar</button>
-                <button id="avatar-tile">Use in Tile Workshop</button>
+                <button id="avatar-tile">Add sprite to Tile Workshop</button>
+                <button id="avatar-player" class="primary">Use as player</button>
               </div>
             </section>
           </div>
@@ -185,6 +187,7 @@ export class AvatarPanel {
             const sprite=await this.call('tile',{id:this.output.id});
             await this.useTile(sprite);
         });
+        this.find('player').onclick=()=>this.run(()=>this.sendPlayer());
         for(const button of this.root.querySelectorAll('[data-export]'))button.onclick=()=>this.run(async()=>{
             this.tell('Verifying and exporting the saved avatar.');
             const file=await this.call('export',{id:this.output.id,kind:button.dataset.export});
@@ -355,6 +358,13 @@ export class AvatarPanel {
             field.value=(this.rig[field.dataset.rig]*100).toFixed(3);
     }
 
+    async sendPlayer() {
+        if(!this.output || this.dirty)throw Error('Build and save the avatar before using it as a player.');
+        const result=await this.call('player',{id:this.output.id});
+        await this.usePlayer(result);
+        return result.player;
+    }
+
     async build(){
         if(!this.image)throw Error('Choose a portrait image or a video frame first.');
         if(!this.name.value.trim())throw Error('Enter a character name.');
@@ -409,7 +419,7 @@ export class AvatarPanel {
         this.find('clear-audio').disabled=busy||!this.wav;
         for(const id of ['frame','clip-audio','time'])this.find(id).disabled=busy;
         for(const id of ['portrait','assets','exports'])this.find(id).hidden=!saved;
-        for(const button of this.root.querySelectorAll('[data-export],#avatar-tile'))
+        for(const button of this.root.querySelectorAll('[data-export],#avatar-tile,#avatar-player'))
             button.disabled=busy||!saved||(button.dataset.export==='avi'&&!this.wav);
         this.audio.hidden=!saved||!this.wav;
         this.find('audio-note').textContent=this.wav?'Local audio ready · up to 30 seconds.':'Optional. Add a local recording to drive the mouth.';
