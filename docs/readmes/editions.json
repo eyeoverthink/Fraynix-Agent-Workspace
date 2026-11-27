@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 270,
+  "latest": 271,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -271086,6 +271086,70 @@
         {
           "path": "docs/readmes/270/system-map.json",
           "sha256": "4b09021d5dc00d50e7a59a2b7c4e6febe930ff8413c48134dab857cdf1d148cc",
+          "kind": "text"
+        }
+      ]
+    },
+    {
+      "number": 271,
+      "date": "2026-11-27",
+      "title": "Prove the Courier pushes a crate after contact",
+      "status": "published",
+      "markdown": "README-271.md",
+      "markdownSha256": "ad3771d79ef553bdae433b27b396590aa16d4db7779348c61449b063e6c5cf09",
+      "snapshotDirectory": "docs/readmes/271",
+      "companion": "docs/readmes/271/index.html",
+      "tag": "readme-271",
+      "sourceBaseline": "b66df94c05d2defa7e347416b56f9b491168b9ae",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/271/courier-crate-proof.json",
+          "sha256": "ecc6b61f8e7b3c02e75123b7a8dc3543d6fc7e799ee19d8f496fed51f83fe6c0",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/271/courier-native-after.png",
+          "sha256": "f149cd66358375c065e910b498e4757de91f68fa54cffc102254c98932b3b231",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/271/courier-native-before.png",
+          "sha256": "200c0162efaa48c330a82db25900991e945a5113622da4c2a8cf0667cb254f8c",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/271/courier-push-trace.png",
+          "sha256": "b2eb2b5018d279202af2078bff59ee206362ef840a32c4ddb4aec03015adf1fa",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/271/courier-restart.png",
+          "sha256": "38ad628e4ff476476ad1a84db25c47ef14bc00d23b2d8bb7452ee1042f604f4f",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/271/file-inventory.json",
+          "sha256": "e150539e9f1028b84f348fd2508fe6dcff8a22a1961d4d41f1e3ec8916125033",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/271/FILE_TREE.md",
+          "sha256": "61d0af5d42b5734e23610f58b6c1ae1704eb87ab117c97ed6dc542f017d90fd3",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/271/index.html",
+          "sha256": "c520aa12deeac61238dae6fd7f33e32116b27977ec4c2860b8932c8db3a8117a",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/271/result.json",
+          "sha256": "af598faaf82247006f2afcbb9f4202520545777e395a639f5dc8007209463f99",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/271/system-map.json",
+          "sha256": "3efc628fd0a245669b8cd1da7f4ff1402bf27b52a3d7f1b1549b1649e66d7e24",
           "kind": "text"
         }
       ]

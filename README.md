@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md) · [Independent system review](docs/publication244/review.md)
 
-[Edition 270 — Make expressive Blender characters and play them offline](README-270.md) · [Previous edition](README-269.md) · [Offline walkthrough](docs/readmes/270/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 271 — Prove the Courier pushes a crate after contact](README-271.md) · [Previous edition](README-270.md) · [Offline walkthrough](docs/readmes/271/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Create an expressive character with local Blender, bring it into Tile Workshop, and play the exported level offline.
+Drive the Courier with Game Lab's original dynamic player body. Compare a real crate push with an approach that stops short and replay the measured result offline.

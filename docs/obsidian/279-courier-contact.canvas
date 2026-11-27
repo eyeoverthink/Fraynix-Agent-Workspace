@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "trial",
+      "type": "file",
+      "file": "README-271.md",
+      "x": 0,
+      "y": 0,
+      "width": 550,
+      "height": 355
+    },
+    {
+      "id": "checks",
+      "type": "file",
+      "file": "docs/publication271/plan.md",
+      "x": 640,
+      "y": 0,
+      "width": 520,
+      "height": 355
+    },
+    {
+      "id": "trace",
+      "type": "file",
+      "file": "docs/readmes/271/courier-push-trace.png",
+      "x": 0,
+      "y": 440,
+      "width": 550,
+      "height": 280
+    }
+  ],
+  "edges": [
+    {
+      "id": "trial-checks",
+      "fromNode": "trial",
+      "toNode": "checks",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "trial-trace",
+      "fromNode": "trial",
+      "toNode": "trace",
+      "fromSide": "bottom",
+      "toSide": "top"
+    }
+  ]
+}

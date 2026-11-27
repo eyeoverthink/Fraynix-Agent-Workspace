@@ -1,0 +1,62 @@
+{
+  "summary": "Drive a dynamic native player and compare a contact push against a matched approach that stops.",
+  "modules": [
+    {
+      "title": "Native player and crate",
+      "source": "src/main/java/runtime/CourierCrateTrial.java",
+      "note": "docs/obsidian/279-courier-contact.md"
+    },
+    {
+      "title": "Contact callback and impulse",
+      "source": "src/main/java/physics2d/JadeContactListener.java",
+      "note": "docs/obsidian/279-courier-contact.md"
+    },
+    {
+      "title": "Independent verification and replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CourierCrateEvidence.java",
+      "note": "docs/obsidian/279-courier-contact.md"
+    },
+    {
+      "title": "Game Lab controls and results",
+      "source": "workspace-desktop/renderer/courier-crate.mjs",
+      "note": "docs/obsidian/279-courier-contact.md"
+    },
+    {
+      "title": "Desktop and offline restart integration",
+      "source": "workspace-desktop/test/courier-crate-integration.cjs",
+      "note": "docs/obsidian/279-courier-contact.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The Courier and the separate dynamic crate at the starting positions",
+      "path": "docs/readmes/271/courier-native-before.png"
+    },
+    {
+      "title": "Game Lab shows the matching native replay after an offline restart",
+      "path": "docs/readmes/271/courier-restart.png"
+    },
+    {
+      "title": "Native crate displacement for the continued approach and the control that stops short",
+      "path": "docs/readmes/271/courier-push-trace.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Full native traces and verified receipt",
+      "path": "docs/readmes/271/courier-crate-proof.json"
+    },
+    {
+      "title": "Offline restart and refusal report",
+      "path": "docs/readmes/271/result.json"
+    },
+    {
+      "title": "Native frame after the push",
+      "path": "docs/readmes/271/courier-native-after.png"
+    },
+    {
+      "title": "Implementation and reproduction",
+      "path": "docs/publication271/plan.md"
+    }
+  ]
+}

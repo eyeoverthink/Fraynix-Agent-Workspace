@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 271 · Prove the Courier pushes a crate after contact</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Prove the Courier pushes a crate after contact</h1>
+<p>Open Game Lab and choose Courier crate test. The paired trial records the native body positions, contact and impulse. Both traces replay after restart.</p>
+<nav><a href="../../../README-271.md">App guide</a><a href="../270/index.html">Edition 270</a>
+<a href="../../publication271/plan.md">Reproduction</a>
+<a href="courier-crate-proof.json" download>Download both traces</a>
+<a href="result.json" download>Download restart result</a><a href="#system">System files</a></nav>
+<figure><img src="courier-native-before.png" alt="The Courier and the separate dynamic crate at the starting positions"><figcaption>The Courier and the separate dynamic crate at the starting positions</figcaption></figure>
+<figure><img src="courier-restart.png" alt="Game Lab shows the matching native replay after an offline restart"><figcaption>Game Lab shows the matching native replay after an offline restart</figcaption></figure>
+<figure><img src="courier-push-trace.png" alt="Native crate displacement for the continued approach and the control that stops short"><figcaption>Native crate displacement for the continued approach and the control that stops short</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "Drive a dynamic native player and compare a contact push against a matched approach that stops.",
+  "modules": [
+    {
+      "title": "Native player and crate",
+      "source": "src/main/java/runtime/CourierCrateTrial.java",
+      "note": "docs/obsidian/279-courier-contact.md"
+    },
+    {
+      "title": "Contact callback and impulse",
+      "source": "src/main/java/physics2d/JadeContactListener.java",
+      "note": "docs/obsidian/279-courier-contact.md"
+    },
+    {
+      "title": "Independent verification and replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CourierCrateEvidence.java",
+      "note": "docs/obsidian/279-courier-contact.md"
+    },
+    {
+      "title": "Game Lab controls and results",
+      "source": "workspace-desktop/renderer/courier-crate.mjs",
+      "note": "docs/obsidian/279-courier-contact.md"
+    },
+    {
+      "title": "Desktop and offline restart integration",
+      "source": "workspace-desktop/test/courier-crate-integration.cjs",
+      "note": "docs/obsidian/279-courier-contact.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The Courier and the separate dynamic crate at the starting positions",
+      "path": "docs/readmes/271/courier-native-before.png"
+    },
+    {
+      "title": "Game Lab shows the matching native replay after an offline restart",
+      "path": "docs/readmes/271/courier-restart.png"
+    },
+    {
+      "title": "Native crate displacement for the continued approach and the control that stops short",
+      "path": "docs/readmes/271/courier-push-trace.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Full native traces and verified receipt",
+      "path": "docs/readmes/271/courier-crate-proof.json"
+    },
+    {
+      "title": "Offline restart and refusal report",
+      "path": "docs/readmes/271/result.json"
+    },
+    {
+      "title": "Native frame after the push",
+      "path": "docs/readmes/271/courier-native-after.png"
+    },
+    {
+      "title": "Implementation and reproduction",
+      "path": "docs/publication271/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": "docs/obsidian/279-courier-contact.canvas",
+    "bytes": 833,
+    "sha256": "e67c7e49a7e6d2e35782da713ed9e4caee32b0fcadbcd7f7ec9e1849bf23aae4",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/279-courier-contact.md",
+    "bytes": 334,
+    "sha256": "dccf1c1af84236564940c925b6fac66270b45016c906748eb49ccfce7ce362c5",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication271/plan.md",
+    "bytes": 4294,
+    "sha256": "b2995437fc39c7e19be1f71c61db6261382f9f472e83a8c6777da8d699b84ab8",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "src/main/java/physics2d/JadeContactListener.java",
+    "bytes": 3277,
+    "sha256": "31b0c887cbca1af95d6fcfffaf12b7db939be675f1d4c83881f0ddc12f1b44f7",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "src/main/java/runtime/CourierCrateTrial.java",
+    "bytes": 10706,
+    "sha256": "90e3b91c51b4516be63704b4917e4559377c04d4ea7f1989541265a5e9153a41",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "src/main/java/runtime/EmbeddedGameRuntime.java",
+    "bytes": 13895,
+    "sha256": "96dbf8053b211194356dc9066549ad2d2abfac70ca6a464d25b3b168c1196755",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/courier-crate.mjs",
+    "bytes": 4586,
+    "sha256": "8fae570f7e423b7941b255ce446d2c36939ab4cb2f4292142cd26f688ab41091",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/courier-crate-integration.cjs",
+    "bytes": 9873,
+    "sha256": "8f7ce1594d19986f26577729b6e402969b08f95bbcb7671404fe68c604b05795",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/CourierCrateEvidence.java",
+    "bytes": 8240,
+    "sha256": "b8d790867b5671dc2fba4042850453b1c06d91b6fa5c5616ce34818a9667c7bb",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/EmbeddedGameClient.java",
+    "bytes": 12061,
+    "sha256": "066a8b7f0e98c5e3d7022698650b221fe1787f5d2e7a67ff2bb2285865154132",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

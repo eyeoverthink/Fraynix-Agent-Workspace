@@ -1,3 +1,7 @@
+## Edition 271 — Prove the Courier pushes a crate after contact
+
+2026-11-27. The edition 270 Teal Courier atlas follows the original Game Lab dynamic player pillbox in a checked Relay Garden practice scene. A separate dynamic crate recorded zero pre-contact movement and zero displacement in the control. In the continued approach, contact and horizontal solver impulse occurred at tick 69 before that step's sampled crate motion. The crate moved 1.004 game units. Windows verified normal controls, reset, two exact fresh traces and the final image after offline restart, an unchanged export and tamper refusal. See README-271.md and docs/publication271/plan.md.
+
 ## Edition 270 — Make expressive Blender characters and play them offline
 
 2026-11-27. Avatar Studio and a bounded chat phrase bake Teal or Amber with the local Blender installation. Blender reopened the editable 13-bone rig and checked keyframes, blink and its separate kinematic box. Java checked nine transparent frames and the player atlases. Courier Relay recorded contact, a jump and a landing beyond a solid hurdle. Desktop and isolated HTML scored 600, the same HTML hash survived restart, and a changed frame refused. Prior avatar and traversal tests passed locally. The reviewer identified native Game Lab body reuse and versioned state-driven animation as the next measurable step. See README-270.md and docs/publication270/plan.md.
