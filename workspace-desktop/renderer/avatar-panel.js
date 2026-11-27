@@ -1,4 +1,5 @@
 import {readBase64} from './media-workshop.js';
+import {CharacterRigPanel} from './character-rig-panel.mjs';
 
 const SAMPLE_RATE=24000;
 const MAX_CLIP_BYTES=64*1024*1024;
@@ -148,6 +149,7 @@ export class AvatarPanel {
           </div>
           <p id="avatar-status" role="status">Import a portrait image or choose a frame from a clip.</p>`;
         document.querySelector('#canvas-surface').before(this.root);
+        this.characterRig = new CharacterRigPanel(this.root, request, usePlayer);
         this.source=this.find('source');
         this.video=this.find('video');
         this.audio=this.find('play');
@@ -206,6 +208,7 @@ export class AvatarPanel {
 
     show(visible){
         this.root.hidden=!visible;
+        this.characterRig.setVisible(visible);
         if(!visible){this.audio.pause();this.video.pause();return;}
         if(this.loaded||this.pending)return;
         this.run(async()=>{

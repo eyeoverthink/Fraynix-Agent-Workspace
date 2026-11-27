@@ -5,6 +5,7 @@ const {spawn}=require('node:child_process');
 const fs=require('node:fs');const fsp=require('node:fs/promises');const path=require('node:path');const {createHash,randomBytes,randomUUID}=require('node:crypto');const readline=require('node:readline');
 const {Surface}=require('./surfaces.cjs');
 const {exportBlend,importBlend,importGameLayout}=require('./blender-exchange.cjs');
+const {characterRigs}=require('./character-rigs.cjs');
 const {observeRamp, rampPath, rampRequest, localWorkflowRequest}=require('./ramp-mission.cjs');const {catalog,command,planTools}=require('./policy.cjs');
 const {failureClass,performControlled,observeProgress,trainController}=require('./controller.cjs');
 const {replay,rehearse}=require('./controller-replay.cjs');
@@ -47,6 +48,7 @@ if(networkPolicy.enabled){app.commandLine.appendSwitch('disable-background-netwo
 const repo=path.resolve(__dirname,'..');
 const project=path.resolve(process.env.FRAYNIX_WORKSPACE_PROJECT||path.join(app.getPath('home'),'.fraynix-agent-workspace','projects','default'));
 const nativeExports=new NativeExports(project);
+const characterRig=characterRigs(project,api,nativeExports);
 const inputs100=new Inputs100(api,path.join(project,'input-selection100.json'));
 fs.mkdirSync(path.join(project,'desktop-profile'),{recursive:true});
 app.setPath('userData',path.join(project,'desktop-profile'));app.setName('Fraynix Agent Workspace');
@@ -1178,6 +1180,8 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       }
       throw Error('Unknown avatar level command.');
     }
+    case 'character-rig':
+      return characterRig(input.command, input.args || {});
     case 'avatar': {
       if (['save','open','library','tile','player','import'].includes(input.command))
         return api('/api/avatar/'+input.command,input.args||{});

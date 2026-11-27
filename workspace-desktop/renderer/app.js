@@ -34,6 +34,7 @@ import {TileEditor} from './media-tile-editor.js';
 import {renderTileEvidence as renderLegacyTiles,replayTileInputs as replayLegacyTiles} from './media-tile-play-legacy.js';
 import {MediaWorkshop} from './media-workshop.js';
 import {AvatarPanel,isAvatarRequest} from './avatar-panel.js';
+import {characterRigRequest} from './character-rig-panel.mjs';
 import {AvatarLevelPanel,avatarLevelIntent} from './avatar-level-panel.mjs';
 import {isMotionMediaRequest, MotionMediaPanel} from './motion-media.js';
 import {TimelinePanel} from './timeline-editor.js';
@@ -632,6 +633,13 @@ async function submitWorkspaceChat() {
   await openWorkspaceCapability('avatar-studio');
   const player=await avatars.run(()=>avatars.sendPlayer());
   message(player?player.name+' is the player in Tile Workshop. Save the level to play.':avatars.find('status').textContent);
+  return;
+ }
+ const courierPalette=characterRigRequest(phrasing);
+ if(courierPalette){
+  await openWorkspaceCapability('avatar-studio');
+  const rig=await avatars.characterRig.bake(courierPalette);
+  message(rig?rig.name+' is ready in Avatar Studio. Preview its face, walk and jump, or use it as the tile player.':avatars.characterRig.status.textContent);
   return;
  }
  const avatarLevelRequest=avatarLevelIntent(goal);

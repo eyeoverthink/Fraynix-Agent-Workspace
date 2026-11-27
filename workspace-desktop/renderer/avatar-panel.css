@@ -60,3 +60,22 @@
 }
 #avatar-assets figcaption { color: #b6cadd; font-size: .78rem; margin-top: 4px; }
 #avatar-studio [aria-pressed="true"] { border-color: #a8f8de; }
+#character-rig { margin-bottom: 12px; }
+#character-rig summary { cursor: pointer; font-weight: 600; }
+.character-rig-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(245px, 100%), 1fr));
+    align-items: center;
+    gap: 12px;
+    padding-top: 12px;
+}
+.character-rig-controls .avatar-actions { margin-bottom: 8px; }
+#character-rig-status { color: #b6cadd; overflow-wrap: anywhere; }
+#character-rig-preview {
+    justify-self: center;
+    width: min(100%, 192px);
+    height: auto;
+    background: radial-gradient(ellipse at 50% 80%, #365065, #101c29 72%);
+    border: 1px solid #344a5d;
+    border-radius: 10px;
+}

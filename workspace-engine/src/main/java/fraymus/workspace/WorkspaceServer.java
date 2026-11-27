@@ -809,6 +809,7 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/avatar/tile" -> result = avatars.tile(input);
                     case "/api/avatar/player" -> result = avatars.player(input);
                     case "/api/avatar/export" -> result = avatars.export(input);
+                    case "/api/avatar/rig-frames" -> result = CharacterFrames.validate(input, tiles);
                     case "/api/media/isolate" -> result = media.isolate(input);
                     case "/api/media/save" -> result = media.save(input);
                     case "/api/media/import" -> result = media.importLevel(input);

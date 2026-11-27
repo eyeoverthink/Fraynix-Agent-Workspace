@@ -96,4 +96,4 @@ async function exportBlend(text, destination, mode = 'export') {
     });
 }
 
-module.exports = {importBlend, importGameLayout, exportBlend};
+module.exports = {findBlender, importBlend, importGameLayout, exportBlend};
