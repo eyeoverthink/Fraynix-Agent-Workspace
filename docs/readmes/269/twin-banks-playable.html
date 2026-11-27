@@ -1,0 +1,526 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; script-src 'sha256-faRjG1hI9C7zY/XLDXhI0YoM2TD7WE0dHIplEUvBOss='; style-src 'unsafe-inline'">
+<title>Fraynix level</title>
+<style>
+  * { box-sizing: border-box }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 1rem; background: #101c22; color: #edf7f3; font: 16px system-ui, sans-serif }
+  main { width: min(100%, 780px) }
+  h1 { font-size: clamp(1.35rem, 4vw, 2rem); margin: 0 0 .65rem }
+  canvas { display: block; width: 100%; border: 1px solid #638983; border-radius: .5rem }
+  canvas:focus-visible { outline: 2px solid #9aebcb; outline-offset: 4px }
+  footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .75rem; margin: 1rem 0 }
+  p { margin: 0; color: #caddd7 }
+  #progress[data-score]::after { content: ' · Score ' attr(data-score); font-weight: 700; }
+  #controls { margin-bottom: .65rem }
+  button { padding: .55rem .8rem; border: 1px solid #638983; border-radius: .4rem; color: inherit; background: #24403e; font: inherit; cursor: pointer }
+</style>
+</head>
+<body>
+<main>
+  <h1>Fraynix level</h1>
+  <p id="controls">Click the game to focus it. Move with ← and →. Jump with ↑ or Space.</p>
+  <canvas tabindex="0" aria-label="Playable level" aria-describedby="controls"></canvas>
+  <footer><p id="progress" role="status"></p><button id="restart">Restart level</button></footer>
+</main>
+<template id="level-data">eyJsYXlvdXQiOnsic3RhZ2UiOnsic291cmNlU2hhMjU2IjoiNGMyOGYwZTFmYTMyMDdlYWQxMDY3NTljYzg3OTY3MTVkYjA2ZThjNjE4Y2IzMDQ5ZGMxNDA3YjRlOTMxNGU1NyIsInNwYXduIjp7IngiOjQ4LCJ5IjoyNTZ9LCJnb2FsIjp7IngiOjY3MiwieSI6MjY0fSwicGFsZXR0ZSI6eyJza3kiOiIjMTQyYTQ2Iiwicm9jayI6IiMzMTViODMiLCJncm91bmQiOiIjNDY4Zjg0IiwiYWNjZW50IjoiI2ZmZDc3YiIsIndhdGVyIjoiIzI4NDk1YSJ9fSwib2JqZWN0cyI6W3siY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4IjowLCJ5IjoyODgsImlkIjoiYmFuay0wIiwibGF5ZXIiOiJ0ZXJyYWluIn0seyJjb2xsaWRlciI6eyJ3IjoyNCwieCI6MCwiaCI6MjQsInkiOjB9LCJzaXplIjoyNCwiYXNzZXRJZCI6ImM5YmU4MDU2MWFmOGNlNmY2OThhNzk2MTkxZDBkY2E5ZTZhYzRmZjk2OGE5OTM3NDc2Y2U5OTQzMjcwZWNkZTQiLCJraW5kIjoidGlsZSIsImVmZmVjdCI6Imdyb3VuZCIsIngiOjI0LCJ5IjoyODgsImlkIjoiYmFuay0yNCIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4Ijo0OCwieSI6Mjg4LCJpZCI6ImJhbmstNDgiLCJsYXllciI6InRlcnJhaW4ifSx7ImNvbGxpZGVyIjp7InciOjI0LCJ4IjowLCJoIjoyNCwieSI6MH0sInNpemUiOjI0LCJhc3NldElkIjoiYzliZTgwNTYxYWY4Y2U2ZjY5OGE3OTYxOTFkMGRjYTllNmFjNGZmOTY4YTk5Mzc0NzZjZTk5NDMyNzBlY2RlNCIsImtpbmQiOiJ0aWxlIiwiZWZmZWN0IjoiZ3JvdW5kIiwieCI6NzIsInkiOjI4OCwiaWQiOiJiYW5rLTcyIiwibGF5ZXIiOiJ0ZXJyYWluIn0seyJjb2xsaWRlciI6eyJ3IjoyNCwieCI6MCwiaCI6MjQsInkiOjB9LCJzaXplIjoyNCwiYXNzZXRJZCI6ImM5YmU4MDU2MWFmOGNlNmY2OThhNzk2MTkxZDBkY2E5ZTZhYzRmZjk2OGE5OTM3NDc2Y2U5OTQzMjcwZWNkZTQiLCJraW5kIjoidGlsZSIsImVmZmVjdCI6Imdyb3VuZCIsIngiOjk2LCJ5IjoyODgsImlkIjoiYmFuay05NiIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4IjoxMjAsInkiOjI4OCwiaWQiOiJiYW5rLTEyMCIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4IjoyMTYsInkiOjI4OCwiaWQiOiJiYW5rLTIxNiIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4IjoyNDAsInkiOjI4OCwiaWQiOiJiYW5rLTI0MCIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4IjoyNjQsInkiOjI4OCwiaWQiOiJiYW5rLTI2NCIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4IjoyODgsInkiOjI4OCwiaWQiOiJiYW5rLTI4OCIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4IjozMTIsInkiOjI4OCwiaWQiOiJiYW5rLTMxMiIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4IjozMzYsInkiOjI4OCwiaWQiOiJiYW5rLTMzNiIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4Ijo0MzIsInkiOjI4OCwiaWQiOiJiYW5rLTQzMiIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4Ijo0NTYsInkiOjI4OCwiaWQiOiJiYW5rLTQ1NiIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4Ijo0ODAsInkiOjI4OCwiaWQiOiJiYW5rLTQ4MCIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4Ijo1MDQsInkiOjI4OCwiaWQiOiJiYW5rLTUwNCIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4Ijo1MjgsInkiOjI4OCwiaWQiOiJiYW5rLTUyOCIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4Ijo1NTIsInkiOjI4OCwiaWQiOiJiYW5rLTU1MiIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4Ijo1NzYsInkiOjI4OCwiaWQiOiJiYW5rLTU3NiIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4Ijo2MDAsInkiOjI4OCwiaWQiOiJiYW5rLTYwMCIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4Ijo2MjQsInkiOjI4OCwiaWQiOiJiYW5rLTYyNCIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4Ijo2NDgsInkiOjI4OCwiaWQiOiJiYW5rLTY0OCIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4Ijo2NzIsInkiOjI4OCwiaWQiOiJiYW5rLTY3MiIsImxheWVyIjoidGVycmFpbiJ9LHsiY29sbGlkZXIiOnsidyI6MjQsIngiOjAsImgiOjI0LCJ5IjowfSwic2l6ZSI6MjQsImFzc2V0SWQiOiJjOWJlODA1NjFhZjhjZTZmNjk4YTc5NjE5MWQwZGNhOWU2YWM0ZmY5NjhhOTkzNzQ3NmNlOTk0MzI3MGVjZGU0Iiwia2luZCI6InRpbGUiLCJlZmZlY3QiOiJncm91bmQiLCJ4Ijo2OTYsInkiOjI4OCwiaWQiOiJiYW5rLTY5NiIsImxheWVyIjoidGVycmFpbiJ9LHsic2l6ZSI6MjQsImFzc2V0SWQiOiI5NTgxZDc4NGQ3MWVhNmZmZmI2ZWFmMjU5YWE3NDJiNDBjZGIyYWE2NDE3MTE4NmQwZDdlOWY4ZjQxNDllMzRiIiwia2luZCI6InNwcml0ZSIsImVmZmVjdCI6ImhhemFyZCIsIngiOjUyOCwieSI6MjY0LCJpZCI6ImhhemFyZC0xIiwibGF5ZXIiOiJmb3JlZ3JvdW5kIn0seyJzaXplIjoyNCwiYXNzZXRJZCI6IjE1NzVmMjFlZWQ4YTZmY2E2OTBhMzVlN2FhY2Q2YTgwNGUzMTcyY2M0ZmVlZWU4NjM3M2FkZWE2MDE2ODNhNTciLCJraW5kIjoic3ByaXRlIiwiZWZmZWN0IjoiY29pbiIsIngiOjU0LCJ5IjoyNjMsImlkIjoiY29pbi0xIiwibGF5ZXIiOiJwaWNrdXAifSx7InNpemUiOjI0LCJhc3NldElkIjoiMTU3NWYyMWVlZDhhNmZjYTY5MGEzNWU3YWFjZDZhODA0ZTMxNzJjYzRmZWVlZTg2MzczYWRlYTYwMTY4M2E1NyIsImtpbmQiOiJzcHJpdGUiLCJlZmZlY3QiOiJjb2luIiwieCI6NzcsInkiOjI2MywiaWQiOiJjb2luLTIiLCJsYXllciI6InBpY2t1cCJ9LHsic2l6ZSI6MjQsImFzc2V0SWQiOiIxNTc1ZjIxZWVkOGE2ZmNhNjkwYTM1ZTdhYWNkNmE4MDRlMzE3MmNjNGZlZWVlODYzNzNhZGVhNjAxNjgzYTU3Iiwia2luZCI6InNwcml0ZSIsImVmZmVjdCI6ImNvaW4iLCJ4IjoxMDAsInkiOjI2MywiaWQiOiJjb2luLTMiLCJsYXllciI6InBpY2t1cCJ9LHsic2l6ZSI6MjQsImFzc2V0SWQiOiIxNTc1ZjIxZWVkOGE2ZmNhNjkwYTM1ZTdhYWNkNmE4MDRlMzE3MmNjNGZlZWVlODYzNzNhZGVhNjAxNjgzYTU3Iiwia2luZCI6InNwcml0ZSIsImVmZmVjdCI6ImNvaW4iLCJ4Ijo2MDUsInkiOjI2MywiaWQiOiJjb2luLTQiLCJsYXllciI6InBpY2t1cCJ9LHsic2l6ZSI6MjQsImFzc2V0SWQiOiIxNTc1ZjIxZWVkOGE2ZmNhNjkwYTM1ZTdhYWNkNmE4MDRlMzE3MmNjNGZlZWVlODYzNzNhZGVhNjAxNjgzYTU3Iiwia2luZCI6InNwcml0ZSIsImVmZmVjdCI6ImNvaW4iLCJ4Ijo2MjcsInkiOjI2MywiaWQiOiJjb2luLTUiLCJsYXllciI6InBpY2t1cCJ9LHsic2l6ZSI6MjQsImFzc2V0SWQiOiIxNTc1ZjIxZWVkOGE2ZmNhNjkwYTM1ZTdhYWNkNmE4MDRlMzE3MmNjNGZlZWVlODYzNzNhZGVhNjAxNjgzYTU3Iiwia2luZCI6InNwcml0ZSIsImVmZmVjdCI6ImNvaW4iLCJ4Ijo2NDgsInkiOjI2MywiaWQiOiJjb2luLTYiLCJsYXllciI6InBpY2t1cCJ9XSwiY291cnNlIjoianVtcCIsInRyYXZlcnNhbCI6eyJnYXBzIjpbeyJ4IjoxNDQsIndpZHRoIjo3MiwiaWQiOiJnYXAtMSJ9LHsieCI6MzYwLCJ3aWR0aCI6NzIsImlkIjoiZ2FwLTIifV19LCJ0aXRsZSI6IlR3aW4gQmFua3MiLCJwbGF5ZXIiOnsiYXZhdGFySWQiOiI1ODk2MDMyMmQ1MjBlN2Y2MTY0OTZhZDRkNjBjMmNhNTFiOGJiOTE5YjBjNmQ1ZWFlNjQ0ODFiZDJkYTIxN2I2Iiwid2Fsa0Fzc2V0SWQiOiJjZTYyMmVjYTlkMDU4NmIwNjljNDAxM2QxZjJhYzE1NGE3YmZkMmVmNmU5YzdlYTU4Y2M0NGVjN2JiM2FjY2NhIiwibmFtZSI6IkJhbmsgUnVubmVyIiwiaWRsZUFzc2V0SWQiOiIxZjI3YzliZDU2ODQ3ZWVmODJiYjY0MTNkNjUxZGYzNThmN2ZiMzUxMDM0ZTZlZjNiM2YyMDRmZDNmMTBkYzU1In19LCJzcHJpdGVzIjp7IjFmMjdjOWJkNTY4NDdlZWY4MmJiNjQxM2Q2NTFkZjM1OGY3ZmIzNTEwMzRlNmVmM2IzZjIwNGZkM2YxMGRjNTUiOnsicG5nIjoiaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUdBQUFBQndDQVlBQUFEaFRuV2pBQUFMZDBsRVFWUjRYdTJjZjB4VjV4bkh1eTNMc3FTSy9CUVZCUUhGSHlBb0NxSTAycWlvd3hXb211cHFuVkxiV2tBdG5YVlZVWEJjdE0yNjBuUXFkbWFiVTlzb0NkZlVkT25jMnM1c2E1ZVpMYXRiOTlleXhHWmJwbXV5QlZoajBjSzc5N25odlp6N2ZkLzNuSFB4Y2pudjVYNlRUOEJ6M3ZPOHovTjl6am4zd0hubHZ2dmlpaXV1dU9LS3l6Qk5MVjNEQkxndnJnakphdkp3d0hoeGFZVEdSUVBNWVV3S1RSa05NS2N4SVRUQkMyQ09NU2tzT2h6UzhoZXlwQmw1dHRBWVBBNVo5Y3dodG5ydkVXazdnZm5HbExCWXR5VE5uQ1VaN1FnL0J1TzRCZk9PQ1dHUmJwaFlVQ0liR3lZVUErTzZBZk0zV2xpY0c0WjExdXNZNXRXQWRSZ3BMTW9Oa29FUkF1ZHhBOVpqbkxBZ0o5QTA1RjhYdjhuWXo1NVFjcFB2dy9FSXp1Y0dyTWtZWVNGT0pNK2NMUmttK1AxcmowaUc2NkN4ZUx5QTVzQjVuY0M2akJFV1lrZDY0V0xKTEFFYVRQVC9jaGU3ZmQwWG9QKzlYZEorQXVNSWFDNmMzdzZzeXhoaElYYWdTVHJ6UC91d2xkMytVNXNTMm9mak1aNEE1M2NDYS9POHNBQTcwQnpCZ05YTW56OGxHYTVqZ0k4VngxRU1qRHVjSm1COW5oY1dvR1BLb2hXU01jUzc3UnVHekwveXBHU3lFM1NNT1A2OVZ6Wkk4UW1hRy9PeEEydjByREJ4TzlBVWdmVTJndWE2SmRLM0lxelRzOExFZFdTVVZFaUdSTXA4dDAyZ0hEQXZPN0JXVHdxVDFvRm1FQ2t6aHhyUWYzV1BaR2k0VUF3UmoyTGpmQVRtWlFmVzZqbGh3bmFnRVVULzI1RTcrd1hCaHI2dHZnb3dMenV3WHM4SkU5YVJYbGdtR1VFSXN6Ny9WYU5rNUhDaFdIYTNJY29GODlPQjlYcE9tTEFPTklHNDJGb1Y4Yk5mSU9KMitxcWtlUW5NVHdmVzZ6bGh3anJRQUVLWU5KSU4wRjBGbUo4T3JOZHp3b1NWbEt5V0RMQTI0TzRIMzVZTXZGY29wbTBEZUU1U25ncXdYczhKRTFhaGV0RlN2bXpCaUozOUFoSC9nZVVMcFBuZHZyakJlajBuVEZnRkZrL2MvZWtPYlFPYVduYXk0cXBIcE8wNmFPekI1cDNTZGhIL0RwOEw1eWN3VHhWWXIrZUVDYXZBd2duclBkcHEyc1R5YW5iczdMbkFWK0xsbHhva1l3WHRmQitOZWY3RWE4SHhxZ1pvYjBPS1hCR3MxM1BDaEZWZzRTRU5zUHplWjhNVFd3TW0zcno3U2RCUU5OVUs3ZnZlaFFzaDR6ZnMyRHJVQU12dmgzRCtlQVBFN2VGYVU5Q3dMWFhiUW94MzB3RGtVUjVEN0tmWThRYVUyamZnOXZYUTMvZWpvZWRQNjM5QWUvMzBzOUw0a0RIWGg5NFg0UHp4QmdRYjRKT01QZDYraTMzajZhRXoyUWthZS95VlhkSjJpaDF2UUtsREE5QzBDQk52UUtuWkRTQ3daazhKazFXQmhjY2JFQ0Zob2pxdzhKQUdLRDRESWtZRVBnTUlyTnN6d2tSMVlPRWhEYkJaOVhEUFJPQXBpTUM2UFNOTVZBY1dibTNBbmQ4ZGtJMkxFQlE3RWcwZ3NQWlJGeVpvQnhadWJVRGdLbENZRndtc2MrRDhZNm9CeVhsenBPSkh1d0dVRStacEI5YnZDV0dTT2liTkw1Y01HTzBHVUU2WXB4MVl1eWVFU2RxQkJ2ejVoNXVqMW9DUCtGdzRQK2JuQk5idUNXR1NkcUFCQlNYemdnYmQvYzFleWJ4NzVmUDM5d2JqMDF3NFArWm5COWJ0S1dHeU9sUkwwZDNlaG43dzQvMXN4WjdkTEhuanpnRDBQVzNEY1Zic2JqL2hMbG5IbWowbFRGWkhodUs5c0YwRHV2L29DeHJ1QkkzRjQrMGFRTGxnZm5aZ3paNFNKbXNIR3JHMzlzR2dTZjFYZDRjWWlDWTdZVDJXWW9tNHovRTVjRjdNeXc2czE1UENwSFdrNU0yVnpGQmRCWnViR29QR3JuOXFEL3ZvdTRmWVh3RGFSdnZFdUUwSGg5NGIySjM5bEFQbVpRZlc2bGxoNGpyUWtFOHYxdzVkQmUvV1MxZkFCOGNPU3VZTGFCOWVBUlJEeFB2MDh1UFNmSmlQSFZpanA0WEo2MEJEQ05WVjBCUEdad0NOZFhQMmg5TUFyTThJWVJFNjBKVC92VGwwRlZpYklEaDMvZ0NyYUJ5NjNkRDNaOC9MdjBPeXhxQ1lPQS9tb1FQck1rcFlqSXFVMlFXU09WYnpWRTF3QW8vSCtEUW41cUVEYXpKT1dKQUtOS2g2M1dMSlJEUlpCeDVIc1RBK3pxOERhekZXV0ppRTR1ZUNHK2Nmazh6ODdBOHRrdUdDUHI0UHgxTU1qT3RtSFNqbUh4TVN4VTB1cm1CSnM1ZXo4ZG5sSVNUa3lIK081ci8rN1pLcHhNQTc5YXp2MnNFQTlEM3VKK2hZakVkejRMeEpzNVlIY29wcDg0V3dlQ1J4UnI1azJzMU8vWjhuMEhHclUvNnpCWW01K2RKOENPWWJrOEtpa1FrNWhaSjVsV3RLSkpOMVZLNlZWMTlUVEp3SHdUeGpXbGc4a3BBam0wZ2NxVnNwR1M2Z2ZUaWVvRmdZWHdYbUdQTkNBMVNnbWVHQzhYUmdibU5DYUlLT2hCejFmK2l6ZzQ3Qk9Eb3dyekVsTk1PSkNibEYzT0Jaa3VHMGpmYmhlQ2N3bnpFcE5DV2FqSnM4TXdYekdWTkttRFIzL1lUSmM3dlJtSkVtYVdvaDQvTVMzWlFENWpVbU5HaitBQm1SbnJkVU1tbWsySEw2MSt5aDFqY0NjdzQyWVdCTU5hR2s0ZlQwNG0wdm5rbWFWdFJQQnREWlNJYVFNUVFhRmtuRUhLSUo0a3BJenB6ZnYyYmZqODU4dmZYeWRNdzNwclNrN2tSRldYMUhUKzZEMjhUWng0cHFHa0tNR1lsR1lHd0J6UzN5S0h5b25sWDcvTjNWclpjcU1PK1kwT0tkSFZuYy9GNE9TNSs5TEZoNFpjdFp5UmdFRFhVQ2o5ZEJjNHM4TXVhdHBBWVF2US83dWpJeGYrTlZWbmV5Zzh3bmtxYk5EeGErNmZndkpHTjBmTDl3ZVFBMG5CRDdDRHhPQjgwdDhrak9XaUFhd0twOC9nN00zMnkxdEh4eFNYM0hKNklCb21nQ1RiSERhcklkZUp3ZDFseEVBemczc1FTanRmVHBrNHVGK1lZMGdIOUl2NW1IZFJpcnN2cVRSMHhyUUZWYjF3NnN3MWh4MDYrWjFnRE9HYXpEU0QydzY5VlVibnEvZ1EzNEc5WmlwSlkwbk54aU5UK2FEZGo3MXc4bE1LWk5BOWc2WCtjVXJNYzRjY05mTjdVQk5XMytUVmlQV1lMSFQ5TWFVTlhtUDQ0bEdTVjgvSXgyQTl4ZzE0QWFuLzg2MW1TVThQSFR0QVp3K2l1UHZaV0lkUm1qTW5qOE5MQUI3T0cycmtxc3l3aXBIajlOYkVCTnEvOEZyTTBJcVI0L1RXeEF0YS9yZmF6TkNKVXBIai9OYklDL2IrUExuVi9GK3J3dHplT25vUTFnTlVmOXk3QkVUMHYzK0dscUE2cDlsNXF3Ums5TDkvaHBiZ1A4VjdCR1Q2dE04L2lwYXNCdzNvZzVnY2Zwc0w0UmMyaEF6OGJPemk5aG5aNlUzZU9ucWdGdTNna0wwR2dkZUp3TzZ6dGhod2F3NnU5Y0tzWmFQU2w4L055Nit4amIxOWdVK0twcWdHNVZoSXBYRjZ5UXpFWm9EQjZudzdvcVFqUmdkOHNwMW5yNHhjRFgwQ1owUFlPMWVsSmxsc2ZQOW04MXNxdlBQeHFFL2szYnJTL2xjVjJRSFcyVmowdUdJelFHajFOaFhSZEUwRXY1VTAzN1EvS2xmd2NiME9idndsbzlLVzd3RFhIbVc0c1IwSGJyc2hTQ1ZxbTVhVUp0KzF2TXQ2NVdlU1hRTnRwSFkvQTRCRmJHQmNndVdDN2xTZ1N2aE5aTEgyT3RuaFEzdjQ4YXNML3hnRlFNUWR1dEM3T3NWd0xkRXRZMS80UnRQdkdPWk5xOVFqRXBOczFoUGZNRmF5czNTYmtTYlllUGlxdWdEMnYxcExqNUgxTUREajBiZWprTGFQdWlIZTEwR3dxc0MvVUN5Vm5GN1BDK1ExS3V4QXVIZmNaZEFhZWNyZ0RhbjdmcXlTc1RCaGZuamlwVDh0blM3YTJCTXgxekpjUVZVTlBtUDRXMWVsS0RTeEI3N0Q0RCtQNWVHcGVRUG1jRE55R3dTSGMwU013b1lKbUZxN3U0d2IxMHI4ZGNpY0hQZ0c2akZ1NE9Mc0x0MVR3RjlkQitHcGM2cmJnOEpYTWhTOG9vWW9sVENpU0RSb0pFZnNZbjg2ZXdTVFBLV05hOFZTeTdhTTNmcTVvdmZvMU0xandGOVJxNVlEZHdKZFNkN05pKzUrZ3Qram1nZHZmUmY5UHRpWmFuaXpGcDAwcE9wV1l1WW1IREcyZWRpMVJjWFB4bE1wTkRwb2JGOVBtckg2TXpuRzR6amMwZHQram5nTWJtRXpkcGpXaE1MdFFsNWVibWZvV2IrUi9KWEdkb3ZjNFhNQjRwcDJqTmMyaXVTOHgrOXpzY3BXVXVYSzh3MTVHMHJFVkhNSlpRZHZIS0JHNW10OEpnUjZZWHJqWHZObk12U3AyMjZBS2E2NEtCMUl6U0dSakxxcHpDdFMraHVTNTVBMlBGdExpWi8xUVk3TVJ2TVE0cUo3OWlLamZ6anNKZ0ovNkJzV0pXNDFNeUs4ZFB6QjI0UHkyTDNaL3FFajUyL01Uc0czUXN4a054TTg5bHpDcm5Uenl6MkxpMDZYSXNIV2xaZmVOU3M2NjVtY05ZVVhGUzRXSGlaRkJ5eHB3R1BDWmNuT1l3Vm5TR1liSGhRakV3cmxYUm1NTlk4ZUo2c05oaDBJTnhyYUw5aW1QQ3hYWU9ZeFdOc3pNYWN4aXJhSHdHUkdNT28wWEZCYzVTL3RTQmhXc0o4d2tsR25QRUZWZGNjUm11L3dQOHFvdTErcGNGRlFBQUFBQkpSVTVFcmtKZ2dnPT0ifSwiY2U2MjJlY2E5ZDA1ODZiMDY5YzQwMTNkMWYyYWMxNTRhN2JmZDJlZjZlOWM3ZWE1OGNjNDRlYzdiYjNhY2NjYSI6eyJwbmciOiJpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBWUFBQUFCd0NBWUFBQUFYSXFjU0FBQVp2RWxFUVZSNFh1MmRmWEJjMVhuRzNTUnRwalBHdGlSTC9oTFdoNFcvYlVtV0xVdkdCRk9ETGNmR3NnRVZVd2dCaDRDeGJJT3BRd0lZVzZDVlRWb2FaNGh0eVRBRkFvU0NHNjJCU1V0cFEyQ2FyNWFoQTZUMGp6YVRHUkxJMUpTaEhja2h0akhTN1gwWEhlbnVjODY1ZTNmMzN0MXpkdDluNWpmZzNYdlBlWi9udkhmUGxYd3RqUnZIWXJGWUxCYUx4V0t4V0N5V3I4NWYzdVlJOEQwV3E5REYvYzhxZUhtYlBCTndQQmJMSm1FL3B3dU94d3BSSEhSNHdzYk5CVmdES3oxeGx1RUplek1YWUEwc2hUQzBkTUh4V01uQ3ZQSUIxc1FhRTJhVkxqZ2VLMW1ZVno3QW1vcFNHRW91d0JxS1NaaUZDV0NOeFNUTUloZGdEY1Vrek1JRXNNYWlFSWFRRDdDbVFoWjZUNGVLaFV1ZDBndm0rRUxINEhuSVpiZmY2NnpkYzUvME9vSDFGcnJRZno3QW1ncFo2RDBkdVA5REZCbzNBYXl4MElSK2cxSTZlNjdVNkNseHo4Rnhnb0oxRjZMUXN3bGdqWVVtOUJzVTd2OFFoV2JUZ1hmZ3pJVStnekJsVWJPVWI3clFHRGh1RUxEK1FoSDZUQWZ1Lzh5RlBvUEEvUit5MEdSUWVBZk9UdWd2Q0JsbHJpUER0VUFmdGd2OUJTV2p0Y2d3Y3dMcnRsM29Md2daWmE0anc3VkFIMVlMelFXQmQrRHNoYjZDZ0JtR0JjNFRCUFJqcTlCWEVMai9zeGY2Q2dKbUdCWTRUeERRajVWQ1UwSGdIVGdjb2FkVVNOa0IvLzNzbHgzbkg3NnE1S1Q3SGg2UDRIeEJRRSsyQ2YwRWdmcy9IS0duVkVqWkFkei9hUXJOQkFGREN3dWNKd2pveHlhaGwxU1V6WjRuWlNaNC9kalZVc1Byb0dQeGZBSE5nZk9tQW4zWkpQUVNCTXdzTEhDZUlLQWZtNFJlVXNIOUg0SFFUQ293TUlSMzRPQkNIMzVNclcrUnNoSmd6c1RRS3p1ZDAyL0ZFZ3o5YUtmMFBvSGpDR2d1bk44UDlHV1QwRXNxTUN1RSt6KzQwSWNmM1A4UkNJMmtnbmZnY0lVKy9NQ2NCSmp0bVRlN25kTy82RkZDNytIeE9KNEE1MDhGZXJOQjZDRVYzUC9oQ24zNGdUa0pNRnZ1L3pTRUp2emdIVGhjb1FjL01CL0JzRGZQZjd4RmFuZ2R3KzZ4NGp3YUE4Y1ZZQjErb0Q4YmhCNzg0UDRQVitqQkQ4eEh3UDJmcGRDRUh4aU9BSnVhZCtCZ3d2cDF6RmkyV3NxR2VQblFWV001dm5TemxIVXE2Qnh4L28rK2ZaVTBQa0Z6WXoxK29FZlRoZlg3Z2RrSXNKKzUvNE1KNjlmQi9SK1JzSGcvTUJnQjc4Q1pDV3YzQXpNUmVEOUVNTitnaFAxQmhENU5GdGJ1QjJZaTRQN1BURmk3SDVpSmdQcy9TMkh4T25nSERsOVl0NDdLNWpWU0prUVl6VCs2RGlrdUFxb0I2L0lEdlpvcXJGc0g5My80d3JwMWNQOUhKQ3phRHd3a3pFVklGVDZCOWZpQlBrMFYxcTBEc3lBbXp4N0xmdWpWMjZSTTA0WEdFT1BSMkRoZklhNEIxdXdIWmlIZy9zOWNXTGNPeklMZy9nOUJXTFFPM29IREY5YnJCMlpCREwwWVh2YUMwUXZxUmZVYVlGMStvRjhUaFRYcjRQNFBYMWl2SDVnRndmMGZnckJvSFJnRXdUdHdkc0o2ZFV5dGI1VnlJRVJXbi96emJpbkxUS0d4L0Q2RXFCYXNUd2Y2TlZGWXN3N01nZUQrejA1WXJ3N3UvNGlFQmZ1QlFSQzhBMmNuckZjSFprQTgyOTBlZXZZQ01lN3hXTHMwYnpwcmdINU5FOWJyQjJaQWNQOW5KNnhYQjJaQWNQK0hJQ3hZQisvQTBRanIxWUVaZUxPUDhnTFFyUUhXcHdQOW1pYXNWd2YzZnpUQ2VuVmdCdDdzdWYrekVCYXNBd01nZUFmT1hsaXZrdWExa245Q1pIVHVaMStYOHNzV0d0UDNBbkJya3VwVWdINU5FOWFyQS8wVDNQL1pDK3RWd3YwZm5iQmdIUmlBZHdHaXZBQzBDNkNvVVFYNk5VMVlyd3JWanhsZWVmR1N5TElYaVBFdldyVkVtai9vankxR3Y2WUo2OVdCL2dudS8reUY5YXJnL285UVdMQVMzb0VqRTlhckFyMFQ1Lzd1SnUwRnNMZHJtOVBVZnJYMHVnNDY5cDc5MjZUWHhmZ2Z1M1BoL0lrMVVOU0tvRi9UaFBVcTRmNlBURml2Q3ZST2NQK0hKQ3hZQmUvQTBRbnJWWUhlQ1pFTjVqOWw1U2JuNEJOUEp2NUxmT3ZCSFZLdWdrUHVlM1RNTjQ0Y0d6MWVsYi8yUTBoUks0SitUUlBXcTRMN1B6cGh2U3JRTzhIOUg1S3dZQlZvbk9BZE9CeGh2U3JRTnpIYW5KNS9kWHJWVjY5UE5QSEpjeCtNTmpRMnRSZDY3NitlZVNicCtLdHV1bjRzZjgrL1RzWDVpejEvN3Y5d2hQV3FRTjhFOTM5SXdvSlZvUEdrQllBTGdFTGtIVGk0c0Y0VjZOdWIvOGV2N1IzTjY3cnROeVExdmlwVEwzZ2NjYTA3aG5pZnh1YjgvZlBuL3M5T1dLOEs5TzNObi9zL1MySEJLdEM0ZHdGNEI4NU9XSzhLOU8zTi8vUmJ5VDl0RWh2NnFVZjBqeWQrNzVFN3BPT1RqbmxyN0tkVjR2eWNQL2QvR01KNlZhQnZiLzdjLzFrS0MxYUJ4cjBMd0R0d2RzSjZWYUJ2Yi82Sm56RVB1UjQrdE5QNXMxdkhja3dGSFh2NDJ6dWwxMmxzenQ4L2YrNy83SVQxcWtEZjN2eTUvN01VRnF3Q2pTY3ZBTy9BMlFqclZZRytrL0pYNUJvbW5IK0svTG4vc3hMV3F3SjlKK1d2eURWTUNqMy83QmVBZCtDc2hQV3FRTjlKK1dObUlaTnQvZ1I2TmtsWXF3cjBuWlEvOTM5V3ducFZvTytrL0RHemtNazJmd0k5R3lVc1ZnVWF0MmtCMEs5cHducFZvRytiOGlmUXMwbkNXbFdnYjV2eVI3K21DZXRWZ2I1dHlwOUF6MFlKaTFXQnhua0J3aEhXcVFOOUorV3Z1QU1OalJEdVFBbjBiWkt3VmhYb095bC96Q3hrQ2psL3JGTUgrazdLbi9zL08yR3hLdEI0MGdKZ2FDRlR5QXVBZGVwQTMwbjUrL3pPMmF3SjRYdlFCUG8yU1ZpckN2U2RsRDltRmpLRm5EL1dxUU45SitYUC9aKzVzRkFkYUR4cEFYZ0h6bGhZcHc3MDdjMy80Mys5Vzg0dEpHanNNUEluMExzSndocDFvRzl2L3R6L21RdnIxSUcrdmZsei8yY2hMRklIR3ZjdUFPL0FtUWxyOUFOOWUvTlByQUhtRmhMZU9YRCtkUEluMEw4SndocDFvRzl2L3R6L21RbHI5QU45ZS9Qbi9zOUNXS1FPTk81ZEFONkJNeFBXNTBmWm5QbVM5M3hmQUZRVDF1a0gramRCV0tNTzlPN05uL3MvTTJGOWZuRC9SeUFzMEE4MGI4SUNFRmluSCtqZkJHR05PcVkxcnBTODV6dC9xZ25yOUFPOTUxdFlueC9vM1lUOENhelREL1J2Z3JCR0hkei9FUWdMOUlOMzRHaUVOZnFCL3YvOXI2L0pXZjV2dTNQaC9GaGZLdEI3dm9YMStjSDlINDJ3UmovUVAvZC9DTUlpZGZBT0hJMndSai9RLzZMbXhhUFpuUHZKSGltN2JQbmtwM3RHeDZlNWNINnN6dy8wYllxd1RoM2MvOUVJYS9RRC9YUC9oeUFzMUE4TWdIZmdjSVIxNmlpYlBVL0tJT2lIME1PUDNlV3N2bTJYVTlheExRSDlQNzJHeDZteVYzMzRVQzFZbngvbzJSUmhuWDVnQnR6LzRRanIxTUg5SDRHd1VEOHdCTjZCd3hIV3FxTlM4VnVwL0M2QWdUZGlvdzJmQ2pvV3ovZTdBS2dXck04UDlHeUtzRTQvTUFQdS8zQ0V0ZXJnL285SVdLd08zb0dqRWRicUIrYXdaK3Nsb3hrTnZib3JLVDlzOGxSNHo2V3h4TGhmYytmQWViRXVQOUN2YWNKNmRYRC9SeU9zMVEvTWdmcy9CR0hCT25nSGprNVlyNDdKY3haSVdhalc0SnE5dTBlenZmS1cyNXkzLy9KZTV6OEFlbzNlRThkdHVXZnNwMWI2WlU4MVlGMStvRmZUaFBYcTRQNlBUbGl2RHU3L0NJUUYrNEZoOEE0Y25yQnVIWmpGUnk5c0hWdURsenVsL0g5MjhCNnArUVgwSHVaUFk0anhQbnJoSzlKOFdJOGY2TkZFWWMxK1lCYmMvK0VKNjlhQldYRC9oeUFzWEFmdndORUo2OWFCZWVqV1lEQ05PMUE2TmtqMkJOYWpBLzJaTEt4ZEIvZC9kTUs2ZFdBZXVqWGcvazlUYUVBSEJzSTdjSGpDK25WZ0pyOTdmbXdOdkJlQjRNbW43bmJXN0I3N3NLSC9mK0lwK1Yrd2VzZWdNWEVlckVNSCtySkI2RUVIWnNMOUg1NndmaDJZQ2ZkL0NFSVRPakFVUWhVKzc4Q1pDWDJvbUR4dmtaU0xOemZWUlpBS1BCL0hwem14RGgzb3lRYWhCeDJZQzJiUC9aK2QwSWNLN3YrSWhFWjBZRGk4QTRjcjlLTUNzOW0wb1VWcVlzeFhCNTVIWStINE9MOE85R0tUMElzT3pJYjdQMXloSHhXWURmZC9TRUpES25nSGpsN29TVUx4Vk1vN1QzMUp5dkhNdjNWSldRdk91dS9oOFRRR2prdHpTZk1YWU9ZazlLV0Mrejk2b1NjSjd2L29oT1pVWUVpOEE0Y3Y0V2w2MHhxbmRONHFaMEx0eWlRbXpsb3E1ZlIvOFJ1bFBJbmhIM1k2WjErN0p3SDlQNzVQMExrNEhzMkI4NWJPWFpXb3FSQXpKMkZQcWNDY3VQL0RsL0RFL1o4SFlXTko4QTZjRTJIeklTVVhMSlR5T25uOHkxS3VxWGpmUFFmSEthbGJLTTJIWUwyRkl1d3ZDZTcvbkFqN0RlSCtqMUNpdVhnSHpxL1FQekpwVnIyVTIvcTJaaWxmSGV2WE5Vdm4wNWc0RDRKMUZwcTQvODBRK2tlNC95TVVta1o0Qjg2TjBEY3ljWmJjeE1SOTJ5K1ZzaGJRZTNnOFFXUGgrQ3F3eGtJVWVrYTQvM01qOUkxdy8wY29OSTd3RHB3Ym9YOFZtR082NEhnNnNMWkNGbnBIdVA5ekkvU3ZBbk5NRnh4UEI5Wlc4TUlBRU42Qm94ZjYxekZ4VnF1VWFTcm9IQnhIQjlaVkRNSU1FTzcvNklYK2RYRC9SeVFNUWdVR215NDRuZzZzclZpRU9hUmlVbDJEbSt0Y0tXZDZqZDdENDFPQjlSU1RNQXNWY3M3cGdlUHB3TnFLUlpoREtyai9ReFNHb1lOMzRHaUZlZVNTODZiUG5vejFGSXN3Q3gzYy85RUs4OGdseGR6L0NXRWdxZUFkT0Z4Tm5MYmd5a25URnd4Z0xsRlRlbjY5NDg1TERGQU5XRmV4Q0hOSkJmZC91T0wrTjBBWVRpNHA1aDE0cFBtSHFSR256cmxReWlZcXJudmt4ODdHN3FjVGM0NWNCTVBGZkJGZ1BybUUrNS83UDYvaUhUajNhdDd4U0UzVERkOTh2SFJtd3hCbFFGbFFRMUpqRXBoVm1JZzV4RVVnMXFHc3FuR283YzVISDcrOCs0VWFyTGVReGYyZmUzSC9HeUxlZ1hPdkZkdVByR250N0Iyc3UrUUc0ZDFwMkx3anFUR2p1QkJ3YkFITkxlcW8zOWpwYklyRkJ6WjFuMWlEZFJlaXVQOXpMKzUvQTdTaTgzQ1ZpVHZ3R25jSDNuVHdSRFhXV3locTJkWmI3VGIvS1JkbjZyeUxSeHR2ZmRjVFVtTWltR01xOEh3ZE5MZW9vM0x4cFhRQkVLZXVpUFZYWWYyRklsb0hFL3VmN2tDNS85VmdqcW5BODNVVVhmK1A3TUNuRE42QkJ3dDFCMjdkZnJTWG1wOG9uZGs0Nm52TDRYK1NjdEh4bmZwVkNUQmZRcnhINEhrNmFHNVJSMW4xRW5FQk9PMnhlQy9XWHdpeTRBNzBGUGUvSHU3L0xFVGZlM1BESDdCZ0J4NHN1RHVocnE3UHJPanMvVUJjQU1JemdabjQ0VzF5UC9BOFA3eTFpQXZBNVNSYXNGMzBsUzk5K0Z2US93UGMvMnF3ejNYZ2VYNFVTLytQYzRQdnMyVUgzdHdUNzhQNmJkYUZ0eDV0RWRsYmNnRTRHN3VmbjRNK2JGWkxaOStqdHZTL2V3ZjZNTlp2czdqL0RaQzdBLy9Hb2dWNEIrdTNXYTJkUisrejdRSm83K20vQ1gzWXFvdDJQbFR1NW43YW92eFBkWFFkSDQ4K2JCWDNmNTYxZk9kREV5eGJnT0YxRC8zOTU5R0hyWEl6ZjgyeS9JbkgwWWV0YXRuUmU0OXQrYnRmQlc5Rkg3YUsrei9QYXVrOHRzUzJCYmo4Z2VNejBZZU5Hcm43SExJdGY1ZGZvUmNidGFxcjYzTnU1dTlabVArUDBZdU40djQzUUMwNytxNjJiUUhhNzM5dU9mcXdVU3QySEwzT20zMHU4OS96eXpjbGNFeGQvc1NHMlBFWjZNYzJZZS9uTXY4ZytPUS92UGxBZkRiNnNVM2Mvd2JJeWkrQlkvRjI5R0dqM0x5L1orc0ZzTGtudmdYOTJDWTM3NS9rSy84ZytPWGZIb3NmUkQrMmlmdmZBTG1oUDI3YkFyUjM5OStDUHF3VFBQNW1VLzZKTmVpSkgwWkxOZ20vOVdsYi91NU4wSHNkeDQ5L0ZuMVpJKzUvTTlRS2QwRldMRUIzZnhmNnNFMzQrRnV1OHcrQ052OVBQNERlUWs4MnlmM3dlUXl6ejJYKzJQdHA5Yi80RU9yKy9oZlJseTNpL2pkRWJ1anY1Mk1Cc1BuVHVRQUs0ZDhDNE9OdnVjNC9DTHI4UnhoYWYvQUhKZWpMQnVHam4vbklIM3MvbmY3M1hBZC9pOTVzRWZlL0FjSkhRQzFhZ09mUWkyMXFoY2ZmTE1zL3dSVTkvZXZSbHczQ3YvZXlOWCtYTTVzUHhNdlFudzNpL2pkQXF1K0RXckVBUGYzL2dsNXNrdXJ4TjZ2eUgyRnpkL3dCOUdhNlZJOSsycHAvWWcxaThWM28wWFJ4L3hzaWl4K0Rld2U5MkNUVjQyK1c1VDlDLzAvUm0rbFM5Ynk5K1NkNEF6MmFMdTUvUTZUNlV0aVNCVGd6em5IK0FQM1lvbGJGNDIrVzVTODQyL0d0NDMrTS9reFdxK0xSVDR2elQ3RHgvdTgzb2srVHhmMXZpRnJoRVZDYkZxQ2o2M2dwK3JGQ21zZmZiTXRmc1BsQS9HSzBhS3BVMy9KRWJNdi9VL3EvZzE2TkZmZS9PV3BWM0EzWnNnRHRCNTZiajM1c2tPN3hOOXZ5SCtQRVh2Um9xblNQZnRxZGY0SVBiZm41V056L0Jxa1ZIZ0cxYWdGNlRxeEdQelpJOS9pYmRmbVA4Uko2TkZGK2ozNWFucis0SHY0VVBac283bjlEcEhvRTFLWUYyQnlMWDR1ZWJGQ3I1dkUzVmY2Wi9EejZWT0I1T3J3L2oxNlZ2NGRCRy81RnF1cnZ1MVRZMHY5SWV5eitJbm8yVWEzYy8yWkk5LzFRV3k0QXQrSDNvQ2ZUNWZmNG15ci9JTCtSU29BNTY4RHpkSGgvSTVVcS95VHVQOUdFWGsxU3FrYy9kZmxqSm41Z3pqcndQRDhDNS84cG4xelIxVitKM2swUzk3OUIwajBPNXpWdDlBN2NmZUpCOUdTNjhQRzM2M2NkZE83Y3ZUZnhYMVgrdXQ5SnErS2hKYXVsckJFNkJzL1Q0ZjJkdENML1hWMTlUdmUrYnliK203d2UvYmVqVjVPazYzVVYxdlMvZ3ZaWS85M28zU1J4L3hzazNaZkVYdE1tNzhEdVZ3QlBvU2ZUMWVwNS9PM1FuKzkyWHYzR3RhUFFuK2wxNzY4a0xEMi8zdG5ZL2JTVWpZcWU5VitSc2tib0dEeFBCYzFKYzRzNjZGY1M5dTI5SzZsZSt2UG9ldlRFKzlHclNXcFZQT3lndzViK1Y5UC9TNU1maitiK04waXQ4QWlvMkkyOVRXZlNEaXp2dXZHWDBaUHBjbk4rUjJUdGJTWUJ2ZTc5cGVURTFEa1hCcm9JdGg3NmdSUGJzRlc1RHZRYXZVZkg0SGtJelVWemVtdW9YYlJLcXBVWVhaUHVFNzlHcjZZSXY5V3B1dXYwWW1yLzQ0ZTk3bTUwWTZ6L0M1aUJLZUwrTjBpdG5yc2k3MjQ4cldyeHFIRlRkbUNxaVdyejdycWJZL0czMFpQcGNyTStTM25mdGZ0dXFaa0llcjN1a2h1U21rK3NBMzBnYk5qL1hlZWFJeitVOHNvV0dwUEdwam04dVF2V3JkOGkxVXIwN0RzZzF1TXNlalZGcloxOXgxUjlUb2k3VGk4bGxZdCtiMXIvZTM4cFBPRjdOeHJyUDRZWm1DTHVmNFBrTHNSSjFXN2N1SEJwa25rVGRtQ3FTZFRudWVQNUVEMlpMamZ2WDFQbTk5NlJmQUVMNlBWbE54MmlMNE9Ic1FuelJWbDFrN1B2em51bFdva0g5c1dNdndNU21XT2ZDK0FyZ2ZjbXpWajRwdGUvQ2YwL2ZmN0Z2eE1mOE5ULzZJRVl2UzU2NHE5akJxYUkrOThndVF0eFJyVWIzOXkyV2dvaDN6c3cxU1RxOCt5Nlo5Q1Q2WEx6N2xObExxRFg2ZjA1bDkzOGt1czcveGZCaklYT2hUZDJKekxIV3IxcllmS1A1MjROY05jcE5nRDZlN0ZKMHhiY2p6bmt1LzlybXR0ZkVCdEFxclZ3R2NRTVRCSDN2MEhTN2NiUDM3N0ZtVjQ5OW0yZ2ZFTzFVRTJpUHB0MzNaWnR2ZFZ1NW9NcDdrWlAwWEVUcDg2L3l2VS9oSG5raXBMS1JVNVYvZHArTit0VEtlNDZCeTd2ZnFFR3Zab2lYWjhMNlBXUkRlQTBQYVk0Zm1wanVldC9BUFBJSXdOelYyMnBwbldndnFmK1J3K0VEZGNGOTc5Qjh0dU5EMTZ6WGdva0g1UzRVQzNlMnNTdTI5NGRmeGc5MmFBVjI0K3NvU2JYZkQ5NmtONm40OHBuTnEyY1hMWFVLYTFzY0VwbUxKS3lpWUlTOTQ2bmJHYWpNKzJDVnFkNjhXVk9iVVBidSszN24vMGlOYm5tKzg2bjNBK2NSTDJteXEvUENYSFgyZExaOTZnNForSzBCVmRPTXVFTzFLMkJhcUdhMm1QeGg0TjhCV0Q2M1NqM3Z5RmEwWG00cW1YNzBkL3JkdU5McjdqVkthMGFleVFyMTVSWE4wb2YvZ1R0dWh2M1Ardk0rOEkxdjVpMVpHMGQrckpCaVR1aDdVZDdiN3p0d1B2MFJNcldYUWYraHo2b21uYzhNbm9uVVRHenVhKzhhcG1UTnU2RjQ1MkwxTlRVOUlmVXpDN1UxR2xSMDdqMlMzU0hReDhzdS9mM3ZrOVBudXplZitTays0SFVlMFdzdndybk1rMGpkNTBEdWo0ZnVlc2NwT3ZCZTk3SUpwRFByd1FHeEljL2FkUEJFL1JWd0VDS3U5RlRkSnpIaHBIaS9qZEFGZFhOMjJxV2JqcTMvSmFIbEU5SDBPc3pHemZrWlFldWFsanJyUHY2WThxbkhlakR2Mzd0VFdLQkJtdnEyNjVEYjdhcnJxN3U4MjR6LzYvVTNLbjVsWHU2OGpud1dRMXRYOFBtRG9qMXYvdDA1SzV6VU5YbjNydE8xSG5UWjA4ZStUdUJOMXcrd240Tm01SVpDMDVQb3JuY09XbHVySWZ1TnVsRFhuVmR1SzhQV25zM0N1TCtqMWFmcWFoZWRreUVObTNlbnpqekw3L051ZmFXL1lubm82L2R0ai94NTJsekw4Rnd0VlJVTFR0TEd3cE9oS0lQYXpmUVFVWElFbk12N0hBdTJocHpPdTg2bEhqZW1mNUxmNmJYOGRqYStuVzk0em82N1B0NUhCcFZWQzI5RWpNT2dydXU5K0ZZUXJWTmwwNTBzeHFRc2d0QVRmMDY2ejlZUnI0UzZMdHgxNEdUMU9mMFgvb3p2WTdINmxSZXZmUzdtRGt5YmZaS0tiK0F2RXQzcWpnbml1N3dQNzBiUFhJeXR1L2cyVDMzSGZtdjlwNzRZUnZ1L0lPSyt6OUN1VUVkd2VDeTVOMHAxY3RiY0I2ZDZOczJ0UTNyWHNlUVErQUl6bVdyeW1jdWUwYVJjeXFHeXl1WFg0QmplVFdyZnQyRGl0eUM4RFNPVll3cXFXMmE2ZVo4V3BIOUtOV0xFdDg3VGh1NlE4WDVpbFhjL3hHSnZqK1dDRW9PTDFOZW1USnJSUVhPazBvTEZuVDhVVzNEMmtOdXNNT0tzRE9udmszNi9wK05jblA5clNMclZQd2N4MEhOV3JqbWZEZW5qNlhjVXZNZWpsV3NtbHpWL0JlSzdCTk1uYlVDY3d2S0FOMmg0bHpGcW5MdS8yaVU0YzZxcEtKcTJZUGp4cTM2SE02Ump0eE5ZTDBiN2dlS3dET2p2dTF2Y0E3Yk5HRnkxZm9KVStxR3gxZFVPK1BMQStJZU8yRks3VHQwTG82SGNuTjZzbkx1U3Fka3hsem52SW9hZVN3ZEZkVm56eXV2ZmkzSUhJV3NTZFVOazl6ZS94Q3ZCK0w4K1pmSVBSa0F1alBGZVlwVjNQOFJ5bTNTOTdCcDA2ZjVsTHVSaFBiTEoyYlhiNWhSMDlEMkNsNFVtZUIrR2YxYkhOOG1VWE5KalpjbXFScTBySEwrRGp3blhWTE5VZWh5dndxNFE3NHVsam5WaTlkSVBSbUFqK25PRk9jb1JuSC9SNmpNZDlZNnA2eHlzV2p5LzV3NmM5a0NIRHRyZFhSOHRyWngzVDczWWpqbnZUaUtiYWVtdWlVL2FVSmo0TGhlNVdLT1FoYzlwVkkyWS9GSnVqYlN1cDRVbkZkUlBXUnJ2NGF0WFBSbUx1WXdUbUhzcktVekZ2Mjh0Rzc1QkJ3N1ROVXNYbnRSYldQYmI4U0hQOWFRTHJaZFZHN05nK2doQTN4L0ZBQzlyemduWFh6bktIU0ZjVDJwc0sxZnc5YjRIUFFtdmE4NEoxMTg1ekJPTnUxNmxRdldsdFkwdEQxSGQvNVlRN3JrcXVhd2xJdDF5c1VjaGE0d01sVEJ1V2FmYTZvTWN6R0hjUnB2NGE0M3ZxTG1qS0tHZE1scHpka3FqRHZMVkhlUnVaaWowRFUrbk90SmhWWDlHclp5MFp1NW1NTTQyYmpyMlZoekdLTG1Tbml2cUQ2TGZyU2srZmNldVppamtCVkdiNnF3c1YvRFZpNTZNeGR6R0NVYmR6MGJhMllWaDhMb1RSWGNyNnpJWk9PdVoyUE5yT0pRUnIycGd2dVZ4V0t4V0N3V2k4VmlzVmdzRm92RktsYjlQM3AvM2FYQS9uYlhBQUFBQUVsRlRrU3VRbUNDIn0sIjk1ODFkNzg0ZDcxZWE2ZmZmYjZlYWYyNTlhYTc0MmI0MGNkYjJhYTY0MTcxMTg2ZDBkN2U5ZjhmNDE0OWUzNGIiOnsicG5nIjoiaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUJZQUFBQVdDQVlBQUFERXRHdzdBQUFBTlVsRVFWUjRYbU9vdnJmL1B5MHdBN29BdGZBUU5GZ3JyK00vTGZBd01WaktMWTRraks1LzFPQlJnMGNOSGhrR1V3TVBQWU1CK0tBZytWVGE3VjBBQUFBQVNVVk9SSzVDWUlJPSJ9LCIxNTc1ZjIxZWVkOGE2ZmNhNjkwYTM1ZTdhYWNkNmE4MDRlMzE3MmNjNGZlZWVlODYzNzNhZGVhNjAxNjgzYTU3Ijp7InBuZyI6ImlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFCWUFBQUFWQ0FZQUFBQkNJQjZWQUFBQWgwbEVRVlI0WHQzT3dRMkFNQXhEMGU3SGhpekFhb2dseW9sSS9EcHBnc1FCTFBrUzZpZGFDM0pzUzUrVm16QWNaMHBqQ0FlVjByTHc0WlBTZE5HK3IyNzVWdUw4U0ZUZFBEeU5SbkNJODhqaERGYjRCMkVlT09DUWQzNDMrTFUvL2dlc0FPK3VVSU96dUNvM045U0RaempmU2pqQ0s2VnA0Y05LYVEzaElGTWFZVGhXNWViS0NUbzhmV1d1K3BXZ0FBQUFBRWxGVGtTdVFtQ0MifSwiYzliZTgwNTYxYWY4Y2U2ZjY5OGE3OTYxOTFkMGRjYTllNmFjNGZmOTY4YTk5Mzc0NzZjZTk5NDMyNzBlY2RlNCI6eyJwbmciOiJpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBQllBQUFBV0NBWUFBQURFdEd3N0FBQUFOVWxFUVZSNFhtT292cmYvUHkwd0E3b0F0ZkFRTkZncnIrTS9MZkF3TVZqS0xZNGtqSzUvMU9CUmcwY05IaGtHVXdNUFBZTUIrS0FnK1ZUYTdWMEFBQUFBU1VWT1JLNUNZSUk9In19fQ==</template>
+<script type="module">
+
+export const tileWorld = Object.freeze({width:720, height:336, floor:312, tile:24, exit:672});
+const PLAYER_W = 24, PLAYER_H = 32, STEP = 1 / 120;
+const overlaps = (a, sizeA, b, sizeB) => a < b + sizeB && a + sizeA > b;
+const defaultDepth = {backdrop:-300,terrain:-200,pickup:-100,foreground:100};
+const maxPlayTicks = 7200;
+export const tileFields = ['tick','x','y','vx','vy','support','wall','collectedHex','won','direction',
+    'facing','animationTimeS','resets','bounces','spring','score','jumpPressed','events','inputDirection'];
+export const tileScoreDefaults = {pickup:100,goal:500,resetPenalty:25};
+
+export function tileDrawingOrder(layout) {
+    const planes = new Map((layout.planes || []).map(plane=>[plane.id,plane]));
+    return layout.objects.map(item=>{
+        const plane=planes.get(item.plane);
+        return {item,opacity:plane?.visible===false?0:plane?.opacity??1,
+            depth:(plane?.z??defaultDepth[item.layer])*1000+(item.z??0)};
+    }).sort((a,b)=>a.depth-b.depth);
+}
+
+function pickupMask(pickups, collected) {
+    let mask='';
+    for (let i=0;i<pickups.length;i+=4) {
+        let bits=0;
+        for (let b=0;b<4 && i+b<pickups.length;b++) if (collected.has(pickups[i+b].id)) bits|=(1<<b);
+        mask+=bits.toString(16);
+    }
+    return mask;
+}
+
+function restoreTick(layout, row) {
+    const pickups=layout.objects.filter(item=>item.layer==='pickup');
+    const collected=new Set(pickups.filter((_,i)=>Number.parseInt(row[7][i>>2],16)&(1<<(i%4))).map(item=>item.id));
+    return {x:row[1],y:row[2],vx:row[3],vy:row[4],support:row[5],wall:row[6],collected,won:row[8],
+        direction:row[9],facing:row[10],time:row[11],resets:row[12],bounces:row[13],spring:row[14],score:row[15]};
+}
+
+export async function renderTileEvidence(level,row,region,assetId) {
+    const canvas=document.createElement('canvas');
+    const images=tileImages(level.sprites,()=>{});
+    await Promise.all([...images.values()].map(image=>image.decode()));
+    canvas.width=tileWorld.width;
+    canvas.height=tileWorld.height;
+    if (assetId) {
+        const image=images.get(assetId);
+        if (!image) throw Error('Choose an asset from this level.');
+        canvas.width=image.naturalWidth;
+        canvas.height=image.naturalHeight;
+        if (!region) return {width:canvas.width,height:canvas.height,png:level.sprites[assetId].png};
+        canvas.getContext('2d',{willReadFrequently:true}).drawImage(image,0,0);
+    } else drawTileLevel(canvas, level.layout, images, restoreTick(level.layout,row));
+    if (!region) return {width:canvas.width,height:canvas.height,png:canvas.toDataURL('image/png').split(',')[1]};
+    const {x,y,width,height}=region;
+    if (x+width>canvas.width || y+height>canvas.height) throw Error('The sample extends outside the image.');
+    return {x,y,width,height,rgba:Array.from(canvas.getContext('2d',{willReadFrequently:true}).getImageData(x,y,width,height).data)};
+}
+
+const spawn = layout => ({...(layout.stage?.spawn || {x:48, y:tileWorld.floor - PLAYER_H}),
+    vy:0, support:layout.stage?'':'floor', wall:'', collected:new Set(), won:false,
+    direction:0, facing:1, time:0, resets:0, bounces:0, spring:'', score:0, vx:0});
+
+function drawStageTile(g, item, colors) {
+    const {x,y,size,effect}=item;
+    g.fillStyle={ground:colors.ground,brick:colors.rock,coin:colors.accent,spring:colors.water,hazard:'#f6756c'}[effect];
+    if (effect==='coin') {
+        g.beginPath();
+        g.arc(x+size/2,y+size/2,size/4,0,Math.PI*2);
+        g.fill();
+    } else if (effect==='hazard') {
+        g.beginPath();
+        g.moveTo(x,y+size);
+        g.lineTo(x+size/2,y+4);
+        g.lineTo(x+size,y+size);
+        g.fill();
+    } else if (effect==='spring') {
+        g.fillRect(x+2,y+size-14,size-4,4);
+        g.fillRect(x+5,y+size-8,size-10,6);
+    } else {
+        g.fillRect(x,y,size,size);
+        g.fillStyle=colors.accent+'38';
+        g.fillRect(x,y,size,3);
+        g.strokeStyle=colors.sky+'99';
+        g.strokeRect(x+.5,y+.5,size-1,size-1);
+    }
+}
+
+function drawHero(g, image, hero, state) {
+    const moving=state.direction!==0;
+    const stride=hero.animation==='stride'&&moving;
+    const lift=hero.animation==='hover' || (hero.animation==='bob'&&moving);
+    const squash=hero.animation==='squash' && Math.abs(state.vy)>25;
+    const wobble=Math.sin(state.time*(stride?18:8));
+    const height=PLAYER_H*hero.scale*(squash?1.14:1);
+    const width=height*image.naturalWidth/image.naturalHeight*(squash ? .83 : 1);
+    g.save();
+    g.imageSmoothingEnabled=false;
+    g.translate(state.x+PLAYER_W/2,state.y+PLAYER_H-(stride?Math.abs(wobble)*3:lift?3+wobble*2:0));
+    if (stride) g.rotate(wobble*.09);
+    g.scale(state.facing,1);
+    g.drawImage(image,-width/2,-height,width,height);
+    g.restore();
+}
+
+function playerFrame(state) {
+    return state.support && Math.abs(state.vx)>.01 ? Math.floor(Math.round(state.time*120)/12)%4 : -1;
+}
+
+function drawAnimatedPlayer(g, images, player, state, scale) {
+    const idle=images.get(player.idleAssetId), walk=images.get(player.walkAssetId);
+    if (!idle?.complete || !idle.naturalWidth) return false;
+    const frame=walk?.complete&&walk.naturalWidth ? playerFrame(state) : -1;
+    const h=PLAYER_H*scale, w=h*idle.naturalWidth/idle.naturalHeight;
+    g.save();
+    g.imageSmoothingEnabled=false;
+    g.translate(state.x+PLAYER_W/2,state.y+PLAYER_H);
+    g.scale(state.facing,1);
+    if (frame<0) g.drawImage(idle,-w/2,-h,w,h);
+    else {
+        const cell=walk.naturalWidth/4;
+        g.drawImage(walk,frame*cell,0,cell,walk.naturalHeight,-w/2,-h,w,h);
+    }
+    g.restore();
+    return true;
+}
+
+export function tileImages(sprites, invalidate, images = new Map()) {
+    for (const [id, sprite] of Object.entries(sprites)) {
+        if (images.has(id)) continue;
+        const image = new Image();
+        images.set(id, image);
+        image.addEventListener('load', invalidate, {once:true});
+        image.src = 'data:image/png;base64,' + sprite.png;
+    }
+    return images;
+}
+
+export function drawTileLevel(canvas, layout, images, state = spawn(layout), editor = null) {
+    const {width, height, floor, tile, exit} = tileWorld;
+    const g = canvas.getContext('2d',{willReadFrequently:true});
+    const rect = (fill, x, y, w, h) => {
+        g.fillStyle = fill;
+        g.fillRect(x, y, w, h);
+    };
+    const stage=layout.stage;
+    const colors=stage?.palette;
+    const sky = g.createLinearGradient(0, 0, 0, floor);
+    sky.addColorStop(0, colors?.sky||'#142337');
+    sky.addColorStop(1, colors?.water||'#36565b');
+    rect(sky, 0, 0, width, height);
+    if (stage) {
+        const backdrop=images.get(stage.backdropAsset);
+        if (backdrop?.complete&&backdrop.naturalWidth) {
+            g.save();
+            g.globalAlpha=stage.backdropOpacity;
+            const drift=(state.x-stage.spawn.x)*stage.parallax*.05;
+            g.drawImage(backdrop,-48-drift,0,width+96,height);
+            g.restore();
+        }
+    } else {
+        rect('#829a91', 0, floor, width, 3);
+        rect('#213b40', 0, floor + 3, width, height - floor);
+    }
+    if (editor) {
+        g.beginPath();
+        g.strokeStyle = '#bed0d02e';
+        for (let x = tile; x < width; x += tile) { g.moveTo(x, 0); g.lineTo(x, floor); }
+        for (let y = tile; y < floor; y += tile) { g.moveTo(0, y); g.lineTo(width, y); }
+        g.stroke();
+    }
+    const ready = stage || layout.objects.every(item => item.layer !== 'pickup' || state.collected.has(item.id));
+    const gate = ready ? colors?.accent||'#8de9bd' : '#d88376';
+    const goal=stage?.goal||{x:exit,y:floor-48};
+    rect(gate, goal.x, goal.y, 5, stage?tile:48);
+    rect(gate, goal.x, goal.y, stage?tile:28, 5);
+    if (stage) rect(gate,goal.x+tile-5,goal.y,5,tile);
+    const actor=()=>{
+        const hero=stage?.hero;
+        if (layout.player && drawAnimatedPlayer(g,images,layout.player,state,hero?.scale??1)) return;
+        const image=hero&&images.get(hero.assetId);
+        if (image?.complete&&image.naturalWidth) drawHero(g,image,hero,state);
+        else {
+            rect('#ffe3a5', state.x, state.y, PLAYER_W, PLAYER_H);
+            rect('#284044', state.x + 4, state.y + 5, PLAYER_W - 8, 11);
+        }
+    };
+    let drawnActor=false;
+    for (const {item,opacity,depth} of tileDrawingOrder(layout)) {
+        if (!drawnActor && depth>=0) {
+            actor();
+            drawnActor=true;
+        }
+        if (!opacity || state.collected.has(item.id)) continue;
+        g.globalAlpha=opacity;
+        if (item.effect&&colors) drawStageTile(g,item,colors);
+        else {
+            const image = images.get(item.assetId);
+            if (image?.complete && image.naturalWidth) {
+                const scale = item.size / Math.max(image.naturalWidth, image.naturalHeight);
+                const w = image.naturalWidth * scale, h = image.naturalHeight * scale;
+                g.drawImage(image, item.x + (item.size - w) / 2, item.y + item.size - h, w, h);
+            }
+        }
+        g.globalAlpha=1;
+    }
+    if (!drawnActor) actor();
+    if (!editor) return;
+    for (const item of layout.objects) {
+        if (item.collider) {
+            const {x, y, w, h} = item.collider;
+            g.strokeStyle = '#f5a65f';
+            g.strokeRect(item.x + x + .5, item.y + y + .5, w - 1, h - 1);
+        }
+        if (item.id === editor.selected || editor.layerTools?.selected.has(item.id)) {
+            g.strokeStyle = '#a3ffdb';
+            g.lineWidth = 2;
+            g.strokeRect(item.x + 1, item.y + 1, item.size - 2, item.size - 2);
+            g.lineWidth = 1;
+        }
+    }
+    if (editor.hover) {
+        const {x,y} = editor.hover;
+        rect(editor.mode === 'erase' ? '#e57b723b' : '#91eac447', x, y, tile, tile);
+    }
+}
+
+export function mountTileGame(canvas, status, level, onRun=null) {
+    const {width,height}=tileWorld;
+    const {layout}=level;
+    const keys = new Set();
+    const events = new AbortController();
+    const options = {signal:events.signal};
+    let simulation, jump=false, frame=0, previous=0, accumulator=0;
+    let rows=[], sealed=false;
+    function seal(reason) {
+        if (!onRun || sealed) return;
+        sealed=true;
+        onRun({levelId:level.id,reason,rows});
+    }
+    canvas.width = width;
+    canvas.height = height;
+    const images = tileImages(level.sprites, draw);
+
+    function draw() {
+        const {state,tick}=simulation;
+        drawTileLevel(canvas, layout, images, state);
+        Object.assign(canvas.dataset, {playerX:state.x.toFixed(2), playerY:state.y.toFixed(2),
+            support:state.support, wall:state.wall, collected:String(state.collected.size),
+            required:String(simulation.pickupCount), won:String(state.won), tick:String(tick), score:String(state.score)});
+        status.dataset.score=String(state.score);
+        if (layout.stage) Object.assign(canvas.dataset,{bounces:String(state.bounces),resets:String(state.resets),
+            hero:layout.stage.hero?.name||'',phase:state.won?'complete':'playing'});
+        else for (const key of ['bounces','resets','hero','phase']) delete canvas.dataset[key];
+        if (layout.player) {
+            canvas.dataset.hero=layout.player.name;
+            const frame=playerFrame(state);
+            canvas.dataset.playerFrame=frame<0?'idle':String(frame);
+        } else delete canvas.dataset.playerFrame;
+    }
+
+    function restart() {
+        simulation=createTileSimulation(level);
+        sealed=false;
+        rows=onRun?[simulation.first()]:[];
+        keys.clear();
+        jump=false;
+        previous=0;
+        accumulator=0;
+        status.textContent=simulation.status;
+        draw();
+    }
+
+    function advance(now) {
+        accumulator += previous ? Math.min((now - previous) / 1000, .05) : 0;
+        previous = now;
+        let dirty = false;
+        while (accumulator>=STEP && !simulation.state.won && (!onRun || simulation.tick<maxPlayTicks)) {
+            const direction=Number(keys.has('ArrowRight'))-Number(keys.has('ArrowLeft'));
+            const resets=simulation.state.resets;
+            const row=simulation.step(direction,jump,Boolean(onRun));
+            if (resets!==simulation.state.resets) keys.clear();
+            jump=false;
+            if (onRun) rows.push(row);
+            accumulator-=STEP;
+            dirty=true;
+        }
+        if (dirty && status.textContent!==simulation.status) status.textContent=simulation.status;
+        if (dirty) draw();
+        if (simulation.state.won) seal('won');
+        else if (onRun && simulation.tick===maxPlayTicks) {
+            status.textContent='The 60-second playtest is complete.';
+            seal('limit');
+        } else {
+            frame = requestAnimationFrame(advance);
+            return;
+        }
+        frame=0;
+    }
+
+    function release() {
+        keys.clear();
+        jump = false;
+    }
+
+    canvas.addEventListener('keydown', event => {
+        if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'Space'].includes(event.code)) return;
+        event.preventDefault();
+        if (event.code === 'ArrowUp' || event.code === 'Space') {
+            if (!event.repeat) jump = true;
+        } else keys.add(event.code);
+    }, options);
+    canvas.addEventListener('keyup', event => keys.delete(event.code), options);
+    canvas.addEventListener('blur', release, options);
+    function start() {
+        restart();
+        cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(advance);
+    }
+    start();
+    return {
+        restart:start,
+        evidence(start,limit) {return {levelId:level.id,hz:120,fields:tileFields,lastTick:simulation.tick,score:simulation.state.score,sealed,
+            rows:rows.slice(start,start+limit),start,next:start+limit<rows.length?start+limit:null};},
+        close() {
+            seal(simulation.state.won?'won':'stopped');
+            cancelAnimationFrame(frame);
+            events.abort();
+        }
+    };
+}
+
+function createTileSimulation(level) {
+    const {width, height, floor, exit} = tileWorld;
+    const {layout}=level;
+    const stage=layout.stage;
+    const speed=stage?.hero?.speed??215;
+    const lift=stage?.hero?.jump??610;
+    const pickups = layout.objects.filter(item => item.layer === 'pickup');
+    const rules = layout.scoring || tileScoreDefaults;
+    const hazards=layout.objects.filter(item=>item.effect==='hazard');
+    const springs=layout.objects.filter(item=>item.effect==='spring');
+    const touches=item=>overlaps(state.x,PLAYER_W,item.x,item.size)&&overlaps(state.y,PLAYER_H,item.y,item.size);
+    const solids = level.layout.objects.filter(item => item.collider).map(({id,x,y,collider:c}) =>
+        ({id, x:x+c.x, y:y+c.y, w:c.w, h:c.h}));
+    let state=spawn(layout), status=stage
+        ? 'Move with ← and →. Jump with ↑ or Space. Reach the gate.'
+        : 'Move with ← and →. Jump with ↑ or Space. Collect all pickups.';
+    let tick=0, notes=[];
+    const earned=new Set();
+    const award=(type,id,delta=0)=>{
+        const changed=Math.max(0,state.score+delta)-state.score;
+        state.score+=changed;
+        notes.push([type,id,changed]);
+    };
+    const sample=(jumpPressed,inputDirection)=>[tick,state.x,state.y,state.vx,state.vy,state.support,state.wall,
+        pickupMask(pickups,state.collected),state.won,state.direction,state.facing,state.time,
+        state.resets,state.bounces,state.spring,state.score,jumpPressed,notes,inputDirection];
+    function update(direction, jump) {
+        if (state.won) return;
+        if (jump && state.support) {
+            state.vy = -lift;
+            award('jump','');
+        }
+        const lastX=state.x;
+        state.direction=direction;
+        if (direction) state.facing=direction;
+        state.time+=STEP;
+        let nextX = Math.max(0, Math.min(width-PLAYER_W, state.x + direction*speed*STEP));
+        state.wall = '';
+        for (const box of solids) {
+            if (!overlaps(state.y, PLAYER_H, box.y, box.h)) continue;
+            if (direction > 0 && state.x + PLAYER_W <= box.x && nextX + PLAYER_W > box.x) {
+                nextX = box.x - PLAYER_W;
+                state.wall = box.id;
+            }
+            if (direction < 0 && state.x >= box.x + box.w && nextX < box.x + box.w) {
+                nextX = box.x + box.w;
+                state.wall = box.id;
+            }
+        }
+        state.x = nextX;
+        state.vx=(state.x-lastX)/STEP;
+        state.vy += 1560 * STEP;
+        let nextY = state.y + state.vy * STEP;
+        state.support = '';
+        for (const box of solids) {
+            if (!overlaps(state.x, PLAYER_W, box.x, box.w)) continue;
+            if (state.vy < 0 && state.y >= box.y+box.h && nextY < box.y+box.h) {
+                nextY = box.y+box.h;
+            } else if (state.vy >= 0 && state.y + PLAYER_H <= box.y && nextY + PLAYER_H >= box.y) {
+                nextY = box.y - PLAYER_H;
+                state.support = box.id;
+            }
+        }
+        if (nextY < 0) nextY = 0;
+        if (!stage && nextY + PLAYER_H >= floor) {
+            nextY = floor - PLAYER_H;
+            state.support = 'floor';
+        }
+        if (nextY !== state.y + state.vy * STEP || state.support) state.vy = 0;
+        state.y = nextY;
+        if (stage) {
+            const hazard=hazards.find(touches);
+            if (hazard || state.y > height+PLAYER_H) {
+                const {resets,bounces,score}=state;
+                state=spawn(layout);
+                state.resets=resets+1;
+                state.bounces=bounces;
+                state.score=score;
+                award('reset',hazard?.id||'',-rules.resetPenalty);
+                status=hazard?'Hit a hazard. Returned to spawn.':'Fell below the level. Returned to spawn.';
+                return;
+            }
+            const spring=springs.find(touches);
+            if (spring && state.spring!==spring.id) {
+                state.vy=-lift*1.42;
+                state.support='';
+                state.bounces++;
+                award('spring',spring.id);
+                status='Spring boost.';
+            }
+            state.spring=spring?.id||'';
+        }
+        for (const item of pickups) {
+            if (!state.collected.has(item.id) && overlaps(state.x, PLAYER_W, item.x, item.size)
+                && overlaps(state.y, PLAYER_H, item.y, item.size)) {
+                state.collected.add(item.id);
+                award('pickup',item.id,earned.has(item.id)?0:item.points??rules.pickup);
+                earned.add(item.id);
+                status = stage ? state.collected.size+' picked up.' : state.collected.size === pickups.length
+                    ? 'All sprites collected. The exit is open.'
+                    : state.collected.size + ' of ' + pickups.length + ' sprites collected.';
+            }
+        }
+        if (stage) {
+            if (touches({...stage.goal,size:tileWorld.tile})) {
+                state.won=true;
+                award('goal','',rules.goal);
+                status='Level complete.';
+            }
+            return;
+        }
+        if (state.x+PLAYER_W >= exit) {
+            if (state.collected.size === pickups.length) {
+                state.won = true;
+                award('goal','',rules.goal);
+                status = 'Level complete.';
+            } else {
+                state.x = Math.min(state.x, exit - PLAYER_W);
+                state.vx=(state.x-lastX)/STEP;
+                status = 'The exit is locked. Collect every pickup.';
+            }
+        }
+    }
+
+    return {
+        get state() {return state;},
+        get status() {return status;},
+        get tick() {return tick;},
+        get pickupCount() {return pickups.length;},
+        first:()=>sample(false,0),
+        step(direction,jump,capture=true) {
+            tick++;
+            notes=[];
+            update(direction,jump);
+            if (capture) return sample(jump,direction);
+        }
+    };
+}
+
+export function replayTileInputs(level, inputs) {
+    const simulation=createTileSimulation(level);
+    const rows=[simulation.first()];
+    for (const [direction,jump] of inputs) {
+        if (simulation.state.won) break;
+        rows.push(simulation.step(direction,jump));
+    }
+    const reason=simulation.state.won?'won':simulation.tick===maxPlayTicks?'limit':'stopped';
+    return {levelId:level.id,reason,rows};
+}
+
+const bytes = Uint8Array.from(atob(document.querySelector('#level-data').content.textContent), c => c.charCodeAt(0));
+const level = JSON.parse(new TextDecoder().decode(bytes));
+document.title = level.layout.title;
+document.querySelector('h1').textContent = level.layout.title;
+const game = mountTileGame(document.querySelector('canvas'), document.querySelector('#progress'), level);
+document.querySelector('#restart').onclick = () => { game.restart(); document.querySelector('canvas').focus(); };
+globalThis.fraynixAvatarReplay = (inputs) => {
+    if (!Array.isArray(inputs) || inputs.length > 620 || inputs.some(row =>
+        !Array.isArray(row) || ![-1,0,1].includes(row[0]) || typeof row[1] !== 'boolean')) {
+        throw new Error('Use up to 620 direction and jump inputs.');
+    }
+    return replayTileInputs(level, inputs);
+};
+</script>
+</body>
+</html>

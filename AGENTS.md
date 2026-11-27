@@ -1,3 +1,7 @@
+## Edition 269 — Add gaps and hazards and repair failed jumps
+
+2026-11-27. Chat can build genuine gaps and collision hazards. Java uses retained jump, fall and reset ticks to justify a narrower gap or smaller hazard, then verifies each far-bank landing and hazard clearance. The repaired course passed a keyboard playthrough offline and a fresh course crossed two gaps. Startup capture now compares the exact decoded reference for the observed idle phase. See README-269.md and docs/publication269/plan.md.
+
 ## Edition 268 — Design varied levels and repair failed playtests
 
 2026-11-27. Chat accepts a bounded design brief for counts and spacing. Java binds each failure to the exact level and records one measured geometry change per repair. On Windows, the oversized hurdle and elevated pickup recovered, a fresh three-hurdle course passed, and a locked layout refused export after restart. A tampered failure trace refused repair. Published artifacts include playable files, repair history and screenshots. See README-268.md and docs/publication268/plan.md.

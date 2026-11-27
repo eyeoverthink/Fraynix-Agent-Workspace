@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 269 — Add gaps and hazards and repair failed jumps](../../README-269.md) · [Walkthrough](269/index.html)
+
 [Edition 268 — Design varied levels and repair failed playtests](../../README-268.md) · [Walkthrough](268/index.html)
 
 [Edition 267 — Build and verify an offline game level from chat](../../README-267.md) · [Walkthrough](267/index.html)

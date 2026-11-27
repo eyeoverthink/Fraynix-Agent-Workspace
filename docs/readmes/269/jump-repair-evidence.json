@@ -1,0 +1,236 @@
+{
+  "restartBeforeRepairs": true,
+  "exactExportsAfterRestart": true,
+  "cleanImportExact": true,
+  "offlineKeyboardWin": true,
+  "lockedRefusalAfterRestart": true,
+  "repaired": {
+    "brief": {
+      "wideGap": true,
+      "hazards": 1,
+      "spacing": "even",
+      "oversized": false,
+      "pauseRepair": true,
+      "elevated": false,
+      "pickups": 4,
+      "locked": false,
+      "gaps": 1,
+      "tallHazard": true,
+      "hurdles": 0
+    },
+    "crossings": {
+      "hazards": [
+        {
+          "firstTick": 215,
+          "lastTick": 241,
+          "id": "hazard-1"
+        }
+      ],
+      "gaps": [
+        {
+          "landTick": 151,
+          "overTick": 67,
+          "id": "gap-1"
+        }
+      ]
+    },
+    "ticks": 335,
+    "frameComparison": {
+      "maxColorDelta": 0,
+      "referenceTick": 3,
+      "observedTick": 5,
+      "changedPixels": 0
+    },
+    "baselineRunId": "064097dddab01a6099c51b0b2ac3b218c373533ea08eac90883a2e2ff7246fa5",
+    "jumps": 2,
+    "standaloneReplay": true,
+    "score": 900,
+    "straightWalkDiagnosis": {
+      "fallTick": 67,
+      "before": {
+        "x": 168,
+        "width": 96
+      },
+      "kind": "fell-in-gap",
+      "takeoffTick": 0,
+      "resetTick": 111,
+      "lastX": 245.08333333333286,
+      "objectId": "gap-1"
+    },
+    "repairs": [
+      {
+        "nextLevelId": "3e06c92dc707dbbca80a38ba140a74d554cb5345cb90f0cbb1360f62a2a33e61",
+        "diagnosis": {
+          "fallTick": 151,
+          "before": {
+            "x": 168,
+            "width": 216
+          },
+          "kind": "fell-in-gap",
+          "levelId": "0c4dc9188fa9e610099a464eeffa5795ddf7a6217690b92ff6d0b5169ec1c5ec",
+          "takeoffTick": 59,
+          "runId": "d1247b2464c0b7400518924961bac2b513c42241f3a2ad8d3bdc0edba954bf60",
+          "resetTick": 170,
+          "lastX": 350.79166666666714,
+          "objectId": "gap-1"
+        },
+        "after": {
+          "x": 168,
+          "width": 96
+        }
+      },
+      {
+        "nextLevelId": "5992952aff90fe6959839f8ecda8631a4b72e70481e5e628c5d2620a1cbe3184",
+        "diagnosis": {
+          "before": {
+            "size": 120,
+            "x": 456,
+            "y": 168
+          },
+          "kind": "hit-hazard",
+          "levelId": "3e06c92dc707dbbca80a38ba140a74d554cb5345cb90f0cbb1360f62a2a33e61",
+          "takeoffTick": 196,
+          "runId": "510a2c20e66c100e713c3da4c838460bc09dc14e134ad3619b9caac0e6df70f0",
+          "resetTick": 215,
+          "lastX": 431.416666666668,
+          "objectId": "hazard-1"
+        },
+        "after": {
+          "size": 24,
+          "x": 456,
+          "y": 264
+        }
+      }
+    ],
+    "htmlSha256": "e46a5b235e5d81a8324f6009ae6a4957aeeec90b01032da89f2f5b11a878d732",
+    "rendererSha256": "ceefde5c3587a92000b89013a84f84ae63c8627303f2792bb372942e8ba2d2fa",
+    "straightWalkBlocked": true,
+    "won": true,
+    "pickups": 4,
+    "runId": "d024617400052f18230c21a8bc4a068a68eaa41a340013492dc87901b631f39e",
+    "standaloneFrameSha256": "ae0416316d0762cf61ede157ace8aceceefd9333577306bee27d578dde361657",
+    "hurdles": 0,
+    "files": {
+      "repairs": {
+        "name": "bank-rescue-repair-history.json",
+        "sha256": "4f329e0e1305545002fa26bc220504384fde7cb3231c0d0166108f1272276ae9"
+      },
+      "evidence": {
+        "name": "bank-rescue-evidence.json",
+        "sha256": "2b905552d4bc4c1b743d19791b473d18e7f31b95c73281c82229c15b609546d4"
+      },
+      "level": {
+        "name": "bank-rescue-editable-level.json",
+        "sha256": "6110350f97d1483a85ac722e3ec1b0777c1aa34cf477079076e6263cd6ee842d"
+      },
+      "html": {
+        "name": "bank-rescue-playable.html",
+        "sha256": "e46a5b235e5d81a8324f6009ae6a4957aeeec90b01032da89f2f5b11a878d732"
+      },
+      "playtest": {
+        "name": "bank-rescue-playtest.json",
+        "sha256": "1cca82313b13d4da50c4b60503bf1ce49ea371ec231f3f4f616002fc5c069691"
+      }
+    }
+  },
+  "fresh": {
+    "brief": {
+      "wideGap": false,
+      "hazards": 1,
+      "spacing": "even",
+      "oversized": false,
+      "pauseRepair": false,
+      "elevated": false,
+      "pickups": 6,
+      "locked": false,
+      "gaps": 2,
+      "tallHazard": false,
+      "hurdles": 0
+    },
+    "crossings": {
+      "hazards": [
+        {
+          "firstTick": 255,
+          "lastTick": 281,
+          "id": "hazard-1"
+        }
+      ],
+      "gaps": [
+        {
+          "landTick": 138,
+          "overTick": 54,
+          "id": "gap-1"
+        },
+        {
+          "landTick": 232,
+          "overTick": 175,
+          "id": "gap-2"
+        }
+      ]
+    },
+    "ticks": 335,
+    "frameComparison": {
+      "maxColorDelta": 0,
+      "referenceTick": 3,
+      "observedTick": 6,
+      "changedPixels": 0
+    },
+    "baselineRunId": "ae7631bef954ea7aac03d64fe473346ff518031c20be8961c991a8328a49d1d5",
+    "jumps": 3,
+    "standaloneReplay": true,
+    "score": 1100,
+    "straightWalkDiagnosis": {
+      "fallTick": 54,
+      "before": {
+        "x": 144,
+        "width": 72
+      },
+      "kind": "fell-in-gap",
+      "takeoffTick": 0,
+      "resetTick": 98,
+      "lastX": 213.4999999999999,
+      "objectId": "gap-1"
+    },
+    "repairs": [],
+    "htmlSha256": "a13e60b286939ff520b04c42b53b304ecec60774a83537e96320179b1ae81fd8",
+    "rendererSha256": "ceefde5c3587a92000b89013a84f84ae63c8627303f2792bb372942e8ba2d2fa",
+    "straightWalkBlocked": true,
+    "won": true,
+    "pickups": 6,
+    "runId": "d9060bdbb3ed0ce1c5028bda762ab524ec6c5a26941240583e6728061b1c784d",
+    "standaloneFrameSha256": "4e127295bb3606ccab66585bea82906648e5325eedc1a403f886f6fada58a08f",
+    "hurdles": 0,
+    "files": {
+      "evidence": {
+        "name": "twin-banks-evidence.json",
+        "sha256": "c78908f60050c689557859377ab7991cab4def3a7c1874cfd9bc10330151b291"
+      },
+      "level": {
+        "name": "twin-banks-editable-level.json",
+        "sha256": "7abad70f021db644da8e96da5e0210e02202d2a89f4bca027d8399b120c85c8c"
+      },
+      "html": {
+        "name": "twin-banks-playable.html",
+        "sha256": "a13e60b286939ff520b04c42b53b304ecec60774a83537e96320179b1ae81fd8"
+      },
+      "playtest": {
+        "name": "twin-banks-playtest.json",
+        "sha256": "c2dcdd006954cc481c05c7a912fee674bc26f7ce3ba7e11a3c55a0f8b61c67c8"
+      }
+    }
+  },
+  "locked": {
+    "fallTick": 218,
+    "before": {
+      "x": 288,
+      "width": 216
+    },
+    "kind": "fell-in-gap",
+    "levelId": "ead69a5bc1043bbd171b2d0826d934541033d31734582df046f7a2af5a994a5c",
+    "takeoffTick": 126,
+    "runId": "9d5b36d02189bc616b2a37fbe2cfbccee182982e8dd8ed017db66b8a7d08cc45",
+    "resetTick": 237,
+    "lastX": 470.8333333333351,
+    "objectId": "gap-1"
+  }
+}

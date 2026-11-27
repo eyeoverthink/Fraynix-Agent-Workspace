@@ -1,0 +1,90 @@
+{
+  "summary": "Build actual gaps and hazards, repair failed jumps, and verify offline play.",
+  "modules": [
+    {
+      "title": "Bank geometry and jump evidence",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AvatarTraversal.java",
+      "note": "docs/obsidian/277-gap-and-hazard-repairs.md"
+    },
+    {
+      "title": "Durable mission and export",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AvatarLevelMission.java",
+      "note": "docs/obsidian/277-gap-and-hazard-repairs.md"
+    },
+    {
+      "title": "Jump control and startup verification",
+      "source": "workspace-desktop/avatar-level-run.cjs",
+      "note": "docs/obsidian/277-gap-and-hazard-repairs.md"
+    },
+    {
+      "title": "Chat design and crossing results",
+      "source": "workspace-desktop/renderer/avatar-level-panel.mjs",
+      "note": "docs/obsidian/277-gap-and-hazard-repairs.md"
+    },
+    {
+      "title": "Traversal integration test",
+      "source": "workspace-desktop/test/avatar-traversal-integration.cjs",
+      "note": "docs/obsidian/277-gap-and-hazard-repairs.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "A failed jump diagnosed from takeoff, fall and reset ticks",
+      "path": "docs/readmes/269/failed-gap.png"
+    },
+    {
+      "title": "The repaired gap and spike hazard in Tile Workshop",
+      "path": "docs/readmes/269/bank-rescue.png"
+    },
+    {
+      "title": "The two measured repairs and verified offline crossing report",
+      "path": "docs/readmes/269/verified-crossings.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Playable Bank Rescue",
+      "path": "docs/readmes/269/bank-rescue-playable.html"
+    },
+    {
+      "title": "Editable Bank Rescue",
+      "path": "docs/readmes/269/bank-rescue-editable-level.json"
+    },
+    {
+      "title": "Winning Bank Rescue playtest",
+      "path": "docs/readmes/269/bank-rescue-playtest.json"
+    },
+    {
+      "title": "Failed gap and hazard playtests with repairs",
+      "path": "docs/readmes/269/bank-rescue-repair-history.json"
+    },
+    {
+      "title": "Bank Rescue verification receipt",
+      "path": "docs/readmes/269/bank-rescue-evidence.json"
+    },
+    {
+      "title": "Playable Twin Banks",
+      "path": "docs/readmes/269/twin-banks-playable.html"
+    },
+    {
+      "title": "Editable Twin Banks",
+      "path": "docs/readmes/269/twin-banks-editable-level.json"
+    },
+    {
+      "title": "Winning Twin Banks playtest",
+      "path": "docs/readmes/269/twin-banks-playtest.json"
+    },
+    {
+      "title": "Twin Banks verification receipt",
+      "path": "docs/readmes/269/twin-banks-evidence.json"
+    },
+    {
+      "title": "Restart, crossing and refusal evidence",
+      "path": "docs/readmes/269/jump-repair-evidence.json"
+    },
+    {
+      "title": "Implementation and reproduction",
+      "path": "docs/publication269/plan.md"
+    }
+  ]
+}

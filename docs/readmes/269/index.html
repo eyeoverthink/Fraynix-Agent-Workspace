@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 269 · Add gaps and hazards and repair failed jumps</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Add gaps and hazards and repair failed jumps</h1>
+<p>Play Bank Rescue with the arrow keys and Space. Review the exact geometry changes and the test results in the app guide.</p>
+<nav><a href="../../../README-269.md">App guide</a><a href="../268/index.html">Edition 268</a>
+<a href="../../publication269/plan.md">Reproduction</a><a href="bank-rescue-playable.html" download>Download playable level</a>
+<a href="bank-rescue-repair-history.json" download>Download repair history</a><a href="#system">System files</a></nav>
+<figure><img src="failed-gap.png" alt="A failed jump diagnosed from takeoff, fall and reset ticks"><figcaption>A failed jump diagnosed from takeoff, fall and reset ticks</figcaption></figure>
+<figure><img src="bank-rescue.png" alt="The repaired gap and spike hazard in Tile Workshop"><figcaption>The repaired gap and spike hazard in Tile Workshop</figcaption></figure>
+<figure><img src="verified-crossings.png" alt="The two measured repairs and verified offline crossing report"><figcaption>The two measured repairs and verified offline crossing report</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "Build actual gaps and hazards, repair failed jumps, and verify offline play.",
+  "modules": [
+    {
+      "title": "Bank geometry and jump evidence",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AvatarTraversal.java",
+      "note": "docs/obsidian/277-gap-and-hazard-repairs.md"
+    },
+    {
+      "title": "Durable mission and export",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AvatarLevelMission.java",
+      "note": "docs/obsidian/277-gap-and-hazard-repairs.md"
+    },
+    {
+      "title": "Jump control and startup verification",
+      "source": "workspace-desktop/avatar-level-run.cjs",
+      "note": "docs/obsidian/277-gap-and-hazard-repairs.md"
+    },
+    {
+      "title": "Chat design and crossing results",
+      "source": "workspace-desktop/renderer/avatar-level-panel.mjs",
+      "note": "docs/obsidian/277-gap-and-hazard-repairs.md"
+    },
+    {
+      "title": "Traversal integration test",
+      "source": "workspace-desktop/test/avatar-traversal-integration.cjs",
+      "note": "docs/obsidian/277-gap-and-hazard-repairs.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "A failed jump diagnosed from takeoff, fall and reset ticks",
+      "path": "docs/readmes/269/failed-gap.png"
+    },
+    {
+      "title": "The repaired gap and spike hazard in Tile Workshop",
+      "path": "docs/readmes/269/bank-rescue.png"
+    },
+    {
+      "title": "The two measured repairs and verified offline crossing report",
+      "path": "docs/readmes/269/verified-crossings.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Playable Bank Rescue",
+      "path": "docs/readmes/269/bank-rescue-playable.html"
+    },
+    {
+      "title": "Editable Bank Rescue",
+      "path": "docs/readmes/269/bank-rescue-editable-level.json"
+    },
+    {
+      "title": "Winning Bank Rescue playtest",
+      "path": "docs/readmes/269/bank-rescue-playtest.json"
+    },
+    {
+      "title": "Failed gap and hazard playtests with repairs",
+      "path": "docs/readmes/269/bank-rescue-repair-history.json"
+    },
+    {
+      "title": "Bank Rescue verification receipt",
+      "path": "docs/readmes/269/bank-rescue-evidence.json"
+    },
+    {
+      "title": "Playable Twin Banks",
+      "path": "docs/readmes/269/twin-banks-playable.html"
+    },
+    {
+      "title": "Editable Twin Banks",
+      "path": "docs/readmes/269/twin-banks-editable-level.json"
+    },
+    {
+      "title": "Winning Twin Banks playtest",
+      "path": "docs/readmes/269/twin-banks-playtest.json"
+    },
+    {
+      "title": "Twin Banks verification receipt",
+      "path": "docs/readmes/269/twin-banks-evidence.json"
+    },
+    {
+      "title": "Restart, crossing and refusal evidence",
+      "path": "docs/readmes/269/jump-repair-evidence.json"
+    },
+    {
+      "title": "Implementation and reproduction",
+      "path": "docs/publication269/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": "docs/obsidian/277-gap-and-hazard-repairs.canvas",
+    "bytes": 1135,
+    "sha256": "67d8f084f3f135fd95295500ae6d5ede868dbce69f49fc339df700d09b443ba3",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/277-gap-and-hazard-repairs.md",
+    "bytes": 272,
+    "sha256": "187d1211b9584323403dddb448b97c5b251fa3e0e1df41534f2a00117a3c6365",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication269/plan.md",
+    "bytes": 3114,
+    "sha256": "cfc9b3a355273fed4b7546b11423583bf6a7fe43f6efdeeb5dba27b72810c0ca",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/avatar-level-run.cjs",
+    "bytes": 12448,
+    "sha256": "6b46d775025af6c06d89780f81a1bef0d261b6a3c6dc873f7bd54fd173b7387c",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/avatar-level-panel.mjs",
+    "bytes": 13893,
+    "sha256": "1c7bf1583255b59280d045c97b7e3e5e506b8b0413adf78e3f76f2e037e39ebe",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/avatar-traversal-integration.cjs",
+    "bytes": 10900,
+    "sha256": "25b0260bb84b2ce5827fed1a6f908d1c83a9a4d6f30282fc9fcbead915890c0d",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/workspace-capabilities.test.cjs",
+    "bytes": 6094,
+    "sha256": "63513dad805754c85186e9d2fef29f3ca686b82492b8cf9b90d10cb4f4352e3e",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/AvatarCourseDesign.java",
+    "bytes": 9240,
+    "sha256": "af8fb6aa6b68bd268485e9cc37df3beeee733c6880fec08d1f6bafdfc6a5c546",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/AvatarLevelMission.java",
+    "bytes": 24605,
+    "sha256": "a7ef4f00240f26391e5fcbde3708b9e829dfbf24bf190d388c784d1b3e7c206c",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/AvatarTraversal.java",
+    "bytes": 12021,
+    "sha256": "33a06cd509830449a8ba566e648f437f11ec0ae50a0df2ae17ed57564e3975fe",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java",
+    "bytes": 29625,
+    "sha256": "5a8d6cad8f70890d5eb6558139ea72009d6d0d0d5e33b4e8ced072cec95c6c34",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>
