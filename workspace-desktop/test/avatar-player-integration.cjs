@@ -101,7 +101,7 @@ async function main(){
             {id:'token',assetId:pickup.id,kind:'sprite',layer:'pickup',x:160,y:288,size:24}
         ]}});
         await ask('Open Avatar Studio.');
-        await page.locator('#avatar-project:enabled').setInputFiles(avatar);
+        await page.locator('#avatar-studio:visible #avatar-project:enabled').setInputFiles(avatar);
         await page.locator('#avatar-player:enabled').waitFor();
         await ask('Use my avatar as the player.');
         await status('Save the level to play.');
@@ -178,7 +178,7 @@ async function main(){
 
         await open(recipient);
         await ask('Open Tile Workshop.');
-        await page.locator('#tile-import-level:enabled').setInputFiles(path.join(output,files.json.filename));
+        await page.locator('#tile-editor:visible #tile-import-level:enabled').setInputFiles(path.join(output,files.json.filename));
         await status('Imported checked level');
         assert.equal((await tiles('open')).id,level.id);
         assert.equal((await tiles('export',{id:level.id,format:'html'})).sha256,files.html.sha256);

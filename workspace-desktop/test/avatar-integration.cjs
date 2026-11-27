@@ -91,7 +91,7 @@ async function main(){
         let command='Make an avatar from an image.';
         if(clip){
             await ask('Open Avatar Studio.');
-            await page.locator('#avatar-clip:enabled').setInputFiles(clip);
+            await page.locator('#avatar-studio:visible #avatar-clip:enabled').setInputFiles(clip);
             await page.locator('#avatar-video-controls').waitFor();
             await page.locator('#avatar-time').fill('3');
             await page.locator('#avatar-frame').click();
@@ -104,7 +104,7 @@ async function main(){
             await fs.writeFile(png,await drawFixture(page));
             await fs.writeFile(wav,tone());
             await ask(command);
-            await page.locator('#avatar-image:enabled').setInputFiles(png);
+            await page.locator('#avatar-studio:visible #avatar-image:enabled').setInputFiles(png);
             await page.locator('#workspace-next-continue:not([disabled])').waitFor();
             await page.locator('#avatar-audio-file').setInputFiles(wav);
             await page.locator('#avatar-status').filter({hasText:'Audio ready'}).waitFor();
@@ -186,7 +186,7 @@ async function main(){
             altered.rig.mouthX+=.02;
             await assert.rejects(api('/api/avatar/import',{base64:Buffer.from(JSON.stringify(altered)).toString('base64')}),/differs from the saved outputs/);
             assert.deepEqual(await api('/api/avatar/open'),{});
-            await page.locator('#avatar-project:enabled').setInputFiles(portable);
+            await page.locator('#avatar-studio:visible #avatar-project:enabled').setInputFiles(portable);
             await page.locator('#avatar-assets').waitFor();
             assert.equal((await api('/api/avatar/open')).id,first.id);
             assert.equal(await exportFile('avi'),digests.avi);
