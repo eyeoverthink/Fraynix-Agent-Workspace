@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 266 · Play a saved avatar in a portable tile level</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Play a saved avatar in a portable tile level</h1>
+<p>Download the sample and open it in a browser. Hold Right Arrow to collect the pickup and reach the exit.</p>
+<nav><a href="../../../README-266.md">App guide</a><a href="../265/index.html">Edition 265</a>
+<a href="../../publication266/plan.md">Reproduction</a><a href="avatar-relay.html" download>Download playable level</a>
+<a href="avatar-relay.json" download>Download editable level</a><a href="#system">System files</a></nav>
+<figure><img src="avatar-player.png" alt="The saved avatar at the start of the level inside the workspace"><figcaption>The saved avatar at the start of the level inside the workspace</figcaption></figure>
+<figure><img src="walk-replay.png" alt="The inspected walking tick after collecting the pickup"><figcaption>The inspected walking tick after collecting the pickup</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "Play a saved avatar in verified, portable tile levels.",
+  "modules": [
+    {
+      "title": "Tile level and player validation",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java",
+      "note": "docs/obsidian/274-avatar-playtest.md"
+    },
+    {
+      "title": "Avatar handoff controls",
+      "source": "workspace-desktop/renderer/avatar-panel.js",
+      "note": "docs/obsidian/274-avatar-playtest.md"
+    },
+    {
+      "title": "Tile player editor",
+      "source": "workspace-desktop/renderer/media-tile-editor.js",
+      "note": "docs/obsidian/274-avatar-playtest.md"
+    },
+    {
+      "title": "Tile game renderer and simulation",
+      "source": "workspace-desktop/renderer/media-tile-play.js",
+      "note": "docs/obsidian/274-avatar-playtest.md"
+    },
+    {
+      "title": "Previous tile renderer",
+      "source": "workspace-desktop/renderer/media-tile-play-legacy.js",
+      "note": "docs/obsidian/274-avatar-playtest.md"
+    },
+    {
+      "title": "Offline player integration",
+      "source": "workspace-desktop/test/avatar-player-integration.cjs",
+      "note": "docs/obsidian/274-avatar-playtest.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The saved avatar at the start of the level inside the workspace",
+      "path": "docs/readmes/266/avatar-player.png"
+    },
+    {
+      "title": "The inspected walking tick after collecting the pickup",
+      "path": "docs/readmes/266/walk-replay.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Playable Avatar Relay HTML",
+      "path": "docs/readmes/266/avatar-relay.html"
+    },
+    {
+      "title": "Editable Avatar Relay level",
+      "path": "docs/readmes/266/avatar-relay.json"
+    },
+    {
+      "title": "Desktop, offline and restart evidence",
+      "path": "docs/readmes/266/avatar-player-evidence.json"
+    },
+    {
+      "title": "Idle tick image",
+      "path": "docs/readmes/266/idle-replay.png"
+    },
+    {
+      "title": "Implementation and reproduction",
+      "path": "docs/publication266/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": "docs/obsidian/274-avatar-playtest.canvas",
+    "bytes": 1130,
+    "sha256": "8dc71d8265c2b3786b2ecfe24c4175583cde617cfda7485f3b190fa7622fa23f",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/274-avatar-playtest.md",
+    "bytes": 345,
+    "sha256": "b25a96a5efb7c1346bf23d799b976f53ac7a8efcdb7c82d9ccc6e10ad467b6ef",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication266/plan.md",
+    "bytes": 2817,
+    "sha256": "a168888d62e07280c672930d6f10677c25e9f948e742025258afb2f5ebd4b760",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/main.cjs",
+    "bytes": 144042,
+    "sha256": "ac78d928e8e64d86bb77e8f802c42a1f66651d6fe0d6e4f26e7de161561fe4cf",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/avatar-panel.js",
+    "bytes": 21444,
+    "sha256": "6b7fddf1e14f5f59693e3e093b50633c0593b81dc7deebb3f3d26f969bbb27ab",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/media-tile-editor.js",
+    "bytes": 32772,
+    "sha256": "77ba65cea1c4b94c024f19e252f858389b0b22ed3667447c78d63388638cc441",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/media-tile-play-legacy.js",
+    "bytes": 19056,
+    "sha256": "ba901b0fb8c990a83cfeadabac3fb5a8ba93e79007d85cd9847e388c14c27ab3",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/media-tile-play.js",
+    "bytes": 20253,
+    "sha256": "ceefde5c3587a92000b89013a84f84ae63c8627303f2792bb372942e8ba2d2fa",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/avatar-player-integration.cjs",
+    "bytes": 11816,
+    "sha256": "b63f9ae934823388551fc1fb1b1d0bdb54cca27bc73166490a6075b34459c82c",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/spatial-components-integration.cjs",
+    "bytes": 11488,
+    "sha256": "442e54d701f62bc1c7aa305e296e412cee168d9984767272b849fff55d12b4b8",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/tile-evidence.cjs",
+    "bytes": 7063,
+    "sha256": "af5a3d4a5c7de2aa3f1259e2b02d1eba8831fa75d87816d684778c940bc13768",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/AvatarWorkshop.java",
+    "bytes": 19421,
+    "sha256": "0692cd5e2231c8449a6cc8be935e89f3133cfb41dbed05ee391fcb8eef877f75",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java",
+    "bytes": 28574,
+    "sha256": "6146650db6ebedb089a84d325ffa6412817a052aaf4e03fb950b1a585a83c752",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

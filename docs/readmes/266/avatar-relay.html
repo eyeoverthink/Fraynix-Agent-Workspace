@@ -1,0 +1,519 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; script-src 'sha256-0KTYoDLn0wJmiaL6EGSlu1jlOEXrhIGqiTRfyHboI+w='; style-src 'unsafe-inline'">
+<title>Fraynix level</title>
+<style>
+  * { box-sizing: border-box }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 1rem; background: #101c22; color: #edf7f3; font: 16px system-ui, sans-serif }
+  main { width: min(100%, 780px) }
+  h1 { font-size: clamp(1.35rem, 4vw, 2rem); margin: 0 0 .65rem }
+  canvas { display: block; width: 100%; border: 1px solid #638983; border-radius: .5rem }
+  canvas:focus-visible { outline: 2px solid #9aebcb; outline-offset: 4px }
+  footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .75rem; margin: 1rem 0 }
+  p { margin: 0; color: #caddd7 }
+  #progress[data-score]::after { content: ' · Score ' attr(data-score); font-weight: 700; }
+  #controls { margin-bottom: .65rem }
+  button { padding: .55rem .8rem; border: 1px solid #638983; border-radius: .4rem; color: inherit; background: #24403e; font: inherit; cursor: pointer }
+</style>
+</head>
+<body>
+<main>
+  <h1>Fraynix level</h1>
+  <p id="controls">Click the game to focus it. Move with ← and →. Jump with ↑ or Space.</p>
+  <canvas tabindex="0" aria-label="Playable level" aria-describedby="controls"></canvas>
+  <footer><p id="progress" role="status"></p><button id="restart">Restart level</button></footer>
+</main>
+<template id="level-data">eyJsYXlvdXQiOnsib2JqZWN0cyI6W3sic2l6ZSI6MjQsImFzc2V0SWQiOiIyNWZlMjg1NmFkODUyMzNlMTA5NmQxMTcyZjk2ZTIzMzVkNzEzNGE5NDZiYWI0ZTNlZGE0ZTZlY2UwNzZhYTQ5Iiwia2luZCI6InNwcml0ZSIsIngiOjE2MCwieSI6Mjg4LCJpZCI6InRva2VuIiwibGF5ZXIiOiJwaWNrdXAifV0sInRpdGxlIjoiQXZhdGFyIFJlbGF5IiwicGxheWVyIjp7ImF2YXRhcklkIjoiY2ZhZGVjZmFlNTc5ODU5YTAzODUwNDBmOWEyOTYxNjU0NzIyM2YyNzRmNmQwZTg0MjE4ZDkzYzQ0ZGJlMmRlZiIsIndhbGtBc3NldElkIjoiY2NjYzIyMmQxODFlYTcxMjRkMWIyNDJhNWVhZjNjZGZkYWYyOWRkZmJhYzQ0MTJkYjkwZGU1NGJmMDNhY2Y4NyIsIm5hbWUiOiJTdHVkaW8gUm9ib3QiLCJpZGxlQXNzZXRJZCI6IjVkM2VhMTE5OTAwZGRkMTIzYmNhOTdjMWU2MjQ4ZTM0OTdmOGY3MDlmYTc2NzI2OWMwNTcyNDdiMzY3MjdkNWYifX0sInNwcml0ZXMiOnsiNWQzZWExMTk5MDBkZGQxMjNiY2E5N2MxZTYyNDhlMzQ5N2Y4ZjcwOWZhNzY3MjY5YzA1NzI0N2IzNjcyN2Q1ZiI6eyJwbmciOiJpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBR0FBQUFCd0NBWUFBQURoVG5XakFBQU1IVWxFUVZSNFh1MmNlV3dVMXgzSDAwWlZWU2xBc0xHTndkZ0dqRy9qQ3dOcmN4c0l4Z1FmSERIWUlWeWxnQTNFSEE0bWdCMTJUUklsQ2xJNGJCVUpRYTRTVXErVkZoR09IcVNVQUpZcWthajVvMGRVVUdoQ1NOWFdkaVd3d2ZzNnY1WGZNdnQ5TTN2NFdNL2IzWi8wRWZidXZQZSszKzl2Wm5jOE84c1RUd1FyV01FS1ZyQ0NKVm1GVEVoZ1JHaDhNc1BuZ3RWUHhVUHVMVGhmc0hScXpKUUZqSWpNbkM2RTJGL1EzSHdkQWpVRVpQRXdJdEp5aE1BR0Nsb3I0QnZoMk9NekJtNlBkMGRreHJUQWE0VGFjRWg4b2hDS3oxRTBCRXdUSEh0OUwxL25SeVVuc2NPN0N0aWZUNnhrLzdHdVllejhUKzNRei9UWUVlVTUyZ2JIZVlMNi9RRjErMFZ4YzJISm1ZSjVWK1ROeUdLMzMzL2VFYmFuMEppOEdkNnRSZHI4c2duY1ZHaENpbUJhajdJU2t4QnFiMW1oeklYejYwRWEvYW9KajhOUEZzeHFFVHN4aFhXZld5K0U2TVRGbjdIdTMyMWhqejU5MFU3Mzc3Y3dtL0tZc0oySzdrL1cyK2ZHOWJRZ3JYN1RCREl4SWpGVk1LbEZaY1VNSVRoSGdKZTNzZnRmTkhqRUkyVmJITStwckpncHJLc0ZhWmErQ1NRK1BNV3oxK0U3cDFjSllSRVBQM3RKQ05oVHVwU3hPQjlCYStINldwQjJxUnN3S211R1lFcUxleCs5SUlSRUx6TVlhRytodVhCK1doTjFhQkdwZUVCZjBoU2EwZUtXeGhuT282dTdoQkQ3Q3MySjY5Q1pFdXJSUXNxaklEVGUvZm40cGJlV0NLRjB0YjRzaE5kZmRDcHo0M3FrQVhVaDVBWDlHYjdRQkxLc1NEek43THErV3dpdHY2RTFjTjNsUmU1UFV5TXo4dVJwQW9yWEFrUHc1aXlucjlCYXVEN3Ewd0o5R3JaUU9QTE5hWGpUdmJCQkNHbWdvVFhWR3I3NTBQMmJNdjJsakY0TldTaGN6YUtDeWNMZWQvOXppeERRZ0tPc2lUcElHK3BGMEt2aENnVWphUHJoSDNlSzRmZ0lXaHYxb0Y0RS9ScXVVTEFhMC9STXdUQ0c0bXRRVDY2YkMzam8xM0NGZ3RXZzJjSGMremtQcjNwM0ZLQmZ3eFVLZHRVQURHT3dRRjJvMnk4YWNPM29jaWVUdGt1YmhDQUdDOXZGalU3YXJoOTlUdEF2ZlFOd0wzdHcweXdFTVZpUUZ0U0grcVZ1d0xqMEZNRWdoc0E1ZjdxR3pWbXhra1ZNSzJaVFNwNWo3LzI4V3RqR1UyZ3N6VUZ6elNsYnljNy9va2JZaG9QNlNEUDZrTFlCRFZYem5BMXFYT244MzAyTFBTaWlkUHRlbHZ6c0tzZnZ4SzAvMUF0ajlMaDFwZDQrWnZTc0pmYTV4c3hlNmpRWHJZVmpiQmVjcjVnZTNESlA4Q0Z0QS83K2JvV1R1YTVydFVJQVBKeFRGOCt4dXcrL3Q2TU9qY0F4ZXZEdCtUemZkdDF6T3hkcFVtc2t6ZWhEMmdiZzRmM2dUM1ZDQU9wd3ZtcjdtaTJ2cVhNYm1oNTgrd2tGNWV3ZjdYZFl5dUlYM001Rm1sQW4rdkNiQnFCNUltbUI4OHNFRWpPN1ZCaWpCMjJMNDlYUVdqaUdRSjNvUThvR1JLY2xDOGJRT0dmaHFnb2hMQ0oyanVmaGMyZ016a01VS0d2Z3RoelVHWk1tM2tpQWZnMVhLRGcxWjZKZ0RJMGpuMzFjeTFyZTJja3VOKy9XZk1QMEZCcExjOUJjTkNjK2o2Qk8wbzUrMEsvaENnVlBOZUQxSHoxUUoxMjdRaitHYndLS25UWXpTekNHeG8wQzZweXVhRWMvaG00QUNnMDJ3TWVGUW9NTjhIR2hVQ0xMbEM0WVErTkdBWFdTZHZSajJDYWdRRTVDVnFwZ0RJMGJCZFNaa0pVbStKR3VBUkdKU1lJeEkxMEo1V2hkRVIyWnBIOXZFL28zUktGSURocnJiTjByQkREWWtDYlVpVDc4cGdHUFB2WGRQVUNlUXBwUUovcVF0Z0huM2lnVnpHRUFndzNxSTgzb3c5RGg4MEt4aE5hM1hlNS8wZnRMRFAyUGVJL1FpcEpjd1llMERTRFFZTmNOOTlkbWZBVnBRWDJvWC9vRy9MZmw4YmNhSHg4RlloaURBZXBxVTdTaWZpbkM1NFdpaWYwYjh3V2pHTVJnZ2JycU51VUwrcVZxQUJVS0o5Q29wN2VtbURadllTUExOckhRWlJzOWdyYWxNVGlQRnFRQmRhRnU2Y0tuUXZHRTF2ZkFIdHc4SUlSQ2ZIdkR6S0pXZWg2NkhqUUh6WVh6RTdRMjZ0SDcvaGo2azZMUVJFUmlvbUNZdmw2S3dkeHJOUXRCOWhXYUU5ZlIrdTRZYVVUZDZFdXFRak5mbmxncG1PNjZzY2NwbUpoeWNjL2ZVRlhOenB2M3NDL2YyT2NTMm9hMnhmSFI1YzR2ZDEydGV3UWRwQTMxU3Q4QUtyV1p5Q1R4MmhEaDZnZzRYTHRMQ05vZGgydHJYQjRCdUQ1QjJ2d3VmRjVxVTAyN0Z3cm1zUWw2N3dGNXE2dFk5YllkN1BqTEw3SDM5dTIyUXo5dlZ4Nmo1M0Q3MFJydkFiZ3VRWnI4TW5oMXFRMCsrUFU2SVFTdE8rYUlxWnU4UHd1aU1UZ1BnWGZBRVEvT3J2UC84SG1waldJUUhBeXR2OEIxT0FFVFBpOXVObjJLK0duWlFEVUI1K2VRaG9BS254YzN2WFR4VkNFVXpxTXJPNFFndmVXaE1nZk95Nkh2S2dmYzNxOHVibnhPZnJZUWpwcXU2OTVmdU5PNndLWW1QMzlTWUlkUHBRNGdQbFA4N0JpeC9iYlM1WDlsUU0vUk5qZ09pYzl5L3U5elVGZEFsVG9JNGwrL1hDMEUxbC9RM0xnZTZnbkl3bEFxU25PRjhQcEt4Ukx0RDFpR2pJb2ZnWG9DcW9aRnBpeDVlbFJLR3daREhOZzhsOWsrRWNQMEZCcExjK0M4ZHNha00yVmRvbzAwb0s2QXFKN3diUlRFeUlROE1hUWVSaVFrc3IrY0xHYzJqWkFSMnVhdnA4cnRZM0FlVHNYeEsyeXgrUVA3bWoxTnNBVlVFeVpYSFIrYnZmcjFreUhSR2QwVUFPMk5GQWdGUTJCZ0NGMnpvZitBYjBKR3FoMzZXZXM2amhaOERkNEVmaVNFeG1SMkw2ZzVjZkpaODYvR29sNi9xdHpOUitlYktodmI0MmF2NW5zZnl5aXBjZ3JHMDBaNEE4N05vYlc1anZURmxhellZbTByTnJmTVI5MStVVk0zTnNZcTRYY29zSkZKTXgzR0MrdmZFWUpCTUZCMzRIZzlhRzJ1STJyaVhHb0EwVkZxYVk1Qi9kS1hhZk94UmdxZkNJbk9kQmd2TzNKSkNFYVB3K216N0lURXFWNXlsSitIeDZVNm5pTnduQjYwTnRjUkdwdkZHOENLTE5aRzFDOTMxZGYvTUxleThYdmVBRzZhd0ZCY29RN1pGVGpPRldvdHZBRUtkOUdDMUpXMzZkaFVIcjRrRFZEZXBEOU9RQi9TbHFueTJDdXlOYUNvb1hrOStwQzJsTkJiWld1QXdrbjBJV1ZOMy9KMm1CSjZ0NFFOK0FxOVNGbTVWY2NxMU9IN3NnRTcvM1pUQU9kMDBRQzJ5SEptTlBxUnJwVEEzNWUxQVNVTjFqTDBJMWZCNmFkc0RTaHFzQjVCUzFJVm5uNzZ1Z0dlNEtvQkpSYnI1K2hKcXNMVFQ5a2FvTkJkK09yWjRlaExtakxCNmFlRURXQ2xEYzJGNkV1SzBqcjlsTEVCSldicmEraE5pdEk2L1pTeEFjV1c1cXZvVFlveWFaeCt5dGtBYStleXQ4NzhCUDBadTNST1B5VnRBQ3M1YUoySkZnMWRlcWVmc2phZzJOS3lGejBhdXZST1ArVnRnUFVDZWpSMG1YUk9QN1VhMEp0UHhOeUI0L1JRZnlMbXBnSHR5ODZjZVJKOUdySmNuWDVxTmNDVHo0UTVHTFFlT0U0UDlXZkNiaHJBaWcrMFpLTlhReGFlZnE3YStpcXJxZDVyLzFlckFYcDNSV2p4ZGxhK0VEWkMyK0E0UGRSM1JmQUdiSzF2WXViOXI5di9kVzVDODR2bzFaQmxVcDErSHRwUnpTN3ZMbmRBdjlQajZnL2w4YjRnVnpRVXJoTUNSMmdiSEtlRityNGdnajZVYjlwYjY2U1hmbmMwb01IYWpGNE5XVXJBdC9pZXJ6YkRvY2ZWdDZVUWRKZWFKMDFZZStnc3N5eGFxM2trMEdQMEhHMkQ0eEM0TTg3T3VMUlpnbGJDY1NTWVcyNmpWME9XRW40bk5hQzJlbzlnaHFESDFUZG1xWThFZWtsWVZIZUtyVGo2R3lHMHZrSnowdHkwaG5yUDV4UVVsZ2xhaVliOUIvbFIwSWxlRFZsSytMZXBBZnUyT3gvT0hIbzhaLzBoZWhteTN4ZHFCRUpqczluK21uMkNWdUsxL1JicGpvQW1kMGNBUFo4d2I4T0ZwM3R1emgxVVJxZXl2RFZtKzU2T1dnbCtCSlEwV0p2UXF5R3I1eGJFZGxmdkFjcnpIYlRkc0pISlM1VVE3RGZwRGdiRG85SllUUG96elVyQUhmUmFqMXFKbnZlQU5xbHUzTzI1Q2JkRDV5eW9uWjZuN2NLaXM2ZU5pSm5FUXFJeTJQRFJhVUpBQThGd1pZOFBWYzdDSWllWVdPekVlV3hjeG9LdmkrbytYRWdoNjV3RmRVaDV3Njc5U05oOHJISE50b1BmMGQ4QmE3Y2V2RWN2VDNSN090OG1QSHB5VTFoTUR2TWFwWEhxdGFpeXM3Ti9SR0VxVUtoZU1UYnptZWRwRDZlWG1lcTZ4dS9vNzREcXVxTjM2UjVSdjd4Umx5b3VMdTdIU3BqL0ZzSjFEOTJ2OHdPY2oycDh4b0pkR0s2SHlQM1piMjhxUEdiU0VvMXczUkllbS9NS3pzVnJYUGJjWVVxWWJSb0J1MlZzZW9GOEx6TjlxYkRvbk5NWXJnZll3cUttVE1DNTFEVSt2ZUJORE5kRFBzQzUvTHFVTVArcEViQTdydUU4V09OVDU0OVJ3dXpTQ05nZGQzQXV2NjJoSTJJS2gwYkUyWjRLajJWUGhYbUlzdTNRaUhHM2FDek9oNldFK1c1VTRqVGxqQ2VSRFFrZks4NmxSM2hzNTVDdzJGWlAxcEMyeUp4ZzNFdmNCUlFhbFZ5Rlk3ekYzUnJTRnUxaGFOWmJhQTZjVjEyK1dFUGFVc3kxbzlsZTBJN3pxb3VlMXhqakxTN1hrTFo4c1hmNllnMXB5eGZ2QWI1WVErb2ljL2E5VkRuclFPTzZlSG1HNG9zMWdoV3NZQVZMOHZvL1hBbGhaN2Vxam5FQUFBQUFTVVZPUks1Q1lJST0ifSwiY2NjYzIyMmQxODFlYTcxMjRkMWIyNDJhNWVhZjNjZGZkYWYyOWRkZmJhYzQ0MTJkYjkwZGU1NGJmMDNhY2Y4NyI6eyJwbmciOiJpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBWUFBQUFCd0NBWUFBQUFYSXFjU0FBQVlsRWxFUVZSNFh1MWRmWFJWMVoxbDJzNTB6VnFva0pCQVNFaGVRb1NRQVBuZ0s0OHZRUlFTUVVMQUtBaTFmbzBDQVJVL1VQeUFsTHlBYlYxMUxRVVNkUzJycmJWS1RWREg1ZWQwdEdPdHl1cXNXbGY3Ujl0eERWYmFvbzR6azlBcEVFanUzTjh6Sjl6c2MyL2VlOG03NTU3ejNtK3Z0UmVRdkh2TzN2dnMrODU5ajV1OEVTTVlEQWFEd1dBd0dBd0dnOEVZRkJublQ3YUltWk5LTGZ3ZWc1SHE0UDR6VWg2aTVFTWxqc2RnbUFUc2M2TEU4UmhKaEFpWmQrRGhZOEtjR291WVU3bEFLbkd5U0dPTGVZaW9nWkVZUks3Yy8rR0QrNjhwTU1SRWllTXhCa0tVY2V5MFdWSjJmcEhtNGhNaFBtQjJpUkxIWXd3RTkxOFQ4QTZzRnYxNVYvaVhkeXptVk16bjllZ0Q5MTh0dVArYVFKam5IVmdObkw0ekpwVkkyU2luclNGZDE0TEEvVmNMN3I4bUVJWjVCMWFIL3N5SGVKVTV2blNLOWZBZHRkWnZIci9TK3ArT2F5enIxWCtLa3Y1T1g5dG5mNDhlZzhmRlErZlZLZXBPUlhELzFZUDdyd0djaGVNZFdCMkV2NnpTU2ptRFFUaHZZWlgxOFkrKzBWLzJlRW5IekZ1WTJGeWtMVjNXZ2Z1dkZ0eC9EU0RNOFE2c0ZzSlg1dVF5eWJjWDE5YUhwVklQbGV2c3NYQjhMNUxHVkY4SDdyOWFjUDgxZ0RERk83QmFuQzEvcWVUWGphSHBaVmJQeTlkTGVRN2c2emRhUGYrNjFUcnpzMXVpN0hsenE5VnJmMDE2bklNOXIxd2ZIUnZuY3lOcFRkVjE0UDZyQmZkZkE1eGRoUGdDSVBJT25CeVFqekVsVXlXZmJtemNzRkRLVHJEbnJadXRFeCsyeE1VejltUHhlTUhHRFJkSTg3cVJOS2ZLT25EL2d3UDNQMkNjTFQvdndLcEIrclBMNHJzS1BQck1WVkpteE5PL3VGTXFlTHpzdG8vRjhZZzBGODd2UnRLZUNtdkEvUThHM0g4TndEdHdjQmhmdFZEeTVjYlBmdkpOS1NkNmtzRmNoMG9hQzhlbk9WR0hHM05zRCtqTEpIRC9nd1AzUDJEd0Rod3MwSThiajdpOHYzem1uVHVrTElkTEdoUG5vZmVwVVk4YlRWMEQ3bit3UUQ5dTVQNzdDTjZCZzBQbXBOaDNnN3p4dlRWU0x0Mkg3NUh5U3haUDJXUGpmS1FCZFNISkMvb3pBZHovNE1EOTF3Qm94STI4QS9zRDlJQnNxSlAvazdIN3ZidWszSkpObWdQbnZid3U5bjlTNWxUTVM3azFJSEwvL1FGNlFITC9mUWJ2d01FQjlic1JjMGprUGViaGt1YkMrVkdmRzlHbnp1RCtCd2ZVNzBiTWdmdWZaS0I0Sk8vQS9nRzFJLy84REx6bDhOb05VazUraytaMGF2anpzN0hma3FENzFOR3Jya0R0U082L2YwRHRTTzYvejBEaGJzUVM4ZzZjUEtCdUoxZlV6cGE4bi9oMVJNcklkOXB6b2c3U2hucVI2RlZIb0dZM29uZnVmL0tBdXAzay9pc0Fpa2J5RHV3ZlVETVNTM2Y2NTdkTDJhZ2l6WTE2VUM4Uy9lb0kxSXprL3ZzSDFJekV2bkgvZlFDS2RwSjNZSCtCZXAwTUw2aVVQRXU1S0NicW1SdmoxeGVnWHgyQm1wM2svdnNMMU9zazkxOEJVREFTRGZNT25GeWdYbDJ6Rnp6OVRtSnJnSDUxQStwRm90Y2cxNEQ3SDF6MmdxblcvMEVYZ0hkZy80RjZuVVN2bUVWUVJGMm9PMVh5NS83N0Q5VHJKSHJGTElJaTZrTGRKdVdmMEFMd0RweDhvRjdCZC9kZlBzQmo3eHVicEN5Q1l1L3JHd2RvZTIvL0ZaSiswL01uWXMrNC84a0g2aFhrL2lzQ0NuWVNpNFpCQkVYVWhicE5XZ0RVNjVYOXlRK2FwUnlDSW1sQmZhamY5UHpkMWdCekNJcW9DM1duUXY3b2tmdnZFMUN3SU8vQWFvQjZpVVhsWlZMQk1BUEJWNS9aYmwyNDdrcHI3UHhWMXB6Nks2eW5IdDBtUFNaZTByRTBCbzExNGRvcnJWZC92RjE2akNEcUk4M293OVQ4aWR4L05VQzlSTzYvUXFCZ1FUVElPN0EvUUwzRWxpMFhEL1RuOG50bS92cEJKRnBVNHVwYjc3VktMNzJxLzkvRUkvL1dKQjNqeFNOdk4wV1B5VjIwSmpyV2hNV1hEUmlMNXNKamVsKzdjWURHUFZzdmxueVltajhSKzhYOTl3ZW9sOGo5VndnVVRPUWRXQjFRTC9FL2ZyaGhnTGZ1ZDNkSS9rVTVuM3o5WmV2WTZjK2pkSmFXaU1kNFVUeGVqUE9YN3M5aWprV2FuQnBKTS9vd05YL3V2enFnWGlMM1h5RlFNSkYzWUhWQXZVUTh1VS8rK3k3SnZ6T2Zqem8vc1M3ZnZpdG1hYjBvSG45KzdYcnJQN3VPV21VcnZ4bHpMTktFT3RHSHFmbHovOVVCOVJLeFY5eC9INEdDaWJ3RHF3UHFKV0t4MER0eFNzM0FKd2xrd2VMVjBqRmVwTWZpOFU3U1hIZ01FWFdpRDFQejUvNnJBK29sWXEvUU81SDdueVNnWUxjRjRCM1lQNkRlL0dtbGtpLzBMbmpKVlJ1a25JaWhDK012dnlBZGcrTVFhKzA1OExHQ3FMTmdtdnd4aXVoWE42QmVJdnJpL3ZzSDFNdjlWd3dVVEVSamFKeklPM0J5Z0hxbnpwb3UrVUxmeUYrOHNNTTY5SVBicmJmYTczSjl1eUJlMHJFMEJvMUZZK0wza2FpVHRLTWY5S3NiVUM4UmZhRnZJdmMvT1VDOTNIL0ZRTUc4QTZzRjZxM1c4S2RQdllnNjZTZG4wWS91YTRCYXVmOXFnWHE1LzRxQllua0hWZ3ZVTy8rQ0tza1grdGFGcUhPQnJSMzk2TDRHcUpYN3J4YW9sL3V2R0NpV2QyQjFRSjFFUGdIVUFyVnkvOVVCZFJLNS80cUJZbmtCMUFGMWN2N3FnVm81ZjNWQW5aeS9ZcUJRWGdDMVFKM0VxbkM1NUF0OTYwTFVTZHJSajg1cmdCcUozSDkxUUoxRTdyOUNvRWdpbndCcWdCb0ZKMWRObFh5aGIxMklPaWRYVFpQOG1MWUczSDgxUUkyQzNIK0ZRSkZFM29IVkFQVUpqaTJaSXZuUzZmZlFDTHI5UHBweFU2WklmblRObjRBYWlkeC9OVUI5Z3R4L1JVQ0JncndEcXdOcUZFUmZwdzdmSzNrUG1xUUpkYUlQbmZOSGZZTGNmM1ZBallMb2kvdnZBMUNnSU8vQTZvQWFCZEhYbVovZExQa1BtcVFKZGFJUG5mTkhmWUxjZjNWQWpZTG9pL3Z2RTFDazF3THdEdXdQVUtQZ3k5OWRMWGxELzBFVDlaRm05S0Z6OWdUVUtZamV1UC8rQURVS2N2OFZBWVVLb2puZWdmMEQ2aVN1clE5TDNrNThPUFFmTUVvK0k1SytkZlZ6SlI4bVprOUViOXgvLzRBNmlkeC9SVUNoZ3J3RHF3TnFGVVIvM2UvSC9zbFFWU1F0cUEvMW01QS82aFRrL3FzRGFoVkVmOXgvbjRCaWlid0Rxd05xRmZ6ZlE5ZElIdVVjZ2lIcTZyUzFvbjRUc2llZ1hpTDNYeDFRcXlEM1h4RlFzQ0NhNUIzWVA2QmU0czZOU3lTUG1FTlFSRjI3TmkyUjlKdWNQUkU5Y3YvOUErb2xjdjhWQVFVTDhnNnNGcWliaUQ3ai9XRHk4T2F0MXJpMW02ek1obzF4a1I1THgrQTRiaVFOcUF0MW01UTlhaGJrL3FzRjZpYWlUKzYvVDBEaFJONkIxUUoxRTQ4K2M1WGs5ZVFIdTZVOGlIOTV2OW5LdXpMKzBudVJ4cUN4Y0h3aXpZMTZTQ1BxTmlsM0Ftb25jdi9WQW5VVHVmOEtnUWFJYUpaM1lIK0Irc2VXbEVoZWUxMCtuL2F6dzgxU3BzTWxqWW56MEdmam9oN1NpTHJSbHdsQUQwVDB5djMzRjZpZis2OFFhSUxJTzdCNm9JL2ZQbjZsNUxuNy9ic0g1Rkt3WHM3OWhpM2JyRmViNzdaKys5MzdCaVU5aGg2THgrZXZIL2hrMTMzNGJra0hhVU85cG1hUEhvamNmL1ZBSDl4L2hVQWp2QU1IQTZlWG5DbnlUNllTQjh2LzRSMTNTRVdQeFlkM2JCODBmNXlmU05wU0tYdjB3djBQQnR6L0FJR0dlQWNPQms0L2JYZGRJbmtuT3ZQeHVnS2RkL1VXYTl2TnQxbVAzWE9uOWRSOWQwVkpmNy9WL2hwOUR4K2Y2M0lGaXZNU1NWT3FaVTdBTG5IL2d3SDNQMEE0amZFT0hCeWN2azcrODNXU2Y3b2lkR1lrV0wwcDhmZWc2UmdjaDlqN21uelZlZktsNjFJMmN3TDNYdzl3L3dPRTB5RHZ3TUhCNlJFemNGdUhaQkxuRVV5MzNMbi93WUg3SHlDY1Jua0hEZzdDWi9rYytYZlZDMkp1d3lXT0wwZ2EwaTEzN24rdzRQNEhDR2ZSTUF5L3doZkVlUVRUcWZ3Q3d1OWxLNnVsUEFUUHZIMmJsR0dpUEcyUGdlTUtOdFNGMHk1NzdyOGU0UDRIQ0dHWWQrQmdJWHhmdUdTR2xJdVQzZThsL21zTDNINjlnSk5MbHN4TXovS1A0UDdyQXU1L2dCREdlUWNPRGs3dmt5cmxUNjVDOXY2MDBlbytmSStVc1NCOWp4NkR4eUVuVlUxTjY5d0ozUC9nd2YwUEdDSUEzb0dEZ3pNRDRuODlkN1dVVmJKSVkrTjhxQ2Vkd1AwUEh0aEg3cjlDT0lQZ0hUZzRZQ2szcko0clpUWmNibGpqL3V1Rnp4ay9hUXpxU1Jkdy8vVUFkcEw3cnhBWUNPL0FhbkZlVHRtYVVlUExPakVYNHU3TkYxbTlyOGc1eGtzNmxzYkFjYU9jVUc3Wjh4STdTUVBxU2hkZ0x0eC90ZUQrYXdBTWgzZGdOZWdyZnk4VmNkemtlVkkyZ21NbWwxaS9lMks5MWV1U0s1SWU4L3NuMTBlUHdYRUVOenoydHJXeStlbm9uSDBuUVc4Nm53UlNQdHgvSmVEK2F3RGVnZFZqOXBiSENtZGMvZTBuTXZJcmVpZ0R5b0lLU2NVa1Nsa0I2U2RHUTlQTHJQTXJwa1pKZjNmN0tWSTNpam5FU1NEV0liT2dzcWRtKytOUFhOcjhZaUhxVFdWdy85V0QrNjhKZUFkV2o3bWI5eThOTjdaMkZTKytXbmkzS3VxM0RDaG12Q2RDSXNTeEJXbHVvYU44WmFPMUt0TFJ1YXI1MEZMVW5ZcmcvcXNIOTE4RHpHM2NWNkRqRHJ6VTNvRlg3VDBVUXIycGd1cU5yU0c3L01kdFd1T21YTkJmdk9WTlA1Q0tpY1FjWXhHUDl5TE5MWFRrVGIrSVRnRGk4ZFdSOWdMVW55cWdkZEN4LzNRRnl2MTNKK1lZaTNpOEY5T3UvMzA3OEhHTmQrQ3VWTjJCdzVzUHRGTDVpUm41bGYyKzErNTdROHJGaXcrWEw0b3lvOWp4aEdQL2ZYVHgxUDd2RWZFNEw5TGNRa2RtcUVxY0FGWmRwS01WOWFjQ0RMZ0NQYzc5OXliM2Z4aWc5OTdzOERzTjJJRzdVdTVLcUtucEszTWJXejhYSjREd1RNUk1CcU96NUlNUmp4dU1UaTNpQkxCNURDMllEbnJsUzAvK0J2Uy9rL3Z2VHV5NUYvRzR3Wmd1L1I5aEI5OW15ZzVjMzlMUmh2cE54cnhOQjZwRjlvYWNBTmJLNWhjbW93K1RVZDNZOXJncC9iZXZRQjlGL1NhRCs2OEI3QjM0andZdHdCSFViekxDalFlK1pkb0pVTmZTZmozNk1CVUx0ajZVWmVkK3dxRDhqemMwSFJ5SlBrd0Y5ejlnek5uNjBMbUdMVUJ2N1VNdmZ4MTltQW83ODhPRzVVOThBbjJZaXVvdHJmZVlsci85S3ZoYTlHRXF1UDhCbzdyeGtTclRGdURTK3cvbW93OFQwWGYxMldOYS9qWS9RaThtWWxGVDA5ZnN6SThhbVAvYjZNVkVjUDgxUVBXV3RpdE1XNEM2M2MvUFFSOG1ZdTZXQXh1YzJhdk0vL1kvZkNBUngvVEtuN2dpY2pBWC9aZ0c3TDdLL09QaElQbjMxdS9wbUlSK1RBUDNYd01ZK1JJNDBsR0hQa3lFbmZlUFREMEI2bHM2MXFJZjAyRG4vZk9nOG8rSGcrVmZGK25ZaTM1TUEvZGZBOWloUDJIYUF0UTF0OStJUG93RDNQNW1VdjdSTldqcDJJZVdUQUsrOVdsYS92WkYwTkdHZ3dlL2lyNk1BZmRmRDRUaEtzaUlCV2h1YjBJZnBnRnZmMU9kZnp6MHpQL0xKNkJmb3llVFlELzVmQit6VjVrL2RqK2gvb3Nub2VibkxrRmZwb0Q3cnduczBEOE5ZZ0d3L0ltY0FLbndzd0I0KzV2cS9PT2hWLzU5N0ZtKzk2WFI2TXNFNEsyZlFlU1AzVStrLzQ3ejRDZm96UlJ3L3pVQTNnSnEwQUk4ajE1TVF4aHVmek1zL3loWHQ3UXZSMThtQVAvZnk5VDhiWjZzMzlPUmlmNU1BUGRmQTdpOUQyckVBclMwdjRkZVRJTGI3VzlHNWQvSCt1YU8rOUdiN25DNzlkUFUvS05yRU9tNENUM3FEdTYvSmpENE5yZ2o2TVVrdU4zK1psaitmV3gvQjczcERyZk9tNXQvbEw5Q2o3cUQrNjhKM0Y0S0c3SUFKMGRZMXQraEgxTVFkcm45emJEOEJVODFmTy9nUDZJL25SRjJ1ZlhUNFB5alhMbjd1VXIwcVRPNC81b2dETGVBbXJRQURVMEhNOUNQRWZDNC9jMjAvQVhyOTNSY2dCWjFoZHRibmtqVDh2K1M3UStqVjIzQi9kY0hZWmVySVZNV29HN1A4NlhveHdSNDNmNW1XdjVuZWVoZTlLZ3J2Rzc5TkR2L0tMOHc1ZmRqY2Y4MVFoaHVBVFZxQVZvT0xVRS9Kc0RyOWpmajhqL0wxOUNqamhqczFrL0Q4eGZudytYb1dVZHcveldCMnkyZ0ppMUFmYVJqUFhveUFXR1AyOS9jOGgvSzc2T1BSVHpPaTg3ZlIrK1d2NE5kSnZ4RXF0di9kN25SbFA0ajZ5SWRyNkJuSFJIbS91c0JyL2REVFRrQjdNTGZqcDUweDJDM3Y3bmxIODhuVWdsaXpsN0U0N3pvL0VRcXQvd0hjUGVoR2VoVko4UzY5ZE1yZjh4a01HTE9Yc1RqQm1QYytYL0pNNnViMnZQUXUwN2cvbXNFcjl2aG5LYTEzb0diRHoyQW5uUUgzdjUyMVUxN3JlM2I3bzMrNlphLzEyZlN1dkdocWlWUzFraDZEQjduUmVkbjBvcjhiMnBxczVwM2ZqdjY1OEQxYUw4RnZlb0VyNjY3MFpqK3U3QXUwbjQzZXRjSjNIK040UFdTMkdsYTV4M1lmZ1h3RkhyU0hXSEg3VzhQM3JiTmV1dXU5ZjJrZjlQWG5SOUptREdoM0ZyWi9MU1VqUnRibGw4blpZMmt4K0J4YnFRNWFXNmhnejZTc08zZUhRUDAwci83MTZPbG94Mjk2b1N3eTgwT1hqU2wvKzVzLzRQT3QwZHovelZDR0c0QkZidXhzM1E2N2NEeXJ0dnhVL1NrTyt5Y2o0aXNuV1VTcEs4N1A1U2NPRzd5dkxoT2dtc2ZmTW1LckxqV2RSM29hL1E5ZWd3ZWg2UzVhRTZuaHFKcGl5U3R4UDQxYVQ3ME1YclZCZmhXcDl0VnA1TzY5aCtmN0wydVJsZEcyaGRpQnJxQSs2OFJ3bzZySXVkdW5GTXd2ZCs0TGpzd2FTSnR6bDIzUHRMeEcvU2tPK3lzVDFIZU83YmRMWldKU0Y4dlhuejFnUEtKZGFBbmhCVzduclRXN2Y4WEthL2hrc2Frc1drT1orNkN0Y3ZYU2xxSkxUdjNpUFU0aFY1MVFiaXg3UkczbmhQRlZhZVRvL09tL1UyMy9qcy9GSjQ0Nk5Wb3BQMFJ6RUFYY1A4MWdyMFF4OXgyNDhxcE13ZVkxMkVISmsxQ24rT0s1d3YwcER2c3ZEK216Tys3ZGVBSkxFaGZuM1g5Zy9ReXVCZExHQlF6UXpPc25kdnZrN1FTNzk4WjBmNEtTR1NPUFJlRVZ3SkhSK1ZPL2NEcFg0ZitqeSs5NEsvaUNaNzZqeDZJL2VkRlM4Y3ZNUU5kd1AzWENQWkNuSFRialcrb1dTS0ZFUFFPVEpxRVBzZXVleEk5NlE0Nzd6YTN6QVhwNi9UOXlSZmY4SnJ0Ty9pVElIZXFOZSthNW1qbXFOVzVGanIvZXU1d0hGZWRZZ09nL3hjYmxWTzJHM01JdXYrRnMrdGVGQnRBckxXdzJZVVo2QUx1djBidzJvMWZ1R1d0TlQ1MDltMmdvRWxhU0pQUVovS3VXNzJ4TldSbjNoWGphdlE0UGU2OGNhV1gyZjU3TUE5VkhKMDN6U29vWDladVozMDh4bFZuNTZYTkx4YWlWMTNnMVhOQitucmZCbkNDYmxNY09hNHl5L2JmaVhrRXlNNlNSV3REdEE3VWUrby9laUNhY0Y1dy96WENZTHZ4M25YTHBVQ0M0R2licE1XcFRleTZkYzBkajZJbkV6QjM4LzZsVkhLUDk2Tzc2UHYwdUt6OEdmUEhGTXkwTXZJcXJORzUwNlJzL09Cbys0b25NNy9TeWprL2JJV21YMndWVmRSOFVyZnIyVXVvNUI3dk94KzNuM0NpZW5YRllEMG5pcXZPNnNhMng4VXg1K1dVclJtbHd4V29yWUcwa0thNlNNZWo4YndDMFAxcWxQdXZDZVkyN2l1bzNuemdiMTY3OFVXck4xa1pCV2R2eVZMTnJGQ2w5T1JQcEYxMzVhNW5yU2tMMTMwNHNXcFpNZm95QWRFcm9jMEhXcSs1ZWMrbmRFZkt0VGZ0K1l5ZXFHWnZlYXovU2lJN2YzWmJWc0VzSzJIYUo0NXpMc0tNR1RQK25zcHNrMHFkRUFzcmwzMkRybkRvaVdYYnJ0WlA2YzZUYmJ2Mkg3T2ZrRnBYUjlvTGNDN2QwSGZWMmVuVjg3NnJ6aTQ2SDV6SDlXMENRYjRTNkJSUC9vUlZldy9ScTRET0dGZWp4K2x4RGh0YWd2dXZBYkpEc3pjV3pseDFlczZORDduZUhVRmZ6NjljRWNnT1hGQ3h6S3E5OC91dWR6dlFrMy81c3V2RkFuVVZsdGRzUUcrbW83aTQrT3QybWY5YktuZHNmbVFmN25vZitNU0ttanV3M0hIUytNOCs3YnZxN0hMcnVmT3FFM0hPK0Vsait2NVA0RmMyL3cvN21teU96aTA3TVlybXN1ZWt1VkVQWFczU2s3emJlV0YvdmN2WXExRUE5OTlmZkNVN05Pc1JFVnJPbEF1dDBrdHZ0dGJmdUN0NmYvVDZqYnVpLzg0cFdZemhlaks3WU5ZcDJsQndJZ1E5V2R1QmRybUVMTEZrWG9PMTROcUkxYmpqd2VqOXp2UW4vWnUram84dEtxOXRIZEhRWU43djQvQkFkc0hNTlpoeFBMVFg5VnM0bGtEUmpJdk9zN1BxbExLTGc0WGx0Y1kvc2ZTOUVtaTc1cVk5eDZqbjlDZjltNzZPai9WQ1Ztam1rNWc1TW1mU2ZDbS9PUGtKWGFuaW5BaTZ3di95YW5UL3Njak92YWR1LzliKzM5ZTFkT3d6NGNvL1huRC9mWVFkMUg0TWJwajhaR3hvVGpYTzR3VjYyNmFvb3ZhWEdISVN1Qi9uTWhWWitiT2VjY2s1Rm51ejh1YWNqMk01TWJHODlnR1gzT0xoMHpoV09tSjAwWXg4TytjVEx0bjNNelF0K3Q1eHdxUXJWSnd2WGNIOTl3bjAvbGcwS0RtOG9mTE5zUlBuWnVNOHNWQlcxdkFQUlJYTEhyU0Q3WFVKZStnc3I1SGUvek1SZHE1L2NzazZGdC9GY1JBVHB5NmRZT2ZVTGVVV20wZHhySFRGbUlMWjMzSEpQc3B4RStkaWJ2R3lrNjVRY2E1MFJSYjMzeDhNY1dkMVpYYkJyQWRHakZqME5ad2pFZGlid0hJNzNNOWRBaDhheTJ0K2pIT1loblBIRkN3L2QyeHg3OGpza0RVeUswN2FqejEzYk5FUk9oYkhROWc1L1RDdlpMNDFPcmZFT2llN1VCN0xpOW1oVStka2hRN0hNMGNxWTFTb1lwVGQvUy93ZkNCT0tGMHNkeklPMHBVcHpwT3U0UDc3Q0x1a1I3RzBpWFAyY1hzalNkcUhUMHdxWDVGYldGSHpKcDRVUTZIOU12cFBPTDVKb0hKSnhVdVFzUXFhbVZlNkJZOUpsTEhtU0hYWXJ3SnVsYytMV1ZabytsS3BrM0d3bTY1TWNZNTBCUGZmUnd4OVp5MjJNdk9taTVML2JseityREljZTlob2FQaHFVV1h0VHZ0a09PMDhPZEp0cHliZGtwOEVTV1BndUU2b21DUFZRWGVwWk9aT1AwYm5Sa0xua3d2UHlRNzFtTnJYWkVORk4xWE1vUjJTc2JObTVFNTdONk40enJrNGRqSlJPSDNaZ3FMS21qK0tKMy9Va0NoTk82bHN6VjNvWVFnYzlGY0IwUGRkamttVWc4NlI2a2pHK2VSRzAvcWFiSXhVMEUzNnZzc3hpWExRT2JTRFNidGVYdG15ak1LS211ZnB5aDgxSkVwVm1wTUZGZXVrWW81VVJ6SXlkQ1BuT3Z4Y1kyV29ZZzd0TU5MQVhXOWtkdUZKRncySlVxbm00U0laVjVheHJpSlZ6SkhxR0ptYzg4bU5SdlUxMlZEUlRSVnphQWNUZHowVE5TY0RWSzZvOSt6UUtmVGp5UVQvMzBQRkhLbU1aSFRUalNiMk5kbFEwVTBWYzJnRkUzYzlFelV6MGdQSjZLWWJ1YThNMzJEaXJtZWlaa1o2WUVqZGRDUDNsY0ZnTUJnTUJvUEJZREFZREFhRHdVaFgvRDhMMnpSdE9QQkRWUUFBQUFCSlJVNUVya0pnZ2c9PSJ9LCIyNWZlMjg1NmFkODUyMzNlMTA5NmQxMTcyZjk2ZTIzMzVkNzEzNGE5NDZiYWI0ZTNlZGE0ZTZlY2UwNzZhYTQ5Ijp7InBuZyI6ImlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFCUUFBQUFVQ0FZQUFBQ05pUjBOQUFBQU1VbEVRVlI0WG1QNC82anBQelV4QTdvQXBaaStCdDRzZHNIQTZHclE4YWlCb3dhT0dqaHFJRmFNMTBCeThPQTNFQUNKNEErNjZCZzJEQUFBQUFCSlJVNUVya0pnZ2c9PSJ9fX0=</template>
+<script type="module">
+
+export const tileWorld = Object.freeze({width:720, height:336, floor:312, tile:24, exit:672});
+const PLAYER_W = 24, PLAYER_H = 32, STEP = 1 / 120;
+const overlaps = (a, sizeA, b, sizeB) => a < b + sizeB && a + sizeA > b;
+const defaultDepth = {backdrop:-300,terrain:-200,pickup:-100,foreground:100};
+const maxPlayTicks = 7200;
+export const tileFields = ['tick','x','y','vx','vy','support','wall','collectedHex','won','direction',
+    'facing','animationTimeS','resets','bounces','spring','score','jumpPressed','events','inputDirection'];
+export const tileScoreDefaults = {pickup:100,goal:500,resetPenalty:25};
+
+export function tileDrawingOrder(layout) {
+    const planes = new Map((layout.planes || []).map(plane=>[plane.id,plane]));
+    return layout.objects.map(item=>{
+        const plane=planes.get(item.plane);
+        return {item,opacity:plane?.visible===false?0:plane?.opacity??1,
+            depth:(plane?.z??defaultDepth[item.layer])*1000+(item.z??0)};
+    }).sort((a,b)=>a.depth-b.depth);
+}
+
+function pickupMask(pickups, collected) {
+    let mask='';
+    for (let i=0;i<pickups.length;i+=4) {
+        let bits=0;
+        for (let b=0;b<4 && i+b<pickups.length;b++) if (collected.has(pickups[i+b].id)) bits|=(1<<b);
+        mask+=bits.toString(16);
+    }
+    return mask;
+}
+
+function restoreTick(layout, row) {
+    const pickups=layout.objects.filter(item=>item.layer==='pickup');
+    const collected=new Set(pickups.filter((_,i)=>Number.parseInt(row[7][i>>2],16)&(1<<(i%4))).map(item=>item.id));
+    return {x:row[1],y:row[2],vx:row[3],vy:row[4],support:row[5],wall:row[6],collected,won:row[8],
+        direction:row[9],facing:row[10],time:row[11],resets:row[12],bounces:row[13],spring:row[14],score:row[15]};
+}
+
+export async function renderTileEvidence(level,row,region,assetId) {
+    const canvas=document.createElement('canvas');
+    const images=tileImages(level.sprites,()=>{});
+    await Promise.all([...images.values()].map(image=>image.decode()));
+    canvas.width=tileWorld.width;
+    canvas.height=tileWorld.height;
+    if (assetId) {
+        const image=images.get(assetId);
+        if (!image) throw Error('Choose an asset from this level.');
+        canvas.width=image.naturalWidth;
+        canvas.height=image.naturalHeight;
+        if (!region) return {width:canvas.width,height:canvas.height,png:level.sprites[assetId].png};
+        canvas.getContext('2d',{willReadFrequently:true}).drawImage(image,0,0);
+    } else drawTileLevel(canvas, level.layout, images, restoreTick(level.layout,row));
+    if (!region) return {width:canvas.width,height:canvas.height,png:canvas.toDataURL('image/png').split(',')[1]};
+    const {x,y,width,height}=region;
+    if (x+width>canvas.width || y+height>canvas.height) throw Error('The sample extends outside the image.');
+    return {x,y,width,height,rgba:Array.from(canvas.getContext('2d',{willReadFrequently:true}).getImageData(x,y,width,height).data)};
+}
+
+const spawn = layout => ({...(layout.stage?.spawn || {x:48, y:tileWorld.floor - PLAYER_H}),
+    vy:0, support:layout.stage?'':'floor', wall:'', collected:new Set(), won:false,
+    direction:0, facing:1, time:0, resets:0, bounces:0, spring:'', score:0, vx:0});
+
+function drawStageTile(g, item, colors) {
+    const {x,y,size,effect}=item;
+    g.fillStyle={ground:colors.ground,brick:colors.rock,coin:colors.accent,spring:colors.water,hazard:'#f6756c'}[effect];
+    if (effect==='coin') {
+        g.beginPath();
+        g.arc(x+size/2,y+size/2,size/4,0,Math.PI*2);
+        g.fill();
+    } else if (effect==='hazard') {
+        g.beginPath();
+        g.moveTo(x,y+size);
+        g.lineTo(x+size/2,y+4);
+        g.lineTo(x+size,y+size);
+        g.fill();
+    } else if (effect==='spring') {
+        g.fillRect(x+2,y+size-14,size-4,4);
+        g.fillRect(x+5,y+size-8,size-10,6);
+    } else {
+        g.fillRect(x,y,size,size);
+        g.fillStyle=colors.accent+'38';
+        g.fillRect(x,y,size,3);
+        g.strokeStyle=colors.sky+'99';
+        g.strokeRect(x+.5,y+.5,size-1,size-1);
+    }
+}
+
+function drawHero(g, image, hero, state) {
+    const moving=state.direction!==0;
+    const stride=hero.animation==='stride'&&moving;
+    const lift=hero.animation==='hover' || (hero.animation==='bob'&&moving);
+    const squash=hero.animation==='squash' && Math.abs(state.vy)>25;
+    const wobble=Math.sin(state.time*(stride?18:8));
+    const height=PLAYER_H*hero.scale*(squash?1.14:1);
+    const width=height*image.naturalWidth/image.naturalHeight*(squash ? .83 : 1);
+    g.save();
+    g.imageSmoothingEnabled=false;
+    g.translate(state.x+PLAYER_W/2,state.y+PLAYER_H-(stride?Math.abs(wobble)*3:lift?3+wobble*2:0));
+    if (stride) g.rotate(wobble*.09);
+    g.scale(state.facing,1);
+    g.drawImage(image,-width/2,-height,width,height);
+    g.restore();
+}
+
+function playerFrame(state) {
+    return state.support && Math.abs(state.vx)>.01 ? Math.floor(Math.round(state.time*120)/12)%4 : -1;
+}
+
+function drawAnimatedPlayer(g, images, player, state, scale) {
+    const idle=images.get(player.idleAssetId), walk=images.get(player.walkAssetId);
+    if (!idle?.complete || !idle.naturalWidth) return false;
+    const frame=walk?.complete&&walk.naturalWidth ? playerFrame(state) : -1;
+    const h=PLAYER_H*scale, w=h*idle.naturalWidth/idle.naturalHeight;
+    g.save();
+    g.imageSmoothingEnabled=false;
+    g.translate(state.x+PLAYER_W/2,state.y+PLAYER_H);
+    g.scale(state.facing,1);
+    if (frame<0) g.drawImage(idle,-w/2,-h,w,h);
+    else {
+        const cell=walk.naturalWidth/4;
+        g.drawImage(walk,frame*cell,0,cell,walk.naturalHeight,-w/2,-h,w,h);
+    }
+    g.restore();
+    return true;
+}
+
+export function tileImages(sprites, invalidate, images = new Map()) {
+    for (const [id, sprite] of Object.entries(sprites)) {
+        if (images.has(id)) continue;
+        const image = new Image();
+        images.set(id, image);
+        image.addEventListener('load', invalidate, {once:true});
+        image.src = 'data:image/png;base64,' + sprite.png;
+    }
+    return images;
+}
+
+export function drawTileLevel(canvas, layout, images, state = spawn(layout), editor = null) {
+    const {width, height, floor, tile, exit} = tileWorld;
+    const g = canvas.getContext('2d',{willReadFrequently:true});
+    const rect = (fill, x, y, w, h) => {
+        g.fillStyle = fill;
+        g.fillRect(x, y, w, h);
+    };
+    const stage=layout.stage;
+    const colors=stage?.palette;
+    const sky = g.createLinearGradient(0, 0, 0, floor);
+    sky.addColorStop(0, colors?.sky||'#142337');
+    sky.addColorStop(1, colors?.water||'#36565b');
+    rect(sky, 0, 0, width, height);
+    if (stage) {
+        const backdrop=images.get(stage.backdropAsset);
+        if (backdrop?.complete&&backdrop.naturalWidth) {
+            g.save();
+            g.globalAlpha=stage.backdropOpacity;
+            const drift=(state.x-stage.spawn.x)*stage.parallax*.05;
+            g.drawImage(backdrop,-48-drift,0,width+96,height);
+            g.restore();
+        }
+    } else {
+        rect('#829a91', 0, floor, width, 3);
+        rect('#213b40', 0, floor + 3, width, height - floor);
+    }
+    if (editor) {
+        g.beginPath();
+        g.strokeStyle = '#bed0d02e';
+        for (let x = tile; x < width; x += tile) { g.moveTo(x, 0); g.lineTo(x, floor); }
+        for (let y = tile; y < floor; y += tile) { g.moveTo(0, y); g.lineTo(width, y); }
+        g.stroke();
+    }
+    const ready = stage || layout.objects.every(item => item.layer !== 'pickup' || state.collected.has(item.id));
+    const gate = ready ? colors?.accent||'#8de9bd' : '#d88376';
+    const goal=stage?.goal||{x:exit,y:floor-48};
+    rect(gate, goal.x, goal.y, 5, stage?tile:48);
+    rect(gate, goal.x, goal.y, stage?tile:28, 5);
+    if (stage) rect(gate,goal.x+tile-5,goal.y,5,tile);
+    const actor=()=>{
+        const hero=stage?.hero;
+        if (layout.player && drawAnimatedPlayer(g,images,layout.player,state,hero?.scale??1)) return;
+        const image=hero&&images.get(hero.assetId);
+        if (image?.complete&&image.naturalWidth) drawHero(g,image,hero,state);
+        else {
+            rect('#ffe3a5', state.x, state.y, PLAYER_W, PLAYER_H);
+            rect('#284044', state.x + 4, state.y + 5, PLAYER_W - 8, 11);
+        }
+    };
+    let drawnActor=false;
+    for (const {item,opacity,depth} of tileDrawingOrder(layout)) {
+        if (!drawnActor && depth>=0) {
+            actor();
+            drawnActor=true;
+        }
+        if (!opacity || state.collected.has(item.id)) continue;
+        g.globalAlpha=opacity;
+        if (item.effect&&colors) drawStageTile(g,item,colors);
+        else {
+            const image = images.get(item.assetId);
+            if (image?.complete && image.naturalWidth) {
+                const scale = item.size / Math.max(image.naturalWidth, image.naturalHeight);
+                const w = image.naturalWidth * scale, h = image.naturalHeight * scale;
+                g.drawImage(image, item.x + (item.size - w) / 2, item.y + item.size - h, w, h);
+            }
+        }
+        g.globalAlpha=1;
+    }
+    if (!drawnActor) actor();
+    if (!editor) return;
+    for (const item of layout.objects) {
+        if (item.collider) {
+            const {x, y, w, h} = item.collider;
+            g.strokeStyle = '#f5a65f';
+            g.strokeRect(item.x + x + .5, item.y + y + .5, w - 1, h - 1);
+        }
+        if (item.id === editor.selected || editor.layerTools?.selected.has(item.id)) {
+            g.strokeStyle = '#a3ffdb';
+            g.lineWidth = 2;
+            g.strokeRect(item.x + 1, item.y + 1, item.size - 2, item.size - 2);
+            g.lineWidth = 1;
+        }
+    }
+    if (editor.hover) {
+        const {x,y} = editor.hover;
+        rect(editor.mode === 'erase' ? '#e57b723b' : '#91eac447', x, y, tile, tile);
+    }
+}
+
+export function mountTileGame(canvas, status, level, onRun=null) {
+    const {width,height}=tileWorld;
+    const {layout}=level;
+    const keys = new Set();
+    const events = new AbortController();
+    const options = {signal:events.signal};
+    let simulation, jump=false, frame=0, previous=0, accumulator=0;
+    let rows=[], sealed=false;
+    function seal(reason) {
+        if (!onRun || sealed) return;
+        sealed=true;
+        onRun({levelId:level.id,reason,rows});
+    }
+    canvas.width = width;
+    canvas.height = height;
+    const images = tileImages(level.sprites, draw);
+
+    function draw() {
+        const {state,tick}=simulation;
+        drawTileLevel(canvas, layout, images, state);
+        Object.assign(canvas.dataset, {playerX:state.x.toFixed(2), playerY:state.y.toFixed(2),
+            support:state.support, wall:state.wall, collected:String(state.collected.size),
+            required:String(simulation.pickupCount), won:String(state.won), tick:String(tick), score:String(state.score)});
+        status.dataset.score=String(state.score);
+        if (layout.stage) Object.assign(canvas.dataset,{bounces:String(state.bounces),resets:String(state.resets),
+            hero:layout.stage.hero?.name||'',phase:state.won?'complete':'playing'});
+        else for (const key of ['bounces','resets','hero','phase']) delete canvas.dataset[key];
+        if (layout.player) {
+            canvas.dataset.hero=layout.player.name;
+            const frame=playerFrame(state);
+            canvas.dataset.playerFrame=frame<0?'idle':String(frame);
+        } else delete canvas.dataset.playerFrame;
+    }
+
+    function restart() {
+        simulation=createTileSimulation(level);
+        sealed=false;
+        rows=onRun?[simulation.first()]:[];
+        keys.clear();
+        jump=false;
+        previous=0;
+        accumulator=0;
+        status.textContent=simulation.status;
+        draw();
+    }
+
+    function advance(now) {
+        accumulator += previous ? Math.min((now - previous) / 1000, .05) : 0;
+        previous = now;
+        let dirty = false;
+        while (accumulator>=STEP && !simulation.state.won && (!onRun || simulation.tick<maxPlayTicks)) {
+            const direction=Number(keys.has('ArrowRight'))-Number(keys.has('ArrowLeft'));
+            const resets=simulation.state.resets;
+            const row=simulation.step(direction,jump,Boolean(onRun));
+            if (resets!==simulation.state.resets) keys.clear();
+            jump=false;
+            if (onRun) rows.push(row);
+            accumulator-=STEP;
+            dirty=true;
+        }
+        if (dirty && status.textContent!==simulation.status) status.textContent=simulation.status;
+        if (dirty) draw();
+        if (simulation.state.won) seal('won');
+        else if (onRun && simulation.tick===maxPlayTicks) {
+            status.textContent='The 60-second playtest is complete.';
+            seal('limit');
+        } else {
+            frame = requestAnimationFrame(advance);
+            return;
+        }
+        frame=0;
+    }
+
+    function release() {
+        keys.clear();
+        jump = false;
+    }
+
+    canvas.addEventListener('keydown', event => {
+        if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'Space'].includes(event.code)) return;
+        event.preventDefault();
+        if (event.code === 'ArrowUp' || event.code === 'Space') {
+            if (!event.repeat) jump = true;
+        } else keys.add(event.code);
+    }, options);
+    canvas.addEventListener('keyup', event => keys.delete(event.code), options);
+    canvas.addEventListener('blur', release, options);
+    function start() {
+        restart();
+        cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(advance);
+    }
+    start();
+    return {
+        restart:start,
+        evidence(start,limit) {return {levelId:level.id,hz:120,fields:tileFields,lastTick:simulation.tick,score:simulation.state.score,sealed,
+            rows:rows.slice(start,start+limit),start,next:start+limit<rows.length?start+limit:null};},
+        close() {
+            seal(simulation.state.won?'won':'stopped');
+            cancelAnimationFrame(frame);
+            events.abort();
+        }
+    };
+}
+
+function createTileSimulation(level) {
+    const {width, height, floor, exit} = tileWorld;
+    const {layout}=level;
+    const stage=layout.stage;
+    const speed=stage?.hero?.speed??215;
+    const lift=stage?.hero?.jump??610;
+    const pickups = layout.objects.filter(item => item.layer === 'pickup');
+    const rules = layout.scoring || tileScoreDefaults;
+    const hazards=layout.objects.filter(item=>item.effect==='hazard');
+    const springs=layout.objects.filter(item=>item.effect==='spring');
+    const touches=item=>overlaps(state.x,PLAYER_W,item.x,item.size)&&overlaps(state.y,PLAYER_H,item.y,item.size);
+    const solids = level.layout.objects.filter(item => item.collider).map(({id,x,y,collider:c}) =>
+        ({id, x:x+c.x, y:y+c.y, w:c.w, h:c.h}));
+    let state=spawn(layout), status=stage
+        ? 'Move with ← and →. Jump with ↑ or Space. Reach the gate.'
+        : 'Move with ← and →. Jump with ↑ or Space. Collect all pickups.';
+    let tick=0, notes=[];
+    const earned=new Set();
+    const award=(type,id,delta=0)=>{
+        const changed=Math.max(0,state.score+delta)-state.score;
+        state.score+=changed;
+        notes.push([type,id,changed]);
+    };
+    const sample=(jumpPressed,inputDirection)=>[tick,state.x,state.y,state.vx,state.vy,state.support,state.wall,
+        pickupMask(pickups,state.collected),state.won,state.direction,state.facing,state.time,
+        state.resets,state.bounces,state.spring,state.score,jumpPressed,notes,inputDirection];
+    function update(direction, jump) {
+        if (state.won) return;
+        if (jump && state.support) {
+            state.vy = -lift;
+            award('jump','');
+        }
+        const lastX=state.x;
+        state.direction=direction;
+        if (direction) state.facing=direction;
+        state.time+=STEP;
+        let nextX = Math.max(0, Math.min(width-PLAYER_W, state.x + direction*speed*STEP));
+        state.wall = '';
+        for (const box of solids) {
+            if (!overlaps(state.y, PLAYER_H, box.y, box.h)) continue;
+            if (direction > 0 && state.x + PLAYER_W <= box.x && nextX + PLAYER_W > box.x) {
+                nextX = box.x - PLAYER_W;
+                state.wall = box.id;
+            }
+            if (direction < 0 && state.x >= box.x + box.w && nextX < box.x + box.w) {
+                nextX = box.x + box.w;
+                state.wall = box.id;
+            }
+        }
+        state.x = nextX;
+        state.vx=(state.x-lastX)/STEP;
+        state.vy += 1560 * STEP;
+        let nextY = state.y + state.vy * STEP;
+        state.support = '';
+        for (const box of solids) {
+            if (!overlaps(state.x, PLAYER_W, box.x, box.w)) continue;
+            if (state.vy < 0 && state.y >= box.y+box.h && nextY < box.y+box.h) {
+                nextY = box.y+box.h;
+            } else if (state.vy >= 0 && state.y + PLAYER_H <= box.y && nextY + PLAYER_H >= box.y) {
+                nextY = box.y - PLAYER_H;
+                state.support = box.id;
+            }
+        }
+        if (nextY < 0) nextY = 0;
+        if (!stage && nextY + PLAYER_H >= floor) {
+            nextY = floor - PLAYER_H;
+            state.support = 'floor';
+        }
+        if (nextY !== state.y + state.vy * STEP || state.support) state.vy = 0;
+        state.y = nextY;
+        if (stage) {
+            const hazard=hazards.find(touches);
+            if (hazard || state.y > height+PLAYER_H) {
+                const {resets,bounces,score}=state;
+                state=spawn(layout);
+                state.resets=resets+1;
+                state.bounces=bounces;
+                state.score=score;
+                award('reset',hazard?.id||'',-rules.resetPenalty);
+                status=hazard?'Hit a hazard. Returned to spawn.':'Fell below the level. Returned to spawn.';
+                return;
+            }
+            const spring=springs.find(touches);
+            if (spring && state.spring!==spring.id) {
+                state.vy=-lift*1.42;
+                state.support='';
+                state.bounces++;
+                award('spring',spring.id);
+                status='Spring boost.';
+            }
+            state.spring=spring?.id||'';
+        }
+        for (const item of pickups) {
+            if (!state.collected.has(item.id) && overlaps(state.x, PLAYER_W, item.x, item.size)
+                && overlaps(state.y, PLAYER_H, item.y, item.size)) {
+                state.collected.add(item.id);
+                award('pickup',item.id,earned.has(item.id)?0:item.points??rules.pickup);
+                earned.add(item.id);
+                status = stage ? state.collected.size+' picked up.' : state.collected.size === pickups.length
+                    ? 'All sprites collected. The exit is open.'
+                    : state.collected.size + ' of ' + pickups.length + ' sprites collected.';
+            }
+        }
+        if (stage) {
+            if (touches({...stage.goal,size:tileWorld.tile})) {
+                state.won=true;
+                award('goal','',rules.goal);
+                status='Level complete.';
+            }
+            return;
+        }
+        if (state.x+PLAYER_W >= exit) {
+            if (state.collected.size === pickups.length) {
+                state.won = true;
+                award('goal','',rules.goal);
+                status = 'Level complete.';
+            } else {
+                state.x = Math.min(state.x, exit - PLAYER_W);
+                state.vx=(state.x-lastX)/STEP;
+                status = 'The exit is locked. Collect every pickup.';
+            }
+        }
+    }
+
+    return {
+        get state() {return state;},
+        get status() {return status;},
+        get tick() {return tick;},
+        get pickupCount() {return pickups.length;},
+        first:()=>sample(false,0),
+        step(direction,jump,capture=true) {
+            tick++;
+            notes=[];
+            update(direction,jump);
+            if (capture) return sample(jump,direction);
+        }
+    };
+}
+
+export function replayTileInputs(level, inputs) {
+    const simulation=createTileSimulation(level);
+    const rows=[simulation.first()];
+    for (const [direction,jump] of inputs) {
+        if (simulation.state.won) break;
+        rows.push(simulation.step(direction,jump));
+    }
+    const reason=simulation.state.won?'won':simulation.tick===maxPlayTicks?'limit':'stopped';
+    return {levelId:level.id,reason,rows};
+}
+
+const bytes = Uint8Array.from(atob(document.querySelector('#level-data').content.textContent), c => c.charCodeAt(0));
+const level = JSON.parse(new TextDecoder().decode(bytes));
+document.title = level.layout.title;
+document.querySelector('h1').textContent = level.layout.title;
+const game = mountTileGame(document.querySelector('canvas'), document.querySelector('#progress'), level);
+document.querySelector('#restart').onclick = () => { game.restart(); document.querySelector('canvas').focus(); };
+</script>
+</body>
+</html>

@@ -1,3 +1,7 @@
+## Edition 266 — Play a saved avatar in a portable tile level
+
+2026-11-27. A checked Avatar Studio character can become the playable character of a Tile Workshop level. Java validates frame geometry, transparency and matching avatar references. The existing physics replays exactly with the original and custom player. The tested level retained all four walk frames and scored 600 in the desktop, after restart and in isolated HTML. A frozen previous renderer preserves earlier evidence by identity. The avatar and SVG capture regressions now wait for real input readiness and viewport fit. See README-266.md and docs/publication266/plan.md.
+
 ## Edition 265 — Make a talking avatar and game character from an image
 
 2026-11-26. Avatar Studio opens from chat or Tools. Desktop accepts a local image or video frame and optional user-provided audio. Java saves a reusable crop, mouth point, five audio-reactive poses, a transparent character, four walking frames and verified AVI export. The public robot test checked restart, clean-project import, changed-source refusal and sprite library intake. Use the public robot for documentation and keep personal portraits, projects and audio local. See README-265.md and docs/publication265/plan.md.

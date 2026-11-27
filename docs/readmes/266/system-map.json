@@ -1,0 +1,67 @@
+{
+  "summary": "Play a saved avatar in verified, portable tile levels.",
+  "modules": [
+    {
+      "title": "Tile level and player validation",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java",
+      "note": "docs/obsidian/274-avatar-playtest.md"
+    },
+    {
+      "title": "Avatar handoff controls",
+      "source": "workspace-desktop/renderer/avatar-panel.js",
+      "note": "docs/obsidian/274-avatar-playtest.md"
+    },
+    {
+      "title": "Tile player editor",
+      "source": "workspace-desktop/renderer/media-tile-editor.js",
+      "note": "docs/obsidian/274-avatar-playtest.md"
+    },
+    {
+      "title": "Tile game renderer and simulation",
+      "source": "workspace-desktop/renderer/media-tile-play.js",
+      "note": "docs/obsidian/274-avatar-playtest.md"
+    },
+    {
+      "title": "Previous tile renderer",
+      "source": "workspace-desktop/renderer/media-tile-play-legacy.js",
+      "note": "docs/obsidian/274-avatar-playtest.md"
+    },
+    {
+      "title": "Offline player integration",
+      "source": "workspace-desktop/test/avatar-player-integration.cjs",
+      "note": "docs/obsidian/274-avatar-playtest.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The saved avatar at the start of the level inside the workspace",
+      "path": "docs/readmes/266/avatar-player.png"
+    },
+    {
+      "title": "The inspected walking tick after collecting the pickup",
+      "path": "docs/readmes/266/walk-replay.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Playable Avatar Relay HTML",
+      "path": "docs/readmes/266/avatar-relay.html"
+    },
+    {
+      "title": "Editable Avatar Relay level",
+      "path": "docs/readmes/266/avatar-relay.json"
+    },
+    {
+      "title": "Desktop, offline and restart evidence",
+      "path": "docs/readmes/266/avatar-player-evidence.json"
+    },
+    {
+      "title": "Idle tick image",
+      "path": "docs/readmes/266/idle-replay.png"
+    },
+    {
+      "title": "Implementation and reproduction",
+      "path": "docs/publication266/plan.md"
+    }
+  ]
+}

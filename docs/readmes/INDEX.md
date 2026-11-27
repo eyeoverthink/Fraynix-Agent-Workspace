@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 266 — Play a saved avatar in a portable tile level](../../README-266.md) · [Walkthrough](266/index.html)
+
 [Edition 265 — Make a talking avatar and game character from an image](../../README-265.md) · [Walkthrough](265/index.html)
 
 [Edition 264 — One workspace for chat, tools and results](../../README-264.md) · [Walkthrough](264/index.html)
