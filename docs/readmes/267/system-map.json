@@ -1,0 +1,79 @@
+{
+  "summary": "Turn a local portrait into a tested and portable level with one request.",
+  "modules": [
+    {
+      "title": "Java mission, course and evidence",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AvatarLevelMission.java",
+      "note": "docs/obsidian/275-image-to-playable-level.md"
+    },
+    {
+      "title": "Checked tile export",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java",
+      "note": "docs/obsidian/275-image-to-playable-level.md"
+    },
+    {
+      "title": "Desktop control and offline verifier",
+      "source": "workspace-desktop/avatar-level-run.cjs",
+      "note": "docs/obsidian/275-image-to-playable-level.md"
+    },
+    {
+      "title": "Workspace mission controls",
+      "source": "workspace-desktop/renderer/avatar-level-panel.mjs",
+      "note": "docs/obsidian/275-image-to-playable-level.md"
+    },
+    {
+      "title": "Chat integration",
+      "source": "workspace-desktop/renderer/app.js",
+      "note": "docs/obsidian/275-image-to-playable-level.md"
+    },
+    {
+      "title": "Portrait-to-level integration",
+      "source": "workspace-desktop/test/avatar-level-mission-integration.cjs",
+      "note": "docs/obsidian/275-image-to-playable-level.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "A saved request resumes when the portrait is imported",
+      "path": "docs/readmes/267/portrait-input.png"
+    },
+    {
+      "title": "The playtest found a two-jump route and passed the export checkpoint",
+      "path": "docs/readmes/267/verified-mission.png"
+    },
+    {
+      "title": "Studio Circuit opened as a playable level in Tile Workshop",
+      "path": "docs/readmes/267/level-in-workspace.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Playable Studio Circuit",
+      "path": "docs/readmes/267/studio-circuit-playable.html"
+    },
+    {
+      "title": "Editable Studio Circuit",
+      "path": "docs/readmes/267/studio-circuit-editable-level.json"
+    },
+    {
+      "title": "Studio Circuit recorded playtest",
+      "path": "docs/readmes/267/studio-circuit-playtest.json"
+    },
+    {
+      "title": "Studio Circuit verification receipt",
+      "path": "docs/readmes/267/studio-circuit-evidence.json"
+    },
+    {
+      "title": "Playable Quick Relay",
+      "path": "docs/readmes/267/quick-relay-playable.html"
+    },
+    {
+      "title": "Two-course test summary",
+      "path": "docs/readmes/267/mission-evidence.json"
+    },
+    {
+      "title": "Implementation and reproduction",
+      "path": "docs/publication267/plan.md"
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 267 — Build and verify an offline game level from chat](../../README-267.md) · [Walkthrough](267/index.html)
+
 [Edition 266 — Play a saved avatar in a portable tile level](../../README-266.md) · [Walkthrough](266/index.html)
 
 [Edition 265 — Make a talking avatar and game character from an image](../../README-265.md) · [Walkthrough](265/index.html)

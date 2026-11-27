@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 267 · Build and verify an offline game level from chat</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Build and verify an offline game level from chat</h1>
+<p>Open an exported game to play offline. Use the arrow keys to move and Space to jump in Studio Circuit.</p>
+<nav><a href="../../../README-267.md">App guide</a><a href="../266/index.html">Edition 266</a>
+<a href="../../publication267/plan.md">Reproduction</a><a href="studio-circuit-playable.html" download>Download playable level</a>
+<a href="studio-circuit-editable-level.json" download>Download editable level</a><a href="#system">System files</a></nav>
+<figure><img src="portrait-input.png" alt="A saved request resumes when the portrait is imported"><figcaption>A saved request resumes when the portrait is imported</figcaption></figure>
+<figure><img src="verified-mission.png" alt="The playtest found a two-jump route and passed the export checkpoint"><figcaption>The playtest found a two-jump route and passed the export checkpoint</figcaption></figure>
+<figure><img src="level-in-workspace.png" alt="Studio Circuit opened as a playable level in Tile Workshop"><figcaption>Studio Circuit opened as a playable level in Tile Workshop</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "Turn a local portrait into a tested and portable level with one request.",
+  "modules": [
+    {
+      "title": "Java mission, course and evidence",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/AvatarLevelMission.java",
+      "note": "docs/obsidian/275-image-to-playable-level.md"
+    },
+    {
+      "title": "Checked tile export",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java",
+      "note": "docs/obsidian/275-image-to-playable-level.md"
+    },
+    {
+      "title": "Desktop control and offline verifier",
+      "source": "workspace-desktop/avatar-level-run.cjs",
+      "note": "docs/obsidian/275-image-to-playable-level.md"
+    },
+    {
+      "title": "Workspace mission controls",
+      "source": "workspace-desktop/renderer/avatar-level-panel.mjs",
+      "note": "docs/obsidian/275-image-to-playable-level.md"
+    },
+    {
+      "title": "Chat integration",
+      "source": "workspace-desktop/renderer/app.js",
+      "note": "docs/obsidian/275-image-to-playable-level.md"
+    },
+    {
+      "title": "Portrait-to-level integration",
+      "source": "workspace-desktop/test/avatar-level-mission-integration.cjs",
+      "note": "docs/obsidian/275-image-to-playable-level.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "A saved request resumes when the portrait is imported",
+      "path": "docs/readmes/267/portrait-input.png"
+    },
+    {
+      "title": "The playtest found a two-jump route and passed the export checkpoint",
+      "path": "docs/readmes/267/verified-mission.png"
+    },
+    {
+      "title": "Studio Circuit opened as a playable level in Tile Workshop",
+      "path": "docs/readmes/267/level-in-workspace.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Playable Studio Circuit",
+      "path": "docs/readmes/267/studio-circuit-playable.html"
+    },
+    {
+      "title": "Editable Studio Circuit",
+      "path": "docs/readmes/267/studio-circuit-editable-level.json"
+    },
+    {
+      "title": "Studio Circuit recorded playtest",
+      "path": "docs/readmes/267/studio-circuit-playtest.json"
+    },
+    {
+      "title": "Studio Circuit verification receipt",
+      "path": "docs/readmes/267/studio-circuit-evidence.json"
+    },
+    {
+      "title": "Playable Quick Relay",
+      "path": "docs/readmes/267/quick-relay-playable.html"
+    },
+    {
+      "title": "Two-course test summary",
+      "path": "docs/readmes/267/mission-evidence.json"
+    },
+    {
+      "title": "Implementation and reproduction",
+      "path": "docs/publication267/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": "docs/obsidian/275-image-to-playable-level.canvas",
+    "bytes": 1132,
+    "sha256": "0f2f1e5d6ebb16825e9cb68ff9f3370c9a2454422aceba1c978d2e1703306f23",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/275-image-to-playable-level.md",
+    "bytes": 345,
+    "sha256": "cbd24223cf959f987ad1880b9c28b25cf9f56e96484afeeb44d1c3504506428f",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication267/plan.md",
+    "bytes": 2947,
+    "sha256": "fabae5e61212c4a2eea2abc83cde43abd35997009294626b25c7220389b08b82",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/avatar-level-run.cjs",
+    "bytes": 7163,
+    "sha256": "4cafdae52371548ad7f1f8452583746856e4ef1ca2e0673090a351f1816d8e57",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/main.cjs",
+    "bytes": 145305,
+    "sha256": "9f4a52061c0c280bb5cb53c947dbcef2eb4e7ace22142309920f6ed6832a5614",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/app.js",
+    "bytes": 64732,
+    "sha256": "5cb0f5b4be8b06f23abd3f2a4ce6f554cd22b2ebbc7a23d27bdb72855bcd1bd8",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/avatar-level-panel.mjs",
+    "bytes": 8540,
+    "sha256": "39a66f02a63aae95d2f13a0c72565553aeff7d283901b773cf00a0f2b04fbb53",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/workspace-capabilities.mjs",
+    "bytes": 13040,
+    "sha256": "61324b1abeef1dae029d962dde41801708d0f23dd9d897c33a9ecc549c400862",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/avatar-level-mission-integration.cjs",
+    "bytes": 11231,
+    "sha256": "ec53e255368bfde097f2341c5c6da93137471bca0e52e9b2f7ff7ef7040020a7",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/AvatarLevelMission.java",
+    "bytes": 16542,
+    "sha256": "d845ee1542f23a922109f6d40af44a45e91137cb3ff82d6b59e5a9982c6464ca",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/AvatarWorkshop.java",
+    "bytes": 19734,
+    "sha256": "6e86615db3404195faeb614f3e89a98506e0e04a6510c782078e12c35acc020f",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/SpriteWorkshop.java",
+    "bytes": 13852,
+    "sha256": "8a65f3d3b0ea1c0636954544d2e4a24ae94a3f710b3a96b0f4efc59e787cac2c",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/TileWorkshop.java",
+    "bytes": 29480,
+    "sha256": "6fc2d3ddef63a557cfe47aac184e4f2d00a466ab7f757428298091e16b56de78",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

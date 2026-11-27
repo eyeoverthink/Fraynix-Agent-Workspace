@@ -1,3 +1,7 @@
+## Edition 267 — Build and verify an offline game level from chat
+
+2026-11-27. A single plain-language request leads from a local portrait to an editable tile level and verified offline HTML. Java retains the source, request, draft, verification and exact exports through restart. The tested hurdle route collected three pickups, cleared two hurdles and scored 800 while walking alone stopped at the first hurdle. A separate walking relay accepted a different image. Changed source bytes refused export. See README-267.md and docs/publication267/plan.md.
+
 ## Edition 266 — Play a saved avatar in a portable tile level
 
 2026-11-27. A checked Avatar Studio character can become the playable character of a Tile Workshop level. Java validates frame geometry, transparency and matching avatar references. The existing physics replays exactly with the original and custom player. The tested level retained all four walk frames and scored 600 in the desktop, after restart and in isolated HTML. A frozen previous renderer preserves earlier evidence by identity. The avatar and SVG capture regressions now wait for real input readiness and viewport fit. See README-266.md and docs/publication266/plan.md.
