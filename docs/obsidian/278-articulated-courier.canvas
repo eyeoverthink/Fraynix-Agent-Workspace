@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "rig",
+      "type": "file",
+      "file": "README-270.md",
+      "x": 0,
+      "y": 0,
+      "width": 550,
+      "height": 355
+    },
+    {
+      "id": "design",
+      "type": "file",
+      "file": "docs/publication270/plan.md",
+      "x": 640,
+      "y": 0,
+      "width": 520,
+      "height": 355
+    },
+    {
+      "id": "evidence",
+      "type": "file",
+      "file": "docs/readmes/270/result.json",
+      "x": 0,
+      "y": 440,
+      "width": 550,
+      "height": 280
+    }
+  ],
+  "edges": [
+    {
+      "id": "rig-plan",
+      "fromNode": "rig",
+      "toNode": "design",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "rig-proof",
+      "fromNode": "rig",
+      "toNode": "evidence",
+      "fromSide": "bottom",
+      "toSide": "top"
+    }
+  ]
+}

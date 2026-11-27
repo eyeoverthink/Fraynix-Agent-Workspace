@@ -1,0 +1,70 @@
+{
+  "summary": "Create a local editable character, check its animation, and use it in a verified offline level.",
+  "modules": [
+    {
+      "title": "Local Blender scene and armature",
+      "source": "workspace-desktop/blender-character.py",
+      "note": "docs/obsidian/278-articulated-courier.md"
+    },
+    {
+      "title": "Saved rig and verified exports",
+      "source": "workspace-desktop/character-rigs.cjs",
+      "note": "docs/obsidian/278-articulated-courier.md"
+    },
+    {
+      "title": "Face, walk and jump in Avatar Studio",
+      "source": "workspace-desktop/renderer/character-rig-panel.mjs",
+      "note": "docs/obsidian/278-articulated-courier.md"
+    },
+    {
+      "title": "Frame validation and tile player",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CharacterFrames.java",
+      "note": "docs/obsidian/278-articulated-courier.md"
+    },
+    {
+      "title": "Desktop restart and offline playtest",
+      "source": "workspace-desktop/test/character-rig-integration.cjs",
+      "note": "docs/obsidian/278-articulated-courier.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Avatar Studio previewing a locally baked Courier",
+      "path": "docs/readmes/270/character-studio.png"
+    },
+    {
+      "title": "Courier Relay using the same character and a solid hurdle",
+      "path": "docs/readmes/270/courier-level.png"
+    },
+    {
+      "title": "Nine transparent poses from the editable Courier rig",
+      "path": "docs/readmes/270/courier-poses.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Playable Courier Relay",
+      "path": "docs/readmes/270/courier-relay.html"
+    },
+    {
+      "title": "Editable Blender project",
+      "path": "docs/readmes/270/courier.blend"
+    },
+    {
+      "title": "Transparent sprite sheet",
+      "path": "docs/readmes/270/courier-poses.png"
+    },
+    {
+      "title": "Measured contact and jump replay",
+      "path": "docs/readmes/270/courier-playtest.json"
+    },
+    {
+      "title": "Verification and measurements",
+      "path": "docs/readmes/270/result.json"
+    },
+    {
+      "title": "Independent review and reproduction",
+      "path": "docs/publication270/plan.md"
+    }
+  ]
+}

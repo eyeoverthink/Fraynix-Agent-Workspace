@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 270 · Make expressive Blender characters and play them offline</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Make expressive Blender characters and play them offline</h1>
+<p>Play Courier Relay with the arrow keys and Space. The editable rig and pose atlas let you build with the same character.</p>
+<nav><a href="../../../README-270.md">App guide</a><a href="../269/index.html">Edition 269</a>
+<a href="../../publication270/plan.md">Independent review and reproduction</a>
+<a href="courier-relay.html" download>Download playable level</a>
+<a href="courier.blend" download>Download Blender rig</a>
+<a href="courier-poses.png" download>Download pose sheet</a><a href="#system">System files</a></nav>
+<figure><img src="character-studio.png" alt="Avatar Studio previewing a locally baked Courier"><figcaption>Avatar Studio previewing a locally baked Courier</figcaption></figure>
+<figure><img src="courier-level.png" alt="Courier Relay using the same character and a solid hurdle"><figcaption>Courier Relay using the same character and a solid hurdle</figcaption></figure>
+<figure><img src="courier-poses.png" alt="Nine transparent poses from the editable Courier rig"><figcaption>Nine transparent poses from the editable Courier rig</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "Create a local editable character, check its animation, and use it in a verified offline level.",
+  "modules": [
+    {
+      "title": "Local Blender scene and armature",
+      "source": "workspace-desktop/blender-character.py",
+      "note": "docs/obsidian/278-articulated-courier.md"
+    },
+    {
+      "title": "Saved rig and verified exports",
+      "source": "workspace-desktop/character-rigs.cjs",
+      "note": "docs/obsidian/278-articulated-courier.md"
+    },
+    {
+      "title": "Face, walk and jump in Avatar Studio",
+      "source": "workspace-desktop/renderer/character-rig-panel.mjs",
+      "note": "docs/obsidian/278-articulated-courier.md"
+    },
+    {
+      "title": "Frame validation and tile player",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CharacterFrames.java",
+      "note": "docs/obsidian/278-articulated-courier.md"
+    },
+    {
+      "title": "Desktop restart and offline playtest",
+      "source": "workspace-desktop/test/character-rig-integration.cjs",
+      "note": "docs/obsidian/278-articulated-courier.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Avatar Studio previewing a locally baked Courier",
+      "path": "docs/readmes/270/character-studio.png"
+    },
+    {
+      "title": "Courier Relay using the same character and a solid hurdle",
+      "path": "docs/readmes/270/courier-level.png"
+    },
+    {
+      "title": "Nine transparent poses from the editable Courier rig",
+      "path": "docs/readmes/270/courier-poses.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Playable Courier Relay",
+      "path": "docs/readmes/270/courier-relay.html"
+    },
+    {
+      "title": "Editable Blender project",
+      "path": "docs/readmes/270/courier.blend"
+    },
+    {
+      "title": "Transparent sprite sheet",
+      "path": "docs/readmes/270/courier-poses.png"
+    },
+    {
+      "title": "Measured contact and jump replay",
+      "path": "docs/readmes/270/courier-playtest.json"
+    },
+    {
+      "title": "Verification and measurements",
+      "path": "docs/readmes/270/result.json"
+    },
+    {
+      "title": "Independent review and reproduction",
+      "path": "docs/publication270/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": "docs/obsidian/278-articulated-courier.canvas",
+    "bytes": 816,
+    "sha256": "a6e8a998425b6362dbfe2794659eb6b2b6f4923b39905fdb4a230285cf0f5b5d",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/278-articulated-courier.md",
+    "bytes": 330,
+    "sha256": "7bd307f242ceb33eede24ecde6f5f196a169e0c633b01bdb029ee1b0f22b942a",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication270/plan.md",
+    "bytes": 5338,
+    "sha256": "e9e9e92011f7619384ead4f7bcf5c3b29e9a5c9ff85c91d486aa54f9c179e84f",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/blender-character.py",
+    "bytes": 12066,
+    "sha256": "b607aeaa49432f9b623084f97561dd6db1e2895a5704b4248aa403ac44e19e16",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/character-rigs.cjs",
+    "bytes": 7336,
+    "sha256": "2263efd5c9fbab5a641441019371636777636091a087da26b0b453d467cb22e3",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/character-rig-panel.mjs",
+    "bytes": 7031,
+    "sha256": "99620fb4cd3c24b5bdc218363e1d1ce0dff9a29f8992e9f5dbbd50b011581d37",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/media-tile-play.js",
+    "bytes": 20253,
+    "sha256": "ceefde5c3587a92000b89013a84f84ae63c8627303f2792bb372942e8ba2d2fa",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/character-rig-integration.cjs",
+    "bytes": 13791,
+    "sha256": "aeb1709e7e1fa0ced40adb07a9dd754653fe05657069d129923c0a1b2d6def46",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/CharacterFrames.java",
+    "bytes": 4752,
+    "sha256": "8aaaf5b36944f5fdf9d4fe75d38293297e13db11a4e6d33842c35bb5234f17be",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

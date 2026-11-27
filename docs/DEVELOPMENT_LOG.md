@@ -1,3 +1,7 @@
+## Edition 270 — Make expressive Blender characters and play them offline
+
+2026-11-27. Avatar Studio and a bounded chat phrase bake Teal or Amber with the local Blender installation. Blender reopened the editable 13-bone rig and checked keyframes, blink and its separate kinematic box. Java checked nine transparent frames and the player atlases. Courier Relay recorded contact, a jump and a landing beyond a solid hurdle. Desktop and isolated HTML scored 600, the same HTML hash survived restart, and a changed frame refused. Prior avatar and traversal tests passed locally. The reviewer identified native Game Lab body reuse and versioned state-driven animation as the next measurable step. See README-270.md and docs/publication270/plan.md.
+
 ## Edition 269 — Add gaps and hazards and repair failed jumps
 
 2026-11-27. Chat can build genuine gaps and collision hazards. Java uses retained jump, fall and reset ticks to justify a narrower gap or smaller hazard, then verifies each far-bank landing and hazard clearance. The repaired course passed a keyboard playthrough offline and a fresh course crossed two gaps. Startup capture now compares the exact decoded reference for the observed idle phase. See README-269.md and docs/publication269/plan.md.

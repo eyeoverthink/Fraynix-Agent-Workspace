@@ -1,0 +1,87 @@
+{
+  "passed": true,
+  "platform": "win32",
+  "bakeMs": 5425,
+  "amberBakeMs": 4960,
+  "rig": {
+    "id": "da624b75f1f899836a20c0e474d5568a8c609f245c7afa1f2b4117d713b83736",
+    "format": "fraynix.character-rig-v1",
+    "name": "Teal Courier",
+    "palette": "teal",
+    "blendSha256": "e267db4d6b3cebd0190039c34f425f380edbfec8a110a383336e73a6b1e34042",
+    "inspection": {
+      "blenderVersion": "5.3.0",
+      "bones": 13,
+      "markers": {
+        "idle": 1,
+        "blink": 4,
+        "walk-1": 12,
+        "walk-2": 16,
+        "walk-3": 20,
+        "walk-4": 24,
+        "takeoff": 32,
+        "airborne": 38,
+        "landing": 44
+      },
+      "blinkWeights": [
+        0,
+        1
+      ],
+      "leftThighDegrees": [
+        24.92,
+        -31.08
+      ],
+      "kinematicBox": true
+    },
+    "frames": {
+      "idle": "e3e32d5e2f02fae68a57ebcabaa58a48f35362cc9cd0c6c2ff80195fde2d1108",
+      "blink": "be46ca9e6889fe5b549485b3f937e93c053f870c982a1b5da48f8f0704e0db44",
+      "walk-1": "eb6922ce9ccd30b71e25336f3485436edbc2135117d1524c777a25dba961a2d6",
+      "walk-2": "627de748657cc4fdcffdd9a960285ae90b9469528798b736a3cf9240f8154e7c",
+      "walk-3": "48cb595c2efd44b1e43806ec9beb740297bd9eb52a3ee8cc5a5076bddbf38b8e",
+      "walk-4": "7b9881f7f756d4d19bb7c3b1f5f90faf79e82ed49121bad1e812efe5fd089dd6",
+      "takeoff": "455590a2a1574fdc3f1af7e7f240c29c39da78157448aa9e06e3b3e2de4e88bd",
+      "airborne": "d7006df56bd49e286a2ebe506be9d9b54ed4bdafd6fe2c7a3057fc1a787ef6cb",
+      "landing": "b2612b6401cba8ebc34308a74f09a88181ccb4f5b8d6eeb5e2df3cfe8c0119b1"
+    }
+  },
+  "atlasSha256": "cdbd0c2c0ddae75bbac1ff4056eb39c7ae18410705686b2adaaa5f229602ecc1",
+  "level": {
+    "id": "c27cdb71daf8cda2ce3e7ec88a2e4ecb0961721c3d08f801dacb7a3c24c830ed",
+    "sha256": "d7116659e61ca21e6cf6624b36cdba65739115df6703dc039d30e59dd1acc3fd"
+  },
+  "traversal": {
+    "contactTick": 161,
+    "jumpTick": 162,
+    "farSideGroundedTick": 254
+  },
+  "desktop": {
+    "score": 600,
+    "collected": 1,
+    "frames": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  "portable": {
+    "score": 600,
+    "collected": 1,
+    "frames": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  "checks": [
+    "Blender readback",
+    "blink and jump preview",
+    "duplicate poses refused",
+    "rig reopened after desktop restart",
+    "changed frame refused",
+    "distinct Amber palette",
+    "exact standalone export after restart"
+  ]
+}

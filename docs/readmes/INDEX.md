@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 270 — Make expressive Blender characters and play them offline](../../README-270.md) · [Walkthrough](270/index.html)
+
 [Edition 269 — Add gaps and hazards and repair failed jumps](../../README-269.md) · [Walkthrough](269/index.html)
 
 [Edition 268 — Design varied levels and repair failed playtests](../../README-268.md) · [Walkthrough](268/index.html)
