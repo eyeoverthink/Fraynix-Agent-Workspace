@@ -1,0 +1,67 @@
+{
+  "summary": "Editable 3D overlays travel with the exact camera, approved route and verified videos.",
+  "modules": [
+    {
+      "title": "Bounded editable overlays",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RouteShotOverlays.java",
+      "note": "docs/obsidian/288-portable-route-shot.md"
+    },
+    {
+      "title": "Object attachment and depth renderer",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RouteShot.java",
+      "note": "docs/obsidian/288-portable-route-shot.md"
+    },
+    {
+      "title": "Portable shot package storage",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RouteShotStore.java",
+      "note": "docs/obsidian/288-portable-route-shot.md"
+    },
+    {
+      "title": "Independent approved-route replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleMission.java",
+      "note": "docs/obsidian/288-portable-route-shot.md"
+    },
+    {
+      "title": "Spatial overlay editor",
+      "source": "workspace-desktop/renderer/route-overlay-editor.mjs",
+      "note": "docs/obsidian/288-portable-route-shot.md"
+    },
+    {
+      "title": "Clean-recipient integration test",
+      "source": "workspace-desktop/test/route-shot-portable-integration.cjs",
+      "note": "docs/obsidian/288-portable-route-shot.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The amber case, object label, floor route and dispatch shelf",
+      "path": "docs/readmes/280/dispatch-visible.png"
+    },
+    {
+      "title": "The saved label and route settings in the Spatial editor",
+      "path": "docs/readmes/280/overlay-editor.png"
+    },
+    {
+      "title": "A verified frame where the shelf hides both overlays",
+      "path": "docs/readmes/280/dispatch-occluded.png"
+    },
+    {
+      "title": "The label returns in the clean recipient project after restart",
+      "path": "docs/readmes/280/recipient-replay.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Download the camera and frame audit",
+      "path": "docs/readmes/280/shot.json"
+    },
+    {
+      "title": "Download the transfer and restart results",
+      "path": "docs/readmes/280/result.json"
+    },
+    {
+      "title": "Design and reproduction",
+      "path": "docs/publication280/plan.md"
+    }
+  ]
+}

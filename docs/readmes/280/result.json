@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "platform": "win32",
+  "sourceScene": "Night dispatch bay · 96°",
+  "object": "flight-case",
+  "routeLegs": 11,
+  "aisleM": 1,
+  "protectedShelves": 2,
+  "portableShotId": "00970dc8b4a96fe5f85f1860eadd35d3c05d74ddbf9a8682eb0204ffa8355255",
+  "recipientRevisionId": "34d7478ade87655de542a8df1983ed38884cd5b5983e7b1368de6f9b42ef392e",
+  "frameCount": 144,
+  "hiddenByDispatchShelf": 79,
+  "beforeFrame": 22,
+  "coveredFrame": 75,
+  "returnedFrame": 120,
+  "packageBytes": 4316687,
+  "packageSha256": "39b292330d4f829a28b3405f13300fc082f30cf79a4e8b59d9b56f87ac16f344",
+  "takes": {
+    "clean": {
+      "sha256": "a6c9e218c52f101821aa957f8e1a536dd620406843d0d6358f3aae25da4b9270",
+      "bytes": 1535460
+    },
+    "annotated": {
+      "sha256": "cda7fa8e83518ea828e53b1158fd9eebc68c75c8f7c03297c417e8ce7e7ae52c",
+      "bytes": 1630408
+    }
+  },
+  "changedQuestionRefused": true,
+  "rehashedForeignMediaRefused": true,
+  "recipientRestart": true,
+  "recipientRevision": true,
+  "recipientWorldUntouched": true,
+  "disableBothMatchedClean": true,
+  "external": [
+    {
+      "take": "clean",
+      "r_frame_rate": "24/1",
+      "duration": "6.000000",
+      "nb_read_frames": "144"
+    },
+    {
+      "take": "annotated",
+      "r_frame_rate": "24/1",
+      "duration": "6.000000",
+      "nb_read_frames": "144"
+    }
+  ]
+}

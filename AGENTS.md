@@ -1,3 +1,7 @@
+## Edition 280 — Edit 3D overlays and verify a portable shot
+
+2026-11-27. The 96° Night dispatch bay filmed a separate 9.5 kg amber case over 11 approved legs. Java verified editable label coordinates and floor line. The dispatch shelf hid the label in 79 frames. The clean Windows recipient matched both 144-frame takes and the package after restart. A separate overlay revision, both-off control, changed crate choice and recomputed-hash media refusal passed. See [README-280](README-280.md) and [the implementation plan](docs/publication280/plan.md).
+
 ## Edition 279 — Film an approved 3D crate route
 
 2026-11-27. Spatial Chat builds two synchronized, six-second takes from an exact approved route. Java owns the editable camera and depth checks. The Windows test independently decoded all 144 frames of each take, measured 65 fully hidden label frames, rebuilt the exact video bytes after offline restart and verified a 12-frame Media Timeline cut. Editing a camera key made a distinct revision. Changed route or video bytes and unapproved use refused. See [README-279](README-279.md) and [the design and test plan](docs/publication279/plan.md).

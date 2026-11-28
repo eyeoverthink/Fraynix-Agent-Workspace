@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "review",
+      "type": "file",
+      "file": "README-280.md",
+      "x": 0,
+      "y": 0,
+      "width": 550,
+      "height": 360
+    },
+    {
+      "id": "design",
+      "type": "file",
+      "file": "docs/publication280/plan.md",
+      "x": 630,
+      "y": 0,
+      "width": 520,
+      "height": 360
+    },
+    {
+      "id": "map",
+      "type": "file",
+      "file": "docs/readmes/280/recipient-replay.png",
+      "x": 0,
+      "y": 430,
+      "width": 550,
+      "height": 365
+    }
+  ],
+  "edges": [
+    {
+      "id": "review-design",
+      "fromNode": "review",
+      "toNode": "design",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "review-map",
+      "fromNode": "review",
+      "toNode": "map",
+      "fromSide": "bottom",
+      "toSide": "top"
+    }
+  ]
+}
