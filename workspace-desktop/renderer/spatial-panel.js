@@ -490,15 +490,20 @@ export class SpatialPanel {
    const body = this.scene.objects.find(item => item.sourceId===shelf.sourceId);
    outline(body,body.position,0xb6a1f2);
   }
-  const arrowFrom = new THREE.Vector3(...review.fromM);
-  arrowFrom.y += crate.size[1]/2+.10;
-  const delta = new THREE.Vector3(...review.deltaM);
-  const arrow = new THREE.ArrowHelper(delta.clone().normalize(),arrowFrom,delta.length(),0xffbe65,.11,.09);
-  arrow.traverse(item => {
-   if (item.geometry) item.geometry=item.geometry.clone();
-   if (item.material) { item.material.depthTest=false; item.renderOrder=5; }
-  });
-  layer.add(arrow);
+  const points = review.route?.pointsM || [review.fromM,review.toM];
+  for (let i=1;i<points.length;i++) {
+   const from = new THREE.Vector3(...points[i-1]);
+   const delta = new THREE.Vector3(...points[i]).sub(from);
+   const length = delta.length();
+   from.y += crate.size[1]/2+.10;
+   const arrow = new THREE.ArrowHelper(delta.normalize(),from,length,0xffbe65,
+    Math.min(.11,length*.42),Math.min(.09,length*.3));
+   arrow.traverse(item => {
+    if (item.geometry) item.geometry=item.geometry.clone();
+    if (item.material) { item.material.depthTest=false; item.renderOrder=5; }
+   });
+   layer.add(arrow);
+  }
   this.world.add(layer);
   this.aisleLayer=layer;
  }

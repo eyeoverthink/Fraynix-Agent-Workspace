@@ -118,6 +118,7 @@ final class LoadingAisleIntent {
             var alt = saved.getJSONObject("alternate");
             plan = alternate(parent,plan,alt.getDouble("lateralM"),alt.getJSONObject("direct"));
         }
+        if (saved.has("route")) plan = LoadingAisleRoute.rebuild(plan,saved.getJSONObject("route"));
         return plan.put("preview",saved.getJSONObject("preview"));
     }
 
@@ -130,7 +131,7 @@ final class LoadingAisleIntent {
             return new Search(withPreview(parent,direct,nativeDir),null);
         } catch (LoadingAisle.Obstruction blocked) {
             var reason = blocked.evidence();
-            int considered = 0;
+            int considered = 0, routeEdgesChecked = 0;
             if (!blocked.gate.equals("initial-aisle")) {
                 var n = v(direct.getJSONArray("directionM"));
                 var entry = v(direct.getJSONObject("aisle").getJSONArray("entryM"));
@@ -146,10 +147,19 @@ final class LoadingAisleIntent {
                         }
                     }
                 }
+                var route = LoadingAisleRoute.search(parent,direct,reason,nativeDir);
+                routeEdgesChecked = route.edgesChecked();
+                if (route.plan()!=null) {
+                    try {
+                        return new Search(withPreview(parent,route.plan(),nativeDir),null);
+                    } catch (LoadingAisle.Obstruction blockedRoute) {
+                        reason = new JSONObject(reason.toString()).put("routeRefusal",blockedRoute.evidence());
+                    }
+                }
             }
             return new Search(null,state(parent,request,"blocked").put("objectId",objectId)
                     .put("crateLabel",direct.getString("crateLabel")).put("intent",intent).put("direct",reason)
-                    .put("alternatesConsidered",considered));
+                    .put("alternatesConsidered",considered).put("routeEdgesChecked",routeEdgesChecked));
         }
     }
 
@@ -162,12 +172,13 @@ final class LoadingAisleIntent {
         if (!plan.has("intent")) return;
         if (!measured.similar(plan.getJSONObject("preview")))
             throw new IllegalStateException("The fresh native measurement differs from the reviewed preview.");
-        if (plan.has("alternate")) {
+        var detour = plan.has("route") ? plan.optJSONObject("route") : plan.optJSONObject("alternate");
+        if (detour != null) {
             var direct = base(parent,plan.getString("objectId"),parse(plan.getString("request")),plan.getJSONObject("intent"));
             try {
                 withPreview(parent,direct,nativeDir);
             } catch (LoadingAisle.Obstruction obstruction) {
-                if (obstruction.evidence().similar(plan.getJSONObject("alternate").getJSONObject("direct"))) return;
+                if (obstruction.evidence().similar(detour.getJSONObject("direct"))) return;
                 throw new IllegalStateException("The obstacle that justified the alternate changed.");
             }
             throw new IllegalStateException("The original path now passes. Review the direct move.");
@@ -175,6 +186,7 @@ final class LoadingAisleIntent {
     }
 
     static JSONObject fixture(String variant) {
+        if (LoadingAisleRoute.isFixture(variant)) return LoadingAisleRoute.fixture(variant);
         int yaw = switch (variant) {
             case "crossdock" -> -29;
             case "quayside" -> 68;

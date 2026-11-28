@@ -212,9 +212,11 @@ final class LoadingAisle {
             throw new IllegalStateException("The move must match the reviewed 0.40 m forward and lateral offsets.");
         var aisle = review.getJSONObject("aisle");
         int bodiesChecked = 0;
+        JSONObject routeProof = null;
         try (var world = new SpatialPhysics(parent, nativeDir)) {
             bodiesChecked += verifyAisle(world, review, "initial-aisle");
-            verifyPath(world, parent, review);
+            if (review.has("route")) routeProof = LoadingAisleRoute.verify(world, review);
+            else verifyPath(world, parent, review);
         }
         try (var world = new SpatialPhysics(candidate, nativeDir)) {
             bodiesChecked += verifyAisle(world, review, "aisle");
@@ -247,6 +249,7 @@ final class LoadingAisle {
                     .put("candidateSourceSha256", candidate.getString("sourceSha256"));
             if (guided) result.put("forwardM",MOVE).put("lateralM",expectedLateral)
                     .put("aisleSweepClear",true).put("destinationClear",true);
+            if (routeProof != null) result.put("route",routeProof);
             return result;
         }
     }
@@ -256,11 +259,72 @@ final class LoadingAisle {
             var body = (JSONObject)raw;
             var other = world.bodies.get(body.getString("id"));
             if (other == crate || other == floor) continue;
-            boolean[] overlap = {false};
-            world.space.pairTest(crate,other,hit -> overlap[0] |= hit.getDistance1() < -.001f);
-            if (overlap[0])
+            if (penetrates(crate,other,world))
                 throw new Obstruction("destination","The crate overlaps " + body.getString("label") + " at its destination.");
         }
+    }
+
+    private static boolean penetrates(PhysicsRigidBody a, PhysicsRigidBody b, SpatialPhysics world) {
+        boolean[] overlap = {false};
+        world.space.pairTest(a,b,hit -> overlap[0] |= hit.getDistance1() < -.001f);
+        return overlap[0];
+    }
+
+    /** Native queries over an isolated, unstepped scene. Every segment uses the same upright crate collider. */
+    static final class RouteProbe implements AutoCloseable {
+        private final SpatialPhysics world;
+        private final JSONObject definition, floorDefinition;
+        private final double level;
+        private final PhysicsRigidBody crate, floor, aisle;
+        private final BoxCollisionShape shape;
+        private final Quaternion rotation;
+
+        RouteProbe(SpatialPhysics world, JSONObject review) {
+            this.world = world;
+            definition = find(world.scene,review.getString("crate"));
+            var area = review.getJSONObject("aisle");
+            level = area.getDouble("floorY");
+            floorDefinition = find(world.scene,area.getString("floor"));
+            crate = world.bodies.get(definition.getString("id"));
+            floor = world.bodies.get(floorDefinition.getString("id"));
+            var size = v(definition.getJSONArray("size"));
+            shape = new BoxCollisionShape((float)(size[0]/2),(float)(size[1]/2),(float)(size[2]/2));
+            rotation = crate.getPhysicsRotation();
+            aisle = aisleProbe(review);
+            world.space.addCollisionObject(aisle);
+        }
+
+        void check(double[] from, double[] to) {
+            requireCrateFloor(definition,floorDefinition,level,from);
+            requireCrateFloor(definition,floorDefinition,level,to);
+            var origin = crate.getPhysicsLocation();
+            try {
+                endpoint(from);
+                endpoint(to);
+            } finally {
+                crate.setPhysicsLocation(origin);
+            }
+            var hits = world.space.sweepTest(shape,new Transform(SpatialPhysics.vec(from),rotation),
+                    new Transform(SpatialPhysics.vec(to),rotation));
+            if (hits.stream().anyMatch(hit -> hit.getCollisionObject() == aisle))
+                throw new Obstruction("sweep-aisle","The crate would cross the 1 m aisle during the move.");
+            for (Object raw : world.scene.getJSONArray("objects")) {
+                var body = (JSONObject)raw;
+                var other = world.bodies.get(body.getString("id"));
+                if (other == crate || other == floor) continue;
+                if (hits.stream().anyMatch(hit -> hit.getCollisionObject() == other))
+                    throw new Obstruction("path","The crate path is blocked by " + body.getString("label") + ".");
+            }
+        }
+
+        private void endpoint(double[] point) {
+            crate.setPhysicsLocation(SpatialPhysics.vec(point));
+            if (penetrates(crate,aisle,world))
+                throw new Obstruction("sweep-aisle","The crate occupies the 1 m aisle at a waypoint.");
+            verifyLandingClear(world,crate,floor);
+        }
+
+        @Override public void close() { world.space.removeCollisionObject(aisle); }
     }
 
     private static PhysicsRigidBody aisleProbe(JSONObject review) {

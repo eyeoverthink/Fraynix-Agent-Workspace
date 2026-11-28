@@ -166,6 +166,14 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/loading-aisle-alternates-integration.cjs build/portable-smoke/loading-aisle-alternates
+      - name: Verify every segment of a loading-bay route after restart
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/loading-aisle-route-integration.cjs build/portable-smoke/loading-aisle-route
+      - name: Verify every loading-bay route segment on a Linux virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/loading-aisle-route-integration.cjs build/portable-smoke/loading-aisle-route
       - name: Verify the offline avatar in a virtual display
         if: runner.os == 'Linux'
         env:

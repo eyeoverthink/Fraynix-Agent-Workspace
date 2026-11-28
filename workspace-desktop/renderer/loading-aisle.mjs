@@ -2,7 +2,7 @@ export const isLoadingAisleRequest = text =>
     /^(?:please\s+)?(?:move|shift)\b/i.test(text.trim()) &&
     /\bcrate\b/i.test(text) && /\bloading\s+door\b/i.test(text);
 
-function drawFallback(canvas, scene, review) {
+function drawFallback(canvas, scene, review, focusRoute=false) {
     const ctx = canvas.getContext('2d');
     const floor = scene.objects.find(item => item.sourceId === review.aisle.floor);
     const footprint = (center, size, rotation) => {
@@ -13,9 +13,12 @@ function drawFallback(canvas, scene, review) {
             center[2] - s*x*size[0]/2 + c*z*size[2]/2]);
     };
     const floorPoints = footprint(floor.position, floor.size, floor.rotation);
-    const xs = floorPoints.map(point => point[0]), zs = floorPoints.map(point => point[1]);
-    const minX = Math.min(...xs), minZ = Math.min(...zs);
-    const width = Math.max(...xs)-minX, depth = Math.max(...zs)-minZ;
+    const path = review.route?.pointsM || [review.fromM,review.toM];
+    const bounds = focusRoute ? path.map(([x,,z]) => [x,z]) : floorPoints;
+    const padding = focusRoute ? .34 : 0;
+    const xs = bounds.map(point => point[0]), zs = bounds.map(point => point[1]);
+    const minX = Math.min(...xs)-padding, minZ = Math.min(...zs)-padding;
+    const width = Math.max(...xs)+padding-minX, depth = Math.max(...zs)+padding-minZ;
     const scale = Math.min((canvas.width-32)/width, (canvas.height-30)/depth);
     const project = ([x,z]) => [(canvas.width-width*scale)/2+(x-minX)*scale,
         (canvas.height-depth*scale)/2+(z-minZ)*scale];
@@ -46,17 +49,32 @@ function drawFallback(canvas, scene, review) {
     const crate = scene.objects.find(item => item.sourceId === review.crate);
     polygon(footprint(review.fromM,crate.size,crate.rotation), '#467d73');
     polygon(footprint(review.toM,crate.size,crate.rotation), '#eeb263');
-    const a = project([review.fromM[0],review.fromM[2]]);
-    const b = project([review.toM[0],review.toM[2]]);
+    const points = path.map(([x,,z]) => project([x,z]));
     ctx.beginPath();
-    ctx.moveTo(...a); ctx.lineTo(...b);
-    ctx.strokeStyle = '#f5e4c2'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.moveTo(...points[0]);
+    for (const point of points.slice(1)) ctx.lineTo(...point);
+    ctx.strokeStyle = '#ffbe65';
+    ctx.lineWidth = focusRoute ? 3 : 2;
+    ctx.stroke();
+    if (!focusRoute) return;
+    ctx.font = 'bold 10px system-ui';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    points.forEach(([x,y],index) => {
+        ctx.beginPath();
+        ctx.arc(x,y,7,0,2*Math.PI);
+        ctx.fillStyle = '#ffcf85';
+        ctx.fill();
+        ctx.fillStyle = '#142430';
+        ctx.fillText(String(index),x,y+.5);
+    });
 }
 
 const normalizeChoice = text => text.trim().toLowerCase().replace(/[.!?]+$/,'')
     .replace(/^(?:use|choose|pick|move)\s+/,'').replace(/^the\s+/,'').replace(/\s+/g,' ');
 
 function moveDescription(review) {
+    if (review.route) return '40 cm away from the door using ' + review.preview.route.segmentCount + ' verified segments';
     if (!review.alternate) return '40 cm away from the door';
     const offset = review.alternate.lateralM;
     return '40 cm farther into the bay and ' + Math.round(100*Math.abs(offset)) +
@@ -80,6 +98,9 @@ export class LoadingAislePanel {
                         <option value="quayside">Quayside · 68°</option>
                         <option value="closed">Closed bay · 121°</option>
                         <option value="pinched">Narrow bay · −73°</option>
+                        <option value="staggered-east">Staggered bay · −41°</option>
+                        <option value="staggered-west">Mirrored staggered bay · 83°</option>
+                        <option value="staggered-closed">Blocked crossover · −118°</option>
                     </select>
                 </label>
                 <button id="aisle-load">Load labelled bay</button>
@@ -92,6 +113,13 @@ export class LoadingAislePanel {
             <p id="aisle-status" class="spatial-note" role="status">Select a crate, then ask Chat to move it 40 cm away from the loading door.</p>
             <div id="aisle-choices" class="spatial-task" aria-label="Crate choices" hidden></div>
             <p id="aisle-legend" class="spatial-note" hidden>Amber · proposed translation. Teal · 1 m aisle. Violet · protected shelving.</p>
+            <div id="aisle-route-details" hidden>
+                <canvas id="aisle-route-map" width="380" height="170" role="img" aria-label="Numbered crate route from start to destination"></canvas>
+                <div class="aisle-steps">
+                    <strong id="aisle-route-length"></strong>
+                    <ol id="aisle-segments" aria-label="Checked route segments"></ol>
+                </div>
+            </div>
             <canvas id="aisle-plan" hidden width="480" height="236" role="img" aria-label="Top-down loading bay review"></canvas>`;
         stage.before(this.root);
         this.status = this.find('status');
@@ -194,9 +222,13 @@ export class LoadingAislePanel {
         } else if (record.status === 'verified') {
             const measured = record.proof.measurements;
             message = (record.replayed ? 'Offline replay matched' :
+                review.route ? 'Verified route · ' + review.preview.route.segmentCount + ' segments' :
                 review.alternate ? 'Verified alternate · ' + moveDescription(review) : 'Verified · 40 cm away from door') +
                 ' · 1.00 m aisle clear · ' + measured.shelvesPreserved + ' shelves unchanged · ' +
                 measured.crateSupportedTicks + ' supported ticks';
+        } else if (review.route) {
+            message = (restoring ? 'Restored route. ' : '') + review.route.direct.reason + ' Found a ' +
+                review.preview.route.segmentCount + '-segment route to the original 40 cm destination. Approve this exact route to apply it.';
         } else if (review.alternate) {
             message = (restoring ? 'Restored alternate. ' : '') + review.alternate.direct.reason + ' Safe alternate for ' +
                 review.crateLabel + ': ' + moveDescription(review) + '. Approve this exact path to apply it.';
@@ -208,7 +240,7 @@ export class LoadingAislePanel {
         }
         this.status.textContent = message;
         this.render();
-        if (announce) this.parent.announce(review && !review.alternate ?
+        if (announce) this.parent.announce(review && !review.alternate && !review.route ?
             'The 40 cm move is ready for review in Spatial. The teal overlay marks the one-metre aisle.' : message);
     }
 
@@ -229,6 +261,20 @@ export class LoadingAislePanel {
         for (const button of list.children) button.disabled = busy;
     }
 
+    renderRoute(scene,review) {
+        const route = review?.preview?.route;
+        this.find('route-details').hidden = !route;
+        if (!route) return;
+        drawFallback(this.find('route-map'),scene,review,true);
+        this.find('route-length').textContent = route.segmentCount + ' checked segments · ' + route.distanceM.toFixed(2) + ' m total';
+        this.find('segments').replaceChildren(...route.segments.map(segment => {
+            const item = document.createElement('li');
+            const distance = Math.round(segment.distanceM*100);
+            item.textContent = 'Point ' + (segment.number-1) + ' → ' + segment.number + ' · ' + distance + ' cm · clear';
+            return item;
+        }));
+    }
+
     render() { this.controls(this.parent.worldMode || this.parent.poseMode || this.parent.agentBusy); }
 
     controls(blocked) {
@@ -244,6 +290,7 @@ export class LoadingAislePanel {
             const canvas = this.find('plan');
             canvas.hidden = !active || Boolean(this.parent.renderer);
             if (!canvas.hidden) drawFallback(canvas,scene,active);
+            this.renderRoute(scene,active);
         }
         const busy = this.parent.busy || blocked;
         this.find('load').disabled = this.find('resume').disabled = busy;
@@ -254,7 +301,8 @@ export class LoadingAislePanel {
         this.renderChoices(available && record?.status === 'clarify' && record.parentId === scene?.id ? record : null,busy);
         this.find('approve').hidden = !matches || record.status === 'verified';
         this.find('approve').disabled = busy;
-        this.find('approve').textContent = active?.alternate ? 'Approve this alternate' : 'Approve exact move';
+        this.find('approve').textContent = active?.route ? 'Approve this route' :
+            active?.alternate ? 'Approve this alternate' : 'Approve exact move';
         this.find('replay').hidden = this.find('export').hidden = !matches || record.status !== 'verified';
         this.find('replay').disabled = this.find('export').disabled = busy;
     }

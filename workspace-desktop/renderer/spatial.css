@@ -248,3 +248,9 @@
 #aisle-plan[hidden], #aisle-choices[hidden] { display: none; }
 #aisle-choices button { color:#b5f0e5; border-color:#43776d; }
 #aisle-legend { color: #aedbd1; }
+
+#aisle-route-details { display:flex; gap:14px; flex-wrap:wrap; align-items:start; padding:4px 12px 8px; }
+#aisle-route-details[hidden] { display:none; }
+#aisle-route-map { width:min(100%,380px); height:auto; border-radius:6px; border:1px solid #385055; }
+.aisle-steps { min-width:180px; color:#c9e5de; line-height:1.6; }
+.aisle-steps ol { margin:4px 0; padding-left:1.6em; font-variant-numeric:tabular-nums; }
