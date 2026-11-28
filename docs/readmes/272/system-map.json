@@ -1,0 +1,70 @@
+{
+  "summary": "Observe crate motion, back off, and verify a native delivery remains on target after release.",
+  "modules": [
+    {
+      "title": "Native delivery controller",
+      "source": "src/main/java/runtime/CourierTarget.java",
+      "note": "docs/obsidian/280-courier-target.md"
+    },
+    {
+      "title": "Original body and test deck",
+      "source": "src/main/java/runtime/CourierCrateTrial.java",
+      "note": "docs/obsidian/280-courier-target.md"
+    },
+    {
+      "title": "Independent hold verification and replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CourierTargetEvidence.java",
+      "note": "docs/obsidian/280-courier-target.md"
+    },
+    {
+      "title": "Game Lab delivery controls",
+      "source": "workspace-desktop/renderer/courier-target.mjs",
+      "note": "docs/obsidian/280-courier-target.md"
+    },
+    {
+      "title": "Offline restart and parameter matrix",
+      "source": "workspace-desktop/test/courier-target-integration.cjs",
+      "note": "docs/obsidian/280-courier-target.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Game Lab after the Courier delivers the light crate to the right",
+      "path": "docs/readmes/272/courier-target-right.png"
+    },
+    {
+      "title": "A heavier crate delivered to the left with lower friction",
+      "path": "docs/readmes/272/courier-target-left.png"
+    },
+    {
+      "title": "Game Lab repeats the left delivery after an offline restart",
+      "path": "docs/readmes/272/courier-target-restart.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "All 58 delivery measurements",
+      "path": "docs/readmes/272/courier-target-matrix.json"
+    },
+    {
+      "title": "Full native trace for the right delivery",
+      "path": "docs/readmes/272/courier-target-right.json"
+    },
+    {
+      "title": "Full native trace for the left delivery",
+      "path": "docs/readmes/272/courier-target-left.json"
+    },
+    {
+      "title": "Restart and refusal report",
+      "path": "docs/readmes/272/result.json"
+    },
+    {
+      "title": "Compare both release and hold traces",
+      "path": "docs/readmes/272/courier-held-error.png"
+    },
+    {
+      "title": "Implementation and reproduction",
+      "path": "docs/publication272/plan.md"
+    }
+  ]
+}

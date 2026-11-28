@@ -1,3 +1,7 @@
+## Edition 272 — Deliver a crate and verify it stays on target
+
+2026-11-27. Game Lab drives the existing Courier player toward a signed crate target, brakes and backs away before a 60-tick neutral hold. The delivery fixture uses a continuous deck and the authored pillbox density. Windows passed 58 combinations in both directions, with 0.02457 worst held error, 0.00095 maximum drift and zero final speed. All receipts rechecked offline after restart. A new native process reproduced one delivery in each direction to the exact trace and PNG. Invalid mass, changed bytes and a rehashed out-of-band hold all refused. The edition 271 contact regression matched exactly. See README-272.md and docs/publication272/plan.md.
+
 ## Edition 271 — Prove the Courier pushes a crate after contact
 
 2026-11-27. The edition 270 Teal Courier atlas follows the original Game Lab dynamic player pillbox in a checked Relay Garden practice scene. A separate dynamic crate recorded zero pre-contact movement and zero displacement in the control. In the continued approach, contact and horizontal solver impulse occurred at tick 69 before that step's sampled crate motion. The crate moved 1.004 game units. Windows verified normal controls, reset, two exact fresh traces and the final image after offline restart, an unchanged export and tamper refusal. See README-271.md and docs/publication271/plan.md.

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 272 · Deliver a crate and verify it stays on target</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Deliver a crate and verify it stays on target</h1>
+<p>Open Game Lab and choose Courier target delivery. Set a direction, mass, friction and distance. Review the one-second hold or replay the saved delivery.</p>
+<nav><a href="../../../README-272.md">App guide</a><a href="../271/index.html">Edition 271</a>
+<a href="../../publication272/plan.md">Reproduction</a>
+<a href="courier-target-matrix.json" download>Download all 58 cases</a>
+<a href="result.json" download>Download restart result</a><a href="#system">System files</a></nav>
+<figure><img src="courier-target-right.png" alt="Game Lab after the Courier delivers the light crate to the right"><figcaption>Game Lab after the Courier delivers the light crate to the right</figcaption></figure>
+<figure><img src="courier-target-left.png" alt="A heavier crate delivered to the left with lower friction"><figcaption>A heavier crate delivered to the left with lower friction</figcaption></figure>
+<figure><img src="courier-target-restart.png" alt="Game Lab repeats the left delivery after an offline restart"><figcaption>Game Lab repeats the left delivery after an offline restart</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "Observe crate motion, back off, and verify a native delivery remains on target after release.",
+  "modules": [
+    {
+      "title": "Native delivery controller",
+      "source": "src/main/java/runtime/CourierTarget.java",
+      "note": "docs/obsidian/280-courier-target.md"
+    },
+    {
+      "title": "Original body and test deck",
+      "source": "src/main/java/runtime/CourierCrateTrial.java",
+      "note": "docs/obsidian/280-courier-target.md"
+    },
+    {
+      "title": "Independent hold verification and replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CourierTargetEvidence.java",
+      "note": "docs/obsidian/280-courier-target.md"
+    },
+    {
+      "title": "Game Lab delivery controls",
+      "source": "workspace-desktop/renderer/courier-target.mjs",
+      "note": "docs/obsidian/280-courier-target.md"
+    },
+    {
+      "title": "Offline restart and parameter matrix",
+      "source": "workspace-desktop/test/courier-target-integration.cjs",
+      "note": "docs/obsidian/280-courier-target.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Game Lab after the Courier delivers the light crate to the right",
+      "path": "docs/readmes/272/courier-target-right.png"
+    },
+    {
+      "title": "A heavier crate delivered to the left with lower friction",
+      "path": "docs/readmes/272/courier-target-left.png"
+    },
+    {
+      "title": "Game Lab repeats the left delivery after an offline restart",
+      "path": "docs/readmes/272/courier-target-restart.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "All 58 delivery measurements",
+      "path": "docs/readmes/272/courier-target-matrix.json"
+    },
+    {
+      "title": "Full native trace for the right delivery",
+      "path": "docs/readmes/272/courier-target-right.json"
+    },
+    {
+      "title": "Full native trace for the left delivery",
+      "path": "docs/readmes/272/courier-target-left.json"
+    },
+    {
+      "title": "Restart and refusal report",
+      "path": "docs/readmes/272/result.json"
+    },
+    {
+      "title": "Compare both release and hold traces",
+      "path": "docs/readmes/272/courier-held-error.png"
+    },
+    {
+      "title": "Implementation and reproduction",
+      "path": "docs/publication272/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": "docs/obsidian/280-courier-target.canvas",
+    "bytes": 848,
+    "sha256": "6007fd80e3bc887d04fe72dceffe63c376f26d15c2b2c3fc5d35406003056c6a",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/280-courier-target.md",
+    "bytes": 287,
+    "sha256": "960f906cba8105a2bc4d0eab5e143dc26b97353056d9cd3fff26c8f2942be52b",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication272/plan.md",
+    "bytes": 4001,
+    "sha256": "6266f407418d7e170579099fd0d9b5ec01afbe601139b30df2a3c02d27ac07c7",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "src/main/java/runtime/CourierCrateTrial.java",
+    "bytes": 14972,
+    "sha256": "911c93c6195d69d7ac2bec8259b340f51be0739cf216d3366da0cd29c04c3fbf",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "src/main/java/runtime/CourierTarget.java",
+    "bytes": 5279,
+    "sha256": "017a17af20b13abebb589dfc774adc929bce46081be344c23fa3f1f9e958be2a",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/courier-target.mjs",
+    "bytes": 4792,
+    "sha256": "d11d23a6a3c717679162be3e521f8621a3852df7da87aad8053ff731c9a32b63",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/courier-target-integration.cjs",
+    "bytes": 12095,
+    "sha256": "eb523512e2fb1fd36bfbc7fc851cbebf3e15b980ff3b255f723be2a1b923c80e",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/CourierTargetEvidence.java",
+    "bytes": 9638,
+    "sha256": "02b7e81ea4cf17c7e98ba603f27c4356c606c3c64bd53ede0635ea7d9f5aa64e",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/EmbeddedGameClient.java",
+    "bytes": 12468,
+    "sha256": "b870ea402c3ce333943a5346541c4dabb9d8f920c1e396578e688ffda81ab49f",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

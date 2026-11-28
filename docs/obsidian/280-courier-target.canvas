@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "delivery",
+      "type": "file",
+      "file": "README-272.md",
+      "x": 0,
+      "y": 0,
+      "width": 550,
+      "height": 355
+    },
+    {
+      "id": "checks",
+      "type": "file",
+      "file": "docs/publication272/plan.md",
+      "x": 640,
+      "y": 0,
+      "width": 520,
+      "height": 355
+    },
+    {
+      "id": "trace",
+      "type": "file",
+      "file": "docs/readmes/272/courier-held-error.png",
+      "x": 0,
+      "y": 440,
+      "width": 550,
+      "height": 280
+    }
+  ],
+  "edges": [
+    {
+      "id": "delivery-checks",
+      "fromNode": "delivery",
+      "toNode": "checks",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "delivery-trace",
+      "fromNode": "delivery",
+      "toNode": "trace",
+      "fromSide": "bottom",
+      "toSide": "top"
+    }
+  ]
+}
