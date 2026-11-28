@@ -1,3 +1,4 @@
+import {RouteShotPanel} from './route-shot.mjs';
 import {RecipientEditPanel} from './recipient-edit.js';
 import {RecipientMissionPanel} from './recipient-mission.js';
 import {PlacementExchangePanel} from './placement-exchange.js';
@@ -29,7 +30,7 @@ function visualGeometry(encoded){
 }
 
 export class SpatialPanel {
- constructor({call,pushCall,goalCall,notice,activate,goal,announce,layout}){
+ constructor({call,pushCall,goalCall,notice,activate,goal,announce,layout,openShotTimeline}){
   Object.assign(this,{call,pushCall,goalCall,notice,activate,goal,announce,layout});this.visible=false;this.meshes=new Map();this.trace=[];
   const section=document.createElement('section');section.id='spatial-view';section.hidden=true;
   section.innerHTML=`<div class="spatial-top"><div><strong>Spatial workspace</strong><small>Declared-scale boxes · native physics · persistent identities</small></div><button id="spatial-example">Load labelled test scene</button><label class="spatial-file">Import JSON<input id="spatial-file" type="file" accept=".json,application/json" aria-label="Import spatial scene JSON"></label><button id="spatial-import-blender">Import Blender</button></div>
@@ -119,6 +120,7 @@ export class SpatialPanel {
   $('placement-exchange').onclick=()=>this.action(()=>this.exchange.open());
   this.imageAssembly=new ImageAssemblyPanel(this);
   this.loadingAisle=new LoadingAislePanel(this,$('spatial-stage'));
+  this.routeShot=new RouteShotPanel(this,$('spatial-stage'),openShotTimeline);
   $('recipient-edit').onclick=()=>this.action(()=>this.recipient.open());
   $('recipient-mission').onclick=()=>this.action(()=>this.recipientMission.open());
   $('placement-resume').onclick=()=>this.action(()=>this.placement.openLatest());
@@ -328,6 +330,7 @@ export class SpatialPanel {
   const editingBlocked=this.worldMode||this.poseMode||this.evaluationBusy||this.agentBusy||moving;
   this.imageAssembly?.controls(editingBlocked);
   this.loadingAisle?.controls(editingBlocked);
+  this.routeShot?.controls(editingBlocked);
   const recipient=Boolean(this.scene?.recipientBranch)&&!this.worldMode;
   $('recipient-edit').hidden=!recipient;
   $('recipient-edit').disabled=this.busy||editingBlocked;

@@ -1075,7 +1075,7 @@ ipcMain.handle('workspace:request',async(event,input)=>{
     case 'timeline': {
       const args=input.args||{};
       const command=input.command;
-      if (['assets','import','attach','render','latest','open','frame'].includes(command)) {
+      if (['assets','import','attach','attach-shot','render','latest','open','frame'].includes(command)) {
         const result=await api('/api/timeline/'+command,args);
         if (command==='render') activity('media','Verified a timeline revision',{id:result.id,frames:result.metrics.frames});
         return result;
@@ -1218,6 +1218,15 @@ ipcMain.handle('workspace:request',async(event,input)=>{
       if(input.command==='aisle-review'){
         if(!currentSpatial)throw Error('Select the intended dynamic crate in Spatial first.');
         return api('/api/spatial/aisle-review',{request:input.args.request,...currentSpatial});
+      }
+      if(['shot-build','shot-latest','shot-open','shot-frame','shot-playback','shot-replay'].includes(input.command))
+        return api('/api/spatial/'+input.command,input.args||{});
+      if(input.command==='shot-export') {
+        const {id,take}=input.args||{};
+        if(!['clean','annotated','json'].includes(take))throw Error('Choose a supported route-shot export.');
+        const data=await api('/api/spatial/shot-export',{id,take});
+        return nativeExports.save('verified-route-shot-'+take,take==='json'?'json':'avi',
+          Buffer.from(data.base64,'base64'),data.source,data.sha256);
       }
       if(input.command==='aisle-export'){
         const data=await api('/api/spatial/aisle-export',input.args||{});

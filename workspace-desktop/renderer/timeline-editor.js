@@ -164,6 +164,15 @@ export class TimelinePanel {
         });
     }
 
+    attachShot(id) {
+        return this.run(async()=>{
+            const result=await this.call('attach-shot',{id});
+            await this.reloadAssets();
+            this.asset.value=result.assets[1].id;
+            this.tell('Added both verified loading-bay takes. Choose a source and insert it on the picture lane.');
+        });
+    }
+
     async reloadAssets() {
         const previous=this.asset.value;
         this.assets=(await this.call('assets')).assets;

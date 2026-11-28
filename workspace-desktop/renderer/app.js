@@ -40,6 +40,7 @@ import {isMotionMediaRequest, MotionMediaPanel} from './motion-media.js';
 import {TimelinePanel} from './timeline-editor.js';
 import {isPlacementRequest} from './spatial-placement.js';
 import {isRecipientApproachRequest} from './recipient-edit.js';
+import {isRouteShotRequest} from './route-shot.mjs';
 import {isLoadingAisleRequest} from './loading-aisle.mjs';
 import {SpatialPanel,isSpatialPropRequest} from './spatial-panel.js';
 import {isSpatialCarryRequest} from './spatial-carry.js';
@@ -148,7 +149,12 @@ $('media-motion-mode').onclick=()=>showMedia('motion');
 $('media-timeline-mode').onclick=()=>showMedia('timeline');
 $('media-avatar-mode').onclick=()=>safe(()=>openWorkspaceCapability('avatar-studio'));
 $('media-tab').onclick=()=>setCanvasMode('media');
-const spatial=new SpatialPanel({call:(command,args={})=>request('spatial',{command,args}),pushCall:(command,args={})=>request('push',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g),announce:text=>message(text),layout:updateLayout});
+const spatial=new SpatialPanel({call:(command,args={})=>request('spatial',{command,args}),pushCall:(command,args={})=>request('push',{command,args}),goalCall:(command,args={})=>request('javaGoal',{command,args}),notice,activate:setCanvasMode,goal:g=>goalsPanel.accept(g),announce:text=>message(text),layout:updateLayout,
+ openShotTimeline:async id=>{
+  showMedia('timeline');
+  await timelineEditor.pending;
+  await timelineEditor.attachShot(id);
+ }});
 const environment=new EnvironmentPanel({request,activate:setCanvasMode});
 window.environmentEvidence=options=>environment.measure(options);
 const workshop050=new Workshop050({call:(command,args={})=>request('workshop050',{command,args}),goal:g=>goalsPanel.accept(g),requireSaved});
@@ -672,6 +678,7 @@ async function submitWorkspaceChat() {
   return;
  }
  const selectedModel=state?.models.some(m=>m.name===$('model').value)?$('model').value:'';
+ if(isRouteShotRequest(goal)){await spatial.routeShot.fromChat();return;}
  if(isLoadingAisleRequest(goal)){await spatial.loadingAisle.fromChat(goal);return;}
  if(await spatial.loadingAisle.answerFromChat(goal))return;
  if(isRecipientApproachRequest(goal)&&!selectedModel&&!colliderQuestion){await spatial.action(()=>spatial.recipient.compareFromChat(goal));return;}

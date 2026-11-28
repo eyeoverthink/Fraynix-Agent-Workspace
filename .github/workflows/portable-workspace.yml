@@ -182,6 +182,14 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/loading-aisle-resolution-integration.cjs build/portable-smoke/loading-aisle-resolution
+      - name: Render and verify an offline shot from an approved route
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/route-shot-integration.cjs build/portable-smoke/route-shot
+      - name: Render and verify an offline route shot on a Linux virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/route-shot-integration.cjs build/portable-smoke/route-shot
       - name: Verify the offline avatar in a virtual display
         if: runner.os == 'Linux'
         env:

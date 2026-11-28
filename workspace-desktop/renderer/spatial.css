@@ -254,3 +254,14 @@
 #aisle-route-map { width:min(100%,380px); height:auto; border-radius:6px; border:1px solid #385055; }
 .aisle-steps { min-width:180px; color:#c9e5de; line-height:1.6; }
 .aisle-steps ol { margin:4px 0; padding-left:1.6em; font-variant-numeric:tabular-nums; }
+
+#route-shot-panel { min-width:0; margin:4px 0 9px; }
+#route-shot-panel > summary { color:#c8e5eb; padding-block:6px; }
+.route-shot-viewport { margin:6px 12px 10px; max-width:640px; background:#182333; border:1px solid #385055; border-radius:8px; overflow:hidden; }
+.route-shot-viewport img { display:block; width:100%; height:auto; aspect-ratio:16/9; }
+#shot-time { margin-block:auto 6px; color:#c8e5eb; font-variant-numeric:tabular-nums; }
+#shot-scrub { width:128px; padding-inline:0; }
+.route-shot-table { padding:0 12px 8px; overflow-x:auto; }
+.route-shot-table table { border-spacing:5px; text-align:left; white-space:nowrap; }
+.route-shot-table input { width:70px; padding:5px; font-size:11px; }
+.route-shot-table input[readonly] { opacity:.7; }

@@ -27,12 +27,14 @@ final class MediaEditStore {
     private static final int MAX_SOURCE=6_000_000, MAX_OUTPUT=16_000_000;
     private final Path root, bank, edits;
     private final MotionMedia generated;
+    private final RouteShotStore routeShots;
 
-    MediaEditStore(Path project,MotionMedia generated) {
+    MediaEditStore(Path project,MotionMedia generated,RouteShotStore routeShots) {
         root=project.resolve("timeline");
         bank=root.resolve("assets");
         edits=root.resolve("edits");
         this.generated=generated;
+        this.routeShots=routeShots;
     }
 
     synchronized JSONObject importAsset(JSONObject input) throws Exception {
@@ -61,6 +63,19 @@ final class MediaEditStore {
                     type,bytes,origin));
         }
         return new JSONObject().put("assets",items).put("recipeId",pinned);
+    }
+
+    synchronized JSONObject attachRouteShot(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"id");
+        String id = input.getString("id");
+        var items = new JSONArray();
+        for (String take : List.of("clean","annotated")) {
+            var export = routeShots.export(id,take);
+            var origin = new JSONObject().put("type","route-shot").put("nativeSource",export.getJSONObject("source"));
+            byte[] bytes = SpriteWorkshop.decode(export.getString("base64"),MAX_OUTPUT);
+            items.put(retainAsset("Loading-bay shot · "+take,"avi",bytes,origin));
+        }
+        return new JSONObject().put("assets",items).put("shotId",id);
     }
 
     private JSONObject retainAsset(String name,String type,byte[] bytes,JSONObject origin) throws Exception {
@@ -250,7 +265,10 @@ final class MediaEditStore {
         try {
             if (origin.getString("type").equals("imported"))
                 return SpriteWorkshop.read(path(bank,record.getString("id"),"source"),MAX_SOURCE,hash);
-            var export=generated.export(new JSONObject().put("id",origin.getString("recipeId")).put("format",source.getString("format")));
+            JSONObject nativeSource = origin.getJSONObject("nativeSource");
+            var export = origin.getString("type").equals("route-shot")
+                    ? routeShots.export(nativeSource.getString("shotId"),nativeSource.getString("take"))
+                    : generated.export(new JSONObject().put("id",origin.getString("recipeId")).put("format",source.getString("format")));
             var bytes=SpriteWorkshop.decode(export.getString("base64"),MAX_OUTPUT);
             if (!MapDefinition.sha(bytes).equals(hash) || !export.getJSONObject("source").similar(origin.getJSONObject("nativeSource")))
                 throw new IOException("Generated media differs from its bound native evidence.");
