@@ -9,17 +9,19 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Base64;
-import java.util.HexFormat;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
+
+import static fraymus.workspace.MapDefinition.sha;
 
 /** Persists editorial shots and binds both video takes to one approved route and camera track. */
 final class RouteShotStore {
     private static final int MAX_VIDEO = 16_000_000;
+    private static final int MAX_BUNDLE = 10_000_000;
+    private static final String BUNDLE_FORMAT = "fraynix.route-shot-bundle-v1";
     private static final Set<String> TAKES = Set.of("clean","annotated");
     private final Path root;
     private final SpatialStore scenes;
@@ -38,31 +40,46 @@ final class RouteShotStore {
     }
 
     synchronized JSONObject build(JSONObject input) throws Exception {
-        SpatialScene.keys(input,"routeId","cameraKeys");
+        SpatialScene.keys(input,"routeId","cameraKeys","overlays");
         String routeId = input.getString("routeId");
-        JSONObject bound = approved(routeId,false);
-        JSONObject review = bound.getJSONObject("review");
+        var bound = source(routeId,false);
+        JSONObject review = bound.mission().getJSONObject("review");
         JSONArray keys = input.has("cameraKeys")?input.getJSONArray("cameraKeys"):RouteShot.defaultKeys(review);
-        var definition = definition(bound,keys);
+        var definition = definition(bound.mission(),keys,readOverlays(input));
         String id = WorldFrames.hash(definition);
-        JSONObject record = Files.exists(file(id,"shot"))?open(id):create(id,definition,bound);
-        AgentFiles042.saveChecked(root.resolve("latest.json"),new JSONObject().put("id",id));
+        JSONObject record = Files.exists(file(id,"shot"))?open(id):create(id,definition);
+        remember(id);
         return record;
     }
 
-    private JSONObject create(String id,JSONObject definition,JSONObject bound) throws Exception {
-        approved(definition.getString("routeId"),true);
-        ShotOutput output = render(renderer(definition,bound));
-        byte[] clean = output.clean;
-        byte[] annotated = output.annotated;
+    private JSONObject create(String id,JSONObject definition) throws Exception {
+        var bound = source(definition.getString("routeId"),true);
+        var output = render(renderer(definition,bound));
+        retain(record(id,definition,output),output.clean,output.annotated);
+        return open(id);
+    }
+
+    private void remember(String id) throws IOException {
+        AgentFiles042.saveChecked(root.resolve("latest.json"),new JSONObject().put("id",id));
+    }
+
+    private static JSONObject record(String id,JSONObject definition,ShotOutput output) {
+        return new JSONObject().put("id",id).put("definition",definition).put("audit",output.audit)
+                .put("takes",new JSONObject().put("clean",receipt(output.clean)).put("annotated",receipt(output.annotated)));
+    }
+
+    private void retain(JSONObject record,byte[] clean,byte[] annotated) throws Exception {
+        String id = record.getString("id");
+
         if (clean.length>MAX_VIDEO || annotated.length>MAX_VIDEO)
             throw new IOException("Route-shot video exceeds its bounded output size.");
-        var record = new JSONObject().put("id",id).put("definition",definition).put("audit",output.audit)
-                .put("takes",new JSONObject().put("clean",receipt(clean)).put("annotated",receipt(annotated)));
+        if (Files.exists(file(id,"shot"))) {
+            if (!open(id).similar(record)) throw new IllegalStateException("The existing shot differs from this package.");
+            return;
+        }
         SpriteWorkshop.replace(file(id,"clean"),clean);
         SpriteWorkshop.replace(file(id,"annotated"),annotated);
         AgentFiles042.saveChecked(file(id,"shot"),record);
-        return open(id);
     }
 
     private record ShotOutput(byte[] clean,byte[] annotated,JSONObject audit) {}
@@ -112,9 +129,19 @@ final class RouteShotStore {
         return movie;
     }
 
-    private JSONObject approved(String id,boolean replay) throws Exception {
-        file(id,"shot");
-        JSONObject record = replay?routes.replay(scenes,id):routes.read(scenes,id);
+    private LoadingAisleMission.ShotSource source(String id,boolean replay) throws Exception {
+        if (!routes.hasReview(id) && Files.exists(file(id,"portable"))) {
+            var retained = routes.checkShotSource(AgentFiles042.loadChecked(file(id,"portable")),replay);
+            checkRoute(retained.mission());
+            return retained;
+        }
+        var record = replay?routes.replay(scenes,id):routes.read(scenes,id);
+        record.remove("replayed");
+        checkRoute(record);
+        return new LoadingAisleMission.ShotSource(scenes.read(record.getJSONObject("review").getString("parentId")),record);
+    }
+
+    private static void checkRoute(JSONObject record) {
         if (!"verified".equals(record.optString("status")) || !record.getJSONObject("review").has("route"))
             throw new IllegalArgumentException("Approve and verify a multi-segment loading-bay route first.");
         var review = record.getJSONObject("review");
@@ -128,32 +155,46 @@ final class RouteShotStore {
                     || !leg.getBoolean("sweptPathClear") || !leg.getBoolean("endpointsClear") || !leg.getBoolean("aisleClear"))
                 throw new IllegalStateException("An approved route leg lacks its verified clearance.");
         }
-        record.remove("replayed");
-        return record;
     }
 
-    private static JSONObject definition(JSONObject bound,JSONArray keys) {
+    private static RouteShotOverlays readOverlays(JSONObject value) {
+        return value.has("overlays")?RouteShotOverlays.parse(value.getJSONObject("overlays")):null;
+    }
+
+    private static JSONObject definition(JSONObject bound,JSONArray keys,RouteShotOverlays overlays) {
         RouteShot.readKeys(keys);
         var review = bound.getJSONObject("review");
-        return new JSONObject().put("format",RouteShot.FORMAT).put("motion","planned-route")
+        var definition = new JSONObject().put("format",overlays==null?RouteShot.FORMAT:RouteShot.EDITABLE_FORMAT).put("motion","planned-route")
                 .put("routeId",bound.getString("id")).put("routeEvidenceSha256",WorldFrames.hash(bound))
                 .put("sceneId",review.getString("parentId")).put("sceneSha256",review.getString("parentSha256"))
                 .put("crate",review.getString("crate")).put("pathM",review.getJSONObject("route").getJSONArray("pointsM"))
                 .put("cameraKeys",keys).put("fps",RouteShot.FPS).put("frameCount",RouteShot.FRAMES)
                 .put("width",RouteShot.WIDTH).put("height",RouteShot.HEIGHT);
+        if (overlays!=null) definition.put("overlays",overlays.json());
+        return definition;
     }
 
-    private RouteShot renderer(JSONObject definition,JSONObject bound) throws Exception {
-        return new RouteShot(scenes.read(definition.getString("sceneId")),bound.getJSONObject("review"),
-                definition.getJSONArray("cameraKeys"));
+    private static RouteShot renderer(JSONObject definition,LoadingAisleMission.ShotSource bound) {
+        return new RouteShot(bound.parent(),bound.mission().getJSONObject("review"),
+                definition.getJSONArray("cameraKeys"),readOverlays(definition));
+    }
+
+    synchronized JSONObject overlayDefaults(String id) throws Exception {
+        var record = read(id);
+        var bound = source(record.getJSONObject("definition").getString("routeId"),false);
+        return RouteShotOverlays.defaults(bound.parent(),bound.mission().getJSONObject("review"));
+    }
+
+    private static void checkIdentity(String id,JSONObject record,LoadingAisleMission.ShotSource bound) {
+        var definition = record.getJSONObject("definition");
+        if (!id.equals(record.getString("id")) || !id.equals(WorldFrames.hash(definition)) ||
+                !definition.similar(definition(bound.mission(),definition.getJSONArray("cameraKeys"),readOverlays(definition))))
+            throw new IllegalStateException("The source scene, route or shot definition changed.");
     }
 
     private JSONObject read(String id) throws Exception {
         JSONObject record = AgentFiles042.loadChecked(file(id,"shot"));
-        JSONObject definition = record.getJSONObject("definition");
-        if (!id.equals(record.getString("id")) || !id.equals(WorldFrames.hash(definition))
-                || !definition.similar(definition(approved(definition.getString("routeId"),false),definition.getJSONArray("cameraKeys"))))
-            throw new IllegalStateException("The source scene, route or shot definition changed.");
+        checkIdentity(id,record,source(record.getJSONObject("definition").getString("routeId"),false));
         return record;
     }
 
@@ -204,21 +245,91 @@ final class RouteShotStore {
     synchronized JSONObject replay(String id) throws Exception {
         var retained = open(id);
         var definition = retained.getJSONObject("definition");
-        var bound = approved(definition.getString("routeId"),true);
+        var bound = source(definition.getString("routeId"),true);
         var fresh = render(renderer(definition,bound));
-        if (!fresh.audit.similar(retained.getJSONObject("audit")) ||
-                !receipt(fresh.clean).similar(retained.getJSONObject("takes").getJSONObject("clean")) ||
-                !receipt(fresh.annotated).similar(retained.getJSONObject("takes").getJSONObject("annotated")))
+        if (!record(id,definition,fresh).similar(retained))
             throw new IllegalStateException("Reconstructed frames differ from the saved takes.");
         return retained.put("replayed",true);
     }
 
     synchronized JSONObject export(String id,String take) throws Exception {
         var record = open(id);
-        byte[] output = take.equals("json")?(MapCheckpoint.canonical(record)+"\n").getBytes(StandardCharsets.UTF_8):bytes(record,take);
+        byte[] output = switch (take) {
+            case "json" -> jsonBytes(record);
+            case "bundle" -> pack(record);
+            default -> bytes(record,take);
+        };
         return new JSONObject().put("base64",Base64.getEncoder().encodeToString(output)).put("sha256",sha(output))
                 .put("source",new JSONObject().put("shotId",id).put("take",take)
                         .put("routeEvidenceSha256",record.getJSONObject("definition").getString("routeEvidenceSha256")));
+    }
+
+    private byte[] pack(JSONObject record) throws Exception {
+        var definition = record.getJSONObject("definition");
+        if (!RouteShot.EDITABLE_FORMAT.equals(definition.getString("format")))
+            throw new IllegalArgumentException("Save an overlay revision before exporting a portable shot.");
+        String routeId = definition.getString("routeId");
+        var source = routes.hasReview(routeId)?routes.packShotSource(scenes,routeId):
+                AgentFiles042.loadChecked(file(routeId,"portable"));
+        var clips = new JSONObject();
+        for (String take : TAKES) clips.put(take,Base64.getEncoder().encodeToString(bytes(record,take)));
+        byte[] result = jsonBytes(new JSONObject().put("format",BUNDLE_FORMAT).put("shot",record).put("route",source).put("video",clips));
+        if (result.length>MAX_BUNDLE) throw new IOException("The portable shot exceeds 10 MB.");
+        return result;
+    }
+
+    synchronized JSONObject importBundle(JSONObject input) throws Exception {
+        SpatialScene.keys(input,"bundle");
+        var bundle = input.getJSONObject("bundle");
+        SpatialScene.keys(bundle,"format","shot","route","video");
+        if (!BUNDLE_FORMAT.equals(bundle.getString("format"))) throw new IllegalArgumentException("Unsupported shot package.");
+        var record = bundle.getJSONObject("shot");
+        String id = record.getString("id");
+        file(id,"shot");
+        var definition = record.getJSONObject("definition");
+        if (!RouteShot.EDITABLE_FORMAT.equals(definition.getString("format")))
+            throw new IllegalArgumentException("The package must carry editable overlays.");
+        var route = bundle.getJSONObject("route");
+        var bound = routes.checkShotSource(route,false);
+        checkRoute(bound.mission());
+        checkIdentity(id,record,bound);
+        var videos = bundle.getJSONObject("video");
+        SpatialScene.keys(videos,"clean","annotated");
+        byte[] clean = packedClip(videos,record,"clean");
+        byte[] annotated = packedClip(videos,record,"annotated");
+        var verified = routes.checkShotSource(route,true);
+        var fresh = render(renderer(definition,verified));
+        if (!record(id,definition,fresh).similar(record) ||
+                !Arrays.equals(clean,fresh.clean) || !Arrays.equals(annotated,fresh.annotated))
+            throw new IllegalStateException("The portable shot disagrees with freshly rendered frames.");
+        String routeId = definition.getString("routeId");
+        if (routes.hasReview(routeId)) {
+            if (!routes.packShotSource(scenes,routeId).similar(route))
+                throw new IllegalStateException("The package conflicts with the existing local route.");
+        } else {
+            var path = file(routeId,"portable");
+            if (Files.exists(path)) {
+                if (!AgentFiles042.loadChecked(path).similar(route))
+                    throw new IllegalStateException("The existing imported route has different evidence.");
+            } else {
+                AgentFiles042.saveChecked(path,route);
+            }
+        }
+        retain(record,clean,annotated);
+        var opened = open(id);
+        remember(id);
+        return opened;
+    }
+
+    private static byte[] packedClip(JSONObject videos,JSONObject record,String take) throws IOException {
+        byte[] bytes = SpriteWorkshop.decode(videos.getString(take),MAX_BUNDLE);
+        if (!receipt(bytes).similar(record.getJSONObject("takes").getJSONObject(take)))
+            throw new IllegalStateException("The bundled "+take+" video differs from its receipt.");
+        return bytes;
+    }
+
+    private static byte[] jsonBytes(JSONObject value) {
+        return (MapCheckpoint.canonical(value)+"\n").getBytes(StandardCharsets.UTF_8);
     }
 
     private byte[] bytes(JSONObject record,String take) throws IOException {
@@ -235,11 +346,4 @@ final class RouteShotStore {
         return new JSONObject().put("sha256",sha(bytes)).put("bytes",bytes.length);
     }
 
-    private static String sha(byte[] bytes) {
-        try {
-            return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(bytes));
-        } catch (NoSuchAlgorithmException impossible) {
-            throw new IllegalStateException(impossible);
-        }
-    }
 }

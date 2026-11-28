@@ -24,6 +24,7 @@ final class RouteShot {
     static final int FPS = MotionMediaContainers.FPS;
     static final int FRAMES = FPS * 6;
     static final String FORMAT = "fraynix.loading-route-shot-v1";
+    static final String EDITABLE_FORMAT = "fraynix.loading-route-shot-v2";
     private static final double NEAR = .05;
     private static final double[] UP = {0,1,0};
     private static final int[][] FACES = {
@@ -62,23 +63,26 @@ final class RouteShot {
     private final double[] distance;
     private final List<Key> keys;
     private final BufferedImage label;
+    private final JSONArray crateRotation;
+    private final RouteShotOverlays overlays;
 
-    RouteShot(JSONObject scene, JSONObject review, JSONArray cameraKeys) {
+    RouteShot(JSONObject scene, JSONObject review, JSONArray cameraKeys,RouteShotOverlays overlays) {
         if (scene.has("visualMeshes"))
             throw new IllegalArgumentException("The route shot supports box-geometry bays.");
         boxes = scene.getJSONArray("objects");
         crateId = review.getString("crate");
         var crate = LoadingAisle.find(scene,crateId);
         crateHeight = crate.getJSONArray("size").getDouble(1);
+        crateRotation = crate.getJSONArray("rotation");
+        this.overlays = overlays;
         forward = v(review.getJSONArray("directionM"));
         right = new double[]{forward[2],0,-forward[0]};
         floor = review.getJSONObject("aisle").getDouble("floorY");
         var protectedRows = review.getJSONArray("protected");
         var protectedShelves = new java.util.HashSet<String>();
         for (Object raw : protectedRows) {
-            var row = (JSONObject) raw;
-            String id = row.getString("sourceId");
-            if (LoadingAisle.find(scene,id).getString("label").toLowerCase(Locale.ROOT).contains("shelf"))
+            String id = ((JSONObject)raw).getString("sourceId");
+            if (overlays!=null || LoadingAisle.find(scene,id).getString("label").toLowerCase(Locale.ROOT).contains("shelf"))
                 protectedShelves.add(id);
         }
         shelves = Set.copyOf(protectedShelves);
@@ -92,7 +96,7 @@ final class RouteShot {
         if (path.length<2 || distance[path.length-1] < .01)
             throw new IllegalArgumentException("A verified route with measurable travel is required.");
         keys = readKeys(cameraKeys);
-        label = label(review.getString("crateLabel"));
+        label = overlays==null?label(review.getString("crateLabel")):overlays.texture();
     }
 
     static JSONArray defaultKeys(JSONObject review) {
@@ -163,7 +167,7 @@ final class RouteShot {
         if (frame<0 || frame>=FRAMES) throw new IllegalArgumentException("Choose frame 0–143.");
         double[] center = position(frame);
         Camera camera = camera(frame,center);
-        Render render = new Render(camera);
+        Render render = new Render(camera,overlays!=null);
         var moved = new JSONArray();
         for (Object raw : boxes) {
             var box = (JSONObject) raw;
@@ -174,55 +178,76 @@ final class RouteShot {
         }
         var clean = new BufferedImage(WIDTH,HEIGHT,BufferedImage.TYPE_INT_RGB);
         System.arraycopy(render.rgb,0,pixels(clean),0,render.rgb.length);
-        for (int i=1;i<path.length;i++) {
-            double[] a = {path[i-1][0],floor+.018,path[i-1][2]};
-            double[] b = {path[i][0],floor+.018,path[i][2]};
-            double[] delta = sub(b,a);
-            if (norm(delta)<1e-8) continue;
-            double[] edge = mul(unit(cross(delta,UP)),.022);
-            render.quad(new double[][]{add(a,edge),add(b,edge),sub(b,edge),sub(a,edge)},0x63dac7,null);
+        boolean labelEnabled = overlays==null || overlays.label().enabled();
+        if (overlays==null || overlays.line().enabled()) drawRoute(render);
+        double[] localAnchor = overlays==null?new double[]{0,crateHeight/2+.13,0}:overlays.label().localOffsetM();
+        double[] anchor = add(center,rotate(localAnchor,crateRotation,false));
+        double[] labelCenter = overlays==null?add(center,mul(UP,crateHeight/2+.13)):anchor;
+        int x = -1, y = -1;
+        double nearest = 0;
+        if (labelEnabled) {
+            double width = overlays==null?.58:overlays.label().widthM();
+            double height = overlays==null?.15:overlays.label().heightM();
+            var edgeX = mul(camera.right,width/2);
+            var edgeY = mul(camera.up,height/2);
+            render.quad(new double[][]{add(sub(labelCenter,edgeX),edgeY),add(add(labelCenter,edgeX),edgeY),
+                    sub(add(labelCenter,edgeX),edgeY),sub(sub(labelCenter,edgeX),edgeY)},0,label);
+            var point = camera.vertex(labelCenter,0,0);
+            var sample = camera.project(point);
+            x = (int)Math.floor(sample.x);
+            y = (int)Math.floor(sample.y);
+            if (point.z<NEAR || x<0 || x>=WIDTH || y<0 || y>=HEIGHT)
+                throw new IllegalArgumentException("Keep the label's attachment point inside the camera frame.");
+            nearest = point.z-1e-7;
         }
-        var labelCenter = add(center,mul(UP,crateHeight/2+.13));
-        var edgeX = mul(camera.right,.29);
-        var edgeY = mul(camera.up,.075);
-        render.quad(new double[][]{add(sub(labelCenter,edgeX),edgeY),add(add(labelCenter,edgeX),edgeY),
-                sub(add(labelCenter,edgeX),edgeY),sub(sub(labelCenter,edgeX),edgeY)},0,label);
         int labelPixels = 0;
         for (boolean pixel : render.labelMask) if (pixel) labelPixels++;
-        var point = camera.vertex(labelCenter,0,0);
-        var sample = camera.project(point);
-        int x = (int)Math.floor(sample.x), y = (int)Math.floor(sample.y);
-        if (point.z<NEAR || x<0 || x>=WIDTH || y<0 || y>=HEIGHT)
-            throw new IllegalArgumentException("Keep the label's attachment point inside the camera frame.");
-        double nearest = point.z-1e-7;
         String blocker = "";
-        var ray = camera.ray(x,y);
+        var ray = labelEnabled?camera.ray(x,y):null;
         for (Object raw : moved) {
             var box = (JSONObject)raw;
             var local = rotate(sub(camera.eye,v(box.getJSONArray("position"))),box.getJSONArray("rotation"),true);
             var size = v(box.getJSONArray("size"));
             if (Math.abs(local[0])<size[0]/2 && Math.abs(local[1])<size[1]/2 && Math.abs(local[2])<size[2]/2)
                 throw new IllegalArgumentException("The camera track crosses "+box.getString("label")+". Move a camera key.");
-            double hit = hit(box,camera.eye,ray);
+            double hit = ray==null?Double.POSITIVE_INFINITY:hit(box,camera.eye,ray);
             if (hit<nearest) {
                 nearest = hit;
                 blocker = box.getString("sourceId");
             }
         }
-        boolean centerVisible = render.labelMask[y*WIDTH+x];
-        if (centerVisible != blocker.isEmpty())
+        boolean centerVisible = labelEnabled && render.labelMask[y*WIDTH+x];
+        if (labelEnabled && centerVisible != blocker.isEmpty())
             throw new IllegalStateException("Depth raster and independent box ray disagree at frame "+frame+".");
         var proof = new JSONObject().put("frame",frame).put("timeSeconds",frame/(double)FPS)
                 .put("cratePositionM",array(center)).put("cameraPositionM",array(camera.eye))
                 .put("labelSamplePx",new JSONArray(new int[]{x,y})).put("labelPixels",labelPixels)
                 .put("centerVisible",centerVisible).put("centerOccluder",blocker)
                 .put("fullyHiddenByShelf",labelPixels==0 && shelves.contains(blocker));
+        if (overlays!=null) proof.put("labelEnabled",labelEnabled).put("labelAnchorM",array(anchor))
+                .put("routePixels",render.routePixels());
         return new Take(clean,render.image,proof);
+    }
+
+    private void drawRoute(Render render) {
+        double elevation = overlays==null?.018:overlays.line().elevationM();
+        double halfWidth = overlays==null?.022:overlays.line().widthM()/2;
+        int color = overlays==null?0x63dac7:overlays.line().color();
+        render.drawingRoute = true;
+        for (int i=1;i<path.length;i++) {
+            double[] a = {path[i-1][0],floor+elevation,path[i-1][2]};
+            double[] b = {path[i][0],floor+elevation,path[i][2]};
+            double[] delta = sub(b,a);
+            if (norm(delta)<1e-8) continue;
+            double[] edge = mul(unit(cross(delta,UP)),halfWidth);
+            render.quad(new double[][]{add(a,edge),add(b,edge),sub(b,edge),sub(a,edge)},color,null);
+        }
+        render.drawingRoute = false;
     }
 
     private int color(JSONObject box) {
         String id = box.getString("sourceId");
-        if (id.equals(crateId)) return 0x428cf4;
+        if (id.equals(crateId)) return id.equals("flight-case")?0xe7a44e:0x428cf4;
         if (shelves.contains(id)) return 0x7886a0;
         return switch (id) {
             case "floor" -> 0x40566b;
@@ -277,9 +302,19 @@ final class RouteShot {
         final float[] depth = new float[WIDTH*HEIGHT];
         final boolean[] labelMask = new boolean[WIDTH*HEIGHT];
 
-        Render(Camera camera) {
+        final boolean[] routeMask;
+        boolean drawingRoute;
+
+        Render(Camera camera,boolean auditRoute) {
             this.camera = camera;
+            routeMask = auditRoute?new boolean[WIDTH*HEIGHT]:null;
             Arrays.fill(rgb,0x182333);
+        }
+
+        int routePixels() {
+            int count = 0;
+            for (boolean pixel : routeMask) if (pixel) count++;
+            return count;
         }
 
         void box(JSONObject box,int color) {
@@ -338,6 +373,7 @@ final class RouteShot {
                     int index = y*WIDTH+x;
                     if (iz<=depth[index]) continue;
                     depth[index] = (float)iz;
+                    if (routeMask!=null) routeMask[index] = drawingRoute;
                     if (texture!=null) {
                         int u = (int)((a.uiz*w0+b.uiz*w1+c.uiz*w2)/iz*(texture.getWidth()-1));
                         int v = (int)((a.viz*w0+b.viz*w1+c.viz*w2)/iz*(texture.getHeight()-1));

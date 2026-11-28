@@ -181,6 +181,7 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/goals/ack" -> 24_000_000;
                     case "/api/agency043/frame" -> 8_100_000;
                     case "/api/spatial/image-assembly" -> 2_900_000;
+                    case "/api/spatial/shot-import" -> 10_010_000;
                     default -> 2_100_000;
                 };
                 byte[] body = exchange.getRequestBody().readNBytes(bodyLimit+1);
@@ -672,6 +673,11 @@ public final class WorkspaceServer implements AutoCloseable {
                         result = route.endsWith("read") ? loadingAisle.read(spatial,id) : loadingAisle.export(spatial,id);
                     }
                     case "/api/spatial/shot-build" -> result = routeShots.build(input);
+                    case "/api/spatial/shot-import" -> result = routeShots.importBundle(input);
+                    case "/api/spatial/shot-overlay-defaults" -> {
+                        SpatialScene.keys(input,"id");
+                        result = routeShots.overlayDefaults(input.getString("id"));
+                    }
                     case "/api/spatial/shot-latest" -> { SpatialScene.keys(input); result = routeShots.latest(); }
                     case "/api/spatial/shot-frame" -> result = routeShots.frame(input);
                     case "/api/spatial/shot-playback" -> result = routeShots.playback(input);

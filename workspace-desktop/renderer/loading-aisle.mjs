@@ -119,6 +119,7 @@ export class LoadingAislePanel {
                         <option value="staggered-east">Staggered bay · −41°</option>
                         <option value="staggered-west">Mirrored staggered bay · 83°</option>
                         <option value="staggered-closed">Blocked crossover · −118°</option>
+                        <option value="film-bay">Night dispatch bay · 96°</option>
                         <option value="wide-fine">Wide crate bay · −53°</option>
                         <option value="wide-mirror">Wide mirrored bay · 96°</option>
                         <option value="wide-coarse">Wide bay with open crossover · 27°</option>

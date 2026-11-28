@@ -1219,13 +1219,20 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         if(!currentSpatial)throw Error('Select the intended dynamic crate in Spatial first.');
         return api('/api/spatial/aisle-review',{request:input.args.request,...currentSpatial});
       }
-      if(['shot-build','shot-latest','shot-open','shot-frame','shot-playback','shot-replay'].includes(input.command))
+      if(['shot-build','shot-latest','shot-open','shot-frame','shot-playback','shot-replay','shot-overlay-defaults'].includes(input.command))
         return api('/api/spatial/'+input.command,input.args||{});
+      if(input.command==='shot-import'){
+        const text=input.args?.text;
+        if(typeof text!=='string' || Buffer.byteLength(text,'utf8')>10_000_000)
+          throw Error('Choose a portable shot no larger than 10 MB.');
+        return api('/api/spatial/shot-import',{bundle:JSON.parse(text)});
+      }
       if(input.command==='shot-export') {
         const {id,take}=input.args||{};
-        if(!['clean','annotated','json'].includes(take))throw Error('Choose a supported route-shot export.');
+        if(!['clean','annotated','json','bundle'].includes(take))throw Error('Choose a supported route-shot export.');
         const data=await api('/api/spatial/shot-export',{id,take});
-        return nativeExports.save('verified-route-shot-'+take,take==='json'?'json':'avi',
+        const ext={clean:'avi',annotated:'avi',json:'json',bundle:'fraynix-shot.json'}[take];
+        return nativeExports.save('verified-route-shot-'+take,ext,
           Buffer.from(data.base64,'base64'),data.source,data.sha256);
       }
       if(input.command==='aisle-export'){

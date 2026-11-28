@@ -100,13 +100,14 @@ final class LoadingAisleMission {
         } else {
             if (!state.getString("status").equals("blocked"))
                 throw new IllegalStateException("Unknown loading bay request status.");
-            checkIntent(scenes,parent,request,state.getString("objectId"),state.getJSONObject("intent"));
+            var intent = state.getJSONObject("intent");
+            checkIntent(parent,request,state.getString("objectId"),intent,savedQuestion(intent));
         }
         return state;
     }
 
-    private void checkIntent(SpatialStore scenes, JSONObject parent, LoadingAisleIntent.Request request,
-                             String objectId, JSONObject intent) throws Exception {
+    private static void checkIntent(JSONObject parent, LoadingAisleIntent.Request request,
+                                    String objectId, JSONObject intent, JSONObject portableQuestion) {
         String resolved = switch (intent.getString("kind")) {
             case "request" -> {
                 SpatialScene.keys(intent,"kind","priorSelection");
@@ -114,7 +115,8 @@ final class LoadingAisleMission {
             }
             case "answer" -> {
                 SpatialScene.keys(intent,"kind","questionId");
-                var question = AgentFiles042.loadChecked(file(intent.getString("questionId"),"intent"));
+                if (portableQuestion==null) throw new IllegalStateException("The original crate question is missing.");
+                var question = portableQuestion;
                 var expected = LoadingAisleIntent.question(parent,request,question.getString("priorSelection"));
                 if (!question.similar(expected) || !intent.getString("questionId").equals(WorldFrames.hash(question)))
                     throw new IllegalStateException("The approved crate differs from the original question.");
@@ -129,17 +131,83 @@ final class LoadingAisleMission {
         var review = AgentFiles042.loadChecked(file(id,"review"));
         if (!id.equals(WorldFrames.hash(review))) throw new IllegalStateException("The reviewed proposal digest changed.");
         var parent = scenes.read(review.getString("parentId"));
+        verifyReview(parent,review,savedQuestion(review.optJSONObject("intent")));
+        return review;
+    }
+
+    private static void verifyReview(JSONObject parent,JSONObject review,JSONObject question) {
         JSONObject expected;
         if (review.has("intent")) {
             var intent = review.getJSONObject("intent");
-            checkIntent(scenes,parent,LoadingAisleIntent.parse(review.getString("request")),review.getString("objectId"),intent);
+            checkIntent(parent,LoadingAisleIntent.parse(review.getString("request")),review.getString("objectId"),intent,question);
             expected = LoadingAisleIntent.rebuild(parent,review,intent);
         } else {
             expected = LoadingAisle.plan(parent,review.getString("objectId"),review.getString("request"));
         }
         if (!review.similar(expected))
             throw new IllegalStateException("The approved scene or its proposed change differs from the retained parent.");
-        return review;
+    }
+
+    private JSONObject savedQuestion(JSONObject intent) throws Exception {
+        return intent!=null && "answer".equals(intent.optString("kind"))
+                ? AgentFiles042.loadChecked(file(intent.getString("questionId"),"intent")) : null;
+    }
+
+    synchronized boolean hasReview(String id) {
+        return Files.exists(file(id,"review"),LinkOption.NOFOLLOW_LINKS);
+    }
+
+    record ShotSource(JSONObject parent,JSONObject mission) {}
+
+    synchronized JSONObject packShotSource(SpatialStore scenes,String id) throws Exception {
+        var mission = read(scenes,id);
+        if (!"verified".equals(mission.getString("status")))
+            throw new IllegalArgumentException("The exact route needs an approval and independent measurement.");
+        var review = mission.getJSONObject("review");
+        var parent = scenes.read(review.getString("parentId"));
+        var result = new JSONObject().put("sourceText",parent.getString("sourceText")).put("mission",mission)
+                .put("approval",approval(id));
+        var question = savedQuestion(review.optJSONObject("intent"));
+        if (question!=null) result.put("question",question);
+        return result;
+    }
+
+    ShotSource checkShotSource(JSONObject envelope,boolean replay) throws Exception {
+        SpatialScene.keys(envelope,"sourceText","mission","approval","question");
+        var mission = envelope.getJSONObject("mission");
+        SpatialScene.keys(mission,"id","review","status","proof","sceneId");
+        String id = mission.getString("id");
+        file(id,"review");
+        var review = mission.getJSONObject("review");
+        String childId = sceneId(id);
+        if (!"verified".equals(mission.getString("status")) || !id.equals(WorldFrames.hash(review)) ||
+                !childId.equals(mission.getString("sceneId")) ||
+                !new JSONObject().put("reviewSha256",id).similar(envelope.getJSONObject("approval")))
+            throw new IllegalStateException("The exported route or retained acceptance digest changed.");
+        var parent = SpatialScene.parse(envelope.getString("sourceText"),review.getString("parentId"));
+        if (!parent.getString("sourceSha256").equals(review.getString("parentSha256")))
+            throw new IllegalStateException("The exported source scene differs from its review.");
+        var question = envelope.optJSONObject("question");
+        boolean questionExpected = review.has("intent") && "answer".equals(review.getJSONObject("intent").optString("kind"));
+        if (envelope.has("question")!=questionExpected || questionExpected && question==null)
+            throw new IllegalStateException("The exported crate selection record changed.");
+        verifyReview(parent,review,question);
+        var proof = mission.getJSONObject("proof");
+        SpatialScene.keys(proof,"reviewSha256","sceneId","nativeRepeats","measurements");
+        var child = SpatialScene.parse(MapCheckpoint.canonical(LoadingAisle.revision(parent,review)),childId);
+        var measurements = proof.getJSONObject("measurements");
+        if (!id.equals(proof.getString("reviewSha256")) || !childId.equals(proof.getString("sceneId")) ||
+                SpatialScene.number(proof,"nativeRepeats",2,2)!=2 ||
+                !child.getString("sourceSha256").equals(measurements.getString("candidateSourceSha256")))
+            throw new IllegalStateException("The exported route measurement differs from its verified revision.");
+        LoadingAisle.checkScope(parent,child,review);
+        if (replay) {
+            var measured = LoadingAisle.measure(parent,child,review,nativeDir);
+            LoadingAisleIntent.checkPreview(parent,review,measured,nativeDir);
+            if (!measured.similar(measurements))
+                throw new IllegalStateException("The exported route disagrees with a fresh native measurement.");
+        }
+        return new ShotSource(parent,mission);
     }
 
     private JSONObject approval(String id) throws Exception {

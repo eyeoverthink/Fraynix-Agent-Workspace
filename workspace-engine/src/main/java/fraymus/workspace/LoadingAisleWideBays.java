@@ -10,6 +10,7 @@ import static fraymus.workspace.SpatialScene.array;
 final class LoadingAisleWideBays {
     private enum Bay {
         FINE("wide-fine","Wide crate bay · −53°",-53,1,1,.42,.24,1.37,1.73),
+        FILM("film-bay","Night dispatch bay · 96°",96,-1,1.10,.58,.26,1.46,1.84),
         MIRROR("wide-mirror","Wide mirrored bay · 96°",96,-1,1.10,.58,.26,1.46,1.84),
         COARSE("wide-coarse","Wide bay with open crossover · 27°",27,1,1,.42,.24,1.32,1.74),
         BLOCKED("wide-blocked","Oversize crate bay · −127°",-127,1,1,.74,.32,1.37,1.73),
@@ -60,6 +61,13 @@ final class LoadingAisleWideBays {
                 new double[]{1.13,.58,.08},0,upright));
         objects.put(LoadingAisle.box("outer-wide","Outer barrier",new double[]{2.235*bay.side,.29,bay.second},
                 new double[]{1.41,.58,.08},0,upright));
+        if (bay==Bay.FILM) {
+            LoadingAisle.find(scene,"cargo").put("sourceId","flight-case").put("label","Amber crate").put("massKg",9.5);
+            LoadingAisle.find(scene,"shelf-west").put("sourceId","dispatch-shelf").put("label","Dispatch shelf");
+            LoadingAisle.find(scene,"shelf-east").put("label","Reserve shelf");
+            LoadingAisle.find(scene,"dispatch-shelf").put("position",array(new double[]{-3.17,.78,2.23}))
+                    .put("size",array(new double[]{.56,1.56,1.75}));
+        }
         if (bay==Bay.REMOTE) {
             LoadingAisle.find(scene,"inner-wide").put("size",array(new double[]{1.03,.58,.08}))
                     .put("position",array(new double[]{1.165,.29,bay.first}));

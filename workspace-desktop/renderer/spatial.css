@@ -265,3 +265,9 @@
 .route-shot-table table { border-spacing:5px; text-align:left; white-space:nowrap; }
 .route-shot-table input { width:70px; padding:5px; font-size:11px; }
 .route-shot-table input[readonly] { opacity:.7; }
+
+#shot-overlays fieldset { border:1px solid #385055; border-radius:7px; margin:8px 12px; padding:5px 0 0; }
+#shot-overlays legend { padding:0 5px; color:#c8e5eb; }
+#shot-overlays input[type="text"] { width:145px; }
+#shot-overlays input[type="checkbox"] { width:auto; align-self:flex-start; }
+#shot-overlays input[type="color"] { width:54px; min-height:30px; padding:2px; }

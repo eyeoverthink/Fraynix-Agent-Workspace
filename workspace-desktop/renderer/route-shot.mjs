@@ -1,4 +1,6 @@
-export const isRouteShotRequest = text => /^(?:please\s+)?(?:make|create|render|film)\b(?=[\s\S]*\b(?:shot|video|clip)\b)(?=[\s\S]*\b(?:approved|verified)\s+(?:blue[- ]crate\s+|crate\s+)?route\b)/i.test(text.trim());
+import {RouteOverlayEditor} from './route-overlay-editor.mjs';
+
+export const isRouteShotRequest = text => /^(?:please\s+)?(?:make|create|render|film)\b(?=[\s\S]*\b(?:shot|video|clip)\b)(?=[\s\S]*\b(?:approved|verified)\s+(?:[a-z]+(?:[- ][a-z]+){0,3}\s+)?route\b)/i.test(text.trim());
 
 const JPEG = 'data:image/jpeg;base64,';
 const field = (name, value, min, max, step, title) =>
@@ -14,6 +16,7 @@ export class RouteShotPanel {
             <div class="spatial-task">
                 <button id="shot-build" class="primary">Render approved route</button>
                 <button id="shot-latest">Resume saved shot</button>
+                <label class="spatial-file">Import portable shot<input id="shot-import" type="file" accept=".json,application/json" aria-label="Import portable shot"></label>
                 <button id="shot-replay" disabled>Recheck route and both takes</button>
             </div>
             <p id="shot-status" class="spatial-note" role="status">Approve a multi-segment Loading Aisle move to use it as a shot.</p>
@@ -49,14 +52,31 @@ export class RouteShotPanel {
                         </div>
                     </form>
                 </details>
-                <div class="spatial-task">
+                <div class="spatial-task" id="shot-exports">
                     <button id="shot-edit-timeline">Add both takes to Media Timeline</button>
                     <button id="shot-export-clean">Export clean AVI</button>
                     <button id="shot-export-annotated">Export annotated AVI</button>
                     <button id="shot-export-json">Export camera and evidence JSON</button>
+                    <button id="shot-export-bundle">Export portable shot</button>
                 </div>
             </div>`;
         stage.before(this.root);
+        this.overlayEditor = new RouteOverlayEditor(this.find('exports'),overlays=>this.handle(()=>
+            this.build(this.record.definition.routeId,this.record.definition.cameraKeys,overlays)));
+        this.find('import').onchange = () => {
+            const input = this.find('import');
+            const file = input.files[0];
+            input.value = '';
+            if (!file) return;
+            this.handle(async () => {
+                if (file.size>10_000_000) throw Error('Choose a portable shot no larger than 10 MB.');
+                this.stop();
+                this.status('Checking package bytes, native route and every rendered frame…');
+                const record = await parent.call('shot-import',{text:await file.text()});
+                await this.present(record);
+                this.status('Imported and verified the portable shot and both 144-frame takes.');
+            });
+        };
         this.root.ontoggle = () => { if (!this.root.open) this.stop(); };
         this.find('build').onclick = () => this.fromChat(false);
         this.find('latest').onclick = () => this.handle(async () => {
@@ -93,7 +113,7 @@ export class RouteShotPanel {
         this.find('keys').onsubmit = event => {
             event.preventDefault();
             const cameraKeys = this.readKeys();
-            this.handle(() => this.build(this.record.definition.routeId,cameraKeys));
+            this.handle(() => this.build(this.record.definition.routeId,cameraKeys,this.record.definition.overlays));
         };
         this.find('add-key').onclick = () => {
             if (!this.find('keys').reportValidity()) return;
@@ -111,9 +131,10 @@ export class RouteShotPanel {
             this.stop();
             await this.openTimeline(this.record.id);
         });
-        for (const take of ['clean','annotated','json']) this.find('export-'+take).onclick = () => this.handle(async () => {
+        for (const take of ['clean','annotated','json','bundle']) this.find('export-'+take).onclick = () => this.handle(async () => {
             const result = await parent.call('shot-export',{id:this.record.id,take});
-            this.status(result.path?'Saved '+(take==='json'?'camera JSON':take+' AVI')+' to '+result.path:'Export cancelled.');
+            const label = {json:'camera JSON',bundle:'portable shot',clean:'clean AVI',annotated:'annotated AVI'}[take];
+            this.status(result.path?'Saved '+label+' to '+result.path:'Export cancelled.');
         });
     }
 
@@ -147,10 +168,11 @@ export class RouteShotPanel {
         });
     }
 
-    async build(id,cameraKeys) {
+    async build(id,cameraKeys,overlays) {
         this.stop();
         this.status('Checking the route and rendering both 144-frame takes…');
-        await this.present(await this.parent.call('shot-build',cameraKeys?{routeId:id,cameraKeys}:{routeId:id}));
+        const input = {routeId:id,...(cameraKeys?{cameraKeys}:{}),...(overlays?{overlays}:{})};
+        await this.present(await this.parent.call('shot-build',input));
         this.status('Verified both six-second takes. '+this.summary());
     }
 
@@ -172,6 +194,8 @@ export class RouteShotPanel {
         this.find('hidden').disabled=audit.shelfHiddenFrame<0;
         this.find('return').disabled=audit.returnedFrame<0;
         this.drawKeys(record.definition.cameraKeys);
+        this.overlayEditor.load(record.definition.overlays ?? await this.parent.call('shot-overlay-defaults',{id:record.id}));
+        this.find('export-bundle').disabled=!record.definition.overlays;
         await this.preview(0);
         this.root.scrollIntoView({block:'start'});
     }
@@ -227,9 +251,10 @@ export class RouteShotPanel {
         this.find('preview').dataset.frame = frame;
         this.find('scrub').value=frame;
         this.find('time').textContent = (frame/definition.fps).toFixed(2)+' s · '+(frame+1)+' / '+audit.frameCount;
-        const evidence = row.fullyHiddenByShelf?'Label fully behind '+row.centerOccluder:
+        const evidence = row.labelEnabled===false?'Label disabled':row.fullyHiddenByShelf?'Label fully behind '+row.centerOccluder:
             row.centerVisible?'Label visible':'Label center blocked by '+row.centerOccluder;
-        this.find('evidence').textContent = evidence+' · '+row.labelPixels+' label pixels in annotated take';
+        const line = row.routePixels===undefined?'':' · '+row.routePixels+' route pixels';
+        this.find('evidence').textContent = evidence+' · '+row.labelPixels+' label pixels'+line;
     }
 
     stop() {
