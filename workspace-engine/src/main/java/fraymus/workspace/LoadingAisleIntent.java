@@ -132,7 +132,8 @@ final class LoadingAisleIntent {
             return new Search(withPreview(parent,direct,nativeDir),null);
         } catch (LoadingAisle.Obstruction blocked) {
             var reason = blocked.evidence();
-            int considered = 0, routeEdgesChecked = 0, fineEdgesChecked = 0;
+            int considered = 0, routeEdgesChecked = 0, fineEdgesChecked = 0, reusedFineEdges = 0;
+            LoadingAisleRoute.Refinement localized = null;
             if (!blocked.gate.equals("initial-aisle")) {
                 var n = v(direct.getJSONArray("directionM"));
                 var entry = v(direct.getJSONObject("aisle").getJSONArray("entryM"));
@@ -159,22 +160,42 @@ final class LoadingAisleIntent {
                         // A consolidated segment or the final supported destination failed verification.
                     }
                 }
-                var fine = LoadingAisleRoute.search(parent,direct,reason,nativeDir,true);
+                String coarseResult = coarseFound ? "verification-failed" : "no-route";
+                var fineChecks = new LoadingAisleRoute.FineChecks(direct);
+                var local = LoadingAisleRoute.searchNearBlocks(parent,direct,reason,nativeDir,coarse.blockedCm(),fineChecks);
+                int localEdges = local.attempt().edgesChecked();
+                if (localEdges>0) {
+                    localized = new LoadingAisleRoute.Refinement(localEdges,local.refinedRows(),
+                            local.attempt().budgetExhausted() ? "budget" : "no-route");
+                    if (local.attempt().plan()!=null) {
+                        try {
+                            var accepted = new LoadingAisleRoute.Refinement(localEdges,local.refinedRows(),"accepted");
+                            LoadingAisleRoute.recordSearch(local.attempt().plan(),routeEdgesChecked,localEdges,coarseResult,accepted,0);
+                            return new Search(withPreview(parent,local.attempt().plan(),nativeDir),null);
+                        } catch (LoadingAisle.Obstruction rejected) {
+                            localized = new LoadingAisleRoute.Refinement(localEdges,local.refinedRows(),"verification-failed");
+                        }
+                    }
+                }
+                var fine = LoadingAisleRoute.searchFullFine(parent,direct,reason,nativeDir,fineChecks);
                 fineEdgesChecked = fine.edgesChecked();
+                reusedFineEdges = fine.reusedEdges();
                 if (fine.plan()!=null) {
                     try {
                         LoadingAisleRoute.recordSearch(fine.plan(),routeEdgesChecked,fineEdgesChecked,
-                                coarseFound ? "verification-failed" : "no-route");
+                                coarseResult,localized,reusedFineEdges);
                         return new Search(withPreview(parent,fine.plan(),nativeDir),null);
                     } catch (LoadingAisle.Obstruction blockedRoute) {
                         reason = new JSONObject(reason.toString()).put("routeRefusal",blockedRoute.evidence());
                     }
                 }
             }
-            return new Search(null,state(parent,request,"blocked").put("objectId",objectId)
+            var refusal = state(parent,request,"blocked").put("objectId",objectId)
                     .put("crateLabel",direct.getString("crateLabel")).put("intent",intent).put("direct",reason)
                     .put("alternatesConsidered",considered).put("routeEdgesChecked",routeEdgesChecked)
-                    .put("fineRouteEdgesChecked",fineEdgesChecked));
+                    .put("fineRouteEdgesChecked",fineEdgesChecked);
+            if (localized!=null) refusal.put("localized",localized.evidence()).put("reusedFineEdges",reusedFineEdges);
+            return new Search(null,refusal);
         }
     }
 

@@ -21,7 +21,7 @@ function verify(parent, child, record, expected) {
     assert.equal(review.forwardCm,expected.forwardCm);
     assert.equal(review.route.direct.gate,'path');
     assert.match(review.route.direct.reason,/Inner barrier, Outer barrier/);
-    assert.equal(review.route.policy,'door-relative-'+(expected.fine?'fine':'coarse')+'-v2');
+    assert.equal(review.route.policy,expected.policy);
     assert.equal(measured.forwardM,expected.forwardCm/100);
     assert.equal(measured.lateralM,0);
     assert.equal(measured.widthM,1);
@@ -39,6 +39,16 @@ function verify(parent, child, record, expected) {
     assert.equal(search.coarseResult,expected.fine?'no-route':'accepted');
     assert(search.coarseEdgesChecked>0);
     assert.equal(search.fineEdgesChecked>0,expected.fine);
+    if (expected.policy === 'door-relative-local-v3') {
+        assert.equal(search.localized.result,'accepted');
+        assert.equal(search.localized.edgesChecked,search.fineEdgesChecked);
+        assert(search.localized.refinedRows>0);
+    } else if (expected.fine) {
+        assert.equal(search.localized.result,'budget');
+        assert(search.reusedFineEdges>0);
+    } else {
+        assert.equal(search.localized,undefined);
+    }
     assert(route.segmentCount>=5 && route.segmentCount<=12);
     assert.equal(route.segments.length,route.segmentCount);
     assert.equal(review.route.cells.at(-1)[0],Math.ceil(expected.forwardCm/search.forwardStepCm));
@@ -135,7 +145,7 @@ async function main() {
         const draft=await latest();
         assert.equal(draft.status,'review');
         assert.equal(draft.review.route.search.coarseResult,'no-route');
-        assert.match(await page.locator('#aisle-route-search').innerText(),/5 × 5 cm grid/);
+        assert.match(await page.locator('#aisle-route-search').innerText(),/Local refinement/);
         assert.equal(await count(),1);
         assert.deepEqual(await read(parent.id),parent);
         await assert.rejects(call('aisle-approve',{id:draft.id,approvalSha256:'0'.repeat(64)}),/digest/);
@@ -161,7 +171,7 @@ async function main() {
         await status('Verified route');
         const approved=await latest();
         const child=await read(approved.sceneId);
-        const fine=verify(parent,child,approved,{width:.42,forwardCm:120,yaw:-53,fine:true});
+        const fine=verify(parent,child,approved,{width:.42,forwardCm:120,yaw:-53,fine:true,policy:'door-relative-local-v3'});
         assert.equal(await count(),2);
         assert.deepEqual(await read(parent.id),parent);
 
@@ -185,8 +195,9 @@ async function main() {
 
         const results=[];
         for (const [variant,distance,expected] of [
-            ['wide-mirror','1730 mm',{width:.58,forwardCm:173,yaw:96,fine:true}],
-            ['wide-coarse','120 cm',{width:.42,forwardCm:120,yaw:27,fine:false}],
+            ['wide-mirror','1730 mm',{width:.58,forwardCm:173,yaw:96,fine:true,policy:'door-relative-local-v3'}],
+            ['wide-coarse','120 cm',{width:.42,forwardCm:120,yaw:27,fine:false,policy:'door-relative-coarse-v2'}],
+            ['wide-remote','2 m',{width:.42,forwardCm:200,yaw:-18,fine:true,policy:'door-relative-fine-v2'}],
         ]) {
             const scene=await load(variant);
             await ask(move(distance));
@@ -196,6 +207,18 @@ async function main() {
             results.push(verify(scene,await read(accepted.sceneId),accepted,expected));
             assert.equal((await call('aisle-replay',{id:accepted.id})).replayed,true);
             if (variant==='wide-mirror') await picture('fine-longer');
+            if (variant==='wide-remote') {
+                assert.match(await page.locator('#aisle-route-search').innerText(),/Full fine fallback/);
+                await close();
+                await open();
+                await page.locator('#aisle-resume').click();
+                await status('Verified route');
+                await page.locator('#aisle-replay:enabled').click();
+                await status('Offline replay matched');
+                assert.deepEqual(await latest(),accepted);
+                assert.match(await page.locator('#aisle-route-search').innerText(),/reused edge checks/);
+                await picture('fine-fallback');
+            }
         }
 
         const oversized=await load('wide-blocked');
@@ -207,6 +230,7 @@ async function main() {
         assert.equal(blocked.alternatesConsidered,8);
         assert(blocked.routeEdgesChecked>0);
         assert(blocked.fineRouteEdgesChecked>0);
+        assert(blocked.reusedFineEdges>0);
         assert.equal(await page.locator('#aisle-approve').isVisible(),false);
         await assert.rejects(approve(blocked.id),/verified path/);
         await assert.rejects(call('aisle-export',{id:blocked.id}),/Verify/);
@@ -217,13 +241,13 @@ async function main() {
         assert.equal(await count(),before);
         assert.deepEqual(errors,[]);
         assert.equal((await app.evaluate(()=>global.workspaceTest.network())).enabled,true);
-        const summary={passed:true,platform:process.platform,offlineRestarts:2,pendingRestored:true,
+        const summary={passed:true,platform:process.platform,offlineRestarts:3,pendingRestored:true,
             approvedReplayed:true,changedSearchRefused:true,wrongApprovalRefused:true,
-            exportSha256:sha(receipt),fine,mirrored:results[0],coarse:results[1],
+            exportSha256:sha(receipt),fine,mirrored:results[0],coarse:results[1],fallback:results[2],
             refused:{width:.74,forwardCm:120,coarseEdges:blocked.routeEdgesChecked,fineEdges:blocked.fineRouteEdgesChecked,
-                reason:blocked.direct.reason,sourceUnchanged:true}};
+                reason:blocked.direct.reason,sourceUnchanged:true,localized:blocked.localized,reused:blocked.reusedFineEdges}};
         await fs.writeFile(path.join(output,'result.json'),JSON.stringify(summary,null,2)+'\n');
-        console.log(JSON.stringify({...summary,fine:fine.search,mirrored:results[0].search,coarse:results[1].search}));
+        console.log(JSON.stringify({...summary,fine:fine.search,mirrored:results[0].search,coarse:results[1].search,fallback:results[2].search}));
     } catch (error) {
         if (page) await fs.writeFile(path.join(output,'failure.txt'),await page.locator('body').innerText()).catch(()=>{});
         throw error;

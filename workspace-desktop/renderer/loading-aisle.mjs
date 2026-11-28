@@ -123,6 +123,7 @@ export class LoadingAislePanel {
                         <option value="wide-mirror">Wide mirrored bay · 96°</option>
                         <option value="wide-coarse">Wide bay with open crossover · 27°</option>
                         <option value="wide-blocked">Oversize crate bay · −127°</option>
+                        <option value="wide-remote">Two crossovers · −18°</option>
                     </select>
                 </label>
                 <button id="aisle-load">Load labelled bay</button>
@@ -251,8 +252,10 @@ export class LoadingAislePanel {
                 ' · 1.00 m aisle clear · ' + measured.shelvesPreserved + ' shelves unchanged · ' +
                 measured.crateSupportedTicks + ' supported ticks';
         } else if (review.route) {
-            message = (restoring ? 'Restored route. ' : '') + review.route.direct.reason + ' Found a ' +
-                review.preview.route.segmentCount + '-segment route to the original ' + moveDistance(review) +
+            const segments = review.preview.route.segmentCount;
+            const article = [8,11].includes(segments) ? 'an' : 'a';
+            message = (restoring ? 'Restored route. ' : '') + review.route.direct.reason + ' Found ' + article + ' ' +
+                segments + '-segment route to the original ' + moveDistance(review) +
                 ' destination. Approve this exact route to apply it.';
         } else if (review.alternate) {
             message = (restoring ? 'Restored alternate. ' : '') + review.alternate.direct.reason + ' Safe alternate for ' +
@@ -303,7 +306,17 @@ export class LoadingAislePanel {
                 coarse + ' · no refinement needed';
             const fallback = search.coarseResult === 'no-route' ? 'Coarse grid missed · ' :
                 search.coarseResult === 'verification-failed' ? 'Coarse route failed checks · ' : '';
-            summary.textContent = fallback + grid + ' · ' + detail;
+            const local = search.localized;
+            if (local?.result === 'accepted') {
+                summary.textContent = 'Local refinement · ' + local.refinedRows + ' finer rows · ' +
+                    local.edgesChecked + ' local edge checks, ' + coarse;
+            } else if (local) {
+                const reused = search.reusedFineEdges || 0;
+                summary.textContent = 'Full fine fallback · ' + local.edgesChecked + ' local, ' +
+                    search.fineEdgesChecked + ' new fine, ' + reused + ' reused edge checks';
+            } else {
+                summary.textContent = fallback + grid + ' · ' + detail;
+            }
         }
         this.find('segments').replaceChildren(...route.segments.map(segment => {
             const item = document.createElement('li');

@@ -12,7 +12,8 @@ final class LoadingAisleWideBays {
         FINE("wide-fine","Wide crate bay · −53°",-53,1,1,.42,.24,1.37,1.73),
         MIRROR("wide-mirror","Wide mirrored bay · 96°",96,-1,1.10,.58,.26,1.46,1.84),
         COARSE("wide-coarse","Wide bay with open crossover · 27°",27,1,1,.42,.24,1.32,1.74),
-        BLOCKED("wide-blocked","Oversize crate bay · −127°",-127,1,1,.74,.32,1.37,1.73);
+        BLOCKED("wide-blocked","Oversize crate bay · −127°",-127,1,1,.74,.32,1.37,1.73),
+        REMOTE("wide-remote","Two crossovers · −18°",-18,1,1,.42,.24,1.37,1.73);
 
         final String key, title;
         final int yaw, side;
@@ -59,6 +60,16 @@ final class LoadingAisleWideBays {
                 new double[]{1.13,.58,.08},0,upright));
         objects.put(LoadingAisle.box("outer-wide","Outer barrier",new double[]{2.235*bay.side,.29,bay.second},
                 new double[]{1.41,.58,.08},0,upright));
+        if (bay==Bay.REMOTE) {
+            LoadingAisle.find(scene,"inner-wide").put("size",array(new double[]{1.03,.58,.08}))
+                    .put("position",array(new double[]{1.165,.29,bay.first}));
+            LoadingAisle.find(scene,"outer-wide").put("size",array(new double[]{1.31,.58,.08}))
+                    .put("position",array(new double[]{2.285,.29,bay.second}));
+            objects.put(LoadingAisle.box("remote-outer","Second outer barrier",new double[]{2.285,.29,2.17},
+                    new double[]{1.31,.58,.08},0,upright));
+            objects.put(LoadingAisle.box("remote-inner","Second inner barrier",new double[]{1.165,.29,2.53},
+                    new double[]{1.03,.58,.08},0,upright));
+        }
         double angle = Math.toRadians(bay.yaw)/2;
         var rotation = new JSONArray(new double[]{0,Math.sin(angle),0,Math.cos(angle)});
         double[] origin = {-.8*bay.side,0,.35};

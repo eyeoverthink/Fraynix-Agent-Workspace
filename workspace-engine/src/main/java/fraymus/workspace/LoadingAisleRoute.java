@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.BitSet;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -19,6 +20,8 @@ final class LoadingAisleRoute {
     private static final String LEGACY = "door-relative-grid-v1";
     private static final String COARSE = "door-relative-coarse-v2";
     private static final String FINE = "door-relative-fine-v2";
+    private static final String LOCAL = "door-relative-local-v3";
+    private static final int LOCAL_MARGIN_CM = 10, LOCAL_EDGE_BUDGET = 360;
     private static final int SIDE_LIMIT_CM = 90, EXTRA_TRAVEL_CM = 180;
     private static final Cell START = new Cell(0,0);
 
@@ -51,12 +54,12 @@ final class LoadingAisleRoute {
     private static Grid savedGrid(JSONObject direct, JSONObject route) {
         int targetCm = LoadingAisle.forwardCm(direct);
         String policy = route.optString("policy",LEGACY);
-        var grid = grid(targetCm,policy.equals(FINE));
+        var grid = policy.equals(LOCAL) ? new Grid(LOCAL,targetCm,5,5,12) : grid(targetCm,policy.equals(FINE));
         if (!grid.policy.equals(policy)) throw new IllegalArgumentException("Unknown route search policy for this distance.");
         return grid;
     }
 
-    private record Work(Cell cell, int distance, int order) {}
+    private record Work(Cell cell, int distance, int priority, int order) {}
 
     private record Frame(double[] origin, double[] forward, double[] side) {
         Frame(JSONObject plan) {
@@ -71,19 +74,77 @@ final class LoadingAisleRoute {
         }
     }
 
-    record Attempt(JSONObject plan, int edgesChecked) {}
+    private record Edge(Cell from, Cell to) {}
+    /** One planning call can reuse exact directed 5 cm edge results in the same source. */
+    static final class FineChecks {
+        private final HashMap<Edge,Boolean> edges = new HashMap<>();
+        private final String source;
+
+        FineChecks(JSONObject direct) { source = WorldFrames.hash(direct); }
+
+        void verifyBinding(JSONObject direct) {
+            if (!source.equals(WorldFrames.hash(direct)))
+                throw new IllegalArgumentException("A route search cannot reuse checks from another source or crate.");
+        }
+    }
+
+    record Attempt(JSONObject plan, int edgesChecked, BitSet blockedCm, int reusedEdges, boolean budgetExhausted) {}
+    record LocalAttempt(Attempt attempt, int refinedRows) {}
+
+    /** Keep the finer row and unit lateral steps near measured coarse obstructions. */
+    private record Bands(BitSet fineRows, Grid grid) {
+        static Bands from(Grid fine, BitSet blockedCm) {
+            var rows = new BitSet();
+            for (int row=0; row<=fine.finalRow(); row++) {
+                int cm = fine.forwardCm(new Cell(row,0));
+                int blocked = blockedCm.nextSetBit(Math.max(0,cm-LOCAL_MARGIN_CM));
+                if (blocked>=0 && blocked<=cm+LOCAL_MARGIN_CM) rows.set(row);
+            }
+            return new Bands(rows,fine);
+        }
+
+        List<Cell> next(Cell here) {
+            int row = here.forward+1;
+            while (row<grid.finalRow() && row%2!=0 && !fineRows.get(row)) row++;
+            int step = (fineRows.get(here.forward) || here.forward==grid.finalRow()) ? 1 : 3;
+            return List.of(new Cell(row,here.side),new Cell(here.forward,here.side+step),
+                    new Cell(here.forward,here.side-step));
+        }
+    }
+
+    static LocalAttempt searchNearBlocks(JSONObject parent, JSONObject direct, JSONObject obstruction,
+                                         Path nativeDir, BitSet blockedCm, FineChecks checks) throws Exception {
+        var grid = new Grid(LOCAL,LoadingAisle.forwardCm(direct),5,5,12);
+        var bands = Bands.from(grid,blockedCm);
+        int rows = bands.fineRows.cardinality();
+        if (rows==0) return new LocalAttempt(new Attempt(null,0,new BitSet(),0,false),0);
+        return new LocalAttempt(search(parent,direct,obstruction,nativeDir,grid,bands,checks),rows);
+    }
 
     static Attempt search(JSONObject parent, JSONObject direct, JSONObject obstruction, Path nativeDir, boolean fine)
             throws Exception {
-        var grid = grid(LoadingAisle.forwardCm(direct),fine);
+        return search(parent,direct,obstruction,nativeDir,grid(LoadingAisle.forwardCm(direct),fine),null,null);
+    }
+
+    static Attempt searchFullFine(JSONObject parent, JSONObject direct, JSONObject obstruction,
+                                  Path nativeDir, FineChecks checks) throws Exception {
+        return search(parent,direct,obstruction,nativeDir,grid(LoadingAisle.forwardCm(direct),true),null,checks);
+    }
+
+    private static Attempt search(JSONObject parent, JSONObject direct, JSONObject obstruction, Path nativeDir,
+                                  Grid grid, Bands bands, FineChecks checks) throws Exception {
+        if (checks!=null) checks.verifyBinding(direct);
         var target = grid.target();
         var frame = new Frame(direct);
         var distance = new HashMap<Cell,Integer>();
         var previous = new HashMap<Cell,Cell>();
-        var queue = new PriorityQueue<>(Comparator.comparingInt(Work::distance).thenComparingInt(Work::order));
-        int order = 0, checked = 0;
+        var queue = new PriorityQueue<>(Comparator.comparingInt(Work::priority)
+                .thenComparingInt(work -> bands==null ? 0 : -work.distance).thenComparingInt(Work::order));
+        var blockedCm = new BitSet();
+        boolean collectBlocks = grid.policy.equals(COARSE) || grid.policy.equals(LEGACY);
+        int order = 0, checked = 0, reused = 0;
         distance.put(START,0);
-        queue.add(new Work(START,0,order++));
+        queue.add(new Work(START,0,bands==null ? 0 : grid.targetCm,order++));
         try (var world = new SpatialPhysics(parent,nativeDir); var probe = new LoadingAisle.RouteProbe(world,direct)) {
             while (!queue.isEmpty()) {
                 var next = queue.remove();
@@ -92,26 +153,44 @@ final class LoadingAisleRoute {
                 if (here.equals(target)) {
                     var route = compact(previous,target);
                     boolean withinBudget = route.size()>=3 && route.size()<=grid.maxSegments+1;
-                    return new Attempt(withinBudget ? bind(direct,route,obstruction,grid) : null,checked);
+                    return new Attempt(withinBudget ? bind(direct,route,obstruction,grid) : null,checked,blockedCm,reused,false);
                 }
-                for (var edge : List.of(new Cell(here.forward+1,here.side),
-                        new Cell(here.forward,here.side+1),new Cell(here.forward,here.side-1))) {
+                var neighbors = bands==null ? List.of(new Cell(here.forward+1,here.side),
+                        new Cell(here.forward,here.side+1),new Cell(here.forward,here.side-1)) : bands.next(here);
+                for (var edge : neighbors) {
                     int cost = next.distance+grid.distance(here,edge);
                     if (!grid.admitted(edge) || cost > grid.lengthBudget() || cost >= distance.getOrDefault(edge,Integer.MAX_VALUE))
                         continue;
-                    checked++;
-                    try {
-                        probe.check(frame.point(here,grid),frame.point(edge,grid));
-                    } catch (LoadingAisle.Obstruction | LoadingAisle.FloorBounds blocked) {
-                        continue;
+                    var key = new Edge(here,edge);
+                    Boolean clear = checks==null ? null : checks.edges.get(key);
+                    if (clear==null) {
+                        if (bands!=null && checked>=LOCAL_EDGE_BUDGET)
+                            return new Attempt(null,checked,blockedCm,reused,true);
+                        checked++;
+                        clear = true;
+                        try {
+                            probe.check(frame.point(here,grid),frame.point(edge,grid));
+                        } catch (LoadingAisle.Obstruction blocked) {
+                            if (collectBlocks && here.forward!=edge.forward &&
+                                    (blocked.gate.equals("path") || blocked.gate.equals("destination")))
+                                blockedCm.set(grid.forwardCm(here),grid.forwardCm(edge)+1);
+                            clear = false;
+                        } catch (LoadingAisle.FloorBounds blocked) {
+                            clear = false;
+                        }
+                        if (checks!=null) checks.edges.put(key,clear);
+                    } else {
+                        reused++;
                     }
+                    if (!clear) continue;
                     previous.put(edge,here);
                     distance.put(edge,cost);
-                    queue.add(new Work(edge,cost,order++));
+                    int priority = cost + (bands==null ? 0 : grid.distance(edge,target));
+                    queue.add(new Work(edge,cost,priority,order++));
                 }
             }
         }
-        return new Attempt(null,checked);
+        return new Attempt(null,checked,blockedCm,reused,false);
     }
 
     private static List<Cell> compact(HashMap<Cell,Cell> previous, Cell target) {
@@ -154,20 +233,54 @@ final class LoadingAisleRoute {
         return new JSONObject(direct.toString()).put("route",route);
     }
 
+    record Refinement(int edges, int rows, String result) {
+        JSONObject evidence() {
+            return new JSONObject().put("edgesChecked",edges).put("refinedRows",rows).put("result",result);
+        }
+        static Refinement read(JSONObject saved) {
+            return new Refinement(saved.getInt("edgesChecked"),saved.getInt("refinedRows"),saved.getString("result"));
+        }
+    }
+
     static void recordSearch(JSONObject plan, int coarseEdges, int fineEdges, String coarseResult) {
+        recordSearch(plan,coarseEdges,fineEdges,coarseResult,null,0);
+    }
+
+    static void recordSearch(JSONObject plan, int coarseEdges, int fineEdges, String coarseResult, Refinement localized,
+                             int reusedFineEdges) {
         var route = plan.getJSONObject("route");
         var chosen = savedGrid(plan,route);
         if (chosen.policy.equals(LEGACY)) return;
         var coarse = grid(chosen.targetCm,false);
-        boolean fine = chosen.policy.equals(FINE);
+        boolean selectedLocal = chosen.policy.equals(LOCAL);
+        boolean fine = selectedLocal || chosen.policy.equals(FINE);
         if (coarseEdges < 1 || coarseEdges > coarse.edgeBudget() ||
-                (fine ? fineEdges < 1 || fineEdges > chosen.edgeBudget() ||
+                (fine ? fineEdges < 0 || fineEdges+reusedFineEdges < 1 || fineEdges > chosen.edgeBudget() ||
                         !List.of("no-route","verification-failed").contains(coarseResult) :
                         fineEdges != 0 || !coarseResult.equals("accepted")))
             throw new IllegalArgumentException("The saved search does not match the chosen route policy.");
-        route.put("search",new JSONObject().put("coarseEdgesChecked",coarseEdges).put("fineEdgesChecked",fineEdges)
+        var stats = new JSONObject().put("coarseEdgesChecked",coarseEdges).put("fineEdgesChecked",fineEdges)
                 .put("coarseResult",coarseResult).put("forwardStepCm",chosen.forwardStep)
-                .put("lateralStepCm",chosen.sideStep));
+                .put("lateralStepCm",chosen.sideStep);
+        if (localized != null) {
+            boolean accepted = localized.result.equals("accepted");
+            if (!fine || accepted!=selectedLocal || localized.edges<1 || localized.edges>LOCAL_EDGE_BUDGET ||
+                    localized.rows<1 || localized.rows>chosen.finalRow()+1 ||
+                    !List.of("accepted","no-route","budget","verification-failed").contains(localized.result) ||
+                    (localized.result.equals("budget") && localized.edges!=LOCAL_EDGE_BUDGET) ||
+                    (accepted && localized.edges!=fineEdges))
+                throw new IllegalArgumentException("The localized search evidence does not match this route.");
+            stats.put("localized",localized.evidence());
+        } else if (selectedLocal) {
+            throw new IllegalArgumentException("A localized route requires its measured search evidence.");
+        }
+        if (reusedFineEdges!=0) {
+            if (localized==null || selectedLocal || reusedFineEdges<0 || reusedFineEdges>localized.edges ||
+                    fineEdges+reusedFineEdges>chosen.edgeBudget())
+                throw new IllegalArgumentException("The reused edge count exceeds the saved fine search.");
+            stats.put("reusedFineEdges",reusedFineEdges);
+        }
+        route.put("search",stats);
     }
 
     static JSONObject rebuild(JSONObject direct, JSONObject route) {
@@ -185,7 +298,9 @@ final class LoadingAisleRoute {
         var plan = bind(direct,path,route.getJSONObject("direct"),grid);
         if (!grid.policy.equals(LEGACY)) {
             var search = route.getJSONObject("search");
-            recordSearch(plan,search.getInt("coarseEdgesChecked"),search.getInt("fineEdgesChecked"),search.getString("coarseResult"));
+            var local = search.optJSONObject("localized");
+            recordSearch(plan,search.getInt("coarseEdgesChecked"),search.getInt("fineEdgesChecked"),search.getString("coarseResult"),
+                    local==null ? null : Refinement.read(local),search.optInt("reusedFineEdges"));
         }
         return plan;
     }
