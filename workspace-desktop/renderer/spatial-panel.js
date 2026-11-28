@@ -461,6 +461,9 @@ export class SpatialPanel {
    this.aisleLayer.traverse(item => {item.geometry?.dispose();item.material?.dispose();});
    this.aisleLayer = null;
   }
+  const previousFloor = this.aisleFloor;
+  this.aisleFloor = review ? this.scene.objects.find(body => body.sourceId === review.aisle.floor) : null;
+  if (this.aisleFloor?.id !== previousFloor?.id) this.frame();
   if (!review || !this.renderer) return;
   const layer = new THREE.Group();
   const {entryM,endM,widthM,lengthM,floorY} = review.aisle;
@@ -489,7 +492,8 @@ export class SpatialPanel {
   }
   const arrowFrom = new THREE.Vector3(...review.fromM);
   arrowFrom.y += crate.size[1]/2+.10;
-  const arrow = new THREE.ArrowHelper(new THREE.Vector3(dx,0,dz),arrowFrom,.40,0xffbe65,.11,.09);
+  const delta = new THREE.Vector3(...review.deltaM);
+  const arrow = new THREE.ArrowHelper(delta.clone().normalize(),arrowFrom,delta.length(),0xffbe65,.11,.09);
   arrow.traverse(item => {
    if (item.geometry) item.geometry=item.geometry.clone();
    if (item.material) { item.material.depthTest=false; item.renderOrder=5; }
@@ -507,6 +511,7 @@ export class SpatialPanel {
   const subject=this.framedVisual();
   this.focusedProp=Boolean(subject);
   if(subject){this.focus=this.timeline.point(subject);this.radius=Math.max(1.15,Math.max(...subject.size)*2.5);}
+  if(this.aisleFloor){this.focus=[this.aisleFloor.position[0],.4,this.aisleFloor.position[2]];}
   if(this.scene?.imageAssembly){
    const size=this.scene.objects[0].size;
    this.radius=Math.max(2.6,Math.hypot(size[0],size[2])*1.35);
@@ -521,6 +526,11 @@ export class SpatialPanel {
    this.planCamera.position.set(x,y+45,z);
    this.planCamera.lookAt(x,y,z);
    half=Math.max(.25,Math.hypot(subject.size[0],subject.size[2])*.75);
+  }else if(this.aisleFloor){
+   const {position:[x,y,z],size:[width,,depth]}=this.aisleFloor;
+   this.planCamera.position.set(x,y+45,z);
+   this.planCamera.lookAt(x,y,z);
+   half=Math.hypot(width,depth)/2;
   }else{
    this.planCamera.position.set(0,45,0);
    this.planCamera.lookAt(0,0,0);

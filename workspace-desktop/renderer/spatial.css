@@ -245,5 +245,6 @@
 #loading-aisle { border: 1px solid #43776d; border-radius: 8px; padding: 8px 10px; }
 #loading-aisle summary { cursor: pointer; font-weight: 600; }
 #aisle-plan { display: block; width: min(100%, 480px); height: auto; border-radius: 6px; }
-#aisle-plan[hidden] { display: none; }
+#aisle-plan[hidden], #aisle-choices[hidden] { display: none; }
+#aisle-choices button { color:#b5f0e5; border-color:#43776d; }
 #aisle-legend { color: #aedbd1; }

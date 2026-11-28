@@ -158,6 +158,14 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/loading-aisle-integration.cjs build/portable-smoke/loading-aisle
+      - name: Clarify and replay alternate loading-bay moves
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/loading-aisle-alternates-integration.cjs build/portable-smoke/loading-aisle-alternates
+      - name: Clarify and replay alternate loading-bay moves on a Linux virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/loading-aisle-alternates-integration.cjs build/portable-smoke/loading-aisle-alternates
       - name: Verify the offline avatar in a virtual display
         if: runner.os == 'Linux'
         env:

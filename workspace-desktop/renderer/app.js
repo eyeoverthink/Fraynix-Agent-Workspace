@@ -673,6 +673,7 @@ async function submitWorkspaceChat() {
  }
  const selectedModel=state?.models.some(m=>m.name===$('model').value)?$('model').value:'';
  if(isLoadingAisleRequest(goal)){await spatial.loadingAisle.fromChat(goal);return;}
+ if(await spatial.loadingAisle.answerFromChat(goal))return;
  if(isRecipientApproachRequest(goal)&&!selectedModel&&!colliderQuestion){await spatial.action(()=>spatial.recipient.compareFromChat(goal));return;}
  if(isSpatialHeightRequest(goal)){await spatial.height.openFromChat(goal);return;}
  if(isSpatialCarryRequest(goal)){await spatial.carry.review(true);return;}

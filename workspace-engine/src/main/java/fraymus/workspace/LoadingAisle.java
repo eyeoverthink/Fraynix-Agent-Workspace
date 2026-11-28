@@ -31,15 +31,18 @@ final class LoadingAisle {
 
     private LoadingAisle() {}
 
-    static JSONObject plan(JSONObject parent, String selected, String request) {
+    static void validateRequest(String request) {
         var prefix = BEGIN.matcher(request.strip());
         if (!prefix.find() || !GUARDS.matcher(request.strip().substring(prefix.end())).matches())
             throw new IllegalArgumentException("Ask to move the selected crate 40 cm away from the loading door. This review permits only that crate translation.");
+    }
+
+    static JSONObject plan(JSONObject parent, String selected, String request) {
+        validateRequest(request);
         if (parent.has("translationAnimation") || parent.has("recipientBranch"))
             throw new IllegalArgumentException("Choose a static layout for the reviewed aisle edit.");
         var crate = SpatialScene.object(parent, selected);
-        if (!crate.getString("label").toLowerCase(Locale.ROOT).matches(".*\\bcrate\\b.*") ||
-                crate.getDouble("massKg") <= 0)
+        if (!isCrate(crate))
             throw new IllegalArgumentException("Select the intended dynamic crate in the Spatial view.");
         var door = landmark(parent, "loading door");
         var floor = landmark(parent, "loading bay floor");
@@ -83,15 +86,8 @@ final class LoadingAisle {
         var widthAxis = new double[]{normal[2],0,-normal[0]};
         for (var center : List.of(entry, end))
             for (int side : new int[]{-1, 1}) requireFloorPoint(floor, add(center, mul(widthAxis, side * WIDTH / 2)));
-        var size = v(crate.getJSONArray("size"));
-        for (var center : List.of(start, target)) {
-            if (Math.abs(center[1] - size[1] / 2 - level) > .025)
-                throw new IllegalArgumentException("The crate must start supported on the marked bay floor.");
-            for (int x : new int[]{-1, 1}) for (int z : new int[]{-1, 1}) {
-                var corner = new double[]{x * size[0] / 2,0,z * size[2] / 2};
-                requireFloorPoint(floor, add(center, rotate(corner, crate.getJSONArray("rotation"), false)));
-            }
-        }
+        requireCrateFloor(crate, floor, level, start);
+        requireCrateFloor(crate, floor, level, target);
         var aisle = new JSONObject().put("entryM", array(entry)).put("endM", array(end))
                 .put("widthM", WIDTH).put("heightM", HEIGHT).put("lengthM", length)
                 .put("floorY", level).put("floor", floor.getString("sourceId"));
@@ -102,6 +98,11 @@ final class LoadingAisle {
                 .put("door", door.getString("sourceId")).put("directionM", array(normal))
                 .put("deltaM", array(mul(normal, MOVE))).put("fromM", array(start)).put("toM", array(target))
                 .put("aisle", aisle).put("protected", protectedRows);
+    }
+
+    static boolean isCrate(JSONObject object) {
+        return object.getDouble("massKg") > 0 &&
+                object.getString("label").toLowerCase(Locale.ROOT).matches(".*\\bcrate\\b.*");
     }
 
     private static JSONObject landmark(JSONObject scene, String label) {
@@ -127,7 +128,43 @@ final class LoadingAisle {
         var local = rotate(sub(point, v(floor.getJSONArray("position"))), floor.getJSONArray("rotation"), true);
         var size = v(floor.getJSONArray("size"));
         if (Math.abs(local[0]) > size[0] / 2 + .00001 || Math.abs(local[2]) > size[2] / 2 + .00001)
-            throw new IllegalArgumentException("The crate or aisle extends outside the marked bay floor.");
+            throw new FloorBounds();
+    }
+
+    private static void requireCrateFloor(JSONObject crate, JSONObject floor, double level, double[] center) {
+        var size = v(crate.getJSONArray("size"));
+        if (Math.abs(center[1] - size[1] / 2 - level) > .025)
+            throw new IllegalArgumentException("The crate must be supported on the marked bay floor.");
+        for (int x : new int[]{-1, 1}) for (int z : new int[]{-1, 1}) {
+            var corner = new double[]{x * size[0] / 2,0,z * size[2] / 2};
+            requireFloorPoint(floor, add(center, rotate(corner, crate.getJSONArray("rotation"), false)));
+        }
+    }
+
+    static void adjust(JSONObject parent, JSONObject review, double lateral) {
+        var start = v(review.getJSONArray("fromM"));
+        var forward = v(review.getJSONArray("directionM"));
+        var delta = add(mul(forward, MOVE), mul(new double[]{forward[2],0,-forward[0]}, lateral));
+        var target = add(start,delta);
+        var aisle = review.getJSONObject("aisle");
+        requireCrateFloor(find(parent,review.getString("crate")),find(parent,aisle.getString("floor")),
+                aisle.getDouble("floorY"),target);
+        review.put("deltaM",array(delta)).put("toM",array(target));
+    }
+
+    static final class FloorBounds extends IllegalArgumentException {
+        FloorBounds() { super("The crate or aisle extends outside the marked bay floor."); }
+    }
+
+    static final class Obstruction extends IllegalStateException {
+        final String gate;
+        Obstruction(String gate, String message) {
+            super(message);
+            this.gate = gate;
+        }
+        JSONObject evidence() {
+            return new JSONObject().put("gate",gate).put("reason",getMessage());
+        }
     }
 
     static JSONObject revision(JSONObject parent, JSONObject review) {
@@ -164,20 +201,28 @@ final class LoadingAisle {
 
     static JSONObject measure(JSONObject parent, JSONObject candidate, JSONObject review, Path nativeDir) throws Exception {
         checkScope(parent, candidate, review);
-        double distance = norm(sub(v(review.getJSONArray("toM")), v(review.getJSONArray("fromM"))));
-        if (Math.abs(distance - MOVE) > .000001) throw new IllegalStateException("The translation must be 0.40 m.");
+        var delta = sub(v(review.getJSONArray("toM")), v(review.getJSONArray("fromM")));
+        var normal = v(review.getJSONArray("directionM"));
+        double distance = norm(delta), forward = dot(delta,normal);
+        double lateral = dot(delta,new double[]{normal[2],0,-normal[0]});
+        boolean guided = review.has("intent");
+        double expectedLateral = review.has("alternate") ? review.getJSONObject("alternate").getDouble("lateralM") : 0;
+        if (Math.abs(forward-MOVE) > .000001 || Math.abs(lateral-expectedLateral) > .000001 ||
+                Math.abs(delta[1]) > .000001 || Math.abs(expectedLateral) > .650001)
+            throw new IllegalStateException("The move must match the reviewed 0.40 m forward and lateral offsets.");
         var aisle = review.getJSONObject("aisle");
         int bodiesChecked = 0;
         try (var world = new SpatialPhysics(parent, nativeDir)) {
-            bodiesChecked += verifyAisle(world, review);
+            bodiesChecked += verifyAisle(world, review, "initial-aisle");
             verifyPath(world, parent, review);
         }
         try (var world = new SpatialPhysics(candidate, nativeDir)) {
-            bodiesChecked += verifyAisle(world, review);
+            bodiesChecked += verifyAisle(world, review, "aisle");
             String crateId = find(candidate, review.getString("crate")).getString("id");
             String floorId = find(candidate, aisle.getString("floor")).getString("id");
             var crate = world.bodies.get(crateId);
             var floor = world.bodies.get(floorId);
+            if (guided) verifyLandingClear(world,crate,floor);
             int settledTicks = 0;
             for (int tick = 1; tick <= 180; tick++) {
                 world.step();
@@ -188,21 +233,37 @@ final class LoadingAisle {
                 var expected = v(review.getJSONArray("toM"));
                 if (!supported[0] || Math.hypot(p.x - expected[0], p.z - expected[2]) > .006 ||
                         Math.abs(p.y - expected[1]) > .025 || crate.getLinearVelocity().length() > .025)
-                    throw new IllegalStateException("The translated crate did not settle on the loading bay floor.");
+                    throw new Obstruction("support","The translated crate did not settle on the loading bay floor.");
                 settledTicks++;
             }
-            bodiesChecked += verifyAisle(world, review);
-            return new JSONObject().put("passed", true).put("translationM", Math.round(distance*1e6)/1e6)
+            if (guided) verifyLandingClear(world,crate,floor);
+            bodiesChecked += verifyAisle(world, review, "settled-aisle");
+            var result = new JSONObject().put("passed", true).put("translationM", Math.round(distance*1e6)/1e6)
                     .put("nativeAisleChecks", 3).put("obstaclePairsChecked", bodiesChecked)
                     .put("widthM",WIDTH).put("heightM",HEIGHT).put("lengthM",aisle.getDouble("lengthM"))
                     .put("crateSupportedTicks", settledTicks).put("sweptPathClear", true)
                     .put("changedObjects", new JSONArray().put(review.getString("crate")))
                     .put("shelvesPreserved", review.getJSONArray("protected").length())
                     .put("candidateSourceSha256", candidate.getString("sourceSha256"));
+            if (guided) result.put("forwardM",MOVE).put("lateralM",expectedLateral)
+                    .put("aisleSweepClear",true).put("destinationClear",true);
+            return result;
         }
     }
 
-    private static int verifyAisle(SpatialPhysics world, JSONObject review) {
+    private static void verifyLandingClear(SpatialPhysics world, PhysicsRigidBody crate, PhysicsRigidBody floor) {
+        for (Object raw : world.scene.getJSONArray("objects")) {
+            var body = (JSONObject)raw;
+            var other = world.bodies.get(body.getString("id"));
+            if (other == crate || other == floor) continue;
+            boolean[] overlap = {false};
+            world.space.pairTest(crate,other,hit -> overlap[0] |= hit.getDistance1() < -.001f);
+            if (overlap[0])
+                throw new Obstruction("destination","The crate overlaps " + body.getString("label") + " at its destination.");
+        }
+    }
+
+    private static PhysicsRigidBody aisleProbe(JSONObject review) {
         var aisle = review.getJSONObject("aisle");
         var middle = mul(add(v(aisle.getJSONArray("entryM")), v(aisle.getJSONArray("endM"))), .5);
         middle[1] += BASE_GAP + HEIGHT / 2;
@@ -212,6 +273,11 @@ final class LoadingAisle {
         probe.setPhysicsLocation(SpatialPhysics.vec(middle));
         probe.setPhysicsRotation(new Quaternion().fromAngleAxis((float)Math.atan2(direction[0],direction[2]),
                 com.jme3.math.Vector3f.UNIT_Y));
+        return probe;
+    }
+
+    private static int verifyAisle(SpatialPhysics world, JSONObject review, String gate) {
+        var probe = aisleProbe(review);
         world.space.addCollisionObject(probe);
         try {
             for (Object raw : world.scene.getJSONArray("objects")) {
@@ -219,7 +285,7 @@ final class LoadingAisle {
                 boolean[] collision = {false};
                 world.space.pairTest(probe, world.bodies.get(body.getString("id")),
                         hit -> collision[0] |= hit.getDistance1() < -.001f);
-                if (collision[0]) throw new IllegalStateException("The 1 m aisle is blocked by " + body.getString("label") + ".");
+                if (collision[0]) throw new Obstruction(gate,"The 1 m aisle is blocked by " + body.getString("label") + ".");
             }
             return world.bodies.size();
         } finally {
@@ -249,7 +315,19 @@ final class LoadingAisle {
             if (hits.stream().anyMatch(hit -> hit.getCollisionObject() == world.bodies.get(id)))
                 blocked.add(other.getString("label"));
         }
-        if (!blocked.isEmpty()) throw new IllegalStateException("The crate path is blocked by " + String.join(", ", blocked) + ".");
+        if (!blocked.isEmpty())
+            throw new Obstruction("path","The crate path is blocked by " + String.join(", ", blocked) + ".");
+        if (!review.has("intent")) return;
+        var probe = aisleProbe(review);
+        world.space.addCollisionObject(probe);
+        try {
+            if (world.space.sweepTest(box,new Transform(SpatialPhysics.vec(source),r),
+                    new Transform(SpatialPhysics.vec(target),r)).stream()
+                    .anyMatch(hit -> hit.getCollisionObject() == probe))
+                throw new Obstruction("sweep-aisle","The crate would cross the 1 m aisle during the move.");
+        } finally {
+            world.space.removeCollisionObject(probe);
+        }
     }
 
     static JSONObject fixture(int yaw, String obstruction) {
@@ -282,7 +360,7 @@ final class LoadingAisle {
                 .put("objects",objects);
     }
 
-    private static JSONObject box(String id, String label, double[] p, double[] size, double mass, JSONArray rotation) {
+    static JSONObject box(String id, String label, double[] p, double[] size, double mass, JSONArray rotation) {
         return new JSONObject().put("sourceId",id).put("label",label).put("shape","box")
                 .put("position",array(rotate(p,rotation,false))).put("rotation",rotation).put("size",array(size))
                 .put("massKg",mass).put("friction",.6).put("restitution",0);

@@ -643,12 +643,19 @@ public final class WorkspaceServer implements AutoCloseable {
                         if (yaw != 0 && yaw != 37) throw new IllegalArgumentException("Choose the square or 37° loading bay.");
                         result = LoadingAisle.fixture((int)yaw,input.optString("obstruction","none"));
                     }
-                    case "/api/spatial/aisle-review", "/api/spatial/aisle-approve", "/api/spatial/aisle-replay" -> {
+                    case "/api/spatial/aisle-bay" -> {
+                        SpatialScene.keys(input,"variant");
+                        result = LoadingAisleIntent.fixture(input.getString("variant"));
+                    }
+                    case "/api/spatial/aisle-review", "/api/spatial/aisle-intent", "/api/spatial/aisle-choose",
+                            "/api/spatial/aisle-approve", "/api/spatial/aisle-replay" -> {
                         if (agency.busy() || sharedBusy043() || goals.workflowReserved() || goals.ownsSpatial())
                             throw new IllegalStateException("Finish active work before reviewing the loading bay.");
                         spatial.available();
                         result = switch (route) {
                             case "/api/spatial/aisle-review" -> loadingAisle.review(spatial,input);
+                            case "/api/spatial/aisle-intent" -> loadingAisle.intent(spatial,input);
+                            case "/api/spatial/aisle-choose" -> loadingAisle.choose(spatial,input);
                             case "/api/spatial/aisle-approve" -> loadingAisle.approve(spatial,input);
                             default -> {
                                 SpatialScene.keys(input,"id");

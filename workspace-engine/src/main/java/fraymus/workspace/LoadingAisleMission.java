@@ -18,28 +18,126 @@ final class LoadingAisleMission {
         nativeDir = project.resolve("native");
     }
 
-    JSONObject review(SpatialStore scenes, JSONObject input) throws Exception {
+    synchronized JSONObject review(SpatialStore scenes, JSONObject input) throws Exception {
         SpatialScene.keys(input,"sceneId","objectId","request");
         var parent = scenes.read(input.getString("sceneId"));
-        var plan = LoadingAisle.plan(parent, input.getString("objectId"), SpatialScene.text(input,"request",520));
-        String id = WorldFrames.hash(plan);
-        Path proposal = file(id,"review");
-        if (!Files.exists(proposal, LinkOption.NOFOLLOW_LINKS)) AgentFiles042.saveChecked(proposal,plan);
-        SpriteWorkshop.replace(directory.resolve("latest"), id.getBytes(StandardCharsets.US_ASCII));
+        return saveReview(scenes,LoadingAisle.plan(parent,input.getString("objectId"),SpatialScene.text(input,"request",520)));
+    }
+
+    synchronized JSONObject intent(SpatialStore scenes, JSONObject input) throws Exception {
+        SpatialScene.keys(input,"sceneId","objectId","request");
+        var parent = scenes.read(input.getString("sceneId"));
+        var request = LoadingAisleIntent.parse(SpatialScene.text(input,"request",520));
+        String selected = input.optString("objectId","");
+        String resolved = LoadingAisleIntent.resolved(parent,request,selected);
+        if (resolved.isEmpty())
+            return saveState(scenes,LoadingAisleIntent.question(parent,request,selected));
+        return search(scenes,parent,request,resolved,new JSONObject().put("kind","request").put("priorSelection",selected));
+    }
+
+    synchronized JSONObject choose(SpatialStore scenes, JSONObject input) throws Exception {
+        SpatialScene.keys(input,"id","sceneId","objectId","answer");
+        String id = input.getString("id");
+        if (!id.equals(latestId())) throw new IllegalStateException("This crate question has been superseded.");
+        var question = checkedState(scenes,id);
+        if (!question.getString("status").equals("clarify") || !question.getString("parentId").equals(input.getString("sceneId")))
+            throw new IllegalArgumentException("Return to the bay named in this crate question.");
+        if (input.has("objectId") == input.has("answer"))
+            throw new IllegalArgumentException("Give either one crate option or one reply.");
+        String answer = input.has("answer") ? SpatialScene.text(input,"answer",120) : "";
+        String objectId = LoadingAisleIntent.choice(question,input.optString("objectId",""),answer);
+        if (objectId.isEmpty()) return question.put("id",id);
+        var parent = scenes.read(question.getString("parentId"));
+        return search(scenes,parent,LoadingAisleIntent.parse(question.getString("request")),objectId,
+                new JSONObject().put("kind","answer").put("questionId",id));
+    }
+
+    private JSONObject search(SpatialStore scenes, JSONObject parent, LoadingAisleIntent.Request request,
+                             String objectId, JSONObject intent) throws Exception {
+        var result = LoadingAisleIntent.search(parent,objectId,request,intent,nativeDir);
+        return result.plan() == null ? saveState(scenes,result.refusal()) : saveReview(scenes,result.plan());
+    }
+
+    private JSONObject saveState(SpatialStore scenes, JSONObject state) throws Exception {
+        String id = WorldFrames.hash(state);
+        save(id,"intent",state);
         return read(scenes,id);
     }
 
-    JSONObject latest(SpatialStore scenes) throws Exception {
+    private JSONObject saveReview(SpatialStore scenes, JSONObject review) throws Exception {
+        String id = WorldFrames.hash(review);
+        save(id,"review",review);
+        return read(scenes,id);
+    }
+
+    private void save(String id, String stage, JSONObject data) throws Exception {
+        Path path = file(id,stage);
+        if (!Files.exists(path,LinkOption.NOFOLLOW_LINKS)) AgentFiles042.saveChecked(path,data);
+        SpriteWorkshop.replace(directory.resolve("latest"),id.getBytes(StandardCharsets.US_ASCII));
+    }
+
+    private String latestId() throws Exception {
         Path pointer = directory.resolve("latest");
-        if (!Files.exists(pointer, LinkOption.NOFOLLOW_LINKS)) return new JSONObject();
-        return read(scenes,new String(SpriteWorkshop.read(pointer,64),StandardCharsets.US_ASCII));
+        return Files.exists(pointer,LinkOption.NOFOLLOW_LINKS) ?
+                new String(SpriteWorkshop.read(pointer,64),StandardCharsets.US_ASCII) : "";
+    }
+
+    synchronized JSONObject latest(SpatialStore scenes) throws Exception {
+        String id = latestId();
+        return id.isEmpty() ? new JSONObject() : read(scenes,id);
+    }
+
+    private JSONObject checkedState(SpatialStore scenes, String id) throws Exception {
+        var state = AgentFiles042.loadChecked(file(id,"intent"));
+        if (!id.equals(WorldFrames.hash(state))) throw new IllegalStateException("The saved loading bay request changed.");
+        var parent = scenes.read(state.getString("parentId"));
+        if (!parent.getString("sourceSha256").equals(state.getString("parentSha256")))
+            throw new IllegalStateException("The loading bay source changed.");
+        var request = LoadingAisleIntent.parse(state.getString("request"));
+        if (state.getString("status").equals("clarify")) {
+            if (!state.similar(LoadingAisleIntent.question(parent,request,state.getString("priorSelection"))))
+                throw new IllegalStateException("The crate choices differ from the saved question.");
+        } else {
+            if (!state.getString("status").equals("blocked"))
+                throw new IllegalStateException("Unknown loading bay request status.");
+            checkIntent(scenes,parent,request,state.getString("objectId"),state.getJSONObject("intent"));
+        }
+        return state;
+    }
+
+    private void checkIntent(SpatialStore scenes, JSONObject parent, LoadingAisleIntent.Request request,
+                             String objectId, JSONObject intent) throws Exception {
+        String resolved = switch (intent.getString("kind")) {
+            case "request" -> {
+                SpatialScene.keys(intent,"kind","priorSelection");
+                yield LoadingAisleIntent.resolved(parent,request,intent.getString("priorSelection"));
+            }
+            case "answer" -> {
+                SpatialScene.keys(intent,"kind","questionId");
+                var question = AgentFiles042.loadChecked(file(intent.getString("questionId"),"intent"));
+                var expected = LoadingAisleIntent.question(parent,request,question.getString("priorSelection"));
+                if (!question.similar(expected) || !intent.getString("questionId").equals(WorldFrames.hash(question)))
+                    throw new IllegalStateException("The approved crate differs from the original question.");
+                yield LoadingAisleIntent.choice(question,objectId,"");
+            }
+            default -> throw new IllegalArgumentException("Unknown loading bay resolution.");
+        };
+        if (!objectId.equals(resolved)) throw new IllegalStateException("The crate resolution changed.");
     }
 
     private JSONObject checkedReview(SpatialStore scenes, String id) throws Exception {
         var review = AgentFiles042.loadChecked(file(id,"review"));
         if (!id.equals(WorldFrames.hash(review))) throw new IllegalStateException("The reviewed proposal digest changed.");
         var parent = scenes.read(review.getString("parentId"));
-        if (!review.similar(LoadingAisle.plan(parent,review.getString("objectId"),review.getString("request"))))
+        JSONObject expected;
+        if (review.has("intent")) {
+            var intent = review.getJSONObject("intent");
+            checkIntent(scenes,parent,LoadingAisleIntent.parse(review.getString("request")),review.getString("objectId"),intent);
+            expected = LoadingAisleIntent.rebuild(parent,review,intent);
+        } else {
+            expected = LoadingAisle.plan(parent,review.getString("objectId"),review.getString("request"));
+        }
+        if (!review.similar(expected))
             throw new IllegalStateException("The approved scene or its proposed change differs from the retained parent.");
         return review;
     }
@@ -53,7 +151,8 @@ final class LoadingAisleMission {
         return approval;
     }
 
-    JSONObject read(SpatialStore scenes, String id) throws Exception {
+    synchronized JSONObject read(SpatialStore scenes, String id) throws Exception {
+        if (Files.exists(file(id,"intent"),LinkOption.NOFOLLOW_LINKS)) return checkedState(scenes,id).put("id",id);
         var review = checkedReview(scenes,id);
         var result = new JSONObject().put("id",id).put("review",review)
                 .put("status", approval(id) == null ? "review" : "approved");
@@ -76,13 +175,14 @@ final class LoadingAisleMission {
             throw new IllegalStateException("The committed scene differs from the saved verification.");
     }
 
-    JSONObject approve(SpatialStore scenes, JSONObject input) throws Exception {
+    synchronized JSONObject approve(SpatialStore scenes, JSONObject input) throws Exception {
         SpatialScene.keys(input,"id","approvalSha256");
         String id = input.getString("id");
         if (!id.equals(input.getString("approvalSha256")))
             throw new IllegalArgumentException("Approve the digest of the exact displayed translation.");
         var current = read(scenes,id);
         if ("verified".equals(current.getString("status"))) return current;
+        if (!current.has("review")) throw new IllegalStateException("Choose a crate and review a verified path before approval.");
         if (approval(id) == null) AgentFiles042.saveChecked(file(id,"approval"),new JSONObject().put("reviewSha256",id));
 
         var review = current.getJSONObject("review");
@@ -91,6 +191,7 @@ final class LoadingAisleMission {
         String childId = sceneId(id);
         var child = SpatialScene.parse(definition,childId);
         var measured = LoadingAisle.measure(parent,child,review,nativeDir);
+        LoadingAisleIntent.checkPreview(parent,review,measured,nativeDir);
         if (!measured.similar(LoadingAisle.measure(parent,child,review,nativeDir)))
             throw new IllegalStateException("Independent native aisle checks disagreed.");
         var proof = new JSONObject().put("reviewSha256",id).put("sceneId",childId)
@@ -101,7 +202,7 @@ final class LoadingAisleMission {
         return read(scenes,id);
     }
 
-    JSONObject replay(SpatialStore scenes, String id) throws Exception {
+    synchronized JSONObject replay(SpatialStore scenes, String id) throws Exception {
         var saved = read(scenes,id);
         if (!"verified".equals(saved.getString("status")))
             throw new IllegalStateException("Approve and verify the reviewed translation first.");
@@ -109,12 +210,13 @@ final class LoadingAisleMission {
         var parent = scenes.read(review.getString("parentId"));
         var child = scenes.read(saved.getString("sceneId"));
         var actual = LoadingAisle.measure(parent,child,review,nativeDir);
+        LoadingAisleIntent.checkPreview(parent,review,actual,nativeDir);
         if (!actual.similar(saved.getJSONObject("proof").getJSONObject("measurements")))
             throw new IllegalStateException("The fresh native aisle witness differs from the saved measurement.");
         return saved.put("replayed",true);
     }
 
-    JSONObject export(SpatialStore scenes,String id) throws Exception {
+    synchronized JSONObject export(SpatialStore scenes,String id) throws Exception {
         var saved = read(scenes,id);
         if (!"verified".equals(saved.getString("status"))) throw new IllegalStateException("Verify the translation before export.");
         var child = scenes.read(saved.getString("sceneId"));
