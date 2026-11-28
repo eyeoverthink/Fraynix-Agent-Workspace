@@ -164,7 +164,8 @@ final class RouteShotStore {
     private static JSONObject definition(JSONObject bound,JSONArray keys,RouteShotOverlays overlays) {
         RouteShot.readKeys(keys);
         var review = bound.getJSONObject("review");
-        var definition = new JSONObject().put("format",overlays==null?RouteShot.FORMAT:RouteShot.EDITABLE_FORMAT).put("motion","planned-route")
+        String format = overlays==null?RouteShot.FORMAT:overlays.timed()?RouteShot.TIMED_FORMAT:RouteShot.EDITABLE_FORMAT;
+        var definition = new JSONObject().put("format",format).put("motion","planned-route")
                 .put("routeId",bound.getString("id")).put("routeEvidenceSha256",WorldFrames.hash(bound))
                 .put("sceneId",review.getString("parentId")).put("sceneSha256",review.getString("parentSha256"))
                 .put("crate",review.getString("crate")).put("pathM",review.getJSONObject("route").getJSONArray("pointsM"))
@@ -264,9 +265,68 @@ final class RouteShotStore {
                         .put("routeEvidenceSha256",record.getJSONObject("definition").getString("routeEvidenceSha256")));
     }
 
+    private static boolean editable(JSONObject definition) {
+        return Set.of(RouteShot.EDITABLE_FORMAT,RouteShot.TIMED_FORMAT).contains(definition.getString("format"));
+    }
+
+    synchronized JSONObject labelTargets(String id) throws Exception {
+        var record = read(id);
+        var bound = source(record.getJSONObject("definition").getString("routeId"),false);
+        var targets = new JSONArray();
+        for (Object raw : bound.parent().getJSONArray("objects")) {
+            var box = (JSONObject)raw;
+            targets.put(new JSONObject().put("id",box.getString("sourceId")).put("label",box.getString("label"))
+                    .put("anchorY",box.getJSONArray("size").getDouble(1)/2+.13));
+        }
+        return new JSONObject().put("targets",targets);
+    }
+
+    synchronized JSONObject angle(String id,boolean exchange) throws Exception {
+        var record = open(id);
+        var def = record.getJSONObject("definition");
+        if (!RouteShot.TIMED_FORMAT.equals(def.getString("format")))
+            throw new IllegalArgumentException("Save a timed-label revision before checking the reserved camera.");
+        var bound = source(def.getString("routeId"),true);
+        var review = bound.mission().getJSONObject("review");
+        var keys = RouteShot.reservedKeys(review);
+        var camera = new RouteShot(bound.parent(),review,keys,readOverlays(def));
+        var primary = record.getJSONObject("audit").getJSONArray("frames");
+        var frames = new JSONArray();
+        byte[] preview = null;
+        int witnessFrame = -1, recovered = 0;
+        double minAngle = 180;
+        for (int i=0;i<RouteShot.FRAMES;i++) {
+            var take = camera.frame(i);
+            var row = take.proof();
+            frames.put(row);
+            var original = primary.getJSONObject(i);
+            double angle = Math.toDegrees(Math.acos(Math.clamp(ObserverGeometry.dot(
+                    ObserverGeometry.v(row.getJSONArray("cameraForwardM")),
+                    ObserverGeometry.v(original.getJSONArray("cameraForwardM"))),-1,1)));
+            minAngle = Math.min(minAngle,angle);
+            if (original.getBoolean("fullyHiddenByShelf") && row.getBoolean("centerVisible")) {
+                recovered++;
+                if (witnessFrame<0) {
+                    witnessFrame = i;
+                    if (!exchange) preview = MotionTimeline.jpeg(take.annotated(),.83f);
+                }
+            }
+            if (!exchange && i==0 && preview==null) preview=MotionTimeline.jpeg(take.annotated(),.83f);
+        }
+        if (minAngle<20) throw new IllegalStateException("The reserved camera must be at least 20 degrees from the primary view at every frame.");
+        var proof = new JSONObject().put("cameraKeys",keys).put("minimumAngleDeg",minAngle)
+                .put("shelfRevealFrames",recovered).put("witnessFrame",witnessFrame).put("frames",frames);
+        if (exchange) return new JSONObject().put("format","fraynix.blender-route-shot-v1")
+                .put("shot",record).put("reserved",proof).put("sceneObjects",bound.parent().getJSONArray("objects"))
+                .put("floorY",review.getJSONObject("aisle").getDouble("floorY"));
+        return new JSONObject().put("id",id).put("minimumAngleDeg",minAngle).put("shelfRevealFrames",recovered)
+                .put("witnessFrame",witnessFrame).put("frameCount",RouteShot.FRAMES)
+                .put("reservedSha256",WorldFrames.hash(proof)).put("previewJpeg",Base64.getEncoder().encodeToString(preview));
+    }
+
     private byte[] pack(JSONObject record) throws Exception {
         var definition = record.getJSONObject("definition");
-        if (!RouteShot.EDITABLE_FORMAT.equals(definition.getString("format")))
+        if (!editable(definition))
             throw new IllegalArgumentException("Save an overlay revision before exporting a portable shot.");
         String routeId = definition.getString("routeId");
         var source = routes.hasReview(routeId)?routes.packShotSource(scenes,routeId):
@@ -287,7 +347,7 @@ final class RouteShotStore {
         String id = record.getString("id");
         file(id,"shot");
         var definition = record.getJSONObject("definition");
-        if (!RouteShot.EDITABLE_FORMAT.equals(definition.getString("format")))
+        if (!editable(definition))
             throw new IllegalArgumentException("The package must carry editable overlays.");
         var route = bundle.getJSONObject("route");
         var bound = routes.checkShotSource(route,false);

@@ -198,6 +198,14 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/route-shot-portable-integration.cjs build/portable-smoke/route-shot-portable
+      - name: Verify timed spatial labels and the reserved angle after restart
+        if: runner.os != 'Linux'
+        run: node workspace-desktop/test/route-shot-timed-integration.cjs build/portable-smoke/timed-route-shot
+      - name: Verify timed labels and the reserved angle on a Linux virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/route-shot-timed-integration.cjs build/portable-smoke/timed-route-shot
       - name: Verify the offline avatar in a virtual display
         if: runner.os == 'Linux'
         env:

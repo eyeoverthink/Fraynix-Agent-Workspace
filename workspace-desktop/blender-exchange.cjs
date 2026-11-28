@@ -30,9 +30,10 @@ async function findBlender() {
 
 async function runBlender(inputs, mode, source, output) {
     const executable = await findBlender();
+    const script = mode==='export-shot'?path.join(__dirname,'blender-route-shot.py'):adapter;
     try {
         await execute(executable, ['--background', '--factory-startup', '--disable-autoexec', ...inputs,
-            '--python-exit-code', '20', '--python', adapter, '--', mode, source, output],
+            '--python-exit-code', '20', '--python', script, '--', mode, source, output],
         {windowsHide: true, timeout: 60000, maxBuffer: 256 * 1024});
     } catch (error) {
         if (error.code === 'ENOENT')

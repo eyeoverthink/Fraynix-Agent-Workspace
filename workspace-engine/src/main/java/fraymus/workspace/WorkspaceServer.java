@@ -673,6 +673,11 @@ public final class WorkspaceServer implements AutoCloseable {
                         result = route.endsWith("read") ? loadingAisle.read(spatial,id) : loadingAisle.export(spatial,id);
                     }
                     case "/api/spatial/shot-build" -> result = routeShots.build(input);
+                    case "/api/spatial/shot-label-targets", "/api/spatial/shot-angle", "/api/spatial/shot-blender-source" -> {
+                        SpatialScene.keys(input,"id");
+                        String id = input.getString("id");
+                        result = route.endsWith("targets")?routeShots.labelTargets(id):routeShots.angle(id,route.endsWith("source"));
+                    }
                     case "/api/spatial/shot-import" -> result = routeShots.importBundle(input);
                     case "/api/spatial/shot-overlay-defaults" -> {
                         SpatialScene.keys(input,"id");

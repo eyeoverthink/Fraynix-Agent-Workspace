@@ -49,7 +49,8 @@ export class RouteOverlayEditor {
 
     field(name) { return this.form.elements.namedItem(name); }
 
-    load(value) {
+    load(value,timed=false) {
+        this.form.querySelector("fieldset").hidden=timed;
         this.saved=value;
         this.draw(value);
     }

@@ -1219,13 +1219,20 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         if(!currentSpatial)throw Error('Select the intended dynamic crate in Spatial first.');
         return api('/api/spatial/aisle-review',{request:input.args.request,...currentSpatial});
       }
-      if(['shot-build','shot-latest','shot-open','shot-frame','shot-playback','shot-replay','shot-overlay-defaults'].includes(input.command))
+      if(['shot-build','shot-latest','shot-open','shot-frame','shot-playback','shot-replay','shot-overlay-defaults','shot-label-targets','shot-angle'].includes(input.command))
         return api('/api/spatial/'+input.command,input.args||{});
       if(input.command==='shot-import'){
         const text=input.args?.text;
         if(typeof text!=='string' || Buffer.byteLength(text,'utf8')>10_000_000)
           throw Error('Choose a portable shot no larger than 10 MB.');
         return api('/api/spatial/shot-import',{bundle:JSON.parse(text)});
+      }
+      if(input.command==='shot-export-blender') {
+        const picked=await dialog.showSaveDialog(window,{defaultPath:'fraynix-route-shot.blend',
+          filters:[{name:'Blender scene',extensions:['blend']}]});
+        if(picked.canceled)return null;
+        const exchange=await api('/api/spatial/shot-blender-source',{id:input.args.id});
+        return exportBlend(JSON.stringify(exchange),picked.filePath,'export-shot');
       }
       if(input.command==='shot-export') {
         const {id,take}=input.args||{};

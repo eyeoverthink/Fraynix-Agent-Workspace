@@ -1,4 +1,5 @@
 import {RouteOverlayEditor} from './route-overlay-editor.mjs';
+import {RouteLabelTracks} from './route-label-tracks.mjs';
 
 export const isRouteShotRequest = text => /^(?:please\s+)?(?:make|create|render|film)\b(?=[\s\S]*\b(?:shot|video|clip)\b)(?=[\s\S]*\b(?:approved|verified)\s+(?:[a-z]+(?:[- ][a-z]+){0,3}\s+)?route\b)/i.test(text.trim());
 
@@ -58,11 +59,39 @@ export class RouteShotPanel {
                     <button id="shot-export-annotated">Export annotated AVI</button>
                     <button id="shot-export-json">Export camera and evidence JSON</button>
                     <button id="shot-export-bundle">Export portable shot</button>
+                    <button id="shot-check-angle">Verify reserved camera</button>
+                    <button id="shot-export-blender">Export Blender shot</button>
                 </div>
+                <figure id="shot-angle-proof" class="route-shot-viewport" hidden>
+                    <img id="shot-angle-image" width="640" height="360" alt="Rendered reserved camera">
+                    <figcaption id="shot-angle-text" class="spatial-note"></figcaption>
+                </figure>
             </div>`;
         stage.before(this.root);
-        this.overlayEditor = new RouteOverlayEditor(this.find('exports'),overlays=>this.handle(()=>
-            this.build(this.record.definition.routeId,this.record.definition.cameraKeys,overlays)));
+        this.overlayEditor = new RouteOverlayEditor(this.find('exports'),overlays=>this.handle(()=>{
+            const current=this.record.definition;
+            const saved=current.overlays?.labels?{labels:current.overlays.labels,routeLine:overlays.routeLine}:overlays;
+            return this.build(current.routeId,current.cameraKeys,saved);
+        }));
+        this.labelTracks = new RouteLabelTracks(this.find('exports'),labels=>this.handle(()=>
+            this.build(this.record.definition.routeId,this.record.definition.cameraKeys,{labels,routeLine:this.overlayEditor.read().routeLine})));
+        this.find('check-angle').onclick=()=>this.handle(async()=>{
+            this.stop();
+            this.status('Replaying the native route at the reserved angle…');
+            const proof=await parent.call('shot-angle',{id:this.record.id});
+            this.find('angle-image').src=JPEG+proof.previewJpeg;
+            this.find('angle-text').textContent='Reserved camera · minimum '+proof.minimumAngleDeg.toFixed(1)+'° separation · '+
+                proof.shelfRevealFrames+' frames where it sees the first label past a shelf';
+            this.find('angle-proof').hidden=false;
+            this.status('Verified the reserved camera across '+proof.frameCount+' frames.');
+            this.find('angle-proof').scrollIntoView({block:'center'});
+        });
+        this.find('export-blender').onclick=()=>this.handle(async()=>{
+            this.stop();
+            this.status('Preparing two editable cameras and label tracks for Blender…');
+            const exportResult=await parent.call('shot-export-blender',{id:this.record.id});
+            this.status(exportResult?.path?'Saved editable Blender shot to '+exportResult.path:'Export cancelled.');
+        });
         this.find('import').onchange = () => {
             const input = this.find('import');
             const file = input.files[0];
@@ -194,8 +223,17 @@ export class RouteShotPanel {
         this.find('hidden').disabled=audit.shelfHiddenFrame<0;
         this.find('return').disabled=audit.returnedFrame<0;
         this.drawKeys(record.definition.cameraKeys);
-        this.overlayEditor.load(record.definition.overlays ?? await this.parent.call('shot-overlay-defaults',{id:record.id}));
-        this.find('export-bundle').disabled=!record.definition.overlays;
+        const {definition}=record;
+        const timed=definition.overlays?.labels;
+        const saved=definition.overlays ?? await this.parent.call('shot-overlay-defaults',{id:record.id});
+        const style=timed?timed[0].style:saved.label;
+        this.overlayEditor.load({label:style,routeLine:saved.routeLine},Boolean(timed));
+        const targets=await this.parent.call('shot-label-targets',{id:record.id});
+        this.labelTracks.load(timed,style,definition.crate,targets.targets);
+        this.find('export-bundle').disabled=!definition.overlays;
+        this.find('check-angle').disabled=!timed;
+        this.find('export-blender').disabled=!timed;
+        this.find('angle-proof').hidden=true;
         await this.preview(0);
         this.root.scrollIntoView({block:'start'});
     }
@@ -254,7 +292,7 @@ export class RouteShotPanel {
         const evidence = row.labelEnabled===false?'Label disabled':row.fullyHiddenByShelf?'Label fully behind '+row.centerOccluder:
             row.centerVisible?'Label visible':'Label center blocked by '+row.centerOccluder;
         const line = row.routePixels===undefined?'':' · '+row.routePixels+' route pixels';
-        this.find('evidence').textContent = evidence+' · '+row.labelPixels+' label pixels'+line;
+        this.find('evidence').textContent = row.labels?row.labels.map(label=>label.id+' · '+(label.active?(label.sceneOccluder?'behind '+label.sceneOccluder:label.inFrame?'in view':'offscreen'):'outside cue')+' · '+label.pixels+' px').join(' / ')+line:evidence+' · '+row.labelPixels+' label pixels'+line;
     }
 
     stop() {

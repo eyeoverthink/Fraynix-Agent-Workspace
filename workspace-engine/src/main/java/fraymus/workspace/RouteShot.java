@@ -25,6 +25,7 @@ final class RouteShot {
     static final int FRAMES = FPS * 6;
     static final String FORMAT = "fraynix.loading-route-shot-v1";
     static final String EDITABLE_FORMAT = "fraynix.loading-route-shot-v2";
+    static final String TIMED_FORMAT = "fraynix.loading-route-shot-v3";
     private static final double NEAR = .05;
     private static final double[] UP = {0,1,0};
     private static final int[][] FACES = {
@@ -37,7 +38,7 @@ final class RouteShot {
     record Pixel(double x, double y, double iz, double uiz, double viz) {}
     record Take(BufferedImage clean, BufferedImage annotated, JSONObject proof) {}
 
-    private record Camera(double[] eye, double[] forward, double[] right, double[] up, double focal) {
+    private record Camera(double[] eye, double[] forward, double[] right, double[] up, double focal, double fov) {
         Vertex vertex(double[] point, double u, double v) {
             double[] delta = sub(point,eye);
             return new Vertex(dot(delta,right),dot(delta,up),dot(delta,forward),u,v);
@@ -65,6 +66,7 @@ final class RouteShot {
     private final BufferedImage label;
     private final JSONArray crateRotation;
     private final RouteShotOverlays overlays;
+    private final List<BufferedImage> cueTextures;
 
     RouteShot(JSONObject scene, JSONObject review, JSONArray cameraKeys,RouteShotOverlays overlays) {
         if (scene.has("visualMeshes"))
@@ -96,7 +98,10 @@ final class RouteShot {
         if (path.length<2 || distance[path.length-1] < .01)
             throw new IllegalArgumentException("A verified route with measurable travel is required.");
         keys = readKeys(cameraKeys);
-        label = overlays==null?label(review.getString("crateLabel")):overlays.texture();
+        boolean timed = overlays!=null && overlays.timed();
+        label = overlays==null?label(review.getString("crateLabel")):timed?null:overlays.texture();
+        cueTextures = timed?overlays.cues().stream().map(cue->RouteShotOverlays.texture(cue.label())).toList():List.of();
+        if (timed) for (var cue : overlays.cues()) LoadingAisle.find(scene,cue.target());
     }
 
     static JSONArray defaultKeys(JSONObject review) {
@@ -109,6 +114,12 @@ final class RouteShot {
                 .put(key(46,side*4.35,.82,.3,38))
                 .put(key(84,side*4.35,.75,.48,37))
                 .put(key(FRAMES-1,side*.9,1.7,2.45,44));
+    }
+
+    static JSONArray reservedKeys(JSONObject review) {
+        double side = Math.signum(defaultKeys(review).getJSONObject(0).getJSONArray("offsetM").getDouble(0));
+        return new JSONArray().put(key(0,-side*3.6,4.6,1.25,57))
+                .put(key(FRAMES-1,-side*3.6,4.6,1.25,57));
     }
 
     private static JSONObject key(int frame,double x,double y,double z,double fov) {
@@ -160,14 +171,14 @@ final class RouteShot {
         var horizontal = cross(view,UP);
         var across = norm(horizontal)>1e-8 ? unit(horizontal) : right;
         double fov = a.fov + t*(b.fov-a.fov);
-        return new Camera(eye,view,across,cross(across,view),HEIGHT/2.0/Math.tan(Math.toRadians(fov)/2));
+        return new Camera(eye,view,across,cross(across,view),HEIGHT/2.0/Math.tan(Math.toRadians(fov)/2),fov);
     }
 
     Take frame(int frame) {
         if (frame<0 || frame>=FRAMES) throw new IllegalArgumentException("Choose frame 0–143.");
         double[] center = position(frame);
         Camera camera = camera(frame,center);
-        Render render = new Render(camera,overlays!=null);
+        Render render = new Render(camera,overlays!=null,cueTextures.size());
         var moved = new JSONArray();
         for (Object raw : boxes) {
             var box = (JSONObject) raw;
@@ -178,6 +189,7 @@ final class RouteShot {
         }
         var clean = new BufferedImage(WIDTH,HEIGHT,BufferedImage.TYPE_INT_RGB);
         System.arraycopy(render.rgb,0,pixels(clean),0,render.rgb.length);
+        if (!cueTextures.isEmpty()) return timedFrame(frame,center,camera,render,clean,moved);
         boolean labelEnabled = overlays==null || overlays.label().enabled();
         if (overlays==null || overlays.line().enabled()) drawRoute(render);
         double[] localAnchor = overlays==null?new double[]{0,crateHeight/2+.13,0}:overlays.label().localOffsetM();
@@ -227,6 +239,94 @@ final class RouteShot {
         if (overlays!=null) proof.put("labelEnabled",labelEnabled).put("labelAnchorM",array(anchor))
                 .put("routePixels",render.routePixels());
         return new Take(clean,render.image,proof);
+    }
+
+    private record CueSample(RouteShotOverlays.Cue cue,double[] anchor,int x,int y,boolean active,String sceneBlocker) {
+        boolean inFrame() { return x>=0; }
+    }
+
+    private Take timedFrame(int frame,double[] center,Camera camera,Render render,BufferedImage clean,JSONArray boxes) {
+        for (Object raw : boxes) validateCamera(camera,(JSONObject)raw);
+        var samples = new ArrayList<CueSample>();
+        for (var cue : overlays.cues()) {
+            var target = body(boxes,cue.target());
+            var anchor = add(v(target.getJSONArray("position")),rotate(cue.label().localOffsetM(),target.getJSONArray("rotation"),false));
+            var point = camera.vertex(anchor,0,0);
+            var pixel = camera.project(point);
+            int x = (int)Math.floor(pixel.x), y = (int)Math.floor(pixel.y);
+            boolean inFrame = point.z>=NEAR && x>=0 && x<WIDTH && y>=0 && y<HEIGHT;
+            boolean active = cue.active(frame);
+            String blocker = "";
+            if (inFrame && active) {
+                double nearest = point.z-1e-7;
+                var ray = camera.ray(x,y);
+                for (Object raw : boxes) {
+                    var box = (JSONObject)raw;
+                    double hit = hit(box,camera.eye,ray);
+                    if (hit<nearest) {
+                        nearest = hit;
+                        blocker = box.getString("sourceId");
+                    }
+                }
+                boolean rasterBlocked = render.depth[y*WIDTH+x] > 1/(point.z-1e-7);
+                if (rasterBlocked==blocker.isEmpty())
+                    throw new IllegalStateException("Depth and the object ray disagree at frame "+frame+" for "+cue.id()+".");
+            }
+            samples.add(new CueSample(cue,anchor,inFrame?x:-1,inFrame?y:-1,active,blocker));
+        }
+        if (overlays.line().enabled()) drawRoute(render);
+        for (int i=0;i<samples.size();i++) {
+            var sample = samples.get(i);
+            if (!sample.active) continue;
+            var style = sample.cue.label();
+            var x = mul(camera.right,style.widthM()/2);
+            var y = mul(camera.up,style.heightM()/2);
+            var at = sample.anchor;
+            render.drawingCard = i+1;
+            render.quad(new double[][]{add(sub(at,x),y),add(add(at,x),y),sub(add(at,x),y),sub(sub(at,x),y)},
+                    0,cueTextures.get(i));
+        }
+        int[] coverage = new int[samples.size()+1];
+        for (byte card : render.cardOwners) coverage[card]++;
+        var rows = new JSONArray();
+        for (int i=0;i<samples.size();i++) {
+            var sample = samples.get(i);
+            int winner = sample.inFrame() && sample.active?render.cardOwners[sample.y*WIDTH+sample.x]:0;
+            rows.put(new JSONObject().put("id",sample.cue.id()).put("target",sample.cue.target())
+                    .put("anchorM",canonicalVector(sample.anchor)).put("active",sample.active).put("inFrame",sample.inFrame())
+                    .put("samplePx",new JSONArray(new int[]{sample.x,sample.y})).put("pixels",coverage[i+1])
+                    .put("sceneOccluder",sample.sceneBlocker).put("centerVisible",winner==i+1)
+                    .put("coveringLabel",winner>0 && winner!=i+1?samples.get(winner-1).cue.id():"")
+                    .put("fullyHiddenByShelf",coverage[i+1]==0 && shelves.contains(sample.sceneBlocker)));
+        }
+        var first = rows.getJSONObject(0);
+        var proof = new JSONObject().put("frame",frame).put("timeSeconds",frame/(double)FPS)
+                .put("cratePositionM",array(center)).put("cameraPositionM",array(camera.eye))
+                .put("cameraForwardM",canonicalVector(camera.forward)).put("cameraRightM",canonicalVector(camera.right))
+                .put("cameraUpM",canonicalVector(camera.up)).put("cameraFovDeg",camera.fov)
+                .put("labels",rows).put("routePixels",render.routePixels())
+                .put("labelPixels",first.getInt("pixels")).put("labelEnabled",first.getBoolean("active"))
+                .put("centerVisible",first.getBoolean("centerVisible")).put("centerOccluder",first.getString("sceneOccluder"))
+                .put("fullyHiddenByShelf",first.getBoolean("fullyHiddenByShelf"));
+        return new Take(clean,render.image,proof);
+    }
+
+    private static JSONArray canonicalVector(double[] vector) {
+        var result = new JSONArray();
+        for (double value : vector) result.put(value==0?0.0:value);
+        return result;
+    }
+
+    private static JSONObject body(JSONArray bodies,String id) {
+        for (Object raw : bodies) if (id.equals(((JSONObject)raw).getString("sourceId"))) return (JSONObject)raw;
+        throw new IllegalArgumentException("Select a label target from the retained source scene.");
+    }
+
+    private static void validateCamera(Camera camera,JSONObject box) {
+        var local = rotate(sub(camera.eye,v(box.getJSONArray("position"))),box.getJSONArray("rotation"),true);
+        var size = v(box.getJSONArray("size"));
+        if (Math.abs(local[0])<size[0]/2 && Math.abs(local[1])<size[1]/2 && Math.abs(local[2])<size[2]/2)
+            throw new IllegalArgumentException("The camera track crosses "+box.getString("label")+". Move a camera key.");
     }
 
     private void drawRoute(Render render) {
@@ -303,10 +403,13 @@ final class RouteShot {
         final boolean[] labelMask = new boolean[WIDTH*HEIGHT];
 
         final boolean[] routeMask;
+        final byte[] cardOwners;
         boolean drawingRoute;
+        int drawingCard;
 
-        Render(Camera camera,boolean auditRoute) {
+        Render(Camera camera,boolean auditRoute,int timedCards) {
             this.camera = camera;
+            cardOwners = timedCards>0?new byte[WIDTH*HEIGHT]:null;
             routeMask = auditRoute?new boolean[WIDTH*HEIGHT]:null;
             Arrays.fill(rgb,0x182333);
         }
@@ -374,6 +477,7 @@ final class RouteShot {
                     if (iz<=depth[index]) continue;
                     depth[index] = (float)iz;
                     if (routeMask!=null) routeMask[index] = drawingRoute;
+                    if (cardOwners!=null) cardOwners[index] = (byte)drawingCard;
                     if (texture!=null) {
                         int u = (int)((a.uiz*w0+b.uiz*w1+c.uiz*w2)/iz*(texture.getWidth()-1));
                         int v = (int)((a.viz*w0+b.viz*w1+c.viz*w2)/iz*(texture.getHeight()-1));
