@@ -51,6 +51,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final CourierCrateEvidence courierCrate;
     private final CourierTargetEvidence courierTarget;
     private final CourierRecoveryEvidence courierRecovery;
+    private final LoadingAisleMission loadingAisle;
     private final AvatarLevelMission avatarLevels;
     private final MapStore maps;
     private final PerceptionStore perception;
@@ -109,6 +110,7 @@ public final class WorkspaceServer implements AutoCloseable {
         courierCrate = new CourierCrateEvidence(project);
         courierTarget = new CourierTargetEvidence(project);
         courierRecovery = new CourierRecoveryEvidence(project);
+        loadingAisle = new LoadingAisleMission(project);
         avatarLevels = new AvatarLevelMission(project, avatars, tiles);
         environments = new EnvironmentStore(project);
         floorPlans = new EnvironmentFloorPlan(environments);
@@ -635,6 +637,31 @@ public final class WorkspaceServer implements AutoCloseable {
                     }
                     case "/api/spatial/carry-latest" -> { SpatialScene.keys(input); result=spatial.latestCarry(); }
                     case "/api/spatial/carry-read" -> result=spatial.readCarry(input);
+                    case "/api/spatial/aisle-fixture" -> {
+                        SpatialScene.keys(input,"yaw","obstruction");
+                        double yaw = SpatialScene.number(input,"yaw",0,37);
+                        if (yaw != 0 && yaw != 37) throw new IllegalArgumentException("Choose the square or 37° loading bay.");
+                        result = LoadingAisle.fixture((int)yaw,input.optString("obstruction","none"));
+                    }
+                    case "/api/spatial/aisle-review", "/api/spatial/aisle-approve", "/api/spatial/aisle-replay" -> {
+                        if (agency.busy() || sharedBusy043() || goals.workflowReserved() || goals.ownsSpatial())
+                            throw new IllegalStateException("Finish active work before reviewing the loading bay.");
+                        spatial.available();
+                        result = switch (route) {
+                            case "/api/spatial/aisle-review" -> loadingAisle.review(spatial,input);
+                            case "/api/spatial/aisle-approve" -> loadingAisle.approve(spatial,input);
+                            default -> {
+                                SpatialScene.keys(input,"id");
+                                yield loadingAisle.replay(spatial,input.getString("id"));
+                            }
+                        };
+                    }
+                    case "/api/spatial/aisle-latest" -> { SpatialScene.keys(input); result = loadingAisle.latest(spatial); }
+                    case "/api/spatial/aisle-read", "/api/spatial/aisle-export" -> {
+                        SpatialScene.keys(input,"id");
+                        String id = input.getString("id");
+                        result = route.endsWith("read") ? loadingAisle.read(spatial,id) : loadingAisle.export(spatial,id);
+                    }
                     case "/api/spatial/carry-review","/api/spatial/carry-approve" -> {
                         if (agency.busy() || sharedBusy043() || goals.workflowReserved() || goals.ownsSpatial())
                             throw new IllegalStateException("Finish active work before running a carry trial.");

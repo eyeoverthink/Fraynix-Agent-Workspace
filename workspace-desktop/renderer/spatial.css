@@ -241,3 +241,9 @@
 #desk-inputs { margin-top: 8px; }
 #desk-frame[hidden] { display: none; }
 #desk-status { color: #a4dcc7; }
+
+#loading-aisle { border: 1px solid #43776d; border-radius: 8px; padding: 8px 10px; }
+#loading-aisle summary { cursor: pointer; font-weight: 600; }
+#aisle-plan { display: block; width: min(100%, 480px); height: auto; border-radius: 6px; }
+#aisle-plan[hidden] { display: none; }
+#aisle-legend { color: #aedbd1; }

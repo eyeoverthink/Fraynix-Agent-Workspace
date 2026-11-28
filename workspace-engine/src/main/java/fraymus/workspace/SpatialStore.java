@@ -244,6 +244,19 @@ public final class SpatialStore implements AutoCloseable {
         if (scenes.size()>=32) throw new IllegalStateException("Spatial import history limit reached (32)");
         return retainScene(SpatialScene.parse(text,UUID.randomUUID().toString()).put("importedAt",Instant.now().toString()));
     }
+    synchronized void retainAisleEdit(JSONObject candidate, JSONObject binding) throws Exception {
+        available();
+        String id = candidate.getString("id");
+        if (scenes.containsKey(id)) {
+            var existing = read(id);
+            if (!candidate.getString("sourceSha256").equals(existing.getString("sourceSha256")) ||
+                    !binding.similar(existing.optJSONObject("loadingAisle")))
+                throw new IllegalStateException("The existing aisle revision differs from the checked edit.");
+            return;
+        }
+        if (scenes.size() >= 32) throw new IllegalStateException("Spatial import history limit reached (32)");
+        retainScene(copy(candidate).put("importedAt", Instant.now().toString()).put("loadingAisle",binding));
+    }
     private record MeshChange(JSONObject definition, JSONObject evidence, String previewSha256, String encoded) {}
 
     synchronized JSONObject previewMesh(JSONObject input) {

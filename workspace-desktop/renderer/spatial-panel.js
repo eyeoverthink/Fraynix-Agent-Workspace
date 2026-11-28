@@ -8,6 +8,7 @@ import {SpatialAnimationPanel} from './spatial-animation.js';
 import {SpatialHeightPanel} from './spatial-height.js';
 import {SpatialCarryPanel} from './spatial-carry.js';
 import {ImageAssemblyPanel} from './image-assembly.js';
+import {LoadingAislePanel} from './loading-aisle.mjs';
 import * as THREE from '../node_modules/three/build/three.module.js';
 const $=id=>document.getElementById(id);
 export const isSpatialPropRequest = text =>
@@ -117,6 +118,7 @@ export class SpatialPanel {
   $('game-view').before(section);this.placement=new SpatialPlacementPanel(this);this.exchange=new PlacementExchangePanel(this);this.recipient=new RecipientEditPanel(this,visualGeometry);this.recipientMission=new RecipientMissionPanel(this);this.libraryViews=new SpatialLibraryViews(this);this.timeline=new SpatialAnimationPanel(this);this.meshEdit=new SpatialMeshEditPanel(this,visualGeometry);this.carry=new SpatialCarryPanel(this);this.height=new SpatialHeightPanel(this);const tab=document.createElement('button');tab.id='spatial-tab';tab.textContent='Spatial';$('scene-tab').after(tab);tab.onclick=()=>this.action(()=>this.open());
   $('placement-exchange').onclick=()=>this.action(()=>this.exchange.open());
   this.imageAssembly=new ImageAssemblyPanel(this);
+  this.loadingAisle=new LoadingAislePanel(this,$('spatial-stage'));
   $('recipient-edit').onclick=()=>this.action(()=>this.recipient.open());
   $('recipient-mission').onclick=()=>this.action(()=>this.recipientMission.open());
   $('placement-resume').onclick=()=>this.action(()=>this.placement.openLatest());
@@ -325,6 +327,7 @@ export class SpatialPanel {
   const moving=['prepared','executing','running','paused'].includes(this.snapshot?.status);
   const editingBlocked=this.worldMode||this.poseMode||this.evaluationBusy||this.agentBusy||moving;
   this.imageAssembly?.controls(editingBlocked);
+  this.loadingAisle?.controls(editingBlocked);
   const recipient=Boolean(this.scene?.recipientBranch)&&!this.worldMode;
   $('recipient-edit').hidden=!recipient;
   $('recipient-edit').disabled=this.busy||editingBlocked;
@@ -452,6 +455,49 @@ export class SpatialPanel {
    console.warn(error.message);
    return;
   }this.renderer.setPixelRatio(Math.min(devicePixelRatio,2));this.renderer.domElement.setAttribute('aria-label','Rendered native spatial scene');$('spatial-stage').append(this.renderer.domElement);this.world.add(new THREE.HemisphereLight(0xe0fff4,0x263e5d,2));const light=new THREE.DirectionalLight(0xffffff,3);light.position.set(-3,8,5);this.world.add(light);this.world.add(new THREE.GridHelper(16,32,0x5a817f,0x29414b));this.world.add(new THREE.AxesHelper(1.5));this.frame();let drag=null,moved=false;const stage=$('spatial-stage');stage.onpointerdown=e=>{drag=[e.clientX,e.clientY];moved=false;stage.setPointerCapture(e.pointerId);};stage.onpointermove=e=>{if(!drag)return;const dx=e.clientX-drag[0],dy=e.clientY-drag[1];if(Math.abs(dx)+Math.abs(dy)>2)moved=true;if(this.topDown)return;this.yaw-=dx*.008;this.pitch=Math.max(.12,Math.min(1.35,this.pitch+dy*.008));drag=[e.clientX,e.clientY];};stage.onpointerup=e=>{drag=null;if(moved)return;const r=stage.getBoundingClientRect(),ray=new THREE.Raycaster();ray.setFromCamera(new THREE.Vector2((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1),(this.topDown?this.planCamera:this.camera));const hit=ray.intersectObjects([...this.meshes.values()])[0];if(hit&&!this.meshEdit.pick(hit))this.action(()=>this.selectObject(hit.object.userData.id));};stage.addEventListener('wheel',e=>{e.preventDefault();if(this.topDown){this.planZoom=Math.max(.25,Math.min(5,this.planZoom*Math.exp(e.deltaY*.001)));this.resize();}else this.radius=Math.max(this.focusedProp ? .6 : 3,Math.min(30,this.radius+e.deltaY*.01));},{passive:false});const draw=()=>{requestAnimationFrame(draw);if(!this.visible||this.linkedMode)return;const focus=this.focus||[0,.5,0];this.camera.position.set(focus[0]+this.radius*Math.cos(this.pitch)*Math.sin(this.yaw),focus[1]+this.radius*Math.sin(this.pitch),focus[2]+this.radius*Math.cos(this.pitch)*Math.cos(this.yaw));this.camera.lookAt(...focus);this.renderer.render(this.world,this.topDown?this.planCamera:this.camera);};draw();}
+ aisleOverlay(review) {
+  if (this.aisleLayer) {
+   this.world.remove(this.aisleLayer);
+   this.aisleLayer.traverse(item => {item.geometry?.dispose();item.material?.dispose();});
+   this.aisleLayer = null;
+  }
+  if (!review || !this.renderer) return;
+  const layer = new THREE.Group();
+  const {entryM,endM,widthM,lengthM,floorY} = review.aisle;
+  const [dx,,dz] = review.directionM;
+  const aisle = new THREE.Mesh(new THREE.BoxGeometry(widthM,.014,lengthM),
+   new THREE.MeshBasicMaterial({color:0x6addbf,transparent:true,opacity:.38,depthWrite:false}));
+  aisle.position.set((entryM[0]+endM[0])/2,floorY+.012,(entryM[2]+endM[2])/2);
+  aisle.rotation.y = Math.atan2(dx,dz);
+  layer.add(aisle);
+  const outline = (body, position, color) => {
+   const dimensions = body.size.map(value => value+.015);
+   const box = new THREE.BoxGeometry(...dimensions);
+   const edges = new THREE.EdgesGeometry(box);
+   box.dispose();
+   const lines = new THREE.LineSegments(edges,new THREE.LineBasicMaterial({color,depthTest:false}));
+   lines.position.fromArray(position);
+   lines.quaternion.fromArray(body.rotation);
+   lines.renderOrder=4;
+   layer.add(lines);
+  };
+  const crate = this.scene.objects.find(body => body.sourceId===review.crate);
+  outline(crate,review.toM,0xffbe65);
+  for (const shelf of review.protected) {
+   const body = this.scene.objects.find(item => item.sourceId===shelf.sourceId);
+   outline(body,body.position,0xb6a1f2);
+  }
+  const arrowFrom = new THREE.Vector3(...review.fromM);
+  arrowFrom.y += crate.size[1]/2+.10;
+  const arrow = new THREE.ArrowHelper(new THREE.Vector3(dx,0,dz),arrowFrom,.40,0xffbe65,.11,.09);
+  arrow.traverse(item => {
+   if (item.geometry) item.geometry=item.geometry.clone();
+   if (item.material) { item.material.depthTest=false; item.renderOrder=5; }
+  });
+  layer.add(arrow);
+  this.world.add(layer);
+  this.aisleLayer=layer;
+ }
  framedVisual(){
   if(this.scene?.imageAssembly)return null;
   return this.scene?.objects.find(object=>object.id===this.object?.id&&object.visualMesh);

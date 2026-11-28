@@ -40,6 +40,7 @@ import {isMotionMediaRequest, MotionMediaPanel} from './motion-media.js';
 import {TimelinePanel} from './timeline-editor.js';
 import {isPlacementRequest} from './spatial-placement.js';
 import {isRecipientApproachRequest} from './recipient-edit.js';
+import {isLoadingAisleRequest} from './loading-aisle.mjs';
 import {SpatialPanel,isSpatialPropRequest} from './spatial-panel.js';
 import {isSpatialCarryRequest} from './spatial-carry.js';
 import {isSpatialHeightRequest} from './spatial-height.js';
@@ -671,6 +672,7 @@ async function submitWorkspaceChat() {
   return;
  }
  const selectedModel=state?.models.some(m=>m.name===$('model').value)?$('model').value:'';
+ if(isLoadingAisleRequest(goal)){await spatial.loadingAisle.fromChat(goal);return;}
  if(isRecipientApproachRequest(goal)&&!selectedModel&&!colliderQuestion){await spatial.action(()=>spatial.recipient.compareFromChat(goal));return;}
  if(isSpatialHeightRequest(goal)){await spatial.height.openFromChat(goal);return;}
  if(isSpatialCarryRequest(goal)){await spatial.carry.review(true);return;}

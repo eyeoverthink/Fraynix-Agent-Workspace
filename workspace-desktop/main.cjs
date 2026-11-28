@@ -1210,6 +1210,17 @@ ipcMain.handle('workspace:request',async(event,input)=>{
         {id, sourceSha256:data.sourceSha256, spriteSha256:data.spriteSha256}, data.sha256);
     }
     case 'spatial':{
+      if(input.command==='aisle-review'){
+        if(!currentSpatial)throw Error('Select the intended dynamic crate in Spatial first.');
+        return api('/api/spatial/aisle-review',{request:input.args.request,...currentSpatial});
+      }
+      if(input.command==='aisle-export'){
+        const data=await api('/api/spatial/aisle-export',input.args||{});
+        return nativeExports.save('verified-loading-aisle','json',Buffer.from(data.base64,'base64'),
+          {id:input.args.id,sceneId:data.sceneId},data.sha256);
+      }
+      if(['aisle-fixture','aisle-approve','aisle-replay','aisle-latest','aisle-read'].includes(input.command))
+        return api('/api/spatial/'+input.command,input.args||{});
       if(['height-example','height-review','height-approve','height-read','height-latest','height-collider'].includes(input.command)){
         const result=await api('/api/spatial/'+input.command,input.args||{});
         if(input.command==='height-collider'){currentSpatial=null;await refresh();}
