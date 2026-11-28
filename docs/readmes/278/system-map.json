@@ -1,0 +1,62 @@
+{
+  "summary": "Refine blocked route searches while keeping the original destination, native checks and approval.",
+  "modules": [
+    {
+      "title": "Bounded localized and full-fine search",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleRoute.java",
+      "note": "docs/obsidian/286-localized-route-refinement.md"
+    },
+    {
+      "title": "Measured move and native sweep gates",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisle.java",
+      "note": "docs/obsidian/286-localized-route-refinement.md"
+    },
+    {
+      "title": "Declared-scale wide-crate layouts",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleWideBays.java",
+      "note": "docs/obsidian/286-localized-route-refinement.md"
+    },
+    {
+      "title": "Search resolution and exact approval controls",
+      "source": "workspace-desktop/renderer/loading-aisle.mjs",
+      "note": "docs/obsidian/286-localized-route-refinement.md"
+    },
+    {
+      "title": "Portable refinement and restart verification",
+      "source": "workspace-desktop/test/loading-aisle-resolution-integration.cjs",
+      "note": "docs/obsidian/286-localized-route-refinement.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Local refinement is shown before exact approval",
+      "path": "docs/readmes/278/fine-review.png"
+    },
+    {
+      "title": "The two-crossover bay replays its full-grid fallback offline",
+      "path": "docs/readmes/278/fine-fallback.png"
+    },
+    {
+      "title": "The approved localized route reproduces all leg checks after restart",
+      "path": "docs/readmes/278/fine-restart.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Download scene and evidence",
+      "path": "docs/readmes/278/fine-verified.json"
+    },
+    {
+      "title": "Download restart result",
+      "path": "docs/readmes/278/result.json"
+    },
+    {
+      "title": "Download paired search comparison",
+      "path": "docs/readmes/278/comparison.json"
+    },
+    {
+      "title": "Design and reproduction",
+      "path": "docs/publication278/plan.md"
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 277 · Refine routes for wider crates and longer moves</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Refine crate routes near measured obstructions</h1>
+<p>Ask Spatial to move a crate. Review the localized search or full-grid fallback and each verified leg before approving.</p>
+<nav><a href="../../../README-278.md">App guide</a><a href="../277/index.html">Edition 277</a>
+<a href="../../publication278/plan.md">Reproduction</a>
+<a href="fine-verified.json" download>Download scene and evidence</a>
+<a href="result.json" download>Download restart result</a>
+<a href="comparison.json" download>Download paired search comparison</a><a href="#system">System files</a></nav>
+<figure><img src="fine-review.png" alt="Local refinement is shown before exact approval"><figcaption>Local refinement is shown before exact approval</figcaption></figure>
+<figure><img src="fine-fallback.png" alt="The two-crossover bay replays its full-grid fallback offline"><figcaption>The two-crossover bay replays its full-grid fallback offline</figcaption></figure>
+<figure><img src="fine-restart.png" alt="The approved localized route reproduces all leg checks after restart"><figcaption>The approved localized route reproduces all leg checks after restart</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "Refine blocked route searches while keeping the original destination, native checks and approval.",
+  "modules": [
+    {
+      "title": "Bounded localized and full-fine search",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleRoute.java",
+      "note": "docs/obsidian/286-localized-route-refinement.md"
+    },
+    {
+      "title": "Measured move and native sweep gates",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisle.java",
+      "note": "docs/obsidian/286-localized-route-refinement.md"
+    },
+    {
+      "title": "Declared-scale wide-crate layouts",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleWideBays.java",
+      "note": "docs/obsidian/286-localized-route-refinement.md"
+    },
+    {
+      "title": "Search resolution and exact approval controls",
+      "source": "workspace-desktop/renderer/loading-aisle.mjs",
+      "note": "docs/obsidian/286-localized-route-refinement.md"
+    },
+    {
+      "title": "Portable refinement and restart verification",
+      "source": "workspace-desktop/test/loading-aisle-resolution-integration.cjs",
+      "note": "docs/obsidian/286-localized-route-refinement.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Local refinement is shown before exact approval",
+      "path": "docs/readmes/278/fine-review.png"
+    },
+    {
+      "title": "The two-crossover bay replays its full-grid fallback offline",
+      "path": "docs/readmes/278/fine-fallback.png"
+    },
+    {
+      "title": "The approved localized route reproduces all leg checks after restart",
+      "path": "docs/readmes/278/fine-restart.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Download scene and evidence",
+      "path": "docs/readmes/278/fine-verified.json"
+    },
+    {
+      "title": "Download restart result",
+      "path": "docs/readmes/278/result.json"
+    },
+    {
+      "title": "Download paired search comparison",
+      "path": "docs/readmes/278/comparison.json"
+    },
+    {
+      "title": "Design and reproduction",
+      "path": "docs/publication278/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": "docs/obsidian/286-localized-route-refinement.canvas",
+    "bytes": 827,
+    "sha256": "e4e89a9701e06ba30128742a996cdf1d2d28effd471bc821ddddcb1b70d6198c",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/286-localized-route-refinement.md",
+    "bytes": 296,
+    "sha256": "7071030a4f0d45bf29dc9c783b5aa050f593b3fa020281316928be30478239d8",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication278/plan.md",
+    "bytes": 3840,
+    "sha256": "be401e44286ec45858561fe37167ea2303d952d61b7e43d8a6424b09eee1efa6",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/loading-aisle.mjs",
+    "bytes": 19861,
+    "sha256": "3f19c1dd4ce53a83238b2f67ad00bc2f62a99c37a614a8ee38841a670f4ee9ee",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/loading-aisle-resolution-integration.cjs",
+    "bytes": 13799,
+    "sha256": "6ed0e019e532c47ca8bfae6011849fbd7d9146d621fe499764acf6e2aaf2a84d",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisle.java",
+    "bytes": 26836,
+    "sha256": "80aa14da4b60c11c78ce7b4b2bf7828f2860f29d5e6c6221e227eb5a04537dad",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleRoute.java",
+    "bytes": 20561,
+    "sha256": "f7a1196155a38f74d5ad299ac180e55049fc428215a5fbb3c8703b054721c6aa",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleWideBays.java",
+    "bytes": 4314,
+    "sha256": "4c690a0f75e7192a55545c702386bb8ab99a25043aca25c0b9d3577318545981",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

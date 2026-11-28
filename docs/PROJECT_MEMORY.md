@@ -1,3 +1,7 @@
+## Edition 278 — Refine crate routes near measured obstructions
+
+2026-11-27. The route planner enables fine steps near measured coarse obstructions, then keeps a full fine fallback. Both local routes preserved destination and distance. Exact directed checks are reused only within the same planning request and bound parent and crate. Five paired cases used 2,954 versus 2,235 native edge evaluations, with the same accepted and refused outcomes. The separate two-crossover fallback added work and reused 249 checks. Windows restored and replayed local and fallback evidence across three offline restarts. See README-278.md and docs/publication278/plan.md.
+
 ## Edition 277 — Refine routes for wider crates and longer moves
 
 2026-11-27. Spatial chat now binds an exact 40–200 cm advance to crate approval. After direct and straight alternatives fail, a 10 × 15 cm grid tries the route and a 5 × 5 cm grid can recover a coarse miss. The 42 cm and 58 cm crates reached 1.20 m and 1.73 m destinations in rotated bays. The open-crossover control skipped refinement and the 74 cm crate was refused by both grids. Per-leg sweeps, the one-metre aisle, both shelves and 60 supported ticks were verified. Windows restored and replayed the exact route across two offline restarts. See README-277.md and docs/publication277/plan.md.

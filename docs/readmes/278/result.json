@@ -1,0 +1,709 @@
+{
+  "passed": true,
+  "platform": "win32",
+  "offlineRestarts": 3,
+  "pendingRestored": true,
+  "approvedReplayed": true,
+  "changedSearchRefused": true,
+  "wrongApprovalRefused": true,
+  "exportSha256": "78c7b08f7fa035bddfaa06c949166f57a26ef353a87a542dcf9d2b58561e4291",
+  "fine": {
+    "width": 0.42,
+    "forwardCm": 120,
+    "yaw": -53,
+    "fine": true,
+    "policy": "door-relative-local-v3",
+    "deltaM": [
+      -0.9583626120567513,
+      0,
+      0.7221780277824581
+    ],
+    "distanceM": 2.6,
+    "segmentCount": 8,
+    "search": {
+      "coarseEdgesChecked": 66,
+      "coarseResult": "no-route",
+      "forwardStepCm": 5,
+      "fineEdgesChecked": 241,
+      "localized": {
+        "result": "accepted",
+        "edgesChecked": 241,
+        "refinedRows": 13
+      },
+      "lateralStepCm": 5
+    },
+    "aisleM": 1,
+    "shelvesPreserved": 2,
+    "heldTicks": 60,
+    "segments": [
+      {
+        "aisleClear": true,
+        "number": 1,
+        "fromM": [
+          -0.6056407218464132,
+          0.24,
+          2.2695636147300813
+        ],
+        "endpointsClear": true,
+        "toM": [
+          -0.7653678238558718,
+          0.24,
+          2.389926619360491
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.2
+      },
+      {
+        "aisleClear": true,
+        "number": 2,
+        "fromM": [
+          -0.7653678238558718,
+          0.24,
+          2.389926619360491
+        ],
+        "endpointsClear": true,
+        "toM": [
+          -0.554732565752655,
+          0.24,
+          2.6694490478770434
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.35
+      },
+      {
+        "aisleClear": true,
+        "number": 3,
+        "fromM": [
+          -0.554732565752655,
+          0.24,
+          2.6694490478770434
+        ],
+        "endpointsClear": true,
+        "toM": [
+          -0.8342549942692072,
+          0.24,
+          2.8800843059802603
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.35
+      },
+      {
+        "aisleClear": true,
+        "number": 4,
+        "fromM": [
+          -0.8342549942692072,
+          0.24,
+          2.8800843059802603
+        ],
+        "endpointsClear": true,
+        "toM": [
+          -1.255525510475641,
+          0.24,
+          2.3210394489471553
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.7
+      },
+      {
+        "aisleClear": true,
+        "number": 5,
+        "fromM": [
+          -1.255525510475641,
+          0.24,
+          2.3210394489471553
+        ],
+        "endpointsClear": true,
+        "toM": [
+          -1.5350479389921936,
+          0.24,
+          2.5316747070503722
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.35
+      },
+      {
+        "aisleClear": true,
+        "number": 6,
+        "fromM": [
+          -1.5350479389921936,
+          0.24,
+          2.5316747070503722
+        ],
+        "endpointsClear": true,
+        "toM": [
+          -1.3545034320465792,
+          0.24,
+          2.77126536006456
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.3
+      },
+      {
+        "aisleClear": true,
+        "number": 7,
+        "fromM": [
+          -1.3545034320465792,
+          0.24,
+          2.77126536006456
+        ],
+        "endpointsClear": true,
+        "toM": [
+          -1.594094085060767,
+          0.24,
+          2.9518098670101747
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.3
+      },
+      {
+        "aisleClear": true,
+        "number": 8,
+        "fromM": [
+          -1.594094085060767,
+          0.24,
+          2.9518098670101747
+        ],
+        "endpointsClear": true,
+        "toM": [
+          -1.5640033339031645,
+          0.24,
+          2.9917416425125394
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.05
+      }
+    ],
+    "sourceSha256": "293005c2d3422c199d79754b9a7d0598e71999d7e568671598bdebc8c68155d2"
+  },
+  "mirrored": {
+    "width": 0.58,
+    "forwardCm": 173,
+    "yaw": 96,
+    "fine": true,
+    "policy": "door-relative-local-v3",
+    "deltaM": [
+      1.7205228789871132,
+      0,
+      -0.1808342414530406
+    ],
+    "distanceM": 3.53,
+    "segmentCount": 11,
+    "search": {
+      "coarseEdgesChecked": 57,
+      "coarseResult": "no-route",
+      "forwardStepCm": 5,
+      "fineEdgesChecked": 336,
+      "localized": {
+        "result": "accepted",
+        "edgesChecked": 336,
+        "refinedRows": 14
+      },
+      "lateralStepCm": 5
+    },
+    "aisleM": 1,
+    "shelvesPreserved": 2,
+    "heldTicks": 60,
+    "segments": [
+      {
+        "aisleClear": true,
+        "number": 1,
+        "fromM": [
+          2.0664460492967294,
+          0.24,
+          1.8759798177632319
+        ],
+        "endpointsClear": true,
+        "toM": [
+          2.2156243336019705,
+          0.24,
+          1.8603005482730839
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.15
+      },
+      {
+        "aisleClear": true,
+        "number": 2,
+        "fromM": [
+          2.2156243336019705,
+          0.24,
+          1.8603005482730839
+        ],
+        "endpointsClear": true,
+        "toM": [
+          2.257435718909032,
+          0.24,
+          2.258109306420393
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.4
+      },
+      {
+        "aisleClear": true,
+        "number": 3,
+        "fromM": [
+          2.257435718909032,
+          0.24,
+          2.258109306420393
+        ],
+        "endpointsClear": true,
+        "toM": [
+          2.3071618136774457,
+          0.24,
+          2.2528828832570107
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.05
+      },
+      {
+        "aisleClear": true,
+        "number": 4,
+        "fromM": [
+          2.3071618136774457,
+          0.24,
+          2.2528828832570107
+        ],
+        "endpointsClear": true,
+        "toM": [
+          2.312388236840828,
+          0.24,
+          2.3026089780254244
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.05
+      },
+      {
+        "aisleClear": true,
+        "number": 5,
+        "fromM": [
+          2.312388236840828,
+          0.24,
+          2.3026089780254244
+        ],
+        "endpointsClear": true,
+        "toM": [
+          2.6604709002197238,
+          0.24,
+          2.2660240158817455
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.35
+      },
+      {
+        "aisleClear": true,
+        "number": 6,
+        "fromM": [
+          2.6604709002197238,
+          0.24,
+          2.2660240158817455
+        ],
+        "endpointsClear": true,
+        "toM": [
+          2.5716217064422184,
+          0.24,
+          1.4206804048187132
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.85
+      },
+      {
+        "aisleClear": true,
+        "number": 7,
+        "fromM": [
+          2.5716217064422184,
+          0.24,
+          1.4206804048187132
+        ],
+        "endpointsClear": true,
+        "toM": [
+          2.6213478012106317,
+          0.24,
+          1.4154539816553304
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.05
+      },
+      {
+        "aisleClear": true,
+        "number": 8,
+        "fromM": [
+          2.6213478012106317,
+          0.24,
+          1.4154539816553304
+        ],
+        "endpointsClear": true,
+        "toM": [
+          2.616121378047249,
+          0.24,
+          1.3657278868869167
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.05
+      },
+      {
+        "aisleClear": true,
+        "number": 9,
+        "fromM": [
+          2.616121378047249,
+          0.24,
+          1.3657278868869167
+        ],
+        "endpointsClear": true,
+        "toM": [
+          3.013930136194559,
+          0.24,
+          1.3239165015798553
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.4
+      },
+      {
+        "aisleClear": true,
+        "number": 10,
+        "fromM": [
+          3.013930136194559,
+          0.24,
+          1.3239165015798553
+        ],
+        "endpointsClear": true,
+        "toM": [
+          3.060967944665003,
+          0.24,
+          1.7714513544955783
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.45
+      },
+      {
+        "aisleClear": true,
+        "number": 11,
+        "fromM": [
+          3.060967944665003,
+          0.24,
+          1.7714513544955783
+        ],
+        "endpointsClear": true,
+        "toM": [
+          3.7869689282838426,
+          0.24,
+          1.6951455763101912
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.73
+      }
+    ],
+    "sourceSha256": "3dee3c810ab36811a892336ac6ae9870ea5c68dac99f30c1a1f071e09305fe18"
+  },
+  "coarse": {
+    "width": 0.42,
+    "forwardCm": 120,
+    "yaw": 27,
+    "fine": false,
+    "policy": "door-relative-coarse-v2",
+    "deltaM": [
+      0.544788599687456,
+      0,
+      1.0692078290260414
+    ],
+    "distanceM": 3,
+    "segmentCount": 6,
+    "search": {
+      "coarseEdgesChecked": 114,
+      "coarseResult": "accepted",
+      "forwardStepCm": 10,
+      "fineEdgesChecked": 0,
+      "lateralStepCm": 15
+    },
+    "aisleM": 1,
+    "shelvesPreserved": 2,
+    "heldTicks": 60,
+    "segments": [
+      {
+        "aisleClear": true,
+        "number": 1,
+        "fromM": [
+          1.1241512646503538,
+          0.24,
+          0.4919221996181158
+        ],
+        "endpointsClear": true,
+        "toM": [
+          1.1695503146243085,
+          0.24,
+          0.5810228520369526
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.1
+      },
+      {
+        "aisleClear": true,
+        "number": 2,
+        "fromM": [
+          1.1695503146243085,
+          0.24,
+          0.5810228520369526
+        ],
+        "endpointsClear": true,
+        "toM": [
+          1.570503250509074,
+          0.24,
+          0.37672712715415657
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.45
+      },
+      {
+        "aisleClear": true,
+        "number": 3,
+        "fromM": [
+          1.570503250509074,
+          0.24,
+          0.37672712715415657
+        ],
+        "endpointsClear": true,
+        "toM": [
+          1.7520994504048928,
+          0.24,
+          0.7331297368295037
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.4
+      },
+      {
+        "aisleClear": true,
+        "number": 4,
+        "fromM": [
+          1.7520994504048928,
+          0.24,
+          0.7331297368295037
+        ],
+        "endpointsClear": true,
+        "toM": [
+          0.9501935786353616,
+          0.24,
+          1.1417211865950958
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.9
+      },
+      {
+        "aisleClear": true,
+        "number": 5,
+        "fromM": [
+          0.9501935786353616,
+          0.24,
+          1.1417211865950958
+        ],
+        "endpointsClear": true,
+        "toM": [
+          1.2679869284530443,
+          0.24,
+          1.7654257535269533
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.7
+      },
+      {
+        "aisleClear": true,
+        "number": 6,
+        "fromM": [
+          1.2679869284530443,
+          0.24,
+          1.7654257535269533
+        ],
+        "endpointsClear": true,
+        "toM": [
+          1.6689398643378097,
+          0.24,
+          1.5611300286441572
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.45
+      }
+    ],
+    "sourceSha256": "94fb86f8aad31ab5b618cebd46d41e13aa4fd24e0d220526001d8b5a8771154c"
+  },
+  "fallback": {
+    "width": 0.42,
+    "forwardCm": 200,
+    "yaw": -18,
+    "fine": true,
+    "policy": "door-relative-fine-v2",
+    "deltaM": [
+      -0.618033988749895,
+      0,
+      1.9021130325903073
+    ],
+    "distanceM": 3.5,
+    "segmentCount": 8,
+    "search": {
+      "coarseEdgesChecked": 69,
+      "coarseResult": "no-route",
+      "forwardStepCm": 5,
+      "fineEdgesChecked": 694,
+      "localized": {
+        "result": "budget",
+        "edgesChecked": 360,
+        "refinedRows": 13
+      },
+      "lateralStepCm": 5,
+      "reusedFineEdges": 249
+    },
+    "aisleM": 1,
+    "shelvesPreserved": 2,
+    "heldTicks": 60,
+    "segments": [
+      {
+        "aisleClear": true,
+        "number": 1,
+        "fromM": [
+          0.4602262575120559,
+          0.24,
+          1.810934557013817
+        ],
+        "endpointsClear": true,
+        "toM": [
+          0.3984228586370664,
+          0.24,
+          2.001145860272848
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.2
+      },
+      {
+        "aisleClear": true,
+        "number": 2,
+        "fromM": [
+          0.3984228586370664,
+          0.24,
+          2.001145860272848
+        ],
+        "endpointsClear": true,
+        "toM": [
+          0.6361869877108548,
+          0.24,
+          2.078400108866585
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.25
+      },
+      {
+        "aisleClear": true,
+        "number": 3,
+        "fromM": [
+          0.6361869877108548,
+          0.24,
+          2.078400108866585
+        ],
+        "endpointsClear": true,
+        "toM": [
+          0.5280310396796232,
+          0.24,
+          2.4112698895698887
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.35
+      },
+      {
+        "aisleClear": true,
+        "number": 4,
+        "fromM": [
+          0.5280310396796232,
+          0.24,
+          2.4112698895698887
+        ],
+        "endpointsClear": true,
+        "toM": [
+          0.05250278153204632,
+          0.24,
+          2.2567613923824146
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.5
+      },
+      {
+        "aisleClear": true,
+        "number": 5,
+        "fromM": [
+          0.05250278153204632,
+          0.24,
+          2.2567613923824146
+        ],
+        "endpointsClear": true,
+        "toM": [
+          -0.19471081396791165,
+          0.24,
+          3.0176066054185378
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.8
+      },
+      {
+        "aisleClear": true,
+        "number": 6,
+        "fromM": [
+          -0.19471081396791165,
+          0.24,
+          3.0176066054185378
+        ],
+        "endpointsClear": true,
+        "toM": [
+          0.28081744417966525,
+          0.24,
+          3.172115102606012
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.5
+      },
+      {
+        "aisleClear": true,
+        "number": 7,
+        "fromM": [
+          0.28081744417966525,
+          0.24,
+          3.172115102606012
+        ],
+        "endpointsClear": true,
+        "toM": [
+          0.07995639783594935,
+          0.24,
+          3.7903018381978613
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.65
+      },
+      {
+        "aisleClear": true,
+        "number": 8,
+        "fromM": [
+          0.07995639783594935,
+          0.24,
+          3.7903018381978613
+        ],
+        "endpointsClear": true,
+        "toM": [
+          -0.1578077312378391,
+          0.24,
+          3.713047589604124
+        ],
+        "sweptPathClear": true,
+        "distanceM": 0.25
+      }
+    ],
+    "sourceSha256": "66e428183e96812b7566cb58fa3d45982a8bb19dd4459959cc0dbf04e2f4bf86"
+  },
+  "refused": {
+    "width": 0.74,
+    "forwardCm": 120,
+    "coarseEdges": 53,
+    "fineEdges": 11,
+    "reason": "The crate path is blocked by Inner barrier, Outer barrier.",
+    "sourceUnchanged": true,
+    "localized": {
+      "result": "no-route",
+      "edgesChecked": 234,
+      "refinedRows": 14
+    },
+    "reused": 233
+  }
+}

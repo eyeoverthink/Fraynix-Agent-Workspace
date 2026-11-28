@@ -1,0 +1,111 @@
+{
+  "baseline": "coarse plus uncached full fine as needed",
+  "totalBefore": 2954,
+  "totalAfter": 2235,
+  "savingsPct": 24.339878131347326,
+  "cases": [
+    {
+      "acceptedLegs": 8,
+      "search": {
+        "coarseEdgesChecked": 66,
+        "coarseResult": "no-route",
+        "forwardStepCm": 5,
+        "fineEdgesChecked": 241,
+        "localized": {
+          "result": "accepted",
+          "edgesChecked": 241,
+          "refinedRows": 13
+        },
+        "lateralStepCm": 5
+      },
+      "baselineCoarse": 66,
+      "adaptiveTotal": 307,
+      "baselineLegs": 6,
+      "distanceM": 2.6,
+      "baselineFullFine": 571,
+      "bay": "wide-fine",
+      "baselineTotal": 637,
+      "outcome": "local"
+    },
+    {
+      "acceptedLegs": 11,
+      "search": {
+        "coarseEdgesChecked": 57,
+        "coarseResult": "no-route",
+        "forwardStepCm": 5,
+        "fineEdgesChecked": 336,
+        "localized": {
+          "result": "accepted",
+          "edgesChecked": 336,
+          "refinedRows": 14
+        },
+        "lateralStepCm": 5
+      },
+      "baselineCoarse": 57,
+      "adaptiveTotal": 393,
+      "baselineLegs": 10,
+      "distanceM": 3.53,
+      "baselineFullFine": 837,
+      "bay": "wide-mirror",
+      "baselineTotal": 894,
+      "outcome": "local"
+    },
+    {
+      "acceptedLegs": 6,
+      "search": {
+        "coarseEdgesChecked": 114,
+        "coarseResult": "accepted",
+        "forwardStepCm": 10,
+        "fineEdgesChecked": 0,
+        "lateralStepCm": 15
+      },
+      "baselineCoarse": 114,
+      "adaptiveTotal": 114,
+      "baselineLegs": 6,
+      "distanceM": 3,
+      "baselineFullFine": 0,
+      "bay": "wide-coarse",
+      "baselineTotal": 114,
+      "outcome": "coarse"
+    },
+    {
+      "baselineCoarse": 53,
+      "adaptiveTotal": 298,
+      "baselineFullFine": 244,
+      "bay": "wide-blocked",
+      "baselineTotal": 297,
+      "outcome": "refused",
+      "local": {
+        "result": "no-route",
+        "edgesChecked": 234,
+        "refinedRows": 14
+      },
+      "reused": 233,
+      "newFine": 11
+    },
+    {
+      "acceptedLegs": 8,
+      "search": {
+        "coarseEdgesChecked": 69,
+        "coarseResult": "no-route",
+        "forwardStepCm": 5,
+        "fineEdgesChecked": 694,
+        "localized": {
+          "result": "budget",
+          "edgesChecked": 360,
+          "refinedRows": 13
+        },
+        "lateralStepCm": 5,
+        "reusedFineEdges": 249
+      },
+      "baselineCoarse": 69,
+      "adaptiveTotal": 1123,
+      "baselineLegs": 8,
+      "distanceM": 3.5,
+      "baselineFullFine": 943,
+      "bay": "wide-remote",
+      "baselineTotal": 1012,
+      "outcome": "full"
+    }
+  ]
+}
