@@ -7,6 +7,7 @@ import com.jme3.math.Transform;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.math.BigDecimal;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ import static fraymus.workspace.SpatialScene.array;
 
 /** The commissioned edit is a translation along the horizontal loading-door normal. */
 final class LoadingAisle {
-    private static final double MOVE = .40, WIDTH = 1, HEIGHT = 1.80, BASE_GAP = .02;
+    private static final double WIDTH = 1, HEIGHT = 1.80, BASE_GAP = .02;
     private static final Pattern BEGIN = Pattern.compile(
             "(?i)^(?:please\\s+)?(?:move|shift)\\s+(?:(?:the|this)\\s+)?(?:selected\\s+)?crate\\s+(?:by\\s+)?" +
             "(?:40\\s*(?:cm|centimet(?:er|re)s?)|forty\\s+centimet(?:er|re)s?|0?\\.4(?:0)?\\s*(?:m|met(?:er|re)s?)|400\\s*mm)" +
@@ -27,18 +28,41 @@ final class LoadingAisle {
             "(?i)^(?:[\\s,.;!?]+(?:and\\s+)?(?:keep\\s+(?:the\\s+)?(?:1\\s*(?:m|met(?:er|re)s?)|one[- ]met(?:er|re))\\s+" +
             "aisle\\s+clear|leave\\s+(?:the\\s+)?(?:shelves|shelving)\\s+(?:alone|unchanged)|" +
             "protect\\s+(?:the\\s+)?(?:shelves|shelving)))*[\\s.!?]*$");
+    private static final Pattern MEASURED_BEGIN = Pattern.compile(
+            "(?i)^(?:please\\s+)?(?:move|shift)\\s+(?:(?:the|this)\\s+)?(?:selected\\s+)?crate\\s+(?:by\\s+)?" +
+            "([0-9]{1,4}(?:\\.[0-9]{1,3})?)\\s*(mm|cm|m|centimet(?:er|re)s?|millimet(?:er|re)s?|met(?:er|re)s?)" +
+            "\\s+away\\s+from\\s+(?:the\\s+)?loading\\s+door\\b");
     private static final String REVISION_SUFFIX = " · Reviewed aisle move";
 
     private LoadingAisle() {}
 
-    static void validateRequest(String request) {
-        var prefix = BEGIN.matcher(request.strip());
-        if (!prefix.find() || !GUARDS.matcher(request.strip().substring(prefix.end())).matches())
-            throw new IllegalArgumentException("Ask to move the selected crate 40 cm away from the loading door. This review permits only that crate translation.");
+    static int requestDistanceCm(String request) {
+        var text = request.strip();
+        var legacy = BEGIN.matcher(text);
+        if (legacy.find() && GUARDS.matcher(text.substring(legacy.end())).matches()) return 40;
+        var measured = MEASURED_BEGIN.matcher(text);
+        if (!measured.find() || !GUARDS.matcher(text.substring(measured.end())).matches())
+            throw new IllegalArgumentException("This review permits only one crate translation 40–200 cm away from the loading door with aisle and shelf protection.");
+        String unit = measured.group(2).toLowerCase(Locale.ROOT);
+        var value = new BigDecimal(measured.group(1));
+        if (unit.equals("mm") || unit.startsWith("milli")) value = value.movePointLeft(1);
+        else if (!unit.equals("cm") && !unit.startsWith("centi")) value = value.movePointRight(2);
+        if (value.compareTo(BigDecimal.valueOf(40)) < 0 || value.compareTo(BigDecimal.valueOf(200)) > 0 ||
+                value.stripTrailingZeros().scale() > 0)
+            throw new IllegalArgumentException("Use a whole-centimetre move from 40 to 200 cm.");
+        return value.intValueExact();
     }
 
     static JSONObject plan(JSONObject parent, String selected, String request) {
-        validateRequest(request);
+        if (requestDistanceCm(request) != 40)
+            throw new IllegalArgumentException("Use a chat review for moves longer than 40 cm.");
+        return plan(parent,selected,request,40);
+    }
+
+    static int forwardCm(JSONObject review) { return review.optInt("forwardCm",40); }
+
+    static JSONObject plan(JSONObject parent, String selected, String request, int distanceCm) {
+        double move = distanceCm / 100.0;
         if (parent.has("translationAnimation") || parent.has("recipientBranch"))
             throw new IllegalArgumentException("Choose a static layout for the reviewed aisle edit.");
         var crate = SpatialScene.object(parent, selected);
@@ -81,7 +105,7 @@ final class LoadingAisle {
         end = add(entry, mul(normal, length));
         if (dot(sub(start, entry), normal) < .10)
             throw new IllegalArgumentException("The crate must be on the aisle side of the loading door.");
-        var target = add(start, mul(normal, MOVE));
+        var target = add(start, mul(normal, move));
 
         var widthAxis = new double[]{normal[2],0,-normal[0]};
         for (var center : List.of(entry, end))
@@ -91,13 +115,15 @@ final class LoadingAisle {
         var aisle = new JSONObject().put("entryM", array(entry)).put("endM", array(end))
                 .put("widthM", WIDTH).put("heightM", HEIGHT).put("lengthM", length)
                 .put("floorY", level).put("floor", floor.getString("sourceId"));
-        return new JSONObject().put("format", "fraynix.loading-aisle-edit-v1").put("request", request)
+        var review = new JSONObject().put("format", "fraynix.loading-aisle-edit-v1").put("request", request)
                 .put("parentId", parent.getString("id"))
                 .put("parentSha256", parent.getString("sourceSha256"))
                 .put("objectId", selected).put("crate", crate.getString("sourceId")).put("crateLabel", crate.getString("label"))
                 .put("door", door.getString("sourceId")).put("directionM", array(normal))
-                .put("deltaM", array(mul(normal, MOVE))).put("fromM", array(start)).put("toM", array(target))
+                .put("deltaM", array(mul(normal, move))).put("fromM", array(start)).put("toM", array(target))
                 .put("aisle", aisle).put("protected", protectedRows);
+        if (distanceCm != 40) review.put("forwardCm",distanceCm);
+        return review;
     }
 
     static boolean isCrate(JSONObject object) {
@@ -144,7 +170,7 @@ final class LoadingAisle {
     static void adjust(JSONObject parent, JSONObject review, double lateral) {
         var start = v(review.getJSONArray("fromM"));
         var forward = v(review.getJSONArray("directionM"));
-        var delta = add(mul(forward, MOVE), mul(new double[]{forward[2],0,-forward[0]}, lateral));
+        var delta = add(mul(forward, forwardCm(review)/100.0), mul(new double[]{forward[2],0,-forward[0]}, lateral));
         var target = add(start,delta);
         var aisle = review.getJSONObject("aisle");
         requireCrateFloor(find(parent,review.getString("crate")),find(parent,aisle.getString("floor")),
@@ -207,9 +233,10 @@ final class LoadingAisle {
         double lateral = dot(delta,new double[]{normal[2],0,-normal[0]});
         boolean guided = review.has("intent");
         double expectedLateral = review.has("alternate") ? review.getJSONObject("alternate").getDouble("lateralM") : 0;
-        if (Math.abs(forward-MOVE) > .000001 || Math.abs(lateral-expectedLateral) > .000001 ||
+        double requested = forwardCm(review) / 100.0;
+        if (Math.abs(forward-requested) > .000001 || Math.abs(lateral-expectedLateral) > .000001 ||
                 Math.abs(delta[1]) > .000001 || Math.abs(expectedLateral) > .650001)
-            throw new IllegalStateException("The move must match the reviewed 0.40 m forward and lateral offsets.");
+            throw new IllegalStateException("The move must match the reviewed forward and lateral offsets.");
         var aisle = review.getJSONObject("aisle");
         int bodiesChecked = 0;
         JSONObject routeProof = null;
@@ -247,7 +274,7 @@ final class LoadingAisle {
                     .put("changedObjects", new JSONArray().put(review.getString("crate")))
                     .put("shelvesPreserved", review.getJSONArray("protected").length())
                     .put("candidateSourceSha256", candidate.getString("sourceSha256"));
-            if (guided) result.put("forwardM",MOVE).put("lateralM",expectedLateral)
+            if (guided) result.put("forwardM",requested).put("lateralM",expectedLateral)
                     .put("aisleSweepClear",true).put("destinationClear",true);
             if (routeProof != null) result.put("route",routeProof);
             return result;

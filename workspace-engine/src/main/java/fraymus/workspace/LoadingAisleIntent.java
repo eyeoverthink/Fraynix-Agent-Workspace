@@ -18,19 +18,19 @@ final class LoadingAisleIntent {
             "(?i)^((?:please\\s+)?(?:move|shift)\\s+)(?:(?:the|a)\\s+)?([^\\r\\n.!?]{0,100}?)\\bcrate\\b");
     private static final List<Double> OFFSETS = List.of(.20,.35,.50,.65);
 
-    record Request(String original, String canonical, String reference) {}
+    record Request(String original, String canonical, String reference, int distanceCm) {}
 
     static Request parse(String original) {
         var text = original.strip();
         var match = REQUEST.matcher(text);
         if (!match.find())
-            throw new IllegalArgumentException("Name or select a crate and ask to move it 40 cm away from the loading door.");
+            throw new IllegalArgumentException("Name or select a crate and give a distance from 40 to 200 cm away from the loading door.");
         String canonical = match.group(1) + "the selected crate" + text.substring(match.end());
-        LoadingAisle.validateRequest(canonical);
+        int distanceCm = LoadingAisle.requestDistanceCm(canonical);
         String reference = normalize(match.group(2));
         if (reference.matches(".*\\b(?:and|then)\\b.*"))
             throw new IllegalArgumentException("This review accepts one crate and one move.");
-        return new Request(original,canonical,reference);
+        return new Request(original,canonical,reference,distanceCm);
     }
 
     static List<JSONObject> options(JSONObject parent, Request request, String selectedId) {
@@ -101,7 +101,8 @@ final class LoadingAisleIntent {
     }
 
     static JSONObject base(JSONObject parent, String objectId, Request request, JSONObject intent) {
-        return LoadingAisle.plan(parent,objectId,request.canonical).put("request",request.original).put("intent",intent);
+        return LoadingAisle.plan(parent,objectId,request.canonical,request.distanceCm)
+                .put("request",request.original).put("intent",intent);
     }
 
     private static JSONObject alternate(JSONObject parent, JSONObject direct, double lateral, JSONObject obstruction) {
@@ -118,7 +119,7 @@ final class LoadingAisleIntent {
             var alt = saved.getJSONObject("alternate");
             plan = alternate(parent,plan,alt.getDouble("lateralM"),alt.getJSONObject("direct"));
         }
-        if (saved.has("route")) plan = LoadingAisleRoute.rebuild(plan,saved.getJSONObject("route"));
+        else if (saved.has("route")) plan = LoadingAisleRoute.rebuild(plan,saved.getJSONObject("route"));
         return plan.put("preview",saved.getJSONObject("preview"));
     }
 
@@ -131,7 +132,7 @@ final class LoadingAisleIntent {
             return new Search(withPreview(parent,direct,nativeDir),null);
         } catch (LoadingAisle.Obstruction blocked) {
             var reason = blocked.evidence();
-            int considered = 0, routeEdgesChecked = 0;
+            int considered = 0, routeEdgesChecked = 0, fineEdgesChecked = 0;
             if (!blocked.gate.equals("initial-aisle")) {
                 var n = v(direct.getJSONArray("directionM"));
                 var entry = v(direct.getJSONObject("aisle").getJSONArray("entryM"));
@@ -147,11 +148,24 @@ final class LoadingAisleIntent {
                         }
                     }
                 }
-                var route = LoadingAisleRoute.search(parent,direct,reason,nativeDir);
-                routeEdgesChecked = route.edgesChecked();
-                if (route.plan()!=null) {
+                var coarse = LoadingAisleRoute.search(parent,direct,reason,nativeDir,false);
+                routeEdgesChecked = coarse.edgesChecked();
+                boolean coarseFound = coarse.plan()!=null;
+                if (coarseFound) {
                     try {
-                        return new Search(withPreview(parent,route.plan(),nativeDir),null);
+                        LoadingAisleRoute.recordSearch(coarse.plan(),routeEdgesChecked,0,"accepted");
+                        return new Search(withPreview(parent,coarse.plan(),nativeDir),null);
+                    } catch (LoadingAisle.Obstruction rejected) {
+                        // A consolidated segment or the final supported destination failed verification.
+                    }
+                }
+                var fine = LoadingAisleRoute.search(parent,direct,reason,nativeDir,true);
+                fineEdgesChecked = fine.edgesChecked();
+                if (fine.plan()!=null) {
+                    try {
+                        LoadingAisleRoute.recordSearch(fine.plan(),routeEdgesChecked,fineEdgesChecked,
+                                coarseFound ? "verification-failed" : "no-route");
+                        return new Search(withPreview(parent,fine.plan(),nativeDir),null);
                     } catch (LoadingAisle.Obstruction blockedRoute) {
                         reason = new JSONObject(reason.toString()).put("routeRefusal",blockedRoute.evidence());
                     }
@@ -159,7 +173,8 @@ final class LoadingAisleIntent {
             }
             return new Search(null,state(parent,request,"blocked").put("objectId",objectId)
                     .put("crateLabel",direct.getString("crateLabel")).put("intent",intent).put("direct",reason)
-                    .put("alternatesConsidered",considered).put("routeEdgesChecked",routeEdgesChecked));
+                    .put("alternatesConsidered",considered).put("routeEdgesChecked",routeEdgesChecked)
+                    .put("fineRouteEdgesChecked",fineEdgesChecked));
         }
     }
 
@@ -186,6 +201,7 @@ final class LoadingAisleIntent {
     }
 
     static JSONObject fixture(String variant) {
+        if (LoadingAisleWideBays.isFixture(variant)) return LoadingAisleWideBays.fixture(variant);
         if (LoadingAisleRoute.isFixture(variant)) return LoadingAisleRoute.fixture(variant);
         int yaw = switch (variant) {
             case "crossdock" -> -29;

@@ -60,24 +60,42 @@ function drawFallback(canvas, scene, review, focusRoute=false) {
     ctx.font = 'bold 10px system-ui';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
+    const labels = [];
+    const offsets = [[0,-14],[14,0],[0,14],[-14,0],[12,-12],[12,12],[-12,12],[-12,-12],
+        [0,-25],[25,0],[0,25],[-25,0],[20,-20],[20,20],[-20,20],[-20,-20]];
     points.forEach(([x,y],index) => {
+        const badge = offsets.map(([dx,dy]) => [x+dx,y+dy]).find(([bx,by]) =>
+            bx>9 && bx<canvas.width-9 && by>9 && by<canvas.height-9 &&
+            labels.every(([lx,ly]) => Math.hypot(lx-bx,ly-by)>16) &&
+            points.every(([px,py]) => Math.hypot(px-bx,py-by)>8)) || [x,y];
+        labels.push(badge);
         ctx.beginPath();
-        ctx.arc(x,y,7,0,2*Math.PI);
+        ctx.moveTo(x,y);
+        ctx.lineTo(...badge);
+        ctx.lineWidth = 1;
+        ctx.stroke();
         ctx.fillStyle = '#ffcf85';
+        ctx.beginPath();
+        ctx.arc(x,y,2.5,0,2*Math.PI);
+        ctx.moveTo(badge[0]+7,badge[1]);
+        ctx.arc(badge[0],badge[1],7,0,2*Math.PI);
         ctx.fill();
         ctx.fillStyle = '#142430';
-        ctx.fillText(String(index),x,y+.5);
+        ctx.fillText(String(index),badge[0],badge[1]+.5);
     });
 }
 
 const normalizeChoice = text => text.trim().toLowerCase().replace(/[.!?]+$/,'')
     .replace(/^(?:use|choose|pick|move)\s+/,'').replace(/^the\s+/,'').replace(/\s+/g,' ');
 
+const moveDistance = review => (review.forwardCm ?? 40) + ' cm';
+
 function moveDescription(review) {
-    if (review.route) return '40 cm away from the door using ' + review.preview.route.segmentCount + ' verified segments';
-    if (!review.alternate) return '40 cm away from the door';
+    const distance = moveDistance(review);
+    if (review.route) return distance + ' away from the door using ' + review.preview.route.segmentCount + ' verified segments';
+    if (!review.alternate) return distance + ' away from the door';
     const offset = review.alternate.lateralM;
-    return '40 cm farther into the bay and ' + Math.round(100*Math.abs(offset)) +
+    return distance + ' farther into the bay and ' + Math.round(100*Math.abs(offset)) +
         ' cm ' + (offset < 0 ? 'left' : 'right');
 }
 
@@ -101,6 +119,10 @@ export class LoadingAislePanel {
                         <option value="staggered-east">Staggered bay · −41°</option>
                         <option value="staggered-west">Mirrored staggered bay · 83°</option>
                         <option value="staggered-closed">Blocked crossover · −118°</option>
+                        <option value="wide-fine">Wide crate bay · −53°</option>
+                        <option value="wide-mirror">Wide mirrored bay · 96°</option>
+                        <option value="wide-coarse">Wide bay with open crossover · 27°</option>
+                        <option value="wide-blocked">Oversize crate bay · −127°</option>
                     </select>
                 </label>
                 <button id="aisle-load">Load labelled bay</button>
@@ -117,6 +139,7 @@ export class LoadingAislePanel {
                 <canvas id="aisle-route-map" width="380" height="170" role="img" aria-label="Numbered crate route from start to destination"></canvas>
                 <div class="aisle-steps">
                     <strong id="aisle-route-length"></strong>
+                    <div id="aisle-route-search" hidden></div>
                     <ol id="aisle-segments" aria-label="Checked route segments"></ol>
                 </div>
             </div>
@@ -129,7 +152,7 @@ export class LoadingAislePanel {
                 await parent.call('aisle-bay',{variant});
             await parent.import(JSON.stringify(fixture));
             this.record = null;
-            this.status.textContent = 'Choose the crate and ask Chat to move it 40 cm away from the loading door.';
+            this.status.textContent = 'Choose the crate and give Chat a distance from 40 to 200 cm away from the loading door.';
             this.render();
         });
         this.find('resume').onclick = () => this.handle(async () => {
@@ -218,30 +241,33 @@ export class LoadingAislePanel {
                 item.label + ' (' + item.sourceId + ')' : item.label);
             message = 'Which crate should I move? ' + choices.join(' · ');
         } else if (record.status === 'blocked') {
-            message = record.direct.reason + ' I found no safe alternate for ' + record.crateLabel + '. The bay is unchanged.';
+            const search = record.fineRouteEdgesChecked ? ' Both route grids were checked.' : '';
+            message = record.direct.reason + ' I found no safe alternate for ' + record.crateLabel + '.' + search + ' The bay is unchanged.';
         } else if (record.status === 'verified') {
             const measured = record.proof.measurements;
             message = (record.replayed ? 'Offline replay matched' :
                 review.route ? 'Verified route · ' + review.preview.route.segmentCount + ' segments' :
-                review.alternate ? 'Verified alternate · ' + moveDescription(review) : 'Verified · 40 cm away from door') +
+                review.alternate ? 'Verified alternate · ' + moveDescription(review) : 'Verified · ' + moveDistance(review) + ' away from door') +
                 ' · 1.00 m aisle clear · ' + measured.shelvesPreserved + ' shelves unchanged · ' +
                 measured.crateSupportedTicks + ' supported ticks';
         } else if (review.route) {
             message = (restoring ? 'Restored route. ' : '') + review.route.direct.reason + ' Found a ' +
-                review.preview.route.segmentCount + '-segment route to the original 40 cm destination. Approve this exact route to apply it.';
+                review.preview.route.segmentCount + '-segment route to the original ' + moveDistance(review) +
+                ' destination. Approve this exact route to apply it.';
         } else if (review.alternate) {
             message = (restoring ? 'Restored alternate. ' : '') + review.alternate.direct.reason + ' Safe alternate for ' +
                 review.crateLabel + ': ' + moveDescription(review) + '. Approve this exact path to apply it.';
         } else if (record.status === 'approved') {
             message = 'Approval saved. Re-run the native checks for this exact move.';
         } else {
-            message = restoring ? 'Restored pending review. Approve the exact 40 cm move to run the native checks.' :
-                'Review the 40 cm move before approving. The original scene is still open.';
+            const distance = moveDistance(review);
+            message = restoring ? 'Restored pending review. Approve the exact ' + distance + ' move to run the native checks.' :
+                'Review the ' + distance + ' move before approving. The original scene is still open.';
         }
         this.status.textContent = message;
         this.render();
         if (announce) this.parent.announce(review && !review.alternate && !review.route ?
-            'The 40 cm move is ready for review in Spatial. The teal overlay marks the one-metre aisle.' : message);
+            'The ' + moveDistance(review) + ' move is ready for review in Spatial. The teal overlay marks the one-metre aisle.' : message);
     }
 
     renderChoices(record,busy) {
@@ -267,6 +293,18 @@ export class LoadingAislePanel {
         if (!route) return;
         drawFallback(this.find('route-map'),scene,review,true);
         this.find('route-length').textContent = route.segmentCount + ' checked segments · ' + route.distanceM.toFixed(2) + ' m total';
+        const summary = this.find('route-search');
+        const search = route.search;
+        summary.hidden = !search;
+        if (search) {
+            const grid = search.forwardStepCm + ' × ' + search.lateralStepCm + ' cm grid';
+            const coarse = search.coarseEdgesChecked + ' coarse edge checks';
+            const detail = search.fineEdgesChecked ? search.fineEdgesChecked + ' fine edge checks, ' + coarse :
+                coarse + ' · no refinement needed';
+            const fallback = search.coarseResult === 'no-route' ? 'Coarse grid missed · ' :
+                search.coarseResult === 'verification-failed' ? 'Coarse route failed checks · ' : '';
+            summary.textContent = fallback + grid + ' · ' + detail;
+        }
         this.find('segments').replaceChildren(...route.segments.map(segment => {
             const item = document.createElement('li');
             const distance = Math.round(segment.distanceM*100);
