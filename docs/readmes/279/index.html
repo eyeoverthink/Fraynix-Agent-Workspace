@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 279 · Film an approved 3D crate route</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Film an approved 3D crate route</h1>
+<p>Approve a route in Spatial, then film two takes using one camera. The crate's label disappears behind a protected shelf and reappears.</p>
+<nav><a href="../../../README-279.md">App guide</a><a href="../278/index.html">Edition 278</a>
+<a href="../../publication279/plan.md">Reproduction</a>
+<a href="shot.json" download>Download the camera track and frame audit</a>
+<a href="result.json" download>Download the test results</a><a href="#system">System files</a></nav>
+<figure><img src="shot-before.png" alt="The anchored label is visible at frame 28"><figcaption>The anchored label is visible at frame 28</figcaption></figure>
+<figure><img src="shot-hidden.png" alt="The shelf hides both graphics at frame 102"><figcaption>The shelf hides both graphics at frame 102</figcaption></figure>
+<figure><img src="shot-reopened.png" alt="The label returns in the replayed shot at frame 126"><figcaption>The label returns in the replayed shot at frame 126</figcaption></figure>
+<figure><img src="shot-keys.png" alt="An editable camera revision with a changed opening field of view"><figcaption>An editable camera revision with a changed opening field of view</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "An approved 3D route becomes two verified shots or editable media sources.",
+  "modules": [
+    {
+      "title": "Camera track and depth-tested graphics",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RouteShot.java",
+      "note": "docs/obsidian/287-verified-route-shot.md"
+    },
+    {
+      "title": "Durable shot evidence and synchronized exports",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RouteShotStore.java",
+      "note": "docs/obsidian/287-verified-route-shot.md"
+    },
+    {
+      "title": "Verified timeline asset binding",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MediaEditStore.java",
+      "note": "docs/obsidian/287-verified-route-shot.md"
+    },
+    {
+      "title": "Spatial chat and camera controls",
+      "source": "workspace-desktop/renderer/route-shot.mjs",
+      "note": "docs/obsidian/287-verified-route-shot.md"
+    },
+    {
+      "title": "Workspace routing",
+      "source": "workspace-desktop/renderer/app.js",
+      "note": "docs/obsidian/287-verified-route-shot.md"
+    },
+    {
+      "title": "Desktop and offline replay test",
+      "source": "workspace-desktop/test/route-shot-integration.cjs",
+      "note": "docs/obsidian/287-verified-route-shot.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The anchored label is visible at frame 28",
+      "path": "docs/readmes/279/shot-before.png"
+    },
+    {
+      "title": "The shelf hides both graphics at frame 102",
+      "path": "docs/readmes/279/shot-hidden.png"
+    },
+    {
+      "title": "The label returns in the replayed shot at frame 126",
+      "path": "docs/readmes/279/shot-reopened.png"
+    },
+    {
+      "title": "An editable camera revision with a changed opening field of view",
+      "path": "docs/readmes/279/shot-keys.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Download the camera track and frame audit",
+      "path": "docs/readmes/279/shot.json"
+    },
+    {
+      "title": "Download the test results",
+      "path": "docs/readmes/279/result.json"
+    },
+    {
+      "title": "Design and reproduction",
+      "path": "docs/publication279/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": "docs/obsidian/287-verified-route-shot.canvas",
+    "bytes": 827,
+    "sha256": "11d429f3425a69fae7fe7671272b3b00b1a900098e9d682656768b3e547dd612",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/287-verified-route-shot.md",
+    "bytes": 310,
+    "sha256": "e6ce15bb43ec0c61808269888a30fd2aabed5f37a7879b9a2b89b341a45427c6",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication279/plan.md",
+    "bytes": 2820,
+    "sha256": "f13d588893736082408a250f284be446a5baeab669a55da680557da73fb2dfae",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/app.js",
+    "bytes": 65611,
+    "sha256": "384360605119cd9e23561a784af219380fae44903ddd175911f0e299c8801bfd",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/route-shot.mjs",
+    "bytes": 13827,
+    "sha256": "017fe7f6865851e8c3fe90a784a1589c3785670f35474ee8fa800d4541dcacde",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/route-shot-integration.cjs",
+    "bytes": 15011,
+    "sha256": "949af9eec6c0e4f70957c654615c90c74b33fc89914057ae34a2953ffd6977aa",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/MediaEditStore.java",
+    "bytes": 16935,
+    "sha256": "67381eb74bf70293fa8bc4deeb9f101e918a2635c3f6bb9f4a3d8652999e0984",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/RouteShot.java",
+    "bytes": 16787,
+    "sha256": "9ea77745d0e938135b4debb8ce5fe1452c050016c5f45f927fc1c77432a6bda3",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/RouteShotStore.java",
+    "bytes": 13014,
+    "sha256": "a8b6eb9e9af456c4070e36ff8e9c3a7f5fe8fce6a603bd066e0a508c161bd938",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

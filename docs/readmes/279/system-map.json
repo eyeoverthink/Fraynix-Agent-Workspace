@@ -1,0 +1,67 @@
+{
+  "summary": "An approved 3D route becomes two verified shots or editable media sources.",
+  "modules": [
+    {
+      "title": "Camera track and depth-tested graphics",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RouteShot.java",
+      "note": "docs/obsidian/287-verified-route-shot.md"
+    },
+    {
+      "title": "Durable shot evidence and synchronized exports",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RouteShotStore.java",
+      "note": "docs/obsidian/287-verified-route-shot.md"
+    },
+    {
+      "title": "Verified timeline asset binding",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/MediaEditStore.java",
+      "note": "docs/obsidian/287-verified-route-shot.md"
+    },
+    {
+      "title": "Spatial chat and camera controls",
+      "source": "workspace-desktop/renderer/route-shot.mjs",
+      "note": "docs/obsidian/287-verified-route-shot.md"
+    },
+    {
+      "title": "Workspace routing",
+      "source": "workspace-desktop/renderer/app.js",
+      "note": "docs/obsidian/287-verified-route-shot.md"
+    },
+    {
+      "title": "Desktop and offline replay test",
+      "source": "workspace-desktop/test/route-shot-integration.cjs",
+      "note": "docs/obsidian/287-verified-route-shot.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The anchored label is visible at frame 28",
+      "path": "docs/readmes/279/shot-before.png"
+    },
+    {
+      "title": "The shelf hides both graphics at frame 102",
+      "path": "docs/readmes/279/shot-hidden.png"
+    },
+    {
+      "title": "The label returns in the replayed shot at frame 126",
+      "path": "docs/readmes/279/shot-reopened.png"
+    },
+    {
+      "title": "An editable camera revision with a changed opening field of view",
+      "path": "docs/readmes/279/shot-keys.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Download the camera track and frame audit",
+      "path": "docs/readmes/279/shot.json"
+    },
+    {
+      "title": "Download the test results",
+      "path": "docs/readmes/279/result.json"
+    },
+    {
+      "title": "Design and reproduction",
+      "path": "docs/publication279/plan.md"
+    }
+  ]
+}

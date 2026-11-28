@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 279 — Film an approved 3D crate route](../../README-279.md) · [Walkthrough](279/index.html)
+
 [Edition 278 — Refine crate routes near measured obstructions](../../README-278.md) · [Walkthrough](278/index.html)
 
 [Edition 277 — Refine routes for wider crates and longer moves](../../README-277.md) · [Walkthrough](277/index.html)

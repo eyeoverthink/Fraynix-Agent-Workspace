@@ -1,3 +1,7 @@
+## Edition 279 — Film an approved 3D crate route
+
+2026-11-27. Spatial Chat builds two synchronized, six-second takes from an exact approved route. Java owns the editable camera and depth checks. The Windows test independently decoded all 144 frames of each take, measured 65 fully hidden label frames, rebuilt the exact video bytes after offline restart and verified a 12-frame Media Timeline cut. Editing a camera key made a distinct revision. Changed route or video bytes and unapproved use refused. See [README-279](../README-279.md) and [the design and test plan](publication279/plan.md).
+
 ## Edition 278 — Refine crate routes near measured obstructions
 
 2026-11-27. The route planner enables fine steps near measured coarse obstructions, then keeps a full fine fallback. Both local routes preserved destination and distance. Exact directed checks are reused only within the same planning request and bound parent and crate. Five paired cases used 2,954 versus 2,235 native edge evaluations, with the same accepted and refused outcomes. The separate two-crossover fallback added work and reused 249 checks. Windows restored and replayed local and fallback evidence across three offline restarts. See README-278.md and docs/publication278/plan.md.
