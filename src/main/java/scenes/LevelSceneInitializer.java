@@ -14,14 +14,20 @@ import java.io.File;
 import java.util.Collection;
 
 public class LevelSceneInitializer extends SceneInitializer {
-    public LevelSceneInitializer() {
+    private final runtime.CourierTarget.Request courierTarget;
 
+    public LevelSceneInitializer() {
+        this(null);
+    }
+
+    public LevelSceneInitializer(runtime.CourierTarget.Request courierTarget) {
+        this.courierTarget = courierTarget;
     }
 
     @Override
     public void init(Scene scene) {
         if (runtime.CourierCrateTrial.selected()) {
-            runtime.CourierCrateTrial.attach(scene);
+            runtime.CourierCrateTrial.attach(scene, courierTarget);
             return;
         }
         GameObject cameraObject = scene.createGameObject("GameCamera");

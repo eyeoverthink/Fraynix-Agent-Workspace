@@ -49,6 +49,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final TileWorkshop tiles;
     private final AvatarWorkshop avatars;
     private final CourierCrateEvidence courierCrate;
+    private final CourierTargetEvidence courierTarget;
     private final AvatarLevelMission avatarLevels;
     private final MapStore maps;
     private final PerceptionStore perception;
@@ -105,6 +106,7 @@ public final class WorkspaceServer implements AutoCloseable {
         tiles = new TileWorkshop(project);
         avatars = new AvatarWorkshop(project, tiles);
         courierCrate = new CourierCrateEvidence(project);
+        courierTarget = new CourierTargetEvidence(project);
         avatarLevels = new AvatarLevelMission(project, avatars, tiles);
         environments = new EnvironmentStore(project);
         floorPlans = new EnvironmentFloorPlan(environments);
@@ -958,6 +960,20 @@ public final class WorkspaceServer implements AutoCloseable {
                     }
                     case "/api/game/courier-latest" -> {SpatialScene.keys(input);result=courierCrate.latest();}
                     case "/api/game/courier-read" -> {SpatialScene.keys(input,"id");result=courierCrate.read(input.getString("id"));}
+                    case "/api/game/courier-target-run", "/api/game/courier-target-replay" -> {
+                        if (agency.busy() || sharedBusy043() || observations.busy() || tabletop.busy() || alignment041.busy())
+                            throw new IllegalStateException("Finish active work before the Courier target run.");
+                        if (route.endsWith("-replay")) {
+                            SpatialScene.keys(input, "id");
+                            result = courierTarget.replay(input.getString("id"), game);
+                        } else {
+                            result = courierTarget.start(input, game);
+                        }
+                    }
+                    case "/api/game/courier-target-latest" -> {SpatialScene.keys(input);result=courierTarget.latest();}
+                    case "/api/game/courier-target-read" -> {
+                        SpatialScene.keys(input,"id");result=courierTarget.read(input.getString("id"));
+                    }
                     case "/api/game/open-course" -> {
                         SpatialScene.keys(input,"id");
                         var course = fraymus.neural.RelayCourse.find(input.getString("id"));

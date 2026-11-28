@@ -130,6 +130,16 @@ jobs:
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: xvfb-run -a node workspace-desktop/test/courier-crate-integration.cjs build/portable-smoke/courier-crate
+      - name: Verify Courier target deliveries and offline restart
+        if: runner.os != 'Linux'
+        env:
+          FRAYNIX_CI_MAC_DISPLAY: ${{ runner.os == 'macOS' && '1' || '0' }}
+        run: node workspace-desktop/test/courier-target-integration.cjs build/portable-smoke/courier-target
+      - name: Verify Courier target deliveries on a Linux virtual display
+        if: runner.os == 'Linux'
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: xvfb-run -a node workspace-desktop/test/courier-target-integration.cjs build/portable-smoke/courier-target
       - name: Verify the offline avatar in a virtual display
         if: runner.os == 'Linux'
         env:

@@ -24,6 +24,7 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
     private volatile Frame last;
     private HttpServer server;private boolean continuous,closing,aiBounded;private long sequence;private String boundedPolicy;
     private Pace boundedPace;
+    private CourierTarget.Request courierTarget;
     private record Request(JsonObject args,CompletableFuture<Map<String,Object>> result){}
     private record Frame(Map<String,Object> state,byte[] png,long captureNs){}
     public EmbeddedGameRuntime() throws IOException {
@@ -99,13 +100,22 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
             var args=pending.args;String action=args.get("action").getAsString();
             var allowed=new HashSet<>(Set.of("action"));if(action.equals("step"))allowed.addAll(Set.of("ticks","horizontal","jump"));if(action.equals("ai")||action.equals("ai-step"))allowed.add("targetX");if(action.equals("ai-step"))allowed.add("ticks");if(action.equals("ai-step"))allowed.add("policy");
             if (action.equals("ai") || action.equals("ai-step")) allowed.add("railPace");
+            if (action.equals("courier-target")) allowed.addAll(Set.of("distance", "mass", "friction"));
             if(!allowed.containsAll(args.keySet()))throw new IllegalArgumentException("Unsupported game command field");
             switch(action){
                 case "courier-test" -> {
                     CourierCrateTrial.current();
                     continuous = false;
                     aiBounded = false;
+                    courierTarget = null;
                     outcome = CourierCrateTrial.runPair();
+                }
+                case "courier-target" -> {
+                    CourierCrateTrial.current();
+                    courierTarget = CourierTarget.Request.read(args);
+                    continuous = false;
+                    aiBounded = false;
+                    outcome = CourierTarget.run(courierTarget);
                 }
                 case "spatial"->spatialRead=true;
                 case "overview"->{if(continuous)throw new IllegalStateException("Pause before capturing a reference overview");overview=true;}
@@ -141,7 +151,7 @@ public final class EmbeddedGameRuntime implements ControlledRuntime,AutoCloseabl
                     aiBounded = false;
                     continuous = true;
                 }
-                case "reset"->{continuous=false;aiBounded=false;agent.GameInput.stop("Embedded reset");agent.GameInput.externalOff();Window.changeScene(new scenes.LevelSceneInitializer());}
+                case "reset"->{continuous=false;aiBounded=false;agent.GameInput.stop("Embedded reset");agent.GameInput.externalOff();Window.changeScene(new scenes.LevelSceneInitializer(courierTarget));}
                 case "close"->{continuous=false;closing=true;}
                 default->throw new IllegalArgumentException("Unknown game action");
             }

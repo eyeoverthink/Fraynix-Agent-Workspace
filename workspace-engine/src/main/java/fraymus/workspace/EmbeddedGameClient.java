@@ -50,6 +50,13 @@ public final class EmbeddedGameClient implements AutoCloseable {
                 .put("manifestSha256", originalManifestSha);
     }
 
+    synchronized JSONObject testCourierTarget(JSONObject setup) throws Exception {
+        if (!COURIER_CRATE.equals(levelId) || process == null || !process.isAlive()) openCourierCrate();
+        verifyCourierGarden();
+        return request("/command", WorldFrames.copy(setup).put("action", "courier-target"))
+                .put("manifestSha256", originalManifestSha);
+    }
+
     private void verifyCourierGarden() throws Exception {
         var pack = new GameContentPack(repo).verify(RelayCourse.GARDEN);
         if (!pack.getString("manifestSha256").equals(originalManifestSha))
@@ -156,7 +163,7 @@ public final class EmbeddedGameClient implements AutoCloseable {
     }
 
     public synchronized JSONObject command(JSONObject input) throws Exception {
-        if ("courier-test".equals(input.optString("action")))
+        if (Set.of("courier-test", "courier-target").contains(input.optString("action")))
             throw new IllegalArgumentException("Use the checked Courier trial operation.");
         if (levelId != null && "reset".equals(input.optString("action"))) {
             if (COURIER_CRATE.equals(levelId)) {

@@ -32,27 +32,33 @@ public final class CourierCrateTrial extends Component {
     private static final float CRATE_WIDTH = .30f;
     private static final String ATLAS = "assets/characters/courier-poses.png";
     private static final String CRATE = "assets/characters/courier-crate.png";
+    private static final String TARGET = "assets/characters/courier-target.png";
     private static final String ATLAS_HASH = "cdbd0c2c0ddae75bbac1ff4056eb39c7ae18410705686b2adaaa5f229602ecc1";
     private static final String CRATE_HASH = "dbfced6bbf2dc382d002b27a82fe253634e8fa2ed0fc5d4cd4a725b74077ffe3";
+    static final String TARGET_HASH = "79e68410f9e2b4f4bf1c29a0b9a83e33a395b4be9ec59684537719d043387d74";
 
     private final transient GameObject player;
     private final transient Rigidbody2D crate;
+    private final transient CourierTarget.Request target;
     private transient int beginContacts;
+    private transient int activeContacts;
+    private transient boolean horizontalImpulseSeen;
     private transient float normalImpulse;
     private transient long impulseTick = -1;
     private transient long firstContactTick = -1;
     private transient Float crateXAtFirstContact;
 
-    private CourierCrateTrial(GameObject player, Rigidbody2D crate) {
+    private CourierCrateTrial(GameObject player, Rigidbody2D crate, CourierTarget.Request target) {
         this.player = player;
         this.crate = crate;
+        this.target = target;
     }
 
     public static boolean selected() {
         return Boolean.getBoolean("fraynix.courierCrate");
     }
 
-    public static void attach(Scene scene) {
+    public static void attach(Scene scene, CourierTarget.Request target) {
         if (!content.RelayGardenResources.enabled() ||
                 content.RelayGardenResources.course() != fraymus.neural.RelayCourse.GARDEN)
             throw new IllegalStateException("The Courier crate fixture needs the checked Relay Garden.");
@@ -62,8 +68,14 @@ public final class CourierCrateTrial extends Component {
         if (player == null || player.getComponent(PillboxCollider.class) == null)
             throw new IllegalStateException("The Relay player pillbox is required.");
 
+        if (target != null) {
+            player.transform.position.x = CourierTarget.START_X - target.direction() * .73f;
+            player.transform.scale.x = Math.copySign(player.transform.scale.x, target.direction());
+            addContinuousDeck(scene);
+            addTargetMarker(scene, target.targetX());
+        }
         var object = scene.createGameObject("Courier cargo crate");
-        object.transform.position.set(1.62f, .5f + CRATE_WIDTH / 2);
+        object.transform.position.set(target == null ? 1.62f : CourierTarget.START_X, .5f + CRATE_WIDTH / 2);
         object.transform.scale.set(CRATE_WIDTH);
         object.transform.zIndex = 3;
         var sprite = new Sprite();
@@ -75,11 +87,12 @@ public final class CourierCrateTrial extends Component {
         collider.setHalfSize(new Vector2f(CRATE_WIDTH));
         object.addComponent(collider);
         var body = new Rigidbody2D();
-        body.setMass(8);
+        body.setMass(target == null ? 8 : target.mass() / (CRATE_WIDTH * CRATE_WIDTH));
+        if (target != null) body.setInitialFriction(target.friction());
         body.setFixedRotation(true);
         body.setLinearDamping(1.1f);
         object.addComponent(body);
-        object.addComponent(new CourierCrateTrial(player, body));
+        object.addComponent(new CourierCrateTrial(player, body, target));
         scene.addGameObjectToScene(object);
 
         // Keep the player and its original state machine. Only the visible art is substituted.
@@ -93,10 +106,45 @@ public final class CourierCrateTrial extends Component {
             throw new IllegalStateException("The Courier atlas dimensions changed.");
         visual.addComponent(new CourierMotion(player, courier, new Spritesheet(texture, 96, 112, 9, 0)));
         scene.addGameObjectToScene(visual);
-        scene.camera().position.set(.1f, -.15f);
+        scene.camera().position.set(.1f, target == null ? -.15f : -.42f);
         scene.camera().getProjectionSize().set(3.85f, 3.85f * 9 / 16);
         scene.camera().clearColor.set(.04f, .07f, .13f, 1);
         scene.camera().adjustProjection();
+    }
+
+    private static void addContinuousDeck(Scene scene) {
+        // Tile artwork stays in place. One flat fixture gives the delivery a controlled surface.
+        for (GameObject tile : scene.getGameObjects()) {
+            if (tile.getName().startsWith("Garden deck ") && tile.transform.position.x < 4.5f) {
+                tile.removeComponent(components.Ground.class);
+                tile.removeComponent(Box2DCollider.class);
+                tile.removeComponent(Rigidbody2D.class);
+            }
+        }
+        var deck = scene.createGameObject("Courier flat test deck");
+        deck.transform.position.set(2.25f, .25f);
+        var collider = new Box2DCollider();
+        collider.setHalfSize(new Vector2f(4.5f, .5f));
+        var body = new Rigidbody2D();
+        body.setBodyType(physics2d.enums.BodyType.Static);
+        deck.addComponent(new components.Ground());
+        deck.addComponent(collider);
+        deck.addComponent(body);
+        scene.addGameObjectToScene(deck);
+    }
+
+    private static void addTargetMarker(Scene scene, float x) {
+        verifyImage(TARGET, TARGET_HASH);
+        var marker = scene.createGameObject("Courier cargo target");
+        marker.transform.position.set(x, .66f);
+        marker.transform.scale.set(.35f);
+        marker.transform.zIndex = 2;
+        var sprite = new Sprite();
+        sprite.setTexture(AssetPool.getTexture(TARGET));
+        var renderer = new SpriteRenderer();
+        renderer.setSprite(sprite);
+        marker.addComponent(renderer);
+        scene.addGameObjectToScene(marker);
     }
 
     private static void verifyImage(String path, String sha) {
@@ -110,13 +158,30 @@ public final class CourierCrateTrial extends Component {
     }
 
     @Override
+    public void start() {
+        if (target == null) return;
+        // The Relay pillbox's authored density is used on this trial's existing fixtures.
+        var authored = player.getComponent(Rigidbody2D.class);
+        var body = authored.getRawBody();
+        for (var fixture = body.getFixtureList(); fixture != null; fixture = fixture.getNext())
+            fixture.setDensity(authored.getMass());
+        body.resetMassData();
+    }
+
+    @Override
     public void beginCollision(GameObject other, Contact contact, Vector2f normal) {
         if (other != player) return;
         beginContacts++;
+        activeContacts++;
         if (firstContactTick < 0) {
             firstContactTick = Window.getScene().tick();
             crateXAtFirstContact = crate.getRawBody().getPosition().x;
         }
+    }
+
+    @Override
+    public void endCollision(GameObject other, Contact contact, Vector2f normal) {
+        if (other == player) activeContacts--;
     }
 
     @Override
@@ -128,6 +193,7 @@ public final class CourierCrateTrial extends Component {
             impulseTick = tick;
         }
         for (int index = 0; index < impulse.count; index++) normalImpulse += impulse.normalImpulses[index];
+        horizontalImpulseSeen |= normalImpulse > 0;
     }
 
     static CourierCrateTrial current() {
@@ -136,9 +202,18 @@ public final class CourierCrateTrial extends Component {
         return crate.getComponent(CourierCrateTrial.class);
     }
 
-    private Body playerBody() {
+    Body playerBody() {
         return player.getComponent(Rigidbody2D.class).getRawBody();
     }
+
+    Body crateBody() { return crate.getRawBody(); }
+    PlayerController controller() { return player.getComponent(PlayerController.class); }
+    String playerId() { return player.getPersistentId().toString(); }
+    Float firstContactX() { return crateXAtFirstContact; }
+    int contacts() { return activeContacts; }
+    int begins() { return beginContacts; }
+    boolean hasHorizontalImpulse() { return horizontalImpulseSeen; }
+    float horizontalImpulse() { return impulseTick == Window.getScene().tick() ? normalImpulse : 0; }
 
     private Row sample(int input) {
         var courier = playerBody();
@@ -151,8 +226,19 @@ public final class CourierCrateTrial extends Component {
 
     Map<String, Object> live() {
         var cargo = crate.getRawBody();
-        return Map.of("crateX", cargo.getPosition().x, "crateVx", cargo.getLinearVelocity().x,
+        var value = Map.<String, Object>of("crateX", cargo.getPosition().x, "crateVx", cargo.getLinearVelocity().x,
                 "firstContactTick", firstContactTick, "beginContacts", beginContacts);
+        if (target == null) return value;
+        var observed = new java.util.LinkedHashMap<>(value);
+        observed.put("targetX", target.targetX());
+        observed.put("activeContacts", activeContacts);
+        return observed;
+    }
+
+    static Map<String, Object> sourceBindings() {
+        return Map.of("atlasSha256", ATLAS_HASH, "crateArtSha256", CRATE_HASH,
+                "levelSha256", System.getProperty("fraynix.level.sha256"),
+                "engine", "Game Lab / JBox2D", "tickHz", 60);
     }
 
     static Map<String, Object> runPair() {

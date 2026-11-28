@@ -105,6 +105,12 @@ public class Rigidbody2D extends Component {
         return this.friction;
     }
 
+    public void setInitialFriction(float friction) {
+        if (rawBody != null || !Float.isFinite(friction) || friction < 0)
+            throw new IllegalArgumentException("Set a nonnegative friction before creating the body.");
+        this.friction = friction;
+    }
+
     public boolean isSensor() {
         return this.isSensor;
     }
