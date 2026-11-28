@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 277 — Refine routes for wider crates and longer moves](../../README-277.md) · [Walkthrough](277/index.html)
+
 [Edition 276 — Verify multi-segment crate routes](../../README-276.md) · [Walkthrough](276/index.html)
 
 [Edition 275 — Clarify crate identity and review a safe alternate](../../README-275.md) · [Walkthrough](275/index.html)

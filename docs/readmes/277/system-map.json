@@ -1,0 +1,58 @@
+{
+  "summary": "Refine blocked route searches while keeping the original destination, native checks and approval.",
+  "modules": [
+    {
+      "title": "Bounded coarse and fine route search",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleRoute.java",
+      "note": "docs/obsidian/285-wide-crate-routes.md"
+    },
+    {
+      "title": "Measured move and native sweep gates",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisle.java",
+      "note": "docs/obsidian/285-wide-crate-routes.md"
+    },
+    {
+      "title": "Declared-scale wide-crate layouts",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleWideBays.java",
+      "note": "docs/obsidian/285-wide-crate-routes.md"
+    },
+    {
+      "title": "Search resolution and exact approval controls",
+      "source": "workspace-desktop/renderer/loading-aisle.mjs",
+      "note": "docs/obsidian/285-wide-crate-routes.md"
+    },
+    {
+      "title": "Portable wide-crate verification",
+      "source": "workspace-desktop/test/loading-aisle-resolution-integration.cjs",
+      "note": "docs/obsidian/285-wide-crate-routes.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The coarse grid missed and the six-leg finer route awaits approval",
+      "path": "docs/readmes/277/fine-review.png"
+    },
+    {
+      "title": "The 58 cm crate and its checked route to the exact 1.73 m destination",
+      "path": "docs/readmes/277/fine-longer.png"
+    },
+    {
+      "title": "Native replay after restart retains the exact route and evidence",
+      "path": "docs/readmes/277/fine-restart.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Download scene and evidence",
+      "path": "docs/readmes/277/fine-verified.json"
+    },
+    {
+      "title": "Download restart result",
+      "path": "docs/readmes/277/result.json"
+    },
+    {
+      "title": "Design and reproduction",
+      "path": "docs/publication277/plan.md"
+    }
+  ]
+}

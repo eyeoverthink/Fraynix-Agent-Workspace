@@ -2,6 +2,6 @@
 
 [Download and run on Mac, Linux or Windows](docs/INSTALL.md) · [Independent system review](docs/publication244/review.md)
 
-[Edition 276 — Verify multi-segment crate routes](README-276.md) · [Previous edition](README-275.md) · [Offline walkthrough](docs/readmes/276/index.html) · [Full history](docs/readmes/INDEX.md)
+[Edition 277 — Refine routes for wider crates and longer moves](README-277.md) · [Previous edition](README-276.md) · [Offline walkthrough](docs/readmes/277/index.html) · [Full history](docs/readmes/INDEX.md)
 
-Review a numbered crate route around staggered obstacles. Java checks every leg and binds the approved path to the exported scene and evidence.
+Request a longer crate move in Spatial. The planner tries a coarser grid first and uses a finer grid when needed. Review every checked leg before approving the exact route.

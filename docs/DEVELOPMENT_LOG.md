@@ -1,3 +1,7 @@
+## Edition 277 — Refine routes for wider crates and longer moves
+
+2026-11-27. Spatial chat now binds an exact 40–200 cm advance to crate approval. After direct and straight alternatives fail, a 10 × 15 cm grid tries the route and a 5 × 5 cm grid can recover a coarse miss. The 42 cm and 58 cm crates reached 1.20 m and 1.73 m destinations in rotated bays. The open-crossover control skipped refinement and the 74 cm crate was refused by both grids. Per-leg sweeps, the one-metre aisle, both shelves and 60 supported ticks were verified. Windows restored and replayed the exact route across two offline restarts. See README-277.md and docs/publication277/plan.md.
+
 ## Edition 276 — Verify multi-segment crate routes
 
 2026-11-27. Spatial chat now plans a bounded multi-segment route when the direct move and straight alternatives fail. The −41° and 83° bays each verified five segments and a 1.60 m route to the original 40 cm destination. Native sweeps checked the crate, reserved one-metre aisle and every waypoint. Both shelves were preserved. A blocked crossover refused after 33 edge checks. A late-leg barrier and aisle crossing separately failed native verification. The exact pending route and approved evidence reopened across two offline restarts. See README-276.md and docs/publication276/plan.md.
