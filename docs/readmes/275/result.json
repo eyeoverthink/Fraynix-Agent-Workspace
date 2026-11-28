@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "platform": "win32",
+  "offlineRestarts": 3,
+  "multipleCrates": 4,
+  "duplicateLabelsRequiredChoice": true,
+  "exactChoiceButtonWorked": true,
+  "staleAndChangedQuestionRefused": true,
+  "namedCrateOverridesHighlight": true,
+  "wrongApprovalAndChangedReviewRefused": true,
+  "alternateExportSha256": "e74c05306d2aeae969a102c9e5cc8a297b06a4e104835c2db153818fb055deca",
+  "right": {
+    "yaw": -29,
+    "crate": "cargo",
+    "forwardM": 0.4,
+    "lateralM": 0.5,
+    "aisleLength": 3.4,
+    "worldDeltaM": [
+      0.24338600547116307,
+      0,
+      0.5922526929789269
+    ],
+    "directFailure": {
+      "reason": "The crate path is blocked by Parked trolley.",
+      "gate": "path"
+    },
+    "aisleSweepClear": true,
+    "shelvesPreserved": 2,
+    "supportedTicks": 60,
+    "sourceSha256": "9d386bbc1364e68651d1f019dcecb3b9958b0dd0ad5815041f28dc8bc823f993"
+  },
+  "left": {
+    "yaw": 68,
+    "crate": "spare",
+    "forwardM": 0.4,
+    "lateralM": -0.5,
+    "aisleLength": 4.2,
+    "worldDeltaM": [
+      0.18357024511875952,
+      0,
+      0.6134345646497585
+    ],
+    "directFailure": {
+      "reason": "The crate path is blocked by Parked trolley.",
+      "gate": "path"
+    },
+    "aisleSweepClear": true,
+    "shelvesPreserved": 2,
+    "supportedTicks": 60,
+    "sourceSha256": "80da4bacc45d2b80db2d629b38cd5b10693a649faf01730c7c117e12a07ccf94"
+  },
+  "direct": {
+    "yaw": 68,
+    "crate": "cargo",
+    "forwardM": 0.4,
+    "lateralM": 0,
+    "aisleLength": 4.2,
+    "worldDeltaM": [
+      0.3708735418267146,
+      0,
+      0.14984263736636483
+    ],
+    "directFailure": null,
+    "aisleSweepClear": true,
+    "shelvesPreserved": 2,
+    "supportedTicks": 60,
+    "sourceSha256": "fb92029e1c52520887922d2bb342f79c81be0dba30e5425c31ef54b6494c6ddc"
+  },
+  "refused": [
+    {
+      "variant": "closed",
+      "gate": "initial-aisle",
+      "checked": 0,
+      "reason": "The 1 m aisle is blocked by Parked trolley."
+    },
+    {
+      "variant": "pinched",
+      "gate": "path",
+      "checked": 8,
+      "reason": "The crate path is blocked by Parked trolley."
+    }
+  ]
+}

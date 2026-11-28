@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "workflow",
+      "type": "file",
+      "file": "README-275.md",
+      "x": 0,
+      "y": 0,
+      "width": 550,
+      "height": 360
+    },
+    {
+      "id": "checks",
+      "type": "file",
+      "file": "docs/publication275/plan.md",
+      "x": 630,
+      "y": 0,
+      "width": 520,
+      "height": 360
+    },
+    {
+      "id": "review",
+      "type": "file",
+      "file": "docs/readmes/275/alternate-review.png",
+      "x": 0,
+      "y": 430,
+      "width": 550,
+      "height": 365
+    }
+  ],
+  "edges": [
+    {
+      "id": "workflow-checks",
+      "fromNode": "workflow",
+      "toNode": "checks",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "workflow-review",
+      "fromNode": "workflow",
+      "toNode": "review",
+      "fromSide": "bottom",
+      "toSide": "top"
+    }
+  ]
+}

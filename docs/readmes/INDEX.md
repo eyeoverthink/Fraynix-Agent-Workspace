@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 275 — Clarify crate identity and review a safe alternate](../../README-275.md) · [Walkthrough](275/index.html)
+
 [Edition 274 — Move a crate and verify a clear loading aisle](../../README-274.md) · [Walkthrough](274/index.html)
 
 [Edition 273 — Recover an interrupted Courier delivery](../../README-273.md) · [Walkthrough](273/index.html)

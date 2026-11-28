@@ -1,0 +1,58 @@
+{
+  "summary": "Resolve the crate, verify the requested move or a bounded alternate, and replay after restart.",
+  "modules": [
+    {
+      "title": "Crate resolution and bounded alternate search",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleIntent.java",
+      "note": "docs/obsidian/283-aisle-alternates.md"
+    },
+    {
+      "title": "Durable question, approval and replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleMission.java",
+      "note": "docs/obsidian/283-aisle-alternates.md"
+    },
+    {
+      "title": "Native swept path and destination checks",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisle.java",
+      "note": "docs/obsidian/283-aisle-alternates.md"
+    },
+    {
+      "title": "Spatial chat and review controls",
+      "source": "workspace-desktop/renderer/loading-aisle.mjs",
+      "note": "docs/obsidian/283-aisle-alternates.md"
+    },
+    {
+      "title": "Portable multi-crate verification",
+      "source": "workspace-desktop/test/loading-aisle-alternates-integration.cjs",
+      "note": "docs/obsidian/283-aisle-alternates.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Cross-dock has four possible crates and two with the same name",
+      "path": "docs/readmes/275/which-crate.png"
+    },
+    {
+      "title": "The exact right-hand alternate awaits approval in the rotated Cross-dock",
+      "path": "docs/readmes/275/alternate-review.png"
+    },
+    {
+      "title": "The approved alternate and measurements replay offline after restart",
+      "path": "docs/readmes/275/alternate-restart.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Download scene and evidence",
+      "path": "docs/readmes/275/alternate-verified.json"
+    },
+    {
+      "title": "Download restart result",
+      "path": "docs/readmes/275/result.json"
+    },
+    {
+      "title": "Design and reproduction",
+      "path": "docs/publication275/plan.md"
+    }
+  ]
+}

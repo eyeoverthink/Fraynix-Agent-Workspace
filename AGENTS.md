@@ -1,3 +1,7 @@
+## Edition 275 — Clarify crate identity and review a safe alternate
+
+2026-11-27. A generic or duplicate crate reference in Spatial chat opens a durable question with exact choices. Java previews the direct move first and can offer a bounded lateral alternate when the exact crate is blocked. The −29° and 68° bays passed opposite 50 cm offsets with a 40 cm forward component, verified aisle clearance and two unchanged shelves. A blocked aisle and an exhausted eight-candidate search both refused. The question, pending review and native evidence reopened across three offline restarts. See README-275.md and docs/publication275/plan.md.
+
 ## Edition 274 — Move a crate and verify a clear loading aisle
 
 2026-11-27. Spatial Chat saves a 40 cm door-relative crate proposal bound to the selected object and exact parent. A native sweep, full aisle measurements and 60 supported ticks verify the approved child. Windows restored the pending proposal and replayed the approved 37° scene across two offline restarts. The square and 2D preview controls passed. Separate obstructions and changed evidence refused. See README-274.md and docs/publication274/plan.md.
