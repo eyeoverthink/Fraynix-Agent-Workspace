@@ -1,3 +1,7 @@
+## Edition 276 — Verify multi-segment crate routes
+
+2026-11-27. Spatial chat now plans a bounded multi-segment route when the direct move and straight alternatives fail. The −41° and 83° bays each verified five segments and a 1.60 m route to the original 40 cm destination. Native sweeps checked the crate, reserved one-metre aisle and every waypoint. Both shelves were preserved. A blocked crossover refused after 33 edge checks. A late-leg barrier and aisle crossing separately failed native verification. The exact pending route and approved evidence reopened across two offline restarts. See README-276.md and docs/publication276/plan.md.
+
 ## Edition 275 — Clarify crate identity and review a safe alternate
 
 2026-11-27. A generic or duplicate crate reference in Spatial chat opens a durable question with exact choices. Java previews the direct move first and can offer a bounded lateral alternate when the exact crate is blocked. The −29° and 68° bays passed opposite 50 cm offsets with a 40 cm forward component, verified aisle clearance and two unchanged shelves. A blocked aisle and an exhausted eight-candidate search both refused. The question, pending review and native evidence reopened across three offline restarts. See README-275.md and docs/publication275/plan.md.

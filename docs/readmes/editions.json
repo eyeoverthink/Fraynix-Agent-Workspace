@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "latest": 275,
+  "latest": 276,
   "canonicalization": "UTF-8 without BOM; CRLF normalized to LF for text",
   "editions": [
     {
@@ -271427,6 +271427,65 @@
           "path": "docs/readmes/275/which-crate.png",
           "sha256": "117b69fa7c0359080a79e60a715ad75cfdce4ca2beee3d0ea2f3924ab9eafbb4",
           "kind": "binary"
+        }
+      ]
+    },
+    {
+      "number": 276,
+      "date": "2026-11-27",
+      "title": "Verify multi-segment crate routes",
+      "status": "published",
+      "markdown": "README-276.md",
+      "markdownSha256": "c99f176ee91edc39e411098618d95d2092bf582f0a976eb49963373762e75080",
+      "snapshotDirectory": "docs/readmes/276",
+      "companion": "docs/readmes/276/index.html",
+      "tag": "readme-276",
+      "sourceBaseline": "6980b91dd02043ffd6442192c47fa486cd7e6ff4",
+      "snapshotFiles": [
+        {
+          "path": "docs/readmes/276/file-inventory.json",
+          "sha256": "ee535f07933ad361fced10df1ded3d85d60dcd3895a94ca47d3d131708f9a894",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/276/FILE_TREE.md",
+          "sha256": "ed9434d412e1639833e7e4a316778dbac6571bb10242d5bb562169ba8172271e",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/276/index.html",
+          "sha256": "1590b39396418ba16ba9efd8be95cbc9bc99244be7b4a6dd29d332671b2da054",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/276/result.json",
+          "sha256": "08bf479cfd2721c8ba88cf5a78242d5463ebda68b18c0167fc315c13ccadf80c",
+          "kind": "text"
+        },
+        {
+          "path": "docs/readmes/276/route-mirrored.png",
+          "sha256": "d4bc3df1f8057310d94b6fffaab1dd967ff0edc15bf27d6bc77932b040d38b5f",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/276/route-restart.png",
+          "sha256": "a26a7f7680222d6a224f82466e12c15a817d0ef1c4fc37d76069b615ece4f2eb",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/276/route-review.png",
+          "sha256": "3aad20db652c271e3e0ba756975dac096577dd98c31865851daed05b3a001cb1",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/276/route-verified.json",
+          "sha256": "ad9f6d3b461efc1ade4e5ecabfcee2af9acb1c3af7d5331e5b37563d87202c03",
+          "kind": "binary"
+        },
+        {
+          "path": "docs/readmes/276/system-map.json",
+          "sha256": "18cae2c790104e6b839203822fd0180ada40dc5b0fe0eb74d292375b3c067969",
+          "kind": "text"
         }
       ]
     }

@@ -1,0 +1,58 @@
+{
+  "summary": "Approve a numbered route, verify every swept segment, then replay the result after restarting offline.",
+  "modules": [
+    {
+      "title": "Bounded route planning and segment evidence",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleRoute.java",
+      "note": "docs/obsidian/284-staggered-route.md"
+    },
+    {
+      "title": "Native collider sweeps and supported destination",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisle.java",
+      "note": "docs/obsidian/284-staggered-route.md"
+    },
+    {
+      "title": "Exact route approval and saved replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleMission.java",
+      "note": "docs/obsidian/284-staggered-route.md"
+    },
+    {
+      "title": "Spatial route map and approval controls",
+      "source": "workspace-desktop/renderer/loading-aisle.mjs",
+      "note": "docs/obsidian/284-staggered-route.md"
+    },
+    {
+      "title": "Portable route and restart verification",
+      "source": "workspace-desktop/test/loading-aisle-route-integration.cjs",
+      "note": "docs/obsidian/284-staggered-route.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Five numbered segments around staggered barriers, awaiting exact route approval",
+      "path": "docs/readmes/276/route-review.png"
+    },
+    {
+      "title": "The 83° bay produces the mirror of the first route",
+      "path": "docs/readmes/276/route-mirrored.png"
+    },
+    {
+      "title": "Offline replay reproduces all five segment checks and the supported destination",
+      "path": "docs/readmes/276/route-restart.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Download scene and evidence",
+      "path": "docs/readmes/276/route-verified.json"
+    },
+    {
+      "title": "Download restart result",
+      "path": "docs/readmes/276/result.json"
+    },
+    {
+      "title": "Design and reproduction",
+      "path": "docs/publication276/plan.md"
+    }
+  ]
+}

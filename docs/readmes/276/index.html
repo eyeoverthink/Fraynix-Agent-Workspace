@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 276 · Verify multi-segment crate routes</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Verify multi-segment crate routes</h1>
+<p>Open Spatial, load the staggered bay and ask to move the blue crate. Review each numbered leg, then approve the route.</p>
+<nav><a href="../../../README-276.md">App guide</a><a href="../275/index.html">Edition 275</a>
+<a href="../../publication276/plan.md">Reproduction</a>
+<a href="route-verified.json" download>Download scene and evidence</a>
+<a href="result.json" download>Download restart result</a><a href="#system">System files</a></nav>
+<figure><img src="route-review.png" alt="Five numbered segments around staggered barriers, awaiting exact route approval"><figcaption>Five numbered segments around staggered barriers, awaiting exact route approval</figcaption></figure>
+<figure><img src="route-mirrored.png" alt="The 83° bay produces the mirror of the first route"><figcaption>The 83° bay produces the mirror of the first route</figcaption></figure>
+<figure><img src="route-restart.png" alt="Offline replay reproduces all five segment checks and the supported destination"><figcaption>Offline replay reproduces all five segment checks and the supported destination</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "Approve a numbered route, verify every swept segment, then replay the result after restarting offline.",
+  "modules": [
+    {
+      "title": "Bounded route planning and segment evidence",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleRoute.java",
+      "note": "docs/obsidian/284-staggered-route.md"
+    },
+    {
+      "title": "Native collider sweeps and supported destination",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisle.java",
+      "note": "docs/obsidian/284-staggered-route.md"
+    },
+    {
+      "title": "Exact route approval and saved replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleMission.java",
+      "note": "docs/obsidian/284-staggered-route.md"
+    },
+    {
+      "title": "Spatial route map and approval controls",
+      "source": "workspace-desktop/renderer/loading-aisle.mjs",
+      "note": "docs/obsidian/284-staggered-route.md"
+    },
+    {
+      "title": "Portable route and restart verification",
+      "source": "workspace-desktop/test/loading-aisle-route-integration.cjs",
+      "note": "docs/obsidian/284-staggered-route.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Five numbered segments around staggered barriers, awaiting exact route approval",
+      "path": "docs/readmes/276/route-review.png"
+    },
+    {
+      "title": "The 83° bay produces the mirror of the first route",
+      "path": "docs/readmes/276/route-mirrored.png"
+    },
+    {
+      "title": "Offline replay reproduces all five segment checks and the supported destination",
+      "path": "docs/readmes/276/route-restart.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Download scene and evidence",
+      "path": "docs/readmes/276/route-verified.json"
+    },
+    {
+      "title": "Download restart result",
+      "path": "docs/readmes/276/result.json"
+    },
+    {
+      "title": "Design and reproduction",
+      "path": "docs/publication276/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": "docs/obsidian/284-staggered-route.canvas",
+    "bytes": 845,
+    "sha256": "fa5dc6b4a5bf91b53d8692c02b38ab5f069843a03fc220005aaf63af04f5dd1e",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/284-staggered-route.md",
+    "bytes": 306,
+    "sha256": "e0c37a6febfc7efc35ee9fdff9bf2bfa7b8007f43a8cc7241097c2aae60ece6e",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication276/plan.md",
+    "bytes": 4367,
+    "sha256": "07d5ffe53e25fb568fdcf9fb278d37270f06e6834e9e39280f6023fad1380eb3",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/loading-aisle.mjs",
+    "bytes": 16725,
+    "sha256": "40ce7bf0426e6b3c048b25859310a3816c3a4e100396a2cecec89a692082e1cc",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/loading-aisle-route-integration.cjs",
+    "bytes": 11809,
+    "sha256": "031975b9eb5dfd07c6564afc90b3c51f723c3d3e50657b9c27145ee4e54727a9",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisle.java",
+    "bytes": 25111,
+    "sha256": "5fb23df0dca0c0eb068e5b99b59f849ce0dd4ae296cf3824bac55c3a48b41e9f",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleMission.java",
+    "bytes": 13875,
+    "sha256": "0f3f59680c4a75cf771c5fcff087b8af3ea8a3eb2dd0bc31c6f0dc166dff43a8",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleRoute.java",
+    "bytes": 10741,
+    "sha256": "d23e3f1236127290cd2404fd872f6f451984091c99d9f1ad1c8f56fc67a7c9cb",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>
