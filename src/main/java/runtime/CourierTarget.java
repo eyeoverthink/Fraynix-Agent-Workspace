@@ -59,8 +59,8 @@ public final class CourierTarget {
                 float remaining = direction * (goal - crate.getPosition().x);
                 float speed = Math.max(0, direction * crate.getLinearVelocity().x);
                 // A small late-stage speed cap limits stopping error even on the low-friction surface.
-                float cap = remaining > .28f ? CRUISE_SPEED : CREEP_SPEED;
-                float runout = .009f + speed * .052f + speed * speed * .45f;
+                float cap = approachCap(remaining);
+                float runout = releaseRunout(speed);
                 if (phase == Phase.PUSH && trial.hasHorizontalImpulse() && remaining <= runout) {
                     phase = Phase.RETREAT;
                 }
@@ -99,6 +99,14 @@ public final class CourierTarget {
         result.put("firstContactX", trial.firstContactX());
         result.put("rows", rows);
         return result;
+    }
+
+    static float approachCap(float remaining) {
+        return remaining > .28f ? CRUISE_SPEED : CREEP_SPEED;
+    }
+
+    static float releaseRunout(float speed) {
+        return .009f + speed * .052f + speed * speed * .45f;
     }
 
     private static Tick tick(CourierCrateTrial trial, int number, Phase phase, int input) {

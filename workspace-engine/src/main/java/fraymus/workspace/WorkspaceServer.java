@@ -50,6 +50,7 @@ public final class WorkspaceServer implements AutoCloseable {
     private final AvatarWorkshop avatars;
     private final CourierCrateEvidence courierCrate;
     private final CourierTargetEvidence courierTarget;
+    private final CourierRecoveryEvidence courierRecovery;
     private final AvatarLevelMission avatarLevels;
     private final MapStore maps;
     private final PerceptionStore perception;
@@ -107,6 +108,7 @@ public final class WorkspaceServer implements AutoCloseable {
         avatars = new AvatarWorkshop(project, tiles);
         courierCrate = new CourierCrateEvidence(project);
         courierTarget = new CourierTargetEvidence(project);
+        courierRecovery = new CourierRecoveryEvidence(project);
         avatarLevels = new AvatarLevelMission(project, avatars, tiles);
         environments = new EnvironmentStore(project);
         floorPlans = new EnvironmentFloorPlan(environments);
@@ -973,6 +975,20 @@ public final class WorkspaceServer implements AutoCloseable {
                     case "/api/game/courier-target-latest" -> {SpatialScene.keys(input);result=courierTarget.latest();}
                     case "/api/game/courier-target-read" -> {
                         SpatialScene.keys(input,"id");result=courierTarget.read(input.getString("id"));
+                    }
+                    case "/api/game/courier-recovery-run", "/api/game/courier-recovery-replay" -> {
+                        if (agency.busy() || sharedBusy043() || observations.busy() || tabletop.busy() || alignment041.busy())
+                            throw new IllegalStateException("Finish active work before the Courier recovery study.");
+                        if (route.endsWith("-replay")) {
+                            SpatialScene.keys(input, "id");
+                            result = courierRecovery.replay(input.getString("id"), game);
+                        } else {
+                            result = courierRecovery.run(input, game);
+                        }
+                    }
+                    case "/api/game/courier-recovery-latest" -> {SpatialScene.keys(input);result=courierRecovery.latest();}
+                    case "/api/game/courier-recovery-read" -> {
+                        SpatialScene.keys(input,"id");result=courierRecovery.read(input.getString("id"));
                     }
                     case "/api/game/open-course" -> {
                         SpatialScene.keys(input,"id");

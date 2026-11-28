@@ -31,18 +31,20 @@
 #game-view .runtime-controls[hidden] { display: none; }
 #game-course-progress { font-size: 0.8rem; color: var(--muted); }
 
-#courier-crate, #courier-target {
+#courier-crate, #courier-target, #courier-recovery {
     margin-bottom: 10px;
     padding: 10px 12px;
     border: 1px solid #43776d;
     border-radius: 10px;
     background: #182f34;
 }
-#courier-crate summary, #courier-target summary { cursor: pointer; font-weight: 600; }
+#courier-crate summary, #courier-target summary, #courier-recovery summary { cursor: pointer; font-weight: 600; }
 #courier-crate .runtime-controls { margin: 8px 0 0; }
-#courier-crate p, #courier-target p { margin: 6px 0 0; font-size: .83rem; overflow-wrap: anywhere; }
+#courier-crate p, #courier-target p, #courier-recovery p { margin: 6px 0 0; font-size: .83rem; overflow-wrap: anywhere; }
 #courier-crate-live { color: #a9d5cb; }
 #game-frame[data-courier] { max-height: min(45vh, 540px); }
 .courier-target-form { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 7px; margin-top: 8px; }
 .courier-target-form label { display: grid; gap: 3px; font-size: .8rem; }
 .courier-target-form input { width: 6.5em; }
+.courier-target-form .courier-check { display: flex; align-items: center; gap: 5px; min-height: 34px; }
+.courier-target-form .courier-check input { width: auto; }

@@ -40,6 +40,7 @@ public final class CourierCrateTrial extends Component {
     private final transient GameObject player;
     private final transient Rigidbody2D crate;
     private final transient CourierTarget.Request target;
+    private final transient Rigidbody2D support, obstacle;
     private transient int beginContacts;
     private transient int activeContacts;
     private transient boolean horizontalImpulseSeen;
@@ -48,17 +49,20 @@ public final class CourierCrateTrial extends Component {
     private transient long firstContactTick = -1;
     private transient Float crateXAtFirstContact;
 
-    private CourierCrateTrial(GameObject player, Rigidbody2D crate, CourierTarget.Request target) {
+    private CourierCrateTrial(GameObject player, Rigidbody2D crate, CourierTarget.Request target,
+                              Rigidbody2D support, Rigidbody2D obstacle) {
         this.player = player;
         this.crate = crate;
         this.target = target;
+        this.support = support;
+        this.obstacle = obstacle;
     }
 
     public static boolean selected() {
         return Boolean.getBoolean("fraynix.courierCrate");
     }
 
-    public static void attach(Scene scene, CourierTarget.Request target) {
+    public static void attach(Scene scene, CourierTarget.Request target, CourierRecovery.Setup recovery) {
         if (!content.RelayGardenResources.enabled() ||
                 content.RelayGardenResources.course() != fraymus.neural.RelayCourse.GARDEN)
             throw new IllegalStateException("The Courier crate fixture needs the checked Relay Garden.");
@@ -68,10 +72,13 @@ public final class CourierCrateTrial extends Component {
         if (player == null || player.getComponent(PillboxCollider.class) == null)
             throw new IllegalStateException("The Relay player pillbox is required.");
 
+        Rigidbody2D support = null, obstacle = null;
         if (target != null) {
-            player.transform.position.x = CourierTarget.START_X - target.direction() * .73f;
+            player.transform.position.x = recovery == null
+                    ? CourierTarget.START_X - target.direction() * .73f : recovery.spawnX();
             player.transform.scale.x = Math.copySign(player.transform.scale.x, target.direction());
-            addContinuousDeck(scene);
+            support = addContinuousDeck(scene, recovery == null ? .1f : recovery.supportFriction());
+            if (recovery != null && recovery.obstacle()) obstacle = addHurdle(scene, recovery.obstacleX());
             addTargetMarker(scene, target.targetX());
         }
         var object = scene.createGameObject("Courier cargo crate");
@@ -92,7 +99,7 @@ public final class CourierCrateTrial extends Component {
         body.setFixedRotation(true);
         body.setLinearDamping(1.1f);
         object.addComponent(body);
-        object.addComponent(new CourierCrateTrial(player, body, target));
+        object.addComponent(new CourierCrateTrial(player, body, target, support, obstacle));
         scene.addGameObjectToScene(object);
 
         // Keep the player and its original state machine. Only the visible art is substituted.
@@ -112,7 +119,7 @@ public final class CourierCrateTrial extends Component {
         scene.camera().adjustProjection();
     }
 
-    private static void addContinuousDeck(Scene scene) {
+    private static Rigidbody2D addContinuousDeck(Scene scene, float friction) {
         // Tile artwork stays in place. One flat fixture gives the delivery a controlled surface.
         for (GameObject tile : scene.getGameObjects()) {
             if (tile.getName().startsWith("Garden deck ") && tile.transform.position.x < 4.5f) {
@@ -127,10 +134,34 @@ public final class CourierCrateTrial extends Component {
         collider.setHalfSize(new Vector2f(4.5f, .5f));
         var body = new Rigidbody2D();
         body.setBodyType(physics2d.enums.BodyType.Static);
+        body.setInitialFriction(friction);
         deck.addComponent(new components.Ground());
         deck.addComponent(collider);
         deck.addComponent(body);
         scene.addGameObjectToScene(deck);
+        return body;
+    }
+
+    private static Rigidbody2D addHurdle(Scene scene, float x) {
+        var hurdle = scene.createGameObject("Courier approach hurdle");
+        hurdle.transform.position.set(x, .565f);
+        hurdle.transform.scale.set(.14f, .13f);
+        hurdle.transform.zIndex = 1;
+        var atlas = AssetPool.getTexture(CRATE);
+        var sprite = new Sprite();
+        sprite.setTexture(atlas);
+        var art = new SpriteRenderer();
+        art.setSprite(sprite);
+        hurdle.addComponent(art);
+        var collider = new Box2DCollider();
+        collider.setHalfSize(new Vector2f(.14f, .13f));
+        var body = new Rigidbody2D();
+        body.setBodyType(physics2d.enums.BodyType.Static);
+        hurdle.addComponent(new components.Ground());
+        hurdle.addComponent(collider);
+        hurdle.addComponent(body);
+        scene.addGameObjectToScene(hurdle);
+        return body;
     }
 
     private static void addTargetMarker(Scene scene, float x) {
@@ -207,6 +238,8 @@ public final class CourierCrateTrial extends Component {
     }
 
     Body crateBody() { return crate.getRawBody(); }
+    Body supportBody() { return support.getRawBody(); }
+    Body obstacleBody() { return obstacle == null ? null : obstacle.getRawBody(); }
     PlayerController controller() { return player.getComponent(PlayerController.class); }
     String playerId() { return player.getPersistentId().toString(); }
     Float firstContactX() { return crateXAtFirstContact; }

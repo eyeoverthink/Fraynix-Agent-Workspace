@@ -13,6 +13,7 @@ import {Cortex061} from './cortex061.js';
 import {EvidenceBench049} from './evidence049.js';
 import {CourierCratePanel} from './courier-crate.mjs';
 import {CourierTargetPanel} from './courier-target.mjs';
+import {CourierRecoveryPanel} from './courier-recovery.mjs';
 const $=id=>document.getElementById(id);
 export class BrainGame {
  async openIntegrated(){this.requireSaved();this.activate('game');this.watching=true;if(!this.running){const state=await this.call('gameRuntime','state');if(state.running){this.show(await this.call('gameRuntime','frame'));return;}const tasks=await this.call('gameTasks115','list',{});if(tasks.tasks.some(t=>t.status==='running')){$('game-frame').hidden=true;$('game-status').textContent='Waiting for the active level task to open its runtime…';return;}try{this.show(await this.call('gameRuntime','open'));}catch(error){if(!String(error.message).includes('The active Java task owns execution'))throw error;$('game-status').textContent='The active task owns the game; waiting for its next frame…';this.notice($('game-status').textContent);}}}
@@ -23,6 +24,7 @@ export class BrainGame {
   this.addBlenderCandidates();
   this.courierCrate = new CourierCratePanel(this, $('game-frame'));
   new CourierTargetPanel(this, $('game-frame'));
+  new CourierRecoveryPanel(this, $('game-frame'));
   this.cortex061=new Cortex061(call,notice);
   this.residual062=new Residual062(call,notice);
   this.stopping063=new Stopping063(call,notice);

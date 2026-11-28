@@ -15,19 +15,25 @@ import java.util.Collection;
 
 public class LevelSceneInitializer extends SceneInitializer {
     private final runtime.CourierTarget.Request courierTarget;
+    private final runtime.CourierRecovery.Setup courierRecovery;
 
     public LevelSceneInitializer() {
         this(null);
     }
 
     public LevelSceneInitializer(runtime.CourierTarget.Request courierTarget) {
+        this(courierTarget, null);
+    }
+
+    public LevelSceneInitializer(runtime.CourierTarget.Request courierTarget, runtime.CourierRecovery.Setup courierRecovery) {
         this.courierTarget = courierTarget;
+        this.courierRecovery = courierRecovery;
     }
 
     @Override
     public void init(Scene scene) {
         if (runtime.CourierCrateTrial.selected()) {
-            runtime.CourierCrateTrial.attach(scene, courierTarget);
+            runtime.CourierCrateTrial.attach(scene, courierTarget, courierRecovery);
             return;
         }
         GameObject cameraObject = scene.createGameObject("GameCamera");
