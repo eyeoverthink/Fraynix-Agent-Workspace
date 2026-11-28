@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 274 · Move a crate and verify a clear loading aisle</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Move a crate and verify a clear loading aisle</h1>
+<p>Open Spatial and load the 37° bay. Select the crate, ask for the 40 cm move and review the aisle before approving.</p>
+<nav><a href="../../../README-274.md">App guide</a><a href="../273/index.html">Edition 273</a>
+<a href="../../publication274/plan.md">Reproduction</a>
+<a href="aisle-verified.json" download>Download scene and evidence</a>
+<a href="result.json" download>Download restart result</a><a href="#system">System files</a></nav>
+<figure><img src="aisle-proposal.png" alt="The 37° bay and the exact crate move awaiting approval in Spatial"><figcaption>The 37° bay and the exact crate move awaiting approval in Spatial</figcaption></figure>
+<figure><img src="aisle-approved.png" alt="The approved move with the measured aisle and both protected shelves"><figcaption>The approved move with the measured aisle and both protected shelves</figcaption></figure>
+<figure><img src="aisle-restart.png" alt="Spatial reproduces the verification after a second offline restart"><figcaption>Spatial reproduces the verification after a second offline restart</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "Approve a door-relative crate move, check aisle clearance and replay the verified scene offline.",
+  "modules": [
+    {
+      "title": "Door-relative planning and native measurements",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisle.java",
+      "note": "docs/obsidian/282-loading-aisle.md"
+    },
+    {
+      "title": "Durable approval, evidence and replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleMission.java",
+      "note": "docs/obsidian/282-loading-aisle.md"
+    },
+    {
+      "title": "Chat and 2D review controls",
+      "source": "workspace-desktop/renderer/loading-aisle.mjs",
+      "note": "docs/obsidian/282-loading-aisle.md"
+    },
+    {
+      "title": "Offline desktop verification",
+      "source": "workspace-desktop/test/loading-aisle-integration.cjs",
+      "note": "docs/obsidian/282-loading-aisle.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The 37° bay and the exact crate move awaiting approval in Spatial",
+      "path": "docs/readmes/274/aisle-proposal.png"
+    },
+    {
+      "title": "The approved move with the measured aisle and both protected shelves",
+      "path": "docs/readmes/274/aisle-approved.png"
+    },
+    {
+      "title": "Spatial reproduces the verification after a second offline restart",
+      "path": "docs/readmes/274/aisle-restart.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Download scene and evidence",
+      "path": "docs/readmes/274/aisle-verified.json"
+    },
+    {
+      "title": "Download restart result",
+      "path": "docs/readmes/274/result.json"
+    },
+    {
+      "title": "Download results without WebGL",
+      "path": "docs/readmes/274/result-2d.json"
+    },
+    {
+      "title": "Download scene and evidence from the 2D run",
+      "path": "docs/readmes/274/aisle-verified-2d.json"
+    },
+    {
+      "title": "Design and reproduction",
+      "path": "docs/publication274/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": "docs/obsidian/282-loading-aisle.canvas",
+    "bytes": 832,
+    "sha256": "0ee4a99936fdc10bd94cd3e9b613d750088a6ba8ba74cae51301ad330a8fe67c",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/282-loading-aisle.md",
+    "bytes": 289,
+    "sha256": "38af9ad934928e709099db759a2ee89aa6456eb3bddfadcb3a28151a6b7243eb",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication274/plan.md",
+    "bytes": 3098,
+    "sha256": "64293ec68968fef080ab02cfbb16b81779a315394814e4e600a3f83de4b42aea",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/loading-aisle.mjs",
+    "bytes": 9322,
+    "sha256": "a8cdb0ddb420656c314ccf3f9f952ab54e00b9cbdb5587efaa0e57c653120490",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/loading-aisle-integration.cjs",
+    "bytes": 11256,
+    "sha256": "b365309ae615047aef525548be12174eb50cfddd1f3c68a4f110c4424b940fa1",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisle.java",
+    "bytes": 18217,
+    "sha256": "dd9bd593ccdcbcc3bd906cdfe5fcb5456adc5e12cc67b272e6bc9fa835903a85",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleMission.java",
+    "bytes": 7634,
+    "sha256": "b6983af2c19f6921cac377a395105c40602d4606aafd24bf540337849dd8d12f",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/SpatialStore.java",
+    "bytes": 83041,
+    "sha256": "2f0c3ddadf284fd5d315845eb8c3b4b628b45e91876edacb1df7dafefd7f50bf",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

@@ -1,0 +1,61 @@
+{
+  "summary": "Approve a door-relative crate move, check aisle clearance and replay the verified scene offline.",
+  "modules": [
+    {
+      "title": "Door-relative planning and native measurements",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisle.java",
+      "note": "docs/obsidian/282-loading-aisle.md"
+    },
+    {
+      "title": "Durable approval, evidence and replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/LoadingAisleMission.java",
+      "note": "docs/obsidian/282-loading-aisle.md"
+    },
+    {
+      "title": "Chat and 2D review controls",
+      "source": "workspace-desktop/renderer/loading-aisle.mjs",
+      "note": "docs/obsidian/282-loading-aisle.md"
+    },
+    {
+      "title": "Offline desktop verification",
+      "source": "workspace-desktop/test/loading-aisle-integration.cjs",
+      "note": "docs/obsidian/282-loading-aisle.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The 37° bay and the exact crate move awaiting approval in Spatial",
+      "path": "docs/readmes/274/aisle-proposal.png"
+    },
+    {
+      "title": "The approved move with the measured aisle and both protected shelves",
+      "path": "docs/readmes/274/aisle-approved.png"
+    },
+    {
+      "title": "Spatial reproduces the verification after a second offline restart",
+      "path": "docs/readmes/274/aisle-restart.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Download scene and evidence",
+      "path": "docs/readmes/274/aisle-verified.json"
+    },
+    {
+      "title": "Download restart result",
+      "path": "docs/readmes/274/result.json"
+    },
+    {
+      "title": "Download results without WebGL",
+      "path": "docs/readmes/274/result-2d.json"
+    },
+    {
+      "title": "Download scene and evidence from the 2D run",
+      "path": "docs/readmes/274/aisle-verified-2d.json"
+    },
+    {
+      "title": "Design and reproduction",
+      "path": "docs/publication274/plan.md"
+    }
+  ]
+}

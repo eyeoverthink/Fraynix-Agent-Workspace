@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "aisle",
+      "type": "file",
+      "file": "README-274.md",
+      "x": 0,
+      "y": 0,
+      "width": 550,
+      "height": 355
+    },
+    {
+      "id": "checks",
+      "type": "file",
+      "file": "docs/publication274/plan.md",
+      "x": 640,
+      "y": 0,
+      "width": 520,
+      "height": 355
+    },
+    {
+      "id": "review",
+      "type": "file",
+      "file": "docs/readmes/274/aisle-proposal.png",
+      "x": 0,
+      "y": 440,
+      "width": 550,
+      "height": 360
+    }
+  ],
+  "edges": [
+    {
+      "id": "aisle-checks",
+      "fromNode": "aisle",
+      "toNode": "checks",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "aisle-review",
+      "fromNode": "aisle",
+      "toNode": "review",
+      "fromSide": "bottom",
+      "toSide": "top"
+    }
+  ]
+}

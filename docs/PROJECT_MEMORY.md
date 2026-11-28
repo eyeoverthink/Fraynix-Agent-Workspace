@@ -1,3 +1,7 @@
+## Edition 274 — Move a crate and verify a clear loading aisle
+
+2026-11-27. Spatial Chat saves a 40 cm door-relative crate proposal bound to the selected object and exact parent. A native sweep, full aisle measurements and 60 supported ticks verify the approved child. Windows restored the pending proposal and replayed the approved 37° scene across two offline restarts. The square and 2D preview controls passed. Separate obstructions and changed evidence refused. See README-274.md and docs/publication274/plan.md.
+
 ## Edition 273 — Recover an interrupted Courier delivery
 
 2026-11-27. The native Courier compares an adaptive recovery controller with a slower single attempt at 16 paired fixtures. It reads a static hurdle, clears it, observes a native opposing impulse and a stationary crate stopped short, then resumes contact and verifies a 60-tick hold. Windows measured 16/16 recovery deliveries and 4/16 single-attempt deliveries. All receipts rechecked offline and two fresh comparisons matched both traces and the final frames. The edition 272 regression kept its earlier proof and image hashes. See README-273.md and docs/publication273/plan.md.
