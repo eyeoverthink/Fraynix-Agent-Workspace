@@ -1,0 +1,72 @@
+{
+  "summary": "A timed recipient revision reproduces in Fraynix and Blender using two independent views.",
+  "modules": [
+    {
+      "title": "Editable 3D label timing",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RouteShotOverlays.java",
+      "note": "docs/obsidian/289-timed-labels-blender.md"
+    },
+    {
+      "title": "Multi-label renderer and camera samples",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RouteShot.java",
+      "note": "docs/obsidian/289-timed-labels-blender.md"
+    },
+    {
+      "title": "Independent reserved-angle evaluation",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RouteShotStore.java",
+      "note": "docs/obsidian/289-timed-labels-blender.md"
+    },
+    {
+      "title": "Timed labels panel",
+      "source": "workspace-desktop/renderer/route-label-tracks.mjs",
+      "note": "docs/obsidian/289-timed-labels-blender.md"
+    },
+    {
+      "title": "Editable Blender shot export",
+      "source": "workspace-desktop/blender-route-shot.py",
+      "note": "docs/obsidian/289-timed-labels-blender.md"
+    },
+    {
+      "title": "Clean-recipient timed shot test",
+      "source": "workspace-desktop/test/route-shot-timed-integration.cjs",
+      "note": "docs/obsidian/289-timed-labels-blender.md"
+    },
+    {
+      "title": "Independent Blender readback",
+      "source": "workspace-desktop/test/route-shot-blender.py",
+      "note": "docs/obsidian/289-timed-labels-blender.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The recipient edits the two object labels and their frame ranges",
+      "path": "docs/readmes/281/recipient-timing.png"
+    },
+    {
+      "title": "Fraynix checks the reserved view of the dispatch bay",
+      "path": "docs/readmes/281/reserved-camera.png"
+    },
+    {
+      "title": "Blender primary camera at the shelf occlusion",
+      "path": "docs/readmes/281/blender-primary-occluded.png"
+    },
+    {
+      "title": "Blender reserved camera at the same frame",
+      "path": "docs/readmes/281/blender-reserved-reveal.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Download the restart and timing result",
+      "path": "docs/readmes/281/result.json"
+    },
+    {
+      "title": "Download Blender readback evidence",
+      "path": "docs/readmes/281/blender-proof.json"
+    },
+    {
+      "title": "Design and reproduction",
+      "path": "docs/publication281/plan.md"
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "passed": true,
+  "platform": "win32",
+  "authorId": "a6cc7d6085dee5ec4202d28172eb66312332f5bb0b13e5dc12ed5414bc6e8f93",
+  "recipientId": "f11b03169c92149eaa7dc05fbf744b72ccc5280330e2f683f6b438151db910b7",
+  "recipientPackageSha256": "443377e2c75905d54dbf4345926cab24971579cb756ec1f54cc15265c122fd9e",
+  "recipientPackageBytes": 4374238,
+  "restartMatched": true,
+  "authoredCues": [
+    {
+      "firstFrame": 8,
+      "endExclusive": 136,
+      "style": {
+        "widthM": 0.76,
+        "localOffsetM": [
+          0,
+          0.37,
+          0
+        ],
+        "color": "#ffd271",
+        "text": "CASE A17",
+        "enabled": true,
+        "heightM": 0.15
+      },
+      "id": "label-1",
+      "target": "flight-case"
+    },
+    {
+      "firstFrame": 18,
+      "endExclusive": 105,
+      "style": {
+        "widthM": 0.58,
+        "localOffsetM": [
+          0,
+          0.43,
+          0
+        ],
+        "color": "#baf3d3",
+        "text": "RESERVE",
+        "enabled": true,
+        "heightM": 0.15
+      },
+      "id": "label-cedc8fdd",
+      "target": "spare"
+    }
+  ],
+  "recipientCues": [
+    {
+      "firstFrame": 11,
+      "endExclusive": 132,
+      "style": {
+        "widthM": 0.76,
+        "localOffsetM": [
+          0,
+          0.37,
+          0
+        ],
+        "color": "#ffd271",
+        "text": "CASE A17",
+        "enabled": true,
+        "heightM": 0.15
+      },
+      "id": "label-1",
+      "target": "flight-case"
+    },
+    {
+      "firstFrame": 12,
+      "endExclusive": 32,
+      "style": {
+        "widthM": 0.58,
+        "localOffsetM": [
+          0,
+          0.43,
+          0
+        ],
+        "color": "#baf3d3",
+        "text": "BAY RESERVE",
+        "enabled": true,
+        "heightM": 0.15
+      },
+      "id": "label-cedc8fdd",
+      "target": "spare"
+    }
+  ],
+  "routeLegs": 11,
+  "minimumAngleDeg": 59.749524480717355,
+  "shelfRevealFrames": 77,
+  "witnessFrame": 38,
+  "recipientWorldUntouched": true,
+  "invalidTimingRefused": true,
+  "blender": {
+    "passed": true,
+    "version": "5.3.0",
+    "reopenedBlend": true,
+    "shotId": "f11b03169c92149eaa7dc05fbf744b72ccc5280330e2f683f6b438151db910b7",
+    "minimumAngleDeg": 59.749524480717355,
+    "witnessFrame": 38,
+    "views": [
+      {
+        "role": "primary",
+        "frames": 144,
+        "maximumSampleCenterDeltaPx": 0.5000953674316406,
+        "labels": {
+          "label-1": {
+            "activeFrames": 121,
+            "rayChecks": 121,
+            "blocked": 87,
+            "offFrame": 0
+          },
+          "label-cedc8fdd": {
+            "activeFrames": 20,
+            "rayChecks": 6,
+            "blocked": 0,
+            "offFrame": 14
+          }
+        }
+      },
+      {
+        "role": "reserved",
+        "frames": 144,
+        "maximumSampleCenterDeltaPx": 0.5000190734863281,
+        "labels": {
+          "label-1": {
+            "activeFrames": 121,
+            "rayChecks": 121,
+            "blocked": 0,
+            "offFrame": 0
+          },
+          "label-cedc8fdd": {
+            "activeFrames": 20,
+            "rayChecks": 0,
+            "blocked": 0,
+            "offFrame": 20
+          }
+        }
+      }
+    ],
+    "renders": [
+      {
+        "frame": 38,
+        "file": "blender-primary-occluded.png",
+        "sha256": "04f59f59abd9f3538e2e2d2c046d1376e6e8782cb661bff6e19262225b95ce86"
+      },
+      {
+        "frame": 38,
+        "file": "blender-reserved-reveal.png",
+        "sha256": "e28a81af8af12edd3179be1a1e08d51538aee3652af7f8a76c0a3e84151c31bf"
+      }
+    ],
+    "blendSha256": "84446517da36d11686e489818842eb7f6098b46bc153e8f01c7886d5c9fd64b3"
+  }
+}

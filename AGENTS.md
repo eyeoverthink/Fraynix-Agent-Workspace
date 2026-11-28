@@ -1,3 +1,7 @@
+## Edition 281 — Replay timed 3D labels in Blender
+
+2026-11-28. Java rendered multiple timed labels on the moving and spare crates. A clean recipient retimed both labels and rebuilt the same package after restart. The reserved camera passed 59.7° minimum separation and revealed the shelf-hidden label in 77 frames. Blender 5.3.0 reopened both editable views, evaluated both timelines and checked 248 rays. See [README-281](README-281.md) and [the implementation plan](docs/publication281/plan.md).
+
 ## Edition 280 — Edit 3D overlays and verify a portable shot
 
 2026-11-27. The 96° Night dispatch bay filmed a separate 9.5 kg amber case over 11 approved legs. Java verified editable label coordinates and floor line. The dispatch shelf hid the label in 79 frames. The clean Windows recipient matched both 144-frame takes and the package after restart. A separate overlay revision, both-off control, changed crate choice and recomputed-hash media refusal passed. See [README-280](README-280.md) and [the implementation plan](docs/publication280/plan.md).

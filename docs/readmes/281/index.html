@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 281 · Replay timed 3D labels in Blender</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Replay timed 3D labels in Blender</h1>
+<p>Edit two timed labels, verify the reserved camera and compare both views in a reopened Blender project.</p>
+<nav><a href="../../../README-281.md">App guide</a><a href="../280/index.html">Edition 280</a>
+<a href="../../publication281/plan.md">Reproduction</a>
+<a href="result.json" download>Download the restart and timing result</a>
+<a href="blender-proof.json" download>Download Blender readback evidence</a><a href="#system">System files</a></nav>
+<figure><img src="recipient-timing.png" alt="The recipient edits the two object labels and their frame ranges"><figcaption>The recipient edits the two object labels and their frame ranges</figcaption></figure>
+<figure><img src="reserved-camera.png" alt="Fraynix checks the reserved view of the dispatch bay"><figcaption>Fraynix checks the reserved view of the dispatch bay</figcaption></figure>
+<figure><img src="blender-primary-occluded.png" alt="Blender primary camera at the shelf occlusion"><figcaption>Blender primary camera at the shelf occlusion</figcaption></figure>
+<figure><img src="blender-reserved-reveal.png" alt="Blender reserved camera at the same frame"><figcaption>Blender reserved camera at the same frame</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "A timed recipient revision reproduces in Fraynix and Blender using two independent views.",
+  "modules": [
+    {
+      "title": "Editable 3D label timing",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RouteShotOverlays.java",
+      "note": "docs/obsidian/289-timed-labels-blender.md"
+    },
+    {
+      "title": "Multi-label renderer and camera samples",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RouteShot.java",
+      "note": "docs/obsidian/289-timed-labels-blender.md"
+    },
+    {
+      "title": "Independent reserved-angle evaluation",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/RouteShotStore.java",
+      "note": "docs/obsidian/289-timed-labels-blender.md"
+    },
+    {
+      "title": "Timed labels panel",
+      "source": "workspace-desktop/renderer/route-label-tracks.mjs",
+      "note": "docs/obsidian/289-timed-labels-blender.md"
+    },
+    {
+      "title": "Editable Blender shot export",
+      "source": "workspace-desktop/blender-route-shot.py",
+      "note": "docs/obsidian/289-timed-labels-blender.md"
+    },
+    {
+      "title": "Clean-recipient timed shot test",
+      "source": "workspace-desktop/test/route-shot-timed-integration.cjs",
+      "note": "docs/obsidian/289-timed-labels-blender.md"
+    },
+    {
+      "title": "Independent Blender readback",
+      "source": "workspace-desktop/test/route-shot-blender.py",
+      "note": "docs/obsidian/289-timed-labels-blender.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The recipient edits the two object labels and their frame ranges",
+      "path": "docs/readmes/281/recipient-timing.png"
+    },
+    {
+      "title": "Fraynix checks the reserved view of the dispatch bay",
+      "path": "docs/readmes/281/reserved-camera.png"
+    },
+    {
+      "title": "Blender primary camera at the shelf occlusion",
+      "path": "docs/readmes/281/blender-primary-occluded.png"
+    },
+    {
+      "title": "Blender reserved camera at the same frame",
+      "path": "docs/readmes/281/blender-reserved-reveal.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "Download the restart and timing result",
+      "path": "docs/readmes/281/result.json"
+    },
+    {
+      "title": "Download Blender readback evidence",
+      "path": "docs/readmes/281/blender-proof.json"
+    },
+    {
+      "title": "Design and reproduction",
+      "path": "docs/publication281/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": "docs/obsidian/289-timed-labels-blender.canvas",
+    "bytes": 837,
+    "sha256": "a29023f08429aaed4586d58f1e0f71d2f61835d42ccf66add6f47376653de48b",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/289-timed-labels-blender.md",
+    "bytes": 278,
+    "sha256": "617e7207f94391e101e28dd3a0ec416088155c17806cdae286ef6ed28cff60d8",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication281/plan.md",
+    "bytes": 2969,
+    "sha256": "5e8b3898dedc9ffe2c6ed2d1c1c37f55e71485e406c89cee88f3348b7ffe4d47",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/blender-route-shot.py",
+    "bytes": 8145,
+    "sha256": "9619afa2dee1eecd6dcb18e414cc30141b32f59748c4981ff7d81a43e7764569",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/route-label-tracks.mjs",
+    "bytes": 5159,
+    "sha256": "d0c515ecd68d660008c9804176dd4e49e7c866cb149b3b79c4737f05a420a790",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/route-shot-blender.py",
+    "bytes": 7405,
+    "sha256": "e7f3127de63cafc91664d13d169a8ab5a467ec755e539587eb8ba044de1c5c9c",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/route-shot-timed-integration.cjs",
+    "bytes": 12392,
+    "sha256": "38edc2537a8e8c61e18a60def2f4fb5280be3cf00b3889f9c0a30e1aceed27ec",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/RouteShot.java",
+    "bytes": 25075,
+    "sha256": "161c430986d7e07db81f1ade2379140da54c911d8cbb39b525528e35dfad4f25",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/RouteShotOverlays.java",
+    "bytes": 7920,
+    "sha256": "109a8fe92b9d9d3b37d74f82d179542d2eaa6e769933b7c42df37902cddd6a64",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/RouteShotStore.java",
+    "bytes": 21811,
+    "sha256": "126b6980a73cc7dc6a6df20d5cfc4d540b10640eb6be695456e9457e8f468113",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>

@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 281 — Replay timed 3D labels in Blender](../../README-281.md) · [Walkthrough](281/index.html)
+
 [Edition 280 — Edit 3D overlays and verify a portable shot](../../README-280.md) · [Walkthrough](280/index.html)
 
 [Edition 279 — Film an approved 3D crate route](../../README-279.md) · [Walkthrough](279/index.html)
