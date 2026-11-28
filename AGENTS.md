@@ -1,3 +1,7 @@
+## Edition 273 — Recover an interrupted Courier delivery
+
+2026-11-27. The native Courier compares an adaptive recovery controller with a slower single attempt at 16 paired fixtures. It reads a static hurdle, clears it, observes a native opposing impulse and a stationary crate stopped short, then resumes contact and verifies a 60-tick hold. Windows measured 16/16 recovery deliveries and 4/16 single-attempt deliveries. All receipts rechecked offline and two fresh comparisons matched both traces and the final frames. The edition 272 regression kept its earlier proof and image hashes. See README-273.md and docs/publication273/plan.md.
+
 ## Edition 272 — Deliver a crate and verify it stays on target
 
 2026-11-27. Game Lab drives the existing Courier player toward a signed crate target, brakes and backs away before a 60-tick neutral hold. The delivery fixture uses a continuous deck and the authored pillbox density. Windows passed 58 combinations in both directions, with 0.02457 worst held error, 0.00095 maximum drift and zero final speed. All receipts rechecked offline after restart. A new native process reproduced one delivery in each direction to the exact trace and PNG. Invalid mass, changed bytes and a rehashed out-of-band hold all refused. The edition 271 contact regression matched exactly. See README-272.md and docs/publication272/plan.md.

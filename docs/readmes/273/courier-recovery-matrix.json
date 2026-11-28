@@ -1,0 +1,658 @@
+[
+  {
+    "id": "104b60e28fae68cb7336e11dbc9b40988dc43009c6b4c09c4bac92f3a954a4b4",
+    "setup": {
+      "direction": 1,
+      "supportFriction": 0.065,
+      "obstacle": false,
+      "disturbance": false
+    },
+    "adaptive": {
+      "holdTicks": 60,
+      "contactTick": 85,
+      "finalSpeed": 0,
+      "releaseTick": 230,
+      "ticks": 290,
+      "firstMotionTick": 85,
+      "delivered": true,
+      "maxHeldError": 0.01784119999999989,
+      "finalX": 2.8321588,
+      "outcome": "delivered",
+      "obstacleCrossingTick": -1,
+      "drift": 0
+    },
+    "baseline": {
+      "holdTicks": 60,
+      "contactTick": 121,
+      "finalSpeed": 0,
+      "releaseTick": 277,
+      "ticks": 337,
+      "firstMotionTick": 121,
+      "delivered": true,
+      "maxHeldError": 0.032296300000000056,
+      "finalX": 2.8179774,
+      "outcome": "delivered",
+      "obstacleCrossingTick": -1,
+      "drift": 0.0002737000000001544
+    }
+  },
+  {
+    "id": "a86549c9480c7804a0d24f4cab8386f83e158cc4119121a056766d70c8d57e29",
+    "setup": {
+      "direction": 1,
+      "supportFriction": 0.065,
+      "obstacle": false,
+      "disturbance": true
+    },
+    "adaptive": {
+      "recoveryContactTick": 216,
+      "ticks": 384,
+      "firstMotionTick": 85,
+      "delivered": true,
+      "finalX": 2.8324902,
+      "disturbanceTick": 133,
+      "holdTicks": 60,
+      "contactTick": 85,
+      "finalSpeed": 0,
+      "releaseTick": 324,
+      "maxHeldError": 0.01750980000000002,
+      "stoppedShortBy": 0.4411170000000002,
+      "outcome": "delivered",
+      "obstacleCrossingTick": -1,
+      "drift": 0
+    },
+    "baseline": {
+      "recoveryContactTick": -1,
+      "ticks": 251,
+      "firstMotionTick": 121,
+      "delivered": false,
+      "finalX": 2.3406162,
+      "disturbanceTick": 192,
+      "holdTicks": 0,
+      "contactTick": 121,
+      "finalSpeed": 0,
+      "releaseTick": -1,
+      "maxHeldError": 0,
+      "stoppedShortBy": 0.5093838000000002,
+      "outcome": "stopped-short",
+      "obstacleCrossingTick": -1,
+      "drift": 0
+    }
+  },
+  {
+    "id": "a90bf3946809d491b5e75862eb8ce6e5fa38f03d5291a6ad9680538fbbdd7d25",
+    "setup": {
+      "direction": 1,
+      "supportFriction": 0.065,
+      "obstacle": true,
+      "disturbance": false
+    },
+    "adaptive": {
+      "crossingY": 1.2113959,
+      "ticks": 326,
+      "firstMotionTick": 118,
+      "delivered": true,
+      "finalX": 2.8317175,
+      "holdTicks": 60,
+      "contactTick": 118,
+      "finalSpeed": 0,
+      "releaseTick": 266,
+      "maxHeldError": 0.0182825000000002,
+      "outcome": "delivered",
+      "obstacleCrossingTick": 87,
+      "drift": 0
+    },
+    "baseline": {
+      "crossingY": 1.1855395,
+      "ticks": 371,
+      "firstMotionTick": 156,
+      "delivered": true,
+      "finalX": 2.8179774,
+      "holdTicks": 60,
+      "contactTick": 156,
+      "finalSpeed": 0,
+      "releaseTick": 311,
+      "maxHeldError": 0.032950000000000035,
+      "outcome": "delivered",
+      "obstacleCrossingTick": 115,
+      "drift": 0.0009274000000001337
+    }
+  },
+  {
+    "id": "9660f55ffc40dd175da6b83279e695c4047619c95e70b4fad41f5d86f7537a18",
+    "setup": {
+      "direction": 1,
+      "supportFriction": 0.065,
+      "obstacle": true,
+      "disturbance": true
+    },
+    "adaptive": {
+      "recoveryContactTick": 248,
+      "crossingY": 1.2113959,
+      "ticks": 415,
+      "firstMotionTick": 118,
+      "delivered": true,
+      "finalX": 2.830884,
+      "disturbanceTick": 165,
+      "holdTicks": 60,
+      "contactTick": 118,
+      "finalSpeed": 0,
+      "releaseTick": 355,
+      "maxHeldError": 0.01911599999999991,
+      "stoppedShortBy": 0.4394167000000002,
+      "outcome": "delivered",
+      "obstacleCrossingTick": 87,
+      "drift": 0
+    },
+    "baseline": {
+      "recoveryContactTick": -1,
+      "crossingY": 1.1855395,
+      "ticks": 285,
+      "firstMotionTick": 156,
+      "delivered": false,
+      "finalX": 2.3406162,
+      "disturbanceTick": 226,
+      "holdTicks": 0,
+      "contactTick": 156,
+      "finalSpeed": 0,
+      "releaseTick": -1,
+      "maxHeldError": 0,
+      "stoppedShortBy": 0.5093838000000002,
+      "outcome": "stopped-short",
+      "obstacleCrossingTick": 115,
+      "drift": 0
+    }
+  },
+  {
+    "id": "7366347267a93483cc9c14276663b18967e65c22a9c0bf681afe7de6b9586be9",
+    "setup": {
+      "direction": 1,
+      "supportFriction": 0.32,
+      "obstacle": false,
+      "disturbance": false
+    },
+    "adaptive": {
+      "holdTicks": 60,
+      "contactTick": 85,
+      "finalSpeed": 0,
+      "releaseTick": 242,
+      "ticks": 302,
+      "firstMotionTick": 85,
+      "delivered": true,
+      "maxHeldError": 0.02249010000000018,
+      "finalX": 2.8275099,
+      "outcome": "delivered",
+      "obstacleCrossingTick": -1,
+      "drift": 0
+    },
+    "baseline": {
+      "holdTicks": 60,
+      "contactTick": 121,
+      "finalSpeed": 0,
+      "releaseTick": 286,
+      "ticks": 346,
+      "firstMotionTick": 121,
+      "delivered": false,
+      "maxHeldError": 0.04184330000000003,
+      "finalX": 2.8081567,
+      "outcome": "missed-hold",
+      "obstacleCrossingTick": -1,
+      "drift": 0
+    }
+  },
+  {
+    "id": "55f1e603ae4091b88aace795d64a53550bf7ad2ec567f19effe076176c8cf9ea",
+    "setup": {
+      "direction": 1,
+      "supportFriction": 0.32,
+      "obstacle": false,
+      "disturbance": true
+    },
+    "adaptive": {
+      "recoveryContactTick": 214,
+      "ticks": 396,
+      "firstMotionTick": 85,
+      "delivered": true,
+      "finalX": 2.8279386,
+      "disturbanceTick": 135,
+      "holdTicks": 60,
+      "contactTick": 85,
+      "finalSpeed": 0,
+      "releaseTick": 336,
+      "maxHeldError": 0.02206140000000012,
+      "stoppedShortBy": 0.47551880000000013,
+      "outcome": "delivered",
+      "obstacleCrossingTick": -1,
+      "drift": 0
+    },
+    "baseline": {
+      "recoveryContactTick": -1,
+      "ticks": 255,
+      "firstMotionTick": 121,
+      "delivered": false,
+      "finalX": 2.3395228,
+      "disturbanceTick": 196,
+      "holdTicks": 0,
+      "contactTick": 121,
+      "finalSpeed": 0,
+      "releaseTick": -1,
+      "maxHeldError": 0,
+      "stoppedShortBy": 0.5104772,
+      "outcome": "stopped-short",
+      "obstacleCrossingTick": -1,
+      "drift": 0
+    }
+  },
+  {
+    "id": "d9c2a78aeaa80451b7f17e677057bccd427e23cdb1594b047abe77b6fe6915c5",
+    "setup": {
+      "direction": 1,
+      "supportFriction": 0.32,
+      "obstacle": true,
+      "disturbance": false
+    },
+    "adaptive": {
+      "crossingY": 1.2113959,
+      "ticks": 335,
+      "firstMotionTick": 119,
+      "delivered": true,
+      "finalX": 2.8266368,
+      "holdTicks": 60,
+      "contactTick": 119,
+      "finalSpeed": 0,
+      "releaseTick": 275,
+      "maxHeldError": 0.023363199999999917,
+      "outcome": "delivered",
+      "obstacleCrossingTick": 87,
+      "drift": 0
+    },
+    "baseline": {
+      "crossingY": 1.1855395,
+      "ticks": 384,
+      "firstMotionTick": 157,
+      "delivered": false,
+      "finalX": 2.8081567,
+      "holdTicks": 60,
+      "contactTick": 157,
+      "finalSpeed": 0,
+      "releaseTick": 324,
+      "maxHeldError": 0.04184330000000003,
+      "outcome": "missed-hold",
+      "obstacleCrossingTick": 115,
+      "drift": 0
+    }
+  },
+  {
+    "id": "356aef1b1fa7f0887d02d34eff80e4885e2dbec153be4aa44473fb7bffe9d222",
+    "setup": {
+      "direction": 1,
+      "supportFriction": 0.32,
+      "obstacle": true,
+      "disturbance": true
+    },
+    "adaptive": {
+      "recoveryContactTick": 247,
+      "crossingY": 1.2113959,
+      "ticks": 429,
+      "firstMotionTick": 119,
+      "delivered": true,
+      "finalX": 2.8270655,
+      "disturbanceTick": 168,
+      "holdTicks": 60,
+      "contactTick": 119,
+      "finalSpeed": 0,
+      "releaseTick": 369,
+      "maxHeldError": 0.022934500000000302,
+      "stoppedShortBy": 0.48241200000000006,
+      "outcome": "delivered",
+      "obstacleCrossingTick": 87,
+      "drift": 0
+    },
+    "baseline": {
+      "recoveryContactTick": -1,
+      "crossingY": 1.1855395,
+      "ticks": 293,
+      "firstMotionTick": 157,
+      "delivered": false,
+      "finalX": 2.3395228,
+      "disturbanceTick": 234,
+      "holdTicks": 0,
+      "contactTick": 157,
+      "finalSpeed": 0,
+      "releaseTick": -1,
+      "maxHeldError": 0,
+      "stoppedShortBy": 0.5104772,
+      "outcome": "stopped-short",
+      "obstacleCrossingTick": 115,
+      "drift": 0
+    }
+  },
+  {
+    "id": "d20785e3842d3f792660720ced025ab6b5e788c1de1ce84fffb7dc1d0bc4b302",
+    "setup": {
+      "direction": -1,
+      "supportFriction": 0.065,
+      "obstacle": false,
+      "disturbance": false
+    },
+    "adaptive": {
+      "holdTicks": 60,
+      "contactTick": 85,
+      "finalSpeed": 0,
+      "releaseTick": 230,
+      "ticks": 290,
+      "firstMotionTick": 85,
+      "delivered": true,
+      "maxHeldError": 0.017828299999999908,
+      "finalX": 1.3278283,
+      "outcome": "delivered",
+      "obstacleCrossingTick": -1,
+      "drift": 0
+    },
+    "baseline": {
+      "holdTicks": 60,
+      "contactTick": 121,
+      "finalSpeed": 0,
+      "releaseTick": 277,
+      "ticks": 337,
+      "firstMotionTick": 121,
+      "delivered": true,
+      "maxHeldError": 0.03231229999999985,
+      "finalX": 1.3420385,
+      "outcome": "delivered",
+      "obstacleCrossingTick": -1,
+      "drift": 0.0002737999999999907
+    }
+  },
+  {
+    "id": "682900bd5ff4903a70ba2873d84cca7cb97a5f0c34ccf194540e82a8f66788c3",
+    "setup": {
+      "direction": -1,
+      "supportFriction": 0.065,
+      "obstacle": false,
+      "disturbance": true
+    },
+    "adaptive": {
+      "recoveryContactTick": 216,
+      "ticks": 384,
+      "firstMotionTick": 85,
+      "delivered": true,
+      "finalX": 1.3275005,
+      "disturbanceTick": 133,
+      "holdTicks": 60,
+      "contactTick": 85,
+      "finalSpeed": 0,
+      "releaseTick": 324,
+      "maxHeldError": 0.01750049999999992,
+      "stoppedShortBy": 0.4411121,
+      "outcome": "delivered",
+      "obstacleCrossingTick": -1,
+      "drift": 0
+    },
+    "baseline": {
+      "recoveryContactTick": -1,
+      "ticks": 251,
+      "firstMotionTick": 121,
+      "delivered": false,
+      "finalX": 1.8193889,
+      "disturbanceTick": 192,
+      "holdTicks": 0,
+      "contactTick": 121,
+      "finalSpeed": 0,
+      "releaseTick": -1,
+      "maxHeldError": 0,
+      "stoppedShortBy": 0.5093889,
+      "outcome": "stopped-short",
+      "obstacleCrossingTick": -1,
+      "drift": 0
+    }
+  },
+  {
+    "id": "1d335e2396bd8b47fc97fa080528f07fef6e6d2b2e450b4e455180142ab9af52",
+    "setup": {
+      "direction": -1,
+      "supportFriction": 0.065,
+      "obstacle": true,
+      "disturbance": false
+    },
+    "adaptive": {
+      "crossingY": 1.2113959,
+      "ticks": 326,
+      "firstMotionTick": 118,
+      "delivered": true,
+      "finalX": 1.3282721,
+      "holdTicks": 60,
+      "contactTick": 118,
+      "finalSpeed": 0,
+      "releaseTick": 266,
+      "maxHeldError": 0.018272099999999902,
+      "outcome": "delivered",
+      "obstacleCrossingTick": 87,
+      "drift": 0
+    },
+    "baseline": {
+      "crossingY": 1.1855395,
+      "ticks": 371,
+      "firstMotionTick": 156,
+      "delivered": true,
+      "finalX": 1.3420385,
+      "holdTicks": 60,
+      "contactTick": 156,
+      "finalSpeed": 0,
+      "releaseTick": 311,
+      "maxHeldError": 0.03296600000000005,
+      "outcome": "delivered",
+      "obstacleCrossingTick": 115,
+      "drift": 0.0009275000000001921
+    }
+  },
+  {
+    "id": "360f3fec654a21d573d78100337b845772a6b5cd393a0264b0449e1fbb4fc5d8",
+    "setup": {
+      "direction": -1,
+      "supportFriction": 0.065,
+      "obstacle": true,
+      "disturbance": true
+    },
+    "adaptive": {
+      "recoveryContactTick": 248,
+      "crossingY": 1.2113959,
+      "ticks": 415,
+      "firstMotionTick": 118,
+      "delivered": true,
+      "finalX": 1.3291109,
+      "disturbanceTick": 165,
+      "holdTicks": 60,
+      "contactTick": 118,
+      "finalSpeed": 0,
+      "releaseTick": 355,
+      "maxHeldError": 0.019110900000000042,
+      "stoppedShortBy": 0.4394142999999999,
+      "outcome": "delivered",
+      "obstacleCrossingTick": 87,
+      "drift": 0
+    },
+    "baseline": {
+      "recoveryContactTick": -1,
+      "crossingY": 1.1855395,
+      "ticks": 285,
+      "firstMotionTick": 156,
+      "delivered": false,
+      "finalX": 1.8193889,
+      "disturbanceTick": 226,
+      "holdTicks": 0,
+      "contactTick": 156,
+      "finalSpeed": 0,
+      "releaseTick": -1,
+      "maxHeldError": 0,
+      "stoppedShortBy": 0.5093889,
+      "outcome": "stopped-short",
+      "obstacleCrossingTick": 115,
+      "drift": 0
+    }
+  },
+  {
+    "id": "8f34b81a03b5a6b83f233b22cf6a8733c1fd40af4468b7fe78cc05153f241692",
+    "setup": {
+      "direction": -1,
+      "supportFriction": 0.32,
+      "obstacle": false,
+      "disturbance": false
+    },
+    "adaptive": {
+      "holdTicks": 60,
+      "contactTick": 85,
+      "finalSpeed": 0,
+      "releaseTick": 242,
+      "ticks": 302,
+      "firstMotionTick": 85,
+      "delivered": true,
+      "maxHeldError": 0.022495799999999955,
+      "finalX": 1.3324958,
+      "outcome": "delivered",
+      "obstacleCrossingTick": -1,
+      "drift": 0
+    },
+    "baseline": {
+      "holdTicks": 60,
+      "contactTick": 121,
+      "finalSpeed": 0,
+      "releaseTick": 286,
+      "ticks": 346,
+      "firstMotionTick": 121,
+      "delivered": false,
+      "maxHeldError": 0.04184309999999991,
+      "finalX": 1.3518431,
+      "outcome": "missed-hold",
+      "obstacleCrossingTick": -1,
+      "drift": 0
+    }
+  },
+  {
+    "id": "433785743bc32326e179392f4bdd6e2914bc1e7cc9283efc04ca59956b3beba0",
+    "setup": {
+      "direction": -1,
+      "supportFriction": 0.32,
+      "obstacle": false,
+      "disturbance": true
+    },
+    "adaptive": {
+      "recoveryContactTick": 214,
+      "ticks": 396,
+      "firstMotionTick": 85,
+      "delivered": true,
+      "finalX": 1.3320662,
+      "disturbanceTick": 135,
+      "holdTicks": 60,
+      "contactTick": 85,
+      "finalSpeed": 0,
+      "releaseTick": 336,
+      "maxHeldError": 0.022066200000000036,
+      "stoppedShortBy": 0.4755141999999999,
+      "outcome": "delivered",
+      "obstacleCrossingTick": -1,
+      "drift": 0
+    },
+    "baseline": {
+      "recoveryContactTick": -1,
+      "ticks": 255,
+      "firstMotionTick": 121,
+      "delivered": false,
+      "finalX": 1.8204768,
+      "disturbanceTick": 196,
+      "holdTicks": 0,
+      "contactTick": 121,
+      "finalSpeed": 0,
+      "releaseTick": -1,
+      "maxHeldError": 0,
+      "stoppedShortBy": 0.5104768,
+      "outcome": "stopped-short",
+      "obstacleCrossingTick": -1,
+      "drift": 0
+    }
+  },
+  {
+    "id": "2767776969f412d90d5e679a52f4e52e12bf8b88b8eb82e58d3e0d7cca4e5459",
+    "setup": {
+      "direction": -1,
+      "supportFriction": 0.32,
+      "obstacle": true,
+      "disturbance": false
+    },
+    "adaptive": {
+      "crossingY": 1.2113959,
+      "ticks": 335,
+      "firstMotionTick": 119,
+      "delivered": true,
+      "finalX": 1.333373,
+      "holdTicks": 60,
+      "contactTick": 119,
+      "finalSpeed": 0,
+      "releaseTick": 275,
+      "maxHeldError": 0.023372999999999866,
+      "outcome": "delivered",
+      "obstacleCrossingTick": 87,
+      "drift": 0
+    },
+    "baseline": {
+      "crossingY": 1.1855395,
+      "ticks": 384,
+      "firstMotionTick": 157,
+      "delivered": false,
+      "finalX": 1.3518431,
+      "holdTicks": 60,
+      "contactTick": 157,
+      "finalSpeed": 0,
+      "releaseTick": 324,
+      "maxHeldError": 0.04184309999999991,
+      "outcome": "missed-hold",
+      "obstacleCrossingTick": 115,
+      "drift": 0
+    }
+  },
+  {
+    "id": "ab417e944bbc3dc92d6db259fad5c51cb944aa4d77235767e23f1a3036e4b3f1",
+    "setup": {
+      "direction": -1,
+      "supportFriction": 0.32,
+      "obstacle": true,
+      "disturbance": true
+    },
+    "adaptive": {
+      "recoveryContactTick": 247,
+      "crossingY": 1.2113959,
+      "ticks": 429,
+      "firstMotionTick": 119,
+      "delivered": true,
+      "finalX": 1.3329433,
+      "disturbanceTick": 168,
+      "holdTicks": 60,
+      "contactTick": 119,
+      "finalSpeed": 0,
+      "releaseTick": 369,
+      "maxHeldError": 0.02294329999999989,
+      "stoppedShortBy": 0.48241139999999993,
+      "outcome": "delivered",
+      "obstacleCrossingTick": 87,
+      "drift": 0
+    },
+    "baseline": {
+      "recoveryContactTick": -1,
+      "crossingY": 1.1855395,
+      "ticks": 293,
+      "firstMotionTick": 157,
+      "delivered": false,
+      "finalX": 1.8204768,
+      "disturbanceTick": 234,
+      "holdTicks": 0,
+      "contactTick": 157,
+      "finalSpeed": 0,
+      "releaseTick": -1,
+      "maxHeldError": 0,
+      "stoppedShortBy": 0.5104768,
+      "outcome": "stopped-short",
+      "obstacleCrossingTick": 115,
+      "drift": 0
+    }
+  }
+]

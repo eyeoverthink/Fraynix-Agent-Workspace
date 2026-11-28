@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "recovery",
+      "type": "file",
+      "file": "README-273.md",
+      "x": 0,
+      "y": 0,
+      "width": 550,
+      "height": 355
+    },
+    {
+      "id": "checks",
+      "type": "file",
+      "file": "docs/publication273/plan.md",
+      "x": 640,
+      "y": 0,
+      "width": 520,
+      "height": 355
+    },
+    {
+      "id": "trace",
+      "type": "file",
+      "file": "docs/readmes/273/courier-recovery-trace.png",
+      "x": 0,
+      "y": 440,
+      "width": 550,
+      "height": 280
+    }
+  ],
+  "edges": [
+    {
+      "id": "recovery-checks",
+      "fromNode": "recovery",
+      "toNode": "checks",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "recovery-trace",
+      "fromNode": "recovery",
+      "toNode": "trace",
+      "fromSide": "bottom",
+      "toSide": "top"
+    }
+  ]
+}

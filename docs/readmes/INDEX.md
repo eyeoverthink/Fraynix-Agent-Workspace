@@ -1,5 +1,7 @@
 [Edition166 — guarded domain and archive rehearsal](../../README-166.md) | [Offline guide](166/index.html)
 
+[Edition 273 — Recover an interrupted Courier delivery](../../README-273.md) · [Walkthrough](273/index.html)
+
 [Edition 272 — Deliver a crate and verify it stays on target](../../README-272.md) · [Walkthrough](272/index.html)
 
 [Edition 271 — Prove the Courier pushes a crate after contact](../../README-271.md) · [Walkthrough](271/index.html)

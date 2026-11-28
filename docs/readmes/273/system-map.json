@@ -1,0 +1,70 @@
+{
+  "summary": "Compare a native stopped-short delivery and recovery, then verify both from saved evidence.",
+  "modules": [
+    {
+      "title": "Native approach and recovery controller",
+      "source": "src/main/java/runtime/CourierRecovery.java",
+      "note": "docs/obsidian/281-courier-recovery.md"
+    },
+    {
+      "title": "Solver bodies and support fixture",
+      "source": "src/main/java/runtime/CourierCrateTrial.java",
+      "note": "docs/obsidian/281-courier-recovery.md"
+    },
+    {
+      "title": "Independent paired verification and replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CourierRecoveryEvidence.java",
+      "note": "docs/obsidian/281-courier-recovery.md"
+    },
+    {
+      "title": "Game Lab recovery controls",
+      "source": "workspace-desktop/renderer/courier-recovery.mjs",
+      "note": "docs/obsidian/281-courier-recovery.md"
+    },
+    {
+      "title": "Paired matrix and offline restart test",
+      "source": "workspace-desktop/test/courier-recovery-integration.cjs",
+      "note": "docs/obsidian/281-courier-recovery.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The Courier delivers after crossing a hurdle on the low-friction deck",
+      "path": "docs/readmes/273/courier-recovery-right.png"
+    },
+    {
+      "title": "A leftward delivery with a hurdle and interruption on the high-friction deck",
+      "path": "docs/readmes/273/courier-recovery-left.png"
+    },
+    {
+      "title": "Game Lab reproduces both runs of the high-friction comparison after restarting offline",
+      "path": "docs/readmes/273/courier-recovery-restart.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "All 16 paired comparisons",
+      "path": "docs/readmes/273/courier-recovery-matrix.json"
+    },
+    {
+      "title": "Full rightward comparison",
+      "path": "docs/readmes/273/courier-recovery-right.json"
+    },
+    {
+      "title": "Full leftward comparison",
+      "path": "docs/readmes/273/courier-recovery-left.json"
+    },
+    {
+      "title": "Offline replay and refusal report",
+      "path": "docs/readmes/273/result.json"
+    },
+    {
+      "title": "Compare cargo motion in the interrupted rightward delivery",
+      "path": "docs/readmes/273/courier-recovery-trace.png"
+    },
+    {
+      "title": "Design and reproduction",
+      "path": "docs/publication273/plan.md"
+    }
+  ]
+}

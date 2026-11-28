@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fraynix 273 · Recover an interrupted Courier delivery</title>
+<style>
+body {background:#101923;color:#e7f0f5;font:16px/1.55 system-ui;margin:0}
+main {max-width:68rem;margin:auto;padding:clamp(16px,5vw,45px)}
+a {color:#9be4d3} h1 {line-height:1.12;font-size:clamp(2rem,5vw,3rem)}
+nav {display:flex;gap:1rem;flex-wrap:wrap} figure {margin:1.35rem 0}
+img {max-width:100%;height:auto;border:1px solid #3b5064;border-radius:8px}
+input,select {font:inherit;max-width:100%;margin:0.3rem 0;padding:0.4rem}
+li {overflow-wrap:anywhere}
+.oracle {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.8rem}
+</style>
+<main><h1>Recover an interrupted Courier delivery</h1>
+<p>Open Game Lab and choose Courier delivery recovery. Compare both controllers on the same fixture and inspect the measured replay.</p>
+<nav><a href="../../../README-273.md">App guide</a><a href="../272/index.html">Edition 272</a>
+<a href="../../publication273/plan.md">Reproduction</a>
+<a href="courier-recovery-matrix.json" download>Download all 16 comparisons</a>
+<a href="result.json" download>Download restart result</a><a href="#system">System files</a></nav>
+<figure><img src="courier-recovery-right.png" alt="The Courier delivers after crossing a hurdle on the low-friction deck"><figcaption>The Courier delivers after crossing a hurdle on the low-friction deck</figcaption></figure>
+<figure><img src="courier-recovery-left.png" alt="A leftward delivery with a hurdle and interruption on the high-friction deck"><figcaption>A leftward delivery with a hurdle and interruption on the high-friction deck</figcaption></figure>
+<figure><img src="courier-recovery-restart.png" alt="Game Lab reproduces both runs of the high-friction comparison after restarting offline"><figcaption>Game Lab reproduces both runs of the high-friction comparison after restarting offline</figcaption></figure>
+<h2 id="system">System files</h2>
+<label>Module <select id="modules"><option value="">Choose a module</option></select></label>
+<p><a id="module-link" hidden>Open source</a></p>
+<label>Filter file inventory <input id="filter" type="search"></label><ul id="files"></ul>
+</main>
+<script id="system-data" type="application/json">{
+  "summary": "Compare a native stopped-short delivery and recovery, then verify both from saved evidence.",
+  "modules": [
+    {
+      "title": "Native approach and recovery controller",
+      "source": "src/main/java/runtime/CourierRecovery.java",
+      "note": "docs/obsidian/281-courier-recovery.md"
+    },
+    {
+      "title": "Solver bodies and support fixture",
+      "source": "src/main/java/runtime/CourierCrateTrial.java",
+      "note": "docs/obsidian/281-courier-recovery.md"
+    },
+    {
+      "title": "Independent paired verification and replay",
+      "source": "workspace-engine/src/main/java/fraymus/workspace/CourierRecoveryEvidence.java",
+      "note": "docs/obsidian/281-courier-recovery.md"
+    },
+    {
+      "title": "Game Lab recovery controls",
+      "source": "workspace-desktop/renderer/courier-recovery.mjs",
+      "note": "docs/obsidian/281-courier-recovery.md"
+    },
+    {
+      "title": "Paired matrix and offline restart test",
+      "source": "workspace-desktop/test/courier-recovery-integration.cjs",
+      "note": "docs/obsidian/281-courier-recovery.md"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "The Courier delivers after crossing a hurdle on the low-friction deck",
+      "path": "docs/readmes/273/courier-recovery-right.png"
+    },
+    {
+      "title": "A leftward delivery with a hurdle and interruption on the high-friction deck",
+      "path": "docs/readmes/273/courier-recovery-left.png"
+    },
+    {
+      "title": "Game Lab reproduces both runs of the high-friction comparison after restarting offline",
+      "path": "docs/readmes/273/courier-recovery-restart.png"
+    }
+  ],
+  "evidence": [
+    {
+      "title": "All 16 paired comparisons",
+      "path": "docs/readmes/273/courier-recovery-matrix.json"
+    },
+    {
+      "title": "Full rightward comparison",
+      "path": "docs/readmes/273/courier-recovery-right.json"
+    },
+    {
+      "title": "Full leftward comparison",
+      "path": "docs/readmes/273/courier-recovery-left.json"
+    },
+    {
+      "title": "Offline replay and refusal report",
+      "path": "docs/readmes/273/result.json"
+    },
+    {
+      "title": "Compare cargo motion in the interrupted rightward delivery",
+      "path": "docs/readmes/273/courier-recovery-trace.png"
+    },
+    {
+      "title": "Design and reproduction",
+      "path": "docs/publication273/plan.md"
+    }
+  ]
+}</script>
+<script id="inventory-data" type="application/json">[
+  {
+    "path": "docs/obsidian/281-courier-recovery.canvas",
+    "bytes": 852,
+    "sha256": "b7e40109e039a5a762556667f081dd827c224b2310b6f2e6d497905ab9df967c",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/obsidian/281-courier-recovery.md",
+    "bytes": 254,
+    "sha256": "eac6e000b3009db96f5527fe6164a9ab0e871388e40f4c2f773702055fb6ef58",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "docs/publication273/plan.md",
+    "bytes": 4532,
+    "sha256": "779d7656281656cf0aabee3cff72a61d26d85f3eb50d4386196fb2dc6643f72f",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "src/main/java/runtime/CourierCrateTrial.java",
+    "bytes": 16622,
+    "sha256": "519794e6e1b58b1915af6b385906c2b6f244a989f0a07eb009e49ed76d7ac91b",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "src/main/java/runtime/CourierRecovery.java",
+    "bytes": 9283,
+    "sha256": "4b22bd620fb0da37153279726cf1594938e8643e862f47e3a7ffa31cd1f53683",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/renderer/courier-recovery.mjs",
+    "bytes": 5086,
+    "sha256": "c0d8a215975121d75f57cafa70ddc4a1aba3f509eeb2c8ff3a9cc9a3b8fa28f8",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-desktop/test/courier-recovery-integration.cjs",
+    "bytes": 13056,
+    "sha256": "29e13cfc043721ec6ce7370b3b86e26a1e2578c1b273ab41acd23b8d1429b421",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/CourierRecoveryEvidence.java",
+    "bytes": 14798,
+    "sha256": "b6e0f264b3d6dada80923a29c66a209e1eeff15508f1e8e4e9ed729862d9a979",
+    "hashKind": "utf8-lf"
+  },
+  {
+    "path": "workspace-engine/src/main/java/fraymus/workspace/EmbeddedGameClient.java",
+    "bytes": 12871,
+    "sha256": "54269f4a2d07ead35d5dc8c5eb3326d909d068f70adaee6555de306d68d83dbe",
+    "hashKind": "utf8-lf"
+  }
+]</script>
+<script>
+const system = JSON.parse(document.querySelector('#system-data').textContent);
+const inventory = JSON.parse(document.querySelector('#inventory-data').textContent);
+const select = document.querySelector('#modules');
+const link = document.querySelector('#module-link');
+const filter = document.querySelector('#filter');
+for (const item of system.modules) select.add(new Option(item.title,item.source));
+select.addEventListener('change',() => {
+  link.hidden=!select.value;
+  if(select.value) link.href='../../../'+select.value;
+});
+function render() {
+  const match=filter.value.toLowerCase();
+  const rows=inventory.filter(row=>row.path.toLowerCase().includes(match)).map(row=>{
+    const item=document.createElement('li');
+    const file=document.createElement('a');
+    file.href='../../../'+row.path;
+    file.textContent=row.path;
+    item.append(file);
+    return item;
+  });
+  document.querySelector('#files').replaceChildren(...rows);
+}
+filter.addEventListener('input',render);
+render();
+</script></html>
